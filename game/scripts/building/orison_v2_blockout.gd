@@ -565,6 +565,7 @@ func _build_slab(parent: Node3D, label: String, rect: Array, y: float, thickness
 			shape_node.position=piece.get_center()
 			body.add_child(shape_node)
 	draw.mesh=surface.commit()
+	if production_materials: draw.mesh=preload("res://scripts/building/v2_metre_box_uv.gd").chart(draw.mesh)
 	draw.material_override=architectural_materials.material_for(label,cls) if production_materials else materials.get(cls)
 	if production_materials: draw.set_meta("v2_material_key",architectural_materials.key_for(label,cls))
 	parent.add_child(draw)
@@ -825,6 +826,7 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 		shape.position=local
 		body.add_child(shape)
 	draw.mesh=surface.commit()
+	if production_materials: draw.mesh=preload("res://scripts/building/v2_metre_box_uv.gd").chart(draw.mesh)
 
 ## Dossier BW-004: a wet room's wall carries tile on both faces, so the hall or
 ## bedroom beyond sees subway tile. A 4 mm skin on the far face takes the
@@ -900,6 +902,7 @@ func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: floa
 		skin.free()
 		return
 	skin.mesh = surface.commit()
+	if production_materials: skin.mesh=preload("res://scripts/building/v2_metre_box_uv.gd").chart(skin.mesh)
 
 static func _valid_service_bounds(bounds: Variant) -> bool:
 	if bounds is not Array or bounds.size()!=6: return false
@@ -1274,6 +1277,8 @@ func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
 	var part := slab_part if not slab_part.is_empty() else node_name
 	if production_materials and part in ["Floor","Ceiling"]:
 		mesh_node.mesh=_slab_faces(mesh,part=="Floor")
+	if production_materials and (part in ["Floor","Ceiling"] or part.begins_with("Wall")):
+		mesh_node.mesh=preload("res://scripts/building/v2_metre_box_uv.gd").chart(mesh_node.mesh)
 	if production_materials and material_key not in ["clearance", "interaction", "unresolved"]:
 		mesh_node.material_override = architectural_materials.material_for(node_name,material_key)
 		mesh_node.set_meta("v2_material_key",architectural_materials.key_for(node_name,material_key))

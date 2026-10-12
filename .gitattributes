@@ -1816,3 +1816,12 @@ game/tests/orison_v2_basement_route_test.gd -text
 tools/rebind_v2_storage_context.py -text
 tools/export_v2_storage_data.py -text
 art/renders/orison_v2/basement_storage_20261011/** -text
+
+# Actual V2 UV sampling and procedural metre charts.
+game/scripts/building/orison_v2_uv_material_policy.gd -text
+game/scripts/building/v2_metre_box_uv.gd -text
+game/scripts/building/orison_v2_blockout.gd -text
+game/tests/v2_uv_application_test.gd -text
+game/tests/V2UVApplicationTest.tscn -text
+art/blender/scripts/review_v2_roof_uv_application.py -text
+art/renders/orison_v2/uv_application_20261012/** -text

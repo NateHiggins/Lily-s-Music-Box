@@ -11,7 +11,7 @@ class Requirements(unittest.TestCase):
         return {'schema':'orison.v2-surface-inventory.v1','passage_state':'RESIDENT',
                 'draws':[{'path':'fixture','instances':1,'mesh':'mesh','materials':['material'],'visible':True}],
                 'meshes':{'mesh':{'source':'fixture.glb','surfaces':[{'missing_uv':False,'nonfinite_uv':0,'degenerate_uv_triangles':0}]}},
-                'materials':{'material':{'type':'StandardMaterial3D','normal_enabled':True,'filter':3,'maps':dict(zip(['albedo_texture','roughness_texture','normal_texture'],['albedo','rough','normal']))}},
+                'materials':{'material':{'type':'StandardMaterial3D','triplanar':False,'normal_enabled':True,'filter':3,'maps':dict(zip(['albedo_texture','roughness_texture','normal_texture'],['albedo','rough','normal']))}},
                 'textures':{k:{'type':'CompressedTexture2D','mips':True} for k in ['albedo','rough','normal']}}
     def test_transparent_physical_surface_cannot_hide_missing_maps(self):
         data=self.inventory();data['materials']['material'].update(transparency=1,maps={})
@@ -30,6 +30,17 @@ class Requirements(unittest.TestCase):
     def test_empty_inventory_cannot_pass(self):
         data=self.inventory();data['draws']=[]
         with self.assertRaises(ValueError):evaluate(data)
+    def test_valid_unused_uvs_do_not_pass(self):
+        data=self.inventory();data['materials']['material']['triplanar']=True
+        self.assertIn('uvs_bypassed_by_triplanar',evaluate(data)['findings'][0]['reasons'])
+        data['materials']['material'].pop('triplanar')
+        self.assertIn('uv_application_unobserved',evaluate(data)['findings'][0]['reasons'])
+    def test_surface_shader_must_observe_mesh_uv_mode(self):
+        data=self.inventory();material=data['materials']['material']
+        material.update(type='ShaderMaterial',shader='res://shaders/orison_surface.gdshader',uv_mode=1)
+        self.assertIn('uvs_bypassed_by_triplanar',evaluate(data)['findings'][0]['reasons'])
+        material['uv_mode']=0
+        self.assertFalse(evaluate(data)['findings'])
     def test_next_pass_is_not_a_missing_map_escape(self):
         data=self.inventory();data['materials']['material']['next_pass']={'type':'StandardMaterial3D','maps':{},'normal_enabled':False,'filter':3}
         self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])

@@ -216,6 +216,9 @@ func _ready() -> void:
 	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
 	var embedded_stock := preload("res://scripts/building/v2_embedded_surface_stock.gd").new()
 	embedded_stock.name = "V2EmbeddedSurfaceStock"; add_child(embedded_stock)
+	var uv_policy := preload("res://scripts/building/orison_v2_uv_material_policy.gd").new()
+	uv_policy.name = "V2UVMaterialPolicy"; add_child(uv_policy)
+	uv_policy.setup(self)
 	atmosphere.bind_weather(self)
 	_compose_debug_controls()
 	get_node("CaretakerNotebook").debug = building_debug

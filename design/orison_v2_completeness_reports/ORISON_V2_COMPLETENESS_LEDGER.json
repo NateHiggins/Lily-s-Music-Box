@@ -5,18 +5,18 @@
   "by_status": {
    "ABSENT": 10,
    "HUMAN_ACCEPTED": 1,
-   "PROGRAMMED": 119,
+   "PROGRAMMED": 117,
    "RUNTIME_PROVEN": 34,
    "SHELL_ONLY": 3,
-   "SPATIALLY_PROVEN": 73
+   "SPATIALLY_PROVEN": 75
   },
   "blockers_by_scope": {
    "FIRST_SLICE_TECHNICAL": 0,
    "GOLDEN_SHIFT_V2": 1,
-   "FULL_BUILDING_STRUCTURAL": 117,
+   "FULL_BUILDING_STRUCTURAL": 115,
    "FULL_BUILDING_RUNTIME": 35,
-   "PRODUCTION_CUTOVER": 134,
-   "V1_RETIREMENT": 136
+   "PRODUCTION_CUTOVER": 132,
+   "V1_RETIREMENT": 134
   },
   "v1_fallbacks": 2,
   "heuristic_conclusions": 117,
@@ -1299,22 +1299,22 @@
    "scope": {
     "floor": "ROOF"
    },
-   "status": "PROGRAMMED",
+   "status": "SPATIALLY_PROVEN",
    "required_proof": "SPATIALLY_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
    "blocked_by": [],
    "heuristic": false,
    "provenance": [
-    "v2:ROOF (9 spaces; weakest PROGRAMMED: ROOF_DECK_EAST, ROOF_DECK_MIDDLE, ROOF_DECK_NORTH, ROOF_DECK_NORTHEAST)"
+    "v2:ROOF (9 spaces; weakest SPATIALLY_PROVEN: ROOF_DECK_EAST, ROOF_DECK_MIDDLE, ROOF_DECK_NORTH, ROOF_DECK_NORTHEAST)"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FULL_BUILDING_STRUCTURAL",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "unit.1A",
@@ -4975,7 +4975,7 @@
     "floor": "ROOF",
     "space": "ROOF_PUBLIC_CORE"
    },
-   "status": "PROGRAMMED",
+   "status": "SPATIALLY_PROVEN",
    "required_proof": "SPATIALLY_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
@@ -4983,15 +4983,16 @@
    "heuristic": false,
    "provenance": [
     "v2:ROOF_PUBLIC_CORE (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_ROOF_ACCESS_CHECKPOINT_2026-10-12.md",
     "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (roof service bulkhead)"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FULL_BUILDING_STRUCTURAL",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "roof.tank_machinery",
@@ -6465,7 +6466,6 @@
    "floor.F04",
    "floor.F05",
    "floor.F06",
-   "floor.ROOF",
    "unit.2A",
    "unit.2A.cooking",
    "unit.2A.sanitary",
@@ -6537,7 +6537,6 @@
    "b1.electrical_room",
    "b1.laundry",
    "b1.maintenance_shop",
-   "roof.roof_bulkhead",
    "roof.tank_machinery",
    "service.wet_stack",
    "service.heat_stack",
@@ -6625,7 +6624,6 @@
    "floor.F04",
    "floor.F05",
    "floor.F06",
-   "floor.ROOF",
    "unit.2A",
    "unit.2A.cooking",
    "unit.2A.sanitary",
@@ -6697,7 +6695,6 @@
    "b1.electrical_room",
    "b1.laundry",
    "b1.maintenance_shop",
-   "roof.roof_bulkhead",
    "roof.tank_machinery",
    "service.wet_stack",
    "service.heat_stack",
@@ -6761,7 +6758,6 @@
    "floor.F04",
    "floor.F05",
    "floor.F06",
-   "floor.ROOF",
    "unit.2A",
    "unit.2A.cooking",
    "unit.2A.sanitary",
@@ -6833,7 +6829,6 @@
    "b1.electrical_room",
    "b1.laundry",
    "b1.maintenance_shop",
-   "roof.roof_bulkhead",
    "roof.tank_machinery",
    "service.wet_stack",
    "service.heat_stack",
@@ -8828,8 +8823,6 @@
     "floor.F04",
     "floor.F05",
     "floor.F06",
-    "floor.ROOF",
-    "roof.roof_bulkhead",
     "roof.tank_machinery",
     "service.electrical_riser",
     "service.fire_service"
@@ -9094,7 +9087,6 @@
     "floor.F04",
     "floor.F05",
     "floor.F06",
-    "floor.ROOF",
     "golden.eleven_beats",
     "human.whole_building_navigation",
     "region.arcade_hall",
@@ -9103,7 +9095,6 @@
     "region.construction_seam",
     "region.shops",
     "region.street",
-    "roof.roof_bulkhead",
     "roof.tank_machinery",
     "save.unit_rect_facts",
     "service.electrical_riser",
@@ -9270,7 +9261,6 @@
     "floor.F04",
     "floor.F05",
     "floor.F06",
-    "floor.ROOF",
     "golden.eleven_beats",
     "human.whole_building_navigation",
     "region.arcade_hall",
@@ -9280,7 +9270,6 @@
     "region.shops",
     "region.street",
     "retirement.authorization",
-    "roof.roof_bulkhead",
     "roof.tank_machinery",
     "save.bedside_return",
     "save.unit_rect_facts",
@@ -9505,6 +9494,11 @@
    },
    {
     "file": "design/ORISON_V2_M11D_ZERO_GEOMETRY_CHECKPOINT_2026-09-13.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_ROOF_ACCESS_CHECKPOINT_2026-10-12.md",
     "marker": "CHECKPOINT",
     "epoch": 2
    },
@@ -10030,7 +10024,7 @@
  "provenance": {
   "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
   "game/data/orison_v2_blockout.json": "9de7a3bcfed5313b3520506c6b41844907eb440e02c540c159747c2465d7fd22",
-  "tools/orison_spatial_dependency_manifest.json": "a10b77d31ba3b378afe6bf20a05b09f326b9faceae2bd493fcdad63c43d7b455",
+  "tools/orison_spatial_dependency_manifest.json": "1a909c5e0639a3c112cbb5217459eeeba6f58af2ac64dc3762107b378f050912",
   "design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json": "0681e59ad90e631ec9fa0f68a8ddb1afa5a06268de6f5540d09a6c05df055532",
   "design/ORISON_V2_BASEMENT_STORAGE_CHECKPOINT_2026-10-11.md": "f82f185567c5064dd27969d4d48cc34e8d018b5893617dab18c22670d044344d",
   "design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md": "d4758366076e3309187d5d121112ef1ec888c4e78f2241146685bb229cedb572",
@@ -10058,6 +10052,7 @@
   "design/ORISON_V2_M11C1_OWNER_FIRST_EXPORT_CHECKPOINT_2026-08-31.md": "c709ec7a922ed3b343ed4b87c926bd45757f51e95d108105df618b4ef248a9b0",
   "design/ORISON_V2_M11C2_FLOOR01_PRODUCTION_CUT_CHECKPOINT_2026-08-31.md": "1f0288d28e4887b1273c7f8ad6e62b6bd2222121b70457d65dc7b8390f9ca539",
   "design/ORISON_V2_M11D_ZERO_GEOMETRY_CHECKPOINT_2026-09-13.md": "ce217547a44aa2ae16fbcaf28a1c6a9ed7b7b550bdeb07e70c73a3db16ac17f5",
+  "design/ORISON_V2_ROOF_ACCESS_CHECKPOINT_2026-10-12.md": "63b39017a3800af2c1ff2e89a64d09f0d2d04200c4746e65535281eca4869f11",
   "design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md": "f8660762823f186550eacdde2771d7ae11c02ef62a6d3ea3055a7fd6b6a0dc01",
   "design/ORISON_V2_UPPER_ENTRY_STORAGE_CHECKPOINT_2026-10-11.md": "5f9fd244174289df65a8813285c3a22270827e102556bd99f76c4d71f66a5cf0",
   "design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md": "83cff9b36fd379d2bb50d60306e87c5c9f3ef701aa0c2a7326d34792241bd975",
@@ -10088,7 +10083,7 @@
   "art/renders/orison_v2/druggist_fountain_20261006/runtime_authority_receipt.json": "40fa6d272f8710c64f7ed3c5ad16dc790446058075285ebdd342aa1e06c5bdd1",
   "art/renders/orison_v2/druggist_mortar_20261006/runtime_authority_receipt.json": "66817e7b0a6967e1ee7c4d6b91afb4b254e62b21edcdc22fc318214ef98c4531",
   "game/tests/orison_v2_first_slice_contract_test.gd": "0ca580f3d064b09a8a506fae82371d0862ea3a80eecaec2c2d7d1368be2707a1",
-  "art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json": "e749dcf4fe09b1c9947a80646ac4b053c85d18af0c1cf9201cbae01397e42681",
+  "art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json": "bf339c864068727cc4f9169e3bc8a740a53d399b56258e306131116b310bf4d9",
   "art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json": "5e26f5379b290c589bbbc966b42753a66475eb1c7733d4efd03f3039f4b506ee",
   "art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json": "1b8f798a90ac6c81f8c2a12fe0ce34e7784ff8c9fe6ab70b5059198ee0cbbad6",
   "art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json": "8e0fad1ed7845bf410bd58421d84222c8e6cf4b32a017feafe17de24dadd1143",

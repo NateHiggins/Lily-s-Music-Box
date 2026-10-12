@@ -16,6 +16,15 @@ physical material scale and appropriate grain direction. Triplanar projection
 does not waive the mesh UV requirement. Native geometry and UV repairs belong
 in Blender source and reproducible recipes; do not hand-edit generated glTF.
 
+Primary physical PBR maps must actually sample those charts. A valid but unused
+UV array does not pass: StandardMaterial3D projection must be disabled, and the
+shared Orison surface shader's observed UV mode must be zero. Spatial wear,
+lighting and the separately named optical projections retain their own roles.
+Source-owned procedural architecture uses physical metre charts; converting
+its normalized box atlas without correcting density produces stretched stock.
+Preserve live material references and restore shared catalogue defaults when
+the V2 world retires, so the explicit V1 rollback keeps its original defaults.
+
 Each surface uses a registered, custom material recipe with source provenance,
 physical tile scale, albedo, roughness and OpenGL normal maps. Uniform metallic
 values are legitimate for homogeneous materials; mixed exposed metal/coating

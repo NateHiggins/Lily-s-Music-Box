@@ -1,137 +1,142 @@
 {
-  "surface_inputs_sha256": "7430c262b8ec5e9fbd1e1aa2eba9f5e91c7d05008df843d5cdd8ad19a6de5c86",
+  "surface_inputs_sha256": "1c5f32db5a41aa9b41ec6f108829196e85d2c48ec12ad66fe964d559bfb77696",
   "status": "PASS",
-  "scope": "Representative current PBR/UV surfaces and newly rebuilt basement cages. No full photorealism, human acceptance or global navigation claim. Original owner dumbwaiter/radiator PNG preserved.",
+  "scope": "Representative current UV-sampled PBR surfaces, corrected architectural floor/wall density, unchanged native roof tank and lift machinery. Roof machinery remains dim under its production lighting. No global photorealism, navigation or human acceptance claim; original owner radiator/dumbwaiter PNG bytes preserved.",
   "images": [
     {
-      "file": "basement_storage_boiler.png",
-      "sha256": "661840ac371e0d79e42aefa36d951d5b562c644abdc346f0634d950c549b9dcc",
-      "observation": "Current composed boiler view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_boiler.png",
+      "sha256": "84b90cdc9edfab630ad9440ae0ffdafc3568e6a9ead25453296abf4d7e231978",
+      "observation": "Current boiler frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_bookcase.png",
-      "sha256": "867d9bb5939ba7199cad99d954b6c3a926b30d5419a4534b43e92d3946c2c6e6",
-      "observation": "Current composed bookcase view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_bookcase.png",
+      "sha256": "39e1f01911ddab81858e68decfee662cc7f7ce1deb0b3e3c30ae3db433b04932",
+      "observation": "Current bookcase frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_F02_A_MAIN.png",
-      "sha256": "e8b688accdbb60e8e959ebc6be163826c2df021b9eb6137de7f1ae36a78d3c9c",
-      "observation": "Current composed F02_A_MAIN view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_F02_A_MAIN.png",
+      "sha256": "27c5af2e1348cfe0302c531cc38650d802ef0a2517cc17e0f89d7ae2fa127334",
+      "observation": "Current F02_A_MAIN frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_F03_B_MAIN.png",
-      "sha256": "c36d616b2d4d3745e05d66f78fc5cc531f4c74cf894336836f80d77474e151c6",
-      "observation": "Current composed F03_B_MAIN view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_F03_B_MAIN.png",
+      "sha256": "85ec18550583aa936965ca5fedcfe53b47a9bcdc7680693fe73a61d02e5ecc22",
+      "observation": "Current F03_B_MAIN frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_F04_C_MAIN.png",
-      "sha256": "ab6e1139d9e7d9337a99eaa93970329f6c3917d5be2e81e2efbe9b316a12e118",
-      "observation": "Current composed F04_C_MAIN view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_F04_C_MAIN.png",
+      "sha256": "f1ff99c0ceffb32d2a2f6247bdbd38a66cc0edd3a53ff0cc0b372376a31e2c3d",
+      "observation": "Current F04_C_MAIN frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_radiator.png",
-      "sha256": "1746cac81061b9189a7635dcaeaaf7919e92c604490e9ff318c75ceb55f02376",
-      "observation": "Current composed radiator view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_radiator.png",
+      "sha256": "9a79c4487391d440666b291d53aa1fe28e25977fe4d419960ee8803ec2477e77",
+      "observation": "Current radiator frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_dumbwaiter.png",
-      "sha256": "f5a75e5fd212107ba1055699a5178d469bb2ed88e113ee96b6049a3f52ed091b",
-      "observation": "Current composed dumbwaiter view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_dumbwaiter.png",
+      "sha256": "16db3226a2534f41834545100a76c262848f4f925a1c07fd349182be5ba6ee05",
+      "observation": "Current dumbwaiter frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_continuous_HistoricMillwork.png",
-      "sha256": "abe0f289eb319496eec2c8092ed14cc7b164cae1186b459f4644bf39030bd0c4",
-      "observation": "Current composed continuous_HistoricMillwork view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_continuous_HistoricMillwork.png",
+      "sha256": "353e31ac63f2a3d0bcb9eea13b2a2a6fa93d7bf4d54dd1ba692fc97e4423fb9b",
+      "observation": "Current continuous_HistoricMillwork frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_continuous_PublicWainscotCap.png",
-      "sha256": "63a312560f3bfd94f00dff55185ea67444ee6d2580b66ab125531f2fe4d68760",
-      "observation": "Current composed continuous_PublicWainscotCap view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_continuous_PublicWainscotCap.png",
+      "sha256": "74d580539193a429bd2fd3de677907f1d22ddd567b4087c838a153ebc980eebd",
+      "observation": "Current continuous_PublicWainscotCap frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_fuse_panel.png",
-      "sha256": "ad6f0fb63ff09992fe3526ab11e4fcb59da2e94560ca6af93372b9d36b5f9efd",
-      "observation": "Current composed fuse_panel view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_fuse_panel.png",
+      "sha256": "a1fa9921f47204698f51cf5a1bd1f286e41d6454d860fcab54e731546ad20789",
+      "observation": "Current fuse_panel frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_signal_scope.png",
-      "sha256": "0657e6b698a486b2867e6776d1fcf94c467ba36ad401e303aba128162c8177c3",
-      "observation": "Current composed signal_scope view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_signal_scope.png",
+      "sha256": "dacd323ba6d1334cdc06474e4f584fa2e9ec5ca4c81845d654e1b05a4c0f3baf",
+      "observation": "Current signal_scope frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_signal_terminal.png",
-      "sha256": "39549f72f78cee0ab346f60e64bdc7c63d2770a0081bcdd385150a978578907c",
-      "observation": "Current composed signal_terminal view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_signal_terminal.png",
+      "sha256": "7aaf6649b99115eb015a944c7b5085761557d34c51df306f585b267df25c2059",
+      "observation": "Current signal_terminal frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_toaster_crumbs.png",
-      "sha256": "d4eae6c680a3c0497caae9a6a8ba3e0d5fa1b284dea943281f0c98bc357283fa",
-      "observation": "Current composed toaster_crumbs view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_toaster_crumbs.png",
+      "sha256": "6c4f36026004fe2ee7930dc19b1e77052fa592da97ae2ae82be62f5cf636148a",
+      "observation": "Current toaster_crumbs frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_watch_station.png",
-      "sha256": "e244401104c3bac12adc325fe6b40065e355376e7ed353ab875c515d12affe8e",
-      "observation": "Current composed watch_station view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_watch_station.png",
+      "sha256": "4496526d2688cee3f62d2cc63d82d11a28caf99b19b9553ba1ed77455baa14ed",
+      "observation": "Current watch_station frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_weather_season_01.png",
-      "sha256": "4ea980c524b1409a6880ff67328e5282a3ffc8a136d8b3dcbcc0f5ef2ff68029",
-      "observation": "Current composed weather_season_01 view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_weather_season_01.png",
+      "sha256": "cb3858e5c8aa34c7a32322816a68db9d96a4120907a2dad5bc1187f6363506e0",
+      "observation": "Current weather_season_01 frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_weather_season_04.png",
-      "sha256": "4fb4ba9a843928bf0220f905fcd919c824b5fa99db2540791a83351df3670b47",
-      "observation": "Current composed weather_season_04 view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_weather_season_04.png",
+      "sha256": "d334548031b2c7d8e106194dc9cf420363157edfb0a09a50ec27f852a1482f78",
+      "observation": "Current weather_season_04 frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_weather_season_07.png",
-      "sha256": "957115c691e8c9d4c3a465503fb0abb58dcb3c6b46c009abc5c290aa86ca47be",
-      "observation": "Current composed weather_season_07 view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_weather_season_07.png",
+      "sha256": "edfc377574fc91bd80a3bf9853a6d29418127d41f017656589986f9b15adb344",
+      "observation": "Current weather_season_07 frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_weather_season_10.png",
-      "sha256": "e26ed389044b3ddc3977333ff8624f6de46eeafbee527ec53f8d41c47f4e06dd",
-      "observation": "Current composed weather_season_10 view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_weather_season_10.png",
+      "sha256": "5a7f107e0d8883de126916fd1f82135b270baaae2dd001faefe24b040fe5c320",
+      "observation": "Current weather_season_10 frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_window_1D.png",
-      "sha256": "31a7e7208fcce359e177473411ced85eb68bc32dcaf568f66f263d1feb7efb87",
-      "observation": "Current composed window_1D view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_window_1D.png",
+      "sha256": "7abf9ad1e3be8c2f2716007a5961c421b0fb3ba81a9f060e80917b9e1f4314fa",
+      "observation": "Current window_1D frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_window_2B.png",
-      "sha256": "d6a36cec92cd52287098c1f979a11507184213e6befd26af72bd4bdc26fe3e54",
-      "observation": "Current composed window_2B view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_window_2B.png",
+      "sha256": "a7c2af1715426b96fc69da9e42e3afcf1c9b8f3f7235332fb8a1c08b484285f3",
+      "observation": "Current window_2B frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_window_3A.png",
-      "sha256": "b844c679934c8813af32745b44008d864abe7442578fe6dc7f57fc887f8f17a7",
-      "observation": "Current composed window_3A view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_window_3A.png",
+      "sha256": "ff019d2b09b13415921faf77b6d036fac71352753aaa9658be0a9767f58292fe",
+      "observation": "Current window_3A frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_window_4B.png",
-      "sha256": "5f02c6cc8fd00c6e8653547897d28e423333c3315205bc11e6252e59592740f0",
-      "observation": "Current composed window_4B view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_window_4B.png",
+      "sha256": "742ca148e52d9f8b8ed8c9811bb6de2144ddda6a6183154f4534547a788a43d0",
+      "observation": "Current window_4B frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_window_4C.png",
-      "sha256": "3565e56ad6e56206eb5316eef80f35f4fabb31afb7f643fbd151be2bf014e9f9",
-      "observation": "Current composed window_4C view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_window_4C.png",
+      "sha256": "7c5c779499cd8045b40458acad932f0fcedd1bdcb46d32fdefc1a0b92eb85076",
+      "observation": "Current window_4C frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_electrical_panel_connection.png",
-      "sha256": "b4c8c5484dac55ca38bfb18e924fb70b5029033f9c577c194004cddfc75be830",
-      "observation": "Current composed electrical_panel_connection view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_electrical_panel_connection.png",
+      "sha256": "a8022ea2a17a18ec6ab846b3adafb811f5b98f2f6edee8b6c44726d26b636f5b",
+      "observation": "Current electrical_panel_connection frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_fire_F01_FIRE_LINE_STAIR_open.png",
-      "sha256": "c5ab3746b8a4b892445daf43b3dd31abc48ad25ac8ca6cdc750a074f19963da1",
-      "observation": "Current composed fire_F01_FIRE_LINE_STAIR_open view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+      "file": "uv_application_fire_F01_FIRE_LINE_STAIR_open.png",
+      "sha256": "4ef0bf55f3623bc5a55e9a225cb8edbb68dacc54f91f558041c19a596372893e",
+      "observation": "Current fire_F01_FIRE_LINE_STAIR_open frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     },
     {
-      "file": "basement_storage_resident_storage.png",
-      "sha256": "0d384ef00b9f7d76e10b083ed22138efc3e86c5e52fd7b01e4cb03561526e632",
-      "observation": "New mapped native timber panels and open folded gates frame the walked central aisle. Existing labels remain Label3D. Handheld device obscures the right side; complete bay/stock fit reviewed separately in Blender."
+      "file": "uv_application_roof_tank_uv.png",
+      "sha256": "c0713d301ef2ec92a34978f620f5431412bd46590a15da59a233b6780510ab19",
+      "observation": "Current roof_tank_uv frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
+    },
+    {
+      "file": "uv_application_roof_drive_uv.png",
+      "sha256": "6cfa85b270e5c41e8aab086b7792151ff75393e1e9c8b82d7f596928ad91bc22",
+      "observation": "Current roof_drive_uv frame inspected in the representative contact review. Native/architectural primary PBR maps use UVs. Whole-world aesthetic acceptance is outside this representative view."
     }
   ]
 }

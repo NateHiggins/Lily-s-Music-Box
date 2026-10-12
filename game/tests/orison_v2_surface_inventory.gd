@@ -17,6 +17,10 @@ func _run() -> void:
 	var root := ProjectSettings.globalize_path("res://..").simplify_path()
 	var before := _input_snapshot(root)
 	if before.is_empty(): get_tree().quit(1); return
+	var shared_uv_defaults: Array = []
+	for key in ["metal","wood_dark","timber","cast_iron","paper"]:
+		var stock := MatLib.get_mat(key) as StandardMaterial3D
+		shared_uv_defaults.append({"stock":stock,"uv1":stock.uv1_triplanar,"uv2":stock.uv2_triplanar})
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
@@ -182,6 +186,27 @@ func _run() -> void:
 		review_camera.make_current()
 		await shot(str(station[3]))
 		if actor is RadiatorProp: actor.apply_open_shift_condition(saved_condition)
+	# Review the changed UV application at the existing roof plant in daylight.
+	var atmosphere: Node=world.get_node("WakingAtmosphere")
+	var manager: Node=atmosphere.weather_manager
+	var weather_processing: bool=manager.is_processing()
+	manager.set_process(false)
+	world.campaign_clock.configure_date(1928,10,15,750)
+	check(is_equal_approx(world.campaign_clock.minute_of_day(),750),"production noon calendar frames roof UV review")
+	manager._publish(); atmosphere.director._apply(750)
+	await get_tree().create_timer(.5).timeout
+	for station in [
+		["FittedHouseTank",Vector3(4.,2.6,3.8),Vector3(0,2.6,0),"roof_tank_uv"],
+		["ROOF_LIFT_DRIVE",Vector3(2.8,1.9,2.8),Vector3(0,1.,0),"roof_drive_uv"]]:
+		var actor: Node3D = world.find_child(str(station[0]),true,false) as Node3D
+		if str(station[0])=="ROOF_LIFT_DRIVE": actor=world.adapter.resolve(str(station[0])) as Node3D
+		check(actor!=null,"roof UV capture station exists: "+str(station[0]))
+		if actor==null:continue
+		review_camera.global_position=actor.to_global(station[1])
+		review_camera.look_at(actor.to_global(station[2]),Vector3.UP)
+		review_camera.make_current()
+		await shot(str(station[3]))
+	manager.set_process(weather_processing)
 	var after := _input_snapshot(root)
 	check(before.get("sha256","") == after.get("sha256","changed"),"rendering inputs stayed fixed during qualification")
 	for entry: Dictionary in embedded_flags:
@@ -191,6 +216,9 @@ func _run() -> void:
 	world.free()
 	for frame in 3: await get_tree().process_frame
 	await RenderingServer.frame_post_draw
+	for row: Dictionary in shared_uv_defaults:
+		check(row.stock.uv1_triplanar==row.uv1 and row.stock.uv2_triplanar==row.uv2,
+			"shared catalogue projection defaults restore after V2 teardown")
 	check(owner_ref.get_ref() == null,"production world retires after inspection")
 	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR").path_join("service_instruments"))
 	var instrument_post: Dictionary = await instruments.validate_after_teardown()
@@ -300,11 +328,12 @@ func _material(material: Material) -> Dictionary:
 	elif material is ShaderMaterial and material.shader != null:
 		row.shader = material.shader.resource_path
 		row.shader_unshaded = material.shader.code.contains("unshaded")
+		row.mesh_uv_selector = material.shader.code.contains("orison_surface.gdshaderinc")
 		row.mip_filters = _shader_filters(material.shader)
 		for uniform in material.shader.get_shader_uniform_list():
 			var value: Variant = material.get_shader_parameter(uniform.name)
 			if value is Texture2D: maps[uniform.name] = _texture(value)
-			elif uniform.name in ["has_normal_tex", "has_rough_tex", "has_albedo_tex"]: row[uniform.name] = value
+			elif uniform.name in ["has_normal_tex", "has_rough_tex", "has_albedo_tex", "uv_mode"]: row[uniform.name] = value
 	if material.next_pass != null: row.next_pass = _material(material.next_pass)
 	return row
 

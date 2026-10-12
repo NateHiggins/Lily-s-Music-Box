@@ -5,8 +5,8 @@ Evidence class: **INERT**
 | Metric | Value |
 | --- | --- |
 | requirements | 240 |
-| by_status | ABSENT=10, HUMAN_ACCEPTED=1, PROGRAMMED=119, RUNTIME_PROVEN=34, SHELL_ONLY=3, SPATIALLY_PROVEN=73 |
-| blockers_by_scope | FIRST_SLICE_TECHNICAL=0, GOLDEN_SHIFT_V2=1, FULL_BUILDING_STRUCTURAL=117, FULL_BUILDING_RUNTIME=35, PRODUCTION_CUTOVER=134, V1_RETIREMENT=136 |
+| by_status | ABSENT=10, HUMAN_ACCEPTED=1, PROGRAMMED=117, RUNTIME_PROVEN=34, SHELL_ONLY=3, SPATIALLY_PROVEN=75 |
+| blockers_by_scope | FIRST_SLICE_TECHNICAL=0, GOLDEN_SHIFT_V2=1, FULL_BUILDING_STRUCTURAL=115, FULL_BUILDING_RUNTIME=35, PRODUCTION_CUTOVER=132, V1_RETIREMENT=134 |
 | v1_fallbacks | 2 |
 | heuristic_conclusions | 117 |
 | anchor_only_findings | 0 |
@@ -17,7 +17,7 @@ Evidence class: **INERT**
 - **FIRST_SLICE_TECHNICAL**: 0
 - **GOLDEN_SHIFT_V2**: 1
   - golden.eleven_beats
-- **FULL_BUILDING_STRUCTURAL**: 117
+- **FULL_BUILDING_STRUCTURAL**: 115
   - region.street
   - region.construction_seam
   - region.arcade_portal
@@ -54,11 +54,11 @@ Evidence class: **INERT**
   - floor.F04
   - floor.F05
   - floor.F06
-  - floor.ROOF
   - unit.2A
   - unit.2A.cooking
   - unit.2A.sanitary
-  - ... 77 more
+  - unit.2A.sleep
+  - ... 75 more
 - **FULL_BUILDING_RUNTIME**: 35
   - f01.street_vestibule
   - f01.lobby
@@ -95,7 +95,49 @@ Evidence class: **INERT**
   - contract.F04_B_VESTIBULE
   - acoustic.v2_rederivation
   - save.unit_rect_facts
-- **PRODUCTION_CUTOVER**: 134
+- **PRODUCTION_CUTOVER**: 132
+  - region.street
+  - region.construction_seam
+  - region.arcade_portal
+  - region.arcade_throat
+  - region.arcade_hall
+  - region.shops
+  - f01.street_vestibule
+  - f01.lobby
+  - f01.watch_station
+  - f01.mail_telephone
+  - f01.parcel_package
+  - f01.common_room
+  - f01.staff_restroom
+  - circ.F02.public_landing
+  - circ.F02.public_core
+  - circ.F02.service_core
+  - circ.F02.service_route
+  - circ.F03.public_landing
+  - circ.F03.public_core
+  - circ.F03.service_core
+  - circ.F03.service_route
+  - circ.F04.public_landing
+  - circ.F04.public_core
+  - circ.F04.service_core
+  - circ.F04.service_route
+  - circ.F05.public_landing
+  - circ.F05.public_core
+  - circ.F05.service_core
+  - circ.F05.service_route
+  - circ.F06.public_landing
+  - circ.F06.public_core
+  - circ.F06.service_core
+  - circ.F06.service_route
+  - circ.F01.public_landing
+  - floor.F01
+  - floor.F02
+  - floor.F03
+  - floor.F04
+  - floor.F05
+  - floor.F06
+  - ... 92 more
+- **V1_RETIREMENT**: 134
   - region.street
   - region.construction_seam
   - region.arcade_portal
@@ -137,48 +179,6 @@ Evidence class: **INERT**
   - floor.F05
   - floor.F06
   - ... 94 more
-- **V1_RETIREMENT**: 136
-  - region.street
-  - region.construction_seam
-  - region.arcade_portal
-  - region.arcade_throat
-  - region.arcade_hall
-  - region.shops
-  - f01.street_vestibule
-  - f01.lobby
-  - f01.watch_station
-  - f01.mail_telephone
-  - f01.parcel_package
-  - f01.common_room
-  - f01.staff_restroom
-  - circ.F02.public_landing
-  - circ.F02.public_core
-  - circ.F02.service_core
-  - circ.F02.service_route
-  - circ.F03.public_landing
-  - circ.F03.public_core
-  - circ.F03.service_core
-  - circ.F03.service_route
-  - circ.F04.public_landing
-  - circ.F04.public_core
-  - circ.F04.service_core
-  - circ.F04.service_route
-  - circ.F05.public_landing
-  - circ.F05.public_core
-  - circ.F05.service_core
-  - circ.F05.service_route
-  - circ.F06.public_landing
-  - circ.F06.public_core
-  - circ.F06.service_core
-  - circ.F06.service_route
-  - circ.F01.public_landing
-  - floor.F01
-  - floor.F02
-  - floor.F03
-  - floor.F04
-  - floor.F05
-  - floor.F06
-  - ... 96 more
 
 ## v1 fallbacks
 
@@ -268,7 +268,7 @@ Evidence class: **INERT**
 | floor.F04 | 05 canonical floors | PROGRAMMED | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | floor.F05 | 05 canonical floors | PROGRAMMED | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | floor.F06 | 05 canonical floors | PROGRAMMED | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
-| floor.ROOF | 05 canonical floors | PROGRAMMED | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
+| floor.ROOF | 05 canonical floors | SPATIALLY_PROVEN | SPATIALLY_PROVEN | - |  |  |
 | unit.1A | 06 canonical units | SPATIALLY_PROVEN | SPATIALLY_PROVEN | - |  | yes |
 | unit.1A.cooking | 07 domestic minimums | SPATIALLY_PROVEN | SPATIALLY_PROVEN | - |  | yes |
 | unit.1A.entry | 07 domestic minimums | SPATIALLY_PROVEN | SPATIALLY_PROVEN | - |  | yes |
@@ -405,7 +405,7 @@ Evidence class: **INERT**
 | b1.laundry | 11 maintenance/service spaces | PROGRAMMED | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | b1.maintenance_shop | 11 maintenance/service spaces | PROGRAMMED | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | b1.resident_storage | 11 maintenance/service spaces | SPATIALLY_PROVEN | SPATIALLY_PROVEN | - |  |  |
-| roof.roof_bulkhead | 11 maintenance/service spaces | PROGRAMMED | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
+| roof.roof_bulkhead | 11 maintenance/service spaces | SPATIALLY_PROVEN | SPATIALLY_PROVEN | - |  |  |
 | roof.tank_machinery | 11 maintenance/service spaces | ABSENT | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | service.wet_stack | 12 service continuity | PROGRAMMED | RUNTIME_PROVEN | FULL_BUILDING_STRUCTURAL, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | service.heat_stack | 12 service continuity | PROGRAMMED | RUNTIME_PROVEN | FULL_BUILDING_STRUCTURAL, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
@@ -471,7 +471,7 @@ Evidence class: **INERT**
 ### M11-structural-floors
 - scope: Build remaining canonical floors structurally: F03 full program, F05, F06, B1 full program, ROOF; electrical + fire risers; declared service-hall openings.
 - prerequisite: M08F-runtime-composition-of-m08e
-- outstanding: 39 requirements
+- outstanding: 37 requirements
 - exit: All eight canonical floors PROGRAMMED and SPATIALLY_PROVEN with circulation and riser endpoints.
 
 ### M12-apartments-by-case-dependency
@@ -501,7 +501,7 @@ Evidence class: **INERT**
 ### M09-production-cutover-proposal
 - scope: Evidence-backed production default switch: flip BuildingRootSelector.DEFAULT_ID with a tagged v1 fallback and rollback instructions.  May exist earlier only as a dormant proposal template.
 - prerequisite: M16-whole-building-performance-navigation (PRODUCTION_CUTOVER scope must be clean)
-- outstanding: 134 requirements
+- outstanding: 132 requirements
 - exit: Owner-signed production-cutover authorization; DEFAULT_ID flips with a one-line revert as rollback.
 
 ### M17-v1-fallback-window
@@ -513,7 +513,7 @@ Evidence class: **INERT**
 ### M18-v1-retirement
 - scope: Retire the v1 fallback: remove the anonymous-bed fallback, freeze v1 generation as a migration fixture, retire adapter aliases id-by-id.
 - prerequisite: M17-v1-fallback-window
-- outstanding: 136 requirements
+- outstanding: 134 requirements
 - exit: No TEMPORARY_V1_FALLBACK flag remains anywhere in this ledger; v1 tagged as frozen fixture.
 
 ## Provenance
@@ -535,7 +535,7 @@ Evidence class: **INERT**
 - `art/renders/orison_v2/druggist_fountain_20261006/runtime_authority_receipt.json` sha256 `40fa6d272f8710c6...`
 - `art/renders/orison_v2/druggist_mortar_20261006/runtime_authority_receipt.json` sha256 `66817e7b0a6967e1...`
 - `art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json` sha256 `544bb75d35a73c4f...`
-- `art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json` sha256 `e749dcf4fe09b1c9...`
+- `art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json` sha256 `bf339c864068727c...`
 - `art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json` sha256 `5e26f5379b290c58...`
 - `art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json` sha256 `1b8f798a90ac6c81...`
 - `art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json` sha256 `8e0fad1ed7845bf4...`
@@ -608,10 +608,11 @@ Evidence class: **INERT**
 - `design/ORISON_V2_M11C1_OWNER_FIRST_EXPORT_CHECKPOINT_2026-08-31.md` sha256 `c709ec7a922ed3b3...`
 - `design/ORISON_V2_M11C2_FLOOR01_PRODUCTION_CUT_CHECKPOINT_2026-08-31.md` sha256 `1f0288d28e4887b1...`
 - `design/ORISON_V2_M11D_ZERO_GEOMETRY_CHECKPOINT_2026-09-13.md` sha256 `ce217547a44aa2ae...`
+- `design/ORISON_V2_ROOF_ACCESS_CHECKPOINT_2026-10-12.md` sha256 `63b39017a3800af2...`
 - `design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md` sha256 `f8660762823f1865...`
 - `design/ORISON_V2_UPPER_ENTRY_STORAGE_CHECKPOINT_2026-10-11.md` sha256 `5f9fd244174289df...`
 - `design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md` sha256 `83cff9b36fd379d2...`
 - `game/data/orison_v2_blockout.json` sha256 `9de7a3bcfed5313b...`
 - `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `aa4ca52d40177163...`
 - `game/tests/orison_v2_first_slice_contract_test.gd` sha256 `0ca580f3d064b09a...`
-- `tools/orison_spatial_dependency_manifest.json` sha256 `a10b77d31ba3b378...`
+- `tools/orison_spatial_dependency_manifest.json` sha256 `1a909c5e0639a3c1...`

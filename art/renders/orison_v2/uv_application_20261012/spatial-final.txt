@@ -1,0 +1,15 @@
+orison spatial dependency audit (check)
+records: 9584  tiers: data=6040, production=1075, scene=5, test=2464
+authority: DATA_FOREIGN_KEY=6040, DEBUG_ONLY=12, GENERATED_IDENTITY=413, RUNTIME_LOOKUP=908, SAVE_CONTRACT=16, SCENE_NODE_PATH=301, TEST_CONTRACT=2464
+spatial: ASSET_PATH=363, CAMERA_STATION=280, CONTAINMENT_ASSUMPTION=10, DERIVED_LAYOUT_LOOKUP=34, DISTANCE_THRESHOLD=10, FLOOR_MEMBERSHIP=413, RAW_GODOT_COORDINATE=253, RAW_PLAN_COORDINATE=76, ROOM_MEMBERSHIP=706, SEMANTIC_ANCHOR=5606, UNKNOWN_DYNAMIC=269
+disposition: MUST_PRESERVE_ID=129, OWNER_DECISION=1, PRESERVE_OR_ALIAS=6643, REGENERATE_CONSUMER=151, REPLACE_WITH_NAMED_ANCHOR=52, SAFE_TO_CHANGE=5, UNRESOLVED=268, UPDATE_TEST_FIXTURE=2335
+vector3 literals: 5290 total, 4138 stats-only (local/presentation)
+NEW unclassified (FAIL): 0
+classification changes (FAIL): 0
+targets vanished (FAIL): 0
+save-contract unresolved (FAIL): 0
+stale preserved records (STALE): 0
+new incidental (report only): 0
+cleanup opportunities: 1
+  - generated_name:game/scripts/building/orison_v2_basement.gd:mount [production]
+result: clean

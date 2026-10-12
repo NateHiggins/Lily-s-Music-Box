@@ -1,0 +1,55 @@
+{
+  "evidence_class": "INERT",
+  "native_assets_unchanged": {
+    "game/assets/props/house_tank.glb": "1402cb5ec25a26e9d1e28edbf8ebef99167cbc9c5dbeaaecd43c96108e3355fc",
+    "game/assets/building/v2_lift_drive.glb": "21a7aacaab11dca86a6c00b79de85a2800687be1d1763b8a9b32a35c4f23c82d"
+  },
+  "observations": [
+    {
+      "asset": "game/assets/props/house_tank.glb",
+      "mesh_count": 3,
+      "keys": [
+        "cast_iron",
+        "metal",
+        "tank_staves"
+      ],
+      "bounds": [
+        [
+          -1.909999132156372,
+          -1.8599998950958252,
+          0.0
+        ],
+        [
+          1.4700000286102295,
+          1.1699999570846558,
+          3.9860000610351562
+        ]
+      ],
+      "image": "tank_uv.png"
+    },
+    {
+      "asset": "game/assets/building/v2_lift_drive.glb",
+      "mesh_count": 23,
+      "keys": [
+        "brass",
+        "cast_iron",
+        "concrete",
+        "metal"
+      ],
+      "bounds": [
+        [
+          -1.0699999332427979,
+          -1.3399999141693115,
+          -22.5
+        ],
+        [
+          1.2100000381469727,
+          1.0950000286102295,
+          1.912500023841858
+        ]
+      ],
+      "image": "drive_uv.png"
+    }
+  ],
+  "scope": "Read-only neutral base PBR map/UV review. No production finish calibration, route or human acceptance claim."
+}

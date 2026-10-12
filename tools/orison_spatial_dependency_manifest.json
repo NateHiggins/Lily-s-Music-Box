@@ -280690,6 +280690,36 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "778989614a064071",
+   "kind": "id_reference",
+   "token": "ROOF_LIFT_DRIVE",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    194,
+    196
+   ],
+   "count": 2,
+   "context": [
+    "[\"ROOF_LIFT_DRIVE\",Vector3(2.8,1.9,2.8),Vector3(0,1.,0),\"roof_drive_uv\"]]:",
+    "if str(station[0])==\"ROOF_LIFT_DRIVE\": actor=world.adapter.resolve(str(station[0])) as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

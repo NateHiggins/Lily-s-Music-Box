@@ -86,10 +86,18 @@ def evaluate(data):
             if not optical_effect and not clear_glass and not any(all(maps.get(channel) for channel in triplet) for triplet in TRIPLETS):
                 reasons.append('incomplete_pbr_maps')
             if not optical_effect and material.get('type')=='StandardMaterial3D':
+                if 'triplanar' not in material: reasons.append('uv_application_unobserved')
+                elif material['triplanar']: reasons.append('uvs_bypassed_by_triplanar')
                 if 'normal_enabled' not in material: reasons.append('normal_map_state_unobserved')
                 elif not material['normal_enabled']: reasons.append('normal_map_disabled')
                 if material.get('filter') not in (2,3,4,5):reasons.append('non_mipmapped_filter')
             if not optical_effect:
+                if (shader.startswith('res://shaders/orison_surface') or material.get('mesh_uv_selector') or
+                    shader in ('res://shaders/orison_owner_component.gdshader',
+                               'res://shaders/orison_service_floor.gdshader',
+                               'res://shaders/wall_encroachment.gdshader')):
+                    if material.get('uv_mode') is None: reasons.append('uv_application_unobserved')
+                    elif material['uv_mode'] != 0: reasons.append('uvs_bypassed_by_triplanar')
                 for flag in ('has_normal_tex','has_rough_tex','has_albedo_tex'):
                     if material.get(flag) is False:reasons.append('disabled_shader_map:'+flag)
             for texture in set(maps.values()):

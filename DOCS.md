@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Actual V2 UV sampling, metre architectural charts and scoped roof access | `design/V2_UV_APPLICATION_2026-10-12.md` and `design/ORISON_V2_ROOF_ACCESS_CHECKPOINT_2026-10-12.md` |
 | Native basement resident cages, retained stock fit and all-eighteen access | `design/V2_BASEMENT_STORAGE_2026-10-11.md` and `design/ORISON_V2_BASEMENT_STORAGE_CHECKPOINT_2026-10-11.md` |
 | First-slice runtime contracts, actual save/reconstruction and remaining V2 blockers | `design/V2_FIRST_SLICE_CONTRACTS_2026-10-11.md` and `design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md` |
 | Native hollow mail compartments, delivery stock and retained 4B controls | `design/V2_NATIVE_MAIL_BANK_2026-10-11.md` |
