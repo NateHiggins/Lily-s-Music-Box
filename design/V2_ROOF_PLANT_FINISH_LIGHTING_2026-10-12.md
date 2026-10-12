@@ -81,4 +81,11 @@ after plant use proof. Wider room/runtime owners, navigation, human acceptance
 and retirement remain. The existing seven TextureRID shutdown warnings persist;
 no process-wide GPU-retention claim is made. Owner decision required: **none**.
 
-Candidate verification is pending the named source commit.
+Fresh clean candidate **321d4027** passes against **e934b8e2**: zero
+regressions, zero blocking reasons, zero lint errors, all 17 protected paths
+unchanged, selector V2. The reviewed gate-file diff adds fifteen consumers
+without changing old records or scanner rules. **--no-godot** reuses the
+completed current-input canonical runs. Ledger counts and requirement statuses
+are unchanged. All 283 original owner-file byte hashes remain unchanged.
+
+MERGE-CANDIDATE 321d402758703d42a49991fa91600c177b24ccbc
