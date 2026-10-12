@@ -80,7 +80,7 @@ func _open_door(identity: String) -> bool:
 	if not _require(door != null, "production leaf exists: " + identity): return false
 	if not _require(not door.open and door.leaf_state == "closed",
 			"leaf starts closed and usable: " + identity): return false
-	if not await _use(door, door.to_global(Vector3(door.width * .5, 1.1, 0)), identity): return false
+	if not await _drag_part(door, door.to_global(Vector3(door.width * .5, 1.1, 0)), door.motion_target_angle(true), identity): return false
 	await get_tree().create_timer(.6).timeout
 	var body := door.get_node_or_null("HingedLeaf") as AnimatableBody3D
 	return _require(door.open and body != null
@@ -91,7 +91,7 @@ func _close_door(identity: String) -> bool:
 	var door := _leaf(identity)
 	if not _require(door != null and door.open, "open leaf ready to close: " + identity): return false
 	var body := door.get_node("HingedLeaf") as AnimatableBody3D
-	if not await _use(door, body.to_global(Vector3(door.width * .5, 1.1, 0)), identity + "_close"): return false
+	if not await _drag_part(door, body.to_global(Vector3(door.width * .5, 1.1, 0)), 0.0, identity + "_close"): return false
 	await get_tree().create_timer(.6).timeout
 	return _require(not door.open and absf(body.rotation.y) < .01,
 			"input closes physical leaf: " + identity)
@@ -99,10 +99,10 @@ func _close_door(identity: String) -> bool:
 func _use_shower() -> bool:
 	var shower := world.adapter.resolve("F04_4B_SHOWER_01") as TapProp
 	if not _require(shower != null and not shower.is_curtain_open(), "4B shower starts drawn"): return false
-	if not await _use(shower, shower.to_global(Vector3(0, 1.18, -.31)), "4B_shower_open"): return false
+	if not await _drag_part(shower, shower.to_global(Vector3(0, 1.18, -.32)), 1.78, "4B_shower_open"): return false
 	if not _require(shower.is_curtain_open(), "input gathers the real curtain"): return false
 	if not await _use_water_valves("F04_4B_SHOWER_01"): return false
-	if not await _use(shower, shower.to_global(Vector3(.29, 1.18, .25)), "4B_shower_draw"): return false
+	if not await _drag_part(shower, shower.to_global(Vector3(.34, 1.18, .25)), 0.0, "4B_shower_draw"): return false
 	return _require(not shower.is_curtain_open(), "input draws the curtain again")
 
 func _use_water_valves(identity: String) -> bool:
@@ -111,18 +111,60 @@ func _use_water_valves(identity: String) -> bool:
 	var hot := tap.get_node_or_null("HotValveControl") as Area3D
 	var cold := tap.get_node_or_null("ColdValveControl") as Area3D
 	if not _require(hot != null and cold != null, "independent valve targets exist: " + identity): return false
-	if not await _use(hot, hot.global_position, identity + "_hot"): return false
+	if not await _drag_part(tap, tap._handles[0].global_position, PI*.5, identity + "_hot"): return false
 	var hot_flow := tap.get_flow_state()
 	if not _require(hot_flow.hot and not hot_flow.cold and float(hot_flow.temperature) > 0,
 			"hot valve supplies boiler-heated water through input"): return false
-	if not await _use(cold, cold.global_position, identity + "_mix"): return false
+	if not await _drag_part(tap, tap._handles[1].global_position, PI*.5, identity + "_mix"): return false
 	var mix := tap.get_flow_state()
 	if not _require(mix.hot and mix.cold and float(mix.temperature) < float(hot_flow.temperature),
 			"independent cold valve dilutes the hot supply"): return false
-	if not await _use(hot, hot.global_position, identity + "_hot_off"): return false
+	if not await _drag_part(tap, tap._handles[0].global_position, 0.0, identity + "_hot_off"): return false
 	var cold_flow := tap.get_flow_state()
 	if not _require(not cold_flow.hot and cold_flow.cold and float(cold_flow.temperature) == 0,
 			"closing hot leaves only cold water"): return false
-	if not await _use(cold, cold.global_position, identity + "_cold_off"): return false
+	if not await _drag_part(tap, tap._handles[1].global_position, 0.0, identity + "_cold_off"): return false
 	var stopped := tap.get_flow_state()
 	return _require(not stopped.hot and not stopped.cold, "both valves shut through input")
+
+## Drive only player input. Read the constraint to choose a screen-space gesture;
+## never call its writer, bypass collision, or move the walking player.
+func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) -> bool:
+	player.camera.look_at(aim)
+	await get_tree().physics_frame
+	var grip: Dictionary = player._grab.find_target()
+	if not _require(grip.get("owner") == owner_node, "actual player ray selects operable part: " + label): return false
+	var initial: float = grip.read.call()
+	var click := InputEventMouseButton.new()
+	click.button_index = MOUSE_BUTTON_LEFT
+	click.pressed = true
+	player._unhandled_input(click)
+	if not _require(player._grab.active() and is_equal_approx(initial, float(grip.read.call())), "click grabs without toggling: " + label): return false
+	for step in 160:
+		if absf(float(grip.read.call()) - goal) < .00001: break
+		if not player._grab.active(): break
+		var part: Node3D = grip.part
+		var frame: Node3D = grip.frame
+		var point: Vector3 = part.to_global(player._grab.contact)
+		var local_axis: Vector3 = grip.axis.call() if grip.axis is Callable else grip.axis
+		var axis: Vector3 = (frame.global_basis * local_axis).normalized()
+		var tangent := axis
+		if grip.kind == "hinge":
+			tangent = axis.cross(point-part.global_position)
+			if tangent.length() < .025:
+				tangent = axis.cross(player.camera.global_basis.x)*.06
+				if tangent.length() < .01: tangent = axis.cross(player.camera.global_basis.y)*.06
+		var gesture: Vector2 = (player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
+		if gesture.length() < 24.0 and absf(tangent.dot(player.camera.global_basis.z)) > tangent.length()*.5:
+			gesture = Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
+		var motion := InputEventMouseMotion.new()
+		motion.relative = gesture * signf(goal-float(grip.read.call())) * .06
+		player._unhandled_input(motion)
+		await get_tree().physics_frame
+	var reached: bool = absf(float(grip.read.call())-goal)<.00001
+	if player._grab.active(): player._unhandled_input(click)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	if owner_node.has_method("mechanism_snapshot") and owner_node.has_method("valid_mechanism"):
+		if not _require(owner_node.valid_mechanism(owner_node.mechanism_snapshot()), "physical stop remains saveable: " + label): return false
+	return _require(reached and not player._grab.active(), "mouse motion reaches stop and second click releases: " + label)

@@ -395,8 +395,11 @@ func _move_by_hand(angle: float) -> void:
 	var old := _body.rotation.y
 	# Small angular steps test the actual collision shell throughout the sweep.
 	var shape_node := _body.get_child(0) as CollisionShape3D
+	# AnimatableBody may defer its transform until the next physics tick.
+	# Sweep a local candidate, then publish geometry and state from that value.
+	var accepted := old
 	for i in maxi(1,int(ceil(absf(angle-old)/.025))):
-		var trial := move_toward(_body.rotation.y,angle,.025)
+		var trial := move_toward(accepted,angle,.025)
 		var pose := _body.transform
 		pose.basis = Basis(Vector3.UP,trial)
 		if shape_node != null:
@@ -407,9 +410,10 @@ func _move_by_hand(angle: float) -> void:
 			query.exclude = [_body.get_rid()]
 			query.margin = .001
 			if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): break
-		_body.rotation.y = trial
-	open = absf(_body.rotation.y) > .01
-	if not is_equal_approx(old,_body.rotation.y) and not has_meta("hand_motion_sound"):
+		accepted = trial
+	_body.rotation.y = accepted
+	open = absf(accepted) > .01
+	if not is_equal_approx(old,accepted) and not has_meta("hand_motion_sound"):
 		_play_move()
 		set_meta("hand_motion_sound",true)
 
@@ -420,19 +424,20 @@ func _release_leaf() -> void:
 	manipulation_changed.emit()
 
 func mechanism_snapshot() -> Dictionary:
-	return {"angle":_body.rotation.y}
+	# Normalize float32 transform endpoints before entering the durable record.
+	return {"angle":clampf(_body.rotation.y,minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true)))}
 
 func valid_mechanism(value: Variant) -> bool:
 	return value is Dictionary and value.size()==1 and typeof(value.get("angle")) in [TYPE_FLOAT,TYPE_INT] \
-		and is_finite(float(value.angle)) and float(value.angle)>=minf(0,motion_target_angle(true)) \
-		and float(value.angle)<=maxf(0,motion_target_angle(true))
+		and is_finite(float(value.angle)) and float(value.angle)>=minf(0,motion_target_angle(true))-.000001 \
+		and float(value.angle)<=maxf(0,motion_target_angle(true))+.000001
 
 func restore_mechanism(value: Dictionary) -> void:
 	if not valid_mechanism(value): return
 	if _leaf_motion != null and _leaf_motion.is_valid(): _leaf_motion.kill()
 	_hand_gripped = false;_moving = false
 	_body.sync_to_physics = false
-	_body.rotation.y = float(value.angle)
+	_body.rotation.y = clampf(float(value.angle),minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true)))
 	_body.force_update_transform()
 	_body.sync_to_physics = true
 	open = absf(_body.rotation.y)>.01

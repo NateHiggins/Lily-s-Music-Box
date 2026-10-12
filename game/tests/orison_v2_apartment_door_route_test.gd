@@ -10,6 +10,7 @@ func _route() -> void:
 	# Keep NPC scheduling out of this player-input fixture. Separate Mina
 	# timetable fixtures exercise the resident's own door opening and routing.
 	world.mina_routine.set_process(false)
+	world.mina_routine.set_physics_process(false)
 	player.global_position = world.adapter.root.to_global(Vector3(source.start[0], 3.22, source.start[1]))
 	player.velocity = Vector3.ZERO
 	await get_tree().physics_frame

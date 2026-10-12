@@ -217,3 +217,36 @@ not advanced by this checkpoint. Runtime source files retain tested LF bytes
 through explicit attributes. Unrelated owner files, import churn and untracked
 UIDs outside the named work manifest are excluded. Formal candidate verification
 and promotion remain pending while the shared checkout contains other work.
+
+## Regression repair in progress
+
+The migrated apartment route exposed two real door defects: the AnimatableBody
+transform can be deferred while the open flag reads the previous pose; and
+float32 stop angles could fail strict save bounds, rejecting household snapshots
+and permitting an older closed pose to return. The sweep now accumulates one
+accepted angle before publishing it; snapshots normalize the limits and the
+validator admits float32 endpoint tolerance. The route now checks saveability
+with actual mouse-driven endpoints. The fifth run passes 265 checks, 19 rooms
+and 89 waypoints with zero failures, retaining the disclosed seven Texture RIDs.
+
+The synchronous restoration-ownership bench case was extracted from its
+monolithic timed routine, removing the additional timer heuristic finding.
+Three spatial records were reviewed and added to the dependency inventory:
+the isolated bench placements, the existing boiler-window identity, and the
+world-test staging position outside the sash sweep. All retain TEST_CONTRACT /
+UPDATE_TEST_FIXTURE classification; no production dependency, gate policy or
+frozen comparison board was exempted or changed.
+
+Regression verification is now complete: first-slice 113 checks, focused bench
+95 checks, apartment access 265 checks, and surface qualification 26,433 checks
+all pass. The reviewed surface inventory covers 23,465 draws, 16,201 meshes,
+5,827 materials and 453 textures with zero unresolved surfaces.
+**tmp/v2-direct-manipulation-20261012/regression-gates/board.json** reports zero
+regressions against **8996abf2**; every tools suite passes and reader NEW is zero.
+The baseline’s existing incompleteness and 21 systemic review findings remain.
+The first-slice and surface runs retain the disclosed seven Texture RIDs;
+tracked runtime-owner retirement passes, not global resource-clean acceptance.
+
+The owner’s new movable cistern, inspection-camera and compact handheld request
+follows this repair checkpoint. Its Blender prototype remains outside shipping
+assets until reviewed and integrated; it is not included in these receipts.

@@ -36,14 +36,15 @@ current authored boundaries. These are the only spatial promotions claimed:
 
 ## Interaction evidence and limits
 
-Doors are operated through the real player ray, prompt and E input. Closed
+Doors are operated through the real player ray, click-grab, mouse motion and
+second-click release. Closed
 apartment entries recover their solid barriers. The 2A and 4B kitchen valves
 exercise hot-only, mixed, cold-only and both-off states. The 4B route also uses
 the lavatory valves, shower/curtain and toilet flush/refill, and reaches the
 closet. The 2B leg proves physical room access and doors; it does not exercise
 all household appliances. The 4B sleeping alcove is not visited or promoted.
 
-The final test passes **154 checks, 19 room positions and 89 waypoints**, with
+The renewed test passes **265 checks, 19 room positions and 89 waypoints**, with
 zero failures and zero script errors. The root and both route drivers retire.
 Godot reports seven Texture RID leaks at shutdown; this checkpoint does not
 claim resource-clean teardown. It does not grant case completion, disk save
@@ -110,3 +111,18 @@ The same 19-room, 154-check circuit passes after the bathroom tile/UV update.
 The current receipt is bound to those inputs; its wrapper is
 **art/renders/orison_v2/bathroom_tiles_20261012/apartment-access.log.receipt.json**.
 Scope and acceptance thresholds are unchanged.
+
+## Direct-manipulation renewal, 2026-10-12
+
+The renewed test authored 265 checks with zero failures, visiting the same
+19 rooms and 89 walking waypoints. Door, hot/cold valve and shower-curtain
+checks now acquire the actual ray-selected part without changing it, move it
+with mouse input, release it with a second click, and validate its save record
+at the physical stop. The toilet still uses its legacy flush path in this
+receipt; this is not evidence that all interactions have been migrated.
+
+The route exposed and now covers a deferred-body door-state discrepancy and
+float32 endpoint rejection by the door save validator. It also disables Mina’s
+physics callback as intended by this fixture’s explicit scheduling exclusion.
+The run wrapper is **tmp/v2-direct-manipulation-20261012/regression-apartments5.log.receipt.json**.
+The test-authored runtime contract remains at the packet path above.

@@ -79,12 +79,7 @@ func _run() -> void:
 	check(is_zero_approx(door._body.rotation.y) and door.leaf_state=="locked","locked leaf resists hand motion")
 	door.leaf_state="closed"
 	door.restore_mechanism({"angle":angle})
-	var old_grip: Dictionary=door.manipulation_target({"collider":door._body})
-	old_grip.hit_position=door._body.to_global(Vector3(.4,1.0,0))
-	check(player._grab.acquire(old_grip),"player can acquire leaf before state restoration")
-	door.restore_mechanism({"angle":.2})
-	player._grab.validate()
-	check(not player._grab.active() and is_equal_approx(door._body.rotation.y,.2),"restoration revokes old hand ownership without overwriting new pose")
+	_check_restore_revokes_hand(door)
 	var fridge := FridgeProp.new()
 	fridge.prop_type = "fridge"
 	fridge.position = Vector3(3,0,0)
@@ -370,3 +365,14 @@ func _run() -> void:
 	await get_tree().process_frame
 	print("DIRECT MANIPULATION: ","PASS" if failures.is_empty() else "FAIL","; ",checks," checks; ",failures.size()," failures")
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+## Restoration is synchronous; no elapsed-time event grants custody.
+func _check_restore_revokes_hand(door: DoorProp) -> void:
+	var before := door.mechanism_snapshot()
+	var old_grip: Dictionary=door.manipulation_target({"collider":door._body})
+	old_grip.hit_position=door._body.to_global(Vector3(.4,1.0,0))
+	check(player._grab.acquire(old_grip),"player can acquire leaf before state restoration")
+	door.restore_mechanism({"angle":.2})
+	player._grab.validate()
+	check(not player._grab.active() and is_equal_approx(door._body.rotation.y,.2),"restoration revokes old hand ownership without overwriting new pose")
+	door.restore_mechanism(before)

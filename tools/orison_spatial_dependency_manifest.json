@@ -284482,6 +284482,109 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F05/room+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "5fb697733216f836",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/direct_manipulation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    148,
+    170,
+    176,
+    189,
+    194,
+    201,
+    207,
+    249,
+    292,
+    302,
+    356
+   ],
+   "count": 11,
+   "context": [
+    "shower.position=Vector3(-12,0,2);add_child(shower)",
+    "blind.position=Vector3(-8,2,0);add_child(blind)",
+    "mirror.position=Vector3(-10,0,0);add_child(mirror);mirror.restore_travel(.42)",
+    "var fan := BoxFanProp.new();fan.position=Vector3(8,0,0);add_child(fan)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1f6bd185450704f5",
+   "kind": "id_reference",
+   "token": "B1_BOILER_AIR_E",
+   "file": "game/tests/direct_manipulation_world_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    148
+   ],
+   "count": 1,
+   "context": [
+    "var window: Node=household._subjects.get(\"B1_BOILER_AIR_E\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7b28392b4cd6d5c2",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/direct_manipulation_world_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    156
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position=Vector3(30,1,30)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
