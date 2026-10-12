@@ -84,7 +84,16 @@ do not certify every household object or resident schedule.
 
 The spatial-dependency manifest registers only this new test's references.
 The reader audit reports zero new unread fields. Eight proof-validation mutation
-tests pass. Clean candidate comparison is pending before publication.
+tests pass. Clean candidate **e72c8a1c** passes against the recorded
+**6faf490e** baseline with zero regressions, all 17 protected paths unchanged,
+selector V2 and zero document lint errors. No exemptions were used. The sole
+gate-file change adds 49 new test references to the spatial manifest; existing
+records and thresholds are unchanged. The comparison ran in the clean temporary
+checkout with **--no-godot**, reusing the separately bound canonical runtime
+receipt. **verification.json** and **verification.md** retain the comparison.
+These rooms already had spatial status from older evidence: the new walked
+proof strengthens current coverage but changes no requirement status or blocker
+count (103 structural, 34 runtime, 120 production-cutover and 122 retirement).
 
 ## Remaining work
 
