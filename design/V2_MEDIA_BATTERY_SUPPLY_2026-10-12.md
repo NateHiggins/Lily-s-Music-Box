@@ -74,3 +74,17 @@ were appended to the spatial manifest, preserving all prior entries.
 Full V2 is incomplete. No whole-world photorealism, played route, new gameplay
 authority or V1 retirement acceptance is inferred from these supply fittings.
 Packet destination: **art/renders/orison_v2/media_battery_20261012**.
+
+## Candidate result
+
+Clean candidate **09d0d75d** passes against the authentic complete **8b81b3c0**
+board: zero regressions, zero blocking reasons, 17 protected paths unchanged,
+selector V2 and no ledger promotions. Verification ran in-place in a clean
+temporary checkout, reusing the already-created checkout after the receipt
+packaging encoding error was corrected. It did not run fresh-checkout Godot
+imports; **--no-godot** reuses the current bound canonical runtime proof. Every
+static gate and tools test ran. No waiver or synthetic baseline was used.
+The nine manifest additions are actual existing-support/generated-root
+consumers, reviewed without altering prior records.
+
+MERGE-CANDIDATE 09d0d75d2d8ec9027c8d31e956c9de3adb66e8f4
