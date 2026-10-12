@@ -48,7 +48,11 @@ cover standard, compact, upper and rear-wing placements. Final surface run: **25
 covering all 18 authored kitchen sinks. The loaded inventory contains 23,519
 draws, 16,266 meshes, 5,831 materials and 445 textures, with zero unresolved
 surface findings. The first-slice save/reconstruction contract also passed all 113 checks.
-Clean candidate verification is pending before publication. The first clean
+Clean candidate **6edaaef7** verified with zero regressions against the
+recorded **09d0d75d** baseline, all 17 protected paths unchanged, selector
+V2 and zero document lint errors. No regression exemptions were used. The
+comparison ran in the clean temporary checkout with **--no-godot**; the
+canonical bound runtime receipts above supply the separate runtime proof. The first clean
 check exposed default import parameters on the unused duplicate faucet normal
 map. Its parameters now match the shared normal map, and fresh bound runtime
 qualification passes. The batch workflow now requires named staging and the
