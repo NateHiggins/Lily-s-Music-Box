@@ -1,0 +1,35 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 201 spaces / 111 doors / 1426 anchors
+  PASS  01 deterministic v2 schema and generation selection
+  PASS  02 generated construction and scene startup
+  PASS  03 unique compatibility anchors
+[CALL] case 4471 opened (M. CHEN)
+[CALL] isolation active
+[CALL] pattern captured
+[CALL] routing
+[CALL] response window open
+[CALL] outcome -> silence
+[CALL] case 4471 closed (silence)
+  PASS  05 F01 arrival and lobby interaction compatibility
+  PASS  06 F02 Mina/chirp/job/case and acoustic compatibility
+  PASS  07 F04 terminal/call/audio compatibility
+ORISON V2 BLOCKOUT: 201 spaces / 111 doors / 1426 anchors
+  PASS  08 real save/reload reconstruction and separate v1 bed fallback
+[M08 STATION] name=street_approach cpu_ms=378.645 physics_ms=0.586 gpu_ms=unavailable_headless
+[M08 STATION] name=f01_threshold_lobby cpu_ms=0.181 physics_ms=0.526 gpu_ms=unavailable_headless
+[M08 STATION] name=primary_stair_f01_f02 cpu_ms=0.908 physics_ms=0.855 gpu_ms=unavailable_headless
+[M08 STATION] name=f02_landing cpu_ms=0.156 physics_ms=0.297 gpu_ms=unavailable_headless
+[M08 STATION] name=2a_work_position cpu_ms=0.138 physics_ms=0.337 gpu_ms=unavailable_headless
+[M08 STATION] name=f02_landing cpu_ms=0.150 physics_ms=0.292 gpu_ms=unavailable_headless
+[M08 STATION] name=primary_stair_f01_f02 cpu_ms=1.100 physics_ms=0.303 gpu_ms=unavailable_headless
+[M08 STATION] name=4b_terminal cpu_ms=0.142 physics_ms=0.300 gpu_ms=unavailable_headless
+[M08 STATION] name=bedside_return cpu_ms=0.145 physics_ms=0.568 gpu_ms=unavailable_headless
+  PASS  04 continuous street-to-bedside controller traversal
+  PASS  09 essential service stacks remain continuous
+[M08 PERF] startup_ms=307.890 route_ms=44168.992 nodes=9440 collisions=1899 process_ms=0.145 physics_ms=0.568
+  PASS  10 proportional startup/node/collision budget
+  PASS  production layout remains byte-stable
+  PASS  adapter/acoustic teardown restores global state
+ORISON V2 M08 INTEGRATION: PASS

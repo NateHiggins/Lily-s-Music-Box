@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to knowâ€¦ | Read |
 |---|---|
 | Physical roof lighting supply, wall ports and supported overhead bridge | `design/V2_ROOF_LIGHTING_SUPPLY_2026-10-12.md` |
+| Current recheck of the historical public-stair route failures | `design/V2_PUBLIC_STAIR_ROUTE_RECHECK_2026-10-12.md` |
 | Roof plant metal calibration and two native switched cage fixtures | `design/V2_ROOF_PLANT_FINISH_LIGHTING_2026-10-12.md` |
 | Actual V2 UV sampling, metre architectural charts and scoped roof access | `design/V2_UV_APPLICATION_2026-10-12.md` and `design/ORISON_V2_ROOF_ACCESS_CHECKPOINT_2026-10-12.md` |
 | Native basement resident cages, retained stock fit and all-eighteen access | `design/V2_BASEMENT_STORAGE_2026-10-11.md` and `design/ORISON_V2_BASEMENT_STORAGE_CHECKPOINT_2026-10-11.md` |
