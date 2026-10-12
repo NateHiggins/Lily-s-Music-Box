@@ -1,0 +1,345 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Register only eleven new named test consumers; no existing records, authority/disposition rules or scanner code change. All 174 incidental regenerated old-record differences are deliberately excluded.",
+  "added": [
+    {
+      "key": "cb2d75636c0f344d",
+      "kind": "id_reference",
+      "token": "5B_hallstand",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_qualify_moved_surfaces"
+      ],
+      "lines": [
+        170
+      ],
+      "count": 1,
+      "context": [
+        "for identity: String in [\"5B_hallstand\",\"6B_hallstand\"]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "933cf16918503e68",
+      "kind": "id_reference",
+      "token": "5C_w0_wardrobe",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_unit"
+      ],
+      "lines": [
+        93
+      ],
+      "count": 1,
+      "context": [
+        "if not await _wardrobe(\"5C_w0_wardrobe\"):return false"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F05/furniture+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "1c2c8161418b9335",
+      "kind": "id_reference",
+      "token": "6B_hallstand",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_qualify_moved_surfaces"
+      ],
+      "lines": [
+        170
+      ],
+      "count": 1,
+      "context": [
+        "for identity: String in [\"5B_hallstand\",\"6B_hallstand\"]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "f658f5ef4247b32f",
+      "kind": "id_reference",
+      "token": "6C_w0_wardrobe",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_unit"
+      ],
+      "lines": [
+        101
+      ],
+      "count": 1,
+      "context": [
+        "if not await _wardrobe(\"6C_w0_wardrobe\"):return false"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F06/furniture+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "9f7ac92aec9b9c8b",
+      "kind": "id_reference",
+      "token": "6C_w1_wardrobe",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_unit"
+      ],
+      "lines": [
+        104
+      ],
+      "count": 1,
+      "context": [
+        "if not await _wardrobe(\"6C_w1_wardrobe\"):return false"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F06/furniture+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "c8dffd03b64146da",
+      "kind": "unit_reference",
+      "token": "5A",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_route"
+      ],
+      "lines": [
+        51
+      ],
+      "count": 1,
+      "context": [
+        "for unit: String in [\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "unit",
+      "target_exists": true
+    },
+    {
+      "key": "5bd7162f52ecf62b",
+      "kind": "unit_reference",
+      "token": "5B",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_route"
+      ],
+      "lines": [
+        51
+      ],
+      "count": 1,
+      "context": [
+        "for unit: String in [\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "unit",
+      "target_exists": true
+    },
+    {
+      "key": "547ebedbbd27e010",
+      "kind": "unit_reference",
+      "token": "5C",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_route",
+        "_unit",
+        "_write_contract"
+      ],
+      "lines": [
+        51,
+        86,
+        201
+      ],
+      "count": 3,
+      "context": [
+        "for unit: String in [\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]:",
+        "elif unit==\"5C\":",
+        "\"contracts\":{\"upper_entry_distribution\":{\"executed\":true,\"status\":status,\"identities\":completed_units},\"architectural_privacy\":{\"executed\":not privacy_hits.is_e"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "unit",
+      "target_exists": true
+    },
+    {
+      "key": "2f9bfcdb3dfca39e",
+      "kind": "unit_reference",
+      "token": "6A",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_route"
+      ],
+      "lines": [
+        51
+      ],
+      "count": 1,
+      "context": [
+        "for unit: String in [\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "unit",
+      "target_exists": true
+    },
+    {
+      "key": "13d02635029a7863",
+      "kind": "unit_reference",
+      "token": "6B",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_route"
+      ],
+      "lines": [
+        51
+      ],
+      "count": 1,
+      "context": [
+        "for unit: String in [\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "unit",
+      "target_exists": true
+    },
+    {
+      "key": "1a894da16059917f",
+      "kind": "unit_reference",
+      "token": "6C",
+      "file": "game/tests/orison_v2_upper_entry_storage_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_route",
+        "_unit",
+        "_write_contract"
+      ],
+      "lines": [
+        51,
+        98,
+        201
+      ],
+      "count": 3,
+      "context": [
+        "for unit: String in [\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]:",
+        "elif unit==\"6C\":",
+        "\"contracts\":{\"upper_entry_distribution\":{\"executed\":true,\"status\":status,\"identities\":completed_units},\"architectural_privacy\":{\"executed\":not privacy_hits.is_e"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "unit",
+      "target_exists": true
+    }
+  ],
+  "existing_records_preserved": 9554
+}

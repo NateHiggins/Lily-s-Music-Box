@@ -57,8 +57,10 @@ renders and the relocated stand views were inspected and bound by image hashes.
 New image filenames preserve the owner's existing dumbwaiter/radiator PNG bytes.
 
 Reader: **zero NEW unread fields**. Spatial dependency check: **clean**, zero new
-unclassified/classification/vanished/save-contract failures; eleven incidental
-new test references are reported only. Design documents are linted before staging.
+unclassified/classification/vanished/save-contract failures; eleven new named test references are now registered as TEST_CONTRACT /
+UPDATE_TEST_FIXTURE. Every pre-existing manifest record is preserved; scanner
+code and gate rules are unchanged. The initial clean verifier rejected these
+unregistered references; its rejected result remains diagnostic only. Design documents are linted before staging.
 Fresh clean candidate verifier is pending. Ledger blockers are
 **0/1/127/35/144/146 → 0/1/118/35/135/137** in the six standing scopes.
 The first slice stays clear; full structural/cutover/retirement improve by nine.
