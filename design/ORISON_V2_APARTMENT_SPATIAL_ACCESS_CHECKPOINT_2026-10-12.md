@@ -88,3 +88,11 @@ The first-slice runtime and surface qualifications remain separately bound.
 Other rooms, floor circulation, service continuity, case authority contracts,
 human navigation and the eleven-beat golden-shift acceptance remain open.
 No owner decision is requested by this checkpoint.
+
+## Bedding geometry renewal
+
+The current test-authored room receipt was renewed after the October 12 bedding
+polish, with the same rooms, route scope and passing check counts. Its wrapper
+is **art/renders/orison_v2/bedding_polish_20261012/final-apartment-access.log.receipt.json**.
+The original wrapper and images above remain historical; this renewal grants
+no additional requirement status or human acceptance.

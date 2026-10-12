@@ -1,6 +1,6 @@
 """Blender bedding library, preserving authored frame meshes and three bed sizes."""
 from pathlib import Path
-import json, math
+import json, math, os
 import bpy, bmesh
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
@@ -24,11 +24,26 @@ def box(name,at,size,owner,role,bevel=0):
   mod=o.modifiers.new('Upholstered edge','BEVEL');mod.width=bevel;mod.segments=4;bpy.context.view_layer.objects.active=o;bpy.ops.object.modifier_apply(modifier=mod.name)
  return o
 
+def cord(name,points,radius,owner,role,closed=False):
+ # Narrow sewn welt: a continuous fabric tube, not separate visible beads.
+ vertices=[];faces=[];segments=8;n=len(points)
+ for i,p in enumerate(points):
+  tangent=(Vector(points[(i+1)%n])-Vector(points[(i-1)%n])).normalized() if closed else (Vector(points[min(i+1,n-1)])-Vector(points[max(i-1,0)])).normalized()
+  axis=tangent.cross(Vector((0,1,0))).normalized();other=tangent.cross(axis).normalized()
+  for j in range(segments):vertices.append(tuple(Vector(p)+radius*(axis*math.cos(j*math.tau/segments)+other*math.sin(j*math.tau/segments))))
+ for i in range(n if closed else n-1):
+  for j in range(segments):faces.append((i*segments+j,i*segments+(j+1)%segments,((i+1)%n)*segments+(j+1)%segments,((i+1)%n)*segments+j))
+ if not closed:
+  faces.extend([tuple(reversed(range(segments))),tuple((n-1)*segments+j for j in range(segments))])
+ o=mesh(name,vertices,faces,owner,role)
+ for poly in o.data.polygons:poly.use_smooth=True
+
+
 def sheet(name,owner,W,L,fold=False,shift=0.,roll=0.,diag=0.):
  # Dossier slice 46: shift moves the cover's head toward the foot (thrown back), roll lifts the
  # turned fold into a bundle, diag sets the head edge on a slant (pushed down unevenly). The
  # side and foot drapes are untouched, so nothing moves into the mattress.
- nx,nz=40,(12 if fold else 30);vertices=[];faces=[];head=-L/2+.68+shift;foot=L/2-.14
+ nx,nz=56,(16 if fold else 48);vertices=[];faces=[];head=-L/2+.68+shift;foot=L/2-.14
  for j in range(nz+1):
   v=j/nz
   if fold:z=head+v*.135;foot_y=.516
@@ -42,6 +57,9 @@ def sheet(name,owner,W,L,fold=False,shift=0.,roll=0.,diag=0.):
    elif t<=.94:
     a=(t-.85)/.09*math.pi/2;x=edge+.035*math.sin(a);y=.511-.035*(1-math.cos(a))
    else:x=edge+.035;y=.476-.105*(t-.94)/.06
+   # Turnback drapes outside the main cover; coplanar vertical cloth layers
+   # otherwise produce dark triangular depth artifacts at their overlap.
+   if fold:x+=.005*min(1.,max(0.,(t-.85)/.09))
    x*=1 if u>=0 else -1
    # The 4 mm sheet rests on the 0.500 m mattress top. All slack lifts
    # upward from that contact instead of floating the whole cover above it.
@@ -50,6 +68,14 @@ def sheet(name,owner,W,L,fold=False,shift=0.,roll=0.,diag=0.):
    if not fold:
     y+=.0035*math.exp(-((z-head-.22)/.18)**2)*(1+math.sin(x*10+z*3))*(1-t*t)
     y+=.002*math.exp(-((z-foot+.20)/.15)**2)*(1+math.sin(x*16-1.1))*(1-t*t)
+   # Unequal tension wrinkles trail from the tucked sides and turned edge.
+   # Positive-only lift keeps the mattress bearing/contact plane intact.
+   if not fold and t<.85 and v<.88:
+    top_t=t/.85;long_v=v/.88
+    for start,slope,width,height in [(.18,.32,.035,.020),(.52,-.22,.05,.014),(.76,.18,.032,.022)]:
+     ridge=long_v-start-slope*(u+.18)
+     envelope=min(1.,max(0.,(long_v-.18)/.14))**2
+     y+=height*math.exp(-(ridge/width)**2)*math.sin(math.pi*top_t)**2*envelope
    if fold:y+=.009+.007*math.sin(v*math.pi)+roll*math.sin(v*math.pi)*(1-t*t*.6)
    zz=z+diag*u*(1 if fold else max(0.,1-v/.88))
    vertices.append((x,y,-zz))
@@ -59,6 +85,8 @@ def sheet(name,owner,W,L,fold=False,shift=0.,roll=0.,diag=0.):
  o=mesh(name,vertices,faces,owner,'Blanket');bpy.context.view_layer.objects.active=o
  m=o.modifiers.new('Woven thickness','SOLIDIFY');m.thickness=.004;m.offset=0;bpy.ops.object.modifier_apply(modifier=m.name)
  for p in o.data.polygons:p.use_smooth=True
+ if fold:
+  cord('TurnedHem',[(p[0],p[1]+.001,p[2]) for p in vertices[:nx+1]],.0014,owner,'Blanket')
 
 def pillows(owner,L,mismatch=False):
  for side in [-1,1]:
@@ -81,6 +109,14 @@ def pillows(owner,L,mismatch=False):
    for i in range(n):k=j*n+i;q=j*n+(i+1)%n;faces.append((k,q,q+n,k+n))
   o=mesh('PuffedPillow',vertices,faces,owner,'Pillows')
   for p in o.data.polygons:p.use_smooth=True
+  seam_points=[]
+  for i in range(n):
+   a=i*math.tau/n;c=math.cos(a);s=math.sin(a)
+   dx=math.copysign(abs(c)**.55,c)*.285*.972*sx;dz=math.copysign(abs(s)**.55,s)*.18*.972*sz
+   x=cx+dx*math.cos(turn)-dz*math.sin(turn);z=cz+dx*math.sin(turn)+dz*math.cos(turn)
+   y=.500+.057*sh+.002*math.sin(a*4)-.004*math.exp(-((0.-.20)/.30)**2)*(math.sin(a*3+side*.5)**8)
+   seam_points.append((x,y,-z))
+  cord('PillowcaseWelt',seam_points,.0012,owner,'Pillows',True)
 
 records=json.loads((ROOT/'art/data/orison_v2/domestic_furniture_source.json').read_text(encoding='utf-8'))['furniture'];owners=[];seen=set()
 for record in records:
@@ -116,13 +152,18 @@ for W,L,state in [(1.35,2.6,'thrown'),(1.5,2.05,'unmade'),(1.5,2.05,'pillows')]:
 for o in list(bpy.context.scene.objects):
  if o.type!='MESH':continue
  bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=.00001);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
+ if o.name.startswith('AuthoredFrame'):
+  # Fine eased timber edges catch light without changing joints or bed footprint.
+  bpy.context.view_layer.objects.active=o
+  edge=o.modifiers.new('Eased timber arris','BEVEL');edge.width=.0015;edge.segments=3;edge.limit_method='ANGLE';edge.angle_limit=.35
+  bpy.ops.object.modifier_apply(modifier=edge.name)
  uv=o.data.uv_layers.new(name='UVMap')
  for p in o.data.polygons:
   axis=max(range(3),key=lambda i:abs(p.normal[i]));axes=((1,2),(0,2),(0,1))[axis]
   for loop in p.loop_indices:
    v=o.matrix_world@o.data.vertices[o.data.loops[loop].vertex_index].co;uv.data[loop].uv=(v[axes[0]],v[axes[1]])
 repair_scene()
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/bedding.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=os.environ.get('BEDDING_NATIVE_OUTPUT',str(ROOT/'art/blender/bedding.blend')))
 for owner in owners:
  for role,mat in mats.items():
   parts=[o for o in owner.children if o.type=='MESH' and o.data.materials[0]==mat]
@@ -131,4 +172,4 @@ for owner in owners:
   bpy.context.view_layer.objects.active=parts[0];bpy.ops.object.join();o=bpy.context.object;o.name=owner.name+'_'+role;bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
 bpy.ops.object.select_all(action='SELECT')
 repair_scene()
-bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/bedding.glb'),export_format='GLB',export_yup=True,export_apply=True)
+bpy.ops.export_scene.gltf(filepath=os.environ.get('BEDDING_EXPORT_OUTPUT',str(ROOT/'game/assets/props/bedding.glb')),export_format='GLB',export_yup=True,export_apply=True)

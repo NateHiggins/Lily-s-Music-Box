@@ -1,13 +1,13 @@
 """Neutral bedding inspection using the production role recipes and metre charts."""
 from pathlib import Path
-import sys,json,hashlib
+import sys,json,hashlib,os
 import bpy
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from review_owner_service_finishes import material,profiles,scene
-out=ROOT/'tmp/v2-improvement/bedding-native';out.mkdir(parents=True,exist_ok=True)
-path=ROOT/'art/blender/bedding.blend'
+out=Path(os.environ.get('BEDDING_REVIEW_OUTPUT',str(ROOT/'tmp/v2-improvement/bedding-native')));out.mkdir(parents=True,exist_ok=True)
+path=Path(os.environ.get('BEDDING_NATIVE_OUTPUT',str(ROOT/'art/blender/bedding.blend')))
 with bpy.data.libraries.load(str(path),link=False) as (src,dst):dst.objects=src.objects
 objects=[o for o in dst.objects if o]
 for o in objects:scene.collection.objects.link(o)
@@ -24,6 +24,8 @@ for o in objects:
 bpy.context.view_layer.update()
 views=[]
 for owner in [o for o in objects if o.type=='EMPTY']:
+    requested=os.environ.get('BEDDING_REVIEW_VARIANTS','').split(',')
+    if requested!=[''] and owner.name not in requested:continue
     selected=[o for o in objects if o.parent==owner and o.type=='MESH']
     for o in objects:
         if o.type=='MESH':o.hide_render=o not in selected

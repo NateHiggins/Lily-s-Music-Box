@@ -36,6 +36,12 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	var bedding_review := preload("res://tests/orison_v2_bedding_test.gd").new()
+	bedding_review.batch_mode=true;add_child(bedding_review)
+	var bedding_result: Dictionary=await bedding_review.validate_in_world(world)
+	batch_checks+=int(bedding_result.checks)
+	for failure: String in bedding_result.failures:failures.append(failure)
+	bedding_review.free()
 	var fixed_review := preload("res://tests/orison_v2_fixed_lighting_test.gd").new()
 	fixed_review.capture_enabled=false; add_child(fixed_review)
 	var fixed_result: Dictionary=await fixed_review.validate_in_world(world)

@@ -100,3 +100,11 @@ count (103 structural, 34 runtime, 120 production-cutover and 122 retirement).
 Whole-building structural, runtime, production-cutover and retirement gaps
 remain, as does the human golden-shift acceptance. This checkpoint does not
 close the broader geometry, narrative or visual-quality review.
+
+## Bedding geometry renewal
+
+The current test-authored room receipt was renewed after the October 12 bedding
+polish, with the same rooms, route scope and passing check counts. Its wrapper
+is **art/renders/orison_v2/bedding_polish_20261012/final-completion-access.log.receipt.json**.
+The original wrapper and images above remain historical; this renewal grants
+no additional requirement status or human acceptance.
