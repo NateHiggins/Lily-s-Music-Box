@@ -433,6 +433,11 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: media AC supply refused: %s" % [media_supply.errors])
 		return
+	var battery_supply := preload("res://scripts/building/orison_v2_media_battery_supply.gd").new()
+	if not battery_supply.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: media battery supply refused: %s" % [battery_supply.errors])
+		return
 	var accessories := preload("res://scripts/building/orison_v2_household_accessories.gd").new()
 	if not accessories.mount(adapter):
 		startup_failed = true

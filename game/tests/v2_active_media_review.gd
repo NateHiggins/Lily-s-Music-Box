@@ -10,6 +10,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	_check_household_radios(world, retained)
 	await _check_projectors(world, retained)
 	_check_ac_supplies(world)
+	_check_battery_supplies(world)
 	for radio: Node in world.find_children("DomesticRadio_*", "Node3D", true, false):
 		if not radio is DomesticRadioProp: continue
 		check(radio.has_meta("v2_native_active_receiver"), "active receiver uses native stock")
@@ -48,6 +49,30 @@ func _check_ac_supplies(world: OrisonV2RuntimeRoot) -> void:
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
 		check(not hit.is_empty() and abs(hit.position.y-outlet.global_position.y)<.001 and hit.normal.y>.99,"floor receptacle bears on actual installed floor")
 
+func _check_battery_supplies(world: OrisonV2RuntimeRoot) -> void:
+	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/media_battery_supply.json"))
+	check(data.installations.size()==8,"eight original external-battery receivers have complete supplies")
+	for row: Dictionary in data.installations:
+		var radio := world.adapter.resolve(str(row.id)) as DomesticRadioProp
+		var support := world.adapter.resolve(str(row.support)) as Node3D
+		var ref: WeakRef=radio.get_meta("v2_media_battery_supply",null)
+		check(ref!=null,"battery receiver has physical supply")
+		if ref==null: continue
+		var root := ref.get_ref() as Node3D
+		check(root!=null and root.get_parent()==support,"battery tray retains source furniture frame")
+		if root==null: continue
+		retained.append(ref)
+		check(root.get_child_count()==data.shared.size()+row.parts.size()+2,"both batteries four leads terminal strip clip and labels are present")
+		for child: Node in root.get_children():
+			retained.append(weakref(child))
+			if child is MeshInstance3D: check(child.mesh is ArrayMesh,"battery supply uses native mapped stock")
+		var query := PhysicsRayQueryParameters3D.create(root.global_position+Vector3.UP*.01,root.global_position-Vector3.UP*.025)
+		var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
+		check(not hit.is_empty() and abs(hit.position.y-root.global_position.y)<.001 and hit.normal.y>.99,"battery tray bears on installed floor")
+	for radio: Node in world.find_children("DomesticRadio_*","Node3D",true,false):
+		if radio is DomesticRadioProp and radio.family in ["crystal_set","portable_four_valve","atwater_kent_44","radiola_table"]:
+			check(not radio.has_meta("v2_media_battery_supply"),"passive portable and AC sets receive no external battery invention")
+
 func _capture_media(world: OrisonV2RuntimeRoot) -> void:
 	var directory := OS.get_environment("SHOT_DIR")
 	if directory.is_empty() or DisplayServer.get_name() == "headless": return
@@ -75,6 +100,14 @@ func _capture_media(world: OrisonV2RuntimeRoot) -> void:
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(directory.path_join("media_projector_"+unit+".png"))
 		if not was_on: prop.interact(world.player)
+	var batteries: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/media_battery_supply.json"))
+	for record: Dictionary in batteries.installations:
+		var support := world.adapter.resolve(str(record.support)) as Node3D
+		var stance := world.adapter.resolve(str(record.id)+"_STANCE") as Node3D
+		camera.global_position=stance.global_position+Vector3.UP*.60
+		camera.look_at(support.to_global(Vector3(0,.22,0)),Vector3.UP);camera.make_current()
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(directory.path_join("battery_"+str(record.id)+".png"))
 	camera.free();world.player.camera.make_current()
 
 func validate_after_teardown() -> Dictionary:

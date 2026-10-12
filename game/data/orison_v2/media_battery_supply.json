@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/media_battery_supply.glb",
+  "shared": [
+    {
+      "name": "BatteryTray",
+      "material": "oak_quartered"
+    },
+    {
+      "name": "FilamentBatteryCase",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "FilamentBatteryCaps",
+      "material": "bakelite_black"
+    },
+    {
+      "name": "PlateBatteryWrapper",
+      "material": "paper"
+    },
+    {
+      "name": "PlateBatteryTop",
+      "material": "bakelite_black"
+    },
+    {
+      "name": "BatteryBindingPosts",
+      "material": "brass_dull"
+    },
+    {
+      "name": "BatteryHandles",
+      "material": "iron_neutral"
+    }
+  ],
+  "installations": [
+    {
+      "id": "DomesticRadio_2B",
+      "support": "2B_wireless_table",
+      "parts": [
+        {
+          "name": "DomesticRadio_2B_TerminalStrip",
+          "material": "bakelite_black"
+        },
+        {
+          "name": "DomesticRadio_2B_TerminalPosts",
+          "material": "brass_dull"
+        },
+        {
+          "name": "DomesticRadio_2B_Lead0",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_2B_Lead1",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_2B_Lead2",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_2B_Lead3",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_2B_LoomClip",
+          "material": "iron_neutral"
+        }
+      ]
+    },
+    {
+      "id": "DomesticRadio_3B",
+      "support": "3B_wireless_table",
+      "parts": [
+        {
+          "name": "DomesticRadio_3B_TerminalStrip",
+          "material": "bakelite_black"
+        },
+        {
+          "name": "DomesticRadio_3B_TerminalPosts",
+          "material": "brass_dull"
+        },
+        {
+          "name": "DomesticRadio_3B_Lead0",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_3B_Lead1",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_3B_Lead2",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_3B_Lead3",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_3B_LoomClip",
+          "material": "iron_neutral"
+        }
+      ]
+    },
+    {
+      "id": "DomesticRadio_4B",
+      "support": "4B_wireless_table",
+      "parts": [
+        {
+          "name": "DomesticRadio_4B_TerminalStrip",
+          "material": "bakelite_black"
+        },
+        {
+          "name": "DomesticRadio_4B_TerminalPosts",
+          "material": "brass_dull"
+        },
+        {
+          "name": "DomesticRadio_4B_Lead0",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_4B_Lead1",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_4B_Lead2",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_4B_Lead3",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_4B_LoomClip",
+          "material": "iron_neutral"
+        }
+      ]
+    },
+    {
+      "id": "DomesticRadio_6B",
+      "support": "6B_wireless_table",
+      "parts": [
+        {
+          "name": "DomesticRadio_6B_TerminalStrip",
+          "material": "bakelite_black"
+        },
+        {
+          "name": "DomesticRadio_6B_TerminalPosts",
+          "material": "brass_dull"
+        },
+        {
+          "name": "DomesticRadio_6B_Lead0",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_6B_Lead1",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_6B_Lead2",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_6B_Lead3",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_6B_LoomClip",
+          "material": "iron_neutral"
+        }
+      ]
+    },
+    {
+      "id": "DomesticRadio_6C",
+      "support": "6C_wireless_table",
+      "parts": [
+        {
+          "name": "DomesticRadio_6C_TerminalStrip",
+          "material": "bakelite_black"
+        },
+        {
+          "name": "DomesticRadio_6C_TerminalPosts",
+          "material": "brass_dull"
+        },
+        {
+          "name": "DomesticRadio_6C_Lead0",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_6C_Lead1",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_6C_Lead2",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_6C_Lead3",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_6C_LoomClip",
+          "material": "iron_neutral"
+        }
+      ]
+    },
+    {
+      "id": "DomesticRadio_1D",
+      "support": "1D_wireless_table",
+      "parts": [
+        {
+          "name": "DomesticRadio_1D_TerminalStrip",
+          "material": "bakelite_black"
+        },
+        {
+          "name": "DomesticRadio_1D_TerminalPosts",
+          "material": "brass_dull"
+        },
+        {
+          "name": "DomesticRadio_1D_Lead0",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_1D_Lead1",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_1D_Lead2",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_1D_Lead3",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_1D_LoomClip",
+          "material": "iron_neutral"
+        }
+      ]
+    },
+    {
+      "id": "DomesticRadio_2C",
+      "support": "2C_wireless_table",
+      "parts": [
+        {
+          "name": "DomesticRadio_2C_TerminalStrip",
+          "material": "bakelite_black"
+        },
+        {
+          "name": "DomesticRadio_2C_TerminalPosts",
+          "material": "brass_dull"
+        },
+        {
+          "name": "DomesticRadio_2C_Lead0",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_2C_Lead1",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_2C_Lead2",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_2C_Lead3",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_2C_LoomClip",
+          "material": "iron_neutral"
+        }
+      ]
+    },
+    {
+      "id": "DomesticRadio_4D",
+      "support": "4D_wireless_table",
+      "parts": [
+        {
+          "name": "DomesticRadio_4D_TerminalStrip",
+          "material": "bakelite_black"
+        },
+        {
+          "name": "DomesticRadio_4D_TerminalPosts",
+          "material": "brass_dull"
+        },
+        {
+          "name": "DomesticRadio_4D_Lead0",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_4D_Lead1",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_4D_Lead2",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_4D_Lead3",
+          "material": "linen"
+        },
+        {
+          "name": "DomesticRadio_4D_LoomClip",
+          "material": "iron_neutral"
+        }
+      ]
+    }
+  ]
+}

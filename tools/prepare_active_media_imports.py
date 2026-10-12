@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,re
 ROOT=Path(__file__).resolve().parents[1]
 template=(ROOT/'game/assets/props/roof_lighting_supply.glb.import').read_text(encoding='utf-8')
-for name in ['active_household_radios','active_household_projector','media_ac_supply']:
+for name in ['active_household_radios','active_household_projector','media_ac_supply','media_battery_supply']:
     target=ROOT/f'game/assets/props/{name}.glb.import'
     if target.exists():continue
     source=f'res://assets/props/{name}.glb'

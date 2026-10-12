@@ -1,0 +1,146 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "schema_version": 1,
+  "intent": "Eight external receiver battery supplies. Separate A filament and B plate battery forms on fitted floor trays. Original appliance authority retained. No exact manufacturer or voltage claim. Portable internal battery, antenna/ground and speaker interconnects remain separate work.",
+  "sources": [
+    {
+      "url": "https://americanhistory.si.edu/collections/object/nmah_709065",
+      "basis": "Smithsonian Deal 300 radio B battery dated June 1928; form reference only."
+    },
+    {
+      "url": "https://collection.sciencemuseumgroup.org.uk/objects/co8356363/drydex-ht-radio-battery",
+      "basis": "General dry-battery/accumulator and multiple terminal supply principle; undated object is not used as exact 1928 brand evidence."
+    }
+  ],
+  "installations": [
+    {
+      "id": "DomesticRadio_2B",
+      "support": "2B_wireless_table",
+      "unit": "2B",
+      "family": "three_dial_battery",
+      "position": [
+        0.08,
+        0.745,
+        0
+      ],
+      "dimensions": [
+        0.48,
+        0.23,
+        0.24
+      ]
+    },
+    {
+      "id": "DomesticRadio_3B",
+      "support": "3B_wireless_table",
+      "unit": "3B",
+      "family": "three_dial_battery",
+      "position": [
+        -0.08,
+        0.745,
+        0
+      ],
+      "dimensions": [
+        0.48,
+        0.23,
+        0.24
+      ]
+    },
+    {
+      "id": "DomesticRadio_4B",
+      "support": "4B_wireless_table",
+      "unit": "4B",
+      "family": "three_dial_battery",
+      "position": [
+        0.08,
+        0.745,
+        0
+      ],
+      "dimensions": [
+        0.48,
+        0.23,
+        0.24
+      ]
+    },
+    {
+      "id": "DomesticRadio_6B",
+      "support": "6B_wireless_table",
+      "unit": "6B",
+      "family": "marconiphone_v2",
+      "position": [
+        0.08,
+        0.745,
+        0
+      ],
+      "dimensions": [
+        0.45,
+        0.24,
+        0.28
+      ]
+    },
+    {
+      "id": "DomesticRadio_6C",
+      "support": "6C_wireless_table",
+      "unit": "6C",
+      "family": "marconiphone_v2",
+      "position": [
+        -0.08,
+        0.745,
+        0
+      ],
+      "dimensions": [
+        0.45,
+        0.24,
+        0.28
+      ]
+    },
+    {
+      "id": "DomesticRadio_1D",
+      "support": "1D_wireless_table",
+      "unit": "1D",
+      "family": "crosley_pup",
+      "position": [
+        0.0,
+        0.75,
+        0
+      ],
+      "dimensions": [
+        0.18,
+        0.19,
+        0.13
+      ]
+    },
+    {
+      "id": "DomesticRadio_2C",
+      "support": "2C_wireless_table",
+      "unit": "2C",
+      "family": "homebrew_regenerative",
+      "position": [
+        0.0,
+        0.75,
+        0
+      ],
+      "dimensions": [
+        0.5,
+        0.045,
+        0.29
+      ]
+    },
+    {
+      "id": "DomesticRadio_4D",
+      "support": "4D_wireless_table",
+      "unit": "4D",
+      "family": "crosley_pup",
+      "position": [
+        0.0,
+        0.75,
+        0
+      ],
+      "dimensions": [
+        0.18,
+        0.19,
+        0.13
+      ]
+    }
+  ]
+}

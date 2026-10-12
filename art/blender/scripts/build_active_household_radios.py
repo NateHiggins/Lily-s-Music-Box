@@ -5,7 +5,8 @@ speakers have real shells/supports, controls are separate moving stock. Museum
 references inform form only; no photographs or lettering are baked into maps.
 """
 from pathlib import Path
-import ast,collections,hashlib,json,math
+import ast,collections,hashlib,json,math,sys
+import numpy as np
 import bpy,bmesh
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
@@ -56,11 +57,15 @@ def wire(label,points,r,key):
 def cabinet(w,h,d,key):
     t=.0018 if key=='enamel_appliance' else .004 if key=='bakelite_black' else .006
     box('Bottom',(w,t,d),(0,t/2,0),key)
-    box('Top',(w,t,d),(0,h-t/2,0),key,component='Cover')
+    top=cube((w,t,d),(0,h-t/2,0))
+    if (w,h,d) in [(.48,.23,.24),(.45,.24,.28),(.18,.19,.13)]:
+        for x in [-.03,-.01,.01,.03]:cut(top,cylinder(.0021,.025,(x,h,d/2-.025)))
+    stock('Top',[top],key,component='Cover')
     for side in [-1,1]:box('Side'+str(side),(t,h-2*t,d),(side*(w-t)/2,h/2,0),key)
-    back=box('Back',(w-2*t,h-2*t,t),(0,h/2,d/2-t/2),key,component='Back')
+    back=cube((w-2*t,h-2*t,t),(0,h/2,d/2-t/2))
     if key=='enamel_appliance' or (w,h,d)==(.58,.33,.25):
         bore=cylinder(.0065,.025,(.030,.085,d/2));bore.rotation_euler.x=math.pi/2;cut(back,bore)
+    stock('Back',[back],key,component='Back')
     box('ControlPanel',(w-2*t,h-2*t,.008),(0,h/2,-d/2-.002),'bakelite_black')
 def dial(x,y,z,r,label):
     axial(label+'Scale',r,.002,(x,y,z),'paper')
@@ -144,7 +149,9 @@ for family in ['crystal_set','homebrew_regenerative']:
         wire('Whisker',[(.095,.075,-.025),(.055,.155,-.025),(.145,.075,-.025)],.002,'brass_dull')
         axial('DetectorCup',.027,.042,(.145,.075,-.025),'brass_dull',axis='y')
     else:
-        box('Base',(.50,.045,.29),(0,.0225,0),'wood_dark')
+        base=cube((.50,.045,.29),(0,.0225,0))
+        for x in [-.03,-.01,.01,.03]:cut(base,cylinder(.0021,.065,(x,.030,.120)))
+        stock('Base',[base],'wood_dark')
         box('Panel',(.47,.19,.030),(0,.125,-.115),'bakelite_black')
         for i,x in enumerate([-.14,0,.14]):
             dial(x,.145,-.135,.047,'Dial'+str(i))
@@ -232,9 +239,29 @@ for obj in [o for o in bpy.context.scene.objects if o.type=='MESH']:
     bad=sum(abs((Vector(layer.data[f.loop_indices[1]].uv)-Vector(layer.data[f.loop_indices[0]].uv)).cross(Vector(layer.data[f.loop_indices[2]].uv)-Vector(layer.data[f.loop_indices[0]].uv)))<=1e-12 for f in obj.data.polygons)
     assert closed and volume>0 and bad==0,(obj.name,closed,volume,bad)
     parts.append({'name':obj.name,'closed':closed,'volume':volume,'triangles':len(obj.data.polygons),'collapsed_uv':bad})
+# Per-corner derivative guides split tangent discontinuities without flattening
+# curved speaker/cabinet normals. Export signs use the final glTF coordinates.
+for obj in bpy.context.scene.objects:
+    if obj.type!='MESH':continue
+    mesh=obj.data;uv=mesh.uv_layers.active
+    guide=mesh.attributes.new(name='_tangent_guide',type='FLOAT_VECTOR',domain='CORNER')
+    for face in mesh.polygons:
+        points=[mesh.vertices[i].co for i in face.vertices]
+        q=[Vector(uv.data[i].uv) for i in face.loop_indices]
+        a=q[1]-q[0];b=q[2]-q[0];det=a.cross(b)
+        tangent=((points[1]-points[0])*b.y-(points[2]-points[0])*a.y)/det;tangent.normalize()
+        for loop in face.loop_indices:guide.data[loop].vector=(tangent.x,tangent.z,-tangent.y)
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/active_household_radios.blend'))
+export_helper=Path(__file__).with_name('build_media_battery_supply.py')
+export_tree=ast.parse(export_helper.read_text(encoding='utf-8'))
+exec(compile(ast.Module(body=[n for n in export_tree.body if isinstance(n,ast.ClassDef) and n.name=='ExportDerivatives'],type_ignores=[]),str(export_helper),'exec'))
+import io_scene_gltf2
+io_scene_gltf2.glTF2ExportUserExtension=ExportDerivatives
 asset=ROOT/'game/assets/props/active_household_radios.glb'
-bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',export_apply=True,export_tangents=True,export_lights=False,export_cameras=False)
+bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',export_apply=True,export_tangents=True,export_attributes=True,export_lights=False,export_cameras=False)
+sys.path.insert(0,str(Path(__file__).parent))
+from check_exported_tangents import validate
+validate(asset)
 data={'schema_version':1,'asset':'res://assets/props/active_household_radios.glb','families':[{'id':key,'parts':rows} for key,rows in family_rows.items()],'speakers':[{'id':key,'parts':rows} for key,rows in speaker_rows.items()]}
 (ROOT/'game/data/orison_v2/active_household_radios.json').write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8',newline='\n')
 (OUT/'radio-construction.json').write_text(json.dumps({'evidence_class':'INERT','asset_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),'parts':parts,'scope':'Native stock only. Installed contacts, original controls/audio and composed render proof remain required.'},indent=2)+'\n',encoding='utf-8',newline='\n')
