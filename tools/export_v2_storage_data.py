@@ -8,7 +8,7 @@ import json
 import math
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[1]
 plan = json.loads((ROOT / "art/data/resident_storage/source_plan.json").read_text(encoding="utf-8"))
 assert len(plan["stock_fit_review"]) == 16
 assert all(row["inside_bay"] and row["floor_bearing"] for row in plan["stock_fit_review"])
