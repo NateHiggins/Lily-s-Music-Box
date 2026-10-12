@@ -5,7 +5,7 @@ const PATH := "res://data/orison_v2/domestic_fittings.json"
 const Shower := preload("res://scripts/building/orison_v2_shower.gd")
 const Sink := preload("res://scripts/building/orison_v2_sink.gd")
 const SCRIPTS := {
-	"sink": preload("res://scripts/props/tap_prop.gd"),
+	"sink": preload("res://scripts/building/orison_v2_kitchen_sink.gd"),
 	"shower": preload("res://scripts/props/tap_prop.gd"),
 	"stove": preload("res://scripts/building/orison_v2_stove.gd"),
 	"fridge": preload("res://scripts/building/orison_v2_fridge.gd")}
@@ -85,6 +85,7 @@ func mount_source(adapter: Variant, parsed: Variant) -> bool:
 		if record.kind == "sink" and not Sink.new().mount(consumer as TapProp):
 			errors.append("sink collision/control mounting failed: " + str(record.id))
 			return false
+		if record.kind == "sink": consumer.call("install_kitchen_stand")
 		if record.kind == "shower" and not Shower.new().mount(consumer as TapProp):
 			errors.append("shower collision/control mounting failed: " + str(record.id))
 			return false

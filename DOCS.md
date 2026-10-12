@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Native kitchen faucets, fitted sink frames and independent hot/cold checks | `design/V2_KITCHEN_SINKS_2026-10-12.md` |
 | Native raised-panel doors, actual keyways and fitted entrance hardware | `design/V2_DOOR_POLISH_2026-10-12.md` |
 | Physical roof lighting supply, wall ports and supported overhead bridge | `design/V2_ROOF_LIGHTING_SUPPLY_2026-10-12.md` |
 | Current recheck of the historical public-stair route failures | `design/V2_PUBLIC_STAIR_ROUTE_RECHECK_2026-10-12.md` |

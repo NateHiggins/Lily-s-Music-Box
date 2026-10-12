@@ -534,6 +534,23 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "CounterCompact",
+      "parts": [
+        {
+          "name": "CounterCompact__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -635,15 +652,15 @@
     },
     {
       "id": "1A_sink_support",
-      "variant": "Counter05"
+      "variant": "CounterCompact"
     },
     {
       "id": "3D_sink_support",
-      "variant": "Counter05"
+      "variant": "CounterCompact"
     },
     {
       "id": "4D_sink_support",
-      "variant": "Counter05"
+      "variant": "CounterCompact"
     },
     {
       "id": "2A_k_wall_cupboard",

@@ -3,6 +3,7 @@ extends RefCounted
 ## Edit the catalog, mapping or runtime optical policy; never this file.
 const SETS := {
 	'door_brass': ["T_ai_materials_door_brass_albedo.png", "T_ai_materials_door_brass_rough.png", "T_ai_materials_door_brass_normal.png", 0.18, 0.92],
+	'faucet_nickel': ["T_ai_materials_faucet_nickel_albedo.png", "T_ai_materials_faucet_nickel_rough.png", "T_ai_materials_door_brass_normal.png", 0.18, 0.92],
 	'door_oak': ["T_ai_materials_door_oak_albedo.png", "T_ai_materials_door_oak_rough.png", "T_ai_materials_door_oak_normal.png", 0.6, 0],
 	'door_paint': ["T_ai_materials_door_paint_albedo.png", "T_ai_materials_door_paint_rough.png", "T_ai_materials_door_paint_normal.png", 0.3, 0],
 	'water_clear': ["T_ai_materials_water_clear_albedo.png", "T_ai_materials_water_clear_rough.png", "T_ai_materials_water_clear_normal.png", 0.25, 0],

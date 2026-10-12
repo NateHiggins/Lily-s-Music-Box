@@ -223,13 +223,17 @@ func _update_bath_plug(delta: float) -> void:
 		_bath_chain_instances.set_instance_transform(index, Transform3D(Basis.IDENTITY, at))
 
 
+func kitchen_rim_height() -> float:
+	return .905 if compact_kitchen else .90
+
+
 func _build_kitchen_sink(parent: Node3D) -> void:
 	# Mott's smallest cheap roll-rim sink was 24 x 18 x 6 inches. The full
 	# size fits the standard run; 4B keeps its existing 500 mm opening and
 	# separate rack rather than pretending the hob has room for a board.
 	var w := 0.50 if compact_kitchen else 0.61
 	var d := 0.38 if compact_kitchen else 0.46
-	var top := 0.905 if compact_kitchen else 0.90
+	var top := kitchen_rim_height()
 	_open_rect_basin(parent, Vector3(0, top, 0), w, d, 0.15, ENAMEL)
 	var panel_d := 0.035
 	var panel_c := d * 0.5 - 0.004

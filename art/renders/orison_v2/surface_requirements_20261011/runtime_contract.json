@@ -1,5 +1,5 @@
 {
-	"checks": 23917,
+	"checks": 25480,
 	"contracts": {
 		"production_composition": {
 			"executed": true,
@@ -22,21 +22,21 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 140.686,
+		"elapsed_s": 146.654,
 		"exit_code": 0,
 		"timed_out": false
 	},
 	"failures": [],
-	"inventory_sha256": "f273811ccf5606a20b25c68c04c36ff48017a39667fa6f6ddcea939cd18f7fd2",
+	"inventory_sha256": "ea3a1b4317fbfbe82c6c24fe726875b14704ffec66ca42cbac3043f70d38bf9c",
 	"production_runtime": true,
 	"schema_version": 2,
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "8e762f49704a18cb4b7d53f09679e267dfd0c659",
-		"runtime_inputs_sha256": "420536da5c10b41ced15cfd4fa1fd9274e45f451cdbe8299b8420b932e1eeaed",
+		"repository_head": "d7950cadbc303b586d2b257fe72467e33b2b7c01",
+		"runtime_inputs_sha256": "716a260e2c81d76be48640b203ab1fffc5583f46a4dbb5ef2a1de6d41423a120",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
-		"test_sha256": "8f29e9686d76a3e16d3d062fbe3d78452c4d6cf756a7da3d85aaab56a8358b39"
+		"test_sha256": "3b92c39a4cbbe65ceaee3c752adbbb13e217df11510a59ea54143a234fb3be40"
 	},
-	"surface_inputs_sha256": "5a9aec6297a878ac621571dc003aecd6a3d70f2fd3078d3909f4d29e9929cd43"
+	"surface_inputs_sha256": "724be5f73b63a91a109b4902434ae75398771331a1556b32a3ea820113c51218"
 }

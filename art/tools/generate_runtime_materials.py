@@ -27,6 +27,7 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
     "door_brass": {},
+    "faucet_nickel": {},
     "door_oak": {},
     "door_paint": {},
     "water_clear": {},
@@ -48,7 +49,7 @@ RUNTIME_POLICY = {
     "nickel_plated": {"roughness_multiplier": 0.82},
     # Tarnished silvering, not polished chrome: with no reflections on the
     # Compatibility renderer, metallic 0.78 / roughness 0.18 rendered every
-    # medicine-cabinet mirror as a black void (the flat-metal lesson — the
+    # medicine-cabinet mirror as a black void (the flat-metal lesson â€” the
     # surface reflects the room's light away from the eye). Worn mercury
     # glass behaves like its haze: metallic drops in the manifest (0.35)
     # and the roughness response rises here.

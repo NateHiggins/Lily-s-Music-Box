@@ -171,6 +171,12 @@
       "kind": "shelf",
       "cell": "shared",
       "source_record": "3B_tools0"
+    },
+    {
+      "id": "CounterCompact",
+      "kind": "counter",
+      "cell": "shared",
+      "source_record": "2A_sink_support"
     }
   ],
   "closed_stocks": [
@@ -4013,6 +4019,72 @@
       "assembly": "Shelf14",
       "key": "kraft",
       "volume_m3": 0.0013230515512161801
+    },
+    {
+      "name": "CounterCompact_CompactLeg(-0.251, -0.19)",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.0007789252813838749
+    },
+    {
+      "name": "CounterCompact_CompactLeg(-0.251, 0.19)",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.0007789252813838749
+    },
+    {
+      "name": "CounterCompact_CompactLeg(0.654, -0.19)",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.0007789260560676938
+    },
+    {
+      "name": "CounterCompact_CompactLeg(0.654, 0.19)",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.0007789260560676938
+    },
+    {
+      "name": "CounterCompact_CompactRail-0.19",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.0006535109449207098
+    },
+    {
+      "name": "CounterCompact_CompactLipSeat-0.19",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 3.718987296924938e-05
+    },
+    {
+      "name": "CounterCompact_CompactRail0.19",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.0006535109449207089
+    },
+    {
+      "name": "CounterCompact_CompactLipSeat0.19",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 3.718987296924981e-05
+    },
+    {
+      "name": "CounterCompact_CompactEnd-0.251",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.00041537270049475314
+    },
+    {
+      "name": "CounterCompact_CompactEnd0.251",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.00041537270049475314
+    },
+    {
+      "name": "CounterCompact_CompactEnd0.654",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.00037757673772859145
     }
   ],
   "contacts": [
@@ -4855,6 +4927,66 @@
         0
       ],
       "label": "shelf foot11"
+    },
+    {
+      "assembly": "CounterCompact",
+      "owner": "support",
+      "point": [
+        -0.251,
+        0,
+        0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "compact sink foot(-0.251, -0.19)"
+    },
+    {
+      "assembly": "CounterCompact",
+      "owner": "support",
+      "point": [
+        -0.251,
+        0,
+        -0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "compact sink foot(-0.251, 0.19)"
+    },
+    {
+      "assembly": "CounterCompact",
+      "owner": "support",
+      "point": [
+        0.654,
+        0,
+        0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "compact sink foot(0.654, -0.19)"
+    },
+    {
+      "assembly": "CounterCompact",
+      "owner": "support",
+      "point": [
+        0.654,
+        0,
+        -0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "compact sink foot(0.654, 0.19)"
     }
   ],
   "parts": [
@@ -5144,9 +5276,16 @@
       "cell": "shared",
       "key": "trim",
       "triangles": 2256
+    },
+    {
+      "name": "CounterCompact__metal",
+      "assembly": "CounterCompact",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 2068
     }
   ],
-  "triangles": 120580,
+  "triangles": 122648,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -5684,6 +5823,23 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "CounterCompact",
+        "parts": [
+          {
+            "name": "CounterCompact__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -5785,15 +5941,15 @@
       },
       {
         "id": "1A_sink_support",
-        "variant": "Counter05"
+        "variant": "CounterCompact"
       },
       {
         "id": "3D_sink_support",
-        "variant": "Counter05"
+        "variant": "CounterCompact"
       },
       {
         "id": "4D_sink_support",
-        "variant": "Counter05"
+        "variant": "CounterCompact"
       },
       {
         "id": "2A_k_wall_cupboard",
@@ -5898,17 +6054,17 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "828545a39945b6c0ac53bad742b49818db2dbc66360495decefbc917ef273d41",
+  "asset_sha256": "ef6734e7a1d942ec2619bb895406a6298a48ebe50447108abb97a97d9ffa400f",
   "source_bindings": {
-    "art/data/domestic_storage/source_plan.json": "385dc752b36112b061b84be94b72418192a58d4160a93300074f5c50fed0f486",
+    "art/data/domestic_storage/source_plan.json": "70bc3840cdecd1987a70cd100a6586ed3da1942e2b08cf019262e0aac487f3d8",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_domestic_storage.py": "a78cf3a006d9c1624ef894c465a012888f8161010fc916c149f8ad40e3b189a4",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
-    "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
+    "game/data/runtime_material_sets.json": "4b41d49113edf840b7fb7c20bfb9d07a7a481615efa97893de3cce2b7e2d1eb3",
+    "game/scripts/generated/material_sets.gd": "0429048e9fc8d2a9d7e71db9c8fdd22492653160009cb2a775864117be3438c1",
     "game/assets/props/domestic_storage.glb.import": "858b2eb9341a8177e486fab40b094a50b84fa6c25c9138d93de61ca853a3b8ae",
     "art/textures/ai_materials/metal/material.json": "068d94125da30962359281c99868ebf22999f50e10397310a878e70af43fbc13",
     "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
@@ -5942,44 +6098,34 @@
     "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
     "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
     "game/assets/building/textures/T_library_furniture_book_navy_albedo.png": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1",
-    "game/assets/building/textures/T_library_furniture_book_navy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_navy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
-    "game/assets/building/textures/T_library_furniture_book_ochre_albedo.png": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983",
-    "game/assets/building/textures/T_library_furniture_book_ochre_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_ochre_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
-    "game/assets/building/textures/T_library_furniture_book_teal_albedo.png": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef",
-    "game/assets/building/textures/T_library_furniture_book_teal_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_teal_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
-    "game/assets/building/textures/T_library_furniture_book_brown_albedo.png": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e",
-    "game/assets/building/textures/T_library_furniture_book_brown_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_brown_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
-    "game/assets/building/textures/T_library_furniture_book_burgundy_albedo.png": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9",
     "game/assets/building/textures/T_library_furniture_book_burgundy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
     "game/assets/building/textures/T_library_furniture_book_burgundy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_ochre_albedo.png": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983",
+    "game/assets/building/textures/T_library_furniture_book_teal_albedo.png": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef",
+    "game/assets/building/textures/T_library_furniture_book_brown_albedo.png": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e",
+    "game/assets/building/textures/T_library_furniture_book_burgundy_albedo.png": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9",
     "game/assets/building/textures/T_library_furniture_book_green_albedo.png": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f",
-    "game/assets/building/textures/T_library_furniture_book_green_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_green_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
     "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
     "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
     "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
-    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
-    "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
-    "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
-    "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
+    "art/tools/fix_runtime_texture_imports.py": "b8cbde25553ddfdce14d28f3fa0793a9c36cde7c6ee047ffad3e8da6f98491f2",
+    "art/data/material_catalog.json": "f0819f8e682b06ff625f92cca69001d07b411545601856b3cce697d292b0eda4",
+    "art/textures/catalog_mapping.json": "6d8409f2550cbbaae90737835edc3108cbec6b1e11f7293103ef22057a34922f",
+    "art/tools/generate_runtime_materials.py": "06002304fdc7b6d29955dac69f0c54ff2a28686da739279d857e357fb02360b7",
     "art/blender/scripts/inspect_domestic_storage.py": "6983b0b46d292cc2fcdf8bb05fa764fd8b3b8c3a973a15e5e148afab9b29d36d",
     "art/blender/scripts/render_domestic_storage.py": "8947b65d2e99d41ca1acbeb33075a5852bfbe2d7d8e7158c04657db20912e6b5",
-    "art/blender/scripts/domestic_storage_geometry.py": "415e13c597fc9db178da476d6e95dfc523b309bf65dc741d9a742835305a3c6f",
+    "art/blender/scripts/domestic_storage_geometry.py": "eda43d567fba33c9598f29f8bdb0d6cf9b77425a96cb47faaa6401527e3dbbdf",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "235fc546998ef070d4d3e12eb7c1d109bc62a0f652866bc9bac847a9fbbc8796",
-    "game/data/orison_v2/completion_interiors.json": "a6c5fb7ae24bc1de84f901de1332a55346c968c8ca7904db65a018eec33b444c",
-    "art/data/orison_v2/completion_interiors_source.json": "e468e46793e5fc57b3d7d467ba140f547200b1af5783771d849e5731313c77b0",
+    "game/data/orison_v2/domestic_furniture.json": "cc91252a2630d26b2632f5e266350378a321f0646e859367346b848b711d4c93",
+    "game/data/orison_v2/completion_interiors.json": "ad4c99dd215a65ea7a9798ae2fa30ef683e7292811526796fbe99d5aa82de97c",
+    "art/data/orison_v2/completion_interiors_source.json": "1192535726f975822f15a2dddd564ed040931c5361cb35de944ad44762e89562",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
-    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "11731012ba017b828aa554f24dd17e0a7a17b6b772d6a9a0982ea669787de6ef",
+    "game/shaders/lamp_glass_surface.gdshader": "61a6c7de7497a95d1ea3c09773c48da5be9a18bb75c6265e997fc8d69587c1d0",
     "art/blender/scripts/inspect_domestic_storage_context.py": "ab912be72c857d6931850336322a5b151ced26783da15f3ba75c2f9b94367b6d",
-    "game/data/orison_v2_blockout.json": "ea2c72f4d2261be95722c1ba7dc3709dd675b545f5789f3299e84afccc8a8366",
+    "game/data/orison_v2_blockout.json": "6e686b22b21c3db4aa63dd9da40ceb608a976a0f18a12f5ee2cba5abf58519f6",
     "art/blender/work_tables.blend": "ffc309d94421baa1307cffe02ba2b375b80329c1f98849e4ee4902c9bdd660c6",
-    "game/data/orison_v2/domestic_surface_props.json": "82e151adef3a647cb6b2a34187a76ccd47e0d3c538c32dca76230b48a0844ce6",
+    "game/data/orison_v2/domestic_surface_props.json": "20ec7e5a42f4db8d81db0eb63707b59aaa1eeafa053e8881d38d30800552acae",
     "game/tests/fixtures/orison_surface_stock.json": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4"
   },
   "retained_stock": [
@@ -7101,6 +7247,23 @@
         "Shelf14_BulbCarton3",
         "Shelf14_BulbCarton4",
         "Shelf14_BulbCarton5"
+      ]
+    },
+    {
+      "assembly": "CounterCompact",
+      "id": "CounterCompact_JoinedStorage",
+      "stocks": [
+        "CounterCompact_CompactLeg(-0.251, -0.19)",
+        "CounterCompact_CompactLeg(-0.251, 0.19)",
+        "CounterCompact_CompactLeg(0.654, -0.19)",
+        "CounterCompact_CompactLeg(0.654, 0.19)",
+        "CounterCompact_CompactRail-0.19",
+        "CounterCompact_CompactLipSeat-0.19",
+        "CounterCompact_CompactRail0.19",
+        "CounterCompact_CompactLipSeat0.19",
+        "CounterCompact_CompactEnd-0.251",
+        "CounterCompact_CompactEnd0.251",
+        "CounterCompact_CompactEnd0.654"
       ]
     }
   ],

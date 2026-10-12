@@ -146,6 +146,20 @@ def countertop_ring():
  bpy.context.view_layer.objects.active=obj;mod=obj.modifiers.new('Worktop eased edges','BEVEL');mod.width=.001;mod.segments=3;bpy.ops.object.modifier_apply(modifier=mod.name)
 
 def counter(row,p):
+ if p.get('compact_sink_frame',False):
+  # The compact bowl still has its 420 mm drainboard. Support both, with
+  # rail tops meeting the board underside and a 3.5 mm seat under the lip.
+  for x in [-.251,.654]:
+   for y in [-.19,.19]:
+    stock('CompactLeg'+str((x,y)),(x-.015,y-.015,0),(x+.015,y+.015,.8665),'metal',.001)
+    foot('compact sink foot'+str((x,y)),x,y)
+  for y in [-.19,.19]:
+   stock('CompactRail'+str(y),(-.266,y-.01,.8665),(.669,y+.01,.9015),'metal',.001)
+   stock('CompactLipSeat'+str(y),(-.266,y-.01,.9015),(.266,y+.01,.905),'metal',.0003)
+  for x in [-.251,.251,.654]:
+   top=.9015 if x>.6 else .905
+   stock('CompactEnd'+str(x),(x-.015,-.18,.8665),(x+.015,.18,top),'metal',.001)
+  return
  surfaces={s['material']:s for s in row['surfaces']}
  if 'countertop' in surfaces:
   countertop_ring()

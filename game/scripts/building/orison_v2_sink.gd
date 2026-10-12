@@ -17,7 +17,7 @@ func mount(tap: TapProp) -> bool:
 		# Match the shared roll-rim sink and its integral splash panel.
 		var width := .50 if tap.compact_kitchen else .61
 		var depth := .38 if tap.compact_kitchen else .46
-		var top := .905 if tap.compact_kitchen else .90
+		var top := tap.kitchen_rim_height()
 		rim_top = top + .02
 		panel_size = Vector3(width + .03, .16, .035)
 		panel_position = Vector3(0, top + .075, depth * .5 - .004)

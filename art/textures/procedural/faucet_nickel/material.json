@@ -1,0 +1,20 @@
+{
+  "material": "faucet_nickel",
+  "generator": "art/tools/build_faucet_nickel.py",
+  "source": "Periodic hand-buffed nickel plating: micron relief, quiet colour, fine wiping marks.\n\nNo baked illumination, lettering, photographic source or large corrosion spots.\nPatina belongs to separate recessed hardware, not random blotches on a knob.\n",
+  "seed": 19281012,
+  "meters_per_tile": 0.18,
+  "relief_mm": 0.004,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "eca9fd6fc9b9457eef864949bd30cc308b6815b70c121203cfc8ae75c69a41c1",
+    "roughness": "44795f8ced80129cc46b31988ce062126282e039411f4e04051f3f84fd7a610f",
+    "height": "f6da81be57e23aef0629b6d3b39776da4179110075d218560ab6f9960d30d96d",
+    "normal": "70ec93e51de6f8993fb7a435436356869690c136c08cf9c229f9ec1229827e40"
+  }
+}

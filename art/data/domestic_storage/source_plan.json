@@ -241,6 +241,14 @@
         "posts": "oak",
         "bulbs": true
       }
+    },
+    {
+      "id": "CounterCompact",
+      "kind": "counter",
+      "source_id": "2A_sink_support",
+      "params": {
+        "compact_sink_frame": true
+      }
     }
   ],
   "instances": [
@@ -342,15 +350,15 @@
     },
     {
       "id": "1A_sink_support",
-      "variant": "Counter05"
+      "variant": "CounterCompact"
     },
     {
       "id": "3D_sink_support",
-      "variant": "Counter05"
+      "variant": "CounterCompact"
     },
     {
       "id": "4D_sink_support",
-      "variant": "Counter05"
+      "variant": "CounterCompact"
     },
     {
       "id": "2A_k_wall_cupboard",
@@ -570,7 +578,8 @@
     "Slice 19 of the V2 environment dossier adds two low oak shelves (Shelf09, Shelf10: two boards, 0.72 m) under 3A's west windows for the propagation jars.",
     "Slice 37 of the V2 environment dossier gives 4B's equipment shelf its own bare variant (Shelf11): the Shelf01 frame without the painted bins and metal tins it inherits from 3B's tool shelf record.",
     "Slice 39 of the V2 environment dossier adds Shelf12 (2B's two fabric shelves: the Shelf01 frame without its source bins and tins, carrying standing bolts of wool suiting, voile and burgundy knit) and Shelf13 (3B's two tool shelves: Shelf01 with a six-drawer fastener cabinet and a bank of labelled tins on the third board). The cloth keys are tinted aliases of the catalogue linen.",
-    "Slice 41 of the V2 environment dossier gives the basement parts shelf its own variant (Shelf14): Shelf01 with six kraft bulb cartons on the third board. kraft is a tinted alias of the catalogue paper."
+    "Slice 41 of the V2 environment dossier gives the basement parts shelf its own variant (Shelf14): Shelf01 with six kraft bulb cartons on the third board. kraft is a tinted alias of the catalogue paper.",
+    "Compact bowls and retained drainboards in 1A, 3D and 4D receive 935 x 410 mm iron frames with 901.5 mm board bearings and 905 mm rim seats; original source actors and anchors retained."
   ],
   "open_work": [
     "Scoped native construction, production support and mechanism validation complete. Whole-room light/material balance, wardrobes, remaining appliances and fixed lighting remain in the wider V2 pass."
