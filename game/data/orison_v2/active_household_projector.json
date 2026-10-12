@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/active_household_projector.glb",
+  "parts": [
+    {
+      "name": "ProjectorBody_iron_blackened",
+      "component": "Body",
+      "material": "iron_blackened"
+    },
+    {
+      "name": "ProjectorBody_rubber_aged",
+      "component": "Body",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "ProjectorBody_brass_dull",
+      "component": "Body",
+      "material": "brass_dull"
+    },
+    {
+      "name": "ProjectorBody_bakelite_black",
+      "component": "Body",
+      "material": "bakelite_black"
+    },
+    {
+      "name": "Reel0Flange-1",
+      "component": "Reel",
+      "material": "iron_blackened"
+    },
+    {
+      "name": "Reel0Flange1",
+      "component": "Reel",
+      "material": "iron_blackened"
+    },
+    {
+      "name": "Reel0Film",
+      "component": "Reel",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "Reel0Hub",
+      "component": "Reel",
+      "material": "brass_dull"
+    },
+    {
+      "name": "Reel1Flange-1",
+      "component": "Reel",
+      "material": "iron_blackened"
+    },
+    {
+      "name": "Reel1Flange1",
+      "component": "Reel",
+      "material": "iron_blackened"
+    },
+    {
+      "name": "Reel1Film",
+      "component": "Reel",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "Reel1Hub",
+      "component": "Reel",
+      "material": "brass_dull"
+    },
+    {
+      "name": "NativeLens",
+      "component": "Lens",
+      "material": "milk_glass"
+    }
+  ]
+}

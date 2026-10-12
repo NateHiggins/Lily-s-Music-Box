@@ -22,6 +22,9 @@ func mount(adapter: Variant) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	var catalog: Variant = JSON.parse_string(FileAccess.get_file_as_string(PROFILES))
 	if not validate(source, catalog, adapter): return false
+	var native := preload("res://scripts/building/orison_v2_native_active_radios.gd").new()
+	if not native.prepare():
+		errors.append_array(native.errors); return false
 	for record: Dictionary in source.receivers:
 		var profile: Dictionary = {}
 		for candidate: Dictionary in catalog.profiles:
@@ -29,6 +32,7 @@ func mount(adapter: Variant) -> bool:
 		profile.anchor = record.support
 		profile.surface_y = record.position[1]
 		var radio := Radio.new()
+		radio.native_visuals = native
 		radio.configure(profile)
 		radio.name = record.id
 		radio.position = Vector3(record.position[0],record.position[1],record.position[2])

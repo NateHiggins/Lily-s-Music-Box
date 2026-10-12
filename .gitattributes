@@ -1846,3 +1846,19 @@ art/tools/fix_v2_mesh_imports.py -text
 game/scripts/building/orison_v2_roof_lighting_supply.gd -text
 art/renders/orison_v2/roof_supply_20261012/** -text
 art/renders/orison_v2/public_stair_review_20261012/** -text
+
+# Native active household media.
+art/blender/scripts/build_active_household_radios.py -text
+art/blender/scripts/build_active_household_projector.py -text
+art/blender/scripts/review_active_household_media.py -text
+tools/prepare_active_media_imports.py -text
+game/assets/props/active_household_radios.glb -text
+game/assets/props/active_household_radios.glb.import -text
+game/assets/props/active_household_projector.glb -text
+game/assets/props/active_household_projector.glb.import -text
+game/data/orison_v2/active_household_radios.json -text
+game/data/orison_v2/active_household_projector.json -text
+game/scripts/building/orison_v2_native_active_radios.gd -text
+game/scripts/building/orison_v2_native_active_projector.gd -text
+game/tests/v2_active_media_review.gd -text
+art/renders/orison_v2/active_media_20261012/** -text

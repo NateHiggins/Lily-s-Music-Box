@@ -4,6 +4,14 @@ extends ProjectorProp
 var _running := false
 var _on_lens: StandardMaterial3D
 var _body_materials: Dictionary = {}
+var native_visuals: RefCounted
+
+func _build_body() -> void:
+	if native_visuals == null:
+		native_visuals = preload("res://scripts/building/orison_v2_native_active_projector.gd").new()
+		if not native_visuals.prepare():
+			push_error("V2 projector native stock refused"); return
+	if not native_visuals.mount_on(self): push_error("V2 projector native mount refused")
 
 func setup_v2(unit_id: String, clip: String) -> void:
 	super.setup(null, unit_id, null)
@@ -20,7 +28,8 @@ func setup_v2(unit_id: String, clip: String) -> void:
 	glass.position = Vector3(0,.205,-.165)
 	_beam.position = Vector3(0,.205,-.18)
 	_beam.shadow_enabled = true
-	_off_mat = MatLib.get_mat("milk_glass")
+	_off_mat = MatLib.get_mat("milk_glass").duplicate() as StandardMaterial3D
+	_off_mat.uv1_triplanar = false; _off_mat.uv2_triplanar = false
 	_on_lens = _off_mat.duplicate() as StandardMaterial3D
 	_on_lens.emission_enabled = true
 	_on_lens.emission = Color(1,.83,.53)

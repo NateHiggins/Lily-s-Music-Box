@@ -6,8 +6,12 @@ var errors: Array[String] = []
 func mount(adapter: Variant) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	if not validate(source, adapter): return false
+	var native := preload("res://scripts/building/orison_v2_native_active_projector.gd").new()
+	if not native.prepare():
+		errors.append_array(native.errors); return false
 	for record: Dictionary in source.projectors:
 		var prop := Projector.new()
+		prop.native_visuals = native
 		prop.setup_v2(str(record.unit),str(record.reel))
 		prop.name = str(record.id)
 		prop.position = Vector3(record.position[0],record.position[1],record.position[2])

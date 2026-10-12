@@ -1,6 +1,7 @@
 extends "res://scripts/props/domestic_radio_prop.gd"
 ## V2 presentation over the existing household receiver's controls, event
 ## gating and audio lifetime. The source radio family remains authoritative.
+var native_visuals: RefCounted
 
 func _build_visual() -> void:
 	super._build_visual()
@@ -33,6 +34,12 @@ func _build_visual() -> void:
 		# The passive set is heard at its headphones, without a room speaker.
 		_programme.max_distance = 1.6
 		_programme.unit_size = .35
+	if native_visuals == null:
+		native_visuals = preload("res://scripts/building/orison_v2_native_active_radios.gd").new()
+		if not native_visuals.prepare():
+			push_error("V2 receiver stock refused: " + unit); return
+	if not native_visuals.mount_on(self):
+		push_error("V2 receiver native visual mount refused: " + unit)
 
 func interact_prompt() -> String:
 	if family == "crystal_set":

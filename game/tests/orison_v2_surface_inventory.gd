@@ -51,6 +51,11 @@ func _run() -> void:
 	await preload("res://tests/v2_window_treatments_review.gd").new().run(world,self)
 	await preload("res://tests/v2_millwork_weather_review.gd").new().run(world,self)
 	await preload("res://tests/v2_mail_bank_review.gd").new().run(world,self)
+	var media_review := preload("res://tests/v2_active_media_review.gd").new()
+	add_child(media_review)
+	var media_result: Dictionary = await media_review.validate_in_world(world)
+	batch_checks += int(media_result.checks)
+	for failure: String in media_result.failures: failures.append(failure)
 	# Reuse this production world for changed instrument geometry and its
 	# retained service owners, then measure retirement after the same audit.
 	var fire_review := preload("res://tests/v2_fire_service_review.gd").new()
@@ -239,6 +244,11 @@ func _run() -> void:
 	for failure: String in domestic_retired.failures:
 		if not failures.has(failure):failures.append(failure)
 	domestic_review.free()
+	var media_retired: Dictionary = media_review.validate_after_teardown()
+	batch_checks += int(media_retired.checks)-int(media_result.checks)
+	for failure: String in media_retired.failures:
+		if not failures.has(failure): failures.append(failure)
+	media_review.free()
 	var head: Array=[]; var digest: Array=[]
 	check(OS.execute("git",["-C",root,"rev-parse","HEAD"],head)==0,"record repository head")
 	check(OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],digest)==0,"record runtime input digest")
