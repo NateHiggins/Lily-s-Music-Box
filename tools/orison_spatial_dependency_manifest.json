@@ -284392,6 +284392,96 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "a9b9e28acd23cd4b",
+   "kind": "id_reference",
+   "token": "F02_A_BATH",
+   "file": "game/tests/v2_bathroom_tile_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    49
+   ],
+   "count": 1,
+   "context": [
+    "if str(room.id) not in [\"F02_A_BATH\",\"F04_B_BATH\",\"F05_C_BATH\"]: continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "98aea1c191709532",
+   "kind": "id_reference",
+   "token": "F04_B_BATH",
+   "file": "game/tests/v2_bathroom_tile_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    49
+   ],
+   "count": 1,
+   "context": [
+    "if str(room.id) not in [\"F02_A_BATH\",\"F04_B_BATH\",\"F05_C_BATH\"]: continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "677f1b8fb6cc9e7a",
+   "kind": "id_reference",
+   "token": "F05_C_BATH",
+   "file": "game/tests/v2_bathroom_tile_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    49
+   ],
+   "count": 1,
+   "context": [
+    "if str(room.id) not in [\"F02_A_BATH\",\"F04_B_BATH\",\"F05_C_BATH\"]: continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
   }
  ]
 }

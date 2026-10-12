@@ -115,3 +115,12 @@ The room receipt was renewed after the roof purpose and carried-light rotation
 changes, with the same 43 rooms and route scope. Its wrapper is
 **art/renders/orison_v2/roof_program_20261012/completion-access.log.receipt.json**.
 Earlier wrappers and images remain historical; the scope is unchanged.
+
+## Bathroom tile renewal
+
+The current source-bound receipt passes 43 rooms and 335 checks after the tile/UV
+update. Wrapper: **art/renders/orison_v2/bathroom_tiles_20261012/completion-final.log.receipt.json**.
+Scope and thresholds remain unchanged.
+The completion driver now waits for the same ordinary-input door motion to
+settle, with a three-second deadline, instead of checking at a fixed 0.6 seconds.
+It retains the original angle tolerance; it does not retry or assign door state.

@@ -78,6 +78,12 @@ contains no rotation errors. The failed diagnostic is not acceptance evidence.
 
 The affected surface, first-slice and both apartment route proofs have been
 renewed and independently validated against the current inputs. Clean candidate
-comparison is pending. This checkpoint grants only
+comparison is being completed with the bathroom tile batch. This checkpoint grants only
 spatial proof; full V2 runtime, case, narrative, visual and human-navigation
 requirements remain open.
+
+## Bathroom tile renewal
+
+The current source-bound receipt passes 9 rooms and 175 checks after the tile/UV
+update. Wrapper: **art/renders/orison_v2/bathroom_tiles_20261012/roof.log.receipt.json**.
+Scope and thresholds remain unchanged.

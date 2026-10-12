@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 74.56,
+  "exit_code": 1,
+  "finished_utc": "2026-10-12T15:25:41Z",
+  "started_utc": "2026-10-12T15:24:26Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "BATHROOM TILE PREVIEW: FAIL; failures=1"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-bathroom-tiles-20261012/preview.log.stderr",
+  "stderr_sha256": "422990922dc098a4800cec0ac616f7cef2d9cb0a599b3eaf49894256c58f69c8",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-bathroom-tiles-20261012/preview.log",
+  "stdout_sha256": "d5b8cc95774d267d6b28a153c725ef9ef81ac7b6dadd61ab4acec0bec97ff9c1"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2BathroomTilePreview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-bathroom-tiles-20261012/preview",
+ "source": {
+  "dirty_paths": 1406,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/service_instruments_construction.json",
+   " M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/radiator.png",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json"
+  ],
+  "repository_head": "0496af9ad0998735447617cb7dcadaedd3cdbae5",
+  "repository_tree": "64e783ab67451f86f04e49cb9a8c4ea426aa530a",
+  "runtime_inputs_sha256": "833937c127e150a163ac0d1ca3404367646944224e31d5c15a731359597a595d",
+  "test_path": "game/tests/v2_bathroom_tile_preview.gd",
+  "test_sha256": "c33f20d84e8f181d7f823f6bf81468422361bbda7e229973c358450d00ffbb07"
+ },
+ "windowed": true
+}

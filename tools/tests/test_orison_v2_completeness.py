@@ -1284,7 +1284,7 @@ class LiveRepoSmokeTests(unittest.TestCase):
             self.payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
         self.assertTrue(first_slice <= production)
         self.assertGreater(len(production), 80)
-        for gap in ("floor.F05", "floor.F06", "roof.tank_machinery", "unit.3B",
+        for gap in ("floor.F05", "floor.F06", "unit.3B",
                     "acoustic.v2_rederivation",
                     "human.whole_building_navigation"):
             self.assertIn(gap, production, gap)
@@ -1307,12 +1307,15 @@ class LiveRepoSmokeTests(unittest.TestCase):
             self.assertEqual(floors["status"], "PROGRAMMED")
             self.assertIn(rid, self.payload["blockers_by_scope"]["PRODUCTION_CUTOVER"])
         # The current played circuit supplies spatial roof access proof only.
-        for rid in ("floor.ROOF", "roof.roof_bulkhead"):
+        for rid in ("floor.ROOF", "roof.roof_bulkhead", "roof.tank_machinery"):
             self.assertEqual(req(self.payload, rid)["status"], "SPATIALLY_PROVEN")
             self.assertNotIn(rid, self.payload["blockers_by_scope"]["PRODUCTION_CUTOVER"])
         self.assertTrue(any("ROOF_ACCESS_CHECKPOINT_2026-10-12" in p
                             for p in req(self.payload, "roof.roof_bulkhead")["provenance"]))
-        self.assertEqual(req(self.payload, "roof.tank_machinery")["status"], "ABSENT")
+        # Source purposes now identify the existing tank and guarded drive.
+        # Spatial proof still must not become full runtime authority proof.
+        self.assertLess(audit.RANK[req(self.payload, "roof.tank_machinery")["status"]],
+                        audit.RANK["RUNTIME_PROVEN"])
 
     def test_live_route_acceptance_is_scoped(self):
         record = req(self.payload, "human.route_readability")

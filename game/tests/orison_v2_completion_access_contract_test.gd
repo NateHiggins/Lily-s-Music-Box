@@ -2,10 +2,10 @@ extends Node
 ## Seven independently started unit legs in one production world. No vertical
 ## connection, save reconstruction, case completion or human acceptance claim.
 const Selector := preload("res://scripts/building/building_root_selector.gd")
-const DRIVER := preload("res://tests/orison_v2_completion_interiors_test.gd")
+const DRIVER := preload("res://tests/v2_completion_door_settle.gd")
 const UNITS := ["1D","1A","3D","4D","2C","4C","staff"]
 const ROOMS := ["F02_C_VESTIBULE", "F02_C_MAIN", "F02_C_STUDIO", "F02_C_PRIVATE_HALL", "F02_C_BATH", "F02_C_KITCHEN", "F02_C_BED1", "F02_C_BED2", "F04_C_VESTIBULE", "F04_C_MAIN", "F04_C_STUDIO", "F04_C_PRIVATE_HALL", "F04_C_BATH", "F04_C_KITCHEN", "F04_C_BED1", "F04_C_BED2", "F01_D_VESTIBULE", "F01_D_MAIN", "F01_D_KITCHEN", "F01_D_BED", "F01_D_PRIVATE_HALL", "F01_D_BATH", "F01_A_VESTIBULE", "F01_A_MAIN", "F01_A_PRIVATE_HALL", "F01_A_BATH", "F01_A_KITCHEN", "F01_A_BED", "F01_A_STUDY", "F03_D_VESTIBULE", "F03_D_MAIN", "F03_D_PRIVATE_HALL", "F03_D_BATH", "F03_D_KITCHEN", "F03_D_BED", "F03_D_STUDY", "F04_D_VESTIBULE", "F04_D_MAIN", "F04_D_PRIVATE_HALL", "F04_D_BATH", "F04_D_KITCHEN", "F04_D_BED", "F01_STAFF_RESTROOM"]
-const SOURCES := ["res://tests/orison_v2_completion_interiors_test.gd",
+const SOURCES := ["res://tests/v2_completion_door_settle.gd","res://tests/orison_v2_completion_interiors_test.gd",
 	"res://tests/orison_v2_roof_route_test.gd","res://tests/orison_v2_completion_access_contract_test.gd",
 	"res://tests/OrisonV2CompletionAccessContractTest.tscn",
 	"res://tests/orison_v2_apartment_door_route_test.gd","res://tests/orison_v2_4b_door_route_test.gd",

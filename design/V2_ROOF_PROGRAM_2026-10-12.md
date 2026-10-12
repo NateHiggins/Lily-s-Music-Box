@@ -34,7 +34,7 @@ unresolved surfaces: 23,465 draws, 16,167 meshes, 5,827 materials and 445 textur
 The first-slice save/reconstruction contract passes all 113 checks. The
 19-room apartment route passes 154 checks; the 43-room completion route also
 passes with zero failures. All renewed receipts validate against the current
-source hashes. Clean comparison is pending.
+source hashes. Clean comparison is being completed with the subsequent bathroom tile batch.
 
 The sink pass requested by the owner is already implemented in the preceding
 kitchen-faucet and casting batches. This run renews checks on all 18 sinks:
@@ -53,7 +53,10 @@ manifest; existing records and acceptance thresholds remain unchanged.
 Full V2 remains incomplete. Before this batch the six blocker counts were
 **0 / 1 / 103 / 34 / 120 / 122** (first slice, golden shift, structural,
 runtime, production cutover, retirement). The finished comparison will record
-the new counts. Godot still reports seven Texture RID leaks on shutdown;
+the new counts. The initial comparison identified two historical smoke-test
+expectations that still required tank/machinery to be absent. They now assert
+the newly evidenced spatial status while explicitly remaining below runtime
+proof; whole-building blockers and thresholds are unchanged. Godot still reports seven Texture RID leaks on shutdown;
 resource-clean shutdown is not claimed. Existing modified and untracked owner
 files remain in the shared checkout; this report does not claim a clean tree.
 

@@ -2,6 +2,8 @@
 
 *The book of what is true. 2026-08-02.*
 
+Evidence class: **INERT**. Governing covenant, not implementation evidence.
+
 This is the covenant document for **Please Remain On The Line**. Where any
 other text disagrees with this one, this one prevails until amended; where
 this one is silent, the systems of record in §V speak. Disputed texts are
@@ -905,8 +907,8 @@ contract is `game/docs/telegram_style.md`.)*
 The radiophone's later Vantry modification includes a narrow mechanical field-
 slip printer. After the player operates or examines an object, a powered set
 may advance a little telegram receipt and present that same paper enlarged for
-legibility. This is not a screen and not a second interaction verb: **E acts on
-the thing first**, the slip only reports what that authoritative owner returned,
+legibility. This is not a screen and not a second interaction verb: **the player
+acts on the thing first** (direct manipulation under §VIII.5.l), the slip only reports what that authoritative owner returned,
 and switching the radio off suppresses the paper without suppressing the thing.
 It may never lock movement, steal focus, pause play, advance work or case state,
 or cover a protected conversation.
@@ -919,6 +921,36 @@ and culturally specific lettering keep their own voices; the building's filing
 system is not permitted to impersonate a person. Trivia printed by the system
 must be sourced, terse and spoiler-safe. Typography and texture can unify the
 record, but they cannot launder invented history into fact.
+
+**VIII.5.l — THE WORLD IS A FIDGET TOY.**
+*(Ruled 2026-10-12, at the owner's direction; RUL-013. Implementation and
+migration requirements: `design/DIRECT_MANIPULATION_2026-10-12.md`.)*
+
+Objects are operated through their actual parts. The cursor target indicates
+when the player is looking at an operable part. The default primary click grabs
+that part; mouse movement moves it along its physical constraint, and a second
+click releases it. A refrigerator opens by taking its door and swinging it;
+a drawer slides on its runners; a faucet opens by turning the appropriate knob
+in the correct direction. Clicking does not substitute an automatic state toggle
+for the movement. Parts may remain at meaningful intermediate positions.
+
+This direct manipulation replaces minigames. Resistance, travel, stops, sounds
+and the visible consequences of movement make the world intuitive. Authored
+locks, broken mechanisms and system dependencies still matter: moving a control
+does not bypass its physical owner or magically complete a repair. The world
+should invite ordinary, satisfying experimentation, without an instruction layer.
+
+Any tutorial takes the form of opaque messages from the handheld device and
+crude ASCII illustrations. The existing field-slip printer carries these messages
+under §VIII.5.k; this ruling does not require a new screen. Explicit control
+recipes, button legends and separate puzzle interfaces are not the production
+teaching grammar. Accessibility control equivalents retain the same physical
+verbs and do not turn operation back into click-to-toggle.
+
+This supersedes earlier default E-to-toggle interactions and minigame directions
+where they conflict. Existing implementations are migration debt, not exceptions.
+The dated ruling changes design authority now; runtime compliance requires
+independent proof and must not be inferred from this text.
 
 ### VIII.6 What this does not license
 

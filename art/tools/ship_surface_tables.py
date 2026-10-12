@@ -49,6 +49,7 @@ WALL_SOURCES = os.path.join(TEX_ROOT, "wall_sources")
 # is the deepest thing on the building; a board seam is barely anything.
 # Per BASE key; family variants (_b/_c/_d) inherit.
 RELIEF_MM = {
+    "bath_wall_tile": 1.2, "bath_floor_tile": .9,
     "face_brick": 10.0, "common_brick": 9.0, "brick": 9.0, "brick_patched": 9.0,
     "concrete": INDEPENDENT_SURFACES["concrete"]["relief_mm"],
     "slab": INDEPENDENT_SURFACES["slab"]["relief_mm"], "limestone": 4.0, "subway_tile": 3.0,

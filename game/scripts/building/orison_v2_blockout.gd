@@ -565,7 +565,7 @@ func _build_slab(parent: Node3D, label: String, rect: Array, y: float, thickness
 			shape_node.position=piece.get_center()
 			body.add_child(shape_node)
 	draw.mesh=surface.commit()
-	if production_materials: draw.mesh=preload("res://scripts/building/v2_metre_box_uv.gd").chart(draw.mesh)
+	if production_materials: draw.mesh=_architectural_chart(draw.mesh,parent,Vector3.ZERO,cls)
 	draw.material_override=architectural_materials.material_for(label,cls) if production_materials else materials.get(cls)
 	if production_materials: draw.set_meta("v2_material_key",architectural_materials.key_for(label,cls))
 	parent.add_child(draw)
@@ -826,7 +826,7 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 		shape.position=local
 		body.add_child(shape)
 	draw.mesh=surface.commit()
-	if production_materials: draw.mesh=preload("res://scripts/building/v2_metre_box_uv.gd").chart(draw.mesh)
+	if production_materials: draw.mesh=_architectural_chart(draw.mesh,parent,at,cls)
 
 ## Dossier BW-004: a wet room's wall carries tile on both faces, so the hall or
 ## bedroom beyond sees subway tile. A 4 mm skin on the far face takes the
@@ -902,7 +902,7 @@ func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: floa
 		skin.free()
 		return
 	skin.mesh = surface.commit()
-	if production_materials: skin.mesh=preload("res://scripts/building/v2_metre_box_uv.gd").chart(skin.mesh)
+	if production_materials: skin.mesh=_architectural_chart(skin.mesh,parent,skin_at,neighbour)
 
 static func _valid_service_bounds(bounds: Variant) -> bool:
 	if bounds is not Array or bounds.size()!=6: return false
@@ -1264,6 +1264,14 @@ func _build_anchors() -> void:
 			_box(node, "Envelope", Vector3(0.0, 0.01, 0.0), Vector3(0.9, 0.02, 0.9),
 					"interaction" if str(anchor.kind) == "interaction" else "clearance", false)
 
+## All wet-room pieces and continuous wet chases share building grout courses.
+## Other architectural charts retain their local, precision-preserving origin.
+func _architectural_chart(mesh: Mesh, parent: Node, at: Vector3, cls: String) -> ArrayMesh:
+	var origin := Vector3.ZERO
+	if cls == "wet":
+		origin = at
+	return preload("res://scripts/building/v2_metre_box_uv.gd").chart(mesh,origin)
+
 func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
 		material_key: String, collision: bool, slab_part: String = "") -> MeshInstance3D:
 	var mesh_node := MeshInstance3D.new()
@@ -1277,8 +1285,8 @@ func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
 	var part := slab_part if not slab_part.is_empty() else node_name
 	if production_materials and part in ["Floor","Ceiling"]:
 		mesh_node.mesh=_slab_faces(mesh,part=="Floor")
-	if production_materials and (part in ["Floor","Ceiling"] or part.begins_with("Wall")):
-		mesh_node.mesh=preload("res://scripts/building/v2_metre_box_uv.gd").chart(mesh_node.mesh)
+	if production_materials and (part in ["Floor","Ceiling"] or part.begins_with("Wall") or material_key=="wet"):
+		mesh_node.mesh=_architectural_chart(mesh_node.mesh,parent,at,material_key)
 	if production_materials and material_key not in ["clearance", "interaction", "unresolved"]:
 		mesh_node.material_override = architectural_materials.material_for(node_name,material_key)
 		mesh_node.set_meta("v2_material_key",architectural_materials.key_for(node_name,material_key))

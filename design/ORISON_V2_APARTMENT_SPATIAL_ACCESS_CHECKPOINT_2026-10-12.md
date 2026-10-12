@@ -103,3 +103,10 @@ The room receipt was renewed after the roof purpose and carried-light rotation
 changes, with the same 19 rooms and 154 passing checks. Its wrapper is
 **art/renders/orison_v2/roof_program_20261012/apartment-access.log.receipt.json**.
 Earlier wrappers and images remain historical; the scope is unchanged.
+
+## Bathroom tile renewal
+
+The same 19-room, 154-check circuit passes after the bathroom tile/UV update.
+The current receipt is bound to those inputs; its wrapper is
+**art/renders/orison_v2/bathroom_tiles_20261012/apartment-access.log.receipt.json**.
+Scope and acceptance thresholds are unchanged.

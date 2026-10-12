@@ -35,6 +35,8 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Click-to-grab physical interaction and retirement of toggles/minigames | `design/DIRECT_MANIPULATION_2026-10-12.md` and Bible §VIII.5.l |
+| Registered bathroom tile PBR, continuous grout UVs and clean floor repetition | `design/V2_BATHROOM_TILES_2026-10-12.md` |
 | Current roof program access, guarded lift motion and source-owned plant purposes | `design/ORISON_V2_ROOF_PROGRAM_SPATIAL_ACCESS_CHECKPOINT_2026-10-12.md` |
 | Bedding folds, sewn edges, eased timber and current installed-bed verification | `design/V2_BEDDING_POLISH_2026-10-12.md` |
 | Played spatial access proof for 43 further rooms across six apartments and staff facilities | `design/ORISON_V2_COMPLETION_SPATIAL_ACCESS_CHECKPOINT_2026-10-12.md` |

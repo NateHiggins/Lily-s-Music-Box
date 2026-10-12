@@ -1404,7 +1404,7 @@
 				"F01_D_BATH": {
 					"actual": [
 						14.2665977478027,
-						0.000782637798693031,
+						0.000783281284384429,
 						-10.5039558410645
 					],
 					"leg": "COMPLETION ACCESS 1D"
@@ -1428,7 +1428,7 @@
 				"F01_D_MAIN": {
 					"actual": [
 						12.5906352996826,
-						0.000782637798693031,
+						0.000783281284384429,
 						-2.53139591217041
 					],
 					"leg": "COMPLETION ACCESS 1D"
@@ -1436,7 +1436,7 @@
 				"F01_D_PRIVATE_HALL": {
 					"actual": [
 						14.2009363174438,
-						0.000782637798693031,
+						0.000783281284384429,
 						-4.69712066650391
 					],
 					"leg": "COMPLETION ACCESS 1D"
@@ -1444,7 +1444,7 @@
 				"F01_D_VESTIBULE": {
 					"actual": [
 						10.9622774124146,
-						0.000782637798693031,
+						0.000783281284384429,
 						-3.15386772155762
 					],
 					"leg": "COMPLETION ACCESS 1D"
@@ -1467,16 +1467,16 @@
 				},
 				"F02_C_BED1": {
 					"actual": [
-						2.47535181045532,
-						3.20082235336304,
-						8.90729522705078
+						2.47530555725098,
+						3.20086002349854,
+						8.90726280212402
 					],
 					"leg": "COMPLETION ACCESS 2C"
 				},
 				"F02_C_BED2": {
 					"actual": [
 						5.39516973495483,
-						3.20093321800232,
+						3.20093297958374,
 						8.90372467041016
 					],
 					"leg": "COMPLETION ACCESS 2C"
@@ -1485,14 +1485,14 @@
 					"actual": [
 						5.38446187973022,
 						3.20082211494446,
-						5.40433502197266
+						5.40433692932129
 					],
 					"leg": "COMPLETION ACCESS 2C"
 				},
 				"F02_C_MAIN": {
 					"actual": [
 						-0.753879725933075,
-						3.20093321800232,
+						3.20093297958374,
 						7.1000919342041
 					],
 					"leg": "COMPLETION ACCESS 2C"
@@ -1500,7 +1500,7 @@
 				"F02_C_PRIVATE_HALL": {
 					"actual": [
 						2.1965446472168,
-						3.20093321800232,
+						3.20093297958374,
 						7.10283660888672
 					],
 					"leg": "COMPLETION ACCESS 2C"
@@ -1516,7 +1516,7 @@
 				"F02_C_VESTIBULE": {
 					"actual": [
 						-0.844841420650482,
-						3.20093321800232,
+						3.20093297958374,
 						5.39661026000977
 					],
 					"leg": "COMPLETION ACCESS 2C"
@@ -1703,7 +1703,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 277.535,
+		"elapsed_s": 260.426,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -1918,9 +1918,9 @@
 				},
 				{
 					"actual": [
-						14.1443452835083,
-						0.000782637798693031,
-						-8.81267356872559
+						14.1443500518799,
+						0.000783281284384429,
+						-8.81267833709717
 					],
 					"ok": true,
 					"target": [
@@ -1929,13 +1929,13 @@
 						-8.8100004196167
 					],
 					"wall_contacts": {
-						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_D_BED_DOOR/F01_D_BED_DOOR_Leaf/HingedLeaf": "(-11.974, 1.194928, -2.443)"
+						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_D_BED_DOOR/F01_D_BED_DOOR_Leaf/HingedLeaf": "(-11.974, 1.194933, -2.443)"
 					}
 				},
 				{
 					"actual": [
 						14.2348985671997,
-						0.000782637798693031,
+						0.000783281284384429,
 						-10.5046663284302
 					],
 					"ok": true,
@@ -1949,7 +1949,7 @@
 				{
 					"actual": [
 						14.3676128387451,
-						0.000782637798693031,
+						0.000783281284384429,
 						-10.1391897201538
 					],
 					"ok": true,
@@ -1963,7 +1963,7 @@
 				{
 					"actual": [
 						14.2665977478027,
-						0.000782637798693031,
+						0.000783281284384429,
 						-10.5039558410645
 					],
 					"ok": true,
@@ -1977,7 +1977,7 @@
 				{
 					"actual": [
 						14.2415056228638,
-						0.000782637798693031,
+						0.000783281284384429,
 						-8.90586376190186
 					],
 					"ok": true,
@@ -1991,7 +1991,7 @@
 				{
 					"actual": [
 						14.2009363174438,
-						0.000782637798693031,
+						0.000783281284384429,
 						-4.69712066650391
 					],
 					"ok": true,
@@ -2005,7 +2005,7 @@
 				{
 					"actual": [
 						13.628833770752,
-						0.000782637798693031,
+						0.000783281284384429,
 						-2.89102649688721
 					],
 					"ok": true,
@@ -2019,7 +2019,7 @@
 				{
 					"actual": [
 						12.5906352996826,
-						0.000782637798693031,
+						0.000783281284384429,
 						-2.53139591217041
 					],
 					"ok": true,
@@ -2033,7 +2033,7 @@
 				{
 					"actual": [
 						11.0455522537231,
-						0.000782637798693031,
+						0.000783281284384429,
 						-2.50183010101318
 					],
 					"ok": true,
@@ -2047,7 +2047,7 @@
 				{
 					"actual": [
 						10.9622774124146,
-						0.000782637798693031,
+						0.000783281284384429,
 						-3.15386772155762
 					],
 					"ok": true,
@@ -2061,7 +2061,7 @@
 				{
 					"actual": [
 						8.71119976043701,
-						0.000782637798693031,
+						0.000783281284384429,
 						-3.24357604980469
 					],
 					"ok": true,
@@ -2071,7 +2071,7 @@
 						-3.25
 					],
 					"wall_contacts": {
-						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_SERVICE_HALL/WallWest_02/Collision": "(-8.37, 1.194928, -8.405973)"
+						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_SERVICE_HALL/WallWest_02/Collision": "(-8.37, 1.194928, -8.405963)"
 					}
 				}
 			]
@@ -3270,7 +3270,7 @@
 					"actual": [
 						5.38446187973022,
 						3.20082211494446,
-						5.40433502197266
+						5.40433692932129
 					],
 					"ok": true,
 					"target": [
@@ -3310,9 +3310,9 @@
 				},
 				{
 					"actual": [
-						2.47535181045532,
-						3.20082235336304,
-						8.90729522705078
+						2.47530555725098,
+						3.20086002349854,
+						8.90726280212402
 					],
 					"ok": true,
 					"target": [
@@ -3321,14 +3321,14 @@
 						9.0
 					],
 					"wall_contacts": {
-						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallSouth_02/Collision": "(-2.554998, 4.394944, -19.57)"
+						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallSouth_02/Collision": "(-2.554998, 4.39494, -19.57)"
 					}
 				},
 				{
 					"actual": [
-						2.11421132087708,
-						3.20093321800232,
-						7.19814872741699
+						2.1142258644104,
+						3.20093297958374,
+						7.19813919067383
 					],
 					"ok": true,
 					"target": [
@@ -3342,8 +3342,8 @@
 				},
 				{
 					"actual": [
-						5.30479907989502,
-						3.20093321800232,
+						5.30479955673218,
+						3.20093297958374,
 						7.10284233093262
 					],
 					"ok": true,
@@ -3357,7 +3357,7 @@
 				{
 					"actual": [
 						5.39516973495483,
-						3.20093321800232,
+						3.20093297958374,
 						8.90372467041016
 					],
 					"ok": true,
@@ -3371,8 +3371,8 @@
 				{
 					"actual": [
 						5.39974164962769,
-						3.20093321800232,
-						7.19686508178711
+						3.20093297958374,
+						7.19687271118164
 					],
 					"ok": true,
 					"target": [
@@ -3385,7 +3385,7 @@
 				{
 					"actual": [
 						2.1965446472168,
-						3.20093321800232,
+						3.20093297958374,
 						7.10283660888672
 					],
 					"ok": true,
@@ -3399,7 +3399,7 @@
 				{
 					"actual": [
 						-0.753879725933075,
-						3.20093321800232,
+						3.20093297958374,
 						7.1000919342041
 					],
 					"ok": true,
@@ -3413,7 +3413,7 @@
 				{
 					"actual": [
 						-0.844841420650482,
-						3.20093321800232,
+						3.20093297958374,
 						5.39661026000977
 					],
 					"ok": true,
@@ -3426,9 +3426,9 @@
 				},
 				{
 					"actual": [
-						-0.849816083908081,
-						3.20088458061218,
-						2.79613780975342
+						-0.849816203117371,
+						3.19989323616028,
+						2.79611492156982
 					],
 					"ok": true,
 					"target": [
@@ -3942,21 +3942,22 @@
 	"scope": "Spatial room access and ordinary player-input interactions in 1D, 1A, 3D, 4D, 2C, 4C and staff restroom. The locked 4D study is excluded. Each unit leg starts with one placement; all subsequent travel uses the ordinary controller. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "c6366088282af09a16260e15d89899792929a4e0",
-		"runtime_inputs_sha256": "0c0d356c98a535dee581b9f7962f2f615a7cde04333fcd97be227d58099796cf",
-		"surface_inputs_sha256": "25963a74d66cbbd371cf05f6603e485a71f3b5c2c14ec3ddfd36608ef9d716ed",
+		"repository_head": "0496af9ad0998735447617cb7dcadaedd3cdbae5",
+		"runtime_inputs_sha256": "e8e113d3f38d9699b1f8164508ab5b3de03282bb8ec131bc674ac032c30f9de0",
+		"surface_inputs_sha256": "70f8a6b745a91facf1350210a8c947ca1eb165d545e479930bcd30caafe3152e",
 		"test_dependencies": {
 			"game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",
 			"game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",
 			"game/tests/orison_v2_4b_door_route_test.gd": "e60fc51db732c32b3da3312a9222ae1aecc78493708839322ad5604a57ee31cc",
 			"game/tests/orison_v2_apartment_door_route_test.gd": "f47910f029018e4b48eeaeb1f545b570eb60db5a9c9ef899c6050c3fc3cb6c42",
-			"game/tests/orison_v2_completion_access_contract_test.gd": "e756b8648c8805b83705fec5722eb0077e160152c99a5eab06f81741bd610efc",
+			"game/tests/orison_v2_completion_access_contract_test.gd": "013ef99cde827850583868ef344ad75d96fa4f5aeb0e25e7d8dd83ce1fee2b05",
 			"game/tests/orison_v2_completion_interiors_test.gd": "268cc07c8f60b465ca6d20ee1fab667c93aa6f3efbadb32322de908fcd3dce10",
 			"game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
 			"game/tests/orison_v2_roof_route_test.gd": "723ee554804e28e2916f4339cddb13e794444723c2667e99ffbfbbcafd39f304",
-			"game/tests/orison_v2_vertical_route_test.gd": "bc078c6b25710e41dbbaccceaa59478be550a528573f577266aa94476a106a8b"
+			"game/tests/orison_v2_vertical_route_test.gd": "bc078c6b25710e41dbbaccceaa59478be550a528573f577266aa94476a106a8b",
+			"game/tests/v2_completion_door_settle.gd": "459389748e0fa4374d352f4a618cac42477b407fc40ed8c53599878a4161819a"
 		},
 		"test_path": "game/tests/orison_v2_completion_access_contract_test.gd",
-		"test_sha256": "e756b8648c8805b83705fec5722eb0077e160152c99a5eab06f81741bd610efc"
+		"test_sha256": "013ef99cde827850583868ef344ad75d96fa4f5aeb0e25e7d8dd83ce1fee2b05"
 	}
 }

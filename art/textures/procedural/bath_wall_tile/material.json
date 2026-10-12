@@ -1,0 +1,19 @@
+{
+  "material": "bath_wall_tile",
+  "generator": "art/tools/build_bathroom_tiles.py",
+  "source": "art/textures/material_sources/bathroom_ivory_glaze.png",
+  "meters_per_tile": 0.6096,
+  "relief_mm": 1.2,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "1591334e24ce29c83b5509b7d36694683c491168cc380e198bd7b30338bc50da",
+    "roughness": "1976ed8c97b5870def6b3fe559dc14a3818a8d75cc343bbd2d20af35bd998846",
+    "height": "b15b2173e9f5283b70120447aa44dd5c04692424a93f2536fb03a4e98fd16cde",
+    "normal": "0cc6954878b70027ef10864a9ca5b18c45f5f3bef5641cbce1bfc377a1e1207d"
+  }
+}

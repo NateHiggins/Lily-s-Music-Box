@@ -1,0 +1,10 @@
+ERROR: installed UVs align across cut walls, far skins and floors; max metre error=12.9321575164795 /root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F01_A_BATH/Floor uv=(-1.4, 1.349999) p=(-8.2, -0.2, -9.650001)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] run (res://tests/v2_bathroom_tile_review.gd:46)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:64)
+       [3] run (res://tests/v2_kitchen_sink_review.gd:93)
+       [4] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

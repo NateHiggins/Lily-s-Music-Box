@@ -61,6 +61,7 @@ func _run() -> void:
 	for failure: String in entrance_result.failures:failures.append(failure)
 	entrance_review.free()
 	await preload("res://tests/v2_kitchen_sink_review.gd").new().run(world,self)
+	await preload("res://tests/v2_bathroom_tile_review.gd").new().run(world,self)
 	await preload("res://tests/v2_watch_stations_review.gd").new().run(world,self)
 	await preload("res://tests/v2_window_treatments_review.gd").new().run(world,self)
 	await preload("res://tests/v2_millwork_weather_review.gd").new().run(world,self)

@@ -1,0 +1,7 @@
+ERROR: COMPLETION ACCESS 1A: input opens physical leaf to its stop: F01_A_VESTIBULE_MAIN_DOOR
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

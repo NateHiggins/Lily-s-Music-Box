@@ -8,6 +8,8 @@ const CALIBRATION := {
 	"asphalt_b": {"relief_mm": 5.00, "tile_m": 2.500, "source_range": Vector2(0.298, 0.757)},
 	"asphalt_c": {"relief_mm": 5.00, "tile_m": 2.500, "source_range": Vector2(0.369, 0.663)},
 	"asphalt_d": {"relief_mm": 5.00, "tile_m": 2.500, "source_range": Vector2(0.353, 0.675)},
+	"bath_floor_tile": {"relief_mm": 0.90, "tile_m": 0.610, "source_range": Vector2(0.000, 1.000)},
+	"bath_wall_tile": {"relief_mm": 1.20, "tile_m": 0.610, "source_range": Vector2(0.000, 1.000)},
 	"brick": {"relief_mm": 9.00, "tile_m": 1.500, "source_range": Vector2(0.361, 0.627)},
 	"brick_b": {"relief_mm": 9.00, "tile_m": 1.500, "source_range": Vector2(0.361, 0.624)},
 	"brick_c": {"relief_mm": 9.00, "tile_m": 1.500, "source_range": Vector2(0.365, 0.620)},
