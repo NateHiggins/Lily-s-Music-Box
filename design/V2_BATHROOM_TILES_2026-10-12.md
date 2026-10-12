@@ -45,7 +45,10 @@ unresolved surfaces: 23,465 draws, 16,167 meshes, 5,827 materials and 453
 textures. Surface evidence independently validates with zero defects. Save/reconstruction passes all 113 checks and the 19-room apartment circuit
 passes all 154 checks. The 43-room completion circuit passes 335 checks and
 the roof circuit passes 175 checks. Both renewed contracts independently validate.
-Clean comparison is being completed. One completion diagnostic failed the fixed 0.6-second door-stop
+Clean candidate **8996abf2** passes comparison against **06e74bf4**: zero
+regressions, four improvements, all 17 protected paths unchanged, V2 selector
+retained and zero design lint errors. The verifier reused the source-bound
+Godot proofs described above; it did not launch additional Godot suites. One completion diagnostic failed the fixed 0.6-second door-stop
 wait in 1A. The completion driver now waits on the actual open, settled leaf
 (up to three seconds), preserving the same input path, angle tolerance and
 checks; its rerun passes.
@@ -73,3 +76,11 @@ Built-in **image_gen** produced **art/textures/material_sources/bathroom_ivory_g
 The exact prompt is retained in **art/renders/orison_v2/bathroom_tiles_20261012/generation.json**.
 The derived PBR sets are **art/textures/procedural/bath_wall_tile** and
 **art/textures/procedural/bath_floor_tile**, built by **art/tools/build_bathroom_tiles.py**.
+
+## Owner interaction ruling
+
+The same source commit records RUL-013 in the Bible and the ruling index.
+Direct manipulation is now binding design direction; runtime migration is
+pending. The old input-based route checks above certify only their stated
+geometry/material/navigation scope, not the new grab/move/release contract.
+The follow-up report commit adds the ruling to the repository working rules.

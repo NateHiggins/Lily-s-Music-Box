@@ -105,6 +105,18 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
   Blender review before a combined Godot capture, reuse unchanged verification,
   and avoid repeating runtime suites for report-only changes.
 
+## Interaction (RUL-013)
+
+- The cursor indicates an operable part. Primary click grabs it, mouse motion
+  moves it within its physical constraints, and the next click releases it.
+  Replace player click-to-toggle and minigame flows with direct manipulation;
+  retain the existing mechanical, NPC, inventory, save and case authorities.
+- Tutorials are opaque handheld messages and crude ASCII illustrations on the
+  existing field-slip printer. Follow Bible §VIII.5.l and
+  `design/DIRECT_MANIPULATION_2026-10-12.md`. Existing toggles are migration debt,
+  not a precedent for new additions. Old interaction tests do not prove the
+  new contract; exercise actual grabbing, motion and release.
+
 ## Tools
 
 `tools/PIPELINE_TOOLS.md` describes the gate board, run receipts, the

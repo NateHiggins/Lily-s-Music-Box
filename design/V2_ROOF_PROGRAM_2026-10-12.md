@@ -52,8 +52,12 @@ manifest; existing records and acceptance thresholds remain unchanged.
 
 Full V2 remains incomplete. Before this batch the six blocker counts were
 **0 / 1 / 103 / 34 / 120 / 122** (first slice, golden shift, structural,
-runtime, production cutover, retirement). The finished comparison will record
-the new counts. The initial comparison identified two historical smoke-test
+runtime, production cutover, retirement). Clean combined candidate **8996abf2**
+compares against **06e74bf4** with zero regressions and four improvements. New
+counts are **0 / 1 / 102 / 34 / 119 / 121**. Only **roof.tank_machinery** changes,
+from ABSENT to SPATIALLY_PROVEN. All 17 protected paths are unchanged; selector
+V2 and document lint pass. The comparison and renewed tile-bound roof wrapper
+are in **art/renders/orison_v2/bathroom_tiles_20261012**. The initial comparison identified two historical smoke-test
 expectations that still required tank/machinery to be absent. They now assert
 the newly evidenced spatial status while explicitly remaining below runtime
 proof; whole-building blockers and thresholds are unchanged. Godot still reports seven Texture RID leaks on shutdown;
