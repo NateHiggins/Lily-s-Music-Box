@@ -1,0 +1,60 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Two unchanged native variants at updated authored anchors; actual native bounds/floor bearing and rendered room/entry fitting envelopes. Real doorway collision, materials and walking must still pass in Godot.",
+  "installations": [
+    {
+      "id": "5B_hallstand",
+      "position": [
+        -6.72,
+        0,
+        2.65
+      ],
+      "source_space": "F05_B_VESTIBULE",
+      "native_world_bounds": {
+        "min": [
+          -6.869999885559082,
+          12.800000190734863,
+          2.3400001525878906
+        ],
+        "max": [
+          -6.574999809265137,
+          14.65000057220459,
+          2.9600000381469727
+        ]
+      },
+      "floor_bearing": true,
+      "inside_room": true,
+      "open_leaf_to_stock_gap_m": 0.7500001525878905
+    },
+    {
+      "id": "6B_hallstand",
+      "position": [
+        -6.72,
+        0,
+        2.65
+      ],
+      "source_space": "F06_B_VESTIBULE",
+      "native_world_bounds": {
+        "min": [
+          -6.869999885559082,
+          16.0,
+          2.3400001525878906
+        ],
+        "max": [
+          -6.574999809265137,
+          17.850000381469727,
+          2.9600000381469727
+        ]
+      },
+      "floor_bearing": true,
+      "inside_room": true,
+      "open_leaf_to_stock_gap_m": 0.7500001525878905
+    }
+  ],
+  "failures": [],
+  "sources": {
+    "game/data/orison_v2_blockout.json": "e1766b30b66d5746ef6a41628d672400133dd2f5ea867cce8a467c007f74af94",
+    "art/blender/domestic_objects.blend": "c4f317539a107bc1f6c3b6546bc636bf58f8a982364702eae09297e60595c56a",
+    "game/assets/props/domestic_objects.glb": "1cbe0217a2410cbac6fb223ec33662ede0e5aa1fe9f8d389743bdd71f3ba55a2"
+  }
+}

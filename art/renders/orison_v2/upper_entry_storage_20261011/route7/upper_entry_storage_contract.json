@@ -1,0 +1,3812 @@
+{
+	"checks": [
+		{
+			"label": "full production composition starts",
+			"ok": true
+		},
+		{
+			"label": "original apartment threshold: 5A",
+			"ok": true
+		},
+		{
+			"label": "Bible awake entry starts closed and unlocked: 5A",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F05_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F05_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F05_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "bed and sanitary privacy targets: 5A",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BATH/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BATH/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BATH/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BED/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BED/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BED/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BED/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BED/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BED/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BED/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BED/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5A/F05_A_BED/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F05_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_DOOR_02_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F05_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "awake entry state restored: 5A",
+			"ok": true
+		},
+		{
+			"label": "original apartment threshold: 5B",
+			"ok": true
+		},
+		{
+			"label": "Bible awake entry starts closed and unlocked: 5B",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F05_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F05_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F05_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "bed and sanitary privacy targets: 5B",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_BATH/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_BATH/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_BATH/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F05_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F05_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F05_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F05_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_B_VESTIBULE_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F05_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F05_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_DOOR_03_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F05_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "awake entry state restored: 5B",
+			"ok": true
+		},
+		{
+			"label": "original apartment threshold: 5C",
+			"ok": true
+		},
+		{
+			"label": "Bible awake entry starts closed and unlocked: 5C",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F05_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F05_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F05_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "bed and sanitary privacy targets: 5C",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BATH/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BATH/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BATH/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BED1/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BED1/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BED1/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F05_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F05_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F05_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "native clothing storage starts closed: 5C_w0_wardrobe",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches 5C_w0_wardrobe_open",
+			"ok": true
+		},
+		{
+			"label": "player E opens native storage: 5C_w0_wardrobe",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches 5C_w0_wardrobe_close",
+			"ok": true
+		},
+		{
+			"label": "player E restores storage leaves: 5C_w0_wardrobe",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F05_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_C_PRIVATE_HALL_BED1_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F05_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F05_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F05_DOOR_06_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F05_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "awake entry state restored: 5C",
+			"ok": true
+		},
+		{
+			"label": "original apartment threshold: 6A",
+			"ok": true
+		},
+		{
+			"label": "Bible awake entry starts closed and unlocked: 6A",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F06_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F06_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F06_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F06_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "bed and sanitary privacy targets: 6A",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BATH/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BATH/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BATH/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BED/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BED/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BED/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BED/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BED/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BED/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BED/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BED/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6A/F06_A_BED/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F06_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F06_DOOR_02_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F06_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "awake entry state restored: 6A",
+			"ok": true
+		},
+		{
+			"label": "original apartment threshold: 6B",
+			"ok": true
+		},
+		{
+			"label": "Bible awake entry starts closed and unlocked: 6B",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F06_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F06_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F06_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F06_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "bed and sanitary privacy targets: 6B",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_BATH/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_BATH/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_BATH/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F06_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F06_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F06_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F06_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F06_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F06_B_VESTIBULE_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F06_B_VESTIBULE_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F06_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F06_DOOR_03_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F06_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "awake entry state restored: 6B",
+			"ok": true
+		},
+		{
+			"label": "original apartment threshold: 6C",
+			"ok": true
+		},
+		{
+			"label": "Bible awake entry starts closed and unlocked: 6C",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F06_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F06_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F06_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F06_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "bed and sanitary privacy targets: 6C",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BATH/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BATH/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BATH/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BED1/-0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BED1/-0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BED1/-0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.0/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.0/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.0/0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.35/-0.5",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.35/0.0",
+			"ok": true
+		},
+		{
+			"label": "open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.35/0.5",
+			"ok": true
+		},
+		{
+			"label": "native clothing storage starts closed: 6C_w0_wardrobe",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches 6C_w0_wardrobe_open",
+			"ok": true
+		},
+		{
+			"label": "player E opens native storage: 6C_w0_wardrobe",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches 6C_w0_wardrobe_close",
+			"ok": true
+		},
+		{
+			"label": "player E restores storage leaves: 6C_w0_wardrobe",
+			"ok": true
+		},
+		{
+			"label": "native clothing storage starts closed: 6C_w1_wardrobe",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches 6C_w1_wardrobe_open",
+			"ok": true
+		},
+		{
+			"label": "player E opens native storage: 6C_w1_wardrobe",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches 6C_w1_wardrobe_close",
+			"ok": true
+		},
+		{
+			"label": "player E restores storage leaves: 6C_w1_wardrobe",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F06_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F06_DOOR_06_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F06_DOOR_06",
+			"ok": true
+		},
+		{
+			"label": "awake entry state restored: 6C",
+			"ok": true
+		},
+		{
+			"label": "moved native installation resolves: 5B_hallstand",
+			"ok": true
+		},
+		{
+			"label": "moved installation retains visible native partitions: 5B_hallstand",
+			"ok": true
+		},
+		{
+			"label": "moved native installation resolves: 6B_hallstand",
+			"ok": true
+		},
+		{
+			"label": "moved installation retains visible native partitions: 6B_hallstand",
+			"ok": true
+		},
+		{
+			"label": "moved native UV/PBR/loaded-mip checks: 84",
+			"ok": true
+		},
+		{
+			"label": "world, player and exercised leaves/storage retire",
+			"ok": true
+		},
+		{
+			"label": "record repository identity",
+			"ok": true
+		},
+		{
+			"label": "record runtime input digest",
+			"ok": true
+		}
+	],
+	"contracts": {
+		"architectural_privacy": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"clothing_storage": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS",
+			"tracked_nodes": 11
+		},
+		"upper_entry_distribution": {
+			"executed": true,
+			"identities": [
+				"5A",
+				"5B",
+				"5C",
+				"6A",
+				"6B",
+				"6C"
+			],
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 146.103,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"moved_surface_checks": 84,
+	"privacy_hits": [
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BATH",
+			"to": [
+				-7.44999980926514,
+				14.2299995422363,
+				-10.6000003814697
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BATH",
+			"to": [
+				-6.94999980926514,
+				14.2299995422363,
+				-10.6000003814697
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BATH",
+			"to": [
+				-6.44999980926514,
+				14.2299995422363,
+				-10.6000003814697
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BATH",
+			"to": [
+				-7.44999980926514,
+				14.2299995422363,
+				-10.6000003814697
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BATH",
+			"to": [
+				-6.94999980926514,
+				14.2299995422363,
+				-10.6000003814697
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BATH",
+			"to": [
+				-6.44999980926514,
+				14.2299995422363,
+				-10.6000003814697
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BATH",
+			"to": [
+				-7.44999980926514,
+				14.2299995422363,
+				-10.6000003814697
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BATH",
+			"to": [
+				-6.94999980926514,
+				14.2299995422363,
+				-10.6000003814697
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BATH",
+			"to": [
+				-6.44999980926514,
+				14.2299995422363,
+				-10.6000003814697
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_VESTIBULE/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BED",
+			"to": [
+				-13.9250001907349,
+				14.2299995422363,
+				-9.35000038146973
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_VESTIBULE/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BED",
+			"to": [
+				-13.4250001907349,
+				14.2299995422363,
+				-9.35000038146973
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_VESTIBULE/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BED",
+			"to": [
+				-12.9250001907349,
+				14.2299995422363,
+				-9.35000038146973
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_VESTIBULE/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BED",
+			"to": [
+				-13.9250001907349,
+				14.2299995422363,
+				-9.35000038146973
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_BED/WallNorth_02/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BED",
+			"to": [
+				-13.4250001907349,
+				14.2299995422363,
+				-9.35000038146973
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_KITCHEN/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BED",
+			"to": [
+				-12.9250001907349,
+				14.2299995422363,
+				-9.35000038146973
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_BED/WallNorth_02/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BED",
+			"to": [
+				-13.9250001907349,
+				14.2299995422363,
+				-9.35000038146973
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_BED/WallNorth_02/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BED",
+			"to": [
+				-13.4250001907349,
+				14.2299995422363,
+				-9.35000038146973
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_KITCHEN/WallNorth_00/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_A_BED",
+			"to": [
+				-12.9250001907349,
+				14.2299995422363,
+				-9.35000038146973
+			],
+			"unit": "5A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_BATH",
+			"to": [
+				-8.39999961853027,
+				14.2299995422363,
+				4.72499990463257
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE_BATH_DOOR/F05_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_BATH",
+			"to": [
+				-7.90000009536743,
+				14.2299995422363,
+				4.72499990463257
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallSouth_02/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_BATH",
+			"to": [
+				-7.40000009536743,
+				14.2299995422363,
+				4.72499990463257
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE_BATH_DOOR/F05_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_BATH",
+			"to": [
+				-8.39999961853027,
+				14.2299995422363,
+				4.72499990463257
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE_BATH_DOOR/F05_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_BATH",
+			"to": [
+				-7.90000009536743,
+				14.2299995422363,
+				4.72499990463257
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallSouth_02/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_BATH",
+			"to": [
+				-7.40000009536743,
+				14.2299995422363,
+				4.72499990463257
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE_BATH_DOOR/F05_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_BATH",
+			"to": [
+				-8.39999961853027,
+				14.2299995422363,
+				4.72499990463257
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE_BATH_DOOR/F05_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_BATH",
+			"to": [
+				-7.90000009536743,
+				14.2299995422363,
+				4.72499990463257
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallSouth_02/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_BATH",
+			"to": [
+				-7.40000009536743,
+				14.2299995422363,
+				4.72499990463257
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_ALCOVE",
+			"to": [
+				-13.9250001907349,
+				14.2299995422363,
+				9.0
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_ALCOVE",
+			"to": [
+				-13.4250001907349,
+				14.2299995422363,
+				9.0
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_ALCOVE",
+			"to": [
+				-12.9250001907349,
+				14.2299995422363,
+				9.0
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_ALCOVE",
+			"to": [
+				-13.9250001907349,
+				14.2299995422363,
+				9.0
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_ALCOVE",
+			"to": [
+				-13.4250001907349,
+				14.2299995422363,
+				9.0
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallSouth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_ALCOVE",
+			"to": [
+				-12.9250001907349,
+				14.2299995422363,
+				9.0
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallSouth_00/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_ALCOVE",
+			"to": [
+				-13.9250001907349,
+				14.2299995422363,
+				9.0
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallSouth_00/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_ALCOVE",
+			"to": [
+				-13.4250001907349,
+				14.2299995422363,
+				9.0
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallSouth_00/Collision",
+			"from": [
+				-6.75,
+				14.2299995422363,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_B_ALCOVE",
+			"to": [
+				-12.9250001907349,
+				14.2299995422363,
+				9.0
+			],
+			"unit": "5B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-1.20000004768372,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BATH",
+			"to": [
+				1.64999997615814,
+				14.2299995422363,
+				5.09999990463257
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-1.20000004768372,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BATH",
+			"to": [
+				2.15000009536743,
+				14.2299995422363,
+				5.09999990463257
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-1.20000004768372,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_NOTICE"
+			],
+			"target": "F05_C_BATH",
+			"to": [
+				2.65000009536743,
+				14.2299995422363,
+				5.09999990463257
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BATH",
+			"to": [
+				1.64999997615814,
+				14.2299995422363,
+				5.09999990463257
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_NOTICE"
+			],
+			"target": "F05_C_BATH",
+			"to": [
+				2.15000009536743,
+				14.2299995422363,
+				5.09999990463257
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_NOTICE"
+			],
+			"target": "F05_C_BATH",
+			"to": [
+				2.65000009536743,
+				14.2299995422363,
+				5.09999990463257
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_NOTICE"
+			],
+			"target": "F05_C_BATH",
+			"to": [
+				1.64999997615814,
+				14.2299995422363,
+				5.09999990463257
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_NOTICE"
+			],
+			"target": "F05_C_BATH",
+			"to": [
+				2.15000009536743,
+				14.2299995422363,
+				5.09999990463257
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BATH",
+			"to": [
+				2.65000009536743,
+				14.2299995422363,
+				5.09999990463257
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_C_MAIN/WallSouth_04/Collision",
+			"from": [
+				-1.20000004768372,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BED1",
+			"to": [
+				1.64999997615814,
+				14.2299995422363,
+				9.75
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_C_BATH/WallWest_00/Collision",
+			"from": [
+				-1.20000004768372,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BED1",
+			"to": [
+				2.15000009536743,
+				14.2299995422363,
+				9.75
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_C_BATH/WallWest_00/Collision",
+			"from": [
+				-1.20000004768372,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BED1",
+			"to": [
+				2.65000009536743,
+				14.2299995422363,
+				9.75
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_C_MAIN/WallSouth_04/Collision",
+			"from": [
+				-0.850000023841858,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BED1",
+			"to": [
+				1.64999997615814,
+				14.2299995422363,
+				9.75
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BED1",
+			"to": [
+				2.15000009536743,
+				14.2299995422363,
+				9.75
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BED1",
+			"to": [
+				2.65000009536743,
+				14.2299995422363,
+				9.75
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BED1",
+			"to": [
+				1.64999997615814,
+				14.2299995422363,
+				9.75
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BED1",
+			"to": [
+				2.15000009536743,
+				14.2299995422363,
+				9.75
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				14.2299995422363,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F05_C_BED1",
+			"to": [
+				2.65000009536743,
+				14.2299995422363,
+				9.75
+			],
+			"unit": "5C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BATH",
+			"to": [
+				-7.44999980926514,
+				17.4300003051758,
+				-10.6000003814697
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BATH",
+			"to": [
+				-6.94999980926514,
+				17.4300003051758,
+				-10.6000003814697
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BATH",
+			"to": [
+				-6.44999980926514,
+				17.4300003051758,
+				-10.6000003814697
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BATH",
+			"to": [
+				-7.44999980926514,
+				17.4300003051758,
+				-10.6000003814697
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BATH",
+			"to": [
+				-6.94999980926514,
+				17.4300003051758,
+				-10.6000003814697
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BATH",
+			"to": [
+				-6.44999980926514,
+				17.4300003051758,
+				-10.6000003814697
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BATH",
+			"to": [
+				-7.44999980926514,
+				17.4300003051758,
+				-10.6000003814697
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BATH",
+			"to": [
+				-6.94999980926514,
+				17.4300003051758,
+				-10.6000003814697
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_PRIVATE_HALL/WallNorth_00/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BATH",
+			"to": [
+				-6.44999980926514,
+				17.4300003051758,
+				-10.6000003814697
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_VESTIBULE/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BED",
+			"to": [
+				-13.9250001907349,
+				17.4300003051758,
+				-9.35000038146973
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_VESTIBULE/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BED",
+			"to": [
+				-13.4250001907349,
+				17.4300003051758,
+				-9.35000038146973
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_VESTIBULE/WallNorth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BED",
+			"to": [
+				-12.9250001907349,
+				17.4300003051758,
+				-9.35000038146973
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_VESTIBULE/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BED",
+			"to": [
+				-13.9250001907349,
+				17.4300003051758,
+				-9.35000038146973
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_BED/WallNorth_02/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BED",
+			"to": [
+				-13.4250001907349,
+				17.4300003051758,
+				-9.35000038146973
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_KITCHEN/WallNorth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BED",
+			"to": [
+				-12.9250001907349,
+				17.4300003051758,
+				-9.35000038146973
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_BED/WallNorth_02/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BED",
+			"to": [
+				-13.9250001907349,
+				17.4300003051758,
+				-9.35000038146973
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_BED/WallNorth_02/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BED",
+			"to": [
+				-13.4250001907349,
+				17.4300003051758,
+				-9.35000038146973
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_KITCHEN/WallNorth_00/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_A_BED",
+			"to": [
+				-12.9250001907349,
+				17.4300003051758,
+				-9.35000038146973
+			],
+			"unit": "6A"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_BATH",
+			"to": [
+				-8.39999961853027,
+				17.4300003051758,
+				4.72499990463257
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE_BATH_DOOR/F06_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_BATH",
+			"to": [
+				-7.90000009536743,
+				17.4300003051758,
+				4.72499990463257
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallSouth_02/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_BATH",
+			"to": [
+				-7.40000009536743,
+				17.4300003051758,
+				4.72499990463257
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE_BATH_DOOR/F06_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_BATH",
+			"to": [
+				-8.39999961853027,
+				17.4300003051758,
+				4.72499990463257
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE_BATH_DOOR/F06_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_BATH",
+			"to": [
+				-7.90000009536743,
+				17.4300003051758,
+				4.72499990463257
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallSouth_02/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_BATH",
+			"to": [
+				-7.40000009536743,
+				17.4300003051758,
+				4.72499990463257
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE_BATH_DOOR/F06_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_BATH",
+			"to": [
+				-8.39999961853027,
+				17.4300003051758,
+				4.72499990463257
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE_BATH_DOOR/F06_B_VESTIBULE_BATH_DOOR_Leaf/HingedLeaf",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_BATH",
+			"to": [
+				-7.90000009536743,
+				17.4300003051758,
+				4.72499990463257
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallSouth_02/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_BATH",
+			"to": [
+				-7.40000009536743,
+				17.4300003051758,
+				4.72499990463257
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_ALCOVE",
+			"to": [
+				-13.9250001907349,
+				17.4300003051758,
+				9.0
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_ALCOVE",
+			"to": [
+				-13.4250001907349,
+				17.4300003051758,
+				9.0
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.44999980926514,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_ALCOVE",
+			"to": [
+				-12.9250001907349,
+				17.4300003051758,
+				9.0
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_ALCOVE",
+			"to": [
+				-13.9250001907349,
+				17.4300003051758,
+				9.0
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_VESTIBULE/WallSouth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_ALCOVE",
+			"to": [
+				-13.4250001907349,
+				17.4300003051758,
+				9.0
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallSouth_00/Collision",
+			"from": [
+				-7.09999990463257,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_ALCOVE",
+			"to": [
+				-12.9250001907349,
+				17.4300003051758,
+				9.0
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallSouth_00/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_ALCOVE",
+			"to": [
+				-13.9250001907349,
+				17.4300003051758,
+				9.0
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallSouth_00/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_ALCOVE",
+			"to": [
+				-13.4250001907349,
+				17.4300003051758,
+				9.0
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallSouth_00/Collision",
+			"from": [
+				-6.75,
+				17.4300003051758,
+				0.0
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_B_ALCOVE",
+			"to": [
+				-12.9250001907349,
+				17.4300003051758,
+				9.0
+			],
+			"unit": "6B"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-1.20000004768372,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BATH",
+			"to": [
+				1.64999997615814,
+				17.4300003051758,
+				5.09999990463257
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-1.20000004768372,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BATH",
+			"to": [
+				2.15000009536743,
+				17.4300003051758,
+				5.09999990463257
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-1.20000004768372,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_NOTICE"
+			],
+			"target": "F06_C_BATH",
+			"to": [
+				2.65000009536743,
+				17.4300003051758,
+				5.09999990463257
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BATH",
+			"to": [
+				1.64999997615814,
+				17.4300003051758,
+				5.09999990463257
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_NOTICE"
+			],
+			"target": "F06_C_BATH",
+			"to": [
+				2.15000009536743,
+				17.4300003051758,
+				5.09999990463257
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_NOTICE"
+			],
+			"target": "F06_C_BATH",
+			"to": [
+				2.65000009536743,
+				17.4300003051758,
+				5.09999990463257
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_NOTICE"
+			],
+			"target": "F06_C_BATH",
+			"to": [
+				1.64999997615814,
+				17.4300003051758,
+				5.09999990463257
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_NOTICE"
+			],
+			"target": "F06_C_BATH",
+			"to": [
+				2.15000009536743,
+				17.4300003051758,
+				5.09999990463257
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BATH",
+			"to": [
+				2.65000009536743,
+				17.4300003051758,
+				5.09999990463257
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_C_MAIN/WallSouth_04/Collision",
+			"from": [
+				-1.20000004768372,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BED1",
+			"to": [
+				1.64999997615814,
+				17.4300003051758,
+				9.75
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_C_BATH/WallWest_00/Collision",
+			"from": [
+				-1.20000004768372,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BED1",
+			"to": [
+				2.15000009536743,
+				17.4300003051758,
+				9.75
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_C_BATH/WallWest_00/Collision",
+			"from": [
+				-1.20000004768372,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BED1",
+			"to": [
+				2.65000009536743,
+				17.4300003051758,
+				9.75
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_C_MAIN/WallSouth_04/Collision",
+			"from": [
+				-0.850000023841858,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BED1",
+			"to": [
+				1.64999997615814,
+				17.4300003051758,
+				9.75
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BED1",
+			"to": [
+				2.15000009536743,
+				17.4300003051758,
+				9.75
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.850000023841858,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BED1",
+			"to": [
+				2.65000009536743,
+				17.4300003051758,
+				9.75
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BED1",
+			"to": [
+				1.64999997615814,
+				17.4300003051758,
+				9.75
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BED1",
+			"to": [
+				2.15000009536743,
+				17.4300003051758,
+				9.75
+			],
+			"unit": "6C"
+		},
+		{
+			"architecture": true,
+			"collider": "/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+			"from": [
+				-0.5,
+				17.4300003051758,
+				2.65000009536743
+			],
+			"ignored_prop_colliders": [],
+			"target": "F06_C_BED1",
+			"to": [
+				2.65000009536743,
+				17.4300003051758,
+				9.75
+			],
+			"unit": "6C"
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Six explicitly placed upper hall starts; subsequent entry/distribution/storage legs use production movement and E input. Canonical awake entry states restored. Architectural sightlines with interior privacy leaves closed and entry open. No quest unlocking, NPC behavior, whole-building navigation or extra capsule margin acceptance.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "03584246bdecf7cefdf4356c1e8c4c1ff0c9770d",
+		"runtime_inputs_sha256": "a23431d72081ed4e535188ffb1d7a349b4d83e6351ed381d0b907cdd6d85afc8",
+		"test_dependency_normalization": "LF",
+		"test_dependency_sha256": {
+			"game/tests/orison_v2_4b_door_route_test.gd": "e60fc51db732c32b3da3312a9222ae1aecc78493708839322ad5604a57ee31cc",
+			"game/tests/orison_v2_apartment_batch_test.gd": "7338c367edfa4b03e236c6d32de19104ccf0a9b6372740cf6d9550326e4be17a",
+			"game/tests/orison_v2_connected_exterior_route_test.gd": "f0b360b354a542a30a9019fc5a5b8ef0c54b4978b4e91bdc0e8da658b8ef91b3",
+			"game/tests/orison_v2_roof_route_test.gd": "723ee554804e28e2916f4339cddb13e794444723c2667e99ffbfbbcafd39f304",
+			"game/tests/orison_v2_vertical_route_test.gd": "3b5834c44ac3e1417edc5502e10aaeafa8f07d0b40ea3243073ea15507a6fd88"
+		},
+		"test_path": "game/tests/orison_v2_upper_entry_storage_test.gd",
+		"test_sha256": "bbb02d24ede50fcd219ccbf224714e8fba1c1b1be73335101adfa4f230cf35bf"
+	},
+	"trace": [
+		{
+			"actual": [
+				-7.09999990463257,
+				12.8000793457031,
+				-1.55366325378418
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				12.8000001907349,
+				-1.64999997615814
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.09999990463257,
+				12.8000793457031,
+				-2.10392189025879
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				12.8000001907349,
+				-2.20000004768372
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-9.00342273712158,
+				12.8000793457031,
+				-2.19536113739014
+			],
+			"ok": true,
+			"target": [
+				-9.10000038146973,
+				12.8000001907349,
+				-2.20000004768372
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-9.09665679931641,
+				12.8000793457031,
+				-4.90290975570679
+			],
+			"ok": true,
+			"target": [
+				-9.10000038146973,
+				12.8000001907349,
+				-5.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.19621706008911,
+				12.8000793457031,
+				-4.99532175064087
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				12.8000001907349,
+				-5.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-9.00313949584961,
+				12.8000793457031,
+				-4.99976205825806
+			],
+			"ok": true,
+			"target": [
+				-9.10000038146973,
+				12.8000001907349,
+				-5.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-9.09666061401367,
+				12.8000793457031,
+				-2.29653358459473
+			],
+			"ok": true,
+			"target": [
+				-9.10000038146973,
+				12.8000001907349,
+				-2.20000004768372
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.19621801376343,
+				12.8000793457031,
+				-2.20465087890625
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				12.8000001907349,
+				-2.20000004768372
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.11673498153687,
+				12.8000793457031,
+				-1.74646949768066
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				12.8000001907349,
+				-1.64999997615814
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.10091924667358,
+				12.8148927688599,
+				-0.0960025787353516
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				12.8000001907349,
+				0.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.09999990463257,
+				12.8006658554077,
+				1.90365600585938
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				12.8000001907349,
+				2.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.80360698699951,
+				12.8006658554077,
+				1.9883918762207
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				12.8000001907349,
+				2.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.84576368331909,
+				12.8006658554077,
+				1.9278678894043
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				12.8000001907349,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-8.30341148376465,
+				12.8006658554077,
+				1.8635721206665
+			],
+			"ok": true,
+			"target": [
+				-8.39999961853027,
+				12.8000001907349,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-10.0038938522339,
+				12.8006658554077,
+				1.85072708129883
+			],
+			"ok": true,
+			"target": [
+				-10.1000003814697,
+				12.8000001907349,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-8.49687385559082,
+				12.8006658554077,
+				1.85004425048828
+			],
+			"ok": true,
+			"target": [
+				-8.39999961853027,
+				12.8000001907349,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.99613046646118,
+				12.8006658554077,
+				1.85000705718994
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				12.8000001907349,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.90394973754883,
+				12.8006658554077,
+				4.10342693328857
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				12.8000001907349,
+				4.19999980926514
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.90016937255859,
+				12.8006658554077,
+				1.94682216644287
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				12.8000001907349,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.90016937255859,
+				12.8006658554077,
+				1.94682216644287
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				12.8000001907349,
+				2.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.19643497467041,
+				12.8006658554077,
+				1.99359130859375
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				12.8000001907349,
+				2.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.10456275939941,
+				12.8148727416992,
+				0.0958538055419922
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				12.8000001907349,
+				0.0
+			],
+			"wall_contacts": {
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_DOOR_03/F05_DOOR_03_Leaf/HingedLeaf": "(7.507001, 13.99492, -13.256)"
+			}
+		},
+		{
+			"actual": [
+				-0.849999845027924,
+				12.8006649017334,
+				5.10371589660645
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				12.8000001907349,
+				5.19999980926514
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-0.849999845027924,
+				12.8006649017334,
+				7.0039234161377
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				12.8000001907349,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				2.00344061851501,
+				12.8006649017334,
+				7.09685325622559
+			],
+			"ok": true,
+			"target": [
+				2.09999990463257,
+				12.8000001907349,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-0.753173589706421,
+				12.8006649017334,
+				7.09989356994629
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				12.8000001907349,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				2.00320434570313,
+				12.8006649017334,
+				7.09999465942383
+			],
+			"ok": true,
+			"target": [
+				2.09999990463257,
+				12.8000001907349,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				2.0937671661377,
+				12.8006649017334,
+				8.50341033935547
+			],
+			"ok": true,
+			"target": [
+				2.09999990463257,
+				12.8000001907349,
+				8.60000038146973
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				2.40422749519348,
+				12.8006649017334,
+				8.57722854614258
+			],
+			"ok": true,
+			"target": [
+				2.5,
+				12.8000001907349,
+				8.60000038146973
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				2.49376153945923,
+				12.800835609436,
+				10.000804901123
+			],
+			"ok": true,
+			"target": [
+				2.5,
+				12.8000001907349,
+				10.1000003814697
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				2.49957036972046,
+				12.800835609436,
+				8.69651985168457
+			],
+			"ok": true,
+			"target": [
+				2.5,
+				12.8000001907349,
+				8.60000038146973
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				2.19496512413025,
+				12.800835609436,
+				8.6229419708252
+			],
+			"ok": true,
+			"target": [
+				2.09999990463257,
+				12.8000001907349,
+				8.60000038146973
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				2.1061863899231,
+				12.800835609436,
+				7.19921112060547
+			],
+			"ok": true,
+			"target": [
+				2.09999990463257,
+				12.8000001907349,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-0.75272125005722,
+				12.800835609436,
+				7.1032657623291
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				12.8000001907349,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-0.845044195652008,
+				12.800835609436,
+				5.29696083068848
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				12.8000001907349,
+				5.19999980926514
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-0.849820077419281,
+				12.8001527786255,
+				2.74610233306885
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				12.8000001907349,
+				2.65000009536743
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.09999990463257,
+				16.000467300415,
+				-1.55362224578857
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				16.0,
+				-1.64999997615814
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.09999990463257,
+				16.000467300415,
+				-2.10391521453857
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				16.0,
+				-2.20000004768372
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-9.00341606140137,
+				16.000467300415,
+				-2.19536018371582
+			],
+			"ok": true,
+			"target": [
+				-9.10000038146973,
+				16.0,
+				-2.20000004768372
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-9.09665584564209,
+				16.000467300415,
+				-4.90289974212646
+			],
+			"ok": true,
+			"target": [
+				-9.10000038146973,
+				16.0,
+				-5.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.19622421264648,
+				16.000467300415,
+				-4.99531984329224
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				16.0,
+				-5.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-9.00313472747803,
+				16.000467300415,
+				-4.99976205825806
+			],
+			"ok": true,
+			"target": [
+				-9.10000038146973,
+				16.0,
+				-5.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-9.09666061401367,
+				16.000467300415,
+				-2.29654121398926
+			],
+			"ok": true,
+			"target": [
+				-9.10000038146973,
+				16.0,
+				-2.20000004768372
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.19622325897217,
+				16.000467300415,
+				-2.20465087890625
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				16.0,
+				-2.20000004768372
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.11673641204834,
+				16.000467300415,
+				-1.74647045135498
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				16.0,
+				-1.64999997615814
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.10091352462769,
+				16.01487159729,
+				-0.0954971313476563
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				16.0,
+				0.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.09999990463257,
+				16.0000762939453,
+				1.90363121032715
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				16.0,
+				2.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.80360460281372,
+				16.0000762939453,
+				1.98838901519775
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				16.0,
+				2.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.84576225280762,
+				16.0000762939453,
+				1.9278678894043
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				16.0,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-8.30340957641602,
+				16.0000762939453,
+				1.8635721206665
+			],
+			"ok": true,
+			"target": [
+				-8.39999961853027,
+				16.0,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-10.0038909912109,
+				16.0000762939453,
+				1.85072708129883
+			],
+			"ok": true,
+			"target": [
+				-10.1000003814697,
+				16.0,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-8.49687767028809,
+				16.0000762939453,
+				1.85004425048828
+			],
+			"ok": true,
+			"target": [
+				-8.39999961853027,
+				16.0,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.99613237380981,
+				16.0000762939453,
+				1.85000705718994
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				16.0,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.9039511680603,
+				16.0000762939453,
+				4.10342121124268
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				16.0,
+				4.19999980926514
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.90016937255859,
+				16.0000762939453,
+				1.94682788848877
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				16.0,
+				1.85000002384186
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.90016937255859,
+				16.0000762939453,
+				1.94682788848877
+			],
+			"ok": true,
+			"target": [
+				-7.90000009536743,
+				16.0,
+				2.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.1964373588562,
+				16.0000762939453,
+				1.99359130859375
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				16.0,
+				2.0
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-7.10454893112183,
+				16.01487159729,
+				0.0955591201782227
+			],
+			"ok": true,
+			"target": [
+				-7.09999990463257,
+				16.0,
+				0.0
+			],
+			"wall_contacts": {
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_DOOR_03/F06_DOOR_03_Leaf/HingedLeaf": "(7.507001, 17.19484, -13.256)"
+			}
+		},
+		{
+			"actual": [
+				-0.849999845027924,
+				16.0006618499756,
+				5.10362815856934
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				16.0,
+				5.19999980926514
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-0.849999845027924,
+				16.0006618499756,
+				7.00390815734863
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				16.0,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				2.00343298912048,
+				16.0006618499756,
+				7.09685325622559
+			],
+			"ok": true,
+			"target": [
+				2.09999990463257,
+				16.0,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-0.753166854381561,
+				16.0006618499756,
+				7.09989356994629
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				16.0,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-3.90368890762329,
+				16.0008239746094,
+				7.10035133361816
+			],
+			"ok": true,
+			"target": [
+				-4.0,
+				16.0,
+				7.09999990463257
+			],
+			"wall_contacts": {
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_6C_BOOKSHELF_01/InstalledCaseCollision": "(2.301294, 17.19482, -18.426)"
+			}
+		},
+		{
+			"actual": [
+				-3.99358320236206,
+				16.0008239746094,
+				5.74662590026855
+			],
+			"ok": true,
+			"target": [
+				-4.0,
+				16.0,
+				5.65000009536743
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-4.60298156738281,
+				16.0008239746094,
+				5.66327095031738
+			],
+			"ok": true,
+			"target": [
+				-4.69999980926514,
+				16.0,
+				5.65000009536743
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-4.09676313400269,
+				16.0008239746094,
+				5.65212821960449
+			],
+			"ok": true,
+			"target": [
+				-4.0,
+				16.0,
+				5.65000009536743
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-3.1461238861084,
+				16.0008239746094,
+				5.65019798278809
+			],
+			"ok": true,
+			"target": [
+				-3.04999995231628,
+				16.0,
+				5.65000009536743
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-3.90312552452087,
+				16.0008239746094,
+				5.65002250671387
+			],
+			"ok": true,
+			"target": [
+				-4.0,
+				16.0,
+				5.65000009536743
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-3.99354672431946,
+				16.0008239746094,
+				7.00341606140137
+			],
+			"ok": true,
+			"target": [
+				-4.0,
+				16.0,
+				7.09999990463257
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-0.948968529701233,
+				16.0008106231689,
+				7.1008472442627
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				16.0,
+				7.09999990463257
+			],
+			"wall_contacts": {
+				"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_6C_BOOKSHELF_01/InstalledCaseCollision": "(1.472112, 17.19485, -18.426)"
+			}
+		},
+		{
+			"actual": [
+				-0.855034589767456,
+				16.0008106231689,
+				5.29669380187988
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				16.0,
+				5.19999980926514
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				-0.850182831287384,
+				16.0001220703125,
+				2.74612045288086
+			],
+			"ok": true,
+			"target": [
+				-0.850000023841858,
+				16.0,
+				2.65000009536743
+			],
+			"wall_contacts": {}
+		}
+	]
+}

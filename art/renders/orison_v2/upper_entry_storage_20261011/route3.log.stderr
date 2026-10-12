@@ -1,0 +1,90 @@
+ERROR: UPPER ENTRY STORAGE: target (-7.1, 12.8, 1.85) actual (-7.176928, 12.80025, 1.429615)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _walk (res://tests/orison_v2_vertical_route_test.gd:128)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 5C/F05_C_BATH/-0.35/0.5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.0/0.0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.0/0.5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.35/-0.5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.35/0.0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: UPPER ENTRY STORAGE: target (-7.1, 16.0, 1.85) actual (-7.176897, 16.00021, 1.428476)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _walk (res://tests/orison_v2_vertical_route_test.gd:128)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 6C/F06_C_BATH/-0.35/0.5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.0/0.0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.0/0.5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.35/-0.5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: UPPER ENTRY STORAGE: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.35/0.0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _privacy (res://tests/orison_v2_upper_entry_storage_test.gd:131)
+       [3] _unit (res://tests/orison_v2_upper_entry_storage_test.gd:66)
+       [4] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

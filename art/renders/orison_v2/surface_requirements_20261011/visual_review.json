@@ -1,354 +1,132 @@
 {
-  "evidence_class": "INERT",
+  "surface_inputs_sha256": "a4f135f64db85d04a94cc9747be81d87fcb46e41fc49fdd94e1ce7ec9170c22b",
   "status": "PASS",
-  "surface_inputs_sha256": "1b4aecb08b7bf82e239d7e6ba33b7994a67c697724c4de63c0ed77b0d2165daa",
-  "scope": "Production V2 census with physical panel-to-riser supply branch, source-owned hollow conduit and relocated enamel inspection marks. Source native-family and original service controls verified in one world. Changed connection details reviewed under temporary inspection light; unchanged accepted images retained. Entire electrical endpoint network and whole-building artistic acceptance remain open.",
+  "scope": "Representative current PBR/UV surfaces, retained room context and two changed upper entry fittings. No full photorealism, NPC narrative, whole-building navigation or human acceptance claim. Owner original dumbwaiter.png and radiator.png are untouched.",
   "images": [
     {
-      "file": "F02_A_MAIN.png",
-      "sha256": "9ef3097cb4c836b1083285c8fc407a6f657317d99ffe69d7b5f6efa6c0f2594b",
-      "observation": "Wood floor, plaster, furniture and lamp are present without missing-material appearance; warm lighting limits subtle surface judgment."
+      "file": "upper_entry_boiler.png",
+      "sha256": "ac4645df3e1bc7d44c148023e8a762091a9805e45db2a20f99e579b66230bc6d",
+      "observation": "Current composed view of boiler: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "F03_B_MAIN.png",
-      "sha256": "761faa9abb06c54db1fd137d32c9a5d73355c79551adc42603cd2208224017a6",
-      "observation": "Table, chairs and workbench retain wood grain direction; plaster and hardware render in the composed apartment."
+      "file": "upper_entry_bookcase.png",
+      "sha256": "4677f445d1494e1bffb8e21b20386b784762dbb3ac2aa17daae797ab47a9866f",
+      "observation": "Current composed view of bookcase: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "F04_C_MAIN.png",
-      "sha256": "e914833b98ee02a4ea5bcb11f17ef499324b0d340cc2eb35aa803a0ce98f177f",
-      "observation": "Furniture, floor and wall stock render consistently in the occupied room."
+      "file": "upper_entry_continuous_HistoricMillwork.png",
+      "sha256": "6986d0c18a01483aeef2244de28fed63aa87ca6c29a630dcc3e195845b41dbaa",
+      "observation": "Separate continuous moulding bands retain their mapped finish and seated profile against the wall."
     },
     {
-      "file": "boiler.png",
-      "sha256": "43ebfa45a5f1367dfc02d1cde5a0417b8b8880f78118d3f1178fdfdb74dd43fa",
-      "observation": "Jacket, cast doors, copper and mineral pipe fittings render with distinct finishes."
+      "file": "upper_entry_continuous_PublicWainscotCap.png",
+      "sha256": "e42be97e139d6117b12aae8c3394355ff36c16b7ff52d73d1c5bfc3710e98e15",
+      "observation": "Panel boards and separate ornamented cap retain distinct mapped wood surfaces."
     },
     {
-      "file": "bookcase.png",
-      "sha256": "02f45e008897624f88eb292e861a5dbd3fa3055f906cd391eb3869e7c482ae19",
-      "observation": "Three glazed sectional sashes are visible; rail and stile grain follows the members."
+      "file": "upper_entry_electrical_panel_connection.png",
+      "sha256": "b3aa9dd753dbd11ede7bc9c166084df89a781e2e021180a20715871a9a87d4d6",
+      "observation": "Native pipe branch remains joined at its original panel bore and wall route."
     },
     {
-      "file": "signal_scope.png",
-      "sha256": "7bf6c7c71a818e157deb1694dbefb6b39ba1db2cb3937dec3d467ef1843ccda1",
-      "observation": "Both circular live displays remain active within textured cabinet bodies."
+      "file": "upper_entry_electrical_riser_connection.png",
+      "sha256": "6b487a1a35e8aeda8fecb56a7807bef096e1be282e181f6a930957454c50ca3a",
+      "observation": "Native tee and supported ceiling branch remain physically seated with neutral metal finish."
     },
     {
-      "file": "toaster_crumbs.png",
-      "sha256": "56d97d709d9cca066a9542e45386a6ce2e4665ac342eaaa45a69a23141f2a0ee",
-      "observation": "Opened tray exposes individual crumbs with the new stock finish; appliance and kettle remain distinct."
+      "file": "upper_entry_F02_A_MAIN.png",
+      "sha256": "72682edd2c317f21e02eb3bd5086a4e7caf4ff031ed514a222ca80ff7f5b0bc1",
+      "observation": "Current composed view of F02_A_MAIN: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "watch_station.png",
-      "sha256": "61ab0135ea3c814e1b9fad179417ba0e6137533a18d7ad7b940e5a03508a550e",
-      "observation": "Station label, case, latch and indicator remain legible after finish binding."
+      "file": "upper_entry_F03_B_MAIN.png",
+      "sha256": "44c529252de14c201a4c3cc4c94e620a84c63b21c65fe7727625a950a171e45b",
+      "observation": "Current composed view of F03_B_MAIN: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "fuse_panel.png",
-      "sha256": "6cf084350d10b3a190ceacaed659e210ad2dd63258be9333c587823b2da15d51",
-      "observation": "Four separated Edison seats, open unused bores, retained fitted plug and cabinet hinge in actual production lighting. Warm low light limits fine porcelain judgment; neutral Blender render supplements it."
+      "file": "upper_entry_F04_C_MAIN.png",
+      "sha256": "41f967f120252cd6c241d597680661213c5501d0be266542c2d8c7df5e7eb87e",
+      "observation": "Current composed view of F04_C_MAIN: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "mail_bank.png",
-      "sha256": "32ff975735e35a57e8089f4a90041ad4ce82fa90902681b75fc4ca0173b9d5fa",
-      "observation": "Wood frame, brass door stock, headers and occupant cards remain distinct."
+      "file": "upper_entry_fire_F01_FIRE_LINE_STAIR_open.png",
+      "sha256": "7fe9d67bce80999d4a2a9e657836511872c6f0f0240d2957302aa0a7a724f458",
+      "observation": "Current composed view of fire_F01_FIRE_LINE_STAIR_open: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "signal_terminal.png",
-      "sha256": "5bc483bc824c64ad04b0e220b7ae1fb6e972d3b28edfe20c81d1886957eee316",
-      "observation": "Valve assembly and wood terminal cabinet remain present with retained glowing display."
+      "file": "upper_entry_fire_ROOF_FIRE_LINE_STAIR_open.png",
+      "sha256": "d7c263d232621366a0344dab22a7b8de5975ce9efc22276d9300fad4e58966e0",
+      "observation": "Current composed view of fire_ROOF_FIRE_LINE_STAIR_open: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "native/contact-revised.png",
-      "sha256": "660eff7dc688226b9005e224e0a6691a49af200f834b34804004b8078018b9a2",
-      "observation": "Native Blender batch review: repaired authored UVs retain geometry and material orientation across the fittings."
+      "file": "upper_entry_fuse_panel.png",
+      "sha256": "55845d2a18c4d840d18e4314859adae90ef5dfc21651627f51e1794d5cf69d08",
+      "observation": "Current composed view of fuse_panel: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "native/bookcase_lift_door.png",
-      "sha256": "aefc7be3e500fe58f9960f5defdb14398f8019cbdcce5f3efc1a8c0111126e73",
-      "observation": "Native sash stock has longitudinal grain on rails and stiles, with separate clear glazing."
+      "file": "upper_entry_native_mail_bank_pocket_detail.png",
+      "sha256": "4dcb19949900b97af1e9a60a12b4dbb1f777ebec362219913eb9b3a0a69683fc",
+      "observation": "Open compartment reveals the retained native folded rails and mapped metal; this is a close surface view, not broad mailbox lighting acceptance."
     },
     {
-      "file": "native/radiator_paper_tag.png",
-      "sha256": "5e34afe0444b362ef5e21d76d380e684ffec4da79f8bbeed03cf4494895bc9e3",
-      "observation": "Native physical paper plane has a visible paper finish and authored UVs; this view does not verify gameplay label placement."
+      "file": "upper_entry_native_station_open.png",
+      "sha256": "de1db8277eaa2190fa3882114a33617324f4ff0d3ea4c949b11cd8507ecbac96",
+      "observation": "Original marked dial and open case retain custom wood/brass/paper surfaces."
     },
     {
-      "file": "native/boiler_body.png",
-      "sha256": "7eaabb4912824e01ebb0c5896b6b046f9dd6b7e2b174971ce893ea492dda8e9f",
-      "observation": "Native cast and sheet-metal geometry retains its silhouette with continuous mapped stock."
+      "file": "upper_entry_radiator.png",
+      "sha256": "08020f25f3b05639c2a766de078acc2f0f5dc34c943f170ed487c7fc88d9d371",
+      "observation": "Dark cast-iron fins and nearby window treatment retain their existing finishes; owner original radiator.png is preserved."
     },
     {
-      "file": "continuous_HistoricMillwork.png",
-      "sha256": "cbf0e8357539de9ca5ed29768344f2b1fd4cddf6c334683fc257a47c03300b9f",
-      "observation": "Beaded baseboard seats on the wall and floor; separate bead and metre-scaled painted stock render clearly."
+      "file": "upper_entry_signal_scope.png",
+      "sha256": "7be1bafc0fe361412f32802b506ee0fd5236ca0b8bd199d643c4aaf8ef329d0a",
+      "observation": "Existing green luminous faces and timber frame remain legible in their authored lighting."
     },
     {
-      "file": "continuous_PublicWainscotCap.png",
-      "sha256": "6f87cb940b540f8a6cb0958c3afa57bf09044de2200a4569375b76b4989221e8",
-      "observation": "Molded wood cap has horizontal grain distinct from vertical panel backing, with separate rails, stiles and upper eye rail."
+      "file": "upper_entry_signal_terminal.png",
+      "sha256": "b7c97dbed9c4db169f668d84e54c33e2552edd364c889d97992b42c90673cdf9",
+      "observation": "Original passive terminal and its mapped table remain visible with their retained controlled light."
     },
     {
-      "file": "native/millwork_stock.png",
-      "sha256": "83902781b6338ff9a07c75264556d87e30e9f80cb7941ad9d686513013f17e53",
-      "observation": "Native Blender profile review shows distinct cap, rails, stiles and backing with longitudinal grain and rounded section."
+      "file": "upper_entry_toaster_crumbs.png",
+      "sha256": "bb8fdd51507712bbdc81650841984b3a2dda05ee16bea8d3e4eff2dfa14149fc",
+      "observation": "Open crumb stock, enamel appliance and work surface retain their mapped finishes."
     },
     {
-      "file": "weather_season_01.png",
-      "sha256": "22c4dcd24fce15703ec69ca5b7526e242363fe395d22d83531df3cc92b9ce969",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+      "file": "upper_entry_window_1D.png",
+      "sha256": "2179db7829d60bd33253e6c3aea27619bc49848c6b4bac2fa377f68247ba37df",
+      "observation": "Current composed view of window_1D: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "weather_season_04.png",
-      "sha256": "fe736a041e1efdae74f30a8ff1f3c781549ccadd2ed896fa4b6571596a2b4281",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+      "file": "upper_entry_window_2B.png",
+      "sha256": "5eb3946e59d5d19ed01617af80ad48a96cd53ea801df2c358c6689ad3c01a8b9",
+      "observation": "Current composed view of window_2B: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "weather_season_07.png",
-      "sha256": "52de24d5ab80b72eee2730d1c222d71c5503777eb0b2f75733918b47c8f47cd0",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+      "file": "upper_entry_window_3A.png",
+      "sha256": "ddb3886819dd6e1b3fedf314d79ca90cb781fcb9a3eec031e2db6a193cfeb7fc",
+      "observation": "Current composed view of window_3A: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "weather_season_10.png",
-      "sha256": "5e2455bab33a736b993f33848208919239e64ecdb20ec6e63071ff230e25cf20",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+      "file": "upper_entry_window_4B.png",
+      "sha256": "d3f0bb985baf14ef596d923d5657cb526a705ad3688ca7db734499a7e9d4d8e4",
+      "observation": "Current composed view of window_4B: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "cloud_shape_1.png",
-      "sha256": "6a73c327e4dbdc93c150c12c194fa6212673ab6dbaaa07e17b46caf225185a0a",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+      "file": "upper_entry_window_4C.png",
+      "sha256": "3fa3d5775187db4974cffc9b88cef47bf250ab337e0d87625d1b9775daf98be3",
+      "observation": "Current composed view of window_4C: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
     },
     {
-      "file": "cloud_shape_2.png",
-      "sha256": "fe65674f3bd7229f055c0f1a33a6be4bc618617cbe9d72d2e40413cfee9999bc",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+      "file": "upper_entry_5B_vestibule.png",
+      "sha256": "b646d0d7752d007f961d76c658c5570d7174f5487d23ac5b84567b9ea08ca5f1",
+      "observation": "Relocated shallow hallstand remains on the original wall; open entry and bath/living routes are clear in the final walked 5B home."
     },
     {
-      "file": "cloud_shape_3.png",
-      "sha256": "e40694ad75e0c952a7e2b60ba21e377b4431f11d780e528ecab1b1cccc508d70",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
-    },
-    {
-      "file": "weather_optical/season_01.png",
-      "sha256": "48666eb50523ff9104a929c55c7f1fddacb267c8d2932b8b7d2a02fb3f18cf7d",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
-    },
-    {
-      "file": "weather_optical/season_04.png",
-      "sha256": "ed61898e25e60eafa888b1a09252a73495831035ab924398da92ed0c1d8ce520",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
-    },
-    {
-      "file": "weather_optical/season_07.png",
-      "sha256": "71dbc35cbdfe05582c7f95d66cd74c5701a229772ca85899f00a5a611cf9ac66",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
-    },
-    {
-      "file": "weather_optical/season_10.png",
-      "sha256": "ab2fd3c3f93112fc05906c45717d4b90d5654f70a9ac59a114499fe69775ad49",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
-    },
-    {
-      "file": "weather_optical/shape_1.png",
-      "sha256": "d5f37939d9cf7a28dc96f321e2f3d7515ca18d829ea2b14eb1b2a33cfebfa78e",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
-    },
-    {
-      "file": "weather_optical/shape_2.png",
-      "sha256": "26359cc3e69b0c2d732eee80a815cb7be9b30e80738b5c656a40a64d0deeb49c",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
-    },
-    {
-      "file": "weather_optical/shape_3.png",
-      "sha256": "2005ad1a3906298425ebe2232f41b2b5e1e4bf45de194bdf453d8f10f065ff21",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
-    },
-    {
-      "file": "weather_optical/summer_twilight.png",
-      "sha256": "ea56654437b5a6ffe5e0c88af1957fa25e4f553925a87ec28ad3430ddd528e21",
-      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
-    },
-    {
-      "file": "window_1D.png",
-      "sha256": "6ae6a4fdba9fe1e6e46bdfe3bd4d12cb4cd119e0834a53418286b56b45533e9b",
-      "observation": "Teresa has dark closed drapes above the sill, with modeled tabs, rod and wall supports; capture fill reveals their folds."
-    },
-    {
-      "file": "window_2B.png",
-      "sha256": "09d324507b17d64ae5e0af74a97b80c2bff87ef3da2a06b36290164be9145b4d",
-      "observation": "Lena has ochre sewn cafe panels beside the sewing work area, retaining upper-window light and the independent blind mechanism."
-    },
-    {
-      "file": "window_3A.png",
-      "sha256": "4ff2f29e9806be751be1f3afe8dda2a98608ad2d9b73eae0d502196df80a8b85",
-      "observation": "Malcolm has green gathered linen and mostly raised blinds; the existing courtyard brick view remains visible."
-    },
-    {
-      "file": "window_4C.png",
-      "sha256": "d32847d212fca7d4f6ec072930c2e71bbb3753c94d2ac428f7e8aa72bf1677bc",
-      "observation": "Cam and Noel share green linen, with their authored bedroom settings stored separately; this frame shows the common room."
-    },
-    {
-      "file": "window_4B.png",
-      "sha256": "2dd821f764f43d658cf489dd6da71c853d5ce90c097da42a30e5c258af134b06",
-      "observation": "The player has worn neutral gathered panels, visible ladder cords and partially raised painted wood slats."
-    },
-    {
-      "file": "native_window/stock.png",
-      "sha256": "d825f82ecffb5a6c659b18bdc8e28766687fd9552940134c3f89c30b78d5e1da",
-      "observation": "Fresh native window-stock review after selecting the authored metre-scale UV layer; paint and woven linen retain their modeled edges and folds."
-    },
-    {
-      "file": "patrol_B1_WATCH_STATION.png",
-      "sha256": "22a8d3d10fd8421839825052959c870c1a3e2af40b328d304c5b17183334c086",
-      "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
-    },
-    {
-      "file": "patrol_F01_WATCH_STATION.png",
-      "sha256": "ea7d6f3ff064e6064ef1557ac6b8103ef983df089aa26961837e81d37f74d963",
-      "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
-    },
-    {
-      "file": "patrol_F02_WATCH_STATION.png",
-      "sha256": "955d1702d1ce0d0bf134a83cf64eea1e51d32d95d20fc1afd67fc12fe493e27c",
-      "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
-    },
-    {
-      "file": "patrol_F03_WATCH_STATION.png",
-      "sha256": "3ef76f4df546de6b80a7cf58a3e23ce88c9a10b42545de3c07bb0d3e5d802d52",
-      "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
-    },
-    {
-      "file": "patrol_F04_WATCH_STATION.png",
-      "sha256": "f9e267b2e6f6ae786f7c0fd28ac09721de80c1c5d82d0f883b1112b69a51d8d2",
-      "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
-    },
-    {
-      "file": "patrol_F05_WATCH_STATION.png",
-      "sha256": "6c3cbb072f343e0586094f2bb7413b8574e70c7dc8e7f582d6ba629b365898d3",
-      "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
-    },
-    {
-      "file": "patrol_F06_WATCH_STATION.png",
-      "sha256": "f276fe36ab473b6b0e9dd00da45672667068c3fd3d08e7254ac1d0e4a0e4733e",
-      "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
-    },
-    {
-      "file": "patrol_register_after_round.png",
-      "sha256": "f57d6310690e2f4adc26cc508c14c7fe821664592057b1d17513625d52343cd9",
-      "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
-    },
-    {
-      "file": "native_station_closed.png",
-      "sha256": "86fb56cceb6d034a1e3372265c499d3a90124d9349c152660af8df00a045f6e4",
-      "observation": "Closed cast-iron signal box retains its Label3D station legend and real glazed aperture; the carried device is hidden for inspection."
-    },
-    {
-      "file": "native_station_open.png",
-      "sha256": "633e621d80d1dfef05e19d64eb5b046097fa5a57d5e27f002fcf9b9fa73fd15b",
-      "observation": "Open native door reveals the empty recessed socket, crank, toothed wheel, pawl and raised indicator inside the lined case."
-    },
-    {
-      "file": "native_station_marked.png",
-      "sha256": "9497fb7adee07275ff7e5ea06010469ccff71890bb87c1cbb641ce2f6116dcf7",
-      "observation": "Real keyed marking rotates the wheel and lowers the numbered red/ivory indicator inside the case; original signaling owner remains active."
-    },
-    {
-      "file": "native_watch/closed.png",
-      "sha256": "42704fa98f7f3f6f3c9932697147d9af28db78ec66a170c85fdf230f359b4cc0",
-      "observation": "Native stock assembly with registered PBR in closed pose; no lettering is baked into textures. Runtime retains its original colors and Label3D numbers."
-    },
-    {
-      "file": "native_watch/open_ready.png",
-      "sha256": "2c3ee7ca3a8cf97a2b8be4c54ee256c1e80e55d37b72ac7694b10f96eb5f272b",
-      "observation": "Native stock assembly with registered PBR in open ready pose; no lettering is baked into textures. Runtime retains its original colors and Label3D numbers."
-    },
-    {
-      "file": "native_watch/open_marked.png",
-      "sha256": "73d839968a62f47b9408e8615664abeb9adf2fa61d82f784dbdd2ee51765531e",
-      "observation": "Native stock assembly with registered PBR in open marked pose; no lettering is baked into textures. Runtime retains its original colors and Label3D numbers."
-    },
-    {
-      "file": "native_mail_bank_closed.png",
-      "sha256": "b9cd0ca428886906d61c8fba4ffbd0e193226816b57dfc20dc1b67f8ce620a9b",
-      "observation": "Original address cards and overfull/ajar characterization survive on the hollow native bank; low-light capture limits brass finish judgment."
-    },
-    {
-      "file": "native_mail_bank_open.png",
-      "sha256": "e3350544a00277e5419e3794302c9c5355b4b9a2efee36b26f4354780b4f3b7c",
-      "observation": "Original 4B leaf swings outward and exposes the compartment; other address cards and empty compartments retain their source placement. Low-light capture is supplemented by lit Blender review."
-    },
-    {
-      "file": "native_mail_bank_pocket_detail.png",
-      "sha256": "59909fa076273601d94d297c39473a4a4bbb8b443ee4b45e583a63dfdae94a4c",
-      "observation": "Open pocket has a real floor, cheeks and rear lining with existing pending mail supported inside; physical card and lock turn with the source hinge. Scene is dark, so fine surface detail is reviewed in the Blender close-up."
-    },
-    {
-      "file": "fire_F01_FIRE_LINE_STAIR_closed.png",
-      "sha256": "d69ab2f799124fee21bf19c7dd8f920b5f8d39b110b82bab801b9708bccdeb1b",
-      "observation": "Native source station against fitted wall stock; source wiring glass and linen folds retain readable form under temporary inspection light. Mounted trim clears the cabinet."
-    },
-    {
-      "file": "fire_F01_FIRE_LINE_STAIR_open.png",
-      "sha256": "7c0e4daa27f9d80dc6fe962643b475c3e2e7b9865bd856586cda233ee4ac5638",
-      "observation": "Native source station against fitted wall stock; source wiring glass and linen folds retain readable form under temporary inspection light. Mounted trim clears the cabinet."
-    },
-    {
-      "file": "fire_ROOF_FIRE_LINE_STAIR_closed.png",
-      "sha256": "dabec6bddb2dbf15ae2b66969fd707c0ac6a37fc8ae0b11021c771a9a00ab0d1",
-      "observation": "Native source station against fitted wall stock; source wiring glass and linen folds retain readable form under temporary inspection light. Mounted trim clears the cabinet."
-    },
-    {
-      "file": "fire_ROOF_FIRE_LINE_STAIR_open.png",
-      "sha256": "977d0b58459021a95d9efbd2f23e8180257faec941f59f0d99997895a8f5980c",
-      "observation": "Native source station against fitted wall stock; source wiring glass and linen folds retain readable form under temporary inspection light. Mounted trim clears the cabinet."
-    },
-    {
-      "file": "embedded_farm_and_market.png",
-      "sha256": "2296b6b37403bc11c80da4c1206d150d9809c17909e1bf16ea6ea621985be30f",
-      "observation": "Isolated render of the original retained software world with the same V2 delayed-load PBR policy. Original titles, tint, emission and geometry retained; mystery image deliberately dark. This is visual review, not composed runtime proof."
-    },
-    {
-      "file": "embedded_mystery_serial.png",
-      "sha256": "bf6d3297ae4d688484ae5606da4c6332a0b934b004c138142c361272afca0d4e",
-      "observation": "Isolated render of the original retained software world with the same V2 delayed-load PBR policy. Original titles, tint, emission and geometry retained; mystery image deliberately dark. This is visual review, not composed runtime proof."
-    },
-    {
-      "file": "electrical_F01_ELECTRICAL_JUNCTION.png",
-      "sha256": "7649430c7c4d2b50f408fad710e237a91741a58371e94fb2d37a355f9ec740ad",
-      "observation": "Separate dark metal casting and cover, small screw heads and galvanized conduit render against their actual bearing wall. The roof detail includes the closed terminal cap. Temporary inspection light helps finish review; this is not whole-room lighting or electrical endpoint acceptance."
-    },
-    {
-      "file": "electrical_ROOF_ELECTRICAL_JUNCTION.png",
-      "sha256": "fc4c5604f5a0658056fedef8c6824a6c4a4db71071bbd0ed21a28e9b5158d23c",
-      "observation": "Separate dark metal casting and cover, small screw heads and galvanized conduit render against their actual bearing wall. The roof detail includes the closed terminal cap. Temporary inspection light helps finish review; this is not whole-room lighting or electrical endpoint acceptance."
-    },
-    {
-      "file": "electrical_panel_connection.png",
-      "sha256": "4b1b12eec33d58e36f48afd57495f68967197a514816b4a35d46b2a9246c617d",
-      "observation": "Source-owned casing, supported conduit and bored riser tee join render in the actual basement. Temporary inspection light permits finish inspection; it does not establish whole-room lighting or circuit energization."
-    },
-    {
-      "file": "electrical_riser_connection.png",
-      "sha256": "cd95a7e35645ff91b68ba28f7dc1c1721ce2dcd7131da3e890e577539c8ae092",
-      "observation": "Source-owned casing, supported conduit and bored riser tee join render in the actual basement. Temporary inspection light permits finish inspection; it does not establish whole-room lighting or circuit energization."
+      "file": "upper_entry_6B_vestibule.png",
+      "sha256": "3db71fbda208ac84c81bf4f2bb56d403c3d60dbba0922548da447c9eb687a3c4",
+      "observation": "Relocated shallow hallstand remains on the original wall; open entry and bath/living routes are clear in the final walked 6B home."
     }
-  ],
-  "diagnostic_images": [
-    {
-      "file": "radiator.png",
-      "reason": "Cropped view; paper tag placement is not visible.",
-      "sha256": "76faedba04b7517de5dd104b5d26f9bd335e195340978e9fedb1eca8e95e978e"
-    },
-    {
-      "file": "dumbwaiter.png",
-      "reason": "Camera faces a brick wall; does not accept brake-band appearance.",
-      "sha256": "72b2c5d5725b66479a781df96d5165feefaae46268a6e3f79f7619acd9832702"
-    }
-  ],
-  "limitations": [
-    "Seven texture RIDs reported leaked at shutdown; runtime-owned root retirement passed, global GPU allocation cleanup is not claimed.",
-    "Save reconstruction and unrelated route suites were not run for this surface pass."
   ]
 }

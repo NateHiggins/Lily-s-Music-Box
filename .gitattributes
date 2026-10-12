@@ -1796,3 +1796,10 @@ art/renders/orison_v2/electrical_connections_20261011/** -text
 game/tests/orison_v2_upper_furniture_test.gd -text
 game/tests/orison_v2_upper_kitchen_test.gd -text
 art/renders/orison_v2/upper_household_checks_20261011/** -text
+
+# Source-bound upper entry fitting and spatial evidence.
+game/tests/orison_v2_upper_entry_storage_test.gd -text
+game/tests/OrisonV2UpperEntryStorageTest.tscn -text
+art/blender/scripts/review_upper_entry_hallstands.py -text
+tools/rebind_v2_hallstands.py -text
+art/renders/orison_v2/upper_entry_storage_20261011/** -text

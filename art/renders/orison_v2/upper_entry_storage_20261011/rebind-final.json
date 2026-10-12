@@ -1,0 +1,346 @@
+{
+  "evidence_class": "INERT",
+  "base": "03584246bdecf7cefdf4356c1e8c4c1ff0c9770d",
+  "applied": true,
+  "source_diff": {
+    "anchors": [
+      "5B_hallstand",
+      "6B_hallstand"
+    ],
+    "from": [
+      -6.72,
+      0,
+      1.85
+    ],
+    "to": [
+      -6.72,
+      0,
+      2.65
+    ],
+    "purpose_clarifications": {
+      "F05_A_VESTIBULE": {
+        "from": "Nadia Quell: private arrival and coat storage",
+        "to": "Nadia Quell: private arrival, privacy and domestic room distribution; coat storage"
+      },
+      "F05_B_VESTIBULE": {
+        "from": "Cal Dwyer: private arrival and coat storage",
+        "to": "Cal Dwyer: private arrival, privacy and domestic room distribution; coat storage"
+      },
+      "F05_C_VESTIBULE": {
+        "from": "Iris Bell: private arrival and distribution",
+        "to": "Iris Bell: private arrival, privacy and domestic room distribution; coat storage"
+      },
+      "F05_C_BED1": {
+        "from": "Iris Bell: principal sleep and clothing",
+        "to": "Iris Bell: principal sleep and clothing storage"
+      },
+      "F06_A_VESTIBULE": {
+        "from": "Sacha Reed: private arrival and coat storage",
+        "to": "Sacha Reed: private arrival, privacy and domestic room distribution; coat storage"
+      },
+      "F06_B_VESTIBULE": {
+        "from": "Jonah Price: private arrival and coat storage",
+        "to": "Jonah Price: private arrival, privacy and domestic room distribution; coat storage"
+      },
+      "F06_C_VESTIBULE": {
+        "from": "Mae Kessler: private arrival and distribution",
+        "to": "Mae Kessler: private arrival, privacy and domestic room distribution; coat storage"
+      },
+      "F06_C_STUDIO": {
+        "from": "Mae Kessler: antique appraisal and records",
+        "to": "Mae Kessler: antique appraisal, records and clothing storage"
+      }
+    },
+    "all_other_layout_values_identical": true
+  },
+  "native_assets_unchanged": {
+    "game/assets/props/domestic_objects.glb": "1cbe0217a2410cbac6fb223ec33662ede0e5aa1fe9f8d389743bdd71f3ba55a2",
+    "art/blender/domestic_objects.blend": "c4f317539a107bc1f6c3b6546bc636bf58f8a982364702eae09297e60595c56a"
+  },
+  "updates": [
+    {
+      "path": "art/blender/domestic_objects_construction.json",
+      "before_sha256": "182cf1e0598899ee52d464412a6dc3de7784e8bf3817604f53a456b947d10266",
+      "after_sha256": "4f4bc91db742e3a2b963d0fb8321bb5ae8e577e55fe835658630bf7b2db74e90",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_objects.json",
+      "before_sha256": "182cf1e0598899ee52d464412a6dc3de7784e8bf3817604f53a456b947d10266",
+      "after_sha256": "4f4bc91db742e3a2b963d0fb8321bb5ae8e577e55fe835658630bf7b2db74e90",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    }
+  ],
+  "older_unrelated_drift": [
+    {
+      "fixture": "art/blender/boiler_window_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/city_aerials_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/city_beacons_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/city_closure_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_city_masts.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_city_aerials.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_city_tanks.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/city_masts_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/city_tanks_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/domestic_seating_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/domestic_storage_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/domestic_tables_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/fixed_lighting_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/front_pavement_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/household_fridges_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/household_fridges_construction.json",
+      "binding": "game/tests/fixtures/orison_domestic_objects.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_household_wardrobes.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_prep_cabinets.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_domestic_storage.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_domestic_seating.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_domestic_tables.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/household_radios_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/household_stoves_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/household_stoves_construction.json",
+      "binding": "game/tests/fixtures/orison_domestic_objects.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_household_fridges.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_household_fridges.json",
+      "binding": "game/tests/fixtures/orison_domestic_objects.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_household_radios.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/household_toasters_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/household_wardrobes_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/medicine_cabinets_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/prep_cabinets_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/reading_nook_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/roof_base_flashings_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/roof_drainage_falls_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/roof_drainage_plant_weather_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/roof_public_weathering_construction.json",
+      "binding": "game\\data\\orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "art/blender/roof_service_weathering_construction.json",
+      "binding": "game\\data\\orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_front_pavement_construction.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_front_pavement_review.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_boiler_window.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_city_beacons.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_city_closure.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_fixed_lighting.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_household_stoves.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_household_stoves.json",
+      "binding": "game/tests/fixtures/orison_domestic_objects.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_household_toasters.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_medicine_cabinets.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_reading_nook.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_roof_base_flashings.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_roof_drainage_falls.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_roof_drainage_plant_weather.json",
+      "binding": "game/data/orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_roof_public_weathering.json",
+      "binding": "game\\data\\orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_roof_service_weathering.json",
+      "binding": "game\\data\\orison_v2_blockout.json",
+      "reason": "Older/unrelated binding left unchanged"
+    }
+  ],
+  "scope": "Rebind only current-base provenance after a typed two-anchor comparison. Existing local meshes, material recipes and texture coordinates remain byte-identical. Relocated installation acceptance requires new Blender fit review and composed-world walking/capture; old visual frames are not renewed by this tool."
+}

@@ -1,0 +1,25 @@
+orison spatial dependency audit (check)
+records: 9565  tiers: data=6021, production=1076, scene=5, test=2463
+authority: DATA_FOREIGN_KEY=6021, DEBUG_ONLY=12, GENERATED_IDENTITY=413, RUNTIME_LOOKUP=909, SAVE_CONTRACT=16, SCENE_NODE_PATH=301, TEST_CONTRACT=2463
+spatial: ASSET_PATH=363, CAMERA_STATION=280, CONTAINMENT_ASSUMPTION=10, DERIVED_LAYOUT_LOOKUP=34, DISTANCE_THRESHOLD=10, FLOOR_MEMBERSHIP=413, RAW_GODOT_COORDINATE=253, RAW_PLAN_COORDINATE=76, ROOM_MEMBERSHIP=706, SEMANTIC_ANCHOR=5588, UNKNOWN_DYNAMIC=269
+disposition: MUST_PRESERVE_ID=129, OWNER_DECISION=1, PRESERVE_OR_ALIAS=6625, REGENERATE_CONSUMER=151, REPLACE_WITH_NAMED_ANCHOR=52, SAFE_TO_CHANGE=5, UNRESOLVED=268, UPDATE_TEST_FIXTURE=2334
+vector3 literals: 5279 total, 4136 stats-only (local/presentation)
+NEW unclassified (FAIL): 0
+classification changes (FAIL): 0
+targets vanished (FAIL): 0
+save-contract unresolved (FAIL): 0
+stale preserved records (STALE): 0
+new incidental (report only): 11
+  - id_reference:game/tests/orison_v2_upper_entry_storage_test.gd:5B_hallstand [test]
+  - id_reference:game/tests/orison_v2_upper_entry_storage_test.gd:5C_w0_wardrobe [test]
+  - id_reference:game/tests/orison_v2_upper_entry_storage_test.gd:6B_hallstand [test]
+  - id_reference:game/tests/orison_v2_upper_entry_storage_test.gd:6C_w0_wardrobe [test]
+  - id_reference:game/tests/orison_v2_upper_entry_storage_test.gd:6C_w1_wardrobe [test]
+  - unit_reference:game/tests/orison_v2_upper_entry_storage_test.gd:5A [test]
+  - unit_reference:game/tests/orison_v2_upper_entry_storage_test.gd:5B [test]
+  - unit_reference:game/tests/orison_v2_upper_entry_storage_test.gd:5C [test]
+  - unit_reference:game/tests/orison_v2_upper_entry_storage_test.gd:6A [test]
+  - unit_reference:game/tests/orison_v2_upper_entry_storage_test.gd:6B [test]
+  ... 1 more (--verbose)
+cleanup opportunities: 0
+result: clean

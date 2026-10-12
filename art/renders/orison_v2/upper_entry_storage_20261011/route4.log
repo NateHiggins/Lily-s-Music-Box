@@ -1,0 +1,206 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1422 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (261 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=47032.045
+[LIGHTING] 230 sources active in system; 230 full personalities; profiles steady/breathe/mains/beat/dropout=[56, 50, 41, 47, 36]
+[HARUKIYA] CLOSED, 18 fixtures
+CONNECTED EXTERIOR CHECK: full production composition starts = true
+CONNECTED EXTERIOR CHECK: original apartment threshold: 5A = true
+CONNECTED EXTERIOR CHECK: Bible awake entry starts closed and unlocked: 5A = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F05_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F05_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches F05_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F05_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: bed and sanitary privacy targets: 5A = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BATH/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BATH/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BATH/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BATH/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BED/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BED/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BED/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BED/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BED/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BED/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BED/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BED/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5A/F05_A_BED/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open leaf ready to close: F05_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches F05_DOOR_02_close = true
+CONNECTED EXTERIOR CHECK: input closes physical leaf: F05_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: awake entry state restored: 5A = true
+CONNECTED EXTERIOR CHECK: original apartment threshold: 5B = true
+CONNECTED EXTERIOR CHECK: Bible awake entry starts closed and unlocked: 5B = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F05_DOOR_03 = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F05_DOOR_03 = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches F05_DOOR_03 = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F05_DOOR_03 = true
+CONNECTED EXTERIOR CHECK: bed and sanitary privacy targets: 5B = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_BATH/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_BATH/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_BATH/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_BATH/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5B/F05_B_ALCOVE/0.35/0.5 = true
+ROUTE_COLLISION_DIAGNOSTIC {"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F05_DOOR_03/F05_DOOR_03_Leaf/HingedLeaf":"(7.507001, 13.99482, -12.61301)"}
+CONNECTED EXTERIOR CHECK: original apartment threshold: 5C = true
+CONNECTED EXTERIOR CHECK: Bible awake entry starts closed and unlocked: 5C = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F05_DOOR_06 = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F05_DOOR_06 = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches F05_DOOR_06 = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F05_DOOR_06 = true
+CONNECTED EXTERIOR CHECK: bed and sanitary privacy targets: 5C = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BATH/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BATH/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BATH/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BATH/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BED1/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BED1/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BED1/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 5C/F05_C_BED1/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F05_C_PRIVATE_HALL_BED1_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F05_C_PRIVATE_HALL_BED1_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches F05_C_PRIVATE_HALL_BED1_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F05_C_PRIVATE_HALL_BED1_DOOR = true
+CONNECTED EXTERIOR CHECK: native clothing storage starts closed: 5C_w0_wardrobe = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches 5C_w0_wardrobe_open = true
+CONNECTED EXTERIOR CHECK: player E opens native storage: 5C_w0_wardrobe = true
+INTERACTION_DIAGNOSTIC {"camera":"(-2.49376, 14.21084, -21.65081)","distance":0.876508235931396,"forward":"(-0.514953, -0.240539, -0.822779)","hit":"Collision:<StaticBody3D#737174113801>","label":"5C_w0_wardrobe_close","player":"(-2.49376, 12.80084, -21.65081)","prompt":"","target":"(-2.94512, 14.0, -22.37198)"}
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches 5C_w0_wardrobe_close = false
+CONNECTED EXTERIOR CHECK: original apartment threshold: 6A = true
+CONNECTED EXTERIOR CHECK: Bible awake entry starts closed and unlocked: 6A = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F06_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F06_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches F06_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F06_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: bed and sanitary privacy targets: 6A = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BATH/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BATH/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BATH/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BATH/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BED/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BED/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BED/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BED/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BED/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BED/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BED/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BED/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6A/F06_A_BED/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open leaf ready to close: F06_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches F06_DOOR_02_close = true
+CONNECTED EXTERIOR CHECK: input closes physical leaf: F06_DOOR_02 = true
+CONNECTED EXTERIOR CHECK: awake entry state restored: 6A = true
+CONNECTED EXTERIOR CHECK: original apartment threshold: 6B = true
+CONNECTED EXTERIOR CHECK: Bible awake entry starts closed and unlocked: 6B = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F06_DOOR_03 = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F06_DOOR_03 = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches F06_DOOR_03 = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F06_DOOR_03 = true
+CONNECTED EXTERIOR CHECK: bed and sanitary privacy targets: 6B = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_BATH/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_BATH/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_BATH/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_BATH/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6B/F06_B_ALCOVE/0.35/0.5 = true
+ROUTE_COLLISION_DIAGNOSTIC {"/root/OrisonV2UpperEntryStorageTest/OrisonV2Runtime/OrisonV2Blockout/F06_DOOR_03/F06_DOOR_03_Leaf/HingedLeaf":"(7.507001, 17.19482, -12.61299)"}
+CONNECTED EXTERIOR CHECK: original apartment threshold: 6C = true
+CONNECTED EXTERIOR CHECK: Bible awake entry starts closed and unlocked: 6C = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F06_DOOR_06 = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F06_DOOR_06 = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches F06_DOOR_06 = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F06_DOOR_06 = true
+CONNECTED EXTERIOR CHECK: bed and sanitary privacy targets: 6C = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BATH/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BATH/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BATH/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BATH/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BED1/-0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BED1/-0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BED1/-0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.0/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.0/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.0/0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.35/-0.5 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.35/0.0 = true
+CONNECTED EXTERIOR CHECK: open entry retains actual wall/door privacy: 6C/F06_C_BED1/0.35/0.5 = true
+CONNECTED EXTERIOR CHECK: native clothing storage starts closed: 6C_w1_wardrobe = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches 6C_w1_wardrobe_open = true
+CONNECTED EXTERIOR CHECK: player E opens native storage: 6C_w1_wardrobe = true
+INTERACTION_DIAGNOSTIC {"camera":"(3.145789, 17.41094, -17.30981)","distance":1.13604307174683,"forward":"(-0.631814, -0.185682, 0.752551)","hit":"Collision:<StaticBody3D#758145634850>","label":"6C_w1_wardrobe_close","player":"(3.145789, 16.00094, -17.30981)","prompt":"","target":"(2.428021, 17.2, -16.45488)"}
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches 6C_w1_wardrobe_close = false
+CONNECTED EXTERIOR CHECK: world, player and exercised leaves/storage retire = true
+CONNECTED EXTERIOR CHECK: record repository identity = true
+CONNECTED EXTERIOR CHECK: record runtime input digest = true
+UPPER ENTRY STORAGE: 174 checks / 39 waypoints / 2 units / 4 failures

@@ -1,0 +1,22 @@
+ERROR: UPPER ENTRY STORAGE: target (-7.9, 12.8, 1.05) actual (-7.176788, 12.79994, 0.962905)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _walk (res://tests/orison_v2_vertical_route_test.gd:128)
+ERROR: UPPER ENTRY STORAGE: actual player ray/prompt reaches 5C_w0_wardrobe_close
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _use (res://tests/orison_v2_connected_exterior_route_test.gd:97)
+ERROR: UPPER ENTRY STORAGE: target (-7.9, 16.0, 1.05) actual (-7.176786, 15.99994, 0.962885)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _walk (res://tests/orison_v2_vertical_route_test.gd:128)
+ERROR: UPPER ENTRY STORAGE: actual player ray/prompt reaches 6C_w1_wardrobe_close
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:74)
+       [1] _require (res://tests/orison_v2_upper_entry_storage_test.gd:15)
+       [2] _use (res://tests/orison_v2_connected_exterior_route_test.gd:97)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
