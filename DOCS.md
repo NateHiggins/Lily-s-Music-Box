@@ -37,6 +37,7 @@ Knowing which kind you are reading tells you how much to trust it.
 |---|---|
 | Physical roof lighting supply, wall ports and supported overhead bridge | `design/V2_ROOF_LIGHTING_SUPPLY_2026-10-12.md` |
 | Current recheck of the historical public-stair route failures | `design/V2_PUBLIC_STAIR_ROUTE_RECHECK_2026-10-12.md` |
+| Fitted AC receiver/projector leads, clips and floor receptacles | `design/V2_MEDIA_AC_SUPPLY_2026-10-12.md` |
 | Native active household radio families and projector machines | `design/V2_ACTIVE_HOUSEHOLD_MEDIA_2026-10-12.md` |
 | Roof plant metal calibration and two native switched cage fixtures | `design/V2_ROOF_PLANT_FINISH_LIGHTING_2026-10-12.md` |
 | Actual V2 UV sampling, metre architectural charts and scoped roof access | `design/V2_UV_APPLICATION_2026-10-12.md` and `design/ORISON_V2_ROOF_ACCESS_CHECKPOINT_2026-10-12.md` |

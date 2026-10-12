@@ -58,7 +58,9 @@ def cabinet(w,h,d,key):
     box('Bottom',(w,t,d),(0,t/2,0),key)
     box('Top',(w,t,d),(0,h-t/2,0),key,component='Cover')
     for side in [-1,1]:box('Side'+str(side),(t,h-2*t,d),(side*(w-t)/2,h/2,0),key)
-    box('Back',(w-2*t,h-2*t,t),(0,h/2,d/2-t/2),key,component='Back')
+    back=box('Back',(w-2*t,h-2*t,t),(0,h/2,d/2-t/2),key,component='Back')
+    if key=='enamel_appliance' or (w,h,d)==(.58,.33,.25):
+        bore=cylinder(.0065,.025,(.030,.085,d/2));bore.rotation_euler.x=math.pi/2;cut(back,bore)
     box('ControlPanel',(w-2*t,h-2*t,.008),(0,h/2,-d/2-.002),'bakelite_black')
 def dial(x,y,z,r,label):
     axial(label+'Scale',r,.002,(x,y,z),'paper')

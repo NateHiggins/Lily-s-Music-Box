@@ -281233,6 +281233,380 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "6f0c5d1c4e49ac48",
+   "kind": "id_reference",
+   "token": "1A_wireless_table",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2b23b38f355a0adc",
+   "kind": "id_reference",
+   "token": "2A_projector_stand",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fa840817a097727d",
+   "kind": "id_reference",
+   "token": "2A_tv",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "86cff771a3cc94e0",
+   "kind": "id_reference",
+   "token": "2A_wireless_table",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[0]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "134ad85a62deb08a",
+   "kind": "id_reference",
+   "token": "3B_projector_stand",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f09e60251d28f1b0",
+   "kind": "id_reference",
+   "token": "3B_tv",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f562015a42f9164c",
+   "kind": "id_reference",
+   "token": "3D_wireless_table",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ddec528effeb27c2",
+   "kind": "id_reference",
+   "token": "4A_wireless_table",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[1]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "be5fc5e56add5339",
+   "kind": "id_reference",
+   "token": "4B_projector_stand",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0fdaeef34b969b2a",
+   "kind": "id_reference",
+   "token": "4B_tv",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "83f240d6a78a54ca",
+   "kind": "id_reference",
+   "token": "4C_wireless_table",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e2b7fa5daef4e50d",
+   "kind": "id_reference",
+   "token": "5A_wireless_table",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[2]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "074f442e7764f41c",
+   "kind": "id_reference",
+   "token": "5B_wireless_table",
+   "file": "game/data/orison_v2/media_ac_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "27bf08b92558e833",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_media_ac_supply.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "\"MediaAC_\"+str(row.id); support.add_child(root)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
