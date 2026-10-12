@@ -22,6 +22,10 @@ var _yoke: Node3D
 var _roller_lower: Node3D
 var _roller_upper: Node3D
 var _pressure_screw: Node3D
+var _pressure_turn := 0.0
+var _safety_released := false
+const PRESSURE_TRAVEL := .012
+const PRESSURE_TURNS := TAU * 4.0
 var _release_bar: Node3D
 var _water: MeshInstance3D
 var _agitate: AudioStreamPlayer3D
@@ -35,6 +39,8 @@ var _wringer_running := false
 var _release_warning := 0.0
 var _fill_open := false
 var _drain_open := false
+var _hand_control := ""
+signal manipulation_changed
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -147,10 +153,6 @@ func _build_visual() -> void:
 	collision.position = Vector3(0, 0.42, 0)
 	body.add_child(collision)
 	add_child(body)
-	_control_area("LidReach", "lid", Vector3(0, 0.91, -0.38),
-			Vector3(0.62, 0.28, 0.34))
-	_control_area("ReleaseReach", "release", Vector3(0, 1.13, -0.38),
-			Vector3(0.56, 0.25, 0.32))
 	_control_area("FeedReach", "wringer", Vector3(0, 1.02, -0.48),
 			Vector3(0.54, 0.34, 0.34))
 	_control_area("CocksReach", "fill", Vector3(0, 0.94, 0.38),
@@ -195,18 +197,20 @@ func _build_wringer() -> void:
 
 	_pressure_screw = Node3D.new()
 	_pressure_screw.name = "PressureScrew"
+	_pressure_screw.position = Vector3(-.27, .41, -.20)
 	_yoke.add_child(_pressure_screw)
 	_cyl(_pressure_screw, 0.018, 0.018, 0.18,
-			Vector3(-0.27, 0.41, -0.20), BRASS)
+			Vector3.ZERO, BRASS)
 	var handle := _cyl(_pressure_screw, 0.013, 0.013, 0.19,
-			Vector3(-0.27, 0.50, -0.20), WOOD)
+			Vector3(0, .09, 0), WOOD)
 	handle.rotation_degrees.z = 90.0
 
 	_release_bar = Node3D.new()
 	_release_bar.name = "SafetyRelease"
+	_release_bar.position = Vector3(-.27, .35, -.20)
 	_yoke.add_child(_release_bar)
 	var release := _cyl(_release_bar, 0.014, 0.014, 0.49,
-			Vector3(-0.27, 0.35, -0.29), BRASS)
+			Vector3(0, 0, -.09), BRASS)
 	release.rotation_degrees.z = 90.0
 	merge_static(_yoke, [_roller_lower, _roller_upper,
 			_pressure_screw, _release_bar])
@@ -217,10 +221,11 @@ func _start_normal_function() -> void:
 
 
 func set_lid_open(open: bool, duration := 0.35) -> void:
+	if _hand_control == "lid": return
 	_lid_open = open
 	if _lid_tween and _lid_tween.is_valid():
 		_lid_tween.kill()
-	var target := deg_to_rad(-82.0 if open else 0.0)
+	var target := deg_to_rad(82.0 if open else 0.0)
 	if duration <= 0.0:
 		_lid.rotation.x = target
 		return
@@ -230,6 +235,7 @@ func set_lid_open(open: bool, duration := 0.35) -> void:
 
 
 func set_wringer_swing(angle_degrees: float, duration := 0.45) -> void:
+	if _hand_control == "swing": return
 	if _yoke_tween and _yoke_tween.is_valid():
 		_yoke_tween.kill()
 	var target := deg_to_rad(clampf(angle_degrees, -75.0, 75.0))
@@ -242,8 +248,34 @@ func set_wringer_swing(angle_degrees: float, duration := 0.45) -> void:
 
 
 func set_wringer_gap(gap: float) -> void:
-	_roller_gap = clampf(gap, 0.0, 0.045)
+	if not is_finite(gap): return
+	_safety_released = gap >= .035
+	_roller_gap = maxf(clampf(gap, 0.0, 0.045), _pressure_turn / PRESSURE_TURNS * PRESSURE_TRAVEL)
 	_roller_upper.position.y = _roller_gap
+
+
+func _set_pressure_turn(value: float) -> void:
+	if not is_finite(value): return
+	_pressure_turn = clampf(value, 0.0, PRESSURE_TURNS)
+	var lift := _pressure_turn / PRESSURE_TURNS * PRESSURE_TRAVEL
+	_pressure_screw.rotation.y = _pressure_turn
+	_pressure_screw.position.y = .41 + lift
+	# A tripped safety remains released even if someone tightens the screw.
+	_roller_gap = maxf(.040 if _safety_released else 0.0, lift)
+	_roller_upper.position.y = _roller_gap
+
+func pressure_grip() -> Dictionary:
+	return {"owner":self,"part":_pressure_screw,"frame":_yoke,"kind":"hinge",
+		"axis":Vector3.UP,"minimum":0.0,"maximum":PRESSURE_TURNS,
+		"read":func(): return _pressure_turn,
+		"write":func(value: float):
+			if _hand_control == "pressure": _set_pressure_turn(value),
+		"owns":func(): return _hand_control == "pressure",
+		"begin":func():
+			if not _hand_control.is_empty(): return false
+			_hand_control = "pressure"
+			return true,
+		"end":func(): _hand_control = "";manipulation_changed.emit()}
 
 
 func set_wringer_running(running: bool) -> void:
@@ -356,6 +388,7 @@ func _process(delta: float) -> void:
 	if _wringer_running:
 		_roller_lower.rotation.x += delta * 2.8
 		_roller_upper.rotation.x -= delta * 2.8
+	if _hand_control == "release": return
 	if _release_warning > 0.001:
 		_release_bar.rotation.x = deg_to_rad(-8.0 * _release_warning)
 		_release_warning = maxf(0.0, _release_warning - delta * 1.8)
@@ -393,3 +426,64 @@ func _box(parent: Node3D, size: Vector3, at: Vector3,
 func _cyl(parent: Node3D, rt: float, rb: float, height: float,
 		at: Vector3, color: Color) -> MeshInstance3D:
 	return make_cyl(rt, rb, height, at, color, 0.58, 0.20, parent)
+
+
+func _build_primary_interaction() -> void:
+	var targets := preload("res://scripts/props/manipulation_area.gd")
+	targets.install(_lid,func(): return _washer_grip("lid"))
+	# The frame can be swung; the safety bar is a separate spring-loaded part.
+	var swing_area := targets.install(_yoke,func(): return _washer_grip("swing"))
+	# Exclude the independently moving rollers/screw/bar from frame targeting.
+	for child in swing_area.get_children(): child.free()
+	for draw in _yoke.get_children():
+		if draw is not MeshInstance3D: continue
+		var shape := BoxShape3D.new();shape.size=draw.get_aabb().size.max(Vector3.ONE*.008)
+		var collision := CollisionShape3D.new();collision.shape=shape;swing_area.add_child(collision)
+		collision.transform=draw.transform*Transform3D(Basis(),draw.get_aabb().get_center())
+	targets.install(_release_bar,func(): return _washer_grip("release"))
+	targets.install(_pressure_screw,func(): return pressure_grip())
+
+func _washer_grip(control: String) -> Dictionary:
+	var part: Node3D = _lid if control=="lid" else _yoke if control=="swing" else _release_bar
+	return {"owner":self,"part":part,"frame":_yoke if control=="release" else self,"kind":"hinge",
+		"axis":Vector3.UP if control=="swing" else Vector3.RIGHT if control=="lid" else Vector3.LEFT,
+		"minimum":deg_to_rad(-75) if control=="swing" else 0.0,
+		"maximum":deg_to_rad(82 if control=="lid" else 75 if control=="swing" else 8),
+		"read":func(): return part.rotation.y if control=="swing" else part.rotation.x if control=="lid" else -part.rotation.x,
+		"write":func(value: float):
+			if _hand_control != control: return
+			if control=="swing": part.rotation.y=value
+			else:
+				part.rotation.x=value if control=="lid" else -value
+				if control=="lid": _lid_open=value>.01
+				elif value>=deg_to_rad(7): trigger_safety_release(),
+		"owns":func(): return _hand_control == control,
+		"begin":func():
+			if not _hand_control.is_empty(): return false
+			if control=="lid" and _lid_tween != null and _lid_tween.is_valid(): _lid_tween.kill()
+			if control=="swing" and _yoke_tween != null and _yoke_tween.is_valid(): _yoke_tween.kill()
+			_hand_control=control
+			return true,
+		"end":func(): _hand_control="";manipulation_changed.emit()}
+
+func mechanism_snapshot() -> Dictionary:
+	return {"lid":_lid.rotation.x,"swing":_yoke.rotation.y,"gap":_roller_gap,"pressure":_pressure_turn}
+
+func valid_mechanism(value: Variant) -> bool:
+	if value is not Dictionary or value.size() not in [3,4]: return false
+	if value.size()==4:
+		if typeof(value.get("pressure")) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value.pressure)) or float(value.pressure)<0 or float(value.pressure)>PRESSURE_TURNS: return false
+		if float(value.get("gap",-1)) + .00001 < float(value.pressure)/PRESSURE_TURNS*PRESSURE_TRAVEL: return false
+	for key: String in ["lid","swing","gap"]:
+		if typeof(value.get(key)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value[key])): return false
+	return float(value.lid)>=0 and float(value.lid)<=deg_to_rad(82)+.00001 and absf(float(value.swing))<=deg_to_rad(75)+.00001 and float(value.gap)>=0 and float(value.gap)<=.045
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	_hand_control=""
+	for motion: Tween in [_lid_tween,_yoke_tween]:
+		if motion != null and motion.is_valid(): motion.kill()
+	_lid.rotation.x=float(value.lid);_lid_open=value.lid>.01
+	_yoke.rotation.y=float(value.swing)
+	_set_pressure_turn(float(value.get("pressure",0.0)))
+	set_wringer_gap(float(value.gap))

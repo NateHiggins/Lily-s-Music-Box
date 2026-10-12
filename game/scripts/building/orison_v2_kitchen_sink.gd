@@ -87,7 +87,7 @@ func _process(delta: float) -> void:
 	_update_kitchen_plug(delta)
 
 func _update_kitchen_plug(delta: float) -> void:
-	if _kitchen_plug == null: return
+	if _kitchen_plug == null or _plug_hand != null: return
 	var top := kitchen_rim_height()
 	var target := Vector3(0,top-.123,.01) if _stopper else Vector3(.095,top-.124,-.045)
 	if _plug_pose_closed != _stopper:
@@ -128,3 +128,10 @@ func _skin_kitchen_model(model: Node3D) -> void:
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		assert(draw.mesh.get_surface_count() == 1)
 		draw.material_override = draw.get_surface_override_material(0)
+
+func _build_primary_interaction() -> void:
+	super._build_primary_interaction()
+	if fixture != "kitchen_sink": return
+	var top := kitchen_rim_height()
+	_plug_hand=preload("res://scripts/props/basin_plug.gd").new(self,_kitchen_plug,
+		Vector3(0,top-.123,.01),Vector3(.095,top-.124,-.045))

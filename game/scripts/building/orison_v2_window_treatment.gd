@@ -26,6 +26,7 @@ var _wand: PropControlArea
 var _tassel: MultiMeshInstance3D
 var _motion: Tween
 var _target: Dictionary = {}
+var _held_control := ""
 var _count := 0
 var _drop := 0.0
 var _pitch := PITCH
@@ -113,6 +114,7 @@ static func valid_settings(value: Variant) -> bool:
 
 func restore_settings(value: Dictionary) -> void:
     if not valid_settings(value):return
+    _held_control=""
     if _motion!=null and _motion.is_valid():_motion.kill()
     _target.clear()
     raised=float(value.raise);tilt_degrees=float(value.tilt_degrees);curtain_open=float(value.curtain_open)
@@ -147,6 +149,28 @@ func interact_control(id: String, _actor: Node = null) -> Dictionary:
         "curtain":set_settings(raised,tilt_degrees,0 if curtain_open>.5 else 1)
         _:return {}
     return {"action":"window_treatment","control":id}
+
+func control_grip(id: String, part: Node3D) -> Dictionary:
+    if id not in ["lift","tilt","curtain"] or RealityState.save_write_blocked:return {}
+    var extent := .45 if id=="lift" else deg_to_rad(75.0) if id=="tilt" else (width+.24)*.38
+    return {"owner":self,"part":part,"frame":self,"kind":"hinge" if id=="tilt" else "slide",
+        "axis":Vector3.UP if id=="tilt" else Vector3.DOWN if id=="lift" else Vector3.RIGHT,
+        "minimum":-extent if id=="tilt" else 0.0,"maximum":extent,
+        "read":func():return raised*extent if id=="lift" else deg_to_rad(tilt_degrees) if id=="tilt" else curtain_open*extent,
+        "owns":func(): return _held_control == id,
+        "begin":func():
+            if _held_control!="":return false
+            if _motion!=null and _motion.is_valid():_motion.kill()
+            _target.clear();_held_control=id
+            return true,
+        "write":func(value: float):
+            if _held_control!=id:return
+            match id:
+                "lift":raised=value/extent
+                "tilt":tilt_degrees=rad_to_deg(value)
+                "curtain":curtain_open=value/extent
+            _apply(),
+        "end":func():_held_control="";settings_changed.emit()}
 
 func _line(index: int, a: Vector3, b: Vector3) -> void:
     var delta := b-a;var length := maxf(.001,delta.length())
@@ -184,6 +208,8 @@ func _apply() -> void:
         var length := (height-.16)*(.52 if style=="cafe" else 1.0)
         var panel_width := (width+.24)*.5*lerpf(1.02,.26,curtain_open)
         var center := (width+.24)*.5-panel_width*.5
+        var curtain_target := get_node_or_null("CurtainControl") as Node3D
+        if curtain_target!=null:curtain_target.position.x=center-panel_width*.5+.04
         for side in 2:
             var top := .07-(height-.16-length)
             _put(_panels,side,_pose(Vector3((side*2-1)*center,top,.14),Vector3(panel_width,length,1)))

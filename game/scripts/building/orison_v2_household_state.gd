@@ -55,8 +55,24 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	if not _service_library.is_valid():
 		errors.append("invalid maintenance restoration profiles")
 		return false
+	# Named installed owners retain partial mechanical positions in the same
+	# household save domain, without serializing pointer/grab/transient tweens.
+	var explicit_owners: Array[Node] = []
 	for identity: String in _kinds:
-		var prop: Node = adapter.resolve(identity)
+		var subject: Node = adapter.resolve(identity)
+		if subject == null: continue
+		if _kinds[identity]=="window": subject=subject.get_node_or_null("OperatingWindow")
+		elif _kinds[identity]=="blind": subject=subject.get_node_or_null("WindowTreatment")
+		if subject != null: explicit_owners.append(subject)
+	for mechanism: Node in adapter.root.find_children("*","Node3D",true,false):
+		if mechanism in explicit_owners or not mechanism.has_method("mechanism_snapshot"): continue
+		var identity := str(mechanism.name)
+		if adapter.resolve(identity) != mechanism: continue
+		if _kinds.has(identity): continue
+		_kinds[identity] = "mechanism"
+		_subjects[identity] = mechanism
+	for identity: String in _kinds:
+		var prop: Node = _subjects.get(identity,adapter.resolve(identity))
 		var kind: String = _kinds[identity]
 		if kind=="blind" and prop!=null:prop=prop.get_node_or_null("WindowTreatment")
 		if kind=="window" and prop!=null:prop=prop.get_node_or_null("OperatingWindow")
@@ -89,6 +105,7 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	for identity: String in _subjects:
 		if SERVICE_KINDS.has(identity):
 			_connect(_subjects[identity], "maintenance_completed", _on_service_completed.bind(identity))
+			if _subjects[identity].has_signal("manipulation_changed"): _connect(_subjects[identity], "manipulation_changed", _commit_change)
 		elif _kinds[identity] == "radiator":
 			_connect(_subjects[identity], "supply_changed", _on_valve_changed)
 		elif _kinds[identity] in ["prep", "mirror", "window"]:
@@ -97,6 +114,8 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 			_connect(_subjects[identity], "settings_changed", _commit_change)
 		elif _kinds[identity] == "books":
 			_connect(_subjects[identity], "order_changed", _commit_change)
+		elif _kinds[identity] == "mechanism":
+			_connect(_subjects[identity], "manipulation_changed", _commit_change)
 	return true
 
 func _connect(owner: Object, event: String, callback: Callable) -> void:
@@ -124,7 +143,14 @@ func validate(value: Variant, kinds: Dictionary) -> bool:
 			errors.append("unknown or malformed household save identity")
 			continue
 		var setting: Variant = record.get("value")
-		if record.kind == "radiator":
+		if record.kind == "mechanism":
+			if not _subjects.has(identity) or not _subjects[identity].valid_mechanism(setting): errors.append("invalid saved mechanism position")
+		elif record.kind in SERVICE_KINDS.values() and setting is Dictionary:
+			if setting.size()!=2 or setting.get("completed") is not bool or not _subjects[identity].has_method("valid_mechanism") or not _subjects[identity].valid_mechanism(setting.get("mechanism")):
+				errors.append("invalid service mechanism position")
+		elif record.kind == "window":
+			if setting is not bool and not _subjects[identity].valid_mechanism(setting): errors.append("invalid window sash/cam position")
+		elif record.kind == "radiator":
 			if typeof(setting) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(setting)) \
 					or float(setting) < 0.0 or float(setting) > 1.0:
 				errors.append("invalid saved radiator position")
@@ -132,6 +158,9 @@ func validate(value: Variant, kinds: Dictionary) -> bool:
 			if not preload("res://scripts/building/orison_v2_window_treatment.gd").valid_settings(setting):errors.append("invalid saved blind settings")
 		elif record.kind == "books":
 			if not _valid_book_order(str(identity), setting): errors.append("saved books must be the resident library permutation")
+		elif record.kind in ["prep","mirror"]:
+			if setting is not bool and (typeof(setting) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(setting)) or float(setting)<0 or float(setting)>1):
+				errors.append("invalid partial cabinet travel")
 		elif setting is not bool:
 			errors.append("household switch/door value must be boolean")
 	return errors.is_empty()
@@ -154,11 +183,14 @@ func snapshot() -> Dictionary:
 		var kind: String = _kinds[identity]
 		var setting: Variant
 		match kind:
-			"fuse_service", "tank_service", "boiler_service": setting = _service_completed[identity]
+			"mechanism": setting = prop.call("mechanism_snapshot")
+			"fuse_service", "tank_service", "boiler_service":
+				setting = {"completed":_service_completed[identity],"mechanism":prop.mechanism_snapshot()} if prop.has_method("mechanism_snapshot") else _service_completed[identity]
 			"light": setting = prop.get("powered")
 			"radiator": setting = prop.get("supply_position")
-			"prep", "window": setting = prop.get("opened")
-			"mirror": setting = prop.call("is_door_open")
+			"window": setting = prop.mechanism_snapshot()
+			"prep": setting = prop._slide.position.x/prop.TRAVEL
+			"mirror": setting = prop.get("_swing")
 			"blind": setting = prop.call("settings_snapshot")
 			"books": setting = prop.get("sorter").order.duplicate()
 		records[identity] = {"kind":kind, "value":setting}
@@ -166,15 +198,24 @@ func snapshot() -> Dictionary:
 
 func _restore(saved: Dictionary) -> void:
 	_restoring = true
+	for player: Node in get_tree().get_nodes_in_group("player_controller"):
+		if player.has_method("cancel_manipulation"): player.cancel_manipulation()
 	for identity: String in _subjects:
 		var record: Dictionary = saved.records.get(identity, _defaults.records[identity])
 		var prop: Node = _subjects[identity]
 		match record.kind:
-			"fuse_service", "tank_service", "boiler_service": _restore_service(identity, record.value)
+			"mechanism": prop.call("restore_mechanism",record.value)
+			"fuse_service", "tank_service", "boiler_service":
+				_restore_service(identity, record.value.completed if record.value is Dictionary else record.value)
+				if record.value is Dictionary: prop.restore_mechanism(record.value.mechanism)
 			"light": prop.call("set_powered", record.value)
 			"radiator": prop.call("set_supply_position", float(record.value), 0.0)
 			"blind": prop.call("restore_settings", record.value)
 			"books": prop.call("restore_order", record.value)
+			"window":
+				if record.value is bool: prop.restore_open_state(record.value)
+				else: prop.restore_mechanism(record.value)
+			"prep", "mirror": prop.call("restore_travel",float(record.value))
 			_: prop.call("restore_open_state", record.value)
 	_last_saved = saved.duplicate(true)
 	_restoring = false

@@ -42,6 +42,10 @@ var _ice_open := false
 var _tray_open := false
 var _tray_closed_z := 0.0
 var _possessed := false
+var _hand_part: Node3D
+var _motion_tweens: Dictionary = {}
+var _lamp_motion: Tween
+signal manipulation_changed
 
 ## Which flat this is, so the contents can be somebody's rather than
 ## generic, and whether it is one of the four 1927 monitor-tops.
@@ -514,11 +518,78 @@ func interact_prompt() -> String:
 func interact(_player: Node) -> void:
 	set_door_open(not _open)
 
+func _build_primary_interaction() -> void:
+	var targets := preload("res://scripts/props/manipulation_area.gd")
+	for part: Node3D in [_door,_ice_door,_tray]:
+		if part != null:
+			targets.install(part,func(): return _part_grip(part))
+			preload("res://scripts/props/mechanism_sweep.gd").install(part)
+
+func _part_grip(part: Node3D) -> Dictionary:
+	var sliding := part == _tray
+	return {"owner":self,"part":part,"frame":self,"kind":"slide" if sliding else "hinge",
+		"axis":Vector3.FORWARD if sliding else Vector3.UP,"minimum":0.0,
+		"maximum":.30 if sliding else deg_to_rad(105 if part == _door else 98),
+		"read":func(): return _tray_closed_z-part.position.z if sliding else part.rotation.y,
+		"write":func(value: float): _move_part_by_hand(part,value),
+		"owns":func(): return _hand_part == part,
+		"begin":func(): return _take_part(part),"end":func(): _hand_part = null;manipulation_changed.emit()}
+
+func mechanism_snapshot() -> Dictionary:
+	return {"door":_door.rotation.y,"ice":_ice_door.rotation.y if _ice_door != null else 0.0,
+		"tray":_tray_closed_z-_tray.position.z if _tray != null else 0.0}
+
+func valid_mechanism(value: Variant) -> bool:
+	if value is not Dictionary or value.size()!=3: return false
+	for key: String in ["door","ice","tray"]:
+		if typeof(value.get(key)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value[key])): return false
+	return float(value.door)>=0 and float(value.door)<=deg_to_rad(105) and float(value.ice)>=0 \
+		and float(value.ice)<=deg_to_rad(98) and float(value.tray)>=0 and float(value.tray)<=.30001
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	if _lamp_motion != null and _lamp_motion.is_valid(): _lamp_motion.kill()
+	for tween: Tween in _motion_tweens.values():
+		if tween != null and tween.is_valid(): tween.kill()
+	_door.rotation.y = float(value.door);_open = value.door>.01
+	if _ice_door != null: _ice_door.rotation.y = float(value.ice);_ice_open = value.ice>.01
+	if _tray != null: _tray.position.z = _tray_closed_z-float(value.tray);_tray_open = value.tray>.001
+	if _lamp: _lamp.light_energy = .22*clampf(float(value.door)/.12,0,1)
+	_hand_part = null
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	for part: Node3D in [_door,_ice_door,_tray]:
+		if part != null and part.is_ancestor_of(hit.collider): return _part_grip(part)
+	return {}
+
+func _take_part(part: Node3D) -> bool:
+	if _hand_part != null or _possessed: return false
+	if _motion_tweens.has(part.name):
+		var tween: Tween = _motion_tweens[part.name]
+		if tween != null and tween.is_valid(): tween.kill()
+	if part == _door and _lamp_motion != null and _lamp_motion.is_valid(): _lamp_motion.kill()
+	_hand_part = part
+	return true
+
+func _move_part_by_hand(part: Node3D,value: float) -> void:
+	if _hand_part != part: return
+	var before := _tray_closed_z-part.position.z if part==_tray else part.rotation.y
+	value=preload("res://scripts/props/mechanism_sweep.gd").limited(self,part,Vector3.FORWARD if part==_tray else Vector3.UP,before,value,part==_tray)
+	if part == _tray:
+		part.position.z = _tray_closed_z-value
+		_tray_open = value > .001
+	else:
+		part.rotation.y = value
+		if part == _door:
+			_open = value > .01
+			if _lamp: _lamp.light_energy = .22*clampf(value/.12,0,1)
+		else: _ice_open = value > .01
+
 
 ## One path for hand and haunting, so a possessed leaf cannot disagree
 ## with the latch state the prompt reports.
 func set_door_open(open: bool, seconds := 0.55) -> void:
-	if _door == null:
+	if _door == null or _hand_part == _door:
 		return
 	_open = open
 	if _click:
@@ -528,6 +599,7 @@ func set_door_open(open: bool, seconds := 0.55) -> void:
 		_creak.pitch_scale = 0.88 if open else 1.02
 		_creak.play()
 	var tween := create_tween()
+	_replace_motion(_door,tween)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_OUT if open else Tween.EASE_IN)
 	# The front is local -Z, matching StoveProp and the Blender facing
@@ -535,39 +607,48 @@ func set_door_open(open: bool, seconds := 0.55) -> void:
 	tween.tween_property(_door, "rotation:y",
 			deg_to_rad(105.0) if open else 0.0, seconds)
 	if _lamp:
-		create_tween().tween_property(_lamp, "light_energy",
+		if _lamp_motion != null and _lamp_motion.is_valid(): _lamp_motion.kill()
+		_lamp_motion = create_tween()
+		_lamp_motion.tween_property(_lamp, "light_energy",
 				0.22 if open else 0.0, seconds * 0.6)
 
 
 func set_ice_door_open(open: bool, seconds := 0.45) -> void:
-	if monitor_top or _ice_door == null:
+	if monitor_top or _ice_door == null or _hand_part == _ice_door:
 		return
 	_ice_open = open
 	if _click:
 		_click.pitch_scale = 1.05
 		_click.play()
 	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
+	_replace_motion(_ice_door,tween)
 	tween.tween_property(_ice_door, "rotation:y",
 			deg_to_rad(98.0) if open else 0.0, seconds)
 
 
 func set_tray_open(open: bool, seconds := 0.38) -> void:
-	if monitor_top or _tray == null:
+	if monitor_top or _tray == null or _hand_part == _tray:
 		return
 	_tray_open = open
 	if _click:
 		_click.pitch_scale = 1.22 if open else 0.94
 		_click.play()
 	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
+	_replace_motion(_tray,tween)
 	tween.tween_property(_tray, "position:z",
 			_tray_closed_z - 0.30 if open else _tray_closed_z, seconds)
+
+func _replace_motion(part: Node3D,tween: Tween) -> void:
+	var old: Tween = _motion_tweens.get(part.name)
+	if old != null and old.is_valid(): old.kill()
+	_motion_tweens[part.name] = tween
 
 
 ## The electric cabinet can knock and flare. The passive icebox does less:
 ## its tray comes out a few centimetres and is found shut on the next look.
 ## Either can still be blamed on a loose latch or a sloping floor.
 func possess_fit(beats := 4) -> void:
-	if _possessed or _door == null:
+	if _possessed or _door == null or _hand_part != null:
 		return
 	_possessed = true
 	if monitor_top:
@@ -628,6 +709,7 @@ func _icebox_ambient_loop() -> void:
 
 
 func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
+	if _hand_part != null: return
 	if monitor_top:
 		_click.pitch_scale = rng.randf_range(0.85, 0.95)
 		_click.volume_db = -14.0 + linear_to_db(clampf(accent, 0.2, 1.0))

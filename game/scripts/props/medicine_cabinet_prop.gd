@@ -324,10 +324,44 @@ func interact_prompt() -> String:
 func interact(_player: Node) -> void:
 	set_door_open(not _open)
 
+var _hand_pose := false
+var _hand_held := false
+
+func _build_primary_interaction() -> void:
+	preload("res://scripts/props/manipulation_area.gd").install(_door,_door_grip)
+
+func _door_grip() -> Dictionary:
+	var direction := -1.0 if hinge_side == "left" else 1.0
+	return {"owner":self,"part":_door,"frame":self,"kind":"hinge","axis":Vector3.UP*direction,
+		"minimum":0.0,"maximum":DOOR_ANGLE,"read":func():return _swing*DOOR_ANGLE,
+		"owns":func(): return _hand_held,
+		"begin":func():
+			if _hand_held or RealityState.save_write_blocked: return false
+			_hand_pose = true;_hand_held = true
+			return true,
+		"write":func(value: float):
+			if not _hand_held: return
+			_swing = value/DOOR_ANGLE;_open = _swing>.001;_apply_swing(),
+		"end":func():
+			_hand_held = false
+			if has_signal("open_state_changed"): emit_signal("open_state_changed",_open)}
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	return _door_grip() if _door.is_ancestor_of(hit.collider) else {}
+
+func restore_travel(fraction: float) -> void:
+	_hand_pose = true
+	_hand_held = false
+	_swing = clampf(fraction,0,1)
+	_open = _swing>.001
+	_apply_swing()
+
 
 var hinges_oiled := false
 
 func set_door_open(open: bool, duration := 0.35) -> void:
+	if _hand_held: return
+	_hand_pose = false
 	_open = open
 	if _squeak and not _squeak.playing and not hinges_oiled:
 		_squeak.pitch_scale = 1.05 + randf_range(-0.06, 0.06)
@@ -380,6 +414,7 @@ func _start_normal_function() -> void:
 
 
 func _process(delta: float) -> void:
+	if _hand_pose: return
 	var want := 1.0 if _open else 0.0
 	if is_equal_approx(_swing, want):
 		return

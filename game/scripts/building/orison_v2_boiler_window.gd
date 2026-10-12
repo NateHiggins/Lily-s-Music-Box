@@ -12,6 +12,7 @@ var model: Node3D
 var sash: Node3D
 var latch: Node3D
 var _phase := 0.0
+var _hand_part: Node3D
 var _sweep_shape := BoxShape3D.new()
 var _actor: WeakRef
 
@@ -57,7 +58,7 @@ func interact_control(id: String,actor: Node = null) -> Dictionary:
 	return interact_handle(actor) if id=="hopper" else {}
 
 func interact_handle(actor: Node = null) -> Dictionary:
-	if moving or RealityState.save_write_blocked:return {}
+	if moving or _hand_part != null or RealityState.save_write_blocked:return {}
 	var target: float=0.0 if opened else MAXIMUM_ANGLE
 	if actor is CollisionObject3D:
 		for i in 36:
@@ -104,7 +105,72 @@ func _apply_pose() -> void:
 	_handle.transform=model.transform*sash.transform*latch.transform
 
 func restore_open_state(value: bool) -> void:
-	opened=value;moving=false;_actor=null;set_physics_process(false)
+	opened=value;moving=false;_actor=null;_hand_part=null;set_physics_process(false)
 	angle_degrees=MAXIMUM_ANGLE if value else 0.0
 	latch_fraction=1.0 if value else 0.0
+	_apply_pose()
+
+
+func control_grip(id: String, _area: Area3D) -> Dictionary:
+	return _window_grip(latch) if id=="hopper" else {}
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	if latch.is_ancestor_of(hit.collider): return _window_grip(latch)
+	if sash.is_ancestor_of(hit.collider): return _window_grip(sash)
+	return {}
+
+func _window_grip(part: Node3D) -> Dictionary:
+	var cam := part==latch
+	return {"owner":self,"part":part,"frame":sash if cam else self,"kind":"hinge",
+		"axis":Vector3.BACK if cam else Vector3.LEFT,"minimum":0.0,
+		"maximum":PI*.5 if cam else deg_to_rad(MAXIMUM_ANGLE),
+		"read":func(): return latch_fraction*PI*.5 if cam else deg_to_rad(angle_degrees),
+		"write":func(value: float):
+			if _hand_part != part: return
+			if cam:
+				# The keeper cannot accept the cam while the sash is away.
+				if angle_degrees>.5 and value<PI*.4: return
+				latch_fraction=value/(PI*.5)
+			else:
+				if latch_fraction<.8: return
+				var next := rad_to_deg(value)
+				var steps := maxi(1,ceili(absf(next-angle_degrees)))
+				var start := angle_degrees
+				for step in range(1,steps+1):
+					var candidate := lerpf(start,next,float(step)/steps)
+					if not _hand_sash_clear(candidate): break
+					angle_degrees=candidate
+				opened=angle_degrees>.5
+			_apply_pose(),
+		"owns":func(): return _hand_part == part,
+		"begin":func():
+			if _hand_part != null or RealityState.save_write_blocked: return false
+			moving=false;_actor=null;set_physics_process(false);_hand_part=part
+			return true,
+		"end":func(): _hand_part=null;open_state_changed.emit(opened)}
+
+func _hand_sash_clear(angle: float) -> bool:
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape=_sweep_shape;query.margin=0.0
+	query.transform=global_transform*Transform3D(Basis(Vector3.RIGHT,-deg_to_rad(angle)),Vector3(0,-.44,-.13))*Transform3D(Basis.IDENTITY,Vector3(0,.44,-.008))
+	var excluded: Array[RID] = []
+	for body: CollisionObject3D in find_children("*","CollisionObject3D",true,false): excluded.append(body.get_rid())
+	query.exclude=excluded
+	for hit: Dictionary in get_world_3d().direct_space_state.intersect_shape(query,128):
+		if not is_ancestor_of(hit.collider): return false
+	return true
+
+func mechanism_snapshot() -> Dictionary:
+	return {"angle":angle_degrees,"latch":latch_fraction}
+
+func valid_mechanism(value: Variant) -> bool:
+	if value is not Dictionary or value.size()!=2: return false
+	for key: String in ["angle","latch"]:
+		if typeof(value.get(key)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value[key])): return false
+	return float(value.angle)>=0 and float(value.angle)<=MAXIMUM_ANGLE and float(value.latch)>=0 and float(value.latch)<=1 and (float(value.angle)<=.5 or float(value.latch)>=.8)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	_hand_part=null;moving=false;_actor=null;set_physics_process(false)
+	angle_degrees=float(value.angle);latch_fraction=float(value.latch);opened=angle_degrees>.5
 	_apply_pose()

@@ -14,6 +14,10 @@ var _fixed: Node3D
 var _rack: Node3D
 var _rack_tween: Tween
 var _lowered := false
+var _hand_gripped := false
+var _settle_motion: Tween
+var _settle_home := 1.98
+signal manipulation_changed
 var _settle: AudioStreamPlayer3D
 
 
@@ -104,7 +108,6 @@ func _build_visual() -> void:
 	body.add_child(collision)
 	add_child(body)
 	_service_area("RinseReach", Vector3(0, 0.80, -0.42), Vector3(1.24, 0.36, 0.34))
-	_service_area("AirerReach", Vector3(0.72, 1.20, -0.10), Vector3(0.35, 0.55, 0.50))
 	_settle = make_emitter("tick", -24.0)
 
 
@@ -113,6 +116,7 @@ func _start_normal_function() -> void:
 
 
 func set_airer_lowered(lowered: bool, duration := 0.55) -> void:
+	if _hand_gripped: return
 	_lowered = lowered
 	if _rack_tween and _rack_tween.is_valid():
 		_rack_tween.kill()
@@ -161,15 +165,22 @@ func service_wire_card() -> Dictionary:
 
 
 func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
+	if _hand_gripped: return
 	# The rack settles one centimetre without being commanded. At low infection
 	# it is exactly the kind of movement a player can blame on wet rope.
 	_settle.volume_db = -27.0 + linear_to_db(clampf(accent, 0.3, 1.0))
 	_settle.play()
-	var target := _rack.position.y - 0.012
+	if _settle_motion != null and _settle_motion.is_valid():
+		_settle_motion.kill()
+	else:
+		_settle_home = _rack.position.y
+	var home := _settle_home
+	var target := home - 0.012
 	var tween := create_tween()
+	_settle_motion=tween
 	tween.tween_property(_rack, "position:y", target, 0.10)
 	tween.tween_property(_rack, "position:y",
-			1.38 if _lowered else 1.98, 0.45)
+			home, 0.45)
 
 
 func _service_area(area_name: String, at: Vector3, size: Vector3) -> void:
@@ -200,3 +211,33 @@ func _box(parent: Node3D, size: Vector3, at: Vector3,
 func _cyl(parent: Node3D, rt: float, rb: float, height: float,
 		at: Vector3, color: Color) -> MeshInstance3D:
 	return make_cyl(rt, rb, height, at, color, 0.62, 0.16, parent)
+
+
+func _build_primary_interaction() -> void:
+	preload("res://scripts/props/manipulation_area.gd").install(_rack,_airer_grip)
+
+func _airer_grip() -> Dictionary:
+	return {"owner":self,"part":_rack,"frame":self,"kind":"slide","axis":Vector3.UP,
+		"minimum":1.38,"maximum":1.98,"read":func(): return _rack.position.y,
+		"write":func(value: float):
+			if _hand_gripped: _rack.position.y=value;_lowered=value<1.97,
+		"owns":func(): return _hand_gripped,
+		"begin":func():
+			if _hand_gripped: return false
+			for motion: Tween in [_rack_tween,_settle_motion]:
+				if motion != null and motion.is_valid(): motion.kill()
+			_hand_gripped=true
+			return true,
+		"end":func(): _hand_gripped=false;manipulation_changed.emit()}
+
+func mechanism_snapshot() -> Dictionary:
+	return {"height":_rack.position.y}
+
+func valid_mechanism(value: Variant) -> bool:
+	return value is Dictionary and value.size()==1 and typeof(value.get("height")) in [TYPE_FLOAT,TYPE_INT] and is_finite(float(value.height)) and float(value.height)>=1.36799 and float(value.height)<=1.98001
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	for motion: Tween in [_rack_tween,_settle_motion]:
+		if motion != null and motion.is_valid(): motion.kill()
+	_hand_gripped=false;_rack.position.y=clampf(float(value.height),1.38,1.98);_lowered=_rack.position.y<1.97

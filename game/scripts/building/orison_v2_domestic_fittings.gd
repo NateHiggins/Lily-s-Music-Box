@@ -71,7 +71,15 @@ func mount_source(adapter: Variant, parsed: Variant) -> bool:
 			# The primary Area supplies the E target, not movement
 			# collision. V2 has no baked fixture hull beneath the live mesh.
 			# Derive a solid body after construction, in fixture-local space.
-			var bounds: AABB = consumer._visual_bounds()
+			# Moving leaves and handles no longer belong to an invisible whole-
+			# appliance box that could intercept their direct manipulation ray.
+			var bounds := AABB()
+			var found := false
+			for draw: MeshInstance3D in consumer.get_node("StaticCarcass").find_children("*","MeshInstance3D",true,false):
+				if draw.mesh == null: continue
+				var local: AABB = (consumer.global_transform.affine_inverse()*draw.global_transform)*draw.get_aabb()
+				bounds = bounds.merge(local) if found else local
+				found = true
 			if bounds.size.length_squared() > 0.0001:
 				var body := StaticBody3D.new()
 				body.name = "FixtureBody"

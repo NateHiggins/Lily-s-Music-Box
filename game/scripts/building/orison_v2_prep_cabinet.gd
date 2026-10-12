@@ -9,6 +9,23 @@ var opened := false
 var track_clean := true
 var _slide: AnimatableBody3D
 var _motion: Tween
+var _held := false
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	if hit.get("collider") != _slide: return {}
+	return {"owner":self,"part":_slide,"frame":self,"kind":"slide","axis":Vector3.RIGHT,
+		"minimum":0.0,"maximum":TRAVEL,"read":func(): return _slide.position.x,
+		"owns":func(): return _held,
+		"begin":func():
+			if _held or RealityState.save_write_blocked: return false
+			if _motion != null and _motion.is_valid(): _motion.kill()
+			_held = true
+			return true,
+		"write":func(value: float):
+			if not _held: return
+			_slide.position.x = value
+			opened = value > .001,
+		"end":func(): _held = false; open_state_changed.emit(opened)}
 
 class SlidingPanel extends AnimatableBody3D:
 	var cabinet: Node
@@ -70,12 +87,16 @@ func interact(_actor: Node = null) -> Dictionary:
 	return {"action":"kitchen_cabinet", "unit":unit, "open":opened}
 
 func restore_open_state(value: bool) -> void:
+	restore_travel(1.0 if value else 0.0)
+
+func restore_travel(fraction: float) -> void:
 	if _motion != null and _motion.is_valid(): _motion.kill()
-	opened = value
+	_held = false
+	opened = fraction > .001
 	# Reconstruction is a teleport, not a physics animation. The synchronized
 	# body otherwise retains its pre-mount physics transform until the next tick.
 	_slide.sync_to_physics = false
-	_slide.transform = Transform3D(Basis.IDENTITY, Vector3(TRAVEL if opened else 0.0, 0.0, 0.0))
+	_slide.transform = Transform3D(Basis.IDENTITY, Vector3(TRAVEL*clampf(fraction,0,1), 0.0, 0.0))
 	_slide.force_update_transform()
 	_slide.sync_to_physics = true
 

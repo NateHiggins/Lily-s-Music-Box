@@ -302,6 +302,49 @@ func interact(_player: Node) -> Dictionary:
 		_busy_response()
 	return service_wire_card()
 
+var _hand_control := ""
+
+func _build_primary_interaction() -> void:
+	var area := preload("res://scripts/props/manipulation_area.gd")
+	area.install(_lever,func(): return _toaster_grip("lever"))
+	if _crumb_tray != null: area.install(_crumb_tray,func(): return _toaster_grip("tray"))
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	if _lever.is_ancestor_of(hit.collider):return _toaster_grip("lever")
+	if _crumb_tray != null and _crumb_tray.is_ancestor_of(hit.collider):return _toaster_grip("tray")
+	return {}
+
+func _toaster_grip(id: String) -> Dictionary:
+	var part: Node3D = _lever if id=="lever" else _crumb_tray
+	var axis: Vector3 = Vector3.DOWN if id=="lever" else tray_axis.normalized()
+	return {"owner":self,"part":part,"frame":self,"kind":"slide","axis":axis,
+		"minimum":0.0,"maximum":LEVER_TRAVEL if id=="lever" else TRAY_TRAVEL,
+		"read":func():return .137-_lever.position.y if id=="lever" else (_crumb_tray.position-Vector3(0,.027,0)).dot(axis),
+		"owns":func(): return _hand_control == id,
+		"begin":func():
+			if _hand_control!="" or state!=PState.IDLE:return false
+			if id=="tray" and _tray_tween != null and _tray_tween.is_valid():_tray_tween.kill()
+			_hand_control=id
+			return true,
+		"write":func(value: float):
+			if _hand_control!=id:return
+			if id=="lever" and state!=PState.IDLE:return
+			if id=="tray":
+				_crumb_tray.position=Vector3(0,.027,0)+axis*value
+				_tray_open=value>.001
+			else:
+				_lever.position.y=.137-value
+				_carriage.position.y=lerpf(.151,.064,value/LEVER_TRAVEL)
+				if value>=LEVER_TRAVEL-.0001 and state==PState.IDLE:_latched(),
+		"end":func():
+			_hand_control=""
+			if id=="tray":crumb_tray_changed.emit(_tray_open)
+			elif state==PState.IDLE:
+				# An unlatched carriage returns under its actual spring.
+				var spring:=create_tween().set_parallel()
+				spring.tween_property(_lever,"position:y",.137,.18)
+				spring.tween_property(_carriage,"position:y",.151,.18)}
+
 
 func service_wire_card() -> Dictionary:
 	var carriage := "RAISED"

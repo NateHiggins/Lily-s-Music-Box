@@ -34,6 +34,9 @@ var _squeak: AudioStreamPlayer3D
 var _moving := false
 var _relock_after_close := false
 var _key_turning := false
+var _hand_gripped := false
+signal manipulation_changed
+var _leaf_motion: Tween
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -66,7 +69,7 @@ func _ready() -> void:
 	_build_audio()
 	if leaf_state == "open":
 		open = true
-		_body.rotation.y = deg_to_rad(-168.0 if swing_out else 168.0)
+		_body.rotation.y = motion_target_angle(true)
 	apply_hinge_setback()
 
 
@@ -328,6 +331,9 @@ func interact_key(_player: Node) -> Dictionary:
 
 
 func interact(_player: Node) -> void:
+	# Player acquisition and movement go through manipulation_target; this
+	# endpoint command remains the resident/director API during migration.
+	if _hand_gripped: return
 	if _moving or (_key_turning and _player != null):
 		return
 	if leaf_state == "locked":
@@ -338,6 +344,7 @@ func interact(_player: Node) -> void:
 	motion_revision += 1
 	_play_move()
 	var tween := create_tween()
+	_leaf_motion = tween
 	tween.tween_property(_body, "rotation:y",
 			motion_target_angle(open), 0.5).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(_settled)
@@ -361,6 +368,74 @@ func npc_set_open(want_open: bool, resident_id := "") -> void:
 			if str(candidate.get("resident_id")) == resident_id: holder = candidate; break
 		_turn_key(holder)
 	interact(null)
+
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	if hit.get("collider") != _body or _key_turning or (_moving and not _hand_gripped): return {}
+	return {"owner":self,"part":_body,"frame":self,"kind":"hinge","axis":Vector3.UP,
+		"minimum":minf(0,motion_target_angle(true)),"maximum":maxf(0,motion_target_angle(true)),
+		"read":func(): return _body.rotation.y,"write":_move_by_hand,
+		"owns":func(): return _hand_gripped,
+		"begin":_take_leaf,"end":_release_leaf}
+
+func _take_leaf() -> bool:
+	if _moving or _key_turning: return false
+	_hand_gripped = true
+	_moving = true
+	motion_revision += 1
+	return true
+
+func _move_by_hand(angle: float) -> void:
+	if not _hand_gripped: return
+	if leaf_state == "locked":
+		if not has_meta("hand_motion_sound"):
+			_play_locked()
+			set_meta("hand_motion_sound",true)
+		return
+	var old := _body.rotation.y
+	# Small angular steps test the actual collision shell throughout the sweep.
+	var shape_node := _body.get_child(0) as CollisionShape3D
+	for i in maxi(1,int(ceil(absf(angle-old)/.025))):
+		var trial := move_toward(_body.rotation.y,angle,.025)
+		var pose := _body.transform
+		pose.basis = Basis(Vector3.UP,trial)
+		if shape_node != null:
+			var query := PhysicsShapeQueryParameters3D.new()
+			query.shape = shape_node.shape
+			query.transform = global_transform * pose * shape_node.transform
+			query.collision_mask = _body.collision_mask
+			query.exclude = [_body.get_rid()]
+			query.margin = .001
+			if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): break
+		_body.rotation.y = trial
+	open = absf(_body.rotation.y) > .01
+	if not is_equal_approx(old,_body.rotation.y) and not has_meta("hand_motion_sound"):
+		_play_move()
+		set_meta("hand_motion_sound",true)
+
+func _release_leaf() -> void:
+	_hand_gripped = false
+	remove_meta("hand_motion_sound")
+	_settled()
+	manipulation_changed.emit()
+
+func mechanism_snapshot() -> Dictionary:
+	return {"angle":_body.rotation.y}
+
+func valid_mechanism(value: Variant) -> bool:
+	return value is Dictionary and value.size()==1 and typeof(value.get("angle")) in [TYPE_FLOAT,TYPE_INT] \
+		and is_finite(float(value.angle)) and float(value.angle)>=minf(0,motion_target_angle(true)) \
+		and float(value.angle)<=maxf(0,motion_target_angle(true))
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	if _leaf_motion != null and _leaf_motion.is_valid(): _leaf_motion.kill()
+	_hand_gripped = false;_moving = false
+	_body.sync_to_physics = false
+	_body.rotation.y = float(value.angle)
+	_body.force_update_transform()
+	_body.sync_to_physics = true
+	open = absf(_body.rotation.y)>.01
 
 
 func _turn_key(holder: Node) -> void:

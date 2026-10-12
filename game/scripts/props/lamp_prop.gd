@@ -355,6 +355,43 @@ func interact(_player: Node = null) -> Dictionary:
 	set_local_enabled(not _local_enabled)
 	return service_wire_card()
 
+var _hand_on_key := false
+signal manipulation_changed
+
+func _build_primary_interaction() -> void:
+	preload("res://scripts/props/manipulation_area.gd").install(_switch_key,_key_grip)
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	return _key_grip() if _switch_key.is_ancestor_of(hit.collider) else {}
+
+func _key_grip() -> Dictionary:
+	return {"owner":self,"part":_switch_key,"frame":_switch_key.get_parent(),"kind":"hinge","axis":Vector3.UP,
+		"minimum":deg_to_rad(-32),"maximum":deg_to_rad(32),"read":func():return _switch_key.rotation.y,
+		"owns":func(): return _hand_on_key,
+		"begin":func():
+			if _hand_on_key:return false
+			if _switch_tween != null and _switch_tween.is_valid():_switch_tween.kill()
+			_hand_on_key = true
+			return true,
+		"write":func(angle: float):
+			if not _hand_on_key:return
+			if (angle>.06 and not _local_enabled) or (angle<-.06 and _local_enabled):set_local_enabled(angle>0,false)
+			_switch_key.rotation.y=angle,
+		"end":func():_hand_on_key=false;manipulation_changed.emit()}
+
+func mechanism_snapshot() -> Dictionary:
+	return {"angle":_switch_key.rotation.y,"enabled":_local_enabled}
+
+func valid_mechanism(value: Variant) -> bool:
+	return value is Dictionary and value.size()==2 and value.get("enabled") is bool \
+		and typeof(value.get("angle")) in [TYPE_FLOAT,TYPE_INT] and is_finite(float(value.angle)) and absf(float(value.angle))<=deg_to_rad(32.01)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value):return
+	_hand_on_key=false
+	set_local_enabled(value.enabled,false)
+	_switch_key.rotation.y=float(value.angle)
+
 
 func set_local_enabled(enabled: bool, animate := true) -> void:
 	_local_enabled = enabled

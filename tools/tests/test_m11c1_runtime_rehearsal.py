@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import math
 import shutil
@@ -47,6 +48,7 @@ from tools.m11c1_floor01_rehearsal.prepare_runtime_rehearsal import (
 
 FINAL_EXPORT = Path(r"C:\PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt")
 HISTORICAL_INPUTS = Path(__file__).parent / "fixtures/m11c1_runtime_rehearsal/historical_inputs.zip"
+HISTORICAL_PROTECTED_GLTF_HASH = "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1"
 HISTORICAL_HASHES = {
     "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
     "game/data/orison_v2/exterior/regions.json": "1f128e4411e135acfc7e9046d5a2c3edf940d39adce54d336fbba8523f1a488a",
@@ -190,7 +192,17 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
         for relative in ["assets/building/floor_01.gltf", "assets/building/floor_01.bin"]:
             destination = cls.source_root / "game" / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(GAME_ROOT / relative, destination)
+            if relative.endswith(".gltf"):
+                # The immutable 2026-08 export bound this JSON with CRLF.
+                # Reconstruct only that historical newline encoding in the
+                # disposable fixture; any content change still fails its hash.
+                data = (GAME_ROOT / relative).read_bytes().replace(b"\r\n", b"\n")
+                data = data.replace(b"\n", b"\r\n")
+                if hashlib.sha256(data).hexdigest() != HISTORICAL_PROTECTED_GLTF_HASH:
+                    raise AssertionError("protected glTF content differs from historical fixture")
+                destination.write_bytes(data)
+            else:
+                shutil.copyfile(GAME_ROOT / relative, destination)
         cls.bundle = validate_export(FINAL_EXPORT, cls.source_root)
         cls.resources = {
             cell_id: "res://m11c1_disposable/cells/%s.gltf" % cell_id.lower()
@@ -397,7 +409,13 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
 
     def test_current_source_mismatch_is_still_refused(self) -> None:
         current = GAME_ROOT / "data/orison_v2/exterior/regions.json"
-        if sha256_file(current) != HISTORICAL_HASHES["game/data/orison_v2/exterior/regions.json"]:
+        protected = GAME_ROOT / "assets/building/floor_01.gltf"
+        if sha256_file(protected) != HISTORICAL_PROTECTED_GLTF_HASH:
+            # Production validation remains raw-byte strict. An LF checkout
+            # fails the protected boundary before it reaches the regions.
+            with self.assertRaisesRegex(PreparationError, "actual protected floor_01 hashes differ"):
+                validate_export(FINAL_EXPORT)
+        elif sha256_file(current) != HISTORICAL_HASHES["game/data/orison_v2/exterior/regions.json"]:
             with self.assertRaisesRegex(PreparationError, "regions hash differs"):
                 validate_export(FINAL_EXPORT)
         else:

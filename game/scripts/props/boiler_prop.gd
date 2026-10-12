@@ -56,6 +56,12 @@ var _thud: AudioStreamPlayer3D
 var _settle: AudioStreamPlayer3D
 var _draft_bed: AudioStreamPlayer3D
 var _shake := 0.0
+var _hand_part: Node3D
+var _glass_level := .62
+var _cock_openings := Vector2.ONE
+var _drain_proved := false
+var _column_worked := false
+signal manipulation_changed
 
 
 func _exit_tree() -> void:
@@ -115,15 +121,6 @@ func _build_visual() -> void:
 	_fire_material = (_firebed_mesh.material_override as StandardMaterial3D).duplicate()
 	_firebed_mesh.material_override = _fire_material
 
-	_control_area("FireDoorReach", "fire_door", Vector3(0, 1.04, -0.68),
-			Vector3(0.66, 0.43, 0.16))
-	_control_area("AshDoorReach", "ash_door", Vector3(0, 0.43, -0.68),
-			Vector3(0.58, 0.26, 0.16))
-	_control_area("WaterGlassReach", "water_column",
-			Vector3(0.54, 1.05, -0.55),
-			Vector3(0.30, 0.62, 0.30))
-	_control_area("DraftReach", "draft", _draft_damper.position,
-			Vector3(0.30, 0.30, 0.20))
 
 	_thud = make_emitter("thud", -15.0)
 	_thud.max_distance = 45.0
@@ -365,16 +362,11 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> void:
-	set_fire_door_open(not _fire_open)
+	pass # Player actions resolve the exact moving part through manipulation_target.
 
 
-func interact_area(area: Area3D) -> void:
-	match area.name:
-		"AshDoorReach": set_ash_door_open(not _ash_open)
-		"DraftReach": set_draft(wrapf(draft + 0.2, 0.15, 1.01))
-		"WaterGlassReach": _begin_water_column_service(
-				get_tree().get_first_node_in_group("player_controller"))
-		_: set_fire_door_open(not _fire_open)
+func interact_area(_area: Area3D) -> void:
+	pass
 
 
 func control_prompt(control_id: String) -> String:
@@ -386,27 +378,11 @@ func control_prompt(control_id: String) -> String:
 	return ""
 
 
-func interact_control(control_id: String, player: Node) -> Variant:
-	match control_id:
-		"water_column": return _begin_water_column_service(player)
-		"fire_door": set_fire_door_open(not _fire_open)
-		"ash_door": set_ash_door_open(not _ash_open)
-		"draft": set_draft(wrapf(draft + 0.2, 0.15, 1.01))
-		_: return false
-	return service_wire_card()
+func interact_control(_control_id: String, _player: Node) -> Variant:
+	return {} # No service overlay; cocks and lever operate the actual column.
 
-
-func _begin_water_column_service(player: Node) -> bool:
-	if _service_panel and is_instance_valid(_service_panel):
-		return false
-	var script: GDScript = load("res://scripts/ui/maintenance_activity_panel.gd")
-	_service_panel = script.new()
-	get_tree().current_scene.add_child(_service_panel)
-	if not _service_panel.open(player, self, "boiler_water_column_test"):
-		_service_panel.queue_free()
-		_service_panel = null
-		return false
-	return true
+func _begin_water_column_service(_player: Node) -> bool:
+	return false # Compatibility only for retired panel callers.
 
 
 func maintenance_panel_closed() -> void:
@@ -439,6 +415,7 @@ func preview_maintenance_hold(step: Dictionary, progress: float,
 
 
 func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
+	_hand_part=null;_column_worked=false;_drain_proved=false
 	column_isolated = bool(snapshot.get("column_isolated", column_isolated))
 	column_proved = bool(snapshot.get("column_proved", column_proved))
 	water_level = clampf(float(snapshot.get("water_level", water_level)), 0.0, 1.0)
@@ -464,6 +441,7 @@ func _apply_column_service_pose() -> void:
 
 
 func _set_column_cocks(value: float) -> void:
+	_cock_openings=Vector2.ONE*clampf(value,0,1)
 	for cock in _column_cocks:
 		cock.rotation.z = deg_to_rad(lerpf(-82.0, 0.0,
 				clampf(value, 0.0, 1.0)))
@@ -487,6 +465,7 @@ func _column_level_y(value: float) -> float:
 
 
 func set_fire_door_open(open: bool, seconds := 0.55) -> void:
+	if _hand_part == _fire_door: return
 	# Both leaves extend +X from their hinge; +Y rotation swings toward the
 	# front (-Z), away from the firebox rather than through the hot casing.
 	_fire_open = open
@@ -503,6 +482,7 @@ func set_fire_door_open(open: bool, seconds := 0.55) -> void:
 
 
 func set_ash_door_open(open: bool, seconds := 0.45) -> void:
+	if _hand_part == _ash_door: return
 	_ash_open = open
 	if _ash_tween and _ash_tween.is_valid():
 		_ash_tween.kill()
@@ -594,7 +574,7 @@ func set_service_pose() -> void:
 
 
 func _apply_state() -> void:
-	_set_water_visual(water_level)
+	_set_water_visual(_glass_level if _column_worked else water_level)
 	if _gauge_needle:
 		_gauge_needle.rotation.z = deg_to_rad(lerpf(-118.0, 118.0, pressure))
 	if _fire_material:
@@ -614,6 +594,7 @@ func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
 
 
 func _process(delta: float) -> void:
+	_update_column_by_hand(delta)
 	if _shake > 0.0002:
 		_carcass.position = Vector3(rng.randf_range(-_shake, _shake), 0,
 				rng.randf_range(-_shake, _shake))
@@ -663,3 +644,101 @@ func _box(parent: Node3D, size: Vector3, at: Vector3,
 func _cyl(parent: Node3D, rt: float, rb: float, height: float,
 		at: Vector3, color: Color) -> MeshInstance3D:
 	return make_cyl(rt, rb, height, at, color, 0.56, 0.25, parent)
+
+
+func _build_primary_interaction() -> void:
+	for part: Node3D in [_fire_door,_ash_door,_draft_damper,_blowdown_lever,_witness_marker]+_column_cocks:
+		preload("res://scripts/props/manipulation_area.gd").install(part,func(): return _boiler_grip(part))
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	for part: Node3D in [_fire_door,_ash_door,_draft_damper,_blowdown_lever,_witness_marker]+_column_cocks:
+		if part==hit.collider or part.is_ancestor_of(hit.collider): return _boiler_grip(part)
+	return {}
+
+func _boiler_grip(part: Node3D) -> Dictionary:
+	var witness := part==_witness_marker
+	var door := part==_fire_door or part==_ash_door
+	var low := .838 if witness else deg_to_rad(-28) if part==_draft_damper else 0.0
+	var high := 1.26 if witness else deg_to_rad(95 if part==_fire_door else 82 if part==_ash_door else 32 if part==_draft_damper else 34 if part==_blowdown_lever else 82)
+	return {"owner":self,"part":part,"frame":self,"kind":"slide" if witness else "hinge",
+		"axis":Vector3.UP if witness or door else Vector3.FORWARD if part==_blowdown_lever else Vector3.BACK,
+		"minimum":low,"maximum":high,"read":func(): return _hand_value(part),
+		"write":func(value: float): _write_hand_value(part,value),
+		"owns":func(): return _hand_part == part,
+		"begin":func():
+			if _hand_part != null: return false
+			var motion: Tween=_fire_tween if part==_fire_door else _ash_tween if part==_ash_door else null
+			if motion != null and motion.is_valid(): motion.kill()
+			_hand_part=part
+			return true,
+		"end":func(): _hand_part=null;manipulation_changed.emit();boiler_state_changed.emit(get_boiler_state())}
+
+func _hand_value(part: Node3D) -> float:
+	if part==_witness_marker: return part.position.y
+	if part==_fire_door or part==_ash_door: return part.rotation.y
+	if part==_blowdown_lever: return -part.rotation.z
+	if part in _column_cocks: return part.rotation.z+deg_to_rad(82)
+	return part.rotation.z
+
+func _write_hand_value(part: Node3D,value: float) -> void:
+	if _hand_part != part: return
+	if part==_fire_door or part==_ash_door:
+		value=preload("res://scripts/props/mechanism_sweep.gd").limited(self,part,Vector3.UP,part.rotation.y,value,false)
+	if part==_fire_door: part.rotation.y=value;_fire_open=value>.01
+	elif part==_ash_door: part.rotation.y=value;_ash_open=value>.01
+	elif part==_draft_damper: set_draft(inverse_lerp(deg_to_rad(-28),deg_to_rad(32),value))
+	elif part==_witness_marker: part.position.y=value;_column_worked=true
+	elif part==_blowdown_lever: part.rotation.z=-value;_column_worked=true
+	else:
+		var index := _column_cocks.find(part)
+		_cock_openings[index]=value/deg_to_rad(82)
+		part.rotation.z=value-deg_to_rad(82)
+		column_isolated=_cock_openings.x<.02 and _cock_openings.y<.02
+		_column_worked=true
+
+func _update_column_by_hand(delta: float) -> void:
+	if _blowdown_lever==null: return
+	if not _column_worked: _glass_level=water_level;return
+	if _hand_part!=_blowdown_lever:
+		_blowdown_lever.rotation.z=move_toward(_blowdown_lever.rotation.z,0,delta*2)
+	var drain := clampf(-_blowdown_lever.rotation.z/deg_to_rad(34),0,1)
+	var communication := minf(_cock_openings.x,_cock_openings.y)
+	# Drain the isolated glass, never invent or discard the boiler's water.
+	var level := move_toward(_glass_level,water_level,delta*.6*communication)
+	_glass_level=clampf(level-delta*.5*drain,0,1)
+	if column_isolated and drain>.1 and _glass_level<.025: _drain_proved=true
+	_set_water_visual(_glass_level)
+	if _drain_proved and not column_proved and communication>.98 and drain<.01 \
+		and absf(_glass_level-water_level)<.01 and absf(_witness_marker.position.y-_column_level_y(_glass_level))<.01:
+		column_proved=true
+		maintenance_completed.emit({"activity_id":"boiler_water_column_test","quality":"good",
+			"note":"water column emptied, returned and witnessed",
+			"mechanism_patch":{"water_level":water_level,"column_proved":true}})
+
+func mechanism_snapshot() -> Dictionary:
+	return {"fire":_fire_door.rotation.y,"ash":_ash_door.rotation.y,"draft":draft,
+		"upper":_cock_openings.x,"lower":_cock_openings.y,"glass":_glass_level,
+		"witness":_witness_marker.position.y,"drained":_drain_proved}
+
+func valid_mechanism(value: Variant) -> bool:
+	if value is not Dictionary or value.size()!=8 or value.get("drained") is not bool: return false
+	var limits := {"fire":[0,deg_to_rad(95)+.00001],"ash":[0,deg_to_rad(82)+.00001],
+		"draft":[0,1],"upper":[0,1],"lower":[0,1],"glass":[0,1],"witness":[.83799,1.26001]}
+	for key: String in limits:
+		if typeof(value.get(key)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value[key])): return false
+		if float(value[key])<limits[key][0] or float(value[key])>limits[key][1]: return false
+	return true
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	_hand_part=null
+	for motion: Tween in [_fire_tween,_ash_tween]:
+		if motion != null and motion.is_valid(): motion.kill()
+	_fire_door.rotation.y=float(value.fire);_fire_open=value.fire>.01
+	_ash_door.rotation.y=float(value.ash);_ash_open=value.ash>.01
+	set_draft(float(value.draft))
+	_cock_openings=Vector2(float(value.upper),float(value.lower))
+	for i in _column_cocks.size(): _column_cocks[i].rotation.z=deg_to_rad(lerpf(-82,0,_cock_openings[i]))
+	_glass_level=float(value.glass);_witness_marker.position.y=float(value.witness);_drain_proved=value.drained
+	column_isolated=_cock_openings.x<.02 and _cock_openings.y<.02
+	_column_worked=true;_blowdown_lever.rotation.z=0;_set_water_visual(_glass_level)

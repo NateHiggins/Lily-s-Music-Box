@@ -212,6 +212,45 @@ func interact(_player: Node) -> void:
 		return
 	set_speed_step((_speed_step + 1) % 4)
 
+var _hand_on_selector := false
+var _selector_motion: Tween
+signal manipulation_changed
+
+func _build_primary_interaction() -> void:
+	preload("res://scripts/props/manipulation_area.gd").install(_selector,_selector_grip)
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	return _selector_grip() if _selector.is_ancestor_of(hit.collider) else {}
+
+func _selector_grip() -> Dictionary:
+	return {"owner":self,"part":_selector,"frame":self,"kind":"hinge","axis":Vector3.UP,
+		"minimum":deg_to_rad(-45),"maximum":deg_to_rad(45),"read":func():return _selector.rotation.y,
+		"owns":func(): return _hand_on_selector,
+		"begin":func():
+			if _hand_on_selector or _possession_phase>0:return false
+			if _selector_motion != null and _selector_motion.is_valid():_selector_motion.kill()
+			_hand_on_selector=true
+			return true,
+		"write":func(angle: float):
+			if not _hand_on_selector:return
+			var step := clampi(roundi((rad_to_deg(angle)+45)/30),0,3)
+			if step!=_speed_step:set_speed_step(step,true)
+			_selector.rotation.y=angle,
+		"end":func():_hand_on_selector=false;manipulation_changed.emit()}
+
+func mechanism_snapshot() -> Dictionary:
+	return {"angle":_selector.rotation.y}
+
+func valid_mechanism(value: Variant) -> bool:
+	return value is Dictionary and value.size()==1 and typeof(value.get("angle")) in [TYPE_FLOAT,TYPE_INT] \
+		and is_finite(float(value.angle)) and absf(float(value.angle))<=deg_to_rad(45.01)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value):return
+	_hand_on_selector=false
+	set_speed_step(clampi(roundi((rad_to_deg(float(value.angle))+45)/30),0,3),true)
+	_selector.rotation.y=float(value.angle)
+
 
 func set_speed_step(step: int, immediate := false) -> void:
 	_speed_step = clampi(step, 0, 3)
@@ -219,11 +258,12 @@ func set_speed_step(step: int, immediate := false) -> void:
 	state = PState.OFF if _speed_step == 0 else PState.OPERATING
 	if _selector:
 		var angle := deg_to_rad(-45.0 + 30.0 * float(_speed_step))
+		if _selector_motion != null and _selector_motion.is_valid():_selector_motion.kill()
 		if immediate:
 			_selector.rotation.y = angle
 		else:
-			create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT) \
-					.tween_property(_selector, "rotation:y", angle, 0.12)
+			_selector_motion=create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			_selector_motion.tween_property(_selector, "rotation:y", angle, 0.12)
 	if immediate:
 		_rpm = _target_rpm
 	_update_hum()

@@ -1,0 +1,729 @@
+{
+  "evidence": "INERT source inventory; does not establish runtime reachability or acceptance",
+  "owners": [
+    {
+      "path": "game/scripts/arcade/swc_door.gd",
+      "methods": [
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/arcade/swc_pickup.gd",
+      "methods": [
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/elevator.gd",
+      "methods": [
+        "interact_area"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/light_debug_handle.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/maintenance_headquarters.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_bar_sink.gd",
+      "methods": [
+        "interact_area"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_boiler_window.gd",
+      "methods": [
+        "interact_control",
+        "interact_handle"
+      ],
+      "migration": "partial: separate keeper cam and sash, collision sweep, old boolean save compatibility; installed verification in progress"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_exterior_cell.gd",
+      "methods": [
+        "interaction_leaf"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_household_radiator.gd",
+      "methods": [
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_medicine_cabinet.gd",
+      "methods": [
+        "set_door_open"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_prep_cabinet.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_radio_prop.gd",
+      "methods": [
+        "interact_prompt"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_water_valve.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_window_treatment.gd",
+      "methods": [
+        "interact_control"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/building/room0.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/building/switch_plate.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/building/wayfinding_signage_pass.gd",
+      "methods": [
+        "interact_area",
+        "interact_prompt"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/call/desk_zone.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/cases/case_interactable.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/characters/animated_resident.gd",
+      "methods": [
+        "interact_prompt",
+        "interact_key",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/characters/npc_placeholder.gd",
+      "methods": [
+        "interact_prompt",
+        "interact_key",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/game/maintenance_shop_counter.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/game/reality_case_manager.gd",
+      "methods": [
+        "interact_with_resident"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/player/player_controller.gd",
+      "methods": [
+        "use_primary_interaction"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/props/arcade_cabinet_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/baked_furniture_interaction.gd",
+      "methods": [
+        "interact_prompt",
+        "interact",
+        "interact_control"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/bar_seat_zone.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/bench_zone.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/bodega_signage_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/boiler_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact",
+        "interact_area",
+        "interact_control"
+      ],
+      "migration": "partial: physical fire/ash doors, draft, independent cocks, spring drain lever and witness; bench service outcome verified; installed targeting and navigation pending"
+    },
+    {
+      "path": "game/scripts/props/bookshelf_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/boxfan_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "partial: physical selector with speed contacts; benchmark passed, maintenance coverage pending"
+    },
+    {
+      "path": "game/scripts/props/building_entry_sign.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/case_door_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/clock_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/darts_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/dead_letters_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/domestic_radio_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/domestic_witness_clock.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/door_anomaly_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/door_check_closer_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/door_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact_key",
+        "interact"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/props/dumbwaiter_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/elevator_interlock_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/entrance_marquee_dress.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/exhaust_fan_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/fire_line_cabinet_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/flue_breast_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/fortune_answer_prop.gd",
+      "methods": [
+        "interact",
+        "interact_prompt"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/fridge_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact",
+        "set_door_open",
+        "set_ice_door_open",
+        "set_tray_open"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/props/fuse_panel_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/harukiya_signage_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/house_switchboard_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/inspectable_zone.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/kettle_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/key_copy_counter.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/lamp_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "partial: physical key with retained electrical contact; benchmark passed, installed input coverage pending"
+    },
+    {
+      "path": "game/scripts/props/laundry_airer_prop.gd",
+      "methods": [
+        "interact_control"
+      ],
+      "migration": "partial: native rack travel and suspension; rope handling, rinse controls and laundry workflow still pending"
+    },
+    {
+      "path": "game/scripts/props/lobby_bulletin_board.gd",
+      "methods": [
+        "interact_control",
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/lobby_orison_ad_board.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/mail_bank_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/mail_box_zone.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/mail_chute_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/medicine_cabinet_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact",
+        "set_door_open"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/props/monitor_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/neon_sign_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/night_register_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/otis_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact",
+        "interact_control"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/passage_pushcart.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/point_ball_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/possessed_domestic_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/projector_prop.gd",
+      "methods": [
+        "interact_prompt"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/prop_control_area.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/props/radiator_interaction_surface.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/props/radiator_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact",
+        "interact_area"
+      ],
+      "migration": "partial: shared grab adapter; focused bench and installed-state checks passed; all-family migration/acceptance pending"
+    },
+    {
+      "path": "game/scripts/props/roof_tank_ballcock_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/shop_sign_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/soda_acid_extinguisher_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/songbook_terminal_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/stove_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact",
+        "set_door_open"
+      ],
+      "migration": "partial: oven/broiler, four independent burner cocks, fractional flame and saved gas/lit state; physical ignition, oven fuel control and service work still pending"
+    },
+    {
+      "path": "game/scripts/props/tap_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact_area",
+        "interact",
+        "set_hot",
+        "set_cold"
+      ],
+      "migration": "partial: independent valves, loose kitchen/lavatory plugs, continuous U-rail curtain and saved positions; shower stopper, full service paths and formal acceptance pending"
+    },
+    {
+      "path": "game/scripts/props/toaster_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "partial: lever latch and crumb tray; benchmark passed, remaining service actions pending"
+    },
+    {
+      "path": "game/scripts/props/tour_key_guard_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/tv_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/vantry_point_prop.gd",
+      "methods": [
+        "interact_prompt",
+        "interact",
+        "interact_area"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/washer_prop.gd",
+      "methods": [
+        "interact_control"
+      ],
+      "migration": "partial: lid, swinging wringer, safety bar and threaded pressure screw; safety reset, fill/drain/drive controls and maintenance still pending"
+    },
+    {
+      "path": "game/scripts/props/watchman_clock_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/watch_register_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    },
+    {
+      "path": "game/scripts/props/watch_station_prop.gd",
+      "methods": [
+        "interact_control",
+        "interact_prompt",
+        "interact"
+      ],
+      "migration": "pending review and migration"
+    }
+  ],
+  "completion_rule": "Every production entry point must have a verified physical replacement or an explicitly justified non-mechanical interaction. Legacy fallback is temporary debt, never compliance."
+}

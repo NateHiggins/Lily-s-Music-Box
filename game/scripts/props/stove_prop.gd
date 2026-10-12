@@ -49,8 +49,14 @@ var burner_grime: Array[float] = []
 var _door: Node3D
 var _broiler: Node3D
 var _open := false
+var _hand_part: Node3D
+var _door_motion: Tween
+signal manipulation_changed
 var _possessed := false
 var _burner_on: Array[bool] = []
+var _gas_openings: Array[float] = []
+var _knob_motions: Dictionary = {}
+var _flame_motions: Dictionary = {}
 var _grates: Array[Node3D] = []
 var _grate_home: Array[Vector3] = []
 var _caps: Array[Node3D] = []
@@ -63,6 +69,7 @@ var _burner_lights: Array[OmniLight3D] = []
 var _knobs: Array[Node3D] = []
 var _clunk: AudioStreamPlayer3D
 var _burn: AudioStreamPlayer3D
+var _burn_motion: Tween
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -75,6 +82,7 @@ func _build_visual() -> void:
 	for _i in BURNER_SPOTS.size():
 		burner_grime.append(0.0)
 		_burner_on.append(false)
+		_gas_openings.append(0.0)
 
 	var carcass := Node3D.new()
 	carcass.name = "StaticCarcass"
@@ -337,13 +345,15 @@ func interact(_player: Node) -> void:
 ## One path for hand and haunting, so the possessed leaf cannot disagree
 ## with the latch state reported by the prompt.
 func set_door_open(open: bool, seconds := 0.50) -> void:
-	if _door == null:
+	if _door == null or _hand_part == _door:
 		return
 	_open = open
 	if _clunk:
 		_clunk.pitch_scale = 0.82 if open else 1.08
 		_clunk.play()
+	if _door_motion != null and _door_motion.is_valid(): _door_motion.kill()
 	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
+	_door_motion = tween
 	tween.set_ease(Tween.EASE_OUT if open else Tween.EASE_IN)
 	tween.tween_property(_door, "rotation:x",
 			deg_to_rad(-86.0) if open else 0.0, seconds)
@@ -357,15 +367,17 @@ func set_ring(index: int, on: bool, seconds := 0.45) -> void:
 
 func set_burner_lit(index: int, on: bool, seconds := 0.45,
 		force := false) -> bool:
-	if index < 0 or index >= _flames.size():
+	if index < 0 or index >= _flames.size() or _hand_part == _knobs[index]:
 		return false
+	_cancel_flame_motion(index)
 	if on and index == blocked_burner and not force:
 		# A blocked jet answers with a tiny yellow cough, then darkness. The
 		# service game can deduce the fault without the range solving itself.
 		_dirty_flames[index].visible = true
 		_flames[index].visible = true
 		_burner_lights[index].light_color = Color(1.0, 0.42, 0.12)
-		create_tween().tween_property(_burner_lights[index], "light_energy",
+		_flame_motions[index] = create_tween()
+		_flame_motions[index].tween_property(_burner_lights[index], "light_energy",
 				0.025, minf(seconds, 0.12))
 		_sputter_out(index)
 		return false
@@ -374,9 +386,12 @@ func set_burner_lit(index: int, on: bool, seconds := 0.45,
 	_dirty_flames[index].visible = on and index == blocked_burner
 	_burner_lights[index].light_color = Color(0.32, 0.48, 1.0) \
 			if index != blocked_burner else Color(1.0, 0.42, 0.12)
-	create_tween().tween_property(_burner_lights[index], "light_energy",
+	_gas_openings[index] = 1.0 if on else 0.0
+	_flames[index].scale.y = 1.0
+	_flame_motions[index] = create_tween()
+	_flame_motions[index].tween_property(_burner_lights[index], "light_energy",
 			0.11 if on else 0.0, seconds)
-	_knobs[index].rotation.z = deg_to_rad(-58.0) if on else 0.0
+	_knobs[index].rotation.z = deg_to_rad(-58.0) * _gas_openings[index]
 	if _clunk:
 		_clunk.pitch_scale = 1.20 if on else 0.96
 		_clunk.play()
@@ -386,11 +401,13 @@ func set_burner_lit(index: int, on: bool, seconds := 0.45,
 
 func _sputter_out(index: int) -> void:
 	await get_tree().create_timer(0.16, false).timeout
-	if not is_inside_tree() or index >= _flames.size():
+	if not is_inside_tree() or index >= _flames.size() or _burner_on[index]:
 		return
 	_flames[index].visible = false
 	_dirty_flames[index].visible = false
-	create_tween().tween_property(_burner_lights[index], "light_energy", 0.0, 0.12)
+	_cancel_flame_motion(index)
+	_flame_motions[index] = create_tween()
+	_flame_motions[index].tween_property(_burner_lights[index], "light_energy", 0.0, 0.12)
 
 
 func set_burner_grime(index: int, amount: float) -> void:
@@ -455,10 +472,13 @@ func set_service_pose(index := 0) -> void:
 func _update_burn_bed() -> void:
 	if _burn == null:
 		return
-	var any := false
-	for on in _burner_on:
-		any = any or on
-	create_tween().tween_property(_burn, "volume_db", -38.0 if any else -60.0, 0.7)
+	var amount := 0.0
+	for index in _burner_on.size():
+		if _burner_on[index]: amount += _gas_openings[index]
+	if _burn_motion != null and _burn_motion.is_valid(): _burn_motion.kill()
+	_burn_motion = create_tween()
+	_burn_motion.tween_property(_burn, "volume_db",
+		-38.0+linear_to_db(maxf(.08,minf(1.0,amount))) if amount>0 else -60.0, .15)
 
 
 ## The overt fit uses the same valves, jets and hinge as maintenance. It
@@ -501,9 +521,12 @@ func _perform_synced_event(index: int, accent: float, _pitch: float) -> void:
 	# Below overt possession the valve only tests its stop. A player who
 	# looks back sees it where it began and can reasonably blame themselves.
 	var knob := _knobs[burner]
+	if _hand_part == knob: return
+	_cancel_knob_motion(burner)
 	var home := knob.rotation.z
 	var twitch := home + deg_to_rad(-9.0 - 8.0 * accent)
 	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
+	_knob_motions[burner] = tween
 	tween.tween_property(knob, "rotation:z", twitch, 0.10)
 	tween.tween_property(knob, "rotation:z", home, 0.22)
 
@@ -553,3 +576,107 @@ func _tube_between(parent: Node3D, a: Vector3, b: Vector3,
 			color, 0.55, 0.0, parent)
 	mi.quaternion = Quaternion(Vector3.UP, delta.normalized())
 	return mi
+
+
+func _build_primary_interaction() -> void:
+	for part: Node3D in [_door,_broiler]+_knobs:
+		for child_name: String in ["ManipulationTarget","HandMovedCollision"]:
+			var old := part.get_node_or_null(child_name)
+			if old != null: old.free()
+	for index in _knobs.size():
+		preload("res://scripts/props/manipulation_area.gd").install(_knobs[index],func(): return gas_grip(index))
+	for part: Node3D in [_door, _broiler]:
+		preload("res://scripts/props/manipulation_area.gd").install(part, func(): return _range_grip(part))
+		preload("res://scripts/props/mechanism_sweep.gd").install(part)
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	for part: Node3D in [_door,_broiler]:
+		if part.is_ancestor_of(hit.collider): return _range_grip(part)
+	return {}
+
+func _range_grip(part: Node3D) -> Dictionary:
+	var sliding := part == _broiler
+	return {"owner":self,"part":part,"frame":self,"kind":"slide" if sliding else "hinge",
+		"axis":Vector3.FORWARD if sliding else Vector3.LEFT,"minimum":0.0,
+		"maximum":.24 if sliding else deg_to_rad(86),
+		"read":func(): return -D*.5-.016-part.position.z if sliding else -part.rotation.x,
+		"write":func(value: float):
+			if _hand_part != part: return
+			var before := -D*.5-.016-part.position.z if sliding else -part.rotation.x
+			value=preload("res://scripts/props/mechanism_sweep.gd").limited(self,part,Vector3.FORWARD if sliding else Vector3.LEFT,before,value,sliding)
+			if sliding: part.position.z=-D*.5-.016-value
+			else: part.rotation.x=-value;_open=value>.01,
+		"owns":func(): return _hand_part == part,
+		"begin":func():
+			if _hand_part != null or _possessed: return false
+			if part == _door and _door_motion != null and _door_motion.is_valid(): _door_motion.kill()
+			_hand_part=part
+			return true,
+		"end":func(): _hand_part=null;manipulation_changed.emit()}
+
+func _cancel_knob_motion(index: int) -> void:
+	var motion: Tween = _knob_motions.get(index)
+	if motion != null and motion.is_valid(): motion.kill()
+	_knob_motions.erase(index)
+
+func _cancel_flame_motion(index: int) -> void:
+	var motion: Tween = _flame_motions.get(index)
+	if motion != null and motion.is_valid(): motion.kill()
+	_flame_motions.erase(index)
+
+func _set_gas_opening(index: int, value: float) -> void:
+	if index < 0 or index >= _gas_openings.size() or not is_finite(value): return
+	_cancel_flame_motion(index)
+	_gas_openings[index] = clampf(value,0.0,1.0)
+	_knobs[index].rotation.z = -deg_to_rad(58.0)*_gas_openings[index]
+	# The cock admits gas; it supplies no spark. Only an already lit ring burns.
+	if _gas_openings[index] <= .0001: _burner_on[index] = false
+	_flames[index].visible = _burner_on[index]
+	_dirty_flames[index].visible = _burner_on[index] and index == blocked_burner
+	_flames[index].scale.y = lerpf(.20,1.0,_gas_openings[index])
+	_burner_lights[index].light_energy = .11*_gas_openings[index] if _burner_on[index] else 0.0
+	_update_burn_bed()
+
+func gas_grip(index: int) -> Dictionary:
+	if index < 0 or index >= _knobs.size(): return {}
+	var knob := _knobs[index]
+	return {"owner":self,"part":knob,"frame":self,"kind":"hinge",
+		"axis":Vector3.FORWARD,"minimum":0.0,"maximum":deg_to_rad(58),
+		"read":func(): return _gas_openings[index]*deg_to_rad(58),
+		"write":func(value: float):
+			if _hand_part == knob: _set_gas_opening(index,value/deg_to_rad(58)),
+		"owns":func(): return _hand_part == knob,
+		"begin":func():
+			if _hand_part != null or _possessed: return false
+			_cancel_knob_motion(index)
+			_hand_part = knob
+			return true,
+		"end":func(): _hand_part=null;manipulation_changed.emit()}
+
+func mechanism_snapshot() -> Dictionary:
+	return {"door":-_door.rotation.x,"broiler":-D*.5-.016-_broiler.position.z,
+		"gas":_gas_openings.duplicate(),"lit":_burner_on.duplicate()}
+
+func valid_mechanism(value: Variant) -> bool:
+	if value is not Dictionary or value.size() not in [2,4]: return false
+	if value.size()==4:
+		if value.get("gas") is not Array or value.get("lit") is not Array or value.gas.size()!=4 or value.lit.size()!=4: return false
+		for i in 4:
+			if typeof(value.gas[i]) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value.gas[i])) or float(value.gas[i])<0 or float(value.gas[i])>1 or typeof(value.lit[i])!=TYPE_BOOL: return false
+			if value.lit[i] and float(value.gas[i])<=.0001: return false
+	for key: String in ["door","broiler"]:
+		if typeof(value.get(key)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value[key])): return false
+	return float(value.door)>=0 and float(value.door)<=deg_to_rad(86)+.00001 and float(value.broiler)>=0 and float(value.broiler)<=.24001
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	if _door_motion != null and _door_motion.is_valid(): _door_motion.kill()
+	_hand_part=null
+	_door.rotation.x=-float(value.door);_open=value.door>.01
+	_broiler.position.z=-D*.5-.016-float(value.broiler)
+
+	for i in 4:
+		_cancel_knob_motion(i)
+		if value.has("gas"):
+			_burner_on[i] = value.lit[i]
+			_set_gas_opening(i,float(value.gas[i]))

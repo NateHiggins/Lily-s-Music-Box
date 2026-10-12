@@ -8,6 +8,12 @@ extends Area3D
 
 var control_id := ""
 
+func manipulation_target(_hit: Dictionary) -> Dictionary:
+	var mechanism := get_parent()
+	if mechanism != null and mechanism.has_method("control_grip"):
+		return mechanism.call("control_grip",control_id,self)
+	return {"legacy":true}
+
 
 func configure(id: String) -> void:
 	control_id = id

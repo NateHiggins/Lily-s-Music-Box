@@ -35,11 +35,15 @@ var has_drainboard := true
 var warehouse_curtain_open := false
 
 var _bath_plug: Node3D
+var _plug_hand: RefCounted
 var _bath_chain: Node3D
 var _bath_chain_instances: MultiMesh
 
 var _hot := false
 var _cold := false
+var _valve_openings := Vector2.ZERO
+var _held_valve := -1
+signal manipulation_changed
 var _stopper := false
 var _water_level := 0.0
 var drain_capacity := 1.0
@@ -58,6 +62,7 @@ var _curtain_closed: Node3D
 var _curtain_gathered: Node3D
 var _curtain_area: Area3D
 var _curtain_is_open := false
+var _curtain_hand: RefCounted
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -213,8 +218,9 @@ func _update_bath_plug(delta: float) -> void:
 	# the far end remains on the back's attachment, with slack between them.
 	var seat := Vector3(0, .696, -.02)
 	var parked := Vector3(.115, .705, .005)
-	_bath_plug.position = _bath_plug.position.move_toward(
-			seat if _stopper else parked, delta * .45)
+	if _plug_hand == null:
+		_bath_plug.position = _bath_plug.position.move_toward(
+				seat if _stopper else parked, delta * .45)
 	var start := _bath_plug.position + Vector3(0, .018, 0)
 	var finish := Vector3(.04, .898, .082)
 	for index in _bath_chain_instances.instance_count:
@@ -810,6 +816,9 @@ func interact(_player: Node) -> void:
 
 
 func set_curtain_open(open: bool) -> void:
+	if _curtain_hand != null:
+		if not _curtain_hand.held: _curtain_hand.set_travel(_curtain_hand.TRAVEL if open else 0.0)
+		return
 	_curtain_is_open = open
 	if _curtain_closed:
 		_curtain_closed.visible = not open
@@ -831,16 +840,91 @@ func is_curtain_open() -> bool:
 
 
 func set_hot(on: bool) -> void:
-	_hot = on
-	_update_flow()
+	set_valve_opening(0,1.0 if on else 0.0)
 
 
 func set_cold(on: bool) -> void:
-	_cold = on
+	set_valve_opening(1,1.0 if on else 0.0)
+
+func set_valve_opening(index: int,value: float) -> void:
+	if index not in [0,1] or not is_finite(value): return
+	_valve_openings[index] = clampf(value,0,1)
+	_hot = _valve_openings.x > .0001
+	_cold = _valve_openings.y > .0001
 	_update_flow()
+
+func _build_primary_interaction() -> void:
+	if _curtain_closed != null:
+		_curtain_hand=preload("res://scripts/props/shower_curtain_motion.gd").new(self)
+		set_curtain_open(warehouse_curtain_open)
+	if _bath_plug != null:
+		_plug_hand=preload("res://scripts/props/basin_plug.gd").new(self,_bath_plug,Vector3(0,.696,-.02),Vector3(.115,.705,.005))
+	for index in mini(2,_handles.size()):
+		preload("res://scripts/props/manipulation_area.gd").install(_handles[index],
+			func(): return valve_grip(index))
+
+func valve_grip(index: int) -> Dictionary:
+	if index < 0 or index >= _handles.size(): return {}
+	# Both threaded stop valves unscrew counter-clockwise viewed from the cap.
+	# Wall caps face local -Z; deck-mounted caps face +Y.
+	var direction := Vector3.FORWARD if _handle_wall_mounted[index] else Vector3.UP
+	return {"owner":self,"part":_handles[index],"frame":self,"kind":"hinge",
+		"axis":direction,"minimum":0.0,"maximum":PI*.5,
+		"read":func(): return _valve_openings[index]*PI*.5,
+		"write":func(angle: float):
+			if _held_valve == index: set_valve_opening(index,angle/(PI*.5)),
+		"owns":func(): return _held_valve == index,
+		"begin":func():
+			if _held_valve != -1 or (_plug_hand != null and _plug_hand.held) or (_curtain_hand != null and _curtain_hand.held): return false
+			_held_valve = index
+			return true,
+		"end":func(): _held_valve = -1;manipulation_changed.emit()}
+
+func mechanism_snapshot() -> Dictionary:
+	var saved := {"hot":_valve_openings.x,"cold":_valve_openings.y}
+	if _plug_hand != null:
+		var at: Vector3=_plug_hand.part.position
+		saved["plug"]=[at.x,at.y,at.z]
+		saved["water"]=_water_level
+	if _curtain_hand != null: saved["curtain"]=_curtain_hand.travel
+	return saved
+
+func valid_mechanism(value: Variant) -> bool:
+	if value is not Dictionary or value.size() not in [2,3,4]: return false
+	if value.size()==3:
+		if _curtain_hand == null or typeof(value.get("curtain")) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value.curtain)) or float(value.curtain)<0 or float(value.curtain)>_curtain_hand.TRAVEL: return false
+	if value.size()==4:
+		if _plug_hand == null or not _plug_hand.valid_position(value.get("plug")): return false
+		if typeof(value.get("water")) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value.water)) or float(value.water)<0 or float(value.water)>1: return false
+	for key: String in ["hot","cold"]:
+		if typeof(value.get(key)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value[key])) or float(value[key])<0 or float(value[key])>1: return false
+	return true
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	_held_valve = -1
+	if _curtain_hand != null:
+		_curtain_hand.held=false
+		if value.has("curtain"): _curtain_hand.set_travel(float(value.curtain))
+	if _plug_hand != null:
+		_plug_hand.held=false
+		if value.has("plug"):
+			_plug_hand.restore(value.plug)
+			_water_level=float(value.water)
+	set_valve_opening(0,float(value.hot));set_valve_opening(1,float(value.cold))
+	for index in mini(2,_handle_turns.size()): _handle_turns[index] = _valve_openings[index]
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	if _curtain_hand != null and hit.collider == _curtain_area: return _curtain_hand.grip(hit.position)
+	for index in _handles.size():
+		if _handles[index].is_ancestor_of(hit.collider): return valve_grip(index)
+	return {}
 
 
 func set_stopper(closed: bool) -> void:
+	if _plug_hand != null:
+		_plug_hand.set_closed(closed)
+		return
 	_stopper = closed
 
 
@@ -858,10 +942,11 @@ func set_running(on: bool) -> void:
 func get_flow_state() -> Dictionary:
 	var mix := 0.0
 	if _hot or _cold:
-		mix = (_boiler_temperature if _hot else 0.0) / \
-				(float(int(_hot) + int(_cold)))
+		mix = _boiler_temperature*_valve_openings.x / (_valve_openings.x+_valve_openings.y)
 	return {"hot": _hot, "cold": _cold, "stopper": _stopper,
-			"temperature": mix, "water_level": _water_level}
+			"temperature": mix, "water_level": _water_level,
+			"hot_opening":_valve_openings.x,"cold_opening":_valve_openings.y,
+			"flow":minf(1.0,_valve_openings.x+_valve_openings.y)}
 
 
 ## A stable maintenance pose for render/test tools: both independent valves
@@ -874,9 +959,13 @@ func set_service_pose() -> void:
 
 func _update_flow() -> void:
 	var flowing := _hot or _cold
+	var amount := minf(1.0,_valve_openings.x+_valve_openings.y)
 	if _stream:
 		_stream.visible = flowing
+		_stream.scale.x = sqrt(amount)
+		_stream.scale.z = sqrt(amount)
 	if _water:
+		_water.volume_db = -21.0+linear_to_db(maxf(.01,amount))
 		_water.stream_paused = not flowing
 		if flowing and not _water.playing:
 			_water.play()
@@ -890,18 +979,18 @@ func _start_normal_function() -> void:
 
 
 func _process(delta: float) -> void:
+	if _plug_hand != null: _plug_hand.process(delta)
 	_update_bath_plug(delta)
-	var targets := [1.0 if _hot else 0.0, 1.0 if _cold else 0.0]
+	var targets := [_valve_openings.x,_valve_openings.y]
 	for i in mini(_handles.size(), 2):
-		_handle_turns[i] = move_toward(_handle_turns[i], targets[i], delta * 3.0)
-		var turn := (1.0 if i == 0 else -1.0) * \
-				_handle_turns[i] * PI * 0.5
+		_handle_turns[i] = targets[i] if _held_valve == i else move_toward(_handle_turns[i], targets[i], delta * 3.0)
+		var turn := _handle_turns[i]*PI*.5
 		if _handle_wall_mounted[i]:
-			_handles[i].rotation.z = turn
+			_handles[i].rotation.z = -turn
 		else:
 			_handles[i].rotation.y = turn
 	var flowing := _hot or _cold
-	var inflow := .075 if flowing else 0.0
+	var inflow := .075*minf(1.0,_valve_openings.x+_valve_openings.y) if flowing else 0.0
 	var outflow := 0.0 if _stopper else .12*clampf(drain_capacity,0,1)
 	_water_level = clampf(_water_level+delta*(inflow-outflow),0,1)
 	if _basin_water:
@@ -921,6 +1010,7 @@ func _process(delta: float) -> void:
 
 
 func _perform_synced_event(index: int, accent: float, _pitch: float) -> void:
+	if _held_valve != -1: return
 	# Possession may only retime the mechanism: a valve twitches, or a closed
 	# tap admits a brief, deniable thread of water. It does not receive data.
 	if _hot or _cold:

@@ -41,6 +41,8 @@ var flashlight: SpotLight3D
 var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
+var _target_dot: ColorRect
+var _grab: RefCounted
 var telegram_hud: TelegramHud
 var _interaction_hud: CanvasLayer
 var pause_services: CanvasLayer
@@ -234,6 +236,8 @@ func _build_hud() -> void:
 	_interaction_hud=layer
 	add_child(layer)
 	var dot := ColorRect.new()
+	_target_dot = dot
+	_grab = preload("res://scripts/player/constrained_grab.gd").new(self)
 	dot.size = Vector2(4, 4)
 	dot.position = Vector2(638, 358)
 	dot.color = Color(0.9, 0.92, 0.95, 0.55)
@@ -280,6 +284,16 @@ func face_world_point(target: Vector3) -> void:
 func _update_prompt() -> void:
 	_prompt.text = ""
 	_prompt_panel.visible = false
+	if _grab != null:
+		_grab.validate()
+		var aimed: Dictionary = _grab.find_target()
+		var available: bool = not call_locked and not mouse_released and aimed.get("part") is Node3D
+		_target_dot.set_anchors_preset(Control.PRESET_CENTER)
+		var radius := 5.0 if _grab.active() else 3.0 if available else 2.0
+		_target_dot.position = get_viewport().get_visible_rect().size*.5-Vector2.ONE*radius
+		_target_dot.size = Vector2.ONE*radius*2
+		_target_dot.color = Color(1,.85,.58,.95) if _grab.active() else Color(1,.96,.82,.95) if available else Color(.9,.92,.95,.45)
+		if _grab.active() or available or aimed.get("blocked",false): return
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact_prompt"):
 			_prompt.text = format_interaction_prompt(
@@ -365,7 +379,8 @@ func _process(_delta: float) -> void:
 		var stick_look := Input.get_vector("look_left", "look_right",
 				"look_up", "look_down", 0.0)
 		if stick_look.length_squared() > 0.0:
-			apply_look_rate(stick_look, _delta)
+			if _grab != null and _grab.active(): _grab.move(stick_look*_delta*450.0)
+			else: apply_look_rate(stick_look, _delta)
 	# E is the universal physical verb. A seat is deliberately allowed through
 	# call_locked; every other locked panel continues to own its input.
 	if Input.is_action_just_pressed("door_key") and not call_locked:
@@ -405,12 +420,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseMotion \
 			and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		apply_look(event.relative)
+		if _grab != null and _grab.active(): _grab.move(event.relative)
+		else: apply_look(event.relative)
 	elif event.is_action_pressed("release_mouse"):
 		set_mouse_released(not mouse_released)
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton and event.pressed \
 			and not touch_input and not mouse_released:
+		if event.button_index == MOUSE_BUTTON_LEFT and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			use_primary_interaction()
+			get_viewport().set_input_as_handled()
+			return
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("pause_services"):
 		if pause_services and pause_services.call("can_open"):
@@ -539,6 +559,9 @@ func _measure_throw() -> void:
 ## One look path for both a mouse and a dragged thumb, so the two can never
 ## drift into different sensitivities or clamp differently.
 func apply_look(rel: Vector2) -> void:
+	if _grab != null and _grab.active():
+		_grab.move(rel)
+		return
 	if call_locked:
 		return
 	var sensitivity := clampf(float(GameBoot.settings.get(
@@ -977,11 +1000,18 @@ func end_seated_interaction(owner: Node = null) -> void:
 
 
 func use_primary_interaction() -> void:
+	if _grab != null and _grab.active():
+		_grab.release()
+		return
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact"):
 			seated_interaction.interact(self)
 		return
 	if not call_locked:
+		var target: Dictionary = _grab.find_target() if _grab != null else {}
+		if not target.is_empty():
+			_grab.acquire(target)
+			return
 		_try_interact()
 
 
@@ -1194,7 +1224,16 @@ func _present_interaction_telegram(owner: Node, result: Variant) -> void:
 ## player keeps standing where they are: look follows the mouse only while
 ## it is captured, and a click no longer recaptures it.
 func set_mouse_released(released: bool) -> void:
+	if released and _grab != null: _grab.release()
 	mouse_released = released
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if released \
 			else Input.MOUSE_MODE_CAPTURED
 	print("[PLAYER] pointer %s (backtick key)" % ["released" if released else "captured"])
+
+
+func _exit_tree() -> void:
+	if _grab != null: _grab.release()
+
+
+func cancel_manipulation() -> void:
+	if _grab != null: _grab.release(false)

@@ -55,5 +55,7 @@ func install_on(prop: StoveProp) -> bool:
 			var owner: Node3D = prop._grates[i] if grate else prop._caps[i]
 			owner.set_script(VisualMotion)
 			owner.call("configure",grate,i,_fit)
+	# Refresh selection and solid sweeps against the installed native meshes.
+	prop._build_primary_interaction()
 	prop.set_meta("v2_native_stove_variant",variant)
 	return true

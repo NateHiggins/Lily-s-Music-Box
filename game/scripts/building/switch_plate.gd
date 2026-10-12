@@ -15,6 +15,7 @@ var _toggle: Node3D
 var _throw: Tween
 var _pose_known := false
 var _pose_on := false
+var _hand_gripped := false
 
 
 ## V2 supplies the visual; V1 already has its plates in the baked building.
@@ -59,6 +60,7 @@ func _set_pose(now_on: bool, animate: bool) -> void:
 	if _pose_known and _pose_on == now_on: return
 	_pose_known = true
 	_pose_on = now_on
+	if _hand_gripped: return
 	if _throw != null: _throw.kill()
 	var angle := deg_to_rad(22.0 if now_on else -22.0)
 	if animate:
@@ -80,6 +82,33 @@ func _exit_tree() -> void:
 func interact_prompt() -> String:
 	return "[E]  Bathroom light" if get_meta("bathroom_switch", false) \
 			else "[E]  Light switch"
+
+func manipulation_target(_hit: Dictionary) -> Dictionary:
+	if _toggle == null: return {}
+	return {"owner":self,"part":_toggle,"frame":_toggle.get_parent(),"kind":"hinge","axis":Vector3.RIGHT,
+		"minimum":deg_to_rad(-22),"maximum":deg_to_rad(22),
+		"read":func():return _toggle.rotation.x,
+		"write":_move_switch,
+		"owns":func(): return _hand_gripped,
+		"begin":func():
+			if _hand_gripped: return false
+			if _throw != null and _throw.is_valid(): _throw.kill()
+			_hand_gripped = true
+			return true,
+		"end":func():
+			_hand_gripped = false
+			# The over-centre spring seats the existing contact; release never
+			# changes the circuit or chooses a new state on the player's behalf.
+			_throw = create_tween()
+			_throw.tween_property(_toggle,"rotation:x",deg_to_rad(22 if _pose_on else -22),.08)}
+
+func _move_switch(angle: float) -> void:
+	if not _hand_gripped: return
+	_toggle.rotation.x = angle
+	# The contact changes only across the actual over-centre throw, with a
+	# small deadband so jitter at the centre cannot chatter the circuit.
+	if (angle > .05 and not _pose_on) or (angle < -.05 and _pose_on):
+		interact(null)
 
 
 func interact(_player: Node) -> void:

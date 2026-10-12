@@ -3,6 +3,9 @@ extends Area3D
 var tap: TapProp
 var hot := false
 
+func manipulation_target(_hit: Dictionary) -> Dictionary:
+	return tap.valve_grip(0 if hot else 1)
+
 func interact_prompt() -> String:
 	var enabled: bool = tap.get_flow_state()["hot" if hot else "cold"]
 	return "%s %s water" % ["Turn off" if enabled else "Turn on", "hot" if hot else "cold"]

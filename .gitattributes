@@ -1954,3 +1954,29 @@ art/textures/procedural/bath_floor_tile/** -text
 game/tests/v2_bathroom_tile_review.gd -text
 art/renders/orison_v2/bathroom_tiles_20261012/** -text
 game/tests/v2_completion_door_settle.gd -text
+
+# Direct-manipulation runtime inputs: preserve tested LF bytes.
+game/scripts/building/orison_v2_boiler_window.gd -text
+game/scripts/building/orison_v2_household_state.gd -text
+game/scripts/building/orison_v2_sink.gd -text
+game/scripts/building/orison_v2_water_valve.gd -text
+game/scripts/building/orison_v2_window_treatment.gd -text
+game/scripts/building/switch_plate.gd -text
+game/scripts/player/constrained_grab.gd -text
+game/scripts/player/player_controller.gd -text
+game/scripts/props/boiler_prop.gd -text
+game/scripts/props/boxfan_prop.gd -text
+game/scripts/props/door_prop.gd -text
+game/scripts/props/laundry_airer_prop.gd -text
+game/scripts/props/manipulation_area.gd -text
+game/scripts/props/mechanism_sweep.gd -text
+game/scripts/props/prop_control_area.gd -text
+game/scripts/props/radiator_interaction_surface.gd -text
+game/scripts/props/radiator_prop.gd -text
+game/scripts/props/washer_prop.gd -text
+game/tests/DirectManipulationTest.tscn -text
+game/tests/DirectManipulationWorldTest.tscn -text
+game/tests/direct_manipulation_test.gd -text
+game/tests/direct_manipulation_world_test.gd -text
+game/scripts/props/basin_plug.gd -text
+game/scripts/props/shower_curtain_motion.gd -text

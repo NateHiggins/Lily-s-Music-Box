@@ -55,6 +55,26 @@ var installation_drop := 0.0
 var wall_standoff_depths := PackedFloat32Array()
 
 var supply_position := 1.0
+var _supply_held := false
+var _hand_writing_supply := false
+
+func supply_grip() -> Dictionary:
+	return {"owner":self,"part":_wheel,"frame":_wheel.get_parent(),"kind":"hinge","axis":Vector3.UP,
+		"minimum":0.0,"maximum":TAU*3.5,"read":func():return supply_position*TAU*3.5,
+		"owns":func(): return _supply_held,
+		"begin":func():
+			if _supply_held or RealityState.save_write_blocked: return false
+			if _wheel_tween != null and _wheel_tween.is_valid(): _wheel_tween.kill()
+			_supply_held = true
+			return true,
+		"write":func(value: float):
+			if not _supply_held: return
+			_hand_writing_supply = true
+			set_supply_position(value/(TAU*3.5),0.0)
+			_hand_writing_supply = false,
+		"end":func():
+			_supply_held = false
+			supply_changed.emit(supply_position>=.98,supply_position)}
 var vent_grade := 2
 var pitch_toward_supply := 0.35
 
@@ -661,6 +681,7 @@ func set_supply_open(open: bool, seconds := 0.65) -> void:
 ## The maintenance rig can stop the wheel part-way so the player can learn
 ## why that is not a valid setting. Endpoints are the only healthy states.
 func set_supply_position(value: float, seconds := 0.65) -> void:
+	if _supply_held and not _hand_writing_supply: return
 	supply_position = clampf(value, 0.0, 1.0)
 	if _wheel == null:
 		_update_balance()
@@ -681,7 +702,7 @@ func set_supply_position(value: float, seconds := 0.65) -> void:
 				seconds)
 	_update_balance()
 	_apply_visual_state()
-	supply_changed.emit(supply_position >= 0.98, supply_position)
+	if not _supply_held: supply_changed.emit(supply_position >= 0.98, supply_position)
 
 
 func set_vent_grade(grade: int) -> void:

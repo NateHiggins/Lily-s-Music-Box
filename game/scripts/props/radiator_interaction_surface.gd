@@ -6,6 +6,10 @@ var action_id := ""
 var action_prompt := ""
 var radiator: RadiatorProp
 
+func manipulation_target(_hit: Dictionary) -> Dictionary:
+	if action_id == "turn_valve" and radiator != null: return radiator.supply_grip()
+	return {"legacy":true}
+
 
 func setup(owner: RadiatorProp, id: String, prompt: String,
 		size: Vector3, at: Vector3) -> void:
