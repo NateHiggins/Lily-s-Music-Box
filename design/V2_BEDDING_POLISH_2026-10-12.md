@@ -3,7 +3,10 @@
 Evidence class: **INERT**. Scoped geometry and rendered review; no completeness promotion.
 
 Branch / starting HEAD / origin/main: **main / f4f93d5a / f4f93d5a**.
-Clean verification baseline: **e72c8a1c**. Candidate comparison pending.
+Clean verification baseline / merge-base: **e72c8a1c**. Candidate: **06e74bf4**.
+Protected paths: **17/17 unchanged**. Selector: **V2**.
+Ledger before -> after: **0/1/103/34/120/122 -> 0/1/103/34/120/122**;
+requirements changed: **none**.
 Worktree clean at end: **no**; the canonical shared tree retains pre-existing
 owner edits and import churn outside the named batch paths.
 Owner decision required: **none**.
@@ -39,7 +42,11 @@ clean. The first-slice save/reconstruction receipt remains source-current and
 is reused. Both geometry-bound walking proofs are renewed and independently validated:
 19 rooms / 89 waypoints / 154 checks, and 43 rooms / 154 waypoints / 335 checks,
 with zero failures or script errors. Eight spatial-proof validator tests and
-19 surface-requirement tests pass. Clean candidate comparison is pending.
+19 surface-requirement tests pass. Clean candidate **06e74bf4** passes with zero regressions, no gate changes,
+all 17 protected paths unchanged and zero document lint errors. The comparison
+used the clean temporary checkout with **--no-godot**; the separately bound
+canonical receipts provide runtime proof. No regression exemptions were used.
+The packet retains **verification.json** and **verification.md**.
 No requirement or acceptance threshold is relaxed.
 
 ## Diagnostics and open findings
@@ -61,4 +68,5 @@ the only verification expansion beyond the bedding model and its review tools.
 Packet: **art/renders/orison_v2/bedding_polish_20261012**. The canonical surface
 and room-access packets retain their separately authored runtime contracts.
 
-Last line: candidate verification pending; not a completion declaration.
+Last line: MERGE-CANDIDATE **06e74bf4cce15e9db61d98fd3defde3608e13103**.
+This remains a batch result, not a V2 completion declaration.
