@@ -72,6 +72,8 @@ func mount(world: Node, data_path: String = PATH) -> bool:
 			actor.add_child(draw)
 		installed[str(entry.row.id)] = {"actor":weakref(actor),"source":snapshots,"script":entry.row.script,"areas":entry.areas}
 		actor.set_meta("v2_native_service_instrument",true)
+		if actor.has_method("native_manipulation_ready"):
+			actor.call("native_manipulation_ready")
 		if actor is DumbwaiterProp:
 			var ropes:=preload("res://scripts/building/orison_v2_dumbwaiter_rope_visual.gd").new()
 			ropes.name="NativeSuspensionRopes"

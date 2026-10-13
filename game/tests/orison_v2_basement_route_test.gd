@@ -31,20 +31,19 @@ func _route() -> void:
 		if not await _walk(point): return
 	var panel := world.adapter.resolve("B1_FUSE_PANEL") as FusePanelProp
 	if not _require(panel != null,"production fuse panel mounted"): return
-	var reach := panel.get_node("PanelReach") as Area3D
-	if not await _use(reach,reach.to_global(Vector3(0,.52,.14)),"fuse_service"): return
-	if not _require(panel._service_panel != null and player.call_locked,"fuse maintenance opens through E"): return
-	panel._service_panel._director.abort()
-	await get_tree().process_frame
-	if not _require(not player.call_locked,"aborting returns movement"): return
-	if not await _use(reach,reach.to_global(Vector3(0,.52,.14)),"fuse_service_reopen"): return
-	var activity := panel._service_panel
-	var run: MaintenanceActivityRun = activity._director.active_run
-	for step: Dictionary in run.profile.steps:
-		panel.preview_maintenance_step(step,float(step.target))
-		if not _require(activity._director.submit(str(step.verb),float(step.target),float(step.get("hold_min_seconds",0))+.4),"fuse service step "+str(step.id)): return
-	await get_tree().create_timer(1.0).timeout
-	if not _require(panel.panel_safe and panel.protects_conductor() and not player.call_locked,"completed panel service returns movement"): return
+	var repair := preload("res://tests/fuse_panel_hand_test.gd").new()
+	repair.batch_mode=true;repair.player=player;repair.panel=panel
+	repair.out=OS.get_environment("SHOT_DIR")
+	if repair.out.is_empty(): repair.out="user://basement_fuse_route"
+	DirAccess.make_dir_recursive_absolute(repair.out)
+	add_child(repair)
+	await repair._repair_by_hand(false)
+	var repair_failed := false
+	for row: Dictionary in repair.checks:
+		if not _require(row.ok,"fuse service: "+str(row.label)): repair_failed=true
+	repair.free()
+	if repair_failed: return
+	if not _require(panel.panel_safe and panel.protects_conductor() and not player.call_locked and panel._service_panel==null,"physical panel service returns ordinary movement without overlay"): return
 	for point in [Vector3(7.4,-3.2,-2.3),Vector3(7.4,-3.2,-.4)]:
 		if not await _walk(point): return
 	if not await _open_door("B1_SHOP_DOOR"): return
@@ -64,6 +63,9 @@ func _route() -> void:
 	await _roof_capture("coal_room",Vector3(14.2,-2.8,-9))
 	for point in [Vector3(14.2,-3.2,-6.8),Vector3(14.2,-3.2,-3.8),Vector3(10.6,-3.2,-3.8),Vector3(10.6,-3.2,-.4)]:
 		if not await _walk(point): return
+	# The fire leaf opens toward this approach. Leave room for the actual player
+	# capsule as well as its one-metre leaf; the closer stance blocks at .9 rad.
+	if not await _walk(Vector3(10.95,-3.2,-.4)): return
 	if not await _open_door("B1_BOILER_FIRE_DOOR"): return
 	if not await _walk(Vector3(8.3,-3.2,-.4)): return
 	_require(not player.noclip and player.collision_mask == 1,"service circuit retains actual collision")

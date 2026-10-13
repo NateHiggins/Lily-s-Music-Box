@@ -57,6 +57,9 @@ extends FunctionalProp
 ## `apply_maintenance_result` may record the panel safe.
 
 signal maintenance_completed(result: Dictionary)
+signal manipulation_changed
+
+var _hand_controls: RefCounted
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -223,12 +226,12 @@ func _build_visual() -> void:
 
 	# The drawer of spares. Every plug in it fits every hole in the block,
 	# which is exactly the hazard Taylor's rejection base was invented to end.
-	_spares = make_box(Vector3(0.20, 0.075, 0.11), Vector3(0.16, 0.18, 0.072),
+	_spares = make_box(Vector3(0.26, 0.242, 0.09), Vector3(0.125, 0.221, 0.173),
 			Color(0.34, 0.30, 0.24))
 	_spares.name = "SpareDrawer"
 	for i in 3:
-		make_cyl(0.026, 0.026, 0.018,
-				Vector3(0.10 + float(i) * 0.055, 0.185, 0.126),
+		make_cyl(0.042, 0.042, 0.028,
+				[Vector3(.185,.145,.165),Vector3(.065,.275,.165),Vector3(.185,.275,.165)][i],
 				Color(0.36, 0.27, 0.17), 0.60, 0.10)
 
 	# THE DOOR, hinged at the left, and the lamp index run down the block.
@@ -272,6 +275,43 @@ func _build_panel_reach() -> void:
 	add_child(reach)
 
 
+func _build_primary_interaction() -> void:
+	_hand_controls=preload("res://scripts/props/fuse_panel_hand_controls.gd").new()
+	_hand_controls.configure(self)
+
+
+func native_manipulation_ready() -> void:
+	# Retain the authored node identity, but stop its whole-cabinet ray box
+	# from stealing hits on the physical parts.
+	get_node("PanelReach").collision_layer=0
+	_hand_controls.native_ready()
+
+
+func mechanism_snapshot() -> Dictionary:
+	return _hand_controls.snapshot()
+
+
+func valid_mechanism(value: Variant) -> bool:
+	return _hand_controls!=null and _hand_controls.valid(value)
+
+
+func restore_mechanism(value: Dictionary) -> void:
+	if _hand_controls!=null: _hand_controls.restore(value)
+
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(.04,.66,1.00)),"at":to_global(Vector3(0,.50,.10))}
+
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	if _hand_controls==null: return {}
+	if _hand_controls.door_pivot.is_ancestor_of(hit.collider) or _door.is_ancestor_of(hit.collider):
+		return _hand_controls.grip("door")
+	if _handle.is_ancestor_of(hit.collider): return _hand_controls.grip("main")
+	if _hand_controls.plugs!=null: return _hand_controls.plugs.target_for(hit.collider)
+	return {}
+
+
 # --- interaction -------------------------------------------------------------
 
 func control_prompt(control_id: String) -> String:
@@ -293,6 +333,9 @@ func interact(player: Node) -> void:
 
 
 func _begin_panel_service(player: Node) -> bool:
+	# V2 operates the real parts. Retain the legacy entry point only for the
+	# explicit V1 rollback, whose old cabinet has no native removable plugs.
+	if _hand_controls!=null and _hand_controls.plugs!=null: return false
 	if _service_panel and is_instance_valid(_service_panel):
 		return false
 	var script: GDScript = load("res://scripts/ui/maintenance_activity_panel.gd")
@@ -372,6 +415,7 @@ func preview_maintenance_step(step: Dictionary, value: float) -> void:
 				if not main_open and over_fused():
 					# It carries the load perfectly, and that is the problem.
 					_balk(1.2)
+	_sync_legacy_plugs()
 	_refresh_mechanism()
 
 
@@ -384,6 +428,7 @@ func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
 	panel_safe = bool(snapshot.get("panel_safe", panel_safe))
 	offered_rating = int(snapshot.get("offered_rating", 0))
 	_balk_left = 0.0
+	_sync_legacy_plugs()
 	_refresh_mechanism()
 
 
@@ -405,8 +450,18 @@ func apply_maintenance_result(result: Dictionary) -> void:
 	offered_rating = 0
 	load_proved = panel_safe and not main_open
 	_balk_left = 0.0
+	_sync_legacy_plugs()
 	_refresh_mechanism()
 	maintenance_completed.emit(result.duplicate(true))
+
+
+func _sync_legacy_plugs() -> void:
+	if _hand_controls!=null and _hand_controls.plugs!=null and not _hand_controls.plugs.publishing:
+		_hand_controls.plugs.sync_from_legacy()
+
+
+func _physics_process(delta: float) -> void:
+	if _hand_controls!=null and _hand_controls.plugs!=null: _hand_controls.plugs.tick(delta)
 
 
 # --- the readable refusal ----------------------------------------------------
@@ -434,6 +489,12 @@ func _process(delta: float) -> void:
 
 func _refresh_mechanism() -> void:
 	if _blades == null:
+		return
+	if _hand_controls!=null and _hand_controls.plugs!=null:
+		_hand_controls.refresh()
+		if _live!=null:
+			if panel_live() and not _live.playing: _live.play()
+			elif not panel_live() and _live.playing: _live.stop()
 		return
 	# THE MAIN. Open blades stand clear of their jaws, which is a thing you can
 	# see from across the room and the entire reason this switch is shaped the
@@ -513,6 +574,7 @@ func _refresh_mechanism() -> void:
 			_block.position.y = 0.46 + 0.005 * balk
 		if _handle != null:
 			_handle.rotation.z += 0.10 * balk
+	if _hand_controls!=null: _hand_controls.refresh()
 
 
 func service_wire_card() -> Dictionary:

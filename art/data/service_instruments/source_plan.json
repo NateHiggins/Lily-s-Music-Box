@@ -11748,14 +11748,14 @@
           "name": "SpareDrawer",
           "path": "SpareDrawer",
           "position": [
-            0.159999847412109,
-            0.180000066757202,
-            0.0720000267028809
+            0.125,
+            0.221,
+            0.173
           ],
           "size": [
-            0.200000002980232,
-            0.0750000029802322,
-            0.109999999403954
+            0.26,
+            0.242,
+            0.09
           ],
           "type": "BoxMesh",
           "visible": true
@@ -11778,8 +11778,8 @@
               1.0
             ]
           ],
-          "bottom_radius": 0.0260000005364418,
-          "height": 0.0179999992251396,
+          "bottom_radius": 0.042,
+          "height": 0.028,
           "index": 18,
           "materials": [
             {
@@ -11799,12 +11799,12 @@
           "name": "@MeshInstance3D@14576",
           "path": "@MeshInstance3D@14576",
           "position": [
-            0.0999999046325684,
-            0.184999942779541,
-            0.125999927520752
+            0.185,
+            0.145,
+            0.165
           ],
           "radial_segments": 14,
-          "top_radius": 0.0260000005364418,
+          "top_radius": 0.042,
           "type": "CylinderMesh",
           "visible": true
         },
@@ -11826,8 +11826,8 @@
               1.0
             ]
           ],
-          "bottom_radius": 0.0260000005364418,
-          "height": 0.0179999992251396,
+          "bottom_radius": 0.042,
+          "height": 0.028,
           "index": 19,
           "materials": [
             {
@@ -11847,12 +11847,12 @@
           "name": "@MeshInstance3D@14577",
           "path": "@MeshInstance3D@14577",
           "position": [
-            0.15500020980835,
-            0.184999942779541,
-            0.125999927520752
+            0.065,
+            0.275,
+            0.165
           ],
           "radial_segments": 14,
-          "top_radius": 0.0260000005364418,
+          "top_radius": 0.042,
           "type": "CylinderMesh",
           "visible": true
         },
@@ -11874,8 +11874,8 @@
               1.0
             ]
           ],
-          "bottom_radius": 0.0260000005364418,
-          "height": 0.0179999992251396,
+          "bottom_radius": 0.042,
+          "height": 0.028,
           "index": 20,
           "materials": [
             {
@@ -11895,12 +11895,12 @@
           "name": "@MeshInstance3D@14578",
           "path": "@MeshInstance3D@14578",
           "position": [
-            0.210000038146973,
-            0.184999942779541,
-            0.125999927520752
+            0.185,
+            0.275,
+            0.165
           ],
           "radial_segments": 14,
-          "top_radius": 0.0260000005364418,
+          "top_radius": 0.042,
           "type": "CylinderMesh",
           "visible": true
         },
@@ -12052,7 +12052,7 @@
         }
       ],
       "script": "res://scripts/props/fuse_panel_prop.gd",
-      "source_sha256": "88a838c0710c9a0b74f3f80f0e76e9587ac425c00b8b6edb4de3510ffd35737b"
+      "source_sha256": "477901242b17574130f652f51d8596807654bcb2f008d31b5277bb66656dca39"
     },
     {
       "actor": "F01_HOUSE_TELEPHONE_BOARD",

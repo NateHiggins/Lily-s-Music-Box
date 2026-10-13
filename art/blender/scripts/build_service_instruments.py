@@ -210,6 +210,7 @@ bindings=[PLAN,Path(__file__),ROOT/'art/blender/scripts/service_instruments_geom
 bindings.extend(ROOT/'art/blender/scripts'/name for name in ['fabrication_grain.py','fabrication_chart_batch.py','fabrication_normals.py','fabrication_uvs.py'])
 bindings.extend(ROOT/'game/assets/building/textures'/f for key in specs if key in catalog for f in catalog[key]['files'])
 bindings.extend(ROOT/'game'/a['script'].replace('res://','') for a in plan['actors'])
+bindings.extend(ROOT/'game/scripts/props'/name for name in ['fuse_panel_hand_controls.gd','fuse_panel_plugs.gd'])
 report={'evidence_class':'INERT','classification':'ADAPTATION','asset_sha256':digest(asset),'closed_stocks':checks,'runtime':runtime,'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings}}
 for name in ['art/blender/service_instruments_construction.json','game/tests/fixtures/orison_service_instruments.json']:
  (ROOT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')

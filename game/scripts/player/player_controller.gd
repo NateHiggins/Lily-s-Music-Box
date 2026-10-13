@@ -438,6 +438,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			_inspection_jump_consumed=true
 			get_viewport().set_input_as_handled()
 			return
+	if event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] \
+			and _grab!=null and _grab.active() and _grab.target.kind=="free":
+		_grab.move_depth((-.025 if event.button_index==MOUSE_BUTTON_WHEEL_UP else .025)*event.factor)
+		get_viewport().set_input_as_handled()
+		return
 	if inspecting():
 		if event.is_action_pressed("pause_services") or event.is_action_pressed("release_mouse"):
 			end_inspection()

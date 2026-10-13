@@ -133,6 +133,17 @@ func _ready() -> void:
 	var saved := RealityState.save_game()
 	var disk_measurement_ms := float(Time.get_ticks_usec() - disk_measurement_started) / 1000.0
 	var expected := world.work_orders.job_state(ServiceRoundDirector.JOB_ID).duplicate(true)
+	# Use the same full-precision JSON contract as RealityState. The engine's
+	# parser can move fractional timestamps by one ULP; raw Dictionary equality
+	# intermittently rejects an otherwise exact saved record. Keep every field,
+	# and separately bound that representation change before checking disk/load.
+	var expected_saved: Dictionary = JSON.parse_string(JSON.stringify(expected,"\t",true,true))
+	_check(absf(float(expected_saved.issued_at)-float(expected.issued_at)) < 1e-12,
+			"serialized issue timestamp retains sub-nanominute precision")
+	var disk: Variant = JSON.parse_string(FileAccess.get_file_as_string(save_path))
+	_check(saved and disk is Dictionary
+			and disk.get("maintenance_jobs",{}).get(ServiceRoundDirector.JOB_ID,{}) == expected_saved,
+			"real disk contains the complete serialized round record")
 	_track_retirement(world)
 	world.shutdown_for_tests()
 	remove_child(world)
@@ -154,8 +165,11 @@ func _ready() -> void:
 	await get_tree().process_frame
 	var reconstruct_ms := float(Time.get_ticks_usec() - reconstruct_started) / 1000.0
 	var reconstructed := shell.active_world as OrisonV2RuntimeRoot
+	if reconstructed != null and reconstructed.work_orders.job_state(ServiceRoundDirector.JOB_ID) != expected_saved:
+		print("[M08F ROUND RECONSTRUCTION MISMATCH] ", JSON.stringify({"saved":saved,"loaded":loaded,
+			"expected":expected_saved,"actual":reconstructed.work_orders.job_state(ServiceRoundDirector.JOB_ID)},"",true,true))
 	_check(saved and loaded and reconstructed != null
-			and reconstructed.work_orders.job_state(ServiceRoundDirector.JOB_ID) == expected,
+			and reconstructed.work_orders.job_state(ServiceRoundDirector.JOB_ID) == expected_saved,
 			"save, destroy, CampaignShell reconstruct, and load preserve round facts")
 	_check(str(reconstructed.core_loop.resolve_return_anchor().get("id", ""))
 			== "F04_B_BED", "v2 wake uses explicit bedside-return contract")

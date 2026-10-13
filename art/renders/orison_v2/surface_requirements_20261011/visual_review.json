@@ -1,7 +1,7 @@
 {
-  "surface_inputs_sha256": "0fc375d1b733d84c91abe525f779ea9230ebddbf7a199c71e64925cd5f5f3e3c",
+  "surface_inputs_sha256": "4a43978d77a64ae445b032fcb092d4ee714d0bac6269844d1ae2067d89016122",
   "status": "PASS",
-  "scope": "Renewed technical whole-world surface qualification and rendered 5B circulation review. Fresh restored-front mass view; other unchanged native tower, washer, fire-repair and front-gallery views retained. The only production change is the coupled rotation of the 5B table and recorder, documented in remaining_apartments_20261013/placement-comparison.json. No human acceptance or whole-building completion.",
+  "scope": "Fresh whole-world UV/PBR/loaded-mipmap qualification and physical fuse review. Newly reviewed front mass and second-floor gallery renders are renewed. Other prior tower, washer, fire-repair and apartment views are retained for unchanged geometry/materials. New fuse native and installed views establish readable markings, neutral iron, fitted knife bearings, removable plugs and rack. No human visual acceptance or whole-building completion.",
   "images": [
     {
       "file": "tower_installed.png",
@@ -44,19 +44,9 @@
       "observation": "Neutral native view shows sole boards, four supported timber uprights, fitted ledgers, separate planks, toe boards, guards and alternating diagonal braces against retained shell; source-fitted replacement window heads and toothed brick reveals. Shell-only review omits the runtime window owners."
     },
     {
-      "file": "front_restored_mass.png",
-      "sha256": "2bb14ff4d9da43e6f43272c545269f1c88faecd83daf13114570641a51046856",
-      "observation": "Installed continuous six-storey middle frontage with aligned glazing, masonry courses, cornice and retained wing repair staging."
-    },
-    {
       "file": "front_restored_entrance.png",
       "sha256": "ac0c8cd6f4e939001327614297a1017199309e5df430767ab4c1d11e616e1125",
       "observation": "Recessed original entrance beneath the restored volume. Lowered canopy, retained leaf, glazing and fitted stonework are clear in the street view."
-    },
-    {
-      "file": "front_gallery_02.png",
-      "sha256": "f4b107f33f1e2325cd2090c070c3fa2fb183c255b1e9f26af907248809912045",
-      "observation": "Real second-floor interior with paneling, windows, curtains and separate timber benches; the old canopy no longer protrudes above its floor."
     },
     {
       "file": "front_gallery_06.png",
@@ -72,6 +62,26 @@
       "file": "apartment_5B_circulation.png",
       "sha256": "4069ea0f472849fbe0e0e29a0e8d97e03dd94e169cfcfa2cd3eb92fa841deb02",
       "observation": "Player-height view from the private hall shows the recorder seated on its co-rotated table, with the passage around its east end open. Existing wood grain, metal and floor finish retained; the actual standing controller separately traversed this approach."
+    },
+    {
+      "file": "front_restored_mass.png",
+      "sha256": "184720a9f569774741aec0b803f72e7e1584f4c63d7d860436fdb3b360531bb8",
+      "observation": "Fresh composed world retains continuous brick central frontage, window surrounds and cornice; existing adjoining context remains unfinished."
+    },
+    {
+      "file": "front_gallery_02.png",
+      "sha256": "004277016ebd8bd8e1968908792968bdaea0a97e3b67758e051f53f20c91f1c4",
+      "observation": "Fresh second-floor gallery retains wall/floor enclosure, paneling, curtains and separate benches; no new obstruction visible."
+    },
+    {
+      "file": "fuse_native.png",
+      "sha256": "564d090764610d16d768e12010d18ae11b348949fd260444aa9927555be78842",
+      "observation": "Native review shows joined knife-switch bearings, full-size threaded plugs and neutral-iron folded shelves; generated textures remain unlettered."
+    },
+    {
+      "file": "fuse_installed.png",
+      "sha256": "9e83a67ccdd40ebbf875791b5a32faca99ee6e214689fd981e294302df8d560d",
+      "observation": "Installed repair shows legible 15/20/30/10 amp labels clear of their backing plates, actual empty holder bores, connected main blades and the physically rearranged spare rack. Warm room lighting retained."
     }
   ]
 }

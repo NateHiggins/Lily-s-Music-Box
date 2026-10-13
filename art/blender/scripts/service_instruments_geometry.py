@@ -130,8 +130,10 @@ for actor in plan['actors']:
     box('Knife contact left',(.009,.045,.045),(x-.009,0,0),key,.0007)
     box('Knife contact right',(.009,.045,.045),(x+.009,0,0),key,.0007)
   elif aid=='M07' and index==5:
-   box('Common blade bridge',(.26,.012,.012),(0,-.009,0),key,.0005)
-   for x in [-.095,0,.095]:box('Knife blade',(.007,.030,.030),(x,0,0),key,.0005)
+   box('Common blade bridge',(.30,.012,.012),(.02,-.009,0),key,.0005)
+   # Blades run from the lower trunnions to the upper spring jaws. A real
+   # shared x-axis now lets the hand draw all three blades out together.
+   for x in [-.095,0,.095]:box('Knife blade',(.007,.115,.008),(x,-.0425,0),key,.0005)
   elif aid=='M07' and index==7:
    # Four distinct Edison seats, including the active plug. The source's
    # third spare holder used to overlap that plug. Bore the porcelain through
@@ -149,11 +151,30 @@ for actor in plan['actors']:
     bpy.data.objects.remove(cutter,do_unlink=True)
   elif aid=='M07' and index in [8,9,10]:
    tube('Porcelain screw base',.038,.025,.030,(0,0,0),key)
-  elif aid=='M07' and index in [11,23]:
+  elif aid=='M07' and index in [11,18,19,20]:
+   key='bakelite';static=True
+   tube('Plug crown and mica recess',.042,.026,.028,(0,0,.010),key)
+   for j in range(24):
+    a=j*math.tau/24;rod('Grip rib',.0017,.020,(.041*math.cos(a),.041*math.sin(a),.010),key,n=12)
+   rod('Conductive screw shell',.0225,.026,(0,0,-.017),'brass')
+   helix=[Vector((.0237*math.cos(a),.0237*math.sin(a),-.029+.023*t/240)) for t in range(241) for a in [t*math.tau*5/240]]
+   tube_path(helix,.0012,'brass')
+   rod('Insulated contact button',.008,.003,(0,0,-.0315),'ceramic')
+  elif aid=='M07' and index==17:
+   key='iron_neutral';static=True
+   # Two physical shelves and a folded back. Four full-size plugs fit, with
+   # one empty place reserved for the removed overfused original.
+   origin=Vector(part['position'])
+   box('Spare rack back',(.26,.242,.002),Vector((.125,.221,.129))-origin,key,.0003)
+   for y in [.1015,.2315]:
+    box('Plug shelf',(.26,.003,.09),Vector((.125,y,.173))-origin,key,.0003)
+    box('Shelf retaining lip',(.26,.012,.003),Vector((.125,y+.006,.2165))-origin,key,.0003)
+   for x in [-.0035,.2535]:box('Rack side',(.003,.242,.09),Vector((x,.221,.173))-origin,key,.0003)
+  elif aid=='M07' and index==23:
    radius=part['top_radius'];tube('Plug body and inspection recess',radius,.026,part['height'],(0,0,0),key)
    for j in range(24):
     a=j*math.tau/24;rod('Grip rib',.0017,part['height']*.6,((radius-.001)*math.cos(a),(radius-.001)*math.sin(a),0),key,n=12)
-  elif aid=='M07' and index in [12,18,19,20]:rod('Front facing insert',part['bottom_radius'],part['height'],(0,0,0),key)
+  elif aid=='M07' and index==12:rod('Front facing insert',part['bottom_radius'],part['height'],(0,0,0),key)
   elif aid=='M08' and index==0:
    key='wood_dark';static=True;box('Removable rear board',(.620,.640,.012),(0,0,.074),key)
    frame('Housed switchboard case',.66,.68,.16,.025,(0,0,0),key)
@@ -211,6 +232,16 @@ for actor in plan['actors']:
   display=obj.copy();display.name=name+'_review';review.objects.link(display);display.matrix_world=pose_of(part);display['actor']=aid;display.hide_render=not part['visible'];review_parts.append(display)
   if aid=='M06' and part['path'].startswith('TourCheck/'):display.hide_render=True
   if aid=='M09' and index==15:display.hide_render=True
+ if aid=='M07':
+  # Runtime spares reuse these same native inserts; include them in context
+  # review without adding duplicate exported partitions or baked lettering.
+  for spare in actor['meshes'][18:21]:
+   delta=C.to_3x3()@(Vector(spare['position'])-Vector(actor['meshes'][11]['position']))
+   for index in [12,13,14]:
+    source=next(o for o in review_parts if o.name==f'M07_P{index:03d}_review')
+    display=source.copy();display.name=f'M07_spare{spare["index"]}_insert{index}_review'
+    review.objects.link(display);display.matrix_world=source.matrix_world.copy();display.location+=delta
+    display['actor']=aid
  # Fixed attachments are in actor coordinates, never below a moving paper,
  # shutter, key or blade. Small fasteners have actual slotted heads.
  current=aid+'_attachments';start=len(pieces)
@@ -252,6 +283,15 @@ for actor in plan['actors']:
    rod('Door hinge pin',.006,.065,(-.315,y,.142),'metal','y')
    box('Wall hinge leaf',(.025,.06,.002),(-.303,y,.139),'metal',.0004)
   for x in [-.095,0,.095]:rod('Knife insulating boss',.018,.025,(x,.80,.047),'ceramic')
+  for x in [-.095,0,.095]:
+   rod('Lower insulating boss',.018,.034,(x,.70,.050),'ceramic')
+   for dx in [-.009,.009]:box('Knife pivot cheek',(.008,.028,.035),(x+dx,.70,.085),'brass',.0006)
+   # Axis along Godot x; orient native stock explicitly at fabrication time.
+   pin=rod('Knife trunnion',.004,.032,(0,0,0),'brass')
+   pin.rotation_euler[2]=math.pi/2
+   pin.location=C.to_3x3()@Vector((x,.70,.095))
+   bpy.context.view_layer.objects.active=pin
+   bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
  elif aid=='M08':
   for x in [-.275,.275]:
    for y in [.127,.612]:screw('Panel screw',(x,y,-.109),'brass',.0035)

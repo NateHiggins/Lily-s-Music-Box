@@ -1,0 +1,17 @@
+{
+  "evidence_class": "INERT",
+  "base": "555b01f3",
+  "mesh_partitions_before": 298,
+  "mesh_partitions_after": 298,
+  "changed": [
+    "M07_Fixed",
+    "M07_P005",
+    "M07_P011",
+    "M07_P017",
+    "M07_P018",
+    "M07_P019",
+    "M07_P020"
+  ],
+  "unchanged": 291,
+  "method": "Decoded GLB primitive POSITION, NORMAL, UV, tangent and index accessors; byte-for-byte comparisons independent of buffer offsets."
+}

@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Physical fuse replacement, cabinet/main controls, loose-part handling and current validation status | `design/V2_PHYSICAL_FUSE_REPAIR_2026-10-13.md` |
 | Played access to 60 rooms in the remaining nine apartments, with 5B furniture circulation repaired | `design/ORISON_V2_REMAINING_APARTMENT_SPATIAL_ACCESS_CHECKPOINT_2026-10-13.md` and `design/V2_APARTMENT_CLEARANCE_2026-10-13.md` |
 | Click-to-grab physical interaction and retirement of toggles/minigames | `design/DIRECT_MANIPULATION_2026-10-12.md` and Bible §VIII.5.l |
 | Registered bathroom tile PBR, continuous grout UVs and clean floor repetition | `design/V2_BATHROOM_TILES_2026-10-12.md` |

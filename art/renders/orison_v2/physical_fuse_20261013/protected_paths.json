@@ -1,0 +1,93 @@
+{
+  "evidence_class": "INERT",
+  "base": "e0b0dd293325a49c207785888112262a4990e474",
+  "matched_paths": 17,
+  "comparison": "binary byte equality; LF-normalized text; raw equality additionally disclosed",
+  "files": [
+    {
+      "path": "art/data/building_layout.json",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/data/building_layout.json",
+      "raw_match": false,
+      "matches": true
+    },
+    {
+      "path": "game/scripts/building/building_root_selector.gd",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_01.gltf",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_01.bin",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_02.gltf",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_02.bin",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_03.gltf",
+      "raw_match": false,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_03.bin",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_04.gltf",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_04.bin",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_05.gltf",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_05.bin",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_06.gltf",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_06.bin",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_b1.gltf",
+      "raw_match": true,
+      "matches": true
+    },
+    {
+      "path": "game/assets/building/floor_b1.bin",
+      "raw_match": true,
+      "matches": true
+    }
+  ]
+}

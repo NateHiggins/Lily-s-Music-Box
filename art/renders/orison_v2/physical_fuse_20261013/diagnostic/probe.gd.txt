@@ -1,0 +1,22 @@
+extends "res://tests/orison_v2_basement_route_test.gd"
+## Temporary diagnostic, not spatial acceptance.
+func _prepare_player_start() -> void:
+	player.global_position=world.adapter.root.to_global(Vector3(10.602741,-3.18,-.496859))
+	player.velocity=Vector3.ZERO
+
+func _route() -> void:
+	var door := _leaf("B1_BOILER_FIRE_DOOR")
+	await _open_door("B1_BOILER_FIRE_DOOR")
+	var shape := door._body.get_child(0) as CollisionShape3D
+	var pose := door._body.transform
+	pose.basis=Basis(Vector3.UP,move_toward(door._body.rotation.y,door.motion_target_angle(true),.025))
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape=shape.shape;query.transform=door.global_transform*pose*shape.transform
+	query.collision_mask=door._body.collision_mask;query.exclude=[door._body.get_rid()];query.margin=.001
+	var hits := world.get_world_3d().direct_space_state.intersect_shape(query,16)
+	var names: Array=[]
+	for hit: Dictionary in hits: names.append(str(hit.collider.get_path()))
+	print("BOILER STANCE BLOCKERS ",JSON.stringify({"angle":door._body.rotation.y,"goal":door.motion_target_angle(true),"colliders":names}))
+	if not await _walk(Vector3(10.95,-3.2,-.4)): return
+	await _drag_part(door,door._body.to_global(Vector3(door.width*.5,1.1,0)),door.motion_target_angle(true),"boiler_clear_stance")
+	if not await _walk(Vector3(8.3,-3.2,-.4)): return

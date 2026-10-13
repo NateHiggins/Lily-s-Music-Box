@@ -1,0 +1,125 @@
+{
+  "evidence_class": "INERT",
+  "files": [
+    {
+      "file": "installed.log",
+      "source": "installed-final.log",
+      "sha256": "071af39682b432f077bb19be83497e1c6fcc1245720de8a00e9b67ae9bf081ea"
+    },
+    {
+      "file": "installed.log.receipt.json",
+      "source": "installed-final.log.receipt.json",
+      "sha256": "4d0baced18304f03cc2c3df805a654a3f83ba60d864765da7c30d6998e2ed355"
+    },
+    {
+      "file": "installed.log.stderr",
+      "source": "installed-final.log.stderr",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "file": "installed/runtime_contract.json",
+      "source": "installed-final/runtime_contract.json",
+      "sha256": "15fe2a6a548733ea8ed33433cf0807200033a63d646a4093a73f018787633f0f"
+    },
+    {
+      "file": "installed/repaired_panel.png",
+      "source": "installed-final/repaired_panel.png",
+      "sha256": "9e83a67ccdd40ebbf875791b5a32faca99ee6e214689fd981e294302df8d560d"
+    },
+    {
+      "file": "direct.log",
+      "source": "direct-final.log",
+      "sha256": "0a485aa9fd6a432d361a2b389c5a1a3ad13676d96be27a4c83cdc4a6f5f8dd30"
+    },
+    {
+      "file": "direct.log.receipt.json",
+      "source": "direct-final.log.receipt.json",
+      "sha256": "de3cd5ac544c56130340a123b87ceeb21fefc0d814827326ce8b6addc20b9853"
+    },
+    {
+      "file": "basement.log",
+      "source": "basement-clear-stance.log",
+      "sha256": "29ed50566cbc14fa04d6a962d9c84fef54030bfcf97acb9e3dc7a02d5be17b23"
+    },
+    {
+      "file": "basement.log.receipt.json",
+      "source": "basement-clear-stance.log.receipt.json",
+      "sha256": "6f14ab46d08fcde9a212d296a3f2e06d44104ddaec30abfdb9752e784e27152d"
+    },
+    {
+      "file": "basement/route.json",
+      "source": "basement-clear-stance/route.json",
+      "sha256": "84a5a2966a307e66f99317b2036a9541008c2602661a080290448a564344af90"
+    },
+    {
+      "file": "basement/repaired_panel.png",
+      "source": "basement-clear-stance/repaired_panel.png",
+      "sha256": "0ea73aa38ff6469502b867b2157591d87b3f5429dbb4d7a80c040183ac5f6339"
+    },
+    {
+      "file": "native.png",
+      "source": "native/M07.png",
+      "sha256": "564d090764610d16d768e12010d18ae11b348949fd260444aa9927555be78842"
+    },
+    {
+      "file": "native-delta.json",
+      "source": "native-delta.json",
+      "sha256": "47ecf157322d769acee4e18adbb1ad6ca3fec39cff3c3b6cf8dfac45eee2b6d0"
+    },
+    {
+      "file": "build.log",
+      "source": "polish-build.log",
+      "sha256": "41513e0606b7ad2424736981ce17e4a45e07a1cb05544d26d545f89ca93ec582"
+    },
+    {
+      "file": "native.log",
+      "source": "polish-native.log",
+      "sha256": "9c4040b5e3567c429d23c31ea9e9850a142519480e4c0040bfa0df42cd1a5683"
+    },
+    {
+      "file": "import.log.receipt.json",
+      "source": "polish-import.log.receipt.json",
+      "sha256": "ca1d718e43f4c12803ae08ee841dfa10e3eef6de1187aac43581903968760f86"
+    },
+    {
+      "file": "diagnostic/basement-blocked.log",
+      "source": "basement-final.log",
+      "sha256": "596bec04028d8a36209c26914a669bb1a8b522e6bba8ea45ce38a81201033003"
+    },
+    {
+      "file": "diagnostic/basement-blocked.log.receipt.json",
+      "source": "basement-final.log.receipt.json",
+      "sha256": "8012777303101d156b9121074ecba4c2b11b6adc88aa87a0c7bca0a6a2463c78"
+    },
+    {
+      "file": "diagnostic/basement-blocked-route.json",
+      "source": "basement-final/route.json",
+      "sha256": "6afd68381d7c2ade7561ec3746bb63850bc2dc17bb5d5af7a0b76838d96925ff"
+    },
+    {
+      "file": "diagnostic/blocked-stance.png",
+      "source": "basement-final/last_position.png",
+      "sha256": "402cd2b27ca1bfae9ce03e7d320d30eea8fa5cd347f1c24a1354dd1aaf4d6e95"
+    },
+    {
+      "file": "diagnostic/stance-probe.log",
+      "source": "boiler-stance.log",
+      "sha256": "9c3858f9fd3d0125a03fdf8e0ab6fbb444e2ba0e812904b437b963606d78d7a2"
+    },
+    {
+      "file": "diagnostic/stance-probe.log.receipt.json",
+      "source": "boiler-stance.log.receipt.json",
+      "sha256": "365eec5f765bd0547c75a45a352a3cf59c2c83dd1059f6e75e1812b598099629"
+    },
+    {
+      "file": "diagnostic/probe.gd.txt",
+      "source": "boiler-stance/probe.gd.txt",
+      "sha256": "3e043afc4cd06568871c83cbb1fd69fbcf0e027f29235d9296836b0bfa180a8c"
+    },
+    {
+      "file": "diagnostic/probe.tscn.txt",
+      "source": "boiler-stance/probe.tscn.txt",
+      "sha256": "95ab41b1ac202d927f594581f675f05e4e7ed67e02b81a0b10597823ad651592"
+    }
+  ]
+}

@@ -1243,7 +1243,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 208.498,
+		"elapsed_s": 205.697,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -1749,8 +1749,8 @@
 						-3.25
 					],
 					"wall_contacts": {
-						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@25754/NativeCaseCollision": "(-4.044999, 4.4, -8.088)",
-						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@25756/NativeCaseCollision": "(-4.627958, 4.40001, -8.088)",
+						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@25757/NativeCaseCollision": "(-4.044999, 4.4, -8.088)",
+						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@25759/NativeCaseCollision": "(-4.627958, 4.40001, -8.088)",
 						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F02_F03/StairGuards": "(-2.402499, 4.244854, -8.6925)"
 					}
 				},
@@ -2531,9 +2531,9 @@
 	"scope": "Spatial room access and ordinary player-input interactions in 2A/2B and 4B. Each floor leg starts with one placement; all subsequent travel uses the ordinary controller. Resident scheduling is excluded. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "26681527ac72e0cdd6ac7a4e64e143c51968e5ae",
-		"runtime_inputs_sha256": "b8acd4922a4aea7082e165bc46acb12ae14a3508e1b03c7f6727ace16b6314cf",
-		"surface_inputs_sha256": "0fc375d1b733d84c91abe525f779ea9230ebddbf7a199c71e64925cd5f5f3e3c",
+		"repository_head": "555b01f3bdcd10005a9a2586c24933d7904a7fb1",
+		"runtime_inputs_sha256": "93027753ea55dc858d2bfa8ff4e06788ffbbed62757f3403e160893bb41b5d13",
+		"surface_inputs_sha256": "4a43978d77a64ae445b032fcb092d4ee714d0bac6269844d1ae2067d89016122",
 		"test_dependencies": {
 			"game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
 			"game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",

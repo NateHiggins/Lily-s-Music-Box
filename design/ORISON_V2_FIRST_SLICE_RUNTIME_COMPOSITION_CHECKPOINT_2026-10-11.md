@@ -2,18 +2,24 @@
 
 Evidence class: **CHECKPOINT**. Executed runtime authority proof.
 
-Requalified after localized fire-repair architecture on 2026-10-13: current
-test-written authority contract passes 113 checks, including save/load
+Requalified after physical fuse repair on 2026-10-13: current
+test-written authority contract passes 115 checks, including save/load
 reconstruction and both-world teardown. Completed wrapper:
-**art/renders/orison_v2/fire_repairs_20261013/firstslice.log.receipt.json**.
+**art/renders/orison_v2/physical_fuse_20261013/firstslice.log.receipt.json**.
 Status: **TECHNICAL PASS**, scoped to the seven authorities below.
+
+The disk comparison preserves the complete serialized job record and checks
+timestamp precision separately. A focused diagnostic reproduced one-ULP JSON
+timestamp shifts that made raw in-memory Dictionary equality intermittent.
+Both the failed original comparison and that diagnostic remain in the physical
+fuse packet. Production save and work-order authorities were not changed.
 
 The self-contained production test is
 **game/tests/orison_v2_first_slice_contract_test.gd**. Its test-written schema-2
 receipt is **art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json**.
 The receipt binds the root test source and current production runtime inputs.
-The wrapper **runtime4.log.receipt.json** confirms completed execution without
-timeout. Final run: 113 checks, zero failures. An earlier parse-failed run is
+The current wrapper above confirms completed execution without
+timeout. Final run: 115 checks, zero failures. An earlier parse-failed run is
 diagnostic only; it grants no proof.
 
 | Function | Composition | Authority | Durable/save owner | Teardown owner |

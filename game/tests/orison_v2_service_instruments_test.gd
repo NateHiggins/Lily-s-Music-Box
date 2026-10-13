@@ -127,7 +127,8 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	check(not panel.plug_out,"energized fuse withdrawal refused")
 	panel.preview_maintenance_step({"id":"pull_the_main"},0.)
 	panel.preview_maintenance_step({"id":"draw_the_plug"},.55)
-	check(panel.main_open and panel.plug_out and is_equal_approx(panel._window.position.z,.185),"native blades and mica follow isolated plug withdrawal")
+	var threaded_plug: RefCounted=panel._hand_controls.plugs
+	check(panel.main_open and panel.plug_out and is_equal_approx(panel._window.position.z,threaded_plug.HOME.z+threaded_plug.THREAD_TRAVEL+.022),"native blades and mica follow isolated plug withdrawal")
 	panel.restore_maintenance_snapshot(panel_before)
 	check(panel.maintenance_snapshot()==panel_before,"fuse service cancel restores state")
 	contract_checks.append("fuse live denial, main isolation, plug withdrawal and cancel")

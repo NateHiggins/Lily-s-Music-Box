@@ -3627,7 +3627,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 840.383,
+		"elapsed_s": 838.306,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -14859,9 +14859,9 @@
 				},
 				{
 					"actual": [
-						-0.899740517139435,
+						-0.899740278720856,
 						12.8035411834717,
-						3.27485275268555
+						3.27487468719482
 					],
 					"ok": true,
 					"target": [
@@ -15426,9 +15426,9 @@
 				},
 				{
 					"actual": [
-						-12.8444919586182,
+						-12.8444948196411,
 						16.0008296966553,
-						-4.92595434188843
+						-4.9259672164917
 					],
 					"ok": true,
 					"target": [
@@ -15442,7 +15442,7 @@
 					"actual": [
 						-13.026909828186,
 						16.0008296966553,
-						-4.94729804992676
+						-4.94729900360107
 					],
 					"ok": true,
 					"target": [
@@ -18699,7 +18699,7 @@
 					"actual": [
 						-7.15027904510498,
 						16.0019798278809,
-						0.021916389465332
+						0.0219154357910156
 					],
 					"ok": true,
 					"target": [
@@ -20124,9 +20124,9 @@
 	"scope": "Spatial room access and actual grab/motion/release in 3A, 3B, 4A, 5A, 5B, 5C, 6A, 6B and 6C. Collision queries plan paths; the normal player controller executes every route. Each unit leg starts with one placement; all subsequent travel uses the ordinary controller. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "26681527ac72e0cdd6ac7a4e64e143c51968e5ae",
-		"runtime_inputs_sha256": "b8acd4922a4aea7082e165bc46acb12ae14a3508e1b03c7f6727ace16b6314cf",
-		"surface_inputs_sha256": "0fc375d1b733d84c91abe525f779ea9230ebddbf7a199c71e64925cd5f5f3e3c",
+		"repository_head": "555b01f3bdcd10005a9a2586c24933d7904a7fb1",
+		"runtime_inputs_sha256": "93027753ea55dc858d2bfa8ff4e06788ffbbed62757f3403e160893bb41b5d13",
+		"surface_inputs_sha256": "4a43978d77a64ae445b032fcb092d4ee714d0bac6269844d1ae2067d89016122",
 		"test_dependencies": {
 			"game/tests/OrisonV2RemainingApartmentAccessContractTest.tscn": "d68123786dcc531a7ad0063c790fd92b273b302768d6b7ee7d54c0b682bb414f",
 			"game/tests/orison_v2_4b_door_route_test.gd": "6d21e661c689ee29da4d3af241dc68a4cb31714f6ecb839ea1fa21c7deb2cc5a",

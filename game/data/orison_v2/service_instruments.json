@@ -2758,8 +2758,12 @@
           "mesh": "M07_P011",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass",
+            "ceramic"
+          ]
         },
         {
           "index": 12,
@@ -2818,36 +2822,50 @@
           "mesh": "M07_P017",
           "source_type": "BoxMesh",
           "size": [
-            0.200000002980232,
-            0.0750000029802322,
-            0.109999999403954
+            0.26,
+            0.242,
+            0.09
           ],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral"
+          ]
         },
         {
           "index": 18,
           "mesh": "M07_P018",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass",
+            "ceramic"
+          ]
         },
         {
           "index": 19,
           "mesh": "M07_P019",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass",
+            "ceramic"
+          ]
         },
         {
           "index": 20,
           "mesh": "M07_P020",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass",
+            "ceramic"
+          ]
         },
         {
           "index": 21,
@@ -2886,6 +2904,7 @@
         {
           "mesh": "M07_Fixed",
           "materials": [
+            "brass",
             "ceramic",
             "metal"
           ]
@@ -3527,10 +3546,10 @@
       ]
     },
     {
-      "key": "ceramic",
-      "catalog": "ceramic",
-      "tile": 0.65,
-      "normal": 0.25,
+      "key": "bakelite",
+      "catalog": "bakelite",
+      "tile": 0.35,
+      "normal": 0.12,
       "roughness": 1.0,
       "metallic": 0.0,
       "tint": [
@@ -3541,10 +3560,10 @@
       ]
     },
     {
-      "key": "bakelite",
-      "catalog": "bakelite",
-      "tile": 0.35,
-      "normal": 0.12,
+      "key": "ceramic",
+      "catalog": "ceramic",
+      "tile": 0.65,
+      "normal": 0.25,
       "roughness": 1.0,
       "metallic": 0.0,
       "tint": [

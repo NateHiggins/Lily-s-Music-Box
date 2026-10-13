@@ -116,3 +116,13 @@ func move(relative: Vector2) -> void:
 	if is_equal_approx(value,before): return
 	target.write.call(value)
 	if not is_equal_approx(float(target.read.call()),before): changed = true
+
+func move_depth(distance: float) -> bool:
+	validate()
+	if not active() or target.kind!="free" or not is_finite(distance): return false
+	var point: Vector3=target.part.to_global(contact)
+	var axis: Vector3=(point-player.camera.global_position).normalized()
+	var before: Vector3=target.read.call()
+	target.write.call(before+target.frame.global_basis.inverse()*axis*clampf(distance,-.08,.08))
+	if not before.is_equal_approx(target.read.call()): changed=true
+	return true

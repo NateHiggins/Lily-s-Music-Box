@@ -1,0 +1,16 @@
+extends Node
+func _ready() -> void:
+	var mismatches := 0
+	var largest := 0.0
+	for i in 10000:
+		var value := .1+float(i)/600000.0
+		var original := {"issued_at":value,"stage":"closed","evidence":["radiator_airbound"],"repair_result":{"quality":"good"}}
+		var text := JSON.stringify(original,"\t",true,true)
+		var restored: Dictionary=JSON.parse_string(text)
+		if original!=restored:
+			mismatches+=1
+			largest=maxf(largest,absf(restored.issued_at-value))
+			if mismatches<=8:
+				print("JSON TIMESTAMP DELTA before=%.20f after=%.20f delta=%.20f"%[value,restored.issued_at,restored.issued_at-value])
+	print("JSON ROUNDTRIP DIAGNOSTIC mismatches=",mismatches," / 10000 largest=%.20f"%largest)
+	get_tree().quit()
