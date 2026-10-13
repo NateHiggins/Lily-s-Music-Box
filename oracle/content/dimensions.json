@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "source": "oracle/DESIGN.md section 2 (the player model)",
+    "authored": "hand-authored 2026-10-03; edit this file and DESIGN.md together",
+    "kind": "hand-transcription",
+    "schema": {
+      "axes": "bipolar play-preference axes; value runs from -1 (the neg pole) to +1 (the pos pole)",
+      "aesthetic_axes": "bipolar taste axes, lower importance, mostly fed by threshold choices",
+      "weights": "families of independent weights; +1 means attracted, -1 means declined or avoided",
+      "importance": "how much the dimension matters to the final design when ranking signals (0..1)",
+      "desc": "one sentence shown to the narrator model so it files evidence on the right dimension"
+    }
+  },
+  "axes": [
+    {"id": "agency", "neg": "guided", "pos": "self_directed", "importance": 1.0,
+     "desc": "Wants clearly communicated objectives (guided) or prefers deciding what matters (self_directed)."},
+    {"id": "discovery_mastery", "neg": "discovery", "pos": "mastery", "importance": 1.0,
+     "desc": "Keeps seeking new situations (discovery) or enjoys understanding and perfecting a known system (mastery)."},
+    {"id": "planning", "neg": "deliberative", "pos": "improvisational", "importance": 0.9,
+     "desc": "Gathers information and prepares before acting (deliberative) or commits happily with incomplete information (improvisational)."},
+    {"id": "risk", "neg": "preservation", "pos": "experimentation", "importance": 1.0,
+     "desc": "In play only: protects what they have (preservation) or enters unknown spaces, wagers and tests dangerous things (experimentation)."},
+    {"id": "failure", "neg": "failure_averse", "pos": "failure_as_information", "importance": 1.0,
+     "desc": "Failure feels like an interruption to avoid (failure_averse) or like information, comedy or an invitation to try again (failure_as_information)."},
+    {"id": "friction", "neg": "low_friction", "pos": "high_friction", "importance": 0.9,
+     "desc": "How much resistance before reward they enjoy: retries, traversal, scarcity, delayed gratification, cryptic mechanics."},
+    {"id": "complexity", "neg": "minimal", "pos": "systemic", "importance": 0.9,
+     "desc": "Wants a few expressive mechanics (minimal) or a dense interacting system (systemic)."},
+    {"id": "explicitness", "neg": "clarity", "pos": "mystery", "importance": 1.0,
+     "desc": "Wants to be told (clarity) or enjoys unexplained phenomena, hidden rules and incomplete maps (mystery)."},
+    {"id": "optimization_expression", "neg": "efficiency", "pos": "expression", "importance": 1.0,
+     "desc": "When the optimal choice conflicts with the funny, stylish, strange or personal one: takes the efficient one or the expressive one."},
+    {"id": "narrative", "neg": "systems_first", "pos": "narrative_first", "importance": 0.9,
+     "desc": "Engages with mechanisms first (systems_first) or with people, history and what happens next (narrative_first)."},
+    {"id": "pacing", "neg": "contemplative", "pos": "relentless", "importance": 0.9,
+     "desc": "Desired density of decisions and events: lingers and breathes (contemplative) or wants the next thing now (relentless)."},
+    {"id": "session_rhythm", "neg": "bite_sized", "pos": "long_form", "importance": 0.6,
+     "desc": "Prefers short complete episodes (bite_sized) or investing across a long arc (long_form). Infer from in-game investment, never from response delay."},
+    {"id": "exploration", "neg": "goal_route", "pos": "exhaustive", "importance": 1.0,
+     "desc": "Takes the route to the goal (goal_route) or opens optional rooms, backtracks, examines scenery and tests dead ends (exhaustive)."},
+    {"id": "control", "neg": "vulnerability", "pos": "power", "importance": 0.8,
+     "desc": "Enjoys tension from being fragile and threatened (vulnerability) or from being increasingly capable (power)."},
+    {"id": "consequence", "neg": "reversible", "pos": "permanent", "importance": 0.8,
+     "desc": "Prefers experiments that can be undone (reversible) or choices that stay made and a world that remembers (permanent)."},
+    {"id": "legibility", "neg": "opaque_emergent", "pos": "transparent_calculable", "importance": 0.9,
+     "desc": "Enjoys invisible relationships discovered by feel (opaque_emergent) or numbers, odds, meters and stated rules (transparent_calculable). Not the same as complexity."},
+    {"id": "social", "neg": "solo", "pos": "populated", "importance": 0.8,
+     "desc": "Prefers being alone in the world (solo) or a world with people in it (populated)."}
+  ],
+  "aesthetic_axes": [
+    {"id": "aes.organic_mechanical", "neg": "organic", "pos": "mechanical", "importance": 0.5},
+    {"id": "aes.clean_decayed", "neg": "clean", "pos": "decayed", "importance": 0.5},
+    {"id": "aes.familiar_alien", "neg": "familiar", "pos": "alien", "importance": 0.5},
+    {"id": "aes.bright_dark", "neg": "bright", "pos": "dark", "importance": 0.5},
+    {"id": "aes.maximal_minimal", "neg": "maximalist", "pos": "minimal", "importance": 0.5},
+    {"id": "aes.cute_severe", "neg": "cute", "pos": "severe", "importance": 0.5},
+    {"id": "aes.natural_architectural", "neg": "natural", "pos": "architectural", "importance": 0.5},
+    {"id": "aes.grounded_surreal", "neg": "grounded", "pos": "surreal", "importance": 0.5},
+    {"id": "aes.orderly_chaotic", "neg": "orderly", "pos": "chaotic", "importance": 0.5}
+  ],
+  "weights": {
+    "reward": {
+      "importance": 0.9,
+      "desc": "What the player plays for. Attracted (+1) or declined when cheaply offered (-1).",
+      "items": {
+        "mastery": "getting measurably better at a known thing",
+        "discovery": "finding what was not shown",
+        "collection": "gathering and keeping things, sets, trophies",
+        "power": "growing more capable",
+        "expression": "customizing, styling, making it theirs",
+        "revelation": "learning what happened or what it means",
+        "humor": "being amused, being funny",
+        "spectacle": "seeing something grand happen",
+        "completion": "finishing the set, clearing the list",
+        "creation": "building or arranging something that stays",
+        "competition": "beating someone",
+        "cooperation": "helping or working with someone",
+        "surprise": "not knowing what comes out of the box",
+        "transgression": "breaking the rule, finding the seam, misusing the machine"
+      }
+    },
+    "solve": {
+      "importance": 0.8,
+      "desc": "Which kind of problem-solving they reach for first and stay with.",
+      "items": {
+        "spatial": "routes, fits, positions, geometry",
+        "execution": "timing, precision, doing it cleanly",
+        "pattern": "noticing regularities and sequences",
+        "deduction": "eliminating possibilities from clues",
+        "resource": "rationing, trading, investing scarce things",
+        "linguistic": "wording, naming, rule-lawyering, riddles",
+        "experimentation": "poking it to see what it does",
+        "social": "reading and moving people",
+        "optimization": "finding the best line through known numbers",
+        "lateral": "using a thing for what it was not meant for"
+      }
+    },
+    "conflict": {
+      "importance": 0.7,
+      "desc": "How they deal with something in the way. Never moralize these.",
+      "items": {
+        "avoidance": "go around, sneak, wait it out",
+        "negotiation": "talk, trade, bargain in good faith",
+        "manipulation": "trick, bluff, play one against another",
+        "direct": "confront it head on",
+        "tactical": "prepare the ground, use the environment, set a trap",
+        "chaotic": "make a mess and see what survives"
+      }
+    },
+    "soc": {
+      "importance": 0.6,
+      "desc": "Which social textures draw them when present.",
+      "items": {
+        "companions": "one being that travels with them",
+        "rivalries": "a recurring opponent they enjoy",
+        "recurring": "people who come back and remember",
+        "factions": "groups with interests to side with or play off",
+        "simulation": "people with needs and routines to observe or manage",
+        "crowds": "anonymous busy places",
+        "competition": "measuring themselves against others",
+        "cooperation": "doing a thing together"
+      }
+    },
+    "tone": {
+      "importance": 0.8,
+      "desc": "Which emotional registers they prolong, return to, or lean into.",
+      "items": {
+        "cozy": "warm, safe, domestic",
+        "funny": "jokes, wit, play with the narrator",
+        "absurd": "nonsense taken seriously",
+        "mysterious": "the unexplained, held at a distance",
+        "melancholy": "lovely sadness, things past",
+        "eerie": "quiet wrongness",
+        "frightening": "being hunted, real threat",
+        "heroic": "standing up, doing the brave thing",
+        "romantic": "longing, beauty, grand feeling",
+        "intimate": "small, close, between two",
+        "contemplative": "stillness, looking, thinking",
+        "chaotic": "noise, mess, too much at once",
+        "triumphant": "the big win, earned"
+      }
+    },
+    "story": {
+      "importance": 0.6,
+      "desc": "Which kind of story interest shows up. A player may skip exposition and still love environmental storytelling.",
+      "items": {
+        "character": "who people are and what they want",
+        "world": "the place, its history and rules, read from objects",
+        "plot": "what happens next, promises and payoffs",
+        "emergent": "the story their own actions made"
+      }
+    },
+    "arc": {
+      "importance": 0.4,
+      "desc": "Which shape of capability over time they lean toward.",
+      "items": {
+        "weak_to_powerful": "start fragile, end formidable",
+        "capable_to_overwhelmed": "start competent, get in over their head",
+        "stable_power": "stay about as capable throughout",
+        "wild_escalation": "everything gets bigger and stranger, fast",
+        "strange": "something that is not a power curve at all"
+      }
+    }
+  }
+}
