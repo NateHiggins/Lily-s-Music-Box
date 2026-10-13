@@ -1,6 +1,6 @@
 # Pipeline tools
 
-Seven instruments that turn the dispatch-and-verify loop from typed claims
+These instruments turn the dispatch-and-verify loop from typed claims
 into files. Each one reads, runs through the existing lane, or writes
 into a directory you name. None merges or pushes. The candidate verifier's
 default mode creates and removes temporary worktrees; use its in-place mode
@@ -15,8 +15,15 @@ for work restricted to the canonical checkout.
 | `lane.ps1` | Who holds the Godot lane, and can I wait for it instead of failing? | - |
 | `lanes.py` | Where does every worktree and branch stand against main? | 6 s |
 | `check_rulings.py` | Is every RUL-nnn citation real, sourced and current? | 1 s |
+| `preflight_spatial_test_bindings.py` | Are every spatial receipt's inherited test dependencies declared before Godot starts? | <1 s |
 
 ## Gate board
+
+Before long spatial-contract runs, use
+`python tools/preflight_spatial_test_bindings.py --all`, or pass individual
+receipt-writing scripts under **game/tests**. This read-only check follows
+transitive test references and rejects missing files or omitted **SOURCES**
+bindings before Godot starts. It does not generate or qualify runtime evidence.
 
 RUL-012 adds three surface gates: **v2_surface_imports** checks complete
 mipmap/HQ GPU-compression bindings, **v2_mesh_uv_imports** keeps the seven

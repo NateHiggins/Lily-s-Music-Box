@@ -1,0 +1,273 @@
+{
+	"checks": [
+		{
+			"label": "production V2 starts with physical dumbwaiter controls",
+			"ok": true
+		},
+		{
+			"label": "click grabs right rope grip",
+			"ok": true
+		},
+		{
+			"label": "grab neither moves car nor opens minigame",
+			"ok": true
+		},
+		{
+			"label": "downward hand rope motion raises car",
+			"ok": true
+		},
+		{
+			"label": "engaged pawl holds released car",
+			"ok": true
+		},
+		{
+			"label": "released pawl seats instead of retaining ratchet cam lift",
+			"ok": true
+		},
+		{
+			"label": "rope can be regrabbed",
+			"ok": true
+		},
+		{
+			"label": "Space provides static mechanism inspection",
+			"ok": true
+		},
+		{
+			"label": "cursor selects actual pawl",
+			"ok": true
+		},
+		{
+			"label": "small physical pawl lift clears tooth envelope",
+			"ok": true
+		},
+		{
+			"label": "unsupported car descends after releasing pawl",
+			"ok": true
+		},
+		{
+			"label": "pawl can be returned",
+			"ok": true
+		},
+		{
+			"label": "mouse seats pawl",
+			"ok": true
+		},
+		{
+			"label": "rope remains available in inspection",
+			"ok": true
+		},
+		{
+			"label": "car can be raised again",
+			"ok": true
+		},
+		{
+			"label": "cursor grabs tension wheel",
+			"ok": true
+		},
+		{
+			"label": "clockwise wheel tightens brake",
+			"ok": true
+		},
+		{
+			"label": "partial physical state is saveable",
+			"ok": true
+		},
+		{
+			"label": "nonfinite state rejected",
+			"ok": true
+		},
+		{
+			"label": "braked rope remains grabbable",
+			"ok": true
+		},
+		{
+			"label": "tight brake resists rope pull",
+			"ok": true
+		},
+		{
+			"label": "pawl remains independent of brake",
+			"ok": true
+		},
+		{
+			"label": "pawl lifts clear of braked car",
+			"ok": true
+		},
+		{
+			"label": "released brake proves hold through original repair authority",
+			"ok": true
+		},
+		{
+			"label": "repair does not snap car to bottom",
+			"ok": true
+		},
+		{
+			"label": "visible hinged parts follow mouse direction",
+			"ok": true
+		},
+		{
+			"label": "repair leaves brake adjustable",
+			"ok": true
+		},
+		{
+			"label": "brake can be loosened after repair",
+			"ok": true
+		},
+		{
+			"label": "hand can support car with released brake and pawl",
+			"ok": true
+		},
+		{
+			"label": "live hand carries actual rope strain",
+			"ok": true
+		},
+		{
+			"label": "restoration does not invent a supporting hand",
+			"ok": true
+		},
+		{
+			"label": "restored unsupported car resumes descent",
+			"ok": true
+		},
+		{
+			"label": "pawl is still selectable after restore",
+			"ok": true
+		},
+		{
+			"label": "pawl can arrest restored car",
+			"ok": true
+		},
+		{
+			"label": "released partial brake and pawl state round-trips",
+			"ok": true
+		},
+		{
+			"label": "inspection cursor leaves camera fixed",
+			"ok": true
+		},
+		{
+			"label": "household authority records physical dumbwaiter repair",
+			"ok": true
+		},
+		{
+			"label": "repaired wheel reacquired for partial save",
+			"ok": true
+		},
+		{
+			"label": "physical wheel left partly turned before save",
+			"ok": true
+		},
+		{
+			"label": "household accepts new dumbwaiter mechanism schema",
+			"ok": true
+		},
+		{
+			"label": "dumbwaiter partial positions written to actual save file",
+			"ok": true
+		},
+		{
+			"label": "old dumbwaiter and physical controller retire",
+			"ok": true
+		},
+		{
+			"label": "fresh world accepts dumbwaiter disk schema",
+			"ok": true
+		},
+		{
+			"label": "fresh dumbwaiter resolves saved physical schema",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains band_seated",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains brake_bite",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains pawl_lift",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains rope_strain",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains car_travel",
+			"ok": true
+		},
+		{
+			"label": "reconstructed repair retains original completed authority",
+			"ok": true
+		},
+		{
+			"label": "reconstructed hand controller retires",
+			"ok": true
+		},
+		{
+			"label": "runtime inputs unchanged during proof",
+			"ok": true
+		},
+		{
+			"label": "both worlds release observed nodes, dumbwaiter shapes/controller and audio playbacks",
+			"ok": true
+		}
+	],
+	"contracts": {
+		"physical_interaction": {
+			"executed": true,
+			"identities": [
+				"LobbyServiceDumbwaiter"
+			],
+			"status": "PASS"
+		},
+		"premature_action_denial": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"identities": [
+				"LobbyServiceDumbwaiter"
+			],
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"resource_scope": "Unpathed dumbwaiter collision shapes and dumbwaiter hand controllers; shared imported caches excluded.",
+			"retained_nodes": 0,
+			"retained_playbacks": 0,
+			"retained_resources": 0,
+			"status": "PASS",
+			"tracked_nodes": 118540,
+			"tracked_playbacks": 202,
+			"tracked_resources": 12
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 165.307,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": 0,
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Installed dumbwaiter: actual click, constrained motion, release and static inspection, guarded repair, partial-state disk save, destroy and fresh V2 reconstruction. One standing placement; no continuous route or human visual acceptance claim.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "b112e625648d038541f290c046af4869cf87ea24",
+		"runtime_inputs_sha256": "60bb04ba3f7482a05f882cdca6f00740fb0d149aebad2ed7b7dd81d41660e01c",
+		"test_dependencies": {
+			"game/tests/dumbwaiter_hand_test.gd": "ac1ee1da69ca6b00d14b798fd46273da017ceaa7c5e5eea1b944dbcbd0d687ef"
+		},
+		"test_path": "game/tests/dumbwaiter_installed_test.gd",
+		"test_sha256": "b10cfee01560da12f3e9731408714ae773f98876a3cd5052ee14fd405d91fcf8"
+	}
+}

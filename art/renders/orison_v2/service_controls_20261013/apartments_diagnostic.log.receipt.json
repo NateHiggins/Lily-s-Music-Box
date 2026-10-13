@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 216.66,
+  "exit_code": 1,
+  "finished_utc": "2026-10-13T22:52:55Z",
+  "started_utc": "2026-10-13T22:49:18Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 APARTMENT ACCESS CONTRACT: FAIL; 19 rooms; 264 checks; 2 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-service-checkpoint-20261013/apartments_diagnostic.log.stderr",
+  "stderr_sha256": "1e7297ca4b6159ae9ac7f49f464439205e589d8281fd70dcf4892734e13e1c3b",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-service-checkpoint-20261013/apartments_diagnostic.log",
+  "stdout_sha256": "a5df79a7bf506024de82363bbefc23ea1ee8020eff74bfbf1e39620552bb674d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2ApartmentAccessContractTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-service-checkpoint-20261013/apartments_diagnostic",
+ "source": {
+  "dirty_paths": 1438,
+  "dirty_sample": [
+   "M  .gitattributes",
+   " M DOCS.md",
+   "M  art/blender/scripts/build_service_instruments.py",
+   "A  art/blender/scripts/inspect_dumbwaiter_controls.py",
+   "A  art/blender/scripts/inspect_roof_tank_controls.py",
+   "M  art/blender/scripts/service_instruments_geometry.py",
+   "M  art/blender/service_instruments.blend",
+   "M  art/blender/service_instruments_construction.json",
+   "M  art/data/service_instruments/source_plan.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_gallery_02.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_restored_mass.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/radiator.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/runtime_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/surface-inventory.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/technical_findings.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/visual_review.json"
+  ],
+  "repository_head": "b112e625648d038541f290c046af4869cf87ea24",
+  "repository_tree": "2de6ada92684a9e8eba969786ba7a75fc85cb014",
+  "runtime_inputs_sha256": "ef4c73d2f87409e58482d7b729419bb2c5741cffd020b0d81967e6700472feb0",
+  "test_path": "game/tests/orison_v2_apartment_access_contract_test.gd",
+  "test_sha256": "a1480f27f488006185702af8cecf1f7f8f0ceea1d9da42a6a06dbcac2069764d"
+ },
+ "windowed": true
+}

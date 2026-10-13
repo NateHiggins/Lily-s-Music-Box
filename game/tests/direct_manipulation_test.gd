@@ -49,6 +49,15 @@ func _run() -> void:
 	add_child(door)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
+	var door_state := preload("res://scripts/building/orison_v2_household_state.gd").new()
+	add_child(door_state)
+	door_state._subjects={"bench_door":door}
+	door_state._kinds={"bench_door":"mechanism"}
+	door_state._defaults=door_state.snapshot()
+	RealityState.data[door_state.KEY]=door_state._defaults.duplicate(true)
+	door_state._restore(RealityState.data[door_state.KEY])
+	door_state._bound=true
+	door_state._connect(RealityState,"state_changed",door_state._on_state_changed)
 	player.camera.look_at(Vector3(.4,1.1,0))
 	print("GRAB TARGET: ",player._grab.find_target().keys()," mode=",Input.mouse_mode," lock=",player.call_locked)
 	click()
@@ -61,9 +70,23 @@ func _run() -> void:
 	check(absf(door._body.rotation.y)>.01,"mouse displacement moves leaf")
 	check(player.camera.global_transform.is_equal_approx(camera_pose),"hand motion leaves camera stable")
 	var angle := door._body.rotation.y
+	RealityState.commit()
+	check(player._grab.active() and is_equal_approx(angle,door._body.rotation.y),"unrelated commit preserves held unsaved door position")
 	click()
 	check(not player._grab.active(),"second click releases")
 	check(is_equal_approx(angle,door._body.rotation.y),"release retains partial angle")
+	player.camera.look_at(door._body.to_global(Vector3(door.width*.5,1.1,0)))
+	await get_tree().physics_frame
+	click()
+	check(player._grab.active(),"actual click reacquires leaf before document replacement")
+	RealityState.data=RealityState.data.duplicate(true)
+	check(not door_state.capture_now(),"snapshot during document replacement cannot overwrite incoming save")
+	RealityState.state_changed.emit()
+	await get_tree().physics_frame
+	check(not player._grab.active() and is_zero_approx(door._body.rotation.y),"equal-valued replacement document restores saved position and releases hand")
+	door_state.shutdown()
+	door_state.queue_free()
+	player.camera.look_at(Vector3(.4,1.1,0))
 	door.restore_mechanism({"angle":0.0})
 	await get_tree().physics_frame
 	click()

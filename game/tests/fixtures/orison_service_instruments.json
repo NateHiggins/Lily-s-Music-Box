@@ -1,7 +1,7 @@
 {
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
-  "asset_sha256": "9baa441b7db849d8e7990e21361d5447d9ddfc8892a2502299ddb9bc95f9e77b",
+  "asset_sha256": "0fc16496be8aac1a470c87a9fbcbfce763c7c89d00d3e58595209ea562e0039d",
   "closed_stocks": [
     {
       "name": "M01_000__Backboard",
@@ -276,6 +276,14 @@
       "volume_m3": 0.001426741515685785
     },
     {
+      "name": "M02_010__Seat neck",
+      "volume_m3": 0.00016015289858136323
+    },
+    {
+      "name": "M02_010__Valve stem",
+      "volume_m3": 1.601001558493956e-05
+    },
+    {
       "name": "M02_010__Bonnet flange",
       "volume_m3": 0.0002758714013945366
     },
@@ -292,16 +300,32 @@
       "volume_m3": 0.00021620094088559933
     },
     {
-      "name": "M02_012__Inlet riser",
-      "volume_m3": 0.0037163462793589077
+      "name": "M02_012__Continuous flexible lead",
+      "volume_m3": 0.004271773852273213
+    },
+    {
+      "name": "M02_012__Isolation valve body",
+      "volume_m3": 0.0012302951667563355
+    },
+    {
+      "name": "M02_012__Isolation bonnet",
+      "volume_m3": 0.00018803354774874834
+    },
+    {
+      "name": "M02_012__Wheel spindle",
+      "volume_m3": 2.2702029449592474e-05
     },
     {
       "name": "M02_012__Inlet union",
-      "volume_m3": 0.000229496336384981
+      "volume_m3": 0.00014341490892908653
     },
     {
       "name": "M02_012__Inlet union.001",
-      "volume_m3": 0.00022949651032248223
+      "volume_m3": 0.00014341509019137066
+    },
+    {
+      "name": "M02_012__Inlet union.002",
+      "volume_m3": 0.000143414915368437
     },
     {
       "name": "M02_013__Open stop wheel",
@@ -405,7 +429,7 @@
     },
     {
       "name": "M02_attachments__Riser union.001",
-      "volume_m3": 0.00019234753298189326
+      "volume_m3": 0.00019234755329971837
     },
     {
       "name": "M02_attachments__Overflow clamp",
@@ -2493,7 +2517,7 @@
     },
     {
       "name": "M09_010__Stock",
-      "volume_m3": 0.00923890653555807
+      "volume_m3": 0.008921006453963773
     },
     {
       "name": "M09_011__Sheave running surface",
@@ -2532,16 +2556,60 @@
       "volume_m3": 0.0009516593820635144
     },
     {
-      "name": "M09_013__Retained annular stock",
-      "volume_m3": 0.0004335963974364951
+      "name": "M09_012__Holding ratchet",
+      "volume_m3": 0.0003822425088744654
     },
     {
-      "name": "M09_014__Stock",
-      "volume_m3": 0.00011739571317363358
+      "name": "M09_013__Split holding band",
+      "volume_m3": 0.00010688594891043064
+    },
+    {
+      "name": "M09_013__Tension ear",
+      "volume_m3": 7.206716659393127e-06
+    },
+    {
+      "name": "M09_013__Tension ear.001",
+      "volume_m3": 7.206716659393124e-06
+    },
+    {
+      "name": "M09_014__Holding dog",
+      "volume_m3": 6.188970229963746e-05
     },
     {
       "name": "M09_015__Continuous hand rope",
       "volume_m3": 0.0002465306951190513
+    },
+    {
+      "name": "M09_attachments__Band anchor base",
+      "volume_m3": 7.685662699361473e-05
+    },
+    {
+      "name": "M09_attachments__Band anchor upright",
+      "volume_m3": 6.110368399981877e-05
+    },
+    {
+      "name": "M09_attachments__Band saddle",
+      "volume_m3": 1.4926675296820469e-05
+    },
+    {
+      "name": "M09_attachments__Tension stud",
+      "volume_m3": 1.2668399502471214e-05
+    },
+    {
+      "name": "M09_attachments__Continuous flexible lead",
+      "volume_m3": 9.166679686397824e-07
+    },
+    {
+      "name": "M09_attachments__Pawl bearing foot",
+      "volume_m3": 0.00010582864680222341
+    },
+    {
+      "name": "M09_attachments__Pawl bearing cheek",
+      "volume_m3": 2.8453646395673946e-05
+    },
+    {
+      "name": "M09_attachments__Pawl axle",
+      "volume_m3": 5.625022726338983e-06
     },
     {
       "name": "M09_attachments__Guide rail",
@@ -2660,12 +2728,48 @@
       "volume_m3": 0.00024133807129287851
     },
     {
-      "name": "M09_attachments__Continuous flexible lead",
+      "name": "M09_attachments__Continuous flexible lead.001",
       "volume_m3": 6.608460949522449e-05
     },
     {
-      "name": "M09_attachments__Continuous flexible lead.001",
+      "name": "M09_attachments__Continuous flexible lead.002",
       "volume_m3": 3.357658136410859e-05
+    },
+    {
+      "name": "M09_HandGrip__Turned rope grip",
+      "volume_m3": 6.178153733852614e-05
+    },
+    {
+      "name": "M09_HandGrip__Grip ferrule",
+      "volume_m3": 5.6369628086069814e-06
+    },
+    {
+      "name": "M09_HandGrip__Grip ferrule.001",
+      "volume_m3": 5.636962808606984e-06
+    },
+    {
+      "name": "M09_BrakeWheel__Tension wheel rim",
+      "volume_m3": 1.0897451650614109e-05
+    },
+    {
+      "name": "M09_BrakeWheel__Threaded wheel hub",
+      "volume_m3": 3.856348319700933e-06
+    },
+    {
+      "name": "M09_BrakeWheel__Wheel spoke X",
+      "volume_m3": 9.277026218589072e-07
+    },
+    {
+      "name": "M09_BrakeWheel__Wheel spoke Z",
+      "volume_m3": 9.277025762947367e-07
+    },
+    {
+      "name": "M09_BrakeWheel__Wheel spoke X.001",
+      "volume_m3": 9.277026067979395e-07
+    },
+    {
+      "name": "M09_BrakeWheel__Wheel spoke Z.001",
+      "volume_m3": 9.277025758405637e-07
     },
     {
       "name": "DumbwaiterRopeUnit__Rope segment",
@@ -6158,6 +6262,19 @@
               "cast_iron",
               "metal"
             ]
+          },
+          {
+            "mesh": "M09_HandGrip",
+            "materials": [
+              "brass",
+              "wood_dark"
+            ]
+          },
+          {
+            "mesh": "M09_BrakeWheel",
+            "materials": [
+              "brass"
+            ]
           }
         ]
       }
@@ -6376,9 +6493,9 @@
     ]
   },
   "source_bindings": {
-    "art/data/service_instruments/source_plan.json": "cc1c40e7aa62981ee5594a49f448c39270ba21e0d629847794f918f8b43312cd",
-    "art/blender/scripts/build_service_instruments.py": "be2b51450641481fe501f1eb1acac6eeec3b09fe8313c5f1f14c8f716a0751d5",
-    "art/blender/scripts/service_instruments_geometry.py": "64ba3c0db0539e99e2806a5a58b296f29fb0bfe275b6ac561267d8f523007ddd",
+    "art/data/service_instruments/source_plan.json": "6a811a41bd31ae0e0964cc6d8b00849e57819e89b353ffef3a33c66d2d399f39",
+    "art/blender/scripts/build_service_instruments.py": "5c39f2bdb694f9cde5d903f9a0790273b15d805f6ffadf70801889789de8d959",
+    "art/blender/scripts/service_instruments_geometry.py": "b83cdbaa2e16631a4e37a8b7759dc49b5934eee65b07e7a315c19f3a33b6e80f",
     "art/blender/scripts/render_service_instruments.py": "3d8ab6825caf28ef1cda3b51a287d4170ef148f6b5ea50c2a7f8fe1463247ecb",
     "game/data/runtime_material_sets.json": "4a98389bf283864854c3cbfe8f324482665c9cc0a252d94fc73d3d833f8ab5e6",
     "game/assets/props/service_instruments.glb.import": "0b0f3059ed84a1335943299e976240855d5fdbbc242b05fea753eccd0cdd8493",
@@ -6417,15 +6534,17 @@
     "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
     "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
     "game/scripts/props/otis_prop.gd": "be1a517c5fc2d830ad118d45e157904dac6f8a6217678e87dd4f3e4d7c6b9bef",
-    "game/scripts/props/roof_tank_ballcock_prop.gd": "df73930b9c27616fa4c942971fabcfbb0bc44c55f92cbca903c0ba8602153f29",
+    "game/scripts/props/roof_tank_ballcock_prop.gd": "e452d844a51a68ea611939936f4953bf01acb9452350c4031fce1c12a5cd804c",
     "game/scripts/props/watchman_clock_prop.gd": "10b21f5b41b1f2b328111898a2538f9ed7c7a9fdf21fa122a45eacd54174c070",
     "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
     "game/scripts/props/watch_register_prop.gd": "af099e187b73d16d5a76e2e8c8db37d9b414fb2df020cb0e28f6097ce78df4f0",
     "game/scripts/props/tour_key_guard_prop.gd": "22a1ae2606d6972131a049c62d8d22d7cd6843086a73bfcc974abf12150c428d",
     "game/scripts/props/fuse_panel_prop.gd": "477901242b17574130f652f51d8596807654bcb2f008d31b5277bb66656dca39",
     "game/scripts/props/house_switchboard_prop.gd": "eee65069820a795e6485ec58f40bc6cf5cfaad9e5773a7f3b4446483c74cf31f",
-    "game/scripts/props/dumbwaiter_prop.gd": "eca81aed6ecfbbc913fe3cea1eebf35aaac0206c8e18d8171155eb2ef6c09104",
+    "game/scripts/props/dumbwaiter_prop.gd": "9f6369aa69ae3408783cd59e6d38a93d5e589b00958b80039ce3c830227337af",
     "game/scripts/props/fuse_panel_hand_controls.gd": "aa8c2bc9afcc49d4ea4d60a21e674573094a449fc9e53d0266f4c5c7be3f29be",
-    "game/scripts/props/fuse_panel_plugs.gd": "cef14e50a918cef62c9de0f44481bab7c6d5a00cfbe2576da0d1f00a10ef7de7"
+    "game/scripts/props/fuse_panel_plugs.gd": "cef14e50a918cef62c9de0f44481bab7c6d5a00cfbe2576da0d1f00a10ef7de7",
+    "game/scripts/props/roof_tank_hand_controls.gd": "ed84d8da66a8c578028ff10964a337c48ad7357df7f5a5ecb91408cedb2f8659",
+    "game/scripts/props/dumbwaiter_hand_controls.gd": "0a925a8faafa8511ff721ca9df61adaa44fc75925216504625ab61976da5919d"
   }
 }

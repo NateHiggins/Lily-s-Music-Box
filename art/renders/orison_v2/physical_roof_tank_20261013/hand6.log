@@ -1,0 +1,38 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+TANK HAND CHECK: native tank geometry binds = true
+TANK HAND CHECK: click acquires actual stop wheel = true
+TANK HAND CHECK: grab does not toggle or open overlay = true
+TANK HAND CHECK: Space inspects the exposed mechanism = true
+TANK HAND CHECK: weight remains movable before repairing float = true
+TANK HAND CHECK: full weight travel is physical even with waterlogged float = true
+TANK HAND CHECK: maximum leverage cannot hide the buoyancy fault = true
+TANK HAND CHECK: float can be selected independently = true
+TANK HAND CHECK: live riser refuses float withdrawal = true
+TANK HAND CHECK: wheel can be reacquired = true
+TANK HAND CHECK: wheel preserves intermediate rotation = true
+TANK HAND CHECK: partial state validates = true
+TANK HAND CHECK: partial rotation survives serialization = true
+TANK HAND CHECK: restored wheel selectable = true
+TANK HAND CHECK: clockwise turns close the riser = true
+TANK HAND CHECK: isolation does not certify repair = true
+TANK HAND CHECK: isolated float selectable = true
+TANK HAND CHECK: mouse lifts float along guide = true
+TANK HAND CHECK: held-clear float drains = true
+TANK HAND CHECK: float returned to working position = true
+TANK HAND CHECK: captive lever weight selectable = true
+TANK HAND CHECK: weight slides along lever = true
+TANK HAND CHECK: leverage alone cannot certify isolated tank = true
+TANK HAND CHECK: indicator is an independently selectable slide = true
+TANK HAND CHECK: indicator follows hand along its gauge = true
+TANK HAND CHECK: supply wheel selectable for reopening = true
+TANK HAND CHECK: counterclockwise turns restore supply = true
+TANK HAND CHECK: sustained physical hold publishes repair = true
+TANK HAND CHECK: repair publication does not snap the physical indicator = true
+TANK HAND CHECK: wheel rim follows the direction of mouse travel = true
+TANK HAND CHECK: inspection camera remains fixed = true
+TANK HAND CHECK: nonfinite save rejected = true
+TANK HAND CHECK: inspection restores ordinary lens = true
+TANK HAND RESULT: 33 checks, 0 failures

@@ -45,6 +45,7 @@ var _target_dot: ColorRect
 var inspect_owner: Node3D
 var _inspection_active := false
 var _inspection_jump_consumed := false
+var _inspect_camera_fov := 72.0
 var _inspect_camera_pose := Transform3D.IDENTITY
 var _inspect_mouse_mode := Input.MOUSE_MODE_CAPTURED
 var _inspect_anchor := Transform3D.IDENTITY
@@ -1300,6 +1301,8 @@ func begin_inspection() -> bool:
 	if owner is CollisionObject3D: query.exclude.append(owner.get_rid())
 	if not get_world_3d().direct_space_state.intersect_ray(query).is_empty(): return false
 	_inspect_camera_pose=camera.transform
+	_inspect_camera_fov=camera.fov
+	camera.fov=clampf(float(view.get("fov",camera.fov)),40.0,100.0)
 	_inspect_mouse_mode=Input.mouse_mode
 	inspect_owner=owner
 	_inspection_active=true
@@ -1318,4 +1321,5 @@ func end_inspection(notify_change := true) -> void:
 	inspect_owner=null
 	_inspection_active=false
 	camera.transform=_inspect_camera_pose
+	camera.fov=_inspect_camera_fov
 	Input.mouse_mode=_inspect_mouse_mode

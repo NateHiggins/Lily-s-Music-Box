@@ -170,7 +170,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	tank.preview_maintenance_step({"id":"shut_the_riser"},0.)
 	tank.preview_maintenance_step({"id":"lift_the_float"},1.)
 	tank.preview_maintenance_step({"id":"set_the_weight"},1.)
-	check(not tank.float_waterlogged and is_equal_approx(tank._weight.position.x,.36),"native float and captive weight follow original service extremes")
+	check(not tank.float_waterlogged and tank._lever.to_local(tank._weight.global_position).is_equal_approx(Vector3(.24,0,0)),"native float and captive weight follow the lever at its service extreme")
 	tank.restore_maintenance_snapshot(tank_before)
 	check(tank.maintenance_snapshot()==tank_before,"tank service cancel restores original hydraulic state")
 	contract_checks.append("tank live denial, isolation, float lift, weight extreme and cancel")

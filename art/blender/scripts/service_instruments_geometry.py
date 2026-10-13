@@ -71,8 +71,13 @@ for actor in plan['actors']:
   elif aid=='M02' and index==7:
    rod('Round float linkage',.007,1.0,(0,0,0),key,'y')
   elif aid=='M02' and index==12:
-   rod('Inlet riser',.032,part['height'],(0,0,0),key,'y')
-   for y in [-.49,.46]:rod('Inlet union',.047,.040,(0,y,0),key,'y',n=6)
+   # Offset supply clears the retained overflow collector. The upper dogleg
+   # returns to the original valve seat; no floating wheel or severed riser.
+   tube_path([Vector(p) for p in [(.36,-.58,0),(.36,.36,0),(.35,.41,0),(.32,.44,0),(.04,.52,0),(.01,.55,0),(0,.58,0)]],.032,key)
+   rod('Isolation valve body',.055,.13,(.36,.30,0),key,'y')
+   rod('Isolation bonnet',.034,.052,(.36,.30,.050),key)
+   rod('Wheel spindle',.011,.060,(.36,.30,.095),key)
+   for y in [-.49,.19,.40]:rod('Inlet union',.047,.025,(.36,y,0),key,'y',n=6)
   elif aid=='M02' and index==17:
    key='enamel';static=True
    tube('Enamel overflow downpipe',.042,.035,part['height'],(0,0,0),key,'y')
@@ -92,6 +97,8 @@ for actor in plan['actors']:
   elif aid=='M02' and index==10:
    # Rounded renewable valve casting with a separate union and cover flange.
    rod('Valve casting',.068,.13,(0,0,0),key,'y',.050)
+   rod('Seat neck',.032,.050,(0,-.072,0),key,'y')
+   rod('Valve stem',.008,.080,(0,.095,0),key,'y')
    rod('Bonnet flange',.070,.018,(0,.063,0),key,'y')
    for x in [-.046,.046]:rod('Bonnet fastener',.006,.015,(x,.078,0),key,'y',n=6)
   elif aid=='M02' and index==13:
@@ -201,7 +208,11 @@ for actor in plan['actors']:
      for vertex in obj.data.vertices:vertex.co=pose.inverted()@vertex.co
   elif aid=='M08' and 23<=index<=30:suppress=True
   elif aid=='M09' and index in [6,7,8,9,10]:
-   key='wood_dark';static=True;source_blank(part,key)
+   key='wood_dark';static=True;blank=source_blank(part,key)
+   if index==10:
+    # The holding dog drops through the deck, never through solid timber.
+    center=Vector((.30,.77,.39))-Vector(part['position'])
+    perforate(blank,[((.170,.20,.034),center)])
   elif aid=='M09' and index==3:
    blank=source_blank(part,key)
    perforate(blank,[((.022,.06,.022),(x,0,0)) for x in [-.269,.23]])
@@ -222,6 +233,28 @@ for actor in plan['actors']:
    rod('Rear lift groove',.093,.015,(0,-.245,0),key,'y')
    for y in [-.256,-.234]:rod('Rear lift rim',.105,.007,(0,y,0),key,'y')
    rod('Connected head shaft',.012,.29,(0,-.1225,0),'metal','y')
+  elif aid=='M09' and index==12:
+   source_blank(part,key)
+   n=24*4;verts=[]
+   for y,r in [(.020,None),(.036,None),(.036,.020),(.020,.020)]:
+    for i in range(n):
+     a=i*math.tau/n;radius=r if r is not None else [.082,.097,.097,.082][i%4]
+     verts.append((radius*math.cos(a),y,radius*math.sin(a)))
+   faces=[(j*n+i,j*n+(i+1)%n,((j+1)%4)*n+(i+1)%n,((j+1)%4)*n+i) for j in range(4) for i in range(n)]
+   solid('Holding ratchet',verts,faces,key,.0002)
+  elif aid=='M09' and index==13:
+   n=97;angles=[.14+(math.tau-.28)*i/(n-1) for i in range(n)];verts=[]
+   for y,r in [(-.012,.078),(-.012,.087),(.012,.087),(.012,.078)]:
+    verts.extend((r*math.cos(a),y,r*math.sin(a)) for a in angles)
+   faces=[(j*n+i,j*n+i+1,((j+1)%4)*n+i+1,((j+1)%4)*n+i) for j in range(4) for i in range(n-1)]
+   faces.extend([(0,n,2*n,3*n),(n-1,4*n-1,3*n-1,2*n-1)])
+   solid('Split holding band',verts,faces,key,.0002)
+   for side in [-1,1]:
+    ear=box('Tension ear',(.032,.024,.014),(.096,0,side*.014),key,.0005)
+    perforate(ear,[((.018,.014,.06),(.10,0,side*.014))])
+  elif aid=='M09' and index==14:
+   pawl=box('Holding dog',(.15,.022,.020),(0,0,0),key,.001)
+   perforate(pawl,[((.014,.014,.040),(.06,0,0))])
   elif aid=='M09' and index==15:
    rod('Continuous hand rope',.009,.98,(0,0,0),key,'y',n=24)
   else:source_blank(part,key)
@@ -230,8 +263,12 @@ for actor in plan['actors']:
    replacements.append({'index':index,'mesh':'','source_type':part['type'],'size':part.get('size',[]),'preserve_material':True,'materials':[]});continue
   obj,used=mesh_partition(name,pieces[start:]);replacements.append({'index':index,'mesh':name,'source_type':part['type'],'size':part.get('size',[]),'preserve_material':not static,'materials':used if static else []})
   display=obj.copy();display.name=name+'_review';review.objects.link(display);display.matrix_world=pose_of(part);display['actor']=aid;display.hide_render=not part['visible'];review_parts.append(display)
+  if aid=='M02' and index in [13,14,15,16]:display.location+=C.to_3x3()@Vector((.36,0,.125))
   if aid=='M06' and part['path'].startswith('TourCheck/'):display.hide_render=True
   if aid=='M09' and index==15:display.hide_render=True
+  if aid=='M09' and index==13:
+   radius=1+.03*(1-.34)
+   display.matrix_world=C@Matrix.Translation(Vector((.17,.89,.375)))@Matrix.Rotation(math.pi/2,4,'X')@Matrix.Diagonal((radius,1,radius,1))@C.inverted()
  if aid=='M07':
   # Runtime spares reuse these same native inserts; include them in context
   # review without adding duplicate exported partitions or baked lettering.
@@ -253,8 +290,8 @@ for actor in plan['actors']:
   box('Lever bearing pedestal',(.045,.075,.035),(.12,.172,.061),'cast_iron')
   for y in [.35,2.10]:
    tube('Balance pipe gland',.034,.025,.014,(-.14,y,.041),'brass')
-  for y in [-.05,-1.13]:
-   rod('Riser union',.046,.035,(-.14,y,.135),'brass','y',n=6)
+  for x,y in [(-.14,-.05),(.22,-1.13)]:
+   rod('Riser union',.046,.035,(x,y,.135),'brass','y',n=6)
   for y in [.6,1.95]:
    tube('Overflow clamp',.047,.042,.018,(-.34,y,.09),'metal','y')
    box('Overflow clamp seat',(.028,.035,.085),(-.34,y,.035),'metal')
@@ -296,6 +333,17 @@ for actor in plan['actors']:
   for x in [-.275,.275]:
    for y in [.127,.612]:screw('Panel screw',(x,y,-.109),'brass',.0035)
  elif aid=='M09':
+  # Band anchor and threaded tension stud; a real screw draws its two ears.
+  box('Band anchor base',(.055,.020,.07),(.087,.7915,.34),'cast_iron')
+  box('Band anchor upright',(.025,.098,.025),(.087,.851,.34),'cast_iron')
+  box('Band saddle',(.030,.020,.025),(.087,.89,.3525),'cast_iron')
+  rod('Tension stud',.0045,.20,(.27,.96,.375),'brass','y')
+  thread=[Vector((.27+.0052*math.cos(a),1.025+.0014*a/math.tau,.375+.0052*math.sin(a))) for a in [i*math.tau/16 for i in range(16*28+1)]]
+  tube_path(thread,.0006,'brass')
+  pawl_foot=box('Pawl bearing foot',(.070,.020,.10),(.37,.7915,.37),'cast_iron')
+  perforate(pawl_foot,[((.170,.20,.034),(.30,.77,.39))])
+  box('Pawl bearing cheek',(.034,.060,.014),(.37,.82,.366),'cast_iron')
+  rod('Pawl axle',.006,.050,(.37,.82,.386),'brass')
   # All guide and head bearings attach to the original shaft/casing stock.
   for x in [-.312,.132,.168,.292]:box('Guide rail',(.008,.60,.018),(x,.30,.119),'metal')
   for x in [-.17,.17]:
@@ -322,4 +370,21 @@ for actor in plan['actors']:
   obj,used=mesh_partition(aid+'_Fixed',pieces[start:]);display=obj.copy();review.objects.link(display);display['actor']=aid;display.name=aid+'_Fixed_review'
   additions=[{'mesh':obj.name,'materials':used}]
  else:additions=[]
+ if aid=='M09':
+  for label,position in [('HandGrip',(-.269,.35,.375)),('BrakeWheel',(.27,1.055-.0042*.34,.375))]:
+   current='M09_'+label;start=len(pieces)
+   if label=='HandGrip':
+    tube('Turned rope grip',.018,.0065,.070,(0,0,0),'wood_dark','y')
+    for y in [-.035,.035]:tube('Grip ferrule',.0185,.0065,.006,(0,y,0),'brass','y')
+   else:
+    tube('Tension wheel rim',.032,.026,.010,(0,0,0),'brass','y')
+    tube('Threaded wheel hub',.010,.0048,.016,(0,0,0),'brass','y')
+    for side in [-1,1]:
+     box('Wheel spoke X',(.020,.008,.006),(side*.018,0,0),'brass',.001)
+     box('Wheel spoke Z',(.006,.008,.020),(0,0,side*.018),'brass',.001)
+   obj,used=mesh_partition('M09_'+label,pieces[start:])
+   additions.append({'mesh':obj.name,'materials':used})
+   display=obj.copy();display.name=obj.name+'_review';review.objects.link(display);display['actor']=aid;display.location=C.to_3x3()@Vector(position)
+   if label=='HandGrip':
+    right=display.copy();right.name='M09_HandGripRight_review';review.objects.link(right);right.location=C.to_3x3()@Vector((-.071,.35,.375))
  records.append({'id':actor['actor'],'script':actor['script'],'source_mesh_count':len(actor['meshes']),'replacements':replacements,'additions':additions})

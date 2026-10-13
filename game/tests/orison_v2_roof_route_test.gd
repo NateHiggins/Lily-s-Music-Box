@@ -30,7 +30,7 @@ func _route() -> void:
 			Vector3(5.0,19.2,2.5), Vector3(-1.35,19.2,2.5), Vector3(-1.35,19.2,0)]:
 		if not await _walk(point): return
 	if not await _open_door("ROOF_PUBLIC_DOOR"): return
-	if not await _walk(Vector3(-3.6,19.2,0)): return
+	if not await _walk(Vector3(-3.9,19.2,0)): return
 	await _roof_capture("public_bulkhead", Vector3(2,20.5,0))
 	if not await _close_door("ROOF_PUBLIC_DOOR"): return
 	if not await _walk(Vector3(-14.5,19.2,0)): return
@@ -66,7 +66,7 @@ func _route() -> void:
 			Vector3(11.075,17.6,9.15), Vector3(11.075,16,4.3),
 			Vector3(11.075,17.6,9.15), Vector3(12.425,17.6,9.15),
 			Vector3(12.425,19.2,5.65), Vector3(12.425,19.2,3),
-			Vector3(10.3,19.2,3), Vector3(8.1,19.2,3)]:
+			Vector3(10.3,19.2,3), Vector3(7.8,19.2,3)]:
 		if not await _walk(point): return
 	if not await _close_door("ROOF_SERVICE_DOOR"): return
 	# Ray checks include the real collider and height; a visible trim mesh is
@@ -94,7 +94,7 @@ func _route() -> void:
 	var chimney_hit: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(wall_ray)
 	if not _require(not chimney_hit.is_empty() and chimney_hit.collider.get_parent()==flue,
 			"chimney masonry has actual collision"): return
-	for point in [Vector3(14.1,19.2,-6),Vector3(7,19.2,-6),Vector3(-4,19.2,-6), Vector3(-3.4,19.2,0)]:
+	for point in [Vector3(14.1,19.2,-6),Vector3(7,19.2,-6),Vector3(-4,19.2,-6), Vector3(-3.9,19.2,0)]:
 		if not await _walk(point): return
 	if not await _open_door("ROOF_PUBLIC_DOOR"): return
 	for point in [Vector3(-1.35,19.2,0), Vector3(-1.35,19.2,2.5),
@@ -111,31 +111,15 @@ func _service_tank() -> bool:
 	var cock := world.adapter.resolve("ROOF_TANK_BALLCOCK") as RoofTankBallcockProp
 	if not _require(cock != null and cock.overflow_running(), "roof has the production overflowing ballcock"): return false
 	await _roof_capture("tank_approach", Vector3(-8.6,21.1,-5.7))
-	var reach := cock.get_node("BallcockReach") as Area3D
-	var target := reach.to_global(Vector3(.02,-.02,.14))
-	var before := cock.maintenance_snapshot()
-	if not await _use(reach, target, "tank_service_reach"): return false
-	if not _require(cock._service_panel != null and player.call_locked, "ordinary E opens tank maintenance"): return false
-	# Aborting a partially worked service must restore the mechanism and input.
-	cock.preview_maintenance_step({"id":"shut_the_riser"}, 0.0)
-	cock._service_panel._director.abort()
-	await get_tree().process_frame
-	if not _require(cock.maintenance_snapshot() == before and not player.call_locked,
-			"aborting tank service restores its state and returns movement"): return false
-	if not await _use(reach, target, "tank_service_reopen"): return false
-	var panel := cock._service_panel
-	if not _require(panel != null, "tank service can be reopened"): return false
-	var run: MaintenanceActivityRun = panel._director.active_run
-	if not _require(run.activity_id == "roof_tank_ballcock_service", "production tank activity is composed"): return false
-	# Exercise the existing director's verbs; only entry/exit are input-driven.
-	for step: Dictionary in run.profile.steps:
-		cock.preview_maintenance_step(step, float(step.target))
-		var accepted: bool = panel._director.submit(str(step.verb), float(step.target),
-				float(step.get("hold_min_seconds", 0)) + .4)
-		if not _require(accepted, "tank director accepts " + str(step.id)): return false
-	await get_tree().create_timer(1.0).timeout
-	if not _require(cock.ballcock_serviced and cock.valve_holds() and not cock.overflow_running()
-			and not player.call_locked, "serviced tank holds and releases the player"): return false
+	var hand := preload("res://tests/roof_tank_hand_test.gd").new()
+	hand.batch_mode=true
+	hand.player=player
+	hand.tank=cock
+	add_child(hand)
+	await hand.exercise()
+	var passed: bool=hand.failures==0
+	hand.queue_free()
+	if not _require(passed,"installed tank repair uses actual grabbing, motion, release and inspection"): return false
 	await _roof_capture("tank_serviced", Vector3(-8.6,21.1,-5.7))
 	for point in [Vector3(-11,19.2,-3.05), Vector3(-11,19.2,-4.95)]:
 		if not await _walk(point): return false

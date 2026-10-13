@@ -6,6 +6,13 @@ while continuing the full V1-to-V2 geometry and texture pass.
 
 ## Batch by room
 
+Before launching long spatial-contract runs, run
+`python tools/preflight_spatial_test_bindings.py --all`. Repair missing
+transitive test bindings before opening Godot. An inherited helper is part of
+the receipt even when that particular route never calls its method. This
+preflight checks source declarations only; runtime receipts still require the
+actual run and independent validation. Never add hashes to a finished receipt.
+
 Use a whole room/shop or approximately 4â€“10 related fittings as the work unit.
 Extend an existing builder instead of starting a build/test/report cycle for
 each small prop. Keep accepted work unless an observed defect or source change

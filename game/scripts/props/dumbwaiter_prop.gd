@@ -21,6 +21,9 @@ extends FunctionalProp
 ## reaching for a work order itself.
 
 signal maintenance_completed(result: Dictionary)
+signal manipulation_changed
+var _hand_controls: RefCounted
+var _drum: MeshInstance3D
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -126,6 +129,7 @@ func _build_visual() -> void:
 			Vector3(0.17, head_y + 0.28, HEAD_Z), Color(0.32, 0.28, 0.23),
 			0.58, 0.45)
 	drum.rotation_degrees.x = 90.0
+	_drum=drum
 	# The band wraps the drum. It stays a band at every bite: what changes is
 	# how tightly it is drawn down, never whether it exists.
 	_band = make_ring(0.090, 0.016,
@@ -194,6 +198,7 @@ func interact(player: Node) -> void:
 
 
 func _begin_brake_service(player: Node) -> bool:
+	if _hand_controls!=null: return false
 	if _service_panel and is_instance_valid(_service_panel):
 		return false
 	var script: GDScript = load("res://scripts/ui/maintenance_activity_panel.gd")
@@ -271,7 +276,7 @@ func apply_maintenance_result(result: Dictionary) -> void:
 		pawl_lift = clampf(float(patch["pawl_lift"]), 0.0, 1.0)
 	if patch.has("rope_strain"):
 		rope_strain = clampf(float(patch["rope_strain"]), 0.0, 1.0)
-	car_travel = 0.0
+	if _hand_controls==null: car_travel = 0.0
 	_slip_left = 0.0
 	_refresh_mechanism()
 	maintenance_completed.emit(result.duplicate(true))
@@ -293,6 +298,7 @@ func slipping() -> bool:
 
 
 func _process(delta: float) -> void:
+	if _hand_controls!=null: _hand_controls.tick(delta)
 	_t += delta
 	if _slip_left > 0.0:
 		_slip_left = maxf(0.0, _slip_left - delta)
@@ -355,6 +361,25 @@ func _refresh_mechanism() -> void:
 			_rope.rotation.z += shake * 1.6
 		_band.position.y += shake * 0.45
 
+	if _hand_controls!=null: _hand_controls.refresh()
+
+func native_manipulation_ready() -> void:
+	if _hand_controls!=null: return
+	get_node("BrakeReach").collision_layer=0
+	_hand_controls=preload("res://scripts/props/dumbwaiter_hand_controls.gd").new()
+	_hand_controls.configure(self)
+
+func mechanism_snapshot() -> Dictionary:
+	return _hand_controls.snapshot() if _hand_controls!=null else maintenance_snapshot()
+
+func valid_mechanism(value: Variant) -> bool:
+	return _hand_controls!=null and _hand_controls.valid(value)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if _hand_controls!=null: _hand_controls.restore(value)
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(.10,1.10,.80)),"at":to_global(Vector3(0,.55,.25)),"fov":100.0}
 
 func service_wire_card() -> Dictionary:
 	return {"title":"SERVICE DUMBWAITER",

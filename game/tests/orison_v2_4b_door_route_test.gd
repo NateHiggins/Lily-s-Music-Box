@@ -164,10 +164,20 @@ func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) ->
 		motion.relative = gesture * signf(goal-float(grip.read.call())) * .06
 		player._unhandled_input(motion)
 		await get_tree().physics_frame
+		if label == "F02_B_ENTRY_DOOR_close" and step == 0:
+			var live_angle: float = grip.read.call()
+			RealityState.commit()
+			if not _require(player._grab.active() and is_equal_approx(live_angle,float(grip.read.call())),
+					"unrelated commit preserves installed held leaf: " + label): return false
 	var reached: bool = absf(float(grip.read.call())-goal)<.00001
+	if not reached:
+		print("GRAB DIAGNOSTIC: ",label," value=",grip.read.call()," goal=",goal," held=",player._grab.active()," player=",world.adapter.root.to_local(player.global_position)," part=",part_path(grip.part))
 	if player._grab.active(): player._unhandled_input(click)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	if owner_node.has_method("mechanism_snapshot") and owner_node.has_method("valid_mechanism"):
 		if not _require(owner_node.valid_mechanism(owner_node.mechanism_snapshot()), "physical stop remains saveable: " + label): return false
 	return _require(reached and not player._grab.active(), "mouse motion reaches stop and second click releases: " + label)
+
+func part_path(part: Node) -> String:
+	return str(part.get_path()) if is_instance_valid(part) else "freed"

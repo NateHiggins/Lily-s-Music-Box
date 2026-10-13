@@ -487,15 +487,15 @@
 			"retained_playbacks": 0,
 			"retained_resources": 0,
 			"status": "PASS",
-			"tracked_nodes": 118533,
-			"tracked_playbacks": 215,
+			"tracked_nodes": 118551,
+			"tracked_playbacks": 213,
 			"tracked_resources": 76
 		}
 	},
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 165.61,
+		"elapsed_s": 168.563,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -515,8 +515,8 @@
 	"scope": "Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Direct service-owner calls are contract stimuli; continuous walking and whole-world visual acceptance are not claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "555b01f3bdcd10005a9a2586c24933d7904a7fb1",
-		"runtime_inputs_sha256": "93027753ea55dc858d2bfa8ff4e06788ffbbed62757f3403e160893bb41b5d13",
+		"repository_head": "b112e625648d038541f290c046af4869cf87ea24",
+		"runtime_inputs_sha256": "60bb04ba3f7482a05f882cdca6f00740fb0d149aebad2ed7b7dd81d41660e01c",
 		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
 		"test_sha256": "b771f04ccce124bae1d5432c8cfc873976c7852a17bcfa92fe66322cb743d6c3"
 	}

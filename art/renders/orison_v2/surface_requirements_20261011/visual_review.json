@@ -1,27 +1,12 @@
 {
-  "surface_inputs_sha256": "4a43978d77a64ae445b032fcb092d4ee714d0bac6269844d1ae2067d89016122",
+  "surface_inputs_sha256": "ad321271446d73e55faa60aa5cee65791c646021ec90dc4b0154856ae85ac67c",
   "status": "PASS",
-  "scope": "Fresh whole-world UV/PBR/loaded-mipmap qualification and physical fuse review. Newly reviewed front mass and second-floor gallery renders are renewed. Other prior tower, washer, fire-repair and apartment views are retained for unchanged geometry/materials. New fuse native and installed views establish readable markings, neutral iron, fitted knife bearings, removable plugs and rack. No human visual acceptance or whole-building completion.",
+  "scope": "Current whole-world UV/PBR/loaded-mipmap qualification after household notification/capture repair. Fresh front mass/gallery renders reviewed; retained native roof and corrected dumbwaiter open/closed pawl views cover unchanged geometry. Other retained views have unchanged geometry/material scope. Technical review only; human aesthetic acceptance and broader V2 completion remain outstanding.",
   "images": [
-    {
-      "file": "tower_installed.png",
-      "sha256": "0cac386594aee7bea38e5812c226798e96778b52b0034d6f9cace7d1eeb023ef",
-      "observation": "Production roof view shows the complete round tank, catwalk, retained footings and fitted service mast. This shadowed view establishes installed composition, not brightly lit finish judgment."
-    },
-    {
-      "file": "tower_neutral.png",
-      "sha256": "1c8fd56d115290df1a499118c1a502337abec71dec14242c829aee415fed28c7",
-      "observation": "Neutral native assembly review: enamel vessel and slotted chamber, dark braced steel, fitted pipe connections, brass controls and retained collector."
-    },
     {
       "file": "tower_lid_underside.png",
       "sha256": "df0a54e9dbda1e27d67a34f37ddffb58708b77758ff8e75208855a02535030e5",
       "observation": "Low native view confirms opaque returned rim and visible underside, with no sky leak through the sheet."
-    },
-    {
-      "file": "tower_service_detail.png",
-      "sha256": "a4aeb9dd78926ed76fcad5cbf1a3d3e649778f6c6a753195458603948adbc455",
-      "observation": "Native detail shows inspection slot, float/linkage, open discharge outlet and separate collars/valve materials; runtime authority remains the original service owner."
     },
     {
       "file": "washer_installed.png",
@@ -64,16 +49,6 @@
       "observation": "Player-height view from the private hall shows the recorder seated on its co-rotated table, with the passage around its east end open. Existing wood grain, metal and floor finish retained; the actual standing controller separately traversed this approach."
     },
     {
-      "file": "front_restored_mass.png",
-      "sha256": "184720a9f569774741aec0b803f72e7e1584f4c63d7d860436fdb3b360531bb8",
-      "observation": "Fresh composed world retains continuous brick central frontage, window surrounds and cornice; existing adjoining context remains unfinished."
-    },
-    {
-      "file": "front_gallery_02.png",
-      "sha256": "004277016ebd8bd8e1968908792968bdaea0a97e3b67758e051f53f20c91f1c4",
-      "observation": "Fresh second-floor gallery retains wall/floor enclosure, paneling, curtains and separate benches; no new obstruction visible."
-    },
-    {
       "file": "fuse_native.png",
       "sha256": "564d090764610d16d768e12010d18ae11b348949fd260444aa9927555be78842",
       "observation": "Native review shows joined knife-switch bearings, full-size threaded plugs and neutral-iron folded shelves; generated textures remain unlettered."
@@ -82,6 +57,41 @@
       "file": "fuse_installed.png",
       "sha256": "9e83a67ccdd40ebbf875791b5a32faca99ee6e214689fd981e294302df8d560d",
       "observation": "Installed repair shows legible 15/20/30/10 amp labels clear of their backing plates, actual empty holder bores, connected main blades and the physically rearranged spare rack. Warm room lighting retained."
+    },
+    {
+      "file": "front_restored_mass.png",
+      "sha256": "d839f3108ad02bf9f4d7739e4a665619abf90752703179e9ead6004b5d268401",
+      "observation": "Fresh complete frontage: continuous brick mass, aligned window bands, retained entry and fire escape."
+    },
+    {
+      "file": "front_gallery_02.png",
+      "sha256": "1ce1d8055345f0ce859905f01e05109ac67b99afacab8ad83ff3332884fce717",
+      "observation": "Fresh upper gallery: continuous paneling, fitted windows and treatments, benches and intact floor."
+    },
+    {
+      "file": "tank_hand_native.png",
+      "sha256": "0265d427bb5ab602e37e2e7ef5c9187ccd012b24c83c4c44c4c49dc6a3799b19",
+      "observation": "Native valve dogleg and wheel clear the collector, with connected stem and lever weight."
+    },
+    {
+      "file": "tank_hand_installed.png",
+      "sha256": "ff25c1656905aa6a0e4be50dcababca9773175a02a7388a68f916f91f9306038",
+      "observation": "Retained roof assembly under production lighting with wheel accessible beside the collector; close control view, not full tower silhouette."
+    },
+    {
+      "file": "dumbwaiter_hand_native.png",
+      "sha256": "02e1cd7eab0f443463efaf6b9ea2bb661e73d21abeedfb28f4a76ddebe1ecfb8",
+      "observation": "Split brake band and tension stud, bored handwheel, toothed drum and fitted pawl bearing; wooden rope grips below."
+    },
+    {
+      "file": "dumbwaiter_hand_runtime.png",
+      "sha256": "276b1021e8b84bb3d039d07d0f9eb9456f3cf1237db90c8a05ae1088a7333d27",
+      "observation": "Runtime inspection bench shows moving rope grips, raised car, counterweight and exposed brake/pawl. Installed-world behavior is proven separately; this image is a bench view."
+    },
+    {
+      "file": "dumbwaiter_pawl_open.png",
+      "observation": "Fully lifted pawl passes through a real slot in the timber deck and bearing foot. Native 241-pose triangle sweep independently reports no intersection.",
+      "sha256": "5eadb6d562b198f618cea90f38c34298355d6847006a48937199e0970e5bf356"
     }
   ]
 }

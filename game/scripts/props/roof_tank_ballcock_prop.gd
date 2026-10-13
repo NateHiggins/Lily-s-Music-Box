@@ -61,6 +61,9 @@ extends FunctionalProp
 ## `apply_maintenance_result` may mark the apparatus serviced.
 
 signal maintenance_completed(result: Dictionary)
+signal manipulation_changed
+
+var _hand_controls: RefCounted
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -320,6 +323,7 @@ func interact(player: Node) -> void:
 
 
 func _begin_ballcock_service(player: Node) -> bool:
+	if _hand_controls!=null: return false
 	if _service_panel and is_instance_valid(_service_panel):
 		return false
 	var script: GDScript = load("res://scripts/ui/maintenance_activity_panel.gd")
@@ -415,8 +419,9 @@ func apply_maintenance_result(result: Dictionary) -> void:
 		# serviced when the valve can actually hold, and the mechanism is the
 		# last word on that.
 		ballcock_serviced = bool(patch["ballcock_serviced"]) and valve_holds()
-	tell_tale = 0.0
-	float_lift = 0.0
+	if _hand_controls==null:
+		tell_tale = 0.0
+		float_lift = 0.0
 	_balk_left = 0.0
 	_pour_left = 0.0
 	_refresh_mechanism()
@@ -440,6 +445,7 @@ func balking() -> bool:
 
 
 func _process(delta: float) -> void:
+	if _hand_controls!=null: _hand_controls.tick(delta)
 	_t += delta
 	if _balk_left > 0.0 or _pour_left > 0.0:
 		_balk_left = maxf(0.0, _balk_left - delta)
@@ -519,6 +525,26 @@ func _refresh_mechanism() -> void:
 			_lever.rotation.z += shake * 1.4
 		_float.position.y += shake
 
+	if _hand_controls!=null: _hand_controls.refresh()
+
+
+func native_manipulation_ready() -> void:
+	if _hand_controls!=null: return
+	get_node("BallcockReach").collision_layer=0
+	_hand_controls=preload("res://scripts/props/roof_tank_hand_controls.gd").new()
+	_hand_controls.configure(self)
+
+func mechanism_snapshot() -> Dictionary:
+	return _hand_controls.snapshot() if _hand_controls!=null else {}
+
+func valid_mechanism(value: Variant) -> bool:
+	return _hand_controls!=null and _hand_controls.valid(value)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if _hand_controls!=null: _hand_controls.restore(value)
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(.10,.75,1.8)),"at":to_global(Vector3(-.10,.75,.12)),"fov":96.0}
 
 func service_wire_card() -> Dictionary:
 	return {

@@ -1,0 +1,21 @@
+{
+	"batch_checks": 7,
+	"elapsed_ms": 73168,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 2504,
+	"modules": {
+		"service_instruments": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 2504,
+			"elapsed_ms": 1295,
+			"failures": [],
+			"fixture_sha256": "7d01833e5187c12d459bd90f0fbc9f8cdf9dda94c7e15b5ab22fce8c4ae3d590",
+			"validator_sha256": "7ee20937e105510f5077a5cd5cb69eaee0685daad05202dcdd668c338afa20c1"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

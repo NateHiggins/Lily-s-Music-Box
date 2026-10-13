@@ -7,6 +7,7 @@ var _subjects: Dictionary = {}
 var _kinds: Dictionary = {}
 var _defaults: Dictionary = {}
 var _last_saved: Dictionary = {}
+var _state_document: Dictionary = {}
 var _connections: Array = []
 var _bound := false
 var _restoring := false
@@ -218,6 +219,7 @@ func _restore(saved: Dictionary) -> void:
 			"prep", "mirror": prop.call("restore_travel",float(record.value))
 			_: prop.call("restore_open_state", record.value)
 	_last_saved = saved.duplicate(true)
+	_state_document = RealityState.data
 	_restoring = false
 	_blocked = false
 
@@ -258,17 +260,16 @@ func _on_state_changed() -> void:
 	if not validate(saved, _kinds):
 		_blocked = true
 		return
-	var current := snapshot()
-	if current.is_empty(): return
-	var expected := _defaults.duplicate(true)
-	for identity: String in saved.records: expected.records[identity] = saved.records[identity]
-	if not _blocked and saved == _last_saved and current == expected: return
+	# Ordinary commits can arrive while a hand or spring is moving. Their
+	# unchanged household payload must not roll that live motion back. A real
+	# load/reset replaces RealityState.data, even when its values are identical.
+	if not _blocked and saved == _last_saved and is_same(_state_document, RealityState.data): return
 	_restore(saved)
 
 func capture_now() -> bool:
 	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or not is_inside_tree(): return false
 	var saved: Variant = _saved_value()
-	if saved != _last_saved:
+	if saved != _last_saved or not is_same(_state_document, RealityState.data):
 		_on_state_changed()
 		return false
 	var current := snapshot()

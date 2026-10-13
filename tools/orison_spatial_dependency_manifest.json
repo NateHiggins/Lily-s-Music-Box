@@ -287829,6 +287829,179 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "6c873e0ea8f9ba03",
+   "kind": "runtime_id",
+   "token": "LobbyServiceDumbwaiter",
+   "file": "game/tests/dumbwaiter_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    87,
+    89
+   ],
+   "count": 2,
+   "context": [
+    "tank=DumbwaiterProp.new();tank.name=\"LobbyServiceDumbwaiter\";add_child(tank)",
+    "data.actors=data.actors.filter(func(a): return a.id==\"LobbyServiceDumbwaiter\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "cf7d06d2b073d7e4",
+   "kind": "runtime_id",
+   "token": "LobbyServiceDumbwaiter",
+   "file": "game/tests/dumbwaiter_installed_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    40,
+    50,
+    75,
+    103,
+    109
+   ],
+   "count": 5,
+   "context": [
+    "player=world.player;tank=world.adapter.resolve(\"LobbyServiceDumbwaiter\")",
+    "check(household!=null and household._kinds.get(\"LobbyServiceDumbwaiter\")==\"mechanism\" and tank.band_seated,\"household authority records physical dumbwaiter repa",
+    "tank=world.adapter.resolve(\"LobbyServiceDumbwaiter\")",
+    "\"contracts\":{\"production_composition\":{\"executed\":true,\"status\":\"PASS\" if failures==0 else \"FAIL\",\"identities\":[\"LobbyServiceDumbwaiter\"]},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "2898149f1e35faf5",
+   "kind": "runtime_id",
+   "token": "ROOF_TANK_BALLCOCK",
+   "file": "game/tests/roof_tank_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    80,
+    82
+   ],
+   "count": 2,
+   "context": [
+    "tank=RoofTankBallcockProp.new();tank.name=\"ROOF_TANK_BALLCOCK\";add_child(tank)",
+    "data.actors=data.actors.filter(func(a): return a.id==\"ROOF_TANK_BALLCOCK\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "17bd8aa6347f5373",
+   "kind": "runtime_id",
+   "token": "ROOF_TANK_BALLCOCK",
+   "file": "game/tests/roof_tank_installed_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    40,
+    50,
+    75,
+    103,
+    109
+   ],
+   "count": 5,
+   "context": [
+    "player=world.player;tank=world.adapter.resolve(\"ROOF_TANK_BALLCOCK\")",
+    "check(household!=null and household._service_completed.get(\"ROOF_TANK_BALLCOCK\",false),\"household authority records physical tank repair\")",
+    "tank=world.adapter.resolve(\"ROOF_TANK_BALLCOCK\")",
+    "\"contracts\":{\"production_composition\":{\"executed\":true,\"status\":\"PASS\" if failures==0 else \"FAIL\",\"identities\":[\"ROOF_TANK_BALLCOCK\"]},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "2ecd4841d8589dad",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/roof_tank_installed_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    41
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position=world.adapter.root.to_global(Vector3(-9.4,19.22,-3.05))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
