@@ -1,6 +1,11 @@
 # V2 first-slice runtime composition checkpoint
 
 Evidence class: **CHECKPOINT**. Executed runtime authority proof.
+
+Requalified after localized fire-repair architecture on 2026-10-13: current
+test-written authority contract passes 113 checks, including save/load
+reconstruction and both-world teardown. Completed wrapper:
+**art/renders/orison_v2/fire_repairs_20261013/firstslice.log.receipt.json**.
 Status: **TECHNICAL PASS**, scoped to the seven authorities below.
 
 The self-contained production test is

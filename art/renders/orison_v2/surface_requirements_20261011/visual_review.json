@@ -1,7 +1,7 @@
 {
-  "surface_inputs_sha256": "ea61158187594ab8e4655f8866e109356ae4d38b61190ac7805575da1a5ea07a",
+  "surface_inputs_sha256": "cd7ce9419dbbc4e8fcdf502f1455fac3454fb6ac054c73be96412f527f150164",
   "status": "PASS",
-  "scope": "Existing reviewed V2 packet retained; owner-rejected washer prototype superseded by reviewed complete native and installed washer. Technical qualification still requires a current surface runtime contract. No human acceptance or whole-building visual completion.",
+  "scope": "Technical whole-world surface qualification with localized native and installed west-front fire repair review. Existing tower and washer renders retained for unchanged assets. No human acceptance or whole-building visual completion.",
   "images": [
     {
       "file": "tower_installed.png",
@@ -37,6 +37,21 @@
       "file": "washer_drive.png",
       "sha256": "2e1ba3b21deb39ee1731945cac4ba9538ff6d20ee6f7d553ae22a6f568f2bbb7",
       "observation": "Seated gearbox and motor cradle, separate brass clutch levers, centered shaft hardware and structural angle legs with new clean custom PBR finishes."
+    },
+    {
+      "file": "fire_repairs_native.png",
+      "sha256": "0de697a313bbb492eed153c6b11a29158688e482ca9295bc056b80652a425f8c",
+      "observation": "Neutral native view shows sole boards, four supported timber uprights, fitted ledgers, separate planks, toe boards, guards and alternating diagonal braces against retained shell; source-fitted replacement window heads and toothed brick reveals. Shell-only review omits the runtime window owners."
+    },
+    {
+      "file": "fire_repairs_entrance.png",
+      "sha256": "b320ff6645c66c098bcb408c88cbe286d3c6db5603f629a0b6b3fc8e3b04c02c",
+      "observation": "Installed daylight entrance stays clear; staging reads along the building-frame west wing. The tall recessed court and mismatched masses remain a visual limitation, not accepted as complete."
+    },
+    {
+      "file": "fire_repairs_upper.png",
+      "sha256": "bb19ca8aa9e375b3ff8a097307544df89253179e6cbf7282fbaa4d157163df33",
+      "observation": "Installed upper view retains the roof bridge and existing wings, with partial renovation staging. Central blank mass needs another architectural pass."
     }
   ]
 }

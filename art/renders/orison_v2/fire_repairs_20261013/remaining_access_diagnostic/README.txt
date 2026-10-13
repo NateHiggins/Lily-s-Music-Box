@@ -1,0 +1,1 @@
+INERT diagnostic only. Failed 48/60-room walk before fire-repair geometry. No requirement promotion. The archived root retains exact pre-whitespace-cleanup bytes and the recorded source hash. Current source is semantically unchanged.

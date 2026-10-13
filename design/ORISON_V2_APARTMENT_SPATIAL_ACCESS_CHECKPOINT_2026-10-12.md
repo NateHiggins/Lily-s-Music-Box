@@ -1,6 +1,10 @@
 # V2 apartment spatial access checkpoint — 2026-10-12
 
 Evidence class: **EVIDENCE**. Automated spatial-access checkpoint only.
+
+Requalified after localized fire-repair architecture on 2026-10-13: current
+schema-2 contract remains 19 rooms / 268 checks / zero failures. Completed
+wrapper: **art/renders/orison_v2/fire_repairs_20261013/apartments.log.receipt.json**.
 Status: **19 rooms reached through ordinary production movement; runtime and human acceptance remain separate.**
 
 ## Executed scope
