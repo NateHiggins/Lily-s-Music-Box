@@ -250,3 +250,20 @@ tracked runtime-owner retirement passes, not global resource-clean acceptance.
 The owner’s new movable cistern, inspection-camera and compact handheld request
 follows this repair checkpoint. Its Blender prototype remains outside shipping
 assets until reviewed and integrated; it is not included in these receipts.
+
+## Operable cistern and inspection checkpoint, 2026-10-13
+
+The former prototype is now integrated. The closet has separate moving seat,
+lid, flush handle and removable cistern cover, with visible selectable float
+and discharge mechanisms. Space enters a fixed inspection view with a free
+cursor; Space/Escape exits. E expands the collapsed first-line handheld into
+the right third. The carried V2 lamp no longer simulates contact chatter or
+movement-driven flicker. The startup slip no longer prints retired E/T recipes.
+
+The focused bench passes 39 checks; the existing manipulation bench passes 95.
+Installed apartment access passes 268 checks in 19 rooms, first-slice runtime
+passes 113, and surface qualification passes 26,433 with zero unresolved
+surfaces. The renewed board reports no regressions and reader NEW 0. The
+existing ledger blockers and shutdown resource disclosures remain unchanged.
+Full implementation, receipt paths, reviewed images and boundaries are in
+**design/V2_TOILET_INSPECTION_2026-10-13.md**. Broader migration remains open.

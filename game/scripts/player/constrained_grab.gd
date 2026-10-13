@@ -10,8 +10,9 @@ func _init(holder: Node3D) -> void:
 
 func find_target() -> Dictionary:
 	var camera: Camera3D = player.camera
-	var query := PhysicsRayQueryParameters3D.create(camera.global_position,
-			camera.global_position-camera.global_basis.z*2.1)
+	var cursor: Vector2 = player.get_viewport().get_mouse_position() if player.inspecting() else camera.get_viewport().get_visible_rect().size*.5
+	var origin := camera.project_ray_origin(cursor)
+	var query := PhysicsRayQueryParameters3D.create(origin,origin+camera.project_ray_normal(cursor)*2.1)
 	query.collide_with_areas = true
 	query.exclude = [player.get_rid()]
 	var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
@@ -21,6 +22,7 @@ func find_target() -> Dictionary:
 		if node.has_method("manipulation_target"):
 			var result: Dictionary = node.call("manipulation_target",hit)
 			if result.get("legacy",false): return {}
+			if player.inspecting() and result.get("owner")!=player.inspect_owner: return {"blocked":true}
 			if result.is_empty(): return {"blocked":true}
 			if not result.is_empty(): result["hit_position"] = hit.position
 			return result
@@ -59,7 +61,7 @@ func validate() -> void:
 		target={};changed=false
 		return
 	if player.call_locked or player.mouse_released \
-			or (not player.touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) \
+			or (not player.touch_input and not player.inspecting() and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) \
 			or not target.part.is_inside_tree() \
 			or player.camera.global_position.distance_to(target.part.to_global(contact)) > 2.4:
 		release()

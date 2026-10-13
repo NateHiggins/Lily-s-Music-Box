@@ -26,6 +26,8 @@ var _pass_cam: Camera3D
 var _pass_src: Camera3D
 var _presentation_layer: CanvasLayer
 var _capture_hidden := false
+var _message_line: Label
+var _device_rect: TextureRect
 var _life := 0.0
 var _bob := 0.0
 var _sway := Vector2.ZERO
@@ -133,7 +135,7 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	var size := get_viewport().get_visible_rect().size
 	_pass_view = SubViewport.new()
 	_pass_view.name = "ServiceSetPass"
-	_pass_view.size = Vector2i(maxi(2, int(size.x)), maxi(2, int(size.y)))
+	_pass_view.size = Vector2i(maxi(2, int(size.x / 3.0)), maxi(2, int(size.y)))
 	_pass_view.transparent_bg = true
 	_pass_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	_pass_view.handle_input_locally = false
@@ -195,11 +197,31 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	_presentation_layer.visible = not _capture_hidden
 	add_child(_presentation_layer)
 	var rect := TextureRect.new()
+	_device_rect = rect
+	rect.visible = false
 	rect.texture = _pass_view.get_texture()
 	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	rect.anchor_left = 2.0 / 3.0
+	rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	rect.stretch_mode = TextureRect.STRETCH_SCALE
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_presentation_layer.add_child(rect)
+	_message_line = Label.new()
+	_message_line.name = "ServiceWireTopLine"
+	_message_line.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_message_line.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_message_line.add_theme_font_size_override("font_size",18)
+	_message_line.add_theme_color_override("font_color",Color("e6dfc5"))
+	_message_line.add_theme_color_override("font_shadow_color",Color.BLACK)
+	_message_line.add_theme_constant_override("shadow_offset_x",1)
+	_message_line.add_theme_constant_override("shadow_offset_y",2)
+	_message_line.clip_text = true
+	_presentation_layer.add_child(_message_line)
+	_message_line.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+	_message_line.offset_left = -minf(size.x-32,540)
+	_message_line.offset_right = -16
+	_message_line.offset_top = -38
+	_message_line.offset_bottom = -12
 	get_viewport().size_changed.connect(_resize_pass)
 
 
@@ -207,7 +229,8 @@ func _resize_pass() -> void:
 	if _pass_view == null:
 		return
 	var size := get_viewport().get_visible_rect().size
-	_pass_view.size = Vector2i(maxi(2, int(size.x)), maxi(2, int(size.y)))
+	_pass_view.size = Vector2i(maxi(2, int(size.x / 3.0)), maxi(2, int(size.y)))
+	if _message_line: _message_line.offset_left=-minf(size.x-32,540)
 
 
 func _aspect_shift() -> float:
@@ -224,6 +247,10 @@ func adjust_reading_distance(amount: float) -> void:
 func _process(delta: float) -> void:
 	if device == null:
 		return
+	_device_rect.visible = reading or _proof_pose>0
+	_message_line.visible = not reading and _proof_pose==0
+	_message_line.text = device.teletype.ink.text.get_slice("\n",0)
+	_pass_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS if _device_rect.visible and not _capture_hidden else SubViewport.UPDATE_DISABLED
 	var hint := _player._prompt.text if is_instance_valid(_player) else ""
 	var notebook := get_tree().get_first_node_in_group("caretaker_notebook")
 	if notebook!=null:
@@ -242,11 +269,10 @@ func _process(delta: float) -> void:
 	if _pass_cam and _pass_src:
 		_pass_cam.fov = _pass_src.fov
 
-	var pose := CARRY_POS
-	pose.x *= _aspect_shift()
-	_read_blend=move_toward(_read_blend,1.0 if reading else 0.0,delta*3.0)
-	pose=pose.lerp(Vector3(0,-.015,-reading_distance),smoothstep(0.0,1.0,_read_blend))
-	var rotation := CARRY_ROT.lerp(Vector3.ZERO,_read_blend)
+	# This camera renders only the right third; keep the complete instrument inside it.
+	var aspect := float(_pass_view.size.x)/maxf(1.0,_pass_view.size.y)
+	var pose := Vector3(0,-.015,-maxf(.18,.17/(tan(deg_to_rad(_pass_cam.fov*.5))*aspect))*reading_distance/.305)
+	var rotation := Vector3.ZERO
 	var scale := Vector3.ONE
 	if _proof_pose > 0:
 		pose = Vector3(0, -0.01, -0.43)
@@ -273,7 +299,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _player == null or _player.call_locked or _player.mouse_released or get_tree().paused:
 		return
 	if not _player.camera.is_current(): return
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not _player.inspecting(): return
 	if reading and event is InputEventMouseButton and event.pressed:
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
 			adjust_reading_distance(-.012 if event.button_index==MOUSE_BUTTON_WHEEL_UP else .012)

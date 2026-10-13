@@ -126,3 +126,16 @@ float32 endpoint rejection by the door save validator. It also disables Mina’s
 physics callback as intended by this fixture’s explicit scheduling exclusion.
 The run wrapper is **tmp/v2-direct-manipulation-20261012/regression-apartments5.log.receipt.json**.
 The test-authored runtime contract remains at the packet path above.
+
+## Operable cistern renewal, 2026-10-13
+
+The current same-scope contract passes 268 checks across the same 19 rooms and
+89 waypoints. The 4B toilet now uses the actual ray-selected flush handle,
+mouse-driven rotation, second-click release and a completed refill. The route
+checks the articulated toilet snapshot at its stop. This replaces the legacy
+flush action described in the historical renewal above; it does not certify
+other still-unmigrated interactions or add whole-building acceptance.
+
+Wrapper: **tmp/v2-toilet-inspection-20261012/apartment-contract-release.log.receipt.json**.
+The test-authored contract remains at the packet path above. Seven Texture RIDs
+remain disclosed at shutdown; this is not a global resource-clean claim.

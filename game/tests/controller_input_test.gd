@@ -46,8 +46,8 @@ func _ready() -> void:
 			diagonal.normalized().x, diagonal.normalized().y),
 			"response shaping preserves direction and clamps magnitude")
 	_check(PlayerController.format_interaction_prompt(
-			"[E]  Inspect the grille", &"keyboard") == "[E]  Inspect the grille",
-			"keyboard keeps the authored action behind its E carrier")
+			"[E]  Inspect the grille", &"keyboard") == "[CLICK]  Inspect the grille",
+			"mouse replaces the legacy E carrier without changing the action")
 	_check(PlayerController.format_interaction_prompt(
 			"[E]  Inspect the grille", &"controller") == "[A]  Inspect the grille",
 			"controller replaces the legacy keyboard carrier with A")

@@ -6,7 +6,7 @@ const ACTIONS := {
 	"move_forward": KEY_W, "move_back": KEY_S,
 	"move_left": KEY_A, "move_right": KEY_D,
 	"run": KEY_SHIFT, "crouch": KEY_C, "jump": KEY_SPACE,
-	"interact": KEY_E, "shot_capture": KEY_F,
+	"shot_capture": KEY_F,
 	"capture_device_toggle": KEY_H,
 	"door_key": KEY_K,
 	"lamp_toggle": KEY_L, "radio_toggle": KEY_R,
@@ -15,7 +15,7 @@ const ACTIONS := {
 	"noclip": KEY_V, "debug_panel": KEY_F1,
 	"intro": KEY_F2,
 	"release_mouse": KEY_QUOTELEFT,
-	"teletype_read": KEY_T, "teletype_next": KEY_BRACKETRIGHT, "teletype_previous": KEY_BRACKETLEFT,
+	"teletype_read": KEY_E, "teletype_next": KEY_BRACKETRIGHT, "teletype_previous": KEY_BRACKETLEFT,
 	"teletype_closer": KEY_EQUAL, "teletype_farther": KEY_MINUS, "teletype_service": KEY_Y,
 	"inspect_care": KEY_I, "pocket_ledger": KEY_P,
 }

@@ -1980,3 +1980,17 @@ game/tests/direct_manipulation_test.gd -text
 game/tests/direct_manipulation_world_test.gd -text
 game/scripts/props/basin_plug.gd -text
 game/scripts/props/shower_curtain_motion.gd -text
+
+# Operable cistern and close inspection: preserve tested source bytes.
+game/scripts/building/orison_v2_water_closet.gd -text
+game/scripts/device/service_set_carrier.gd -text
+game/scripts/game_boot.gd -text
+game/scripts/lamp/lamp_optical_state.gd -text
+game/scripts/lamp/carried_lamp_optical_driver.gd -text
+game/tests/toilet_inspection_test.gd -text
+game/tests/ToiletInspectionTest.tscn -text
+game/tests/carried_lamp_optical_driver_test.gd -text
+game/tests/controller_input_test.gd -text
+art/blender/scripts/build_operable_water_closet.py -text
+art/renders/orison_v2/toilet_inspection_20261013/** -text
+game/scripts/device/mechanical_teletype.gd -text

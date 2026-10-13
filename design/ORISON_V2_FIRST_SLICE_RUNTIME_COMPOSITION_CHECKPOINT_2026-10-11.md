@@ -63,3 +63,12 @@ execution, not repinned. Wrapper:
 **tmp/v2-direct-manipulation-20261012/regression-first-slice2.log.receipt.json**.
 Direct service-owner calls retain their declared limited scope; this renewal
 does not certify complete migration of all interactions to mouse manipulation.
+
+## Close-inspection renewal, 2026-10-13
+
+The same first-slice contract passes all 113 checks after the operable cistern,
+fixed inspection view, E-controlled compact handheld and stable carried-lamp
+changes. The test-authored runtime receipt is renewed at its existing packet
+path. Wrapper: **tmp/v2-toilet-inspection-20261012/first-slice-final-release.log.receipt.json**.
+Scope is unchanged. The seven Texture RIDs remain disclosed at shutdown; tracked
+runtime-owner retirement passes without claiming globally clean resources.

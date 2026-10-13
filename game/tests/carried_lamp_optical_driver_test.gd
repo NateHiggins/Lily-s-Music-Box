@@ -41,11 +41,12 @@ func _run() -> void:
 	driver.cone_scale = 1.0
 	driver.apply_output()
 	var reference := State.new()
+	reference.steady_supply=true
 	reference.restore_state(driver.state.save_state())
 	for i in 120:
 		reference.advance(1.0/120.0)
 		player._advance_lamp(1.0/120.0)
-	_check(driver.state.save_state() == reference.save_state(),"driver advances exactly the preserved state algorithm")
+	_check(driver.state.save_state() == reference.save_state(),"driver advances the stable-supply state algorithm")
 	var before: Dictionary = driver.state.save_state()
 	player.set_lamp_enabled(true)
 	_check(driver.state.save_state() == before,"reasserting switch does not reset thermal state")

@@ -952,6 +952,22 @@ where they conflict. Existing implementations are migration debt, not exceptions
 The dated ruling changes design authority now; runtime compliance requires
 independent proof and must not be inferred from this text.
 
+**Close inspection and carried messages — owner addendum, 2026-10-13.**
+After grabbing an inspectable part, Space enters a fixed, unobstructed view of
+its mechanism. The mouse becomes a free pointer for selecting and manipulating
+parts; Space or Escape backs out and restores the previous eye. Inspection
+never operates a mechanism by itself. Toilet seats, lids, flush handles and
+removable cistern covers move separately; opening the cistern exposes its
+working float valve, overflow and discharge linkage.
+
+The carried service set normally occupies only a persistent first line of
+printed text at the bottom right. E expands the actual message and instrument
+into the right third of the screen, and E collapses it again. E no longer
+operates world objects. This explicitly supersedes the earlier always-visible
+full instrument presentation. The carried flashlight has steady output without
+simulated contact chatter or movement-induced flickering; its logical power
+switch and gameplay authority remain intact.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of

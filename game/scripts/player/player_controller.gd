@@ -42,6 +42,12 @@ var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
 var _target_dot: ColorRect
+var inspect_owner: Node3D
+var _inspection_active := false
+var _inspection_jump_consumed := false
+var _inspect_camera_pose := Transform3D.IDENTITY
+var _inspect_mouse_mode := Input.MOUSE_MODE_CAPTURED
+var _inspect_anchor := Transform3D.IDENTITY
 var _grab: RefCounted
 var telegram_hud: TelegramHud
 var _interaction_hud: CanvasLayer
@@ -290,7 +296,7 @@ func _update_prompt() -> void:
 		var available: bool = not call_locked and not mouse_released and aimed.get("part") is Node3D
 		_target_dot.set_anchors_preset(Control.PRESET_CENTER)
 		var radius := 5.0 if _grab.active() else 3.0 if available else 2.0
-		_target_dot.position = get_viewport().get_visible_rect().size*.5-Vector2.ONE*radius
+		_target_dot.position = (get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5)-Vector2.ONE*radius
 		_target_dot.size = Vector2.ONE*radius*2
 		_target_dot.color = Color(1,.85,.58,.95) if _grab.active() else Color(1,.96,.82,.95) if available else Color(.9,.92,.95,.45)
 		if _grab.active() or available or aimed.get("blocked",false): return
@@ -353,13 +359,13 @@ func _update_prompt() -> void:
 static func format_interaction_prompt(raw_prompt: String,
 		input_family: StringName) -> String:
 	var action := raw_prompt.strip_edges()
-	for legacy in ["[E]", "[A]", "[TAP]"]:
+	for legacy in ["[E]", "[CLICK]", "[A]", "[TAP]"]:
 		if action.begins_with(legacy):
 			action = action.substr(legacy.length()).strip_edges()
 			break
 	if action.is_empty():
 		return ""
-	var carrier := "[E]"
+	var carrier := "[CLICK]"
 	if input_family == &"controller":
 		carrier = "[A]"
 	elif input_family == &"touch":
@@ -372,10 +378,16 @@ func _current_prompt_family() -> StringName:
 
 
 func _process(_delta: float) -> void:
+	if not Input.is_action_pressed("jump"): _inspection_jump_consumed=false
+	if _inspection_active:
+		if not is_instance_valid(inspect_owner) or not inspect_owner.is_inside_tree() or call_locked:
+			end_inspection()
+		else:
+			camera.global_transform = _inspect_anchor
 	_update_prompt()
 	_advance_lamp(_delta)
 	_carry_service_light(_delta)
-	if not call_locked:
+	if not call_locked and not inspecting():
 		var stick_look := Input.get_vector("look_left", "look_right",
 				"look_up", "look_down", 0.0)
 		if stick_look.length_squared() > 0.0:
@@ -411,11 +423,32 @@ func _process(_delta: float) -> void:
 		collision_mask = 0 if noclip else 1
 		if noclip:
 			_clear_stagger()
-	if Input.is_action_just_pressed("crouch"):
+	if Input.is_action_just_pressed("crouch") and not inspecting():
 		_set_crouched(not crouched)
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("jump") and not event.is_echo():
+		if inspecting():
+			_inspection_jump_consumed=true
+			end_inspection()
+			get_viewport().set_input_as_handled()
+			return
+		if begin_inspection():
+			_inspection_jump_consumed=true
+			get_viewport().set_input_as_handled()
+			return
+	if inspecting():
+		if event.is_action_pressed("pause_services") or event.is_action_pressed("release_mouse"):
+			end_inspection()
+			get_viewport().set_input_as_handled()
+		elif event is InputEventMouseMotion:
+			if _grab.active(): _grab.move(event.relative)
+			get_viewport().set_input_as_handled()
+		elif event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
+			use_primary_interaction()
+			get_viewport().set_input_as_handled()
+		return
 	if call_locked:
 		return
 	if event is InputEventMouseMotion \
@@ -559,6 +592,7 @@ func _measure_throw() -> void:
 ## One look path for both a mouse and a dragged thumb, so the two can never
 ## drift into different sensitivities or clamp differently.
 func apply_look(rel: Vector2) -> void:
+	if inspecting(): return
 	if _grab != null and _grab.active():
 		_grab.move(rel)
 		return
@@ -578,6 +612,7 @@ func apply_look(rel: Vector2) -> void:
 ## A held stick is a rate, never a mouse delta. Its radial dead zone and curve
 ## are applied before radians-per-second conversion; mouse feel remains exact.
 func apply_look_rate(axis: Vector2, delta: float) -> void:
+	if inspecting(): return
 	if call_locked or delta <= 0.0:
 		return
 	var shaped := resolved_stick_axis(axis,
@@ -1012,7 +1047,7 @@ func use_primary_interaction() -> void:
 		if not target.is_empty():
 			_grab.acquire(target)
 			return
-		_try_interact()
+		if not inspecting(): _try_interact()
 
 
 func use_key_interaction() -> void:
@@ -1057,6 +1092,9 @@ func _clear_stagger() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if inspecting():
+		velocity=Vector3.ZERO
+		return
 	if call_locked:
 		velocity = Vector3.ZERO
 		_clear_stagger()
@@ -1072,7 +1110,7 @@ func _physics_process(delta: float) -> void:
 		wish = (transform.basis * Vector3(input.x, 0, input.y))
 	if noclip:
 		_clear_stagger()
-		var up := Input.get_action_strength("jump") \
+		var up := (0.0 if _inspection_jump_consumed else Input.get_action_strength("jump")) \
 				- Input.get_action_strength("crouch")
 		global_position += (wish * 6.0 + Vector3.UP * up * 4.0) * delta
 		_stride_last = Vector3.INF
@@ -1098,7 +1136,7 @@ func _physics_process(delta: float) -> void:
 	velocity.z = wish.z * speed * input_gain + _stagger_velocity.z
 	if not is_on_floor():
 		velocity += gravity_direction * GRAVITY * delta
-	elif Input.is_action_just_pressed("jump"):
+	elif Input.is_action_just_pressed("jump") and not _inspection_jump_consumed:
 		velocity += -gravity_direction * 3.4
 	else:
 		var into_floor := velocity.dot(gravity_direction)
@@ -1236,4 +1274,43 @@ func _exit_tree() -> void:
 
 
 func cancel_manipulation() -> void:
+	end_inspection(false)
 	if _grab != null: _grab.release(false)
+
+
+func inspecting() -> bool:
+	return _inspection_active and is_instance_valid(inspect_owner)
+
+func begin_inspection() -> bool:
+	if call_locked or mouse_released or _grab == null or not _grab.active(): return false
+	var owner: Node3D = _grab.target.owner
+	if not owner.has_method("inspection_view"): return false
+	var view: Dictionary = owner.inspection_view()
+	var from: Vector3 = view.from
+	var at: Vector3 = view.at
+	# Do not move the eye through a neighbouring wall into another room.
+	var query := PhysicsRayQueryParameters3D.create(camera.global_position,from)
+	query.exclude=[get_rid()]
+	for body: CollisionObject3D in owner.find_children("*","CollisionObject3D",true,false): query.exclude.append(body.get_rid())
+	if owner is CollisionObject3D: query.exclude.append(owner.get_rid())
+	if not get_world_3d().direct_space_state.intersect_ray(query).is_empty(): return false
+	_inspect_camera_pose=camera.transform
+	_inspect_mouse_mode=Input.mouse_mode
+	inspect_owner=owner
+	_inspection_active=true
+	_grab.release()
+	camera.global_position=from
+	camera.look_at(at)
+	_inspect_anchor=camera.global_transform
+	velocity=Vector3.ZERO
+	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+	Input.warp_mouse(get_viewport().get_visible_rect().size*.5)
+	return true
+
+func end_inspection(notify_change := true) -> void:
+	if not _inspection_active: return
+	if _grab != null: _grab.release(notify_change)
+	inspect_owner=null
+	_inspection_active=false
+	camera.transform=_inspect_camera_pose
+	Input.mouse_mode=_inspect_mouse_mode

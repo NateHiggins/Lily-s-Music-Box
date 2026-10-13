@@ -40,9 +40,9 @@ func _route() -> void:
 			toilets.append(prop)
 	if not _require(toilets.size()==1,"4B has one physical toilet in the household care roster"): return
 	var wc := toilets[0]
-	if not await _use(wc,wc.to_global(Vector3(0,.65,0)),"4B_toilet_flush"): return
+	if not await _drag_part(wc,wc.to_global(Vector3(.31,.64,.098)),deg_to_rad(-36),"4B_toilet_flush"): return
 	if not _require(wc._refilling,"walking approach reaches the actual flush"): return
-	await get_tree().create_timer(2.6).timeout
+	await get_tree().create_timer(5.0).timeout
 	if not _require(not wc._refilling,"toilet refills before leaving the bathroom"): return
 	for point in [Vector3(-7.9, 9.6, 4.75), Vector3(-10.5, 9.6, 4.75)]:
 		if not await _walk(point): return

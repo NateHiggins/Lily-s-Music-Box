@@ -10,6 +10,7 @@ var cone_scale := 1.0
 
 func setup(owner_player: PlayerController) -> bool:
 	player = owner_player
+	state.steady_supply = true
 	var saved: Variant = RealityState.data.get("lamp_optics")
 	if saved != null:
 		if not Snapshot.valid(saved): return false

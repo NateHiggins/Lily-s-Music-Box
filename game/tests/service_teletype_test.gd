@@ -40,7 +40,7 @@ func _run() -> void:
 	check(not carrier.reading,"released pointer retains input ownership")
 	player.set_mouse_released(false)
 	carrier._unhandled_input(read_event)
-	check(carrier.reading,"T raises the actual reading pose")
+	check(carrier.reading,"E raises the actual reading pose")
 	await get_tree().create_timer(.3).timeout
 	await shot("02_reading")
 	var wheel := InputEventMouseButton.new()

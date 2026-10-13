@@ -81,3 +81,17 @@ Current status: **ruled; runtime migration pending**. Earlier geometry/material
 and navigation receipts retain their original scope. They do not prove this
 new interaction contract. Do not promote any completeness requirement from this
 document or describe unconverted click toggles as compliant.
+
+## Owner extension, 2026-10-13
+
+Space after grabbing an inspectable part enters its fixed mechanism view with a
+free mouse pointer. Primary click still grabs/releases, and mouse movement still
+operates the selected part. Space or Escape restores the prior camera; interrupted
+inspection releases ownership. Inspection cannot auto-open a cover or repair a
+fault. The toilet is the first inspection provider; other mechanisms require an
+authored, unobstructed inspection view before they offer it.
+
+The handheld is collapsed to its actual printed first line in the bottom-right
+corner. E toggles the full instrument/message in the right third. This replaces
+E's world-interaction keyboard binding. The carried flashlight uses a stable
+supply without simulated contact chatter or impact-induced flicker.

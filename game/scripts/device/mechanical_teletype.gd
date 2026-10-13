@@ -95,7 +95,7 @@ func _ready() -> void:
 		sound.bus="UI"; sound.stream=PropAudio.get_stream(spec[0]); sound.volume_db=spec[1]
 		if spec[0]=="tick": _tick=sound
 		else: _feed=sound
-	present({"title":"ORISON SERVICE WIRE","body":"Receiver ready.\n\nE: operate / I: inspect\nP: pocket ledger\nT: raise / lower paper\nWheel or +/-: read closer\n[ ]: page / Shift: report\nY: service cover\nL: lamp / R: radio"},0)
+	present({"title":"ORISON SERVICE WIRE","body":"THE LINE IS CLEAR.\n\nA hinge remembers its arc.\nA hand can pause there.\n\n o----)   (----o\n   [ ] -> [___]\n\nThere is more under the lid."},0)
 
 func _label(at: Vector3, pixel: float) -> Label3D:
 	var label := Label3D.new(); add_child(label)

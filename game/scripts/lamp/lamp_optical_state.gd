@@ -9,6 +9,8 @@ const MAX_STEP_S := 1.0 / 120.0
 const CONTACT_PERIOD_S := 7.25
 const RAPID_CONTRAST_FLOOR := 0.62
 
+## Production carry uses a stable supply; the isolated electrical review keeps its model.
+var steady_supply := false
 var seed: int = 0x28A11CE
 var simulation_time_s := 0.0
 var switched_on := true
@@ -48,12 +50,17 @@ func _step(dt: float, voltage_input: float, shock_input: float) -> void:
 	simulation_time_s += dt
 	mechanical_shock = maxf(mechanical_shock * exp(-dt * 5.2),
 			clampf(shock_input, 0.0, 1.0))
-	var drift := _low_frequency_drift(simulation_time_s)
+	var drift := 0.0 if steady_supply else _low_frequency_drift(simulation_time_s)
+	if steady_supply: mechanical_shock=0.0
 	var requested := clampf(voltage_input, 0.0, 128.0) if switched_on else 0.0
 	var sag := 1.0 - 0.055 * drift - 0.16 * mechanical_shock
 	supplied_voltage = move_toward(supplied_voltage, requested * sag,
 			dt * (310.0 if switched_on else 520.0))
-	_update_contact_event(dt)
+	if steady_supply:
+		contact_event_remaining_s=0
+		contact_event_depth=0
+	else:
+		_update_contact_event(dt)
 	var chatter := contact_event_depth * _contact_envelope()
 	var target_resistance := 0.18 + 0.20 * maxf(0.0, drift) \
 			+ 1.35 * chatter + 0.75 * mechanical_shock
