@@ -1,0 +1,18 @@
+{
+  "material": "washer_rubber",
+  "generator": "art/tools/build_washer_materials.py",
+  "meters_per_tile": 0.1,
+  "relief_mm": 0.024,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "88504fe9a10304b9b456f20f1984f5e66d3d3aa4cc5bf8a771e93e5dab0fc64e",
+    "roughness": "b0414ccc4dc2db5d730250ebc0c1fd701220960a1b838c88caf50c41d6705318",
+    "normal": "6f4914a2c15a04f562129df5435f90e171d6e8544e4238ab69a6ebced7288d55",
+    "height": "7fe01905d0910e7106b2fb41dc3695899ff1ce0bb3b0879fed882eb3a1e629b4"
+  }
+}

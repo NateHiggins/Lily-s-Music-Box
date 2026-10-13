@@ -1,0 +1,20 @@
+{
+  "material": "washer_zinc",
+  "generator": "art/tools/build_washer_materials.py",
+  "meters_per_tile": 0.12,
+  "relief_mm": 0.006,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "source": "art/textures/ai_sources/washer_zinc_20261013.png",
+  "source_sha256": "4e4f777e2d9d9f52b73ab560b6861510fb81880f072e5cd2dcb4a1f4778f1803",
+  "map_sha256": {
+    "albedo": "4e4f777e2d9d9f52b73ab560b6861510fb81880f072e5cd2dcb4a1f4778f1803",
+    "roughness": "90c73ab53b31444912af12af3eeb86e1cef97b0b0c19753aee3f72d8dd2d49c9",
+    "normal": "9d0e6a80245a78445cbaa35faee54e48dadf2abe2c00905dcc363f91f1beb0e2",
+    "height": "2f5003048849315fc6ae99acb7c4ee8355e2b6437a81d08e4edd2ee7fe673f8d"
+  }
+}

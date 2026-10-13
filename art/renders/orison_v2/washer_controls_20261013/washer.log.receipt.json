@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 185.68,
+  "exit_code": 0,
+  "finished_utc": "2026-10-13T13:18:27Z",
+  "started_utc": "2026-10-13T13:15:21Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "WASHER CONTROLS: PASS; 134 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-20261013/full-installed-accepted.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-20261013/full-installed-accepted.log",
+  "stdout_sha256": "adc12e140697c36c292462c6ae44be3081d63482c7e3ebd33041da9b55592962"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/WasherControlsTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-20261013/full-installed-accepted",
+ "source": {
+  "dirty_paths": 1456,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/service_instruments_construction.json",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/radiator.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/runtime_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/surface-inventory.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/technical_findings.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/visual_review.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json"
+  ],
+  "repository_head": "123d8d5c89dac19f7384c7c6d85ad16ded03c4df",
+  "repository_tree": "80aa2f52864a38c6acc14330668341cdbb577595",
+  "runtime_inputs_sha256": "1e1cd763a2c08648a1749e4f174dab77f6efb6058f7bf835b58d6634e32749f2",
+  "test_path": "game/tests/washer_controls_test.gd",
+  "test_sha256": "7340c6bfca29aa57a2c82eab37f748e9413637f792ce995d7e206ecccfa964ef"
+ },
+ "windowed": true
+}

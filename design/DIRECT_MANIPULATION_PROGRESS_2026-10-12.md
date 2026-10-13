@@ -267,3 +267,17 @@ surfaces. The renewed board reports no regressions and reader NEW 0. The
 existing ledger blockers and shutdown resource disclosures remain unchanged.
 Full implementation, receipt paths, reviewed images and boundaries are in
 **design/V2_TOILET_INSPECTION_2026-10-13.md**. Broader migration remains open.
+
+
+## Complete washer rebuild, 2026-10-13
+
+The owner rejected the control-only prototype. Both **B1_WASHER_01** and
+**B1_WASHER_02** now use a complete Blender washer with a hollow tub, fitted
+frame/drive, centered rolls, bearing carriage and threaded pressure mechanism.
+Four new custom PBR finishes replace the prototype appearance. Focused
+installed input and fresh-root reconstruction pass 134 checks; the 95-check
+manipulation bench also passes. Lid/wringer travel uses native clearance
+sampling, including a 90-degree swung-aside service position. Legacy saves
+remain readable, with incompatible old cover angles clamped to physical fit.
+This does not claim continuous basement navigation or human acceptance.
+See **V2_WASHER_CONTROLS_2026-10-13.md** for scope and final verification.

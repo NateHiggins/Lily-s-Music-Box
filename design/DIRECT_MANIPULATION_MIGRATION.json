@@ -696,7 +696,7 @@
       "methods": [
         "interact_control"
       ],
-      "migration": "partial: lid, swinging wringer, safety bar and threaded pressure screw; safety reset, fill/drain/drive controls and maintenance still pending"
+      "migration": "implemented and focused-verified: complete native washer, constrained lid/wringer clearance, shaft-centered rollers, fitted pressure carriage, fill/drain and drive/reset controls; both installed washers and fresh-root saves pass 134 checks. Broader room navigation and human acceptance remain open."
     },
     {
       "path": "game/scripts/props/watchman_clock_prop.gd",

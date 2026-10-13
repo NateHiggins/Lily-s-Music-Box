@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "asset": "res://assets/props/washer_controls.glb",
+  "finishes": {
+    "zinc": {
+      "catalog_key": "washer_zinc",
+      "pigment": 0.22,
+      "normal": 0.65,
+      "roughness": 1.0,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "enamel": {
+      "catalog_key": "washer_enamel",
+      "pigment": 1.0,
+      "normal": 0.7,
+      "roughness": 1.0,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "frame": {
+      "catalog_key": "washer_enamel",
+      "pigment": 1.0,
+      "normal": 0.7,
+      "roughness": 1.0,
+      "tint": [
+        0.2,
+        0.245,
+        0.225,
+        1
+      ]
+    },
+    "brass": {
+      "catalog_key": "washer_brass",
+      "pigment": 1.0,
+      "normal": 0.7,
+      "roughness": 1.0,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "rubber": {
+      "catalog_key": "washer_rubber",
+      "pigment": 1.0,
+      "normal": 0.6,
+      "roughness": 1.0,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "iron": {
+      "catalog_key": "iron_neutral",
+      "pigment": 0.12,
+      "normal": 0.03,
+      "roughness": 0.65,
+      "tint": [
+        0.65,
+        0.65,
+        0.63,
+        1
+      ]
+    },
+    "wood": {
+      "catalog_key": "oak_quartered",
+      "pigment": 0.6,
+      "normal": 0.03,
+      "roughness": 0.65,
+      "tint": [
+        0.55,
+        0.4,
+        0.25,
+        1
+      ]
+    }
+  }
+}

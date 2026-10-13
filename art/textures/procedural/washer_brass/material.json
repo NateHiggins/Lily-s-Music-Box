@@ -1,0 +1,18 @@
+{
+  "material": "washer_brass",
+  "generator": "art/tools/build_washer_materials.py",
+  "meters_per_tile": 0.08,
+  "relief_mm": 0.004,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "3aeb107c64e0a22057028d719b375294c2f7d612d6d1106751927ba6fb2dfa81",
+    "roughness": "e30c15c704ed03ab11b53a6a31a45f58450daf39dbe9849fc9aa61421ce98f91",
+    "normal": "74e4131922ef6bc452ce65b2366c490a7e6a3097dabed61f7b1bd6a8bfca783b",
+    "height": "b463f1519a0609ebee7c5bb8d77d874e5424e05dfec2a320028a88e10f071479"
+  }
+}

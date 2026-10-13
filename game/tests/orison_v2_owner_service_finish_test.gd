@@ -71,18 +71,20 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		elif actor is WasherProp:
 			var before: Dictionary = actor.get_service_state()
 			var water: Material = actor._water.material_override
+			var mechanical_before: Dictionary = actor.mechanism_snapshot()
 			var upper: Node3D = actor._roller_upper
 			var operating: bool = actor.state == FunctionalProp.PState.OPERATING
 			var warning: float = actor._release_warning
+			actor.set_wringer_swing(90.,0)
 			actor.set_lid_open(true,0)
-			actor.set_wringer_swing(75.,0)
 			actor.trigger_safety_release()
 			actor.set_agitating(true)
-			check(actor._lid_open and is_equal_approx(actor._yoke.rotation.y,deg_to_rad(75.)) and is_equal_approx(upper.position.y,.04), "washer lid, wringer swing and release retain working parents")
+			check(actor._lid_open and is_equal_approx(actor._yoke.rotation.y,deg_to_rad(90.)) and is_equal_approx(upper.position.y,.04), "washer lid, wringer swing and release retain working parents")
 			actor.set_lid_open(bool(before.lid_open),0)
 			actor.set_wringer_swing(float(before.wringer_angle),0)
 			actor.set_wringer_gap(float(before.roller_gap))
 			actor.set_agitating(operating)
+			actor.restore_mechanism(mechanical_before)
 			actor._release_warning = warning
 			check(actor.get_service_state()==before,"washer restores complete service state")
 			check(actor._water.material_override == water and actor._roller_upper == upper, "washer liquid and roller owners retained")
@@ -108,10 +110,11 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			if actor != null:
 				await _city_capture(world,actor.to_global(row[1]),actor.to_global(row[2]),str(row[3]),"production service finish",str(row[0]))
 		var washer := world.adapter.resolve("B1_WASHER_01") as WasherProp
-		var lid_open: bool = washer._lid_open
+		var capture_pose: Dictionary = washer.mechanism_snapshot()
+		washer.set_wringer_swing(90,0)
 		washer.set_lid_open(true,0)
-		await _city_capture(world,washer.to_global(Vector3(.55,.03,-1.65)),washer.to_global(Vector3(0,.7,0)),"washer_open","retained zinc tub",str(washer.name))
-		washer.set_lid_open(lid_open,0)
+		await _city_capture(world,washer.to_global(Vector3(.55,.03,-1.65)),washer.to_global(Vector3(0,.7,0)),"washer_open","native galvanized tub and fitted wringer",str(washer.name))
+		washer.restore_mechanism(capture_pose)
 	validation_completed = true
 	return {"checks":checks,"failures":failures,"owners":owners.size(),"changed_slots":changed_slots,"shader_slots":shader_slots,"loaded_texture_maps":maps.size()}
 

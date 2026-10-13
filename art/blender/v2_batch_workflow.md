@@ -6,7 +6,7 @@ while continuing the full V1-to-V2 geometry and texture pass.
 
 ## Batch by room
 
-Use a whole room/shop or approximately 4–10 related fittings as the work unit.
+Use a whole room/shop or approximately 4â€“10 related fittings as the work unit.
 Extend an existing builder instead of starting a build/test/report cycle for
 each small prop. Keep accepted work unless an observed defect or source change
 invalidates it. Read the Bible, source records and fabrication coverage once
@@ -128,6 +128,16 @@ passage prefetch, runs modules sequentially, records separate results and
 tears down once. Its INERT `batch.json` and the lane's `suite_run` receipt do
 not replace schema-2 runtime contracts or grant ledger proof.
 
+Before an expensive world composition, batch changed GDScript paths through
+**CompileChangedScripts.tscn** with **ORISON_SCRIPT_CHECK** set to a nonempty
+JSON array of **res://** paths. Run through the lane with a named log. This
+loads scripts under the real autoload context without constructing V2, so it
+catches syntax and inferred-type errors quickly. Plain **--script --check-only**
+cannot resolve production autoload identifiers such as Conductor and is not
+an equivalent check. This preflight grants no geometry, gameplay or receipt
+acceptance; a successful changed-family world run is still required. Reuse
+its result while those scripts and their dependencies are unchanged.
+
 Warm canonical checkout: import once only if new/changed assets need it;
 already imported assets and test-script edits can go straight to the batch.
 Fresh checkout: keep the required two imports, then one combined batch.
@@ -169,13 +179,13 @@ slender stocks whose UV grain crosses their actual length. It reads native
 construction only and covers two visually checked albedos: timber U and walnut
 V. Unknown maps, broad panels and end grain are excluded. Inspect the renders
 before acting. **fabrication_grain.py** can orient those known maps along a
-stock’s principal length, including angled rails, without moving geometry.
+stockâ€™s principal length, including angled rails, without moving geometry.
 
 When only UV/tangent data changes, compare expanded indexed physical triangle
 bytes, the exported scene graph, all semantic fixture fields and runtime data.
 A dependent asset with unchanged geometry, maps and behavior need not be
 rebuilt just because a context hash changed. Refresh only explicitly reviewed
-dependency hashes, retain the comparison and keep prior proofs’ dates/scope.
+dependency hashes, retain the comparison and keep prior proofsâ€™ dates/scope.
 Unexpected source drift still requires investigation. The bounded example is
 **art/renders/orison_v2/wood_grain_20261007/rebind-grain-dependencies.py**.
 

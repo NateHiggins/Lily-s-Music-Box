@@ -1008,6 +1008,62 @@
       "roughness_multiplier": 1.0,
       "visual_lock": true
     },
+    "washer_brass": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.08,
+      "catalog_mapping": "procedural/washer_brass",
+      "files": [
+        "T_ai_materials_washer_brass_albedo.png",
+        "T_ai_materials_washer_brass_rough.png",
+        "T_ai_materials_washer_brass_normal.png"
+      ],
+      "metallic": 1.0,
+      "meters_per_tile": 0.08,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "washer_enamel": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.1,
+      "catalog_mapping": "procedural/washer_enamel",
+      "files": [
+        "T_ai_materials_washer_enamel_albedo.png",
+        "T_ai_materials_washer_enamel_rough.png",
+        "T_ai_materials_washer_enamel_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.1,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "washer_rubber": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.1,
+      "catalog_mapping": "procedural/washer_rubber",
+      "files": [
+        "T_ai_materials_washer_rubber_albedo.png",
+        "T_ai_materials_washer_rubber_rough.png",
+        "T_ai_materials_washer_rubber_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.1,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "washer_zinc": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.12,
+      "catalog_mapping": "procedural/washer_zinc",
+      "files": [
+        "T_ai_materials_washer_zinc_albedo.png",
+        "T_ai_materials_washer_zinc_rough.png",
+        "T_ai_materials_washer_zinc_normal.png"
+      ],
+      "metallic": 0.94,
+      "meters_per_tile": 0.12,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "water_clear": {
       "alpha": false,
       "canonical_meters_per_tile": 0.25,

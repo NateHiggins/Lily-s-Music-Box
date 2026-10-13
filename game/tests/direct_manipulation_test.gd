@@ -247,6 +247,7 @@ func _run() -> void:
 	await get_tree().create_timer(1.1).timeout
 	check(is_equal_approx(stove._gas_openings[working_ring],gas_release) and is_equal_approx(stove._burner_lights[working_ring].light_energy,.11*gas_release),"release retains gas and old light tween cannot overwrite flame")
 	var washer := WasherProp.new();washer.position=Vector3(16,0,0);add_child(washer)
+	washer.set_wringer_swing(90,0)
 	var lid_grip: Dictionary=washer._washer_grip("lid")
 	check(lid_grip.begin.call(),"washer lid acquisition")
 	lid_grip.write.call(.7);lid_grip.end.call()
@@ -259,7 +260,7 @@ func _run() -> void:
 	var pressure_grip: Dictionary = washer.pressure_grip()
 	check(pressure_grip.begin.call(),"wringer pressure screw acquisition")
 	pressure_grip.write.call(TAU * 1.5);pressure_grip.end.call()
-	check(is_equal_approx(washer._pressure_screw.position.y,.4145),"pressure screw advances along its own thread axis")
+	check(is_equal_approx(washer._pressure_screw.position.y-washer._pressure_bridge.position.y,.0095),"pressure screw advances along its own thread axis")
 	check(washer._roller_gap>=.04,"tightening cannot defeat tripped safety")
 	washer.set_wringer_gap(0.0)
 	check(is_equal_approx(washer._roller_gap,.0045),"pressure screw governs minimum roller clearance")
@@ -267,7 +268,7 @@ func _run() -> void:
 	washer._set_pressure_turn(0.0);washer.restore_mechanism(saved_washer)
 	check(is_equal_approx(washer._pressure_turn,TAU*1.5) and is_equal_approx(washer._roller_gap,.0045),"thread position and roller clearance reconstruct together")
 	check(not washer.valid_mechanism({"lid":0.0,"swing":0.0,"gap":0.0,"pressure":NAN}),"invalid pressure state refused")
-	player.position = washer.position + Vector3(0,0,-1.1)
+	player.position = washer.position + Vector3(1.1,0,.2)
 	var pressure_contact := washer._pressure_screw.to_global(Vector3(.07,.09,0))
 	player.camera.look_at(pressure_contact)
 	await get_tree().physics_frame

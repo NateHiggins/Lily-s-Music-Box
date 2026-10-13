@@ -1,0 +1,18 @@
+{
+  "material": "washer_enamel",
+  "generator": "art/tools/build_washer_materials.py",
+  "meters_per_tile": 0.1,
+  "relief_mm": 0.012,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "ff5cb27f390f788f571d5208b22db58122c37c38a83b6628d9c49e33018d6331",
+    "roughness": "7972eaddd70713283a2f1a92cd4ed6674461edf3c491445d5161d8c38309994d",
+    "normal": "e61b6d7bf47f9470ebefeb5291ccb607a3fedd7104d00c9caf8287e4b71e6e41",
+    "height": "bf99a3f1dabd167561fcafb2003d496a219491cdad5bf13473cddbee75893613"
+  }
+}

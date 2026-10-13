@@ -284843,6 +284843,94 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "6df5100796c3ba65",
+   "kind": "id_reference",
+   "token": "B1_WASHER_01",
+   "file": "game/tests/washer_controls_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    71
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"B1_WASHER_01\",\"B1_WASHER_02\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d24d1d3172c6fe24",
+   "kind": "id_reference",
+   "token": "B1_WASHER_02",
+   "file": "game/tests/washer_controls_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    71
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"B1_WASHER_01\",\"B1_WASHER_02\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "47677b03e0265a89",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/T_ai_materials_",
+   "file": "game/tests/washer_native_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/washer_controls.glb", # 96 fine thread/seal UV triangles collapse under import quantization.
     "props/stair_ironwork_service.glb", "props/boiler_body.glb",
     "props/bath_shower.glb", "props/bath_lavatory.glb",
     "props/bedding.glb", "props/roof_coping.glb",

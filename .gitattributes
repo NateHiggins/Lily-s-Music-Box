@@ -2000,3 +2000,19 @@ game/scripts/building/orison_v2_house_tank.gd -text
 game/tests/orison_v2_tower_redesign_test.gd -text
 game/tests/OrisonV2TowerRedesignTest.tscn -text
 art/renders/orison_v2/tower_redesign_20261013/** -text
+
+# Washer controls: reproducible metric fabrication and source-bound runtime.
+art/blender/scripts/build_washer_controls.py -text
+art/blender/scripts/inspect_washer_controls.py -text
+game/tests/washer_controls_test.gd -text
+game/tests/WasherControlsTest.tscn -text
+art/renders/orison_v2/washer_controls_20261013/** -text
+game/tests/compile_changed_scripts.gd -text
+game/tests/CompileChangedScripts.tscn -text
+
+art/blender/scripts/measure_washer_clearance.py -text
+art/tools/build_washer_materials.py -text
+game/data/orison_v2/washer_native.json -text
+game/data/orison_v2/washer_clearance.json -text
+game/tests/washer_native_test.gd -text
+game/tests/WasherNativeTest.tscn -text
