@@ -1,0 +1,49 @@
+{
+  "evidence_class": "INERT",
+  "runs": [
+    {
+      "run": "surfaces",
+      "checks": 26575,
+      "failures": [
+        "restored front volume is walkable at (6.8, 3.2, -4.6) actual=(6.8, 3.20081, -3.500001) contacts=[]",
+        "restored front volume is walkable at (-4.85, 0.0, -9.8) actual=(-4.85, 0.0, -9.199957) contacts=[\"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/FrontFacade/FixedFacade/FixedFacade__limestone_b__1_0_0/FacadeCollision\"]",
+        "restored front volume is walkable at (4.85, 0.0, -9.8) actual=(4.85, 0.000351, -9.199858) contacts=[\"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/FrontFacade/FixedFacade/FixedFacade__limestone_b__-2_0_0/FacadeCollision\"]",
+        "restored front volume is walkable at (6.7, 0.0, -4.22) actual=(5.224491, 0.000821, -4.250415) contacts=[\"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/WallNorth_04/Collision\", \"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F01_STAFF_RESTROOM/WallNorth_00/Collision\"]"
+      ],
+      "qualification": "FAIL; diagnostic only"
+    },
+    {
+      "run": "surfaces2",
+      "checks": 26655,
+      "failures": [
+        "physical leaf sweep clears retained and fitted fabric at 0",
+        "physical leaf sweep clears retained and fitted fabric at 2",
+        "physical leaf sweep clears retained and fitted fabric at 4",
+        "physical leaf sweep clears retained and fitted fabric at 6",
+        "physical leaf sweep clears retained and fitted fabric at 8",
+        "physical leaf sweep clears retained and fitted fabric at 10",
+        "physical leaf sweep clears retained and fitted fabric at 12",
+        "physical leaf sweep clears retained and fitted fabric at 14",
+        "physical leaf sweep clears retained and fitted fabric at 16",
+        "physical leaf sweep clears retained and fitted fabric at 18",
+        "physical leaf sweep clears retained and fitted fabric at 20",
+        "rendering inputs stayed fixed during qualification"
+      ],
+      "qualification": "FAIL; diagnostic only"
+    },
+    {
+      "run": "surfaces3",
+      "checks": 26655,
+      "failures": [],
+      "qualification": "Test assertions passed, but rejected as final evidence because the later capture reset campaign time and emitted a shop simulation error. The harness now initializes the date once and preserves elapsed time."
+    },
+    {
+      "run": "surfaces4",
+      "checks": 26656,
+      "failures": [
+        "review preserves the monotonic shop simulation clock"
+      ],
+      "qualification": "FAIL: existing four-season capture also resets calendar time. The visual harness now explicitly freezes its supported campaign-time driver; separate gameplay regressions retain live time."
+    }
+  ]
+}

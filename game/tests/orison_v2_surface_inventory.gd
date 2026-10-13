@@ -23,6 +23,9 @@ func _run() -> void:
 		shared_uv_defaults.append({"stock":stock,"uv1":stock.uv1_triplanar,"uv2":stock.uv2_triplanar})
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
+	# Seasonal renders deliberately visit four dates; gameplay clock proof is separate.
+	CampaignTime.set_frozen_for_tests(true)
+	CampaignClock.new().configure_date(1928,10,15,750)
 	GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
 	var world := _world_scene().instantiate() as OrisonV2RuntimeRoot
 	if world == null:
@@ -36,6 +39,10 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	var front_review := preload("res://tests/v2_front_restoration_review.gd").new()
+	add_child(front_review)
+	await front_review.run(world,self)
+	front_review.free()
 	var bedding_review := preload("res://tests/orison_v2_bedding_test.gd").new()
 	bedding_review.batch_mode=true;add_child(bedding_review)
 	var bedding_result: Dictionary=await bedding_review.validate_in_world(world)
@@ -221,9 +228,10 @@ func _run() -> void:
 	var manager: Node=atmosphere.weather_manager
 	var weather_processing: bool=manager.is_processing()
 	manager.set_process(false)
-	world.campaign_clock.configure_date(1928,10,15,750)
-	check(is_equal_approx(world.campaign_clock.minute_of_day(),750),"production noon calendar frames roof UV review")
-	manager._publish(); atmosphere.director._apply(750)
+	var review_minute: float=world.campaign_clock.minute_of_day()
+	check(review_minute>=750 and review_minute<780,"fixed noon calendar frames the seasonal visual review")
+	check(not world.shop_simulation.failed,"review preserves the monotonic shop simulation clock")
+	manager._publish(); atmosphere.director._apply(review_minute)
 	await get_tree().create_timer(.5).timeout
 	for station in [
 		["FittedHouseTank",Vector3(4.,2.6,3.8),Vector3(0,2.6,0),"roof_tank_uv"],

@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 213.64,
+  "exit_code": 1,
+  "finished_utc": "2026-10-13T16:08:37Z",
+  "started_utc": "2026-10-13T16:05:03Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 APARTMENT ACCESS CONTRACT: FAIL; 19 rooms; 264 checks; 2 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-front-restoration-20261013/apartments.log.stderr",
+  "stderr_sha256": "9ef6540649f9aa355d4071367252d877571f5b2cacbd24701c6ccf4192816a28",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-front-restoration-20261013/apartments.log",
+  "stdout_sha256": "aeca58dfd211d9093456b0a9ed5641cfa56c11c7098fc4577f7bcd8925c2fb9c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2ApartmentAccessContractTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-front-restoration-20261013/apartments",
+ "source": {
+  "dirty_paths": 1437,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/blender/ceiling_top_closures.blend",
+   "M  art/blender/ceiling_top_closures_construction.json",
+   "M  art/blender/exterior_masonry.blend",
+   "M  art/blender/exterior_masonry_slab_fit.json",
+   "M  art/blender/front_facade.blend",
+   "M  art/blender/front_facade_inventory.json",
+   "A  art/blender/front_restoration_construction.json",
+   "A  art/blender/front_restoration_details.blend",
+   "M  art/blender/orison_foundations.blend",
+   "M  art/blender/orison_foundations_construction.json",
+   "M  art/blender/scripts/build_front_facade.py",
+   "A  art/blender/scripts/build_front_restoration_details.py",
+   "A  art/blender/scripts/inspect_front_restoration.py",
+   " M art/blender/v2_batch_workflow.md",
+   "M  art/data/front_facade/source_fit.json",
+   "A  art/data/front_volume_restoration.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json"
+  ],
+  "repository_head": "7283b99b2661368398619145c3cb77822a8b5590",
+  "repository_tree": "abdb84953df9b317dcf1117d5010efbc3f38a4e9",
+  "runtime_inputs_sha256": "ee0324a6e786aa57f81a3c5ff9a033dfde43b67f4febcc92cd99dfc10b6925e3",
+  "test_path": "game/tests/orison_v2_apartment_access_contract_test.gd",
+  "test_sha256": "a1480f27f488006185702af8cecf1f7f8f0ceea1d9da42a6a06dbcac2069764d"
+ },
+ "windowed": true
+}

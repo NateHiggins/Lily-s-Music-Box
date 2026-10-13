@@ -60,6 +60,9 @@ def keyway(mesh):
 
 def stock(name,buffer,key,branch='FixedFacade',grain=2):
     key=mapping.get(key,key);name=name+'_%03d'%len(stocks)
+    # Fit the existing rain hood beneath the restored 3.0 m soffit.
+    if name.startswith(('OriginalMarquee','PierBearing','LedgerUpright','CanopyReturnArm','CanopyKnee','PierAnchor','AnchorHead')):
+        buffer.verts=[(x,y,z-.72) for x,y,z in buffer.verts]
     mesh=bpy.data.meshes.new(name);mesh.from_pydata(buffer.verts,[],buffer.faces);mesh.update()
     if name.startswith('LockEscutcheon') or (name.startswith('LeafStile') and min(v.co.x for v in mesh.vertices)>.5):mesh=keyway(mesh)
     bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-8);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
@@ -81,6 +84,8 @@ def box(name,key,lo,hi,branch='FixedFacade',grain=2):
 class MarqueeFrame:
     def box(self,key,*bounds):
         lo=bounds[:3];hi=bounds[3:]
+        # The old smoke-dark backplate must remain above the retained door.
+        if key=="soot" and abs(lo[2]-2.62)<1e-6:lo=(lo[0],lo[1],3.02)
         if max(lo[2],hi[2])>4:return
         if abs(hi[0]-lo[0])<.08 and lo[2]==3.44 and hi[2]==3.52:return # former suspended clevis
         raw_box('OriginalMarquee',key,lo,hi)
@@ -103,7 +108,7 @@ for sx in [-1,1]:
         for y in [2.4,2.84]:
             b=original.MeshBuf('PierAnchor','metal');b.add_tube((x+dx,.035,y),(x+dx,-.035,y),.006,12);stock('PierAnchor',b,'metal')
             b=original.MeshBuf('AnchorHead','brass');b.add_tube((x+dx,-.021,y),(x+dx,-.035,y),.012,6);stock('AnchorHead',b,'brass')
-            contacts.append({'owner':'ExteriorMasonry','point':[x+dx,y,0],'normal':[0,0,-1]})
+            contacts.append({'owner':'ExteriorMasonry','point':[x+dx,y-.72,0],'normal':[0,0,-1]})
 # Same wide limestone entrance vocabulary; the saddle retains the level walk.
 for row in plan['original_entrance']:
     if row['id'] in ['entry_marquee','entry_door_step']:continue
@@ -172,6 +177,7 @@ for i,row in enumerate(plan['front_edges']):
     y0,y1=(.0,.45) if row['level']=='F01' else (row['y']+.03,row['y']+.15)
     box('WaterTable' if row['level']=='F01' else 'StringCourse','limestone',[lo,y0,z],[hi,y1,z+.045],grain=0)
 for row in plan['front_windows']:
+    if '_FRONT_' in row['space']:continue # restoration owns these stone surrounds
     x=-row['center'][0];z=front-row['front_z'];bottom=row['y']+row['sill'];top=bottom+row['height'];half=row['width']/2
     box('WindowStoneSill','limestone',[x-half-.14,bottom-.15,z],[x+half+.14,bottom-.07,z+.10],grain=0)
     box('WindowStoneHead','limestone',[x-half-.14,top+.07,z],[x+half+.14,top+.15,z+.055],grain=0)

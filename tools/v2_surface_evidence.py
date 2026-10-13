@@ -29,6 +29,7 @@ def inputs(root=ROOT):
                                ('art/textures/ai_materials',{'.json'}),('game/tests/fixtures',{'.json'})]:
         paths.update(p for p in (root/directory).rglob('*') if p.is_file() and p.suffix in suffixes and p.relative_to(root).as_posix() in versioned)
     paths.update(root/p for p in ['game/project.godot','game/tests/orison_v2_surface_inventory.gd',
+                 'game/tests/v2_front_restoration_review.gd',
                  'game/tests/OrisonV2SurfaceInventory.tscn','tools/audit_v2_surfaces.py',
                  'tools/v2_surface_evidence.py','art/tools/fix_runtime_texture_imports.py',
                  'art/tools/fix_v2_mesh_imports.py','art/tools/generate_runtime_materials.py',

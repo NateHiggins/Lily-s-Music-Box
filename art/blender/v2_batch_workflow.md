@@ -322,3 +322,16 @@ named views for correction without repeating unchanged photographs; all source,
 material, support and original crossing checks remain active. Source drift for
 the slab uses an explicit consumed-field/native-mask comparison, preserving
 original fixture pins. A blocked camera is a failed run, not visual acceptance.
+
+### Restoring occupied building volume
+
+Include adjoining entrance assemblies in the native fit review when adding
+floors or moving exterior walls. Check canopy tops against slab undersides,
+backplates against the full door sweep, and old window stonework against new
+passage openings before the combined capture.
+
+Finish the visual harness before renewing globally bound apartment and save
+receipts. Seasonal camera sweeps deliberately change calendar dates: use the
+supported frozen campaign-time driver in that visual suite, while ordinary
+access and save/reconstruction suites retain live time. Never use frozen
+camera captures as evidence that campaign simulation advances correctly.

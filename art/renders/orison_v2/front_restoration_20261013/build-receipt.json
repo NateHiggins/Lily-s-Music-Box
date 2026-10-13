@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_exterior_masonry.py",
+      "elapsed_s": 15.04
+    },
+    {
+      "script": "art/blender/scripts/build_ceiling_top_closures.py",
+      "elapsed_s": 0.135
+    },
+    {
+      "script": "art/blender/scripts/build_orison_foundations.py",
+      "elapsed_s": 0.313
+    },
+    {
+      "script": "art/blender/scripts/build_front_restoration_details.py",
+      "elapsed_s": 2.061
+    }
+  ]
+}

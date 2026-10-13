@@ -1,7 +1,7 @@
 {
-  "surface_inputs_sha256": "cd7ce9419dbbc4e8fcdf502f1455fac3454fb6ac054c73be96412f527f150164",
+  "surface_inputs_sha256": "fb642512a31cf0e335e3f40f45aa12b5f830f2604bb4f3a7f33de3b2af51e511",
   "status": "PASS",
-  "scope": "Technical whole-world surface qualification with localized native and installed west-front fire repair review. Existing tower and washer renders retained for unchanged assets. No human acceptance or whole-building visual completion.",
+  "scope": "Technical whole-world surface qualification and rendered central-front restoration review. Unchanged tower, washer and native wing-repair stock views retained. Superseded exterior court views retired from this current review. No human acceptance or whole-building completion.",
   "images": [
     {
       "file": "tower_installed.png",
@@ -44,14 +44,29 @@
       "observation": "Neutral native view shows sole boards, four supported timber uprights, fitted ledgers, separate planks, toe boards, guards and alternating diagonal braces against retained shell; source-fitted replacement window heads and toothed brick reveals. Shell-only review omits the runtime window owners."
     },
     {
-      "file": "fire_repairs_entrance.png",
-      "sha256": "b320ff6645c66c098bcb408c88cbe286d3c6db5603f629a0b6b3fc8e3b04c02c",
-      "observation": "Installed daylight entrance stays clear; staging reads along the building-frame west wing. The tall recessed court and mismatched masses remain a visual limitation, not accepted as complete."
+      "file": "front_restored_mass.png",
+      "sha256": "92f2068ee23d2918ec93217701c6883cb7b4d638b8ab5850a3482379cf66f47a",
+      "observation": "Installed continuous six-storey middle frontage with aligned glazing, masonry courses, cornice and retained wing repair staging."
     },
     {
-      "file": "fire_repairs_upper.png",
-      "sha256": "bb19ca8aa9e375b3ff8a097307544df89253179e6cbf7282fbaa4d157163df33",
-      "observation": "Installed upper view retains the roof bridge and existing wings, with partial renovation staging. Central blank mass needs another architectural pass."
+      "file": "front_restored_entrance.png",
+      "sha256": "ac0c8cd6f4e939001327614297a1017199309e5df430767ab4c1d11e616e1125",
+      "observation": "Recessed original entrance beneath the restored volume. Lowered canopy, retained leaf, glazing and fitted stonework are clear in the street view."
+    },
+    {
+      "file": "front_gallery_02.png",
+      "sha256": "f4b107f33f1e2325cd2090c070c3fa2fb183c255b1e9f26af907248809912045",
+      "observation": "Real second-floor interior with paneling, windows, curtains and separate timber benches; the old canopy no longer protrudes above its floor."
+    },
+    {
+      "file": "front_gallery_06.png",
+      "sha256": "119bd1864ac55e31dd0519553d3cb13b2ec798adef71d463a9e54e08473c5aa4",
+      "observation": "Top-floor restored gallery beneath the existing roof structure, with full wall and floor enclosure."
+    },
+    {
+      "file": "front_ground_bay.png",
+      "sha256": "4415caab01f1296b4319a3d0cdb02e37a265c7002111d9140cdd84bd04311f06",
+      "observation": "Relocated lobby window in a real front room, with continuous interior trim, wall finish and floor."
     }
   ]
 }

@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 6.13,
+  "exit_code": 0,
+  "finished_utc": "2026-10-13T16:00:17Z",
+  "started_utc": "2026-10-13T16:00:10Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "SCRIPT COMPILATION: PASS; 2 scripts; 0 failures; no composed world"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-front-restoration-20261013/compile5.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-front-restoration-20261013/compile5.log",
+  "stdout_sha256": "b134279875b7c6c99925cddff5e3f9778ca1ba867f67634aa6c39c6bc57b0bfe"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/CompileChangedScripts.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 1427,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/blender/ceiling_top_closures.blend",
+   "M  art/blender/ceiling_top_closures_construction.json",
+   "M  art/blender/exterior_masonry.blend",
+   "M  art/blender/exterior_masonry_slab_fit.json",
+   "M  art/blender/front_facade.blend",
+   "M  art/blender/front_facade_inventory.json",
+   "A  art/blender/front_restoration_construction.json",
+   "A  art/blender/front_restoration_details.blend",
+   "M  art/blender/orison_foundations.blend",
+   "M  art/blender/orison_foundations_construction.json",
+   "M  art/blender/scripts/build_front_facade.py",
+   "A  art/blender/scripts/build_front_restoration_details.py",
+   "A  art/blender/scripts/inspect_front_restoration.py",
+   "M  art/data/front_facade/source_fit.json",
+   "A  art/data/front_volume_restoration.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png"
+  ],
+  "repository_head": "7283b99b2661368398619145c3cb77822a8b5590",
+  "repository_tree": "abdb84953df9b317dcf1117d5010efbc3f38a4e9",
+  "runtime_inputs_sha256": "ee0324a6e786aa57f81a3c5ff9a033dfde43b67f4febcc92cd99dfc10b6925e3",
+  "test_path": "game/tests/compile_changed_scripts.gd",
+  "test_sha256": "2041e50d32e1ec0d3551ba086cdd73f36720aa0b8f8f6fd37b2a0302998570dc"
+ },
+ "windowed": false
+}

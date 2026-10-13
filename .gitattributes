@@ -2029,3 +2029,12 @@ game/scripts/building/orison_v2_fire_repairs.gd -text
 game/tests/orison_v2_fire_repairs_test.gd -text
 game/tests/OrisonV2FireRepairsTest.tscn -text
 art/renders/orison_v2/fire_repairs_20261013/** -text
+
+tools/restore_v2_front_volume.py -text
+art/data/front_volume_restoration.json -text
+art/blender/scripts/build_front_restoration_details.py -text
+art/blender/scripts/inspect_front_restoration.py -text
+art/blender/front_restoration_construction.json -text
+game/scripts/building/orison_v2_front_restoration.gd -text
+game/tests/v2_front_restoration_review.gd -text
+art/renders/orison_v2/front_restoration_20261013/** -text

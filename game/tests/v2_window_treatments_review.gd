@@ -24,7 +24,7 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 		var lower: float = actor._bottom.multimesh.get_instance_transform(0).origin.y-.012
 		suite.check(lower>=-actor.height+.15,"blind bottom remains above sill: "+id)
 		rows.append({"window":id,"unit":unit,"style":actor.style,"material":actor.fabric,"character_note":actor.character_note,"initial":actor.settings_snapshot()})
-	suite.check(actors.size()==world.layout.windows.size()-1 and actors.size()==71,"all 71 habitable windows fitted; boiler hopper retains its owner")
+	suite.check(actors.size()==world.layout.windows.size()-1 and actors.size()==98,"all 98 habitable windows fitted; boiler hopper retains its owner")
 	suite.check(units.size()==18,"all 18 households receive authored treatment")
 	var player: Node3D
 	for actor: Node3D in actors.values():

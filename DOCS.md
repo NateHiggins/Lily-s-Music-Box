@@ -124,6 +124,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original Radio Service four-level rack and fourteen seated stored valves | `art/blender/radio_stock.md` and `design/V2_RADIO_STOCK_2026-10-06.md` |
 | Original Radio Service test instruments, seated valves and retained literal display | `art/blender/radio_apparatus.md` and `design/V2_RADIO_APPARATUS_2026-10-06.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
+| Restored central front volume, connected galleries, coherent facade and refitted canopy | `design/V2_FRONT_VOLUME_RESTORATION_2026-10-13.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |
 | Controlled front-faÃ§ade air finish, current key contract and remaining roof lighting check | `design/V2_FRONT_FACADE_AIR_FINISH_2026-10-05.md` |

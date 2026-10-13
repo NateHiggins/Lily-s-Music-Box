@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/front_restoration_details.glb", # Keep thin cornice and seat edge metric charts.
     "props/fire_repairs.glb", # Thin masonry/iron edge charts retain authored metric precision.
     "props/washer_controls.glb", # 96 fine thread/seal UV triangles collapse under import quantization.
     "props/stair_ironwork_service.glb", "props/boiler_body.glb",

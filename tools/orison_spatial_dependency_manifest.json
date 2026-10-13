@@ -286945,6 +286945,762 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "ca04acb7e78398a9",
+   "kind": "id_reference",
+   "token": "F01_FRONT_SERVICE_RETURN_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6c125c3e6b85a165",
+   "kind": "id_reference",
+   "token": "F01_FRONT_WORKROOM_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_FRONT_WORKROOM_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "71fd72b8a3edb0f3",
+   "kind": "id_reference",
+   "token": "F02_FRONT_GALLERY_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_FRONT_GALLERY_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1f319ab742133cd1",
+   "kind": "id_reference",
+   "token": "F02_FRONT_GALLERY_WINDOW_2",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_FRONT_GALLERY_WINDOW_2\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "489de0b217aec13b",
+   "kind": "id_reference",
+   "token": "F02_FRONT_GALLERY_WINDOW_3",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "59aea53d774ee505",
+   "kind": "id_reference",
+   "token": "F02_FRONT_GALLERY_WINDOW_4",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    31
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a123ba9ef1fe4ac9",
+   "kind": "id_reference",
+   "token": "F02_FRONT_SERVICE_RETURN_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "118ab17107f922ce",
+   "kind": "id_reference",
+   "token": "F03_FRONT_GALLERY_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    44
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_FRONT_GALLERY_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "44e3ab8dfb57c654",
+   "kind": "id_reference",
+   "token": "F03_FRONT_GALLERY_WINDOW_2",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    45
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_FRONT_GALLERY_WINDOW_2\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "130023123d4a9e03",
+   "kind": "id_reference",
+   "token": "F03_FRONT_GALLERY_WINDOW_3",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    46
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fbfd299648042d86",
+   "kind": "id_reference",
+   "token": "F03_FRONT_GALLERY_WINDOW_4",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    47
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "32da6c623fcd8ed2",
+   "kind": "id_reference",
+   "token": "F03_FRONT_SERVICE_RETURN_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    48
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "547cc34f6852aa3b",
+   "kind": "id_reference",
+   "token": "F04_FRONT_GALLERY_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    63
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_FRONT_GALLERY_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b66f50c4f2b3b17d",
+   "kind": "id_reference",
+   "token": "F04_FRONT_GALLERY_WINDOW_2",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    64
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_FRONT_GALLERY_WINDOW_2\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e1ed6afcd185e192",
+   "kind": "id_reference",
+   "token": "F04_FRONT_GALLERY_WINDOW_3",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    65
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b8b5df85184fde5c",
+   "kind": "id_reference",
+   "token": "F04_FRONT_GALLERY_WINDOW_4",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    66
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "850ab5b9fdd159ea",
+   "kind": "id_reference",
+   "token": "F04_FRONT_SERVICE_RETURN_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    67
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b9019961ce7b486c",
+   "kind": "id_reference",
+   "token": "F05_FRONT_GALLERY_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    80
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_FRONT_GALLERY_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3b8ba3faa232e318",
+   "kind": "id_reference",
+   "token": "F05_FRONT_GALLERY_WINDOW_2",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    81
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_FRONT_GALLERY_WINDOW_2\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "351cf999440c1eb3",
+   "kind": "id_reference",
+   "token": "F05_FRONT_GALLERY_WINDOW_3",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    82
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1285537dc258f26b",
+   "kind": "id_reference",
+   "token": "F05_FRONT_GALLERY_WINDOW_4",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    83
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "21ecbf8f00bda1fb",
+   "kind": "id_reference",
+   "token": "F05_FRONT_SERVICE_RETURN_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    84
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c3c68f1803842b53",
+   "kind": "id_reference",
+   "token": "F06_FRONT_GALLERY_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    97
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_FRONT_GALLERY_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "62a5de8dadc0dd1a",
+   "kind": "id_reference",
+   "token": "F06_FRONT_GALLERY_WINDOW_2",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    98
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_FRONT_GALLERY_WINDOW_2\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "70b4152f5b80dca7",
+   "kind": "id_reference",
+   "token": "F06_FRONT_GALLERY_WINDOW_3",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    99
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "66787df2fb539bf1",
+   "kind": "id_reference",
+   "token": "F06_FRONT_GALLERY_WINDOW_4",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    100
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "94b954df6c4a33e7",
+   "kind": "id_reference",
+   "token": "F06_FRONT_SERVICE_RETURN_WINDOW_1",
+   "file": "game/scripts/generated/v2_exterior_masonry.gd",
+   "tier": "production",
+   "subsystem": "generated",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    101
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

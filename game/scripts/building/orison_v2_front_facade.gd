@@ -56,7 +56,7 @@ static func mount(world: Node3D) -> bool:
 	door.leaf_state=str(markers.F01_DOOR_06.leaf);door.swing_out=false
 	door.position=Vector3(-door.width*.5,0,-reach-.035)
 	door.set_meta("semantic_id","F01_DOOR_06");anchor.add_child(door)
-	var dress:=Marquee.new();model.add_child(dress)
+	var dress:=Marquee.new();dress.position.y=-.72;model.add_child(dress)
 	var plaque:=BuildingEntrySign.new();plaque.position=Vector3(.79,1.58,.032)
 	# The narrow fitted pier receives the original plaque through a smaller
 	# supported face, keeping it clear of both the leaf and broad stone pilaster.
