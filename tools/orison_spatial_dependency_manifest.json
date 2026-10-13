@@ -284585,6 +284585,264 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "a4b5acaec97d4534",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_house_tank.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    37
+   ],
+   "count": 1,
+   "context": [
+    "str(part.name)+\"NativeCollision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b07a55a6fe5cd535",
+   "kind": "id_candidate",
+   "token": "ROOF_TANK_LEG_",
+   "file": "game/tests/orison_v2_tower_redesign_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    26
+   ],
+   "count": 1,
+   "context": [
+    "var leg:=root.get_node(\"ROOF_TANK_LEG_\"+str(i)) as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "ef56e904f647188f",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_DOOR",
+   "file": "game/tests/orison_v2_tower_redesign_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"ROOF_PUBLIC_DOOR\"):return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d8b602b0ee42d460",
+   "kind": "id_reference",
+   "token": "ROOF_TANK_BODY",
+   "file": "game/tests/orison_v2_tower_redesign_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    17
+   ],
+   "count": 1,
+   "context": [
+    "var tank:=root.get_node(\"ROOF_TANK_BODY\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f08803b10521721c",
+   "kind": "node_path",
+   "token": "ROOF_TANK_BODY",
+   "file": "game/tests/orison_v2_tower_redesign_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    17
+   ],
+   "count": 1,
+   "context": [
+    "var tank:=root.get_node(\"ROOF_TANK_BODY\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": null
+  },
+  {
+   "key": "806ea2789dc56e3b",
+   "kind": "node_path",
+   "token": "ROOF_TANK_LEG_",
+   "file": "game/tests/orison_v2_tower_redesign_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    26
+   ],
+   "count": 1,
+   "context": [
+    "var leg:=root.get_node(\"ROOF_TANK_LEG_\"+str(i)) as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cb8de868f3119d2b",
+   "kind": "runtime_id",
+   "token": "ROOF_TANK_BALLCOCK",
+   "file": "game/tests/orison_v2_tower_redesign_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "var cock:=world.adapter.resolve(\"ROOF_TANK_BALLCOCK\") as RoofTankBallcockProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "749611f313445e13",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_tower_redesign_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    8,
+    8,
+    9,
+    9,
+    9,
+    10,
+    10,
+    13,
+    13,
+    13,
+    19,
+    19,
+    39,
+    40,
+    40,
+    42
+   ],
+   "count": 16,
+   "context": [
+    "for point in [Vector3(1.925,17.6,1.3),Vector3(3.975,17.6,1.3),",
+    "Vector3(3.975,19.2,-3.4),Vector3(5,19.2,-3.4),Vector3(5,19.2,2.5),",
+    "Vector3(-1.35,19.2,2.5),Vector3(-1.35,19.2,0)]:",
+    "for point in [Vector3(-3.6,19.2,0),Vector3(-9.4,19.2,0),Vector3(-9.4,19.2,-3.05)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

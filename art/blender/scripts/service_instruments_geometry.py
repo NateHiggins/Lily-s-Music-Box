@@ -48,6 +48,37 @@ for actor in plan['actors']:
     y=.235-i*.063
     holes.extend([((.051,.031,.04),(-.055,y,0)),((.071,.026,.04),(.040,y,0))])
    perforate(face,holes);fasteners(.190,.528,.007)
+  elif aid=='M02' and index==0:
+   key='iron_neutral';static=True
+   # Compact cast saddle at the retained hand-height valve, not a broad board.
+   rod('Valve saddle',.155,.020,(0,0,0),key)
+   fasteners(.22,.16,.011,key='brass')
+  elif aid=='M02' and index==1:
+   key='enamel';static=True
+   # Round external float chamber with an open inspection slot. Actual wall
+   # thickness and returned window edges replace the oversized square channel.
+   chamber=tube('Slotted enamel float chamber',.096,.090,part['size'][1],(0,0,.040),key,'y',n=64)
+   perforate(chamber,[((.155,part['size'][1]-.18,.18),(0,0,.105))])
+   for y in [-part['size'][1]/2+.045,part['size'][1]/2-.045]:
+    tube('Chamber end collar',.101,.088,.035,(0,y,.040),'brass','y')
+  elif aid=='M02' and index in [2,3]:
+   key='brass';static=True
+   rod('Slender window guard',.007,part['size'][1]-.14,(0,0,.028),key,'y')
+  elif aid=='M02' and index in [4,5]:
+   key='brass';static=True
+   tube('Balance union',.038,.021,part['height'],(0,0,0),key,'y')
+   tube('Union shoulder',.043,.021,.024,(0,0,0),key,'y')
+  elif aid=='M02' and index==7:
+   rod('Round float linkage',.007,1.0,(0,0,0),key,'y')
+  elif aid=='M02' and index==12:
+   rod('Inlet riser',.032,part['height'],(0,0,0),key,'y')
+   for y in [-.49,.46]:rod('Inlet union',.047,.040,(0,y,0),key,'y',n=6)
+  elif aid=='M02' and index==17:
+   key='enamel';static=True
+   tube('Enamel overflow downpipe',.042,.035,part['height'],(0,0,0),key,'y')
+  elif aid=='M02' and index==18:
+   key='brass';static=True
+   tube('Open overflow outlet',.042,.035,part['height'],(0,0,0),key,'y')
   elif aid=='M02' and index==6:
    shell=ellipsoid('Soldered copper float',(.079,.044,.079),key)
    seam=torus('Soldered equator',.078,.0014,key)
@@ -195,7 +226,8 @@ for actor in plan['actors']:
    rod('Riser union',.046,.035,(-.14,y,.135),'brass','y',n=6)
   for y in [.6,1.95]:
    tube('Overflow clamp',.047,.042,.018,(-.34,y,.09),'metal','y')
-   box('Overflow clamp seat',(.028,.035,.065),(-.34,y,.042),'metal')
+   box('Overflow clamp seat',(.028,.035,.085),(-.34,y,.035),'metal')
+   box('Overflow chamber strap',(.22,.026,.022),(-.24,y,-.005),'metal')
  elif aid=='M01':
   hinges(.26,.62,.029);fasteners(.226,.57,.031)
  elif aid=='M03':

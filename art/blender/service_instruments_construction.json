@@ -1,7 +1,7 @@
 {
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
-  "asset_sha256": "e72dc907a1e79d9daa1ff617549561e3400a3dd0d542ceafce0020fa22f68f61",
+  "asset_sha256": "78ebb23c9ccaa22dd5039d2a7042d8026dc15daf5581b865545fee26f3aa118b",
   "closed_stocks": [
     {
       "name": "M01_000__Backboard",
@@ -196,28 +196,60 @@
       "volume_m3": 5.049231512534574e-08
     },
     {
-      "name": "M02_000__Stock",
-      "volume_m3": 0.004419351649892906
+      "name": "M02_000__Valve saddle",
+      "volume_m3": 0.0015031602738557952
     },
     {
-      "name": "M02_001__Stock",
-      "volume_m3": 0.012947917151796402
+      "name": "M02_000__Service screw",
+      "volume_m3": 5.0492330633704635e-08
     },
     {
-      "name": "M02_002__Stock",
-      "volume_m3": 0.00569601391403257
+      "name": "M02_000__Service screw.001",
+      "volume_m3": 5.049233063370519e-08
     },
     {
-      "name": "M02_003__Stock",
-      "volume_m3": 0.00569601391403257
+      "name": "M02_000__Service screw.002",
+      "volume_m3": 5.0492330633705746e-08
     },
     {
-      "name": "M02_004__Turned stock",
-      "volume_m3": 0.0003383698292493407
+      "name": "M02_000__Service screw.003",
+      "volume_m3": 5.0492330633705336e-08
     },
     {
-      "name": "M02_005__Turned stock",
-      "volume_m3": 0.0003383698292493407
+      "name": "M02_001__Slotted enamel float chamber",
+      "volume_m3": 0.004639311775598292
+    },
+    {
+      "name": "M02_001__Chamber end collar",
+      "volume_m3": 0.00026937674397397557
+    },
+    {
+      "name": "M02_001__Chamber end collar.001",
+      "volume_m3": 0.0002693767439739735
+    },
+    {
+      "name": "M02_002__Slender window guard",
+      "volume_m3": 0.00026214514499361974
+    },
+    {
+      "name": "M02_003__Slender window guard",
+      "volume_m3": 0.00026214514499361974
+    },
+    {
+      "name": "M02_004__Balance union",
+      "volume_m3": 0.0005027200520264463
+    },
+    {
+      "name": "M02_004__Union shoulder",
+      "volume_m3": 0.00010585326921414625
+    },
+    {
+      "name": "M02_005__Balance union",
+      "volume_m3": 0.0005027200520264463
+    },
+    {
+      "name": "M02_005__Union shoulder",
+      "volume_m3": 0.00010585326921414625
     },
     {
       "name": "M02_006__Soldered copper float",
@@ -228,8 +260,8 @@
       "volume_m3": 2.877095832862603e-06
     },
     {
-      "name": "M02_007__Stock",
-      "volume_m3": 0.0004829576953010578
+      "name": "M02_007__Round float linkage",
+      "volume_m3": 0.00015329803596738034
     },
     {
       "name": "M02_008__Stock",
@@ -260,8 +292,16 @@
       "volume_m3": 0.00021620094088559933
     },
     {
-      "name": "M02_012__Turned stock",
-      "volume_m3": 0.005240636489381731
+      "name": "M02_012__Inlet riser",
+      "volume_m3": 0.0037163462793589077
+    },
+    {
+      "name": "M02_012__Inlet union",
+      "volume_m3": 0.000229496336384981
+    },
+    {
+      "name": "M02_012__Inlet union.001",
+      "volume_m3": 0.00022949651032248223
     },
     {
       "name": "M02_013__Open stop wheel",
@@ -284,12 +324,12 @@
       "volume_m3": 3.0198704606560528e-05
     },
     {
-      "name": "M02_017__Turned stock",
-      "volume_m3": 0.009658216244146136
+      "name": "M02_017__Enamel overflow downpipe",
+      "volume_m3": 0.002954846483012593
     },
     {
-      "name": "M02_018__Turned stock",
-      "volume_m3": 0.0011037542778408653
+      "name": "M02_018__Open overflow outlet",
+      "volume_m3": 0.000337691927512086
     },
     {
       "name": "M02_019__Witness lip bottom",
@@ -373,7 +413,11 @@
     },
     {
       "name": "M02_attachments__Overflow clamp seat",
-      "volume_m3": 6.357363055795894e-05
+      "volume_m3": 8.315361698835081e-05
+    },
+    {
+      "name": "M02_attachments__Overflow chamber strap",
+      "volume_m3": 0.0001255738087575812
     },
     {
       "name": "M02_attachments__Overflow clamp.001",
@@ -381,7 +425,11 @@
     },
     {
       "name": "M02_attachments__Overflow clamp seat.001",
-      "volume_m3": 6.357380702808787e-05
+      "volume_m3": 8.315385131301048e-05
+    },
+    {
+      "name": "M02_attachments__Overflow chamber strap.001",
+      "volume_m3": 0.00012557378028577818
     },
     {
       "name": "M03_000__Backboard",
@@ -2613,8 +2661,11 @@
               0.259999990463257,
               0.0500000007450581
             ],
-            "preserve_material": true,
-            "materials": []
+            "preserve_material": false,
+            "materials": [
+              "brass",
+              "iron_neutral"
+            ]
           },
           {
             "index": 1,
@@ -2625,8 +2676,11 @@
               1.85000002384186,
               0.0350000001490116
             ],
-            "preserve_material": true,
-            "materials": []
+            "preserve_material": false,
+            "materials": [
+              "brass",
+              "enamel"
+            ]
           },
           {
             "index": 2,
@@ -2637,8 +2691,10 @@
               1.85000002384186,
               0.109999999403954
             ],
-            "preserve_material": true,
-            "materials": []
+            "preserve_material": false,
+            "materials": [
+              "brass"
+            ]
           },
           {
             "index": 3,
@@ -2649,24 +2705,30 @@
               1.85000002384186,
               0.109999999403954
             ],
-            "preserve_material": true,
-            "materials": []
+            "preserve_material": false,
+            "materials": [
+              "brass"
+            ]
           },
           {
             "index": 4,
             "mesh": "M02_P004",
             "source_type": "CylinderMesh",
             "size": [],
-            "preserve_material": true,
-            "materials": []
+            "preserve_material": false,
+            "materials": [
+              "brass"
+            ]
           },
           {
             "index": 5,
             "mesh": "M02_P005",
             "source_type": "CylinderMesh",
             "size": [],
-            "preserve_material": true,
-            "materials": []
+            "preserve_material": false,
+            "materials": [
+              "brass"
+            ]
           },
           {
             "index": 6,
@@ -2789,16 +2851,20 @@
             "mesh": "M02_P017",
             "source_type": "CylinderMesh",
             "size": [],
-            "preserve_material": true,
-            "materials": []
+            "preserve_material": false,
+            "materials": [
+              "enamel"
+            ]
           },
           {
             "index": 18,
             "mesh": "M02_P018",
             "source_type": "CylinderMesh",
             "size": [],
-            "preserve_material": true,
-            "materials": []
+            "preserve_material": false,
+            "materials": [
+              "brass"
+            ]
           },
           {
             "index": 19,
@@ -5699,6 +5765,34 @@
         ]
       },
       {
+        "key": "iron_neutral",
+        "catalog": "iron_neutral",
+        "tile": 0.4,
+        "normal": 0.25,
+        "roughness": 1.0,
+        "metallic": 0.65,
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "key": "enamel",
+        "catalog": "enamel",
+        "tile": 1.0,
+        "normal": 0.25,
+        "roughness": 1.0,
+        "metallic": 0.0,
+        "tint": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
         "key": "metal",
         "catalog": "metal",
         "tile": 0.9,
@@ -5857,7 +5951,7 @@
   "source_bindings": {
     "art/data/service_instruments/source_plan.json": "1654f0c5956eda26c9ff9d8f4e018c6406c64ab8a0035916f5bc643267bcefc1",
     "art/blender/scripts/build_service_instruments.py": "8ae97deb0cb0ac6c3d15143d77c382270ba1045edb2dd3e7785ac05c5475fee8",
-    "art/blender/scripts/service_instruments_geometry.py": "9db1a6364b515ee938a2fd4280eb210292d41bc8b764688cbd7b14b3f5c39b5f",
+    "art/blender/scripts/service_instruments_geometry.py": "1563cf1bd0ebc79607717061695b0fd1b5a4679dc0e539667a7769b9e124b44a",
     "art/blender/scripts/render_service_instruments.py": "3d8ab6825caf28ef1cda3b51a287d4170ef148f6b5ea50c2a7f8fe1463247ecb",
     "game/data/runtime_material_sets.json": "117365d9774b69669adaafcef6de6d6490c7616e650be486130b47c728a9141e",
     "game/assets/props/service_instruments.glb.import": "0b0f3059ed84a1335943299e976240855d5fdbbc242b05fea753eccd0cdd8493",
@@ -5871,6 +5965,12 @@
     "game/assets/building/textures/T_library_metals_aged_brass_albedo.png": "be2b06f9feacab2a61d24f7ec1ef5445a75e5e7d6606f5a568af51d2742dcc26",
     "game/assets/building/textures/T_library_metals_aged_brass_rough.png": "26062b979e1ac5d702e301f40b9af3da7b25fce3dee2582dd7dc08cc78efbb43",
     "game/assets/building/textures/T_library_metals_aged_brass_normal.png": "813fd89e00153ec79ee706108727fee9586f0c3e979e4efe9e783ca0df0a76f2",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_albedo.png": "98493bc86242ee82fd70bb4a0c9a20e648447269bfaff65a72162f2f596b248d",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_rough.png": "7d299c8f80229f2c968d54181798ffebebd388a012257b6d51d370c961039d1e",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_normal.png": "d129dc84b8c1d3b2a2d935fbe8d1efab9dba4fe48b2da59da4ab363cf2722ac7",
+    "game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_albedo.png": "21bbb79bfb9001595f53d1870fb0649268f768a2695052ceb8b8369d4313dc95",
+    "game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_rough.png": "4d74144c6ac0907e910e33a8387a294921b4a54481a435a2b8d3db4f1d8e80c0",
+    "game/assets/building/textures/T_library_appliances_aged_enamel_normal.png": "9d82da86ae49cfc79d85bf2fe0fb9de5c32011620254712e6d9846fdda6cbf98",
     "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png": "e239eaae1e43e714c9a768c7300ef5027f0995f42c673ba2f2b3d142e82b4eaa",
     "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png": "9c7839b01d4836a072dc4857c0f8dc646d77c834558130e9568273646e0e99fa",
     "game/assets/building/textures/T_library_appliances_galvanized_metal_normal.png": "f354e23c04f3bb9ff4612b875ef4735f8f7b4edca266ebe795a6dc189611a788",

@@ -132,6 +132,9 @@ func _use_water_valves(identity: String) -> bool:
 func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) -> bool:
 	player.camera.look_at(aim)
 	await get_tree().physics_frame
+	# Ground settling/head motion may move the eye during that physics tick.
+	# Re-aim from its actual new position before sampling the small valve target.
+	player.camera.look_at(aim)
 	var grip: Dictionary = player._grab.find_target()
 	if not _require(grip.get("owner") == owner_node, "actual player ray selects operable part: " + label): return false
 	var initial: float = grip.read.call()

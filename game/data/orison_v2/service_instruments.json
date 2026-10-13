@@ -367,8 +367,11 @@
             0.259999990463257,
             0.0500000007450581
           ],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "iron_neutral"
+          ]
         },
         {
           "index": 1,
@@ -379,8 +382,11 @@
             1.85000002384186,
             0.0350000001490116
           ],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "enamel"
+          ]
         },
         {
           "index": 2,
@@ -391,8 +397,10 @@
             1.85000002384186,
             0.109999999403954
           ],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
         },
         {
           "index": 3,
@@ -403,24 +411,30 @@
             1.85000002384186,
             0.109999999403954
           ],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
         },
         {
           "index": 4,
           "mesh": "M02_P004",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
         },
         {
           "index": 5,
           "mesh": "M02_P005",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
         },
         {
           "index": 6,
@@ -543,16 +557,20 @@
           "mesh": "M02_P017",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "enamel"
+          ]
         },
         {
           "index": 18,
           "mesh": "M02_P018",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
         },
         {
           "index": 19,
@@ -3445,6 +3463,34 @@
       "normal": 0.25,
       "roughness": 1.0,
       "metallic": 0.85,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "iron_neutral",
+      "catalog": "iron_neutral",
+      "tile": 0.4,
+      "normal": 0.25,
+      "roughness": 1.0,
+      "metallic": 0.65,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "enamel",
+      "catalog": "enamel",
+      "tile": 1.0,
+      "normal": 0.25,
+      "roughness": 1.0,
+      "metallic": 0.0,
       "tint": [
         1.0,
         1.0,
