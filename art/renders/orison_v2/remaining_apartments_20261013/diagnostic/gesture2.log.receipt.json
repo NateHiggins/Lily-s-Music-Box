@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 113.67,
+  "exit_code": 0,
+  "finished_utc": "2026-10-13T17:47:49Z",
+  "started_utc": "2026-10-13T17:45:55Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-entry-clearance-20261013/gesture2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-entry-clearance-20261013/gesture2.log",
+  "stdout_sha256": "fadc7af3473f5f3c9f0731743c3bfffe827f9f1b4b1285467c128aac3e723540"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2TwoBGestureDiagnostic.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-entry-clearance-20261013/gesture2",
+ "source": {
+  "dirty_paths": 1432,
+  "dirty_sample": [
+   "M  .gitattributes",
+   " M DOCS.md",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/4A_review.png",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/5B_review.png",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/5C_review.png",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/before.png",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/V2EntryClearanceDiagnostic.tscn.txt",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/before_fixes.log",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/before_fixes.log.receipt.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/before_fixes.log.stderr",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/before_fixes_runtime_contract.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/focused-results.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/focused.log",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/focused.log.receipt.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/focused.log.stderr",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/review_5b.py.txt",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/v2_entry_clearance_diagnostic.gd.txt",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/placement-comparison.json"
+  ],
+  "repository_head": "26681527ac72e0cdd6ac7a4e64e143c51968e5ae",
+  "repository_tree": "18ccc42be69e08ddef898fe8dfff1829d62da151",
+  "runtime_inputs_sha256": "b8acd4922a4aea7082e165bc46acb12ae14a3508e1b03c7f6727ace16b6314cf",
+  "test_path": "game/tests/v2_2b_gesture_diagnostic.gd",
+  "test_sha256": "5111c75aa580f31d9780a58eced4cc29c1ecd12ddd3fcda5fb482b5e7295972c"
+ },
+ "windowed": true
+}

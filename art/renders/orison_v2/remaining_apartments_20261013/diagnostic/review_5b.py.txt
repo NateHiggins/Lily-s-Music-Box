@@ -1,0 +1,35 @@
+from pathlib import Path
+import json, math
+import bpy
+from mathutils import Matrix, Vector
+r=Path('C:/PleaseRemainOnTheLine'); out=r/'tmp/v2-entry-clearance-20261013/blender'; out.mkdir(parents=True,exist_ok=True)
+layout=json.loads((r/'game/data/orison_v2_blockout.json').read_text()); anchors={a['id']:a for a in layout['anchors']}
+bpy.ops.wm.read_factory_settings(use_empty=True)
+parts={}
+for family in ['domestic_tables','domestic_seating','domestic_objects']:
+ data=json.loads((r/f'game/data/orison_v2/{family}.json').read_text())
+ variants={x['id']:x for x in data['assemblies']}
+ rows=[a for a in data['instances'] if a['id'].startswith('5B_') and anchors[a['id']].get('space')=='F05_B_MAIN']
+ names={p['name'] for a in rows for p in variants[a['variant']]['parts']}
+ with bpy.data.libraries.load(str(r/f'art/blender/{family}.blend'),link=False) as (src,dst):dst.objects=[n for n in src.objects if n in names]
+ source={o.name:o for o in dst.objects}
+ for row in rows:
+  a=anchors[row['id']]; parent=bpy.data.objects.new(row['id'],None);bpy.context.collection.objects.link(parent)
+  parent.location=(a['position'][0],-a['position'][2],a['position'][1]);parent.rotation_euler.z=a['yaw'];parts[row['id']]=parent
+  for p in variants[row['variant']]['parts']:
+   ob=source[p['name']].copy();ob.data=source[p['name']].data;bpy.context.collection.objects.link(ob);ob.parent=parent
+mat=bpy.data.materials.new('Preview shell');mat.diffuse_color=(.25,.23,.19,1)
+def box(name,center,scale):
+ bpy.ops.mesh.primitive_cube_add(size=1,location=center);ob=bpy.context.object;ob.name=name;ob.scale=scale;ob.data.materials.append(mat)
+box('Review floor',(-11.8,-4.3,-.05),(6,5.5,.1))
+box('North wall west of opening',(-13.25,-6.42,.7),(4.8,.14,1.4))
+box('North wall east of opening',(-9.35,-6.42,.7),(.6,.14,1.4))
+bpy.ops.object.camera_add(location=(-15,-.6,5.8));camera=bpy.context.object;camera.rotation_euler=(Vector((-11.1,-4.6,.4))-camera.location).to_track_quat('-Z','Y').to_euler();camera.data.type='ORTHO';camera.data.ortho_scale=6.8;bpy.context.scene.camera=camera
+bpy.ops.object.light_add(type='AREA',location=(-11,-3,6));bpy.context.object.data.energy=1400;bpy.context.object.data.shape='DISK';bpy.context.object.data.size=5
+scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=24;scene.render.resolution_x=1100;scene.render.resolution_y=850;scene.render.resolution_percentage=100
+scene.world=bpy.data.worlds.new('Review world');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.35,.35,.35,1)
+for state in ['before','proposed']:
+ if state=='proposed':
+  for name in ['5B_deck_table','5B_deck']:parts[name].rotation_euler.z=0
+ scene.render.filepath=str(out/f'{state}.png');bpy.ops.render.render(write_still=True)
+bpy.ops.wm.save_as_mainfile(filepath=str(out/'5B-placement-review.blend'))

@@ -1,0 +1,58 @@
+extends "res://tests/orison_v2_floor_surface_test.gd"
+## INERT diagnostics: actual controllers and capsule queries, no acceptance promotion.
+func _run() -> void:
+ GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
+ RealityState.persistence_enabled=false
+ RealityState.reset_campaign_for_tests()
+ CampaignClock.new().configure_date(1928,11,10,750)
+ var world: OrisonV2RuntimeRoot=_world_scene().instantiate()
+ add_child(world)
+ await get_tree().create_timer(1.0).timeout
+ if world.startup_failed:get_tree().quit(1);return
+ world.player.carried_device.set_capture_hidden(true)
+ Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+ var results: Array=[]
+ for unit: String in ["4A","5B","5C"]:
+  var driver: Node=preload("res://tests/v2_remaining_apartment_walk.gd").new()
+  driver.externally_managed=true;driver.world=world;driver.player=world.player;driver.unit_id=unit;driver.route_label="ENTRY DIAGNOSTIC "+unit
+  add_child(driver)
+  await driver._route()
+  var selected: String={"4A":"F04_A_BED_DOOR","5B":"F05_DOOR_03","5C":"F05_C_PRIVATE_HALL_BATH_DOOR"}[unit]
+  var door: Node3D=driver._leaf(selected)
+  var center: Vector3=world.adapter.root.to_local(door.global_position)
+  if unit=="5B":center=Vector3(-10.25,12.8,6.35)
+  var capsule:=CapsuleShape3D.new();capsule.radius=PlayerController.BODY_RADIUS;capsule.height=PlayerController.STANDING_HEIGHT
+  var cells: Array=[]
+  for ix in range(-30,31):
+   for iz in range(-30,31):
+    var local:=Vector3(center.x+ix*.1,driver.floor_y,center.z+iz*.1)
+    var query:=PhysicsShapeQueryParameters3D.new();query.shape=capsule;query.margin=.005;query.collision_mask=1;query.exclude=[world.player.get_rid()]
+    query.transform=Transform3D(Basis.IDENTITY,world.adapter.root.to_global(local+Vector3.UP*(capsule.height*.5+.025)))
+    var hits: Array=world.get_world_3d().direct_space_state.intersect_shape(query,16)
+    var owners: Array=[]
+    for hit: Dictionary in hits:owners.append(str(world.get_path_to(hit.collider)))
+    cells.append({"at":[local.x,local.z],"owners":owners})
+  results.append({"unit":unit,"door":selected,"angle":door._body.rotation.y,"grab_active":world.player._grab.active(),"call_locked":world.player.call_locked,"player":str(world.player.global_position),"center":str(center),"failures":driver.failures,"cells":cells})
+  var camera:=Camera3D.new();world.add_child(camera);camera.make_current()
+  var eye: Vector3={"4A":Vector3(14.0,11.124,-8.85),"5B":Vector3(-10.1,14.324,6.8),"5C":center+Vector3(1.6,1.524,1.3)}[unit]
+  var aim: Vector3={"4A":Vector3(11.4,10.6,-9.8),"5B":Vector3(-12,13.6,4.5),"5C":center+Vector3.UP}[unit]
+  camera.global_position=world.adapter.root.to_global(eye);camera.look_at(world.adapter.root.to_global(aim))
+  await shot(unit+"_entry")
+  camera.free();world.player.camera.make_current();driver.free()
+ var fittings: Array=[]
+ for identity: String in ["5B_deck","5B_deck_table","5B_din_t","5B_din_dc1","5B_din_dc2","5B_tape_shelf_b"]:
+  var actor: Node3D=world.adapter.resolve(identity)
+  var pieces: Array=[]
+  for child: Node in actor.find_children("*","",true,false):
+   var bounds: AABB
+   var kind: String=""
+   if child is MeshInstance3D:bounds=child.get_aabb();kind="visible" if child.is_visible_in_tree() else "hidden"
+   elif child is CollisionShape3D and not child.disabled:bounds=child.shape.get_debug_mesh().get_aabb();kind="collision"
+   else:continue
+   var box: AABB=world.adapter.root.global_transform.affine_inverse()*child.global_transform*bounds
+   pieces.append({"node":str(actor.get_path_to(child)),"kind":kind,"low":[box.position.x,box.position.y,box.position.z],"high":[box.end.x,box.end.y,box.end.z]})
+  fittings.append({"id":identity,"pieces":pieces})
+ FileAccess.open(OS.get_environment("SHOT_DIR").path_join("fitting-bounds.json"),FileAccess.WRITE).store_string(JSON.stringify(fittings,"\t"))
+ FileAccess.open(OS.get_environment("SHOT_DIR").path_join("entry-clearance.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","results":results},"\t"))
+ world.shutdown_for_tests();world.free()
+ get_tree().quit(0)

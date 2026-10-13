@@ -1190,6 +1190,7 @@ class LiveRepoSmokeTests(unittest.TestCase):
             if source.is_file() and source.name not in {
                 "ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
                 "ORISON_V2_APARTMENT_SPATIAL_ACCESS_CHECKPOINT_2026-10-12.md",
+                "ORISON_V2_REMAINING_APARTMENT_SPATIAL_ACCESS_CHECKPOINT_2026-10-13.md",
             }:
                 shutil.copy2(source, historical / source.name)
         cls.code, cls.payload, _ = run_payload(REPO_ROOT, "--design-dir", str(historical))

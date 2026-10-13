@@ -1,0 +1,63 @@
+extends "res://tests/orison_v2_4b_door_route_test.gd"
+## INERT diagnostic repeated gestures, not spatial acceptance.
+func _route() -> void:
+ route_label="2B GESTURE DIAGNOSTIC"
+ world.mina_routine.set_process(false);world.mina_routine.set_physics_process(false)
+ for stance: Vector3 in [Vector3(8.64798,3.22,-3.246095),Vector3(8.55,3.22,-3.25),Vector3(8.30,3.22,-3.25)]:
+  player.global_position=world.adapter.root.to_global(stance);player.velocity=Vector3.ZERO
+  await get_tree().physics_frame;await get_tree().physics_frame
+  for trial in 4:
+   var door:=_leaf("F02_B_ENTRY_DOOR")
+   if door.open:await _close_door("F02_B_ENTRY_DOOR")
+   if not door.open:await _open_door("F02_B_ENTRY_DOOR")
+   if door.open:await _close_door("F02_B_ENTRY_DOOR")
+
+func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) -> bool:
+ player.camera.look_at(aim)
+ await get_tree().physics_frame
+ # Ground settling/head motion may move the eye during that physics tick.
+ # Re-aim from its actual new position before sampling the small valve target.
+ player.camera.look_at(aim)
+ var grip: Dictionary = player._grab.find_target()
+ if not _require(grip.get("owner") == owner_node, "actual player ray selects operable part: " + label): return false
+ var initial: float = grip.read.call()
+ var click := InputEventMouseButton.new()
+ click.button_index = MOUSE_BUTTON_LEFT
+ click.pressed = true
+ player._unhandled_input(click)
+ if not _require(player._grab.active() and is_equal_approx(initial, float(grip.read.call())), "click grabs without toggling: " + label): return false
+ var observations: Array=[]
+ for step in 160:
+  if absf(float(grip.read.call()) - goal) < .00001: break
+  if not player._grab.active(): break
+  var part: Node3D = grip.part
+  var frame: Node3D = grip.frame
+  var point: Vector3 = part.to_global(player._grab.contact)
+  var local_axis: Vector3 = grip.axis.call() if grip.axis is Callable else grip.axis
+  var axis: Vector3 = (frame.global_basis * local_axis).normalized()
+  var tangent := axis
+  if grip.kind == "hinge":
+   tangent = axis.cross(point-part.global_position)
+   if tangent.length() < .025:
+    tangent = axis.cross(player.camera.global_basis.x)*.06
+    if tangent.length() < .01: tangent = axis.cross(player.camera.global_basis.y)*.06
+  var gesture: Vector2 = (player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
+  if gesture.length() < 24.0 and absf(tangent.dot(player.camera.global_basis.z)) > tangent.length()*.5:
+   gesture = Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
+  var motion := InputEventMouseMotion.new()
+  motion.relative = gesture * signf(goal-float(grip.read.call())) * .06
+  var ray:=PhysicsRayQueryParameters3D.create(player.camera.global_position,point)
+  ray.collide_with_areas=true;ray.exclude=[player.get_rid()]
+  var hit: Dictionary=player.get_world_3d().direct_space_state.intersect_ray(ray)
+  var before_angle: float=grip.read.call()
+  player._unhandled_input(motion)
+  await get_tree().physics_frame
+  observations.append({"step":step,"before":before_angle,"after":grip.read.call(),"active":player._grab.active(),"distance":player.camera.global_position.distance_to(point),"ray":str(hit.get("collider")),"ray_path":str(hit.collider.get_path()) if hit.has("collider") else ""})
+ print("GRAB_DIAGNOSTIC ",JSON.stringify({"label":label,"goal":goal,"position":str(world.adapter.root.to_local(player.global_position)),"observations":observations}))
+ var reached: bool = absf(float(grip.read.call())-goal)<.00001
+ if player._grab.active(): player._unhandled_input(click)
+ await get_tree().physics_frame
+ await get_tree().physics_frame
+ if owner_node.has_method("mechanism_snapshot") and owner_node.has_method("valid_mechanism"):
+  if not _require(owner_node.valid_mechanism(owner_node.mechanism_snapshot()), "physical stop remains saveable: " + label): return false
+ return _require(reached and not player._grab.active(), "mouse motion reaches stop and second click releases: " + label)

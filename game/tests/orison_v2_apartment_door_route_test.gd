@@ -4,6 +4,39 @@ extends "res://tests/orison_v2_4b_door_route_test.gd"
 func _init() -> void:
 	route_label = "APARTMENT DOOR BATCH ROUTE"
 
+
+# Preserve the failed physical state in the run log; never retry or force a leaf.
+func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) -> bool:
+	var passed: bool = await super._drag_part(owner_node, aim, goal, label)
+	if passed or not owner_node is DoorProp: return passed
+	var door := owner_node as DoorProp
+	var body := door._body
+	var contact := body.to_global(player._grab.contact)
+	var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position, contact)
+	ray.collide_with_areas = true
+	ray.exclude = [player.get_rid()]
+	var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
+	var shape := body.get_child(0) as CollisionShape3D
+	var pose := body.transform
+	pose.basis = Basis(Vector3.UP, goal)
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape.shape
+	query.transform = door.global_transform * pose * shape.transform
+	query.collision_mask = body.collision_mask
+	query.exclude = [body.get_rid()]
+	query.margin = .001
+	var blockers: Array[String] = []
+	for overlap: Dictionary in world.get_world_3d().direct_space_state.intersect_shape(query, 32):
+		blockers.append(str(overlap.collider.get_path()))
+	print("APARTMENT_GESTURE_FAILURE ", JSON.stringify({"label":label,"goal":goal,
+		"angle":body.rotation.y,"player":str(world.adapter.root.to_local(player.global_position)),
+		"contact_scope":"last acquired hand contact; a failed acquisition can retain the previous contact",
+		"contact_distance":player.camera.global_position.distance_to(contact),
+		"sightline":str(hit.collider.get_path()) if hit.has("collider") else "",
+		"goal_blockers":blockers,"call_locked":player.call_locked,
+		"mouse_mode":Input.mouse_mode,"motion_revision":door.motion_revision}))
+	return passed
+
 func _route() -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://tests/data/v2_apartment_door_routes.json"))

@@ -65,8 +65,24 @@ func _approach(edge:Dictionary,room:Dictionary) -> Vector3:
  return Vector3(at.x+normal.x*side*.85,floor_y,at.y+normal.y*side*.85)
 
 func _clear(point:Vector3) -> bool:
+ # Plan at the actual supporting surface, including the controller's low-step range.
+ # This does not move the player: every planned segment still uses ordinary input.
+ var origin: Vector3=world.adapter.root.to_global(point)
+ var ground:=PhysicsRayQueryParameters3D.create(origin+Vector3.UP*.29,origin-Vector3.UP*.05,1,[player.get_rid()])
+ var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ground)
+ # Adjacent floor triangles can miss a ray exactly on their shared edge.
+ # Probe a centimetre either side, still well inside the standing footprint.
+ if hit.is_empty():
+  for offset: Vector3 in [Vector3(.01,0,0),Vector3(-.01,0,0),Vector3(0,0,.01),Vector3(0,0,-.01)]:
+   ground.from=origin+offset+Vector3.UP*.29
+   ground.to=origin+offset-Vector3.UP*.05
+   hit=world.get_world_3d().direct_space_state.intersect_ray(ground)
+   if not hit.is_empty():break
+ if hit.is_empty() or hit.normal.y<.7:return false
+ var rise: float=hit.position.y-origin.y
+ if rise>.28 or rise<-.04:return false
  var query:=PhysicsShapeQueryParameters3D.new();query.shape=capsule;query.collision_mask=1;query.exclude=[player.get_rid()];query.margin=.005
- query.transform=Transform3D(Basis.IDENTITY,world.adapter.root.to_global(point+Vector3.UP*(capsule.height*.5+.025)))
+ query.transform=Transform3D(Basis.IDENTITY,Vector3(origin.x,hit.position.y+capsule.height*.5+.025,origin.z))
  return world.get_world_3d().direct_space_state.intersect_shape(query,1).is_empty()
 
 func _inside(point:Vector2,room:Dictionary,margin:=0.0) -> bool:
@@ -99,6 +115,10 @@ func _id(point:Vector3) -> Vector2i:
  return Vector2i(roundi((point.x-origin.x)/pitch),roundi((point.z-origin.y)/pitch))
 
 func _navigate(target:Vector3,room:Dictionary={},fine:=false) -> bool:
+ # Animatable door bodies synchronize their collision transforms on physics ticks.
+ # Sample only after the released leaf has reached the physics world.
+ await get_tree().physics_frame
+ await get_tree().physics_frame
  _prepare_grid(.05 if fine else .10)
  var here:Vector3=world.adapter.root.to_local(player.global_position);var start:=_id(here)
  if not _require(grid.is_in_boundsv(start),"route starts inside sampled grid"):return false

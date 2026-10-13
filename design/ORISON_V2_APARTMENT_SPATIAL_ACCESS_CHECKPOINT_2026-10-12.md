@@ -2,9 +2,9 @@
 
 Evidence class: **EVIDENCE**. Automated spatial-access checkpoint only.
 
-Requalified after localized fire-repair architecture on 2026-10-13: current
+Requalified after the 5B furniture circulation repair on 2026-10-13: current
 schema-2 contract remains 19 rooms / 268 checks / zero failures. Completed
-wrapper: **art/renders/orison_v2/fire_repairs_20261013/apartments.log.receipt.json**.
+wrapper: **art/renders/orison_v2/remaining_apartments_20261013/apartments.log.receipt.json**.
 Status: **19 rooms reached through ordinary production movement; runtime and human acceptance remain separate.**
 
 ## Executed scope
@@ -48,7 +48,7 @@ the lavatory valves, shower/curtain and toilet flush/refill, and reaches the
 closet. The 2B leg proves physical room access and doors; it does not exercise
 all household appliances. The 4B sleeping alcove is not visited or promoted.
 
-The renewed test passes **265 checks, 19 room positions and 89 waypoints**, with
+The renewed test passes **268 executed checks, 19 room positions and 89 waypoints**, with
 zero failures and zero script errors. The root and both route drivers retire.
 Godot reports seven Texture RID leaks at shutdown; this checkpoint does not
 claim resource-clean teardown. It does not grant case completion, disk save

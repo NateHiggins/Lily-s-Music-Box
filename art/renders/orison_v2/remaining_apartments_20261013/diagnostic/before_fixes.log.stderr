@@ -1,0 +1,26 @@
+ERROR: REMAINING APARTMENT ACCESS 4A: standing collision path exists: (11.15, 9.6, -10.35)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _navigate (res://tests/v2_remaining_apartment_walk.gd:142)
+       [2] _navigate (res://tests/v2_remaining_apartment_walk.gd:131)
+       [3] _visit (res://tests/v2_remaining_apartment_walk.gd:154)
+       [4] _visit (res://tests/v2_remaining_apartment_walk.gd:167)
+       [5] _open_door (res://tests/orison_v2_4b_door_route_test.gd:86)
+ERROR: REMAINING APARTMENT ACCESS 5B: standing collision path exists: (-10.25, 12.8, 9.0)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _navigate (res://tests/v2_remaining_apartment_walk.gd:142)
+       [2] _navigate (res://tests/v2_remaining_apartment_walk.gd:131)
+       [3] _visit (res://tests/v2_remaining_apartment_walk.gd:154)
+       [4] _visit (res://tests/v2_remaining_apartment_walk.gd:167)
+       [5] _navigate (res://tests/v2_remaining_apartment_walk.gd:150)
+       [6] _walk (res://tests/v2_remaining_apartment_walk.gd:204)
+ERROR: REMAINING APARTMENT ACCESS 5C: mouse motion reaches stop and second click releases: F05_C_PRIVATE_HALL_BATH_DOOR
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _drag_part (res://tests/orison_v2_4b_door_route_test.gd:173)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

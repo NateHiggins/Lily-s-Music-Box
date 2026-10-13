@@ -1,7 +1,7 @@
 {
-  "surface_inputs_sha256": "fb642512a31cf0e335e3f40f45aa12b5f830f2604bb4f3a7f33de3b2af51e511",
+  "surface_inputs_sha256": "0fc375d1b733d84c91abe525f779ea9230ebddbf7a199c71e64925cd5f5f3e3c",
   "status": "PASS",
-  "scope": "Technical whole-world surface qualification and rendered central-front restoration review. Unchanged tower, washer and native wing-repair stock views retained. Superseded exterior court views retired from this current review. No human acceptance or whole-building completion.",
+  "scope": "Renewed technical whole-world surface qualification and rendered 5B circulation review. Fresh restored-front mass view; other unchanged native tower, washer, fire-repair and front-gallery views retained. The only production change is the coupled rotation of the 5B table and recorder, documented in remaining_apartments_20261013/placement-comparison.json. No human acceptance or whole-building completion.",
   "images": [
     {
       "file": "tower_installed.png",
@@ -45,7 +45,7 @@
     },
     {
       "file": "front_restored_mass.png",
-      "sha256": "92f2068ee23d2918ec93217701c6883cb7b4d638b8ab5850a3482379cf66f47a",
+      "sha256": "2bb14ff4d9da43e6f43272c545269f1c88faecd83daf13114570641a51046856",
       "observation": "Installed continuous six-storey middle frontage with aligned glazing, masonry courses, cornice and retained wing repair staging."
     },
     {
@@ -67,6 +67,11 @@
       "file": "front_ground_bay.png",
       "sha256": "4415caab01f1296b4319a3d0cdb02e37a265c7002111d9140cdd84bd04311f06",
       "observation": "Relocated lobby window in a real front room, with continuous interior trim, wall finish and floor."
+    },
+    {
+      "file": "apartment_5B_circulation.png",
+      "sha256": "4069ea0f472849fbe0e0e29a0e8d97e03dd94e169cfcfa2cd3eb92fa841deb02",
+      "observation": "Player-height view from the private hall shows the recorder seated on its co-rotated table, with the passage around its east end open. Existing wood grain, metal and floor finish retained; the actual standing controller separately traversed this approach."
     }
   ]
 }

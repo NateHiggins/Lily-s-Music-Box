@@ -1,0 +1,17 @@
+{
+  "evidence_class": "INERT",
+  "baseline": "26681527ac72e0cdd6ac7a4e64e143c51968e5ae",
+  "changes": [
+    {
+      "id": "5B_deck_table",
+      "before_yaw": 1.5707963267948966,
+      "after_yaw": 0.0
+    },
+    {
+      "id": "5B_deck",
+      "before_yaw": 1.5707963267948966,
+      "after_yaw": 0.0
+    }
+  ],
+  "preserved": "All other layout fields, IDs, anchors, door records, spaces and authority data are byte-equivalent after JSON parsing. The table and supported deck retain their exact relative transform."
+}

@@ -1243,7 +1243,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 204.385,
+		"elapsed_s": 208.498,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -2531,15 +2531,15 @@
 	"scope": "Spatial room access and ordinary player-input interactions in 2A/2B and 4B. Each floor leg starts with one placement; all subsequent travel uses the ordinary controller. Resident scheduling is excluded. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "7283b99b2661368398619145c3cb77822a8b5590",
-		"runtime_inputs_sha256": "ee0324a6e786aa57f81a3c5ff9a033dfde43b67f4febcc92cd99dfc10b6925e3",
-		"surface_inputs_sha256": "fb642512a31cf0e335e3f40f45aa12b5f830f2604bb4f3a7f33de3b2af51e511",
+		"repository_head": "26681527ac72e0cdd6ac7a4e64e143c51968e5ae",
+		"runtime_inputs_sha256": "b8acd4922a4aea7082e165bc46acb12ae14a3508e1b03c7f6727ace16b6314cf",
+		"surface_inputs_sha256": "0fc375d1b733d84c91abe525f779ea9230ebddbf7a199c71e64925cd5f5f3e3c",
 		"test_dependencies": {
 			"game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
 			"game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",
 			"game/tests/orison_v2_4b_door_route_test.gd": "6d21e661c689ee29da4d3af241dc68a4cb31714f6ecb839ea1fa21c7deb2cc5a",
 			"game/tests/orison_v2_apartment_access_contract_test.gd": "a1480f27f488006185702af8cecf1f7f8f0ceea1d9da42a6a06dbcac2069764d",
-			"game/tests/orison_v2_apartment_door_route_test.gd": "11ab29f8d047eb174141992a1c81c3457a549735134148c37366274a3bc54d2d",
+			"game/tests/orison_v2_apartment_door_route_test.gd": "e2d8fe48ac080e55d43bda8d0514d52f4cf6e57cec14c5849b89181d55cfa9ac",
 			"game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
 			"game/tests/orison_v2_vertical_route_test.gd": "bc078c6b25710e41dbbaccceaa59478be550a528573f577266aa94476a106a8b"
 		},
