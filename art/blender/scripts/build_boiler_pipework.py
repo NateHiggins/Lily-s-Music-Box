@@ -1,10 +1,18 @@
 """Blender steam takeoff, equalizer and supported feed to the V2 heat shaft."""
 from pathlib import Path
-import json, math
+import json, math, argparse
 import bpy, bmesh
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
 import sys
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--candidate-dir',type=Path)
+parser.add_argument('--receiver-feed',action='store_true')
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+if args.receiver_feed and args.candidate_dir is None:
+ raise ValueError('Receiver fitting must be reviewed in a candidate directory first')
+candidate=args.candidate_dir.resolve() if args.candidate_dir else None
+if candidate:candidate.mkdir(parents=True,exist_ok=True)
 sys.path.insert(0, str(Path(__file__).parent))
 from repair_surface_uvs import repair_scene
 source=json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text())
@@ -18,6 +26,9 @@ def installed(p):
  return origin+Vector((math.cos(angle)*x+math.sin(angle)*z,y,-math.sin(angle)*x+math.cos(angle)*z))
 shaft=next(r for r in source['risers'] if r['id']=='HEAT_STACK')['rect']
 shaft_center=Vector(((shaft[0]+shaft[2])/2,base+2.65,(shaft[1]+shaft[3])/2))
+if args.receiver_feed:
+ receiver=next(r for r in source['riser_openings'] if r['id']=='HEAT_STEAM_RECEIVER_CLEAR')['bounds']
+ shaft_center.z=float(receiver[2])
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 bpy.context.preferences.filepaths.save_version=0
 mats={}
@@ -50,6 +61,7 @@ def tube(name,stations,radius,role='Iron',thickness=.005,sides=32):
   for k in range(sides):
    a=end*sides+k;b=end*sides+(k+1)%sides;faces.append((a,a+layer_size,b+layer_size,b))
  mesh=bpy.data.meshes.new(name);mesh.from_pydata(verts,[],faces);mesh.update()
+ for face in mesh.polygons:face.use_smooth=face.index<2*(len(stations)-1)*sides
  o=bpy.data.objects.new(name,mesh);bpy.context.collection.objects.link(o);finish(o,name,role)
  uv=mesh.uv_layers.new(name='UVMap')
  for p in mesh.polygons:
@@ -155,7 +167,7 @@ for o in bpy.context.scene.objects:
    for loop in p.loop_indices:
     v=o.matrix_world@o.data.vertices[o.data.loops[loop].vertex_index].co;uv.data[loop].uv=(v[axes[0]],v[axes[1]])
 repair_scene()
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/boiler_pipework.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(candidate/'boiler_pipework.blend' if candidate else ROOT/'art/blender/boiler_pipework.blend'))
 for role,mat in mats.items():
  parts=[o for o in bpy.context.scene.objects if o.type=='MESH' and o.data.materials[0]==mat]
  bpy.ops.object.select_all(action='DESELECT')
@@ -164,4 +176,4 @@ for role,mat in mats.items():
  bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
 bpy.ops.object.select_all(action='SELECT')
 repair_scene()
-bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/boiler_pipework.glb'),export_format='GLB',export_yup=True,export_apply=True)
+bpy.ops.export_scene.gltf(filepath=str(candidate/'boiler_pipework.glb' if candidate else ROOT/'game/assets/props/boiler_pipework.glb'),export_format='GLB',export_yup=True,export_apply=True)

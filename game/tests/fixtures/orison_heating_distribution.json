@@ -1,0 +1,39 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Source-bound native assembly and inspection. Focused composed installation diagnostic passed; broad surface, gameplay and reconstruction qualification and human acceptance remain pending.",
+  "runtime": {
+    "asset": "res://assets/props/heating_distribution.glb"
+  },
+  "source_bindings": {
+    "art/blender/scripts/review_heating_distribution.py": "81007c0b38510ba19bc2bd408669a39cd9671f4c63532a609aa7152d51f1da72",
+    "art/blender/scripts/inspect_heating_distribution.py": "1895e53ab6da03a1ec3783a69eecf0357b2dbf9874715bf56f0f8f86916792d5",
+    "art/blender/scripts/export_heating_distribution.py": "a1e2cbd09ef7be121bbd6f82cbb71fcd835cab9de5b709a0a47133c1b2219ab3",
+    "art/blender/scripts/build_boiler_pipework.py": "d21b68a76bd44c1e3bfb7dea0aa1febf4bf1ef4fa1cc068c429f4a55da09e7e0",
+    "tools/heating_pipe_fittings.py": "51eafc20d0431b179ebaf2488adcda533b5a985323cccb7a3d0c3458d157b9d2",
+    "tools/plan_v2_heating_distribution.py": "9a687f4754e447a690145442daf6ac61530b74d8724bc8f7fb5e8d432a48b6da",
+    "tools/check_v2_heating_envelopes.py": "e39cf3c51075fc67d1fe486fc8808ddd9a416f7fc7ea36379e8a80fd1aca5c38",
+    "tools/build_v2_heating_interfaces.py": "229f1a950e561c5ba2446f3977907ebfbf59d0a99b91fa3cdb8811427872035a",
+    "tools/build_v2_heating_branch_supports.py": "f40dc5e174f4bd56fcfb51fd7e31a9ab65215816e272a93975f7320bd2919e71",
+    "game/data/orison_v2_blockout.json": "3d07421bb7c7dc3f44e3d9fbdc21edb051a9296a4a11336d750b641fed1afd90",
+    "game/data/orison_v2/heating.json": "3e6b8e5a3bb4e0bc36c4913c9f6fce29f187a6e90efb8e575fd5ff260933006b",
+    "game/data/runtime_material_sets.json": "4a98389bf283864854c3cbfe8f324482665c9cc0a252d94fc73d3d833f8ab5e6",
+    "game/scripts/props/radiator_prop.gd": "fee6b5cd536ebc4985b3427b04f3b828b7b68d153fbeb3ac8142b13ec93541e1",
+    "game/scripts/building/orison_v2_heating_distribution.gd": "b912f7c86161228d2b3740a24efeaaf79a862de4a2eaa13f5d6300a5ab774743",
+    "game/scripts/building/orison_v2_boiler_pipework.gd": "30cc2c87e9abf93a8ecf3d86e66ecf913db3eafdc6b22673bbf8e22460869e5b",
+    "art/blender/heating_distribution/heating_branch_supports.json": "ed4c6f8d32abdc8b647c5d78ca58fc2b07f24f4eea448397045872c19e5c7d2e",
+    "art/blender/heating_distribution/heating_interfaces.json": "bfd514bbdd651030190506f5d31990a3904e08c1afb1489703b5f9a1194161a3",
+    "art/blender/heating_distribution/heating_routes_exact.json": "1ba33eb5712a47e2d7d749747e203a5f5d1505583199a23bec8771cacaea31a4",
+    "art/blender/boiler_pipework.blend": "131f5fee9dcbe4cdef626af1e2011d354964cdb96e801f1bac6d21c4c2ff0c67",
+    "game/assets/props/boiler_pipework.glb": "a9fd88e45b4a169d05338765337461a4c2003527ec474d0d36ed7ff7e7f28b4e"
+  },
+  "asset_sha256": "72cf93d402caee83d2e8b38128b19151996929243ebdda0f8ffc882201a12a47",
+  "native_sha256": "38b276818698cc1984346165fb6a170a5ead6fa06b0ba231219e3256cb28caa3",
+  "counts": {
+    "branches": 18,
+    "main_caps": 4,
+    "main_supports": 40,
+    "branch_hangers": 413,
+    "tailpieces": 17
+  },
+  "inspection": "art/renders/orison_v2/heating_distribution_20261016/mesh_inspection.json"
+}

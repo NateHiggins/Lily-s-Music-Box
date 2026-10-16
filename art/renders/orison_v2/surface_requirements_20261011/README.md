@@ -2,7 +2,7 @@
 
 Evidence class: **INERT**
 
-The test-written schema-2 runtime contract covers the composed V2 surface inventory: 52 checks, zero failures. The independent strict checker finds zero surface defects across 20,971 draws, 5,339 materials and 413 textures. There are 200 spaces and 13 resident cells. Hidden and dormant physical draws are included. Seven legacy shadow cards are retired.
+The October 16 heating-distribution refresh passed 26,719 checks with zero failures. The test-written schema-2 runtime contract covers the composed V2 surface inventory. Independent qualification finds zero surface defects across 24,778 draws, 5,986 materials and 465 textures, covering 221 spaces and 13 resident cells. Hidden and dormant physical draws are included. This is technical qualification, not whole-building artistic or human acceptance.
 
 `visual_review.json` binds reviewed images to the rendering-input fingerprint. Native Blender review precedes the combined Godot capture. Representative review is not a claim that every viewpoint is photorealistic. Named optical effects, lettering and live viewport feeds are separately inventoried.
 

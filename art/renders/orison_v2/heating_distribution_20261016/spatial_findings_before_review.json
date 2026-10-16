@@ -1,0 +1,172 @@
+{
+ "mode": "check",
+ "summary": {
+  "records": 9843,
+  "by_tier": {
+   "data": 6069,
+   "production": 1107,
+   "scene": 5,
+   "test": 2662
+  },
+  "by_kind": {
+   "asset_path": 365,
+   "floor_reference": 403,
+   "generated_name": 119,
+   "id_candidate": 270,
+   "id_reference": 6731,
+   "layout_load": 34,
+   "manual_contract": 13,
+   "node_path": 303,
+   "plan_coordinate": 73,
+   "runtime_id": 308,
+   "unit_reference": 964,
+   "vector3_coordinate": 260
+  },
+  "by_authority": {
+   "DATA_FOREIGN_KEY": 6069,
+   "DEBUG_ONLY": 12,
+   "GENERATED_IDENTITY": 428,
+   "RUNTIME_LOOKUP": 936,
+   "SAVE_CONTRACT": 16,
+   "SCENE_NODE_PATH": 303,
+   "TEST_CONTRACT": 2662
+  },
+  "by_spatial": {
+   "ASSET_PATH": 365,
+   "CAMERA_STATION": 288,
+   "CONTAINMENT_ASSUMPTION": 10,
+   "DERIVED_LAYOUT_LOOKUP": 34,
+   "DISTANCE_THRESHOLD": 10,
+   "FLOOR_MEMBERSHIP": 414,
+   "RAW_GODOT_COORDINATE": 261,
+   "RAW_PLAN_COORDINATE": 76,
+   "ROOM_MEMBERSHIP": 772,
+   "SEMANTIC_ANCHOR": 5654,
+   "UNKNOWN_DYNAMIC": 271
+  },
+  "by_disposition": {
+   "MUST_PRESERVE_ID": 129,
+   "OWNER_DECISION": 1,
+   "PRESERVE_OR_ALIAS": 6700,
+   "REGENERATE_CONSUMER": 156,
+   "REPLACE_WITH_NAMED_ANCHOR": 52,
+   "SAFE_TO_CHANGE": 5,
+   "UNRESOLVED": 270,
+   "UPDATE_TEST_FIXTURE": 2530
+  },
+  "by_confidence": {
+   "HIGH": 438,
+   "LOW": 270,
+   "MEDIUM": 9135
+  }
+ },
+ "stats": {
+  "files_scanned": 1581,
+  "vector3_total": 5297,
+  "vector3_stats_only": 4102,
+  "b2g_derived": 337,
+  "gd_strings_seen": 103971
+ },
+ "drift": {
+  "new_failing": [],
+  "new_reported": [
+   {
+    "key": "8c07f895fbb19c8d",
+    "kind": "id_reference",
+    "token": "F05_B_RADIATOR_01",
+    "file": "game/tests/orison_v2_heating_distribution_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     53
+    ],
+    "count": 1,
+    "context": [
+     "for identity: String in [\"F05_B_RADIATOR_01\",\"F06_B_RADIATOR_01\"]:"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F05/marker+acoustic_node+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "14199dfda8ce4b58",
+    "kind": "id_reference",
+    "token": "F06_B_RADIATOR_01",
+    "file": "game/tests/orison_v2_heating_distribution_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     53
+    ],
+    "count": 1,
+    "context": [
+     "for identity: String in [\"F05_B_RADIATOR_01\",\"F06_B_RADIATOR_01\"]:"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F06/marker+acoustic_node+v2_blockout",
+    "target_exists": true
+   }
+  ],
+  "stale_preserved": [],
+  "cleanup_opportunities": [
+   {
+    "key": "32262b49280cc8a2",
+    "kind": "generated_name",
+    "token": "mount",
+    "file": "game/scripts/building/orison_v2_basement.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+     "mount"
+    ],
+    "lines": [
+     37
+    ],
+    "count": 1,
+    "context": [
+     "\"Cage_\"+UNITS[row*9+column]"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   }
+  ],
+  "class_changes": [],
+  "target_vanished": [],
+  "save_unresolved": []
+ },
+ "result": "clean"
+}

@@ -83,3 +83,15 @@ changes. The test-authored runtime receipt is renewed at its existing packet
 path. Wrapper: **tmp/v2-toilet-inspection-20261012/first-slice-final-release.log.receipt.json**.
 Scope is unchanged. The seven Texture RIDs remain disclosed at shutdown; tracked
 runtime-owner retirement passes without claiming globally clean resources.
+
+## Heating distribution renewal, 2026-10-16
+
+The current test passed 133 checks after installing native heating branches,
+main supports, floor sleeves and radiator union tailpieces. The actual
+schema-2 receipt has been independently validated and renewed at the canonical
+first-slice packet above. Execution wrapper:
+**art/renders/orison_v2/heating_distribution_20261016/firstslice.log.receipt.json**.
+The matching test-written receipt is also archived in that heating packet.
+The scope and measured ownership limitations remain unchanged. The separate
+installed patrol save and dependent access suites are still pending; this
+renewal does not grant their proof or whole-building acceptance.

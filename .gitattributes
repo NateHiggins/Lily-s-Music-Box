@@ -2104,3 +2104,23 @@ art/blender/scripts/build_watch_stations.py -text
 art/blender/scripts/review_watch_stations.py -text
 art/renders/orison_v2/station_transmission_20261016/** -text
 game/assets/props/watch_stations.glb.import -text
+
+# Heating source bindings and executed evidence must survive Windows checkout.
+art/renders/orison_v2/heating_distribution_20261016/** -text
+art/blender/heating_distribution.blend -text
+art/blender/heating_distribution/** -text
+art/blender/scripts/review_heating_distribution.py -text
+art/blender/scripts/inspect_heating_distribution.py -text
+art/blender/scripts/export_heating_distribution.py -text
+art/blender/scripts/build_boiler_pipework.py -text
+game/assets/props/heating_distribution.glb -text
+game/assets/props/heating_distribution.glb.import -text
+game/scripts/building/orison_v2_heating_distribution.gd -text
+game/scripts/building/orison_v2_boiler_pipework.gd -text
+game/tests/orison_v2_heating_distribution_test.gd -text
+game/tests/fixtures/orison_heating_distribution.json -text
+tools/plan_v2_heating_distribution.py -text
+tools/heating_pipe_fittings.py -text
+tools/check_v2_heating_envelopes.py -text
+tools/build_v2_heating_interfaces.py -text
+tools/build_v2_heating_branch_supports.py -text

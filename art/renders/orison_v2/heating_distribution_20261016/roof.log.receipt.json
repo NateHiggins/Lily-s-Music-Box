@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 198.63,
+  "exit_code": 0,
+  "finished_utc": "2026-10-16T20:43:02Z",
+  "started_utc": "2026-10-16T20:39:43Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "INSTALLED TANK PHYSICAL: PASS; 52 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-acoustic-20261016/roof_checkpoint.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-acoustic-20261016/roof_checkpoint.log",
+  "stdout_sha256": "41231b3ac1b5cb551c93f6ad050bc45f02370c5b6c2c191c5d93da0d1afd7ffc"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/RoofTankInstalledTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-acoustic-20261016\\roof_checkpoint",
+ "source": {
+  "dirty_paths": 1640,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "M  art/blender/boiler_pipework.blend",
+   "A  art/blender/heating_distribution.blend",
+   "A  art/blender/heating_distribution/heating_branch_supports.json",
+   "A  art/blender/heating_distribution/heating_interfaces.json",
+   "A  art/blender/heating_distribution/heating_routes_exact.json",
+   "A  art/blender/heating_distribution_workflow.md",
+   "M  art/blender/scripts/build_boiler_pipework.py",
+   "A  art/blender/scripts/export_heating_distribution.py",
+   "A  art/blender/scripts/inspect_heating_distribution.py",
+   "A  art/blender/scripts/review_heating_distribution.py",
+   " M art/renders/insitu/shots.md",
+   "M  art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+   "M  art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   "A  art/renders/orison_v2/heating_distribution_20261016/apartments.log",
+   "A  art/renders/orison_v2/heating_distribution_20261016/apartments.log.receipt.json",
+   "A  art/renders/orison_v2/heating_distribution_20261016/apartments.log.stderr",
+   "A  art/renders/orison_v2/heating_distribution_20261016/apartments/runtime_contract.json",
+   "A  art/renders/orison_v2/heating_distribution_20261016/apartments_qualification.json"
+  ],
+  "repository_head": "4be598eaa7398df43cecfe32a360661cc8ec75f3",
+  "repository_tree": "0f35881c5d1f45b46d04f7605032656c0583412b",
+  "runtime_inputs_sha256": "bcf0697eff3ec6006f6b69aa90accf1ab90614a82482c782e47a1ad9d70e75b4",
+  "test_path": "game/tests/roof_tank_installed_test.gd",
+  "test_sha256": "6247c9af3822bcaee38bb50fbd8719a4ab03d9fa64f286f81603f8de6bb959d3"
+ },
+ "windowed": true
+}

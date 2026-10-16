@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/heating_distribution.glb", # Imported small pipe charts collapsed in the native candidate check.
     "props/watch_stations.glb", # Involute tooth and shaft bevel charts collapse under import quantization.
     "props/front_restoration_details.glb", # Keep thin cornice and seat edge metric charts.
     "props/fire_repairs.glb", # Thin masonry/iron edge charts retain authored metric precision.

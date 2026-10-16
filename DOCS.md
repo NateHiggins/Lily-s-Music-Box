@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Native heating branches, supported mains, floor sleeves, radiator tailpieces and verification still pending | `design/V2_HEATING_DISTRIBUTION_2026-10-16.md` |
 | Native patrol station transmission, crank lockout, source-bound checks and remaining work | `design/V2_STATION_TRANSMISSION_2026-10-16.md` |
 | Patrol instrument direct manipulation, native detector and register changes, current verification and remaining polish | `design/V2_PATROL_CONTROLS_2026-10-16.md` |
 | Physical roof-tank and dumbwaiter controls, native fitting and save verification | `design/V2_SERVICE_CONTROLS_2026-10-13.md` |

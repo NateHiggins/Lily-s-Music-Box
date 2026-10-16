@@ -8,7 +8,13 @@ static func mount(root: Node3D) -> void:
 	inlet.name="InletSleeves"
 	model.add_child(inlet)
 	for part: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		part.material_override=MatLib.get_mat("cast_iron" if str(part.name)=="Iron" else "metal")
+		var finish := MatLib.get_mat("iron_neutral").duplicate() as StandardMaterial3D
+		finish.uv1_triplanar=false
+		finish.normal_scale=.25
+		finish.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		part.material_override=finish
+		if inlet.is_ancestor_of(part):
+			part.material_override=MatLib.get_mat("cast_iron" if str(part.name)=="Iron" else "metal")
 		var body := StaticBody3D.new()
 		body.name=str(part.name)+"Collision"
 		body.transform=model.global_transform.affine_inverse()*part.global_transform
@@ -16,3 +22,4 @@ static func mount(root: Node3D) -> void:
 		collision.shape=part.mesh.create_trimesh_shape()
 		body.add_child(collision)
 		model.add_child(body)
+	preload("res://scripts/building/orison_v2_heating_distribution.gd").mount(root)
