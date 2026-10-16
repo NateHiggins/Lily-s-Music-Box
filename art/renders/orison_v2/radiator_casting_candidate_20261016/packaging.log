@@ -1,0 +1,11 @@
+00:01.391  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-radiator-next-20261016\radiator_casting_candidate.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\package_heating_native.py:40: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  images={node.image for mat in used if mat.use_nodes for node in mat.node_tree.nodes if node.type=='TEX_IMAGE' and node.image}
+00:01.469  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\radiator_casting_candidate.blend"
+Info: Saved as "radiator_casting_candidate.blend"
+Info: Total files 3 | Changed 0 | Failed 0
+Info: Saved "radiator_casting_candidate.blend"
+{"geometry_unchanged": true, "portable_images": 3}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

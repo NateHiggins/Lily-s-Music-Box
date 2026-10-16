@@ -1,0 +1,9 @@
+C:\PleaseRemainOnTheLine\tmp\v2-radiator-next-20261016\build_casting_prototype.py:58: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material=bpy.data.materials.new('cast_iron');material.use_nodes=True;material.node_tree.nodes.clear();nodes=material.node_tree.nodes;links=material.node_tree.links
+00:19.046  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-radiator-next-20261016\three_column_review.png'
+SURFACE UV REPAIR: 4605 polygons; vertex positions and topology retained
+Info: Saved as "radiator_casting_candidate.blend"
+RADIATOR PROTOTYPE {"evidence_class": "INERT", "status": "AUTHORING_PROTOTYPE_NOT_INSTALLED", "scope": "Three-column silhouette, closed cast crown, connected internal waterways and actual nipple bores; no fit, runtime, performance or human acceptance.", "triangles": 19358, "nonmanifold_edges": 0, "volume_m3": 0.0022674145098652587, "collapsed_uv_triangles": 0, "bounds_blender": [[-0.04600000008940697, -0.10100000351667404, 0.0], [0.04600000008940697, 0.10100000351667404, 0.6700000166893005]], "failures": [], "recipe_sha256": "b3af9c5083cba11b8ad2dba0a5f3f8492fdeaf8fc5f5c56ce4c64779fb2b1e0b", "native_sha256": "098af16b71af84b6529011875fb912c2f0783b755cc7548605e287b3e73a36fc", "review_sha256": "d5927709acb6c5459f827b9cc2b691cc5fad501158865fa0c4acef721081213e"}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

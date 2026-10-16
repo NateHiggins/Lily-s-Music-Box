@@ -1,0 +1,13 @@
+C:\PleaseRemainOnTheLine\tmp\v2-radiator-next-20261016\build_casting_prototype.py:58: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material=bpy.data.materials.new('cast_iron');material.use_nodes=True;material.node_tree.nodes.clear();nodes=material.node_tree.nodes;links=material.node_tree.links
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\tmp\v2-radiator-next-20261016\build_casting_prototype.py", line 76, in <module>
+    (OUT/'inspection.json').write_text(json.dumps(report,indent=2)+'\n');raise RuntimeError(str(failures))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: ['collapsed UVs: 909']
+SURFACE UV REPAIR: 1994 polygons; vertex positions and topology retained
+
+Error: script failed, file: 'tmp/v2-radiator-next-20261016/build_casting_prototype.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
