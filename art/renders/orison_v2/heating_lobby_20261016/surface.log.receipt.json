@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 297.16,
+  "exit_code": 0,
+  "finished_utc": "2026-10-16T22:44:08Z",
+  "started_utc": "2026-10-16T22:39:11Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 26720 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-heating-next-20261016/surface_checkpoint.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-heating-next-20261016/surface_checkpoint.log",
+  "stdout_sha256": "b72d500da48eb3e3888b30dd2f37369b4990c583e9b4b45917889033d73056bf"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-heating-next-20261016\\surface_checkpoint",
+ "source": {
+  "dirty_paths": 1386,
+  "dirty_sample": [
+   "M art/blender/v2_batch_workflow.md",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/heating_lobby_20261016/audit_performance/compare_audit_snapshot.py",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json"
+  ],
+  "repository_head": "59372583848502bbd84069aba34692309e32f1ac",
+  "repository_tree": "9ffeaa5084342105e9ef0292fc5f5545728af1d7",
+  "runtime_inputs_sha256": "2c8e444b566865243fc2dc53537b0aa29208e5c95359ade28b3030ef632bdf65",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "82b9a6877e58326ff535310992b3c4ea49040c467063ecb4fb79e392c6ea4c1e"
+ },
+ "windowed": true
+}

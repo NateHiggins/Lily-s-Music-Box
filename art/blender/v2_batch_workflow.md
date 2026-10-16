@@ -45,6 +45,21 @@ is invisible to that inventory until it is staged. Correct those imports and
 re-import before qualifying the world, so the clean-checkout gate does not
 invalidate an otherwise finished capture batch.
 
+Before the broad contract batch, new permanent furniture must also pass the
+existing nearby walking legs with the ordinary production controller. Being
+inside a room does not prove access: the lobby bench initially fit its new
+waiting bay but its arm blocked the established diagonal entry. Reuse the
+existing route helper in the focused installation diagnostic, then preserve
+that route in the broad check. Do not move a verification waypoint to hide a
+new obstruction.
+
+Run the full static board before freezing a runtime batch. Resolve engineering
+failures such as source/projection drift, namespace/API errors and import or
+reader regressions first. Live-proof assertions can remain pending only while
+the changed runtime has not yet been re-executed; renew that proof genuinely.
+Update authoring rosters together with their runtime projection, and migrate
+old click-toggle diagnostics before relying on them for direct manipulation.
+
 ## Check source portability before captures
 
 Before freezing a batch, review new nonignored authored inputs:

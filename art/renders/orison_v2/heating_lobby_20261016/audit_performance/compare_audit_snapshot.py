@@ -1,6 +1,8 @@
 from pathlib import Path
 import json,os,subprocess,sys,time
 root=Path.cwd();work=root/'tmp/v2-heating-next-20261016'
+work.mkdir(parents=True,exist_ok=True)
+(work/'audit_before_snapshot.py').write_bytes(subprocess.check_output(['git','show','9e3d04f0:tools/audit_orison_v2_completeness.py']))
 env=dict(os.environ,PYTHONPATH=str(root/'tools'),PYTHONHASHSEED='0')
 results={}
 for tag,script in [('before',work/'audit_before_snapshot.py'),('after',root/'tools/audit_orison_v2_completeness.py')]:

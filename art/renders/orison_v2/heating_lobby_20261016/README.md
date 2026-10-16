@@ -23,3 +23,10 @@ Current focused result: **clearance/** includes the repaired original west-bay
 walking route and actual valve control. Earlier **composed/** is superseded
 for bench placement. **diagnostics/blocked_bay/** retains the failed broader
 route check. Broad contract renewal remains pending.
+
+All seven broader schema-2 contracts now pass and independently qualify; see
+**batch_qualification.json** and the individual scope receipts. The separate
+**public_furnishings/** diagnostic passes 49 waypoints and actual mouse-driven
+doors, with no runtime-contract or human promotion. Preliminary board failures
+and the corrected operator-stance attempts remain in **diagnostics/**. Fresh
+static candidate verification and publication are the remaining checkpoint steps.

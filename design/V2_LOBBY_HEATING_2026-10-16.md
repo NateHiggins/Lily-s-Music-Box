@@ -71,11 +71,11 @@ Branch / parent / publication target: local main / **9d03616c** /
 The shared checkout retains inherited dirty imports, UIDs and review files;
 only named owned paths are staged.
 
-The final focused diagnostic and native review pass. Broader surface,
-first-slice, installed save, apartment access, dumbwaiter and roof contracts
-are being re-executed against the frozen source. Previous receipts do not
-prove this changed batch. Clean-checkout verification and publication remain
-pending until those results have been independently qualified.
+The focused diagnostic and native review pass. All seven broader contracts
+were actually re-executed and independently qualified against unchanged
+production inputs. Clean-checkout static verification and publication remain
+pending; the earlier static board and its two engineering failures are retained
+under **diagnostics/preliminary_board/**.
 
 Full V2 remains incomplete: restricted-cell representation, acoustic migration,
 remaining geometry and artistic polish, whole-game performance and human
@@ -96,6 +96,61 @@ payloads and exit status, with elapsed time falling from 32.016 to 7.281
 seconds on this checkout. Both subprocesses use PYTHONHASHSEED=0 because
 existing set-based packet traversal otherwise changes diagnostic note order.
 The comparison payloads and runner are retained under **audit_performance/**.
-The existing 108-test completeness suite currently passes 107 tests; the one
-live-checkpoint assertion correctly fails while changed runtime receipts are
-stale. It must pass after actual contract renewal, not be weakened.
+All 108 existing completeness tests pass after the new first-slice authority
+receipt was genuinely executed and independently qualified. The interim run
+correctly failed its live-checkpoint assertion while that receipt was stale;
+no assertion or acceptance rule was weakened to clear it.
+
+## Current contract renewal
+
+The current surface contract passes 26,720 checks, with zero failures or script
+errors. Its loaded inventory has 24,798 draws, 5,990 materials and 465 textures,
+with zero unresolved surfaces. All 42 restored-front movement checks pass.
+Seven new images were viewed and their scoped observations hash-bound before
+independent qualification; the canonical surface packet is renewed.
+
+The first-slice contract prints 133 passing checks. Its test-written receipt
+contains 132 because the final output-flush check occurs after serialization.
+It independently qualifies against the current runtime and root test source,
+including disk reconstruction and teardown of both composed worlds. The
+canonical first-slice authority receipt is renewed. Installed patrol save passes
+26 checks; apartment access reaches 19 rooms with 269 printed checks; remaining
+apartment access reaches 60 rooms with 782 printed checks. Both access receipts
+serialize one fewer check because output flushing follows serialization. The
+installed dumbwaiter passes 53 checks and roof tank 52, including actual input,
+partial-state disk save and fresh reconstruction. All seven wrappers complete
+with exit 0, no timeout, zero script errors and current runtime hashes.
+**batch_qualification.json** cross-checks their separate qualifications.
+
+The public-furnishings diagnostic additionally passes 49 actual walking
+waypoints and checks four native furniture bodies, 19 batches and 17,752
+triangles against their collisions and surrounding solids. The legacy
+click-toggle door test was migrated to actual grabbing, constrained mouse
+travel and release. Operators on the sweep side walk to a capsule-tested
+lateral stance; operators on the opposite side retain their original stance.
+Original crossing targets, closed-door barriers, full-open stops and collision
+masks remain unchanged. Failed operator placements are retained as diagnostics.
+This test writes no schema-2 contract and grants no ledger promotion.
+
+## Static integration corrections and next work
+
+The preliminary board exposed two failures. The digest cache now preserves
+lightweight Evidence callers by giving them a local cache and a full end
+recheck. The existing spatial-evidence tests and eight cache tests pass.
+The heating authoring source now includes the nineteenth installed emitter;
+all seven authoring projections match without changing runtime heating bytes.
+Its eight projection tests pass. Neither fix changes loaded production or
+surface inputs, so no completed runtime receipt was repinned or replaced.
+
+The source fingerprint has 4,815 files and matches tracked-only discovery.
+A reviewed three-column casting study is preserved separately in local commit
+**23962f62**, with 77 independent native checks and portable material links.
+It is not installed and does not replace the current radiator body or valves.
+
+Next related build work includes lighting the restored front spaces, improving
+casting and coating detail, modernizing the legacy household save regression,
+resolving the seven shutdown Texture RID warnings and migrating acoustic
+ownership. An apparent compact-HUD truncation was a partially printed title:
+the label follows the typewriter's current ink. No anchoring defect or HUD
+source change is inferred from that frame. Whole-game artistic, performance,
+navigation, listening and human acceptance remain open.

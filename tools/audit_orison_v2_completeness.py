@@ -1048,6 +1048,8 @@ def parse_composition_claims(text: str) -> list[dict]:
 
 class Evidence:
     def __init__(self, inputs: Inputs, model: V2Model):
+        provided_digests = getattr(inputs, "digests", None)
+        digests = provided_digests or _InputDigests(inputs.root)
         self.by_token: dict[str, list[dict]] = {}
         self.stale: list[dict] = []
         self.docs: list[dict] = []
@@ -1081,7 +1083,7 @@ class Evidence:
                     try:
                         receipt = json.loads(path.read_text(encoding="utf-8"))
                         problems = validate_access(receipt, inputs.root,
-                            inputs.digests.get("runtime"), inputs.digests.get("surface"))
+                            digests.get("runtime"), digests.get("surface"))
                     except (OSError, ValueError, KeyError) as exc:
                         problems = [str(exc)]
                     if problems:
@@ -1218,6 +1220,9 @@ class Evidence:
             if record.get("disposition") == "MUST_PRESERVE_ID" and \
                     record.get("tier") in ("production", "data"):
                 self.manifest_preserved.add(record.get("token"))
+
+        if provided_digests is None:
+            digests.verify_unchanged()
 
     def tier_for(self, token: str):
         """Best committed proof tier for one identifier (exact only)."""

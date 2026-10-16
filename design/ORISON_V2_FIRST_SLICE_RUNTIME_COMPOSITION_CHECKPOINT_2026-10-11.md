@@ -2,10 +2,11 @@
 
 Evidence class: **CHECKPOINT**. Executed runtime authority proof.
 
-Requalified after physical fuse repair on 2026-10-13: current
-test-written authority contract passes 115 checks, including save/load
-reconstruction and both-world teardown. Completed wrapper:
-**art/renders/orison_v2/physical_fuse_20261013/firstslice.log.receipt.json**.
+Requalified after lobby heating on 2026-10-16: current test-written authority
+contract prints 133 passing checks, including save/load reconstruction and
+both-world teardown. The receipt serializes 132 because its final output-flush
+check follows serialization. Completed wrapper:
+**art/renders/orison_v2/heating_lobby_20261016/firstslice.log.receipt.json**.
 Status: **TECHNICAL PASS**, scoped to the seven authorities below.
 
 The disk comparison preserves the complete serialized job record and checks
@@ -19,7 +20,7 @@ The self-contained production test is
 receipt is **art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json**.
 The receipt binds the root test source and current production runtime inputs.
 The current wrapper above confirms completed execution without
-timeout. Final run: 115 checks, zero failures. An earlier parse-failed run is
+timeout. Current run: 133 printed checks, zero failures. An earlier parse-failed run is
 diagnostic only; it grants no proof.
 
 | Function | Composition | Authority | Durable/save owner | Teardown owner |

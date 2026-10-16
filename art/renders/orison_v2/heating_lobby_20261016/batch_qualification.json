@@ -1,0 +1,64 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Cross-check of seven separately executed and qualified schema-2 contracts; not a replacement runtime receipt. No whole-game or human acceptance.",
+  "runtime_inputs_sha256": "2c8e444b566865243fc2dc53537b0aa29208e5c95359ade28b3030ef632bdf65",
+  "suites": [
+    {
+      "suite": "surface",
+      "wrapper_completed": true,
+      "exit_code": 0,
+      "script_errors": 0,
+      "qualification": "PASS",
+      "wrapper_sha256": "e18eb6c1761b0115788d327170e5aa7797defa0feda3194d6d60ea5e88a881cb"
+    },
+    {
+      "suite": "firstslice",
+      "wrapper_completed": true,
+      "exit_code": 0,
+      "script_errors": 0,
+      "qualification": "PASS",
+      "wrapper_sha256": "e5f5ea7909415a519aec4de174a9aab73081bcbf43b56bc0983c9200a943c75c"
+    },
+    {
+      "suite": "save",
+      "wrapper_completed": true,
+      "exit_code": 0,
+      "script_errors": 0,
+      "qualification": "PASS",
+      "wrapper_sha256": "b75905bd0d312979c80231f993b9de4f488edca82b9d05db89acd9d695955473"
+    },
+    {
+      "suite": "apartments",
+      "wrapper_completed": true,
+      "exit_code": 0,
+      "script_errors": 0,
+      "qualification": "PASS",
+      "wrapper_sha256": "be83e7961ddff21cb14410d0cac8b87f7a356691c12303d6df962b5f7e31b298"
+    },
+    {
+      "suite": "remaining",
+      "wrapper_completed": true,
+      "exit_code": 0,
+      "script_errors": 0,
+      "qualification": "PASS",
+      "wrapper_sha256": "259e1fe7459837bcad4ee627b3313029b767d1b7e3d72eefca59c8a9e11c76c0"
+    },
+    {
+      "suite": "dumbwaiter",
+      "wrapper_completed": true,
+      "exit_code": 0,
+      "script_errors": 0,
+      "qualification": "PASS",
+      "wrapper_sha256": "192aff0b5235dec947cad53982f9dfca7c75ddb908f274f9414cda111db0c2d3"
+    },
+    {
+      "suite": "roof",
+      "wrapper_completed": true,
+      "exit_code": 0,
+      "script_errors": 0,
+      "qualification": "PASS",
+      "wrapper_sha256": "a887653d250504879af88332b823605c94f0b0d9444435a2bad2060255546f1b"
+    }
+  ],
+  "human_acceptance": false
+}

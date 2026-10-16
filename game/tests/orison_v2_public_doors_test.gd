@@ -1,5 +1,5 @@
 extends "res://tests/orison_v2_vertical_route_test.gd"
-## Exercise real E targeting and moving collision, from both sides of each leaf.
+## Exercise click-grab, mouse travel and release, from both sides of each leaf.
 const DOORS := ["F01_WATCH_MAIL_DOOR", "F01_MAIL_PACKAGE_DOOR", "F01_PACKAGE_COMMON_DOOR"]
 
 func _route() -> void:
@@ -61,21 +61,59 @@ func _route() -> void:
 	await _capture("continuous_reading_room_arrival")
 
 func _use(door: DoorProp, want_open: bool) -> bool:
+	# A narrow landing allows a lateral operating stance beside the latch.
+	# Keep the original crossing targets, but stand outside the leaf sweep
+	# while pulling it; walk back only after it reaches its physical stop.
+	var approach := player.global_position
+	var local_approach := door.to_local(approach)
+	var toward_swing: bool=local_approach.z*door.motion_target_angle(true)<0
+	var sidestep: bool=toward_swing and Vector2(local_approach.x,local_approach.z).length()<door.width+player._capsule.radius+.10
+	print("PUBLIC HAND APPROACH ",door.name," local=",local_approach," open_goal=",door.motion_target_angle(true)," sidestep=",sidestep)
+	if sidestep:
+		var operator := door.to_global(Vector3(door.width+.40,local_approach.y,signf(local_approach.z)*.75))
+		var standing := PhysicsShapeQueryParameters3D.new()
+		standing.shape=player._capsule;standing.transform=player.global_transform*player._shape.transform
+		standing.transform.origin+=operator-player.global_position+Vector3.UP*.02
+		standing.collision_mask=player.collision_mask;standing.exclude=[player.get_rid()]
+		var occupied: Array=world.get_world_3d().direct_space_state.intersect_shape(standing,4)
+		if not occupied.is_empty():
+			failures.append(str(door.name)+" operator stance is occupied: "+str(occupied))
+			return false
+		if not await _walk(world.adapter.root.to_local(operator)): return false
 	player.face_world_point(door._body.to_global(Vector3(door.width*.5,door.height*.5,0)))
 	await get_tree().physics_frame
-	player.use_primary_interaction()
-	player._update_prompt()
-	if not door._moving or not player._prompt.text.is_empty():
-		failures.append(str(door.name)+" moving leaf retains an unavailable player action")
+	await get_tree().physics_frame
+	var hand := preload("res://tests/heating_hand_driver.gd").new()
+	hand.player=player;add_child(hand)
+	hand.click()
+	if not player._grab.active() or player._grab.target.get("owner")!=door:
+		failures.append(str(door.name)+" actual click did not grab the physical leaf")
+		if player._grab.active():hand.click()
+		hand.free();return false
+	var picked: Dictionary=player._grab.target
+	var goal: float=door.motion_target_angle(want_open)
+	var moved: bool=await hand.move_to(goal)
+	if not moved:
+		var shape_node := door._body.get_child(0) as CollisionShape3D
+		var pose := door._body.transform
+		pose.basis=Basis(Vector3.UP,move_toward(float(picked.read.call()),goal,.025))
+		var query := PhysicsShapeQueryParameters3D.new()
+		query.shape=shape_node.shape;query.transform=door.global_transform*pose*shape_node.transform
+		query.collision_mask=door._body.collision_mask;query.exclude=[door._body.get_rid()];query.margin=.001
+		var blockers: Array=[]
+		for hit: Dictionary in world.get_world_3d().direct_space_state.intersect_shape(query,8):blockers.append(str(hit.collider.get_path()))
+		print("PUBLIC HAND BLOCKERS ",door.name," player_local=",door.to_local(player.global_position)," angle=",picked.read.call()," blockers=",blockers)
+	hand.click()
+	await get_tree().physics_frame
+	var released: bool=not player._grab.active() and not door._moving
+	var settled: bool=absf(float(picked.read.call())-goal)<.002 and door.open==want_open
+	var follows: bool=hand.follows_cursor
+	hand.free()
+	if not moved or not released or not settled or not follows:
+		failures.append(str(door.name)+" physical leaf input failed; want_open="+str(want_open)+" moved="+str(moved)+" released="+str(released)+" angle="+str(picked.read.call())+" goal="+str(goal))
 		return false
-	await _capture(str(door.name)+("_opening" if want_open else "_closing"))
-	for frame in 90:
-		await get_tree().physics_frame
-		if not door._moving: break
-	if door.open!=want_open or door._moving:
-		failures.append(str(door.name)+" real interaction failed; want_open="+str(want_open))
-		return false
-	player.face_world_point(door._body.to_global(Vector3(door.width*.5,door.height*.5,0)))
+	await _capture(str(door.name)+("_opened_by_hand" if want_open else "_closed_by_hand"))
+	if sidestep and not await _walk(world.adapter.root.to_local(approach)): return false
 	return true
 
 func _capture(label: String) -> void:

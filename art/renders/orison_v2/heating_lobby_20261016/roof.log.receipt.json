@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 173.49,
+  "exit_code": 0,
+  "finished_utc": "2026-10-16T23:14:52Z",
+  "started_utc": "2026-10-16T23:11:58Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "INSTALLED TANK PHYSICAL: PASS; 52 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-heating-next-20261016/roof_checkpoint.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-heating-next-20261016/roof_checkpoint.log",
+  "stdout_sha256": "54b5519f4499d53e00e7e97740798e37070600f0f1cd3cae3f95756405b35534"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/RoofTankInstalledTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-heating-next-20261016\\roof_checkpoint",
+ "source": {
+  "dirty_paths": 1435,
+  "dirty_sample": [
+   "M art/blender/v2_batch_workflow.md",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/heating_lobby_20261016/audit_performance/compare_audit_snapshot.py",
+   " M art/renders/orison_v2/remaining_apartments_20261013/runtime_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/boiler.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_gallery_03.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_restored_entrance.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_restored_mass.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/native_station_open.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/patrol_register_after_round.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/radiator.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/runtime_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/surface-inventory.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/technical_findings.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/visual_review.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json"
+  ],
+  "repository_head": "23962f62b541f1fa8ddd89735ea440fc3ab06d8d",
+  "repository_tree": "4d0528dccac768b7401f3cd436368da8ae47a90b",
+  "runtime_inputs_sha256": "2c8e444b566865243fc2dc53537b0aa29208e5c95359ade28b3030ef632bdf65",
+  "test_path": "game/tests/roof_tank_installed_test.gd",
+  "test_sha256": "6247c9af3822bcaee38bb50fbd8719a4ab03d9fa64f286f81603f8de6bb959d3"
+ },
+ "windowed": true
+}

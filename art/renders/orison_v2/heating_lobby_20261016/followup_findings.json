@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "status": "NEXT_BATCH_NOT_IMPLEMENTED",
+  "findings": [
+    {
+      "id": "front_room_lighting",
+      "evidence": "front_lighting_next.json",
+      "description": "Twenty restored front spaces have no explicit fixtures in the current lighting rosters. Prioritize galleries and waiting bay; narrow storage alcoves can receive appropriate spill. Reuse accepted native fixture family, add physical supply and retained room controls."
+    },
+    {
+      "id": "handheld_hud_clip",
+      "evidence": "save_checkpoint/installed_register.png",
+      "description": "The compact label mirrors teletype.ink.text, which is progressively printed. Earlier frame caught the title before its final character; later capture displays the full title. No anchoring change justified.",
+      "status": "RESOLVED_NOT_A_DEFECT"
+    },
+    {
+      "id": "household_save_regression_debt",
+      "evidence": "game/tests/orison_v2_household_state_test.gd",
+      "description": "Legacy test hardcodes 210 saved controls and predates generic mechanisms and the lobby emitter. Replace fixed obsolete census and old player-toggle proof with source-roster and actual manipulation/reconstruction coverage; do not claim this stale test passes."
+    }
+  ]
+}
