@@ -1,13 +1,15 @@
 """Native cast watch-station stock. Godot metres; original mechanisms remain owners."""
 from pathlib import Path
-import math,json
+import math,json,os
 import bpy,bmesh
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
+OUTPUT=Path(os.environ['WATCH_STATION_OUTPUT_ROOT']) if os.environ.get('WATCH_STATION_OUTPUT_ROOT') else None
+if OUTPUT:OUTPUT.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.context.preferences.filepaths.save_version=0
 materials={}
-for key in ['iron_neutral','brass_dull','enamel_appliance','indicator_enamel','iron_blackened']:
+for key in ['iron_neutral','washer_brass','enamel_appliance','indicator_enamel','iron_blackened']:
  m=bpy.data.materials.new(key);m.use_nodes=True;materials[key]=m
 def b(v):return (v[0],-v[2],v[1])
 def cube(size,at=(0,0,0),radius=.001):
@@ -22,7 +24,7 @@ def cyl(radius,height,at=(0,0,0)):
  mod=o.modifiers.new('Machined rim','BEVEL');mod.width=min(.001,height*.15);mod.segments=3;bpy.ops.object.modifier_apply(modifier=mod.name)
  return o
 def stock(name,objects,key):
- if name in ['StationCase','DoorLeaf','DoorSash','TourKeySocket','HingeBarrel']:
+ if name in ['StationCase','DoorLeaf','DoorSash','TourKeySocket','HingeBarrel','CrankLockStop','LockoutGuide','LockoutBracket']:
   base=objects[0];bpy.context.view_layer.objects.active=base
   for other in objects[1:]:
    mod=base.modifiers.new('Continuous cast union','BOOLEAN');mod.operation='UNION';mod.solver='EXACT';mod.object=other
@@ -35,6 +37,9 @@ def stock(name,objects,key):
  o.name=name;o.data.materials.clear();o.data.materials.append(materials[key])
  bm=bmesh.new();bm.from_mesh(o.data)
  if name=='StationConduit':bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-7)
+ if name.startswith('Transmission'):
+  bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-7)
+  bmesh.ops.dissolve_degenerate(bm,edges=list(bm.edges),dist=1e-8)
  bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
  mod=o.modifiers.new('Stable triangle charts','TRIANGULATE');bpy.ops.object.modifier_apply(modifier=mod.name)
  o.data.update()
@@ -70,18 +75,88 @@ for i in range(4):
 mesh=bpy.data.meshes.new('SashCasting');mesh.from_pydata(vertices,[],faces);mesh.update();o=bpy.data.objects.new('SashCasting',mesh);bpy.context.collection.objects.link(o)
 stock('DoorSash',[o],'iron_neutral')
 box('StationPlate',(.156,.044,.004),'enamel_appliance',.001)
-box('LatchSpring',(.014,.030,.010),'brass_dull',.001)
-stock('DoorHandle',[cyl(.008,.040)],'brass_dull')
+box('LatchSpring',(.014,.030,.010),'washer_brass',.001)
+stock('DoorHandle',[cyl(.008,.040)],'washer_brass')
 # Recessed keyway with a dark back; no fictional tour key is added.
 stock('TourKeySocket',[cube((.034,.007,.010),(0,-.0135,0),.0005),cube((.034,.007,.010),(0,.0135,0),.0005),
  cube((.014,.020,.010),(-.010,0,0),.0005),cube((.014,.020,.010),(.010,0,0),.0005)],'iron_neutral')
 box('SocketKeyway',(.006,.020,.0005),'iron_blackened',.0001,(0,0,-.011))
 stock('CrankBoss',[cyl(.016,.014)],'iron_neutral')
 box('CrankArm',(.014,.066,.010),'iron_neutral',.002)
-stock('CrankGrip',[cyl(.008,.020)],'brass_dull')
+stock('CrankGrip',[cyl(.008,.020)],'washer_brass')
 stock('WheelDisc',[cyl(.030,.008)],'iron_neutral')
-box('WheelTooth',(.007,.014,.009),'brass_dull',.0007)
-box('PawlArm',(.038,.008,.008),'brass_dull',.001)
+box('WheelTooth',(.007,.014,.009),'washer_brass',.0007)
+box('PawlArm',(.022,.008,.008),'washer_brass',.0005)
+stock('LockoutGuide',[
+ cube((.010,.0045,.018),(0,-.00675,0),.0003),
+ cube((.010,.0045,.018),(0,.00675,0),.0003),
+ cube((.010,.009,.0045),(0,0,-.00675),.0003),
+ cube((.010,.009,.0045),(0,0,.00675),.0003)],'iron_neutral')
+# Backplate seated foot and two columns carry the guide, clear of the gear plane.
+stock('LockoutBracket',[cube((.016,.045,.005),(0,0,-.038),.0005),
+ cube((.008,.008,.030),(0,-.014,-.0205),.0005),
+ cube((.008,.008,.030),(0,.014,-.0205),.0005),
+ cube((.010,.036,.004),(0,0,-.007),.0005)],'iron_neutral')
+# A three-wheel, equal-ratio transmission occupies the rear mechanism plane.
+# True involute flanks (20 degree pressure angle) retain running backlash;
+# the coded wheel and its station-number teeth remain a separate front part.
+teeth=24
+pitch_radius=math.hypot(.052+.030,.198-.120)/4
+module=2*pitch_radius/teeth
+base_radius=pitch_radius*math.cos(math.radians(20))
+root_radius=pitch_radius-1.25*module
+tip_radius=pitch_radius+module
+def involute(radius):
+ t=math.sqrt(max(0,(radius/base_radius)**2-1));return t-math.atan(t)
+half_width=math.pi/(2*teeth)-.003
+pitch_involute=involute(pitch_radius)
+profile=[]
+for i in range(teeth):
+ center=math.tau*i/teeth
+ def point(radius,angle):return (radius*math.cos(angle),radius*math.sin(angle))
+ profile.append(point(root_radius,center-math.pi/teeth))
+ width=half_width+pitch_involute
+ profile.append(point(root_radius,center-width))
+ for j in range(9):
+  radius=base_radius+(tip_radius-base_radius)*j/8
+  profile.append(point(radius,center-(half_width+pitch_involute-involute(radius))))
+ tip_width=half_width+pitch_involute-involute(tip_radius)
+ for j in range(1,5):profile.append(point(tip_radius,center-tip_width+2*tip_width*j/4))
+ for j in range(7,-1,-1):
+  radius=base_radius+(tip_radius-base_radius)*j/8
+  profile.append(point(radius,center+(half_width+pitch_involute-involute(radius))))
+ profile.append(point(root_radius,center+width))
+def axial_ring(name,outline,bore,depth,key):
+ # Face charts are authored in stock(); each annular strip is solid on all sides.
+ count=len(outline);verts=[]
+ for z in [-depth/2,depth/2]:
+  for inner in [False,True]:
+   for x,y in outline:
+    scale=bore/math.hypot(x,y) if inner else 1
+    verts.append(b((x*scale,y*scale,z)))
+ faces=[]
+ for i in range(count):
+  j=(i+1)%count
+  faces.extend([(i,j,count+j,count+i),(2*count+i,3*count+i,3*count+j,2*count+j),
+                (i,2*count+i,2*count+j,j),(count+i,count+j,3*count+j,3*count+i)])
+ mesh=bpy.data.meshes.new(name);mesh.from_pydata(verts,[],faces);mesh.update()
+ obj=bpy.data.objects.new(name,mesh);bpy.context.collection.objects.link(obj)
+ bpy.context.view_layer.objects.active=obj
+ bevel=obj.modifiers.new('Machined edge break','BEVEL');bevel.width=.00012;bevel.segments=2
+ bpy.ops.object.modifier_apply(modifier=bevel.name)
+ return stock(name,[obj],key)
+axial_ring('TransmissionGear',profile,.0038,.006,'washer_brass')
+circle=lambda radius:[(radius*math.cos(math.tau*i/64),radius*math.sin(math.tau*i/64)) for i in range(64)]
+axial_ring('TransmissionBearing',circle(.009),.0036,.010,'washer_brass')
+axial_ring('TransmissionCollar',circle(.006),.0036,.003,'iron_blackened')
+disc=axial_ring('StopDisc',circle(.014),.0038,.006,'iron_neutral')
+stock('CrankLockStop',[disc,cube((.008,.010,.006),(.016,0,0),.0003)],'iron_neutral')
+# Shafts are closed solids, with their local Z axis passing through each bore.
+for name,length in [('TransmissionShaft',.054),('TransmissionIdlerShaft',.034)]:
+ shaft=cyl(.0035,length);shaft.rotation_euler.x=math.pi/2
+ bpy.context.view_layer.objects.active=shaft
+ bpy.ops.object.transform_apply(location=False,rotation=True,scale=False)
+ stock(name,[shaft],'iron_neutral')
 box('DropFlag',(.064,.076,.005),'indicator_enamel',.001)
 box('DropFace',(.050,.060,.003),'indicator_enamel',.0005)
 # Real bent conduit. Coordinates are local to the retained StationConduit node.
@@ -95,7 +170,7 @@ for point,p in zip(spline.points,points):point.co=(*b(p),1)
 o=bpy.data.objects.new('StationConduit',curve);bpy.context.collection.objects.link(o);bpy.context.view_layer.objects.active=o;o.select_set(True)
 bpy.ops.object.convert(target='MESH');stock('StationConduit',[o],'iron_neutral')
 # Coaxial hinge stock fits the existing door pivot, without enlarging the case.
-stock('HingeBarrel',[cyl(.004,.024),cube((.008,.020,.012),(.006,0,.007),.0005)],'brass_dull')
+stock('HingeBarrel',[cyl(.004,.024),cube((.008,.020,.012),(.006,0,.007),.0005)],'washer_brass')
 box('DoorGlass',(.130,.090,.004),'iron_neutral',.0002)
 for o in bpy.context.scene.objects:
  if o.type=='MESH' and o.name in ['DoorLeaf','DoorSash','StationPlate','LatchSpring','DoorHandle','DoorGlass']:
@@ -111,6 +186,8 @@ for o in bpy.context.scene.objects:
  metrics[o.name]={'triangles':len(o.data.loop_triangles),'degenerate_uv':bad,'nonmanifold_edges':edges,'volume_m3':volume}
  assert edges==0 and volume>0,(o.name,edges,volume)
  assert not bad,(o.name,bad)
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/watch_stations.blend'))
-bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/watch_stations.glb'),export_format='GLB',export_yup=True,export_materials='EXPORT')
-(ROOT/'tmp/v2-next-batch-20261011/native-uv.json').write_text(json.dumps(metrics,indent=2)+'\n',encoding='utf8')
+bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT/'watch_stations.blend' if OUTPUT else ROOT/'art/blender/watch_stations.blend'))
+bpy.ops.export_scene.gltf(filepath=str(OUTPUT/'watch_stations.glb' if OUTPUT else ROOT/'game/assets/props/watch_stations.glb'),export_format='GLB',export_yup=True,export_materials='EXPORT')
+metrics_path=OUTPUT/'native-uv.json' if OUTPUT else ROOT/'tmp/v2-next-batch-20261011/native-uv.json'
+metrics_path.parent.mkdir(parents=True,exist_ok=True)
+metrics_path.write_text(json.dumps(metrics,indent=2)+'\n',encoding='utf8')

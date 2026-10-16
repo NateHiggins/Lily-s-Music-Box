@@ -1,0 +1,145 @@
+{
+	"checks": 26,
+	"contracts": {
+		"direct_manipulation": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 255.05,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"observations": [
+		{
+			"label": "installed V2 world constructs",
+			"ok": true
+		},
+		{
+			"label": "installed register has native controls",
+			"ok": true
+		},
+		{
+			"label": "household discovers actual installed register",
+			"ok": true
+		},
+		{
+			"label": "production work orders issue report",
+			"ok": true
+		},
+		{
+			"label": "installed report lifts through pointer input",
+			"ok": true
+		},
+		{
+			"label": "installed key lifts through pointer input",
+			"ok": true
+		},
+		{
+			"label": "carried report and key recorded",
+			"ok": true
+		},
+		{
+			"label": "real save writes pending round",
+			"ok": true
+		},
+		{
+			"label": "save captures installed pending round",
+			"ok": true
+		},
+		{
+			"label": "pending save loads from disk",
+			"ok": true
+		},
+		{
+			"label": "installed V2 world constructs",
+			"ok": true
+		},
+		{
+			"label": "installed register has native controls",
+			"ok": true
+		},
+		{
+			"label": "fresh world restores report and key custody",
+			"ok": true
+		},
+		{
+			"label": "reconstruction preserves acknowledgement without filing",
+			"ok": true
+		},
+		{
+			"label": "restored key can be physically returned",
+			"ok": true
+		},
+		{
+			"label": "restored report can be physically returned",
+			"ok": true
+		},
+		{
+			"label": "restored round accepts physical conclusion selection",
+			"ok": true
+		},
+		{
+			"label": "installed pen grabs for filing",
+			"ok": true
+		},
+		{
+			"label": "installed writing creates one original signature",
+			"ok": true
+		},
+		{
+			"label": "signature commit writes closed round and blank selector atomically",
+			"ok": true
+		},
+		{
+			"label": "installed V2 world constructs",
+			"ok": true
+		},
+		{
+			"label": "installed register has native controls",
+			"ok": true
+		},
+		{
+			"label": "fresh signed world retains exactly one closed filing",
+			"ok": true
+		},
+		{
+			"label": "reconstruction restores no transient grab",
+			"ok": true
+		},
+		{
+			"label": "installed register capture writes successfully",
+			"ok": true
+		},
+		{
+			"label": "runtime inputs remain unchanged throughout reconstruction",
+			"ok": true
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "installed night-register pointer manipulation, real disk save, atomic filing and two fresh-world reconstructions; no other patrol mechanism acceptance",
+	"selector": "v2",
+	"source": {
+		"runtime_inputs_sha256": "62052654258bd737f42f9b47ef7ef60db18638f9c2c5ea6517b455a0aa372a4c",
+		"test_path": "game/tests/patrol_installed_save_test.gd",
+		"test_sha256": "5e6d9efd4b922b0ebab477e1b0715e55a422ae9d966a441473df3cd5c980fa2c",
+		"test_sources": {
+			"game/tests/night_register_hand_test.gd": "e6e2bb0b14a8e36f9e779eeb940236437dc1d29978ca308086850d8db3f4ce1e",
+			"game/tests/patrol_installed_save_test.gd": "5e6d9efd4b922b0ebab477e1b0715e55a422ae9d966a441473df3cd5c980fa2c",
+			"game/tests/watch_station_hand_test.gd": "c7550103724b10bd420a419940a0768c6806bcc4b127ae3eedb52913ab127e99"
+		}
+	}
+}

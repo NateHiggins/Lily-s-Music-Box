@@ -1,0 +1,269 @@
+{
+	"checks": [
+		{
+			"label": "production V2 starts with physical tank controls",
+			"ok": true
+		},
+		{
+			"label": "click acquires actual stop wheel",
+			"ok": true
+		},
+		{
+			"label": "grab does not toggle or open overlay",
+			"ok": true
+		},
+		{
+			"label": "Space inspects the exposed mechanism",
+			"ok": true
+		},
+		{
+			"label": "weight remains movable before repairing float",
+			"ok": true
+		},
+		{
+			"label": "full weight travel is physical even with waterlogged float",
+			"ok": true
+		},
+		{
+			"label": "maximum leverage cannot hide the buoyancy fault",
+			"ok": true
+		},
+		{
+			"label": "float can be selected independently",
+			"ok": true
+		},
+		{
+			"label": "live riser refuses float withdrawal",
+			"ok": true
+		},
+		{
+			"label": "wheel can be reacquired",
+			"ok": true
+		},
+		{
+			"label": "wheel preserves intermediate rotation",
+			"ok": true
+		},
+		{
+			"label": "partial state validates",
+			"ok": true
+		},
+		{
+			"label": "partial rotation survives serialization",
+			"ok": true
+		},
+		{
+			"label": "restored wheel selectable",
+			"ok": true
+		},
+		{
+			"label": "clockwise turns close the riser",
+			"ok": true
+		},
+		{
+			"label": "isolation does not certify repair",
+			"ok": true
+		},
+		{
+			"label": "isolated float selectable",
+			"ok": true
+		},
+		{
+			"label": "mouse lifts float along guide",
+			"ok": true
+		},
+		{
+			"label": "held-clear float drains",
+			"ok": true
+		},
+		{
+			"label": "float returned to working position",
+			"ok": true
+		},
+		{
+			"label": "captive lever weight selectable",
+			"ok": true
+		},
+		{
+			"label": "weight slides along lever",
+			"ok": true
+		},
+		{
+			"label": "leverage alone cannot certify isolated tank",
+			"ok": true
+		},
+		{
+			"label": "indicator is an independently selectable slide",
+			"ok": true
+		},
+		{
+			"label": "indicator follows hand along its gauge",
+			"ok": true
+		},
+		{
+			"label": "supply wheel selectable for reopening",
+			"ok": true
+		},
+		{
+			"label": "counterclockwise turns restore supply",
+			"ok": true
+		},
+		{
+			"label": "sustained physical hold publishes repair",
+			"ok": true
+		},
+		{
+			"label": "repair publication does not snap the physical indicator",
+			"ok": true
+		},
+		{
+			"label": "wheel rim follows the direction of mouse travel",
+			"ok": true
+		},
+		{
+			"label": "inspection camera remains fixed",
+			"ok": true
+		},
+		{
+			"label": "nonfinite save rejected",
+			"ok": true
+		},
+		{
+			"label": "inspection restores ordinary lens",
+			"ok": true
+		},
+		{
+			"label": "household authority records physical tank repair",
+			"ok": true
+		},
+		{
+			"label": "repaired wheel reacquired for partial save",
+			"ok": true
+		},
+		{
+			"label": "physical wheel left partly turned before save",
+			"ok": true
+		},
+		{
+			"label": "household accepts new tank mechanism schema",
+			"ok": true
+		},
+		{
+			"label": "tank partial positions written to actual save file",
+			"ok": true
+		},
+		{
+			"label": "old tank and physical controller retire",
+			"ok": true
+		},
+		{
+			"label": "fresh world accepts tank disk schema",
+			"ok": true
+		},
+		{
+			"label": "fresh tank resolves saved physical schema",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains float_waterlogged",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains riser_open",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains weight_set",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains tell_tale",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains float_lift",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains ballcock_serviced",
+			"ok": true
+		},
+		{
+			"label": "reconstruction retains stop_angle",
+			"ok": true
+		},
+		{
+			"label": "reconstructed repair retains actual holding supply",
+			"ok": true
+		},
+		{
+			"label": "reconstructed hand controller retires",
+			"ok": true
+		},
+		{
+			"label": "runtime inputs unchanged during proof",
+			"ok": true
+		},
+		{
+			"label": "both worlds release observed nodes, tank shapes/controller and audio playbacks",
+			"ok": true
+		}
+	],
+	"contracts": {
+		"physical_interaction": {
+			"executed": true,
+			"identities": [
+				"ROOF_TANK_BALLCOCK"
+			],
+			"status": "PASS"
+		},
+		"premature_action_denial": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"identities": [
+				"ROOF_TANK_BALLCOCK"
+			],
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"resource_scope": "Unpathed tank collision shapes and tank hand controllers; shared imported caches excluded.",
+			"retained_nodes": 0,
+			"retained_playbacks": 0,
+			"retained_resources": 0,
+			"status": "PASS",
+			"tracked_nodes": 119056,
+			"tracked_playbacks": 201,
+			"tracked_resources": 12
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 163.72,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": 0,
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Installed roof tank: actual click, constrained motion, release and static inspection, guarded repair, partial-state disk save, destroy and fresh V2 reconstruction. One standing placement; no continuous route or human visual acceptance claim.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "e2ffefd8efb30354c3ad0c3518c43204de9226f8",
+		"runtime_inputs_sha256": "62052654258bd737f42f9b47ef7ef60db18638f9c2c5ea6517b455a0aa372a4c",
+		"test_dependencies": {
+			"game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678"
+		},
+		"test_path": "game/tests/roof_tank_installed_test.gd",
+		"test_sha256": "6247c9af3822bcaee38bb50fbd8719a4ab03d9fa64f286f81603f8de6bb959d3"
+	}
+}

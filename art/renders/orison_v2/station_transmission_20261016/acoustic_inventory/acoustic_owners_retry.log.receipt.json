@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 112.53,
+  "exit_code": 0,
+  "finished_utc": "2026-10-16T18:19:58Z",
+  "started_utc": "2026-10-16T18:18:05Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-station-transmission-20261016/acoustic_owners_retry.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-station-transmission-20261016/acoustic_owners_retry.log",
+  "stdout_sha256": "51d257cb53c3ae470638ea8444cfcd783776a291be2e35c0244049aafe2061a7"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-station-transmission-20261016/acoustic_owners_retry",
+ "source": {
+  "dirty_paths": 1427,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/scripts/build_watch_stations.py",
+   " M art/blender/scripts/review_watch_stations.py",
+   " M art/blender/watch_stations.blend",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/physical_dumbwaiter_20261013/runtime_contract.json",
+   " M art/renders/orison_v2/physical_roof_tank_20261013/runtime_contract.json",
+   " M art/renders/orison_v2/remaining_apartments_20261013/runtime_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_gallery_02.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_gallery_03.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_gallery_06.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_restored_entrance.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_restored_mass.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/native_station_marked.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/native_station_open.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/patrol_register_after_round.png"
+  ],
+  "repository_head": "e2ffefd8efb30354c3ad0c3518c43204de9226f8",
+  "repository_tree": "463395c96fe010357f5c9224885c597585527cd4",
+  "runtime_inputs_sha256": "62052654258bd737f42f9b47ef7ef60db18638f9c2c5ea6517b455a0aa372a4c",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": true
+}

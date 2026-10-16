@@ -37,7 +37,17 @@ func click() -> void:
 func acquire(key: String) -> bool:
 	var part: Node3D=station._door if key=="door" else station._crank
 	var point: Vector3=part.to_global(Vector3(.196,-.06,.025) if key=="door" else Vector3(0,.056,.025))
-	if player.inspecting(): Input.warp_mouse(player.camera.unproject_position(point))
+	if player.inspecting():
+		var cursor := player.camera.unproject_position(point)
+		Input.warp_mouse(cursor)
+		# The OS warp is asynchronous. Let its motion arrive before grabbing;
+		# otherwise it can become a second, opposite gesture on the held crank.
+		for frame in 12:
+			await get_tree().process_frame
+			if get_viewport().get_mouse_position().distance_to(cursor)<2.0: break
+		if get_viewport().get_mouse_position().distance_to(cursor)>=2.0:
+			print("STATION CURSOR DID NOT SETTLE wanted=",cursor," actual=",get_viewport().get_mouse_position())
+			return false
 	else: player.camera.look_at(point)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
@@ -63,10 +73,13 @@ func move_to(goal: float) -> bool:
 		event.relative=screen*clampf(goal-value,-.15 if target.kind=="hinge" else -.04,.15 if target.kind=="hinge" else .04)
 		var before_screen: Vector2=player.camera.unproject_position(point)
 		player._unhandled_input(event)
+		var dispatched_value: float=target.read.call()
 		await get_tree().physics_frame
 		if not depth_gesture and target.kind=="hinge" and absf(float(target.read.call())-value)>.001:
 			var after_screen: Vector2=player.camera.unproject_position(target.part.to_global(player._grab.contact))
-			if (after_screen-before_screen).dot(event.relative)<0: follows_cursor=false
+			if (after_screen-before_screen).dot(event.relative)<0:
+				follows_cursor=false
+				print("HAND DIRECTION MISMATCH part=",target.part.name," before=",value," dispatched=",dispatched_value," after_frame=",target.read.call()," gesture=",event.relative," projected=",after_screen-before_screen)
 	return false
 
 func _ready() -> void:
@@ -115,8 +128,15 @@ func _run() -> void:
 	guard.take_key()
 	check(await acquire("crank"),"carried tour key permits crank grab")
 	check(await move_to(PI),"mouse winds half a revolution")
+	check(is_equal_approx(station._wheel.rotation.z,-PI),"coded wheel follows the actual partial crank stroke")
+	check(station._transmission.size()==3,"native three-wheel transmission is installed")
+	check(is_equal_approx(station._transmission[0].rotation.z,-PI)
+		and is_equal_approx(station._transmission[2].rotation.z,-PI),"input and output wheels turn with their shafts")
+	check(is_equal_approx(station._transmission[1].rotation.z,2.0*atan2(-.078,-.082)-PI/24.0+PI),"idler reverses with meshed tooth phase")
 	click()
 	check(line.mark_count()==0 and not station.drop_fallen,"partial crank stroke does not mark")
+	check(not station.reset_station() and is_equal_approx(station.crank_angle,PI)
+		and is_equal_approx(station._wheel.rotation.z,-PI),"refused supervisor reset preserves partial mechanical position")
 	check(await acquire("crank"),"grab before inspection")
 	var inspect_event := InputEventKey.new()
 	inspect_event.keycode=KEY_SPACE;inspect_event.physical_keycode=KEY_SPACE;inspect_event.pressed=true
@@ -134,6 +154,8 @@ func _run() -> void:
 	check(await acquire("crank"),"restored crank can be reacquired")
 	check(await move_to(TAU),"complete deliberate clockwise stroke")
 	check(line.mark_count()==1 and station.drop_fallen,"full stroke emits exactly one guarded network record")
+	check(station._crank.has_node("CrankLockStop") and station.has_node("LockoutGuide"),"native crank stop and bored lockout guide are installed")
+	check(station._counter.position.is_equal_approx(Vector3(.0832,.198,.070)),"completed stroke seats lockout bar against crank stop")
 	click()
 	check(line.mark_count()==1,"release cannot duplicate mark")
 	check(await acquire("crank"),"locked crank remains tangible")

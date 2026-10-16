@@ -1,0 +1,41 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Decoded local triangle positions rounded to 0.00001m by semantic node name. Does not compare materials, runtime transforms or appearance.",
+  "base": "e2ffefd8",
+  "unchanged": [
+    "CaseBead",
+    "CaseLining",
+    "CrankArm",
+    "CrankBoss",
+    "CrankGrip",
+    "DoorGlass",
+    "DoorHandle",
+    "DoorLeaf",
+    "DoorSash",
+    "DropFace",
+    "DropFlag",
+    "HingeBarrel",
+    "LatchSpring",
+    "SocketKeyway",
+    "StationCase",
+    "StationConduit",
+    "StationPlate",
+    "TourKeySocket",
+    "WheelDisc",
+    "WheelTooth"
+  ],
+  "changed": [
+    "PawlArm"
+  ],
+  "added": [
+    "CrankLockStop",
+    "LockoutBracket",
+    "LockoutGuide",
+    "TransmissionBearing",
+    "TransmissionCollar",
+    "TransmissionGear",
+    "TransmissionIdlerShaft",
+    "TransmissionShaft"
+  ],
+  "removed": []
+}

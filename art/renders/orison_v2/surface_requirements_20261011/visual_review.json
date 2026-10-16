@@ -1,42 +1,47 @@
 {
-  "surface_inputs_sha256": "a840529261133eda8bd2615951474936b7fd752a97ac041ecc96438fe31d990c",
+  "surface_inputs_sha256": "10560aeea766ec7281a466efab7ce683d6d9239a0b74b9e71bce2a87f691cfa7",
   "status": "PASS",
-  "scope": "Technical surface rendering review of fresh composed-world views and installed patrol fixtures. Whole-world UV/PBR/mipmap census is separate runtime evidence. Photoreal finish, mechanical polish, every-room visual review and human acceptance remain incomplete.",
+  "scope": "Technical rendered continuity and station assembly review of these fresh captures. Runtime UV/PBR/mipmap qualification is separate. Whole-world photoreal finish and human acceptance remain incomplete.",
   "images": [
     {
       "file": "front_gallery_02.png",
-      "sha256": "0ea858aac9d8994db4a3e7d6a4731677e371a024a5e6ee6ac870604f289187ba",
-      "observation": "Fresh enclosed gallery: four fitted window treatments, continuous wainscot/baseboard and floor surfaces visible. Dark lighting limits fine-grain judgment; no final aesthetic acceptance."
+      "sha256": "4f654f5549306fb97590aa3d9cba07744e2b7ff395a812c938dc0164fecf527f",
+      "observation": "Fresh composed gallery has continuous paneling, baseboard and tiled floor with four fitted windows and treatments. Dark lighting limits fine finish review; sparse furnishing remains."
     },
     {
       "file": "front_gallery_03.png",
-      "sha256": "b2567a5fd8bca6cd367ddb775304ab6c497d577adc4f8acee78a7540eb13b911",
-      "observation": "Fresh gallery shows continuous ceiling, wall panels and framed windows with slat shadows across the floor. Technical continuity review only."
+      "sha256": "8513829611ce0bedde63b81996eb24abace7a9e2d6dd75fd1823118e8ba9b757",
+      "observation": "Fresh gallery renders framed windows, slat shadows and continuous wall/floor surfaces. This is technical continuity review, not final aesthetic acceptance."
     },
     {
       "file": "front_gallery_06.png",
-      "sha256": "0842468ac8e7850af6c8e0611ab5f9c60e228af0bda6eedfa8dd46490caad3ea",
-      "observation": "Upper gallery has visible roof girders, continuous wall/floor enclosure and fitted windows. Sparse furnishing and dark lighting remain world-polish work."
+      "sha256": "a8ee59bad3d2821125b82b1c1803e0d3613b6f6c231f9a22d506e5fb654d2981",
+      "observation": "Upper gallery shows roof girders, enclosed walls and fitted windows. Sparse furnishing and dark lighting remain visual work."
     },
     {
       "file": "front_restored_mass.png",
-      "sha256": "63701bbc459dcfe41efd95449da41ecd3e0e80c3052d742e563b8ba86a4b3d44",
-      "observation": "Fresh whole front elevation has continuous brick mass and aligned window bands, with retained entrance and fire escape. Surrounding scene and final artistic quality remain outside this review."
+      "sha256": "7c0c0b65941c2092be867f764307770bf1289e6339955bca0950cbcab4cec31c",
+      "observation": "Fresh elevation retains continuous brick mass, aligned window bands, entrance and fire escape. Surrounding neighborhood finish remains incomplete."
     },
     {
       "file": "front_restored_entrance.png",
-      "sha256": "0c012262f5b1de8bec66d50465b1043796a0c94bc6803ab06ceafa3f9753ac15",
-      "observation": "Fresh close entrance has seated canopy supports, framed door and masonry reveals; mapped surfaces render without missing-texture placeholders. Repetition and finish richness still require artistic polish."
+      "sha256": "541ff3be241ac936eba3b9f2a1386bbd682901451492dd3a1b789ecd185affd2",
+      "observation": "Fresh close entrance renders mapped brick, framed door, canopy and seated supports without missing-texture placeholders. Finish repetition and final artistic quality remain open."
+    },
+    {
+      "file": "native_station_open.png",
+      "sha256": "4551c5e56e0c16abb74b34cde6087472b95f9584050e4a6de100c2850ac9ccfe",
+      "observation": "Installed open station shows native gears, shafts, bright working brass, case lining and raised flag. Wiring/contact detailing and final photoreal acceptance remain open."
+    },
+    {
+      "file": "native_station_marked.png",
+      "sha256": "f10613848e6244b6f4ecff1c52e4b95dc3da2992f92c8aead385a5b96c3832fb",
+      "observation": "Installed marked station shows the seated lockout bar by the crank and lowered flag while the native gear train remains fitted. Scope is visible assembly, not full mechanism fabrication proof."
     },
     {
       "file": "patrol_register_after_round.png",
-      "sha256": "ff54cb39c9c5fdb708a3983a26205d15d2878ff4a2bf4ebd9d5cf1aac3f56681",
-      "observation": "Installed register shows all seven drops and counter 007 after the physical patrol; wall fitting and native instrument surfaces render. Fine linkage and finish polish remain open."
-    },
-    {
-      "file": "patrol_night_register.png",
-      "sha256": "9997761beb878693d00e6ad623032d9133a74b7bb3ca623c4af55117b7fe5fee",
-      "observation": "Installed desk, returned keys and signed book render after real disk reconstruction. UV wood remains repetitive/orange under the lamp; this is technical surface review, not photoreal acceptance."
+      "sha256": "841aff6d8d7095db12bd14b4210816e6133a4bd886f162958ff8d78c3140ebe1",
+      "observation": "Fresh installed register shows seven delivered drops and counter 007 following the patrol. Native surfaces render; sparse linkage and repetitive wood remain visual work."
     }
   ]
 }

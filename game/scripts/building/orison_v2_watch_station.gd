@@ -8,6 +8,7 @@ var door_angle := 0.0
 var crank_angle := 0.0
 var held_part := ""
 var _hand_ready := false
+var _transmission: Array[MeshInstance3D] = []
 func _build_visual() -> void:
 	super()
 	if _stock.is_empty():
@@ -20,15 +21,38 @@ func _build_visual() -> void:
 		if _stock.has(label):draw.mesh=_stock[label];native_parts+=1
 		elif label.begins_with("CaseCheek") or label=="ConduitElbow":draw.mesh=null
 		elif draw.mesh is BoxMesh and draw.mesh.size.is_equal_approx(Vector3(.240,.020,.120)):draw.mesh=null
+		if label in ["LatchSpring","DoorHandle","CrankGrip","WheelTooth"]:
+			draw.material_override=MatLib.get_mat("washer_brass")
 	# The original raised flag projects through the right cheek. Move its visual
 	# pivot 38 mm inward; signal rotation/state and record authority are unchanged.
 	_drop.position.x=.020
 	_door.get_node("StationLegend").position.z+=.014
 	for i in 3:
 		var hinge := MeshInstance3D.new();hinge.name="NativeHinge%d" % i;hinge.mesh=_stock.HingeBarrel
-		hinge.position=Vector3(0,-.10+i*.10,0);hinge.material_override=MatLib.get_mat("brass_dull")
+		hinge.position=Vector3(0,-.10+i*.10,0);hinge.material_override=MatLib.get_mat("washer_brass")
 		_door.add_child(hinge)
+	# Equal pitch wheels behind the coded wheel, on shafts seated in the lining.
+	# The idler reverses twice: the coded wheel follows the crank continuously.
+	for i in 3:
+		var center: Vector2=[Vector2(.052,.198),Vector2(.011,.159),Vector2(-.030,.120)][i]
+		_transmission.append(_drive_stock("TransmissionGear",Vector3(center.x,center.y,.052),"washer_brass"))
+		_drive_stock("TransmissionBearing",Vector3(center.x,center.y,.0345),"washer_brass")
+		_drive_stock("TransmissionCollar",Vector3(center.x,center.y,.0565),"iron_blackened")
+		_drive_stock("TransmissionIdlerShaft" if i==1 else "TransmissionShaft",
+			Vector3(center.x,center.y,.047 if i==1 else .057),"iron_neutral")
+	var lock_stop := _drive_stock("CrankLockStop",Vector3.ZERO,"iron_neutral")
+	lock_stop.reparent(_crank,false);lock_stop.position=Vector3(0,0,-.014)
+	_drive_stock("LockoutGuide",Vector3(.096,.198,.070),"iron_neutral")
+	_drive_stock("LockoutBracket",Vector3(.096,.198,.070),"iron_neutral")
+	_counter.get_node("PawlArm").material_override=MatLib.get_mat("washer_brass")
 	set_meta("v2_native_watch_station",true)
+
+func _drive_stock(label: String,at: Vector3,material: String) -> MeshInstance3D:
+	var draw := MeshInstance3D.new()
+	draw.name=label;draw.mesh=_stock[label];draw.position=at
+	draw.material_override=MatLib.get_mat(material)
+	add_child(draw);native_parts+=1
+	return draw
 
 func _ready() -> void:
 	super()
@@ -75,6 +99,11 @@ func _refresh_station() -> void:
 	if not _hand_ready: return
 	_door.rotation.y=-door_angle
 	_crank.rotation.z=-crank_angle
+	_wheel.rotation.z=-crank_angle
+	_counter.position=Vector3(.0832 if drop_fallen else .093,.198,.070)
+	var idler_phase := 2.0*atan2(-.078,-.082)-PI/24.0
+	for i in _transmission.size():
+		_transmission[i].rotation.z=idler_phase+crank_angle if i==1 else -crank_angle
 
 # Existing scripted authority calls remain available, while player clicks
 # cannot enter the inherited open/mark/close cycle.
@@ -95,6 +124,7 @@ func close_door() -> bool:
 	return super()
 
 func reset_station() -> bool:
+	if not drop_fallen: return super()
 	crank_angle=0
 	return super()
 
