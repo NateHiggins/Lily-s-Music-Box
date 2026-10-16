@@ -72,6 +72,17 @@ func _run() -> void:
 				check(not world.player._grab.active() and absf(lobby.supply_position-goal/(TAU*3.5))<.01,"release retains the physical lobby valve position")
 		check(hand.follows_cursor,"lobby handwheel follows projected mouse motion")
 		hand.free();world.player.set_physics_process(false)
+	# Use the restored-volume movement helper and the ordinary controller,
+	# not just stock bounds: a seat inside its room can still block entry.
+	var walk := preload("res://tests/v2_front_restoration_review.gd").new()
+	add_child(walk);walk.world=world;walk.host=self;walk.player=world.player
+	world.player.set_physics_process(true)
+	world.player.global_position=root.to_global(Vector3(-4.85,.025,-8.4))
+	world.player.velocity=Vector3.ZERO
+	await get_tree().physics_frame
+	for point: Vector3 in [Vector3(-4.85,0,-9.8),Vector3(-3.7,0,-10.7)]:
+		check(await walk._walk(point),"ordinary controller reaches west waiting bay: "+str(point))
+	walk.free();world.player.set_physics_process(false)
 	var camera := Camera3D.new();world.add_child(camera);camera.make_current();camera.fov=55
 	var fill := OmniLight3D.new();camera.add_child(fill);fill.light_energy=.6;fill.omni_range=3
 	var bench := root.find_child("WestBench",true,false) as Node3D

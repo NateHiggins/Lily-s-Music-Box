@@ -20,7 +20,9 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 			var west_seat := Vector3(float(rect[0])+.44,y,float(rect[1])+2.10)
 			for space: Dictionary in layout.spaces:
 				if space.id=="F01_FRONT_WEST_BAY":
-					west_seat=Vector3(float(space.rect[0])+.44,y,(float(space.rect[1])+float(space.rect[3]))*.5)
+					# The 1.8 m seat leaves 150 mm at the street wall and
+					# keeps the diagonal lobby approach clear of its north arm.
+					west_seat=Vector3(float(space.rect[0])+.44,y,float(space.rect[1])+1.05)
 					break
 			_install(furniture,library,"LobbyBench","WestBench",west_seat,-PI*.5)
 			_install(furniture,library,"LobbyBench","EastBench",Vector3(float(rect[2])-.44,y,float(rect[1])+2.55),PI*.5)

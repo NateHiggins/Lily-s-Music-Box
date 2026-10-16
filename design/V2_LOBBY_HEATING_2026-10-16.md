@@ -33,13 +33,22 @@ bench and the radiator. The bench now occupies the restored west waiting bay,
 still west of the entrance. Its original model, material and collision remain.
 No NPC routine, save authority or original radiator mechanism was replaced.
 
-The final diagnostic receipt is **art/renders/orison_v2/heating_lobby_20261016/composed/lobby_final.log.receipt.json**.
+The first broader surface check additionally rejected the bench north arm
+blocking the established west-bay walking leg. Its failed run was interrupted
+by stopping only its verified owned Godot processes; its wrapper and failure
+are retained under **diagnostics/blocked_bay/**. The seat now leaves 150 mm
+at the street wall and clears the original diagonal approach. The focused
+diagnostic now executes both original movement targets with the ordinary
+player controller. Both pass without changing the route or player collision.
+
+The final diagnostic receipt is **art/renders/orison_v2/heating_lobby_20261016/clearance/lobby_clearance.log.receipt.json**.
 It completed with exit 0, zero diagnostic failures and zero script errors.
 The player actually grabs the valve, turns it through mouse motion to each
 stop, and releases it. Every bench mesh lies within the waiting bay; camera
 rays reach all reviewed supply connections. Loaded UV/PBR mip chains and
 short-body tail elevations pass. This test publishes no runtime contract.
-Its captures were inspected. The bench view is very dim, so artistic lighting
+Its captures were inspected. Earlier **composed/** views describe the
+previous bench position; **clearance/** is the current focused result. The bench view is very dim, so artistic lighting
 acceptance remains open. Seven texture RIDs still warn at engine shutdown.
 
 Thirty-nine heating tool tests pass. Reader audit reports zero NEW unread
@@ -72,3 +81,21 @@ Full V2 remains incomplete: restricted-cell representation, acoustic migration,
 remaining geometry and artistic polish, whole-game performance and human
 visual/navigation/listening acceptance are still required. No human acceptance
 or general photorealism is inferred from automated surface compliance.
+
+## Verification throughput
+
+The completeness auditor now reuses runtime and surface digests only inside
+one invocation, then fully rehashes both consumed domains before returning
+a ledger. No global cache, mtime shortcut, receipt rebinding or status rule
+change was added. Eight focused tests cover edits, additions, removals,
+same-size edits with restored timestamps, separate invocations, cross-checkout
+misuse, surface changes and rejection at the ledger return boundary.
+
+A comparison against the parent implementation reports identical full JSON
+payloads and exit status, with elapsed time falling from 32.016 to 7.281
+seconds on this checkout. Both subprocesses use PYTHONHASHSEED=0 because
+existing set-based packet traversal otherwise changes diagnostic note order.
+The comparison payloads and runner are retained under **audit_performance/**.
+The existing 108-test completeness suite currently passes 107 tests; the one
+live-checkpoint assertion correctly fails while changed runtime receipts are
+stale. It must pass after actual contract renewal, not be weakened.

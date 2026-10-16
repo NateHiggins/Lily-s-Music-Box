@@ -1,0 +1,5 @@
+ERROR: restored front volume is walkable at (-4.85, 0.0, -9.8) actual=(-4.850038, 0.000236, -9.569075) contacts=["/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/PublicFurnishings/WestBench"]
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] _walk (res://tests/v2_front_restoration_review.gd:66)

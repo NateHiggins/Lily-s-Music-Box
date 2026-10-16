@@ -18,3 +18,8 @@ containment. The west bench was moved into the restored waiting bay after the fi
 composed check exposed overlap. See composed/ and composed_review.json. This is
 not a runtime contract. Broader renewed contracts, save proof and human acceptance
 remain pending; the bench view is dim and needs lighting polish.
+
+Current focused result: **clearance/** includes the repaired original west-bay
+walking route and actual valve control. Earlier **composed/** is superseded
+for bench placement. **diagnostics/blocked_bay/** retains the failed broader
+route check. Broad contract renewal remains pending.

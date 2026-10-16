@@ -588,7 +588,37 @@ def load_json(path: Path, what: str) -> dict:
         raise AuditError(f"malformed {what} {path}: {exc}")
 
 
-def runtime_receipt_errors(data: dict, root: Path) -> list[str]:
+class _InputDigests:
+    """Invocation-local reuse, with a full content recheck before publication.
+
+    No process-global cache or mtime shortcut: edits, additions and removals
+    still invalidate proof, including same-size edits with restored timestamps.
+    """
+    def __init__(self, root: Path):
+        self.root = root.resolve()
+        self._values: dict[str, str] = {}
+
+    def _read(self, kind: str) -> str:
+        if kind == "runtime":
+            return runtime_inputs_sha256(self.root)
+        if kind != "surface":
+            raise ValueError("unknown input digest: " + kind)
+        from v2_surface_evidence import inputs as surface_inputs
+        return surface_inputs(self.root)["sha256"]
+
+    def get(self, kind: str) -> str:
+        if kind not in self._values:
+            self._values[kind] = self._read(kind)
+        return self._values[kind]
+
+    def verify_unchanged(self) -> None:
+        for kind, digest in self._values.items():
+            if self._read(kind) != digest:
+                raise AuditError(f"{kind} inputs changed during completeness audit; retry against stable sources")
+
+
+def runtime_receipt_errors(data: dict, root: Path,
+                           _digests: _InputDigests | None = None) -> list[str]:
     """Admit executed runtime contracts, never captions or capture success.
 
     The process wrapper owns the completion/exit result; the runtime test
@@ -597,6 +627,8 @@ def runtime_receipt_errors(data: dict, root: Path) -> list[str]:
     the current tree; the recorded repository head is provenance, not a
     substitute for those content checks.
     """
+    if _digests is not None and _digests.root != root.resolve():
+        raise AuditError("input digest snapshot belongs to another checkout")
     if not isinstance(data, dict) or data.get("schema_version") != 2 or \
             data.get("evidence_kind") != "runtime_contract":
         return ["schema-2 runtime_contract required; capture-only receipts "
@@ -635,7 +667,8 @@ def runtime_receipt_errors(data: dict, root: Path) -> list[str]:
     runtime_digest = source.get("runtime_inputs_sha256")
     if not isinstance(runtime_digest, str) or not re.fullmatch(r"[0-9a-f]{64}", runtime_digest):
         errors.append("source.runtime_inputs_sha256 required")
-    elif runtime_digest != runtime_inputs_sha256(root):
+    elif runtime_digest != (_digests.get("runtime") if _digests is not None
+                            else runtime_inputs_sha256(root)):
         errors.append("runtime-input SHA-256 is stale")
     contracts = data.get("contracts", {})
     if not isinstance(contracts, dict):
@@ -670,6 +703,7 @@ def runtime_receipt_errors(data: dict, root: Path) -> list[str]:
 class Inputs:
     def __init__(self, root: Path, args):
         self.root = root
+        self.digests = _InputDigests(root)
         self.provenance: dict[str, str] = {}
         self.admitted_evidence: list[dict] = []
 
@@ -797,7 +831,7 @@ class Inputs:
             for receipt in sorted(receipts_dir.glob(
                     "*/runtime_authority_receipt.json")):
                 data = load_json(receipt, "runtime authority receipt")
-                errors = runtime_receipt_errors(data, root)
+                errors = runtime_receipt_errors(data, root, self.digests)
                 if not errors:
                     data["_file"] = receipt.relative_to(root).as_posix()
                     data["_dir"] = receipt.parent.name
@@ -1038,7 +1072,6 @@ class Evidence:
                 # geometry, route helpers or runtime changes. This channel
                 # grants spatial proof only, never full runtime acceptance.
                 from spatial_access_evidence import validate as validate_access
-                from v2_surface_evidence import inputs as surface_inputs
                 access_rooms = set()
                 packets = set(PACKET_DIR_RE.findall(text))
                 if not packets:
@@ -1048,7 +1081,7 @@ class Evidence:
                     try:
                         receipt = json.loads(path.read_text(encoding="utf-8"))
                         problems = validate_access(receipt, inputs.root,
-                            runtime_inputs_sha256(inputs.root), surface_inputs(inputs.root)["sha256"])
+                            inputs.digests.get("runtime"), inputs.digests.get("surface"))
                     except (OSError, ValueError, KeyError) as exc:
                         problems = [str(exc)]
                     if problems:
@@ -1259,6 +1292,7 @@ class Ledger:
         self.requirements: list[dict] = []
         self.anchor_only: list[dict] = []
         self._build()
+        inputs.digests.verify_unchanged()
 
     # -- helpers ----------------------------------------------------------
     def add(self, dimension: str, req_id: str, scope: dict, status: str,
