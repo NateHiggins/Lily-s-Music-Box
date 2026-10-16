@@ -1,32 +1,32 @@
-# Lobby heating assembly in verification
+# Lobby heating assembly and scoped verification
 
-Evidence class: **INERT**. Native construction and export, not runtime acceptance.
+Evidence class: **INERT**. Construction, rendered review and verification report.
+Not a whole-game or human acceptance checkpoint.
 
-The original F01 H-A run has a real 90 mm stock gap around the socketed lobby
-takeoff. Three new hangers preserve all 413 accepted hangers. Collar, floor
-neck and ninth-section-body tail are included. The full native inspection
-checks every stock; all seven exported batches pass the glTF UV/bounds round trip.
-Native packaging reopens the final source, verifies exact semantic geometry/UV
-identity and resolves three relative material-image links with matching hashes.
+Nineteen emitters share the original 23-demand heat budget. The lobby takes
+a hollow socketed branch from the retained 1A supply; all original 413 hangers
+remain, with three added. Native inspection, export and portable-image packaging
+pass. **clearance/** is the current focused geometry/control result; earlier
+**composed/** is superseded for west-bench placement.
 
-The source roster is 19 installed emitters with the original 23-demand budget.
-The lobby source anchor and floor aperture are present. The shared takeoff is
-an additive layer on the pinned base18 native model, not a duplicate riser port.
-The final composed diagnostic passes actual lobby valve grabbing, mouse motion to
-both stops, release, tail fit, loaded mipmaps, supply visibility and bench geometry
-containment. The west bench was moved into the restored waiting bay after the first
-composed check exposed overlap. See composed/ and composed_review.json. This is
-not a runtime contract. Broader renewed contracts, save proof and human acceptance
-remain pending; the bench view is dim and needs lighting polish.
+Seven actual schema-2 contracts independently qualify: surface, first slice,
+installed patrol save, 19-room access, 60-room access, dumbwaiter and roof tank.
+Their scopes, wrappers and separate qualification results are retained here.
+**batch_qualification.json** cross-checks these and grants no replacement proof.
 
-Current focused result: **clearance/** includes the repaired original west-bay
-walking route and actual valve control. Earlier **composed/** is superseded
-for bench placement. **diagnostics/blocked_bay/** retains the failed broader
-route check. Broad contract renewal remains pending.
+**public_furnishings/** is a separate diagnostic: 49 walking waypoints, actual
+door grabbing/mouse motion/release and four native furniture/collision bodies.
+The original crossing targets and full-open stops remain. Failed operating
+stances and the earlier static board are preserved under **diagnostics/**.
+This diagnostic does not publish a schema-2 runtime contract.
 
-All seven broader schema-2 contracts now pass and independently qualify; see
-**batch_qualification.json** and the individual scope receipts. The separate
-**public_furnishings/** diagnostic passes 49 waypoints and actual mouse-driven
-doors, with no runtime-contract or human promotion. Preliminary board failures
-and the corrected operator-stance attempts remain in **diagnostics/**. Fresh
-static candidate verification and publication are the remaining checkpoint steps.
+The fresh verifier accepts source **b931c403**, with no regressions, all 55
+tools suites passing, protected 17/17 and V2 selection. See
+**candidate_verification.json/md** and **gate_board.json/md**. Its
+**--no-godot** mode proves static portability only; the canonical runtime
+executions keep their own bindings. Temporary checkouts were removed.
+
+Reviewed images support technical fit only. Bench/gallery lighting is dim;
+coarse castings and simplified neighboring context still need artistic work.
+Seven Texture RID warnings remain at shutdown. Human acceptance is false.
+The separate three-column casting study is not installed in the game.

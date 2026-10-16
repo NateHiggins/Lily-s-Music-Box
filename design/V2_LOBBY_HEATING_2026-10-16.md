@@ -73,8 +73,9 @@ only named owned paths are staged.
 
 The focused diagnostic and native review pass. All seven broader contracts
 were actually re-executed and independently qualified against unchanged
-production inputs. Clean-checkout static verification and publication remain
-pending; the earlier static board and its two engineering failures are retained
+production inputs. Clean-checkout static verification accepts source commit **b931c403**;
+publication follows the report-only evidence commit. The earlier static board
+and its two engineering failures are retained
 under **diagnostics/preliminary_board/**.
 
 Full V2 remains incomplete: restricted-cell representation, acoustic migration,
@@ -154,3 +155,41 @@ ownership. An apparent compact-HUD truncation was a partially printed title:
 the label follows the typewriter's current ink. No anchoring defect or HUD
 source change is inferred from that frame. Whole-game artistic, performance,
 navigation, listening and human acceptance remain open.
+
+## Fresh verification and publication scope
+
+REPORT - V2-LOBBY-HEATING-FINAL - 2026-10-16
+
+Branch / verified source / origin-main / merge-base: local main /
+**b931c403a6114a3a7b9156b4e2422d8f54d551d6** /
+**e0b0dd293325a49c207785888112262a4990e474** / same origin-main.
+Publication targets **codex/v2-direct-manipulation-checkpoint** only.
+
+Fresh candidate checkout: clean. Protected paths: 17/17 unchanged against the
+merge-base. Selector: V2, preserving explicit V1 rollback. Full static board:
+55/55 tools suites PASS; no regressions, no accepted-regression exemptions,
+zero design-document errors. The ledger remains INCOMPLETE by its actual scope.
+Merge-base blockers **0 / 1 / 102 / 34 / 119 / 121** become
+**0 / 1 / 48 / 25 / 65 / 67**. These improvements include preceding branch
+work, not only the lobby installation.
+
+The verifier used **--no-godot**. It proves fresh-checkout portability and
+static integration; it does not claim fresh imports, fresh runtime executions
+or human acceptance. The seven canonical runtime contracts above retain their
+independently checked current-source bindings. Changed audits/tests remain
+listed for reviewer inspection. Temporary verifier checkouts were removed.
+The cached clean merge-base board remains available.
+
+The final follow-up contains report and evidence files only, with no production
+or test-source change after the verified source commit. The canonical shared
+checkout still contains inherited dirty imports, UIDs and review artifacts;
+they are excluded from named commits. An old empty Git index lock was found
+with no live Git process and could be opened exclusively. It was preserved in
+the local recovery folder before staging; the actual index was not discarded.
+
+Source/build scope and limitations remain as stated above. In particular the
+new casting is an uninstalled native study, seven shutdown Texture RID warnings
+remain, and complete V2, artistic quality, whole-game performance, navigation,
+listening and human acceptance are not granted by this checkpoint.
+
+MERGE-CANDIDATE b931c403a6114a3a7b9156b4e2422d8f54d551d6
