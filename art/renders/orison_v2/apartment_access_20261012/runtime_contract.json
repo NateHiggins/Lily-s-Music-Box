@@ -1247,7 +1247,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 207.667,
+		"elapsed_s": 209.014,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -2536,9 +2536,9 @@
 	"scope": "Spatial room access and ordinary player-input interactions in 2A/2B and 4B. Each floor leg starts with one placement; all subsequent travel uses the ordinary controller. Resident scheduling is excluded. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "4be598eaa7398df43cecfe32a360661cc8ec75f3",
+		"repository_head": "ccb94d88d8abb1863ce6d2467b068d5fdea66480",
 		"runtime_inputs_sha256": "bcf0697eff3ec6006f6b69aa90accf1ab90614a82482c782e47a1ad9d70e75b4",
-		"surface_inputs_sha256": "b918a2b1fe2232e1e3706be4027443bb0d68d07161760e0279dcb91bdebd0671",
+		"surface_inputs_sha256": "5efe81ace777a4e7107550a968caecd379c5255bdd6960ca91f5accd65775f9d",
 		"test_dependencies": {
 			"game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
 			"game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",

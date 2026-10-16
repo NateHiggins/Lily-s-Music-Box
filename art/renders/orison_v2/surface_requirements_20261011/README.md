@@ -11,3 +11,10 @@ The radiator and dumbwaiter captures are diagnostic: their camera framing does n
 Godot reports seven texture RIDs at shutdown. The root-retirement check passes but does not prove global GPU cleanup. Save reconstruction and unrelated gameplay routes are outside this receipt. Wrapper logs remain distinct from runtime proof.
 
 The millwork/weather extension samples 19,599 actual wall faces with zero gaps. Its lightweight integration suite passes 37 checks and the existing weather-provider suite passes. Full-mip 3D noise, seasonal sky previews and native stock are included; credentialed live HTTP is untested.
+
+
+The portable-source renewal re-executed 26,719 checks with the same inventory
+counts. Seven new captures were reviewed and independently qualified. Twelve
+unreferenced stale washer texture extracts are excluded from source discovery;
+the actual washer GLB remains hashed. The input set matches tracked-only discovery.
+This change grants no additional human or whole-game artistic acceptance.

@@ -45,6 +45,28 @@ is invisible to that inventory until it is staged. Correct those imports and
 re-import before qualifying the world, so the clean-checkout gate does not
 invalidate an otherwise finished capture batch.
 
+## Check source portability before captures
+
+Before freezing a batch, review new nonignored authored inputs:
+
+```powershell
+git ls-files --others --exclude-standard -- game/assets art/blender/scripts game/scripts game/scenes game/data game/tests/fixtures
+```
+
+The surface fingerprint includes new nonignored assets. Every authored input
+must travel in the named commit. Classify generated GLB texture extracts using
+the current GLB image manifest and actual source references; ignore only the
+proven derived namespace. The tracked GLB remains a hashed source. Stale,
+unreferenced extracts must not become shipping textures merely to preserve an
+old fingerprint. The washer leftovers exposed this distinction on October 16.
+
+Set hash-bound Git attributes before final verification. Compare the frozen
+source in a fresh checkout before publication. If a portability correction
+changes only the surface fingerprint, renew the surface and affected spatial
+contracts by execution; reuse unchanged runtime-only contracts after checking
+their bindings. Never repin a completed receipt. Report canonical execution,
+fresh static checks, fresh imports and human acceptance at their actual scope.
+
 ## Plan only changed work
 
 ```powershell

@@ -165,3 +165,50 @@ Decision needed from owner: none for continuing implementation.
 
 BLOCKED merge-candidate status pending fresh-checkout verification;
 reviewed checkpoint branch publication is the current release scope.
+
+
+## Portable evidence renewal
+
+Implementation commit: **ccb94d88d8abb1863ce6d2467b068d5fdea66480**.
+The first fresh static verification rejected its surface fingerprint and the
+associated apartment access evidence. The canonical comparison above passed,
+but that did not establish checkout portability. Publication remains pending.
+
+Twelve untracked **washer_controls_T_*.png** files entered the canonical
+source fingerprint. They are stale loose extracts: the current native washer
+GLB has zero embedded images and zero texture bindings, and no tracked game
+source references their namespace. The failed fresh report and source analysis
+are preserved under **diagnostics/fresh_checkout_fingerprint/** in this packet.
+A narrow derived-file ignore now excludes these unused leftovers while the
+actual washer GLB remains a hashed input. No capture or contract was repinned.
+
+The composed surface and both apartment access contracts were re-executed
+against the portable input set and independently qualified. The other four completed contracts bind the
+unchanged production runtime digest and retain their existing narrow scope.
+Fresh static verification must pass before branch publication.
+
+
+Portable renewal progress: the surface suite completed in 320 seconds with
+26,719 passing checks and unchanged inventory counts. Seven new captures were
+reviewed and the canonical packet independently requalified. The 19-room
+access renewal completed in 218 seconds with 269 suite checks; its 268
+serialized checks independently validate. The 60-room renewal completed in 845 seconds with 782 suite checks; all
+781 serialized checks independently validate. Its canonical receipt is renewed.
+The input-membership diagnostic produces the same 4,812-file fingerprint
+using normal discovery and tracked-only discovery. No physical production
+source differs from the implementation commit after text normalization.
+
+
+The current apartment execution wrappers are **apartments_portable.log.receipt.json**
+and **remaining_portable.log.receipt.json** in the heating packet. Their actual
+contracts and qualifications are retained in the matching portable subdirectories.
+The current surface wrapper is the canonical packet's **qualification.log.receipt.json**.
+The earlier wrappers remain historical evidence at their recorded input set.
+
+The source-portability preflight is now documented in
+**art/blender/v2_batch_workflow.md**. It requires named authored files to travel
+with the commit and proven generated leftovers to stay out of source discovery.
+The current follow-up changes only Git discovery, workflow documentation and
+executed evidence. The fresh verifier will supply the final static board once,
+using its existing clean merge-base cache. Publication is still pending that
+verdict; no additional runtime or human acceptance is inferred.

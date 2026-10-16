@@ -1,0 +1,61 @@
+{
+  "evidence_class": "INERT",
+  "status": "UNREFERENCED_STALE_EXTRACTS",
+  "current_asset": "game/assets/props/washer_controls.glb",
+  "asset_sha256": "0c70ec2abc6fff4f1a336948d1c7126793f8be3df86c013f64f5928249c22f98",
+  "current_embedded_images": 0,
+  "current_texture_bindings": 0,
+  "tracked_game_references": [],
+  "files": [
+    {
+      "path": "game/assets/props/washer_controls_T_ai_materials_brass_dull_albedo.png",
+      "sha256": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_ai_materials_brass_dull_normal.png",
+      "sha256": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_ai_materials_brass_dull_rough.png",
+      "sha256": "96160db7aae734e36f3c42abddc3795995e9d8ea8f7739a1eaa432f5d63fc54d"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_ai_materials_iron_neutral_albedo.png",
+      "sha256": "98493bc86242ee82fd70bb4a0c9a20e648447269bfaff65a72162f2f596b248d"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_ai_materials_iron_neutral_normal.png",
+      "sha256": "d129dc84b8c1d3b2a2d935fbe8d1efab9dba4fe48b2da59da4ab363cf2722ac7"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_ai_materials_iron_neutral_rough.png",
+      "sha256": "22978b85982419db64ef3b2fe171a7c6a3d7f0127e843d8383e895d576b0c5a1"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_library_appliances_aged_enamel_normal.png",
+      "sha256": "9d82da86ae49cfc79d85bf2fe0fb9de5c32011620254712e6d9846fdda6cbf98"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_library_appliances_aged_enamel_worn_enamel_albedo.png",
+      "sha256": "21bbb79bfb9001595f53d1870fb0649268f768a2695052ceb8b8369d4313dc95"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_library_appliances_aged_enamel_worn_enamel_rough.png",
+      "sha256": "4d74144c6ac0907e910e33a8387a294921b4a54481a435a2b8d3db4f1d8e80c0"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_library_appliances_bakelite_albedo.png",
+      "sha256": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_library_appliances_bakelite_normal.png",
+      "sha256": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628"
+    },
+    {
+      "path": "game/assets/props/washer_controls_T_library_appliances_bakelite_rough.png",
+      "sha256": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc"
+    }
+  ],
+  "finding": "Twelve loose extracts left by an older washer import enter the canonical authored-source fingerprint despite being untracked. Current native GLB has no images or texture bindings; tracked game sources name none of these PNGs. Exclude the narrow generated-extract namespace from Git discovery, then renew real surface and spatial contracts against the portable source inventory.",
+  "current_composed_inventory_extract_references": 0
+}

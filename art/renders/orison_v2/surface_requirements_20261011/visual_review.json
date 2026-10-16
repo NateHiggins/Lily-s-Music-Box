@@ -2,43 +2,43 @@
   "evidence_class": "INERT",
   "status": "PASS",
   "human_acceptance": false,
+  "scope": "New portable-source captures actually reviewed; scoped technical render observations only.",
   "images": [
     {
       "file": "front_restored_mass.png",
-      "sha256": "7b02574ea2d04ed66b44ee043821abfa6dd8c2dc4f19bd7a428a8de9efcfe653",
-      "observation": "Street view shows continuous central front elevation and full rectangular mass; neighboring context remains visibly simplified. This is not photoreal or human acceptance."
+      "sha256": "baca707b88a28d8ec412ca079e441451c016b0f34898f506107e6a07e9bb3c0a",
+      "observation": "Current street capture shows continuous central front elevation and full rectangular mass; neighboring context remains visibly simplified. No photoreal or human acceptance is granted."
     },
     {
       "file": "front_restored_entrance.png",
-      "sha256": "ac86627ca3a7d3faa8e567e8ffd6ee6a2768656049ff00c613e05dd5b8abc2fe",
-      "observation": "Entrance surround, glazed marquee, blade sign and mapped masonry are present; no missing front shell is visible from this stance."
+      "sha256": "11f95d2ae9c83f3dc4de37fb92eb41c1df6b484a134374460973be2363817519",
+      "observation": "Entrance surround, glazed marquee, sign and brick surface render with intact front shell from the reviewed stance."
     },
     {
       "file": "front_gallery_03.png",
-      "sha256": "23379476049a2e31d0f281c37d7502e590820d64fd3ad1f7f360037bc3c23725",
-      "observation": "Interior floor, ceiling, window wall, blinds and paneling are present; furniture is sparse and the space remains dim."
-    },
-    {
-      "file": "radiator.png",
-      "sha256": "2fa93bdee807ecdc8a104ed9e830120bdb7b737798879ea42a6b5a465e6d3e2c",
-      "observation": "Cast radiator sections, valve and mapped room materials render. This cropped view does not establish lower pipe fit; separate composed heating captures cover that. Cast silhouettes and room assets still need artistic polish."
-    },
-    {
-      "file": "native_station_open.png",
-      "sha256": "6fb45fb379800925b304a6f2f222290ae6f2db1d135a450074451e9e00910522",
-      "observation": "Open station shows case thickness, hinges and distinct internal gears with material separation; no missing case surfaces visible from this stance."
-    },
-    {
-      "file": "boiler.png",
-      "sha256": "6e594efcb6296767359c9a90e53b63ec894b7272fd63ceb2ccc75a71a4eaddd5",
-      "observation": "Boiler shell, gauge, handles, feed risers and overhead duct render together. Strong warm lighting and simplified shell details remain artistic limitations; this view does not expose every buried distribution fitting."
+      "sha256": "441746158e001b47bde04285fa1498df83120cf882968800a05b3d99f7c2a67c",
+      "observation": "Floor, ceiling, window wall, blinds and paneling render continuously. The gallery remains dim and sparsely furnished; artistic development remains open."
     },
     {
       "file": "patrol_register_after_round.png",
-      "sha256": "9326767239ebcc8584e08bea954f016ce1872e417099460d74aabac6fcfdaae5",
-      "observation": "Seven register indicators, count 007 and adjacent tour-key cabinet render legibly with distinct wood and metal surfaces."
+      "sha256": "51097b6d1e2fef3fc3f83e9b5bb071ffeed0af3f14768a05c0f1d9abc54448df",
+      "observation": "Seven indicators, count 007 and adjacent key cabinet render with legible labels and distinct materials. This does not establish complete internal mechanical fabrication."
+    },
+    {
+      "file": "native_station_open.png",
+      "sha256": "566d99dc2131fd871b19af9a32ec9e335f11015b6e69f9a9181ec9144c420168",
+      "observation": "Open native station renders case thickness, three hinges and separate internal gears. No missing case surface is visible from this stance; full mechanical or human acceptance remains outside this review."
+    },
+    {
+      "file": "radiator.png",
+      "sha256": "39e758724be060a283ec8ca4730d84c00e19f7c81336da596bb3cb48156f7663",
+      "observation": "Cast radiator sections and valve render with mapped room surfaces. The crop does not establish lower pipe fit; earlier unchanged-source heating close-ups cover that. Coarse legacy valve/casting details still need artistic work."
+    },
+    {
+      "file": "boiler.png",
+      "sha256": "b55f6029e604977efc49a669e9d83783dbe346d446daadad03990274ddc72dc8",
+      "observation": "Boiler shell, gauge, handles and feed risers render together under the overhead duct. Strong warm lighting and simplified shell details remain artistic limitations; buried distribution details are outside this view."
     }
   ],
-  "scope": "Scoped technical render review of composed surfaces; not photoreal acceptance or whole-game completion.",
-  "surface_inputs_sha256": "b918a2b1fe2232e1e3706be4027443bb0d68d07161760e0279dcb91bdebd0671"
+  "surface_inputs_sha256": "5efe81ace777a4e7107550a968caecd379c5255bdd6960ca91f5accd65775f9d"
 }
