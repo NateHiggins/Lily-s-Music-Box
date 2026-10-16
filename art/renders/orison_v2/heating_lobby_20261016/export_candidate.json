@@ -1,0 +1,136 @@
+{
+  "evidence_class": "INERT",
+  "status": "GODOT_IMPORT_CANDIDATE",
+  "scope": "Inspected native assembly batched by level. Runtime material binding, imported UV precision, loaded mipmaps, collision and installation remain unverified.",
+  "groups": {
+    "Heating_F01": {
+      "source_parts": 128,
+      "triangles": 46084,
+      "bounds_blender": [
+        -15.45199966430664,
+        -0.6180539727210999,
+        -0.16494950652122498,
+        15.45199966430664,
+        7.2220001220703125,
+        0.21599999070167542
+      ]
+    },
+    "Heating_F02": {
+      "source_parts": 338,
+      "triangles": 86560,
+      "bounds_blender": [
+        -15.335000038146973,
+        -9.121999740600586,
+        3.035022020339966,
+        15.53499984741211,
+        2.9348599910736084,
+        3.4160001277923584
+      ]
+    },
+    "Heating_F03": {
+      "source_parts": 202,
+      "triangles": 49556,
+      "bounds_blender": [
+        -15.45199966430664,
+        -3.93500018119812,
+        6.235043048858643,
+        15.45199966430664,
+        7.072000026702881,
+        6.616000175476074
+      ]
+    },
+    "Heating_F04": {
+      "source_parts": 318,
+      "triangles": 81112,
+      "bounds_blender": [
+        -15.45199966430664,
+        -9.121999740600586,
+        9.435047149658203,
+        15.53499984741211,
+        7.072000026702881,
+        9.815999984741211
+      ]
+    },
+    "Heating_F05": {
+      "source_parts": 261,
+      "triangles": 68952,
+      "bounds_blender": [
+        -14.42199993133545,
+        -9.217094421386719,
+        12.635043144226074,
+        8.919965744018555,
+        2.9340779781341553,
+        13.015999794006348
+      ]
+    },
+    "Heating_F06": {
+      "source_parts": 261,
+      "triangles": 68952,
+      "bounds_blender": [
+        -14.42199993133545,
+        -9.217094421386719,
+        15.835042953491211,
+        8.919965744018555,
+        2.9340779781341553,
+        16.215999603271484
+      ]
+    },
+    "Heating_SHAFT": {
+      "source_parts": 133,
+      "triangles": 31512,
+      "bounds_blender": [
+        8.545000076293945,
+        -0.6279999613761902,
+        -0.6499999761581421,
+        8.804999351501465,
+        -0.30000001192092896,
+        16.04599952697754
+      ]
+    }
+  },
+  "roundtrip": {
+    "Heating_F01": {
+      "triangles": 46084,
+      "bounds_match": true,
+      "collapsed_uv_triangles": 0
+    },
+    "Heating_F02": {
+      "triangles": 86560,
+      "bounds_match": true,
+      "collapsed_uv_triangles": 0
+    },
+    "Heating_F03": {
+      "triangles": 49556,
+      "bounds_match": true,
+      "collapsed_uv_triangles": 0
+    },
+    "Heating_F04": {
+      "triangles": 81112,
+      "bounds_match": true,
+      "collapsed_uv_triangles": 0
+    },
+    "Heating_F05": {
+      "triangles": 68952,
+      "bounds_match": true,
+      "collapsed_uv_triangles": 0
+    },
+    "Heating_F06": {
+      "triangles": 68952,
+      "bounds_match": true,
+      "collapsed_uv_triangles": 0
+    },
+    "Heating_SHAFT": {
+      "triangles": 31512,
+      "bounds_match": true,
+      "collapsed_uv_triangles": 0
+    }
+  },
+  "uv_failures": [],
+  "bytes": 21674132,
+  "glb_sha256": "bd94705df93fd70324a67b4832a5f85e6867366716d5041af31bccd1c4cee192",
+  "required_godot_import_settings": {
+    "meshes/force_disable_compression": true
+  },
+  "blend_sha256": "d505d70097ffd8dae132044ca8bc3393ff968544ca36f7c542d2bd091cf63cae",
+  "inspection_sha256": "422a690ac5d68bc3ce43a28640372a0b1a7f78b9be6ee26264508a8a6e588c4a"
+}

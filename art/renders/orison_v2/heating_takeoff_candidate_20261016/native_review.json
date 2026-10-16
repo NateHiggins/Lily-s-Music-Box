@@ -1,0 +1,125 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Local native tee/pipe socket review only; no world installation, supports, export or runtime acceptance.",
+  "plan_sha256": "3bf6893245107d6b65d1b5d928da241f62e5fc94f9d551af31744a1f8a0dcc36",
+  "recipe_sha256_lf": "06b2e68e5d4dbd79af70052d5edeebe44580ec355b1d6f1938d7917dcf4b7500",
+  "native_sha256": "ddc4c9526fa0b3dae807845ba5415b9c6d53d1ea1fd72c67501ac4ba4dbf2a4f",
+  "placement_godot": {
+    "origin": [
+      -4.699999809265137,
+      -0.09282421320676804,
+      -5.617311000823975
+    ],
+    "basis_columns": [
+      [
+        -0.9915143847465515,
+        0.0021150032989680767,
+        -0.12998002767562866
+      ],
+      [
+        -0.00021513178944587708,
+        -0.9998930096626282,
+        -0.014628945849835873
+      ],
+      [
+        -0.12999705970287323,
+        -0.014476846903562546,
+        0.9914087057113647
+      ]
+    ]
+  },
+  "placement_end_check": {
+    "vertices": 96,
+    "native_end_world": [
+      -5.199999809265137,
+      7.140140034778142e-09,
+      -7.169999122619629
+    ],
+    "expected_world": [
+      -5.199999809265137,
+      0.0,
+      -7.170000076293945
+    ]
+  },
+  "material_catalog_sha256_lf": "4a98389bf283864854c3cbfe8f324482665c9cc0a252d94fc73d3d833f8ab5e6",
+  "material_spec": {
+    "alpha": false,
+    "canonical_meters_per_tile": 0.4,
+    "catalog_mapping": "ai_materials/iron_neutral",
+    "files": [
+      "T_ai_materials_iron_neutral_albedo.png",
+      "T_ai_materials_iron_neutral_rough.png",
+      "T_ai_materials_iron_neutral_normal.png"
+    ],
+    "metallic": 0.65,
+    "meters_per_tile": 0.4,
+    "roughness_multiplier": 1.0,
+    "visual_lock": false
+  },
+  "material_bindings": {
+    "T_ai_materials_iron_neutral_albedo.png": "98493bc86242ee82fd70bb4a0c9a20e648447269bfaff65a72162f2f596b248d",
+    "T_ai_materials_iron_neutral_rough.png": "7d299c8f80229f2c968d54181798ffebebd388a012257b6d51d370c961039d1e",
+    "T_ai_materials_iron_neutral_normal.png": "d129dc84b8c1d3b2a2d935fbe8d1efab9dba4fe48b2da59da4ab363cf2722ac7"
+  },
+  "triangles": 18628,
+  "assembled_lumen_probes": 50,
+  "stock_checks": [
+    {
+      "id": "SocketedTee",
+      "nonmanifold_edges": 0,
+      "signed_volume_m3": 0.0003060376954149255
+    },
+    {
+      "id": "ParentUpstream",
+      "nonmanifold_edges": 0,
+      "signed_volume_m3": 0.00019508456907121568
+    },
+    {
+      "id": "ParentDownstream",
+      "nonmanifold_edges": 0,
+      "signed_volume_m3": 0.00019508456907068615
+    },
+    {
+      "id": "LobbyBranch",
+      "nonmanifold_edges": 0,
+      "signed_volume_m3": 0.001783124699168141
+    }
+  ],
+  "stages": [
+    {
+      "cut": "BranchStock",
+      "bad_edges": 0,
+      "main_hit": [
+        -0.06999999284744263,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "cut": "MainLumen",
+      "bad_edges": 0,
+      "main_hit": null
+    },
+    {
+      "cut": "BranchLumen",
+      "bad_edges": 0,
+      "main_hit": null
+    },
+    {
+      "cut": "MainSocket",
+      "bad_edges": 0,
+      "main_hit": null
+    },
+    {
+      "cut": "MainSocket",
+      "bad_edges": 0,
+      "main_hit": null
+    },
+    {
+      "cut": "BranchSocket",
+      "bad_edges": 6,
+      "main_hit": null
+    }
+  ],
+  "failures": []
+}

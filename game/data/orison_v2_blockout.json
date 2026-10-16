@@ -1819,6 +1819,7 @@
     {"id":"F01_STAFF_RESTROOM_SWITCH","level":"F01","position":[6.15,1.12,-8.238],"yaw":3.141592653589793,"kind":"interaction","space":"F01_STAFF_RESTROOM"},
     {"id":"F01_STAFF_SINK","level":"F01","position":[6.1,0,-7.94],"yaw":3.141592653589793,"kind":"fixture"},
     {"id":"F01_STAFF_WC","level":"F01","position":[7.75,0,-7.7],"yaw":3.141592653589793,"kind":"fixture"},
+    {"id":"F01_LOBBY_RADIATOR_01","level":"F01","space":"F01_LOBBY","position":[-5.2,0.75,-6.5],"yaw":-1.5707963267948966,"kind":"interaction"},
     {"id":"F01_A_RADIATOR_01","level":"F01","space":"F01_A_MAIN","position":[-15.4,0.75,-6.35],"yaw":-1.5707963267948966,"kind":"interaction"},
     {"id":"F01_A_RADIATOR_STANCE","level":"F01","space":"F01_A_MAIN","position":[-14.4,0,-6.35],"yaw":1.5707963267948966,"kind":"clearance"},
     {"id":"F03_D_RADIATOR_01","level":"F03","space":"F03_D_MAIN","position":[-15.4,0.75,-6.35],"yaw":-1.5707963267948966,"kind":"interaction"},
@@ -2363,6 +2364,7 @@
     {"id":"ROOF_TANK_FIRE_FEED","from":"ROOF_TANK_BODY","to":"FIRE_SERVICE_RISER","system":"fire_service"}
   ],
   "slab_openings": [
+    {"id":"F01_LOBBY_RADIATOR_01_F01_LOBBY_SUPPLY_BORE","space":"F01_LOBBY","surface":"Floor","rect":[-5.234,-7.204,-5.166,-7.136]},
     {"id":"F01_A_RADIATOR_01_F01_A_MAIN_SUPPLY_BORE","space":"F01_A_MAIN","surface":"Floor","rect":[-15.434000000000001,-7.053999999999999,-15.366,-6.986]},
     {"id":"F01_D_RADIATOR_01_F01_D_MAIN_SUPPLY_BORE","space":"F01_D_MAIN","surface":"Floor","rect":[15.36599998204742,-2.364,15.433999982047421,-2.2960000000000003]},
     {"id":"F02_A_RADIATOR_01_F02_A_MAIN_SUPPLY_BORE","space":"F02_A_MAIN","surface":"Floor","rect":[-15.204,2.766,-15.136,2.8339999999999996]},

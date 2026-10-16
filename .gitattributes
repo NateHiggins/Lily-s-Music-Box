@@ -2124,3 +2124,19 @@ tools/heating_pipe_fittings.py -text
 tools/check_v2_heating_envelopes.py -text
 tools/build_v2_heating_interfaces.py -text
 tools/build_v2_heating_branch_supports.py -text
+
+# Bound lobby takeoff inputs and native packaging evidence.
+art/blender/heating_distribution/base18.blend -text
+art/blender/heating_distribution/base18_mesh_inspection.json -text
+art/blender/heating_distribution/lobby_takeoff.json -text
+art/blender/heating_takeoff_candidate.blend -text
+art/blender/scripts/review_heating_takeoff.py -text
+art/blender/scripts/integrate_heating_takeoff.py -text
+art/blender/scripts/package_heating_native.py -text
+tools/plan_v2_heating_takeoff.py -text
+game/data/orison_v2/heating.json -text
+game/scripts/building/orison_v2_heating.gd -text
+art/renders/orison_v2/heating_takeoff_candidate_20261016/** -text
+art/renders/orison_v2/heating_lobby_20261016/** -text
+game/scripts/building/orison_v2_public_furnishings.gd -text
+game/tests/heating_hand_driver.gd -text

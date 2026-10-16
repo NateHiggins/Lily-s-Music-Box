@@ -1,0 +1,121 @@
+{
+  "evidence_class": "INERT",
+  "status": "NATIVE_REVIEW_PENDING",
+  "scope": "Source-derived socket design only; not installed or accepted.",
+  "anchor_candidate": {
+    "id": "F01_LOBBY_RADIATOR_01",
+    "level": "F01",
+    "space": "F01_LOBBY",
+    "position": [
+      -5.2,
+      0.75,
+      -6.5
+    ],
+    "yaw": -1.5707963267948966,
+    "kind": "interaction"
+  },
+  "parent_branch": "F01_A_RADIATOR_01",
+  "parent_segment": 1,
+  "join_local_godot": [
+    -4.700000000000001,
+    -0.09282421277675397,
+    -5.617310924369748
+  ],
+  "main_axis_local_godot": [
+    -0.9915143557870347,
+    0.0021150032362326557,
+    -0.12998003319561124
+  ],
+  "outlet_axis_local_godot": [
+    0.1299970614538504,
+    0.014476846804382564,
+    -0.9914086871315815
+  ],
+  "parent_before": [
+    [
+      8.610000000000001,
+      -0.13,
+      0.46
+    ],
+    [
+      8.4,
+      -0.12076787514829387,
+      -3.9000000000000004
+    ],
+    [
+      -4.655381853989584,
+      -0.09291938792238444,
+      -5.611461822875945
+    ]
+  ],
+  "parent_after": [
+    [
+      -4.744618146010418,
+      -0.0927290376311235,
+      -5.62316002586355
+    ],
+    [
+      -15.4,
+      -0.07,
+      -7.02
+    ],
+    [
+      -15.4,
+      0.0,
+      -7.02
+    ]
+  ],
+  "child": {
+    "id": "F01_LOBBY_RADIATOR_01",
+    "riser": "H-A",
+    "level": "F01",
+    "parent_branch": "F01_A_RADIATOR_01",
+    "status": "CANDIDATE",
+    "points_local_godot": [
+      [
+        -4.69220017631277,
+        -0.09195560196849102,
+        -5.676795445597643
+      ],
+      [
+        -4.508295760532273,
+        -0.07147547707852282,
+        -7.0793228055823825
+      ],
+      [
+        -5.2,
+        -0.07,
+        -7.17
+      ],
+      [
+        -5.2,
+        0.0,
+        -7.17
+      ]
+    ]
+  },
+  "floor_clearance_m": 4.524534684058714,
+  "socket": {
+    "outer_radius_m": 0.035,
+    "branch_outer_radius_m": 0.034,
+    "flow_radius_m": 0.024,
+    "main_flow_relief_m": 0.0002,
+    "pipe_outer_radius_m": 0.029,
+    "receiving_radius_m": 0.0291,
+    "main_half_length_m": 0.07,
+    "parent_cut_offset_m": 0.045,
+    "branch_length_m": 0.09,
+    "branch_insert_start_m": 0.06
+  },
+  "baseline_native": "art/blender/heating_distribution/base18.blend",
+  "baseline_native_sha256": "38b276818698cc1984346165fb6a170a5ead6fa06b0ba231219e3256cb28caa3",
+  "source_sha256_lf": {
+    "game/data/orison_v2_blockout.json": "f849b4fe63d45fee764348770fdb581776c04ee67a0bc5ba768c1801b568b921",
+    "art/blender/heating_distribution/heating_routes_exact.json": "1ba33eb5712a47e2d7d749747e203a5f5d1505583199a23bec8771cacaea31a4",
+    "tools/plan_v2_heating_takeoff.py": "76363b98a2bbd40a31e6e2b33c144e61f6924c77be6570d8109d723717a50c10",
+    "tools/heating_pipe_fittings.py": "51eafc20d0431b179ebaf2488adcda533b5a985323cccb7a3d0c3458d157b9d2",
+    "tools/check_v2_heating_envelopes.py": "e39cf3c51075fc67d1fe486fc8808ddd9a416f7fc7ea36379e8a80fd1aca5c38",
+    "tools/plan_v2_heating_distribution.py": "9a687f4754e447a690145442daf6ac61530b74d8724bc8f7fb5e8d432a48b6da",
+    "art/blender/heating_distribution/base18_mesh_inspection.json": "f5b172918cc045c06326883551a942df1199eff4f35499e762afc6a03d8f99d8"
+  }
+}

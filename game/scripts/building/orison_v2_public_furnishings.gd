@@ -15,7 +15,14 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 		var furniture := Node3D.new()
 		furniture.name="PublicFurnishings";room.add_child(furniture)
 		if room_id=="F01_LOBBY":
-			_install(furniture,library,"LobbyBench","WestBench",Vector3(float(rect[0])+.44,y,float(rect[1])+2.10),-PI*.5)
+			# The restored waiting bay keeps this seat west of the entrance
+			# and leaves the lobby radiator and its supply wheel accessible.
+			var west_seat := Vector3(float(rect[0])+.44,y,float(rect[1])+2.10)
+			for space: Dictionary in layout.spaces:
+				if space.id=="F01_FRONT_WEST_BAY":
+					west_seat=Vector3(float(space.rect[0])+.44,y,(float(space.rect[1])+float(space.rect[3]))*.5)
+					break
+			_install(furniture,library,"LobbyBench","WestBench",west_seat,-PI*.5)
 			_install(furniture,library,"LobbyBench","EastBench",Vector3(float(rect[2])-.44,y,float(rect[1])+2.55),PI*.5)
 		else:
 			_install(furniture,library,"ParcelRack","EastRack",Vector3(float(rect[2])-.33,y,(float(rect[1])+float(rect[3]))*.5),PI*.5,"ParcelLoadEast")

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 99.5,
+  "exit_code": 0,
+  "finished_utc": "2026-10-16T22:30:46Z",
+  "started_utc": "2026-10-16T22:29:06Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-heating-next-20261016/lobby_final.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-heating-next-20261016/lobby_final.log",
+  "stdout_sha256": "45c572698c58a3835d3ddb4fcfa5b087d16b463b71b9a060609eb44bf51b3358"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2HeatingDistributionTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-heating-next-20261016/lobby_final",
+ "source": {
+  "dirty_paths": 1407,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/blender/heating_distribution.blend",
+   "A  art/blender/heating_distribution/base18.blend",
+   "A  art/blender/heating_distribution/base18_mesh_inspection.json",
+   "A  art/blender/heating_distribution/lobby_takeoff.json",
+   "A  art/blender/heating_takeoff_candidate.blend",
+   "A  art/blender/scripts/integrate_heating_takeoff.py",
+   "A  art/blender/scripts/package_heating_native.py",
+   "A  art/blender/scripts/review_heating_takeoff.py",
+   " M art/renders/insitu/shots.md",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json"
+  ],
+  "repository_head": "9d03616c3037fa51fd92e9fbbe3257105f280f5b",
+  "repository_tree": "4c96fe3371102bbe91dafb7bfe7838865505509a",
+  "runtime_inputs_sha256": "5562fc198d6af2419def4d8f3c1e6488a427badeb81522e3db429ddbbe5af646",
+  "test_path": "game/tests/orison_v2_heating_distribution_test.gd",
+  "test_sha256": "5ac84b5bed7a242d83208c01d4085ab5cc78dbc5145d74b43f0692d6052e38cd"
+ },
+ "windowed": true
+}

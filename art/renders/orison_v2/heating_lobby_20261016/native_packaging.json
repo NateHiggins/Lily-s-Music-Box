@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native packaging only; exact semantic mesh comparison and image-link rebasing, not new runtime acceptance.",
+  "source_sha256": "d505d70097ffd8dae132044ca8bc3393ff968544ca36f7c542d2bd091cf63cae",
+  "native_sha256": "88a498c3b1719162917150779a837fc49f36a19f56cf96a3d33d9c48ccf8a84f",
+  "geometry_sha256_before": "5e994142dd74f7251c1ac857fe72c6c1f0198a32df79032120345fe28ee2febe",
+  "geometry_sha256_after": "5e994142dd74f7251c1ac857fe72c6c1f0198a32df79032120345fe28ee2febe",
+  "images": [
+    {
+      "image": "T_ai_materials_iron_neutral_albedo.png.001",
+      "relative_path": "//..\\..\\game\\assets\\building\\textures\\T_ai_materials_iron_neutral_albedo.png",
+      "sha256": "98493bc86242ee82fd70bb4a0c9a20e648447269bfaff65a72162f2f596b248d"
+    },
+    {
+      "image": "T_ai_materials_iron_neutral_rough.png.001",
+      "relative_path": "//..\\..\\game\\assets\\building\\textures\\T_ai_materials_iron_neutral_rough.png",
+      "sha256": "7d299c8f80229f2c968d54181798ffebebd388a012257b6d51d370c961039d1e"
+    },
+    {
+      "image": "T_ai_materials_iron_neutral_normal.png.001",
+      "relative_path": "//..\\..\\game\\assets\\building\\textures\\T_ai_materials_iron_neutral_normal.png",
+      "sha256": "d129dc84b8c1d3b2a2d935fbe8d1efab9dba4fe48b2da59da4ab363cf2722ac7"
+    }
+  ],
+  "failures": []
+}

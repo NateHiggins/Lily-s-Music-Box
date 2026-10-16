@@ -1,0 +1,17 @@
+{
+  "evidence_class": "INERT",
+  "status": "REVIEWED_NATIVE_ONLY",
+  "human_acceptance": false,
+  "images": [
+    {
+      "file": "tee_external.png",
+      "sha256": "03e0a718b3624cf6d10f278d985c235482720051e4ef7d81778d7202a4cb5ea8",
+      "observation": "Reviewed the final native render: casting, three socket shoulders and inserted parent/branch pipes are present. This close view does not establish world fit or support construction."
+    },
+    {
+      "file": "tee_main_bore.png",
+      "sha256": "8e79e603020eab46c9e9eed2fc663066c80efb339a67af55c9c2f46dcb41b6f2",
+      "observation": "Reviewed the final native through-bore render: the main passage is visibly open. Native probes additionally check all three receiving sockets and both flow necks. Human or Godot acceptance is not granted."
+    }
+  ]
+}

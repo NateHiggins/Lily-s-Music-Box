@@ -4294,7 +4294,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F01/marker+acoustic_node",
+   "resolved_target": "F01/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -111662,12 +111662,14 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/network[0]/id"
+    "/network[0]/id",
+    "/installed[*]/id"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -111679,7 +111681,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F01/marker+acoustic_node",
+   "resolved_target": "F01/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -288289,6 +288291,155 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F06/marker+acoustic_node+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "73ab48d693e2740f",
+   "kind": "id_reference",
+   "token": "F01_LOBBY_RADIATOR_01",
+   "file": "game/data/orison_v2_blockout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "98fa05223d7d1dfb",
+   "kind": "id_reference",
+   "token": "F01_FRONT_WEST_BAY",
+   "file": "game/scripts/building/orison_v2_public_furnishings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [
+    "if space.id==\"F01_FRONT_WEST_BAY\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c32ac2f66cffdbc8",
+   "kind": "id_reference",
+   "token": "F01_FRONT_WEST_BAY",
+   "file": "game/tests/orison_v2_heating_distribution_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    82
+   ],
+   "count": 1,
+   "context": [
+    "if space.id==\"F01_FRONT_WEST_BAY\":bay=space;break"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "642ebf2d959dd20e",
+   "kind": "id_reference",
+   "token": "F01_LOBBY_RADIATOR_01",
+   "file": "game/tests/orison_v2_heating_distribution_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    48,
+    100
+   ],
+   "count": 2,
+   "context": [
+    "var lobby := world.adapter.resolve(\"F01_LOBBY_RADIATOR_01\") as RadiatorProp",
+    "for identity: String in [\"F01_LOBBY_RADIATOR_01\",\"F05_B_RADIATOR_01\",\"F06_B_RADIATOR_01\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9273d60ec78b70be",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/orison_v2_heating_distribution_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    91,
+    94
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position=root.to_global(Vector3(-2.5,1.5,-9.5));camera.look_at(bench.global_position+Vector3.UP*.45)",
+    "camera.global_position=root.to_global(Vector3(-2.8,1.6,-8.4));camera.look_at(root.to_global(Vector3(-5.0,.6,-8.5)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
