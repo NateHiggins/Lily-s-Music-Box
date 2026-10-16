@@ -91,6 +91,36 @@ class OwnedLampOutputTests(unittest.TestCase):
 
 
 class ReconciledReviewTests(unittest.TestCase):
+    def test_local_helper_requires_reached_unshadowed_input(self):
+        parent = ('extends Node\nfunc click():\n'
+                  '    var event := InputEventMouseButton.new()\n'
+                  '    event.pressed = true\n'
+                  '    event.button_index = MOUSE_BUTTON_LEFT\n'
+                  '    player._unhandled_input(event)\n')
+        child = ('extends Node\n'
+                 'class Hand extends "res://tests/hand.gd":\n'
+                 '    func operate():\n        click()\n'
+                 'func _ready():\n    situation.apply_condition()\n'
+                 '    var hand := Hand.new()\n    hand.operate()\n')
+        cases = [
+            (child, parent, False),
+            (child.replace('    hand.operate()\n', ''), parent, True),
+            (child.replace('hand.operate()', 'print("hand.operate()")'), parent, True),
+            (child.replace('hand.operate()', '# hand.operate()'), parent, True),
+            (child.replace('    hand.operate()', '    hand = other\n    hand.operate()'), parent, True),
+            (child.replace('        click()', '        pass'), parent, True),
+            (child.replace('func _ready():', 'func unused():'), parent, True),
+            (child.replace('    func operate():', '    func click():\n        pass\n    func operate():'), parent, True),
+            (child, parent.replace('event.pressed = true', 'event.pressed = false'), True),
+            (child, parent.replace('player._unhandled_input(event)', 'player._unhandled_input(other)'), True),
+            (child, parent.replace('    player._unhandled_input(event)', '    event = other\n    player._unhandled_input(event)'), True),
+            (child, '', True),
+        ]
+        for source, base, expected in cases:
+            with self.subTest(source=source, base=base):
+                rows = self.scan_source(source, parents={'game/tests/hand.gd': base})
+                self.assertEqual(bool(of_class(rows, 'TEST_AUTHORITY_SHORTCUT')), expected)
+
     def scan_source(self, source, rel="game/tests/player_reconstruction_test.gd", parents=None):
         with TempRepo() as root:
             for name, body in {rel: source, **(parents or {})}.items():

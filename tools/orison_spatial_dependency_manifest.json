@@ -288002,6 +288002,233 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "4906fa8dd92340b7",
+   "kind": "runtime_id",
+   "token": "F01_NIGHT_REGISTER",
+   "file": "game/tests/night_register_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    40,
+    42
+   ],
+   "count": 2,
+   "context": [
+    "register=NightRegisterProp.new();register.name=\"F01_NIGHT_REGISTER\";register._work_orders=orders;add_child(register)",
+    "data.actors=data.actors.filter(func(a): return a.id==\"F01_NIGHT_REGISTER\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "6acd3e9f86772abc",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/patrol_installed_save_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    2
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ec3a88fec0a9d285",
+   "kind": "runtime_id",
+   "token": "F01_NIGHT_REGISTER",
+   "file": "game/tests/patrol_installed_save_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "mount_world",
+    "exercise_installed"
+   ],
+   "lines": [
+    45,
+    64,
+    95
+   ],
+   "count": 3,
+   "context": [
+    "register=world.adapter.resolve(\"F01_NIGHT_REGISTER\")",
+    "check(world.household_state._subjects.get(\"F01_NIGHT_REGISTER\")==register,\"household discovers actual installed register\")",
+    "var saved: Dictionary=on_disk.get(SaveOwner.KEY,{}).get(\"records\",{}).get(\"F01_NIGHT_REGISTER\",{}).get(\"value\",{})"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "9db5560a49bf5a4b",
+   "kind": "runtime_id",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/tests/tour_key_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    28,
+    32
+   ],
+   "count": 2,
+   "context": [
+    "guard=TourKeyGuardProp.new();guard.name=\"F01_TOUR_KEY_GUARD\";add_child(guard)",
+    "data.actors=data.actors.filter(func(a): return a.id==\"F01_TOUR_KEY_GUARD\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "de53f658454f071b",
+   "kind": "runtime_id",
+   "token": "F01_SIGNAL_REGISTER",
+   "file": "game/tests/watch_register_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    22,
+    24
+   ],
+   "count": 2,
+   "context": [
+    "register=WatchRegisterProp.new();register.name=\"F01_SIGNAL_REGISTER\";add_child(register)",
+    "data.actors=data.actors.filter(func(a): return a.id==\"F01_SIGNAL_REGISTER\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "7e2eeb4c4095937c",
+   "kind": "id_candidate",
+   "token": "F02_STATION_CORE",
+   "file": "game/tests/watch_station_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    89,
+    89
+   ],
+   "count": 2,
+   "context": [
+    "station.name=\"F02_STATION_CORE\";station.station_id=\"F02_STATION_CORE\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "abd71b8cff5f120a",
+   "kind": "runtime_id",
+   "token": "F01_WATCHMAN_DETECTOR",
+   "file": "game/tests/watchman_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    37,
+    39
+   ],
+   "count": 2,
+   "context": [
+    "detector=WatchmanClockProp.new();detector.name=\"F01_WATCHMAN_DETECTOR\";add_child(detector)",
+    "data.actors=data.actors.filter(func(a): return a.id==\"F01_WATCHMAN_DETECTOR\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
   }
  ]
 }

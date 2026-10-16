@@ -26,7 +26,17 @@ func acquire(key: String) -> bool:
 	if key=="brake": local_point.x+=.029
 	if key=="pawl": local_point.x-=.015
 	var point := part.to_global(local_point)
-	if player.inspecting(): Input.warp_mouse(player.camera.unproject_position(point))
+	if player.inspecting():
+		var requested_cursor := player.camera.unproject_position(point)
+		Input.warp_mouse(requested_cursor)
+		# Several physics ticks may run before the OS delivers a cursor warp.
+		# Wait for the actual viewport cursor, never substitute a direct pick.
+		for frame in 12:
+			await get_tree().process_frame
+			if get_viewport().get_mouse_position().distance_to(requested_cursor)<=2.0: break
+		if get_viewport().get_mouse_position().distance_to(requested_cursor)>2.0:
+			print("DUMBWAITER CURSOR WARP FAILED: ",key," requested=",requested_cursor," actual=",get_viewport().get_mouse_position())
+			return false
 	else: player.camera.look_at(point)
 	await get_tree().physics_frame
 	await get_tree().physics_frame

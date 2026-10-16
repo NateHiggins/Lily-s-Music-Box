@@ -77,11 +77,15 @@
 			"ok": true
 		},
 		{
-			"label": "production detector clocks in and offers exactly the authored opening job",
+			"label": "open detector cover through actual pointer motion",
 			"ok": true
 		},
 		{
-			"label": "production spindle acknowledges one report and denies duplicate taking",
+			"label": "production detector key stroke clocks in and offers exactly the authored opening job",
+			"ok": true
+		},
+		{
+			"label": "physical spindle lift acknowledges one report and denies duplicate taking",
 			"ok": true
 		},
 		{
@@ -233,67 +237,127 @@
 			"ok": true
 		},
 		{
-			"label": "the guard offers its key",
+			"label": "guard latch opens through mouse travel",
 			"ok": true
 		},
 		{
-			"label": "the tour key leaves its hook for the round by the player's press",
+			"label": "key physically lifts from its hook",
 			"ok": true
 		},
 		{
-			"label": "box offers its door: B1_STATION_BOILER",
+			"label": "original custody authorizes the round after physical lift",
 			"ok": true
 		},
 		{
-			"label": "box worked by the player's presses: B1_STATION_BOILER",
+			"label": "grab and swing station door: B1_STATION_BOILER",
 			"ok": true
 		},
 		{
-			"label": "box offers its door: F02_STATION_CORE",
+			"label": "grab and wind full crank stroke: B1_STATION_BOILER",
 			"ok": true
 		},
 		{
-			"label": "box worked by the player's presses: F02_STATION_CORE",
+			"label": "full physical stroke publishes station mark: B1_STATION_BOILER",
 			"ok": true
 		},
 		{
-			"label": "box offers its door: F03_STATION_CORE",
+			"label": "physically close station door: B1_STATION_BOILER",
 			"ok": true
 		},
 		{
-			"label": "box worked by the player's presses: F03_STATION_CORE",
+			"label": "grab and swing station door: F02_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box offers its door: F04_STATION_CORE",
+			"label": "grab and wind full crank stroke: F02_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box worked by the player's presses: F04_STATION_CORE",
+			"label": "full physical stroke publishes station mark: F02_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box offers its door: F05_STATION_CORE",
+			"label": "physically close station door: F02_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box worked by the player's presses: F05_STATION_CORE",
+			"label": "grab and swing station door: F03_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box offers its door: F06_STATION_CORE",
+			"label": "grab and wind full crank stroke: F03_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box worked by the player's presses: F06_STATION_CORE",
+			"label": "full physical stroke publishes station mark: F03_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box offers its door: F01_STATION_LOBBY",
+			"label": "physically close station door: F03_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box worked by the player's presses: F01_STATION_LOBBY",
+			"label": "grab and swing station door: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F01_STATION_LOBBY",
 			"ok": true
 		},
 		{
@@ -333,39 +397,47 @@
 			"ok": true
 		},
 		{
-			"label": "the key goes back on its hook by the player's press",
+			"label": "carried key physically returns to hook",
 			"ok": true
 		},
 		{
-			"label": "box reset: B1_STATION_BOILER",
+			"label": "original network receives returned custody",
 			"ok": true
 		},
 		{
-			"label": "box reset: F02_STATION_CORE",
+			"label": "supervisor resets box: B1_STATION_BOILER",
 			"ok": true
 		},
 		{
-			"label": "box reset: F03_STATION_CORE",
+			"label": "supervisor resets box: F02_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box reset: F04_STATION_CORE",
+			"label": "supervisor resets box: F03_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box reset: F05_STATION_CORE",
+			"label": "supervisor resets box: F04_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box reset: F06_STATION_CORE",
+			"label": "supervisor resets box: F05_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "box reset: F01_STATION_LOBBY",
+			"label": "supervisor resets box: F06_STATION_CORE",
 			"ok": true
 		},
 		{
-			"label": "register restored for the morning",
+			"label": "supervisor resets box: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "register reset lever works through mouse travel",
+			"ok": true
+		},
+		{
+			"label": "physical reset restores shutters without erasing signal count",
 			"ok": true
 		},
 		{
@@ -487,15 +559,15 @@
 			"retained_playbacks": 0,
 			"retained_resources": 0,
 			"status": "PASS",
-			"tracked_nodes": 118551,
-			"tracked_playbacks": 213,
-			"tracked_resources": 76
+			"tracked_nodes": 118852,
+			"tracked_playbacks": 165,
+			"tracked_resources": 128
 		}
 	},
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 168.563,
+		"elapsed_s": 195.053,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -515,9 +587,9 @@
 	"scope": "Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Direct service-owner calls are contract stimuli; continuous walking and whole-world visual acceptance are not claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "b112e625648d038541f290c046af4869cf87ea24",
-		"runtime_inputs_sha256": "60bb04ba3f7482a05f882cdca6f00740fb0d149aebad2ed7b7dd81d41660e01c",
+		"repository_head": "6620ec3a042d062f062aa25f2ea0af57a90e48f8",
+		"runtime_inputs_sha256": "bf79ea81409a3696f8e29b65f5ca2c4dd5e50daae4cab30d90438a7a82ca434a",
 		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
-		"test_sha256": "b771f04ccce124bae1d5432c8cfc873976c7852a17bcfa92fe66322cb743d6c3"
+		"test_sha256": "a9e7d8d9d913602d01bb348c74cb506f913b21c7aed25752d36903814a1c2ad2"
 	}
 }

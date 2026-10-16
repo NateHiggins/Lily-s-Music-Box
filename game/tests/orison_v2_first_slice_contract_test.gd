@@ -3,6 +3,60 @@ extends Node
 ## Derived from the existing M08F and patrol harnesses; every executed check
 ## lives in this root source and is covered by the receipt source hash.
 
+class PatrolHand extends Node3D:
+	var player: PlayerController
+	var follows_cursor := true
+	func click() -> void:
+		var event := InputEventMouseButton.new()
+		event.button_index=MOUSE_BUTTON_LEFT;event.pressed=true
+		player._unhandled_input(event)
+
+	func move_to(goal: float) -> bool:
+		for i in 180:
+			if not player._grab.active(): return false
+			var target: Dictionary=player._grab.target
+			var value: float=target.read.call()
+			if absf(goal-value)<.001: return true
+			var point: Vector3=target.part.to_global(player._grab.contact)
+			var axis: Vector3=target.frame.global_basis*target.axis
+			var tangent: Vector3=axis
+			if target.kind=="hinge":
+				tangent=axis.cross(point-target.part.global_position)
+				if tangent.length()<.025: tangent=axis.cross(player.camera.global_basis.x)*.06
+			var screen: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
+			var depth_gesture := screen.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5
+			if depth_gesture: screen=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
+			var event := InputEventMouseMotion.new()
+			event.relative=screen*clampf(goal-value,-.15 if target.kind=="hinge" else -.04,.15 if target.kind=="hinge" else .04)
+			var before_screen: Vector2=player.camera.unproject_position(point)
+			player._unhandled_input(event)
+			await get_tree().physics_frame
+			if not depth_gesture and target.kind=="hinge" and absf(float(target.read.call())-value)>.001:
+				var after_screen: Vector2=player.camera.unproject_position(target.part.to_global(player._grab.contact))
+				if (after_screen-before_screen).dot(event.relative)<0: follows_cursor=false
+		return false
+
+	func operate(point: Vector3, target: float, owner: Node = null) -> bool:
+		player.camera.look_at(point)
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+		click()
+		if not player._grab.active():
+			print("[PATROL POINTER] acquisition refused at ",point," camera=",player.camera.global_position)
+			return false
+		var picked: Dictionary=player._grab.target
+		if owner!=null and picked.owner!=owner:
+			print("[PATROL POINTER] wrong owner: ",picked.owner.get_path())
+			click()
+			return false
+		var part_name: String=str(picked.part.get_path())
+		var moved: bool=await move_to(target)
+		if not moved:
+			print("[PATROL POINTER] motion incomplete part=",part_name," wanted=",target," actual=",picked.read.call()," active=",player._grab.active()," captured=",Input.mouse_mode," call_locked=",player.call_locked," mouse_released=",player.mouse_released)
+		click()
+		return moved and not player._grab.active()
+
+
 const Selector := preload("res://scripts/building/building_root_selector.gd")
 const REQUIRED := ["F01_WATCHMAN_DETECTOR", "F01_NIGHT_REGISTER",
 		"F01_SIGNAL_REGISTER", "F01_TOUR_KEY_GUARD",
@@ -234,6 +288,10 @@ func _prepare_ritual() -> void:
 	RealityState.data.first_shift = {"phase":FirstShiftDirector.PHASE_ARRIVED}
 
 func _exercise_ritual(world: OrisonV2RuntimeRoot) -> void:
+	# FirstShiftDirector defers its arrival placement. Let startup finish before
+	# placing the test operator; retain the production arrival authority.
+	await get_tree().process_frame
+	await get_tree().process_frame
 	var director := world.first_shift_director
 	var detector := world.adapter.resolve("F01_WATCHMAN_DETECTOR") as WatchmanClockProp
 	var register := world.adapter.resolve("F01_NIGHT_REGISTER") as NightRegisterProp
@@ -241,17 +299,26 @@ func _exercise_ritual(world: OrisonV2RuntimeRoot) -> void:
 	_check(not director.clock_out() and not director.accept_report(ChirpHunt.JOB_ID),
 		"arrival refuses premature clock-out and report acceptance")
 	_check(not register.take_slip(),"empty spindle cannot invent an opening report")
-	_check(detector.interact_control("detector",world.player)
+	var physics_before := world.player.is_physics_processing()
+	world.player.set_physics_process(false)
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	var hand := PatrolHand.new();add_child(hand);hand.player=world.player
+	await _look(world,detector.to_global(Vector3(.08,-.85,.8)),detector.to_global(Vector3(0,.2,.14)))
+	_check(await hand.operate(detector.to_global(Vector3(.145,.2,.225)),1.65,detector),"open detector cover through actual pointer motion")
+	_check(await hand.operate(detector._station_key.global_position+detector.global_basis*Vector3(.014,0,.016),1.18,detector)
 		and director.ritual_phase()==FirstShiftDirector.PHASE_CLOCKED_IN
 		and world.work_orders.job_stage(ChirpHunt.JOB_ID)=="issued",
-		"production detector clocks in and offers exactly the authored opening job")
-	_check(register.take_slip() and not register.take_slip()
-		and director.ritual_phase()==FirstShiftDirector.PHASE_REPORT_ACCEPTED
+		"production detector key stroke clocks in and offers exactly the authored opening job")
+	await _look(world,register.to_global(Vector3(.04,-.8,.85)),register.to_global(Vector3(0,.25,.05)))
+	_check(await hand.operate(register._slip.global_position+register.global_basis*Vector3(.006,0,.008),.065,register)
+		and not register.take_slip() and director.ritual_phase()==FirstShiftDirector.PHASE_REPORT_ACCEPTED
 		and world.work_orders.job_stage(ChirpHunt.JOB_ID)=="acknowledged",
-		"production spindle acknowledges one report and denies duplicate taking")
+		"physical spindle lift acknowledges one report and denies duplicate taking")
+	hand.free()
 	await _run_patrol(world)
 	_check(not guard.key_carried() and not director.tour_key_carried(),
 		"physical guard and first-shift observer agree on returned tour key")
+	world.player.set_physics_process(physics_before)
 	ritual_executed=true
 
 func _track_retirement(world: OrisonV2RuntimeRoot) -> void:
@@ -347,27 +414,24 @@ func _run_patrol(world: Node) -> void:
 		_check(front.is_empty(),"nothing stands in front of the box: "+anchor)
 		ordered.append(station)
 		await _look(world,station.to_global(Vector3(0,-1.42,.95)),station.to_global(Vector3(0,.2,0)))
-
 	ordered.sort_custom(func(a: WatchStationProp,b: WatchStationProp) -> bool: return a.station_number()<b.station_number())
-	# One round, worked the way a player works it: the key off its hook with E at
-	# the guard, then at every box in order one E to open it and one E to turn
-	# the crank, after which the latch spring takes the door home.
+	# Actual clicks acquire the part; projected mouse travel operates it and
+	# the next click releases. The original network still publishes marks.
+	var hand := PatrolHand.new();add_child(hand);hand.player=world.player
+	world.player.cancel_manipulation()
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	if guard==null: _check(false,"tour key guard present")
 	else:
 		await _look(world,guard.to_global(Vector3(0,-1.15,.7)),guard.to_global(Vector3(0,.15,.06)))
-		_check(guard.interact_prompt().begins_with("[E]  Take the tour key"),"the guard offers its key")
-		world.player.use_primary_interaction()
-		await get_tree().physics_frame
-		_check(network.tour_key_carried(),"the tour key leaves its hook for the round by the player's press")
+		_check(await hand.operate(guard._latch.to_global(Vector3(-.030,0,.012)),1.4),"guard latch opens through mouse travel")
+		_check(await hand.operate(guard._key.to_global(Vector3(0,-.028,.01)),.065),"key physically lifts from its hook")
+		_check(network.tour_key_carried(),"original custody authorizes the round after physical lift")
 	for station in ordered:
 		await _look(world,station.to_global(Vector3(0,-1.42,.75)),station.to_global(Vector3(0,.16,.05)))
-		_check(station.interact_prompt().begins_with("[E]  Open the signal box"),"box offers its door: "+station.station_id)
-		world.player.use_primary_interaction()
-		await get_tree().physics_frame
-		var opened := station.door_open
-		world.player.use_primary_interaction()
-		await get_tree().physics_frame
-		_check(opened and station.marked() and not station.door_open,"box worked by the player's presses: "+station.station_id)
+		_check(await hand.operate(station._door.to_global(Vector3(.196,-.06,.025)),1.65),"grab and swing station door: "+station.station_id)
+		_check(await hand.operate(station._crank.to_global(Vector3(0,.056,.025)),TAU),"grab and wind full crank stroke: "+station.station_id)
+		_check(station.door_open and station.marked(),"full physical stroke publishes station mark: "+station.station_id)
+		_check(await hand.operate(station._door.to_global(Vector3(.196,-.06,.025)),0),"physically close station door: "+station.station_id)
 	var delivered := network.delivered()
 	_check(delivered.size()==STATIONS.size(),"every mark reached the register")
 	var order: Array = delivered.map(func(r: Dictionary) -> int: return int(r.get("station_number",0)))
@@ -376,14 +440,17 @@ func _run_patrol(world: Node) -> void:
 		_check(register.shows(number),"register drop %d down" % number)
 	var at := register.to_global(Vector3(0,-.25,.95))
 	await _look(world,Vector3(at.x,root.to_global(Vector3.ZERO).y,at.z),register.to_global(Vector3(0,.23,0)))
-
 	await _look(world,guard.to_global(Vector3(0,-1.15,.7)),guard.to_global(Vector3(0,.15,.06)))
-	world.player.use_primary_interaction()
-	await get_tree().physics_frame
-	_check(not network.tour_key_carried(),"the key goes back on its hook by the player's press")
-	for station in ordered: _check(station.reset_station() and not station.marked(),"box reset: "+station.station_id)
-	_check(register.reset_shutters() and not register.shows(1),"register restored for the morning")
+	_check(await hand.operate(guard._check.to_global(Vector3(0,0,.01)),0),"carried key physically returns to hook")
+	_check(not network.tour_key_carried(),"original network receives returned custody")
+	for station in ordered: _check(station.reset_station() and not station.marked(),"supervisor resets box: "+station.station_id)
+	await _look(world,Vector3(at.x,root.to_global(Vector3.ZERO).y,at.z),register.to_global(Vector3(0,.23,0)))
+	var counter_before: int=register.signals_taken
+	_check(await hand.operate(register._lever.to_global(Vector3(0,.062,.018)),.9),"register reset lever works through mouse travel")
+	_check(not register.shows(1) and register.signals_taken==counter_before,"physical reset restores shutters without erasing signal count")
+	hand.free()
 	print("PATROL STATIONS: stations=%d marks=%d delivered=%d failures=%d" % [ordered.size(),network.mark_count(),delivered.size(),failures])
+
 
 func _look(world: Node, feet: Vector3, target: Vector3) -> void:
 	world.player.global_position = feet

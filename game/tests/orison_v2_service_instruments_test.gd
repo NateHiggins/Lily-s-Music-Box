@@ -58,7 +58,9 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		actor.set_process(false)
 		for original: Dictionary in entry.source:
 			var draw: MeshInstance3D = original.draw.get_ref()
-			check(draw!=null and draw.get_parent().get_instance_id()==original.parent,"original mesh owner and animation parent retained")
+			var fitted_cover := identity=="F01_WATCHMAN_DETECTOR" and draw!=null and draw.name=="GlassLid" \
+					and draw.get_parent()==actor.get_node_or_null("DetectorCover") and draw.get_parent().get_parent()==actor
+			check(draw!=null and (draw.get_parent().get_instance_id()==original.parent or fitted_cover),"original mesh owner retained under original parent or fitted detector cover hinge")
 			if original.preserve_material: check(draw.material_override==original.material,"original dynamic material owner retained")
 			if str(original.replacement).is_empty(): check(draw.mesh==null,"superseded fake opening or segmented cord retired")
 			else:

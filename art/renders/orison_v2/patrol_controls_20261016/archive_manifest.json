@@ -1,0 +1,341 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Byte-preserving archive of completed test outputs. Runtime contracts retain their own scopes; wrapper logs and static boards are not runtime proof. Historical focused visual observations remain marked as such.",
+  "files": [
+    {
+      "file": "apartments_recovered/qualification.json",
+      "bytes": 59,
+      "sha256": "8a7083c4cea306fcb9a21e11744b1ed0dccee112a9edefc7884bce3624ec182a"
+    },
+    {
+      "file": "apartments_recovered/runtime_contract.json",
+      "bytes": 52729,
+      "sha256": "cdcdd539cf1b21ed16e46b824c51432c17122e1d67f0e22021a629f12762273e"
+    },
+    {
+      "file": "apartments_recovered.log",
+      "bytes": 45925,
+      "sha256": "0fabbf857b7127263deb37c0da0506efb8d5ea21bf2186f0b9d28fab836ba6b7"
+    },
+    {
+      "file": "apartments_recovered.log.receipt.json",
+      "bytes": 3299,
+      "sha256": "2ef7770469a7d5beb2647efd289c1e99048c53415a5c951fc92c1cd97d0eb7ed"
+    },
+    {
+      "file": "apartments_recovered.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "file": "detector_retirement_fixed/detector_open.png",
+      "bytes": 94060,
+      "sha256": "a5b9565d4bc597af3aed644e2874bbe75e0e986164bea989c4d99cf5bf152ea8"
+    },
+    {
+      "file": "diagnostics/dumbwaiter_cursor_race/dumbwaiter_recovered.log",
+      "bytes": 7424,
+      "sha256": "e09e68537b1121f4d6da19cc45ee284b0406b921af952d02e4c53033d19f5c2e"
+    },
+    {
+      "file": "diagnostics/dumbwaiter_cursor_race/dumbwaiter_recovered.log.receipt.json",
+      "bytes": 3106,
+      "sha256": "17f5b169532b87ec74a89d546fc41b09c312617c60a2be95ca0fcf08838f1830"
+    },
+    {
+      "file": "diagnostics/dumbwaiter_cursor_race/dumbwaiter_recovered.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "diagnostics/dumbwaiter_cursor_race/runtime_contract.json",
+      "bytes": 5894,
+      "sha256": "8342bc451037d5a0242226918af6cd646bb27cbe970793a7d00f9461c7444f8c"
+    },
+    {
+      "file": "diagnostics/dumbwaiter_cursor_race/scope.txt",
+      "bytes": 245,
+      "sha256": "9ec655029dac515093591483cb7c29533b14a59d38728a9b6b50e1af88ea7e25"
+    },
+    {
+      "file": "dumbwaiter_cursor_settled/qualification.json",
+      "bytes": 301,
+      "sha256": "f6b132fc5a67ec6d1afd7a1656a5cac656191f059bc763ef3b2921ea3507cb06"
+    },
+    {
+      "file": "dumbwaiter_cursor_settled/runtime_contract.json",
+      "bytes": 5888,
+      "sha256": "39cd9921581f35071045091e76176d1242d28542f8a616ec2e432f0225801c72"
+    },
+    {
+      "file": "dumbwaiter_cursor_settled.log",
+      "bytes": 7025,
+      "sha256": "553217fc6dea9438447bf2f82780db170d73f7be36b99711440ba5cc08e968a2"
+    },
+    {
+      "file": "dumbwaiter_cursor_settled.log.receipt.json",
+      "bytes": 3121,
+      "sha256": "0fbc6fb41aaea94665e5d3f083107ec82029fe5a10cf6b82eb4c476ca8d8db31"
+    },
+    {
+      "file": "dumbwaiter_cursor_settled.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "firstslice_recovered/qualification.json",
+      "bytes": 155,
+      "sha256": "e2a977a5c3812cc46e7f24607498c482cd46bc10c6ecc6aa78bc182ed02fbda5"
+    },
+    {
+      "file": "firstslice_recovered/runtime_authority_receipt.json",
+      "bytes": 13323,
+      "sha256": "cc7c594a6554861099d1f9ad66147848f6221acf370ad79c9398fdfe9f379d45"
+    },
+    {
+      "file": "firstslice_recovered.log",
+      "bytes": 1084342,
+      "sha256": "f3b5997dbd8605818c4e49532a1d6cae3ebfb6cbc50152b09e570b38e3c1bee7"
+    },
+    {
+      "file": "firstslice_recovered.log.receipt.json",
+      "bytes": 6050,
+      "sha256": "b7da40f59f87149c9266f6fab0968acce4c14431f53ba23262e6f5fdb0304323"
+    },
+    {
+      "file": "firstslice_recovered.log.stderr",
+      "bytes": 18654,
+      "sha256": "178b4a65297bd03b1b853b5e033cbd547b347932d0bf5ce65c8133ef5d44965c"
+    },
+    {
+      "file": "gate_board.json",
+      "bytes": 248780,
+      "sha256": "2e88c6ece2d37bf70c2fe2f7c741fef6798c63891e50c81bbff146ee11630d74"
+    },
+    {
+      "file": "gate_board.md",
+      "bytes": 4413,
+      "sha256": "c01a880e9d5e60ba0fe21315c557a3e2b3b1d5579e26e322e4cf27edfc4acfa3"
+    },
+    {
+      "file": "native_fit/build_checkpoint_binding.log",
+      "bytes": 27929,
+      "sha256": "e72aeb034489ae9a83fadd0a45bf488ca5adf7036d0cbd26cea1181376f59377"
+    },
+    {
+      "file": "native_fit/detector_cover_sweep.json",
+      "bytes": 133,
+      "sha256": "34980a264cdbd5d5d4ce11db5c857048ae73ca94d246b0ecc3e91daa674163bd"
+    },
+    {
+      "file": "native_fit/detector_punch_guide.json",
+      "bytes": 146,
+      "sha256": "9d293c8330e025d678c41b3321246873b410462aaaccc79607bb18c9a9e76a1d"
+    },
+    {
+      "file": "native_fit/inspect_detector_cable.log",
+      "bytes": 711,
+      "sha256": "a7db2fe910a18d7d2532b9433abfe60700c19ec3689a8458049b093aef85db9f"
+    },
+    {
+      "file": "native_fit/inspect_pen_rules.log",
+      "bytes": 694,
+      "sha256": "de2700f71849ec970bc00bd5d7aa63da60df12c2af7f85b3bd6f4d291afbf8be"
+    },
+    {
+      "file": "native_fit/night_pen_fit.json",
+      "bytes": 382,
+      "sha256": "b24839ef43d66c34e8171719904211f2d4955d6b83c9fb5fe1aed04e0f853fe3"
+    },
+    {
+      "file": "native_fit/register_native_fit.log",
+      "bytes": 575,
+      "sha256": "9a7e9ee15af59bbccaa39839a1218ff9b185dab6d36be49d49e9f0117958e65d"
+    },
+    {
+      "file": "native_fit/register_test_key_sweep.json",
+      "bytes": 194,
+      "sha256": "c5e22f968c36d8587bf8d643f96f609d028f9a65b0f728f91b238782accf102a"
+    },
+    {
+      "file": "native_fit/scope.txt",
+      "bytes": 333,
+      "sha256": "36ef752316e8bab7e2f6e3a06d5212a4b53866dcb7798909079fba02ebda3b0f"
+    },
+    {
+      "file": "native_mesh_comparison.json",
+      "bytes": 5554,
+      "sha256": "6ac3b86448dd7c06c9d4f182864b05a6e9d89bffbc6c8e95ef3a631693c4c1a6"
+    },
+    {
+      "file": "protected_recovery.json",
+      "bytes": 2021,
+      "sha256": "d573a8ea8a69e53127418259710e9db0a7ba210fe243734a9da18d5fe31bfc60"
+    },
+    {
+      "file": "recovery_visual_observations.json",
+      "bytes": 952,
+      "sha256": "0362a6cd659c99f0c56a8bc39c3618b50cc5b2d870ff05dc517115495935d767"
+    },
+    {
+      "file": "remaining_recovered/qualification.json",
+      "bytes": 59,
+      "sha256": "64085c0b0189bff24172e10f759a6969fc72154d602804ebedc907d0a451a864"
+    },
+    {
+      "file": "remaining_recovered/runtime_contract.json",
+      "bytes": 365362,
+      "sha256": "91842c80fecc709b0d35d3a0b3431a5f23c44d0f3071728e2ebd47812855369e"
+    },
+    {
+      "file": "remaining_recovered.log",
+      "bytes": 130382,
+      "sha256": "48841ba30e6db672ffae3202fe8ca949c1ef00c49cdf93d823b21a239eae0ee4"
+    },
+    {
+      "file": "remaining_recovered.log.receipt.json",
+      "bytes": 3166,
+      "sha256": "4ab5081a810ac372e54bce90512cbe6c6c0f3a1d4cf15f0a2c13410cdaf5c070"
+    },
+    {
+      "file": "remaining_recovered.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "file": "roof_recovered/qualification.json",
+      "bytes": 300,
+      "sha256": "a2d6085ada59dd2b2a4285c1ba855a53f31fe6e1b647313d4bc98ff56a61e5c9"
+    },
+    {
+      "file": "roof_recovered/runtime_contract.json",
+      "bytes": 5756,
+      "sha256": "94c8db021428be06507fa20dba06fbf16d2e7d50ab17d0055da9145a9590e15a"
+    },
+    {
+      "file": "roof_recovered.log",
+      "bytes": 6605,
+      "sha256": "e7182116ad8db6fec44d9724dffbd515ddf38385c90fa1977928de953623b539"
+    },
+    {
+      "file": "roof_recovered.log.receipt.json",
+      "bytes": 3076,
+      "sha256": "22c6b77322c4941a63f8e0a418499f8f46650949684f8a2803a051f8e29d7c27"
+    },
+    {
+      "file": "roof_recovered.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "file": "save_recovered/installed_register.png",
+      "bytes": 1117435,
+      "sha256": "9997761beb878693d00e6ad623032d9133a74b7bb3ca623c4af55117b7fe5fee"
+    },
+    {
+      "file": "save_recovered/qualification.json",
+      "bytes": 314,
+      "sha256": "72301b1a6b6d3aad57f2927c1c6c26c4be35f21be9f0e0e3083ebb4facfcb185"
+    },
+    {
+      "file": "save_recovered/runtime_contract.json",
+      "bytes": 3369,
+      "sha256": "a602df8fa9899219d81a273e87b70b836020d12bc9fc607938e36428e6494e94"
+    },
+    {
+      "file": "save_recovered.log",
+      "bytes": 1388835,
+      "sha256": "0c75b6f49c30fcfe06639c6da73888044f451d2896381ab71d9e067ea7fa9666"
+    },
+    {
+      "file": "save_recovered.log.receipt.json",
+      "bytes": 3647,
+      "sha256": "c57a25c7fbf796ac941fb633bd0cf99e8683bac954831b65a73c1b19b71c4734"
+    },
+    {
+      "file": "save_recovered.log.stderr",
+      "bytes": 22198,
+      "sha256": "25b73096190f6314e2d29ad898f7ea172fc8770b7ebcf66161111c1e6d169aa7"
+    },
+    {
+      "file": "station_retirement/station_open.png",
+      "bytes": 70920,
+      "sha256": "37c118170d9647a1cc676d15e474cc24e563638d3784c7b1252962fac508fb60"
+    },
+    {
+      "file": "surfaces_recovered/front_gallery_02.png",
+      "bytes": 551931,
+      "sha256": "0ea858aac9d8994db4a3e7d6a4731677e371a024a5e6ee6ac870604f289187ba"
+    },
+    {
+      "file": "surfaces_recovered/front_gallery_03.png",
+      "bytes": 535033,
+      "sha256": "b2567a5fd8bca6cd367ddb775304ab6c497d577adc4f8acee78a7540eb13b911"
+    },
+    {
+      "file": "surfaces_recovered/front_gallery_06.png",
+      "bytes": 483257,
+      "sha256": "0842468ac8e7850af6c8e0611ab5f9c60e228af0bda6eedfa8dd46490caad3ea"
+    },
+    {
+      "file": "surfaces_recovered/front_restored_entrance.png",
+      "bytes": 977720,
+      "sha256": "0c012262f5b1de8bec66d50465b1043796a0c94bc6803ab06ceafa3f9753ac15"
+    },
+    {
+      "file": "surfaces_recovered/front_restored_mass.png",
+      "bytes": 569248,
+      "sha256": "63701bbc459dcfe41efd95449da41ecd3e0e80c3052d742e563b8ba86a4b3d44"
+    },
+    {
+      "file": "surfaces_recovered/patrol_night_register.png",
+      "bytes": 1117435,
+      "sha256": "9997761beb878693d00e6ad623032d9133a74b7bb3ca623c4af55117b7fe5fee"
+    },
+    {
+      "file": "surfaces_recovered/patrol_register_after_round.png",
+      "bytes": 630290,
+      "sha256": "ff54cb39c9c5fdb708a3983a26205d15d2878ff4a2bf4ebd9d5cf1aac3f56681"
+    },
+    {
+      "file": "surfaces_recovered/qualification.json",
+      "bytes": 160,
+      "sha256": "35b9fa5d365f9957bb6b72cea11c14704907609219fcf0f890b28d215d3cfc29"
+    },
+    {
+      "file": "surfaces_recovered/runtime_contract.json",
+      "bytes": 1228,
+      "sha256": "ff896ec9efbcd643317e79b6fd0a70dc1e35e916f3ea54c55796e659cc2ab429"
+    },
+    {
+      "file": "surfaces_recovered/surface-inventory.json",
+      "bytes": 19425535,
+      "sha256": "169918de4ca2eaefd2890da18a80d1e69f7cf5ccca13553b102070028d6e9556"
+    },
+    {
+      "file": "surfaces_recovered/technical_findings.json",
+      "bytes": 71443,
+      "sha256": "d09107a8de810f025cbb2d15dd416052f9517437e018e202900e3844e7ad623d"
+    },
+    {
+      "file": "surfaces_recovered/visual_review.json",
+      "bytes": 2839,
+      "sha256": "e5c22c5f8182b4908d7cb85304f5095da62f7d9951d66e53cfc7f96a431e1e67"
+    },
+    {
+      "file": "surfaces_recovered.log",
+      "bytes": 1056037,
+      "sha256": "4dded95720d49aaab2d83003a676d5d11200a0984cd2802943a19b2730e372ad"
+    },
+    {
+      "file": "surfaces_recovered.log.receipt.json",
+      "bytes": 3725,
+      "sha256": "53a62aa8cc80c1a1656729e8a6e17adbda36689c8a699d8af296a290054ab6cb"
+    },
+    {
+      "file": "surfaces_recovered.log.stderr",
+      "bytes": 32606,
+      "sha256": "79b290dc5ec54e549eb32f028c9db5cac9d1957d52af4953877cf7d73f1cb494"
+    }
+  ]
+}

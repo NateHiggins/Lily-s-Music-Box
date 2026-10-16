@@ -1156,8 +1156,11 @@
             0.0520000010728836,
             0.0160000007599592
           ],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "metal"
+          ]
         },
         {
           "index": 46,
@@ -1176,21 +1179,39 @@
           "mesh": "M03_P047",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
         },
         {
           "index": 48,
           "mesh": "M03_P048",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
         }
       ],
       "additions": [
         {
           "mesh": "M03_Fixed",
+          "materials": [
+            "brass",
+            "iron_blackened",
+            "metal"
+          ]
+        },
+        {
+          "mesh": "M03_PunchCableWire",
+          "materials": [
+            "metal"
+          ]
+        },
+        {
+          "mesh": "M03_DoorFrame",
           "materials": [
             "brass",
             "wood_dark"
@@ -1650,8 +1671,12 @@
           "mesh": "M04_P039",
           "source_type": "CylinderMesh",
           "size": [],
-          "preserve_material": true,
-          "materials": []
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "metal",
+            "wood_dark"
+          ]
         },
         {
           "index": 40,
@@ -2472,6 +2497,13 @@
         {
           "mesh": "M05_Fixed",
           "materials": [
+            "brass"
+          ]
+        },
+        {
+          "mesh": "M05_TestKey",
+          "materials": [
+            "bakelite",
             "brass"
           ]
         }
@@ -3555,6 +3587,20 @@
         0.3,
         0.28,
         0.25,
+        1.0
+      ]
+    },
+    {
+      "key": "iron_blackened",
+      "catalog": "iron_blackened",
+      "tile": 0.4,
+      "normal": 0.25,
+      "roughness": 1.0,
+      "metallic": 0.55,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
         1.0
       ]
     },

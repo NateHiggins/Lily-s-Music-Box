@@ -126,8 +126,16 @@ func present_3d(cue_id: StringName, at: Vector3, strength := 1.0,
 	var voice := _voices[slot]
 	var previous: Dictionary = _voice_state[slot]
 	if float(previous.until) > _clock:
-		voice.stop()
 		_stolen += 1
+	if previous.get("cue_id", &"") != &"":
+		# Replacing a queued 3D Vorbis playback before its physics update
+		# retains the old decoder in Godot 4.7. Retire the occupied slot just
+		# as release_source does; keep the same voice cap and policy counts.
+		voice.stop()
+		voice.stream=null
+		voice.free()
+		voice=_make_voice(slot)
+		_voices[slot]=voice
 	var stream := PropAudio.get_stream(str(cue.stream_key))
 	if stream == null:
 		return _refuse(cue_id, "missing_stream")

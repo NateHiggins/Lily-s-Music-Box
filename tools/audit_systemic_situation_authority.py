@@ -535,17 +535,37 @@ def _gd_function_bodies(text: str, *, code_only: bool = False) -> dict[str, str]
     return bodies
 
 
-def _reaches_inherited_input(ctx: FileContext) -> bool:
-    ancestors = _test_ancestors(ctx)
-    if not ancestors:
+def _literal_test_helper(ctx: FileContext, class_name: str) -> FileContext | None:
+    """Resolve only a declared local class with a literal test-script parent."""
+    import textwrap
+    pattern = re.compile(r'^class[ \t]+' + re.escape(class_name)
+                         + r'[ \t]+extends[ \t]+("res://tests/[^"\n]+\.gd")[ \t]*:[ \t]*$')
+    for source in [ctx] + _test_ancestors(ctx):
+        lines = source.text.splitlines()
+        masked = _gd_code_only(source.text).splitlines()
+        for index, line in enumerate(lines):
+            match = pattern.match(line)
+            if not match or not re.match(r'^class[ \t]+' + re.escape(class_name) + r'\b', masked[index]):
+                continue
+            end = index + 1
+            while end < len(lines) and (not masked[end].strip() or masked[end][0].isspace()):
+                end += 1
+            body = 'extends ' + match.group(1) + '\n' + textwrap.dedent('\n'.join(lines[index + 1:end]))
+            return FileContext(source.rel + '::' + class_name, body, ctx.root)
+    return None
+
+
+def _reaches_inherited_input(ctx: FileContext, entrypoints=("_ready", "_init"), depth=0) -> bool:
+    if depth >= 8:
         return False
+    ancestors = _test_ancestors(ctx)
     methods = {}
     for source in [ctx] + ancestors:
         for name, body in _gd_function_bodies(source.text).items():
             # Derived overrides win. An unused input helper in a base file
             # grants nothing; walk actual calls from engine test entrypoints.
             methods.setdefault(name, body)
-    pending = [name for name in ("_ready", "_init") if name in methods]
+    pending = [name for name in entrypoints if name in methods]
     visited = set()
     while pending:
         name = pending.pop()
@@ -557,6 +577,31 @@ def _reaches_inherited_input(ctx: FileContext) -> bool:
         if re.search(r"(?<![.\w])Input\.action_press\s*\(", code) and \
                 re.search(r"(?<![.\w])Input\.action_release\s*\(", code):
             return True
+        # A reached mouse helper must construct and dispatch the same real
+        # press event. Strings, comments and unused helper classes grant nothing.
+        for event in re.finditer(r"\bvar\s+(\w+)\s*:=\s*InputEventMouseButton\.new\(\)", code):
+            variable = re.escape(event.group(1))
+            following = code[event.end():]
+            if re.search(r"(?<![\w.])" + variable + r"\s*=(?!=)", following):
+                continue
+            if (re.search(r"\b" + variable + r"\.pressed\s*=\s*true\b", following)
+                    and re.search(r"\b" + variable + r"\.button_index\s*=\s*MOUSE_BUTTON_LEFT\b", following)
+                    and re.search(r"\b\w+\._unhandled_input\(\s*" + variable + r"\s*\)", following)):
+                return True
+        # Follow a local helper only when its literal test-class constructor
+        # and a subsequent method call share this reached function. Reassigned
+        # receivers and missing/escaping parent scripts fail closed.
+        for binding in re.finditer(r"\bvar\s+(\w+)\s*:=\s*(\w+)\.new\(\)", code):
+            receiver, class_name = binding.groups()
+            following = code[binding.end():]
+            if re.search(r"(?<![\w.])" + re.escape(receiver) + r"\s*=(?!=)", following):
+                continue
+            helper = _literal_test_helper(ctx, class_name)
+            if helper is None:
+                continue
+            for called in re.findall(r"(?<![\w.])" + re.escape(receiver) + r"\.(\w+)\s*\(", following):
+                if _reaches_inherited_input(helper, (called,), depth + 1):
+                    return True
         calls = set(re.findall(r"(?<![.\w])([A-Za-z_]\w*)\s*\(", code))
         # A real local deferred call names its target in one literal argument.
         # Printed call syntax, another receiver and computed names grant nothing.

@@ -2067,3 +2067,36 @@ art/blender/scripts/inspect_dumbwaiter_controls.py -text
 game/scripts/props/dumbwaiter_prop.gd -text
 art/renders/orison_v2/physical_dumbwaiter_20261013/** -text
 art/renders/orison_v2/service_controls_20261013/** -text
+
+# Patrol physical controls and source-bound verification.
+art/blender/scripts/inspect_night_register_pen.py -text
+art/blender/scripts/inspect_watch_register_controls.py -text
+art/blender/scripts/inspect_watchman_controls.py -text
+game/scripts/audio/audio_policy.gd -text
+game/scripts/building/orison_v2_watch_station.gd -text
+game/scripts/props/night_register_hand_controls.gd -text
+game/scripts/props/night_register_prop.gd -text
+game/scripts/props/tour_key_guard_prop.gd -text
+game/scripts/props/tour_key_hand_controls.gd -text
+game/scripts/props/watch_register_hand_controls.gd -text
+game/scripts/props/watch_register_prop.gd -text
+game/scripts/props/watchman_clock_drive.gd -text
+game/scripts/props/watchman_clock_hand_controls.gd -text
+game/scripts/props/watchman_clock_prop.gd -text
+game/tests/NightRegisterHandTest.tscn -text
+game/tests/PatrolInstalledSaveTest.tscn -text
+game/tests/TourKeyHandTest.tscn -text
+game/tests/WatchRegisterHandTest.tscn -text
+game/tests/WatchStationHandTest.tscn -text
+game/tests/WatchmanDriveTest.tscn -text
+game/tests/WatchmanHandTest.tscn -text
+game/tests/night_register_hand_test.gd -text
+game/tests/orison_v2_patrol_stations_test.gd -text
+game/tests/patrol_installed_save_test.gd -text
+game/tests/tour_key_hand_test.gd -text
+game/tests/watch_register_hand_test.gd -text
+game/tests/watch_station_hand_test.gd -text
+game/tests/watchman_drive_test.gd -text
+game/tests/watchman_hand_test.gd -text
+tools/v2_surface_evidence.py -text
+art/renders/orison_v2/patrol_controls_20261016/** -text

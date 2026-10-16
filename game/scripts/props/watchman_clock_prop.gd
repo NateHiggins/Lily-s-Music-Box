@@ -53,6 +53,8 @@ extends FunctionalProp
 ## record the detector honest.
 
 signal maintenance_completed(result: Dictionary)
+signal manipulation_changed
+var _hand_controls: RefCounted
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -134,6 +136,7 @@ const SHIFT_MARK_RADIUS := 0.094
 const PUNCH_REST_Z := 0.152
 const PUNCH_TRAVEL := 0.024
 
+var _native_drive: RefCounted
 var _service_panel: MaintenanceActivityPanel
 var _clock_source: Node
 var _first_shift: FirstShiftDirector
@@ -462,6 +465,7 @@ func control_prompt(control_id: String) -> String:
 
 
 func interact_control(control_id: String, player: Node) -> bool:
+	if _hand_controls!=null: return false
 	if control_id != "detector":
 		return false
 	if _perform_ritual_action():
@@ -472,6 +476,7 @@ func interact_control(control_id: String, player: Node) -> bool:
 
 
 func interact(player: Node) -> void:
+	if _hand_controls!=null: return
 	if _perform_ritual_action():
 		return
 	if _ritual_owns_clock():
@@ -506,6 +511,7 @@ func _ritual_owns_clock() -> bool:
 
 
 func _begin_detector_service(player: Node) -> bool:
+	if _hand_controls!=null: return false
 	if _service_panel and is_instance_valid(_service_panel):
 		return false
 	var script: GDScript = load("res://scripts/ui/maintenance_activity_panel.gd")
@@ -525,10 +531,13 @@ func maintenance_panel_closed() -> void:
 # --- the shared maintenance contract -----------------------------------------
 
 func maintenance_snapshot() -> Dictionary:
-	return {"dial_seated": dial_seated, "movement_running": movement_running,
+	var value := {"dial_seated": dial_seated, "movement_running": movement_running,
 			"datum": datum, "datum_set": datum_set, "reading": reading,
 			"proof_first": proof_first, "proof_second": proof_second,
 			"detector_honest": detector_honest}
+	if _native_drive!=null: value["native_drive"]=_native_drive.snapshot()
+	if _hand_controls!=null: value["physical_controls"]=_hand_controls.snapshot()
+	return value
 
 
 ## Reversible. Working the visible detector moves the visible detector and
@@ -599,6 +608,7 @@ func _dial_angle() -> float:
 
 
 func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
+	if _native_drive!=null: _native_drive.restore(snapshot.get("native_drive",{}))
 	dial_seated = bool(snapshot.get("dial_seated", dial_seated))
 	movement_running = bool(snapshot.get("movement_running", movement_running))
 	datum = float(snapshot.get("datum", datum))
@@ -607,6 +617,7 @@ func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
 	proof_first = float(snapshot.get("proof_first", proof_first))
 	proof_second = float(snapshot.get("proof_second", proof_second))
 	detector_honest = bool(snapshot.get("detector_honest", detector_honest))
+	if _hand_controls!=null: _hand_controls.restore(snapshot.get("physical_controls",{}))
 	_balk_left = 0.0
 	_refresh_mechanism()
 
@@ -647,7 +658,13 @@ func _balk(seconds: float) -> void:
 
 
 func _present_mechanism(cue_id: StringName) -> void:
+	if not is_inside_tree(): return
 	AudioPolicy.present_3d(cue_id, global_position, 1.0, StringName(name))
+
+
+func _exit_tree() -> void:
+	AudioPolicy.release_source(StringName(name))
+	super()
 
 
 func balking() -> bool:
@@ -655,6 +672,9 @@ func balking() -> bool:
 
 
 func _process(delta: float) -> void:
+	if _native_drive!=null:
+		_native_drive.tick()
+		_refresh_mechanism()
 	_t += delta
 	_advance_beat(delta)
 	if _key_left > 0.0:
@@ -742,8 +762,9 @@ func _refresh_mechanism() -> void:
 	# arbor are one angle by definition, and the pin sits in the hole. Off the
 	# pin the spindle free-runs at whatever hour the movement has reached.
 	var spindle_turn := fposmod(_house_minute() / 1440.0, 1.0)
+	if _native_drive!=null: spindle_turn=_native_drive.spindle_turn
 	_arbor.rotation.z = -TAU * (_dial_angle() if dial_seated else spindle_turn)
-	_paper.rotation.z = -TAU * (_dial_angle() if dial_seated else 0.0)
+	_paper.rotation.z = -TAU * (_dial_angle() if dial_seated or _native_drive!=null else 0.0)
 
 	# The pin stands proud of the paper only when it is through the hole. Off
 	# the hole it sits BEHIND the sheet, which is why nothing catches.
@@ -764,22 +785,23 @@ func _refresh_mechanism() -> void:
 		mark.visible = true
 
 	# The two proof marks, at whatever angles they were actually made.
+	var proof_radius := SHIFT_MARK_RADIUS if _native_drive!=null else 0.078
 	if _proof_a != null:
 		_proof_a.visible = proof_first >= 0.0
 		if proof_first >= 0.0:
 			var a := -TAU * proof_first
-			_proof_a.position = Vector3(sin(a) * 0.078, cos(a) * 0.078, 0.004)
+			_proof_a.position = Vector3(sin(a) * proof_radius, cos(a) * proof_radius, 0.004)
 	if _proof_b != null:
 		_proof_b.visible = proof_second >= 0.0
 		if proof_second >= 0.0:
 			var b := -TAU * proof_second
-			_proof_b.position = Vector3(sin(b) * 0.078, cos(b) * 0.078, 0.004)
+			_proof_b.position = Vector3(sin(b) * proof_radius, cos(b) * proof_radius, 0.004)
 
 	# The hand belongs to the movement and sweeps whether or not the paper
 	# does, which is the deceit. It stops with the movement, because a stopped
 	# clock that still shows a sweeping hand would be a different lie.
 	if _hand != null:
-		var hand_a := -TAU * fposmod(_house_minute() / 720.0, 1.0)
+		var hand_a := -TAU * fposmod((_native_drive.spindle_turn*2 if _native_drive!=null else _house_minute()/720.0),1.0)
 		_hand.rotation.z = hand_a
 		_hand.position.x = sin(hand_a) * 0.035
 		_hand.position.y = 0.255 + cos(hand_a) * 0.035 - 0.035
@@ -844,6 +866,8 @@ func _refresh_mechanism() -> void:
 			if _punch_head != null:
 				_punch_head.position.z = PUNCH_REST_Z - PUNCH_TRAVEL * stroke
 
+	if _hand_controls!=null: _hand_controls.refresh()
+
 
 func service_wire_card() -> Dictionary:
 	return {
@@ -852,3 +876,43 @@ func service_wire_card() -> Dictionary:
 				+ "dial is when; out from the centre is which station. A dial "
 				+ "off its pin records a whole night at one instant.",
 	}
+
+func native_manipulation_ready() -> void:
+	if _native_drive!=null: return
+	_native_drive=preload("res://scripts/props/watchman_clock_drive.gd").new()
+	_native_drive.configure(self)
+	if has_node("M03_DoorFrame"):
+		get_node("DetectorReach").collision_layer=0
+		_hand_controls=preload("res://scripts/props/watchman_clock_hand_controls.gd").new()
+		_hand_controls.configure(self)
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(.08,.24,.75)),"at":to_global(Vector3(0,.20,.12)),"fov":60.0}
+
+# Physical settings use the existing household save owner. Restoring them
+# cannot call a key stroke or publish a maintenance/shift event.
+func mechanism_snapshot() -> Dictionary:
+	if _hand_controls==null: return {}
+	_native_drive.tick()
+	return maintenance_snapshot()
+
+func valid_mechanism(value: Variant) -> bool:
+	if _hand_controls==null or value is not Dictionary or value.size()!=10: return false
+	for key: String in ["dial_seated","movement_running","datum_set","detector_honest"]:
+		if value.get(key) is not bool: return false
+	for key: String in ["datum","reading","proof_first","proof_second"]:
+		if typeof(value.get(key)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value[key])): return false
+		var minimum := -1.0 if key.begins_with("proof_") else 0.0
+		if value[key]<minimum or value[key]>1.0: return false
+		if key.begins_with("proof_") and value[key]<0 and value[key]!=-1.0: return false
+	if not _native_drive.valid(value.get("native_drive")) or not _hand_controls.valid(value.get("physical_controls")): return false
+	if value.movement_running!=(value.physical_controls.stop<.31): return false
+	if value.dial_seated!=(value.physical_controls.seat<=.002): return false
+	if value.proof_first<0 and value.proof_second>=0: return false
+	return true
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	restore_maintenance_snapshot(value)
+	_key_left=0
+	_refresh_mechanism()

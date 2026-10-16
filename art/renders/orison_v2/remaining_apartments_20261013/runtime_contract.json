@@ -3627,7 +3627,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 835.717,
+		"elapsed_s": 833.142,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -15426,9 +15426,9 @@
 				},
 				{
 					"actual": [
-						-12.8444948196411,
+						-12.8444919586182,
 						16.0008296966553,
-						-4.9259672164917
+						-4.92595434188843
 					],
 					"ok": true,
 					"target": [
@@ -15442,7 +15442,7 @@
 					"actual": [
 						-13.026909828186,
 						16.0008296966553,
-						-4.94729900360107
+						-4.94729804992676
 					],
 					"ok": true,
 					"target": [
@@ -18699,7 +18699,7 @@
 					"actual": [
 						-7.15027904510498,
 						16.0019798278809,
-						0.0219154357910156
+						0.021916389465332
 					],
 					"ok": true,
 					"target": [
@@ -20124,9 +20124,9 @@
 	"scope": "Spatial room access and actual grab/motion/release in 3A, 3B, 4A, 5A, 5B, 5C, 6A, 6B and 6C. Collision queries plan paths; the normal player controller executes every route. Each unit leg starts with one placement; all subsequent travel uses the ordinary controller. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "b112e625648d038541f290c046af4869cf87ea24",
-		"runtime_inputs_sha256": "60bb04ba3f7482a05f882cdca6f00740fb0d149aebad2ed7b7dd81d41660e01c",
-		"surface_inputs_sha256": "ad321271446d73e55faa60aa5cee65791c646021ec90dc4b0154856ae85ac67c",
+		"repository_head": "6620ec3a042d062f062aa25f2ea0af57a90e48f8",
+		"runtime_inputs_sha256": "bf79ea81409a3696f8e29b65f5ca2c4dd5e50daae4cab30d90438a7a82ca434a",
+		"surface_inputs_sha256": "a840529261133eda8bd2615951474936b7fd752a97ac041ecc96438fe31d990c",
 		"test_dependencies": {
 			"game/tests/OrisonV2RemainingApartmentAccessContractTest.tscn": "d68123786dcc531a7ad0063c790fd92b273b302768d6b7ee7d54c0b682bb414f",
 			"game/tests/orison_v2_4b_door_route_test.gd": "9ca5372ccec1b579b031e6a01baa9954f1abcba16471ff075cbf20b0f7276886",

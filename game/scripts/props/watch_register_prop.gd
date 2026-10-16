@@ -62,6 +62,8 @@ extends FunctionalProp
 ## Raised when a signal is displayed. A fact ABOUT THIS BOARD, not a second
 ## copy of the station's fact: nothing subscribes to it here.
 signal signal_displayed(station_number: int, sequence: int)
+signal manipulation_changed
+var _hand_controls: RefCounted
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -115,6 +117,9 @@ func _ready() -> void:
 ## Set by the network, or by the test key on the case. Nothing here ever closes
 ## the line on its own.
 func set_line_closed(closed: bool) -> void:
+	if _hand_controls!=null:
+		_hand_controls.set_upstream(closed)
+		return
 	if line_closed == closed:
 		return
 	line_closed = closed
@@ -206,12 +211,16 @@ func throw_test_key() -> bool:
 ## facts the network is holding. Restoring this board puts the brass back and
 ## cannot reach into a consumer to un-say what was said.
 func maintenance_snapshot() -> Dictionary:
-	return {
+	var value := {
 		"line_closed": line_closed,
 		"dropped": dropped.duplicate(),
 		"signals_taken": signals_taken,
 		"last_indication": _last_indication.duplicate(true),
 	}
+	if _hand_controls!=null:
+		value["physical_controls"]=_hand_controls.snapshot()
+		value["upstream_closed"]=_hand_controls.upstream_closed
+	return value
 
 
 func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
@@ -225,6 +234,9 @@ func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
 			as Dictionary).duplicate(true)
 	_balk_left = 0.0
 	_balk_focus = ""
+	if _hand_controls!=null:
+		_hand_controls.upstream_closed=bool(snapshot.get("upstream_closed",line_closed))
+		_hand_controls.restore(snapshot.get("physical_controls",_hand_controls.snapshot()))
 	_refresh_register()
 
 
@@ -460,6 +472,7 @@ func _dropped_text() -> String:
 
 
 func interact_control(control_id: String, _player: Node) -> bool:
+	if _hand_controls!=null: return false
 	match control_id:
 		"reset":
 			return reset_shutters()
@@ -535,6 +548,9 @@ func _refresh_register() -> void:
 	if _lever != null:
 		_lever.rotation.x = 0.0
 
+	if _hand_controls!=null:
+		_hand_controls.refresh()
+		return
 	var balk := clampf(_balk_left, 0.0, 1.0)
 	if balk <= 0.0:
 		return
@@ -549,3 +565,22 @@ func _refresh_register() -> void:
 		"lever":
 			if _lever != null:
 				_lever.rotation.x = -0.55 * balk
+
+func native_manipulation_ready() -> void:
+	if _hand_controls!=null or not has_node("M05_TestKey"): return
+	get_node("Reach_reset").collision_layer=0
+	get_node("Reach_line").collision_layer=0
+	_hand_controls=preload("res://scripts/props/watch_register_hand_controls.gd").new()
+	_hand_controls.configure(self)
+
+func mechanism_snapshot() -> Dictionary:
+	return _hand_controls.snapshot() if _hand_controls!=null else {}
+
+func valid_mechanism(value: Variant) -> bool:
+	return _hand_controls!=null and _hand_controls.valid(value)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if _hand_controls!=null: _hand_controls.restore(value)
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(.08,.26,.8)),"at":to_global(Vector3(0,.23,.08)),"fov":60.0}

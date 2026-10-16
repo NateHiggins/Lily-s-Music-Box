@@ -63,6 +63,8 @@ extends FunctionalProp
 ## Transient custody, published as facts. Nothing here subscribes to them.
 signal tour_key_taken(check_number: int)
 signal tour_key_returned()
+signal manipulation_changed
+var _hand_controls: RefCounted
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -139,11 +141,14 @@ func return_key() -> bool:
 # --- the abort seam ----------------------------------------------------------
 
 func maintenance_snapshot() -> Dictionary:
-	return {"key_on_hook": key_on_hook}
+	var value := {"key_on_hook": key_on_hook}
+	if _hand_controls!=null: value["physical_controls"]=_hand_controls.snapshot()
+	return value
 
 
 func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
 	key_on_hook = bool(snapshot.get("key_on_hook", key_on_hook))
+	if _hand_controls!=null: _hand_controls.restore(snapshot.get("physical_controls",{}))
 	_balk_left = 0.0
 	_balk_focus = ""
 	_refresh_guard()
@@ -294,6 +299,7 @@ func control_prompt(control_id: String) -> String:
 
 
 func interact_control(control_id: String, _player: Node) -> bool:
+	if _hand_controls!=null: return false
 	if control_id != "tour_key":
 		return false
 	return return_key() if key_carried() else take_key()
@@ -354,6 +360,9 @@ func _refresh_guard() -> void:
 	if _latch != null:
 		_latch.rotation.z = 0.0 if key_on_hook else 1.15
 
+	if _hand_controls!=null:
+		_hand_controls.refresh()
+		return
 	var balk := clampf(_balk_left, 0.0, 1.0)
 	if balk <= 0.0:
 		return
@@ -370,3 +379,21 @@ func _refresh_guard() -> void:
 				_key.rotation.z = -0.34 * balk
 			if _latch != null:
 				_latch.rotation.z = -0.30 * balk
+
+func native_manipulation_ready() -> void:
+	if _hand_controls!=null: return
+	get_node("GuardReach").collision_layer=0
+	_hand_controls=preload("res://scripts/props/tour_key_hand_controls.gd").new()
+	_hand_controls.configure(self)
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(.04,.16,.48)),"at":to_global(Vector3(0,.15,.03)),"fov":55.0}
+
+func mechanism_snapshot() -> Dictionary:
+	return _hand_controls.snapshot() if _hand_controls!=null else {}
+
+func valid_mechanism(value: Variant) -> bool:
+	return _hand_controls!=null and _hand_controls.valid(value)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if _hand_controls!=null and _hand_controls.valid(value): _hand_controls.restore(value)

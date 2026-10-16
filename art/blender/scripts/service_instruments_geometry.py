@@ -27,7 +27,10 @@ def hinges(w,h,z,y=0):
 def tube_path(points,r,key):
  verts=[];n=12
  for i,p in enumerate(points):
-  tangent=(points[min(i+1,len(points)-1)]-points[max(0,i-1)]).normalized();u=tangent.cross(Vector((0,0,1))).normalized();v=tangent.cross(u)
+  tangent=(points[min(i+1,len(points)-1)]-points[max(0,i-1)]).normalized()
+  u=tangent.cross(Vector((0,0,1)))
+  if u.length_squared<1e-10:u=tangent.cross(Vector((0,1,0)))
+  u.normalize();v=tangent.cross(u)
   verts.extend(p+r*(u*math.cos(j*math.tau/n)+v*math.sin(j*math.tau/n)) for j in range(n))
  faces=[tuple(reversed(range(n)))]+[(i*n+j,i*n+(j+1)%n,(i+1)*n+(j+1)%n,(i+1)*n+j) for i in range(len(points)-1) for j in range(n)]+[tuple(range((len(points)-1)*n,len(points)*n))]
  solid('Continuous flexible lead',verts,faces,key)
@@ -115,9 +118,45 @@ for actor in plan['actors']:
    key='wood_dark';static=True;size=list(part['size'])
    # Rails fit between stiles. Fine seams make independently grained stock legible.
    if size[0]>.2 and size[1]<.04:size[0]-=.046 if aid=='M04' else .032
-   box('Rebated cabinet stock',size,(0,0,0),key)
+   if aid=='M03':
+    size[2]+=.055
+    box('Deepened detector cabinet stock',size,(0,0,.0275),key)
+   else:box('Rebated cabinet stock',size,(0,0,0),key)
+  elif aid=='M03' and index==43:
+   box('Forward detector glazing',part['size'],(0,0,.055),key,.0003)
+  elif aid=='M03' and index==45:
+   key='brass';static=True
+   rod('Key spindle',.004,.036,(0,0,-.006),key)
+   tube('Open winding key bow',.016,.010,.005,(0,.013,.012),key)
+   box('Key bow neck',(.006,.014,.005),(0,-.006,.012),key,.0005)
+   rod('Cable drive drum',.024/1.18,.008,(0,0,-.014),'metal')
+  elif aid=='M03' and index==47:
+   # Retain the original point and 24 mm stroke; lengthen only the rear
+   # shank so it cannot fall out of its guide at full depression.
+   key='brass';static=True
+   rod('Guided punch plunger',.009,.0535,(0,.00425,0),key,'y')
+  elif aid=='M03' and index==48:
+   key='brass';static=True
+   tube('Bored punch guide',.017,.0095,.010,(0,-.025,0),key,'y')
   elif aid=='M04' and index in [5,6]:
    key='wood_dark';static=True;x,y,z=part['size'];solid('Shaped shelf bracket',[(-x/2,y/2,-z/2),(x/2,y/2,-z/2),(-x/2,-y/2,-z/2),(x/2,-y/2,-z/2),(-x/2,y/2,z/2),(x/2,y/2,z/2)],[(0,1,3,2),(0,4,5,1),(2,3,5,4),(0,2,4),(1,5,3)],key,.001)
+  elif aid=='M04' and part['name'].startswith('RegisterLine'):
+   # Printed rules sit on the page; retain the original live ink material.
+   box('Printed ledger rule',(.182,.00008,.00055),(0,-.00094,0),key,.00001)
+  elif aid=='M04' and part['name']=='RegisterPen':
+   # A turned dip-pen holder, ferrule and two separated steel tines.
+   # Local -Y is the writing point used by the physical page constraint.
+   key='wood_dark';static=True
+   rod('Turned pen holder',.0034,.078,(0,.0105,0),key,'y',.0022)
+   rod('Rounded holder end',.0022,.003,(0,.051,0),key,'y',.0008)
+   tube('Nib ferrule',.0036,.0027,.009,(0,-.0285,0),'brass','y')
+   for side in [-1,1]:
+    # Closed tapered sheet stocks leave a real central slit, not a decal.
+    verts=[]
+    for y,outer,inner in [(-.0525,.00024,.00007),(-.042,.0023,.00012),(-.029,.0027,.00012)]:
+     for z in [-.00018,.00018]:
+      for x in [inner,outer]:verts.append((side*x,y,z))
+    solid('Split steel nib',verts,[(0,1,3,2),(8,10,11,9),(0,4,5,1),(4,8,9,5),(2,3,7,6),(6,7,11,10),(0,2,6,4),(4,6,10,8),(1,5,7,3),(5,9,11,7)],'metal',.000035)
   elif aid=='M06' and index==8:
    tube('Open key bow',.015,.008,.005,(0,0,0),key,'y')
   elif aid=='M06' and index==9:suppress=True
@@ -299,14 +338,37 @@ for actor in plan['actors']:
  elif aid=='M01':
   hinges(.26,.62,.029);fasteners(.226,.57,.031)
  elif aid=='M03':
-  frame('Glazing rebate',.318,.378,.004,.009,(0,.2,.140),'wood_dark');hinges(.34,.40,.143,.2)
-  fasteners(.306,.357,.146,.2)
+  hinges(.318,.40,.198,.2)
+  # A forked hanger carries the bored guide from the underside of the head.
+  # The centre stays open for the paper, plunger and reading index.
+  box('Punch hanger head',(.065,.008,.020),(0,.377,.153),'metal',.0006)
+  for x in [-.011,.011]:
+   box('Punch hanger leg',(.006,.045,.012),(x,.3505,.153),'metal',.0005)
+  for x in [-.025,.025]:
+   rod('Hanger timber bolt',.0025,.020,(x,.381,.153),'brass','y')
+   rod('Hanger bolt head',.0045,.003,(x,.3715,.153),'brass','y',n=6)
+  # Supported push-pull sheath: the key winds its inner wire off a drum;
+  # the upper end is coaxial with the punch's retained direction of travel.
+  cable_x=-.125-.024/1.18
+  route=[Vector((cable_x,.083,.114)),Vector((cable_x,.337,.114))]
+  route.extend(Vector((cable_x+.025-.025*math.cos(a),.337+.025*math.sin(a),.114+.061*math.sin(a))) for a in [i*math.pi/32 for i in range(1,17)])
+  route.append(Vector((-.025,.362,.175)))
+  route.extend(Vector((-.025+.025*math.sin(a),.337+.025*math.cos(a),.175)) for a in [i*math.pi/32 for i in range(1,17)])
+  route.extend([Vector((0,.322,.175)),Vector((0,.317,.180)),Vector((0,.314,.187)),Vector((0,.314,.183))])
+  tube_path(route,.0025,'iron_blackened')
+  rod('Exposed drum wire',.0008,.025,(cable_x,.0705,.114),'metal','y')
+  tube('Key axle bearing',.009,.0045,.015,(-.125,.058,.093),'brass')
+  box('Key bearing foot',(.034,.040,.044),(-.125,.058,.070),'metal',.001)
+  for y in [.13,.25]:
+   box('Cable wall standoff',(.011,.015,.060),(cable_x,y,.083),'metal',.0005)
+   tube('Cable clamp',.004,.0026,.008,(cable_x,y,.114),'brass','y')
  elif aid=='M04':
   fasteners(.574,.435,.029,.25)
   for x in [.055,.215]:
    rod('Hook seating boss',.009,.004,(x,.400,.028),'brass');screw('Hook fixing',(x,.414,.03),radius=.0025)
   box('Ledger retaining lip',(.70,.012,.008),(0,.066,.234),'wood_dark')
  elif aid=='M05':
+  tube('Test key mounting collar',.013,.006,.012,(-.025,.08,.108),'brass')
   hinges(.40,.46,.099,.23);fasteners(.373,.415,.101,.23)
   # Seven drops at 50 mm centres (dossier slice 80): a screw on each drop's left guide and the last right guide.
   for x in [-.172,-.122,-.072,-.022,.028,.078,.128,.172]:screw('Guide fastening',(x,.173,.101),radius=.0019)
@@ -370,6 +432,30 @@ for actor in plan['actors']:
   obj,used=mesh_partition(aid+'_Fixed',pieces[start:]);display=obj.copy();review.objects.link(display);display['actor']=aid;display.name=aid+'_Fixed_review'
   additions=[{'mesh':obj.name,'materials':used}]
  else:additions=[]
+ if aid=='M05':
+  current='M05_TestKey';start=len(pieces)
+  rod('Test switch spindle',.005,.024,(0,0,0),'brass')
+  box('Test key lever',(.009,.040,.009),(0,.018,.011),'brass')
+  rod('Insulated test key grip',.008,.018,(0,.040,.018),'bakelite')
+  obj,used=mesh_partition('M05_TestKey',pieces[start:])
+  additions.append({'mesh':obj.name,'materials':used})
+  display=obj.copy();display.name=obj.name+'_review';review.objects.link(display);display['actor']=aid
+  display.location=C.to_3x3()@Vector((-.025,.08,.115))
+ if aid=='M03':
+  current='M03_PunchCableWire';start=len(pieces)
+  rod('Punch push-pull wire',.0008,.024,(0,0,0),'metal')
+  obj,used=mesh_partition(current,pieces[start:]);additions.append({'mesh':obj.name,'materials':used})
+  display=obj.copy();display.name=obj.name+'_review';review.objects.link(display);display['actor']=aid
+  display.location=C.to_3x3()@Vector((0,.314,.18295));display.scale.y=.0001/.024
+  current='M03_DoorFrame';start=len(pieces)
+  frame('Hinged glazing rebate',.318,.378,.012,.009,(0,.2,.195),'wood_dark')
+  fasteners(.306,.357,.203,.2)
+  # A real pull belongs to the moving stile, outside the clear glass.
+  for y in [.17,.23]:rod('Pull foot',.003,.014,(.145,y,.210),'brass')
+  rod('Cover pull',.003,.060,(.145,.20,.217),'brass','y')
+  obj,used=mesh_partition('M03_DoorFrame',pieces[start:])
+  additions.append({'mesh':obj.name,'materials':used})
+  display=obj.copy();display.name=obj.name+'_review';review.objects.link(display);display['actor']=aid
  if aid=='M09':
   for label,position in [('HandGrip',(-.269,.35,.375)),('BrakeWheel',(.27,1.055-.0042*.34,.375))]:
    current='M09_'+label;start=len(pieces)

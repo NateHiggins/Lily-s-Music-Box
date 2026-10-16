@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Patrol instrument direct manipulation, native detector and register changes, current verification and remaining polish | `design/V2_PATROL_CONTROLS_2026-10-16.md` |
 | Physical roof-tank and dumbwaiter controls, native fitting and save verification | `design/V2_SERVICE_CONTROLS_2026-10-13.md` |
 | Physical fuse replacement, cabinet/main controls, loose-part handling and current validation status | `design/V2_PHYSICAL_FUSE_REPAIR_2026-10-13.md` |
 | Played access to 60 rooms in the remaining nine apartments, with 5B furniture circulation repaired | `design/ORISON_V2_REMAINING_APARTMENT_SPATIAL_ACCESS_CHECKPOINT_2026-10-13.md` and `design/V2_APARTMENT_CLEARANCE_2026-10-13.md` |

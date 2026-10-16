@@ -244,15 +244,15 @@
 			"retained_playbacks": 0,
 			"retained_resources": 0,
 			"status": "PASS",
-			"tracked_nodes": 118540,
-			"tracked_playbacks": 202,
+			"tracked_nodes": 118832,
+			"tracked_playbacks": 200,
 			"tracked_resources": 12
 		}
 	},
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 165.307,
+		"elapsed_s": 168.026,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -262,10 +262,10 @@
 	"scope": "Installed dumbwaiter: actual click, constrained motion, release and static inspection, guarded repair, partial-state disk save, destroy and fresh V2 reconstruction. One standing placement; no continuous route or human visual acceptance claim.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "b112e625648d038541f290c046af4869cf87ea24",
-		"runtime_inputs_sha256": "60bb04ba3f7482a05f882cdca6f00740fb0d149aebad2ed7b7dd81d41660e01c",
+		"repository_head": "6620ec3a042d062f062aa25f2ea0af57a90e48f8",
+		"runtime_inputs_sha256": "bf79ea81409a3696f8e29b65f5ca2c4dd5e50daae4cab30d90438a7a82ca434a",
 		"test_dependencies": {
-			"game/tests/dumbwaiter_hand_test.gd": "ac1ee1da69ca6b00d14b798fd46273da017ceaa7c5e5eea1b944dbcbd0d687ef"
+			"game/tests/dumbwaiter_hand_test.gd": "16577f485abfc6ff596b02533247d5e7d01337cde1278c8d37e136f4928bc087"
 		},
 		"test_path": "game/tests/dumbwaiter_installed_test.gd",
 		"test_sha256": "b10cfee01560da12f3e9731408714ae773f98876a3cd5052ee14fd405d91fcf8"

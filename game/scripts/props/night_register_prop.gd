@@ -80,6 +80,8 @@ extends FunctionalProp
 
 signal register_signed(record: Dictionary)
 signal report_taken(job_id: String)
+signal manipulation_changed
+var _hand_controls: RefCounted
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -640,7 +642,7 @@ func sign_register() -> bool:
 	lines.append(line)
 	record["lines"] = lines
 	RealityState.data[STATE_KEY] = record
-	RealityState.commit()
+	if _hand_controls==null: RealityState.commit()
 	signed_lines = lines.size()
 	# THE ROUND CLOSES HERE AND NOWHERE ELSE. No WorkOrder is closed, no case
 	# is advanced: what ends is this board's own session. The slide is left
@@ -655,9 +657,13 @@ func sign_register() -> bool:
 	# next report can come up on the spindle. What was signed is not lost: it
 	# is the line in the book and the `filing_printed` in the record.
 	index_detent = 0
+	if _hand_controls!=null: _hand_controls.index_z=DETENT_Z[0]
 	_present_register_sound(&"interaction.register_paper")
 	_balk_left = 0.0
 	_refresh_board()
+	# Publish the complete native state atomically: an autosave must not pair
+	# the new written line with the old still-open round.
+	if _hand_controls!=null: RealityState.commit()
 	register_signed.emit(line.duplicate(true))
 	return true
 
@@ -1232,6 +1238,7 @@ func _hook_of(control_id: String) -> String:
 
 
 func interact_control(control_id: String, _player: Node) -> bool:
+	if _hand_controls!=null: return false
 	match control_id:
 		"slip":
 			return replace_slip() if slip_taken else take_slip()
@@ -1391,6 +1398,9 @@ func _refresh_board() -> void:
 		_slide.rotation.y = 0.0
 	for hook in HOOK_ORDER:
 		_set_hook_lift(str(hook), 0.0)
+	if _hand_controls!=null:
+		_hand_controls.refresh()
+		return
 	if balk <= 0.0:
 		return
 	match _balk_focus:
@@ -1435,3 +1445,22 @@ func _set_hook_lift(hook: String, amount: float) -> void:
 			var carried := mi.name.begins_with("Key") \
 					or mi.name.begins_with("Check")
 			mi.rotation.z = cant if carried else 0.0
+
+func native_manipulation_ready() -> void:
+	if _hand_controls!=null: return
+	for key: String in ["slip","hook_apartment","hook_plant","index","book"]:
+		get_node("Reach_"+key).collision_layer=0
+	_hand_controls=preload("res://scripts/props/night_register_hand_controls.gd").new()
+	_hand_controls.configure(self)
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(.04,.55,.80)),"at":to_global(Vector3(0,.22,.10)),"fov":65.0}
+
+func mechanism_snapshot() -> Dictionary:
+	return _hand_controls.snapshot() if _hand_controls!=null else {}
+
+func valid_mechanism(value: Variant) -> bool:
+	return _hand_controls!=null and _hand_controls.valid(value)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if _hand_controls!=null: _hand_controls.restore(value)
