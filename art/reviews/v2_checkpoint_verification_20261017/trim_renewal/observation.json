@@ -1,0 +1,48 @@
+{
+  "evidence_class": "INERT",
+  "base_snapshot_commit": "3c8f9bec",
+  "actual_instances": 9085,
+  "rendered_records_equal": true,
+  "old_records_sha256": "921197c32ba65bb8699dbc82d6d0bf9dc60730f4117005a024f2cb04870c02aa",
+  "new_records_sha256": "921197c32ba65bb8699dbc82d6d0bf9dc60730f4117005a024f2cb04870c02aa",
+  "source_bindings_lf": {
+    "game/data/orison_v2_blockout.json": "3735a14ff5ce11460aec70985cea10435e86b9973eeba6d4a3198c3be73ea4c4",
+    "game/scripts/building/orison_v2_blockout.gd": "17f1718b6a505d06f9f4a1cfa8776234d203f15bec0ad72078a1299cd8addfba",
+    "game/scripts/building/orison_v2_millwork.gd": "55320659746dd071488a75d64fc7bcf6c787bb25bf17e81812fd2efd232e7cba"
+  },
+  "probe_script_sha256_lf": "2ade2ffe59c5eb023ddda12e7242e60d639b2ef783caefd5cbdcb379510c77bf",
+  "rejected_headless": {
+    "reason": "Identity transforms from absent rendering backend; not installed or used as evidence.",
+    "example": {
+      "basis": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "index": 0,
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "room": "F02_FRONT_GALLERY",
+      "source": "F02_FRONT_GALLERY/WallSouth_00"
+    }
+  },
+  "validation": {
+    "front_trim_unittest": "5 tests, 0 failures",
+    "runtime_projection_check": "20 rail / 22 cornice fittings; 21 rooms / 154 spliced source instances; unchanged runtime projection"
+  }
+}

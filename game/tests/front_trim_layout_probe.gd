@@ -1,6 +1,11 @@
 extends Node3D
 ## INERT source-shell discovery, not production gameplay acceptance.
 func _ready() -> void:
+	# Headless rendering returns identity MultiMesh instance transforms here.
+	# Refuse an unusable discovery rather than exporting plausible-looking rows.
+	if DisplayServer.get_name()=="headless":
+		push_error("Front trim discovery requires the rendering backend; run windowed")
+		get_tree().quit(1);return
 	RealityState.persistence_enabled=false
 	var shell=preload("res://scripts/building/orison_v2_blockout.gd").new()
 	shell.production_materials=true; shell.show_clearance_anchors=false; shell.show_reservation_volumes=false
