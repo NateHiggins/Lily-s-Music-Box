@@ -23,30 +23,38 @@ func configure(owner: OtisProp) -> bool:
 	var model := MODEL.instantiate()
 	var parts := {}
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):parts[str(draw.name)]=draw.mesh
+	for name: String in ["ResetKnob","FlagArm","FlagSeat","FlagBearings"]:
+		if not parts.has(name):model.free();return false
+	for draw: MeshInstance3D in board.find_children("*","MeshInstance3D",true,false):
+		var payload := str(draw.get_meta("native_service_instrument_part",""))
+		if payload=="M01_P001":draw.material_override=_stock("radiator_service_brass")
+		for i in board._flag_arms.size():
+			if payload=="M01_P%03d"%(3+i*3):
+				draw.mesh=parts.FlagSeat
+				# Keep the original live ivory material reference.
+				var original := draw.material_override as StandardMaterial3D
+				if original==null:model.free();return false
+				_copy_finish(original,"porcelain_fixture")
+	for arm: MeshInstance3D in board._flag_arms:
+		arm.mesh=parts.FlagArm
+		var journals := MeshInstance3D.new()
+		journals.name="FlagBearings";journals.mesh=parts.FlagBearings
+		journals.material_override=_stock("radiator_service_brass")
+		board.add_child(journals);journals.position=arm.position
 	for spec: Array in [["FixedContactMetal","nickel_plated",board],["FixedContactInsulators","porcelain_fixture",board],
 		["ResetBearing","radiator_service_brass",board],["MovingContactMetal","nickel_plated",board._contact_bridge]]:
 		if not parts.has(spec[0]):model.free();return false
 		var draw := MeshInstance3D.new()
 		draw.name=spec[0];draw.mesh=parts[spec[0]]
-		var material := MatLib.get_mat(spec[1]).duplicate() as StandardMaterial3D
-		material.uv1_triplanar=false
-		if spec[1]=="radiator_service_brass":material.normal_scale=1.0
-		material.set_meta("v2_surface_stock",str(spec[1]))
-		draw.material_override=material
+		draw.material_override=_stock(spec[1])
 		spec[2].add_child(draw)
 	if not parts.has("ResetKnob"):model.free();return false
 	board._reset_spindle.mesh=parts.ResetKnob
 	# Preserve the original live material object while correcting its finish.
 	# The old general-purpose brass has fixture-sized verdigris on this knob.
 	var original := board._reset_spindle.material_override as StandardMaterial3D
-	var worked := MatLib.get_mat("radiator_service_brass") as StandardMaterial3D
 	if original==null:model.free();return false
-	for property: String in ["albedo_texture","roughness_texture","normal_texture","normal_enabled","metallic","roughness","uv1_scale","texture_filter"]:
-		original.set(property,worked.get(property))
-	original.albedo_color=Color.WHITE
-	original.normal_scale=1.0
-	original.uv1_triplanar=false
-	original.set_meta("v2_surface_stock","radiator_service_brass")
+	_copy_finish(original,"radiator_service_brass")
 	model.free()
 	for arm: MeshInstance3D in board._flag_arms:angles.append(arm.rotation.x)
 	for name in ["DispatchReach","CallHardwareReach"]:
@@ -56,6 +64,20 @@ func configure(owner: OtisProp) -> bool:
 		preload("res://scripts/props/manipulation_area.gd").install(part,grip.bind(part))
 	apply_pose()
 	return true
+
+func _stock(key: String) -> StandardMaterial3D:
+	var material := MatLib.get_mat(key).duplicate() as StandardMaterial3D
+	_copy_finish(material,key)
+	return material
+
+func _copy_finish(original: StandardMaterial3D,key: String) -> void:
+	var worked := MatLib.get_mat(key) as StandardMaterial3D
+	for property: String in ["albedo_texture","roughness_texture","normal_texture","normal_enabled","metallic","roughness","uv1_scale","texture_filter"]:
+		original.set(property,worked.get(property))
+	original.albedo_color=Color.WHITE
+	original.normal_scale=1.0 if key=="radiator_service_brass" else .35
+	original.uv1_triplanar=false
+	original.set_meta("v2_surface_stock",key)
 
 func grip(part: Node3D) -> Dictionary:
 	var flag := board._flag_arms.find(part)

@@ -33,6 +33,12 @@ detail in the composed game before closing its defect. Reuse unchanged views
 and batch related corrections into one Godot capture. Unreviewed details stay
 open, including when static gates pass.
 
+For lighting comparisons, operate the lamp's real logical switch and verify
+its rendered output has settled. Visibility alone can be rewritten by its
+presentation owner. Production optics retain a thermal tail that a simple
+bench light does not share; wait on the actual output with a bounded deadline
+rather than assuming an identical fixed cooldown. Retain rejected controls.
+
 Short, broad wood offcuts need explicit grain charts when the shared slender-
 stock heuristic does not apply. Verify exported tangent direction against the
 stock's length while retaining metre scale. Screw geometry and operating travel

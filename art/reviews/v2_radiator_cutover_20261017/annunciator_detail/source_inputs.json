@@ -1,0 +1,242 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Fresh selected native flag/bezel/reset and installed detail diagnostic inputs. Historical packets remain unchanged. Not a runtime_contract.",
+  "inputs": {
+    "art/blender/annunciator_controls.blend": {
+      "sha256": "11dc242a24d59a7ca7684e6f1641ed0201f05b6180da54d5b85694fde65e5903",
+      "normalization": "binary"
+    },
+    "art/blender/scripts/build_annunciator_controls.py": {
+      "sha256": "4a2c8c4bd2233a9dcfc9a328558c4727bd2c392a3f38faff6f523afbe86bb762",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/check_exported_tangents.py": {
+      "sha256": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/fabrication_chart_batch.py": {
+      "sha256": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/fabrication_grain.py": {
+      "sha256": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/fabrication_native_batch.py": {
+      "sha256": "3c61d2a98d9e75cefcbb949cfefb72aced140d3440262f8afdcd02a8e853917e",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/fabrication_normals.py": {
+      "sha256": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/review_annunciator_controls.py": {
+      "sha256": "aa1d4a494237c77347ec1e1c395f46e926a9d8eccda89a997d042a08c29eb990",
+      "normalization": "LF"
+    },
+    "art/data/service_instruments/source_plan.json": {
+      "sha256": "04df4f5f7a194a54b6c9996403679c4a6f7a5116f56441e0cad8a9f8574929ea",
+      "normalization": "LF"
+    },
+    "art/tools/fix_v2_mesh_imports.py": {
+      "sha256": "07c276a48eeca421ac5b5957f245ad7bd4940372e0827594b76bb9064fdaed0d",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_indicator_enamel_albedo.png": {
+      "sha256": "64bfd4a979e1cf5ca37f116c83e4b187d25dbd56d3e18cbb82e496c0ec8cd32d",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_indicator_enamel_albedo.png.import": {
+      "sha256": "580964bb76dac3fdcd43e08b608376dae4ee106eb8aa84222a1878909d6c2c84",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_indicator_enamel_normal.png": {
+      "sha256": "f3034797fc658673767625552c3c607b63b3b041cc34b95f89730365138fd850",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_indicator_enamel_normal.png.import": {
+      "sha256": "498541685148be1217220a36e86953454c4f719493249383595a9caa4441d569",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_indicator_enamel_rough.png": {
+      "sha256": "5c5fd3837456c45f683d4e35cc5bf4e335749940107a361886dcd691173ada29",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_indicator_enamel_rough.png.import": {
+      "sha256": "eebd337552865d704319bd2b586da15fa44131bfb1868e28a435ae7e35b355a5",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": {
+      "sha256": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png.import": {
+      "sha256": "32ee04ca750c982f4ef4f67514ccb88f71cfe452f36638191c6921afe2415ba5",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": {
+      "sha256": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png.import": {
+      "sha256": "2c42dc69a5fcc1e96ed02d079ed703592093c84bf5dc11d3e05b6b7353261e9e",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": {
+      "sha256": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png.import": {
+      "sha256": "c3c8a08777a996192145ec5aac630fd0a61255a84a94f4d928015ce55f40c210",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_porcelain_fixture_albedo.png": {
+      "sha256": "6b3bac1a22af1ad48ade9edc3ea603850f50e126ef7b6c318d2ba53dc55df82f",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_porcelain_fixture_albedo.png.import": {
+      "sha256": "f4a2fc8e2af78eb4734d8866bd0b73f780cfba20fd298d099c47fd334f208b43",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_porcelain_fixture_normal.png": {
+      "sha256": "da25e2fa06861b152ae7044e0daf1b4767117f6c8d0012b44d92b177daf23d2a",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_porcelain_fixture_normal.png.import": {
+      "sha256": "bc38afa5fbef2604d00d9366ca83d3cb74d2d8a16c75ad2865fb3c0af26e960b",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_porcelain_fixture_rough.png": {
+      "sha256": "e6257eec69a02e4c639628e15f2a51db9676006a55c754486add4d45333d453f",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_porcelain_fixture_rough.png.import": {
+      "sha256": "d37804e4bae1c5f7160d2f7ac460fd8ffe625372b3e29e925dbf525be057dbb1",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_albedo.png": {
+      "sha256": "d34dfa52bc7d1187f64d0452af888f13b41a17ca8761a97f63e8d0b8764aae34",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_albedo.png.import": {
+      "sha256": "1156601a09fb6ecd3064321936d2181064f7ec19572a35ae26771d8f8bd06496",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_normal.png": {
+      "sha256": "7825ae9dad6e96961bbe819c91b2688cca7110ba750745fd295f83b72365023c",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_normal.png.import": {
+      "sha256": "11384527a3e390157070518003b7ce54379a8be037af36e470839bae682853a8",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_rough.png": {
+      "sha256": "12b9ae52e582c53f60f189b4563374a21953e67d68e92e6501f46b000c6e4d24",
+      "normalization": "binary"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_rough.png.import": {
+      "sha256": "d091023645298ee8b01bb04e217afcc01d7d8b5ff8f9e27141c2e7480207773a",
+      "normalization": "LF"
+    },
+    "game/assets/props/annunciator_controls.glb": {
+      "sha256": "4be81b759b91837a4d8b28caeb5a6ff8c2183c74df5f0f1d0353ba6fc757c6ef",
+      "normalization": "binary"
+    },
+    "game/assets/props/annunciator_controls.glb.import": {
+      "sha256": "56960f3d809d15015d3a0765daad787a5fbc6028defa93c9207de742117efb48",
+      "normalization": "LF"
+    },
+    "game/data/orison_v2/service_instruments.json": {
+      "sha256": "d741aebfaa614b6c003b574def05144e7aaf2b0cb004f350b99dd8bc0f523f2d",
+      "normalization": "LF"
+    },
+    "game/data/runtime_material_sets.json": {
+      "sha256": "444fb2fd79515726d7fd52bf394afb4a433b2be6a96ebfb551a98a48261ff22c",
+      "normalization": "LF"
+    },
+    "game/scripts/building/orison_v2_household_state.gd": {
+      "sha256": "8eb8d9bae14a9e8a5fb395f7c18641ced2c5036730b11733cddc5e043ddedb79",
+      "normalization": "LF"
+    },
+    "game/scripts/building/orison_v2_native_service_instruments.gd": {
+      "sha256": "c8eec79a49ae7982d10246eed9a3e8caf27b04d191516d4a1555d79d16856ecd",
+      "normalization": "LF"
+    },
+    "game/scripts/game/service_round_director.gd": {
+      "sha256": "12c41dd20ade1942e84ca588175dc8096ce5f5081d7573c21a0bf6a13f44dc7f",
+      "normalization": "LF"
+    },
+    "game/scripts/lamp/carried_lamp_optical_driver.gd": {
+      "sha256": "76ee6ac28a4da8330d47fb538777e4e6a9c69e42adb275bec99d73664cc05cbb",
+      "normalization": "LF"
+    },
+    "game/scripts/lamp/lamp_optical_state.gd": {
+      "sha256": "d35e7bf33b5f70000dc49b82e3a6d8953e54e068ce2e9cb4304e065bd0cae0df",
+      "normalization": "LF"
+    },
+    "game/scripts/player/constrained_grab.gd": {
+      "sha256": "0aea8a10f027494da934c77ab164ab121918958967f338d3770f6a3c374a5994",
+      "normalization": "LF"
+    },
+    "game/scripts/player/player_controller.gd": {
+      "sha256": "5a2492b4adc74f9404046aa7dcbc26cf9ed5b5fcb5a6a81eae229f62288c37ed",
+      "normalization": "LF"
+    },
+    "game/scripts/props/annunciator_service_controls.gd": {
+      "sha256": "82f97608f2fea71dea9173b5ad12399666b22b340336ab4ed5d4a5df96f10901",
+      "normalization": "LF"
+    },
+    "game/scripts/props/annunciator_service_controls.gd.uid": {
+      "sha256": "563697325237edaecf8ddcbe631ebe720d14118179a7f253b5178a38232e798f",
+      "normalization": "LF"
+    },
+    "game/scripts/props/manipulation_area.gd": {
+      "sha256": "ed31ae9277a0ff39e404968b18cc36ce2ed8b88f6e4883dc59f8fff760ce7a1e",
+      "normalization": "LF"
+    },
+    "game/scripts/props/otis_prop.gd": {
+      "sha256": "15c6a6ef3b2bca20b3da01bfc1760329c95d6ffca3dc404e6f643175eaede71c",
+      "normalization": "LF"
+    },
+    "game/tests/AnnunciatorHandBench.tscn": {
+      "sha256": "28beb032718a8787936c399768835c55f4333ff7a81f7d66ede0fd120300d412",
+      "normalization": "LF"
+    },
+    "game/tests/AnnunciatorWorldReview.tscn": {
+      "sha256": "55649db1d8de55bf4fc26d4c1678fef43b503b978e272506e2a42c0605d2bb24",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_hand_bench.gd": {
+      "sha256": "3c78c6ed3e1ed618a4e35b4b94a76d57e863f888120bc8983c3c4b41d68cc5ee",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_hand_bench.gd.uid": {
+      "sha256": "045330cb06ecd90866e3d7b2055c595785aa54b57f386dc317af957a8abe4908",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_input_driver.gd": {
+      "sha256": "171001c2ab1b75357987f583c4165d6b2eea8632f80e34a4ae985afc68480318",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_input_driver.gd.uid": {
+      "sha256": "8fd7b79696fa562098748d75887708982839c27463261e44d733cc3960e86615",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_world_review.gd": {
+      "sha256": "a36c79e1d96f1956260316ce7b1341e82e9d63925a199209755346f0fcdba7b8",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_world_review.gd.uid": {
+      "sha256": "ff527b11f2ae994723b753acd8610f8e96a02a59047b493b28fd121bc28baecb",
+      "normalization": "LF"
+    },
+    "game/tests/radiator_cutover_review.gd": {
+      "sha256": "9f717e2d46934d694c1404fcc226b5818105ea15fcaf867ca058bbac12bb354b",
+      "normalization": "LF"
+    },
+    "game/tests/radiator_native_review.gd": {
+      "sha256": "89a413629a3eb22136585bd99e09c8544a6cce2f3a39001d5551d8b9cc6e7c2c",
+      "normalization": "LF"
+    }
+  }
+}

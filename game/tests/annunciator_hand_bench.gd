@@ -53,6 +53,11 @@ func _run() -> void:
 	var factory := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
 	check(factory.mount(self,subset),"canonical native factory mounts related board and real controls")
 	if board._native_service==null:terminal=true;get_tree().quit(1);return
+	for retained: Dictionary in factory.installed.LobbyPorterBoard.source:
+		var draw: MeshInstance3D=retained.draw.get_ref()
+		check(draw!=null and draw.get_parent().get_instance_id()==retained.parent,"original visual owner and parent survive detail replacement")
+		if draw!=null and retained.preserve_material:
+			check(draw.get_active_material(0)==retained.material,"original live instrument material reference survives detail replacement")
 	var uv := preload("res://scripts/building/orison_v2_uv_material_policy.gd").new();add_child(uv);uv.setup(self)
 	player=PlayerController.new();add_child(player);player.set_physics_process(false)
 	player.global_position=Vector3(0,0,.8);player.call_locked=false;player.mouse_released=false;Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
@@ -81,6 +86,9 @@ func _run() -> void:
 	check(not board.stuck_flag,"real full lift frees the flag bearing")
 	driver._click(player);await get_tree().create_timer(.5).timeout
 	check(absf(first.rotation.x)<.00001 and events.is_empty(),"freed flag returns physically without awarding contact proof")
+	await _move(board._flag_arms[7],board._native_service.FLAG_HIGH)
+	await get_tree().create_timer(.5).timeout
+	check(absf(board._flag_arms[7].rotation.x)<.00001 and events.is_empty(),"another flag and its real axle return without inventing a test")
 	await _move(board._contact_bridge,.11)
 	var saved: Dictionary=JSON.parse_string(JSON.stringify(board.mechanism_snapshot()))
 	check(board.valid_mechanism(saved),"partial-contact JSON snapshot validates")
@@ -131,6 +139,19 @@ func _run() -> void:
 	player.camera.global_position=board.to_global(Vector3(.22,.08,.65));player.camera.look_at(board.to_global(Vector3(0,0,.04)))
 	await _shot("annunciator_serviced")
 	await _aim(board._contact_bridge);await _shot("annunciator_contacts")
+	player.set_lamp_enabled(false)
+	await get_tree().create_timer(.7).timeout
+	check(not player.lamp_is_enabled() and not player.flashlight.visible,"controlled-light captures use the actual settled lamp-off state")
+	player.camera.global_position=board.to_global(Vector3(.12,.08,.60));player.camera.look_at(board.to_global(Vector3(0,0,.04)))
+	await _shot("annunciator_diffuse")
+	player.camera.global_position=board.to_global(Vector3(.14,.17,.19));player.camera.look_at(board._flag_arms[1].global_position)
+	await _shot("annunciator_flag_detail")
+	light.rotation_degrees=Vector3(-12,-75,0)
+	player.camera.global_position=board.to_global(Vector3(.12,-.24,.23));player.camera.look_at(board._reset_spindle.global_position)
+	await _shot("annunciator_grazing")
+	player.set_lamp_enabled(true)
+	await get_tree().create_timer(.7).timeout
+	await _shot("annunciator_flashlight_detail")
 	var inspector := preload("res://tests/radiator_native_review.gd").new()
 	for draw: MeshInstance3D in board.find_children("*","MeshInstance3D",true,false):
 		for i in draw.mesh.get_surface_count():

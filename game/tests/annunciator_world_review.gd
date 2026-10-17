@@ -63,6 +63,25 @@ func _run() -> void:
 	player.camera.global_position=board.to_global(Vector3(.20,-.05,.65));player.camera.look_at(board.to_global(Vector3(0,0,.045)))
 	await RenderingServer.frame_post_draw
 	check(get_viewport().get_texture().get_image().save_png(out.path_join("installed_annunciator.png"))==OK,"installed capture written")
+	player.set_lamp_enabled(false)
+	# Production optics retain a thermal tail after the logical switch opens;
+	# the simple bench lamp has a much shorter transient. Wait for the actual
+	# output instead of assuming both presentations cool in the same time.
+	var lamp_deadline := Time.get_ticks_msec()+5000
+	while player.flashlight.visible and Time.get_ticks_msec()<lamp_deadline:
+		await get_tree().create_timer(.05).timeout
+	check(not player.lamp_is_enabled() and not player.flashlight.visible,"installed room-light capture has a genuinely switched-off lamp")
+	await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(out.path_join("installed_annunciator_room_light.png"))==OK,"installed room-light capture written")
+	player.camera.global_position=board.to_global(Vector3(.10,.17,.19));player.camera.look_at(board._flag_arms[1].global_position)
+	player.set_lamp_enabled(true)
+	await get_tree().create_timer(.7).timeout
+	await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(out.path_join("installed_annunciator_flags.png"))==OK,"installed flags and actual journals capture written")
+	player.camera.global_position=board.to_global(Vector3(.14,-.24,.23));player.camera.look_at(board._reset_spindle.global_position)
+	await get_tree().create_timer(.3).timeout
+	await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(out.path_join("installed_annunciator_reset.png"))==OK,"installed rounded reset capture written")
 	var old_board: WeakRef=weakref(board)
 	input=null;driver.free();world.free()
 	await get_tree().process_frame
