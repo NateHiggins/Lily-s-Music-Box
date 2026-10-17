@@ -4,7 +4,6 @@
   "parent_commit": "69ad8124b0d6ce1369446b955399bc1bff49f682",
   "files": {
     "acquisition_suite_run.receipt.json": "b80a5151cc15f95eac193efd47f1e63aa358a0f95715dd1d356876d57b83189e",
-    "emitter_bays.json": "d75ebf7a0f5ad6c072b0b7fc8ea7084d9fffc457a18cdbe4028200e3212fd2c2",
     "native_outputs.zip": "b9f02f94a8823b7c4c7bcad12d95e9fd79305f83c593b1a87d648bf4acff0cc5",
     "native_recipe/articulated_union.py": "63a838c2beea37c1d97e88b042c199aac025975d38e68143ef581193482f2baa",
     "native_recipe/automatic_vent.py": "f337e29e25a761151f0616a478ae5113482db5886f464a0530449d326ac0205e",
@@ -21,7 +20,7 @@
     "native_recipe/header_fittings.py": "e6c40fc9aeca29f9145cad8f71bf8660f6e0622cc74adaa86697fade1de442d8",
     "native_recipe/mechanism_surfaces.py": "99c487bcc5e3a9a3ad14140f3105f02ee61bcc93bbda50ad6215f1988e9692d1",
     "native_recipe/mount_plan.json": "d739be67aab61dc0658932d0be1f15f52e999f2d29878abc3c0fe942886eb461",
-    "native_recipe/package_lineage.json": "5a9072c2d7a3eecd6e8ef7596f96ec668ab5d0498b99fae74c6d5ca2a166e418",
+    "native_recipe/package_lineage.json": "b61f614dd2e2c239d4c7836b326e1d3fef2f960ee2cd52f9578e2132e51ae984",
     "native_recipe/pitch_kinematics.py": "662ef5ea2f3f62c78613f6d2585acd1e0649c7d223bd15c63f4497b86f1ae380",
     "native_recipe/pitch_shims.py": "8b73890c70550cd478c775a9c7b6fba4341abba6e4465f86feeb8e279c28fb4e",
     "native_recipe/primitives.py": "d2004faeb4b955e19e8fd6439e2b410d3a293f28f3e884708b5c0d229b271320",
@@ -42,12 +41,13 @@
     "previews/sliding_tie.png": "e4c7ef532369f2eb7332f30109b63393399fc6c66ad634ae6a52f0f93c83d549",
     "previews/vent_cutaway.png": "9f070f1c5ff78eaec1671846c04dfbce554b153a4d41fdcd8c94b88abcee7f49",
     "world_context.glb.gz": "9882eeec494bf3d4ea361c35fc5bbf2c9c9566ff85f375fcfcbce28c7f9a82db",
-    "world_review_as_executed.py": "1c73ef6548e5da7f0c83c1cc2f989289f97ffec1cb917e90de65c7874f74ad9b",
-    "verify_packet.py": "34adfe4e686f878898375bc211315fab61a46dd2f878dc34baeb09cded171167",
+    "world_review_as_executed.py": "d25b5310e53b46550a44982d411a3bdc4c6d67032b659e36d1a462c5b45b29b2",
+    "verify_packet.py": "03d3fae5df0594a47470741b3977d6df014c605f5cfa8dfa1895c195a57ad9ef",
     "README.md": "63429570fe0eb35fbe37fa88739eaddfe6e97b7eedda16cd3516027eb6254d36",
     "world_fit.json.gz": "243c063a31197cb801b5dac5e2413a659cc867e8f0ee25ec90e8c6f198ea96c9",
     "world_context.json.gz": "ba50be3641c25a20e111ee373b5435827e6296573be31a7b93eb5f1ab4e29dbf",
-    "world_fit.log.gz": "472af3bcaa37ef04edc4df8de6b3d39bdeb7065ca3076066a7c056a899512d6b"
+    "world_fit.log.gz": "472af3bcaa37ef04edc4df8de6b3d39bdeb7065ca3076066a7c056a899512d6b",
+    "emitter_bays.json.gz": "f878191e6d10ded184bbede285624981dc9c0c724f1fa07ae231f6f8ea7307b2"
   },
   "previews": [
     {
@@ -74,6 +74,7 @@
   "uncompressed_sha256": {
     "world_fit.json": "8097d1b1a08a199f0919975cc01de744f08786a24f7a90f81d3853ad1184811a",
     "world_context.json": "64cfae98be928e0d8e38d15ec317eebec95b12af896349692a81b8c647a251ae",
-    "world_fit.log": "a040516397a213062dbd6f2d649082140a3c214fe38866e047ce59e4d9ae19ac"
+    "world_fit.log": "a040516397a213062dbd6f2d649082140a3c214fe38866e047ce59e4d9ae19ac",
+    "emitter_bays.json": "d75ebf7a0f5ad6c072b0b7fc8ea7084d9fffc457a18cdbe4028200e3212fd2c2"
   }
 }

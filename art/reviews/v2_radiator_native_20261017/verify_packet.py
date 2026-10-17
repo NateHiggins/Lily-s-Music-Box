@@ -24,7 +24,8 @@ def main():
     with gzip.open(HERE/'world_context.glb.gz','rb') as stream:
         for chunk in iter(lambda:stream.read(1024*1024),b''):digest.update(chunk)
     assert digest.hexdigest()==context['context_sha256']==world['context_sha256']
-    assert sha((HERE/'emitter_bays.json').read_bytes())==context['route_sha256']
+    with gzip.open(HERE/'emitter_bays.json.gz','rb') as stream:emitter_bytes=stream.read()
+    assert sha(emitter_bytes)==context['route_sha256']
     assert not world['unexplained'] and len(world['states'])==1035
     samples=world['samples'];references=0
     for state in world['states']:
@@ -68,7 +69,7 @@ def main():
         directory=out/'preinstall_context';directory.mkdir(exist_ok=True)
         with gzip.open(HERE/'world_context.glb.gz','rb') as source,(directory/'context.glb').open('wb') as target:shutil.copyfileobj(source,target)
         with gzip.open(HERE/'world_context.json.gz','rb') as stream:(directory/'context.json').write_bytes(stream.read())
-        shutil.copyfile(HERE/'emitter_bays.json',out/'all_emitter_bays.json')
+        (out/'all_emitter_bays.json').write_bytes(emitter_bytes)
         shutil.copyfile(HERE/'world_review_as_executed.py',out/'review_portable_final_world_fit.py')
     report=dict(evidence_class='INERT',scope='Archived native artifact integrity and freshly evaluated final GLB base/morph buffers; historical/current geometry snapshot only, never runtime or human acceptance.',status='PASS',current_inputs_match=current,world_states=len(world['states']),unique_part_poses=len(samples),reused_part_poses=world['reused_samples'],buffers=buffers,morph_samples=len(morph['samples']))
     (out/'packet_verification.json').write_text(json.dumps(report,indent=2)+'\n')
