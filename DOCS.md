@@ -35,7 +35,8 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
-| Loaded normal frames, room-reflection comparisons and the unmounted lighting prototype | `design/V2_ROOM_REFLECTION_REVIEW_2026-10-17.md` |
+| Current bounded room reflections, ceiling shadow repair and loaded surface qualification, with remaining appearance work | `design/V2_REFLECTION_INSTALL_2026-10-17.md` |
+| Earlier loaded normal frames, room-reflection comparisons and the unmounted lighting prototype | `design/V2_ROOM_REFLECTION_REVIEW_2026-10-17.md` |
 | Current opal car-indicator lenses, seated bezels and retained lamp-material ownership | `design/V2_ANNUNCIATOR_LAMPS_2026-10-17.md` |
 | Native annunciator bezels, axles, eased reset stock and scoped detail review | `design/V2_ANNUNCIATOR_DETAIL_2026-10-17.md` |
 | Native annunciator service, actual input and serviced-board disk reconstruction, with unfinished dispatch and appearance work | `design/V2_ANNUNCIATOR_PHYSICAL_SERVICE_2026-10-17.md` |

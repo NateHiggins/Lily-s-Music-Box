@@ -82,6 +82,10 @@ An inventory alone is never acceptance.
 
 The gate board runs **tools/v2_surface_evidence.py**. It independently checks
 the runtime contract and inventory and requires reviewed render hashes. A
+matching **suite_run.receipt.json** and byte-identical gzip stdout/stderr logs
+also corroborate the test-written contract. Reported script or renderer errors
+invalidate qualification even if an interrupted helper left a PASS contract.
+The wrapper alone remains insufficient runtime proof. A
 digest binds qualification to scripts, scene/data changes, shaders, image/model
 assets, source recipes and authored import parameters. Text is LF-normalized;
 cache destinations, generated import UIDs, ingest caches and locally extracted

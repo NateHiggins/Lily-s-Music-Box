@@ -1,6 +1,6 @@
 extends Node3D
 ## Bounded room-local specular context; no new lights or material overrides.
-## Prototype is rendered/qualified before production composition enables it.
+## Production owner; broader appearance qualification remains separate.
 const TRANSIENT_LIGHT_LAYER := 1<<18
 const CAPTURE_MASK := 0xFFFFF & ~((1<<1)|(1<<17)|(1<<18)|(1<<19))
 const CACHE_LIMIT := 3
@@ -43,6 +43,8 @@ func setup(owner: OrisonV2RuntimeRoot) -> bool:
 	world.player.flashlight.layers=TRANSIENT_LIGHT_LAYER
 	_switches=world.get_node_or_null("V2RoomSwitches") as SwitchSystem
 	if _switches!=null:_switches.room_toggled.connect(_on_room_toggled)
+	# Let the actual fixture/daylight presentation settle after composition.
+	_scan_due=1.0
 	return not rooms.is_empty()
 
 func room_at(global_eye: Vector3) -> String:
@@ -64,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	_scan_due-=delta
 	if _scan_due>0:return
 	_scan_due=.25
-	var identity := room_at(world.player.camera.global_position)
+	var identity := room_at(_view_position())
 	active_id=identity
 	if identity.is_empty():return
 	_last_used[identity]=Time.get_ticks_msec()
@@ -92,7 +94,8 @@ func _create(identity: String) -> void:
 	var probe := ReflectionProbe.new()
 	probe.name="RoomReflection_"+identity
 	probe.size=bounds.size;probe.max_distance=bounds.size.length()
-	probe.box_projection=true;probe.interior=true;probe.enable_shadows=true
+	# Keep outdoor sky available through real openings, including daylight.
+	probe.box_projection=true;probe.interior=false;probe.enable_shadows=true
 	probe.ambient_mode=ReflectionProbe.AMBIENT_ENVIRONMENT
 	probe.blend_distance=.10;probe.reflection_mask=CAPTURE_MASK
 	probe.mesh_lod_threshold=4.;probe.cull_mask=CAPTURE_MASK
@@ -105,7 +108,7 @@ func _create(identity: String) -> void:
 	_refresh_due[identity]=Time.get_ticks_msec()+int(REFRESH_SECONDS*1000);refresh_count+=1
 
 func _clear_origin(bounds: AABB) -> Vector3:
-	var eye := frame.to_local(world.player.camera.global_position)
+	var eye := frame.to_local(_view_position())
 	var candidates: Array[Vector3]=[eye,bounds.get_center()]
 	for x in [.25,.5,.75]:
 		for z in [.25,.5,.75]:candidates.append(bounds.position+Vector3(bounds.size.x*x,1.4,bounds.size.z*z))
@@ -122,8 +125,17 @@ func _refresh(identity: String) -> void:
 	var probe: ReflectionProbe=probes[identity]
 	# UPDATE_ONCE explicitly refreshes after a transform change. Toggle a tiny
 	# bounded displacement rather than accumulating positional drift.
-	probe.position=_base_positions[identity]+Vector3(.00001 if refresh_count%2==0 else -.00001,0,0)
+	var base: Vector3=_base_positions[identity]
+	# Alternate this probe's own displacement. Global refresh-count parity
+	# can repeat its previous position after another room refreshes, leaving
+	# UPDATE_ONCE stale even though the counter and deadline advance.
+	probe.position=base+Vector3(-.00001 if probe.position.x>base.x else .00001,0,0)
 	_refresh_due[identity]=Time.get_ticks_msec()+int(REFRESH_SECONDS*1000);refresh_count+=1
+
+func _view_position() -> Vector3:
+	# Inspection/free cameras can leave the controller parked on another floor.
+	var camera := get_viewport().get_camera_3d()
+	return camera.global_position if camera!=null else world.player.camera.global_position
 
 func _on_room_toggled(_identity: String,_on: bool) -> void:
 	# A switch can be reached from a neighbouring hall; invalidate cached

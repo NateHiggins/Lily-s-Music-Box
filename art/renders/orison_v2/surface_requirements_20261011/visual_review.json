@@ -1,43 +1,48 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
+  "scope": "Technical loaded surface response and representative UV continuity only; not photorealism, every viewpoint, gameplay or human acceptance. Exhaustive inventory qualification is separate.",
+  "surface_inputs_sha256": "4c4a9da2dd3399b478ee327861dc05a9f2ca50385c10d95a5ab5f85bb69da35b",
   "images": [
     {
-      "file": "front_gallery_02.png",
-      "sha256": "58ecd147439f5a3c06edc7107868c7292fb38debb1e1a3b85151a1db506a63e1",
-      "observation": "Current composed gallery shows continuous cornice, rail and panel-cap material scale, mapped plaster and terrazzo; no previous concentric ceiling bands. Scope is technical surface response, not general lighting/artistic acceptance."
+      "file": "reflection_install_front_gallery_02.png",
+      "sha256": "64e6f399c1bcaa43544e2b492435ecf9be0c1e3b83d33ef54fe2cf34512d65f9",
+      "observation": "Ceiling shades continuously without the previous bands; panel wood, floor and curtain surfaces remain sampled. Broad appearance and fixture glare remain open."
     },
     {
-      "file": "front_gallery_06.png",
-      "sha256": "008d0078b9aeb1158b2c4cf7dbd962433d62d24e8fc0f57c8da6ecb09ac3e512",
-      "observation": "Upper gallery repeats mapped native fixtures, floor and wood stock. Large retained structural girder remains visually dominant and needs separate design review; it is not accepted by the texture qualification."
+      "file": "reflection_install_kitchen_4B_fit.png",
+      "sha256": "c34475eb77cd39f49db37804a6b4d23aaae37ceb8fb33d94b75ba6a3f7462e1e",
+      "observation": "Sink bowl, fitted frame, tap metal and counter retain visible surface response. Coarse wall relief and hard shadows still need polish; this does not close sink appearance."
     },
     {
-      "file": "front_ground_bay.png",
-      "sha256": "b04adc74701109c21bc732c32df638ba5e4bf182274dc311df458bf0e704a6a1",
-      "observation": "Close loaded panel cap is a separate wood member; rail/cornice, blind and curtain materials retain visible detail. Native pipe splice geometry is checked separately; this image does not accept every joint."
+      "file": "reflection_install_tile_F02_A_BATH_corner.png",
+      "sha256": "40bff6bdec13f5045c434392da3b36f6abaf32226de96a1ed71d3e85112e9650",
+      "observation": "Subway grout continues around the wall corner and hex floor samples without the former large repeated grime patch. Lighting and remaining prop detail are separate."
     },
     {
-      "file": "continuous_HistoricMillwork.png",
-      "sha256": "72c0179739a71b5e4f3f908ba93be64b8ba8ac10fa8555af7712db734792c8ba",
-      "observation": "Close loaded baseboard, independent wood panel member and terrazzo retain mapped detail and physical scale. Bright technical fill does not qualify ordinary room lighting or every joint."
+      "file": "reflection_install_window_2B.png",
+      "sha256": "fd24ff975f4bcffbd7f68d11bd6e8daa9c7032fd2e072038d91c68c9ecb640cc",
+      "observation": "Cloth, blind slats and adjacent radiator remain mapped in the composed room. Bright window reflections, coarse plaster and garment/sewing-machine form remain appearance debt."
     },
     {
-      "file": "weather_season_10.png",
-      "sha256": "adc8ec7e6395d775c89a430c73e43f3d20470f18ef0cd87bf6e4ba59c566d1a5",
-      "observation": "Composed autumn sky and roof remain sampled without an obvious texture discontinuity in this view. This does not accept cloud artistry, credentialed live weather or the whole exterior."
+      "file": "reflection_install_2B_abed_bedding_1.png",
+      "sha256": "1bfe9f58408344b495cb73b43c50c9b66d6eb5c84586e4636a6cf701c7e0a18b",
+      "observation": "Cloth weave, blanket folds and timber remain mapped at this camera distance. This does not qualify every bed, frame bevel or cushion shape."
     },
     {
-      "file": "electrical_F01_ELECTRICAL_JUNCTION.png",
-      "sha256": "13357bf01d844bbcfe1b1f25157e4652e4ab5278781305e8917b55e7352808af",
-      "observation": "Technical fill resolves the bored source cover, retained casting and screws with mapped metal response. Connector seating and ordinary room lighting remain separate acceptance questions."
+      "file": "reflection_install_weather_season_10.png",
+      "sha256": "03f15b15d4a5bc5246e4d38e0ae227987c10a65a1fac9deefd81f4cba0ebcc5b",
+      "observation": "Autumn sky and loaded rooftop context render without missing textures. Cloud shapes and the surrounding city remain visually unfinished; no whole-weather acceptance."
     },
     {
-      "file": "electrical_riser_connection.png",
-      "sha256": "dfea5b82d452d6accf1c4cb75db73808540c1c97dae3cf6d36e0ec1ca4cff38e",
-      "observation": "Retained electrical riser and bearings show mapped metal response in technical fill. This view verifies sampling appearance, not every physical connection or room lighting."
+      "file": "reflection_install_radiator.png",
+      "sha256": "1ccb2556c934664dd1dba88692660d0a3772b95afc8f5e434ceaa76c5f8ad2b9",
+      "observation": "Loaded native casting responds to the room light; adjacent timber, cloth and wall remain mapped. Coarse wall relief, rail highlights and wider radiator finish remain open."
+    },
+    {
+      "file": "reflection_install_roof_tank_uv.png",
+      "sha256": "3c824bf13df0f44eba1ecdec4c3c9fe56d2ae4a12199eccbc411a16628356ffb",
+      "observation": "Tank, supports, roof and brick parapet render without a missing-material discontinuity. The shaded tank is insufficient to accept close surface response; daylight/artistry remain open."
     }
-  ],
-  "surface_inputs_sha256": "1dc6b217cae3108388c25511df34f55025a6fa64f4c112540ad07494f7990690",
-  "scope": "Technical texture/UV response of seven individually inspected fresh representative captures. The large upper-gallery girder, cloud artistry, ordinary lighting and general photorealism remain unaccepted. No joint, gameplay, performance or human acceptance."
+  ]
 }

@@ -11,16 +11,22 @@ func _run() -> void:
 	var world := await _world()
 	if world.startup_failed or world.player==null:world.free();_finish_reflections();return
 	var player := world.player;player.set_physics_process(false)
+	var manager := world.get_node_or_null("V2RoomReflections")
+	check(manager!=null,"production root owns room reflections")
+	if manager==null:world.free();_finish_reflections();return
+	check(world.find_children("V2RoomReflections","Node3D",true,false).size()==1,"production world has one room-capture owner")
+	manager.set_reflections_enabled(false)
 	player.set_lamp_enabled(false)
 	var deadline := Time.get_ticks_msec()+5000
 	while player.flashlight.visible and Time.get_ticks_msec()<deadline:await get_tree().create_timer(.05).timeout
 	check(not player.flashlight.visible,"comparison begins after the real lamp cools")
 	var paused_before := get_tree().paused
-	var lamp_layers_before := player.flashlight.layers
+	var lamp_layers_before: int=manager._lamp_layers_before
 	get_tree().paused=true
-	var manager := preload("res://scripts/building/orison_v2_room_reflections.gd").new()
-	manager.name="CandidateRoomReflections";manager.process_mode=Node.PROCESS_MODE_ALWAYS
-	world.add_child(manager);check(manager.setup(world),"candidate derives its rooms from composed layout")
+	manager.process_mode=Node.PROCESS_MODE_ALWAYS
+	check(not manager.rooms.is_empty(),"production capture owner derives its rooms from composed layout")
+	check(int(ProjectSettings.get_setting("rendering/reflections/reflection_atlas/reflection_count"))==16,"atlas capacity uses the bounded production budget")
+	check(int(ProjectSettings.get_setting("rendering/reflections/reflection_atlas/reflection_size"))==256,"atlas retains its original face resolution")
 	manager.set_reflections_enabled(false)
 	var board := world.adapter.resolve("LobbyPorterBoard") as OtisProp
 	var radiator := world.adapter.resolve("F02_B_RADIATOR_01") as RadiatorProp
@@ -77,18 +83,19 @@ func _run() -> void:
 			if manager.probes.has(station.space):break
 		check(manager.active_id==station.space and manager.probes.has(station.space),"view follower creates a bounded room capture: "+station.id)
 		var after := await _reflection_capture(station.id+"_room_context")
-		var sky_retained: Image=after
+		var without_sky: Image=after
 		if manager.probes.has(station.space):
 			var probe: ReflectionProbe=manager.probes[station.space]
-			probe.interior=false;probe.position.x+=.00001
-			sky_retained=await _reflection_capture(station.id+"_room_with_sky_context")
-			probe.interior=true
+			check(not probe.interior,"production room capture retains outdoor sky")
+			probe.interior=true;probe.position.x+=.00001
+			without_sky=await _reflection_capture(station.id+"_room_without_sky_context")
+			probe.interior=false
 		manager.set_reflections_enabled(false)
 		var restored := await _reflection_capture(station.id+"_restored_sky_context")
 		check(_material_state(station.actor)==materials,"comparison preserves actual material fields: "+station.id)
 		check(_light_state(world)==lights,"comparison preserves fixtures and direct-light fields: "+station.id)
 		check(manager.probes.size()<=manager.CACHE_LIMIT,"room capture cache remains bounded")
-		observations.append({"id":station.id,"room":station.space,"illumination":"existing carried lamp" if carried_lamp else "existing room circuit","normal_frames":frames,"screen_space_difference":_picture_difference(before,screen_space),"probe_difference":_picture_difference(before,after),"sky_retained_probe_difference":_picture_difference(before,sky_retained),"baseline_repeat_difference":_picture_difference(before,restored),"cached_probes":manager.probes.size()})
+		observations.append({"id":station.id,"room":station.space,"illumination":"existing carried lamp" if carried_lamp else "existing room circuit","normal_frames":frames,"screen_space_difference":_picture_difference(before,screen_space),"probe_difference":_picture_difference(before,after),"without_sky_probe_difference":_picture_difference(before,without_sky),"baseline_repeat_difference":_picture_difference(before,restored),"cached_probes":manager.probes.size(),"video_bytes":Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)})
 	check(manager.errors.is_empty(),"clear origins exist for reviewed captures")
 	var lamp_layers := player.flashlight.layers
 	manager.free()
@@ -157,6 +164,6 @@ func _picture_difference(a: Image,b: Image) -> float:
 	return sum/maxi(samples,1)
 
 func _finish_reflections() -> void:
-	FileAccess.open(out.path_join("room_reflection_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"observations":observations,"scope":"Paused-lighting A/B/A comparison of three installed assemblies. Candidate not production-enabled; no route, save, broad contract or human acceptance."},"\t"))
+	FileAccess.open(out.path_join("room_reflection_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"observations":observations,"scope":"Production-owned paused-lighting A/B/A comparison of three installed assemblies, with unchanged atlas face resolution. No route, save, broad contract or human acceptance; daylight/weather and engine-warning disposition remain separate."},"\t"))
 	print("ROOM REFLECTION REVIEW: ","PASS" if failures.is_empty() else "FAIL","; ",checks," checks; ",failures)
 	terminal=true;get_tree().quit(0 if failures.is_empty() else 1)

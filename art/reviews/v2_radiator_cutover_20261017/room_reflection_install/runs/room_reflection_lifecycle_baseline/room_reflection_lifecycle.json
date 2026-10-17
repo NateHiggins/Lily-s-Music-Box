@@ -1,0 +1,1031 @@
+{
+	"baseline_only": true,
+	"checks": 197,
+	"evidence_class": "INERT",
+	"failures": [],
+	"retired": [
+		{
+			"generation": 0,
+			"nodes": 36.0,
+			"resources": 14395.0,
+			"video_bytes": 3469060512.0
+		},
+		{
+			"generation": 1,
+			"nodes": 36.0,
+			"resources": 14395.0,
+			"video_bytes": 3538266528.0
+		}
+	],
+	"samples": [
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 41.76,
+				"mean_ms": 27.9482571428571,
+				"p95_ms": 30.855
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 37.535,
+				"mean_ms": 28.5254285714286,
+				"p95_ms": 33.452
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F01_WATCH",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 28.534,
+				"mean_ms": 27.2970857142857,
+				"p95_ms": 28.335
+			},
+			"video_bytes": 4824169808.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.772,
+				"mean_ms": 19.9806571428571,
+				"p95_ms": 20.11
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 30.958,
+				"mean_ms": 19.8336857142857,
+				"p95_ms": 20.857
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.811,
+				"mean_ms": 20.0044,
+				"p95_ms": 20.292
+			},
+			"video_bytes": 4824171616.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.377,
+				"mean_ms": 20.0154571428571,
+				"p95_ms": 20.27
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 25.135,
+				"mean_ms": 19.0651428571429,
+				"p95_ms": 20.331
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "B1_BOILER_ROOM",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 21.6,
+				"mean_ms": 20.0440285714286,
+				"p95_ms": 20.32
+			},
+			"video_bytes": 4824172544.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.858,
+				"mean_ms": 20.0131714285714,
+				"p95_ms": 20.428
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 21.923,
+				"mean_ms": 18.98,
+				"p95_ms": 20.851
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_A_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.355,
+				"mean_ms": 19.9959142857143,
+				"p95_ms": 20.336
+			},
+			"video_bytes": 4824174352.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.433,
+				"mean_ms": 20.0068571428571,
+				"p95_ms": 20.32
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 42.37,
+				"mean_ms": 20.3540571428571,
+				"p95_ms": 21.786
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F03_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.933,
+				"mean_ms": 20.0248285714286,
+				"p95_ms": 20.394
+			},
+			"video_bytes": 4824175056.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.36,
+				"mean_ms": 19.9963428571429,
+				"p95_ms": 20.26
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 40.818,
+				"mean_ms": 20.831,
+				"p95_ms": 31.109
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F04_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.709,
+				"mean_ms": 20.0238285714286,
+				"p95_ms": 20.542
+			},
+			"video_bytes": 4824176736.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.512,
+				"mean_ms": 20.0108857142857,
+				"p95_ms": 20.311
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 30.154,
+				"mean_ms": 20.0533714285714,
+				"p95_ms": 26.273
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F01_WATCH",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.564,
+				"mean_ms": 20.0090285714286,
+				"p95_ms": 20.283
+			},
+			"video_bytes": 4824177440.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.797,
+				"mean_ms": 19.9774285714286,
+				"p95_ms": 20.489
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 39.664,
+				"mean_ms": 20.3186285714286,
+				"p95_ms": 27.738
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.825,
+				"mean_ms": 20.0017714285714,
+				"p95_ms": 20.459
+			},
+			"video_bytes": 4824178272.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.643,
+				"mean_ms": 20.0320285714286,
+				"p95_ms": 20.405
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 25.895,
+				"mean_ms": 19.359,
+				"p95_ms": 20.346
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "B1_BOILER_ROOM",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.324,
+				"mean_ms": 20.0146571428571,
+				"p95_ms": 20.307
+			},
+			"video_bytes": 4824179952.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.381,
+				"mean_ms": 20.0055714285714,
+				"p95_ms": 20.376
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 28.823,
+				"mean_ms": 19.6626285714286,
+				"p95_ms": 20.711
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_A_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.595,
+				"mean_ms": 20.0125714285714,
+				"p95_ms": 20.377
+			},
+			"video_bytes": 4824181216.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.29,
+				"mean_ms": 20.0019142857143,
+				"p95_ms": 20.2
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 22.043,
+				"mean_ms": 19.1122857142857,
+				"p95_ms": 21.291
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F03_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.723,
+				"mean_ms": 20.0226857142857,
+				"p95_ms": 20.487
+			},
+			"video_bytes": 4824181216.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.332,
+				"mean_ms": 20.0075142857143,
+				"p95_ms": 20.272
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 40.637,
+				"mean_ms": 20.7582,
+				"p95_ms": 30.33
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F04_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.309,
+				"mean_ms": 20.0112285714286,
+				"p95_ms": 20.272
+			},
+			"video_bytes": 4824181216.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.252,
+				"mean_ms": 20.0161714285714,
+				"p95_ms": 20.174
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 35.622,
+				"mean_ms": 20.1300285714286,
+				"p95_ms": 21.515
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F01_WATCH",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.236,
+				"mean_ms": 20.0017714285714,
+				"p95_ms": 20.167
+			},
+			"video_bytes": 4824181216.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.464,
+				"mean_ms": 20.0188,
+				"p95_ms": 20.302
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 35.96,
+				"mean_ms": 19.6976857142857,
+				"p95_ms": 20.572
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 21.111,
+				"mean_ms": 20.0099428571429,
+				"p95_ms": 20.332
+			},
+			"video_bytes": 4824181216.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.763,
+				"mean_ms": 20.0078,
+				"p95_ms": 20.569
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 24.637,
+				"mean_ms": 18.8914571428571,
+				"p95_ms": 20.257
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "B1_BOILER_ROOM",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.407,
+				"mean_ms": 20.0246857142857,
+				"p95_ms": 20.218
+			},
+			"video_bytes": 4824181216.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.452,
+				"mean_ms": 19.995,
+				"p95_ms": 20.238
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 26.805,
+				"mean_ms": 19.3376,
+				"p95_ms": 20.331
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_A_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.581,
+				"mean_ms": 20.0267714285714,
+				"p95_ms": 20.489
+			},
+			"video_bytes": 4824181216.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 21.042,
+				"mean_ms": 19.9987428571429,
+				"p95_ms": 20.251
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 33.041,
+				"mean_ms": 19.6193714285714,
+				"p95_ms": 20.426
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F03_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.91,
+				"mean_ms": 20.004,
+				"p95_ms": 20.526
+			},
+			"video_bytes": 4824181216.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.589,
+				"mean_ms": 20.0062,
+				"p95_ms": 20.321
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 38.717,
+				"mean_ms": 20.3744285714286,
+				"p95_ms": 20.371
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 0,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F04_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.685,
+				"mean_ms": 19.9949142857143,
+				"p95_ms": 20.455
+			},
+			"video_bytes": 4824181216.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 28.762,
+				"mean_ms": 27.2731714285714,
+				"p95_ms": 28.291
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 43.92,
+				"mean_ms": 29.0290571428571,
+				"p95_ms": 37.934
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F01_WATCH",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 28.405,
+				"mean_ms": 27.4658571428571,
+				"p95_ms": 28.015
+			},
+			"video_bytes": 4864540256.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.55,
+				"mean_ms": 19.9697142857143,
+				"p95_ms": 20.353
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 32.645,
+				"mean_ms": 19.8727714285714,
+				"p95_ms": 29.684
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.855,
+				"mean_ms": 20.0164285714286,
+				"p95_ms": 20.419
+			},
+			"video_bytes": 4864542080.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 21.023,
+				"mean_ms": 20.0344,
+				"p95_ms": 20.311
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 27.221,
+				"mean_ms": 18.8885428571429,
+				"p95_ms": 20.366
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "B1_BOILER_ROOM",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.728,
+				"mean_ms": 20.0135142857143,
+				"p95_ms": 20.445
+			},
+			"video_bytes": 4864543280.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 21.076,
+				"mean_ms": 20.0138,
+				"p95_ms": 20.629
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 28.156,
+				"mean_ms": 19.5840857142857,
+				"p95_ms": 21.382
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_A_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.958,
+				"mean_ms": 19.9956857142857,
+				"p95_ms": 20.42
+			},
+			"video_bytes": 4864545232.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.581,
+				"mean_ms": 19.9916857142857,
+				"p95_ms": 20.309
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 34.378,
+				"mean_ms": 19.8944,
+				"p95_ms": 20.445
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F03_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.499,
+				"mean_ms": 20.0286285714286,
+				"p95_ms": 20.393
+			},
+			"video_bytes": 4864545936.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.88,
+				"mean_ms": 20.0064857142857,
+				"p95_ms": 20.329
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 37.589,
+				"mean_ms": 20.6031428571429,
+				"p95_ms": 35.22
+			},
+			"cached": 0,
+			"cycle": 0,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F04_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.508,
+				"mean_ms": 20.0116571428571,
+				"p95_ms": 20.418
+			},
+			"video_bytes": 4864546912.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.83,
+				"mean_ms": 20.0104857142857,
+				"p95_ms": 20.561
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 41.047,
+				"mean_ms": 20.3736857142857,
+				"p95_ms": 32.711
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F01_WATCH",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.547,
+				"mean_ms": 19.9902857142857,
+				"p95_ms": 20.297
+			},
+			"video_bytes": 4864548176.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.31,
+				"mean_ms": 19.1218,
+				"p95_ms": 19.972
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 41.223,
+				"mean_ms": 21.5034,
+				"p95_ms": 28.281
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.539,
+				"mean_ms": 19.9405142857143,
+				"p95_ms": 20.327
+			},
+			"video_bytes": 4864549008.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.235,
+				"mean_ms": 20.013,
+				"p95_ms": 20.124
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 20.38,
+				"mean_ms": 18.5451142857143,
+				"p95_ms": 20.098
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "B1_BOILER_ROOM",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 21.224,
+				"mean_ms": 20.0270571428571,
+				"p95_ms": 20.387
+			},
+			"video_bytes": 4864550688.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 21.038,
+				"mean_ms": 19.9945142857143,
+				"p95_ms": 20.588
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 36.225,
+				"mean_ms": 19.8428285714286,
+				"p95_ms": 24.056
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_A_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.909,
+				"mean_ms": 20.015,
+				"p95_ms": 20.342
+			},
+			"video_bytes": 4864551392.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.853,
+				"mean_ms": 20.2271428571429,
+				"p95_ms": 20.636
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 40.261,
+				"mean_ms": 20.6686571428571,
+				"p95_ms": 21.381
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F03_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.276,
+				"mean_ms": 19.6251714285714,
+				"p95_ms": 20.002
+			},
+			"video_bytes": 4864551392.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.967,
+				"mean_ms": 20.0165428571429,
+				"p95_ms": 20.519
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 45.304,
+				"mean_ms": 20.9052571428571,
+				"p95_ms": 33.696
+			},
+			"cached": 0,
+			"cycle": 1,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F04_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.376,
+				"mean_ms": 19.9994285714286,
+				"p95_ms": 20.348
+			},
+			"video_bytes": 4864551392.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.894,
+				"mean_ms": 20.0236857142857,
+				"p95_ms": 20.438
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 35.59,
+				"mean_ms": 20.1947428571429,
+				"p95_ms": 30.924
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F01_WATCH",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.947,
+				"mean_ms": 19.9922571428571,
+				"p95_ms": 20.657
+			},
+			"video_bytes": 4864551392.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 21.903,
+				"mean_ms": 20.61,
+				"p95_ms": 21.015
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 44.775,
+				"mean_ms": 22.1421142857143,
+				"p95_ms": 31.376
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 21.07,
+				"mean_ms": 20.4675142857143,
+				"p95_ms": 20.863
+			},
+			"video_bytes": 4864551392.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 20.544,
+				"mean_ms": 20.0377142857143,
+				"p95_ms": 20.347
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 28.144,
+				"mean_ms": 19.4880857142857,
+				"p95_ms": 20.355
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "B1_BOILER_ROOM",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.34,
+				"mean_ms": 20.0098571428571,
+				"p95_ms": 20.068
+			},
+			"video_bytes": 4864551392.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 21.036,
+				"mean_ms": 20.0077142857143,
+				"p95_ms": 20.631
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 23.135,
+				"mean_ms": 19.5926857142857,
+				"p95_ms": 20.917
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F02_A_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.622,
+				"mean_ms": 20.0087714285714,
+				"p95_ms": 20.295
+			},
+			"video_bytes": 4864551392.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 21.119,
+				"mean_ms": 20.0375714285714,
+				"p95_ms": 20.913
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 44.444,
+				"mean_ms": 20.3962,
+				"p95_ms": 27.573
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F03_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 21.041,
+				"mean_ms": 19.9836,
+				"p95_ms": 20.697
+			},
+			"video_bytes": 4864551392.0
+		},
+		{
+			"acquisition_frames": {
+				"frame_count": 35,
+				"max_ms": 21.188,
+				"mean_ms": 19.9877714285714,
+				"p95_ms": 20.692
+			},
+			"baseline_frames": {
+				"frame_count": 35,
+				"max_ms": 43.162,
+				"mean_ms": 20.9777714285714,
+				"p95_ms": 34.259
+			},
+			"cached": 0,
+			"cycle": 2,
+			"generation": 1,
+			"nodes": 65645.0,
+			"refreshes": 0,
+			"resources": 20192.0,
+			"room": "F04_B_MAIN",
+			"steady_frames": {
+				"frame_count": 35,
+				"max_ms": 20.574,
+				"mean_ms": 20.0289428571429,
+				"p95_ms": 20.3
+			},
+			"video_bytes": 4864551392.0
+		}
+	],
+	"scope": "Two actual production worlds; detached-camera/cache/interleaved refresh/circuit/owner-retirement diagnostics. Baseline mode leaves candidate captures disabled. Memory samples are observations, not a clean engine-lifecycle or performance acceptance. No traversal/input/runtime contract or production enable."
+}

@@ -1,6 +1,6 @@
 """Fail-closed surface/import regressions for RUL-012."""
 from pathlib import Path
-import copy,importlib.util,sys,tempfile,unittest
+import copy,gzip,hashlib,importlib.util,json,sys,tempfile,unittest
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools'))
 from audit_v2_surfaces import evaluate
@@ -16,6 +16,77 @@ class Requirements(unittest.TestCase):
     def test_transparent_physical_surface_cannot_hide_missing_maps(self):
         data=self.inventory();data['materials']['material'].update(transparency=1,maps={})
         self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+    def native_union_vapor(self):
+        data=self.inventory()
+        data['draws'][0].update(owner='radiator/WorkingAssembly',
+            path='radiator/WorkingAssembly/LocalizedUnionVapor/Puff0',
+            owner_script='res://scripts/props/radiator_native_assembly.gd',
+            surface_role='steam_volume',geometry_transparency=.55)
+        data['materials']['material'].update(maps={},normal_enabled=False,color=[.7,.72,.7,.3])
+        return data
+    def test_native_union_vapor_keeps_uv_and_sampled_map_checks(self):
+        data=self.native_union_vapor()
+        result=evaluate(data)
+        self.assertFalse(result['findings'])
+        self.assertEqual(result['separate_effects'][0]['class'],'steam_volume')
+        data['meshes']['mesh']['surfaces'][0]['missing_uv']=True
+        self.assertIn('missing_uv',evaluate(data)['findings'][0]['reasons'])
+        data=self.native_union_vapor()
+        data['materials']['material']['maps']={'albedo_texture':'albedo'}
+        data['textures']['albedo']['mips']=False
+        self.assertIn('missing_loaded_mips:albedo',evaluate(data)['findings'][0]['reasons'])
+    def test_native_steam_label_cannot_exempt_physical_radiator_stock(self):
+        changes=[{'path':'radiator/WorkingAssembly/SharedCastSections'},
+                 {'path':'radiator/WorkingAssembly/Hardware/LocalizedUnionVapor/Puff0'},
+                 {'owner':''},{'owner_script':'res://scripts/props/unknown.gd'},
+                 {'surface_role':'physical'},{'geometry_transparency':0}]
+        for change in changes:
+            with self.subTest(change=change):
+                data=self.native_union_vapor();data['draws'][0].update(change)
+                self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+        data=self.native_union_vapor()
+        data['materials']['material']['color'][3]=1
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+    def surface_run_fixture(self,folder,stderr=''):
+        import v2_surface_evidence as evidence
+        test='game/tests/orison_v2_surface_inventory.gd'
+        target=folder/test;target.parent.mkdir(parents=True);target.write_bytes(b'fixture surface test\n')
+        source={'test_path':test,'test_sha256':evidence.file_hash(target),'runtime_inputs_sha256':'runtime-inputs'}
+        run={'schema':'orison.run-receipt.v1','schema_version':1,'evidence_kind':'suite_run',
+             'scene':'res://tests/OrisonV2SurfaceInventory.tscn','windowed':True,
+             'execution':{'completed':True,'exit_code':0,'timed_out':False},'source':source,
+             'log':{'script_error_count':0,'fail_count':0}}
+        for channel,text in [('stdout','V2 SURFACE QUALIFICATION: PASS\n'),('stderr',stderr)]:
+            raw=text.encode();(folder/('suite_run.'+channel+'.log.gz')).write_bytes(gzip.compress(raw))
+            run['log'][channel+'_sha256']=hashlib.sha256(raw).hexdigest()
+        (folder/'suite_run.receipt.json').write_text(json.dumps(run))
+        return {'source':copy.deepcopy(source)},run
+    def test_surface_contract_needs_successful_matching_error_free_run(self):
+        import v2_surface_evidence as evidence
+        with tempfile.TemporaryDirectory() as directory:
+            folder=Path(directory);contract,run=self.surface_run_fixture(folder)
+            self.assertFalse(evidence.suite_run_defects(folder,contract,folder))
+            variants=[('script errors',lambda r:r['log'].update(script_error_count=1)),
+                      ('failed checks',lambda r:r['log'].update(fail_count=1)),
+                      ('failed process',lambda r:r['execution'].update(exit_code=1)),
+                      ('timeout',lambda r:r['execution'].update(timed_out=True)),
+                      ('wrong source',lambda r:r['source'].update(test_sha256='other')),
+                      ('wrong digest',lambda r:r['source'].update(runtime_inputs_sha256='other')),
+                      ('headless',lambda r:r.update(windowed=False)),
+                      ('changed log',lambda r:r['log'].update(stderr_sha256='other'))]
+            for name,mutate in variants:
+                with self.subTest(case=name):
+                    bad=copy.deepcopy(run);mutate(bad)
+                    (folder/'suite_run.receipt.json').write_text(json.dumps(bad))
+                    self.assertTrue(evidence.suite_run_defects(folder,contract,folder))
+    def test_raw_renderer_error_cannot_hide_behind_zero_script_error_count(self):
+        import v2_surface_evidence as evidence
+        with tempfile.TemporaryDirectory() as directory:
+            folder=Path(directory);contract,_=self.surface_run_fixture(folder,'ERROR: renderer fixture failed\n')
+            self.assertIn('Godot errors in surface stderr',evidence.suite_run_defects(folder,contract,folder))
+        with tempfile.TemporaryDirectory() as directory:
+            folder=Path(directory);contract,_=self.surface_run_fixture(folder,'WARNING: 7 RIDs of type "Texture" were leaked.\n')
+            self.assertFalse(evidence.suite_run_defects(folder,contract,folder))
     def test_hidden_closed_stock_still_requires_uvs(self):
         data=self.inventory();data['draws'][0]['visible']=False;data['meshes']['mesh']['surfaces'][0]['missing_uv']=True
         self.assertIn('missing_uv',evaluate(data)['findings'][0]['reasons'])

@@ -1,0 +1,59 @@
+{
+	"checks": 56,
+	"evidence_class": "INERT",
+	"failures": [],
+	"observations": [
+		{
+			"baseline_repeat_difference": 0.000307643432277945,
+			"cached_probes": 1,
+			"id": "watch_board",
+			"illumination": "existing carried lamp",
+			"normal_frames": {
+				"failures": [],
+				"max_normal_tangent_dot": 0.000215470790863037,
+				"surfaces": 49,
+				"vertices": 297344
+			},
+			"probe_difference": 0.00266718875544568,
+			"room": "F01_WATCH",
+			"screen_space_difference": 0.000453317905248022,
+			"video_bytes": 4356684224.0,
+			"without_sky_probe_difference": 0.00338326083179574
+		},
+		{
+			"baseline_repeat_difference": 0.000265409409680783,
+			"cached_probes": 2,
+			"id": "2b_radiator",
+			"illumination": "existing room circuit",
+			"normal_frames": {
+				"failures": [],
+				"max_normal_tangent_dot": 0.000235825777053833,
+				"surfaces": 34,
+				"vertices": 557078
+			},
+			"probe_difference": 0.0362561057604385,
+			"room": "F02_B_MAIN",
+			"screen_space_difference": 0.000882625293190897,
+			"video_bytes": 4350933440.0,
+			"without_sky_probe_difference": 0.0350768664239149
+		},
+		{
+			"baseline_repeat_difference": 0.000387413768912666,
+			"cached_probes": 3,
+			"id": "boiler_column",
+			"illumination": "existing room circuit",
+			"normal_frames": {
+				"failures": [],
+				"max_normal_tangent_dot": 0.000305771827697754,
+				"surfaces": 15,
+				"vertices": 25577
+			},
+			"probe_difference": 0.0561629915589475,
+			"room": "B1_BOILER_ROOM",
+			"screen_space_difference": 0.000516135632672188,
+			"video_bytes": 4350935616.0,
+			"without_sky_probe_difference": 0.0560409191227087
+		}
+	],
+	"scope": "Production-owned paused-lighting A/B/A comparison of three installed assemblies, with unchanged atlas face resolution. No route, save, broad contract or human acceptance; daylight/weather and engine-warning disposition remain separate."
+}

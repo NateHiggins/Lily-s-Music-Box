@@ -1,0 +1,32 @@
+{
+	"checks": 2008,
+	"evidence_class": "INERT",
+	"failures": [],
+	"observations": [
+		{
+			"fixture_count": 1,
+			"original_reverse_cull": [
+				true
+			],
+			"room": "F02_B_MAIN",
+			"scope": "Baseline, reverse room culling, no shadows, neutral material, restored. Visual diagnostics, no acceptance."
+		},
+		{
+			"fixture_count": 1,
+			"original_reverse_cull": [
+				true
+			],
+			"room": "F03_B_MAIN",
+			"scope": "Baseline, reverse room culling, no shadows, neutral material, restored. Visual diagnostics, no acceptance."
+		},
+		{
+			"fixture_count": 1,
+			"original_reverse_cull": [
+				true
+			],
+			"room": "F04_B_MAIN",
+			"scope": "Baseline, reverse room culling, no shadows, neutral material, restored. Visual diagnostics, no acceptance."
+		}
+	],
+	"scope": "Three-room shadow/material diagnosis; neutral material is a temporary test fixture, not production art or qualification."
+}

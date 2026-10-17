@@ -4,7 +4,7 @@ Changes never inherit an old pass. Text is LF-normalized; imported cache UIDs
 are excluded. The test itself writes runtime_contract.json. This tool checks
 that receipt, independently re-evaluates its inventory, and checks review files.
 """
-import argparse,hashlib,json,sys,subprocess
+import argparse,gzip,hashlib,json,sys,subprocess
 from pathlib import Path
 from audit_v2_surfaces import evaluate
 
@@ -85,10 +85,43 @@ def inputs(root=ROOT):
     return {'algorithm':'sha256/LF-normalized-text-and-import-parameters/v1','files':len(manifest),
             'sha256':hashlib.sha256(json.dumps(manifest,separators=(',',':')).encode()).hexdigest()}
 
+def suite_run_defects(packet,contract,root):
+    """Corroborate the test-written contract; never promote a wrapper alone."""
+    run=json.loads((packet/'suite_run.receipt.json').read_text())
+    defects=[]
+    if (run.get('schema')!='orison.run-receipt.v1' or run.get('schema_version')!=1
+            or run.get('evidence_kind')!='suite_run'
+            or run.get('scene')!='res://tests/OrisonV2SurfaceInventory.tscn'
+            or not run.get('windowed')):
+        defects.append('invalid surface suite-run identity')
+    execution=run.get('execution',{})
+    if not execution.get('completed') or execution.get('exit_code')!=0 or execution.get('timed_out'):
+        defects.append('surface suite run did not complete successfully')
+    source=contract.get('source',{})
+    expected='game/tests/orison_v2_surface_inventory.gd'
+    if source.get('test_path')!=expected or source.get('test_sha256')!=file_hash(root/expected):
+        defects.append('runtime contract does not bind the current surface test')
+    for field in ('test_path','test_sha256','runtime_inputs_sha256'):
+        if not source.get(field) or run.get('source',{}).get(field)!=source[field]:
+            defects.append('suite/contract source mismatch: '+field)
+    log=run.get('log',{})
+    if log.get('script_error_count',1)!=0 or log.get('fail_count',1)!=0:
+        defects.append('surface suite reported script errors or failed checks')
+    for channel in ('stdout','stderr'):
+        raw=gzip.decompress((packet/('suite_run.'+channel+'.log.gz')).read_bytes())
+        if hashlib.sha256(raw).hexdigest()!=log.get(channel+'_sha256'):
+            defects.append('suite log changed: '+channel)
+        if any(line.lstrip().startswith(('ERROR:','SCRIPT ERROR:'))
+               for line in raw.decode('utf-8','replace').splitlines()):
+            defects.append('Godot errors in surface '+channel)
+    return defects
+
+
 def qualify(packet=PACKET,root=ROOT):
     defects=[]
     try:
         receipt=json.loads((packet/'runtime_contract.json').read_text())
+        defects.extend(suite_run_defects(packet,receipt,root))
         inventory_path=packet/'surface-inventory.json'
         inventory=json.loads(inventory_path.read_text())
         if receipt.get('schema_version')!=2 or receipt.get('evidence_kind')!='runtime_contract' or receipt.get('selector')!='v2' or not receipt.get('production_runtime'):

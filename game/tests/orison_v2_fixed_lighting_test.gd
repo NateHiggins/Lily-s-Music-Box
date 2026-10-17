@@ -27,6 +27,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var prop: LightFixtureProp = factory.installed[identity].get_ref()
 		check(prop != null and str(prop.name) == identity and prop.get_script().resource_path == "res://scripts/props/light_fixture_prop.gd", "original fixed-light authority: " + identity)
 		if prop == null: continue
+		check(prop.light.shadow_reverse_cull_face, "native fixture retains corrected ceiling shadow faces: " + identity)
 		mounted_ids.append(prop.get_instance_id())
 		var source: Dictionary = prop.get_meta("v2_source_light_snapshot")
 		# The original LightRig applies maintenance-card tuning after fabrication mounts.

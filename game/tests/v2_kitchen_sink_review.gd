@@ -7,13 +7,20 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 		for row: Dictionary in source.fittings:
 			if row.properties.get("fixture", "") == "kitchen_sink": expected += 1
 	var count := 0
+	# Snapshot the stable domain targets before any awaited capture. Renderer
+	# caches can legitimately retire unrelated Node3Ds while this review runs.
+	var kitchens: Array[Dictionary]=[]
+	for node: Node in world.find_children("*", "Node3D", true, false):
+		if node is TapProp and node.fixture=="kitchen_sink":
+			kitchens.append({"tap":node,"unit":node.unit})
 	var camera := Camera3D.new()
 	camera.fov = 48
 	world.add_child(camera)
 	world.player.carried_device.set_capture_hidden(true)
-	for node: Node in world.find_children("*", "Node3D", true, false):
-		if not node is TapProp or node.fixture != "kitchen_sink": continue
-		var tap := node as TapProp
+	for entry: Dictionary in kitchens:
+		suite.check(is_instance_valid(entry.tap),"reviewed sink remains mounted: "+str(entry.unit))
+		if not is_instance_valid(entry.tap):continue
+		var tap := entry.tap as TapProp
 		count += 1
 		suite.check(tap.get_script() == preload("res://scripts/building/orison_v2_kitchen_sink.gd"), "native kitchen owner: " + tap.unit)
 		suite.check(world.boiler_tend.taps.count(tap) == 1, "one boiler supply: " + tap.unit)

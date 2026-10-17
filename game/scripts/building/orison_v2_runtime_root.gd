@@ -231,6 +231,13 @@ func _ready() -> void:
 	atmosphere.bind_weather(self)
 	_compose_debug_controls()
 	get_node("CaretakerNotebook").debug = building_debug
+	var room_reflections := preload("res://scripts/building/orison_v2_room_reflections.gd").new()
+	room_reflections.name="V2RoomReflections"
+	add_child(room_reflections)
+	if not room_reflections.setup(self):
+		startup_failed=true
+		push_error("V2 room reflection layout could not be composed")
+		return
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
 

@@ -56,8 +56,19 @@ def evaluate(data):
             halo=(draw.get('surface_role')=='optical_halo' and
                   draw.get('owner_script')=='res://scripts/props/light_fixture_prop.gd' and
                   all(material.get(flag) for flag in ('unshaded','additive','billboard')))
+            # Native radiator visuals have a script of their own, closer to
+            # the three existing vapor puffs than the mechanical actor. Admit
+            # only that named translucent effect subtree, never the casting,
+            # pipework, packing or other native physical stock.
+            color=material.get('color',[])
+            native_union_vapor=(
+                draw.get('owner_script')=='res://scripts/props/radiator_native_assembly.gd' and
+                bool(draw.get('owner')) and
+                draw['path'].startswith(draw['owner']+'/LocalizedUnionVapor/') and
+                material.get('type')=='StandardMaterial3D' and
+                isinstance(color,list) and len(color)==4 and 0<=color[3]<1)
             steam=(draw.get('surface_role')=='steam_volume' and
-                   draw.get('owner_script') in ('res://scripts/props/radiator_prop.gd','res://scripts/building/orison_v2_household_radiator.gd') and
+                   (draw.get('owner_script') in ('res://scripts/props/radiator_prop.gd','res://scripts/building/orison_v2_household_radiator.gd') or native_union_vapor) and
                    draw.get('geometry_transparency',0)>0)
             flame=(draw.get('surface_role')=='gas_flame' and
                    draw.get('owner_script') in ('res://scripts/props/stove_prop.gd','res://scripts/building/orison_v2_stove.gd') and

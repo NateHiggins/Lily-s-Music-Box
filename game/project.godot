@@ -59,6 +59,9 @@ pointing/emulate_touch_from_mouse=true
 ; work this buys is not what limits it.
 renderer/rendering_method="forward_plus"
 renderer/rendering_method.mobile="gl_compatibility"
+; Three room captures plus fixed/dream probes do not need a 64-slot atlas.
+; Preserve face resolution and roughness layers; reserve 16 capture slots.
+reflections/reflection_atlas/reflection_count=16
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/positional_shadow/atlas_16_bits=false
 ; Was 16, which is the compatibility renderer's own default and the sole

@@ -107,6 +107,9 @@ func install_on(prop: LightFixtureProp) -> bool:
 		var halo_mesh := prop._halo.mesh.duplicate() as QuadMesh
 		halo_mesh.size = Vector2(.205, .205)
 		prop._halo.mesh = halo_mesh
+	# Single-face architectural slab undersides otherwise self-shadow in bands.
+	# Match the rendered native-front policy; keep energy, range and biases.
+	prop.light.shadow_reverse_cull_face = true
 	prop.set_meta("v2_native_fixed_light_variant", variant)
 	installed[identity] = weakref(prop)
 	return true
