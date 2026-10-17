@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Portable native radiator refit kit, clean-checkout publication verification and pending game installation | `design/V2_RADIATOR_NATIVE_KIT_2026-10-17.md` |
 | Four additional radiator installations, portable native refit, clearance discoveries and pending verification | `design/V2_HEATING_REFIT_2026-10-17.md` |
 | Current restored-front lighting installation, physical switches, disk reconstruction and open fitting/qualification work | `design/V2_FRONT_LIGHTING_INSTALL_2026-10-17.md` |
 | Verified native front-lighting exports, support optimization and remaining game integration | `design/V2_FRONT_LIGHTING_EXPORT_2026-10-17.md` |
