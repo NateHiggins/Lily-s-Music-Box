@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\check_exported_tangents.py", line 48, in <module>
+    for path in sys.argv[1:]:print(json.dumps(validate(path)))
+                                              ^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\check_exported_tangents.py", line 43, in validate
+    assert np.min(agreement)>.999 and np.min(handed)>0,(mesh['name'],float(np.min(agreement)),int(np.sum(handed<=0)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('F01_brass_dull', 0.999933058669489, 41328)

@@ -24,7 +24,10 @@ In Blender, load adjacent accepted geometry and the retained shell. Resolve
 silhouette, joints, hollow interiors, supports, clearances, bevels, normals
 and metre-scaled UV grain before export. Contact probes must approach the
 owner from its outward face; verify the hit normal as well as its distance
-so Blender catches back-face probes that Godot collision rays reject. Review catalogue albedo, roughness
+so Blender catches back-face probes that Godot collision rays reject. After
+transforming a BMesh into the owner frame, update its normals before creating
+the BVH; transformed vertices with stale face normals produce false failures.
+Review catalogue albedo, roughness
 and normal response at player distance in the same batch. Generate new maps
 only for an observed deficiency, register new catalogue keys, keep textures
 unlettered, and use Label3D for lettering. New runtime texture sidecars must
@@ -36,6 +39,16 @@ normal RGB semantics, and follow **design/V2_SURFACE_REQUIREMENTS_2026-10-11.md*
 details. A clean mesh census alone does not certify photorealism. Godot must
 still confirm its final lighting, glass, collisions and composed appearance.
 Preserve source plans and all non-visual owners; never hand-edit generated glTF.
+
+Prototype changed entry bores and supporting joints before repeating a large
+assembly. Joined groups may contain overlapping individually closed stocks;
+drill those solids separately or regularize the Boolean inputs first. A positive
+closed-mesh census does not prove that a suspension, union or conduit still
+connects. Probe its retained wall at several heights and render the connection
+before instancing it. The front-lighting candidate initially passed that census
+while an oversized bore had erased part of its suspension. Batch fixed supply
+by floor/material for export, retaining separate interactive owners; check the
+scratch export/reimport before touching shipping inputs.
 
 Before the final combined capture, stage new texture and sidecar paths **by
 name**, then run **art/tools/fix_runtime_texture_imports.py --v2 --check --json**

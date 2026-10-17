@@ -1,0 +1,42 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native cutaway views, approximate light; no composed/runtime/loaded-mip acceptance.",
+  "reference_electrical_native_sha256": "9cccf13017e23f85c66ccc49e705ad90ad9722745e6bded8200e00d124861632",
+  "review_recipe_sha256_lf": "b4a5448fa61df2b319d3507003693bc5958dc0adc996fb6e5d7a179ad18c24cc",
+  "blend_sha256": "4c9a1abd08a4646ab2b750b573cd22e089e14bf29d4427c664b8a15cbe70c3ab",
+  "views": [
+    {
+      "name": "gallery",
+      "path": "gallery.png",
+      "sha256": "f46a6bc226adf0b31f0649cb28415e1042d315bf0462a09a5369b441184e5c3c",
+      "observation": "Three schoolhouse globes follow the supported gallery distribution. Ceiling junction adapters remain above the glass. Dim approximate native optics and open cutaway edges are not game lighting or architecture acceptance."
+    },
+    {
+      "name": "workroom_service",
+      "path": "workroom_service.png",
+      "sha256": "c2294be40891b6c0ed246367a796689d59104603d3c3d08b0be962937698d41b",
+      "observation": "Cage suspension is visibly continuous from its top rosette through the lower support and braided drop. Service/workroom stock is separate from schoolhouse globes. The cutaway omits apertures and finished context."
+    },
+    {
+      "name": "switch_detail",
+      "path": "switch_detail.png",
+      "sha256": "ec0ff66ccf8cdeea25917672bbec281143f92e4b7f6bc3ae7852e94848eb6ade",
+      "observation": "The porcelain toggle, seated brown moulded plate, iron surface backbox, top conduit and wall saddle are visible. Weighted normal refinement removes the earlier fan-shaped face pinching without changing mesh/UV values."
+    },
+    {
+      "name": "canopy_detail",
+      "path": "canopy_detail.png",
+      "sha256": "edf3c9a12d9697fef80bab24f100884d70af62f6bc740264948bd039228c5130",
+      "observation": "The opal bowl sits in its retaining ring beneath the metal canopy. The bored adapter and ceiling stays support the fitting; the horizontal supply stays above the glass. Close-up key light is review-only."
+    },
+    {
+      "name": "source_cover",
+      "path": "source_cover.png",
+      "sha256": "76fdccdc91e7f3bdd55cd22773adb2cf61e05e3d599c3aa78aac8bafa7693640",
+      "observation": "The new branch leaves its replacement cover on the retained native junction casting. The fixed corner box and riser screws are visible. Internal wire continuity and composed collision checks remain pending."
+    }
+  ],
+  "status": "NATIVE_FITTING_REVIEW_ONLY",
+  "human_acceptance": false,
+  "production_acceptance": false
+}

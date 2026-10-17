@@ -1,0 +1,12 @@
+00:01.516  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\front_lighting_candidate.blend"
+SAVED FRONT LIGHTING: 2159 checks; 35 failures
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\front_lighting_candidate\inspect_native.py", line 125, in <module>
+    if failures:raise RuntimeError(str(failures[:8]))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: [{'check': 'canopy entry is open', 'passed': False, 'id': 'F02_FRONT_SERVICE_RETURN_LT_1'}, {'check': 'canopy retains annular ceiling bearing', 'passed': False, 'id': 'F02_FRONT_SERVICE_RETURN_LT_1', 'distance': None}, {'check': 'cage suspension retains continuous metal wall', 'passed': False, 'id': 'F02_FRONT_SERVICE_RETURN_LT_1', 'depth': 0.05}, {'check': 'cage suspension retains continuous metal wall', 'passed': False, 'id': 'F02_FRONT_SERVICE_RETURN_LT_1', 'depth': 0.15}, {'check': 'cage suspension retains continuous metal wall', 'passed': False, 'id': 'F02_FRONT_SERVICE_RETURN_LT_1', 'depth': 0.25}, {'check': 'canopy entry is open', 'passed': False, 'id': 'F03_FRONT_SERVICE_RETURN_LT_1'}, {'check': 'canopy retains annular ceiling bearing', 'passed': False, 'id': 'F03_FRONT_SERVICE_RETURN_LT_1', 'distance': None}, {'check': 'cage suspension retains continuous metal wall', 'passed': False, 'id': 'F03_FRONT_SERVICE_RETURN_LT_1', 'depth': 0.05}]
+
+Error: script failed, file: 'art/blender/front_lighting_candidate/inspect_native.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

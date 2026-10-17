@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "status": "NOT_ACCEPTED",
+  "scope": "Scratch export is not installed or shipping. Native fitting review does not approve this export.",
+  "latest_failure": "check_exported_tangents: F01_iron_neutral minimum tangent agreement 0.9832377168006075; required >0.999",
+  "previous_failures": [
+    "Tangent handedness disagreed with exported flipped-V charts",
+    "Degenerate float32 stock triangles yielded invalid normals"
+  ],
+  "preliminary_roundtrip": {
+    "supply_parts": 1132,
+    "batches": 18,
+    "triangles": 1044828,
+    "note": "Earlier geometry/UV reimport passed before stronger tangent validation; not final export acceptance."
+  },
+  "scratch_glb_bytes": 101199780,
+  "remaining": [
+    "Repair continuous surface charts and exported tangent basis without weakening shared validator",
+    "Reduce excessive small-hardware tessellation and validate bores/seats after export",
+    "Only then integrate production projections, runtime actors and fresh composed proof"
+  ]
+}

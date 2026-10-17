@@ -1,0 +1,175 @@
+{
+  "evidence_class": "INERT",
+  "status": "SCRATCH_EXPORT_NOT_INSTALLED",
+  "native_sha256": "3e5e4f4f6c1402a9ab8dabeaa19a5565b651205e88e144d79771c3361403a417",
+  "asset_sha256": "f67d8598a71b290d2492e3c6c836abdf3e397126545a48c3727b58e7180664cc",
+  "export_recipe_sha256_lf": "a969ec0671a07595fdb738eb563371529889a23d884cbcdeab696bc3e6533fbd",
+  "supply_parts": 1132,
+  "batches": 18,
+  "checks": [
+    {
+      "name": "F01_FrontSupply_brass_dull",
+      "triangles": 13776,
+      "expected_triangles": 13776,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F01_FrontSupply_galvanized_roof",
+      "triangles": 22272,
+      "expected_triangles": 22272,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F01_FrontSupply_iron_neutral",
+      "triangles": 168872,
+      "expected_triangles": 168872,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F02_FrontSupply_brass_dull",
+      "triangles": 9840,
+      "expected_triangles": 9840,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F02_FrontSupply_galvanized_roof",
+      "triangles": 19968,
+      "expected_triangles": 19968,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F02_FrontSupply_iron_neutral",
+      "triangles": 136236,
+      "expected_triangles": 136236,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F03_FrontSupply_brass_dull",
+      "triangles": 9840,
+      "expected_triangles": 9840,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F03_FrontSupply_galvanized_roof",
+      "triangles": 19968,
+      "expected_triangles": 19968,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F03_FrontSupply_iron_neutral",
+      "triangles": 136164,
+      "expected_triangles": 136164,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F04_FrontSupply_brass_dull",
+      "triangles": 9840,
+      "expected_triangles": 9840,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F04_FrontSupply_galvanized_roof",
+      "triangles": 19968,
+      "expected_triangles": 19968,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F04_FrontSupply_iron_neutral",
+      "triangles": 136164,
+      "expected_triangles": 136164,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F05_FrontSupply_brass_dull",
+      "triangles": 9840,
+      "expected_triangles": 9840,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F05_FrontSupply_galvanized_roof",
+      "triangles": 19968,
+      "expected_triangles": 19968,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F05_FrontSupply_iron_neutral",
+      "triangles": 141152,
+      "expected_triangles": 141152,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F06_FrontSupply_brass_dull",
+      "triangles": 9840,
+      "expected_triangles": 9840,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F06_FrontSupply_galvanized_roof",
+      "triangles": 19968,
+      "expected_triangles": 19968,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "F06_FrontSupply_iron_neutral",
+      "triangles": 141152,
+      "expected_triangles": 141152,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "scope": "Scratch Blender export/reimport; no shipping asset, Godot import, loaded mip, collision or runtime acceptance."
+}
