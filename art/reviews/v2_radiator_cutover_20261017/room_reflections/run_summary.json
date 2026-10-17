@@ -1,0 +1,100 @@
+{
+  "evidence_class": "INERT",
+  "production_enabled": false,
+  "source_head": "d891c4aecaa78c9ff7342ed62d8bcdb98add47b6",
+  "runs": [
+    {
+      "name": "reflection_capture_targeted",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 3.9,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T20:49:34Z",
+        "started_utc": "2026-10-17T20:49:30Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+      "clean_stderr": false,
+      "stderr_messages": [
+        "WARNING: 7 RIDs of type \"Texture\" were leaked."
+      ],
+      "scope": "INERT renderer diagnostic; no runtime-contract or production acceptance"
+    },
+    {
+      "name": "room_reflection_review",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 130.79,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T20:51:45Z",
+        "started_utc": "2026-10-17T20:49:34Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+      "clean_stderr": false,
+      "stderr_messages": [
+        "WARNING: 7 RIDs of type \"Texture\" were leaked."
+      ],
+      "scope": "INERT renderer diagnostic; no runtime-contract or production acceptance"
+    },
+    {
+      "name": "reflection_capture_world_retire",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 3.9,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T21:01:02Z",
+        "started_utc": "2026-10-17T21:00:58Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "stderr_sha256": "4f832d28ec697aab0c97b94ee5097cf757f41e3ef6962a7204268157ebf80bdf",
+      "clean_stderr": false,
+      "stderr_messages": [
+        "ERROR: Parameter \"scenario\" is null.",
+        "WARNING: 7 RIDs of type \"Texture\" were leaked."
+      ],
+      "scope": "INERT renderer diagnostic; no runtime-contract or production acceptance"
+    },
+    {
+      "name": "room_reflection_lit_review",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 133.15,
+        "exit_code": 1,
+        "finished_utc": "2026-10-17T21:03:16Z",
+        "started_utc": "2026-10-17T21:01:03Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "stderr_sha256": "9a2d8b3b7a87ad3d6fb74d54b05d0f04b30176b8128ce0c5571a45715cf44b87",
+      "clean_stderr": false,
+      "stderr_messages": [
+        "ERROR: review room has an authoritative light circuit: watch_board",
+        "ERROR: existing room fixtures are powered for finish review: watch_board",
+        "WARNING: 7 RIDs of type \"Texture\" were leaked."
+      ],
+      "scope": "INERT renderer diagnostic; no runtime-contract or production acceptance"
+    },
+    {
+      "name": "room_reflection_finish_review",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 136.9,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T21:20:25Z",
+        "started_utc": "2026-10-17T21:18:08Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+      "clean_stderr": false,
+      "stderr_messages": [
+        "WARNING: 7 RIDs of type \"Texture\" were leaked."
+      ],
+      "scope": "INERT renderer diagnostic; no runtime-contract or production acceptance"
+    }
+  ]
+}

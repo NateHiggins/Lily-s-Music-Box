@@ -1,0 +1,10 @@
+{
+	"capture_mean_rgb_difference": 0.00485076270307656,
+	"checks": 6,
+	"direct_mean_rgb_difference": 0.0,
+	"evidence_class": "INERT",
+	"failures": [
+		"probe cull mask actually excludes transient-light photons"
+	],
+	"scope": "Synthetic renderer light/probe layer calibration only. No V2 art, physical interaction, gameplay or runtime contract."
+}

@@ -1,0 +1,8 @@
+{
+  "evidence_class": "INERT",
+  "source": "https://github.com/godotengine/godot/issues/122498",
+  "consulted_at": "2026-10-17T20:58:36.196300+00:00",
+  "local_observation": "Both first experiments on 4.7.1 a13da4feb reported seven Texture RID leaks despite freeing candidate probes. No clean lifecycle claim.",
+  "upstream_report": "Open report names reflection-atlas colour buffer and six face views on the same engine version.",
+  "assessment": "Matching count and version support an engine-level hypothesis; they do not prove our scene has no additional leak. Revised cleanup run remains pending. No engine replacement or stderr suppression authorized/performed."
+}

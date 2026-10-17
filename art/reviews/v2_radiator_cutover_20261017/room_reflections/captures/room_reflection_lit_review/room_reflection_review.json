@@ -1,0 +1,56 @@
+{
+	"checks": 48,
+	"evidence_class": "INERT",
+	"failures": [
+		"review room has an authoritative light circuit: watch_board",
+		"existing room fixtures are powered for finish review: watch_board"
+	],
+	"observations": [
+		{
+			"baseline_repeat_difference": 0.000123366017344071,
+			"cached_probes": 1,
+			"id": "watch_board",
+			"normal_frames": {
+				"failures": [],
+				"max_normal_tangent_dot": 0.000215470790863037,
+				"surfaces": 49,
+				"vertices": 297344
+			},
+			"probe_difference": 0.0139523197829409,
+			"room": "F01_WATCH",
+			"screen_space_difference": 0.000104166670525619,
+			"sky_retained_probe_difference": 0.00852060683230337
+		},
+		{
+			"baseline_repeat_difference": 0.000229665943635929,
+			"cached_probes": 2,
+			"id": "2b_radiator",
+			"normal_frames": {
+				"failures": [],
+				"max_normal_tangent_dot": 0.000235825777053833,
+				"surfaces": 34,
+				"vertices": 557078
+			},
+			"probe_difference": 0.0305642936723652,
+			"room": "F02_B_MAIN",
+			"screen_space_difference": 0.000918958808550896,
+			"sky_retained_probe_difference": 0.0332947086116878
+		},
+		{
+			"baseline_repeat_difference": 0.000424178475255354,
+			"cached_probes": 3,
+			"id": "boiler_column",
+			"normal_frames": {
+				"failures": [],
+				"max_normal_tangent_dot": 0.000305771827697754,
+				"surfaces": 15,
+				"vertices": 25577
+			},
+			"probe_difference": 0.0500857173284264,
+			"room": "B1_BOILER_ROOM",
+			"screen_space_difference": 0.000564973688650988,
+			"sky_retained_probe_difference": 0.0549526609672089
+		}
+	],
+	"scope": "Paused-lighting A/B/A comparison of three installed assemblies. Candidate not production-enabled; no route, save, broad contract or human acceptance."
+}

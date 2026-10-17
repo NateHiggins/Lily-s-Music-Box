@@ -1,0 +1,38 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Source/log provenance only; includes failed diagnostics, not runtime or appearance acceptance.",
+  "checks": [
+    {
+      "stage": "initial",
+      "source_files_verified": 5
+    },
+    {
+      "stage": "lit",
+      "source_files_verified": 5
+    },
+    {
+      "stage": "finish",
+      "source_files_verified": 5
+    },
+    {
+      "run": "reflection_capture_targeted",
+      "test_and_raw_logs_verified": true,
+      "exit_code": 0
+    },
+    {
+      "run": "room_reflection_review",
+      "test_and_raw_logs_verified": true,
+      "exit_code": 0
+    },
+    {
+      "run": "reflection_capture_world_retire",
+      "test_and_raw_logs_verified": true,
+      "exit_code": 0
+    },
+    {
+      "run": "room_reflection_lit_review",
+      "test_and_raw_logs_verified": true,
+      "exit_code": 1
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+	"checks": 30,
+	"evidence_class": "INERT",
+	"failures": [],
+	"observations": [
+		{
+			"baseline_repeat_difference": 0.0000929330089813986,
+			"cached_probes": 1,
+			"id": "watch_board",
+			"probe_difference": 0.0188007223228299,
+			"room": "F01_WATCH"
+		},
+		{
+			"baseline_repeat_difference": 0.000077478215675068,
+			"cached_probes": 2,
+			"id": "2b_radiator",
+			"probe_difference": 0.00982884016615841,
+			"room": "F02_B_MAIN"
+		},
+		{
+			"baseline_repeat_difference": 0.000311546846000797,
+			"cached_probes": 3,
+			"id": "boiler_column",
+			"probe_difference": 0.0221447900792797,
+			"room": "B1_BOILER_ROOM"
+		}
+	],
+	"scope": "Paused-lighting A/B/A comparison of three installed assemblies. Candidate not production-enabled; no route, save, broad contract or human acceptance."
+}
