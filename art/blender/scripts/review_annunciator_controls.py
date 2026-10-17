@@ -50,12 +50,19 @@ for step in range(43):
     check('flag clears its real ivory bezel through travel',not moving_flag.overlap(fixed_seat),angle=angle)
     check('flag axle clears both fixed journals through travel',not moving_flag.overlap(fixed_journals),angle=angle)
 check('displaced flag axle negative control collides',bool(tree(flag,flag_pose(0,Vector((0,.0004,0)))).overlap(fixed_journals)))
+lens=bpy.data.objects['LampLens'];bezel=bpy.data.objects['LampBezel'];lens_tree=tree(lens);bezel_tree=tree(bezel)
+for x,y in [(.0247,0),(-.0247,0),(0,.0147),(0,-.0147)]:
+    a=lens_tree.ray_cast((C@Vector((x,y,-.010,1))).xyz,(C@Vector((0,0,1,0))).xyz,.025)[0]
+    b=bezel_tree.ray_cast((C@Vector((x,y,.003,1))).xyz,(C@Vector((0,0,-1,0))).xyz,.025)[0]
+    gap=(a-b).length if a is not None and b is not None else 1.
+    check('actual opal lens is seated on bezel ledge',gap<.0000003,x=x,y=y,gap_m=gap)
+check('sunken lens negative control intersects real bezel',bool(tree(lens,C@Matrix.Translation((0,0,-.0005))@C.inverted()).overlap(bezel_tree)))
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=32;scene.cycles.use_denoising=True
 scene.render.resolution_x=1000;scene.render.resolution_y=800;scene.render.resolution_percentage=100
 world=bpy.data.worlds.new('Neutral contact review');world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.17,.17,.17,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=.45;scene.world=world
 bpy.ops.object.camera_add();camera=bpy.context.object;camera.data.type='ORTHO';scene.camera=camera
 bpy.ops.object.light_add(type='AREA');light=bpy.context.object;light.data.energy=12;light.data.size=.12
-for label,angle,shaft in [('contact_open',-.1948,False),('contact_closed',0,False),('reset_rest',0,True),('reset_turned',math.pi/2,True),('flag_rest',math.radians(-8),False),('flag_lifted',math.radians(34),False)]:
+for label,angle,shaft in [('contact_open',-.1948,False),('contact_closed',0,False),('reset_rest',0,True),('reset_turned',math.pi/2,True),('flag_rest',math.radians(-8),False),('flag_lifted',math.radians(34),False),('lamp_off',0,False),('lamp_on',0,False)]:
     for obj in scene.objects:
         if obj.type=='MESH':obj.hide_render=True
     subjects=[knob,bearing] if shaft else [fixed,moving,bpy.data.objects['FixedContactInsulators']]
@@ -70,6 +77,17 @@ for label,angle,shaft in [('contact_open',-.1948,False),('contact_closed',0,Fals
         for obj in subjects:obj.hide_render=False
         flag.matrix_world=flag_pose(angle);seat.matrix_world=pose(seat_at);journals.matrix_world=pose(flag_at)
         target=(C@Vector((*flag_at,1))).xyz
+    if label.startswith('lamp'):
+        for obj in subjects:obj.hide_render=True
+        subjects=[lens,bezel]
+        for obj in subjects:obj.hide_render=False
+        target=Vector((0,0,0))
+        bsdf=lens.data.materials[0].node_tree.nodes['Principled BSDF']
+        color=(.95,.72,.34) if label=='lamp_on' else (.30,.26,.16)
+        tint=next(node for node in lens.data.materials[0].node_tree.nodes if node.type=='MIX_RGB' and node.blend_type=='MULTIPLY')
+        tint.inputs[2].default_value=tuple(v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in color)+(1.,)
+        bsdf.inputs['Emission Color'].default_value=(.95,.72,.34,1)
+        bsdf.inputs['Emission Strength'].default_value=1.6 if label=='lamp_on' else 0.
     camera.data.ortho_scale=.12 if not shaft else .095
     camera.location=target+(C@Vector((.07,.04,.13,0))).xyz;camera.rotation_euler=(target-camera.location).to_track_quat('-Z','Y').to_euler()
     light.location=target+(C@Vector((.09,.10,.15,0))).xyz;light.rotation_euler=(target-light.location).to_track_quat('-Z','Y').to_euler()

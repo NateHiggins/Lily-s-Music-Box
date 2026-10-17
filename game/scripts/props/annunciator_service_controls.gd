@@ -13,6 +13,7 @@ var _reset_pending := false
 var _settling := false
 var _contact_home := .63
 var _completion: Dictionary
+var _stocks: Dictionary={}
 
 func configure(owner: OtisProp) -> bool:
 	board=owner
@@ -23,12 +24,22 @@ func configure(owner: OtisProp) -> bool:
 	var model := MODEL.instantiate()
 	var parts := {}
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):parts[str(draw.name)]=draw.mesh
-	for name: String in ["ResetKnob","FlagArm","FlagSeat","FlagBearings"]:
+	for name: String in ["ResetKnob","FlagArm","FlagSeat","FlagBearings","LampLens","LampBezel"]:
 		if not parts.has(name):model.free();return false
 	for draw: MeshInstance3D in board.find_children("*","MeshInstance3D",true,false):
 		var payload := str(draw.get_meta("native_service_instrument_part",""))
 		if payload=="M01_P001":draw.material_override=_stock("radiator_service_brass")
 		for i in board._flag_arms.size():
+			if payload=="M01_P%03d"%(2+i*3):
+				draw.mesh=parts.LampLens
+				# The existing lamp array continues to own colour and emission.
+				var lamp_material := draw.material_override as StandardMaterial3D
+				if lamp_material!=board._lamps[i]:model.free();return false
+				_copy_finish(lamp_material,"milk_glass")
+				var bezel := MeshInstance3D.new()
+				bezel.name="LampBezel";bezel.mesh=parts.LampBezel
+				bezel.material_override=_stock("radiator_service_brass")
+				draw.add_child(bezel)
 			if payload=="M01_P%03d"%(3+i*3):
 				draw.mesh=parts.FlagSeat
 				# Keep the original live ivory material reference.
@@ -66,8 +77,10 @@ func configure(owner: OtisProp) -> bool:
 	return true
 
 func _stock(key: String) -> StandardMaterial3D:
+	if _stocks.has(key):return _stocks[key]
 	var material := MatLib.get_mat(key).duplicate() as StandardMaterial3D
 	_copy_finish(material,key)
+	_stocks[key]=material
 	return material
 
 func _copy_finish(original: StandardMaterial3D,key: String) -> void:

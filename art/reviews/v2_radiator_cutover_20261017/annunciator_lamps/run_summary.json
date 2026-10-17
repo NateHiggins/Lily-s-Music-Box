@@ -1,0 +1,208 @@
+{
+  "evidence_class": "INERT",
+  "hand": {
+    "checks": 129,
+    "evidence_class": "INERT",
+    "failures": [],
+    "scope": "Original native board and actual service input/partial restore; no whole repair route or disk contract."
+  },
+  "world": {
+    "checks": 14,
+    "evidence_class": "INERT",
+    "failures": [],
+    "scope": "Installed native lamp stock, original material ownership, one real flag gesture and lighting views. No disk/save reconstruction, full repair route or broad runtime contract."
+  },
+  "native_check_count": 134,
+  "suite_run_receipts": {
+    "annunciator_lamps_hand.log.receipt.json": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 14.58,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T20:18:38Z",
+        "started_utc": "2026-10-17T20:18:24Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 1,
+        "pass_lines": [
+          "ANNUNCIATOR HAND: PASS; 129 checks; []"
+        ],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-radiator-polish-20261017/annunciator_lamps_hand.log.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-radiator-polish-20261017/annunciator_lamps_hand.log",
+        "stdout_sha256": "269abcc79544b5b22137d35337dce88c320bc79d7a7741de9bb89d81b11ca913"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "serial",
+      "scene": "res://tests/AnnunciatorHandBench.tscn",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-radiator-polish-20261017\\annunciator_lamps_hand",
+      "source": {
+        "dirty_paths": 1397,
+        "dirty_sample": [
+          "M art/blender/annunciator_controls.blend",
+          " M art/blender/scripts/build_annunciator_controls.py",
+          " M art/blender/scripts/review_annunciator_controls.py",
+          " M art/renders/insitu/shots.md",
+          " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+          " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json"
+        ],
+        "repository_head": "5a1173ff7db255dc3e74282cf9cd0256fccdf7cf",
+        "repository_tree": "665a0d64029628bfa9733645bd275715e666ea6d",
+        "runtime_inputs_sha256": "b95346283e143ea5cb4412448dbc45d07a3b9b680faf237ab01221ab72548a73",
+        "test_path": "game/tests/annunciator_hand_bench.gd",
+        "test_sha256": "001ecae9a5acee09eb3b6f6094345c458599e50c3dfad08fc6bee61b995e7ebf"
+      },
+      "windowed": true
+    },
+    "annunciator_lamps_import.log.receipt.json": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 9.31,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T20:18:23Z",
+        "started_utc": "2026-10-17T20:18:14Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 0,
+        "pass_lines": [],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-radiator-polish-20261017/annunciator_lamps_import.log.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-radiator-polish-20261017/annunciator_lamps_import.log",
+        "stdout_sha256": "bf155a3dfbe6d863dbdc87be9724c3091f5711448beff55dbb7ad3b3754714cd"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "serial",
+      "scene": "",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": null,
+      "source": {
+        "dirty_paths": 1397,
+        "dirty_sample": [
+          "M art/blender/annunciator_controls.blend",
+          " M art/blender/scripts/build_annunciator_controls.py",
+          " M art/blender/scripts/review_annunciator_controls.py",
+          " M art/renders/insitu/shots.md",
+          " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+          " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json"
+        ],
+        "repository_head": "5a1173ff7db255dc3e74282cf9cd0256fccdf7cf",
+        "repository_tree": "665a0d64029628bfa9733645bd275715e666ea6d",
+        "runtime_inputs_sha256": "b95346283e143ea5cb4412448dbc45d07a3b9b680faf237ab01221ab72548a73",
+        "test_path": null,
+        "test_sha256": null
+      },
+      "windowed": false
+    },
+    "annunciator_lamps_world.log.receipt.json": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 114.19,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T20:20:33Z",
+        "started_utc": "2026-10-17T20:18:39Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 1,
+        "pass_lines": [
+          "ANNUNCIATOR LAMPS WORLD: PASS; 14 checks; []"
+        ],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-radiator-polish-20261017/annunciator_lamps_world.log.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-radiator-polish-20261017/annunciator_lamps_world.log",
+        "stdout_sha256": "1051711e3dcbf2c4017e4cb2e89ce786954180f702e62be25b006f803910c447"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "long",
+      "scene": "res://tests/AnnunciatorLampWorldShot.tscn",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-radiator-polish-20261017\\annunciator_lamps_world",
+      "source": {
+        "dirty_paths": 1397,
+        "dirty_sample": [
+          "M art/blender/annunciator_controls.blend",
+          " M art/blender/scripts/build_annunciator_controls.py",
+          " M art/blender/scripts/review_annunciator_controls.py",
+          " M art/renders/insitu/shots.md",
+          " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+          " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+          " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json"
+        ],
+        "repository_head": "5a1173ff7db255dc3e74282cf9cd0256fccdf7cf",
+        "repository_tree": "665a0d64029628bfa9733645bd275715e666ea6d",
+        "runtime_inputs_sha256": "b95346283e143ea5cb4412448dbc45d07a3b9b680faf237ab01221ab72548a73",
+        "test_path": "game/tests/annunciator_lamp_world_shot.gd",
+        "test_sha256": "11dbe0e64c1f7e68e2d5a051c73adc2bee6c10063de27d903e08d51a639cd420"
+      },
+      "windowed": true
+    }
+  }
+}

@@ -58,6 +58,12 @@ func _run() -> void:
 		check(draw!=null and draw.get_parent().get_instance_id()==retained.parent,"original visual owner and parent survive detail replacement")
 		if draw!=null and retained.preserve_material:
 			check(draw.get_active_material(0)==retained.material,"original live instrument material reference survives detail replacement")
+	for i in board._lamps.size():
+		var lens: MeshInstance3D=factory.installed.LobbyPorterBoard.source[2+i*3].draw.get_ref()
+		check(lens.get_active_material(0)==board._lamps[i] and lens.has_node("LampBezel"),"original lamp material drives its curved lens and seated bezel")
+	var first_bezel: MeshInstance3D=factory.installed.LobbyPorterBoard.source[2].draw.get_ref().get_node("LampBezel")
+	var last_bezel: MeshInstance3D=factory.installed.LobbyPorterBoard.source[23].draw.get_ref().get_node("LampBezel")
+	check(first_bezel.mesh==last_bezel.mesh and first_bezel.material_override==last_bezel.material_override and first_bezel.material_override!=MatLib.get_mat("radiator_service_brass"),"eight bezels share native geometry and private fixed-stock material without mutating the catalogue")
 	var uv := preload("res://scripts/building/orison_v2_uv_material_policy.gd").new();add_child(uv);uv.setup(self)
 	player=PlayerController.new();add_child(player);player.set_physics_process(false)
 	player.global_position=Vector3(0,0,.8);player.call_locked=false;player.mouse_released=false;Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
@@ -142,6 +148,21 @@ func _run() -> void:
 	player.set_lamp_enabled(false)
 	await get_tree().create_timer(.7).timeout
 	check(not player.lamp_is_enabled() and not player.flashlight.visible,"controlled-light captures use the actual settled lamp-off state")
+	var initial_lamp := -1
+	for i in board._lamps.size():
+		if board._lamps[i].emission_enabled:initial_lamp=i
+	var lamp_deadline := Time.get_ticks_msec()+3000
+	while initial_lamp>=0 and board._lamps[initial_lamp].emission_enabled and Time.get_ticks_msec()<lamp_deadline:
+		await get_tree().create_timer(.05).timeout
+	var active_lamps := 0
+	var lit_index := -1
+	for i in board._lamps.size():
+		if board._lamps[i].emission_enabled:active_lamps+=1;lit_index=i
+	check(initial_lamp>=0 and not board._lamps[initial_lamp].emission_enabled and active_lamps==1,"existing car-indicator cadence advances with one real emissive lens")
+	if lit_index>=0:
+		var lens: MeshInstance3D=factory.installed.LobbyPorterBoard.source[2+lit_index*3].draw.get_ref()
+		player.camera.global_position=lens.global_position+Vector3(.065,.035,.17);player.camera.look_at(lens.global_position)
+		await _shot("annunciator_lamp_detail")
 	player.camera.global_position=board.to_global(Vector3(.12,.08,.60));player.camera.look_at(board.to_global(Vector3(0,0,.04)))
 	await _shot("annunciator_diffuse")
 	player.camera.global_position=board.to_global(Vector3(.14,.17,.19));player.camera.look_at(board._flag_arms[1].global_position)

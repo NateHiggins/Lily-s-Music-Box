@@ -105,6 +105,45 @@ for side in [-1,1]:
     tube('Flag journal',.0035,.0017,x-.0015,x+.0015,(0,0,0),axis='x',edge=.00010)
     box('Journal mounting foot',(.004,.006,.009),(x,0,-.0065),.00018)
 finish('FlagBearings','radiator_service_brass')
+
+def rounded_rectangle(w,h,r,side_steps=1):
+    points=[]
+    corners=[(w/2-r,h/2-r,0),(-w/2+r,h/2-r,90),(-w/2+r,-h/2+r,180),(w/2-r,-h/2+r,270)]
+    for index,(cx,cy,start) in enumerate(corners):
+        for step in range(9):
+            angle=math.radians(start+step*90/8)
+            points.append((cx+r*math.cos(angle),cy+r*math.sin(angle)))
+        nx,ny,na=corners[(index+1)%4];a=points[-1];b=(nx+r*math.cos(math.radians(na)),ny+r*math.sin(math.radians(na)))
+        for step in range(1,side_steps):points.append(tuple(a[i]+(b[i]-a[i])*step/side_steps for i in range(2)))
+    return points
+
+# A single closed stepped bezel: back seats on the existing pierced plate,
+# the internal ledge supports the opal lens. No decorative solid window block.
+rings=[(.058,.038,.0045,-.002),(.058,.038,.0045,.0045),
+       (.0506,.0306,.0028,.0045),(.0506,.0306,.0028,0),
+       (.0488,.0288,.0022,0),(.0488,.0288,.0022,-.002)]
+points=[(x,y,z) for w,h,r,z in rings for x,y in rounded_rectangle(w,h,r)]
+n=36
+faces=[(row*n+i,row*n+(i+1)%n,((row+1)%len(rings))*n+(i+1)%n,((row+1)%len(rings))*n+i) for row in range(len(rings)) for i in range(n)]
+solid('Stepped lamp bezel',points,faces,.00012)
+for x in [-.0265,.0265]:
+    for y in [-.0165,.0165]:
+        screw=tube('Lens retaining screw',.0011,0,.0045,.0055,(x,y,0),edge=.00008)
+        cutter=box('Slotted screw cutter',(.0024,.00035,.0005),(x,y,.0055),0)
+        bpy.context.view_layer.objects.active=screw
+        cut=screw.modifiers.new('Recessed screwdriver slot','BOOLEAN');cut.operation='DIFFERENCE';cut.solver='EXACT';cut.object=cutter
+        bpy.ops.object.modifier_apply(modifier=cut.name);pieces.remove(cutter);bpy.data.objects.remove(cutter,do_unlink=True)
+finish('LampBezel','radiator_service_brass')
+
+rings=[(1.,False)]+[(1.-step*.1,True) for step in range(10)]
+n=64
+points=[(x,y,.0015+.0045*(1-(x/.025)**2)*(1-(y/.015)**2) if front else 0) for scale,front in rings for x,y in rounded_rectangle(.050*scale,.030*scale,.003*scale,side_steps=8)]
+points.append((0,0,.006));tip=len(points)-1
+faces=[tuple(reversed(range(n)))]
+faces.extend((row*n+i,row*n+(i+1)%n,(row+1)*n+(i+1)%n,(row+1)*n+i) for row in range(len(rings)-1) for i in range(n))
+faces.extend(((len(rings)-1)*n+i,(len(rings)-1)*n+(i+1)%n,tip) for i in range(n))
+solid('Convex opal lamp lens',points,faces)
+finish('LampLens','milk_glass')
 report=export(ROOT,'annunciator_controls',exports)
 report.update(evidence_class='INERT',scope='Native contact/reset stocks, not gameplay or room acceptance.',
               actor='LobbyPorterBoard',retained_source_meshes=28,

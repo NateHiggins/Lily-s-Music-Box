@@ -1,0 +1,696 @@
+{
+  "evidence_class": "INERT",
+  "checks": [
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "FixedContactMetal"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "FixedContactMetal"
+    },
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "FixedContactInsulators"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "FixedContactInsulators"
+    },
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "MovingContactMetal"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "MovingContactMetal"
+    },
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "ResetBearing"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "ResetBearing"
+    },
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "ResetKnob"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "ResetKnob"
+    },
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "FlagArm"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "FlagArm"
+    },
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "FlagSeat"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "FlagSeat"
+    },
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "FlagBearings"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "FlagBearings"
+    },
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "LampBezel"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "LampBezel"
+    },
+    {
+      "label": "finished native stock has no boundary or nonmanifold edge",
+      "passed": true,
+      "stock": "LampLens"
+    },
+    {
+      "label": "finished native stock has positive solid volume",
+      "passed": true,
+      "stock": "LampLens"
+    },
+    {
+      "label": "real contact surfaces meet within allowed alignment",
+      "passed": true,
+      "angle": 0.0,
+      "x": -0.035,
+      "gap_m": 0.0
+    },
+    {
+      "label": "real contact surfaces meet within allowed alignment",
+      "passed": true,
+      "angle": 0.0,
+      "x": 0.035,
+      "gap_m": 0.0
+    },
+    {
+      "label": "real contact surfaces meet within allowed alignment",
+      "passed": true,
+      "angle": -0.044,
+      "x": -0.035,
+      "gap_m": 0.0
+    },
+    {
+      "label": "real contact surfaces meet within allowed alignment",
+      "passed": true,
+      "angle": -0.044,
+      "x": 0.035,
+      "gap_m": 0.0
+    },
+    {
+      "label": "real contact surfaces meet within allowed alignment",
+      "passed": true,
+      "angle": 0.044,
+      "x": -0.035,
+      "gap_m": 0.0
+    },
+    {
+      "label": "real contact surfaces meet within allowed alignment",
+      "passed": true,
+      "angle": 0.044,
+      "x": 0.035,
+      "gap_m": 0.0
+    },
+    {
+      "label": "misaligned contact really misses fixed leaf",
+      "passed": true,
+      "angle": -0.1948,
+      "x": -0.035
+    },
+    {
+      "label": "misaligned contact really misses fixed leaf",
+      "passed": true,
+      "angle": -0.1948,
+      "x": 0.035
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 0.0
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 0.1308996938995747
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 0.2617993877991494
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 0.39269908169872414
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 0.5235987755982988
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 0.6544984694978736
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 0.7853981633974483
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 0.916297857297023
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 1.0471975511965976
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 1.1780972450961724
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 1.3089969389957472
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 1.4398966328953218
+    },
+    {
+      "label": "real reset shaft clears bearing through travel",
+      "passed": true,
+      "angle": 1.5707963267948966
+    },
+    {
+      "label": "misfitted shaft negative control collides",
+      "passed": true
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": -0.13962634015954636
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": -0.13962634015954636
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": -0.12217304763960307
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": -0.12217304763960307
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": -0.10471975511965978
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": -0.10471975511965978
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": -0.08726646259971647
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": -0.08726646259971647
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": -0.06981317007977318
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": -0.06981317007977318
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": -0.05235987755982989
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": -0.05235987755982989
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": -0.03490658503988659
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": -0.03490658503988659
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": -0.017453292519943295
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": -0.017453292519943295
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.0
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.0
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.017453292519943295
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.017453292519943295
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.03490658503988659
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.03490658503988659
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.05235987755982989
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.05235987755982989
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.06981317007977318
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.06981317007977318
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.08726646259971647
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.08726646259971647
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.10471975511965978
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.10471975511965978
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.12217304763960307
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.12217304763960307
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.13962634015954636
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.13962634015954636
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.15707963267948966
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.15707963267948966
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.17453292519943295
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.17453292519943295
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.19198621771937624
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.19198621771937624
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.20943951023931956
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.20943951023931956
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.22689280275926285
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.22689280275926285
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.24434609527920614
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.24434609527920614
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.2617993877991494
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.2617993877991494
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.2792526803190927
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.2792526803190927
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.29670597283903605
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.29670597283903605
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.3141592653589793
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.3141592653589793
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.33161255787892263
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.33161255787892263
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.3490658503988659
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.3490658503988659
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.3665191429188092
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.3665191429188092
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.3839724354387525
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.3839724354387525
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.4014257279586958
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.4014257279586958
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.4188790204786391
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.4188790204786391
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.4363323129985824
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.4363323129985824
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.4537856055185257
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.4537856055185257
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.47123889803846897
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.47123889803846897
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.4886921905584123
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.4886921905584123
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.5061454830783556
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.5061454830783556
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.5235987755982988
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.5235987755982988
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.5410520681182421
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.5410520681182421
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.5585053606381855
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.5585053606381855
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.5759586531581288
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.5759586531581288
+    },
+    {
+      "label": "flag clears its real ivory bezel through travel",
+      "passed": true,
+      "angle": 0.5934119456780721
+    },
+    {
+      "label": "flag axle clears both fixed journals through travel",
+      "passed": true,
+      "angle": 0.5934119456780721
+    },
+    {
+      "label": "displaced flag axle negative control collides",
+      "passed": true
+    },
+    {
+      "label": "actual opal lens is seated on bezel ledge",
+      "passed": true,
+      "x": 0.0247,
+      "y": 0,
+      "gap_m": 2.3283064365386963e-10
+    },
+    {
+      "label": "actual opal lens is seated on bezel ledge",
+      "passed": true,
+      "x": -0.0247,
+      "y": 0,
+      "gap_m": 6.984919309616089e-10
+    },
+    {
+      "label": "actual opal lens is seated on bezel ledge",
+      "passed": true,
+      "x": 0,
+      "y": 0.0147,
+      "gap_m": 0.0
+    },
+    {
+      "label": "actual opal lens is seated on bezel ledge",
+      "passed": true,
+      "x": 0,
+      "y": -0.0147,
+      "gap_m": 0.0
+    },
+    {
+      "label": "sunken lens negative control intersects real bezel",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "scope": "Native added-stock contact/shaft fit and neutral views only; no runtime proof."
+}
