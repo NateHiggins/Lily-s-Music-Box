@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Native annunciator service, actual input and serviced-board disk reconstruction, with unfinished dispatch and appearance work | `design/V2_ANNUNCIATOR_PHYSICAL_SERVICE_2026-10-17.md` |
 | Matched native vent threads, physical cap travel, legacy depth migration and lengthwise timber grain | `design/V2_RADIATOR_THREADED_VENT_2026-10-17.md` |
 | Native radiator repair observation, preserved job/custody authorities, porter intervention history and pending route qualification | `design/V2_RADIATOR_PHYSICAL_REPAIR_2026-10-17.md` |
 | Local WIP native radiator cutover, partial physical controls, scoped checks and remaining repair work | `art/reviews/v2_radiator_cutover_20261017/README.txt` |

@@ -7,6 +7,8 @@ extends FunctionalProp
 ## has not been a porter in years, which is why the board is yours.
 
 signal maintenance_completed(result: Dictionary)
+signal manipulation_changed
+var _native_service: Node
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -74,6 +76,7 @@ func _build_visual() -> void:
 
 
 func interact_prompt() -> String:
+	if _native_service!=null:return ""
 	return "[E]  Work the lift"
 
 
@@ -90,11 +93,13 @@ func interact(player: Node) -> void:
 
 
 func control_prompt(control_id: String) -> String:
+	if _native_service!=null:return ""
 	return ("[E]  Service annunciator contacts" if control_id == "service"
 			else "[E]  Work the lift")
 
 
 func interact_control(control_id: String, player: Node) -> bool:
+	if _native_service!=null:return false
 	if control_id == "service":
 		return _begin_annunciator_service(player)
 	_open_lift_panel(player)
@@ -102,6 +107,7 @@ func interact_control(control_id: String, player: Node) -> bool:
 
 
 func _open_lift_panel(player: Node) -> void:
+	if _native_service!=null:return
 	if _panel and is_instance_valid(_panel):
 		return
 	if _clack:
@@ -117,6 +123,7 @@ func panel_closed() -> void:
 
 
 func _begin_annunciator_service(player: Node) -> bool:
+	if _native_service!=null:return false
 	if _service_panel and is_instance_valid(_service_panel):
 		return false
 	var script: GDScript = load("res://scripts/ui/maintenance_activity_panel.gd")
@@ -160,10 +167,14 @@ func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
 	contact_alignment = float(snapshot.get(
 			"contact_alignment", contact_alignment))
 	bank_reset = float(snapshot.get("bank_reset", bank_reset))
+	if _native_service!=null:
+		_native_service.adopt_legacy_pose()
+		return
 	_apply_service_pose()
 
 
 func apply_maintenance_result(result: Dictionary) -> void:
+	if _native_service!=null:return
 	var patch: Dictionary = result.get("mechanism_patch", {})
 	stuck_flag = bool(patch.get("stuck_flag", stuck_flag))
 	contact_alignment = clampf(float(patch.get(
@@ -174,6 +185,9 @@ func apply_maintenance_result(result: Dictionary) -> void:
 
 
 func _apply_service_pose() -> void:
+	if _native_service!=null:
+		_native_service.apply_pose()
+		return
 	for i in _flag_arms.size():
 		_flag_arms[i].rotation.x = deg_to_rad(
 				26.0 if stuck_flag and i == 0 else -8.0 * bank_reset)
@@ -182,6 +196,31 @@ func _apply_service_pose() -> void:
 				lerpf(-18.0, 0.0, contact_alignment))
 	if _reset_spindle:
 		_reset_spindle.rotation.y = bank_reset * TAU
+
+func native_manipulation_ready() -> bool:
+	_native_service=preload("res://scripts/props/annunciator_service_controls.gd").new()
+	_native_service.name="PhysicalAnnunciatorService"
+	add_child(_native_service)
+	return _native_service.configure(self)
+
+func mechanism_snapshot() -> Dictionary:
+	return _native_service.snapshot() if _native_service!=null else maintenance_snapshot()
+
+func valid_mechanism(value: Variant) -> bool:
+	if _native_service!=null:return _native_service.valid(value)
+	return value is Dictionary and value.size()==3 and value.get("stuck_flag") is bool and typeof(value.get("contact_alignment")) in [TYPE_INT,TYPE_FLOAT] and typeof(value.get("bank_reset")) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(value.contact_alignment)) and is_finite(float(value.bank_reset)) and value.contact_alignment>=0 and value.contact_alignment<=1 and value.bank_reset>=0 and value.bank_reset<=1
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value):return
+	if _native_service!=null:_native_service.restore(value)
+	else:restore_maintenance_snapshot(value)
+
+func inspection_view_for(part: Node3D) -> Dictionary:
+	var at := to_local(part.global_position)
+	return {"from":to_global(at+Vector3(.14,.08,.30)),"at":part.global_position,"fov":55.0}
+
+func inspection_view() -> Dictionary:
+	return inspection_view_for(_contact_bridge)
 
 
 func _build_control_area(area_name: String, control_id: String,

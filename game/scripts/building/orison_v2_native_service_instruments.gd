@@ -25,6 +25,7 @@ func mount(world: Node, data_path: String = PATH) -> bool:
 		material.roughness = float(spec.roughness)
 		material.metallic = float(spec.metallic)
 		material.albedo_color = Color(spec.tint[0],spec.tint[1],spec.tint[2],spec.tint[3])
+		material.set_meta("v2_surface_stock",str(spec.catalog))
 		_materials[key] = material
 	for spec: Dictionary in data.source_materials:
 		var owner:=_find_actor(world,str(spec.actor))
@@ -73,7 +74,10 @@ func mount(world: Node, data_path: String = PATH) -> bool:
 		installed[str(entry.row.id)] = {"actor":weakref(actor),"source":snapshots,"script":entry.row.script,"areas":entry.areas}
 		actor.set_meta("v2_native_service_instrument",true)
 		if actor.has_method("native_manipulation_ready"):
-			actor.call("native_manipulation_ready")
+			var ready: Variant=actor.call("native_manipulation_ready")
+			if ready is bool and not ready:
+				errors.append("native control assembly: "+str(entry.row.id))
+				return false
 		if actor is DumbwaiterProp:
 			var ropes:=preload("res://scripts/building/orison_v2_dumbwaiter_rope_visual.gd").new()
 			ropes.name="NativeSuspensionRopes"

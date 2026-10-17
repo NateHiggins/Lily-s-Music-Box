@@ -1,0 +1,122 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Selected current inputs for native annunciator service diagnostics; not a runtime_contract or broad qualification.",
+  "inputs": {
+    "art/blender/annunciator_controls.blend": {
+      "sha256": "bce4ed29a6418adaadc6068581c33c5f273a949e85122014fff5b6db8e65b002",
+      "normalization": "binary"
+    },
+    "art/blender/scripts/build_annunciator_controls.py": {
+      "sha256": "267aa3bd03d94415c63392199c0f3977f6b77e7c0979785b7fbea2a563e0a0a4",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/fabrication_native_batch.py": {
+      "sha256": "3c61d2a98d9e75cefcbb949cfefb72aced140d3440262f8afdcd02a8e853917e",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/review_annunciator_controls.py": {
+      "sha256": "eb6e23faf4c1e5af11b42805412bb38fd7f98df71f2e794ff1456f9d18223df7",
+      "normalization": "LF"
+    },
+    "art/data/service_instruments/source_plan.json": {
+      "sha256": "04df4f5f7a194a54b6c9996403679c4a6f7a5116f56441e0cad8a9f8574929ea",
+      "normalization": "LF"
+    },
+    "art/tools/fix_v2_mesh_imports.py": {
+      "sha256": "07c276a48eeca421ac5b5957f245ad7bd4940372e0827594b76bb9064fdaed0d",
+      "normalization": "LF"
+    },
+    "game/assets/props/annunciator_controls.glb": {
+      "sha256": "ac0616caf3fcbf86ef0d587767380e1a283c88a83f4b2b05acf8c05c2e5c6f92",
+      "normalization": "binary"
+    },
+    "game/assets/props/annunciator_controls.glb.import": {
+      "sha256": "56960f3d809d15015d3a0765daad787a5fbc6028defa93c9207de742117efb48",
+      "normalization": "LF"
+    },
+    "game/data/orison_v2/service_instruments.json": {
+      "sha256": "d741aebfaa614b6c003b574def05144e7aaf2b0cb004f350b99dd8bc0f523f2d",
+      "normalization": "LF"
+    },
+    "game/data/runtime_material_sets.json": {
+      "sha256": "444fb2fd79515726d7fd52bf394afb4a433b2be6a96ebfb551a98a48261ff22c",
+      "normalization": "LF"
+    },
+    "game/scripts/building/orison_v2_household_state.gd": {
+      "sha256": "8eb8d9bae14a9e8a5fb395f7c18641ced2c5036730b11733cddc5e043ddedb79",
+      "normalization": "LF"
+    },
+    "game/scripts/building/orison_v2_native_service_instruments.gd": {
+      "sha256": "c8eec79a49ae7982d10246eed9a3e8caf27b04d191516d4a1555d79d16856ecd",
+      "normalization": "LF"
+    },
+    "game/scripts/game/service_round_director.gd": {
+      "sha256": "12c41dd20ade1942e84ca588175dc8096ce5f5081d7573c21a0bf6a13f44dc7f",
+      "normalization": "LF"
+    },
+    "game/scripts/player/constrained_grab.gd": {
+      "sha256": "0aea8a10f027494da934c77ab164ab121918958967f338d3770f6a3c374a5994",
+      "normalization": "LF"
+    },
+    "game/scripts/player/player_controller.gd": {
+      "sha256": "5a2492b4adc74f9404046aa7dcbc26cf9ed5b5fcb5a6a81eae229f62288c37ed",
+      "normalization": "LF"
+    },
+    "game/scripts/props/annunciator_service_controls.gd": {
+      "sha256": "10f72601c029aecf511017d60c9063fa4c7435ff3c2b69264cb170ee7d1e0b15",
+      "normalization": "LF"
+    },
+    "game/scripts/props/annunciator_service_controls.gd.uid": {
+      "sha256": "563697325237edaecf8ddcbe631ebe720d14118179a7f253b5178a38232e798f",
+      "normalization": "LF"
+    },
+    "game/scripts/props/manipulation_area.gd": {
+      "sha256": "ed31ae9277a0ff39e404968b18cc36ce2ed8b88f6e4883dc59f8fff760ce7a1e",
+      "normalization": "LF"
+    },
+    "game/scripts/props/otis_prop.gd": {
+      "sha256": "15c6a6ef3b2bca20b3da01bfc1760329c95d6ffca3dc404e6f643175eaede71c",
+      "normalization": "LF"
+    },
+    "game/tests/AnnunciatorHandBench.tscn": {
+      "sha256": "28beb032718a8787936c399768835c55f4333ff7a81f7d66ede0fd120300d412",
+      "normalization": "LF"
+    },
+    "game/tests/AnnunciatorWorldReview.tscn": {
+      "sha256": "55649db1d8de55bf4fc26d4c1678fef43b503b978e272506e2a42c0605d2bb24",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_hand_bench.gd": {
+      "sha256": "a186fdca62ba886d1b51646974e9701ab28c6e98615b5e0ac61363aebad53424",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_hand_bench.gd.uid": {
+      "sha256": "045330cb06ecd90866e3d7b2055c595785aa54b57f386dc317af957a8abe4908",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_input_driver.gd": {
+      "sha256": "171001c2ab1b75357987f583c4165d6b2eea8632f80e34a4ae985afc68480318",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_input_driver.gd.uid": {
+      "sha256": "8fd7b79696fa562098748d75887708982839c27463261e44d733cc3960e86615",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_world_review.gd": {
+      "sha256": "b3357a13f78acaa3eb6fe04a9b537c3c3e1cbc9e678ddc6e86230c59b4d8c5a8",
+      "normalization": "LF"
+    },
+    "game/tests/annunciator_world_review.gd.uid": {
+      "sha256": "ff527b11f2ae994723b753acd8610f8e96a02a59047b493b28fd121bc28baecb",
+      "normalization": "LF"
+    },
+    "game/tests/radiator_cutover_review.gd": {
+      "sha256": "9f717e2d46934d694c1404fcc226b5818105ea15fcaf867ca058bbac12bb354b",
+      "normalization": "LF"
+    },
+    "game/tests/radiator_native_review.gd": {
+      "sha256": "89a413629a3eb22136585bd99e09c8544a6cce2f3a39001d5551d8b9cc6e7c2c",
+      "normalization": "LF"
+    }
+  }
+}
