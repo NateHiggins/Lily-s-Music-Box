@@ -144,6 +144,9 @@ func move(relative: Vector2) -> void:
 		screen_axis = Vector2(0,tangent.dot(camera.global_basis.z)*180.0)
 	if screen_axis.length_squared() < .01: return
 	var step := relative.dot(screen_axis)/screen_axis.length_squared()
+	var motion_scale: float=float(target.get("motion_scale",1.0))
+	if not is_finite(motion_scale) or motion_scale<=0.:return
+	step*=motion_scale
 	var limit := .24 if target.kind == "hinge" else .08
 	step = clampf(step,-limit,limit)
 	var before: float = target.read.call()

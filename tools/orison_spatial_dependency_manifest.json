@@ -294056,6 +294056,70 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "f99f9643c776f5e5",
+   "kind": "generated_name",
+   "token": "bind_lift",
+   "file": "game/scripts/props/annunciator_dispatch_controls.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "bind_lift"
+   ],
+   "lines": [
+    60
+   ],
+   "count": 1,
+   "context": [
+    "\"DispatchKey_\"+str(levels[i])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b49cc2121b820d66",
+   "kind": "generated_name",
+   "token": "configure",
+   "file": "game/scripts/props/annunciator_dispatch_controls.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    39,
+    46,
+    50
+   ],
+   "count": 3,
+   "context": [
+    "\"DispatchKey_\"+str(i);button.position=Vector3(at[0],at[1],at[2]);add_child(button)",
+    "\"DispatchLegend_\"+str(i)",
+    "\"CarLanding_\"+str(i)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

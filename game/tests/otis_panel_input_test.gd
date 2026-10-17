@@ -25,6 +25,10 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_check(panel._view.has_focus(), "the shaft owns focus when opened")
 	_check(player.call_locked, "the lift board owns the player's call")
+	# A real window can deliver mouse motion during the awaited frame and
+	# clear hover outside the shaft. Exercise keyboard travel from a valid,
+	# interior landing, rather than treating the no-selection sentinel as one.
+	panel._select_landing(2)
 	var initial: int = panel._hover
 	panel._on_input(_action(&"ui_up"))
 	_check(panel._hover == mini(initial + 1, panel.game.floors.size() - 1),

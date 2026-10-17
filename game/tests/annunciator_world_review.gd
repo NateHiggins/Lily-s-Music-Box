@@ -51,7 +51,14 @@ func _run() -> void:
 	check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)==stage_before,"board cannot invent or advance an unacknowledged repair job")
 	check(world.household_state._subjects.get("LobbyPorterBoard")==board,"production household owner discovers the board")
 	check(not world.household_state._blocked,"new native board state does not block household saves")
+	var controls: Node3D=board._native_dispatch
+	var destination: int=controls.levels.find("F02")
+	check(destination>=0 and controls.buttons.size()==world.elevator.stop_order.size(),"installed dispatch derives real passenger stops")
+	await input.focus(controls.buttons[destination]);driver._click(player)
+	driver._drag_to(player,float(controls.data.travel));driver._click(player)
+	check(world.elevator.moving and world.elevator._pending=="F02","installed physical key dispatches the production lift")
 	var saved: Dictionary=JSON.parse_string(JSON.stringify(board.mechanism_snapshot()))
+	check(saved.version==2 and saved.dispatch.spent[destination],"disk save includes the consumed physical key stroke")
 	check(RealityState.save_game(),"real RealityState storage writes serviced board")
 	check(FileAccess.file_exists(RealityState.save_path),"save is actually present on disk")
 	FileAccess.open(out.path_join("annunciator_saved_game.json"),FileAccess.WRITE).store_string(FileAccess.get_file_as_string(RealityState.save_path))
@@ -60,7 +67,10 @@ func _run() -> void:
 	RealityState.load_game()
 	await get_tree().physics_frame
 	check(absf(board._contact_bridge.rotation.z)<.00001 and not world.household_state._blocked,"disk load adopts old household state into the existing world")
-	player.camera.global_position=board.to_global(Vector3(.20,-.05,.65));player.camera.look_at(board.to_global(Vector3(0,0,.045)))
+	var lift_deadline := Time.get_ticks_msec()+15000
+	while world.elevator.moving and Time.get_ticks_msec()<lift_deadline:await get_tree().physics_frame
+	check(not world.elevator.moving and world.elevator.current=="F02","production doors and car complete the dispatched journey")
+	player.camera.global_position=board.to_global(Vector3(.20,-.04,.70));player.camera.look_at(board.to_global(Vector3(0,-.04,.045)))
 	await RenderingServer.frame_post_draw
 	check(get_viewport().get_texture().get_image().save_png(out.path_join("installed_annunciator.png"))==OK,"installed capture written")
 	player.set_lamp_enabled(false)
@@ -92,8 +102,13 @@ func _run() -> void:
 	board=world.adapter.resolve("LobbyPorterBoard") as OtisProp
 	check(board!=null and not world.household_state._blocked,"rebuilt production world accepts saved board schema")
 	if board!=null:
-		check(_same_payload(board.mechanism_snapshot(),saved),"disk reconstruction preserves serviced physical board settings across JSON numeric representations")
+		var now: Dictionary=board.mechanism_snapshot();var saved_service: Dictionary=saved.duplicate(true)
+		now.erase("dispatch");saved_service.erase("dispatch")
+		check(_same_payload(now,saved_service),"disk reconstruction preserves serviced physical board settings across JSON numeric representations")
 		check(not board.stuck_flag and absf(board._contact_bridge.rotation.z)<.00001,"reconstructed native parts match their actual service result")
+		check(world.elevator.current=="F01" and not world.elevator.moving,"fresh production world does not replay saved dispatch")
+		await get_tree().create_timer(.4).timeout
+		check(board._native_dispatch.snapshot()==board._native_dispatch.rest_snapshot() and not world.household_state._blocked,"restored physical key springs home without another request or blocked save")
 	world.free()
 	_finish(original_path)
 
@@ -114,6 +129,6 @@ func _same_payload(a: Variant,b: Variant) -> bool:
 
 func _finish(original_path: String) -> void:
 	RealityState.save_path=original_path;RealityState.persistence_enabled=false
-	FileAccess.open(out.path_join("annunciator_world.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"scope":"Actual installed annunciator gestures and serviced-board disk load/rebuild. No full radiator repair route, broad runtime contract or human acceptance."},"\t"))
+	FileAccess.open(out.path_join("annunciator_world.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"scope":"Installed service and physical dispatch, real car journey, serviced/pressed-board disk load/rebuild without request replay. No full radiator repair route, broad runtime contract or human acceptance."},"\t"))
 	print("ANNUNCIATOR WORLD: ","PASS" if failures.is_empty() else "FAIL","; ",checks," checks; ",failures)
 	terminal=true;get_tree().quit(0 if failures.is_empty() else 1)

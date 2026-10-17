@@ -59,6 +59,13 @@ release operations. A generic controller maps mouse displacement into that
 constraint; each owner remains responsible for permitting and applying motion.
 Do not create a parallel state store that disagrees with save or simulation state.
 
+Tiny controls may supply a positive, finite **motion_scale** in their shared
+grip descriptor. The controller multiplies its ordinary constrained mouse
+displacement by this gain; omission retains the existing gain of one. The
+porter-board keys use 0.025 so their four-millimetre stroke has useful partial
+travel. Travel limits and contact conditions remain in physical units. Actual
+input tests must apply the same gain when constructing mouse motion.
+
 1. Inventory the shared input/target resolver and all interactive owners. Add a
    common constrained-grab contract rather than divergent drag logic per prop.
 2. Migrate ordinary and entrance doors, refrigerator leaves and independent

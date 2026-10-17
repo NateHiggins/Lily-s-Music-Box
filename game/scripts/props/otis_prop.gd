@@ -9,6 +9,7 @@ extends FunctionalProp
 signal maintenance_completed(result: Dictionary)
 signal manipulation_changed
 var _native_service: Node
+var _native_dispatch: Node3D
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -201,19 +202,37 @@ func native_manipulation_ready() -> bool:
 	_native_service=preload("res://scripts/props/annunciator_service_controls.gd").new()
 	_native_service.name="PhysicalAnnunciatorService"
 	add_child(_native_service)
-	return _native_service.configure(self)
+	if not _native_service.configure(self):return false
+	var controls := preload("res://scripts/props/annunciator_dispatch_controls.gd").new()
+	controls.name="PhysicalLiftDispatch";add_child(controls)
+	if not controls.configure(self):controls.free();return false
+	_native_dispatch=controls;return true
 
 func mechanism_snapshot() -> Dictionary:
-	return _native_service.snapshot() if _native_service!=null else maintenance_snapshot()
+	var value: Dictionary=_native_service.snapshot() if _native_service!=null else maintenance_snapshot()
+	if _native_dispatch!=null:value.version=2;value.dispatch=_native_dispatch.snapshot()
+	return value
 
 func valid_mechanism(value: Variant) -> bool:
+	if value is Dictionary and value.has("version") and typeof(value.version) not in [TYPE_INT,TYPE_FLOAT]:return false
+	if value is Dictionary and value.get("version")==2:
+		if _native_dispatch==null or not _native_dispatch.valid(value.get("dispatch")):return false
+		var service: Dictionary=value.duplicate(true);service.erase("dispatch");service.version=1
+		return _native_service!=null and _native_service.valid(service)
 	if _native_service!=null:return _native_service.valid(value)
 	return value is Dictionary and value.size()==3 and value.get("stuck_flag") is bool and typeof(value.get("contact_alignment")) in [TYPE_INT,TYPE_FLOAT] and typeof(value.get("bank_reset")) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(value.contact_alignment)) and is_finite(float(value.bank_reset)) and value.contact_alignment>=0 and value.contact_alignment<=1 and value.bank_reset>=0 and value.bank_reset<=1
 
 func restore_mechanism(value: Dictionary) -> void:
 	if not valid_mechanism(value):return
-	if _native_service!=null:_native_service.restore(value)
+	if _native_service!=null:
+		var service := value.duplicate(true)
+		service.erase("dispatch");service.version=1;_native_service.restore(service)
+		if _native_dispatch!=null:
+			_native_dispatch.restore(value.dispatch if value.has("dispatch") else _native_dispatch.rest_snapshot())
 	else:restore_maintenance_snapshot(value)
+
+func bind_native_lift(car: OrisonElevator) -> bool:
+	return _native_dispatch!=null and _native_dispatch.bind_lift(car)
 
 func inspection_view_for(part: Node3D) -> Dictionary:
 	var at := to_local(part.global_position)
@@ -238,6 +257,8 @@ func _build_control_area(area_name: String, control_id: String,
 
 
 func _process(delta: float) -> void:
+	if _native_dispatch!=null:
+		_native_dispatch.drive_indicators();return
 	# One lamp wanders up and down the column: the car, still running
 	# whether or not anybody is watching the board.
 	_t += delta

@@ -1,0 +1,11 @@
+{
+	"checks": 54,
+	"evidence_class": "INERT",
+	"failures": [
+		"full physical key travel requests the real car",
+		"a fully pressed key cannot restore as an unspent request",
+		"actual doors and car arrive at F02",
+		"board lamp follows actual car position"
+	],
+	"scope": "Real cursor/grab/motion/release, native keys, actual lift travel and interface interlock, in-memory board restore. Not resident route or disk/world reconstruction."
+}

@@ -104,6 +104,7 @@ func grip(part: Node3D) -> Dictionary:
 		"read":func():return angles[flag] if flag>=0 else (board.contact_alignment-_contact_home)*deg_to_rad(36) if contact else reset_travel,
 		"begin":func():
 			if held!=null or RealityState.save_write_blocked:return false
+			if board._native_dispatch!=null and board._native_dispatch.held>=0:return false
 			held=part;return true,
 		"owns":func():return held==part,
 		"write":func(value: float):

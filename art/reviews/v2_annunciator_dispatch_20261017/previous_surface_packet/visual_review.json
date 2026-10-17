@@ -1,0 +1,23 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "scope": "Representative loaded geometry/material continuity only; no photorealism, every-viewpoint, gameplay or human acceptance. Exhaustive technical UV/PBR/mip/filter checks are in the separate test-written contract.",
+  "surface_inputs_sha256": "49b2df303bafadcd8012e399a2c04c20cd3ca22aafdf001b8bb21276de07519c",
+  "images": [
+    {
+      "file": "seating_polish_2A_sofa_native.png",
+      "sha256": "ebfd23ecd78417d18527d813fe7806fc961247a26b7184c452ed43eae0adc5ca",
+      "observation": "Composed sofa retains both loose cushions and the new rounded seat/back panels. Mapped cloth is visible but warm carried-light glare flattens the finish; diffuse room lighting and photoreal appearance remain open. Exact contacts are checked independently by physics."
+    },
+    {
+      "file": "seating_polish_4B_couch_native.png",
+      "sha256": "de4e065652bf950903a8c071a678a59dc6475ba3cbc51890f15379ae114edd8b",
+      "observation": "Full sofa silhouette, separate cushions, boxing and rounded shoulders remain continuous under the existing room/carried light. Fine cloth response is not fully resolved at this distance; this is technical surface/form review, not artistic acceptance."
+    },
+    {
+      "file": "seating_polish_1A_reading_chair_native.png",
+      "sha256": "0a29c15017a3a934f1eb32b64cc76cee00ef16255476f81010e94f347767ffa6",
+      "observation": "Armchair fits its retained window/radiator corner with rounded panel shoulders and matching-cloth seams. Strong warm fill and neighbouring floor/wall finishes still need balanced-light review; no whole-room appearance acceptance."
+    }
+  ]
+}

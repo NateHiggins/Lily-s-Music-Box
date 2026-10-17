@@ -182,6 +182,11 @@ func _ready() -> void:
 		push_error("V2 passenger lift could not be composed")
 		return
 	var lift_drive := preload("res://scripts/building/orison_v2_lift_drive.gd").new()
+	var porter_board := adapter.resolve("LobbyPorterBoard") as OtisProp
+	if porter_board==null or not porter_board.bind_native_lift(elevator as OrisonElevator):
+		startup_failed=true
+		push_error("V2 porter dispatch could not bind the passenger lift")
+		return
 	if not lift_drive.configure(elevator as OrisonElevator) or not adapter.mount_consumer("ROOF_LIFT_DRIVE",lift_drive):
 		lift_drive.free()
 		startup_failed = true

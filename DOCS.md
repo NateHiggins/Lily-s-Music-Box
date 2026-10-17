@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Native porter-board dispatch keys, real lift binding, disk restoration and remaining appearance work | `design/V2_ANNUNCIATOR_DISPATCH_2026-10-17.md` |
 | Current bounded room reflections, ceiling shadow repair and loaded surface qualification, with remaining appearance work | `design/V2_REFLECTION_INSTALL_2026-10-17.md` |
 | Rounded sewn seating panels, retained loose-cushion bearings and current verification | `design/V2_SEATING_POLISH_2026-10-17.md` |
 | Earlier loaded normal frames, room-reflection comparisons and the unmounted lighting prototype | `design/V2_ROOM_REFLECTION_REVIEW_2026-10-17.md` |

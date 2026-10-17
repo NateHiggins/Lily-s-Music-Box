@@ -1,0 +1,30 @@
+{
+	"checks": 19,
+	"contracts": {
+		"electrical_supply_fabric": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Physical panel-to-riser branch, actual port/cavity/support probes and owned teardown; no energized circuit or complete device endpoint acceptance.",
+	"selector": "v2",
+	"source": {
+		"test_path": "game/tests/v2_electrical_connections_review.gd",
+		"test_sha256": "c1aa7536ee9d806b2b58b1acc6f942a9f44b968648e0789ae704db92a2454677"
+	}
+}

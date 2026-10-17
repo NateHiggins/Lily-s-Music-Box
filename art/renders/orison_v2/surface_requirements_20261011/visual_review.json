@@ -1,23 +1,23 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "scope": "Representative loaded geometry/material continuity only; no photorealism, every-viewpoint, gameplay or human acceptance. Exhaustive technical UV/PBR/mip/filter checks are in the separate test-written contract.",
-  "surface_inputs_sha256": "49b2df303bafadcd8012e399a2c04c20cd3ca22aafdf001b8bb21276de07519c",
+  "scope": "Loaded assembly continuity and recorded appearance defects. Not photoreal or human acceptance; exhaustive technical surfaces have their separate test-written contract.",
+  "surface_inputs_sha256": "aae1b2a4f64caaa80605a8fb21b9a8eb577e9ab7bf70d261ca1008be2229884f",
   "images": [
     {
-      "file": "seating_polish_2A_sofa_native.png",
-      "sha256": "ebfd23ecd78417d18527d813fe7806fc961247a26b7184c452ed43eae0adc5ca",
-      "observation": "Composed sofa retains both loose cushions and the new rounded seat/back panels. Mapped cloth is visible but warm carried-light glare flattens the finish; diffuse room lighting and photoreal appearance remain open. Exact contacts are checked independently by physics."
+      "file": "dispatch_installed_annunciator.png",
+      "sha256": "f44d0e1066e923a18fbf95f8943680108ed70441a93f54daf4bdce7edbed3b5a",
+      "observation": "Loaded production board retains its native case, flags and lenses, with the seven-key retrofit seated below it and the F02 indicator following the completed real journey. The carried light makes the assembly and floor legends legible, but its strong warm hotspot masks fine material response. This is assembly continuity review, not photoreal or whole-room acceptance."
     },
     {
-      "file": "seating_polish_4B_couch_native.png",
-      "sha256": "de4e065652bf950903a8c071a678a59dc6475ba3cbc51890f15379ae114edd8b",
-      "observation": "Full sofa silhouette, separate cushions, boxing and rounded shoulders remain continuous under the existing room/carried light. Fine cloth response is not fully resolved at this distance; this is technical surface/form review, not artistic acceptance."
+      "file": "dispatch_installed_annunciator_room_light.png",
+      "sha256": "216955497b03b24de72db7f2d3f061902ac8f6d0a0cdf3e8013cea3b4a4fac35",
+      "observation": "The real carried lamp is switched off and its thermal tail settled. The same F02 lens remains lit, while room light leaves the board and keys too dark to assess material quality. Ambient balance and diffuse-light visibility remain open; this view does not validate the finish."
     },
     {
-      "file": "seating_polish_1A_reading_chair_native.png",
-      "sha256": "0a29c15017a3a934f1eb32b64cc76cee00ef16255476f81010e94f347767ffa6",
-      "observation": "Armchair fits its retained window/radiator corner with rounded panel shoulders and matching-cloth seams. Strong warm fill and neighbouring floor/wall finishes still need balanced-light review; no whole-room appearance acceptance."
+      "file": "dispatch_installed_annunciator_reset.png",
+      "sha256": "41680440de31c02257cfdf74a61fb27d06ce08ffbabe80070e2eeaf55d1c9e21",
+      "observation": "Close loaded view shows ceramic guide collars, seven separate caps and Label3D legends, retrofit ears, dressed leads and retained contact/reset hardware together. Brass mottling, cap coloration, large hard shadows and adjacent plaster response remain appearance defects. Native travel/clearance checks and actual input tests supply separate functional evidence; the image alone does not prove fit throughout travel."
     }
   ]
 }

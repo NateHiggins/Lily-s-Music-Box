@@ -10,6 +10,7 @@ from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
     "props/annunciator_controls.glb", # Loaded bearing cap charts collapse even after periodic UV rebasing.
+    "props/annunciator_dispatch.glb", # Loaded collar/cap UV metrics and tangent derivatives fail under default quantization.
     "props/radiator_service_stock.glb", # Blind pockets and worked screw/bevel charts collapse under UV quantization.
     "props/radiator_mechanisms.glb", "props/radiator_air_vent.glb",
     "props/radiator_wall_support.glb", "props/radiator_pitch_shims.glb", # Preserve fitted bores, cloth folds and shim charts.

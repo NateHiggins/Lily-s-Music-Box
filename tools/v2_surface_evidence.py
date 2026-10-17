@@ -64,6 +64,7 @@ def inputs(root=ROOT):
     paths.add(root/'art/textures/material_sources/bathroom_ivory_glaze.png')
     paths.update(root/p for p in ('art/blender/domestic_seating.blend',
         'art/blender/domestic_seating_construction.json','art/data/domestic_seating/source_plan.json'))
+    paths.add(root/'art/blender/annunciator_dispatch.blend')
     for key in ('bath_wall_tile','bath_floor_tile'):
         paths.add(root/f'art/textures/procedural/{key}/material.json')
     for name in ('v2_bathroom_tile_review.gd','v2_millwork_weather_review.gd','v2_millwork_weather_test.gd','v2_window_treatments_review.gd','v2_window_treatments_test.gd','v2_watch_stations_review.gd','orison_v2_patrol_stations_test.gd','v2_mail_bank_review.gd','v2_fire_service_review.gd','v2_electrical_service_review.gd','v2_electrical_connections_review.gd','orison_v2_domestic_objects_test.gd','orison_v2_domestic_native_test.gd','orison_v2_service_instruments_test.gd'):

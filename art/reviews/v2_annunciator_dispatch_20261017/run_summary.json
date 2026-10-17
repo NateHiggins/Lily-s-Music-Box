@@ -1,0 +1,418 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Wrapper runs remain suite_run, including failures. The separate surface test-written contract is the only broad surface runtime proof. No complete resident repair route or human appearance acceptance.",
+  "runs": [
+    {
+      "name": "direct_regression",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 7.82,
+        "exit_code": 1,
+        "finished_utc": "2026-10-17T23:25:56Z",
+        "started_utc": "2026-10-17T23:25:48Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 1,
+      "stderr_bytes": 251
+    },
+    {
+      "name": "direct_windowed",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 12.35,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:30:10Z",
+        "started_utc": "2026-10-17T23:29:57Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "hand_bench",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 21.36,
+        "exit_code": 1,
+        "finished_utc": "2026-10-17T23:19:05Z",
+        "started_utc": "2026-10-17T23:18:43Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 1,
+      "stderr_bytes": 10794
+    },
+    {
+      "name": "hand_bench_motion",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 27.34,
+        "exit_code": 1,
+        "finished_utc": "2026-10-17T23:23:38Z",
+        "started_utc": "2026-10-17T23:23:11Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 1,
+      "stderr_bytes": 1460
+    },
+    {
+      "name": "hand_bench_precision",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 19.72,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:20:53Z",
+        "started_utc": "2026-10-17T23:20:33Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "hand_bench_stop",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 19.91,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:25:48Z",
+        "started_utc": "2026-10-17T23:25:28Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "hand_final",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 20.21,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:39:52Z",
+        "started_utc": "2026-10-17T23:39:31Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "hand_wired",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 20.11,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:37:29Z",
+        "started_utc": "2026-10-17T23:37:08Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "import",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 10.07,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:12:00Z",
+        "started_utc": "2026-10-17T23:11:49Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "import_final",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 8.84,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:18:24Z",
+        "started_utc": "2026-10-17T23:18:15Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "import_final_native",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 8.45,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:39:31Z",
+        "started_utc": "2026-10-17T23:39:22Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "import_precision",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 8.46,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:20:10Z",
+        "started_utc": "2026-10-17T23:20:01Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "import_wired",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 8.84,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:37:08Z",
+        "started_utc": "2026-10-17T23:36:59Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "legacy_model",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.49,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:40:08Z",
+        "started_utc": "2026-10-17T23:40:07Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "legacy_panel",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 1.82,
+        "exit_code": 1,
+        "finished_utc": "2026-10-17T23:40:10Z",
+        "started_utc": "2026-10-17T23:40:08Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 2,
+      "stderr_bytes": 292
+    },
+    {
+      "name": "legacy_panel_controlled",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 3.4,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:52:08Z",
+        "started_utc": "2026-10-17T23:52:03Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "legacy_panel_headless",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.97,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:52:03Z",
+        "started_utc": "2026-10-17T23:52:01Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "parse",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.19,
+        "exit_code": 1,
+        "finished_utc": "2026-10-17T23:12:01Z",
+        "started_utc": "2026-10-17T23:12:00Z",
+        "timed_out": false
+      },
+      "script_errors": 2,
+      "failure_lines": 0,
+      "stderr_bytes": 330
+    },
+    {
+      "name": "service_final",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 14.31,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:40:07Z",
+        "started_utc": "2026-10-17T23:39:52Z",
+        "timed_out": false
+      },
+      "script_errors": 1,
+      "failure_lines": 0,
+      "stderr_bytes": 502
+    },
+    {
+      "name": "service_regression",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 7.7,
+        "exit_code": 1,
+        "finished_utc": "2026-10-17T23:37:37Z",
+        "started_utc": "2026-10-17T23:37:29Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "service_strict",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 14.44,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:40:55Z",
+        "started_utc": "2026-10-17T23:40:40Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "service_windowed",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 13.65,
+        "exit_code": 1,
+        "finished_utc": "2026-10-17T23:38:06Z",
+        "started_utc": "2026-10-17T23:37:52Z",
+        "timed_out": false
+      },
+      "script_errors": 1,
+      "failure_lines": 28,
+      "stderr_bytes": 11851
+    },
+    {
+      "name": "surface",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 353.39,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:52:00Z",
+        "started_utc": "2026-10-17T23:46:06Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 111
+    },
+    {
+      "name": "world",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 309.68,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T23:46:05Z",
+        "started_utc": "2026-10-17T23:40:55Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "failure_lines": 0,
+      "stderr_bytes": 111
+    }
+  ],
+  "final_source_pins": [
+    {
+      "file": "art/blender/scripts/build_annunciator_dispatch.py",
+      "raw_sha256": "9b879c8dc1c378660d5a3c2f5bf3542807d364f6d800c87e6acf7ee73b9eb69a",
+      "lf_sha256": "9b879c8dc1c378660d5a3c2f5bf3542807d364f6d800c87e6acf7ee73b9eb69a"
+    },
+    {
+      "file": "art/blender/scripts/review_annunciator_dispatch.py",
+      "raw_sha256": "c499b6d317d9dc51cef5228c428c5f6aae1bc26e69b574aa8dd25ea98eba6902",
+      "lf_sha256": "c499b6d317d9dc51cef5228c428c5f6aae1bc26e69b574aa8dd25ea98eba6902"
+    },
+    {
+      "file": "art/blender/annunciator_dispatch.blend",
+      "raw_sha256": "adc55b6113e4549d66bbc95bab8e5f7f12cf1918e1f71ce73be2973d05e84401",
+      "lf_sha256": "adc55b6113e4549d66bbc95bab8e5f7f12cf1918e1f71ce73be2973d05e84401"
+    },
+    {
+      "file": "game/assets/props/annunciator_dispatch.glb",
+      "raw_sha256": "dd9edce5a1adcdb65cd24df806ab10801612311872490d48a81f2cfbf928ce94",
+      "lf_sha256": "dd9edce5a1adcdb65cd24df806ab10801612311872490d48a81f2cfbf928ce94"
+    },
+    {
+      "file": "game/data/orison_v2/annunciator_dispatch.json",
+      "raw_sha256": "d910eae90de7bcf2fe083e961d24cd2ed97f66acfb99d6551daee558288a49a2",
+      "lf_sha256": "d910eae90de7bcf2fe083e961d24cd2ed97f66acfb99d6551daee558288a49a2"
+    },
+    {
+      "file": "game/scripts/props/annunciator_dispatch_controls.gd",
+      "raw_sha256": "ef334c4313df1db32daf2f18ee6f96cb7787a7a5019b98a63fd49c3a2b080f57",
+      "lf_sha256": "ef334c4313df1db32daf2f18ee6f96cb7787a7a5019b98a63fd49c3a2b080f57"
+    },
+    {
+      "file": "game/scripts/props/otis_prop.gd",
+      "raw_sha256": "d70b7f2ff5a2331bcc6014388db59197f747e53767467e50806856552bb1fafc",
+      "lf_sha256": "d70b7f2ff5a2331bcc6014388db59197f747e53767467e50806856552bb1fafc"
+    },
+    {
+      "file": "game/tests/annunciator_dispatch_bench.gd",
+      "raw_sha256": "ef69662783d2f81dbceb5c4680b80018f35ca29f4040b26cd178718e1fb0c6d6",
+      "lf_sha256": "ef69662783d2f81dbceb5c4680b80018f35ca29f4040b26cd178718e1fb0c6d6"
+    },
+    {
+      "file": "game/tests/annunciator_hand_bench.gd",
+      "raw_sha256": "532e642b24cef7a00d474c48c7ddec3032f0de33bcfd9ce68125cea9f57bd15f",
+      "lf_sha256": "532e642b24cef7a00d474c48c7ddec3032f0de33bcfd9ce68125cea9f57bd15f"
+    },
+    {
+      "file": "game/tests/annunciator_world_review.gd",
+      "raw_sha256": "4e051e00dce04f5b7decd72bc81ee429f2b1334125290a37efdabb0d452c587e",
+      "lf_sha256": "4e051e00dce04f5b7decd72bc81ee429f2b1334125290a37efdabb0d452c587e"
+    }
+  ]
+}

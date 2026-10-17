@@ -53,6 +53,15 @@ func _run() -> void:
 	var factory := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
 	check(factory.mount(self,subset),"canonical native factory mounts related board and real controls")
 	if board._native_service==null:terminal=true;get_tree().quit(1);return
+	var lift := OrisonElevator.new();add_child(lift)
+	var layout: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2_blockout.json"))
+	var served: Dictionary={"B1":true};var stops: Dictionary={}
+	for row: Dictionary in layout.lift_landings:
+		if row.shaft=="PASSENGER_LIFT_SHAFT":served[row.level]=true
+	for row: Dictionary in layout.levels:
+		if served.has(row.id):stops[row.id]=float(row.y)
+	lift.setup({"shaft":[4,4,6,6],"cabin":[1.55,2.2],"stops":stops,"door_w":.91})
+	check(board.bind_native_lift(lift),"service bench binds the real passenger car indicator owner")
 	for retained: Dictionary in factory.installed.LobbyPorterBoard.source:
 		var draw: MeshInstance3D=retained.draw.get_ref()
 		check(draw!=null and draw.get_parent().get_instance_id()==retained.parent,"original visual owner and parent survive detail replacement")
@@ -81,7 +90,7 @@ func _run() -> void:
 	var codec := preload("res://scripts/building/orison_v2_household_state.gd").new();add_child(codec)
 	codec._subjects={"LobbyPorterBoard":board};codec._kinds={"LobbyPorterBoard":"mechanism"};codec._defaults=codec.snapshot()
 	check(not board.interact_control("service",player) and board._service_panel==null,"native board cannot launch old service panel")
-	check(not board.interact_control("dispatch",player) and board._panel==null,"unconverted dispatch does not launch old minigame in V2")
+	check(not board.interact_control("dispatch",player) and board._panel==null,"physical dispatch does not launch old minigame in V2")
 	var first: Node3D=board._flag_arms[0]
 	await _aim(first);driver._click(player)
 	check(player._grab.active() and board._native_service.held==first,"actual sticky flag can be grabbed")
@@ -151,14 +160,12 @@ func _run() -> void:
 	var initial_lamp := -1
 	for i in board._lamps.size():
 		if board._lamps[i].emission_enabled:initial_lamp=i
-	var lamp_deadline := Time.get_ticks_msec()+3000
-	while initial_lamp>=0 and board._lamps[initial_lamp].emission_enabled and Time.get_ticks_msec()<lamp_deadline:
-		await get_tree().create_timer(.05).timeout
+	await get_tree().create_timer(.2).timeout
 	var active_lamps := 0
 	var lit_index := -1
 	for i in board._lamps.size():
 		if board._lamps[i].emission_enabled:active_lamps+=1;lit_index=i
-	check(initial_lamp>=0 and not board._lamps[initial_lamp].emission_enabled and active_lamps==1,"existing car-indicator cadence advances with one real emissive lens")
+	check(initial_lamp==board._lamps.size()-1-board._native_dispatch.levels.find(lift.current) and lit_index==initial_lamp and active_lamps==1,"idle car indicator remains on its actual landing instead of inventing motion")
 	if lit_index>=0:
 		var lens: MeshInstance3D=factory.installed.LobbyPorterBoard.source[2+lit_index*3].draw.get_ref()
 		player.camera.global_position=lens.global_position+Vector3(.065,.035,.17);player.camera.look_at(lens.global_position)

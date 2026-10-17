@@ -252,7 +252,7 @@ func _drag_to(player: Node3D, goal: float) -> void:
 		if pixels.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5:
 			pixels=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
 		var event := InputEventMouseMotion.new()
-		event.relative=pixels*step
+		event.relative=pixels*step/float(grip.get("motion_scale",1.0))
 		player._unhandled_input(event)
 		if is_equal_approx(float(grip.read.call()),before): return
 
