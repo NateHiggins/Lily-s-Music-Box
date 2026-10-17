@@ -1,0 +1,153 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Byte-for-byte decoded accessor preservation of the two unchanged chair variants, independent of GLB buffer offsets. Not chair appearance acceptance.",
+  "equal": true,
+  "old": {
+    "ChairDark__wood_dark": [
+      {
+        "attributes": {
+          "POSITION": {
+            "count": 13755,
+            "type": "VEC3",
+            "component_type": 5126,
+            "sha256": "7dfbf52a27e3db56a6c1b3d4a4e189e21c6f5df7fcc2c3352b8f444e7dcd09b7"
+          },
+          "NORMAL": {
+            "count": 13755,
+            "type": "VEC3",
+            "component_type": 5126,
+            "sha256": "9de410a8f52178eda449cc1d1f35a4813325ebd697eb0f958f7b6f2ea494ce87"
+          },
+          "TEXCOORD_0": {
+            "count": 13755,
+            "type": "VEC2",
+            "component_type": 5126,
+            "sha256": "9442aa4946c6aa18cfa34d6bcfef07df08771c2eaa406f4118725bedfcfd5521"
+          },
+          "TANGENT": {
+            "count": 13755,
+            "type": "VEC4",
+            "component_type": 5126,
+            "sha256": "9fa8226a0978862f8e6897e61a3d518cf2162a9950d1aa0a0fd80ab7b1e2f096"
+          }
+        },
+        "indices": {
+          "count": 13992,
+          "type": "SCALAR",
+          "component_type": 5123,
+          "sha256": "ef01155521ba452aa35c8d6997fc6947f45bcc888b85c52f3c727ca7a92ce03a"
+        }
+      }
+    ],
+    "ChairOak__oak_quartered": [
+      {
+        "attributes": {
+          "POSITION": {
+            "count": 13755,
+            "type": "VEC3",
+            "component_type": 5126,
+            "sha256": "7dfbf52a27e3db56a6c1b3d4a4e189e21c6f5df7fcc2c3352b8f444e7dcd09b7"
+          },
+          "NORMAL": {
+            "count": 13755,
+            "type": "VEC3",
+            "component_type": 5126,
+            "sha256": "9de410a8f52178eda449cc1d1f35a4813325ebd697eb0f958f7b6f2ea494ce87"
+          },
+          "TEXCOORD_0": {
+            "count": 13755,
+            "type": "VEC2",
+            "component_type": 5126,
+            "sha256": "9442aa4946c6aa18cfa34d6bcfef07df08771c2eaa406f4118725bedfcfd5521"
+          },
+          "TANGENT": {
+            "count": 13755,
+            "type": "VEC4",
+            "component_type": 5126,
+            "sha256": "9fa8226a0978862f8e6897e61a3d518cf2162a9950d1aa0a0fd80ab7b1e2f096"
+          }
+        },
+        "indices": {
+          "count": 13992,
+          "type": "SCALAR",
+          "component_type": 5123,
+          "sha256": "ef01155521ba452aa35c8d6997fc6947f45bcc888b85c52f3c727ca7a92ce03a"
+        }
+      }
+    ]
+  },
+  "new": {
+    "ChairDark__wood_dark": [
+      {
+        "attributes": {
+          "POSITION": {
+            "count": 13755,
+            "type": "VEC3",
+            "component_type": 5126,
+            "sha256": "7dfbf52a27e3db56a6c1b3d4a4e189e21c6f5df7fcc2c3352b8f444e7dcd09b7"
+          },
+          "NORMAL": {
+            "count": 13755,
+            "type": "VEC3",
+            "component_type": 5126,
+            "sha256": "9de410a8f52178eda449cc1d1f35a4813325ebd697eb0f958f7b6f2ea494ce87"
+          },
+          "TEXCOORD_0": {
+            "count": 13755,
+            "type": "VEC2",
+            "component_type": 5126,
+            "sha256": "9442aa4946c6aa18cfa34d6bcfef07df08771c2eaa406f4118725bedfcfd5521"
+          },
+          "TANGENT": {
+            "count": 13755,
+            "type": "VEC4",
+            "component_type": 5126,
+            "sha256": "9fa8226a0978862f8e6897e61a3d518cf2162a9950d1aa0a0fd80ab7b1e2f096"
+          }
+        },
+        "indices": {
+          "count": 13992,
+          "type": "SCALAR",
+          "component_type": 5123,
+          "sha256": "ef01155521ba452aa35c8d6997fc6947f45bcc888b85c52f3c727ca7a92ce03a"
+        }
+      }
+    ],
+    "ChairOak__oak_quartered": [
+      {
+        "attributes": {
+          "POSITION": {
+            "count": 13755,
+            "type": "VEC3",
+            "component_type": 5126,
+            "sha256": "7dfbf52a27e3db56a6c1b3d4a4e189e21c6f5df7fcc2c3352b8f444e7dcd09b7"
+          },
+          "NORMAL": {
+            "count": 13755,
+            "type": "VEC3",
+            "component_type": 5126,
+            "sha256": "9de410a8f52178eda449cc1d1f35a4813325ebd697eb0f958f7b6f2ea494ce87"
+          },
+          "TEXCOORD_0": {
+            "count": 13755,
+            "type": "VEC2",
+            "component_type": 5126,
+            "sha256": "9442aa4946c6aa18cfa34d6bcfef07df08771c2eaa406f4118725bedfcfd5521"
+          },
+          "TANGENT": {
+            "count": 13755,
+            "type": "VEC4",
+            "component_type": 5126,
+            "sha256": "9fa8226a0978862f8e6897e61a3d518cf2162a9950d1aa0a0fd80ab7b1e2f096"
+          }
+        },
+        "indices": {
+          "count": 13992,
+          "type": "SCALAR",
+          "component_type": 5123,
+          "sha256": "ef01155521ba452aa35c8d6997fc6947f45bcc888b85c52f3c727ca7a92ce03a"
+        }
+      }
+    ]
+  }
+}

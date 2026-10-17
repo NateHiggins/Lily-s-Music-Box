@@ -1,0 +1,41 @@
+{
+	"batch_checks": 7,
+	"elapsed_ms": 100162,
+	"evidence_class": "INERT",
+	"failures": [
+		"domestic_seating: actual native furniture supports retained stock: 5C_overalls",
+		"domestic_seating: actual native furniture supports retained stock: 5C_overalls",
+		"domestic_seating: actual native furniture supports retained stock: 5C_overalls",
+		"domestic_seating: actual native furniture supports retained stock: 5C_overalls",
+		"domestic_seating: actual native furniture supports retained stock: 2A_cushion_a",
+		"domestic_seating: actual native furniture supports retained stock: 2A_cushion_b"
+	],
+	"module_checks": 756,
+	"modules": {
+		"domestic_seating": {
+			"actors": 57,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 756,
+			"elapsed_ms": 982,
+			"failures": [
+				"actual native furniture supports retained stock: 5C_overalls",
+				"actual native furniture supports retained stock: 5C_overalls",
+				"actual native furniture supports retained stock: 5C_overalls",
+				"actual native furniture supports retained stock: 5C_overalls",
+				"actual native furniture supports retained stock: 2A_cushion_a",
+				"actual native furniture supports retained stock: 2A_cushion_b"
+			],
+			"fixture_sha256": "635a82201f178b2eb3d4403ced70305c4b06ef81871bb316439d2a9bc5712511",
+			"parts": 66,
+			"shared_validator_sha256": "ccb51e088fc13627acae45346b254de836574efb0cdf95e9bbc6a46eadd8ede3",
+			"unique_triangles": 78664,
+			"validator_sha256": "b075531e93b4cbd387afc38fd9f538a4c1c76b004cbea419fc914d1a1b3829f1",
+			"variants": 5,
+			"views": []
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

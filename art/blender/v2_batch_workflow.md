@@ -33,6 +33,13 @@ detail in the composed game before closing its defect. Reuse unchanged views
 and batch related corrections into one Godot capture. Unreviewed details stay
 open, including when static gates pass.
 
+When production physics disagrees with Blender, isolate the imported mesh and
+its existing factory in a small brokered bench before another full world boot.
+Keep contact tolerances and expected owners/normals intact; use a floating or
+wrong-part negative control before changing query parameters. The seating bench
+reproduces short-ray misses while longer rays meet the same 40-micron limit.
+After diagnosis, validate the correction in the combined production world.
+
 For lighting comparisons, operate the lamp's real logical switch and verify
 its rendered output has settled. Visibility alone can be rewritten by its
 presentation owner. Production optics retain a thermal tail that a simple

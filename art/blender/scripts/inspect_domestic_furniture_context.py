@@ -1,6 +1,6 @@
-"""All 103 native installations against production anchors and neighbours."""
+"""Native furniture installations against production anchors and neighbours."""
 from pathlib import Path
-import json, math
+import json, math, os
 import bpy
 import numpy as np
 from mathutils import Matrix, Vector
@@ -47,11 +47,12 @@ def moved(mesh,identity):
 bpy.ops.wm.read_factory_settings(use_empty=True)
 native={};contacts={};variants={};owners={}
 for family in ['domestic_seating','domestic_tables','work_tables']:
- with bpy.data.libraries.load(str(r/f'art/blender/{family}.blend'),link=False) as (src,dst):dst.objects=[n for n in src.objects if '__' in n]
+ source=Path(os.environ.get('DOMESTIC_SEATING_OUT',str(r))) if family=='domestic_seating' else r
+ with bpy.data.libraries.load(str(source/f'art/blender/{family}.blend'),link=False) as (src,dst):dst.objects=[n for n in src.objects if '__' in n]
  objects=dst.objects
  for obj in objects:bpy.context.scene.collection.objects.link(obj)
  bpy.context.view_layer.update()
- fixture=json.loads((r/f'game/tests/fixtures/orison_{family}.json').read_text())
+ fixture=json.loads((source/f'game/tests/fixtures/orison_{family}.json').read_text())
  for row in fixture['assemblies']:
   identity=row['id'];mesh=merge([native_mesh(o) for o in objects if o.name.startswith(identity+'__')]);assert mesh[0],identity
   native[identity]=mesh
@@ -99,7 +100,8 @@ for row in json.loads((r/'game/data/orison_v2/domestic_surface_props.json').read
   if hit is None or (hit-point).length>.00004 or normal.z<.99:failures.append([row['id'],row['support'],'missing native support',list(point)])
   stock_bearings.append({'id':row['id'],'support':row['support'],'point':[point.x,point.z,-point.y]})
 
-out=r/'tmp/v2-finish-review/domestic-furniture-context.json'
+out=Path(os.environ.get('DOMESTIC_CONTEXT_OUT',str(r/'tmp/v2-finish-review/domestic-furniture-context.json')))
+out.parent.mkdir(parents=True,exist_ok=True)
 out.write_text(json.dumps({'evidence_class':'INERT','installations':len(variants),'bearings':bearings,'nearby_pairs':clearances,'retained_stock_bearings':stock_bearings,'failures':failures,'scope':'Production anchor transforms; native seating, tables and accepted work tables; other neighbours use retained furniture triangles or conservative source bounds for model-only fixtures. Floor planes come from the source room rectangles. Actual runtime collisions and lighting remain required.'},indent=2)+'\n')
 assert not failures,failures
 print('DOMESTIC CONTEXT:',len(variants),'installations;',len(bearings),'floor bearings;',len(clearances),'nearby pairs clear')

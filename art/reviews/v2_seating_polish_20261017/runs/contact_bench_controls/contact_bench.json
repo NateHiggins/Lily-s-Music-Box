@@ -1,0 +1,911 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"records": [
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "4C_jersey",
+			"label": "seat (-0.13, -0.13, 0.2)",
+			"local": "(-0.13, 0.47574, 0.129999)",
+			"long": {
+				"collider": "4C_bed1_chair",
+				"delta": "(0.0, -0.000003, 0.0)",
+				"distance": 0.00000286102294921875,
+				"hit": true,
+				"normal": "(0.031774, 0.999111, -0.027696)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.00001, -0.000003, 0.0)",
+					"distance": 0.0000103999536804622,
+					"hit": true,
+					"normal": "(0.027696, 0.999111, -0.031774)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(-0.00001, -0.000002, 0.0)",
+					"distance": 0.0000101789764812565,
+					"hit": true,
+					"normal": "(0.031774, 0.999111, -0.027696)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0, -0.000002, 0.00001)",
+					"distance": 0.00000972560792433796,
+					"hit": true,
+					"normal": "(0.027696, 0.999111, -0.031774)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0, -0.000003, -0.00001)",
+					"distance": 0.00000995665232039755,
+					"hit": true,
+					"normal": "(0.031774, 0.999111, -0.027696)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0002, -0.000002, 0.0002)",
+					"distance": 0.000283043656963855,
+					"hit": true,
+					"normal": "(0.027696, 0.999111, -0.031774)"
+				}
+			],
+			"short": {
+				"collider": "4C_bed1_chair",
+				"delta": "(0.0, -0.000003, 0.0)",
+				"distance": 0.00000286102294921875,
+				"hit": true,
+				"normal": "(0.031774, 0.999111, -0.027696)"
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "4C_jersey",
+			"label": "seat (0.13, -0.13, 0.2)",
+			"local": "(0.13, 0.47574, 0.129999)",
+			"long": {
+				"collider": "4C_bed1_chair",
+				"delta": "(0.0, -0.000003, 0.0)",
+				"distance": 0.00000286102294921875,
+				"hit": true,
+				"normal": "(-0.031774, 0.999111, -0.027696)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.00001, -0.000002, 0.0)",
+					"distance": 0.0000101789764812565,
+					"hit": true,
+					"normal": "(-0.031774, 0.999111, -0.027696)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(-0.00001, -0.000003, 0.0)",
+					"distance": 0.0000103999536804622,
+					"hit": true,
+					"normal": "(-0.027696, 0.999111, -0.031774)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0, -0.000002, 0.00001)",
+					"distance": 0.00000972560792433796,
+					"hit": true,
+					"normal": "(-0.027696, 0.999111, -0.031774)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0, -0.000003, -0.00001)",
+					"distance": 0.00000995665232039755,
+					"hit": true,
+					"normal": "(-0.031774, 0.999111, -0.027696)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0002, 0.00001, 0.0002)",
+					"distance": 0.000283197849057615,
+					"hit": true,
+					"normal": "(-0.031774, 0.999111, -0.027696)"
+				}
+			],
+			"short": {
+				"collider": "4C_bed1_chair",
+				"delta": "(0.0, -0.000003, 0.0)",
+				"distance": 0.00000286102294921875,
+				"hit": true,
+				"normal": "(-0.031774, 0.999111, -0.027696)"
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "4C_jersey",
+			"label": "seat (-0.13, 0.13, 0.2)",
+			"local": "(-0.13, 0.47574, -0.129999)",
+			"long": {
+				"collider": "4C_bed1_chair",
+				"delta": "(0.0, -0.000003, 0.0)",
+				"distance": 0.00000286102294921875,
+				"hit": true,
+				"normal": "(0.031774, 0.999111, 0.027696)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.00001, -0.000003, 0.0)",
+					"distance": 0.0000103999536804622,
+					"hit": true,
+					"normal": "(0.027696, 0.999111, 0.031774)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(-0.00001, -0.000002, 0.0)",
+					"distance": 0.0000101789764812565,
+					"hit": true,
+					"normal": "(0.031774, 0.999111, 0.027696)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0, -0.000003, 0.00001)",
+					"distance": 0.00000995665232039755,
+					"hit": true,
+					"normal": "(0.031774, 0.999111, 0.027696)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0, -0.000002, -0.00001)",
+					"distance": 0.00000972560792433796,
+					"hit": true,
+					"normal": "(0.027696, 0.999111, 0.031774)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0002, -0.000014, 0.0002)",
+					"distance": 0.000283398490864784,
+					"hit": true,
+					"normal": "(0.031774, 0.999111, 0.027696)"
+				}
+			],
+			"short": {
+				"collider": "4C_bed1_chair",
+				"delta": "(0.0, -0.000003, 0.0)",
+				"distance": 0.00000286102294921875,
+				"hit": true,
+				"normal": "(0.031774, 0.999111, 0.027696)"
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "4C_jersey",
+			"label": "seat (0.13, 0.13, 0.2)",
+			"local": "(0.13, 0.47574, -0.129999)",
+			"long": {
+				"collider": "4C_bed1_chair",
+				"delta": "(0.0, -0.000003, 0.0)",
+				"distance": 0.00000286102294921875,
+				"hit": true,
+				"normal": "(-0.031774, 0.999111, 0.027696)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.00001, -0.000002, 0.0)",
+					"distance": 0.0000101789764812565,
+					"hit": true,
+					"normal": "(-0.031774, 0.999111, 0.027696)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(-0.00001, -0.000003, 0.0)",
+					"distance": 0.0000103999536804622,
+					"hit": true,
+					"normal": "(-0.027696, 0.999111, 0.031774)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0, -0.000003, 0.00001)",
+					"distance": 0.00000995665232039755,
+					"hit": true,
+					"normal": "(-0.031774, 0.999111, 0.027696)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0, -0.000002, -0.00001)",
+					"distance": 0.00000972560792433796,
+					"hit": true,
+					"normal": "(-0.027696, 0.999111, 0.031774)"
+				},
+				{
+					"collider": "4C_bed1_chair",
+					"delta": "(0.0002, -0.000002, 0.0002)",
+					"distance": 0.000283043656963855,
+					"hit": true,
+					"normal": "(-0.031774, 0.999111, 0.027696)"
+				}
+			],
+			"short": {
+				"collider": "4C_bed1_chair",
+				"delta": "(0.0, -0.000003, 0.0)",
+				"distance": 0.00000286102294921875,
+				"hit": true,
+				"normal": "(-0.031774, 0.999111, 0.027696)"
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "5C_overalls",
+			"label": "seat (-0.14, -0.14, 0.2)",
+			"local": "(-0.14, 0.476799, 0.139999)",
+			"long": {
+				"collider": "5C_bed_chair",
+				"delta": "(0.0, -0.000005, 0.0)",
+				"distance": 0.00000476837158203125,
+				"hit": true,
+				"normal": "(0.075405, 0.994984, -0.065728)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.00001, -0.000006, 0.0)",
+					"distance": 0.0000115331522465567,
+					"hit": true,
+					"normal": "(0.065728, 0.994984, -0.075405)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(-0.00001, -0.000004, 0.0)",
+					"distance": 0.0000107155819932814,
+					"hit": true,
+					"normal": "(0.075405, 0.994984, -0.065728)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0, -0.000004, 0.00001)",
+					"distance": 0.0000102713865999249,
+					"hit": true,
+					"normal": "(0.065728, 0.994984, -0.075405)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0, -0.000006, -0.00001)",
+					"distance": 0.0000111216577352025,
+					"hit": true,
+					"normal": "(0.075405, 0.994984, -0.065728)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0002, -0.000003, 0.0002)",
+					"distance": 0.000283072731690481,
+					"hit": true,
+					"normal": "(0.065728, 0.994984, -0.075405)"
+				}
+			],
+			"short": {
+				"hit": false
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "5C_overalls",
+			"label": "seat (0.14, -0.14, 0.2)",
+			"local": "(0.14, 0.476799, 0.139999)",
+			"long": {
+				"collider": "5C_bed_chair",
+				"delta": "(0.0, -0.000005, 0.0)",
+				"distance": 0.00000476837158203125,
+				"hit": true,
+				"normal": "(-0.075405, 0.994984, -0.065728)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.00001, -0.000004, 0.0)",
+					"distance": 0.0000107155819932814,
+					"hit": true,
+					"normal": "(-0.075405, 0.994984, -0.065728)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(-0.00001, -0.000006, 0.0)",
+					"distance": 0.0000115331522465567,
+					"hit": true,
+					"normal": "(-0.065728, 0.994984, -0.075405)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0, -0.000004, 0.00001)",
+					"distance": 0.0000102713865999249,
+					"hit": true,
+					"normal": "(-0.065728, 0.994984, -0.075405)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0, -0.000006, -0.00001)",
+					"distance": 0.0000111216577352025,
+					"hit": true,
+					"normal": "(-0.075405, 0.994984, -0.065728)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0002, 0.000024, 0.0002)",
+					"distance": 0.00028389276121743,
+					"hit": true,
+					"normal": "(-0.065728, 0.994984, -0.075405)"
+				}
+			],
+			"short": {
+				"hit": false
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "5C_overalls",
+			"label": "seat (-0.14, 0.14, 0.2)",
+			"local": "(-0.14, 0.476799, -0.139999)",
+			"long": {
+				"collider": "5C_bed_chair",
+				"delta": "(0.0, -0.000005, 0.0)",
+				"distance": 0.00000476837158203125,
+				"hit": true,
+				"normal": "(0.075405, 0.994984, 0.065728)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.00001, -0.000006, 0.0)",
+					"distance": 0.0000115331522465567,
+					"hit": true,
+					"normal": "(0.065728, 0.994984, 0.075405)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(-0.00001, -0.000004, 0.0)",
+					"distance": 0.0000107155819932814,
+					"hit": true,
+					"normal": "(0.075405, 0.994984, 0.065728)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0, -0.000006, 0.00001)",
+					"distance": 0.0000111216577352025,
+					"hit": true,
+					"normal": "(0.075405, 0.994984, 0.065728)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0, -0.000004, -0.00001)",
+					"distance": 0.0000102713865999249,
+					"hit": true,
+					"normal": "(0.065728, 0.994984, 0.075405)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0002, -0.000033, 0.0002)",
+					"distance": 0.000285019516013563,
+					"hit": true,
+					"normal": "(0.075405, 0.994984, 0.065728)"
+				}
+			],
+			"short": {
+				"hit": false
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "5C_overalls",
+			"label": "seat (0.14, 0.14, 0.2)",
+			"local": "(0.14, 0.476799, -0.139999)",
+			"long": {
+				"collider": "5C_bed_chair",
+				"delta": "(0.0, -0.000005, 0.0)",
+				"distance": 0.00000476837158203125,
+				"hit": true,
+				"normal": "(-0.075405, 0.994984, 0.065728)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.00001, -0.000004, 0.0)",
+					"distance": 0.0000107155819932814,
+					"hit": true,
+					"normal": "(-0.075405, 0.994984, 0.065728)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(-0.00001, -0.000006, 0.0)",
+					"distance": 0.0000115331522465567,
+					"hit": true,
+					"normal": "(-0.065728, 0.994984, 0.075405)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0, -0.000006, 0.00001)",
+					"distance": 0.0000111216577352025,
+					"hit": true,
+					"normal": "(-0.075405, 0.994984, 0.065728)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0, -0.000004, -0.00001)",
+					"distance": 0.0000102713865999249,
+					"hit": true,
+					"normal": "(-0.065728, 0.994984, 0.075405)"
+				},
+				{
+					"collider": "5C_bed_chair",
+					"delta": "(0.0002, -0.000003, 0.0002)",
+					"distance": 0.000282904307823628,
+					"hit": true,
+					"normal": "(-0.075405, 0.994984, 0.065728)"
+				}
+			],
+			"short": {
+				"hit": false
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "2A_cushion_a",
+			"label": "seat (-0.13, -0.13, 0)",
+			"local": "(-0.713796, 0.455, 0.03812)",
+			"long": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.00001, 0.0, 0.0)",
+					"distance": 0.0000100135803222656,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(-0.00001, 0.0, 0.0)",
+					"distance": 0.0000100135803222656,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, 0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, -0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0002, 0.0, 0.0002)",
+					"distance": 0.000282889843219891,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				}
+			],
+			"short": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "2A_cushion_a",
+			"label": "seat (0.13, -0.13, 0)",
+			"local": "(-0.461879, 0.455, -0.026203)",
+			"long": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.00001, 0.0, 0.0)",
+					"distance": 0.0000100135803222656,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(-0.00001, 0.0, 0.0)",
+					"distance": 0.0000100135803222656,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, 0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, -0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0002, 0.0, 0.0002)",
+					"distance": 0.000282889843219891,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				}
+			],
+			"short": {
+				"hit": false
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "2A_cushion_a",
+			"label": "seat (-0.13, 0.13, 0)",
+			"local": "(-0.778121, 0.455, -0.213797)",
+			"long": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.00001, 0.0, 0.0)",
+					"distance": 0.0000100135803222656,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(-0.00001, 0.0, 0.0)",
+					"distance": 0.0000100135803222656,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, 0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, -0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0002, 0.0, 0.0002)",
+					"distance": 0.000282889843219891,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				}
+			],
+			"short": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "2A_cushion_a",
+			"label": "seat (0.13, 0.13, 0)",
+			"local": "(-0.526204, 0.455, -0.278122)",
+			"long": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.00001, 0.0, 0.0)",
+					"distance": 0.0000100135803222656,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(-0.00001, 0.0, 0.0)",
+					"distance": 0.0000100135803222656,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, 0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, -0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0002, 0.0, 0.0002)",
+					"distance": 0.000282889843219891,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				}
+			],
+			"short": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "2A_cushion_b",
+			"label": "seat (-0.13, -0.13, 0)",
+			"local": "(0.489637, 0.455, -0.030886)",
+			"long": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.00001, 0.0, 0.0)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(-0.00001, 0.0, 0.0)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, 0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, -0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0002, 0.0, 0.0002)",
+					"distance": 0.00028322683647275,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				}
+			],
+			"short": {
+				"hit": false
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "2A_cushion_b",
+			"label": "seat (0.13, -0.13, 0)",
+			"local": "(0.729114, 0.455, 0.070362)",
+			"long": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.00001, 0.0, 0.0)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(-0.00001, 0.0, 0.0)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, 0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, -0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0002, 0.0, 0.0002)",
+					"distance": 0.00028322683647275,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				}
+			],
+			"short": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "2A_cushion_b",
+			"label": "seat (-0.13, 0.13, 0)",
+			"local": "(0.590886, 0.455, -0.270363)",
+			"long": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.00001, 0.0, 0.0)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(-0.00001, 0.0, 0.0)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, 0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, -0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0002, 0.0, 0.0002)",
+					"distance": 0.00028322683647275,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				}
+			],
+			"short": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			}
+		},
+		{
+			"floating_negative_control_qualifies": false,
+			"id": "2A_cushion_b",
+			"label": "seat (0.13, 0.13, 0)",
+			"local": "(0.830362, 0.455, -0.169113)",
+			"long": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			},
+			"long_qualifies": true,
+			"nearby": [
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.00001, 0.0, 0.0)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(-0.00001, 0.0, 0.0)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, 0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0, 0.0, -0.00001)",
+					"distance": 0.0000095367431640625,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				},
+				{
+					"collider": "2A_sofa",
+					"delta": "(0.0002, 0.0, 0.0002)",
+					"distance": 0.00028322683647275,
+					"hit": true,
+					"normal": "(0.0, 1.0, 0.0)"
+				}
+			],
+			"short": {
+				"collider": "2A_sofa",
+				"delta": "(0.0, 0.0, 0.0)",
+				"distance": 0.0,
+				"hit": true,
+				"normal": "(0.0, 1.0, 0.0)"
+			}
+		}
+	],
+	"scope": "Imported native mesh/physics ray diagnosis, not composed-world acceptance."
+}

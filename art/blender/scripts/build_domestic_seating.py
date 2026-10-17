@@ -1,4 +1,4 @@
-"""Four native seating variants shared by 41 original and completion actors."""
+"""Five native seating variants shared by 57 retained furniture actors."""
 from pathlib import Path
 import collections,hashlib,json,math,re,sys
 # Godot may normalize a provisional import UID without changing any geometry.

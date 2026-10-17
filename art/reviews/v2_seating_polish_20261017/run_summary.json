@@ -1,0 +1,81 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Wrapper receipts remain suite_run. Only the final surface test-written schema-2 runtime_contract supplies scoped runtime proof. First focused diagnostic was terminated after its known inferred-type error; its stale-cache-suspect marker is not a confirmed stale-cache diagnosis. No failed result is promoted.",
+  "runs": [
+    {
+      "name": "contact_diagnostic",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 98.81,
+        "exit_code": -1,
+        "finished_utc": "2026-10-17T22:47:35Z",
+        "started_utc": "2026-10-17T22:45:56Z",
+        "timed_out": false
+      },
+      "script_error_count": 6,
+      "failed_check_lines": 0,
+      "stderr_nonempty": true
+    },
+    {
+      "name": "contact_diagnostic_fixed",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 110.2,
+        "exit_code": 1,
+        "finished_utc": "2026-10-17T22:49:27Z",
+        "started_utc": "2026-10-17T22:47:36Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "failed_check_lines": 6,
+      "stderr_nonempty": true
+    },
+    {
+      "name": "contact_bench",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.76,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T22:50:43Z",
+        "started_utc": "2026-10-17T22:50:42Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "failed_check_lines": 0,
+      "stderr_nonempty": false
+    },
+    {
+      "name": "contact_bench_controls",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.76,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T22:51:38Z",
+        "started_utc": "2026-10-17T22:51:37Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "failed_check_lines": 0,
+      "stderr_nonempty": false
+    },
+    {
+      "name": "surface_repaired",
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 346.6,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T22:57:36Z",
+        "started_utc": "2026-10-17T22:51:50Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "failed_check_lines": 0,
+      "stderr_nonempty": true
+    }
+  ]
+}

@@ -1,0 +1,386 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "2A_sofa",
+    "4B_couch",
+    "2A_din_dc1",
+    "2A_din_dc2",
+    "2A_desk_dkch",
+    "2B_din_dc1",
+    "2B_din_dc2",
+    "3B_din_dc1",
+    "3B_din_dc2",
+    "3B_stool",
+    "4B_desk_chair",
+    "3A_din_dc1",
+    "3A_din_dc2",
+    "4A_din_dc1",
+    "4A_din_dc2",
+    "5A_din_dc1",
+    "5A_din_dc2",
+    "5B_din_dc1",
+    "5B_din_dc2",
+    "5C_din_dc1",
+    "5C_din_dc2",
+    "6A_din_dc1",
+    "6A_din_dc2",
+    "6B_din_dc1",
+    "6B_din_dc2",
+    "6C_din_dc1",
+    "6C_din_dc2",
+    "5A_stool",
+    "6A_deskchair",
+    "6C_sofa"
+  ],
+  "interpretation_ids": [
+    "4B_meal_chair_01",
+    "4B_meal_chair_02"
+  ],
+  "variants": [
+    {
+      "id": "Sofa195",
+      "kind": "sofa",
+      "source_id": "2A_sofa",
+      "params": {
+        "length": 1.95,
+        "wood": "wood_dark",
+        "cloth": "fabric_cool",
+        "arms": "rolled"
+      }
+    },
+    {
+      "id": "Sofa210",
+      "kind": "sofa",
+      "source_id": "4B_couch",
+      "params": {
+        "length": 2.1,
+        "wood": "wood_dark",
+        "cloth": "fabric_cool",
+        "arms": "rolled"
+      }
+    },
+    {
+      "id": "ChairDark",
+      "kind": "chair",
+      "source_id": "2A_din_dc1",
+      "params": {
+        "wood": "wood_dark"
+      }
+    },
+    {
+      "id": "ChairOak",
+      "kind": "chair",
+      "source_id": "3B_din_dc1",
+      "params": {
+        "wood": "oak_quartered"
+      }
+    },
+    {
+      "id": "Armchair",
+      "kind": "sofa",
+      "source_id": "5B_radio_chair",
+      "params": {
+        "length": 0.85,
+        "wood": "wood_dark",
+        "cloth": "fabric_cool",
+        "arms": "rolled",
+        "cushions": 1
+      }
+    }
+  ],
+  "instances": [
+    {
+      "id": "2A_sofa",
+      "variant": "Sofa195"
+    },
+    {
+      "id": "4B_couch",
+      "variant": "Sofa210"
+    },
+    {
+      "id": "2A_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2A_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2A_desk_dkch",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2B_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2B_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "3B_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3B_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3B_stool",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4B_meal_chair_01",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "4B_meal_chair_02",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "4B_desk_chair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "3A_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3A_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4A_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "4A_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "5A_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5A_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5B_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5B_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5C_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5C_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "6A_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6A_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6B_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6B_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6C_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6C_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "5A_stool",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "6A_deskchair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6C_sofa",
+      "variant": "Sofa195"
+    },
+    {
+      "id": "2C_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "2C_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4C_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4C_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "1D_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "1A_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3D_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4D_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5C_studio_stool",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "2C_session_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "1A_reading_chair",
+      "variant": "Armchair"
+    },
+    {
+      "id": "1A_bed_chair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "1A_study_chair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "1D_daybed",
+      "variant": "Sofa195"
+    },
+    {
+      "id": "1D_bed_chair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "3D_chaise",
+      "variant": "Sofa195"
+    },
+    {
+      "id": "4D_settee",
+      "variant": "Sofa195"
+    },
+    {
+      "id": "4D_chair2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "5B_radio_chair",
+      "variant": "Armchair"
+    },
+    {
+      "id": "2B_client_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "F01_common_armchair",
+      "variant": "Armchair"
+    },
+    {
+      "id": "F01_watch_chair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "F01_operator_stool",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4C_bed1_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5C_bed_chair",
+      "variant": "ChairOak"
+    }
+  ],
+  "runtime_keys": [
+    "wood_dark",
+    "oak_quartered",
+    "fabric_cool",
+    "linen"
+  ],
+  "catalog_variants": {
+    "wood_dark": "oak_work_surface",
+    "oak_quartered": "oak_work_surface",
+    "fabric_cool": "linen",
+    "linen": "linen"
+  },
+  "material_tints": {
+    "wood_dark": [
+      0.27,
+      0.14,
+      0.065,
+      1
+    ],
+    "fabric_cool": [
+      0.36,
+      0.42,
+      0.51,
+      1
+    ]
+  },
+  "finish_parameters": {
+    "wood_dark": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "oak_quartered": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "fabric_cool": {
+      "normal_scale": 0.16,
+      "roughness": 0.85
+    },
+    "linen": {
+      "normal_scale": 0.12,
+      "roughness": 0.85
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Retained furniture local frame; native (X,Y,Z) converts to Godot (X,Z,-Y)."
+  },
+  "adaptations": [
+    "Keep all original actor identities, source placements, seat-height envelopes and existing nonvisual ownership. Five native shape/material variants serve 57 retained installations, including completion homes and dossier additions.",
+    "Replace segmented primitive chair hoop with continuous bentwood; retain seat outline and back control points. Cut splayed feet at the original floor plane, removing source penetration.",
+    "Retain sofa lengths and cushion count. Loft closed stuffed panels over sewn boxing with rounded shoulders, level seat bearings beneath retained loose cushions, fuller back crowns within original envelopes, and matching-cloth piping at the actual seam. Retain fitted bases, rolled arms and support stock.",
+    "Use existing fine oak and linen catalogue maps with source dark wood and cool fabric tints. No new global finish or map.",
+    "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender.",
+    "Slice 10 of the V2 environment dossier adds the armchair (Armchair: the sofa recipe at 0.85 m with one cushion and rolled arms) for 5B's listening chair and 1A's reading chair.",
+    "Slice 17 of the V2 environment dossier adds 2B's client chair as a ChairOak copy.",
+    "Slice 21 of the V2 environment dossier adds an armchair in the common room's window corner (an Armchair copy).",
+    "Slice 28 of the V2 environment dossier seats the watch desk (a ChairDark copy) and the house board (a ChairOak copy).",
+    "Slice 31 of the V2 environment dossier sets a ChairOak copy in 4C's and 5C's bedrooms to carry the jersey and the overalls."
+  ],
+  "open_work": [
+    "Broader room material/light balance, remaining furniture construction and whole-building visual acceptance remain open. The native recipe and local geometry checks do not establish loaded rendering, gameplay or human appearance acceptance."
+  ],
+  "tint_space": "linear"
+}

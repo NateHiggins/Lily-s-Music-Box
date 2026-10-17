@@ -91,6 +91,13 @@ func _run() -> void:
 	var domestic_result: Dictionary=await domestic_review.validate_in_world(world)
 	batch_checks+=int(domestic_result.checks)
 	for failure: String in domestic_result.failures:failures.append(failure)
+	# Inspect all shared seating copies and capture the five native variants
+	# inside this already-loaded production world rather than booting another.
+	var seating_review := preload("res://tests/orison_v2_domestic_seating_test.gd").new()
+	add_child(seating_review)
+	var seating_result: Dictionary=await seating_review.validate_in_world(world)
+	batch_checks+=int(seating_result.checks)
+	for failure: String in seating_result.failures:failures.append(failure)
 	var storage_review := preload("res://tests/orison_v2_domestic_storage_test.gd").new()
 	storage_review.capture_enabled=false;add_child(storage_review)
 	var storage_result: Dictionary=await storage_review.validate_in_world(world)
@@ -272,6 +279,11 @@ func _run() -> void:
 	for failure: String in domestic_retired.failures:
 		if not failures.has(failure):failures.append(failure)
 	domestic_review.free()
+	var seating_retired: Dictionary=seating_review.validate_after_teardown()
+	batch_checks+=int(seating_retired.checks)-int(seating_result.checks)
+	for failure: String in seating_retired.failures:
+		if not failures.has(failure):failures.append(failure)
+	seating_review.free()
 	var media_retired: Dictionary = media_review.validate_after_teardown()
 	batch_checks += int(media_retired.checks)-int(media_result.checks)
 	for failure: String in media_retired.failures:

@@ -52,6 +52,73 @@ def rounded_rectangle(x0,y0,x1,y1,z,radius=.02,n=12):
   points += [(x+radius*math.cos(a),y+radius*math.sin(a),z) for a in np.linspace(start,start+math.pi/2,n,endpoint=False)]
  return points+[points[0]]
 
+def boxed_cushion(label,lo,hi,key,radius,axis=2):
+ # Sewn boxing joins two stuffed panels. Crown stays inside the original
+ # envelope; the seat's lower panel still bears on its retained sprung base.
+ # The back uses the same construction facing +Y instead of +Z.
+ plane=[i for i in range(3) if i!=axis]
+ center=np.array([(lo[i]+hi[i])*.5 for i in plane])
+ half=np.array([(hi[i]-lo[i])*.5 for i in plane])
+ thickness=hi[axis]-lo[axis]
+ lower=lo[axis]+min(.012,thickness*.12)
+ upper=hi[axis]-min(.030,thickness*.22)
+ boundary=[np.array(p[:2]) for p in rounded_rectangle(*(center-half),*(center+half),0,radius,n=8)[:-1]]
+ # Distribute vertices along straight hems too, so broad fabric panels do
+ # not inherit the old box's long, sparsely sampled edges.
+ outline=[]
+ for a,b in zip(boundary,boundary[1:]+boundary[:1]):
+  steps=max(1,math.ceil(float(np.linalg.norm(b-a))/.055))
+  outline.extend(a+(b-a)*t/steps for t in range(steps))
+ outline=np.array(outline)
+ verts=[];rings=[]
+ def ring(scale,height,edge_bulge=0.):
+  ids=[]
+  for uv in outline:
+   uv=center+(uv-center)*scale
+   if edge_bulge:uv+=((uv-center)/half)*edge_bulge
+   p=[0.,0.,0.];p[axis]=height
+   for j,i in enumerate(plane):p[i]=uv[j]
+   ids.append(len(verts));verts.append(p)
+  rings.append(ids)
+ def pole(height):
+  p=[0.,0.,0.];p[axis]=height
+  for j,i in enumerate(plane):p[i]=center[j]
+  rings.append([len(verts)]);verts.append(p)
+ pole(lo[axis])
+ for s in [.20,.45,.70,.88,.97,1.]:
+  ring(s,lo[axis]+(lower-lo[axis])*s*s)
+ ring(1.,lower+(upper-lower)*.35,.002)
+ ring(1.,lower+(upper-lower)*.70,.002)
+ ring(1.,upper)
+ seam=[]
+ for v in rings[-1]:seam.append(tuple(verts[v]))
+ shoulder=min(.026,min(half)*.18)
+ scales=[1.-shoulder/min(half)*t for t in [.04,.16,.36,.64,1.]]
+ scales += [scales[-1]*t for t in [.85,.65,.40,.17]]
+ for s in scales:
+  # A rounded shoulder beneath a broad crown, not a planar box cap.
+  inset=(1.-s)*min(half)
+  q=min(inset/shoulder,1.)
+  shoulder_height=math.sqrt(max(0.,1.-(1.-q)**2))
+  # The horizontal panel's broad bearing stays level beneath the retained
+  # loose cushions. The rounding is at its sewn shoulder; the upright back
+  # panel can carry a fuller crown without disturbing supported stock.
+  crown=shoulder_height if axis==2 else .80*shoulder_height+.20*(1.-s*s)
+  height=upper+(hi[axis]-upper)*crown
+  ring(s,height)
+ pole(hi[axis])
+ faces=[];n=len(outline)
+ for a,b in zip(rings,rings[1:]):
+  for j in range(n):
+   k=(j+1)%n
+   if len(a)==1:faces.append((a[0],b[j],b[k]))
+   elif len(b)==1:faces.append((a[j],b[0],a[k]))
+   else:faces.append((a[j],b[j],b[k],a[k]))
+ obj=solid(identity+'_'+label,verts,faces,identity,key)
+ # The welt is sewn at the actual cap/boxing junction, using the same cloth.
+ wire(label+'Welt',seam+[seam[0]],.0015,key)
+ return obj
+
 def sofa(params):
  length=params['length'];wood=params['wood'];cloth=params['cloth'];depth=.88
  for ix,x in enumerate([-length/2+.10,length/2-.10]):
@@ -75,13 +142,8 @@ def sofa(params):
  count=int(params.get('cushions',2));cw=(length-.04*(count+1))/count
  for i in range(count):
   x0=-length/2+.04+i*(cw+.04);x1=x0+cw
-  pad('SeatCushion'+str(i),(x0,-.28,.309),(x1,.41,.455),cloth,.026)
-  pad('BackCushion'+str(i),(x0,-.34,.435),(x1,-.14,.82),cloth,.035)
-  # Fine applied welts bear on the cushion side, below the rounded shoulder.
-  wire('SeatWelt'+str(i),rounded_rectangle(x0-.0004,-.2804,x1+.0004,.4104,.365,.026),.0015,'linen')
-  # The back welt follows the rounded front perimeter, in the vertical plane.
-  path=rounded_rectangle(x0+.008,.447,x1-.008,.808,0,.029)
-  wire('BackWelt'+str(i),[(x,-.141,z) for x,z,_ in path],.0015,'linen')
+  boxed_cushion('SeatCushion'+str(i),(x0,-.28,.309),(x1,.41,.455),cloth,.026)
+  boxed_cushion('BackCushion'+str(i),(x0,-.34,.435),(x1,-.14,.82),cloth,.035,axis=1)
  retained_stock.append({'assembly':identity,'kind':'sofa','length':length,'cushions':count,'seat_top':.455,'back_top':.82})
 
 for item in assemblies:

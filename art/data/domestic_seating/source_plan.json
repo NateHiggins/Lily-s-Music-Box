@@ -368,9 +368,9 @@
     "frame": "Retained furniture local frame; native (X,Y,Z) converts to Godot (X,Z,-Y)."
   },
   "adaptations": [
-    "Keep all original actor identities, source placements, seat heights and existing nonvisual ownership. Four exact source shape/material variants serve 41 installations, including two existing V2 meal chairs and nine completion copies.",
+    "Keep all original actor identities, source placements, seat-height envelopes and existing nonvisual ownership. Five native shape/material variants serve 57 retained installations, including completion homes and dossier additions.",
     "Replace segmented primitive chair hoop with continuous bentwood; retain seat outline and back control points. Cut splayed feet at the original floor plane, removing source penetration.",
-    "Retain sofa lengths and cushion count; fitted padded shells, softened cushions and fine attached welts replace source blocks and floating stitch marks.",
+    "Retain sofa lengths and cushion count. Loft closed stuffed panels over sewn boxing with rounded shoulders, level seat bearings beneath retained loose cushions, fuller back crowns within original envelopes, and matching-cloth piping at the actual seam. Retain fitted bases, rolled arms and support stock.",
     "Use existing fine oak and linen catalogue maps with source dark wood and cool fabric tints. No new global finish or map.",
     "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender.",
     "Slice 10 of the V2 environment dossier adds the armchair (Armchair: the sofa recipe at 0.85 m with one cushion and rolled arms) for 5B's listening chair and 1A's reading chair.",
@@ -380,7 +380,7 @@
     "Slice 31 of the V2 environment dossier sets a ChairOak copy in 4C's and 5C's bedrooms to carry the jersey and the overalls."
   ],
   "open_work": [
-    "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."
+    "Broader room material/light balance, remaining furniture construction and whole-building visual acceptance remain open. The native recipe and local geometry checks do not establish loaded rendering, gameplay or human appearance acceptance."
   ],
   "tint_space": "linear"
 }

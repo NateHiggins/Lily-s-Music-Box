@@ -82,7 +82,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			check(not hit.is_empty() and hit.position.distance_to(at)<.00004 and hit.normal.dot(direction)>.99,"actual world meets native bearing: "+identity+" / "+str(probe.label))
 	check(first_actors.size() == fixture.runtime.assemblies.size() and unique_triangles == int(fixture.triangles),"all shared native variants accounted for")
 	check(mounted_ids.size() == fixture.runtime.instances.size(),"all original and completion actors accounted for")
-	if family in ["domestic_tables","domestic_storage"]:
+	if family in ["domestic_tables","domestic_storage","domestic_seating"]:
 		var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/domestic_surface_props.json"))
 		var stock: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_surface_stock.json"))
 		var ids: Array = fixture.runtime.instances.map(func(row): return row.id)
@@ -97,10 +97,18 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				if contact.assembly != row.id: continue
 				var p: Array = contact.point
 				var at := prop.to_global(Vector3(p[0],p[1],p[2]))
-				var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*.004,at-Vector3.UP*.004,1))
+				# Jolt misses some short segments on the imported seat triangles.
+				# The isolated bench reproduces this while a longer ray hits the
+				# same point within 5 microns. Keep the 40-micron/contact-normal
+				# acceptance below; increasing ray reach never accepts a gap.
+				var half_ray := .25 if family=="domestic_seating" else .004
+				var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*half_ray,at-Vector3.UP*half_ray,1))
 				# Stock standing on the floor beside its support (position y 0) bears on the floor.
 				var floor_stance := is_zero_approx(float(row.position[1]))
-				check(not hit.is_empty() and (floor_stance or hit.collider == support) and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"actual native table supports retained stock: "+str(row.id))
+				var supported: bool = not hit.is_empty() and (floor_stance or hit.collider == support) and hit.position.distance_to(at)<.00004 and hit.normal.y>.99
+				if not supported:
+					print("RETAINED STOCK CONTACT ",row.id," / ",contact.label," at=",at," support=",support.get_path()," hit=",hit)
+				check(supported,"actual native furniture supports retained stock: "+str(row.id))
 	if family in ["domestic_storage","domestic_objects"]:
 		var radio := world.adapter.resolve("3B_radio") as StaticBody3D
 		var shelf := world.adapter.resolve("3B_tools0") as StaticBody3D
