@@ -84,6 +84,15 @@ func build(count: int, sliding_wedges := false) -> void:
 	vent.position = Vector3(far_x,.72,-.085)
 	for identity in ["VentBody","VentCap","FloatAndNeedle"]:
 		RadiatorNativeParts.part("vent",identity,vent)
+	# A loose cap meets the real receiving neck and chamber rather than
+	# passing through them. This collision follows the moving casting body.
+	var chamber := vent.get_node("VentBody") as MeshInstance3D
+	var contact := StaticBody3D.new()
+	contact.name="VentBodyContact"
+	chamber.add_child(contact)
+	var chamber_shape := CollisionShape3D.new()
+	chamber_shape.shape=RadiatorNativeParts.collision_for(chamber.mesh)
+	contact.add_child(chamber_shape)
 	for grade in 5:
 		RadiatorNativeParts.part("vent","VentOrificeInsert_%d" % grade,vent)
 	upstream = _group("ArticulatedFeed",self)

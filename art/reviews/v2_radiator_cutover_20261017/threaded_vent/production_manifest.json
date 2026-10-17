@@ -1,0 +1,335 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Production preparation, not installation or runtime proof.",
+  "source_manifest_sha256": "b131ee4de1828c2d7687b2c4e74d894d380390e293da34fc641cf476fb778ddb",
+  "recipe_lf_sha256": {
+    "prepare_radiator_mechanisms.py": "822915b9dbb737c5ab33a528c12be58a4200f2403d3bb30bb857e1c04cca03ec",
+    "radiator_cast_detail.py": "908281aed7edd24b0e6910ed464cf70a491175a0690cd8c12281461975b442b7",
+    "radiator_fitting_detail.py": "cdb530fdbea4a69d9aba45bb4fbc9158a16b5e3a7c14f843db3e642bb60f614a",
+    "radiator_vent_detail.py": "3ca655cddb6553bc44c815ed2df910e741e479860bdcc98feaae8a9bccecb1e0",
+    "radiator_cap_thread.py": "0904eb9d1ebab9371350a191ab12cec5c8b15be756adc9305c5bedf6ad91022f",
+    "radiator_vent_thread_source.json": "5f9f003fab05d62e53809d2419e70d77fd9ad55c6419f8f9008cff1282999be4",
+    "build_v2_radiator_vent_thread.py": "1ed6f55fcdb2e84c9d3bb7cb3fea1daeaf66b8da40ada071e430b29d085a52e1"
+  },
+  "families": {
+    "radiator_air_vent": {
+      "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-radiator-polish-20261017\\thread_detail_final\\radiator_air_vent.glb",
+      "primitives": 8,
+      "triangles": 64912,
+      "minimum_tangent_agreement": 0.999999950803059,
+      "status": "PASS",
+      "native_geometry_sha256": "e80bb5fde2db694abdcbe7a206c442e0503ffd1749a3161509039e56cf25cb31",
+      "native_parts": {
+        "VentBody": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_service_brass",
+            "radiator_service_brass"
+          ]
+        },
+        "VentCap": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_service_brass",
+            "radiator_service_brass"
+          ]
+        },
+        "FloatAndNeedle": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_service_brass",
+            "radiator_service_brass"
+          ]
+        },
+        "VentOrificeInsert_0": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_service_brass",
+            "radiator_service_brass"
+          ]
+        },
+        "VentOrificeInsert_1": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_service_brass",
+            "radiator_service_brass"
+          ]
+        },
+        "VentOrificeInsert_2": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_service_brass",
+            "radiator_service_brass"
+          ]
+        },
+        "VentOrificeInsert_3": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_service_brass",
+            "radiator_service_brass"
+          ]
+        },
+        "VentOrificeInsert_4": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_service_brass",
+            "radiator_service_brass"
+          ]
+        }
+      },
+      "source_native_geometry_sha256": "cd298ef0d96a376809d9f44630122455cfff052794f1e82985edce3e9591bba0",
+      "cast_refinement": {
+        "VentBody": {
+          "contour_segments": 64,
+          "closed": true,
+          "physical_charts": {
+            "local_metric_repairs": 6,
+            "minimum_metric_scale": 0.8899793177155466,
+            "maximum_metric_scale": 1.1160545466345022
+          },
+          "microscopic_edges_collapsed": 0,
+          "cap_edge_break_m": 0
+        },
+        "FloatAndNeedle": {
+          "contour_segments": 64,
+          "closed": true,
+          "physical_charts": {
+            "local_metric_repairs": 39,
+            "minimum_metric_scale": 0.8816046544753725,
+            "maximum_metric_scale": 1.3153292423723946
+          },
+          "microscopic_edges_collapsed": 1,
+          "cap_edge_break_m": 0
+        },
+        "VentCap": {
+          "contour_segments": 64,
+          "closed": true,
+          "physical_charts": {
+            "local_metric_repairs": 16,
+            "minimum_metric_scale": 0.9498970643593343,
+            "maximum_metric_scale": 1.2056000910262792
+          },
+          "microscopic_edges_collapsed": 0,
+          "cap_edge_break_m": 0.0002
+        },
+        "cap_thread_specification": {
+          "schema_version": 1,
+          "pitch_m": 0.0015,
+          "engagement_m": 0.012,
+          "root_radius_m": 0.01325,
+          "crest_radius_m": 0.01375,
+          "female_radial_clearance_m": 0.00012,
+          "entry_chamfer_m": 0.0004,
+          "stem_bottom_m": 0.054,
+          "shoulder_m": 0.066,
+          "crest_fraction": 0.125,
+          "flank_angle_degrees": 60.0,
+          "angular_samples": 96,
+          "samples_per_pitch": 12
+        }
+      },
+      "asset_sha256": "fec57a621a080504a180cc5b1fb5ac62088e4cb99f2b01c7b589aa41bcc053d7",
+      "native_sha256": "c4c4b376553d832cfe52ea88be637518672ffd7f98ee48e858286ddd9bd13bbc"
+    }
+  }
+}

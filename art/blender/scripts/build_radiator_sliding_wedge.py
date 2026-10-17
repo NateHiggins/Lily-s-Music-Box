@@ -4,7 +4,7 @@ import json
 import sys
 import bpy
 import bmesh
-from mathutils import Matrix
+from mathutils import Matrix,Vector
 
 ROOT=Path(__file__).resolve().parents[3]
 OUT=ROOT/'tmp/v2-radiator-polish-20261017'
@@ -37,10 +37,25 @@ catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['m
 finish=dict(catalog_key='timber',normal=.35,roughness=1.,pigment=1.,tint=[.62,.52,.4])
 mat=material(ROOT,'CATALOG_timber',finish,catalog)
 collection=bpy.data.collections.new('Runtime sliding wedge');bpy.context.scene.collection.children.link(collection)
-partition(collection,'SlidingPitchWedge_timber',[obj],finish,mat,Matrix.Identity(4),catalog)
+draw=partition(collection,'SlidingPitchWedge_timber',[obj],finish,mat,Matrix.Identity(4),catalog)
+# This broad, short stock does not satisfy the shared slender-stock heuristic.
+# Author its metre charts explicitly: the known timber map's U fibres follow
+# the wedge length, rather than crossing its thin leading tip sideways.
+uv=draw.data.uv_layers.active.data
+guide=draw.data.attributes['_tangent_guide'].data
+for face in draw.data.polygons:
+    normal=face.normal.normalized()
+    grain=Vector((0,1,0));u=grain-normal*grain.dot(normal)
+    if u.length<.01:
+        grain=Vector((1,0,0));u=grain-normal*grain.dot(normal)
+    u.normalize();v=normal.cross(u).normalized()
+    for index in face.loop_indices:
+        point=draw.data.vertices[draw.data.loops[index].vertex_index].co
+        uv[index].uv=(point.dot(u),point.dot(v))
+        guide[index].vector=(u.x,u.z,-u.y)
 bpy.data.objects.remove(obj,do_unlink=True)
 report=export(ROOT,'radiator_sliding_wedge',collection)
 report.update(evidence_class='INERT',scope='Single fixed native wedge; no controls or room qualification.',
-              dimensions=source,volume_m3=volume)
+              dimensions=source,volume_m3=volume,grain_axis='stock length +Y',physical_metre_charts=True)
 (OUT/'pitch_wedge_native.json').write_text(json.dumps(report,indent=2)+'\n')
 print('SLIDING WEDGE NATIVE',report,flush=True)

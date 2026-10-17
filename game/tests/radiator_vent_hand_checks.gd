@@ -32,6 +32,22 @@ func run(bench: Node3D,prop: Node3D,player: Node3D,driver: Node3D,codec: Node,fa
 	if not codec.validate(saved,codec._kinds): failures.append("partial cap household codec validation")
 	codec._restore(saved)
 	if cap.loose or not cap.global_transform.is_equal_approx(partial): failures.append("partial cap physical restoration")
+	var legacy := saved.duplicate(true)
+	legacy.records.F02_B_RADIATOR_01.value.vent_cap={"loose":false,"turn":TAU*.9}
+	if not codec.validate(legacy,codec._kinds):failures.append("legacy coarse cap state validates for depth migration")
+	codec._restore(legacy)
+	# Compare in the receiving axis; a rotated installed radiator may lean.
+	var depth: float=(cap.home().affine_inverse()*cap.global_position).y
+	if cap.loose or absf(depth-.0063)>.000001 or not cap.snapshot().has("thread_version"):
+		failures.append("legacy cap preserves withdrawal depth with matched new thread phase")
+	legacy.records.F02_B_RADIATOR_01.value.vent_cap={"loose":false,"turn":TAU*2}
+	codec._restore(legacy)
+	if not cap.loose or absf((cap.home().affine_inverse()*cap.global_position).y-.014)>.000001:
+		failures.append("legacy cap beyond new engagement becomes free at its original depth")
+	var malformed := saved.duplicate(true)
+	malformed.records.F02_B_RADIATOR_01.value.vent_cap.thread_version=true
+	if codec.validate(malformed,codec._kinds):failures.append("cap thread version rejects booleans")
+	codec._restore(saved)
 	# Repeat removal, carry clear and leave the cap in the hand while invoking
 	# the ordinary Space inspection action. The camera must reach the chamber.
 	contact=cap.to_global(Vector3(0,.018,-.015))

@@ -109,7 +109,10 @@ def prepare():
                   recipe_lf_sha256={path.name:hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
                                     for path in [Path(__file__),Path(__file__).with_name('radiator_cast_detail.py'),
                                                  Path(__file__).with_name('radiator_fitting_detail.py'),
-                                                 Path(__file__).with_name('radiator_vent_detail.py')]},
+                                                 Path(__file__).with_name('radiator_vent_detail.py'),
+                                                 Path(__file__).with_name('radiator_cap_thread.py'),
+                                                 ROOT/'art/data/orison_v2/radiator_vent_thread_source.json',
+                                                 ROOT/'tools/build_v2_radiator_vent_thread.py']},
                   families={})
     if args.retained_cast_native:
         report['retained_cast_native_sha256']=hashlib.sha256(args.retained_cast_native.read_bytes()).hexdigest()

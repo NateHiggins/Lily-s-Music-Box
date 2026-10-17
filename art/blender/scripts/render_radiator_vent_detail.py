@@ -8,6 +8,7 @@ from mathutils import Vector
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--native',required=True,type=Path)
 p.add_argument('--out',required=True,type=Path)
+p.add_argument('--states',nargs='+',choices=['assembled','open','thread_exposed'],default=['assembled','open','thread_exposed'])
 args=p.parse_args(sys.argv[sys.argv.index('--')+1:])
 args.out=args.out.resolve()
 args.out.mkdir(parents=True,exist_ok=True)
@@ -29,11 +30,15 @@ target=Vector((.034,0,.028))
 for label,offset in [('diffuse',(.12,-.20,.22)),('grazing',(.02,.17,.03))]:
     light.location=target+Vector(offset)
     light.rotation_euler=(target-light.location).to_track_quat('-Z','Y').to_euler()
-    for state in ('assembled','open'):
+    for state in args.states:
         for name in ('VentCap','VentOrificeInsert_2'):
             bpy.data.objects[name].hide_render=(state=='open')
-        camera.location=target+Vector((.10,-.22,.15) if state=='assembled' else (.015,-.04,.19))
-        camera.rotation_euler=(target-camera.location).to_track_quat('-Z','Y').to_euler()
+            bpy.data.objects[name].location=Vector((0,-.025,.035)) if state=='thread_exposed' else Vector((0,0,0))
+        camera.data.ortho_scale=.18 if state=='thread_exposed' else .11
+        aim=target+Vector((0,-.01,.025)) if state=='thread_exposed' else target
+        offset=(.10,-.22,.15) if state=='assembled' else ((.015,-.04,.19) if state=='open' else (.11,-.22,.04))
+        camera.location=aim+Vector(offset)
+        camera.rotation_euler=(aim-camera.location).to_track_quat('-Z','Y').to_euler()
         scene.render.filepath=str(args.out/(state+'_'+label+'.png'))
         bpy.ops.render.render(write_still=True)
-print('VENT DETAIL: four neutral diagnostic frames; no source geometry changed')
+print('VENT DETAIL:',2*len(args.states),'neutral diagnostic frames; no saved source geometry changed')

@@ -10,6 +10,7 @@ import bmesh
 from mathutils import Vector
 from radiator_cast_detail import _charts
 from fabrication_normals import stock_corner_normals
+from radiator_cap_thread import cap_stock, socket_cutter, SPEC
 
 
 def _ellipsoid(name, at, scale):
@@ -47,7 +48,7 @@ def refine_vent():
     _boolean(body, _tube('TopNeck', (x,0,.05), (x,0,.066), .018), 'UNION')
     _boolean(body, _tube('ThreadedInlet', (-.018,0,0), (x,0,0), .01), 'UNION')
     _boolean(body, _ellipsoid('AirChamber', (x,0,.025), (.019,.019,.035)), 'DIFFERENCE')
-    _boolean(body, _tube('CapSocket', (x,0,.045), (x,0,.07), .014), 'DIFFERENCE')
+    _boolean(body, socket_cutter(), 'DIFFERENCE')
     _boolean(body, _tube('SteamAirInlet', (-.024,0,0), (x,0,0), .0065), 'DIFFERENCE')
     bell = _ellipsoid('RefinedFloat', (x,0,.022), (.008,.008,.017))
     _boolean(bell, _tube('NeedleStem', (x,0,.035), (x,0,.054), .001), 'UNION')
@@ -68,10 +69,16 @@ def refine_vent():
         for face in original.data.polygons: face.material_index=0
         bpy.data.objects.remove(rebuilt, do_unlink=True)
     cap = bpy.data.objects['VentCap']
+    replacement = cap_stock()
+    materials = list(cap.data.materials)
+    cap.data = replacement.data
+    for material in materials: cap.data.materials.append(material)
+    bpy.data.objects.remove(replacement,do_unlink=True)
     bpy.context.view_layer.objects.active = cap
     bevel = cap.modifiers.new('Cap edge break 0.2mm', 'BEVEL')
     bevel.width, bevel.segments = .0002, 3
-    bevel.limit_method, bevel.angle_limit = 'ANGLE', math.radians(35)
+    # Ease the flange's right-angle edges without erasing fine thread flanks.
+    bevel.limit_method, bevel.angle_limit = 'ANGLE', math.radians(80)
     bevel.use_clamp_overlap = True
     bpy.ops.object.modifier_apply(modifier=bevel.name)
     result = {}
@@ -113,4 +120,5 @@ def refine_vent():
         result[obj.name] = dict(contour_segments=64, closed=True,
                                 physical_charts=metric, microscopic_edges_collapsed=collapsed,
                                 cap_edge_break_m=.0002 if obj==cap else 0)
+    result['cap_thread_specification'] = SPEC
     return result

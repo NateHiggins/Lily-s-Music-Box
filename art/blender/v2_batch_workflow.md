@@ -33,6 +33,13 @@ detail in the composed game before closing its defect. Reuse unchanged views
 and batch related corrections into one Godot capture. Unreviewed details stay
 open, including when static gates pass.
 
+Short, broad wood offcuts need explicit grain charts when the shared slender-
+stock heuristic does not apply. Verify exported tangent direction against the
+stock's length while retaining metre scale. Screw geometry and operating travel
+must share pitch and engagement; test actual mating surfaces throughout travel
+and include a wrong-phase collision control. Manufacturing-only parameters stay
+in the art authority, with a checked projection of the few runtime inputs.
+
 For small replacement parts, fit the actual collision to the native stem and
 head separately; a whole-part convex hull can falsely widen a narrow stem.
 Review storage against the loaded room and furniture, with a clear player

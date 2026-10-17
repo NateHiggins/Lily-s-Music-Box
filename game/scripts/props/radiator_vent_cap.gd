@@ -1,7 +1,10 @@
 extends RigidBody3D
 ## The existing cap is a threaded physical part, never a vent-grade selector.
-const TURN_END := TAU*2.0
-const THREAD_TRAVEL := .014
+static var _thread: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/radiator_vent_thread.json"))
+static var THREAD_TRAVEL: float=float(_thread.engagement_m)
+static var TURN_END: float=TAU*THREAD_TRAVEL/float(_thread.pitch_m)
+const LEGACY_TURN_END := TAU*2.0
+const LEGACY_TRAVEL := .014
 const PIVOT := Vector3(.043,.054,0)
 var radiator: Node3D
 var turn := 0.0
@@ -15,6 +18,7 @@ var _float_held := false
 var _float_lift := 0.0
 
 func configure(owner: Node3D) -> void:
+	assert(_thread.schema_version==1 and THREAD_TRAVEL>0 and TURN_END>0,"Invalid physical vent thread specification")
 	radiator=owner
 	mass=.025
 	freeze=true
@@ -49,8 +53,9 @@ static func _cap_hulls() -> Array[ConvexPolygonShape3D]:
 	if not _shared_hulls.is_empty(): return _shared_hulls
 	# Axial bands preserve the stepped bellmouth and flange as well as the
 	# central bore. One hull per angular sector would bridge those recesses.
-	for band in [[.054,.0602,.0135,.004],[.0602,.061,.0135,.0012],
-		[.061,.066,.0135,.0032],[.066,.075,.019,.0032]]:
+	var outer: float=float(_thread.crest_radius_m)
+	for band in [[.054,.0602,outer,.004],[.0602,.061,outer,.0012],
+		[.061,.066,outer,.0032],[.066,.075,.019,.0032]]:
 		for sector in 16:
 			var points := PackedVector3Array()
 			for step in range(sector*4,sector*4+5):
@@ -181,7 +186,7 @@ func _carry(value: Vector3) -> void:
 
 func _release() -> void:
 	# Catch the mouth only after the hand brings the cap to its real axis.
-	# It still requires two turns back down to seal; proximity is not repair.
+	# It still requires the matched screw travel to seal; proximity is not repair.
 	var receiving := home().translated_local(Vector3.UP*THREAD_TRAVEL)
 	if radiator.supply_position<=.02 and global_position.distance_to(receiving.origin)<.006:
 		loose=false
@@ -196,14 +201,16 @@ func _drop() -> void:
 	sleeping=false
 
 func snapshot() -> Dictionary:
-	if not loose: return {"loose":false,"turn":turn}
+	if not loose: return {"loose":false,"turn":turn,"thread_version":2}
 	var q := basis.get_rotation_quaternion()
 	return {"loose":true,"position":[position.x,position.y,position.z],"rotation":[q.x,q.y,q.z,q.w]}
 
 static func valid(value: Variant) -> bool:
 	if value is not Dictionary or typeof(value.get("loose"))!=TYPE_BOOL: return false
 	if not value.loose:
-		return value.size()==2 and typeof(value.get("turn")) in [TYPE_FLOAT,TYPE_INT] and is_finite(float(value.turn)) and value.turn>=0 and value.turn<=TURN_END
+		var current: bool=value.has("thread_version")
+		if current and (typeof(value.thread_version) not in [TYPE_FLOAT,TYPE_INT] or value.thread_version!=2):return false
+		return value.size()==(3 if current else 2) and typeof(value.get("turn")) in [TYPE_FLOAT,TYPE_INT] and is_finite(float(value.turn)) and value.turn>=0 and value.turn<=(TURN_END if current else LEGACY_TURN_END)
 	if value.size()!=3: return false
 	for key: String in ["position","rotation"]:
 		if value.get(key) is not Array or value[key].size()!=(3 if key=="position" else 4): return false
@@ -219,6 +226,17 @@ func restore(value: Dictionary) -> void:
 	freeze=true
 	linear_velocity=Vector3.ZERO
 	angular_velocity=Vector3.ZERO
+	if not loose and not value.has("thread_version"):
+		var withdrawn: float=float(value.turn)/LEGACY_TURN_END*LEGACY_TRAVEL
+		if withdrawn>=THREAD_TRAVEL:
+			# Old coarse travel may already place the cap beyond the final
+			# new thread. Retain that world pose as the same free physical part.
+			loose=true
+			turn=TURN_END
+			global_transform=home()*Transform3D(Basis(Vector3.UP,float(value.turn)),Vector3.UP*withdrawn)
+			_drop()
+			_sync_insert()
+			return
 	if loose:
 		position=Vector3(value.position[0],value.position[1],value.position[2])
 		basis=Basis(Quaternion(value.rotation[0],value.rotation[1],value.rotation[2],value.rotation[3]).normalized())
@@ -227,5 +245,5 @@ func restore(value: Dictionary) -> void:
 		sleeping=false
 		_sync_insert()
 	else:
-		turn=value.turn
+		turn=float(value.turn) if value.has("thread_version") else float(value.turn)/LEGACY_TURN_END*LEGACY_TRAVEL/THREAD_TRAVEL*TURN_END
 		refresh()

@@ -2052,5 +2052,210 @@
   },
   "physical_repair/physical_repair_world/F02_B_RADIATOR_01.png": {
     "sha256": "929fefbd1c9cd97fea3472cb7a9b2f26070cb3a6e5dad139caf83fdb13c261b9"
+  },
+  "threaded_vent/production_manifest.json": {
+    "sha256": "c67caf5b4a8484d8e1eaec9210448940cab60c5fe9cb3ea561dc972ced79d169"
+  },
+  "threaded_vent/README.txt": {
+    "sha256": "2566f67bdbc65c55baecf9649529221f041adf677d127cec2938042fced2e80a"
+  },
+  "threaded_vent/run_summary.json": {
+    "sha256": "5813cbff9e1a3242b884962c012b3c9ef3b0ba4a94a48c3d11d2c157de39199b"
+  },
+  "threaded_vent/source_inputs.json": {
+    "sha256": "b497707d23db1ab912b7df575e96b50dfa2615d827bf15d8ec6c3de7f5679950"
+  },
+  "threaded_vent/thread_detail_final_prepare.log.gz": {
+    "sha256": "9e45cdb7229cb3feef8b477a27885c4d57782f0b96c5f95216a8047deb79e914",
+    "uncompressed_sha256": "17d768012c503c7ff15546e86f9c8bb9ce600244f7c95af2a3d6f33492bdd024"
+  },
+  "threaded_vent/thread_detail_mouth_prepare.log.gz": {
+    "sha256": "f926e8633395f9b65e37358ea1b462683a1301c9a5dc8c0ce2a25b0217966e26",
+    "uncompressed_sha256": "dbe9fa8ec40aa8d84a037c5e232ef512bbc9c2e2a29b7ca5a442969fb865b0fd"
+  },
+  "threaded_vent/thread_detail_prepare.log.gz": {
+    "sha256": "a6c232db4f3366825be853d528c9804290a577e28d92460fef195c106c92ed36",
+    "uncompressed_sha256": "6a9f30f64eaaf3952f9ce92be51848c9007ed551607096922b08878a10d11554"
+  },
+  "threaded_vent/thread_final_fit.json.gz": {
+    "sha256": "47c824eb1c2a503b0d36badb63a034cdcd4680f6cb07fdf77a02ab258a9fb640",
+    "uncompressed_sha256": "6aa322bc17736a26952a38ceb1f5ea063ea707d1b8ac2252fe3c1d81ffc90936"
+  },
+  "threaded_vent/thread_final_fit.log.gz": {
+    "sha256": "e5be09a6035847a2316a996d055cda380067ef9afb162c7ca67494755b311ae0",
+    "uncompressed_sha256": "a6979c85603dd92460f1717e9a1d6aef43a52639b67a8f0046e36179e2fa2683"
+  },
+  "threaded_vent/thread_final_hand.log.gz": {
+    "sha256": "db2708395a256dedddb1334a5fcc1207c5662be9c8b6ac1ba9d85d20ba487914",
+    "uncompressed_sha256": "1fccb534f8c2987f36162237d4bcdf9fbc00552c8e77a5be7d9a5c71ef9f5c48"
+  },
+  "threaded_vent/thread_final_hand.log.receipt.json.gz": {
+    "sha256": "d678b491b7679585636dd82ee76cfdf61c05ac0b3ce7d9de66c8983a1fbc7e40",
+    "uncompressed_sha256": "d087cf2743dcc46c0306d394f748083eac9f8120b30654812477d0cee0c36bb6"
+  },
+  "threaded_vent/thread_final_hand.log.stderr.gz": {
+    "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+    "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "threaded_vent/thread_final_import.log.gz": {
+    "sha256": "3d50554c7d4153e00703c66d1563767266d25776c414e7f59c01c3443a14c50e",
+    "uncompressed_sha256": "c822a3324794eb08dd41520a9d9f1674acfe01c65fe1eae63481c4ef57fac3f2"
+  },
+  "threaded_vent/thread_final_import.log.receipt.json.gz": {
+    "sha256": "7fb55db5adffc1a28cf379a9310937fdf278220fdf2998af5f2a85b9e6c999f1",
+    "uncompressed_sha256": "aea742b8887a14869a32eaa9da8bbdfd600fd89704718a50684928bea71d77c2"
+  },
+  "threaded_vent/thread_final_import.log.stderr.gz": {
+    "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+    "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "threaded_vent/thread_final_vent_fit.json.gz": {
+    "sha256": "9a5c06e7be960b120fd32a6581d6697a18af11b5a9ba9d43b70de499d0f92b03",
+    "uncompressed_sha256": "9c544fd96e7a3d4238360bf48c9944486c3ae918701c88269d471829b73c286e"
+  },
+  "threaded_vent/thread_final_vent_fit.log.gz": {
+    "sha256": "c2db395353777e12c04da3cf87e5d7e8a4af6519cc528860085aad8ea2d30fbd",
+    "uncompressed_sha256": "568e94848ba0091d2ecdfb2cb448ba15277b11f00843f45c3a5fd86acbb3df6b"
+  },
+  "threaded_vent/thread_final_views.log.gz": {
+    "sha256": "b4738e8e90a0bb83b82d3ad06e43054d5f7ee3f05c0f79e0fadc46aa86f89c76",
+    "uncompressed_sha256": "64aeb4bb0cb74abe4fd09dc9bbca6970e78d310d0f1ff036f855ed2a17882e39"
+  },
+  "threaded_vent/thread_final_world.log.gz": {
+    "sha256": "0239f2d26dd8239db9839104b79d6f6590622696142374b36771a5b5f2fb603a",
+    "uncompressed_sha256": "5abdb36c3889aafcbda5c90bca81dba553b0a6ab164ef56cbc409773323cf3bc"
+  },
+  "threaded_vent/thread_final_world.log.receipt.json.gz": {
+    "sha256": "8dbeb31dd7c507602255a879da83d71b445d57d7d9967088d2df78fa0f84ea02",
+    "uncompressed_sha256": "07233e5140565677f8b3456811c7871c2277aef83b9528899f8f369eafd66077"
+  },
+  "threaded_vent/thread_final_world.log.stderr.gz": {
+    "sha256": "06672a18e47c030f2a3257a6a0cbd7eecc87c2a9e7f178943182b55a57ddb978",
+    "uncompressed_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+  },
+  "threaded_vent/thread_fit.json.gz": {
+    "sha256": "8f2f1e405ea30e9c07587d74583018e3527b0143735328ee13ea4691e410b49a",
+    "uncompressed_sha256": "30144f2c7df2e01ce6ac09da06be44c0de6e0690fb49ef3f6dd1ad9880454624"
+  },
+  "threaded_vent/thread_fit.log.gz": {
+    "sha256": "b6652021d5ca7b7911ae5e4bb5e8cddfae123a37fa7aa061b243bf84a12b3cb6",
+    "uncompressed_sha256": "fe3162e78bcb91a3f78ea978a88ddc0b52616c666a77dd4459152ff21787b5a1"
+  },
+  "threaded_vent/thread_hand.log.gz": {
+    "sha256": "fad5dee23edccde4551e97322d5e94e23ad74a3192dd80a8172b88d5c3e14bd3",
+    "uncompressed_sha256": "367bb1a58a5a35f17ffc9adbb1e7f188dcb33a92a79632534990c1c11f98564a"
+  },
+  "threaded_vent/thread_hand.log.receipt.json.gz": {
+    "sha256": "e95ca26cf20da3b02f1727776feb395c2fd81496891baf24c217e85f65b8aee8",
+    "uncompressed_sha256": "a6998a9ffc197f54eb64cc441ec7cb84ec9c768a0f14017748fc74efe5c0491f"
+  },
+  "threaded_vent/thread_hand.log.stderr.gz": {
+    "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+    "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "threaded_vent/thread_import.log.gz": {
+    "sha256": "3e635854de21778ddb27ab71b7d5500fd01140e25b5be3404d0f99e940d7fd73",
+    "uncompressed_sha256": "484a306d3559449f9dceb19999050e974f6f65cfdc55a6454242ca71d8f41a44"
+  },
+  "threaded_vent/thread_import.log.receipt.json.gz": {
+    "sha256": "c3ab8f7eebfae5f09cabdcf0d99b8ee96920a1eb4b74251de2cebbf586c77bbb",
+    "uncompressed_sha256": "bf94efcfb2bda3d05cce3afd986288ddbf8d02c149161961720bda95e465ecac"
+  },
+  "threaded_vent/thread_import.log.stderr.gz": {
+    "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+    "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "threaded_vent/thread_mouth_boundary_fit.json.gz": {
+    "sha256": "934605b4d964f3f989b456050d0b709fd3a01ce0d005fbb5ba46f77e16f90180",
+    "uncompressed_sha256": "6336b169f729def5f0e0a3ae1b836e27e5daffb03e427090a940070869fc024d"
+  },
+  "threaded_vent/thread_mouth_boundary_fit.log.gz": {
+    "sha256": "308c999c24a21fe37bc91a96806be3122f243eb86a09b611c5b2a67afd1858cc",
+    "uncompressed_sha256": "cd67315cbfbe5aaf83cbe5559995a3cef2a272e908b51ecf0639b5f995e70cd2"
+  },
+  "threaded_vent/thread_mouth_fit.json.gz": {
+    "sha256": "2e0a614bb6f2e73a6a14dff4bf92e07e3bbd89b5150755976d4953bf7765db5c",
+    "uncompressed_sha256": "b8746943acb06ff83dbaea2fbd2d476df07f1062168e556bca31e30235017ddd"
+  },
+  "threaded_vent/thread_mouth_fit.log.gz": {
+    "sha256": "9f7f32881dc57c522b24f9b3492899316576b58fd32e095ab01fa904798b814a",
+    "uncompressed_sha256": "844dfea484935cc7967c3b46a89a08d661e3a5732c30c091ef61f08ea4ed87c0"
+  },
+  "threaded_vent/thread_no_chamfer_control.json.gz": {
+    "sha256": "327323c99658bbd6a367db4beb060506ce23e88e1c39ee9109d575979175930b",
+    "uncompressed_sha256": "2b7dab8d6bbb8446daf3c74f5f79c0836f641f538e9e902da5a7349497ea725c"
+  },
+  "threaded_vent/thread_no_chamfer_control.log.gz": {
+    "sha256": "5e20d1b6256ff8c670de625f71c31f2527d54a4e6a76a7fefa56e671c9714d82",
+    "uncompressed_sha256": "2640a586a0027df6f5312284c9c7df6d2caeaa71a139aca5c63381993be40e9a"
+  },
+  "threaded_vent/thread_retained_buffers.json.gz": {
+    "sha256": "3d009f475c2699c02904cefd76c12277ca6c408e1383b65ee23cb2f56b298ef4",
+    "uncompressed_sha256": "a4d47c577c9138ecfbb4c46c1f3fe7445284ea7006a0e7e1d5c496f4e4254c1a"
+  },
+  "threaded_vent/thread_stock_retention.json.gz": {
+    "sha256": "6daa53c8ad47980283480809ab8eac104a44ec3e5258e792a652cb0d21d33c5b",
+    "uncompressed_sha256": "197d710f5314f49d4af6d5d5d94591dba5b6f699eee4bf883c37e3c4ffef9ef9"
+  },
+  "threaded_vent/thread_vent_corrected.log.gz": {
+    "sha256": "84d3a6e5ee1c166159bce20aff8ba0504b3b45f71c7d4c081b1ebea4612c4931",
+    "uncompressed_sha256": "507a6b643fdf30e0b8c0842586d6ed74523a68d485358ae35d4da2b4f152cc4e"
+  },
+  "threaded_vent/thread_vent_fit.log.gz": {
+    "sha256": "12a846b8f8dd151d4e3c4e183942357da406036d6e777aa85775c8c0a1906544",
+    "uncompressed_sha256": "5248bb9da83e812661c4344cbf92c6e7c7c895ea64d5f7b715cbcd3d08326788"
+  },
+  "threaded_vent/thread_vent_views.log.gz": {
+    "sha256": "e64dd7aab308cb7b31c067a4d709b003144939ac36fc3f4aa0185b6f92e58965",
+    "uncompressed_sha256": "91da0a083294d4fa57e64a5c8203e0db96b641060259cdd9c0dbd13a41674e2e"
+  },
+  "threaded_vent/thread_wedge_grain.log.gz": {
+    "sha256": "6bf60c3c80db7e8e255a89032cf28cea7304f4f2c4897cb30f3386b308f9ab94",
+    "uncompressed_sha256": "656d7cbb917fadb2c92dcb7c824d29aa7bf4426386d4843ac938013d7bfc08dc"
+  },
+  "threaded_vent/wedge_grain_export.json": {
+    "sha256": "a2b879048ae8059b08bd4fba2455b764b43a72aab35a6080d4db300a1a51b7e8"
+  },
+  "threaded_vent/thread_final_hand/packing_review.json": {
+    "sha256": "be3873824af9774aa1407320880ba36af1abc2323e544550d42f31e9b798a46d"
+  },
+  "threaded_vent/thread_final_hand/pitch_both_shoes_supported.png": {
+    "sha256": "e8ae9d0fedf285118e0c411d5c3331ce2a744c2ad2dcb89b9207df3eeaf9384a"
+  },
+  "threaded_vent/thread_final_hand/vent_open_chamber.png": {
+    "sha256": "8cc9f9a48cb58c961afb35d565a27d6fcb9bf2381cd4beefd46c0d23f4cd1b2f"
+  },
+  "threaded_vent/thread_final_views/assembled_diffuse.png": {
+    "sha256": "6e862b8ed533e783bcdd7e3dc32be460b555c12761431dfed1c82db39986dfde"
+  },
+  "threaded_vent/thread_final_views/assembled_grazing.png": {
+    "sha256": "787eb9502da14b989ed642be92fdbc1e3df5cc13fce268e1d0000dc1d58249f4"
+  },
+  "threaded_vent/thread_final_views/open_diffuse.png": {
+    "sha256": "143e26fc5daf4073ec3a23388724675d7fc020c2a841dbaaa667b2567b575cec"
+  },
+  "threaded_vent/thread_final_views/open_grazing.png": {
+    "sha256": "011d97f7177b304dd740722c3e1bb192cb3b9d390046decd51f908043e21416c"
+  },
+  "threaded_vent/thread_final_views/thread_exposed_diffuse.png": {
+    "sha256": "e06eafce3752b527c474ba9afc2ec74ea7c194eac6372d5d75bc8bc4e9ee2069"
+  },
+  "threaded_vent/thread_final_views/thread_exposed_grazing.png": {
+    "sha256": "e29eb70fc79a2caccf67b42eaaff3482d1ecc56229c9793ac4c61e0f534ebc16"
+  },
+  "threaded_vent/thread_final_world/2B_shoe_detail.png": {
+    "sha256": "0a4cb3021115cf93ca79f6d01fe64f664e80239e9c5965b3116c7f29bfcd7b4a"
+  },
+  "threaded_vent/thread_final_world/cutover_review.json": {
+    "sha256": "f26360b5da568324934aa7c3bd7f11fc978536fb865c3259b19c8ac7250d6507"
+  },
+  "threaded_vent/thread_final_world/F02_B_RADIATOR_01.png": {
+    "sha256": "8364194399779805ee03312e2e108f97c83bd1265526837ef46ca08df0d6a15d"
+  },
+  "threaded_vent/thread_vent_views/thread_exposed_diffuse.png": {
+    "sha256": "f7094cc64596d37de3afc31924060adb7147e6387323598eacf47287ef0df73f"
+  },
+  "threaded_vent/thread_vent_views/thread_exposed_grazing.png": {
+    "sha256": "9a5454f05817ac6d631f4114ffbfbd61ee0eaf6412ab6763eebdadb624b8b9b8"
   }
 }

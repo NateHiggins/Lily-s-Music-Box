@@ -232,7 +232,7 @@ func _click(player: Node3D) -> void:
 func _drag_to(player: Node3D, goal: float) -> void:
 	# The real supply stem takes 3.5 turns: 160 increments of .12 radians
 	# cannot reach its full travel from shut. Keep actual mouse increments.
-	for index in 256:
+	for index in 512:
 		if not player._grab.active(): return
 		var grip: Dictionary=player._grab.target
 		var before: float=grip.read.call()
