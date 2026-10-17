@@ -1,0 +1,91 @@
+REPORT - V2-FRONT-LIGHTING-FITTINGS - 2026-10-17
+Evidence class: INERT. Technical checkpoint report, not whole-V2/human acceptance.
+Branch / verified HEAD / origin/main / merge-base: main / 6586e45150833ce195990c6458d30b9370df0e29 / e0b0dd293325a49c207785888112262a4990e474 / e0b0dd293325a49c207785888112262a4990e474
+Publication target: HEAD:refs/heads/codex/v2-direct-manipulation-checkpoint. No push to main.
+Worktree clean at end: no; inherited art review, import and UID changes preserved. Fresh candidate checkout clean: yes.
+Protected 17/17: yes. Selector: v2.
+Ledger before -> after: 0 / 1 / 102 / 34 / 119 / 121 -> 0 / 1 / 48 / 25 / 65 / 67
+requirements_changed: ["unit.3A", "unit.3A.cooking", "unit.3A.entry", "unit.3A.living", "unit.3A.sanitary", "unit.3A.sleep", "unit.3A.storage", "unit.3B", "unit.3B.cooking", "unit.3B.entry", "unit.3B.living", "unit.3B.sanitary", "unit.3B.sleep", "unit.3B.storage", "unit.4A", "unit.4A.cooking", "unit.4A.entry", "unit.4A.living", "unit.4A.sanitary", "unit.4A.sleep", "unit.4A.storage", "unit.5A", "unit.5A.cooking", "unit.5A.living", "unit.5A.sanitary", "unit.5A.sleep", "unit.5A.storage", "unit.5B", "unit.5B.cooking", "unit.5B.living", "unit.5B.sanitary", "unit.5B.sleep", "unit.5B.storage", "unit.5C", "unit.5C.cooking", "unit.5C.living", "unit.5C.sanitary", "unit.6A", "unit.6A.cooking", "unit.6A.living", "unit.6A.sanitary", "unit.6A.sleep", "unit.6A.storage", "unit.6B", "unit.6B.cooking", "unit.6B.living", "unit.6B.sanitary", "unit.6B.sleep", "unit.6B.storage", "unit.6C", "unit.6C.cooking", "unit.6C.living", "unit.6C.sanitary", "unit.6C.sleep"]
+Gates (real exit codes):
+  v2_surface_qualification: 0
+  v2_mesh_uv_imports: 0
+  v2_surface_imports: 0
+  ledger: 2
+  spatial: 0
+  systemic: 0
+  period: 0
+  reader: 0
+  carriers: 0
+  rulings: 0
+  test:test_additive_material_rebind: 0
+  test:test_astra_packet: 0
+  test:test_audio_emitters: 0
+  test:test_check_rulings: 0
+  test:test_data_consumption: 0
+  test:test_gate_board: 0
+  test:test_heating_pipe_fittings: 0
+  test:test_honed_stone_maps: 0
+  test:test_interaction_implementors: 0
+  test:test_interaction_prompt_carriers: 0
+  test:test_lanes: 0
+  test:test_lint_design_doc: 0
+  test:test_m11c0_floor01_harness_contract: 0
+  test:test_m11c1_floor01_source_ownership: 0
+  test:test_m11c1_owner_first_export: 0
+  test:test_m11c1_runtime_rehearsal: 0
+  test:test_m11c1_scanner_consumer_adapter: 0
+  test:test_m11c2_floor01_production_export: 0
+  test:test_m11c2_production_harness_contract: 0
+  test:test_orison_floor01_source_ownership: 0
+  test:test_orison_spatial_dependencies: 0
+  test:test_orison_v2_completeness: 0
+  test:test_period_dates: 0
+  test:test_prop_reference: 0
+  test:test_prop_review: 0
+  test:test_rehearse_orison_floor01_partition: 0
+  test:test_room_checkpoint_linter: 0
+  test:test_room_checkpoint_reconciler: 0
+  test:test_room_evidence_verifier: 0
+  test:test_room_gate_hook: 0
+  test:test_room_layout_workbench: 0
+  test:test_room_reconstruction_gate: 0
+  test:test_room_reconstruction_progress: 0
+  test:test_run_receipt: 0
+  test:test_runtime_source_projections: 0
+  test:test_spatial_access_evidence: 0
+  test:test_spatial_binding_preflight: 0
+  test:test_systemic_situation_authority: 0
+  test:test_upper_daylight_contract: 0
+  test:test_v2_acoustic_ownership: 0
+  test:test_v2_acoustic_ventilation: 0
+  test:test_v2_audit_digest_snapshot: 0
+  test:test_v2_authoring_projection: 0
+  test:test_v2_boiler_inlet_projection: 0
+  test:test_v2_completion_projection: 0
+  test:test_v2_fabrication_batch: 0
+  test:test_v2_front_lighting_plan: 0
+  test:test_v2_front_lighting_projection: 0
+  test:test_v2_front_trim: 0
+  test:test_v2_heating_branch_supports: 0
+  test:test_v2_heating_envelopes: 0
+  test:test_v2_heating_interfaces: 0
+  test:test_v2_heating_routes: 0
+  test:test_v2_heating_takeoff: 0
+  test:test_v2_roof: 0
+  test:test_v2_surface_requirements: 0
+  test:test_v2_ventilation_fabric_projection: 0
+  test:test_verify_candidate: 0
+Godot runs: executed in the canonical checkout, before fresh static verification (--no-godot). All wrappers have explicit log paths and zero script errors/failures; test-written contracts qualify against the same runtime inputs.
+  surface: exit 0; qualification PASS; elapsed 313.93s; surface_qualification.json / archived logs in parent packet (surface canonical packet, front current_front).
+  front: exit 0; qualification PASS; elapsed 217.47s; front_qualification.json / archived logs in parent packet (surface canonical packet, front current_front).
+  firstslice: exit 0; qualification PASS; elapsed 217.39s; firstslice_qualification.json / archived logs in parent packet (surface canonical packet, front current_front).
+  save: exit 0; qualification PASS; elapsed 325.99s; save_qualification.json / archived logs in parent packet (surface canonical packet, front current_front).
+  apartments: exit 0; qualification PASS; elapsed 250.09s; apartments_qualification.json / archived logs in parent packet (surface canonical packet, front current_front).
+  remaining: exit 0; qualification PASS; elapsed 864.99s; remaining_qualification.json / archived logs in parent packet (surface canonical packet, front current_front).
+  dumbwaiter: exit 0; qualification PASS; elapsed 213.6s; dumbwaiter_qualification.json / archived logs in parent packet (surface canonical packet, front current_front).
+  roof: exit 0; qualification PASS; elapsed 216.7s; roof_qualification.json / archived logs in parent packet (surface canonical packet, front current_front).
+Numbers: 35 fixtures; 20 physical switch circuits; 407 supports via two prototypes; 86 bored wood pieces in 21 rooms; surface26795checks0unresolved /25101draws/16806meshes/6070materials/465textures; front348checks/50grabs/35statesrestored; firstslice132serialized133printed; patrol26; apartments19rooms268serialized269printed; remaining60rooms781serialized782printed; dumbwaiter53; roof52.
+Changes outside the initial visual boundary: exact decorative casing/corner clipping; solid partition double-sided shadow casting; data-reader inherited-method/container recognition with negative tests; precise UV import policy; additive source-input bindings and individually reviewed spatial registry additions. Mechanical/save/NPC/inventory authorities retained.
+Open findings: full V2 ledger still INCOMPLETE; restricted-cell radiator/pipe installation, acoustic migration, remaining geometry/story/gameplay/V1 replacement, performance, and human visual/navigation/listening acceptance. Seven Texture RID shutdown warnings persist on several suites. Offline four-branch heating prototype is not installed or accepted.
+Decision needed from owner: none to continue implementation. Human acceptance remains separate.
+MERGE-CANDIDATE 6586e45150833ce195990c6458d30b9370df0e29

@@ -1,0 +1,10 @@
+{
+  "evidence_class": "INERT",
+  "scope": "In-memory adversarial checks of the read-only archive qualifier; no captured file changed.",
+  "result": "PASS",
+  "expected_rejections": [
+    "save: test runtime input binding is stale",
+    "roof: test execution did not pass",
+    "roof: completed execution with exit_code 0 and no timeout required"
+  ]
+}

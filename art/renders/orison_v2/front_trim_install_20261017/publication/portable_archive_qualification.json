@@ -1,0 +1,58 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "runtime_inputs_sha256": "2c4a46b9f2c9f220727513887ab91fd6778790b9c71e1e2be0851e60b8565916",
+  "surface_inputs_sha256": "61a58f672a15234d68a1ed7e2f5583e8040acb432efece5f2a30921c9564d001",
+  "scope": "Independent archive/source checks for eight separate executed scopes; no new ledger, artistic, performance or human acceptance.",
+  "runs": [
+    {
+      "suite": "surface",
+      "result": "PASS",
+      "scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
+      "errors": []
+    },
+    {
+      "suite": "front",
+      "result": "PASS",
+      "scope": "35 installed restored-front fixtures, 20 physical switches, actual pointer motion/release, lobby alcove approach and real disk reconstruction. Captures require separate visual review; whole-world surface/mip, performance and human acceptance are not claimed.",
+      "errors": []
+    },
+    {
+      "suite": "firstslice",
+      "result": "PASS",
+      "scope": "Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Direct service-owner calls are contract stimuli; continuous walking and whole-world visual acceptance are not claimed.",
+      "errors": []
+    },
+    {
+      "suite": "save",
+      "result": "PASS",
+      "scope": "installed night-register pointer manipulation, real disk save, atomic filing and two fresh-world reconstructions; no other patrol mechanism acceptance",
+      "errors": []
+    },
+    {
+      "suite": "apartments",
+      "result": "PASS",
+      "scope": "Spatial room access and ordinary player-input interactions in 2A/2B and 4B. Each floor leg starts with one placement; all subsequent travel uses the ordinary controller. Resident scheduling is excluded. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
+      "errors": []
+    },
+    {
+      "suite": "remaining",
+      "result": "PASS",
+      "scope": "Spatial room access and actual grab/motion/release in 3A, 3B, 4A, 5A, 5B, 5C, 6A, 6B and 6C. Collision queries plan paths; the normal player controller executes every route. Each unit leg starts with one placement; all subsequent travel uses the ordinary controller. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
+      "errors": []
+    },
+    {
+      "suite": "dumbwaiter",
+      "result": "PASS",
+      "scope": "Installed dumbwaiter: actual click, constrained motion, release and static inspection, guarded repair, partial-state disk save, destroy and fresh V2 reconstruction. One standing placement; no continuous route or human visual acceptance claim.",
+      "errors": []
+    },
+    {
+      "suite": "roof",
+      "result": "PASS",
+      "scope": "Installed roof tank: actual click, constrained motion, release and static inspection, guarded repair, partial-state disk save, destroy and fresh V2 reconstruction. One standing placement; no continuous route or human visual acceptance claim.",
+      "errors": []
+    }
+  ],
+  "errors": []
+}

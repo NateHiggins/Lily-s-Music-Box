@@ -21,8 +21,14 @@ checks (782 printed); installed dumbwaiter passes 53 checks and roof tank 52.
 All eight executions and their independent qualifications pass against unchanged
 runtime/rendering inputs; **batch_qualification.json** in the trim packet records
 the separate scopes and wrapper hashes. Implementation checkpoint **cb0d5f9f**
-is committed locally; publication awaits the metadata follow-up comparison.
-No push, general artistic acceptance or whole-V2 completion is claimed.
+and registration follow-up **6586e451** pass fresh candidate verification against
+main: zero regressions, 58 improvements, protected 17/17 and selector V2. The
+publication follow-up changes documentation/archive verification only and retains
+the same runtime/rendering input hashes. **qualify_current.py** checks the eight
+committed archives without needing the original temporary run directories;
+its positive check and in-memory stale-source/incomplete-run rejection checks
+are preserved with the final report under **publication/** in the trim packet.
+General artistic acceptance and whole-V2 completion remain open.
 Earlier results below are history.
 
 Thirty-five native fixtures and twenty physical switches now serve all twenty
@@ -101,8 +107,9 @@ REPORT - V2-FRONT-LIGHTING-INSTALL - 2026-10-17
 
 Checkout / parent / publication target: local main / **4b5340f0** /
 **codex/v2-direct-manipulation-checkpoint** only. No push to main is authorized.
-Named lighting and verification paths are committed in **cb0d5f9f**; inherited
-dirty review files, imports and UIDs remain separate. No push is claimed yet.
+Named lighting and verification paths are committed in **cb0d5f9f**, with registry
+corrections in **6586e451**; inherited dirty review files, imports and UIDs remain
+separate. The publication target remains the named checkpoint branch only.
 
 The first fresh candidate comparison passes all runtime qualifications and
 protected 17/17 checks, but blocks on ten newly reported spatial references.
@@ -112,7 +119,10 @@ Each source use was inspected and registered individually with its rationale,
 without changing existing records, audit classifications or baseline counts.
 The spatial audit now has zero new failing or reported entries; all 56 tests
 pass. The original blocked comparison is retained under the trim packet's
-**publication_preflight/** directory. The follow-up requires a fresh comparison.
+**publication_preflight/** directory. The follow-up fresh comparison passes with
+no accepted regressions or blockers. Fresh static verification used **--no-godot**;
+the eight canonical executions above supply the separately qualified runtime
+proof against identical source inputs. Human review remains separate.
 
 Recovery found an empty index lock unchanged for over thirty minutes and no
 Git process in two checks. It was moved to
