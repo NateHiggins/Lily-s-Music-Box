@@ -293372,6 +293372,299 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "77fbe4f1bc5bfb45",
+   "kind": "id_candidate",
+   "token": "F01_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/front_lighting_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/superseded_covers[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "60eb867798ae840d",
+   "kind": "id_candidate",
+   "token": "F02_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/front_lighting_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/superseded_covers[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "2a2bb56dac86eb0d",
+   "kind": "id_candidate",
+   "token": "F03_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/front_lighting_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/superseded_covers[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "b99962b40e6b283e",
+   "kind": "id_candidate",
+   "token": "F04_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/front_lighting_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/superseded_covers[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "949fab1e4aa61a85",
+   "kind": "id_candidate",
+   "token": "F05_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/front_lighting_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/superseded_covers[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "fb938fc5d433c122",
+   "kind": "id_candidate",
+   "token": "F06_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/front_lighting_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/superseded_covers[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "6009dc5ae420550d",
+   "kind": "vector3_coordinate",
+   "token": "_ready",
+   "file": "game/tests/front_ceiling_diagnostic.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    9,
+    9
+   ],
+   "count": 2,
+   "context": [
+    "var camera=Camera3D.new(); add_child(camera); camera.position=Vector3(-4,1.7,2); camera.look_at(Vector3(1,2.8,-1)); camera.make_current()"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed isolated ceiling-shadow reproduction coordinates, for its own synthetic slab and camera. Diagnostic only; no source-world placement or runtime-contract claim.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6c480d381cff37e7",
+   "kind": "generated_name",
+   "token": "_ready",
+   "file": "game/tests/front_lighting_import_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "\"F%02d_ELECTRICAL_JUNCTION\" % level"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed synthetic import-probe owner-name template matching the six source-owned electrical station identities. No production owner or save identity is replaced.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c8d49dbd57d5a301",
+   "kind": "id_reference",
+   "token": "F02_FRONT_GALLERY",
+   "file": "game/tests/front_trim_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_capture"
+   ],
+   "lines": [
+    91
+   ],
+   "count": 1,
+   "context": [
+    "if fitting.variant==\"cornice\" and fitting.room==\"F02_FRONT_GALLERY\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed installed cornice capture selection; the actual source fitting determines the camera pose. Fixture follows the retained F02_FRONT_GALLERY room identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "429d16b242ad2238",
+   "kind": "vector3_coordinate",
+   "token": "_capture_joint",
+   "file": "game/tests/front_trim_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_capture_joint"
+   ],
+   "lines": [
+    110,
+    110,
+    111
+   ],
+   "count": 3,
+   "context": [
+    "camera.position=Vector3(5.7,1.65,-11.7);camera.look_at(Vector3(7.5,2.35,-10.3))",
+    "var light:=OmniLight3D.new();light.position=Vector3(8.9,2.53,-10.8)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed actual source-shell workroom joint camera and neighboring practical location. Controlled diagnostic, with physical wall-shadow assertions; no player-route or human acceptance claim.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

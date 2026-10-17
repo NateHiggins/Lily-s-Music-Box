@@ -1,0 +1,66 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Ten individually inspected additions to the dependency registry. Existing classifications and records retained; no audit rule, baseline count or runtime receipt changed.",
+  "reviews": [
+    {
+      "key": "77fbe4f1bc5bfb45",
+      "file": "game/data/orison_v2/front_lighting_supply.json",
+      "token": "F01_ELECTRICAL_JUNCTION",
+      "review": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier."
+    },
+    {
+      "key": "60eb867798ae840d",
+      "file": "game/data/orison_v2/front_lighting_supply.json",
+      "token": "F02_ELECTRICAL_JUNCTION",
+      "review": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier."
+    },
+    {
+      "key": "2a2bb56dac86eb0d",
+      "file": "game/data/orison_v2/front_lighting_supply.json",
+      "token": "F03_ELECTRICAL_JUNCTION",
+      "review": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier."
+    },
+    {
+      "key": "b99962b40e6b283e",
+      "file": "game/data/orison_v2/front_lighting_supply.json",
+      "token": "F04_ELECTRICAL_JUNCTION",
+      "review": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier."
+    },
+    {
+      "key": "949fab1e4aa61a85",
+      "file": "game/data/orison_v2/front_lighting_supply.json",
+      "token": "F05_ELECTRICAL_JUNCTION",
+      "review": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier."
+    },
+    {
+      "key": "fb938fc5d433c122",
+      "file": "game/data/orison_v2/front_lighting_supply.json",
+      "token": "F06_ELECTRICAL_JUNCTION",
+      "review": "Reviewed runtime station defined by electrical_service.json stations and mounted by orison_v2_native_electrical_service.gd. The front-supply mount checks the existing station dictionary; the current 348-check integration run verifies all six cover replacements. Not a primary-layout identifier."
+    },
+    {
+      "key": "6009dc5ae420550d",
+      "file": "game/tests/front_ceiling_diagnostic.gd",
+      "token": "_ready",
+      "review": "Reviewed isolated ceiling-shadow reproduction coordinates, for its own synthetic slab and camera. Diagnostic only; no source-world placement or runtime-contract claim."
+    },
+    {
+      "key": "6c480d381cff37e7",
+      "file": "game/tests/front_lighting_import_probe.gd",
+      "token": "_ready",
+      "review": "Reviewed synthetic import-probe owner-name template matching the six source-owned electrical station identities. No production owner or save identity is replaced."
+    },
+    {
+      "key": "c8d49dbd57d5a301",
+      "file": "game/tests/front_trim_fittings_test.gd",
+      "token": "F02_FRONT_GALLERY",
+      "review": "Reviewed installed cornice capture selection; the actual source fitting determines the camera pose. Fixture follows the retained F02_FRONT_GALLERY room identity."
+    },
+    {
+      "key": "429d16b242ad2238",
+      "file": "game/tests/front_trim_fittings_test.gd",
+      "token": "_capture_joint",
+      "review": "Reviewed actual source-shell workroom joint camera and neighboring practical location. Controlled diagnostic, with physical wall-shadow assertions; no player-route or human acceptance claim."
+    }
+  ]
+}

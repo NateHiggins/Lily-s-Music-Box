@@ -20,8 +20,10 @@ from those actual runs. The remaining sweep reaches 60 rooms with 781 serialized
 checks (782 printed); installed dumbwaiter passes 53 checks and roof tank 52.
 All eight executions and their independent qualifications pass against unchanged
 runtime/rendering inputs; **batch_qualification.json** in the trim packet records
-the separate scopes and wrapper hashes. No commit, push, general artistic
-acceptance or whole-V2 completion is claimed. Earlier results below are history.
+the separate scopes and wrapper hashes. Implementation checkpoint **cb0d5f9f**
+is committed locally; publication awaits the metadata follow-up comparison.
+No push, general artistic acceptance or whole-V2 completion is claimed.
+Earlier results below are history.
 
 Thirty-five native fixtures and twenty physical switches now serve all twenty
 restored-front spaces. The existing LightFixtureProp, SwitchSystem and household
@@ -99,8 +101,18 @@ REPORT - V2-FRONT-LIGHTING-INSTALL - 2026-10-17
 
 Checkout / parent / publication target: local main / **4b5340f0** /
 **codex/v2-direct-manipulation-checkpoint** only. No push to main is authorized.
-Named lighting and verification paths are staged; inherited dirty review files,
-imports and UIDs remain separate. No commit or push is claimed by this report.
+Named lighting and verification paths are committed in **cb0d5f9f**; inherited
+dirty review files, imports and UIDs remain separate. No push is claimed yet.
+
+The first fresh candidate comparison passes all runtime qualifications and
+protected 17/17 checks, but blocks on ten newly reported spatial references.
+Six are real electrical stations defined outside the primary-layout universe;
+four describe isolated import/camera fixtures or the retained gallery identity.
+Each source use was inspected and registered individually with its rationale,
+without changing existing records, audit classifications or baseline counts.
+The spatial audit now has zero new failing or reported entries; all 56 tests
+pass. The original blocked comparison is retained under the trim packet's
+**publication_preflight/** directory. The follow-up requires a fresh comparison.
 
 Recovery found an empty index lock unchanged for over thirty minutes and no
 Git process in two checks. It was moved to
