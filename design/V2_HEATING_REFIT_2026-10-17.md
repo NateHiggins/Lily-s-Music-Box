@@ -1,7 +1,7 @@
 # V2 restricted-cell heating refit — 2026-10-17
 
 Evidence class: **INERT**. Construction and diagnostic report, not a completion
-checkpoint or human acceptance. Verification and publication remain in progress.
+checkpoint or human acceptance. Technical verification is complete for the scope below.
 
 The original 23-demand heating budget now has 23 installed radiator actors. The
 four additions serve 2D, 3C, 5D and 6D at actual V2 room coordinates. Their
@@ -91,11 +91,72 @@ and executed helper bindings are unchanged by the final native-only collar fix.
 The native/rendering-bound suites are renewed by execution, never by repinning.
 
 Projection/surface tooling tests and source preflight pass; reader and spatial
-audits report zero new issues in the earlier scoped runs. The full baseline
-comparison and reviewed commit/push remain pending.
+audits report zero new issues. Clean candidate verification of the implementation
+commit reports zero new regressions, 54 renewed spatial requirement statuses and
+protected 17/17. Publication remains a checkpoint on the authorized branch, not main.
 Preserve inherited unrelated dirty paths and stage only named owned paths.
 
 Full V2 remains incomplete: remaining geometry, artistic lighting/material
 polish, gameplay/V1 replacement, acoustic integration and whole-game performance
 remain separate work. Human visual/navigation/listening acceptance is also
 outstanding; automated UV/PBR/mipmap compliance cannot grant photorealism.
+
+## Publication report
+
+REPORT - V2-RESTRICTED-HEATING - 2026-10-17
+
+Branch / HEAD at implementation / origin/main / merge-base:
+main / **d16991fd11498e906b2ed930740f43f943950eab** /
+**e0b0dd293325a49c207785888112262a4990e474** / **e0b0dd293325a49c207785888112262a4990e474**.
+This report-only follow-up preserves that implementation candidate.
+
+Worktree clean at end: no. Inherited import/UID/old review noise, historical
+untracked refit packets and ignored offline prototypes remain in the shared
+checkout. Only named owned paths were committed. The verifier used a temporary
+clean checkout and removed it; no inherited edits were cleared.
+
+Protected 17/17: yes. Selector: v2; explicit V1 rollback remains available.
+Ledger before -> after: 0/1/102/34/119/121 -> 0/1/48/25/65/67; requirements_changed: 54
+spatial statuses in the nine actually exercised apartments. Their complete
+identities are recorded in **verification.json**; they are not additions to the
+requirement list. The existing spatial checkpoint now has a fresh bound receipt.
+These are blocker counts, not a declaration that the whole building is complete.
+
+Gates: completeness remains INCOMPLETE (exit 2, inherited scope); surface,
+spatial, systemic, period, reader, carriers and rulings exit 0. All 59 tools
+test files exit 0. Clean candidate comparison has zero NEW regressions and no
+accepted-regression exceptions. Gate-source changes still warrant reviewer
+inspection; automatic verification does not waive that review.
+
+Runtime evidence: actual logs and test-written contracts are in
+**art/renders/orison_v2/heating_refit_clearance_20261017/**. The installation
+passes 108 checks; surface passes 26,799; apartment access passes 19 rooms;
+remaining access passes 60 rooms. Their original wrappers are **installation.log.receipt.json**,
+**surface_checkpoint.log.receipt.json** in the canonical surface packet,
+**apartments.log.receipt.json** and **remaining.log.receipt.json**. All eight
+independent scope qualifiers pass. Five unchanged runtime-only contracts were
+reused with their complete source/helper bindings. Clean verification used
+**--no-godot**; it does not claim another runtime run or fresh-import execution.
+
+Numbers: 23 installed emitters for the original 23 demands, 96 new hangers,
+21 passage assemblies, four new main bearings and four union tails. Native
+checks: 179 pipe, 771 hanger, 554 sleeve/bearing. Export: seven batches,
+2,054 closed stocks, 534,568 triangles and 71,508,868 bytes. Current composed
+review: 265 contacts, no unexplained contacts; separate native assembly:
+393 contacts, no unexpected joins. Sampled containment is not exhaustive.
+
+Changes outside the radiator boundary: native exterior masonry was regenerated
+for actual shared ports, the slab gained the missing main passage, and front
+trim was reprojected from acquired geometry. This follows the measured clearance
+findings; heat, NPC, inventory, case, save and sealed-threshold authorities remain.
+
+Open findings: the current cast profiles, valve elbows and rust pads remain
+visually crude. Uninstalled three-column and screw/valve prototypes need all-count
+fitting, production integration and fresh rendering. Remaining whole-V2 geometry,
+lighting, gameplay/V1 replacement, audio and performance work is unfinished.
+Human visual, navigation and listening acceptance remains outstanding.
+
+Decision needed from owner: none for the next technical batch. No human artistic
+or whole-game acceptance has been inferred from the automated results.
+
+MERGE-CANDIDATE d16991fd11498e906b2ed930740f43f943950eab
