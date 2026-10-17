@@ -1,0 +1,42 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native cutaway views, approximate light; no composed/runtime/loaded-mip acceptance.",
+  "reference_electrical_native_sha256": "9cccf13017e23f85c66ccc49e705ad90ad9722745e6bded8200e00d124861632",
+  "review_recipe_sha256_lf": "b4a5448fa61df2b319d3507003693bc5958dc0adc996fb6e5d7a179ad18c24cc",
+  "blend_sha256": "41bf3156e2d55c136a04a2531f2f3931d7ce20ec51404c1e04f897de3809f392",
+  "views": [
+    {
+      "name": "gallery",
+      "path": "gallery.png",
+      "sha256": "1a942f86de1ff28f949206ec462df534a3c6917111a6c5252a0b95824f5ca38a",
+      "observation": "Three schoolhouse globes remain aligned with their supported distribution. The new supports retain visible ceiling seats; this approximate cutaway is not production lighting or architecture acceptance."
+    },
+    {
+      "name": "workroom_service",
+      "path": "workroom_service.png",
+      "sha256": "b3f381937e7cccebe9d8ce6eefb07b2da357254fcce16efa54afb5d4bec9d91d",
+      "observation": "The caged fitting retains continuous rigid suspension and braided drop. The source pipe routes and support spacing are unchanged; only small stock tessellation/charts changed."
+    },
+    {
+      "name": "switch_detail",
+      "path": "switch_detail.png",
+      "sha256": "fce0cc25fdb4f743142967126807893db3e7c21eca7575bc28d3c9b8a34078e5",
+      "observation": "The moulded plate remains planar with its separate seated box, porcelain toggle, top feed and wall saddle. Native fixture/switch ownership is not replaced by this export."
+    },
+    {
+      "name": "canopy_detail",
+      "path": "canopy_detail.png",
+      "sha256": "75dec23d17e2d58dce4a8e47eecc199ae1fe9da38236b2e99105fe3d172a10ab",
+      "observation": "The simplified support silhouette remains round and seated at player review distance. The primary maps follow physical-scale charts; the horizontal tube clears the opal globe."
+    },
+    {
+      "name": "source_cover",
+      "path": "source_cover.png",
+      "sha256": "689b3d222b69d13bc8db611c119e0062e284fd15d76f6f8837a1dbd3d5d9f079",
+      "observation": "The replacement cover remains seated against the retained junction casting. New UV charts remove incompatible tangent seams; internal conductor and composed shell fit still require runtime qualification."
+    }
+  ],
+  "status": "NATIVE_FITTING_REVIEW_ONLY",
+  "human_acceptance": false,
+  "production_acceptance": false
+}

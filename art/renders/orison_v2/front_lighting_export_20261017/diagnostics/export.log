@@ -1,0 +1,56 @@
+00:01.640  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\front_lighting_candidate.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+20:41:44 | INFO: Starting glTF 2.0 export
+20:41:44 | INFO: Extracting primitive: F01_brass_dull
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F01_galvanized_roof
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F01_iron_neutral
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F02_brass_dull
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F02_galvanized_roof
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F02_iron_neutral
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F03_brass_dull
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F03_galvanized_roof
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F03_iron_neutral
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F04_brass_dull
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F04_galvanized_roof
+20:41:44 | INFO: Primitives created: 1
+20:41:44 | INFO: Extracting primitive: F04_iron_neutral
+20:41:44 | INFO: Primitives created: 1
+C:\PleaseRemainOnTheLine\art\blender\front_lighting_candidate\export_candidate.py:99: RuntimeWarning: invalid value encountered in divide
+  tangent=u-n*np.sum(u*n,axis=1)[:,None];tangent/=np.linalg.norm(tangent,axis=1)[:,None]
+20:41:44 | INFO: Extracting primitive: F05_brass_dull
+20:41:45 | INFO: Primitives created: 1
+20:41:45 | INFO: Extracting primitive: F05_galvanized_roof
+20:41:45 | INFO: Primitives created: 1
+20:41:45 | INFO: Extracting primitive: F05_iron_neutral
+20:41:45 | INFO: Primitives created: 1
+20:41:45 | INFO: Extracting primitive: F06_brass_dull
+20:41:45 | INFO: Primitives created: 1
+20:41:45 | INFO: Extracting primitive: F06_galvanized_roof
+20:41:45 | INFO: Primitives created: 1
+20:41:45 | INFO: Extracting primitive: F06_iron_neutral
+20:41:45 | INFO: Primitives created: 1
+20:41:45 | INFO: Finished glTF 2.0 export in 1.5524272918701172 s
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\front_lighting_candidate\export_candidate.py", line 109, in <module>
+    tangents=validate(asset)
+
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\check_exported_tangents.py", line 31, in validate
+    assert all(np.isfinite(a).all() for a in [p,n,uv,t]),mesh['name']
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: F04_iron_neutral
+
+Error: script failed, file: 'art/blender/front_lighting_candidate/export_candidate.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -9,6 +9,7 @@ import hashlib
 import json
 import math
 import sys
+import numpy as np
 
 import bpy
 import bmesh
@@ -16,7 +17,10 @@ from mathutils import Vector, Matrix
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'art/blender/scripts'))
+sys.path.insert(0, str(Path(__file__).parent))
 from fabrication_native_batch import material
+from fabrication_chart_batch import triangle_charts
+from stock import hanger
 
 OUT = ROOT / 'tmp/v2-front-lighting-20261016'
 OUT.mkdir(parents=True, exist_ok=True)
@@ -42,22 +46,23 @@ bpy.context.scene.collection.children.link(native)
 checks = []
 
 
-def record(obj, level, role):
+def record(obj, level, role, rechart=True):
     for collection in list(obj.users_collection):
         collection.objects.unlink(obj)
     native.objects.link(obj)
     obj['level'] = level
     obj['role'] = role
-    # Dominant-plane metre charts on actual triangles, not stale ngon normals.
+    if not rechart:
+        return obj
+    # Use the established physical-scale precision-safe charts. Dominant-axis
+    # charts across smooth curved faces caused incompatible tangent seams.
     uv = obj.data.uv_layers.active
-    for face in obj.data.polygons:
-        pts = [obj.data.vertices[i].co for i in face.vertices]
-        normal = (pts[1] - pts[0]).cross(pts[2] - pts[0])
-        axis = max(range(3), key=lambda i: abs(normal[i]))
-        a, b = [(1, 2), (0, 2), (0, 1)][axis]
-        for loop in face.loop_indices:
-            p = obj.data.vertices[obj.data.loops[loop].vertex_index].co
-            uv.data[loop].uv = (p[a], p[b])
+    points=np.asarray([[obj.data.vertices[i].co[:] for i in face.vertices] for face in obj.data.polygons],dtype=np.float64)
+    lengths=np.linalg.norm(np.cross(points[:,1]-points[:,0],points[:,2]-points[:,0]),axis=1)
+    ids=np.flatnonzero(lengths>1e-20)
+    _,_,values,_=triangle_charts(points[ids],np.zeros(3),1.0)
+    for i,chart in zip(ids,values):
+        for loop,p in zip(obj.data.polygons[int(i)].loop_indices,chart):uv.data[loop].uv=p
     return obj
 
 
@@ -177,16 +182,12 @@ for i, support in enumerate(plan['supports']):
         obj = original.copy()
         native.objects.link(obj)
         obj.name = 'CeilingStay_%03d' % i
-        obj.location = Vector(point(p-at))
+        obj.location = original.location + Vector(point(p-at))
         obj['level'] = segment['level']
         continue
-    band = ring(.0165, .0127, .018, p)
-    band.rotation_euler = Vector(point(direction)).to_track_quat('Z', 'Y').to_euler()
-    rod_low = p.y + .013
-    rod_high = seat.y - .006
-    rod = cylinder(.0025, rod_high - rod_low, (p.x, (rod_low+rod_high)/2, p.z))
-    bearing = cube((.045, .006, .045), (seat.x, seat.y-.003, seat.z))
-    stock_obj = record(finish('CeilingStay_%03d' % i, [band, rod, bearing], 'iron_neutral', .0001), segment['level'], 'ceiling_hanger')
+    stock_obj=hanger('CeilingStay_%03d'%i,direction,seat.y-p.y,materials['iron_neutral'])
+    stock_obj.location=Vector(point(p))
+    record(stock_obj,segment['level'],'ceiling_hanger',False)
     support_stock[key] = (stock_obj, p.copy())
 
 # Recreate the bored replacement covers at their exact original station pose.
@@ -363,7 +364,9 @@ report = dict(evidence_class='INERT', status='NATIVE_CANDIDATE_NOT_INSTALLED',
 report['source_bindings_lf'] = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
     for p in [Path(__file__), ROOT/'tools/plan_v2_front_lighting.py', source_path,
               ROOT/'game/data/runtime_material_sets.json', ROOT/'game/data/orison_v2/fixed_lighting.json',
-              ROOT/'art/blender/scripts/fabrication_native_batch.py']}
+              ROOT/'art/blender/scripts/fabrication_native_batch.py',
+              Path(__file__).with_name('stock.py'),ROOT/'art/blender/scripts/fabrication_chart_batch.py',
+              ROOT/'art/blender/scripts/fabrication_uvs.py']}
 report['binary_source_bindings'] = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
     for p in [ROOT/'art/blender/fixed_lighting.blend', ROOT/'art/blender/light_switch.blend']}
 (OUT / 'native_inspection.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8', newline='\n')

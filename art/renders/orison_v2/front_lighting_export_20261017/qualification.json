@@ -1,0 +1,80 @@
+{
+  "evidence_class": "INERT",
+  "status": "NATIVE_AND_EXPORT_CHECKS_PASS_UNINSTALLED",
+  "native_sha256": "41bf3156e2d55c136a04a2531f2f3931d7ce20ec51404c1e04f897de3809f392",
+  "baseline": {
+    "hanger_triangles": 508680,
+    "native_triangles": 1945522,
+    "preliminary_export_bytes": 101199780
+  },
+  "current": {
+    "native_triangles": 1576162,
+    "hanger_triangles": 139320,
+    "supply_bytes": 73390964,
+    "fixtures_bytes": 6006800,
+    "source_supply_parts": 1132,
+    "static_batches": 18,
+    "hanger_instances": 405,
+    "unique_meshes": 20
+  },
+  "native_roles": {
+    "open_conduit": {
+      "parts": 159,
+      "triangles": 122112
+    },
+    "bored_junction": {
+      "parts": 99,
+      "triangles": 133544
+    },
+    "canopy_ceiling_bearing": {
+      "parts": 70,
+      "triangles": 80360
+    },
+    "fixed_cover": {
+      "parts": 64,
+      "triangles": 17000
+    },
+    "screw": {
+      "parts": 128,
+      "triangles": 62976
+    },
+    "box_ceiling_bearing": {
+      "parts": 116,
+      "triangles": 44080
+    },
+    "ceiling_hanger": {
+      "parts": 405,
+      "triangles": 139320
+    },
+    "source_bored_cover": {
+      "parts": 6,
+      "triangles": 2976
+    },
+    "native_fixture": {
+      "parts": 98,
+      "triangles": 769734
+    },
+    "switch_backbox": {
+      "parts": 20,
+      "triangles": 12160
+    },
+    "wall_saddle": {
+      "parts": 60,
+      "triangles": 59040
+    },
+    "native_switch": {
+      "parts": 200,
+      "triangles": 130960
+    },
+    "spine_cap": {
+      "parts": 5,
+      "triangles": 1900
+    }
+  },
+  "remaining": [
+    "Convert hanger nodes into floor-scoped MultiMesh instances in the game loader",
+    "Install source-owned lights/controls and drill bounded wall ports after full retained-context fit review",
+    "Verify actual controls, save/reconstruction, loaded PBR/mips and day/night performance in Godot",
+    "Human visual and navigation acceptance"
+  ]
+}
