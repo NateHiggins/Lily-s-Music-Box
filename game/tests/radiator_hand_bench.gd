@@ -83,6 +83,11 @@ func _run() -> void:
 	prop.set_supply_position(0.0,0.0)
 	var reviewer := preload("res://tests/radiator_cutover_review.gd").new()
 	var failures: Array = []
+	var feed_owner := prop.get_node_or_null("InstalledRadiatorCollision") as StaticBody3D
+	if feed_owner==null:failures.append("installed collision owner remains available for existing floor-query exclusions")
+	else:
+		for collision: CollisionShape3D in feed_owner.get_children():
+			if not collision.shape is ConcavePolygonShape3D:failures.append("fixed feed collision uses native open surfaces rather than a legacy solid box")
 	for key in ["retainer","withdraw"]:
 		var grip := prop.native_union_grip(key)
 		if grip.is_empty(): failures.append("missing "+key);continue

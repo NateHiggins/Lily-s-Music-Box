@@ -307,15 +307,15 @@ func _attach_native_collision() -> void:
 	# The remaining legacy feed box filled the real union approach and blocked
 	# cloth returned at a different settled orientation. Bind the fixed native
 	# feed surfaces, keeping their actual openings instead of that solid box.
-	installed.free()
+	# Retain the established collision-owner path/RID: floor and wall-tie
+	# consumers exclude it explicitly. Only its obsolete solid hulls retire.
+	for old: Node in installed.get_children():old.free()
 	for identity: String in ["ArticulatedValveHousing","SweptSupplyElbow","FixedStemPacking"]:
 		var draw := native_rig.get_node(identity) as MeshInstance3D
-		var fixed := StaticBody3D.new()
-		fixed.name="NativeFixedFeedCollision"
-		draw.add_child(fixed)
 		var surface := CollisionShape3D.new()
 		surface.shape=RadiatorNativeParts.collision_for(draw.mesh)
-		fixed.add_child(surface)
+		surface.transform=native_rig.transform*draw.transform
+		installed.add_child(surface)
 	var body := StaticBody3D.new()
 	body.name = "RigidCastingsCollision"
 	var shape := CollisionShape3D.new()
