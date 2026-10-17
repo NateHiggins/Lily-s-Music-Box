@@ -1,5 +1,5 @@
 {
-	"checks": 2467,
+	"checks": 2515,
 	"contracts": {
 		"premature_action_denial": {
 			"executed": true,
@@ -23,7 +23,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 21.566,
+		"elapsed_s": 25.341,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -44,9 +44,9 @@
 	"scope": "Native service instruments in the composed V2 world: original mechanism ownership, reversible service controls, transient custody, ordinary telephone line and world retirement. Player approach routing and save reconstruction are not exercised.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "bea7337b3154fadae5bcd782c806fb01478d0c89",
-		"runtime_inputs_sha256": "a9220c780086d9a3a2e58ca61edc1cbfe6d7d0cf1943e87c00b5d3af0c87add3",
+		"repository_head": "4b5340f051ff838f08d090b68d908a288b1b1608",
+		"runtime_inputs_sha256": "2c4a46b9f2c9f220727513887ab91fd6778790b9c71e1e2be0851e60b8565916",
 		"test_path": "game/tests/orison_v2_service_instruments_test.gd",
-		"test_sha256": "f08998730af19558437cc0ef99031e4504f0ff59a0f668da952aa331da13b556"
+		"test_sha256": "b1127f82d0f2e77c182ef8739983c83c3fb253676bf568a4c6f713ad04077f23"
 	}
 }

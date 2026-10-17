@@ -105,6 +105,15 @@ class FrontLightingPlanTests(unittest.TestCase):
             self.assertGreater(support['seat'][1], support['position'][1])
             self.assertEqual(support['seat'][::2], support['position'][::2])
 
+    def test_switch_boxes_clear_panel_caps_and_picture_rails(self):
+        for switch in self.plan['switches']:
+            bottom=switch['position'][1]-switch['backbox_size'][1]/2
+            top=switch['position'][1]+switch['backbox_size'][1]/2
+            self.assertGreater(bottom,1.36+.02,switch['id'])
+            self.assertLess(top,1.65-.021-.02,switch['id'])
+            feed=next(r for r in self.plan['routes'] if r['id']==switch['room']+'_SWITCH_FEED')
+            self.assertAlmostEqual(feed['points'][-1][1]-self.levels[switch['level']],switch['position'][1]+.08)
+
     def test_changed_room_program_or_ceiling_requires_review(self):
         for mutation in ('height', 'program'):
             layout = copy.deepcopy(self.layout)

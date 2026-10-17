@@ -295,7 +295,8 @@ for switch in plan['switches']:
     record(finish(switch['id']+'_Backbox', [shell], 'iron_neutral', .00025), level, 'switch_backbox')
     # Vertical stems have actual wall bearings at <=650mm pitch.
     pipe = anchor + inward*.012
-    for n, y in enumerate([1.50, 2.10, 2.70]):
+    first = float(switch['position'][1])+.26
+    for n, y in enumerate([first, (first+2.70)/2, 2.70]):
         p = Vector((pipe.x, level_y[level]+y, pipe.z))
         band = ring(.0165, .0127, .018, p)
         # Wall face is 20mm behind the conduit centre; a short web joins it.

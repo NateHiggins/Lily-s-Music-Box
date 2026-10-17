@@ -26,6 +26,8 @@ def inputs(root=ROOT):
     for directory,suffixes in [('game/scripts',{'.gd'}),('game/scenes',{'.tscn','.tres'}),
                                ('game/data',{'.json'}),('game/shaders',{'.gdshader','.gdshaderinc'}),
                                ('game/assets',ASSETS),('art/blender/scripts',{'.py'}),
+                               ('art/blender/front_lighting_candidate',{'.py'}),
+                               ('art/blender/front_lighting_finish',{'.py'}),
                                ('art/textures/ai_materials',{'.json'}),('game/tests/fixtures',{'.json'})]:
         paths.update(p for p in (root/directory).rglob('*') if p.is_file() and p.suffix in suffixes and p.relative_to(root).as_posix() in versioned)
     paths.update(root/p for p in ['game/project.godot','game/tests/orison_v2_surface_inventory.gd',
@@ -39,6 +41,20 @@ def inputs(root=ROOT):
         paths.add(root/f'art/textures/ai_sources/{name}.png')
     paths.add(root/'art/textures/ai_sources/v2_surface_stock_20261011.json')
     paths.add(root/'art/tools/build_bathroom_tiles.py')
+    # Front lighting ships from this native recipe family rather than the
+    # older scripts directory. Its source and projection are rendering inputs.
+    paths.update(root/p for p in (
+        'art/blender/front_lighting_candidate.blend',
+        'art/data/front_lighting_plan.json',
+        'art/data/orison_v2/front_lighting_source.json',
+        'art/data/orison_v2/front_lighting_supply_export.json',
+        'art/blender/front_lighting_finish_candidate.blend',
+        'art/blender/front_lighting_cornice_candidate.blend',
+        'art/blender/millwork_profile.blend',
+        'art/data/orison_v2/front_trim_layout_source.json',
+        'art/data/orison_v2/front_trim_export_source.json',
+        'tools/plan_v2_front_trim.py',
+        'tools/plan_v2_front_lighting.py','tools/prepare_v2_front_lighting.py'))
     paths.add(root/'art/textures/material_sources/bathroom_ivory_glaze.png')
     for key in ('bath_wall_tile','bath_floor_tile'):
         paths.add(root/f'art/textures/procedural/{key}/material.json')

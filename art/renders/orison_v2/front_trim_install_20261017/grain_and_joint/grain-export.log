@@ -1,0 +1,23 @@
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+22:43:07 | INFO: Starting glTF 2.0 export
+22:43:07 | INFO: Extracting primitive: BeadedTrim.002
+22:43:07 | INFO: Primitives created: 1
+22:43:07 | INFO: Extracting primitive: BeadedTrim.004
+22:43:07 | INFO: Primitives created: 1
+22:43:07 | INFO: Extracting primitive: BeadedTrim.007
+22:43:07 | INFO: Primitives created: 1
+22:43:07 | INFO: Extracting primitive: BeadedTrim.001
+22:43:07 | INFO: Primitives created: 1
+22:43:07 | INFO: Finished glTF 2.0 export in 0.038709163665771484 s
+
+22:43:07 | INFO: Data are loaded, start creating Blender stuff
+22:43:07 | INFO: Blender create Mesh node BeadedTrim.002
+22:43:07 | INFO: Blender create Mesh node BeadedTrim.004
+22:43:07 | INFO: Blender create Mesh node BeadedTrim.007
+22:43:07 | INFO: Blender create Mesh node BeadedTrim.001
+22:43:07 | INFO: glTF import finished in 0.01s
+TRIM EXPORT: {"asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-front-trim-20261017\\front_lighting_trim.glb", "primitives": 4, "triangles": 1480, "minimum_tangent_agreement": 0.9999999625519119, "status": "PASS"}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

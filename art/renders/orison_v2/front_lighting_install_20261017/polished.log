@@ -1,0 +1,448 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 221 spaces / 111 doors / 1482 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (261 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2653
+[ORISON V2 RUNTIME] ready startup_ms=78205.144
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 52, 42]
+FRONT LIGHTING: production world starts = true
+FRONT LIGHTING: all thirty-five native fixtures mounted = true
+FRONT LIGHTING: front light retains corrected shadow face: F02_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F02_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F02_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: front light retains corrected shadow face: F02_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F02_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F02_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F03_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F03_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F03_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: front light retains corrected shadow face: F03_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F03_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F03_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F04_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F04_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F04_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: front light retains corrected shadow face: F04_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F04_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F04_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F05_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F05_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F05_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: front light retains corrected shadow face: F05_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F05_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F05_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F06_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F06_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F06_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: front light retains corrected shadow face: F06_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F06_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: front light retains corrected shadow face: F06_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F01_FRONT_WEST_BAY_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F01_FRONT_EAST_BAY_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F01_FRONT_WORKROOM_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F01_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: front light retains corrected shadow face: F01_FRONT_STORE_ALCOVE_LT_1 = true
+FRONT LIGHTING: eighteen fixed floor/material batches = true
+FRONT LIGHTING: two support prototypes per floor = true
+FRONT LIGHTING: all support instances retained = true
+FRONT LIGHTING: six solid covers replaced = true
+FRONT LIGHTING: F02_FRONT_GALLERY_SWITCH clear standing operating stance = true
+[HARUKIYA] CLOSED, 18 fixtures
+FRONT LIGHTING: F02_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F02_FRONT_GALLERY -> off (3 fixtures)
+FRONT LIGHTING: F02_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F02_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F02_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F02_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F02_FRONT_GALLERY -> on (3 fixtures)
+FRONT LIGHTING: F02_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F02_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F02_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F02_FRONT_HALL -> off (2 fixtures)
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F02_FRONT_HALL -> on (2 fixtures)
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F02_FRONT_HALL -> off (2 fixtures)
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F02_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F02_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F02_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F02_FRONT_SERVICE_RETURN -> off (1 fixtures)
+FRONT LIGHTING: F02_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F02_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F02_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F02_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F02_FRONT_SERVICE_RETURN -> on (1 fixtures)
+FRONT LIGHTING: F02_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F02_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F02_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F03_FRONT_GALLERY -> off (3 fixtures)
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F03_FRONT_GALLERY -> on (3 fixtures)
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F03_FRONT_GALLERY -> off (3 fixtures)
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F03_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F03_FRONT_HALL_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F03_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F03_FRONT_HALL -> off (2 fixtures)
+FRONT LIGHTING: F03_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F03_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F03_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F03_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F03_FRONT_HALL -> on (2 fixtures)
+FRONT LIGHTING: F03_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F03_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F03_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F03_FRONT_SERVICE_RETURN -> off (1 fixtures)
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F03_FRONT_SERVICE_RETURN -> on (1 fixtures)
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F03_FRONT_SERVICE_RETURN -> off (1 fixtures)
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F03_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F04_FRONT_GALLERY_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F04_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F04_FRONT_GALLERY -> off (3 fixtures)
+FRONT LIGHTING: F04_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F04_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F04_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F04_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F04_FRONT_GALLERY -> on (3 fixtures)
+FRONT LIGHTING: F04_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F04_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F04_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F04_FRONT_HALL -> off (2 fixtures)
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F04_FRONT_HALL -> on (2 fixtures)
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F04_FRONT_HALL -> off (2 fixtures)
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F04_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F04_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F04_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F04_FRONT_SERVICE_RETURN -> off (1 fixtures)
+FRONT LIGHTING: F04_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F04_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F04_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F04_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F04_FRONT_SERVICE_RETURN -> on (1 fixtures)
+FRONT LIGHTING: F04_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F04_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F04_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F05_FRONT_GALLERY -> off (3 fixtures)
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F05_FRONT_GALLERY -> on (3 fixtures)
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F05_FRONT_GALLERY -> off (3 fixtures)
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F05_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F05_FRONT_HALL_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F05_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F05_FRONT_HALL -> off (2 fixtures)
+FRONT LIGHTING: F05_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F05_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F05_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F05_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F05_FRONT_HALL -> on (2 fixtures)
+FRONT LIGHTING: F05_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F05_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F05_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F05_FRONT_SERVICE_RETURN -> off (1 fixtures)
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F05_FRONT_SERVICE_RETURN -> on (1 fixtures)
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F05_FRONT_SERVICE_RETURN -> off (1 fixtures)
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F05_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F06_FRONT_GALLERY_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F06_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F06_FRONT_GALLERY -> off (3 fixtures)
+FRONT LIGHTING: F06_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F06_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F06_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F06_FRONT_GALLERY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F06_FRONT_GALLERY -> on (3 fixtures)
+FRONT LIGHTING: F06_FRONT_GALLERY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F06_FRONT_GALLERY_SWITCH second click releases = true
+FRONT LIGHTING: F06_FRONT_GALLERY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F06_FRONT_HALL -> off (2 fixtures)
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F06_FRONT_HALL -> on (2 fixtures)
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F06_FRONT_HALL -> off (2 fixtures)
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH second click releases = true
+FRONT LIGHTING: F06_FRONT_HALL_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F06_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F06_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F06_FRONT_SERVICE_RETURN -> off (1 fixtures)
+FRONT LIGHTING: F06_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F06_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F06_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F06_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F06_FRONT_SERVICE_RETURN -> on (1 fixtures)
+FRONT LIGHTING: F06_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F06_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F06_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_WEST_BAY -> off (1 fixtures)
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_WEST_BAY -> on (1 fixtures)
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_WEST_BAY -> off (1 fixtures)
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_WEST_BAY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_EAST_BAY_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F01_FRONT_EAST_BAY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_EAST_BAY -> off (1 fixtures)
+FRONT LIGHTING: F01_FRONT_EAST_BAY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_EAST_BAY_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_EAST_BAY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_EAST_BAY_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_EAST_BAY -> on (1 fixtures)
+FRONT LIGHTING: F01_FRONT_EAST_BAY_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_EAST_BAY_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_EAST_BAY_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_WORKROOM -> off (1 fixtures)
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_WORKROOM -> on (1 fixtures)
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_WORKROOM -> off (1 fixtures)
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_WORKROOM_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F01_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_SERVICE_RETURN -> off (1 fixtures)
+FRONT LIGHTING: F01_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_SERVICE_RETURN -> on (1 fixtures)
+FRONT LIGHTING: F01_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_SERVICE_RETURN_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH clear standing operating stance = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_STORE_ALCOVE -> off (1 fixtures)
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_STORE_ALCOVE -> on (1 fixtures)
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH room circuit follows contact = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH actual pointer grabs toggle = true
+[SWITCHES] F01_FRONT_STORE_ALCOVE -> off (1 fixtures)
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH follows constrained mouse motion = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH second click releases = true
+FRONT LIGHTING: F01_FRONT_STORE_ALCOVE_SWITCH room circuit follows contact = true
+FRONT LIGHTING: toggle motion follows cursor direction = true
+FRONT LIGHTING: all twenty circuits exercised with fifty physical grabs = true
+FRONT LIGHTING: restored front volume is walkable at (5.05, 0.0, -4.25) actual=(5.029762, 0.0, -4.283731) contacts=[] = true
+FRONT LIGHTING: ordinary lobby approach reaches alcove operating position = true
+FRONT LIGHTING: render saved: front_lighting_alcove = true
+FRONT LIGHTING: render saved: front_lighting_gallery_day = true
+FRONT LIGHTING: render saved: front_lighting_workroom = true
+FRONT LIGHTING: render saved: front_lighting_source = true
+FRONT LIGHTING: render saved: front_lighting_gallery_night = true
+FRONT LIGHTING: disk test retains a nondefault mixture of all thirty-five fixture states = true
+FRONT LIGHTING: existing RealityState writes a real disk save = true
+FRONT LIGHTING: disk preserves fixture contact: F02_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F02_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F02_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: disk preserves fixture contact: F02_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F02_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F02_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F03_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F03_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F03_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: disk preserves fixture contact: F03_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F03_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F03_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F04_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F04_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F04_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: disk preserves fixture contact: F04_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F04_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F04_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F05_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F05_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F05_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: disk preserves fixture contact: F05_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F05_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F05_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F06_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F06_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F06_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: disk preserves fixture contact: F06_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F06_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: disk preserves fixture contact: F06_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F01_FRONT_WEST_BAY_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F01_FRONT_EAST_BAY_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F01_FRONT_WORKROOM_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F01_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: disk preserves fixture contact: F01_FRONT_STORE_ALCOVE_LT_1 = true
+FRONT LIGHTING: disk document loads through existing save authority = true
+ORISON V2 BLOCKOUT: 221 spaces / 111 doors / 1482 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (261 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2653
+[ORISON V2 RUNTIME] ready startup_ms=81564.114
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[63, 56, 58, 49, 41]
+[HARUKIYA] OPEN, 18 fixtures
+FRONT LIGHTING: fresh world reconstructs after disk load = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F02_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F02_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F02_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F02_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F02_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F02_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F03_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F03_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F03_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F03_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F03_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F03_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F04_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F04_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F04_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F04_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F04_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F04_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F05_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F05_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F05_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F05_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F05_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F05_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F06_FRONT_GALLERY_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F06_FRONT_GALLERY_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F06_FRONT_GALLERY_LT_3 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F06_FRONT_HALL_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F06_FRONT_HALL_LT_2 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F06_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F01_FRONT_WEST_BAY_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F01_FRONT_EAST_BAY_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F01_FRONT_WORKROOM_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F01_FRONT_SERVICE_RETURN_LT_1 = true
+FRONT LIGHTING: reconstructed fixture preserves contact: F01_FRONT_STORE_ALCOVE_LT_1 = true
+FRONT LIGHTING: runtime inputs remain unchanged through disk reconstruction = true
+FRONT LIGHTING RESULT: 345 checks; 0 failures

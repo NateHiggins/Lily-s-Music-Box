@@ -1,0 +1,1434 @@
+{
+	"checks": 348,
+	"contracts": {
+		"direct_manipulation": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 205.814,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"observations": [
+		{
+			"label": "production world starts",
+			"ok": true
+		},
+		{
+			"label": "all eighty-six bored wood pieces mounted in production",
+			"ok": true
+		},
+		{
+			"label": "only twenty-one owning room trim batches spliced",
+			"ok": true
+		},
+		{
+			"label": "all thirty-five native fixtures mounted",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F02_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F02_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F02_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F02_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F02_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F02_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F03_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F03_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F03_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F03_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F03_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F03_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F04_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F04_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F04_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F04_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F04_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F04_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F05_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F05_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F05_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F05_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F05_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F05_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F06_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F06_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F06_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F06_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F06_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F06_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F01_FRONT_WEST_BAY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F01_FRONT_EAST_BAY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F01_FRONT_WORKROOM_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F01_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "front light retains corrected shadow face: F01_FRONT_STORE_ALCOVE_LT_1",
+			"ok": true
+		},
+		{
+			"label": "eighteen fixed floor/material batches",
+			"ok": true
+		},
+		{
+			"label": "two support prototypes per floor",
+			"ok": true
+		},
+		{
+			"label": "all support instances retained",
+			"ok": true
+		},
+		{
+			"label": "six solid covers replaced",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_GALLERY_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F02_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_HALL_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F03_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_GALLERY_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F04_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_HALL_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F05_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_GALLERY_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_GALLERY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_GALLERY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_GALLERY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_GALLERY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_HALL_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F06_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WEST_BAY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_EAST_BAY_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_EAST_BAY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_EAST_BAY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_EAST_BAY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_EAST_BAY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_EAST_BAY_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_EAST_BAY_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_EAST_BAY_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_EAST_BAY_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_WORKROOM_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_SERVICE_RETURN_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_SERVICE_RETURN_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_SERVICE_RETURN_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_SERVICE_RETURN_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_SERVICE_RETURN_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH clear standing operating stance",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH actual pointer grabs toggle",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH follows constrained mouse motion",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH second click releases",
+			"ok": true
+		},
+		{
+			"label": "F01_FRONT_STORE_ALCOVE_SWITCH room circuit follows contact",
+			"ok": true
+		},
+		{
+			"label": "toggle motion follows cursor direction",
+			"ok": true
+		},
+		{
+			"label": "all twenty circuits exercised with fifty physical grabs",
+			"ok": true
+		},
+		{
+			"label": "restored front volume is walkable at (5.05, 0.0, -4.25) actual=(5.029762, 0.0, -4.283731) contacts=[]",
+			"ok": true
+		},
+		{
+			"label": "ordinary lobby approach reaches alcove operating position",
+			"ok": true
+		},
+		{
+			"label": "render saved: front_lighting_alcove",
+			"ok": true
+		},
+		{
+			"label": "render saved: front_lighting_gallery_day",
+			"ok": true
+		},
+		{
+			"label": "render saved: front_lighting_workroom",
+			"ok": true
+		},
+		{
+			"label": "render saved: front_lighting_source",
+			"ok": true
+		},
+		{
+			"label": "render saved: front_lighting_gallery_night",
+			"ok": true
+		},
+		{
+			"label": "disk test retains a nondefault mixture of all thirty-five fixture states",
+			"ok": true
+		},
+		{
+			"label": "existing RealityState writes a real disk save",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F02_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F02_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F02_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F02_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F02_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F02_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F03_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F03_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F03_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F03_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F03_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F03_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F04_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F04_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F04_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F04_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F04_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F04_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F05_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F05_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F05_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F05_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F05_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F05_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F06_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F06_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F06_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F06_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F06_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F06_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F01_FRONT_WEST_BAY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F01_FRONT_EAST_BAY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F01_FRONT_WORKROOM_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F01_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk preserves fixture contact: F01_FRONT_STORE_ALCOVE_LT_1",
+			"ok": true
+		},
+		{
+			"label": "disk document loads through existing save authority",
+			"ok": true
+		},
+		{
+			"label": "fresh world reconstructs after disk load",
+			"ok": true
+		},
+		{
+			"label": "fresh world reconstructs all bored wood fittings",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F02_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F02_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F02_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F02_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F02_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F02_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F03_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F03_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F03_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F03_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F03_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F03_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F04_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F04_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F04_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F04_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F04_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F04_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F05_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F05_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F05_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F05_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F05_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F05_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F06_FRONT_GALLERY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F06_FRONT_GALLERY_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F06_FRONT_GALLERY_LT_3",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F06_FRONT_HALL_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F06_FRONT_HALL_LT_2",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F06_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F01_FRONT_WEST_BAY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F01_FRONT_EAST_BAY_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F01_FRONT_WORKROOM_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F01_FRONT_SERVICE_RETURN_LT_1",
+			"ok": true
+		},
+		{
+			"label": "reconstructed fixture preserves contact: F01_FRONT_STORE_ALCOVE_LT_1",
+			"ok": true
+		},
+		{
+			"label": "runtime inputs remain unchanged through disk reconstruction",
+			"ok": true
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "35 installed restored-front fixtures, 20 physical switches, actual pointer motion/release, lobby alcove approach and real disk reconstruction. Captures require separate visual review; whole-world surface/mip, performance and human acceptance are not claimed.",
+	"selector": "v2",
+	"source": {
+		"runtime_inputs_sha256": "2c4a46b9f2c9f220727513887ab91fd6778790b9c71e1e2be0851e60b8565916",
+		"test_path": "game/tests/front_lighting_integration_test.gd",
+		"test_sha256": "26ed3ebc2ad572925916cee91da31ce4fd830bbd98478792287e7a35b4329e5a",
+		"test_sources": {
+			"game/tests/front_lighting_integration_test.gd": "26ed3ebc2ad572925916cee91da31ce4fd830bbd98478792287e7a35b4329e5a",
+			"game/tests/heating_hand_driver.gd": "a3ca959cbe9e6977fc5e1ee81f09dbae37ecb0ae73f996cc07ff012fd198c09d",
+			"game/tests/v2_front_restoration_review.gd": "1b74a50469917627b0008b28103f6b5a85e32c450e3542c330fca50462fcfb43",
+			"game/tests/watch_station_hand_test.gd": "c7550103724b10bd420a419940a0768c6806bcc4b127ae3eedb52913ab127e99"
+		}
+	}
+}

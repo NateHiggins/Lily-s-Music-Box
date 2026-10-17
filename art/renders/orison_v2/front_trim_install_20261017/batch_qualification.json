@@ -1,0 +1,168 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "scope": "Eight independently qualified current-source executions. Separate scoped contracts retain their own limitations; this summary grants no new ledger, art, performance or human acceptance.",
+  "runtime_inputs_sha256": "2c4a46b9f2c9f220727513887ab91fd6778790b9c71e1e2be0851e60b8565916",
+  "surface_inputs_sha256": "61a58f672a15234d68a1ed7e2f5583e8040acb432efece5f2a30921c9564d001",
+  "runs": [
+    {
+      "suite": "surface",
+      "wrapper_sha256": "a9e5b15de37d903fe2b20e0b2abba149212c80e186bd2fe7029de3e76172f1d8",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 313.93,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T02:57:08Z",
+        "started_utc": "2026-10-17T02:51:54Z",
+        "timed_out": false
+      },
+      "qualification": {
+        "result": "PASS",
+        "counts": {
+          "defects": 0
+        },
+        "defects": [],
+        "coverage": {
+          "draws": 25101,
+          "materials": 6070,
+          "textures": 465
+        }
+      },
+      "script_errors": 0
+    },
+    {
+      "suite": "front",
+      "wrapper_sha256": "112ef319c711166433d61e2f3ad9a6475eb4ed2fd588c091575fda5b3dff1631",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 217.47,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T03:00:46Z",
+        "started_utc": "2026-10-17T02:57:08Z",
+        "timed_out": false
+      },
+      "qualification": {
+        "evidence_class": "INERT",
+        "result": "PASS",
+        "checks": 348,
+        "errors": [],
+        "scope": "35 installed restored-front fixtures, 20 physical switches, actual pointer motion/release, lobby alcove approach and real disk reconstruction. Captures require separate visual review; whole-world surface/mip, performance and human acceptance are not claimed.",
+        "runtime_contract_sha256": "905dd97b544102ec932cffd1ca2188d98749a2d2948ba4e677cec803e9fa8015"
+      },
+      "script_errors": 0
+    },
+    {
+      "suite": "firstslice",
+      "wrapper_sha256": "3173b71ade7ab7ed1f64170c6bdff8ef88aca8bcd5b4e5fe84c1500526a39fa8",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 217.39,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T03:04:24Z",
+        "started_utc": "2026-10-17T03:00:46Z",
+        "timed_out": false
+      },
+      "qualification": {
+        "result": "PASS",
+        "errors": [],
+        "checks": 132
+      },
+      "script_errors": 0
+    },
+    {
+      "suite": "save",
+      "wrapper_sha256": "776c787dafca10f34980567ef79c39b36be64db603f067fa5f0b727fabe06ffe",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 325.99,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T03:09:51Z",
+        "started_utc": "2026-10-17T03:04:24Z",
+        "timed_out": false
+      },
+      "qualification": {
+        "result": "PASS",
+        "scope": "installed night-register pointer manipulation, real disk save, atomic filing and two fresh-world reconstructions; no other patrol mechanism acceptance",
+        "checks": 26,
+        "errors": []
+      },
+      "script_errors": 0
+    },
+    {
+      "suite": "apartments",
+      "wrapper_sha256": "602a38091728f8feb41d80c7343a81f2b556c698f02aad7085e793cde80e28f3",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 250.09,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T03:14:01Z",
+        "started_utc": "2026-10-17T03:09:51Z",
+        "timed_out": false
+      },
+      "qualification": {
+        "result": "PASS",
+        "errors": [],
+        "rooms": 19,
+        "checks": 268
+      },
+      "script_errors": 0
+    },
+    {
+      "suite": "remaining",
+      "wrapper_sha256": "227bd4e2cc45e4e697de1e3197216c344abb57a4f9a4ecdfb7478a2623a4cd03",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 864.99,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T03:28:27Z",
+        "started_utc": "2026-10-17T03:14:01Z",
+        "timed_out": false
+      },
+      "qualification": {
+        "result": "PASS",
+        "errors": [],
+        "rooms": 60,
+        "checks": 781
+      },
+      "script_errors": 0
+    },
+    {
+      "suite": "dumbwaiter",
+      "wrapper_sha256": "03d0caa4684e3723322b2a44d7ae8a20b3a064f6c1e796b14502798784c57f01",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 213.6,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T03:32:01Z",
+        "started_utc": "2026-10-17T03:28:27Z",
+        "timed_out": false
+      },
+      "qualification": {
+        "result": "PASS",
+        "scope": "Installed dumbwaiter: actual click, constrained motion, release and static inspection, guarded repair, partial-state disk save, destroy and fresh V2 reconstruction. One standing placement; no continuous route or human visual acceptance claim.",
+        "checks": 53,
+        "errors": []
+      },
+      "script_errors": 0
+    },
+    {
+      "suite": "roof",
+      "wrapper_sha256": "0993cf3927117b722567eeaab888bc00eb8196919a4a512ab70721042e5240c0",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 216.7,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T03:35:38Z",
+        "started_utc": "2026-10-17T03:32:01Z",
+        "timed_out": false
+      },
+      "qualification": {
+        "result": "PASS",
+        "scope": "Installed roof tank: actual click, constrained motion, release and static inspection, guarded repair, partial-state disk save, destroy and fresh V2 reconstruction. One standing placement; no continuous route or human visual acceptance claim.",
+        "checks": 52,
+        "errors": []
+      },
+      "script_errors": 0
+    }
+  ]
+}

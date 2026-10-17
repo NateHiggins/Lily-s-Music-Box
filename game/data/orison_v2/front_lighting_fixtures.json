@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/front_lighting_fixtures.glb",
+  "floor_y": 0,
+  "tint_space": "linear",
+  "assemblies": [
+    {
+      "id": "front_cage_bulb_rise300",
+      "parts": [
+        {
+          "name": "front_cage_bulb_rise300__Body_ON_brass_FrontSupply_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "front_cage_bulb_rise300__Body_ON_enamel_FrontSupply_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "front_cage_bulb_rise300__Body_ON_iron_FrontSupply_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "front_cage_bulb_rise300__Body_ON_rubber_FrontSupply_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "front_cage_bulb_rise300__Bulb_ON_bulb_FrontSupply_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "front_cage_bulb_rise300__Mount_ON_brass_FrontSupply_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "front_flush_dome",
+      "parts": [
+        {
+          "name": "front_flush_dome__Body_ON_brass_FrontSupply_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "front_flush_dome__Bulb_ON_bulb_FrontSupply_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "F02_FRONT_GALLERY_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F02_FRONT_GALLERY_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F02_FRONT_GALLERY_LT_3",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F02_FRONT_HALL_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F02_FRONT_HALL_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F02_FRONT_SERVICE_RETURN_LT_1",
+      "variant": "front_cage_bulb_rise300"
+    },
+    {
+      "id": "F03_FRONT_GALLERY_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F03_FRONT_GALLERY_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F03_FRONT_GALLERY_LT_3",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F03_FRONT_HALL_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F03_FRONT_HALL_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F03_FRONT_SERVICE_RETURN_LT_1",
+      "variant": "front_cage_bulb_rise300"
+    },
+    {
+      "id": "F04_FRONT_GALLERY_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F04_FRONT_GALLERY_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F04_FRONT_GALLERY_LT_3",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F04_FRONT_HALL_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F04_FRONT_HALL_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F04_FRONT_SERVICE_RETURN_LT_1",
+      "variant": "front_cage_bulb_rise300"
+    },
+    {
+      "id": "F05_FRONT_GALLERY_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F05_FRONT_GALLERY_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F05_FRONT_GALLERY_LT_3",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F05_FRONT_HALL_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F05_FRONT_HALL_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F05_FRONT_SERVICE_RETURN_LT_1",
+      "variant": "front_cage_bulb_rise300"
+    },
+    {
+      "id": "F06_FRONT_GALLERY_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F06_FRONT_GALLERY_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F06_FRONT_GALLERY_LT_3",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F06_FRONT_HALL_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F06_FRONT_HALL_LT_2",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F06_FRONT_SERVICE_RETURN_LT_1",
+      "variant": "front_cage_bulb_rise300"
+    },
+    {
+      "id": "F01_FRONT_WEST_BAY_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F01_FRONT_EAST_BAY_LT_1",
+      "variant": "front_flush_dome"
+    },
+    {
+      "id": "F01_FRONT_WORKROOM_LT_1",
+      "variant": "front_cage_bulb_rise300"
+    },
+    {
+      "id": "F01_FRONT_SERVICE_RETURN_LT_1",
+      "variant": "front_cage_bulb_rise300"
+    },
+    {
+      "id": "F01_FRONT_STORE_ALCOVE_LT_1",
+      "variant": "front_flush_dome"
+    }
+  ]
+}

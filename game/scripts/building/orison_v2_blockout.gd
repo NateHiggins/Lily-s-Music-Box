@@ -1283,6 +1283,11 @@ func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
 	# Adjacent storeys share slab volume, but never a render face. A full
 	# lower ceiling box put its top exactly on the next floor's walking plane.
 	var part := slab_part if not slab_part.is_empty() else node_name
+	if production_materials and part.begins_with("Wall"):
+		# Solid partitions must occlude from either side even when a nearby
+		# ceiling fixture reverses shadow culling to suit the slab underside.
+		# Otherwise its far wall face leaves a bright line at the ceiling joint.
+		mesh_node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 	if production_materials and part in ["Floor","Ceiling"]:
 		mesh_node.mesh=_slab_faces(mesh,part=="Floor")
 	if production_materials and (part in ["Floor","Ceiling"] or part.begins_with("Wall") or material_key=="wet"):

@@ -267,6 +267,44 @@ class DataConsumptionTests(unittest.TestCase):
         finally:
             td.cleanup()
 
+    def test_inherited_helper_resolves_nearest_base_and_stops_cycles(self):
+        td, root = self.inherited_fixture()
+        try:
+            base = root / "game/scripts/game/mesh_base.gd"
+            grand = root / "game/scripts/game/mesh_grand.gd"
+            grand.write_text(base.read_text(encoding="utf-8"), encoding="utf-8")
+            base.write_text('extends "res://scripts/game/mesh_grand.gd"\n', encoding="utf-8")
+            self.assertNotIn("normals", self.unread_live_fields(root))
+            self.assertIn("material", self.unread_live_fields(root))
+            base.write_text(base.read_text() + 'func _surfaces(surfaces):\n    pass\n', encoding="utf-8")
+            self.assertIn("normals", self.unread_live_fields(root))
+            base.write_text('extends "res://scripts/game/reader.gd"\n', encoding="utf-8")
+            self.assertIn("normals", self.unread_live_fields(root))
+        finally:
+            td.cleanup()
+
+    def test_inherited_nested_read_consumes_container_but_not_siblings(self):
+        td, root = self.inherited_fixture()
+        try:
+            (root / "game/data/live.json").write_text(json.dumps({
+                "props": [{"surfaces": [{"finish": {"roughness": .5, "unused": 1}},
+                                         {"finish": {}}]}],
+            }), encoding="utf-8")
+            base = root / "game/scripts/game/mesh_base.gd"
+            base.write_text('func _surfaces(surfaces):\n'
+                            '    for surface in surfaces:\n'
+                            '        print(surface.finish.roughness)\n', encoding="utf-8")
+            unread = self.unread_live_fields(root)
+            self.assertNotIn("finish", unread)
+            self.assertNotIn("roughness", unread)
+            self.assertIn("unused", unread)
+            base.write_text('func _surfaces(surfaces):\n'
+                            '    for surface in surfaces:\n'
+                            '        print(surface.finish)\n', encoding="utf-8")
+            self.assertIn("roughness", self.unread_live_fields(root))
+        finally:
+            td.cleanup()
+
     def test_inherited_helper_cannot_credit_another_file_or_changed_argument(self):
         td, root = self.inherited_fixture()
         try:

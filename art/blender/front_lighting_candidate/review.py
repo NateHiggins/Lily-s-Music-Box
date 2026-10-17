@@ -58,7 +58,8 @@ for level, base, at, target, name in [
     ('F01',0,[5.7,1.65,-11.7],[7.5,2.35,-10.3],'workroom_service'),
     ('F02',3.2,[7.7,4.9,-10.9],[8.23,4.55,-11.65],'switch_detail'),
     ('F02',3.2,[1.05,5.65,-10.35],[1.35,6.10,-9.825],'canopy_detail'),
-    ('F02',3.2,[8.5,5.05,.45],[9.35,5.10,1.0],'source_cover')]:
+    ('F02',3.2,[8.5,5.05,.45],[9.35,5.10,1.0],'source_cover'),
+    ('F01',0,[4.8,1.65,-4.3],[5.55,1.48,-3.952],'alcove_control')]:
     for obj in list(context.objects):bpy.data.objects.remove(obj,do_unlink=True)
     for obj in bpy.data.collections['FrontLightingCandidate'].objects:
         obj.hide_render=obj.get('level') != level
@@ -73,6 +74,11 @@ for level, base, at, target, name in [
     # omitted in this native cutaway; runtime shell review remains outstanding.
     plane_box('GalleryEastBearing',[8.3,base+1.5,-10.8],[.14,3,3.1],wall)
     plane_box('ServiceRiserBearing',[9.5,base+1.5,0],[.14,3,5],wall)
+    if name == 'alcove_control':
+        for identity,side in [('F01_FRONT_STORE_ALCOVE','north'),('F01_STAFF_RESTROOM','north')]:
+            room=next(s for s in layout['spaces'] if s['id']==identity)
+            x0,z0,x1,z1=room['rect']
+            plane_box(identity+'_RetainedNorth',[(x0+x1)/2,1.5,z1],[x1-x0,3,.14],wall)
     if name != 'source_cover':
         plane_box('StreetCutawayWall',[1.35,base+1.5,-12.35],[13.9,3,.14],wall)
     else:

@@ -49,6 +49,7 @@ static func _room_wall_faces(record: Dictionary, stock: Array[Dictionary], wall_
 				finish=minf(finish,float(rect[2 if along_x else 3]))
 			if finish-start<.001: continue
 			faces.append({"along_x":along_x,"inward":inward,"face":face,"start":start,"finish":finish,"low":box.position.y,"high":box.end.y,"source":wall.source})
+	faces=_exposed_faces(faces,stock)
 	# Clip only where a real perpendicular inner wall closes the corner.
 	# Open-ended stock keeps its full exposed length and receives a return.
 	for face: Dictionary in faces:
@@ -60,6 +61,32 @@ static func _room_wall_faces(record: Dictionary, stock: Array[Dictionary], wall_
 			if plane>float(face.start) and plane-float(face.start)<wall_depth*.75: face.start=plane
 			if plane<float(face.finish) and float(face.finish)-plane<wall_depth*.75: face.finish=plane
 	return faces
+
+static func _exposed_faces(faces: Array[Dictionary],stock: Array[Dictionary]) -> Array[Dictionary]:
+	# A wall end embedded inside a crossing wall is not a visible return.
+	# Treating it as one truncates the real continuous rail by half a wall.
+	var result: Array[Dictionary]=[]
+	for face: Dictionary in faces:
+		var pieces: Array[Rect2]=[Rect2(float(face.start),float(face.low),float(face.finish)-float(face.start),float(face.high)-float(face.low))]
+		var at: float=float(face.face)+float(face.inward)*.0005
+		for wall: Dictionary in stock:
+			if wall.source==face.source:continue
+			var box: AABB=wall.bounds
+			var low: float=box.position.z if bool(face.along_x) else box.position.x
+			var high: float=box.end.z if bool(face.along_x) else box.end.x
+			if at<=low+.000001 or at>=high-.000001:continue
+			var start: float=box.position.x if bool(face.along_x) else box.position.z
+			var finish: float=box.end.x if bool(face.along_x) else box.end.z
+			var cut:=Rect2(start,box.position.y,finish-start,box.size.y)
+			var remaining: Array[Rect2]=[]
+			for piece: Rect2 in pieces:remaining.append_array(preload("res://scripts/building/orison_v2_platform_soffits.gd")._subtract(piece,cut))
+			pieces=remaining
+			if pieces.is_empty():break
+		for piece: Rect2 in pieces:
+			if piece.size.x<.001 or piece.size.y<.001:continue
+			var visible:=face.duplicate();visible.start=piece.position.x;visible.finish=piece.end.x;visible.low=piece.position.y;visible.high=piece.end.y
+			result.append(visible)
+	return result
 
 static func _corner_run(face: Dictionary, low: float, high: float, depth: float, faces: Array[Dictionary]) -> Vector2:
 	var start: float = face.start
@@ -106,10 +133,11 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 			var high := minf(floor_y+float(profile.at)+float(profile.height)*.5,float(face.high))
 			if high-low<.001: continue
 			var extent := _corner_run(face,low,high,float(profile.depth),faces)
-			for band: Vector2 in _height_bands(low,high,casings):
-				var normal_a: float = face.face
-				var normal_b: float = normal_a+float(face.inward)*float(profile.depth)
-				for run: Vector2 in _clear_runs(extent.x,extent.y,band.x,band.y,minf(normal_a,normal_b),maxf(normal_a,normal_b),bool(face.along_x),casings):
+			var normal_a: float = face.face
+			var normal_b: float = normal_a+float(face.inward)*float(profile.depth)
+			for section: Rect2 in _profile_sections(extent,low,high,minf(normal_a,normal_b),maxf(normal_a,normal_b),bool(face.along_x),casings):
+				var band := Vector2(section.position.y,section.end.y)
+				for run: Vector2 in [Vector2(section.position.x,section.end.x)]:
 					if run.y-run.x<.001: continue
 					var transform := _placement(face,run,(band.x+band.y)*.5,band.y-band.x,float(profile.depth))
 					var label: String = profile.batch
@@ -139,6 +167,24 @@ static func _placement(face: Dictionary, run: Vector2, height_at: float, height:
 	var position := Vector3((run.x+run.y)*.5,height_at,normal_at) if along_x else Vector3(normal_at,height_at,(run.x+run.y)*.5)
 	var angle := (0.0 if inward>0.0 else PI) if along_x else (PI*.5 if inward>0.0 else -PI*.5)
 	return Transform3D(Basis(Vector3.UP,angle)*Basis.from_scale(Vector3(run.y-run.x,height,depth)),position)
+
+static func _profile_sections(extent: Vector2,low: float,high: float,normal_low: float,normal_high: float,along_x: bool,casings: Array[AABB]) -> Array[Rect2]:
+	# Subtract actual casing rectangles. A casing's height must not subdivide
+	# unrelated wall stock and squash the native bead into several thin copies.
+	if extent.y-extent.x<.001 or high-low<.001:return []
+	var sections: Array[Rect2]=[Rect2(extent.x,low,extent.y-extent.x,high-low)]
+	for casing: AABB in casings:
+		var back: float=casing.position.z if along_x else casing.position.x
+		var front: float=casing.end.z if along_x else casing.end.x
+		if minf(normal_high,front)-maxf(normal_low,back)<.0001: continue
+		var start: float=casing.position.x if along_x else casing.position.z
+		var finish: float=casing.end.x if along_x else casing.end.z
+		var cut:=Rect2(start,casing.position.y,finish-start,casing.size.y)
+		var remaining: Array[Rect2]=[]
+		for section: Rect2 in sections:
+			remaining.append_array(preload("res://scripts/building/orison_v2_platform_soffits.gd")._subtract(section,cut))
+		sections=remaining
+	return sections
 
 static func _emit(room: Node3D, label: String, transforms: Array, sources: PackedStringArray, key: String) -> void:
 	if transforms.is_empty(): return

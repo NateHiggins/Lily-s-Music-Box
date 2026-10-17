@@ -1,0 +1,102 @@
+{
+  "evidence_class": "INERT",
+  "status": "SCRATCH_EXPORT_NOT_INSTALLED",
+  "native_sha256": "8355c8eceaa3432d39d5c3010a7172a6702f6fba89d598953ddeedcd29fee638",
+  "asset_kind": "fixtures",
+  "asset_sha256": "62d87158542688ff96e0d6161dc20930eb6dd50f817dd101491e779a70fc91ea",
+  "export_recipe_sha256_lf": "d54e98237e9cba67c8d050e3c1834f9314e48920a110017e545f08b04f5aea6d",
+  "supply_parts": 8,
+  "batches": 8,
+  "static_batches": 8,
+  "mesh_nodes": 8,
+  "checks": [
+    {
+      "name": "front_cage_bulb_rise300__Body_ON_brass_FrontSupply_brass",
+      "triangles": 3072,
+      "expected_triangles": 3072,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "front_cage_bulb_rise300__Body_ON_enamel_FrontSupply_enamel",
+      "triangles": 384,
+      "expected_triangles": 384,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "front_cage_bulb_rise300__Body_ON_iron_FrontSupply_iron",
+      "triangles": 1992,
+      "expected_triangles": 1992,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "front_cage_bulb_rise300__Body_ON_rubber_FrontSupply_rubber",
+      "triangles": 188,
+      "expected_triangles": 188,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "front_cage_bulb_rise300__Bulb_ON_bulb_FrontSupply_bulb",
+      "triangles": 9408,
+      "expected_triangles": 9408,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "front_cage_bulb_rise300__Mount_ON_brass_FrontSupply_brass",
+      "triangles": 2806,
+      "expected_triangles": 2806,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "front_flush_dome__Body_ON_brass_FrontSupply_brass",
+      "triangles": 4212,
+      "expected_triangles": 4212,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    },
+    {
+      "name": "front_flush_dome__Bulb_ON_bulb_FrontSupply_bulb",
+      "triangles": 18816,
+      "expected_triangles": 18816,
+      "collapsed_uv": 0,
+      "bounds_error": 0.0,
+      "finite_uv": true,
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "hanger_instances": 0,
+  "hanger_prototypes": 0,
+  "unique_meshes": 8,
+  "hanger_placements": [],
+  "float32_degenerate_triangles_removed": 0,
+  "precision_charts_repaired": 0,
+  "invalid_corner_normals_repaired": 0,
+  "tangent_validation": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-front-lighting-20261016\\front_lighting_fixtures.glb",
+    "primitives": 8,
+    "triangles": 40878,
+    "minimum_tangent_agreement": 0.9999999569869357,
+    "status": "PASS"
+  },
+  "scope": "Scratch Blender export/reimport; no shipping asset, Godot import, loaded mip, collision or runtime acceptance."
+}

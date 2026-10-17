@@ -1,0 +1,9 @@
+00:01.813  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\front_lighting_finish_candidate.blend"
+C:\PleaseRemainOnTheLine\art\blender\front_lighting_finish\prototype.py:107: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Review ambient');scene.world.use_nodes=True
+00:08.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-front-trim-20261017\bored_rail.png'
+Info: Saved as "front_lighting_finish_candidate.blend"
+RAIL FITTING: 49 checks; 0 failures
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

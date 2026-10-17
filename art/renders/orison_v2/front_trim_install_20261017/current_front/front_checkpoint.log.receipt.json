@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 217.47,
+  "exit_code": 0,
+  "finished_utc": "2026-10-17T03:00:46Z",
+  "started_utc": "2026-10-17T02:57:08Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-front-trim-20261017/final-contracts/front_checkpoint.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-front-trim-20261017/final-contracts/front_checkpoint.log",
+  "stdout_sha256": "3c301a0cbc21ddd39923e4636373dd8b6cd0926f2d44422afa62acd44a4cf897"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/FrontLightingIntegrationTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-front-trim-20261017/final-contracts/front_checkpoint",
+ "source": {
+  "dirty_paths": 1723,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "M  art/blender/front_lighting_candidate.blend",
+   "M  art/blender/front_lighting_candidate/build.py",
+   "M  art/blender/front_lighting_candidate/review.py",
+   "A  art/blender/front_lighting_cornice_candidate.blend",
+   "A  art/blender/front_lighting_finish/cornice.py",
+   "A  art/blender/front_lighting_finish/export.py",
+   "A  art/blender/front_lighting_finish/prototype.py",
+   "A  art/blender/front_lighting_finish_candidate.blend",
+   "M  art/data/front_lighting_plan.json",
+   "A  art/data/orison_v2/front_lighting_source.json",
+   "A  art/data/orison_v2/front_lighting_supply_export.json",
+   "A  art/data/orison_v2/front_trim_export_source.json",
+   "A  art/data/orison_v2/front_trim_layout_source.json",
+   " M art/renders/insitu/shots.md",
+   "A  art/renders/orison_v2/front_lighting_finish_candidate_20261017/bored_cornice.png",
+   "A  art/renders/orison_v2/front_lighting_finish_candidate_20261017/bored_rail.png",
+   "A  art/renders/orison_v2/front_lighting_finish_candidate_20261017/build.log",
+   "A  art/renders/orison_v2/front_lighting_finish_candidate_20261017/cornice.json"
+  ],
+  "repository_head": "4b5340f051ff838f08d090b68d908a288b1b1608",
+  "repository_tree": "d326395f28714700efeb91a4f03bd097dd539286",
+  "runtime_inputs_sha256": "2c4a46b9f2c9f220727513887ab91fd6778790b9c71e1e2be0851e60b8565916",
+  "test_path": "game/tests/front_lighting_integration_test.gd",
+  "test_sha256": "26ed3ebc2ad572925916cee91da31ce4fd830bbd98478792287e7a35b4329e5a"
+ },
+ "windowed": true
+}

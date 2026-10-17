@@ -1,0 +1,37 @@
+{
+  "evidence_class": "INERT",
+  "reviewer": "Codex visual inspection; human acceptance pending",
+  "scope": "Scoped composed capture observations; no whole-world or loaded-surface acceptance.",
+  "surface_inputs": {
+    "algorithm": "sha256/LF-normalized-text-and-import-parameters/v1",
+    "files": 4836,
+    "sha256": "79f949d10be925f3c2793c1aa87c0cc30e60362eccd8764cf6d434a246ada48c"
+  },
+  "images": [
+    {
+      "path": "front_lighting_alcove.png",
+      "sha256": "901b93ca85a47ea6c297ef8e006af366d70affee7a0b25ae5a9e1cfd06de6074",
+      "observation": "Plate clears the wood panel cap and is reachable from the lobby. Actual circuit is off; view is too dark for close material acceptance. Conduit/rail clearance and existing corner gap remain open."
+    },
+    {
+      "path": "front_lighting_gallery_day.png",
+      "sha256": "0201b154ed356e4daa86d00f3ac9d596233a6e10b0d841d65b30145c672c9085",
+      "observation": "Production daylight and existing active room lights. Previous concentric ceiling shadow bands are absent. Far room circuits deliberately remain off."
+    },
+    {
+      "path": "front_lighting_gallery_night.png",
+      "sha256": "a653f672c5832cc27de2bc57cb3d96846556b3e2bc695163f041b938d3af38c5",
+      "observation": "Same gallery at 23:00; new shadow culling removes the bands. This is a scoped rendering correction, not whole-world lighting acceptance."
+    },
+    {
+      "path": "front_lighting_workroom.png",
+      "sha256": "9e20ff1ed40d7f9ce1305ee145eeedd945b1e315a396d213cb7059c8f42e1896",
+      "observation": "Raised plate and retained cage fixture are visible. Thin lit seam at the wall/ceiling junction and conduit/trim interfaces require further review."
+    },
+    {
+      "path": "front_lighting_source.png",
+      "sha256": "f94ef2665afd5a65484235195dd1e7a3de7c2a7627ddcfc2895c538427d2f1ce",
+      "observation": "Camera now sees the retained junction rather than an intervening wall. Dark finish is not readable enough to accept the connection visually."
+    }
+  ]
+}

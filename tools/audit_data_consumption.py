@@ -561,7 +561,7 @@ def _parameter_reads(body, parameter, origin):
 
 
 def inherited_parameter_reads(root: Path, texts):
-    """Follow one direct argument into a literal immediate base script.
+    """Follow one direct argument into a method in the literal base chain.
 
     Only an actual JSON parse creates file identity. A direct alias or array
     item can reach a non-overridden inherited method, where reads must descend
@@ -577,7 +577,20 @@ def inherited_parameter_reads(root: Path, texts):
         parent_path = root / "game" / parent.group(1)
         if parent_path not in texts:
             continue
-        methods = _script_functions(texts[parent_path])
+        methods = {}
+        visited = {caller}
+        # Resolve the nearest implementation, including intermediate overrides.
+        # Cycles and bases outside the scanned production sources stop traversal.
+        while parent_path in texts and parent_path not in visited:
+            visited.add(parent_path)
+            base_text = texts[parent_path]
+            for name, definition in _script_functions(base_text).items():
+                methods.setdefault(name, definition)
+            ancestor = re.search(r'^extends\s+["\']res://(scripts/[^"\']+\.gd)["\']',
+                                 base_text, re.MULTILINE)
+            if not ancestor:
+                break
+            parent_path = root / "game" / ancestor.group(1)
         overrides = _script_functions(text)
         class_constants, _numbers = source_constants("\n".join(
             line for line in text.splitlines() if not line[:1].isspace()))
@@ -692,7 +705,8 @@ def scan(root: Path, exception_path: Path):
             # reporting format after proving an actual matching JSON path.
             forwarded = any(
                 candidate.replace("[]", "").rsplit(".", 1)[-1] == leaf
-                and path_matches(tuple(candidate.replace("[]", ".*").strip(".").split(".")), accessed)
+                and path_matches(tuple(candidate.replace("[]", ".*").strip(".").split(".")),
+                                 accessed[:len(candidate.replace("[]", ".*").strip(".").split("."))])
                 for candidate in fields for accessed in inherited_reads.get(rel_data, ()))
             key = f"{rel_repo}:{field}"
             field_exception = exceptions.get("fields", {}).get(key)

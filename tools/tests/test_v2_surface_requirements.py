@@ -126,4 +126,19 @@ class Requirements(unittest.TestCase):
         with patch.object(evidence,'file_hash',side_effect=changed_shader):
             self.assertNotEqual(before,evidence.inputs()['sha256'])
 
+    def test_front_lighting_native_and_projection_changes_invalidate_qualification(self):
+        import v2_surface_evidence as evidence
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+        for name in ('build.py','front_lighting_candidate.blend','front_lighting_plan.json',
+                     'front_lighting_source.json','front_lighting_supply_export.json',
+                     'prepare_v2_front_lighting.py','export.py',
+                     'front_lighting_finish_candidate.blend','front_lighting_cornice_candidate.blend',
+                     'millwork_profile.blend','front_trim_layout_source.json','front_trim_export_source.json',
+                     'plan_v2_front_trim.py'):
+            with self.subTest(name=name):
+                with patch.object(evidence,'file_hash',side_effect=lambda path:
+                                  'changed' if path.name==name else 'source'):
+                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+
 if __name__=='__main__':unittest.main()

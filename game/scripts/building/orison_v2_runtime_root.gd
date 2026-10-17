@@ -199,6 +199,12 @@ func _ready() -> void:
 		push_error("V2 native fixed lighting refused: %s" % [fixed_lighting.errors])
 		return
 	adapter.root.set_meta("v2_native_fixed_lighting_factory", fixed_lighting)
+	var front_lighting := preload("res://scripts/building/orison_v2_native_front_lighting.gd").new()
+	if not front_lighting.mount(self):
+		startup_failed = true
+		push_error("V2 front lighting refused: %s" % [front_lighting.errors])
+		return
+	adapter.root.set_meta("v2_native_front_lighting_factory",front_lighting)
 	var work_lights := preload("res://scripts/building/orison_v2_native_service_work_lights.gd").new()
 	if not work_lights.mount(self,fixed_lighting,adapter.root.get_meta("v2_native_service_instruments")):
 		startup_failed=true
@@ -474,6 +480,18 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: roof lighting supply refused: %s" % [roof_supply.errors])
 		return
 	adapter.root.set_meta("v2_native_roof_lighting_supply", roof_supply)
+	var front_supply := preload("res://scripts/building/orison_v2_front_lighting_supply.gd").new()
+	if not front_supply.mount(self,electrical_service):
+		startup_failed = true
+		push_error("V2 front supply refused: %s" % [front_supply.errors])
+		return
+	adapter.root.set_meta("v2_native_front_lighting_supply",front_supply)
+	var front_trim := preload("res://scripts/building/orison_v2_front_trim_fittings.gd").new()
+	if not front_trim.mount(self):
+		startup_failed = true
+		push_error("V2 front trim fittings refused: %s" % [front_trim.errors])
+		return
+	adapter.root.set_meta("v2_native_front_trim_fittings",front_trim)
 	var service_instruments := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
 	if not service_instruments.mount(self):
 		startup_failed = true

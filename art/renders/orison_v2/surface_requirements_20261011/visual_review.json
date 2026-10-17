@@ -1,44 +1,43 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "human_acceptance": false,
-  "scope": "New captures actually inspected for scoped technical fit; artistic and human acceptance remain open.",
-  "surface_inputs_sha256": "da777f2876a1a2bec38d7eceee1478f64e6734a84990aaebe8369dad701b33c5",
   "images": [
     {
-      "file": "front_restored_mass.png",
-      "sha256": "d0fb887c13f868c8aa9108b153104d0ee42769a617558610459ea6548988fdb9",
-      "observation": "Current capture shows the continuous central front elevation, cornice and rectangular mass. Neighboring context remains simplified; no photoreal or human acceptance is granted."
+      "file": "front_gallery_02.png",
+      "sha256": "eedc673e0433c12401eba4be429bb721c3f8c40c3190546f01d57d7febde2719",
+      "observation": "Current composed gallery shows continuous cornice, rail and panel-cap material scale, mapped plaster and terrazzo; no previous concentric ceiling bands. Scope is technical surface response, not general lighting/artistic acceptance."
     },
     {
-      "file": "front_restored_entrance.png",
-      "sha256": "3404f4bf2935d590a73bdf7c0c16119a4866c3241a907b579618a529f9095734",
-      "observation": "Brick elevation, separate window surrounds, canopy and entrance door render together without a visible shell gap from this stance."
+      "file": "front_gallery_06.png",
+      "sha256": "c62044a8ba53587e830662151de388989a8d87ebde425474ec73d9b3b6524642",
+      "observation": "Upper gallery repeats mapped native fixtures, floor and wood stock. Large retained structural girder remains visually dominant and needs separate design review; it is not accepted by the texture qualification."
     },
     {
-      "file": "front_gallery_03.png",
-      "sha256": "7c9fad67959d81d061c3dc59b96f0e8989fd321fc8e265258bdec78f3e1b3d32",
-      "observation": "Window treatments, floor and wall paneling render continuously. Gallery lighting is dim and furnishings sparse; artistic development remains open."
+      "file": "front_ground_bay.png",
+      "sha256": "1b6e2ee1d963c7211b0c0195fe2bef7facf1271ab16cef9f0bbbd37bd9f36683",
+      "observation": "Close loaded panel cap is a separate wood member; rail/cornice, blind and curtain materials retain visible detail. Native pipe splice geometry is checked separately; this image does not accept every joint."
     },
     {
-      "file": "patrol_register_after_round.png",
-      "sha256": "82dd058b0dc95dee0bdc19e178ade56d65c9b8ba8a18b0b091b5e70cf5c1e169",
-      "observation": "Seven numbered indicators, 007 counter and adjacent key cabinet are visible. This view does not establish complete internal mechanical fabrication."
+      "file": "continuous_HistoricMillwork.png",
+      "sha256": "7c0726a08d8c695917c3de5d320b9bc2dec1eb5e430556161c791abbb756980c",
+      "observation": "Close loaded baseboard, independent wood panel member and terrazzo retain mapped detail and physical scale. Bright technical fill does not qualify ordinary room lighting or every joint."
     },
     {
-      "file": "native_station_open.png",
-      "sha256": "5398d514cda66ae4d9debd8d7ac22dfc980506a1f98828cdd1d020f88acb9125",
-      "observation": "Open station shows case depth, three hinges and separate internal gears. No absent case face is visible from this stance; full mechanism and human acceptance remain outside this review."
+      "file": "weather_season_10.png",
+      "sha256": "e4449720ed57bdae1a7631c5503acf68b9fae01bfc7915ee3aeffa3af2976e89",
+      "observation": "Composed autumn sky and roof remain sampled without an obvious texture discontinuity in this view. This does not accept cloud artistry, credentialed live weather or the whole exterior."
     },
     {
-      "file": "radiator.png",
-      "sha256": "dff96de357fa84bb1635375e009f3d2991f97760416d8763d7eca44139e390de",
-      "observation": "Section castings and supply wheel render under the window. The close-up does not prove lower fitting clearance; the current clearance diagnostic supplies that evidence. Coarse casting detail still needs polish."
+      "file": "electrical_F01_ELECTRICAL_JUNCTION.png",
+      "sha256": "a06142ea8bbacc453d4964e9390e9e6b1dcd7f4de197851737ccd3080aa6b2a1",
+      "observation": "Technical fill resolves the bored source cover, retained casting and screws with mapped metal response. Connector seating and ordinary room lighting remain separate acceptance questions."
     },
     {
-      "file": "boiler.png",
-      "sha256": "e30fb56a9baf2940b36dba329f180b18a72abaac610c37346f8de6316c5b59ac",
-      "observation": "Boiler shell, gauge and fittings render under the overhead duct. Strong warm lighting and simplified shell details remain limitations; this view does not establish concealed distribution fit."
+      "file": "electrical_riser_connection.png",
+      "sha256": "8bab9ec0a8dbbc7da763620231d3dc103da453d29a536a1d1480643ec14e26b0",
+      "observation": "Retained electrical riser and bearings show mapped metal response in technical fill. This view verifies sampling appearance, not every physical connection or room lighting."
     }
-  ]
+  ],
+  "surface_inputs_sha256": "61a58f672a15234d68a1ed7e2f5583e8040acb432efece5f2a30921c9564d001",
+  "scope": "Technical texture/UV appearance review of seven actually inspected representative current captures. No general photorealism, joint, gameplay, whole-game performance or human acceptance."
 }

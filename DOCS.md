@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Current restored-front lighting installation, physical switches, disk reconstruction and open fitting/qualification work | `design/V2_FRONT_LIGHTING_INSTALL_2026-10-17.md` |
 | Verified native front-lighting exports, support optimization and remaining game integration | `design/V2_FRONT_LIGHTING_EXPORT_2026-10-17.md` |
 | Earlier restored-front fitting prototype and rejected export attempts | `design/V2_FRONT_LIGHTING_NATIVE_2026-10-16.md` |
 | Current nineteen-emitter installation, shared lobby takeoff, waiting-bay clearance, qualified contracts and remaining V2 work | `design/V2_LOBBY_HEATING_2026-10-16.md` |

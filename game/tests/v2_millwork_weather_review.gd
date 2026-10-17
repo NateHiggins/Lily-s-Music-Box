@@ -84,6 +84,10 @@ func captures(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	camera.queue_free();world.player.camera.make_current()
 
 func _contains_trim(room: Node3D, point: Vector3, height: float) -> bool:
+	for fitting: MeshInstance3D in room.find_children("*","MeshInstance3D",true,false):
+		if fitting.has_meta("native_front_trim_fit") and fitting.mesh!=null:
+			var local_pose: Transform3D=room.global_transform.affine_inverse()*fitting.global_transform
+			if (local_pose*fitting.mesh.get_aabb()).grow(.003).has_point(point): return true
 	var label := "PublicWainscotCap" if is_equal_approx(height,1.34) else "HistoricMillwork"
 	var draw := room.get_node_or_null(label) as MultiMeshInstance3D
 	if draw==null: return false

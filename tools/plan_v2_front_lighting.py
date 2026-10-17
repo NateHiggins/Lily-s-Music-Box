@@ -112,9 +112,15 @@ def plan(layout, electrical):
         elif name == 'EAST_BAY':
             position, yaw = [5.298, 1.2, -11.4], math.pi / 2
         elif name == 'STORE_ALCOVE':
-            position, yaw = [6.85, 1.2, -3.952], 0.0
+            # The recess is shallower than the player capsule plus working
+            # clearance. Keep the control on its backing wall, reachable from
+            # the adjoining lobby rather than requiring entry into the recess.
+            position, yaw = [5.55, 1.2, -3.952], 0.0
         else:
             raise ValueError(name)
+        # Keep the complete box above the 1.36 m wainscot cap and below the
+        # 1.65 m picture rail. Cutting a cap around a switch looks improvised.
+        position[1] = 1.48
         # Forty-millimetre hollow surface box: rear bears on the partition,
         # native gasket bears on its front, and 25mm conduit fits in its depth.
         result['switches'].append(dict(id=identity + '_SWITCH', room=identity, level=level,
@@ -124,7 +130,7 @@ def plan(layout, electrical):
         sx += math.sin(yaw) * .012
         sz += math.cos(yaw) * .012
         route(identity + '_SWITCH_FEED', level,
-              [[8.9, 2.95, sz], [sx, 2.95, sz], [sx, 1.28, sz]], identity, 'switch')
+              [[8.9, 2.95, sz], [sx, 2.95, sz], [sx, position[1]+.08, sz]], identity, 'switch')
 
     # Deduplicate/split all axis-aligned stock at crossings, branches and tips.
     # Native boxes own the resulting vertices: no closed pipes merely cross.

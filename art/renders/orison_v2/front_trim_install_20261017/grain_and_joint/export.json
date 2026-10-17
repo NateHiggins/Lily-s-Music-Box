@@ -1,0 +1,24 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Four native bored stocks only; export/reimport and strict tangent checks, not runtime acceptance.",
+  "asset_sha256": "3f6147cf9aa1030a765c6528435a1c8766dd12b96c15cb9c4d015453aae212e5",
+  "source_bindings": {
+    "art\\blender\\front_lighting_finish_candidate.blend": "45c584d8b5b6491c39da5c50bf3123ad3ca4262fa693a118b93111f42375faee",
+    "art\\blender\\front_lighting_cornice_candidate.blend": "d1f38460761be4437e62ffa91d1aef3762e382d631968588e650d58ce5621f66"
+  },
+  "tangents": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-front-trim-20261017\\front_lighting_trim.glb",
+    "primitives": 4,
+    "triangles": 1480,
+    "minimum_tangent_agreement": 0.9999999625519119,
+    "status": "PASS"
+  },
+  "parts": {
+    "BoredCornice_0": 344,
+    "BoredCornice_1": 344,
+    "BoredCornice_2": 168,
+    "BoredRailBridge": 624
+  },
+  "recipe_sha256_lf": "46dbebde3016409b906171f9d3fb12f1b297ceb914d00e37fa8fa3d8ffb06a2c",
+  "exporter_hook_sha256_lf": "d54e98237e9cba67c8d050e3c1834f9314e48920a110017e545f08b04f5aea6d"
+}
