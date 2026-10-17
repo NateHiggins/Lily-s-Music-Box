@@ -1,0 +1,1849 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Actual retained-wall ray survey for proposed native anti-tip ties. Not an installation, structural certification, loaded-mipmap or runtime proof.",
+  "context_sha256": "cdde2f1cb9fd543de7f3dd1f6135634b4afd943915902259d2594a935424d2fa",
+  "route_sha256": "d75ebf7a0f5ad6c072b0b7fc8ea7084d9fffc457a18cdbe4028200e3212fd2c2",
+  "ties": [
+    {
+      "actor": "F02_A_RADIATOR_01",
+      "sections": 8,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999954223632812,
+        -0.22999954223632812,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_A_MAIN/WallNorth_00",
+      "clearance_from_cast_rear_m": 0.16299954223632812,
+      "upper_bearing_y": -0.22999954223632812,
+      "lower_bearing_y": -0.22999954223632812,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_A_MAIN/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_A_MAIN/WallNorth_00",
+      "maximum_sampled_finish_y": -0.22999954223632812,
+      "bracket_front_y": -0.20999954223632813,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.17399954223632813,
+      "actor_frame_building": {
+        "position": [
+          -14.5,
+          3.2,
+          2.8
+        ],
+        "yaw": 0
+      }
+    },
+    {
+      "actor": "F02_A_RADIATOR_01",
+      "sections": 8,
+      "side": "right",
+      "column_index": 6,
+      "column_local_blender": [
+        0.23000000000000004,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.22999954223632812,
+        -0.22999954223632812,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_A_MAIN/WallNorth_00",
+      "clearance_from_cast_rear_m": 0.16299954223632812,
+      "upper_bearing_y": -0.22999954223632812,
+      "lower_bearing_y": -0.22999954223632812,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_A_MAIN/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_A_MAIN/WallNorth_00",
+      "maximum_sampled_finish_y": -0.22999954223632812,
+      "bracket_front_y": -0.20999954223632813,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.17399954223632813,
+      "actor_frame_building": {
+        "position": [
+          -14.5,
+          3.2,
+          2.8
+        ],
+        "yaw": 0
+      }
+    },
+    {
+      "actor": "F02_B_RADIATOR_01",
+      "sections": 10,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.23000003397464752,
+        -0.18000009655952454,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/WallEastExtension00_00",
+      "clearance_from_cast_rear_m": 0.11300009655952453,
+      "upper_bearing_y": -0.18000009655952454,
+      "lower_bearing_y": -0.18000009655952454,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/WallEastExtension00_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/WallEastExtension00_00",
+      "maximum_sampled_finish_y": -0.18000009655952454,
+      "bracket_front_y": -0.16000009655952455,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400009655952456,
+      "actor_frame_building": {
+        "position": [
+          15.4,
+          3.2,
+          -3.0
+        ],
+        "yaw": 1.5707963
+      }
+    },
+    {
+      "actor": "F02_B_RADIATOR_01",
+      "sections": 10,
+      "side": "right",
+      "column_index": 8,
+      "column_local_blender": [
+        0.414,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.414000004529953,
+        -0.18000005185604095,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/WallEastExtension00_00",
+      "clearance_from_cast_rear_m": 0.11300005185604095,
+      "upper_bearing_y": -0.18000005185604095,
+      "lower_bearing_y": -0.18000005185604095,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/WallEastExtension00_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/WallEastExtension00_00",
+      "maximum_sampled_finish_y": -0.18000003695487976,
+      "bracket_front_y": -0.16000005185604096,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400005185604097,
+      "actor_frame_building": {
+        "position": [
+          15.4,
+          3.2,
+          -3.0
+        ],
+        "yaw": 1.5707963
+      }
+    },
+    {
+      "actor": "F03_A_RADIATOR_01",
+      "sections": 9,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999921441078186,
+        -0.20000006258487701,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -8.742277657347586e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_A_MAIN/WallSouth_00",
+      "clearance_from_cast_rear_m": 0.133000062584877,
+      "upper_bearing_y": -0.20000006258487701,
+      "lower_bearing_y": -0.20000006258487701,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallNorth_00",
+      "maximum_sampled_finish_y": -0.20000004768371582,
+      "bracket_front_y": -0.18000006258487702,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.14400006258487702,
+      "actor_frame_building": {
+        "position": [
+          -11,
+          6.4,
+          -3.58
+        ],
+        "yaw": 3.141592653589793
+      }
+    },
+    {
+      "actor": "F03_A_RADIATOR_01",
+      "sections": 9,
+      "side": "right",
+      "column_index": 7,
+      "column_local_blender": [
+        0.322,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.3219998776912689,
+        -0.20000001788139343,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -8.742277657347586e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_A_MAIN/WallSouth_00",
+      "clearance_from_cast_rear_m": 0.13300001788139343,
+      "upper_bearing_y": -0.20000000298023224,
+      "lower_bearing_y": -0.20000000298023224,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallNorth_00",
+      "maximum_sampled_finish_y": -0.20000000298023224,
+      "bracket_front_y": -0.18000000298023225,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.14400000298023224,
+      "actor_frame_building": {
+        "position": [
+          -11,
+          6.4,
+          -3.58
+        ],
+        "yaw": 3.141592653589793
+      }
+    },
+    {
+      "actor": "F03_B_RADIATOR_01",
+      "sections": 7,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.18400000000000002,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.18400003015995026,
+        -0.18000006675720215,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_B_MAIN/WallEast_00",
+      "clearance_from_cast_rear_m": 0.11300006675720214,
+      "upper_bearing_y": -0.18000006675720215,
+      "lower_bearing_y": -0.18000006675720215,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_B_MAIN/WallEast_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_B_MAIN/WallEast_00",
+      "maximum_sampled_finish_y": -0.18000005185604095,
+      "bracket_front_y": -0.16000006675720216,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400006675720217,
+      "actor_frame_building": {
+        "position": [
+          15.4,
+          6.4,
+          -3.4
+        ],
+        "yaw": 1.5707963
+      }
+    },
+    {
+      "actor": "F03_B_RADIATOR_01",
+      "sections": 7,
+      "side": "right",
+      "column_index": 5,
+      "column_local_blender": [
+        0.18399999999999994,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.18400000035762787,
+        -0.18000003695487976,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_B_MAIN/WallEast_00",
+      "clearance_from_cast_rear_m": 0.11300003695487976,
+      "upper_bearing_y": -0.18000003695487976,
+      "lower_bearing_y": -0.18000003695487976,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_B_MAIN/WallEast_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_B_MAIN/WallEast_00",
+      "maximum_sampled_finish_y": -0.18000002205371857,
+      "bracket_front_y": -0.16000003695487977,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400003695487978,
+      "actor_frame_building": {
+        "position": [
+          15.4,
+          6.4,
+          -3.4
+        ],
+        "yaw": 1.5707963
+      }
+    },
+    {
+      "actor": "F04_A_RADIATOR_01",
+      "sections": 7,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.18400000000000002,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.18400003015995026,
+        -0.18000009655952454,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_MAIN/WallEastExtension00_00",
+      "clearance_from_cast_rear_m": 0.11300009655952453,
+      "upper_bearing_y": -0.18000009655952454,
+      "lower_bearing_y": -0.18000009655952454,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_MAIN/WallEastExtension00_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_MAIN/WallEastExtension00_00",
+      "maximum_sampled_finish_y": -0.18000008165836334,
+      "bracket_front_y": -0.16000009655952455,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400009655952456,
+      "actor_frame_building": {
+        "position": [
+          15.4,
+          9.6,
+          -3
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F04_A_RADIATOR_01",
+      "sections": 7,
+      "side": "right",
+      "column_index": 5,
+      "column_local_blender": [
+        0.18399999999999994,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.18400000035762787,
+        -0.18000006675720215,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_MAIN/WallEastExtension00_00",
+      "clearance_from_cast_rear_m": 0.11300006675720214,
+      "upper_bearing_y": -0.18000006675720215,
+      "lower_bearing_y": -0.18000006675720215,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_MAIN/WallEastExtension00_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_MAIN/WallEastExtension00_00",
+      "maximum_sampled_finish_y": -0.18000005185604095,
+      "bracket_front_y": -0.16000006675720216,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400006675720217,
+      "actor_frame_building": {
+        "position": [
+          15.4,
+          9.6,
+          -3
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F04_B_RADIATOR_01",
+      "sections": 8,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999954223632812,
+        -0.22999978065490723,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_B_MAIN/WallNorth_02",
+      "clearance_from_cast_rear_m": 0.16299978065490722,
+      "upper_bearing_y": -0.22999978065490723,
+      "lower_bearing_y": -0.22999978065490723,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_B_MAIN/WallNorth_02",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_B_MAIN/WallNorth_02",
+      "maximum_sampled_finish_y": -0.22999978065490723,
+      "bracket_front_y": -0.20999978065490724,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.17399978065490723,
+      "actor_frame_building": {
+        "position": [
+          -11.6,
+          9.6,
+          3.15
+        ],
+        "yaw": 0
+      }
+    },
+    {
+      "actor": "F04_B_RADIATOR_01",
+      "sections": 8,
+      "side": "right",
+      "column_index": 6,
+      "column_local_blender": [
+        0.23000000000000004,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.22999954223632812,
+        -0.22999978065490723,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_B_MAIN/WallNorth_02",
+      "clearance_from_cast_rear_m": 0.16299978065490722,
+      "upper_bearing_y": -0.22999978065490723,
+      "lower_bearing_y": -0.22999978065490723,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_B_MAIN/WallNorth_02",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_B_MAIN/WallNorth_02",
+      "maximum_sampled_finish_y": -0.22999978065490723,
+      "bracket_front_y": -0.20999978065490724,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.17399978065490723,
+      "actor_frame_building": {
+        "position": [
+          -11.6,
+          9.6,
+          3.15
+        ],
+        "yaw": 0
+      }
+    },
+    {
+      "actor": "F05_A_RADIATOR_01",
+      "sections": 8,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999954223632812,
+        -0.14999961853027344,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_A_MAIN/WallNorth_00",
+      "clearance_from_cast_rear_m": 0.08299961853027343,
+      "upper_bearing_y": -0.14999961853027344,
+      "lower_bearing_y": -0.14999961853027344,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_A_MAIN/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_A_MAIN/WallNorth_00",
+      "maximum_sampled_finish_y": -0.14999961853027344,
+      "bracket_front_y": -0.12999961853027345,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09399961853027346,
+      "actor_frame_building": {
+        "position": [
+          -13.7,
+          12.8,
+          -0.82
+        ],
+        "yaw": 0.0
+      }
+    },
+    {
+      "actor": "F05_A_RADIATOR_01",
+      "sections": 8,
+      "side": "right",
+      "column_index": 6,
+      "column_local_blender": [
+        0.23000000000000004,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.22999954223632812,
+        -0.14999961853027344,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_A_MAIN/WallNorth_00",
+      "clearance_from_cast_rear_m": 0.08299961853027343,
+      "upper_bearing_y": -0.14999961853027344,
+      "lower_bearing_y": -0.14999961853027344,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_A_MAIN/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_A_MAIN/WallNorth_00",
+      "maximum_sampled_finish_y": -0.14999961853027344,
+      "bracket_front_y": -0.12999961853027345,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09399961853027346,
+      "actor_frame_building": {
+        "position": [
+          -13.7,
+          12.8,
+          -0.82
+        ],
+        "yaw": 0.0
+      }
+    },
+    {
+      "actor": "F05_B_RADIATOR_01",
+      "sections": 9,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.2299996018409729,
+        -0.15000061690807343,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -8.742277657347586e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_B_MAIN/WallSouth_00",
+      "clearance_from_cast_rear_m": 0.08300061690807342,
+      "upper_bearing_y": -0.15000061690807343,
+      "lower_bearing_y": -0.15000061690807343,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_B_MAIN/WallSouth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_B_MAIN/WallSouth_00",
+      "maximum_sampled_finish_y": -0.15000060200691223,
+      "bracket_front_y": -0.13000061690807344,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09400061690807344,
+      "actor_frame_building": {
+        "position": [
+          -13.4,
+          12.8,
+          0.82
+        ],
+        "yaw": 3.141592653589793
+      }
+    },
+    {
+      "actor": "F05_B_RADIATOR_01",
+      "sections": 9,
+      "side": "right",
+      "column_index": 7,
+      "column_local_blender": [
+        0.322,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.3219994902610779,
+        -0.15000055730342865,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -8.742277657347586e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_B_MAIN/WallSouth_00",
+      "clearance_from_cast_rear_m": 0.08300055730342865,
+      "upper_bearing_y": -0.15000055730342865,
+      "lower_bearing_y": -0.15000055730342865,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_B_MAIN/WallSouth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_B_MAIN/WallSouth_00",
+      "maximum_sampled_finish_y": -0.15000055730342865,
+      "bracket_front_y": -0.13000055730342866,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09400055730342867,
+      "actor_frame_building": {
+        "position": [
+          -13.4,
+          12.8,
+          0.82
+        ],
+        "yaw": 3.141592653589793
+      }
+    },
+    {
+      "actor": "F05_C_RADIATOR_01",
+      "sections": 7,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.18400000000000002,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.18399998545646667,
+        -0.15000002086162567,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_C_BED1/WallWest_00",
+      "clearance_from_cast_rear_m": 0.08300002086162567,
+      "upper_bearing_y": -0.15000002086162567,
+      "lower_bearing_y": -0.15000002086162567,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_C_BED1/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_C_BED1/WallWest_00",
+      "maximum_sampled_finish_y": -0.15000002086162567,
+      "bracket_front_y": -0.13000002086162568,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09400002086162569,
+      "actor_frame_building": {
+        "position": [
+          0.28,
+          12.8,
+          8.4
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F05_C_RADIATOR_01",
+      "sections": 7,
+      "side": "right",
+      "column_index": 5,
+      "column_local_blender": [
+        0.18399999999999994,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.18400004506111145,
+        -0.15000000596046448,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_C_BED1/WallWest_00",
+      "clearance_from_cast_rear_m": 0.08300000596046447,
+      "upper_bearing_y": -0.15000000596046448,
+      "lower_bearing_y": -0.15000000596046448,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_C_BED1/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_C_BED1/WallWest_00",
+      "maximum_sampled_finish_y": -0.14999999105930328,
+      "bracket_front_y": -0.1300000059604645,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.0940000059604645,
+      "actor_frame_building": {
+        "position": [
+          0.28,
+          12.8,
+          8.4
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F06_A_RADIATOR_01",
+      "sections": 9,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999954223632812,
+        -0.14999961853027344,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_A_MAIN/WallNorth_00",
+      "clearance_from_cast_rear_m": 0.08299961853027343,
+      "upper_bearing_y": -0.14999961853027344,
+      "lower_bearing_y": -0.14999961853027344,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_A_MAIN/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_A_MAIN/WallNorth_00",
+      "maximum_sampled_finish_y": -0.14999961853027344,
+      "bracket_front_y": -0.12999961853027345,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09399961853027346,
+      "actor_frame_building": {
+        "position": [
+          -13.7,
+          16.0,
+          -0.82
+        ],
+        "yaw": 0.0
+      }
+    },
+    {
+      "actor": "F06_A_RADIATOR_01",
+      "sections": 9,
+      "side": "right",
+      "column_index": 7,
+      "column_local_blender": [
+        0.322,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.32199954986572266,
+        -0.14999961853027344,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_A_MAIN/WallNorth_00",
+      "clearance_from_cast_rear_m": 0.08299961853027343,
+      "upper_bearing_y": -0.14999961853027344,
+      "lower_bearing_y": -0.14999961853027344,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_A_MAIN/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_A_MAIN/WallNorth_00",
+      "maximum_sampled_finish_y": -0.14999961853027344,
+      "bracket_front_y": -0.12999961853027345,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09399961853027346,
+      "actor_frame_building": {
+        "position": [
+          -13.7,
+          16.0,
+          -0.82
+        ],
+        "yaw": 0.0
+      }
+    },
+    {
+      "actor": "F06_B_RADIATOR_01",
+      "sections": 7,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.18400000000000002,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.18400007486343384,
+        -0.15000060200691223,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -8.742277657347586e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_B_MAIN/WallSouth_00",
+      "clearance_from_cast_rear_m": 0.08300060200691223,
+      "upper_bearing_y": -0.15000060200691223,
+      "lower_bearing_y": -0.15000060200691223,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_B_MAIN/WallSouth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_B_MAIN/WallSouth_00",
+      "maximum_sampled_finish_y": -0.15000060200691223,
+      "bracket_front_y": -0.13000060200691224,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09400060200691225,
+      "actor_frame_building": {
+        "position": [
+          -13.4,
+          16.0,
+          0.82
+        ],
+        "yaw": 3.141592653589793
+      }
+    },
+    {
+      "actor": "F06_B_RADIATOR_01",
+      "sections": 7,
+      "side": "right",
+      "column_index": 5,
+      "column_local_blender": [
+        0.18399999999999994,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.1839999556541443,
+        -0.15000057220458984,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -8.742277657347586e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_B_MAIN/WallSouth_00",
+      "clearance_from_cast_rear_m": 0.08300057220458984,
+      "upper_bearing_y": -0.15000057220458984,
+      "lower_bearing_y": -0.15000057220458984,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_B_MAIN/WallSouth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_B_MAIN/WallSouth_00",
+      "maximum_sampled_finish_y": -0.15000057220458984,
+      "bracket_front_y": -0.13000057220458985,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09400057220458986,
+      "actor_frame_building": {
+        "position": [
+          -13.4,
+          16.0,
+          0.82
+        ],
+        "yaw": 3.141592653589793
+      }
+    },
+    {
+      "actor": "F06_C_RADIATOR_01",
+      "sections": 8,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999951243400574,
+        -0.15000003576278687,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_C_BED1/WallWest_00",
+      "clearance_from_cast_rear_m": 0.08300003576278686,
+      "upper_bearing_y": -0.15000003576278687,
+      "lower_bearing_y": -0.15000003576278687,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_C_BED1/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_C_BED1/WallWest_00",
+      "maximum_sampled_finish_y": -0.15000002086162567,
+      "bracket_front_y": -0.13000003576278688,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09400003576278688,
+      "actor_frame_building": {
+        "position": [
+          0.28,
+          16.0,
+          8.4
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F06_C_RADIATOR_01",
+      "sections": 8,
+      "side": "right",
+      "column_index": 6,
+      "column_local_blender": [
+        0.23000000000000004,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.2299995720386505,
+        -0.14999999105930328,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_C_BED1/WallWest_00",
+      "clearance_from_cast_rear_m": 0.08299999105930328,
+      "upper_bearing_y": -0.14999999105930328,
+      "lower_bearing_y": -0.14999999105930328,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_C_BED1/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_C_BED1/WallWest_00",
+      "maximum_sampled_finish_y": -0.14999999105930328,
+      "bracket_front_y": -0.1299999910593033,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.0939999910593033,
+      "actor_frame_building": {
+        "position": [
+          0.28,
+          16.0,
+          8.4
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F01_A_RADIATOR_01",
+      "sections": 7,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.18400000000000002,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.18399980664253235,
+        -0.18000058829784393,
+        0.5799999833106995
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_MAIN/WallWest_00",
+      "clearance_from_cast_rear_m": 0.11300058829784393,
+      "upper_bearing_y": -0.18000058829784393,
+      "lower_bearing_y": -0.18000058829784393,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_MAIN/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_MAIN/WallWest_00",
+      "maximum_sampled_finish_y": -0.18000058829784393,
+      "bracket_front_y": -0.16000058829784394,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400058829784395,
+      "actor_frame_building": {
+        "position": [
+          -15.4,
+          0.0,
+          -6.35
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F01_A_RADIATOR_01",
+      "sections": 7,
+      "side": "right",
+      "column_index": 5,
+      "column_local_blender": [
+        0.18399999999999994,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.18400022387504578,
+        -0.17999961972236633,
+        0.5799999833106995
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_MAIN/WallWest_Sill01",
+      "clearance_from_cast_rear_m": 0.11299961972236633,
+      "upper_bearing_y": -0.17999961972236633,
+      "lower_bearing_y": -0.17999961972236633,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_MAIN/WallWest_Sill01",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_MAIN/WallWest_Sill01",
+      "maximum_sampled_finish_y": -0.17999961972236633,
+      "bracket_front_y": -0.15999961972236634,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12399961972236635,
+      "actor_frame_building": {
+        "position": [
+          -15.4,
+          0.0,
+          -6.35
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F01_D_RADIATOR_01",
+      "sections": 7,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.18400000000000002,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.18400003015995026,
+        -0.18000009655952454,
+        0.5799999833106995
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_D_MAIN/WallEastExtension00_00",
+      "clearance_from_cast_rear_m": 0.11300009655952453,
+      "upper_bearing_y": -0.18000009655952454,
+      "lower_bearing_y": -0.18000009655952454,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_D_MAIN/WallEastExtension00_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_D_MAIN/WallEastExtension00_00",
+      "maximum_sampled_finish_y": -0.18000008165836334,
+      "bracket_front_y": -0.16000009655952455,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400009655952456,
+      "actor_frame_building": {
+        "position": [
+          15.4,
+          0.0,
+          -3.0
+        ],
+        "yaw": 1.5707963
+      }
+    },
+    {
+      "actor": "F01_D_RADIATOR_01",
+      "sections": 7,
+      "side": "right",
+      "column_index": 5,
+      "column_local_blender": [
+        0.18399999999999994,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.18400000035762787,
+        -0.18000006675720215,
+        0.5799999833106995
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_D_MAIN/WallEastExtension00_00",
+      "clearance_from_cast_rear_m": 0.11300006675720214,
+      "upper_bearing_y": -0.18000006675720215,
+      "lower_bearing_y": -0.18000006675720215,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_D_MAIN/WallEastExtension00_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_D_MAIN/WallEastExtension00_00",
+      "maximum_sampled_finish_y": -0.18000005185604095,
+      "bracket_front_y": -0.16000006675720216,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400006675720217,
+      "actor_frame_building": {
+        "position": [
+          15.4,
+          0.0,
+          -3.0
+        ],
+        "yaw": 1.5707963
+      }
+    },
+    {
+      "actor": "F02_C_RADIATOR_01",
+      "sections": 7,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.18400000000000002,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.18399998545646667,
+        -0.15000002086162567,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallWest_00",
+      "clearance_from_cast_rear_m": 0.08300002086162567,
+      "upper_bearing_y": -0.15000002086162567,
+      "lower_bearing_y": -0.15000002086162567,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallWest_00",
+      "maximum_sampled_finish_y": -0.15000002086162567,
+      "bracket_front_y": -0.13000002086162568,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09400002086162569,
+      "actor_frame_building": {
+        "position": [
+          0.28,
+          3.2,
+          8.4
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F02_C_RADIATOR_01",
+      "sections": 7,
+      "side": "right",
+      "column_index": 5,
+      "column_local_blender": [
+        0.18399999999999994,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.18400004506111145,
+        -0.15000000596046448,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallWest_00",
+      "clearance_from_cast_rear_m": 0.08300000596046447,
+      "upper_bearing_y": -0.15000000596046448,
+      "lower_bearing_y": -0.15000000596046448,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallWest_00",
+      "maximum_sampled_finish_y": -0.14999999105930328,
+      "bracket_front_y": -0.1300000059604645,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.0940000059604645,
+      "actor_frame_building": {
+        "position": [
+          0.28,
+          3.2,
+          8.4
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F03_D_RADIATOR_01",
+      "sections": 9,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999981045722961,
+        -0.18000058829784393,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallWest_00",
+      "clearance_from_cast_rear_m": 0.11300058829784393,
+      "upper_bearing_y": -0.18000058829784393,
+      "lower_bearing_y": -0.18000058829784393,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallWest_00",
+      "maximum_sampled_finish_y": -0.18000058829784393,
+      "bracket_front_y": -0.16000058829784394,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400058829784395,
+      "actor_frame_building": {
+        "position": [
+          -15.4,
+          6.4,
+          -6.35
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F03_D_RADIATOR_01",
+      "sections": 9,
+      "side": "right",
+      "column_index": 7,
+      "column_local_blender": [
+        0.322,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.3220002353191376,
+        -0.17999961972236633,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallWest_Sill01",
+      "clearance_from_cast_rear_m": 0.11299961972236633,
+      "upper_bearing_y": -0.17999961972236633,
+      "lower_bearing_y": -0.17999961972236633,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallWest_Sill01",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_D_MAIN/WallWest_Sill01",
+      "maximum_sampled_finish_y": -0.17999960482120514,
+      "bracket_front_y": -0.15999961972236634,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12399961972236635,
+      "actor_frame_building": {
+        "position": [
+          -15.4,
+          6.4,
+          -6.35
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F04_C_RADIATOR_01",
+      "sections": 9,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999951243400574,
+        -0.15000003576278687,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_C_BED1/WallWest_00",
+      "clearance_from_cast_rear_m": 0.08300003576278686,
+      "upper_bearing_y": -0.15000003576278687,
+      "lower_bearing_y": -0.15000003576278687,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_C_BED1/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_C_BED1/WallWest_00",
+      "maximum_sampled_finish_y": -0.15000002086162567,
+      "bracket_front_y": -0.13000003576278688,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.09400003576278688,
+      "actor_frame_building": {
+        "position": [
+          0.28,
+          9.6,
+          8.4
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F04_C_RADIATOR_01",
+      "sections": 9,
+      "side": "right",
+      "column_index": 7,
+      "column_local_blender": [
+        0.322,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.32199957966804504,
+        -0.14999999105930328,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_C_BED1/WallWest_00",
+      "clearance_from_cast_rear_m": 0.08299999105930328,
+      "upper_bearing_y": -0.14999999105930328,
+      "lower_bearing_y": -0.14999999105930328,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_C_BED1/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_C_BED1/WallWest_00",
+      "maximum_sampled_finish_y": -0.14999999105930328,
+      "bracket_front_y": -0.1299999910593033,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.0939999910593033,
+      "actor_frame_building": {
+        "position": [
+          0.28,
+          9.6,
+          8.4
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F04_D_RADIATOR_01",
+      "sections": 7,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.18400000000000002,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.18399980664253235,
+        -0.18000058829784393,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_D_MAIN/WallWest_00",
+      "clearance_from_cast_rear_m": 0.11300058829784393,
+      "upper_bearing_y": -0.18000058829784393,
+      "lower_bearing_y": -0.18000058829784393,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_D_MAIN/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_D_MAIN/WallWest_00",
+      "maximum_sampled_finish_y": -0.18000058829784393,
+      "bracket_front_y": -0.16000058829784394,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12400058829784395,
+      "actor_frame_building": {
+        "position": [
+          -15.4,
+          9.6,
+          -6.35
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F04_D_RADIATOR_01",
+      "sections": 7,
+      "side": "right",
+      "column_index": 5,
+      "column_local_blender": [
+        0.18399999999999994,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.18400022387504578,
+        -0.17999961972236633,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_D_MAIN/WallWest_Sill01",
+      "clearance_from_cast_rear_m": 0.11299961972236633,
+      "upper_bearing_y": -0.17999961972236633,
+      "lower_bearing_y": -0.17999961972236633,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_D_MAIN/WallWest_Sill01",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_D_MAIN/WallWest_Sill01",
+      "maximum_sampled_finish_y": -0.17999961972236633,
+      "bracket_front_y": -0.15999961972236634,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.12399961972236635,
+      "actor_frame_building": {
+        "position": [
+          -15.4,
+          9.6,
+          -6.35
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F01_LOBBY_RADIATOR_01",
+      "sections": 9,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999978065490723,
+        -0.12999993562698364,
+        0.5799999833106995
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/WallWest_00",
+      "clearance_from_cast_rear_m": 0.06299993562698364,
+      "upper_bearing_y": -0.11399965733289719,
+      "lower_bearing_y": -0.11399965733289719,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/PublicWainscot",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/PublicWainscot",
+      "maximum_sampled_finish_y": -0.11399965733289719,
+      "bracket_front_y": -0.09399965733289718,
+      "upper_spacer_length_m": 0.016,
+      "lower_spacer_length_m": 0.016,
+      "tie_tail_y_from_column": -0.05799965733289718,
+      "actor_frame_building": {
+        "position": [
+          -5.2,
+          0.0,
+          -6.5
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F01_LOBBY_RADIATOR_01",
+      "sections": 9,
+      "side": "right",
+      "column_index": 7,
+      "column_local_blender": [
+        0.322,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.32200026512145996,
+        -0.12999990582466125,
+        0.5799999833106995
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/WallWest_00",
+      "clearance_from_cast_rear_m": 0.06299990582466125,
+      "upper_bearing_y": -0.1139996349811554,
+      "lower_bearing_y": -0.1139996349811554,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/PublicWainscot",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/PublicWainscot",
+      "maximum_sampled_finish_y": -0.1139996349811554,
+      "bracket_front_y": -0.09399963498115539,
+      "upper_spacer_length_m": 0.016,
+      "lower_spacer_length_m": 0.016,
+      "tie_tail_y_from_column": -0.05799963498115539,
+      "actor_frame_building": {
+        "position": [
+          -5.2,
+          0.0,
+          -6.5
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F02_D_RADIATOR_01",
+      "sections": 8,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999981045722961,
+        -0.2299998551607132,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_D_RESTRICTED/WallWest_00",
+      "clearance_from_cast_rear_m": 0.1629998551607132,
+      "upper_bearing_y": -0.2299998551607132,
+      "lower_bearing_y": -0.2299998551607132,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_D_RESTRICTED/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_D_RESTRICTED/WallWest_00",
+      "maximum_sampled_finish_y": -0.2299998551607132,
+      "bracket_front_y": -0.2099998551607132,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.1739998551607132,
+      "actor_frame_building": {
+        "position": [
+          -15.35,
+          3.2,
+          -7.0
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F02_D_RADIATOR_01",
+      "sections": 8,
+      "side": "right",
+      "column_index": 6,
+      "column_local_blender": [
+        0.23000000000000004,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.23000022768974304,
+        -0.229999840259552,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_D_RESTRICTED/WallWest_00",
+      "clearance_from_cast_rear_m": 0.162999840259552,
+      "upper_bearing_y": -0.229999840259552,
+      "lower_bearing_y": -0.229999840259552,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_D_RESTRICTED/WallWest_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_D_RESTRICTED/WallWest_00",
+      "maximum_sampled_finish_y": -0.229999840259552,
+      "bracket_front_y": -0.209999840259552,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.173999840259552,
+      "actor_frame_building": {
+        "position": [
+          -15.35,
+          3.2,
+          -7.0
+        ],
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "actor": "F03_C_RADIATOR_01",
+      "sections": 8,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.23000001907348633,
+        -0.22999954223632812,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_RESTRICTED/WallNorth_00",
+      "clearance_from_cast_rear_m": 0.16299954223632812,
+      "upper_bearing_y": -0.22999954223632812,
+      "lower_bearing_y": -0.22999954223632812,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_RESTRICTED/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_RESTRICTED/WallNorth_00",
+      "maximum_sampled_finish_y": -0.22999954223632812,
+      "bracket_front_y": -0.20999954223632813,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.17399954223632813,
+      "actor_frame_building": {
+        "position": [
+          1.6,
+          6.4,
+          11.35
+        ],
+        "yaw": 0.0
+      }
+    },
+    {
+      "actor": "F03_C_RADIATOR_01",
+      "sections": 8,
+      "side": "right",
+      "column_index": 6,
+      "column_local_blender": [
+        0.23000000000000004,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.23000001907348633,
+        -0.22999954223632812,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_RESTRICTED/WallNorth_00",
+      "clearance_from_cast_rear_m": 0.16299954223632812,
+      "upper_bearing_y": -0.22999954223632812,
+      "lower_bearing_y": -0.22999954223632812,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_RESTRICTED/WallNorth_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_RESTRICTED/WallNorth_00",
+      "maximum_sampled_finish_y": -0.22999954223632812,
+      "bracket_front_y": -0.20999954223632813,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.17399954223632813,
+      "actor_frame_building": {
+        "position": [
+          1.6,
+          6.4,
+          11.35
+        ],
+        "yaw": 0.0
+      }
+    },
+    {
+      "actor": "F05_D_RADIATOR_01",
+      "sections": 8,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999979555606842,
+        -0.2299991101026535,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_D_RESTRICTED/WallEast_00",
+      "clearance_from_cast_rear_m": 0.1629991101026535,
+      "upper_bearing_y": -0.2299991101026535,
+      "lower_bearing_y": -0.2299991101026535,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_D_RESTRICTED/WallEast_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_D_RESTRICTED/WallEast_00",
+      "maximum_sampled_finish_y": -0.2299990952014923,
+      "bracket_front_y": -0.2099991101026535,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.1739991101026535,
+      "actor_frame_building": {
+        "position": [
+          15.35,
+          12.8,
+          -6.0
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F05_D_RADIATOR_01",
+      "sections": 8,
+      "side": "right",
+      "column_index": 6,
+      "column_local_blender": [
+        0.23000000000000004,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.23000024259090424,
+        -0.22999906539916992,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_D_RESTRICTED/WallEast_00",
+      "clearance_from_cast_rear_m": 0.16299906539916992,
+      "upper_bearing_y": -0.22999906539916992,
+      "lower_bearing_y": -0.22999906539916992,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_D_RESTRICTED/WallEast_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_D_RESTRICTED/WallEast_00",
+      "maximum_sampled_finish_y": -0.22999906539916992,
+      "bracket_front_y": -0.20999906539916993,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.17399906539916993,
+      "actor_frame_building": {
+        "position": [
+          15.35,
+          12.8,
+          -6.0
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F06_D_RADIATOR_01",
+      "sections": 9,
+      "side": "left",
+      "column_index": 1,
+      "column_local_blender": [
+        -0.23,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        -0.22999979555606842,
+        -0.2299991101026535,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_D_RESTRICTED/WallEast_00",
+      "clearance_from_cast_rear_m": 0.1629991101026535,
+      "upper_bearing_y": -0.2299991101026535,
+      "lower_bearing_y": -0.2299991101026535,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_D_RESTRICTED/WallEast_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_D_RESTRICTED/WallEast_00",
+      "maximum_sampled_finish_y": -0.2299990952014923,
+      "bracket_front_y": -0.2099991101026535,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.1739991101026535,
+      "actor_frame_building": {
+        "position": [
+          15.35,
+          16.0,
+          -6.0
+        ],
+        "yaw": 1.5707963267948966
+      }
+    },
+    {
+      "actor": "F06_D_RADIATOR_01",
+      "sections": 9,
+      "side": "right",
+      "column_index": 7,
+      "column_local_blender": [
+        0.322,
+        -0.045,
+        0.58
+      ],
+      "wall_point_actor_blender": [
+        0.3220002353191376,
+        -0.22999906539916992,
+        0.5799999237060547
+      ],
+      "wall_normal_actor_blender": [
+        -7.549790126404332e-08,
+        1.0,
+        0.0
+      ],
+      "backing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_D_RESTRICTED/WallEast_00",
+      "clearance_from_cast_rear_m": 0.16299906539916992,
+      "upper_bearing_y": -0.22999906539916992,
+      "lower_bearing_y": -0.22999906539916992,
+      "upper_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_D_RESTRICTED/WallEast_00",
+      "lower_bearing_source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_D_RESTRICTED/WallEast_00",
+      "maximum_sampled_finish_y": -0.22999906539916992,
+      "bracket_front_y": -0.20999906539916993,
+      "upper_spacer_length_m": 0.015999999999999986,
+      "lower_spacer_length_m": 0.015999999999999986,
+      "tie_tail_y_from_column": -0.17399906539916993,
+      "actor_frame_building": {
+        "position": [
+          15.35,
+          16.0,
+          -6.0
+        ],
+        "yaw": 1.5707963267948966
+      }
+    }
+  ],
+  "missing": []
+}

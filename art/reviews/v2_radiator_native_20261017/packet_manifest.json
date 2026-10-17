@@ -1,0 +1,79 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled native candidate/source checkpoint. Archived run data is preserved unchanged; this is not Godot runtime, loaded-mipmap, navigation or human acceptance.",
+  "parent_commit": "69ad8124b0d6ce1369446b955399bc1bff49f682",
+  "files": {
+    "acquisition_suite_run.receipt.json": "b80a5151cc15f95eac193efd47f1e63aa358a0f95715dd1d356876d57b83189e",
+    "emitter_bays.json": "d75ebf7a0f5ad6c072b0b7fc8ea7084d9fffc457a18cdbe4028200e3212fd2c2",
+    "native_outputs.zip": "b9f02f94a8823b7c4c7bcad12d95e9fd79305f83c593b1a87d648bf4acff0cc5",
+    "native_recipe/articulated_union.py": "63a838c2beea37c1d97e88b042c199aac025975d38e68143ef581193482f2baa",
+    "native_recipe/automatic_vent.py": "f337e29e25a761151f0616a478ae5113482db5886f464a0530449d326ac0205e",
+    "native_recipe/build.py": "af4bf0e610e975c87b3af65c9f58dcbad7b0c3ee295d2ee8de57022392dbd879",
+    "native_recipe/cast_feet.py": "cd19ee4b28ef9b04552518d3e29796187df40bda95ad4588fa16ed59ef00b5f4",
+    "native_recipe/cast_sections.py": "44ea5a8221a52255b065a46b751f1f23a692d15737525279c6e95bbc802abbae",
+    "native_recipe/check_morph_buffers.py": "50b0bfce65b35d1bd8a699277e8246ec3cde4d376080c285793c39df1a809890",
+    "native_recipe/check_service_motion.py": "3a2bd198994647a1d426b276c32932e5f327670f4508841f08ad4fbcc05ab309",
+    "native_recipe/check_tie_casting_fit.py": "e191706e980e8e908f88911d499f9c28b65fb377ad876965cd4021746aa6f3be",
+    "native_recipe/export_mechanisms.py": "8223ce46c47ae39dc1dc60e5be50b01feeb9f11d01e0b58075485c5d9b484076",
+    "native_recipe/family_surfaces.py": "70153d846d097239ec8ea365f3860cb7999cce660e7f511d92a2e99717cc8f6b",
+    "native_recipe/globe_valve.py": "aa0ab5cf914fe30d0e499701bb52e4be760abc3c330b38153722073a07645ec6",
+    "native_recipe/graphited_cloth.py": "be7623555c2050ab40e035a31b1dd116d6a050176d1ff4c009aebb1feac21e90",
+    "native_recipe/header_fittings.py": "e6c40fc9aeca29f9145cad8f71bf8660f6e0622cc74adaa86697fade1de442d8",
+    "native_recipe/mechanism_surfaces.py": "99c487bcc5e3a9a3ad14140f3105f02ee61bcc93bbda50ad6215f1988e9692d1",
+    "native_recipe/mount_plan.json": "d739be67aab61dc0658932d0be1f15f52e999f2d29878abc3c0fe942886eb461",
+    "native_recipe/package_lineage.json": "5a9072c2d7a3eecd6e8ef7596f96ec668ab5d0498b99fae74c6d5ca2a166e418",
+    "native_recipe/pitch_kinematics.py": "662ef5ea2f3f62c78613f6d2585acd1e0649c7d223bd15c63f4497b86f1ae380",
+    "native_recipe/pitch_shims.py": "8b73890c70550cd478c775a9c7b6fba4341abba6e4465f86feeb8e279c28fb4e",
+    "native_recipe/primitives.py": "d2004faeb4b955e19e8fd6439e2b410d3a293f28f3e884708b5c0d229b271320",
+    "native_recipe/README.txt": "40aeee67cd4e6ebb251388c82b5464dc19ec8f888293354ffd8eaffb1747f19f",
+    "native_recipe/recipe_paths.py": "0e05726920080928f300563f25b51df042d1f388680f8b42ceea8df5714f77fe",
+    "native_recipe/render_assembly.py": "dcbcd2f0829d0551f4492a57d21861ca708adde654dbef59293d351e03b4bec4",
+    "native_recipe/render_packing.py": "975763878cdba2202c42f8e3b07f316b4c50ca3ded8b88ccd523997f548f41d5",
+    "native_recipe/render_vent.py": "fba16e58e37f25fe2c14307c4c944a222b407199a6ea9a31db8ed3ded6525494",
+    "native_recipe/render_wall_ties.py": "577f2eff1fb5c8deafe745387a121b327e702223fb0cbfacf65ccc94b302d2d4",
+    "native_recipe/sliding_wall_ties.py": "033884881bbc042cf85a3728f0de9fdfbf8defff5187da6417be43c16ec30ba8",
+    "native_recipe/stem_packing.py": "7b0e06826c59d93280830776f5b8e0e22562a49ef154c41f38aabdb6a003de6c",
+    "native_recipe/stem_screw.py": "6c5ba0a79269c46ea170d89f3132163d2116fd0f42cc11e27e3f347534d97052",
+    "native_recipe/supply_family.py": "a1d76e8e2c69a6f105b0c1db12347f0f101442cde5b3ae3903da5efdf048f526",
+    "native_recipe/union_packing.py": "640b23df4fe3113ae7b225a392050d348e33290828014c696808067304049a62",
+    "native_recipe/worker.py": "b96c92a8a0be434121a29e6ab09a965dd3984c9d4ccbed709b75cd84b3ead0cc",
+    "previews/packing_removed.png": "691a4fdbad0d18a6678e7e399e44483944a29f96d7540777b8246d499971972d",
+    "previews/radiator.png": "1468f912eeb07f2623cb3378b17cca9a44ff8363306c037d9a9ca3caa8680a39",
+    "previews/sliding_tie.png": "e4c7ef532369f2eb7332f30109b63393399fc6c66ad634ae6a52f0f93c83d549",
+    "previews/vent_cutaway.png": "9f070f1c5ff78eaec1671846c04dfbce554b153a4d41fdcd8c94b88abcee7f49",
+    "world_context.glb.gz": "9882eeec494bf3d4ea361c35fc5bbf2c9c9566ff85f375fcfcbce28c7f9a82db",
+    "world_review_as_executed.py": "1c73ef6548e5da7f0c83c1cc2f989289f97ffec1cb917e90de65c7874f74ad9b",
+    "verify_packet.py": "34adfe4e686f878898375bc211315fab61a46dd2f878dc34baeb09cded171167",
+    "README.md": "63429570fe0eb35fbe37fa88739eaddfe6e97b7eedda16cd3516027eb6254d36",
+    "world_fit.json.gz": "243c063a31197cb801b5dac5e2413a659cc867e8f0ee25ec90e8c6f198ea96c9",
+    "world_context.json.gz": "ba50be3641c25a20e111ee373b5435827e6296573be31a7b93eb5f1ab4e29dbf",
+    "world_fit.log.gz": "472af3bcaa37ef04edc4df8de6b3d39bdeb7065ca3076066a7c056a899512d6b"
+  },
+  "previews": [
+    {
+      "file": "previews/radiator.png",
+      "archive_entry": "articulated_finished_0.35.png",
+      "sha256": "1468f912eeb07f2623cb3378b17cca9a44ff8363306c037d9a9ca3caa8680a39"
+    },
+    {
+      "file": "previews/vent_cutaway.png",
+      "archive_entry": "vent_finished_cold_cutaway.png",
+      "sha256": "9f070f1c5ff78eaec1671846c04dfbce554b153a4d41fdcd8c94b88abcee7f49"
+    },
+    {
+      "file": "previews/packing_removed.png",
+      "archive_entry": "packing_removed.png",
+      "sha256": "691a4fdbad0d18a6678e7e399e44483944a29f96d7540777b8246d499971972d"
+    },
+    {
+      "file": "previews/sliding_tie.png",
+      "archive_entry": "wall_tie_withdrawn_rear.png",
+      "sha256": "e4c7ef532369f2eb7332f30109b63393399fc6c66ad634ae6a52f0f93c83d549"
+    }
+  ],
+  "uncompressed_sha256": {
+    "world_fit.json": "8097d1b1a08a199f0919975cc01de744f08786a24f7a90f81d3853ad1184811a",
+    "world_context.json": "64cfae98be928e0d8e38d15ec317eebec95b12af896349692a81b8c647a251ae",
+    "world_fit.log": "a040516397a213062dbd6f2d649082140a3c214fe38866e047ce59e4d9ae19ac"
+  }
+}

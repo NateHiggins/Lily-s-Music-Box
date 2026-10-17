@@ -1,0 +1,126 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Staged portable source package; clean build still required, no installation or runtime acceptance.",
+  "modules": {
+    "cast_sections.py": {
+      "source": "prototype_three_column_casting.py",
+      "source_sha256_lf": "25f58a6c6500174ff132e91a98d27658eac56ada913c8823720bf9179897c539",
+      "sha256_lf": "44ea5a8221a52255b065a46b751f1f23a692d15737525279c6e95bbc802abbae"
+    },
+    "cast_feet.py": {
+      "source": "prototype_cast_foot.py",
+      "source_sha256_lf": "30a342a210998f129498fb9b7665a658bf6d9e481c0c13947ff387e12df0d7cc",
+      "sha256_lf": "cd19ee4b28ef9b04552518d3e29796187df40bda95ad4588fa16ed59ef00b5f4"
+    },
+    "header_fittings.py": {
+      "source": "prototype_header_fittings.py",
+      "source_sha256_lf": "d3d1fce1ba24dd5db44a237e9291b67eec0415f65bd4bad3c928ebbe9b136d63",
+      "sha256_lf": "e6c40fc9aeca29f9145cad8f71bf8660f6e0622cc74adaa86697fade1de442d8"
+    },
+    "globe_valve.py": {
+      "source": "prototype_globe_valve.py",
+      "source_sha256_lf": "d2ece84ad1e22ec42797360969f59c8dbcc6e04e57cdb37b2d6a1e99b57cf206",
+      "sha256_lf": "aa0ab5cf914fe30d0e499701bb52e4be760abc3c330b38153722073a07645ec6"
+    },
+    "stem_packing.py": {
+      "source": "prototype_stem_packing.py",
+      "source_sha256_lf": "9c9b7fa141c5e30fa9bfed0ae0fc74fd76bafe24f5750a62ecbcb26d17d69905",
+      "sha256_lf": "7b0e06826c59d93280830776f5b8e0e22562a49ef154c41f38aabdb6a003de6c"
+    },
+    "stem_screw.py": {
+      "source": "prototype_stem_screw.py",
+      "source_sha256_lf": "87675f82164d0a18e8bd0f32e0e1f882845ea87c1418cbcb2715b671f0e74670",
+      "sha256_lf": "6c5ba0a79269c46ea170d89f3132163d2116fd0f42cc11e27e3f347534d97052"
+    },
+    "supply_family.py": {
+      "source": "prototype_union_family.py",
+      "source_sha256_lf": "f21bc249013f1470c89e26fa5a4469fbd7382e9cfc48738b84395c440fa5e484",
+      "sha256_lf": "a1d76e8e2c69a6f105b0c1db12347f0f101442cde5b3ae3903da5efdf048f526"
+    },
+    "family_surfaces.py": {
+      "source": "prototype_family_uv.py",
+      "source_sha256_lf": "6788be41473655ce334a21743c67b462f2d64a829a05e8458c5b002cde3f7f8e",
+      "sha256_lf": "70153d846d097239ec8ea365f3860cb7999cce660e7f511d92a2e99717cc8f6b"
+    },
+    "pitch_kinematics.py": {
+      "source": "prototype_pitch_kinematics.py",
+      "source_sha256_lf": "845d4fcf0f733c6e8e640373f8cdc74bdd8d9e8163b0bae90d74e6b0d427a465",
+      "sha256_lf": "662ef5ea2f3f62c78613f6d2585acd1e0649c7d223bd15c63f4497b86f1ae380"
+    },
+    "pitch_shims.py": {
+      "source": "prototype_pitch_shims.py",
+      "source_sha256_lf": "6347476319ba4515631e62a9e17926abeb086cf40d60cb5f72be1900b410d426",
+      "sha256_lf": "8b73890c70550cd478c775a9c7b6fba4341abba6e4465f86feeb8e279c28fb4e"
+    },
+    "articulated_union.py": {
+      "source": "prototype_articulated_union.py",
+      "source_sha256_lf": "49c23ec362bb16cf442a22b0dea5104696a3c2505c1747718d226c77adaeab64",
+      "sha256_lf": "63a838c2beea37c1d97e88b042c199aac025975d38e68143ef581193482f2baa"
+    },
+    "automatic_vent.py": {
+      "source": "prototype_automatic_vent.py",
+      "source_sha256_lf": "949b430b2e2181a30f96d2a68cb80a2494e283caa14696e6c02df82960402cef",
+      "sha256_lf": "f337e29e25a761151f0616a478ae5113482db5886f464a0530449d326ac0205e"
+    },
+    "mechanism_surfaces.py": {
+      "source": "finish_mechanism_surfaces.py",
+      "source_sha256_lf": "5ec996508587d23ba251219d621cf6ec625a5bcef5553df4c211385f9d93bc5e",
+      "sha256_lf": "99c487bcc5e3a9a3ad14140f3105f02ee61bcc93bbda50ad6215f1988e9692d1"
+    },
+    "graphited_cloth.py": {
+      "source": "build_graphited_cloth.py",
+      "source_sha256_lf": "1903fb1666e7b61a1095cae86663a1436c5df9acfc022d09a8d239ebf947fc66",
+      "sha256_lf": "be7623555c2050ab40e035a31b1dd116d6a050176d1ff4c009aebb1feac21e90"
+    },
+    "union_packing.py": {
+      "source": "prototype_union_packing.py",
+      "source_sha256_lf": "747aa6ee2fcfdc2bd181787b6bbcb2661e2003a8f64a50e2f00082577d4c96e9",
+      "sha256_lf": "640b23df4fe3113ae7b225a392050d348e33290828014c696808067304049a62"
+    },
+    "export_mechanisms.py": {
+      "source": "export_finished_mechanisms.py",
+      "source_sha256_lf": "f7dbe3fe52728ef526c1f85ccb469cb6c31f7fbd0c02edc82a3f9dfc25d8776d",
+      "sha256_lf": "8223ce46c47ae39dc1dc60e5be50b01feeb9f11d01e0b58075485c5d9b484076"
+    },
+    "check_morph_buffers.py": {
+      "source": "check_packing_morph_buffers.py",
+      "source_sha256_lf": "99b03a1ab931539eec85ef9fff411c9dfaf6a7d47daa5fd7b6178edc2ff200cd",
+      "sha256_lf": "50b0bfce65b35d1bd8a699277e8246ec3cde4d376080c285793c39df1a809890"
+    },
+    "check_service_motion.py": {
+      "source": "review_union_service_motion.py",
+      "source_sha256_lf": "2ab6fb73de4d1e6e97f48be6327fee38189e3aa345849c13ce386fb24024107f",
+      "sha256_lf": "3a2bd198994647a1d426b276c32932e5f327670f4508841f08ad4fbcc05ab309"
+    },
+    "render_vent.py": {
+      "source": "render_automatic_vent.py",
+      "source_sha256_lf": "22dd75b596182b4a950ab89ca47493d9cdf5a25569be1aed23756de2a169b597",
+      "sha256_lf": "fba16e58e37f25fe2c14307c4c944a222b407199a6ea9a31db8ed3ded6525494"
+    },
+    "render_assembly.py": {
+      "source": "render_articulated_union.py",
+      "source_sha256_lf": "38ea005c5a39b3f86a22f89408fb4d6db3e679b35e801a95b92374e8e0b1a377",
+      "sha256_lf": "dcbcd2f0829d0551f4492a57d21861ca708adde654dbef59293d351e03b4bec4"
+    },
+    "render_packing.py": {
+      "source": "render_union_packing.py",
+      "source_sha256_lf": "6681e212a267db26b8901ff4b8395d0b1410d36b1fe8a99f72d13c4dcdb14d3e",
+      "sha256_lf": "975763878cdba2202c42f8e3b07f316b4c50ca3ded8b88ccd523997f548f41d5"
+    },
+    "sliding_wall_ties.py": {
+      "source": "build_sliding_wall_ties.py",
+      "source_sha256_lf": "e38b36d13784d420fdf533b93e21e542be9baa0fa3ce7983c66820e511255e3b",
+      "sha256_lf": "033884881bbc042cf85a3728f0de9fdfbf8defff5187da6417be43c16ec30ba8"
+    },
+    "check_tie_casting_fit.py": {
+      "source": "check_tie_casting_fit.py",
+      "source_sha256_lf": "dc3282d714d8bf578d3b9a9b57babe1b166e3637f590281af1efbd6503c3768c",
+      "sha256_lf": "e191706e980e8e908f88911d499f9c28b65fb377ad876965cd4021746aa6f3be"
+    },
+    "render_wall_ties.py": {
+      "source": "render_sliding_wall_ties.py",
+      "source_sha256_lf": "96f069aba9ed543a1c43105726c5529a3ce615c2d4684b3430a8257dd28b625f",
+      "sha256_lf": "577f2eff1fb5c8deafe745387a121b327e702223fb0cbfacf65ccc94b302d2d4"
+    }
+  }
+}
