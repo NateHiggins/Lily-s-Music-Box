@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 125.34,
+  "exit_code": 0,
+  "finished_utc": "2026-10-17T07:00:54Z",
+  "started_utc": "2026-10-17T06:58:48Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-restricted-heating-20261017/final-geometry-v7/context.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-restricted-heating-20261017/final-geometry-v7/context.log",
+  "stdout_sha256": "a424695d3fbf45d7f8e51a6206a784d68c49630c2a4b1cc244ac7cfbd59c3910"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/HeatingRetrofitContextProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-restricted-heating-20261017\\final-geometry-v7\\context",
+ "source": {
+  "dirty_paths": 1440,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/exterior_masonry.blend",
+   " M art/blender/exterior_masonry_slab_fit.json",
+   " M art/blender/heating_distribution.blend",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/orison_v2/front_trim_layout_source.json",
+   " M art/data/orison_v2/heating_source.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/remaining_apartments_20261013/runtime_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/continuous_HistoricMillwork.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/electrical_F01_ELECTRICAL_JUNCTION.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/electrical_riser_connection.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_gallery_02.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_gallery_06.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_ground_bay.png"
+  ],
+  "repository_head": "f60487f3c2b2a9a3ef19c4d5920d0576432602ff",
+  "repository_tree": "a36152b8d6ce90a0d5c760f3e06c8b79914c40f3",
+  "runtime_inputs_sha256": "2ff709f455dd8d2425af816c443a20f215943d8c8e3883daf58660dbdb93a98b",
+  "test_path": "game/tests/heating_retrofit_context_probe.gd",
+  "test_sha256": "128344a7aba51243075f1b46df254826e65bffc36d827de5f9eb0f12e94fb81c"
+ },
+ "windowed": true
+}

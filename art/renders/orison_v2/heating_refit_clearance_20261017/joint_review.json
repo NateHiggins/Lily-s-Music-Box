@@ -1,0 +1,59 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native main-joint fit and bore against the previously acquired actual floor datum; current composed proof remains separate.",
+  "native_sha256": "509a9e085c4cb07b29eb8254333139a9b06bb974175eb732c3c538c73e9e03f7",
+  "acquired_context_sha256": "03d76ca75fb1777c6b15f2e2dc30f254bd8de437e347a0bba822e94236da6eb3",
+  "checks": [
+    {
+      "label": "actual native collar leaves at least 1.9mm above acquired floor",
+      "passed": true,
+      "clearance_m": 0.0019998550415039062
+    },
+    {
+      "label": "actual native collar retains at least 15mm overlap on both pipes",
+      "passed": true,
+      "minimum_overlap_m": 0.017999649047851562
+    },
+    {
+      "label": "actual native retained-main/extension bore stays open",
+      "passed": true,
+      "ray": 0
+    },
+    {
+      "label": "actual native retained-main/extension bore stays open",
+      "passed": true,
+      "ray": 1
+    },
+    {
+      "label": "actual native retained-main/extension bore stays open",
+      "passed": true,
+      "ray": 2
+    },
+    {
+      "label": "actual native retained-main/extension bore stays open",
+      "passed": true,
+      "ray": 3
+    },
+    {
+      "label": "actual native retained-main/extension bore stays open",
+      "passed": true,
+      "ray": 4
+    },
+    {
+      "label": "actual native retained-main/extension bore stays open",
+      "passed": true,
+      "ray": 5
+    },
+    {
+      "label": "actual native retained-main/extension bore stays open",
+      "passed": true,
+      "ray": 6
+    },
+    {
+      "label": "actual native retained-main/extension bore stays open",
+      "passed": true,
+      "ray": 7
+    }
+  ],
+  "failures": []
+}

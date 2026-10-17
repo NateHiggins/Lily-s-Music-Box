@@ -2,7 +2,7 @@ Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
 Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
 
 [ACOUSTIC] 550 nodes loaded
-ORISON V2 BLOCKOUT: 221 spaces / 111 doors / 1482 anchors
+ORISON V2 BLOCKOUT: 221 spaces / 111 doors / 1486 anchors
 [V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
 [V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
 [SURFACE] 402 surfaces layered (261 materials)
@@ -23,8 +23,8 @@ SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick
 SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
 SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
 V2 UV APPLICATION: initial corrected materials=2653
-[ORISON V2 RUNTIME] ready startup_ms=84681.409
-[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 52, 42]
+[ORISON V2 RUNTIME] ready startup_ms=82432.084
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
 [HARUKIYA] CLOSED, 18 fixtures
 BEDDING: beds=19 contacts=76 shared_meshes=20 failures=0
 CAP MAPPING: mesh=fixed_lighting_flush_dome_rise150__Body_ON_brass valid_basis=true max_uv_excess=0.00000176858157 widest=1.00018508260331 vertices=8829 derivatives=true bad_derivatives=0 min_determinant=0.00000002000626 worst_dot=0.99999868869781
@@ -396,17 +396,17 @@ CEILING MAPPING: mesh=front_facade_EntryLeaf__door_oak__0_-1_0 valid_basis=true 
 CEILING MAPPING: mesh=front_facade_EntryLeaf__glass__0_0_0 valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=84 derivatives=true
 CEILING MAPPING: mesh=front_facade_EntryLeaf__glass__0_-1_0 valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=84 derivatives=true
 FACADE BLADE pose=[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (5.85, 6.6, 0.980001)] draws=46
-FACADE STREET OCCLUDER at y=4.1175 hit={ "position": (5.85, 4.1175, 0.980002), "normal": (-0.0, 0.0, 1.0), "face_index": 7381, "collider_id": 2023533647503, "collider": MasonryCollision:<StaticBody3D#2023533647503>, "shape": 0, "rid": RID(951206407047986) }
-FACADE STREET OCCLUDER at y=9.0825 hit={ "position": (5.85, 9.0825, 0.980001), "normal": (-0.0, 0.0, 1.0), "face_index": 7788, "collider_id": 2023533647503, "collider": MasonryCollision:<StaticBody3D#2023533647503>, "shape": 0, "rid": RID(951206407047986) }
+FACADE STREET OCCLUDER at y=4.1175 hit={ "position": (5.85, 4.1175, 0.980002), "normal": (-0.0, 0.0, 1.0), "face_index": 7453, "collider_id": 2047944497804, "collider": MasonryCollision:<StaticBody3D#2047944497804>, "shape": 0, "rid": RID(964464971090803) }
+FACADE STREET OCCLUDER at y=9.0825 hit={ "position": (5.85, 9.0825, 0.980001), "normal": (-0.0, 0.0, 1.0), "face_index": 7921, "collider_id": 2047944497804, "collider": MasonryCollision:<StaticBody3D#2047944497804>, "shape": 0, "rid": RID(964464971090803) }
 FACADE STATION SUPPORT front /root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N1_N5/GroundCollision feet=(0.0, 0.0, 6.0)
 FACADE STATION SUPPORT approach /root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/FrontPavement/front_pavement/Pavement_N1_N4/PavementCollision feet=(3.0, 0.02, 4.0)
 FACADE STATION SUPPORT door /root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/FrontPavement/front_pavement/Pavement_N1_N4/PavementCollision feet=(0.45, 0.02, 1.55)
 FACADE STATION SUPPORT canopy /root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/FrontPavement/front_pavement/Pavement_N1_N4/PavementCollision feet=(1.5, 0.02, 2.8)
 FACADE STATION SUPPORT blade /root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/FrontPavement/front_pavement/Pavement_N3_N4/PavementCollision feet=(9.0, 0.02, 4.0)
 FACADE STATION SUPPORT front_wide /root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N1_N6/GroundCollision feet=(0.0, 0.0, 11.0)
-FACADE INSPECTION { "position": (5.85, 3.1875, 1.63421), "normal": (0.0, -1.0, 0.0), "face_index": -1, "collider_id": 3166246657873, "collider": NeonSignInspection:<Area3D#3166246657873>, "shape": 0, "rid": RID(1333518625932007) } prompt=[CLICK]  Inspect ORISON neon
+FACADE INSPECTION { "position": (5.85, 3.1875, 1.63421), "normal": (0.0, -1.0, 0.0), "face_index": -1, "collider_id": 3190657508174, "collider": NeonSignInspection:<Area3D#3190657508174>, "shape": 0, "rid": RID(1346777189974779) } prompt=[CLICK]  Inspect ORISON neon
 FRONT FACADE TEST: parts=68 triangles=37403 checks=759 failures=0
-ELECTRICAL JUNCTION PROBE: { "position": (-7.538, -0.6, -5.48), "normal": (-1.0, 0.0, 0.0), "face_index": 4283, "collider_id": 2185064690689, "collider": B1_fuse_conduit:<StaticBody3D#2185064690689>, "shape": 0, "rid": RID(990509652774625) } owner=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/B1_fuse_conduit pose=[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-7.599999, -3.2, -5.44)]
+ELECTRICAL JUNCTION PROBE: { "position": (-7.538, -0.6, -5.48), "normal": (-1.0, 0.0, 0.0), "face_index": 4283, "collider_id": 2209475540990, "collider": B1_fuse_conduit:<StaticBody3D#2209475540990>, "shape": 0, "rid": RID(1003768216817442) } owner=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/B1_fuse_conduit pose=[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-7.599999, -3.2, -5.44)]
 CAP MAPPING: mesh=domestic_objects_DomesticObject00__Body_ON_brass valid_basis=true max_uv_excess=0.00000189564889 widest=1.00298368509354 vertices=8325 derivatives=true bad_derivatives=0 min_determinant=0.00000025864131 worst_dot=0.99999982118607
 CAP MAPPING: mesh=domestic_objects_DomesticObject00__Body_ON_paper valid_basis=true max_uv_excess=0.00000008754432 widest=1.00132967161072 vertices=12343 derivatives=true bad_derivatives=0 min_determinant=0.00000000073849 worst_dot=0.99999523162842
 CAP MAPPING: mesh=domestic_objects_DomesticObject00__Body_ON_timber valid_basis=true max_uv_excess=0.00000006299524 widest=1.00028727766093 vertices=506 derivatives=true bad_derivatives=0 min_determinant=0.00000004163674 worst_dot=0.99999982118607
@@ -1387,5 +1387,5 @@ CAP MAPPING: mesh=service_instruments_M09_P013 valid_basis=true max_uv_excess=0.
 CAP MAPPING: mesh=service_instruments_M09_P014 valid_basis=true max_uv_excess=0.00000005587935 widest=1.00008535657314 vertices=531 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
 CAP MAPPING: mesh=service_instruments_M09_P015 valid_basis=true max_uv_excess=0.00000006961636 widest=1.00019844464924 vertices=1042 derivatives=true bad_derivatives=0 min_determinant=0.00000068055646 worst_dot=0.99999988079071
 V2 SURFACES: PASS_TECHNICAL_ONLY 0 unresolved surfaces; {}
-SURFACE INVENTORY: draws=25101 meshes=16806 materials=6070 textures=465
-V2 SURFACE QUALIFICATION: PASS; 26795 checks; 0 failures
+SURFACE INVENTORY: draws=25248 meshes=16939 materials=6086 textures=465
+V2 SURFACE QUALIFICATION: PASS; 26799 checks; 0 failures

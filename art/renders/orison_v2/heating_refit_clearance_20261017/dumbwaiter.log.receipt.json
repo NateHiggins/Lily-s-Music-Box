@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 201.92,
+  "exit_code": 0,
+  "finished_utc": "2026-10-17T06:39:37Z",
+  "started_utc": "2026-10-17T06:36:14Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "INSTALLED DUMBWAITER PHYSICAL: PASS; 53 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-restricted-heating-20261017/final-contracts/dumbwaiter_checkpoint.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-restricted-heating-20261017/final-contracts/dumbwaiter_checkpoint.log",
+  "stdout_sha256": "f007472bac9d9b30206b024cb53ac6e9b3c58d0d9d6345e1dd88333a856a6111"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/DumbwaiterInstalledTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-restricted-heating-20261017/final-contracts/dumbwaiter_checkpoint",
+ "source": {
+  "dirty_paths": 1439,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/exterior_masonry.blend",
+   " M art/blender/exterior_masonry_slab_fit.json",
+   " M art/blender/heating_distribution.blend",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/orison_v2/front_trim_layout_source.json",
+   " M art/data/orison_v2/heating_source.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/continuous_HistoricMillwork.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/electrical_F01_ELECTRICAL_JUNCTION.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/electrical_riser_connection.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_gallery_02.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_gallery_06.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_ground_bay.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/runtime_contract.json"
+  ],
+  "repository_head": "f60487f3c2b2a9a3ef19c4d5920d0576432602ff",
+  "repository_tree": "a36152b8d6ce90a0d5c760f3e06c8b79914c40f3",
+  "runtime_inputs_sha256": "2ff709f455dd8d2425af816c443a20f215943d8c8e3883daf58660dbdb93a98b",
+  "test_path": "game/tests/dumbwaiter_installed_test.gd",
+  "test_sha256": "b10cfee01560da12f3e9731408714ae773f98876a3cd5052ee14fd405d91fcf8"
+ },
+ "windowed": true
+}

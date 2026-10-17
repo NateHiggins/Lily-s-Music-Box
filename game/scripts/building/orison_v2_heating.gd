@@ -1,8 +1,8 @@
 extends RefCounted
-## Full authored demand roster; only spatially migrated emitters are mounted.
+## Full authored demand roster and installed emitters share retained authorities.
 const PATH := "res://data/orison_v2/heating.json"
 const Household := preload("res://scripts/building/orison_v2_household_radiator.gd")
-const UNITS := ["LOBBY", "1A", "1D", "2C", "3D", "4C", "4D", "2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"]
+const UNITS := ["LOBBY", "1A", "1D", "2C", "3D", "4C", "4D", "2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C", "2D", "3C", "5D", "6D"]
 var errors: Array[String] = []
 var balance: HeatBalance
 

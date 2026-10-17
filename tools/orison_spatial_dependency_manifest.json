@@ -6989,7 +6989,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F02/marker+acoustic_node",
+   "resolved_target": "F02/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -9033,7 +9033,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F03/marker+acoustic_node",
+   "resolved_target": "F03/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -14521,7 +14521,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F05/marker+acoustic_node",
+   "resolved_target": "F05/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -17035,7 +17035,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F06/marker+acoustic_node",
+   "resolved_target": "F06/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -111782,12 +111782,14 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/network[*]/id"
+    "/network[*]/id",
+    "/installed[*]/id"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -111799,7 +111801,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F02/marker+acoustic_node",
+   "resolved_target": "F02/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -111870,12 +111872,14 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/network[*]/id"
+    "/network[*]/id",
+    "/installed[*]/id"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -111887,7 +111891,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F03/marker+acoustic_node",
+   "resolved_target": "F03/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -112138,12 +112142,14 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/network[*]/id"
+    "/network[*]/id",
+    "/installed[*]/id"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -112155,7 +112161,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F05/marker+acoustic_node",
+   "resolved_target": "F05/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -112256,12 +112262,14 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/network[*]/id"
+    "/network[*]/id",
+    "/installed[*]/id"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -112273,7 +112281,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F06/marker+acoustic_node",
+   "resolved_target": "F06/marker+acoustic_node+v2_blockout",
    "target_exists": true
   },
   {
@@ -189988,7 +189996,7 @@
    "count": 2,
    "context": [
     "const LEVELS := {\"B1\":-2.8, \"F01\":0.0, \"F02\":3.2, \"F03\":6.4,",
-    "var street := \"STREET LEVEL \u2193\" if fid != \"F01\" else \"STREET LEVEL \u2014 THIS FLOOR\""
+    "var street := \"STREET LEVEL ↓\" if fid != \"F01\" else \"STREET LEVEL — THIS FLOOR\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -197997,7 +198005,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "gameplay_binding": false,
@@ -198070,7 +198078,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "gameplay_binding": false,
@@ -244929,7 +244937,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"05_night_register\", \"F01_NIGHT_REGISTER\", \"NIGHT REGISTER \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"05_night_register\", \"F01_NIGHT_REGISTER\", \"NIGHT REGISTER · PRODUCTION AUTHORITY\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -244960,7 +244968,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"06_signal_register\", \"F01_SIGNAL_REGISTER\", \"SIGNAL REGISTER \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"06_signal_register\", \"F01_SIGNAL_REGISTER\", \"SIGNAL REGISTER · PRODUCTION AUTHORITY\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -244991,7 +244999,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"07_tour_key_guard\", \"F01_TOUR_KEY_GUARD\", \"TOUR KEY GUARD \u00b7 COMPOSED PROP\")"
+    "await _owner_shot(\"07_tour_key_guard\", \"F01_TOUR_KEY_GUARD\", \"TOUR KEY GUARD · COMPOSED PROP\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -245022,7 +245030,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"04_watchman_detector\", \"F01_WATCHMAN_DETECTOR\", \"WATCHMAN DETECTOR \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"04_watchman_detector\", \"F01_WATCHMAN_DETECTOR\", \"WATCHMAN DETECTOR · PRODUCTION AUTHORITY\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -268305,8 +268313,8 @@
    "count": 3,
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2190\").contains(\"2A\"),",
-    "and not _side_label(plate, \"\u2192\").contains(\"2A\"),"
+    "_check(_side_label(plate, \"←\").contains(\"2A\"),",
+    "and not _side_label(plate, \"→\").contains(\"2A\"),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -268368,7 +268376,7 @@
    "count": 2,
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2192\").contains(\"2C\")"
+    "_check(_side_label(plate, \"→\").contains(\"2C\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -293663,6 +293671,389 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Reviewed actual source-shell workroom joint camera and neighboring practical location. Controlled diagnostic, with physical wall-shadow assertions; no player-route or human acceptance claim.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "981db356a22e7d66",
+   "kind": "id_reference",
+   "token": "F02_D_RADIATOR_01",
+   "file": "game/data/orison_v2_blockout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a876f345951ad8ec",
+   "kind": "id_reference",
+   "token": "F03_C_RADIATOR_01",
+   "file": "game/data/orison_v2_blockout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ca61831616083651",
+   "kind": "id_reference",
+   "token": "F05_D_RADIATOR_01",
+   "file": "game/data/orison_v2_blockout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8e5e1b8938dbd933",
+   "kind": "id_reference",
+   "token": "F06_D_RADIATOR_01",
+   "file": "game/data/orison_v2_blockout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "350fecf0f3b5bc7b",
+   "kind": "unit_reference",
+   "token": "2D",
+   "file": "game/scripts/building/orison_v2_heating.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"LOBBY\", \"1A\", \"1D\", \"2C\", \"3D\", \"4C\", \"4D\", \"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\", \"2D\", \"3C\", \"5D\", \"6D\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "3bc4945a1b664ded",
+   "kind": "unit_reference",
+   "token": "3C",
+   "file": "game/scripts/building/orison_v2_heating.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"LOBBY\", \"1A\", \"1D\", \"2C\", \"3D\", \"4C\", \"4D\", \"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\", \"2D\", \"3C\", \"5D\", \"6D\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "deda5d8c2a4c74f2",
+   "kind": "unit_reference",
+   "token": "5D",
+   "file": "game/scripts/building/orison_v2_heating.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"LOBBY\", \"1A\", \"1D\", \"2C\", \"3D\", \"4C\", \"4D\", \"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\", \"2D\", \"3C\", \"5D\", \"6D\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "1d994557f07b8247",
+   "kind": "unit_reference",
+   "token": "6D",
+   "file": "game/scripts/building/orison_v2_heating.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"LOBBY\", \"1A\", \"1D\", \"2C\", \"3D\", \"4C\", \"4D\", \"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\", \"2D\", \"3C\", \"5D\", \"6D\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "90e9f03471f87665",
+   "kind": "id_reference",
+   "token": "F02_D_RADIATOR_01",
+   "file": "game/tests/heating_refit_installation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const IDS := [\"F02_D_RADIATOR_01\", \"F03_C_RADIATOR_01\", \"F05_D_RADIATOR_01\", \"F06_D_RADIATOR_01\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b974b16085107afb",
+   "kind": "id_reference",
+   "token": "F03_C_RADIATOR_01",
+   "file": "game/tests/heating_refit_installation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const IDS := [\"F02_D_RADIATOR_01\", \"F03_C_RADIATOR_01\", \"F05_D_RADIATOR_01\", \"F06_D_RADIATOR_01\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ee1eb0bf08bfce55",
+   "kind": "id_reference",
+   "token": "F05_D_RADIATOR_01",
+   "file": "game/tests/heating_refit_installation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const IDS := [\"F02_D_RADIATOR_01\", \"F03_C_RADIATOR_01\", \"F05_D_RADIATOR_01\", \"F06_D_RADIATOR_01\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F05/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "666d19c86fbf47ef",
+   "kind": "id_reference",
+   "token": "F06_D_RADIATOR_01",
+   "file": "game/tests/heating_refit_installation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const IDS := [\"F02_D_RADIATOR_01\", \"F03_C_RADIATOR_01\", \"F05_D_RADIATOR_01\", \"F06_D_RADIATOR_01\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F06/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4121a97de440f292",
+   "kind": "generated_name",
+   "token": "_copy",
+   "file": "game/tests/heating_retrofit_context_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_copy"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "\"Context_%05d\"%copied.size()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
   }

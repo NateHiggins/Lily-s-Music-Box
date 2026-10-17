@@ -1148,7 +1148,7 @@
 				"F02_B_KITCHEN": {
 					"actual": [
 						11.4963512420654,
-						3.20012950897217,
+						3.20012545585632,
 						-6.23655986785889
 					],
 					"leg": "APARTMENT DOOR BATCH ROUTE"
@@ -1247,7 +1247,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 233.498,
+		"elapsed_s": 225.106,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -1743,7 +1743,7 @@
 				{
 					"actual": [
 						6.10103416442871,
-						3.2009425163269,
+						3.20086050033569,
 						-3.24885940551758
 					],
 					"ok": true,
@@ -1753,16 +1753,16 @@
 						-3.25
 					],
 					"wall_contacts": {
-						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@26663/NativeCaseCollision": "(-4.627977, 4.40001, -8.088)",
-						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@26664/NativeCaseCollision": "(-4.078077, 4.40001, -8.088)",
-						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@26666/NativeCaseCollision": "(-4.577982, 4.400004, -8.088)",
+						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@27026/NativeCaseCollision": "(-4.627979, 4.400011, -8.088)",
+						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@27027/NativeCaseCollision": "(-4.078079, 4.40001, -8.088)",
+						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@27029/NativeCaseCollision": "(-4.577984, 4.400004, -8.088)",
 						"/root/OrisonV2ApartmentAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F02_F03/StairGuards": "(-2.402499, 4.244854, -8.6925)"
 					}
 				},
 				{
 					"actual": [
 						8.45366764068604,
-						3.2009425163269,
+						3.20086050033569,
 						-3.24995422363281
 					],
 					"ok": true,
@@ -1775,8 +1775,8 @@
 				},
 				{
 					"actual": [
-						10.853907585144,
-						3.20012950897217,
+						10.8539133071899,
+						3.20012545585632,
 						-3.24999713897705
 					],
 					"ok": true,
@@ -1790,7 +1790,7 @@
 				{
 					"actual": [
 						10.9376564025879,
-						3.20012950897217,
+						3.20012545585632,
 						-2.59634399414063
 					],
 					"ok": true,
@@ -1804,7 +1804,7 @@
 				{
 					"actual": [
 						12.4019966125488,
-						3.20012950897217,
+						3.20012545585632,
 						-2.50604343414307
 					],
 					"ok": true,
@@ -1818,7 +1818,7 @@
 				{
 					"actual": [
 						13.5078592300415,
-						3.20012950897217,
+						3.20012545585632,
 						-2.77739143371582
 					],
 					"ok": true,
@@ -1832,7 +1832,7 @@
 				{
 					"actual": [
 						14.1657781600952,
-						3.20012950897217,
+						3.20012545585632,
 						-4.50988626480103
 					],
 					"ok": true,
@@ -1846,7 +1846,7 @@
 				{
 					"actual": [
 						14.1980247497559,
-						3.20012950897217,
+						3.20012545585632,
 						-6.14009046554565
 					],
 					"ok": true,
@@ -1860,7 +1860,7 @@
 				{
 					"actual": [
 						11.4963512420654,
-						3.20012950897217,
+						3.20012545585632,
 						-6.23655986785889
 					],
 					"ok": true,
@@ -1874,7 +1874,7 @@
 				{
 					"actual": [
 						14.1031455993652,
-						3.20012950897217,
+						3.20012545585632,
 						-6.23987674713135
 					],
 					"ok": true,
@@ -1888,7 +1888,7 @@
 				{
 					"actual": [
 						14.2347269058228,
-						3.20012950897217,
+						3.20012545585632,
 						-8.71097660064697
 					],
 					"ok": true,
@@ -2536,9 +2536,9 @@
 	"scope": "Spatial room access and ordinary player-input interactions in 2A/2B and 4B. Each floor leg starts with one placement; all subsequent travel uses the ordinary controller. Resident scheduling is excluded. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "4b5340f051ff838f08d090b68d908a288b1b1608",
-		"runtime_inputs_sha256": "2c4a46b9f2c9f220727513887ab91fd6778790b9c71e1e2be0851e60b8565916",
-		"surface_inputs_sha256": "61a58f672a15234d68a1ed7e2f5583e8040acb432efece5f2a30921c9564d001",
+		"repository_head": "f60487f3c2b2a9a3ef19c4d5920d0576432602ff",
+		"runtime_inputs_sha256": "2ff709f455dd8d2425af816c443a20f215943d8c8e3883daf58660dbdb93a98b",
+		"surface_inputs_sha256": "1dc6b217cae3108388c25511df34f55025a6fa64f4c112540ad07494f7990690",
 		"test_dependencies": {
 			"game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
 			"game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",

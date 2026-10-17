@@ -1,0 +1,308 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled wall-following retrofit with orthogonal shaft exits and a three-stock H-D offset around the telephone riser. Horizontal center floor-0.48 rising60mm tofloor-0.42. Deliberate shell passages, complete actual geometry collisions and native full assembly remain unverified.",
+  "branches": [
+    {
+      "id": "F02_D_RADIATOR_01",
+      "riser": "H-D",
+      "level": "F02",
+      "status": "UNINSTALLED_RECTILINEAR_CANDIDATE",
+      "points_local_godot": [
+        [
+          8.74,
+          2.72,
+          0.59
+        ],
+        [
+          8.74,
+          2.7210597586105387,
+          1.19
+        ],
+        [
+          8.95,
+          2.7214306741242273,
+          1.19
+        ],
+        [
+          8.95,
+          2.7313924050632914,
+          -4.45
+        ],
+        [
+          -15.35,
+          2.774312628790109,
+          -4.45
+        ],
+        [
+          -15.35,
+          2.7800000000000002,
+          -7.67
+        ],
+        [
+          -15.35,
+          3.2,
+          -7.67
+        ]
+      ],
+      "horizontal_length_m": 33.97
+    },
+    {
+      "id": "F03_C_RADIATOR_01",
+      "riser": "H-C",
+      "level": "F03",
+      "status": "UNINSTALLED_RECTILINEAR_CANDIDATE",
+      "points_local_godot": [
+        [
+          8.61,
+          5.92,
+          0.59
+        ],
+        [
+          7.45,
+          5.923774403470715,
+          0.59
+        ],
+        [
+          7.45,
+          5.946420824295011,
+          7.55
+        ],
+        [
+          0.93,
+          5.96763557483731,
+          7.55
+        ],
+        [
+          0.93,
+          5.9799999999999995,
+          11.35
+        ],
+        [
+          0.93,
+          6.4,
+          11.35
+        ]
+      ],
+      "horizontal_length_m": 18.439999999999998
+    },
+    {
+      "id": "F05_D_RADIATOR_01",
+      "riser": "H-D",
+      "level": "F05",
+      "status": "UNINSTALLED_RECTILINEAR_CANDIDATE",
+      "points_local_godot": [
+        [
+          8.74,
+          12.32,
+          0.59
+        ],
+        [
+          8.74,
+          12.322621995630007,
+          1.19
+        ],
+        [
+          8.95,
+          12.32353969410051,
+          1.19
+        ],
+        [
+          8.95,
+          12.335076474872542,
+          -1.45
+        ],
+        [
+          15.35,
+          12.363044428259286,
+          -1.45
+        ],
+        [
+          15.35,
+          12.38,
+          -5.33
+        ],
+        [
+          15.35,
+          12.8,
+          -5.33
+        ]
+      ],
+      "horizontal_length_m": 13.729999999999999
+    },
+    {
+      "id": "F06_D_RADIATOR_01",
+      "riser": "H-D",
+      "level": "F06",
+      "status": "UNINSTALLED_RECTILINEAR_CANDIDATE",
+      "points_local_godot": [
+        [
+          8.74,
+          15.52,
+          0.59
+        ],
+        [
+          8.74,
+          15.522621995630006,
+          1.19
+        ],
+        [
+          8.95,
+          15.52353969410051,
+          1.19
+        ],
+        [
+          8.95,
+          15.535076474872541,
+          -1.45
+        ],
+        [
+          15.35,
+          15.563044428259285,
+          -1.45
+        ],
+        [
+          15.35,
+          15.58,
+          -5.33
+        ],
+        [
+          15.35,
+          16.0,
+          -5.33
+        ]
+      ],
+      "horizontal_length_m": 13.729999999999999
+    },
+    {
+      "id": "REVIEW_MAIN_H_D_EXTENSION",
+      "riser": "H-D",
+      "points_local_godot": [
+        [
+          8.74,
+          9.619999885559082,
+          0.59
+        ],
+        [
+          8.74,
+          15.67,
+          0.59
+        ]
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "branch": "F02_D_RADIATOR_01",
+      "fitted_stations": 67,
+      "conservative_square_proxy_clearance_m": 0.08999999999999986,
+      "conservative_square_proxy_pass": true,
+      "actual_upper_floor_boundary_clearance_m": 0.0,
+      "upper_floor_boundary_pass": false,
+      "nominal_peer_main_checks": [
+        {
+          "riser": "H-A",
+          "centerline_distance_m": 0.18384776310850162,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        },
+        {
+          "riser": "H-B",
+          "centerline_distance_m": 0.12999999999999995,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        },
+        {
+          "riser": "H-C",
+          "centerline_distance_m": 0.129999999999999,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        }
+      ]
+    },
+    {
+      "branch": "F03_C_RADIATOR_01",
+      "fitted_stations": 54,
+      "conservative_square_proxy_clearance_m": 0.08999999999999997,
+      "conservative_square_proxy_pass": true,
+      "actual_upper_floor_boundary_clearance_m": 0.0,
+      "upper_floor_boundary_pass": false,
+      "nominal_peer_main_checks": [
+        {
+          "riser": "H-A",
+          "centerline_distance_m": 0.12999999999999995,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        },
+        {
+          "riser": "H-B",
+          "centerline_distance_m": 0.18384776310850287,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        },
+        {
+          "riser": "H-D",
+          "centerline_distance_m": 0.13000000000000078,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        }
+      ]
+    },
+    {
+      "branch": "F05_D_RADIATOR_01",
+      "fitted_stations": 67,
+      "conservative_square_proxy_clearance_m": 0.08999999999999986,
+      "conservative_square_proxy_pass": true,
+      "actual_upper_floor_boundary_clearance_m": 0.0,
+      "upper_floor_boundary_pass": false,
+      "nominal_peer_main_checks": [
+        {
+          "riser": "H-A",
+          "centerline_distance_m": 0.18384776310850162,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        },
+        {
+          "riser": "H-B",
+          "centerline_distance_m": 0.12999999999999995,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        },
+        {
+          "riser": "H-C",
+          "centerline_distance_m": 0.129999999999999,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        }
+      ]
+    },
+    {
+      "branch": "F06_D_RADIATOR_01",
+      "fitted_stations": 67,
+      "conservative_square_proxy_clearance_m": 0.08999999999999986,
+      "conservative_square_proxy_pass": true,
+      "actual_upper_floor_boundary_clearance_m": 0.0,
+      "upper_floor_boundary_pass": false,
+      "nominal_peer_main_checks": [
+        {
+          "riser": "H-A",
+          "centerline_distance_m": 0.18384776310850162,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        },
+        {
+          "riser": "H-B",
+          "centerline_distance_m": 0.12999999999999995,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        },
+        {
+          "riser": "H-C",
+          "centerline_distance_m": 0.129999999999999,
+          "required_m": 0.07200000000000001,
+          "nominal_circular_body_pass": true
+        }
+      ]
+    }
+  ],
+  "centerline_conflicts_with_existing": []
+}

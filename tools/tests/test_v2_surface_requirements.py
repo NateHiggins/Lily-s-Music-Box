@@ -141,4 +141,21 @@ class Requirements(unittest.TestCase):
                                   'changed' if path.name==name else 'source'):
                     self.assertNotEqual(before,evidence.inputs()['sha256'])
 
+    def test_heating_refit_authoring_inputs_invalidate_surface_qualification(self):
+        import v2_surface_evidence as evidence
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+        for relative in ('art/blender/heating_distribution.blend',
+                         'art/blender/heating_distribution_base19.blend',
+                         'art/data/orison_v2/heating_refit_authoring.json',
+                         'art/data/orison_v2/heating_refit_layout_source.json',
+                         'tools/prepare_v2_heating_refit.py',
+                         'art/blender/scripts/build_heating_refit.py',
+                         'art/blender/scripts/heating_refit/export.py'):
+            with self.subTest(path=relative):
+                target=ROOT/relative
+                with patch.object(evidence,'file_hash',side_effect=lambda path:
+                                  'changed' if path==target else 'source'):
+                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+
 if __name__=='__main__':unittest.main()

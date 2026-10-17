@@ -1,0 +1,28 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Reproducible native construction and scratch export only; no installed runtime or human acceptance.",
+  "source_bindings": {
+    "art/blender/scripts/build_heating_refit.py": "a9333ed643c6efe7cb4036e04ac6fa719f2eb7552a2d8fc5ca9ddba1be160250",
+    "art/data/orison_v2/heating_refit_authoring.json": "a0d7f0fcbaf0fba8c0d18ce5dfc086dd4965b625762ffecf6e20361436027c4a",
+    "art/blender/heating_distribution_base19.blend": "88a498c3b1719162917150779a837fc49f36a19f56cf96a3d33d9c48ccf8a84f",
+    "art/data/orison_v2/heating_refit_layout_source.json": "3711eca8b4071b0125a5ce48ced73f09272d9b44dc8a63b6ece2465bc34882be",
+    "tools/heating_pipe_fittings.py": "51eafc20d0431b179ebaf2488adcda533b5a985323cccb7a3d0c3458d157b9d2",
+    "art/blender/scripts/heating_refit/build_hangers.py": "3ce1e12ac53defc494e3b03ff0e70a8d3e0f24eadafd59b2389d5cf5e909f7ce",
+    "art/blender/scripts/heating_refit/build_pipes.py": "85bad4b4e2e3ffd8266f4da596b59a717fba28b61d1b76a942c187b0bb757175",
+    "art/blender/scripts/heating_refit/build_sleeves.py": "27db687a271ce6039895406dcac5ba6d4971d2eaa529ebfcbca390ade6232f14",
+    "art/blender/scripts/heating_refit/export.py": "d461fda642b1d19f304f8ce897b4c292183868fe1b0f54f37d1ccc110cf937ac",
+    "art/blender/scripts/heating_refit/heating_refit_context.py": "69893975d6e105667bc515d15e7aa76aa90fbec0ae9beb720a7c7d74dbf68c48",
+    "art/blender/scripts/review_heating_distribution.py": "81007c0b38510ba19bc2bd408669a39cd9671f4c63532a609aa7152d51f1da72",
+    "game/data/runtime_material_sets.json": "4a98389bf283864854c3cbfe8f324482665c9cc0a252d94fc73d3d833f8ab5e6"
+  },
+  "native_sha256": "47693782264ea132ba2b0163d49a66dadf1cca4048499f29fcdbe26c73c298f0",
+  "asset_sha256": "90aa3ac669b1a09ec4cca8dce78740f9364b257c2d0eb7348033813b30d4b6e5",
+  "exported_tangents": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-restricted-heating-20261017\\portable_v7_final\\export\\heating_distribution.glb",
+    "primitives": 7,
+    "triangles": 534568,
+    "minimum_tangent_agreement": 0.9999999501762679,
+    "status": "PASS"
+  },
+  "failures": []
+}

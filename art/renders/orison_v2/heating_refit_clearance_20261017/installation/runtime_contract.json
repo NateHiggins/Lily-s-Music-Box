@@ -1,0 +1,473 @@
+{
+	"checks": 108,
+	"contracts": {
+		"direct_manipulation": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 216.868,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"observations": [
+		{
+			"check": "production V2 starts with all emitter additions",
+			"passed": true
+		},
+		{
+			"check": "all twenty-three original thermal demands have installed consumers",
+			"passed": true
+		},
+		{
+			"check": "fixed heating fabric remains seven render batches",
+			"passed": true
+		},
+		{
+			"check": "extended H-D main passes through actual shared slab: (0.0, 0.0)",
+			"passed": true
+		},
+		{
+			"check": "extended H-D main passes through actual shared slab: (0.02, 0.0)",
+			"passed": true
+		},
+		{
+			"check": "extended H-D main passes through actual shared slab: (-0.02, 0.0)",
+			"passed": true
+		},
+		{
+			"check": "extended H-D main passes through actual shared slab: (0.0, 0.02)",
+			"passed": true
+		},
+		{
+			"check": "extended H-D main passes through actual shared slab: (0.0, -0.02)",
+			"passed": true
+		},
+		{
+			"check": "solid shaft/slab beside main aperture retains collision",
+			"passed": true
+		},
+		{
+			"check": "3C supply passes through actual masonry and inner leaf",
+			"passed": true
+		},
+		{
+			"check": "masonry beside 3C service aperture retains collision",
+			"passed": true
+		},
+		{
+			"check": "native metric UVs remain active: Heating_F01",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F01",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F01",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F01",
+			"passed": true
+		},
+		{
+			"check": "native metric UVs remain active: Heating_F02",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F02",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F02",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F02",
+			"passed": true
+		},
+		{
+			"check": "native metric UVs remain active: Heating_F03",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F03",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F03",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F03",
+			"passed": true
+		},
+		{
+			"check": "native metric UVs remain active: Heating_F04",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F04",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F04",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F04",
+			"passed": true
+		},
+		{
+			"check": "native metric UVs remain active: Heating_F05",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F05",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F05",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F05",
+			"passed": true
+		},
+		{
+			"check": "native metric UVs remain active: Heating_F06",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F06",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F06",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_F06",
+			"passed": true
+		},
+		{
+			"check": "native metric UVs remain active: Heating_SHAFT",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_SHAFT",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_SHAFT",
+			"passed": true
+		},
+		{
+			"check": "actual loaded custom PBR mip chain: Heating_SHAFT",
+			"passed": true
+		},
+		{
+			"check": "retained radiator and heat authority: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "actual native cast section instances: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "distinct partial valve state: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "capture actual installed emitter: F02_D_RADIATOR_01_body",
+			"passed": true
+		},
+		{
+			"check": "capture actual installed emitter: F02_D_RADIATOR_01_supply",
+			"passed": true
+		},
+		{
+			"check": "retained radiator and heat authority: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "actual native cast section instances: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "distinct partial valve state: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "capture actual installed emitter: F03_C_RADIATOR_01_body",
+			"passed": true
+		},
+		{
+			"check": "capture actual installed emitter: F03_C_RADIATOR_01_supply",
+			"passed": true
+		},
+		{
+			"check": "retained radiator and heat authority: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "actual native cast section instances: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "distinct partial valve state: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "capture actual installed emitter: F05_D_RADIATOR_01_body",
+			"passed": true
+		},
+		{
+			"check": "capture actual installed emitter: F05_D_RADIATOR_01_supply",
+			"passed": true
+		},
+		{
+			"check": "retained radiator and heat authority: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "actual native cast section instances: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "primary click grabs the installed valve: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "mouse movement turns the installed valve: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "release retains physical valve position: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "distinct partial valve state: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "capture actual installed emitter: F06_D_RADIATOR_01_body",
+			"passed": true
+		},
+		{
+			"check": "capture actual installed emitter: F06_D_RADIATOR_01_supply",
+			"passed": true
+		},
+		{
+			"check": "installed valves follow projected pointer motion",
+			"passed": true
+		},
+		{
+			"check": "existing save authority writes a real disk document",
+			"passed": true
+		},
+		{
+			"check": "disk records the actual partial valve: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "disk records the actual partial valve: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "disk records the actual partial valve: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "disk records the actual partial valve: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "existing save authority loads the real disk document",
+			"passed": true
+		},
+		{
+			"check": "fresh production V2 reconstructs the heating installation",
+			"passed": true
+		},
+		{
+			"check": "fresh emitter preserves partial state and heat authority: F02_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "fresh emitter preserves partial state and heat authority: F03_C_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "fresh emitter preserves partial state and heat authority: F05_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "fresh emitter preserves partial state and heat authority: F06_D_RADIATOR_01",
+			"passed": true
+		},
+		{
+			"check": "runtime inputs remain frozen through physical operation and disk reconstruction",
+			"passed": true
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Four newly installed restricted-cell radiators: actual loaded bodies, seven fixed heating batches and real PBR mipmaps; twelve pointer grab/motion/release operations; nondefault partial valve states written through existing disk save authority and restored in a fresh production world. Service positions are teleported; no walking access or human visual acceptance.",
+	"selector": "v2",
+	"source": {
+		"runtime_inputs_sha256": "2ff709f455dd8d2425af816c443a20f215943d8c8e3883daf58660dbdb93a98b",
+		"test_path": "game/tests/heating_refit_installation_test.gd",
+		"test_sha256": "c4676436b795c23d58b892ef808664c71bd4ad0bbcd29c0dc49d8f1b8c07db52",
+		"test_sources": {
+			"game/tests/heating_hand_driver.gd": "a3ca959cbe9e6977fc5e1ee81f09dbae37ecb0ae73f996cc07ff012fd198c09d",
+			"game/tests/heating_refit_installation_test.gd": "c4676436b795c23d58b892ef808664c71bd4ad0bbcd29c0dc49d8f1b8c07db52",
+			"game/tests/watch_station_hand_test.gd": "c7550103724b10bd420a419940a0768c6806bcc4b127ae3eedb52913ab127e99"
+		}
+	}
+}

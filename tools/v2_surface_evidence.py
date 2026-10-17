@@ -55,6 +55,12 @@ def inputs(root=ROOT):
         'art/data/orison_v2/front_trim_export_source.json',
         'tools/plan_v2_front_trim.py',
         'tools/plan_v2_front_lighting.py','tools/prepare_v2_front_lighting.py'))
+    paths.update(root/p for p in (
+        'art/blender/heating_distribution.blend',
+        'art/blender/heating_distribution_base19.blend',
+        'art/data/orison_v2/heating_refit_authoring.json',
+        'art/data/orison_v2/heating_refit_layout_source.json',
+        'tools/prepare_v2_heating_refit.py'))
     paths.add(root/'art/textures/material_sources/bathroom_ivory_glaze.png')
     for key in ('bath_wall_tile','bath_floor_tile'):
         paths.add(root/f'art/textures/procedural/{key}/material.json')

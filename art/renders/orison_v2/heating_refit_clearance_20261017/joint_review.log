@@ -1,0 +1,8 @@
+00:01.281  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\heating_distribution.blend"
+FITTED JOINT 10 checks 0 failures
+C:\PleaseRemainOnTheLine\tmp\v2-restricted-heating-20261017\review_v7_joint.py:34: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Joint inspection');world.use_nodes=True;world.node_tree.nodes['Background'].inputs[1].default_value=.6;scene.world=world
+00:04.390  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-restricted-heating-20261017\v7_joint_native.png'
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -1,0 +1,1079 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Offline four-branch and H-D extension prototype only. No supports, architectural bores, room fittings, complete collision/flow, export, loaded Godot mips or runtime/human acceptance.",
+  "native_sha256": "83856faaa582aea068c4c5266224b65e7c3a6ede3c36192861c89c64ad96cc19",
+  "route_sha256": "d26016c70af4d43b3e22420a744d7512e6876097d05d98bdf2954799930d4b9b",
+  "source_sha256": "88a498c3b1719162917150779a837fc49f36a19f56cf96a3d33d9c48ccf8a84f",
+  "new_stocks": [
+    "F02_D_RADIATOR_01",
+    "F02_D_RADIATOR_01__Coupling_00_a",
+    "F02_D_RADIATOR_01__Coupling_00_b",
+    "F02_D_RADIATOR_01__Coupling_13_a",
+    "F02_D_RADIATOR_01__Coupling_13_b",
+    "F02_D_RADIATOR_01__Coupling_26_a",
+    "F02_D_RADIATOR_01__Coupling_26_b",
+    "F02_D_RADIATOR_01__Coupling_39_a",
+    "F02_D_RADIATOR_01__Coupling_39_b",
+    "F02_D_RADIATOR_01__Coupling_52_a",
+    "F02_D_RADIATOR_01__Coupling_52_b",
+    "F02_D_RADIATOR_01__Coupling_65_a",
+    "F02_D_RADIATOR_01__Coupling_65_b",
+    "F03_C_RADIATOR_01",
+    "F03_C_RADIATOR_01__Coupling_00_a",
+    "F03_C_RADIATOR_01__Coupling_00_b",
+    "F03_C_RADIATOR_01__Coupling_13_a",
+    "F03_C_RADIATOR_01__Coupling_13_b",
+    "F03_C_RADIATOR_01__Coupling_26_a",
+    "F03_C_RADIATOR_01__Coupling_26_b",
+    "F03_C_RADIATOR_01__Coupling_39_a",
+    "F03_C_RADIATOR_01__Coupling_39_b",
+    "F03_C_RADIATOR_01__Coupling_52_a",
+    "F03_C_RADIATOR_01__Coupling_52_b",
+    "F05_D_RADIATOR_01",
+    "F05_D_RADIATOR_01__Coupling_00_a",
+    "F05_D_RADIATOR_01__Coupling_00_b",
+    "F05_D_RADIATOR_01__Coupling_13_a",
+    "F05_D_RADIATOR_01__Coupling_13_b",
+    "F05_D_RADIATOR_01__Coupling_26_a",
+    "F05_D_RADIATOR_01__Coupling_26_b",
+    "F05_D_RADIATOR_01__Coupling_39_a",
+    "F05_D_RADIATOR_01__Coupling_39_b",
+    "F05_D_RADIATOR_01__Coupling_52_a",
+    "F05_D_RADIATOR_01__Coupling_52_b",
+    "F05_D_RADIATOR_01__Coupling_65_a",
+    "F05_D_RADIATOR_01__Coupling_65_b",
+    "F06_D_RADIATOR_01",
+    "F06_D_RADIATOR_01__Coupling_00_a",
+    "F06_D_RADIATOR_01__Coupling_00_b",
+    "F06_D_RADIATOR_01__Coupling_13_a",
+    "F06_D_RADIATOR_01__Coupling_13_b",
+    "F06_D_RADIATOR_01__Coupling_26_a",
+    "F06_D_RADIATOR_01__Coupling_26_b",
+    "F06_D_RADIATOR_01__Coupling_39_a",
+    "F06_D_RADIATOR_01__Coupling_39_b",
+    "F06_D_RADIATOR_01__Coupling_52_a",
+    "F06_D_RADIATOR_01__Coupling_52_b",
+    "F06_D_RADIATOR_01__Coupling_65_a",
+    "F06_D_RADIATOR_01__Coupling_65_b",
+    "Restricted_Main_H-D_Extension",
+    "Restricted_Main_H-D_ExtensionUnion"
+  ],
+  "ports": [
+    {
+      "branch": "F02_D_RADIATOR_01",
+      "main": "Main_H-D",
+      "origin_blender": [
+        8.739999771118164,
+        -0.5899999737739563,
+        2.7200000286102295
+      ],
+      "direction_blender": [
+        0.0,
+        -0.9999983906745911,
+        0.0017662812024354935
+      ]
+    },
+    {
+      "branch": "F03_C_RADIATOR_01",
+      "main": "Main_H-C",
+      "origin_blender": [
+        8.609999656677246,
+        -0.5899999737739563,
+        5.920000076293945
+      ],
+      "direction_blender": [
+        -0.999994695186615,
+        0.0,
+        0.0032535744830965996
+      ]
+    },
+    {
+      "branch": "F05_D_RADIATOR_01",
+      "main": "Restricted_Main_H-D_Extension",
+      "origin_blender": [
+        8.739999771118164,
+        -0.5899999737739563,
+        12.319999694824219
+      ],
+      "direction_blender": [
+        0.0,
+        -0.9999904632568359,
+        0.00437096506357193
+      ]
+    },
+    {
+      "branch": "F06_D_RADIATOR_01",
+      "main": "Restricted_Main_H-D_Extension",
+      "origin_blender": [
+        8.739999771118164,
+        -0.5899999737739563,
+        15.520000457763672
+      ],
+      "direction_blender": [
+        0.0,
+        -0.9999904632568359,
+        0.004369375761598349
+      ]
+    }
+  ],
+  "old_main_end_y": 9.619999885559082,
+  "new_main_end_y": 15.67,
+  "checks": [
+    {
+      "label": "all four new bodies generated",
+      "passed": true
+    },
+    {
+      "label": "fitted repair collar clears retained floor by at least 1.9mm",
+      "passed": true
+    },
+    {
+      "label": "fitted repair collar engages each pipe by at least 15mm",
+      "passed": true
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 0
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 1
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 2
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 3
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 4
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 5
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 6
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 7
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 8
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 9
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 10
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 11
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 12
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 13
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 14
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F02_D_RADIATOR_01",
+      "ray": 15
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 0
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 1
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 2
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 3
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 4
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 5
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 6
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 7
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 8
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 9
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 10
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 11
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 12
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 13
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 14
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F03_C_RADIATOR_01",
+      "ray": 15
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 0
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 1
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 2
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 3
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 4
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 5
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 6
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 7
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 8
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 9
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 10
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 11
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 12
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 13
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 14
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F05_D_RADIATOR_01",
+      "ray": 15
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 0
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 1
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 2
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 3
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 4
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 5
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 6
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 7
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 8
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 9
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 10
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 11
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 12
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 13
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 14
+    },
+    {
+      "label": "actual native branch/main air passage",
+      "passed": true,
+      "branch": "F06_D_RADIATOR_01",
+      "ray": 15
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_00_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_00_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_00_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_00_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_13_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_13_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_13_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_13_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_26_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_26_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_26_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_26_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_39_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_39_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_39_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_39_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_52_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_52_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_52_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_52_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_65_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_65_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_65_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01__Coupling_65_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_00_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_00_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_00_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_00_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_13_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_13_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_13_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_13_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_26_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_26_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_26_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_26_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_39_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_39_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_39_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_39_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_52_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_52_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_52_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01__Coupling_52_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_00_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_00_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_00_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_00_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_13_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_13_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_13_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_13_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_26_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_26_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_26_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_26_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_39_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_39_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_39_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_39_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_52_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_52_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_52_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_52_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_65_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_65_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_65_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01__Coupling_65_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_00_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_00_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_00_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_00_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_13_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_13_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_13_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_13_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_26_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_26_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_26_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_26_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_39_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_39_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_39_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_39_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_52_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_52_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_52_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_52_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_65_a"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_65_a"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_65_b"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01__Coupling_65_b"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "Restricted_Main_H-D_Extension"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "Restricted_Main_H-D_Extension"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "Restricted_Main_H-D_ExtensionUnion"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "Restricted_Main_H-D_ExtensionUnion"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "Main_H-D"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "Main_H-D"
+    },
+    {
+      "label": "closed positive native stock",
+      "passed": true,
+      "id": "Main_H-C"
+    },
+    {
+      "label": "finite noncollapsed native UV charts",
+      "passed": true,
+      "id": "Main_H-C"
+    },
+    {
+      "label": "existing blind cap relocated above new highest port",
+      "passed": true
+    },
+    {
+      "label": "reopened native PBR image resolves",
+      "passed": true,
+      "id": "T_ai_materials_iron_neutral_albedo.png.001"
+    },
+    {
+      "label": "reopened native PBR image resolves",
+      "passed": true,
+      "id": "T_ai_materials_iron_neutral_normal.png.001"
+    },
+    {
+      "label": "reopened native PBR image resolves",
+      "passed": true,
+      "id": "T_ai_materials_iron_neutral_rough.png.001"
+    }
+  ],
+  "failures": []
+}

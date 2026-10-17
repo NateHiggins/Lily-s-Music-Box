@@ -11,6 +11,8 @@ static func mount(root: Node3D) -> void:
 	for part: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
 		part.material_override = finish
 		part.set_meta("v2_material_key", "iron_neutral")
-	# Branches and mains are concealed in floor/shaft envelopes. Retain their
-	# existing walking hulls; do not add expensive buried triangle collisions.
+	# The four restricted-cell retrofits run above the ordinary walking capsule,
+	# below the lower-storey ceiling. Other branches remain in floor/shaft stock.
+	# Keep the source-owned wall/slab walking hulls rather than duplicating them
+	# with triangle collisions for the fixed heating fabric.
 	root.add_child(model)

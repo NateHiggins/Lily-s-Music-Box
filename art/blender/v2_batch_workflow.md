@@ -40,6 +40,34 @@ details. A clean mesh census alone does not certify photorealism. Godot must
 still confirm its final lighting, glass, collisions and composed appearance.
 Preserve source plans and all non-visual owners; never hand-edit generated glTF.
 
+After adding a service opening, regenerate every native leaf that consumes it;
+the JSON declaration alone changes only the procedural owners. Before broad
+runtime renewal, acquire the actual composed corridor with the full changed
+stocks and adjacent retained services. Check couplings, hangers and main
+extensions against that geometry, including electrical and telephone fittings.
+Classify flush seating and embedded bearings by their actual owners and bounds;
+do not waive all architectural contact. Exercise new openings with physical
+collision rays and nearby solid controls so missing colliders cannot report a
+false clearance. The 2026-10-17 heating refit exposed both an electrical clash
+and an unregenerated masonry leaf only after this composed check.
+For this native family, run **tools/review_v2_heating_mesh_contacts.py** through
+Blender with **--context**, **--build-dir**, and **--out** after its **--** separator.
+It rejects stale context unless explicitly requested as a historical diagnostic.
+Then run **tools/review_v2_heating_contacts.py** with **--diagnostic**, **--build-dir**
+and **--out**. The latter rejects mismatched native provenance and unexplained
+contacts; its clear result remains scoped to the acquired corridor.
+Include the full changed main height in acquisition coverage, not only its branch
+takeoffs. Run **tools/review_v2_heating_assembly_contacts.py** separately against
+retained native heating: duplicate-distribution exclusion in the world diagnostic
+does not test those native joints.
+
+Before renewing a receipt, identify its actual binding domain. A native-only
+change invalidates rendering-bound surface and access proofs. It does not by
+itself invalidate a runtime-only control/save receipt whose runtime and complete
+executed-helper hashes still match. Preserve that original receipt and its
+captures; use fresh composed captures for the changed geometry. Never copy new
+images over a historical run's images or alter its hashes to claim a new run.
+
 Prototype changed entry bores and supporting joints before repeating a large
 assembly. Joined groups may contain overlapping individually closed stocks;
 drill those solids separately or regularize the Boolean inputs first. A positive

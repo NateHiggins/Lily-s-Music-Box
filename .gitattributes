@@ -2153,3 +2153,16 @@ art/blender/front_lighting_cornice_candidate.blend -text
 art/blender/front_lighting_finish/** -text
 art/renders/orison_v2/front_lighting_finish_candidate_20261017/** -text
 art/renders/orison_v2/front_trim_install_20261017/** -text
+art/blender/heating_distribution_base19.blend -text
+art/data/orison_v2/heating_refit_authoring.json -text
+art/data/orison_v2/heating_refit_layout_source.json -text
+art/blender/scripts/build_heating_refit.py -text
+art/blender/scripts/heating_refit/** -text
+tools/prepare_v2_heating_refit.py -text
+art/renders/orison_v2/heating_refit_20261017/** -text
+art/renders/orison_v2/heating_refit_clearance_20261017/** -text
+art/renders/orison_v2/heating_refit_clearance_v5_20261017/** -text
+game/tests/heating_refit_installation_test.gd -text
+game/tests/HeatingRefitInstallationTest.tscn -text
+game/tests/heating_retrofit_context_probe.gd -text
+game/tests/HeatingRetrofitContextProbe.tscn -text
