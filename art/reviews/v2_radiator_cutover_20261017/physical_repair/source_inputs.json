@@ -1,0 +1,486 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Fresh physical repair bench, legacy authority suites and composed diagnostics; selected inputs, not a runtime_contract.",
+  "inputs": {
+    "art/blender/scripts/radiator_cast_detail.py": {
+      "sha256": "908281aed7edd24b0e6910ed464cf70a491175a0690cd8c12281461975b442b7",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/prepare_radiator_mechanisms.py": {
+      "normalization": "LF",
+      "sha256": "f0d049dbff4899bef535fa9714f53ceb5eafee69af49e0d03a28d59e09d1e95a"
+    },
+    "art/blender/scripts/review_radiator_cast_fit.py": {
+      "sha256": "ccb367e65467c74e17c2cfa166156bc0d962f3c5c4478a343c60d5c4ffbbf1cc",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/review_radiator_cast_surface.py": {
+      "sha256": "acf7a78a2c2cab8acb44b9959f682c76e412a4549c420f584c2e8351366f3f66",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/fabrication_chart_batch.py": {
+      "sha256": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/fabrication_uvs.py": {
+      "sha256": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/fabrication_normals.py": {
+      "sha256": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/fabrication_native_batch.py": {
+      "sha256": "3c61d2a98d9e75cefcbb949cfefb72aced140d3440262f8afdcd02a8e853917e",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/check_exported_tangents.py": {
+      "sha256": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+      "normalization": "LF"
+    },
+    "art/blender/radiator_mechanisms.blend": {
+      "sha256": "a0ee3c1f2f715e753a3249545ccb0c159c7f69a33b1ce428567ee2e6f291b3fa",
+      "normalization": "raw"
+    },
+    "game/assets/props/radiator_mechanisms.glb": {
+      "sha256": "c69f7e5382bda1de525da2c5a9edfcfcfb3dfc32a4f8e3d99af834d20c7506df",
+      "normalization": "raw"
+    },
+    "game/assets/props/radiator_mechanisms.glb.import": {
+      "sha256": "f333343cf2a4d3ad20bd64933580dc61d080adc67b3e00d276a46aca799dd533",
+      "normalization": "LF"
+    },
+    "art/data/radiator_native_preparation.json": {
+      "sha256": "1ac48fd2a5344419b353fab03d43e2360a37ba3c609a127bcb9b38ab00af5c21",
+      "normalization": "LF"
+    },
+    "game/scripts/props/radiator_native_parts.gd": {
+      "normalization": "LF",
+      "sha256": "a180fbf7d4c338f4d45eeedf78eb6c4cef0d94f7a535e4a5865325ed8c93dbca"
+    },
+    "game/scripts/props/radiator_native_assembly.gd": {
+      "normalization": "LF",
+      "sha256": "77334323559a365d341d82a433ee4802bfcff14756aae780f77fdd8b1a2bb5aa"
+    },
+    "game/scripts/props/radiator_prop.gd": {
+      "normalization": "LF",
+      "sha256": "c91e8df74c254d04155fd04468132da26bd076d6464891e8aef49703dcd1bcba"
+    },
+    "game/tests/radiator_cutover_review.gd": {
+      "normalization": "LF",
+      "sha256": "cffa42b670709fe6a077ecdfa219f31ca4aa3c7633ad5fb3edb24e46a47993cb"
+    },
+    "game/tests/radiator_native_review.gd": {
+      "normalization": "LF",
+      "sha256": "89a413629a3eb22136585bd99e09c8544a6cce2f3a39001d5551d8b9cc6e7c2c"
+    },
+    "game/data/runtime_material_sets.json": {
+      "sha256": "444fb2fd79515726d7fd52bf394afb4a433b2be6a96ebfb551a98a48261ff22c",
+      "normalization": "LF"
+    },
+    "game/scripts/generated/material_sets.gd": {
+      "sha256": "8b9a5ab2701f13a4c927e0cf6f2fc30eaf123037aae523bc19fe54721388d54a",
+      "normalization": "LF"
+    },
+    "game/scripts/props/radiator_union_packing.gd": {
+      "sha256": "3c3dd6295b2b51a0aeb8d400695bf8a110b934e408c29583e9659917c36e213f",
+      "normalization": "LF"
+    },
+    "game/scripts/props/heat_balance.gd": {
+      "sha256": "1ad80982d23a1664ab9e5ad6e434a42125a7b922aeb72c94b08a03118c8dbc13",
+      "normalization": "LF"
+    },
+    "game/tests/radiator_hand_bench.gd": {
+      "normalization": "LF",
+      "sha256": "5ab6bed2714b2f56a4d58f287f33cda3fc0ca1fcfdfad77c6d8bd8f1320202ab"
+    },
+    "game/scripts/player/constrained_grab.gd": {
+      "normalization": "LF",
+      "sha256": "0aea8a10f027494da934c77ab164ab121918958967f338d3770f6a3c374a5994"
+    },
+    "game/scripts/player/player_controller.gd": {
+      "normalization": "LF",
+      "sha256": "5a2492b4adc74f9404046aa7dcbc26cf9ed5b5fcb5a6a81eae229f62288c37ed"
+    },
+    "art/blender/v2_batch_workflow.md": {
+      "normalization": "LF",
+      "sha256": "b28c0af9f023f7069d8ed5c7546ee4d60c6ab40ee0ab2d8fabb427cf3d5945db"
+    },
+    "game/scripts/game/maintenance_inventory.gd": {
+      "normalization": "LF",
+      "sha256": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f"
+    },
+    "game/scripts/building/orison_v2_household_state.gd": {
+      "normalization": "LF",
+      "sha256": "8eb8d9bae14a9e8a5fb395f7c18641ced2c5036730b11733cddc5e043ddedb79"
+    },
+    "art/blender/scripts/radiator_fitting_detail.py": {
+      "sha256": "cdb530fdbea4a69d9aba45bb4fbc9158a16b5e3a7c14f843db3e642bb60f614a",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/review_radiator_fitting_detail.py": {
+      "sha256": "4ba1350924a6d5616c769317af4a4610ae26345f4c9b728c182e38a59729248a",
+      "normalization": "LF"
+    },
+    "art/tools/build_graphited_packing.py": {
+      "sha256": "2e71d75fa21198b47c5177aaf3da78ea192482796428a8e01229ff2add79b695",
+      "normalization": "LF"
+    },
+    "art/textures/procedural/graphited_packing/albedo.png": {
+      "sha256": "41d6c32753dd750b7e6580c7b38320ecb61327d55fecaae6bda904d6814ce411",
+      "normalization": "raw"
+    },
+    "art/textures/procedural/graphited_packing/height.png": {
+      "sha256": "08368f80d0c1a8fcd003c0d68e2b1df1f46e7e546f65ed2cbc00168b9cfbe6bd",
+      "normalization": "raw"
+    },
+    "art/textures/procedural/graphited_packing/material.json": {
+      "sha256": "e207f349cf682eb64fd9e5ab3bd95945f554c660b90179471c89ebc367c47521",
+      "normalization": "LF"
+    },
+    "art/textures/procedural/graphited_packing/normal.png": {
+      "sha256": "1882b3a2ed20e859316e8b9aba02633315024c7cdd7321462f948b4965a6aff8",
+      "normalization": "raw"
+    },
+    "art/textures/procedural/graphited_packing/roughness.png": {
+      "sha256": "30a95dd3697b543641c2ee6d4fd0d570bd916571db74a4b3f49721045974fc83",
+      "normalization": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_graphited_packing_albedo.png": {
+      "sha256": "41d6c32753dd750b7e6580c7b38320ecb61327d55fecaae6bda904d6814ce411",
+      "normalization": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_graphited_packing_albedo.png.import": {
+      "sha256": "2ba60cdd50c67b8f972c73ba587ed7581ad358b85b400b1d3452681841d5a00e",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_graphited_packing_rough.png": {
+      "sha256": "30a95dd3697b543641c2ee6d4fd0d570bd916571db74a4b3f49721045974fc83",
+      "normalization": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_graphited_packing_rough.png.import": {
+      "sha256": "4a9da8eb8f4e4a520043252f8a9f1e908c79ded698677531ca854abb50bbc388",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_graphited_packing_normal.png": {
+      "sha256": "1882b3a2ed20e859316e8b9aba02633315024c7cdd7321462f948b4965a6aff8",
+      "normalization": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_graphited_packing_normal.png.import": {
+      "sha256": "53ef7afa2e01fab8bc55bff836933a17e0e8ad517fd8a6f0487c6e7e77e8511b",
+      "normalization": "LF"
+    },
+    "game/scripts/props/radiator_vent_cap.gd": {
+      "normalization": "LF",
+      "sha256": "8d252e3f58d0c166ee15227017482f010e98f6f8b05ee0b90c613badf332fd42"
+    },
+    "game/tests/radiator_vent_hand_checks.gd": {
+      "normalization": "LF",
+      "sha256": "895a9fb8aa89a742abb8ed5b3d758595f581321eeae37d8ab69b79bb262d0c18"
+    },
+    "game/scripts/building/orison_v2_contact_precision.gd": {
+      "normalization": "LF",
+      "sha256": "cb9c2bdb4bb91f5792d72e5e46f0c3abac6a16e200557859b47620b2f3223a4c"
+    },
+    "game/scripts/building/orison_v2_runtime_root.gd": {
+      "normalization": "LF",
+      "sha256": "c725fda8d7013b6bbc6efa0d4b8f4ade05ce6a20be841ba8746beaecc3777149"
+    },
+    "game/tests/fuse_panel_hand_test.gd": {
+      "normalization": "LF",
+      "sha256": "a1c73ec870d97933e356f17a7f45ebfa3add4402f1bf6a276b3d54171bf919eb"
+    },
+    "art/blender/radiator_service_stock.blend": {
+      "normalization": "raw",
+      "sha256": "0c9240abd7c1743884e09500239a805d49f3a3500afd9440a3c51c25d446c233"
+    },
+    "art/blender/scripts/build_radiator_service_stock.py": {
+      "normalization": "LF",
+      "sha256": "8db07a89ebcf9161bad0f3b2d890c65969cfe479fa3ae93157de07ea54fc4451"
+    },
+    "art/blender/scripts/review_radiator_service_stock.py": {
+      "normalization": "LF",
+      "sha256": "1857f0334c0e23d87cb53e973446dd894b33929c9438f2abec2b9b6d46cc0047"
+    },
+    "art/tools/fix_v2_mesh_imports.py": {
+      "normalization": "LF",
+      "sha256": "57196eee131388e96a507a45ee6bbcb2b911e8f1425fe81611979fb74063a7ad"
+    },
+    "game/assets/props/radiator_service_stock.glb": {
+      "normalization": "raw",
+      "sha256": "16406966b95fe22e7973b952ac6e58df5e5fe847979a263bcc6f3d120519be5c"
+    },
+    "game/assets/props/radiator_service_stock.glb.import": {
+      "normalization": "LF",
+      "sha256": "e57ee327dd970971ea9b6c16371eef16bca0c99ec2e34977adb8fa17516e3bdf"
+    },
+    "game/data/orison_v2/heating_service_stock.json": {
+      "normalization": "LF",
+      "sha256": "62609f0b057611f1c033cadff82a5379eca87d9f4fd266f5c98acedb7031f794"
+    },
+    "game/scripts/props/radiator_vent_stock.gd": {
+      "normalization": "LF",
+      "sha256": "0b2303336e33b9e95d1a78bee4853ad207c9cd51da80ee89071902101a237297"
+    },
+    "game/scripts/props/radiator_vent_insert.gd": {
+      "normalization": "LF",
+      "sha256": "f6800868de7179cbc4c40f05a9ad1ddd6ff286b8d792bc2cce05ad6c2d3ffc69"
+    },
+    "game/scripts/building/orison_v2_heating.gd": {
+      "normalization": "LF",
+      "sha256": "f3149c23378448cba7434e3d779e4bcb9f7fe776b4bb99ac6daf8f36baccf5de"
+    },
+    "game/tests/radiator_orifice_hand_checks.gd": {
+      "normalization": "LF",
+      "sha256": "b8c3db1da9993ba37d4e95009c191c23cfe7ae0cc7ff035427ae50e129242fde"
+    },
+    "game/scripts/props/radiator_vent_stock.gd.uid": {
+      "normalization": "LF",
+      "sha256": "bfa17c822df0f728f78c252a3e54d964719bfe3aa4e6ab52a99508907440c7a1"
+    },
+    "game/scripts/props/radiator_vent_insert.gd.uid": {
+      "normalization": "LF",
+      "sha256": "c0b9ef2ef901d33450a53f2b44c94bc2f640d627e9ba513690b89dd40f06a44f"
+    },
+    "game/scripts/props/radiator_native_assembly.gd.uid": {
+      "normalization": "LF",
+      "sha256": "b8fd48fd655e3fa618fdb23a908653832be19e6109cac5b21bed2eade3b7407b"
+    },
+    "game/scripts/props/radiator_vent_cap.gd.uid": {
+      "normalization": "LF",
+      "sha256": "f7a98a7368e86960f6e1fd4e74896e696876f1b1eaa77418cd51d8a2f51e16e1"
+    },
+    "game/scripts/props/radiator_prop.gd.uid": {
+      "normalization": "LF",
+      "sha256": "943113faad9f0a7be7be1b3643a3b21678a94bd70f2e118e6ad3d3e5368526f4"
+    },
+    "game/scripts/player/constrained_grab.gd.uid": {
+      "normalization": "LF",
+      "sha256": "e501b9a2d366108d4ab053ef6707b83bc04cebdfcdc96bd4fd867b74addd2509"
+    },
+    "game/scripts/player/player_controller.gd.uid": {
+      "normalization": "LF",
+      "sha256": "0d13587b342c9c4d0df2446e220b3d2eb67621c4f350d867c46091660fbd5591"
+    },
+    "game/scripts/building/orison_v2_heating.gd.uid": {
+      "normalization": "LF",
+      "sha256": "16d38319207f539977a4df172a8009158686b2eb8beef9c19874dc025b4467c3"
+    },
+    "game/scripts/building/orison_v2_household_state.gd.uid": {
+      "normalization": "LF",
+      "sha256": "800000cb1d28ba874cad22c7ebf9a552b04c11bcdbc75f70534735e79e82d172"
+    },
+    "game/tests/radiator_orifice_hand_checks.gd.uid": {
+      "normalization": "LF",
+      "sha256": "4f31e15654e484290e6b407341c74cce303f2f4f6de72e669b614470d3302e32"
+    },
+    "game/tests/radiator_hand_bench.gd.uid": {
+      "normalization": "LF",
+      "sha256": "38e4a404d826a70b5e7cb43a67fb24f144bd7090b18b69d46d5933918bab9efb"
+    },
+    "game/tests/radiator_cutover_review.gd.uid": {
+      "normalization": "LF",
+      "sha256": "4531efb3a42e70b918ca5530ffb062d0523f8fdf40bfc1f78e2fa3263f5079c1"
+    },
+    "game/tests/radiator_vent_hand_checks.gd.uid": {
+      "normalization": "LF",
+      "sha256": "ab657cb5e89e9a37dd89d91f1936fbd19937268f60d93ca1d5f77757b6acbf30"
+    },
+    "tools/lane.ps1": {
+      "normalization": "LF",
+      "sha256": "726fd266955cd7f957e137c26cb408f52bc97d4f541008c12e13b40d705a07f4"
+    },
+    "tools/tests/test_material_catalog_persistence.py": {
+      "normalization": "LF",
+      "sha256": "384af1a60df3b44fb05976778f59f9d3a6e568658fb12684d47c64011ce537f0"
+    },
+    "art/data/gen_layout.py": {
+      "normalization": "LF",
+      "sha256": "2a00b411c464708561603cf53e80dc4aa6f7ef898b14b0ef2ec0dda01c26c6c3"
+    },
+    "art/data/material_catalog.json": {
+      "normalization": "LF",
+      "sha256": "1122c851ed35de025073b8eecd4a48bd3b5c73d431bcb6058ef926c3f645d9db"
+    },
+    "art/textures/catalog_mapping.json": {
+      "normalization": "LF",
+      "sha256": "866378aefca8f6f3ae05d9cfc3ea33085d5fe2c10d8dedabb6c6dec762637fbd"
+    },
+    "art/tools/ingest_material_sources.py": {
+      "normalization": "LF",
+      "sha256": "d52730397ee2d39fc5fdd98ef91efb13dd955fc8275b22d21d072b01bdce0062"
+    },
+    "art/tools/generate_runtime_materials.py": {
+      "normalization": "LF",
+      "sha256": "be8f3144306c24b3c522e6667de6be4c87062c855773caa277d3271972e7a776"
+    },
+    "art/tools/build_radiator_service_brass.py": {
+      "normalization": "LF",
+      "sha256": "123901285f005c71b6921ad96ebed89c5ec1e76151037baffe276b682a10faeb"
+    },
+    "art/blender/scripts/radiator_vent_detail.py": {
+      "normalization": "LF",
+      "sha256": "c583f9ce33f11743329713a94bb88451f39cee55bb2d97a4e25371ab7714266e"
+    },
+    "art/blender/scripts/review_radiator_vent_detail.py": {
+      "normalization": "LF",
+      "sha256": "063e6ed7e9d7e1fd1bebea93622822b12669dc33b5a47ad22d62c6d227a8e7a5"
+    },
+    "art/blender/scripts/render_radiator_vent_detail.py": {
+      "normalization": "LF",
+      "sha256": "a565eaed22b7b46929e6f6a288d102d2f080858bc613c6d0ef893abcb21b4fd7"
+    },
+    "art/textures/procedural/radiator_service_brass/albedo.png": {
+      "normalization": "raw",
+      "sha256": "d34dfa52bc7d1187f64d0452af888f13b41a17ca8761a97f63e8d0b8764aae34"
+    },
+    "art/textures/procedural/radiator_service_brass/height.png": {
+      "normalization": "raw",
+      "sha256": "d25c14cb810b6119fd39d0620ffb0046ee4eab206f9e855434d2eac395593ca2"
+    },
+    "art/textures/procedural/radiator_service_brass/material.json": {
+      "normalization": "LF",
+      "sha256": "5b60d51a9deb1c383dd12bda19a0b1501ca435daaf5a0e5816ffeefe2a83c0b4"
+    },
+    "art/textures/procedural/radiator_service_brass/normal.png": {
+      "normalization": "raw",
+      "sha256": "7825ae9dad6e96961bbe819c91b2688cca7110ba750745fd295f83b72365023c"
+    },
+    "art/textures/procedural/radiator_service_brass/roughness.png": {
+      "normalization": "raw",
+      "sha256": "12b9ae52e582c53f60f189b4563374a21953e67d68e92e6501f46b000c6e4d24"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_albedo.png": {
+      "normalization": "raw",
+      "sha256": "d34dfa52bc7d1187f64d0452af888f13b41a17ca8761a97f63e8d0b8764aae34"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_albedo.png.import": {
+      "normalization": "LF",
+      "sha256": "1156601a09fb6ecd3064321936d2181064f7ec19572a35ae26771d8f8bd06496"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_normal.png": {
+      "normalization": "raw",
+      "sha256": "7825ae9dad6e96961bbe819c91b2688cca7110ba750745fd295f83b72365023c"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_normal.png.import": {
+      "normalization": "LF",
+      "sha256": "11384527a3e390157070518003b7ce54379a8be037af36e470839bae682853a8"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_rough.png": {
+      "normalization": "raw",
+      "sha256": "12b9ae52e582c53f60f189b4563374a21953e67d68e92e6501f46b000c6e4d24"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_service_brass_rough.png.import": {
+      "normalization": "LF",
+      "sha256": "d091023645298ee8b01bb04e217afcc01d7d8b5ff8f9e27141c2e7480207773a"
+    },
+    "game/data/orison_v2/radiator_sliding_wedge.json": {
+      "normalization": "LF",
+      "sha256": "969132f9ba4fe3f915715ff1c315e706228a82b8d33d03a6efbaf2e187006fe9"
+    },
+    "art/blender/radiator_sliding_wedge.blend": {
+      "normalization": "raw",
+      "sha256": "02a1c2618421c3fe759c7cc52e79d66bab770673ac5b65c0637b8eb6e1116045"
+    },
+    "game/assets/props/radiator_sliding_wedge.glb": {
+      "normalization": "raw",
+      "sha256": "f369ae4fbb6ff678d8246c61d9e06b45068390861a8c0584d30d71da0840afbe"
+    },
+    "game/assets/props/radiator_sliding_wedge.glb.import": {
+      "normalization": "LF",
+      "sha256": "81d90f086696b233465dd07941f1bd968bc6856aef52b4cc4acae2c61212cff7"
+    },
+    "art/blender/scripts/build_radiator_sliding_wedge.py": {
+      "normalization": "LF",
+      "sha256": "bdf69fe860b9dc8b381e7407124205d6fd610999465baf2433b5c1771bfc6ad3"
+    },
+    "art/blender/scripts/review_radiator_sliding_wedge.py": {
+      "normalization": "LF",
+      "sha256": "b1ea24709bd35261d2b9476d5422327fc4189f0fd3bacabc455beef4e7edecc5"
+    },
+    "art/blender/scripts/review_radiator_wedge_pair.py": {
+      "normalization": "LF",
+      "sha256": "743acea3238758bc1a453cdc9aef3ef7c8773243f26df51b7b4d945a84ae2547"
+    },
+    "game/scripts/props/radiator_pitch_wedges.gd": {
+      "normalization": "LF",
+      "sha256": "3b7c95ad2c85ede5c968adabb3712b6040a1379b59df174183759fe18ecd6226"
+    },
+    "game/tests/radiator_pitch_hand_checks.gd": {
+      "normalization": "LF",
+      "sha256": "e91e1e1ff6ddacd71e73274605944363d72bf51d43cad930ede12e0a90ae5f7b"
+    },
+    "game/scripts/props/radiator_pitch_wedges.gd.uid": {
+      "normalization": "LF",
+      "sha256": "ba65f411cfebec0b45d993975e2ac8d81e21d1a5132b539c858fa27b155bad2c"
+    },
+    "game/scripts/props/radiator_native_parts.gd.uid": {
+      "normalization": "LF",
+      "sha256": "a89036a2fa3b6193efa7fd80270b3186f555ac87fb8f3cc0efcdd470df5d9507"
+    },
+    "game/tests/radiator_pitch_hand_checks.gd.uid": {
+      "normalization": "LF",
+      "sha256": "72cd3550852fd403974bc6e05b9c080d74e67661ab430c4c17cded39144eebf4"
+    },
+    "game/scripts/game/open_shift_radiator_ecosystem.gd": {
+      "normalization": "LF",
+      "sha256": "6f985b0e3ea2ca09588a8ecd89d9028feb932c9b4d5fad90d88eea9385f01764"
+    },
+    "game/scripts/characters/porter_actor.gd": {
+      "normalization": "LF",
+      "sha256": "2dbf01eb6b0d7c112a04be77500b630d568792cd16c436548433d296a1a31438"
+    },
+    "game/tests/radiator_repair_hand_checks.gd": {
+      "normalization": "LF",
+      "sha256": "3fe6e0d3913f21c59abf8c579fcf243f677fa1b152599350369f6a36410d6e0f"
+    },
+    "game/tests/radiator_repair_hand_checks.gd.uid": {
+      "normalization": "LF",
+      "sha256": "64a7f422ab252d3b9866c217419ebeb4c14cbe92f67d9d0c55a15ee248d3629a"
+    },
+    "game/scripts/game/work_orders.gd": {
+      "normalization": "LF",
+      "sha256": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57"
+    },
+    "game/scripts/game/service_round_director.gd": {
+      "normalization": "LF",
+      "sha256": "12c41dd20ade1942e84ca588175dc8096ce5f5081d7573c21a0bf6a13f44dc7f"
+    },
+    "game/scripts/game/maintenance_activity_library.gd": {
+      "normalization": "LF",
+      "sha256": "53f32658dc422270ce7ce2bab262f7dad54ae2875c8f15fd1008adac64ad346c"
+    },
+    "game/scripts/game/maintenance_job_library.gd": {
+      "normalization": "LF",
+      "sha256": "c75590fd1cff8ce543f16910d0c816540d3f425b01e92ef7195edede4e157ddb"
+    },
+    "game/scripts/game/open_shift_situation.gd": {
+      "normalization": "LF",
+      "sha256": "2f4e61103606ad885f7084b4fd181fa36b0b53244a41ed346c495d37d8991779"
+    },
+    "game/scripts/reality/npc_observation_ledger.gd": {
+      "normalization": "LF",
+      "sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+    },
+    "game/data/maintenance_activities.json": {
+      "normalization": "LF",
+      "sha256": "21ffeb92585817314fec8613a0d42638f8dde215941d85a8fdf35752e13b6623"
+    },
+    "game/data/maintenance_jobs.json": {
+      "normalization": "LF",
+      "sha256": "8320fb6d461a71ef71be4b8348b3168185f89aa444a9a277f74975a05dec83ba"
+    },
+    "game/tests/maintenance_service_round_test.gd": {
+      "normalization": "LF",
+      "sha256": "56432caeb741f07c9b83e954c055e24fb4613b8670f971e11eba423f2f160356"
+    },
+    "game/tests/open_shift_authority_test.gd": {
+      "normalization": "LF",
+      "sha256": "1e7dacfbf719e500b81c6f4a5286348c7659f2e5d08453f8784b34d908a8d3db"
+    },
+    "game/tests/open_shift_meddle_test.gd": {
+      "normalization": "LF",
+      "sha256": "ee36a57ab9513e01b86aeff4efd261c7c3e0c856c4a67264f80faa403f6c4352"
+    }
+  }
+}

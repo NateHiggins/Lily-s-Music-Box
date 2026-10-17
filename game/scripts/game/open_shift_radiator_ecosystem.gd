@@ -290,9 +290,17 @@ func _acoustic_authority() -> Object:
 func _reconstruct_physical_state() -> void:
 	if radiator == null:
 		return
-	porter.rebind_mechanism(radiator)
+	var player_repaired: bool = radiator.use_native_v2 and work_orders!=null and work_orders.job_stage(ServiceRoundDirector.JOB_ID) in ["repaired","closed"]
+	porter.rebind_mechanism(radiator,not player_repaired)
 	var record := situation.state()
 	var kind := str(record.resolution_kind)
+	# A completed job outranks earlier interference observations. V2's durable
+	# household mechanism owns the actual parts, including any later damage:
+	# reconstruction may restore the narrative fact, never heal those parts.
+	if player_repaired:
+		radiator.open_shift_condition="repaired"
+		radiator._apply_visual_state()
+		return
 	if kind == "porter_temporary_shutoff":
 		radiator.apply_open_shift_condition("porter_temporary_shutoff")
 	elif "wrong_valve" in record.observed_interference:

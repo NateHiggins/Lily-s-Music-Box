@@ -71,6 +71,10 @@ var native_vent_cap: RigidBody3D
 var native_orifices: Node3D
 var native_pitch_wedges: Node3D
 var _native_held := ""
+const NATIVE_REPAIR_PROVE_SECONDS := 3.0
+var _native_repair_seconds := 0.0
+var _native_repair_reported := false
+var _native_repair_completion: Dictionary = {}
 
 var supply_position := 1.0
 var _supply_held := false
@@ -395,6 +399,10 @@ func valid_mechanism(value: Variant) -> bool:
 
 func restore_mechanism(value: Dictionary) -> void:
 	if not valid_mechanism(value): return
+	# A reconstructed pose must prove itself under steam again. A saved timer
+	# or a previously emitted signal is not evidence of a sound physical repair.
+	_native_repair_seconds = 0.0
+	_native_repair_reported = false
 	_supply_held = false
 	_native_held = ""
 	native_service_progress = value.service_progress
@@ -903,13 +911,10 @@ func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
 
 
 func apply_maintenance_result(result: Dictionary) -> void:
+	# V2 completes only by observing the actual assembled mechanism below.
+	# Legacy panel results must not move its supply or counterfeit a repair.
+	if use_native_v2: return
 	var patch: Dictionary = result.get("mechanism_patch", {})
-	if use_native_v2 and native_packing!=null and (native_packing.station!=0 or native_packing_spread>.001 or native_packing_out>.001): return
-	if use_native_v2 and (native_service_progress>.001 or (native_vent_cap!=null and native_vent_cap.leak()>.001)): return
-	if use_native_v2:
-		native_service_progress = 0.0
-		native_packing_spread = 0.0
-		native_packing_out = 0.0
 	if inventory != null and inventory.has_item(PACKING_ITEM):
 		# Packing carried back by the player is seated during the repair:
 		# custody transfers from player into the mechanism, once.
@@ -1185,6 +1190,7 @@ func _process(delta: float) -> void:
 		if native_packing!=null: native_packing.tick()
 		if native_vent_cap!=null: native_vent_cap.tick()
 		_update_native_vapor()
+		_prove_native_repair(delta)
 		return
 	if _section_multimesh == null:
 		return
@@ -1204,6 +1210,42 @@ func _process(delta: float) -> void:
 		_connection_pipe.rotation.z = sin(_hammer_time * 20.0) \
 				* amplitude * 0.7 if active else 0.0
 	_shake = maxf(_shake - delta * 0.04, 0.0)
+
+func _prove_native_repair(delta: float) -> void:
+	# This authored service job belongs to 2B, not every factory-healthy emitter.
+	if graph_node_id!=ServiceRoundDirector.RADIATOR_ID or _native_repair_reported:
+		return
+	var orders := get_tree().root.find_child("WorkOrders",true,false) as WorkOrders
+	if RealityState.save_write_blocked or orders==null or orders.job_stage(ServiceRoundDirector.JOB_ID)!="repairable":
+		_native_repair_seconds=0.0
+		return
+	if _native_repair_completion.is_empty():
+		var library := MaintenanceActivityLibrary.load_default()
+		if not library.is_valid(): return
+		_native_repair_completion=library.activity("radiator_vent_service").get("completion",{})
+	var patch: Dictionary=_native_repair_completion.get("mechanism_patch",{})
+	var heat: Dictionary=get_heat_state()
+	var sound: bool = not _supply_held and _native_held.is_empty() and native_packing!=null and native_packing.station==0 \
+		and native_service_progress<=.001 and native_packing_spread<=.001 and native_packing_out<=.001 \
+		and native_vent_cap!=null and not native_vent_cap._float_held and native_vent_cap._float_lift>=.0054 \
+		and native_orifices!=null and not native_orifices.active(self).is_empty() \
+		and vent_grade==int(patch.get("vent_grade",-1)) and native_pressure_leak()<=.001 \
+		and supply_position>=.98 and pitch_toward_supply>0.0 and _balance!=null \
+		and float(heat.get("heat",0.0))>.05 and not bool(heat.get("hammer",true)) \
+		and not bool(heat.get("hiss",true)) and float(heat.get("steam_lost",1.0))<=.001
+	if not sound:
+		_native_repair_seconds=0.0
+		return
+	_native_repair_seconds+=maxf(delta,0.0)
+	if _native_repair_seconds<NATIVE_REPAIR_PROVE_SECONDS: return
+	# A physically returned liner transfers its existing inventory custody once.
+	# The world part stays in its actual seat; no replacement part is minted.
+	if inventory!=null and inventory.has_item(PACKING_ITEM) and not inventory.consume(PACKING_ITEM): return
+	_native_repair_reported=true
+	open_shift_condition="repaired"
+	_apply_visual_state()
+	maintenance_completed.emit(_native_repair_completion.duplicate(true))
+	manipulation_changed.emit()
 
 
 ## Possession does not invent a new power. It drives a real water-hammer

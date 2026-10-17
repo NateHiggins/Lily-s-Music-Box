@@ -73,7 +73,11 @@ func advance_to(now: float) -> void:
 	var record := _store()
 	if record.cancelled or record.acted_at >= 0.0 or \
 			str(record.intent).is_empty():
-		_reconcile_physical()
+		# A past V2 intervention is history, not a hand which holds the valve
+		# shut forever. Restore it at binding; subsequent motion belongs to
+		# the player and the durable household mechanism.
+		if not radiator is RadiatorProp or not radiator.use_native_v2:
+			_reconcile_physical()
 		return
 	# Existing outcomes still reconstruct, but a minute with no historical
 	# day cannot authorize departure, arrival, or a new physical action.
@@ -129,9 +133,9 @@ func advance_to(now: float) -> void:
 
 ## After save/load or a room rebuild the mechanism reapplies the durable
 ## outcome; the porter never re-performs the action.
-func rebind_mechanism(mechanism: Node) -> void:
+func rebind_mechanism(mechanism: Node, restore_condition := true) -> void:
 	radiator = mechanism
-	_reconcile_physical()
+	if restore_condition: _reconcile_physical()
 
 
 func _reconcile_physical() -> void:

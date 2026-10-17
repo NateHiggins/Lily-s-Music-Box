@@ -2,8 +2,9 @@ extends Node3D
 ## Fast production-owner/production-player gesture check before world reload.
 var _terminal := false
 var _capture_failed := false
+var _packing_before_use: Dictionary = {}
 func _ready() -> void:
-	get_tree().create_timer(45).timeout.connect(func():
+	get_tree().create_timer(75).timeout.connect(func():
 		if not _terminal:
 			push_error("RADIATOR HAND BENCH: FAIL incomplete control pass")
 			get_tree().quit(1))
@@ -147,6 +148,7 @@ func _run() -> void:
 	await _contact_orientations(prop,failures)
 	await preload("res://tests/radiator_orifice_hand_checks.gd").new().run(self,prop,stock,player,reviewer,codec,failures)
 	await preload("res://tests/radiator_pitch_hand_checks.gd").new().run(self,prop,player,reviewer,codec,failures)
+	await preload("res://tests/radiator_repair_hand_checks.gd").new().run(self,prop,player,reviewer,codec,failures)
 	var inspector := preload("res://tests/radiator_native_review.gd").new()
 	for draw: MeshInstance3D in prop.find_children("*","MeshInstance3D",true,false):
 		if not draw.has_meta("native_stock"): continue
@@ -317,6 +319,7 @@ func _packing_pass(prop: Node3D,player: Node3D,reviewer: Node3D,codec: Node,fail
 	prop.restore_mechanism(legacy)
 	# A used item remains the same physical liner; the historical one-time
 	# inventory record must not mint a fresh part when it is removed again.
+	_packing_before_use=prop.inventory.serialize()
 	prop.inventory.consume(prop.PACKING_ITEM)
 	await _aim(player,prop,part.to_global(Vector3(.012,0,-.030)))
 	reviewer._click(player)

@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Native radiator repair observation, preserved job/custody authorities, porter intervention history and pending route qualification | `design/V2_RADIATOR_PHYSICAL_REPAIR_2026-10-17.md` |
 | Local WIP native radiator cutover, partial physical controls, scoped checks and remaining repair work | `art/reviews/v2_radiator_cutover_20261017/README.txt` |
 | Portable native radiator refit kit, clean-checkout publication verification and pending game installation | `design/V2_RADIATOR_NATIVE_KIT_2026-10-17.md` |
 | Four additional radiator installations, portable native refit, clearance discoveries and pending verification | `design/V2_HEATING_REFIT_2026-10-17.md` |

@@ -1,0 +1,65 @@
+{
+  "evidence_class": "INERT",
+  "runs": {
+    "physical_repair_hand_authority": {
+      "execution": {
+        "completed": true,
+        "elapsed_s": 42.38,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T16:39:02Z",
+        "started_utc": "2026-10-17T16:38:20Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "physical_repair_MaintenanceServiceRoundTest": {
+      "execution": {
+        "completed": true,
+        "elapsed_s": 1.14,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T16:40:40Z",
+        "started_utc": "2026-10-17T16:40:39Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "physical_repair_OpenShiftAuthorityTest": {
+      "execution": {
+        "completed": true,
+        "elapsed_s": 1.03,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T16:40:42Z",
+        "started_utc": "2026-10-17T16:40:41Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "physical_repair_OpenShiftMeddleTest": {
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.93,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T16:40:43Z",
+        "started_utc": "2026-10-17T16:40:42Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "physical_repair_world": {
+      "execution": {
+        "completed": true,
+        "elapsed_s": 133.2,
+        "exit_code": 0,
+        "finished_utc": "2026-10-17T16:42:57Z",
+        "started_utc": "2026-10-17T16:40:44Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    }
+  }
+}
