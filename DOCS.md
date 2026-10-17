@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Uninstalled restored-front lighting, native fitting review and pending export repairs | `design/V2_FRONT_LIGHTING_NATIVE_2026-10-16.md` |
 | Current nineteen-emitter installation, shared lobby takeoff, waiting-bay clearance, qualified contracts and remaining V2 work | `design/V2_LOBBY_HEATING_2026-10-16.md` |
 | Eighteen-emitter native heating foundation, supported mains, floor sleeves and radiator tailpieces | `design/V2_HEATING_DISTRIBUTION_2026-10-16.md` |
 | Native patrol station transmission, crank lockout, source-bound checks and remaining work | `design/V2_STATION_TRANSMISSION_2026-10-16.md` |
