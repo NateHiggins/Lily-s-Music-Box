@@ -1,0 +1,740 @@
+{
+  "installations": [
+    {
+      "id": "F01_A_RADIATOR_01",
+      "sections": 7,
+      "floor_origin": [
+        -15.4,
+        0.0,
+        -6.35
+      ],
+      "yaw": -1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.18400000000000002,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000058829784394,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.18399999999999994,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.15999961972236634,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_RADIATOR_01",
+      "sections": 7,
+      "floor_origin": [
+        15.4,
+        0.0,
+        -3.0
+      ],
+      "yaw": 1.5707963,
+      "ties": [
+        {
+          "column": [
+            -0.18400000000000002,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000009655952455,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.18399999999999994,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000006675720216,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F01_LOBBY_RADIATOR_01",
+      "sections": 9,
+      "floor_origin": [
+        -5.2,
+        0.0,
+        -6.5
+      ],
+      "yaw": -1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.09399965733289718,
+          "rod": "MovingTie_58000um",
+          "hardware": "WallAnchors_61000um"
+        },
+        {
+          "column": [
+            0.322,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.09399963498115539,
+          "rod": "MovingTie_58000um",
+          "hardware": "WallAnchors_61000um"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_RADIATOR_01",
+      "sections": 8,
+      "floor_origin": [
+        -14.5,
+        3.2,
+        2.8
+      ],
+      "yaw": 0,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.20999954223632813,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.23000000000000004,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.20999954223632813,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_RADIATOR_01",
+      "sections": 10,
+      "floor_origin": [
+        15.4,
+        3.2,
+        -3.0
+      ],
+      "yaw": 1.5707963,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000009655952455,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.414,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000005185604096,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_RADIATOR_01",
+      "sections": 7,
+      "floor_origin": [
+        0.28,
+        3.2,
+        8.4
+      ],
+      "yaw": 1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.18400000000000002,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.13000002086162568,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.18399999999999994,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.1300000059604645,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F02_D_RADIATOR_01",
+      "sections": 8,
+      "floor_origin": [
+        -15.35,
+        3.2,
+        -7.0
+      ],
+      "yaw": -1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.2099998551607132,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.23000000000000004,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.209999840259552,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_RADIATOR_01",
+      "sections": 9,
+      "floor_origin": [
+        -11,
+        6.4,
+        -3.58
+      ],
+      "yaw": 3.141592653589793,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.18000006258487702,
+          "rod": "MovingTie_144000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.322,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.18000000298023225,
+          "rod": "MovingTie_144000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_RADIATOR_01",
+      "sections": 7,
+      "floor_origin": [
+        15.4,
+        6.4,
+        -3.4
+      ],
+      "yaw": 1.5707963,
+      "ties": [
+        {
+          "column": [
+            -0.18400000000000002,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000006675720216,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.18399999999999994,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000003695487977,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F03_C_RADIATOR_01",
+      "sections": 8,
+      "floor_origin": [
+        1.6,
+        6.4,
+        11.35
+      ],
+      "yaw": 0.0,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.20999954223632813,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.23000000000000004,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.20999954223632813,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_RADIATOR_01",
+      "sections": 9,
+      "floor_origin": [
+        -15.4,
+        6.4,
+        -6.35
+      ],
+      "yaw": -1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000058829784394,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.322,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.15999961972236634,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_RADIATOR_01",
+      "sections": 7,
+      "floor_origin": [
+        15.4,
+        9.6,
+        -3
+      ],
+      "yaw": 1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.18400000000000002,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000009655952455,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.18399999999999994,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000006675720216,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_RADIATOR_01",
+      "sections": 8,
+      "floor_origin": [
+        -11.6,
+        9.6,
+        3.15
+      ],
+      "yaw": 0,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.20999978065490724,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.23000000000000004,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.20999978065490724,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_RADIATOR_01",
+      "sections": 9,
+      "floor_origin": [
+        0.28,
+        9.6,
+        8.4
+      ],
+      "yaw": 1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.13000003576278688,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.322,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.1299999910593033,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_RADIATOR_01",
+      "sections": 7,
+      "floor_origin": [
+        -15.4,
+        9.6,
+        -6.35
+      ],
+      "yaw": -1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.18400000000000002,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.16000058829784394,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.18399999999999994,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.15999961972236634,
+          "rod": "MovingTie_124000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_RADIATOR_01",
+      "sections": 8,
+      "floor_origin": [
+        -13.7,
+        12.8,
+        -0.82
+      ],
+      "yaw": 0.0,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.12999961853027345,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.23000000000000004,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.12999961853027345,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_RADIATOR_01",
+      "sections": 9,
+      "floor_origin": [
+        -13.4,
+        12.8,
+        0.82
+      ],
+      "yaw": 3.141592653589793,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.13000061690807344,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.322,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.13000055730342866,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_RADIATOR_01",
+      "sections": 7,
+      "floor_origin": [
+        0.28,
+        12.8,
+        8.4
+      ],
+      "yaw": 1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.18400000000000002,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.13000002086162568,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.18399999999999994,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.1300000059604645,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F05_D_RADIATOR_01",
+      "sections": 8,
+      "floor_origin": [
+        15.35,
+        12.8,
+        -6.0
+      ],
+      "yaw": 1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.2099991101026535,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.23000000000000004,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.20999906539916993,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_RADIATOR_01",
+      "sections": 9,
+      "floor_origin": [
+        -13.7,
+        16.0,
+        -0.82
+      ],
+      "yaw": 0.0,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.12999961853027345,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.322,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.12999961853027345,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_RADIATOR_01",
+      "sections": 7,
+      "floor_origin": [
+        -13.4,
+        16.0,
+        0.82
+      ],
+      "yaw": 3.141592653589793,
+      "ties": [
+        {
+          "column": [
+            -0.18400000000000002,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.13000060200691224,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.18399999999999994,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.13000057220458985,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_RADIATOR_01",
+      "sections": 8,
+      "floor_origin": [
+        0.28,
+        16.0,
+        8.4
+      ],
+      "yaw": 1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.13000003576278688,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.23000000000000004,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.1299999910593033,
+          "rod": "MovingTie_94000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    },
+    {
+      "id": "F06_D_RADIATOR_01",
+      "sections": 9,
+      "floor_origin": [
+        15.35,
+        16.0,
+        -6.0
+      ],
+      "yaw": 1.5707963267948966,
+      "ties": [
+        {
+          "column": [
+            -0.23,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.2099991101026535,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        },
+        {
+          "column": [
+            0.322,
+            0.58,
+            0.045
+          ],
+          "bracket_z": 0.20999906539916993,
+          "rod": "MovingTie_174000um",
+          "hardware": "WallAnchors_45000um"
+        }
+      ]
+    }
+  ]
+}

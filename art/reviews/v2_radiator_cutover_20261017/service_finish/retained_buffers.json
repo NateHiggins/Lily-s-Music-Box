@@ -1,0 +1,51 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "scope": "Actual exported buffer and frame comparison; no runtime acceptance.",
+  "families": [
+    {
+      "family": "radiator_mechanisms",
+      "retained_geometry": [
+        "ArticulatedValveHousing",
+        "BlindHeaderPlug",
+        "CastSectionThreeColumnCandidate",
+        "CastShoeFoot",
+        "FixedStemPacking",
+        "FloatingMetalBearingRing",
+        "HeaderSealWasher",
+        "HeaderSphericalRetainer",
+        "PackedHeaderSocket",
+        "RemovableFibrousUnionPacking",
+        "SixSpokeHandwheel",
+        "SphericalNeck_7",
+        "SphericalNeck_8",
+        "SphericalNeck_9",
+        "SphericalNeck_10",
+        "SweptSupplyElbow",
+        "ThreadedMovingValveCore",
+        "ValveSphericalRetainer",
+        "VentHeaderReducer"
+      ],
+      "changed_geometry": [],
+      "before_sha256": "20cdf482879b55c87cad2d5d458b25657fe885e8db650e6a69e78faa45181360",
+      "after_sha256": "c69f7e5382bda1de525da2c5a9edfcfcfb3dfc32a4f8e3d99af834d20c7506df"
+    },
+    {
+      "family": "radiator_air_vent",
+      "retained_geometry": [
+        "VentOrificeInsert_0",
+        "VentOrificeInsert_1",
+        "VentOrificeInsert_2",
+        "VentOrificeInsert_3",
+        "VentOrificeInsert_4"
+      ],
+      "changed_geometry": [
+        "FloatAndNeedle",
+        "VentBody",
+        "VentCap"
+      ],
+      "before_sha256": "d008dd65b9615118f63b5d03bf8edbd84ccaf7dfd4f73d2bf39239b0ec437746",
+      "after_sha256": "d4c3260025bcb8a4dd5970ceb99b541f25b4b71ac81679f266df7f60704bba06"
+    }
+  ]
+}

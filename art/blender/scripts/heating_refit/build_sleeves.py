@@ -72,6 +72,14 @@ exec(compile(ast.Module(body=[body],type_ignores=[]),str(recipe),'exec'))
 heating={'installed':data['append_installed_radiators']};anchors={row['id']:row for row in data['records']['anchors']};layout=json.loads((R/PLAN['source_layout']['path']).read_text());level_elevations={row['id']:row['y'] for row in layout['levels']};tailpieces=[]
 body=next(node for node in parsed.body if isinstance(node,ast.For) and ast.unparse(node.iter)=="heating['installed']")
 exec(compile(ast.Module(body=[body],type_ignores=[]),str(recipe),'exec'))
+retired_tailpieces = []
+for identity in PLAN.get('retire_legacy_radiator_tails', []):
+    obj = bpy.data.objects.get(identity)
+    assert obj is not None and obj.type == 'MESH', ('missing legacy tailpiece', identity)
+    assert identity.endswith(('__UnionTailpiece', '__Tailpiece'))
+    if obj in objects: objects.remove(obj)
+    retired_tailpieces.append(identity)
+    bpy.data.objects.remove(obj, do_unlink=True)
 for obj in objects:
     bm=bmesh.new();bm.from_mesh(obj.data);check('closed positive sleeve/bearing stock',all(edge.is_manifold for edge in bm.edges) and bm.calc_volume(signed=True)>0,id=obj.name);bm.free()
     mesh=obj.data;mesh.calc_loop_triangles();uv=mesh.uv_layers.active;bad=0
@@ -84,6 +92,6 @@ native=P/'heating_distribution_candidate.blend';bpy.ops.wm.save_as_mainfile(file
 for image in bpy.data.images:
     if image.source=='FILE' and image.users:check('reopened native PBR source resolves',Path(bpy.path.abspath(image.filepath)).is_file(),id=image.name)
 failures=[row for row in checks if not row['passed']]
-(P/'native_review.json').write_text(json.dumps(dict(evidence_class='INERT',scope='Native prototype with measured face sleeves, four additional retained-bearing H-D supports, and four union tails at the retained radiator actor datums. Source-owned architectural cuts are planned, not installed. Whole fitting containment/collision, emitter fit, strict export/runtime and human acceptance remain open.',native_file=native.name,native_sha256=hashlib.sha256(native.read_bytes()).hexdigest(),prior_native_sha256=prior['native_sha256'],passage_source_sha256=hashlib.sha256((P/'passages.json').read_bytes()).hexdigest(),passages=passages,main_supports=main_supports,tailpieces=tailpieces,checks=checks,failures=failures),indent=2)+'\n')
+(P/'native_review.json').write_text(json.dumps(dict(evidence_class='INERT',scope='Native prototype with measured face sleeves, four additional retained-bearing H-D supports, and four union tails at the retained radiator actor datums. Source-owned architectural cuts are planned, not installed. Whole fitting containment/collision, emitter fit, strict export/runtime and human acceptance remain open.',native_file=native.name,native_sha256=hashlib.sha256(native.read_bytes()).hexdigest(),prior_native_sha256=prior['native_sha256'],passage_source_sha256=hashlib.sha256((P/'passages.json').read_bytes()).hexdigest(),passages=passages,main_supports=main_supports,tailpieces=tailpieces,retired_tailpieces=retired_tailpieces,checks=checks,failures=failures),indent=2)+'\n')
 print('NATIVE REFIT SLEEVES',len(passages),'main bearings',len(main_supports),'checks',len(checks),'failures',len(failures),flush=True)
 if failures:raise RuntimeError(str(failures))

@@ -12,7 +12,7 @@
   },
   "authority_lf": {
     "art/blender/scripts/review_heating_distribution.py": "81007c0b38510ba19bc2bd408669a39cd9671f4c63532a609aa7152d51f1da72",
-    "game/data/runtime_material_sets.json": "4a98389bf283864854c3cbfe8f324482665c9cc0a252d94fc73d3d833f8ab5e6"
+    "game/data/runtime_material_sets.json": "b4cfab66ca2f7e2f78f7de0f3ddff1e483ba0fe9a5a29013d6059cd3c737761e"
   },
   "routes": {
     "evidence_class": "INERT",
@@ -7824,5 +7824,29 @@
   "revision_discovery": {
     "context_sha256": "be20c2522dc7a14af1608bacccf3153e800ac4387f126b7109a3bb6ecb649321",
     "description": "Actual triangle intersections exposed electrical riser at x9.39, missing H-D slab aperture and unrebuilt masonry. New orthogonal run x8.95 passes west of both service risers; no authority relocation."
-  }
+  },
+  "retire_legacy_radiator_tails": [
+    "F01_A_RADIATOR_01__UnionTailpiece",
+    "F01_D_RADIATOR_01__UnionTailpiece",
+    "F01_LOBBY_RADIATOR_01__Tailpiece",
+    "F02_A_RADIATOR_01__UnionTailpiece",
+    "F02_C_RADIATOR_01__UnionTailpiece",
+    "F02_D_RADIATOR_01__UnionTailpiece",
+    "F03_A_RADIATOR_01__UnionTailpiece",
+    "F03_B_RADIATOR_01__UnionTailpiece",
+    "F03_C_RADIATOR_01__UnionTailpiece",
+    "F03_D_RADIATOR_01__UnionTailpiece",
+    "F04_A_RADIATOR_01__UnionTailpiece",
+    "F04_B_RADIATOR_01__UnionTailpiece",
+    "F04_C_RADIATOR_01__UnionTailpiece",
+    "F04_D_RADIATOR_01__UnionTailpiece",
+    "F05_A_RADIATOR_01__UnionTailpiece",
+    "F05_B_RADIATOR_01__UnionTailpiece",
+    "F05_C_RADIATOR_01__UnionTailpiece",
+    "F05_D_RADIATOR_01__UnionTailpiece",
+    "F06_A_RADIATOR_01__UnionTailpiece",
+    "F06_B_RADIATOR_01__UnionTailpiece",
+    "F06_C_RADIATOR_01__UnionTailpiece",
+    "F06_D_RADIATOR_01__UnionTailpiece"
+  ]
 }

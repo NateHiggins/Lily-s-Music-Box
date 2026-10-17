@@ -1,0 +1,578 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native refined vent fit and routed-air samples only; no runtime or fluid simulation proof.",
+  "native_sha256": "b0d6e82d10d89260f4b47061af63db60350de193670c13d0bb252c5b0ceaa11c",
+  "assertion_source_lf_sha256": "f337e29e25a761151f0616a478ae5113482db5886f464a0530449d326ac0205e",
+  "checks": [
+    {
+      "label": "float and needle clear their chamber throughout travel",
+      "passed": true,
+      "lift_m": 0
+    },
+    {
+      "label": "needle closure contacts only the fixed seat without exceeding its bore",
+      "passed": true,
+      "lift_m": 0,
+      "triangle_pairs": 0,
+      "cone_radius_m": 0
+    },
+    {
+      "label": "float and needle clear their chamber throughout travel",
+      "passed": true,
+      "lift_m": 0.00275
+    },
+    {
+      "label": "needle closure contacts only the fixed seat without exceeding its bore",
+      "passed": true,
+      "lift_m": 0.00275,
+      "triangle_pairs": 0,
+      "cone_radius_m": 0.0005125000000000008
+    },
+    {
+      "label": "float and needle clear their chamber throughout travel",
+      "passed": true,
+      "lift_m": 0.0055
+    },
+    {
+      "label": "needle closure contacts only the fixed seat without exceeding its bore",
+      "passed": true,
+      "lift_m": 0.0055,
+      "triangle_pairs": 0,
+      "cone_radius_m": 0.0012000000000000014
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 0,
+      "ray": 0,
+      "radius_m": 0.0005486726407127173,
+      "observed_m": 0.0005486719310283661
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 0,
+      "ray": 1,
+      "radius_m": 0.0005486726407127173,
+      "observed_m": 0.0005486744921654463
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 0,
+      "ray": 2,
+      "radius_m": 0.0005486726407127173,
+      "observed_m": 0.0005486755981110036
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 0,
+      "ray": 3,
+      "radius_m": 0.0005486726407127173,
+      "observed_m": 0.0005486744921654463
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 0,
+      "ray": 4,
+      "radius_m": 0.0005486726407127173,
+      "observed_m": 0.0005486719310283661
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 0,
+      "ray": 5,
+      "radius_m": 0.0005486726407127173,
+      "observed_m": 0.0005486711743287742
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 0,
+      "ray": 6,
+      "radius_m": 0.0005486726407127173,
+      "observed_m": 0.0005486756563186646
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 0,
+      "ray": 7,
+      "radius_m": 0.0005486726407127173,
+      "observed_m": 0.0005486711161211133
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 0,
+      "state": "cold",
+      "blocked_legs": []
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 0,
+      "state": "closed",
+      "blocked_legs": [
+        4,
+        5
+      ]
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 1,
+      "ray": 0,
+      "radius_m": 0.0006940220937885671,
+      "observed_m": 0.0006940216408111155
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 1,
+      "ray": 1,
+      "radius_m": 0.0006940220937885671,
+      "observed_m": 0.0006940216408111155
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 1,
+      "ray": 2,
+      "radius_m": 0.0006940220937885671,
+      "observed_m": 0.0006940215243957937
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 1,
+      "ray": 3,
+      "radius_m": 0.0006940220937885671,
+      "observed_m": 0.0006940215243957937
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 1,
+      "ray": 4,
+      "radius_m": 0.0006940220937885671,
+      "observed_m": 0.0006940216408111155
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 1,
+      "ray": 5,
+      "radius_m": 0.0006940220937885671,
+      "observed_m": 0.0006940216408111155
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 1,
+      "ray": 6,
+      "radius_m": 0.0006940220937885671,
+      "observed_m": 0.0006940216408111155
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 1,
+      "ray": 7,
+      "radius_m": 0.0006940220937885671,
+      "observed_m": 0.0006940215826034546
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 1,
+      "state": "cold",
+      "blocked_legs": []
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 1,
+      "state": "closed",
+      "blocked_legs": [
+        4,
+        5
+      ]
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 2,
+      "ray": 0,
+      "radius_m": 0.00085,
+      "observed_m": 0.0008499995456077158
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 2,
+      "ray": 1,
+      "radius_m": 0.00085,
+      "observed_m": 0.0008499990217387676
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 2,
+      "ray": 2,
+      "radius_m": 0.00085,
+      "observed_m": 0.0008499995456077158
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 2,
+      "ray": 3,
+      "radius_m": 0.00085,
+      "observed_m": 0.0008499990799464285
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 2,
+      "ray": 4,
+      "radius_m": 0.00085,
+      "observed_m": 0.0008499994874000549
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 2,
+      "ray": 5,
+      "radius_m": 0.00085,
+      "observed_m": 0.0008499989635311067
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 2,
+      "ray": 6,
+      "radius_m": 0.00085,
+      "observed_m": 0.000849999429192394
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 2,
+      "ray": 7,
+      "radius_m": 0.00085,
+      "observed_m": 0.0008499989635311067
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 2,
+      "state": "cold",
+      "blocked_legs": []
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 2,
+      "state": "closed",
+      "blocked_legs": [
+        4,
+        5
+      ]
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 3,
+      "ray": 0,
+      "radius_m": 0.0010017346066809422,
+      "observed_m": 0.0010017342865467072
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 3,
+      "ray": 1,
+      "radius_m": 0.0010017346066809422,
+      "observed_m": 0.001001735683530569
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 3,
+      "ray": 2,
+      "radius_m": 0.0010017346066809422,
+      "observed_m": 0.0010017380118370056
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 3,
+      "ray": 3,
+      "radius_m": 0.0010017346066809422,
+      "observed_m": 0.001001735799945891
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 3,
+      "ray": 4,
+      "radius_m": 0.0010017346066809422,
+      "observed_m": 0.0010017342865467072
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 3,
+      "ray": 5,
+      "radius_m": 0.0010017346066809422,
+      "observed_m": 0.001001735683530569
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 3,
+      "ray": 6,
+      "radius_m": 0.0010017346066809422,
+      "observed_m": 0.0010017380118370056
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 3,
+      "ray": 7,
+      "radius_m": 0.0010017346066809422,
+      "observed_m": 0.001001735799945891
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 3,
+      "state": "cold",
+      "blocked_legs": []
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 3,
+      "state": "closed",
+      "blocked_legs": [
+        4,
+        5
+      ]
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 4,
+      "ray": 0,
+      "radius_m": 0.001150905440656761,
+      "observed_m": 0.0011509060859680176
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 4,
+      "ray": 1,
+      "radius_m": 0.001150905440656761,
+      "observed_m": 0.0011509038740769029
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 4,
+      "ray": 2,
+      "radius_m": 0.001150905440656761,
+      "observed_m": 0.0011509060859680176
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 4,
+      "ray": 3,
+      "radius_m": 0.001150905440656761,
+      "observed_m": 0.0011509038740769029
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 4,
+      "ray": 4,
+      "radius_m": 0.001150905440656761,
+      "observed_m": 0.0011509060859680176
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 4,
+      "ray": 5,
+      "radius_m": 0.001150905440656761,
+      "observed_m": 0.0011509038740769029
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 4,
+      "ray": 6,
+      "radius_m": 0.001150905440656761,
+      "observed_m": 0.0011509060859680176
+    },
+    {
+      "label": "fixed orifice has the authored grade radius",
+      "passed": true,
+      "grade": 4,
+      "ray": 7,
+      "radius_m": 0.001150905440656761,
+      "observed_m": 0.0011509038740769029
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 4,
+      "state": "cold",
+      "blocked_legs": []
+    },
+    {
+      "label": "actual routed air path opens cold and closes at the needle",
+      "passed": true,
+      "grade": 4,
+      "state": "closed",
+      "blocked_legs": [
+        4,
+        5
+      ]
+    },
+    {
+      "label": "refined stock retains closed walls",
+      "passed": true,
+      "id": "VentBody"
+    },
+    {
+      "label": "refined stock retains positive material volume",
+      "passed": true,
+      "id": "VentBody"
+    },
+    {
+      "label": "refined stock retains intended shell count",
+      "passed": true,
+      "id": "VentBody"
+    },
+    {
+      "label": "refined stock retains closed walls",
+      "passed": true,
+      "id": "VentCap"
+    },
+    {
+      "label": "refined stock retains positive material volume",
+      "passed": true,
+      "id": "VentCap"
+    },
+    {
+      "label": "refined stock retains intended shell count",
+      "passed": true,
+      "id": "VentCap"
+    },
+    {
+      "label": "refined stock retains closed walls",
+      "passed": true,
+      "id": "FloatAndNeedle"
+    },
+    {
+      "label": "refined stock retains positive material volume",
+      "passed": true,
+      "id": "FloatAndNeedle"
+    },
+    {
+      "label": "refined stock retains intended shell count",
+      "passed": true,
+      "id": "FloatAndNeedle"
+    },
+    {
+      "label": "sealed float cavity normals face into its void",
+      "passed": true
+    },
+    {
+      "label": "sealed cavity retains its nested inner envelope",
+      "passed": true
+    },
+    {
+      "label": "refined stock retains closed walls",
+      "passed": true,
+      "id": "VentOrificeInsert_0"
+    },
+    {
+      "label": "refined stock retains positive material volume",
+      "passed": true,
+      "id": "VentOrificeInsert_0"
+    },
+    {
+      "label": "refined stock retains intended shell count",
+      "passed": true,
+      "id": "VentOrificeInsert_0"
+    },
+    {
+      "label": "refined stock retains closed walls",
+      "passed": true,
+      "id": "VentOrificeInsert_1"
+    },
+    {
+      "label": "refined stock retains positive material volume",
+      "passed": true,
+      "id": "VentOrificeInsert_1"
+    },
+    {
+      "label": "refined stock retains intended shell count",
+      "passed": true,
+      "id": "VentOrificeInsert_1"
+    },
+    {
+      "label": "refined stock retains closed walls",
+      "passed": true,
+      "id": "VentOrificeInsert_2"
+    },
+    {
+      "label": "refined stock retains positive material volume",
+      "passed": true,
+      "id": "VentOrificeInsert_2"
+    },
+    {
+      "label": "refined stock retains intended shell count",
+      "passed": true,
+      "id": "VentOrificeInsert_2"
+    },
+    {
+      "label": "refined stock retains closed walls",
+      "passed": true,
+      "id": "VentOrificeInsert_3"
+    },
+    {
+      "label": "refined stock retains positive material volume",
+      "passed": true,
+      "id": "VentOrificeInsert_3"
+    },
+    {
+      "label": "refined stock retains intended shell count",
+      "passed": true,
+      "id": "VentOrificeInsert_3"
+    },
+    {
+      "label": "refined stock retains closed walls",
+      "passed": true,
+      "id": "VentOrificeInsert_4"
+    },
+    {
+      "label": "refined stock retains positive material volume",
+      "passed": true,
+      "id": "VentOrificeInsert_4"
+    },
+    {
+      "label": "refined stock retains intended shell count",
+      "passed": true,
+      "id": "VentOrificeInsert_4"
+    }
+  ],
+  "failures": []
+}

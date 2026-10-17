@@ -35,7 +35,7 @@ func configure(layout: Dictionary) -> void:
 				"unit": unit, "riser": riser,
 				"height": float(marker.get("pos", [0, 0, 0])[2]),
 				"supply_position": 1.0, "vent_grade": grade,
-				"pitch": 0.35, "target": _target_for(unit),
+				"pitch": 0.35, "target": _target_for(unit), "union_leak":0.0,
 			}
 			if not _riser_members.has(riser):
 				_riser_members[riser] = []
@@ -44,13 +44,14 @@ func configure(layout: Dictionary) -> void:
 
 
 func update_radiator(node_id: String, supply_position: float,
-		vent_grade: int, pitch: float) -> void:
+		vent_grade: int, pitch: float, union_leak := 0.0) -> void:
 	if not _states.has(node_id):
 		return
 	var state: Dictionary = _states[node_id]
 	state.supply_position = clampf(supply_position, 0.0, 1.0)
 	state.vent_grade = clampi(vent_grade, 0, VENT_WEIGHTS.size() - 1)
 	state.pitch = clampf(pitch, -1.0, 1.0)
+	state.union_leak = clampf(union_leak,0.0,1.0)
 	_solve()
 
 
@@ -87,6 +88,9 @@ func _solve() -> void:
 		var request := 0.0
 		if supply > 0.02:
 			request = VENT_WEIGHTS[int(state.vent_grade)]
+			# An open union spends the same finite steam budget through its
+			# leak. It cannot provide a fully healthy radiator simultaneously.
+			request *= 1.0+2.0*float(state.union_leak)
 			# A partly shut one-pipe valve is not a useful control. It admits
 			# steam while obstructing the condensate returning through that same
 			# throat, so it loses useful output and earns a hammer fault.
@@ -102,6 +106,8 @@ func _solve() -> void:
 		if request_total > 0.0001:
 			share = budget * float(requests[node_id]) / request_total
 		var supply := float(state.supply_position)
+		var lost := share*float(state.union_leak)
+		share -= lost
 		var bad_pitch := float(state.pitch) < 0.0
 		var partial := supply > 0.02 and supply < 0.98
 		var target := float(state.target)
@@ -110,9 +116,10 @@ func _solve() -> void:
 		_results[node_id] = {
 			"unit": state.unit, "riser": state.riser,
 			"heat": share, "target": target,
+			"steam_lost":lost,"union_leak":float(state.union_leak),
 			"satisfaction": satisfaction,
 			"hammer": partial or (bad_pitch and share > 0.05),
-			"hiss": int(state.vent_grade) >= 4 and share > 0.55,
+			"hiss": lost>.05 or (int(state.vent_grade) >= 4 and share > 0.55),
 			"supply_open": supply >= 0.98,
 			"supply_partial": partial,
 			"vent_grade": int(state.vent_grade),

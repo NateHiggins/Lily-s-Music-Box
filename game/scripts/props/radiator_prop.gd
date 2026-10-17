@@ -10,6 +10,7 @@ signal vent_changed(grade: int)
 signal pitch_changed(toward_supply: float)
 signal maintenance_completed(result: Dictionary)
 signal physical_action(action_id: String, result: Dictionary)
+signal manipulation_changed
 
 ## The Dream finds this object interesting (design/DREAM_TENTACLE_DIRECTION
 ## §13, §17): the tentacle's first contact is the top rim, which it traces
@@ -23,6 +24,12 @@ func dream_target_profile() -> DreamTargetProfile:
 	p.response_strength = 1.2
 	p.transformation_eligible = true
 	p.material_word = "iron"
+	if native_rig != null:
+		var pose := native_rig.transform*native_rig.body.transform
+		var half := float(section_count-1)*SECTION_PITCH*.5
+		p.contact_local = pose*Vector3(maxf(0.0,half-.322),.775,-.085)
+		p.contact_normal_local = pose.basis*Vector3.UP
+		p.trace_axis_local = pose.basis*Vector3.RIGHT
 	return p
 
 
@@ -53,19 +60,34 @@ var installation_drop := 0.0
 ## V2 fits floating wall ties to the built shell before ready; an empty array
 ## retains the legacy 190 mm termination and all existing mechanism behavior.
 var wall_standoff_depths := PackedFloat32Array()
+var use_native_v2 := false
+var native_wall_mounts: Array = []
+var native_rig: RadiatorNativeAssembly
+var native_service_progress := 0.0
+var native_packing_spread := 0.0
+var native_packing_out := 0.0
+var native_packing: RigidBody3D
+var native_vent_cap: RigidBody3D
+var native_orifices: Node3D
+var native_pitch_wedges: Node3D
+var _native_held := ""
 
 var supply_position := 1.0
 var _supply_held := false
 var _hand_writing_supply := false
+var _supply_grab_start := 1.0
+var _supply_case_start := ""
 
 func supply_grip() -> Dictionary:
 	return {"owner":self,"part":_wheel,"frame":_wheel.get_parent(),"kind":"hinge","axis":Vector3.UP,
 		"minimum":0.0,"maximum":TAU*3.5,"read":func():return supply_position*TAU*3.5,
 		"owns":func(): return _supply_held,
 		"begin":func():
-			if _supply_held or RealityState.save_write_blocked: return false
+			if _supply_held or not _native_held.is_empty() or RealityState.save_write_blocked: return false
 			if _wheel_tween != null and _wheel_tween.is_valid(): _wheel_tween.kill()
 			_supply_held = true
+			_supply_grab_start=supply_position
+			_supply_case_start=open_shift_condition
 			return true,
 		"write":func(value: float):
 			if not _supply_held: return
@@ -74,7 +96,16 @@ func supply_grip() -> Dictionary:
 			_hand_writing_supply = false,
 		"end":func():
 			_supply_held = false
-			supply_changed.emit(supply_position>=.98,supply_position)}
+			supply_changed.emit(supply_position>=.98,supply_position)
+			if not is_equal_approx(_supply_grab_start,supply_position):
+				var partial := supply_position>.02 and supply_position<.98
+				# Preserve repair/open-union/porter and distinct fault authorities.
+				# Only the original sounding case enters its wrong-valve branch.
+				if unit=="2B" and open_shift_condition==_supply_case_start and _supply_case_start in ["sounding","wrong_valve_partial"]:
+					if partial: open_shift_condition="wrong_valve_partial"
+					elif supply_position>=.98: open_shift_condition="sounding"
+				physical_action.emit("turn_valve",{"action":"turn_valve","condition":_supply_case_start,
+					"observation":"valve_at_%.2f"%supply_position,"supply_partial":partial,"supply_position":supply_position})}
 var vent_grade := 2
 var pitch_toward_supply := 0.35
 
@@ -104,8 +135,8 @@ var _section_heat: Array[float] = []
 var _balance
 var _service_panel: MaintenanceActivityPanel
 var open_shift_condition := "sounding"
-## Custody authority for the union packing; when bound, packing existence
-## and holder derive from it alone (see packing_location()).
+## Historical acquisition/use authority. Native packing custody derives from
+## its physical mechanism pose; legacy packing_location() retains inventory.
 var inventory: MaintenanceInventory
 
 ## The 2B union packing's stable item identity.
@@ -140,6 +171,9 @@ func bind_heat_balance(model) -> void:
 
 
 func _build_visual() -> void:
+	if use_native_v2:
+		_build_native_visual()
+		return
 	add_to_group("radiators")
 	if section_count <= 0:
 		section_count = 7 + posmod(hash(unit), 3)
@@ -197,6 +231,214 @@ func _build_visual() -> void:
 	_knock = make_emitter("knock", -12.0)
 	_tick = make_emitter("tick", -23.0)
 	_whistle = make_emitter("radiator_whistle", -29.0)
+
+
+func _build_native_visual() -> void:
+	add_to_group("radiators")
+	vent_grade = 2+posmod(hash(unit),2)
+	native_rig = RadiatorNativeAssembly.new()
+	native_rig.name = "WorkingAssembly"
+	native_rig.position.y = -installation_drop
+	add_child(native_rig)
+	native_rig.build(section_count,true)
+	if not native_wall_mounts.is_empty(): native_rig.install_wall_supports(native_wall_mounts)
+	_attach_native_collision()
+	_body = native_rig
+	_shell = native_rig.body
+	_wheel = native_rig.wheel
+	_vent = native_rig.vent
+	_union_moving = native_rig.header_nut
+	_section_multimesh = native_rig.body.get_node("SharedCastSections")
+	_build_native_tag()
+	_vapor = Node3D.new()
+	_vapor.name = "LocalizedUnionVapor"
+	_vapor.position = Vector3(-.39,.22,-.1)
+	_body.add_child(_vapor)
+	for index in 3:
+		var puff := _ellipsoid(_vapor,Vector3(0,.035*index,0),Vector3(.012,.022,.012),Color(.7,.72,.7,.3))
+		puff.transparency = .55
+		puff.set_meta("surface_role","steam_volume")
+	preload("res://scripts/props/manipulation_area.gd").install(_wheel,supply_grip)
+	preload("res://scripts/props/manipulation_area.gd").install(native_rig.header_nut,native_union_grip.bind("retainer"))
+	_install_native_body_grab()
+	native_packing=preload("res://scripts/props/radiator_union_packing.gd").new()
+	native_packing.name="PhysicalUnionPacking"
+	add_child(native_packing)
+	native_packing.configure(self)
+	native_vent_cap=preload("res://scripts/props/radiator_vent_cap.gd").new()
+	native_vent_cap.name="PhysicalVentCap"
+	add_child(native_vent_cap)
+	native_vent_cap.configure(self)
+	preload("res://scripts/props/manipulation_area.gd").install(native_rig.vent.get_node("FloatAndNeedle"),native_vent_cap.float_grip)
+	native_pitch_wedges=preload("res://scripts/props/radiator_pitch_wedges.gd").new()
+	native_pitch_wedges.name="PhysicalPitchWedges"
+	native_rig.add_child(native_pitch_wedges)
+	native_pitch_wedges.configure(self)
+	_update_balance()
+	_apply_visual_state()
+	_knock = make_emitter("knock",-12.0)
+	_tick = make_emitter("tick",-23.0)
+	_whistle = make_emitter("radiator_whistle",-29.0)
+
+func _install_native_body_grab() -> void:
+	var sections := native_rig.body.get_node("SharedCastSections") as MultiMeshInstance3D
+	var area := preload("res://scripts/props/manipulation_area.gd").new()
+	area.name = "CastingGrip"
+	area.provider = native_union_grip.bind("withdraw")
+	area.collision_layer = 1
+	area.collision_mask = 0
+	area.monitoring = false
+	area.add_to_group("functional_interaction_areas")
+	sections.add_child(area)
+	var bounds := sections.multimesh.mesh.get_aabb().grow(.008)
+	for index in sections.multimesh.instance_count:
+		var shape := CollisionShape3D.new()
+		var box := BoxShape3D.new()
+		box.size = bounds.size
+		shape.shape = box
+		shape.transform = sections.multimesh.get_instance_transform(index)*Transform3D(Basis.IDENTITY,bounds.get_center())
+		area.add_child(shape)
+
+func _attach_native_collision() -> void:
+	var installed := get_node_or_null("InstalledRadiatorCollision") as StaticBody3D
+	if installed == null: return
+	# Replace the old centred body envelope. The new envelope follows the
+	# actual castings' pitch and service withdrawal, leaving the feed fixed.
+	# The remaining legacy feed box filled the real union approach and blocked
+	# cloth returned at a different settled orientation. Bind the fixed native
+	# feed surfaces, keeping their actual openings instead of that solid box.
+	installed.free()
+	for identity: String in ["ArticulatedValveHousing","SweptSupplyElbow","FixedStemPacking"]:
+		var draw := native_rig.get_node(identity) as MeshInstance3D
+		var fixed := StaticBody3D.new()
+		fixed.name="NativeFixedFeedCollision"
+		draw.add_child(fixed)
+		var surface := CollisionShape3D.new()
+		surface.shape=RadiatorNativeParts.collision_for(draw.mesh)
+		fixed.add_child(surface)
+	var body := StaticBody3D.new()
+	body.name = "RigidCastingsCollision"
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	var half := float(section_count-1)*SECTION_PITCH*.5
+	var shift := maxf(0.0,half-.322)
+	box.size = Vector3(2*half+.092,.72,.24)
+	shape.shape = box
+	shape.position = Vector3(shift,.43,-.03)
+	body.add_child(shape)
+	native_rig.body.add_child(body)
+
+func inspection_view() -> Dictionary:
+	var at := Vector3(-.35,.25-installation_drop,-.06)
+	return {"from":to_global(Vector3(-.24,.60-installation_drop,-.65)),"at":to_global(at),"fov":76.0}
+
+func inspection_view_for(part: Node3D) -> Dictionary:
+	if native_pitch_wedges!=null and native_pitch_wedges.owns(part): return native_pitch_wedges.inspection_view(part)
+	if native_vent_cap!=null and (part==native_vent_cap or part==native_rig.vent.get_node("FloatAndNeedle") or (native_orifices!=null and native_orifices.owns_part(part))):
+		var at: Vector3=native_rig.vent.to_global(Vector3(.043,.045,0))
+		return {"from":at+native_rig.global_basis*Vector3(.015,.18,-.025),"at":at,"fov":52.0}
+	return inspection_view()
+
+func inspection_started() -> void:
+	if use_native_v2:
+		physical_action.emit("inspect_vent",{"observation":"vent_grade_%d" % vent_grade,"condition":open_shift_condition})
+
+func native_union_grip(key: String) -> Dictionary:
+	if not use_native_v2 or native_rig==null or supply_position>.02: return {}
+	if key=="retainer" and native_service_progress>.40001: return {}
+	if key=="withdraw" and (native_service_progress<.39999 or (native_packing_spread>0.0 and (native_packing==null or native_packing.station==0))): return {}
+	var part := native_rig.header_nut if key=="retainer" else native_rig.body
+	return {"owner":self,"part":part,"frame":native_rig,
+		"kind":"hinge" if key=="retainer" else "slide",
+		"axis":func(): return native_rig.header_socket.basis.x if key=="retainer" else Vector3.RIGHT,
+		"minimum":0.0,"maximum":TAU if key=="retainer" else .04,
+		"read":func(): return native_service_progress/.4*TAU if key=="retainer" else maxf(0.0,(native_service_progress-.4)/.6)*.04,
+		"begin":func():
+			if not _native_held.is_empty() or _supply_held or RealityState.save_write_blocked: return false
+			_native_held = key
+			return true,
+		"owns":func(): return _native_held==key,
+		"write":func(value: float):
+			if _native_held!=key: return
+			native_service_progress = .4*clampf(value/TAU,0,1) if key=="retainer" else .4+.6*clampf(value/.04,0,1)
+			if native_service_progress>.445: open_shift_condition="opened_uncommitted"
+			elif open_shift_condition=="opened_uncommitted": open_shift_condition="sounding" if unit=="2B" else "steady"
+			_update_balance()
+			_apply_visual_state(),
+		"end":func():
+			_native_held = ""
+			if native_service_progress>.445:
+				physical_action.emit("open_service",{"condition":open_shift_condition,"observation":"union_backed_off"})
+			manipulation_changed.emit()}
+
+func mechanism_snapshot() -> Dictionary:
+	var value := {"supply_position":supply_position,"vent_grade":vent_grade,"pitch":pitch_toward_supply,
+		"service_progress":native_service_progress,"packing_spread":native_packing_spread,"packing_out":native_packing_out}
+	if native_packing!=null: value.packing=native_packing.snapshot()
+	if native_vent_cap!=null: value.vent_cap=native_vent_cap.snapshot()
+	if native_pitch_wedges!=null:value.pitch_wedges=native_pitch_wedges.snapshot()
+	return value
+
+func valid_mechanism(value: Variant) -> bool:
+	if value is not Dictionary or value.size() not in [6,7,8,9]: return false
+	for key: String in ["supply_position","vent_grade","pitch","service_progress","packing_spread","packing_out"]:
+		if typeof(value.get(key)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value[key])): return false
+		var minimum := -1.0 if key=="pitch" else 0.0
+		var maximum := 4.0 if key=="vent_grade" else 1.0
+		if value[key]<minimum or value[key]>maximum: return false
+	if float(value.vent_grade)!=floor(float(value.vent_grade)): return false
+	if value.size()>=7:
+		if not preload("res://scripts/props/radiator_union_packing.gd").valid(value.get("packing"),value.packing_spread,value.packing_out,value.service_progress): return false
+		if value.size()>=8 and not preload("res://scripts/props/radiator_vent_cap.gd").valid(value.get("vent_cap")):return false
+		return value.size()<9 or (native_pitch_wedges!=null and native_pitch_wedges.valid(value.get("pitch_wedges"),float(value.pitch)))
+	return (value.packing_out<=0.0 or value.packing_spread>=.999) and (value.packing_spread<=0.0 or value.service_progress>=.999)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if not valid_mechanism(value): return
+	_supply_held = false
+	_native_held = ""
+	native_service_progress = value.service_progress
+	native_packing_spread = value.packing_spread
+	native_packing_out = value.packing_out
+	set_supply_position(float(value.supply_position),0.0)
+	set_vent_grade(int(value.vent_grade))
+	if native_pitch_wedges!=null:native_pitch_wedges.restore(value.get("pitch_wedges"),float(value.pitch))
+	set_pitch(float(value.pitch))
+	if native_packing!=null:
+		if value.has("packing"): native_packing.restore(value.packing)
+		elif native_packing_out>0.0:
+			var home_pose: Transform3D=native_packing.home()
+			var at := home_pose.origin+Vector3.FORWARD*.12*native_packing_out
+			var rot := home_pose.basis.get_rotation_quaternion()
+			native_packing.restore({"station":1,"position":[at.x,at.y,at.z],"rotation":[rot.x,rot.y,rot.z,rot.w]})
+		else: native_packing.restore({"station":0})
+	if native_vent_cap!=null: native_vent_cap.restore(value.get("vent_cap",{"loose":false,"turn":0.0}))
+	_update_balance()
+	_apply_visual_state()
+
+func _build_native_tag() -> void:
+	_porter_tag = Node3D.new()
+	_porter_tag.name = "PorterShutoffTag"
+	_porter_tag.position = Vector3(SUPPLY_X + 0.12, 0.23, -0.15)
+	_body.add_child(_porter_tag)
+	var tag := MeshInstance3D.new()
+	var paper_model := preload("res://assets/props/radiator_paper_tag.glb").instantiate()
+	tag.mesh = (paper_model.get_node("PaperTag") as MeshInstance3D).mesh
+	paper_model.free()
+	tag.name = "PhysicalPaperTag"
+	var paper := MatLib.get_mat("paper", Color(.72,.58,.38)).duplicate() as StandardMaterial3D
+	paper.cull_mode = BaseMaterial3D.CULL_DISABLED
+	paper.uv1_triplanar = false
+	tag.material_override = paper
+	tag.position = Vector3(0.0, -0.06, 0.04)
+	_porter_tag.add_child(tag)
+	var tag_copy := Label3D.new()
+	tag_copy.text = "PORTER\nHEAT OFF"
+	tag_copy.font_size = 12
+	tag_copy.pixel_size = 0.00125
+	tag_copy.modulate = Color(0.16, 0.10, 0.055)
+	tag_copy.position = Vector3(0.0, -0.06, 0.044)
+	_porter_tag.add_child(tag_copy)
 
 
 func _build_sections(iron: Color) -> void:
@@ -499,6 +741,7 @@ func interact_prompt() -> String:
 
 
 func interact(player: Node) -> void:
+	if use_native_v2: return
 	_begin_vent_service(player)
 
 
@@ -587,6 +830,9 @@ func bind_inventory(custody_authority: MaintenanceInventory) -> void:
 ## "radiator" (never taken), "player" (granted, unconsumed), or
 ## "consumed" (used up in a repair).
 func packing_location() -> String:
+	if native_packing!=null:
+		if native_packing.station==0: return "radiator"
+		return "player" if _native_held=="packing" else "world"
 	if inventory == null:
 		return "radiator"
 	if inventory.has_item(PACKING_ITEM):
@@ -617,6 +863,7 @@ func _temperature_observation() -> String:
 
 
 func _begin_vent_service(player: Node) -> bool:
+	if use_native_v2: return false
 	if _service_panel and is_instance_valid(_service_panel):
 		return false
 	var script: GDScript = load("res://scripts/ui/maintenance_activity_panel.gd")
@@ -649,7 +896,7 @@ func preview_maintenance_step(step: Dictionary, value: float) -> void:
 
 
 func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
-	if _vent:
+	if _vent and not use_native_v2:
 		_vent.position.y = 0.0
 	set_supply_position(float(snapshot.get("supply_position", supply_position)), 0.2)
 	set_vent_grade(int(snapshot.get("vent_grade", vent_grade)))
@@ -657,11 +904,17 @@ func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
 
 func apply_maintenance_result(result: Dictionary) -> void:
 	var patch: Dictionary = result.get("mechanism_patch", {})
+	if use_native_v2 and native_packing!=null and (native_packing.station!=0 or native_packing_spread>.001 or native_packing_out>.001): return
+	if use_native_v2 and (native_service_progress>.001 or (native_vent_cap!=null and native_vent_cap.leak()>.001)): return
+	if use_native_v2:
+		native_service_progress = 0.0
+		native_packing_spread = 0.0
+		native_packing_out = 0.0
 	if inventory != null and inventory.has_item(PACKING_ITEM):
 		# Packing carried back by the player is seated during the repair:
 		# custody transfers from player into the mechanism, once.
 		inventory.consume(PACKING_ITEM)
-	if _vent:
+	if _vent and not use_native_v2:
 		_vent.position.y = 0.0
 	set_vent_grade(int(patch.get("vent_grade", vent_grade)))
 	set_supply_position(float(patch.get("supply_position", supply_position)))
@@ -706,8 +959,11 @@ func set_supply_position(value: float, seconds := 0.65) -> void:
 
 
 func set_vent_grade(grade: int) -> void:
+	# Once physical inserts are bound, changing a grade requires exchanging
+	# the actual part. Legacy saves migrate once through the stock owner.
+	if native_orifices!=null and not native_orifices._restoring: return
 	vent_grade = clampi(grade, 0, 4)
-	if _vent:
+	if _vent and not use_native_v2:
 		# The small clocking difference lets inspection renders prove that the
 		# insert was changed without turning a fixed orifice into a thermostat.
 		_vent.rotation.x = deg_to_rad(float(vent_grade) * 11.0)
@@ -727,6 +983,9 @@ func set_pitch(value: float) -> void:
 
 
 func _apply_pitch() -> void:
+	if use_native_v2:
+		_apply_visual_state()
+		return
 	if _shell == null:
 		return
 	_shell.rotation.z = deg_to_rad(-pitch_toward_supply * 1.15)
@@ -786,11 +1045,23 @@ func apply_open_shift_condition(condition: String) -> bool:
 			set_supply_open(true)
 		_:
 			return false
+	if use_native_v2:
+		if condition=="opened_uncommitted": native_service_progress = 1.0
+		elif condition=="repaired": native_service_progress = 0.0
 	_apply_visual_state()
 	return true
 
 
 func _apply_visual_state() -> void:
+	if use_native_v2:
+		if native_rig == null: return
+		native_rig.set_positions(pitch_toward_supply,supply_position,native_service_progress,
+			vent_grade,native_packing_spread,native_packing_out)
+		if native_packing!=null: native_packing.refresh()
+		if native_vent_cap!=null: native_vent_cap.refresh()
+		_update_native_vapor()
+		if _porter_tag: _porter_tag.visible = open_shift_condition=="porter_temporary_shutoff"
+		return
 	if _section_multimesh == null:
 		return
 	var mm := _section_multimesh.multimesh
@@ -841,9 +1112,9 @@ func visual_state_receipt() -> Dictionary:
 		"supply_position": supply_position,
 		"vent_grade": vent_grade,
 		"warm_sections": warm_sections,
-		"union_open": _union_moving != null and _union_moving.position.x > 0.01,
-		"vapor_visible": _mineral_residue != null and _mineral_residue.visible,
-		"damp_visible": _mineral_residue != null and _mineral_residue.visible,
+		"union_open": native_service_progress>.4 if use_native_v2 else (_union_moving != null and _union_moving.position.x > 0.01),
+		"vapor_visible": (_vapor != null and _vapor.visible) if use_native_v2 else (_mineral_residue != null and _mineral_residue.visible),
+		"damp_visible": false if use_native_v2 else (_mineral_residue != null and _mineral_residue.visible),
 		"porter_tag_visible": _porter_tag != null and _porter_tag.visible,
 		"installation_drop": installation_drop,
 	}
@@ -859,7 +1130,19 @@ func _play_open_shift_cycle(kind: String) -> void:
 func _update_balance() -> void:
 	if _balance and graph_node_id != "":
 		_balance.update_radiator(graph_node_id, supply_position, vent_grade,
-				pitch_toward_supply)
+				pitch_toward_supply,native_pressure_leak() if use_native_v2 else 0.0)
+
+func native_pressure_leak() -> float:
+	return maxf(maxf(native_union_leak(),native_vent_cap.leak() if native_vent_cap!=null else 0.0),native_orifices.leak(self) if native_orifices!=null else 0.0)
+
+func native_union_leak() -> float:
+	if native_packing!=null and native_packing.station==1: return 1.0
+	return maxf(clampf((native_service_progress-.4)/.6,0.0,1.0),native_packing_spread)
+
+func _update_native_vapor() -> void:
+	if _vapor:
+		var heat := get_heat_state()
+		_vapor.visible = native_union_leak()>.01 and supply_position>.02 and float(heat.get("boiler_output",1.0))>.02
 
 
 ## Called by AmbientSoundscape. Central scheduling makes a riser answer as a
@@ -897,6 +1180,12 @@ func _perform_synced_event(_index: int, accent: float, pitch: float) -> void:
 
 
 func _process(delta: float) -> void:
+	if use_native_v2:
+		_shake = maxf(_shake-delta*.04,0.0)
+		if native_packing!=null: native_packing.tick()
+		if native_vent_cap!=null: native_vent_cap.tick()
+		_update_native_vapor()
+		return
 	if _section_multimesh == null:
 		return
 	_hammer_time += delta

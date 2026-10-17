@@ -79,6 +79,8 @@ func _bind_world_owners() -> void:
 	if _radiator and not _radiator.maintenance_completed.is_connected(
 			_on_radiator_completed):
 		_radiator.maintenance_completed.connect(_on_radiator_completed)
+	if _radiator and not _radiator.physical_action.is_connected(_on_radiator_observed):
+		_radiator.physical_action.connect(_on_radiator_observed)
 	if _board and not _board.maintenance_completed.is_connected(
 			_on_board_completed):
 		_board.maintenance_completed.connect(_on_board_completed)
@@ -86,6 +88,9 @@ func _bind_world_owners() -> void:
 			_on_boiler_completed):
 		_boiler.maintenance_completed.connect(_on_boiler_completed)
 
+
+func _on_radiator_observed(action: String, _result: Dictionary) -> void:
+	if action=="inspect_vent": _on_world_modified(Vector3.ZERO,RADIATOR_ID)
 
 func _on_job_stage_changed(job_id: String, _from: String, _to: String,
 		_state: Dictionary) -> void:

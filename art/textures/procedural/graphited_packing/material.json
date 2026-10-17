@@ -1,0 +1,26 @@
+{
+  "material": "graphited_packing",
+  "generator": "art/tools/build_graphited_packing.py",
+  "source": "Periodic graphited fibre packing, shared by stem and removable union seals.\n\nOriginal procedural weave; no lettering, lighting, photographic source or\npainted highlights. The 8 mm tile carries sixteen 0.5 mm threads. Graphite\ndarkens the fibres but does not make the composite a polished metal.\n",
+  "meters_per_tile": 0.008,
+  "relief_mm": 0.060000000000000005,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "metallic": 0,
+  "roughness_range": [
+    0.7701224093497742,
+    0.8909228003269305
+  ],
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "41d6c32753dd750b7e6580c7b38320ecb61327d55fecaae6bda904d6814ce411",
+    "roughness": "30a95dd3697b543641c2ee6d4fd0d570bd916571db74a4b3f49721045974fc83",
+    "normal": "1882b3a2ed20e859316e8b9aba02633315024c7cdd7321462f948b4965a6aff8",
+    "height": "08368f80d0c1a8fcd003c0d68e2b1df1f46e7e546f65ed2cbc00168b9cfbe6bd"
+  }
+}

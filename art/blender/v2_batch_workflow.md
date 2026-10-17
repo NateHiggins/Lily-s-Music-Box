@@ -4,7 +4,94 @@ Evidence class: **INERT**. Procedure, not acceptance evidence.
 Owner direction, 2026-10-07: minimize Godot launches, tokens and elapsed time
 while continuing the full V1-to-V2 geometry and texture pass.
 
+## Visual detail priority (owner direction, 2026-10-17)
+
+Prioritize observed material and construction defects within each batch,
+especially surfaces seen close up or handled repeatedly. A catalogue entry,
+valid UVs and complete mipmaps are necessary checks, not visual acceptance.
+The radiator's flat appearance is an open defect even though its normal maps
+are enabled. Track specific visible defects and their locations rather than
+calling an entire family polished after a representative asset passes.
+
+Review each changed assembly at normal player distance and close inspection:
+
+- Compare diffuse room light, grazing light and the carried flashlight. Inspect
+  the actual loaded albedo, roughness, normal strength, metallic response and
+  local reflection context together. Keep a controlled-light view so lighting
+  cannot conceal a weak material or justify a global normal-strength increase.
+- Distinguish cast skin, worked fittings, paint, plating, cloth and exposed
+  substrates. Give relief a physical scale and roughness a material purpose;
+  avoid baked highlights, arbitrary mottling and large repeating grime marks.
+- Inspect silhouettes, eased edges, seams, fasteners, wall/floor contact,
+  hollow openings and underside normals. Texture detail cannot substitute for
+  missing geometry or a mechanical joint that does not fit.
+- Inspect each operable part through its travel, including exposed interiors,
+  shadows and moving connections. Preserve interaction and save authorities.
+
+Fix source geometry and matched PBR maps before export; review the corrected
+detail in the composed game before closing its defect. Reuse unchanged views
+and batch related corrections into one Godot capture. Unreviewed details stay
+open, including when static gates pass.
+
+For small replacement parts, fit the actual collision to the native stem and
+head separately; a whole-part convex hull can falsely widen a narrow stem.
+Review storage against the loaded room and furniture, with a clear player
+approach. Plan coordinates alone do not establish that a shelf has a wall or
+that the player can see and reach it. Retain failed placement captures.
+
+On curved castings and Boolean fillets, measure local chart density as well as
+total UV area. A globally correct area concealed severe stretch on small
+radiator faces. Retain sound continuous charts and repair only distorted local
+charts; record their physical scale range. Make native previews use the same
+triangulation and corner-normal policy as export, so a smooth Blender preview
+cannot conceal hard or biased shading in the imported model. Inspect retained
+stock buffers and moving-part fit before importing a geometry correction.
+
+Test ray acquisition again after a loose part has fallen and been restored.
+An overlap query alone does not prove that the cursor can pick it up. The
+sub-millimetre packing skin kept its native convex physical collision, while
+oriented bounds on its individual curved sectors supplied reliable cursor
+targets and retained the opening. Reuse the existing separation between
+physical collision and small-part interaction bounds. Cache bearing solves
+when only supply or heat changes; detailed shoe vertices need rescanning only
+when the physical pitch changes.
+
+Measure the actual visible skin against its support, rather than checking only
+the object's origin. For thin loose parts, distinguish contact while tumbling
+from settled contact and include an inclined support. Keep failed diagnostic
+runs. The current packing still needs a convincing fabric finish and the union
+hardware needs eased edges; passing its input/contact bench does not close
+those appearance defects.
+
+When refining an exported stock, discard and rebuild its corner tangent guides
+after changing topology. Duplicate guide attributes can silently retain stale
+values. Weld Boolean slivers before unwrapping and validate final float32
+tangent derivatives. For fitting-only batches, reuse reviewed casting stocks
+through the preparation tool's retained-native input and compare their actual
+exported buffers, rather than regenerating unchanged Boolean solids.
+
+Thin loose parts also need contact tolerances at their physical scale. V2's
+space-scoped contact policy uses 0.5 mm penetration tolerance and restores the
+previous setting when the last V2 owner retires. The liner-specific position
+correction was removed after intermittent inclined-contact failures. Check
+multiple released orientations and another loose-part mechanism under the same
+policy; a single settled sample does not establish stable contact behavior.
+Inspect a service chamber from its real opening, and test Space with actual
+key events as well as mouse grabs. Cap removal must retain the installed
+orifice's identity; replacing its grade remains a separate physical operation.
+
 ## Batch by room
+
+For a new service mechanism, finish the complete grab, mouse motion and release
+gestures in a fast bench using the production player before reloading the full
+world. Exercise the real input events and physics cursor, rather than calling
+part setters to simulate a successful grab. Then reuse that gesture driver in
+the composed review. Camera offsets must use the actor's basis: a world-space
+offset can put the eye behind a rotated fitting's wall. Aim a screw review at
+its visible face so the gesture follows the projected circular path. The
+radiator cutover caught a bad camera setup and an occluded socket target before
+the castings became the actual withdrawal grip. A focused bench resolved these
+without repeating broad runtime suites during the unfinished control pass.
 
 Before launching long spatial-contract runs, run
 `python tools/preflight_spatial_test_bindings.py --all`. Repair missing

@@ -1,0 +1,4540 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native prototype with measured face sleeves, four additional retained-bearing H-D supports, and four union tails at the retained radiator actor datums. Source-owned architectural cuts are planned, not installed. Whole fitting containment/collision, emitter fit, strict export/runtime and human acceptance remain open.",
+  "native_file": "heating_distribution_candidate.blend",
+  "native_sha256": "4d5cca65c30079fe492ac9d850e5efe019a453e732d7cde0c66d61aa6f4b3232",
+  "prior_native_sha256": "f6d31acbc4b2421939ec310b0ad9107b527a2bf54c61149049d89c5480efd7ea",
+  "passage_source_sha256": "8530966e3014757640484af6b79fd36a09e828a5ff757a2f45665bfb145e7ba8",
+  "passages": [
+    {
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "branch": "F02_D_RADIATOR_01",
+      "axis": 2,
+      "start": [
+        8.739999771118164,
+        2.720070649828671,
+        0.629999577999115
+      ],
+      "end": [
+        8.739999771118164,
+        2.7202826015592008,
+        0.7499995827674866
+      ],
+      "owners": [
+        {
+          "table": "riser_openings",
+          "riser": "HEAT_STACK",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection154"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        8.739999771118164,
+        -0.6349999308586121,
+        2.7200794219970703
+      ],
+      "neck_end_blender": [
+        8.739999771118164,
+        -0.7499995827674866,
+        2.720282554626465
+      ],
+      "face_bores": [
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F02_D_RADIATOR_01_PASSAGE_00__Neck",
+        "F02_D_RADIATOR_01_PASSAGE_00__ExitPlate"
+      ]
+    },
+    {
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "branch": "F02_D_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        8.369999885559082,
+        2.732416838588945,
+        -4.449999809265137
+      ],
+      "end": [
+        8.230000495910645,
+        2.7326641145200283,
+        -4.449999809265137
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F01_SERVICE_HALL",
+          "side": "west",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_SERVICE_HALL/WallWest_02"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        8.369999885559082,
+        4.449999809265137,
+        2.732416868209839
+      ],
+      "neck_end_blender": [
+        8.230000495910645,
+        4.449999809265137,
+        2.732664108276367
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F02_D_RADIATOR_01_PASSAGE_01__Neck",
+        "F02_D_RADIATOR_01_PASSAGE_01__EntryPlate",
+        "F02_D_RADIATOR_01_PASSAGE_01__ExitPlate"
+      ]
+    },
+    {
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "branch": "F02_D_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        5.469999313354492,
+        2.7375390062172134,
+        -4.449999809265137
+      ],
+      "end": [
+        5.3299994468688965,
+        2.7377862829905175,
+        -4.449999809265137
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F01_LOBBY",
+          "side": "east",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/WallEast_Head01"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        5.469999313354492,
+        4.449999809265137,
+        2.737539052963257
+      ],
+      "neck_end_blender": [
+        5.3299994468688965,
+        4.449999809265137,
+        2.737786293029785
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F02_D_RADIATOR_01_PASSAGE_02__Neck",
+        "F02_D_RADIATOR_01_PASSAGE_02__EntryPlate",
+        "F02_D_RADIATOR_01_PASSAGE_02__ExitPlate"
+      ]
+    },
+    {
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "branch": "F02_D_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        -5.330002784729004,
+        2.7566146649126804,
+        -4.449999809265137
+      ],
+      "end": [
+        -5.470002174377441,
+        2.7568619408437636,
+        -4.449999809265137
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F01_LOBBY",
+          "side": "west",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/WallWest_02"
+        },
+        {
+          "table": "wall_service_openings",
+          "space": "F01_A_VESTIBULE",
+          "side": "east",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_VESTIBULE/WallEast_02"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        -5.330002784729004,
+        4.449999809265137,
+        2.7566146850585938
+      ],
+      "neck_end_blender": [
+        -5.470002174377441,
+        4.449999809265137,
+        2.756861925125122
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F02_D_RADIATOR_01_PASSAGE_03__Neck",
+        "F02_D_RADIATOR_01_PASSAGE_03__EntryPlate",
+        "F02_D_RADIATOR_01_PASSAGE_03__ExitPlate"
+      ]
+    },
+    {
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "branch": "F02_D_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        -8.130001068115234,
+        2.7615602020632006,
+        -4.449999809265137
+      ],
+      "end": [
+        -8.270000457763672,
+        2.761807477994284,
+        -4.449999809265137
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F01_A_MAIN",
+          "side": "east",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_MAIN/WallEast_02"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        -8.130001068115234,
+        4.449999809265137,
+        2.7615602016448975
+      ],
+      "neck_end_blender": [
+        -8.270000457763672,
+        4.449999809265137,
+        2.761807441711426
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F02_D_RADIATOR_01_PASSAGE_04__Neck",
+        "F02_D_RADIATOR_01_PASSAGE_04__EntryPlate",
+        "F02_D_RADIATOR_01_PASSAGE_04__ExitPlate"
+      ]
+    },
+    {
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "branch": "F02_D_RADIATOR_01",
+      "axis": 2,
+      "start": [
+        -15.350000381469727,
+        2.7790462174526485,
+        -7.130000114440918
+      ],
+      "end": [
+        -15.350000381469727,
+        2.7792934950681727,
+        -7.270000457763672
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F01_A_MAIN",
+          "side": "south",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_MAIN/WallSouth_00"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        -15.350000381469727,
+        7.130000114440918,
+        2.7790462970733643
+      ],
+      "neck_end_blender": [
+        -15.350000381469727,
+        7.270000457763672,
+        2.7792935371398926
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F02_D_RADIATOR_01_PASSAGE_05__Neck",
+        "F02_D_RADIATOR_01_PASSAGE_05__EntryPlate",
+        "F02_D_RADIATOR_01_PASSAGE_05__ExitPlate"
+      ]
+    },
+    {
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "branch": "F02_D_RADIATOR_01",
+      "axis": 1,
+      "start": [
+        -15.350000381469727,
+        3.0,
+        -7.670000076293945
+      ],
+      "end": [
+        -15.350000381469727,
+        3.1999998092651367,
+        -7.670000076293945
+      ],
+      "owners": [
+        {
+          "table": "slab_openings",
+          "space": "F01_A_BED",
+          "surface": "Ceiling",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F01_A_BED/Ceiling"
+        },
+        {
+          "table": "slab_openings",
+          "space": "F02_D_RESTRICTED",
+          "surface": "Floor",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_D_RESTRICTED/Floor"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        -15.350000381469727,
+        7.670000076293945,
+        3.0
+      ],
+      "neck_end_blender": [
+        -15.350000381469727,
+        7.670000076293945,
+        3.1999998092651367
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F02_D_RADIATOR_01_PASSAGE_06__Neck",
+        "F02_D_RADIATOR_01_PASSAGE_06__EntryPlate",
+        "F02_D_RADIATOR_01_PASSAGE_06__ExitPlate"
+      ]
+    },
+    {
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "branch": "F03_C_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        8.569999694824219,
+        5.920130152836798,
+        0.5899999737739563
+      ],
+      "end": [
+        8.449999809265137,
+        5.920520607995884,
+        0.5899999737739563
+      ],
+      "owners": [
+        {
+          "table": "riser_openings",
+          "riser": "HEAT_STACK",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection47"
+        },
+        {
+          "table": "riser_openings",
+          "riser": "HEAT_STACK",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection28"
+        },
+        {
+          "table": "riser_openings",
+          "riser": "HEAT_STACK",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection11"
+        },
+        {
+          "table": "riser_openings",
+          "riser": "HEAT_STACK",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection0"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        8.5649995803833,
+        -0.5899999737739563,
+        5.920146465301514
+      ],
+      "neck_end_blender": [
+        8.449999809265137,
+        -0.5899999737739563,
+        5.920520782470703
+      ],
+      "face_bores": [
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F03_C_RADIATOR_01_PASSAGE_07__Neck",
+        "F03_C_RADIATOR_01_PASSAGE_07__ExitPlate"
+      ]
+    },
+    {
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "branch": "F03_C_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        8.369999885559082,
+        5.920780911435274,
+        0.5899999737739563
+      ],
+      "end": [
+        8.020000457763672,
+        5.921919738206842,
+        0.5899999737739563
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F02_SERVICE_HALL",
+          "side": "west",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_SERVICE_HALL/WallWest_00"
+        },
+        {
+          "table": "masonry_service_openings",
+          "owner": "ExteriorMasonry",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/ExteriorMasonry/ExteriorMasonry"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        8.369999885559082,
+        -0.5899999737739563,
+        5.920781135559082
+      ],
+      "neck_end_blender": [
+        8.020000457763672,
+        -0.5899999737739563,
+        5.921919822692871
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F03_C_RADIATOR_01_PASSAGE_08__Neck",
+        "F03_C_RADIATOR_01_PASSAGE_08__EntryPlate",
+        "F03_C_RADIATOR_01_PASSAGE_08__ExitPlate"
+      ]
+    },
+    {
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "branch": "F03_C_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        7.380000114440918,
+        5.946648589649325,
+        7.550000190734863
+      ],
+      "end": [
+        7.029999732971191,
+        5.947787419523955,
+        7.550000190734863
+      ],
+      "owners": [
+        {
+          "table": "masonry_service_openings",
+          "owner": "ExteriorMasonry",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/ExteriorMasonry/ExteriorMasonry"
+        },
+        {
+          "table": "wall_service_openings",
+          "space": "F02_C_PRIVATE_HALL",
+          "side": "east",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_C_PRIVATE_HALL/WallEast_00"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        7.380000114440918,
+        -7.550000190734863,
+        5.946648597717285
+      ],
+      "neck_end_blender": [
+        7.029999732971191,
+        -7.550000190734863,
+        5.947787284851074
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.037
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F03_C_RADIATOR_01_PASSAGE_09__Neck",
+        "F03_C_RADIATOR_01_PASSAGE_09__EntryPlate",
+        "F03_C_RADIATOR_01_PASSAGE_09__ExitPlate"
+      ]
+    },
+    {
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "branch": "F03_C_RADIATOR_01",
+      "axis": 2,
+      "start": [
+        0.9300000071525574,
+        5.968383948621936,
+        7.78000020980835
+      ],
+      "end": [
+        0.9300000071525574,
+        5.9688394811924,
+        7.9200005531311035
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F02_C_BED1",
+          "side": "south",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallSouth_00"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        0.9300000071525574,
+        -7.78000020980835,
+        5.9683837890625
+      ],
+      "neck_end_blender": [
+        0.9300000071525574,
+        -7.9200005531311035,
+        5.968839645385742
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F03_C_RADIATOR_01_PASSAGE_10__Neck",
+        "F03_C_RADIATOR_01_PASSAGE_10__EntryPlate",
+        "F03_C_RADIATOR_01_PASSAGE_10__ExitPlate"
+      ]
+    },
+    {
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "branch": "F03_C_RADIATOR_01",
+      "axis": 1,
+      "start": [
+        0.9300000071525574,
+        6.199999809265137,
+        11.350000381469727
+      ],
+      "end": [
+        0.9300000071525574,
+        6.399999618530273,
+        11.350000381469727
+      ],
+      "owners": [
+        {
+          "table": "slab_openings",
+          "space": "F02_C_BED1",
+          "surface": "Ceiling",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/Ceiling"
+        },
+        {
+          "table": "slab_openings",
+          "space": "F03_C_RESTRICTED",
+          "surface": "Floor",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_RESTRICTED/Floor"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        0.9300000071525574,
+        -11.350000381469727,
+        6.199999809265137
+      ],
+      "neck_end_blender": [
+        0.9300000071525574,
+        -11.350000381469727,
+        6.399999618530273
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F03_C_RADIATOR_01_PASSAGE_11__Neck",
+        "F03_C_RADIATOR_01_PASSAGE_11__EntryPlate",
+        "F03_C_RADIATOR_01_PASSAGE_11__ExitPlate"
+      ]
+    },
+    {
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "branch": "F05_D_RADIATOR_01",
+      "axis": 2,
+      "start": [
+        8.739999771118164,
+        12.3199344505781,
+        0.5750001072883606
+      ],
+      "end": [
+        8.739999771118164,
+        12.320699198834669,
+        0.75
+      ],
+      "owners": [
+        {
+          "table": "riser_openings",
+          "riser": "HEAT_STACK",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection146"
+        }
+      ],
+      "inside_start": true,
+      "inside_end": false,
+      "neck_start_blender": [
+        8.739999771118164,
+        -0.6349995732307434,
+        12.320196151733398
+      ],
+      "neck_end_blender": [
+        8.739999771118164,
+        -0.75,
+        12.320698738098145
+      ],
+      "face_bores": [
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F05_D_RADIATOR_01_PASSAGE_12__Neck",
+        "F05_D_RADIATOR_01_PASSAGE_12__ExitPlate"
+      ]
+    },
+    {
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "branch": "F05_D_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        9.430000305175781,
+        12.337174072710164,
+        -1.4500000476837158
+      ],
+      "end": [
+        9.569999694824219,
+        12.337785869023268,
+        -1.4500000476837158
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F04_SERVICE_HALL",
+          "side": "east",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_SERVICE_HALL/WallEast_00"
+        },
+        {
+          "table": "wall_service_openings",
+          "space": "F04_A_VESTIBULE",
+          "side": "west",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_VESTIBULE/WallWest_02"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        9.430000305175781,
+        1.4500000476837158,
+        12.337174415588379
+      ],
+      "neck_end_blender": [
+        9.569999694824219,
+        1.4500000476837158,
+        12.337785720825195
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F05_D_RADIATOR_01_PASSAGE_13__Neck",
+        "F05_D_RADIATOR_01_PASSAGE_13__EntryPlate",
+        "F05_D_RADIATOR_01_PASSAGE_13__ExitPlate"
+      ]
+    },
+    {
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "branch": "F05_D_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        11.430000305175781,
+        12.34591405814352,
+        -1.4500000476837158
+      ],
+      "end": [
+        11.569999694824219,
+        12.346525854456624,
+        -1.4500000476837158
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F04_A_MAIN",
+          "side": "west",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_MAIN/WallWest_02"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        11.430000305175781,
+        1.4500000476837158,
+        12.345913887023926
+      ],
+      "neck_end_blender": [
+        11.569999694824219,
+        1.4500000476837158,
+        12.346526145935059
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F05_D_RADIATOR_01_PASSAGE_14__Neck",
+        "F05_D_RADIATOR_01_PASSAGE_14__EntryPlate",
+        "F05_D_RADIATOR_01_PASSAGE_14__ExitPlate"
+      ]
+    },
+    {
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "branch": "F05_D_RADIATOR_01",
+      "axis": 2,
+      "start": [
+        15.350000381469727,
+        12.374756009240093,
+        -4.130000114440918
+      ],
+      "end": [
+        15.350000381469727,
+        12.37536780763697,
+        -4.269999980926514
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F04_A_MAIN",
+          "side": "south",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_MAIN/WallSouth_02"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        15.350000381469727,
+        4.130000114440918,
+        12.374755859375
+      ],
+      "neck_end_blender": [
+        15.350000381469727,
+        4.269999980926514,
+        12.375368118286133
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F05_D_RADIATOR_01_PASSAGE_15__Neck",
+        "F05_D_RADIATOR_01_PASSAGE_15__EntryPlate",
+        "F05_D_RADIATOR_01_PASSAGE_15__ExitPlate"
+      ]
+    },
+    {
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "branch": "F05_D_RADIATOR_01",
+      "axis": 1,
+      "start": [
+        15.350000381469727,
+        12.600000381469727,
+        -5.329999923706055
+      ],
+      "end": [
+        15.350000381469727,
+        12.80000114440918,
+        -5.329999923706055
+      ],
+      "owners": [
+        {
+          "table": "slab_openings",
+          "space": "F04_A_PRIVATE_HALL",
+          "surface": "Ceiling",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F04_A_PRIVATE_HALL/Ceiling"
+        },
+        {
+          "table": "slab_openings",
+          "space": "F05_D_RESTRICTED",
+          "surface": "Floor",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_D_RESTRICTED/Floor"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        15.350000381469727,
+        5.329999923706055,
+        12.600000381469727
+      ],
+      "neck_end_blender": [
+        15.350000381469727,
+        5.329999923706055,
+        12.80000114440918
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F05_D_RADIATOR_01_PASSAGE_16__Neck",
+        "F05_D_RADIATOR_01_PASSAGE_16__EntryPlate",
+        "F05_D_RADIATOR_01_PASSAGE_16__ExitPlate"
+      ]
+    },
+    {
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "branch": "F06_D_RADIATOR_01",
+      "axis": 2,
+      "start": [
+        8.739999771118164,
+        15.519934450578099,
+        0.5750001072883606
+      ],
+      "end": [
+        8.739999771118164,
+        15.520699198834668,
+        0.75
+      ],
+      "owners": [
+        {
+          "table": "riser_openings",
+          "riser": "HEAT_STACK",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection147"
+        }
+      ],
+      "inside_start": true,
+      "inside_end": false,
+      "neck_start_blender": [
+        8.739999771118164,
+        -0.6349995732307434,
+        15.520196914672852
+      ],
+      "neck_end_blender": [
+        8.739999771118164,
+        -0.75,
+        15.520699501037598
+      ],
+      "face_bores": [
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F06_D_RADIATOR_01_PASSAGE_17__Neck",
+        "F06_D_RADIATOR_01_PASSAGE_17__ExitPlate"
+      ]
+    },
+    {
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "branch": "F06_D_RADIATOR_01",
+      "axis": 0,
+      "start": [
+        9.430000305175781,
+        15.537174072710163,
+        -1.4500000476837158
+      ],
+      "end": [
+        9.569999694824219,
+        15.537785869023267,
+        -1.4500000476837158
+      ],
+      "owners": [
+        {
+          "table": "wall_service_openings",
+          "space": "F05_D_RESTRICTED",
+          "side": "west",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_D_RESTRICTED/WallWest_02"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        9.430000305175781,
+        1.4500000476837158,
+        15.537174224853516
+      ],
+      "neck_end_blender": [
+        9.569999694824219,
+        1.4500000476837158,
+        15.537785530090332
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F06_D_RADIATOR_01_PASSAGE_18__Neck",
+        "F06_D_RADIATOR_01_PASSAGE_18__EntryPlate",
+        "F06_D_RADIATOR_01_PASSAGE_18__ExitPlate"
+      ]
+    },
+    {
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "branch": "F06_D_RADIATOR_01",
+      "axis": 1,
+      "start": [
+        15.350000381469727,
+        15.799999237060547,
+        -5.329999923706055
+      ],
+      "end": [
+        15.350000381469727,
+        16.0,
+        -5.329999923706055
+      ],
+      "owners": [
+        {
+          "table": "slab_openings",
+          "space": "F06_D_RESTRICTED",
+          "surface": "Floor",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F06_D_RESTRICTED/Floor"
+        },
+        {
+          "table": "slab_openings",
+          "space": "F05_D_RESTRICTED",
+          "surface": "Ceiling",
+          "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F05_D_RESTRICTED/Ceiling"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "neck_start_blender": [
+        15.350000381469727,
+        5.329999923706055,
+        15.799999237060547
+      ],
+      "neck_end_blender": [
+        15.350000381469727,
+        5.329999923706055,
+        16.0
+      ],
+      "face_bores": [
+        {
+          "face": "Entry",
+          "bore_radius_m": 0.031
+        },
+        {
+          "face": "Exit",
+          "bore_radius_m": 0.031
+        }
+      ],
+      "parts": [
+        "F06_D_RADIATOR_01_PASSAGE_19__Neck",
+        "F06_D_RADIATOR_01_PASSAGE_19__EntryPlate",
+        "F06_D_RADIATOR_01_PASSAGE_19__ExitPlate"
+      ]
+    },
+    {
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "branch": "F05_D_RADIATOR_01",
+      "axis": 1,
+      "start": [
+        8.74,
+        12.6,
+        0.59
+      ],
+      "end": [
+        8.74,
+        12.8,
+        0.59
+      ],
+      "owners": [
+        {
+          "table": "slab_openings",
+          "space": "F04_SERVICE_HALL",
+          "surface": "Ceiling"
+        },
+        {
+          "table": "slab_openings",
+          "space": "F05_SERVICE_HALL",
+          "surface": "Floor"
+        }
+      ],
+      "inside_start": false,
+      "inside_end": false,
+      "enclosed_shaft": true,
+      "neck_start_blender": [
+        8.739999771118164,
+        -0.5899999737739563,
+        12.600000381469727
+      ],
+      "neck_end_blender": [
+        8.739999771118164,
+        -0.5899999737739563,
+        12.800000190734863
+      ],
+      "face_bores": [],
+      "parts": [
+        "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20__Neck"
+      ]
+    }
+  ],
+  "main_supports": [
+    {
+      "id": "HEAT_H-D_SUPPORT_07",
+      "riser": "H-D",
+      "center": [
+        8.74,
+        10.35,
+        0.5900000000000001
+      ],
+      "outer_radius_m": 0.038,
+      "inner_radius_m": 0.029,
+      "height_m": 0.024,
+      "lug_reach_m": 0.065,
+      "lug_half_depth_m": 0.012,
+      "lug_half_height_m": 0.008,
+      "parts": [
+        "HEAT_H-D_SUPPORT_07__Band",
+        "HEAT_H-D_SUPPORT_07__LugLeft",
+        "HEAT_H-D_SUPPORT_07__LugRight"
+      ]
+    },
+    {
+      "id": "HEAT_H-D_SUPPORT_08",
+      "riser": "H-D",
+      "center": [
+        8.74,
+        11.85,
+        0.5900000000000001
+      ],
+      "outer_radius_m": 0.038,
+      "inner_radius_m": 0.029,
+      "height_m": 0.024,
+      "lug_reach_m": 0.065,
+      "lug_half_depth_m": 0.012,
+      "lug_half_height_m": 0.008,
+      "parts": [
+        "HEAT_H-D_SUPPORT_08__Band",
+        "HEAT_H-D_SUPPORT_08__LugLeft",
+        "HEAT_H-D_SUPPORT_08__LugRight"
+      ]
+    },
+    {
+      "id": "HEAT_H-D_SUPPORT_09",
+      "riser": "H-D",
+      "center": [
+        8.74,
+        13.35,
+        0.5900000000000001
+      ],
+      "outer_radius_m": 0.038,
+      "inner_radius_m": 0.029,
+      "height_m": 0.024,
+      "lug_reach_m": 0.065,
+      "lug_half_depth_m": 0.012,
+      "lug_half_height_m": 0.008,
+      "parts": [
+        "HEAT_H-D_SUPPORT_09__Band",
+        "HEAT_H-D_SUPPORT_09__LugLeft",
+        "HEAT_H-D_SUPPORT_09__LugRight"
+      ]
+    },
+    {
+      "id": "HEAT_H-D_SUPPORT_10",
+      "riser": "H-D",
+      "center": [
+        8.74,
+        14.85,
+        0.5900000000000001
+      ],
+      "outer_radius_m": 0.038,
+      "inner_radius_m": 0.029,
+      "height_m": 0.024,
+      "lug_reach_m": 0.065,
+      "lug_half_depth_m": 0.012,
+      "lug_half_height_m": 0.008,
+      "parts": [
+        "HEAT_H-D_SUPPORT_10__Band",
+        "HEAT_H-D_SUPPORT_10__LugLeft",
+        "HEAT_H-D_SUPPORT_10__LugRight"
+      ]
+    }
+  ],
+  "tailpieces": [
+    {
+      "id": "F02_D_RADIATOR_01__UnionTailpiece",
+      "nonmanifold_edges": 0,
+      "volume": 9.144231344846599e-05,
+      "start_blender": [
+        -15.295000076293945,
+        7.400000095367432,
+        3.390000104904175
+      ],
+      "end_blender": [
+        -15.295000076293945,
+        7.307000160217285,
+        3.390000104904175
+      ],
+      "outer_radius_m": 0.026,
+      "inner_radius_m": 0.019,
+      "radiator": "F02_D_RADIATOR_01",
+      "sections": 8
+    },
+    {
+      "id": "F03_C_RADIATOR_01__UnionTailpiece",
+      "nonmanifold_edges": 0,
+      "volume": 9.144240420513332e-05,
+      "start_blender": [
+        1.2000000476837158,
+        -11.295000076293945,
+        6.590000152587891
+      ],
+      "end_blender": [
+        1.2929999828338623,
+        -11.295000076293945,
+        6.590000152587891
+      ],
+      "outer_radius_m": 0.026,
+      "inner_radius_m": 0.019,
+      "radiator": "F03_C_RADIATOR_01",
+      "sections": 8
+    },
+    {
+      "id": "F05_D_RADIATOR_01__UnionTailpiece",
+      "nonmanifold_edges": 0,
+      "volume": 9.144248701102256e-05,
+      "start_blender": [
+        15.295000076293945,
+        5.599999904632568,
+        12.989999771118164
+      ],
+      "end_blender": [
+        15.295000076293945,
+        5.692999839782715,
+        12.989999771118164
+      ],
+      "outer_radius_m": 0.026,
+      "inner_radius_m": 0.019,
+      "radiator": "F05_D_RADIATOR_01",
+      "sections": 8
+    },
+    {
+      "id": "F06_D_RADIATOR_01__UnionTailpiece",
+      "nonmanifold_edges": 0,
+      "volume": 4.621372087366712e-05,
+      "start_blender": [
+        15.295000076293945,
+        5.599999904632568,
+        16.190000534057617
+      ],
+      "end_blender": [
+        15.295000076293945,
+        5.646999835968018,
+        16.190000534057617
+      ],
+      "outer_radius_m": 0.026,
+      "inner_radius_m": 0.019,
+      "radiator": "F06_D_RADIATOR_01",
+      "sections": 9
+    }
+  ],
+  "retired_tailpieces": [
+    "F01_A_RADIATOR_01__UnionTailpiece",
+    "F01_D_RADIATOR_01__UnionTailpiece",
+    "F01_LOBBY_RADIATOR_01__Tailpiece",
+    "F02_A_RADIATOR_01__UnionTailpiece",
+    "F02_C_RADIATOR_01__UnionTailpiece",
+    "F02_D_RADIATOR_01__UnionTailpiece",
+    "F03_A_RADIATOR_01__UnionTailpiece",
+    "F03_B_RADIATOR_01__UnionTailpiece",
+    "F03_C_RADIATOR_01__UnionTailpiece",
+    "F03_D_RADIATOR_01__UnionTailpiece",
+    "F04_A_RADIATOR_01__UnionTailpiece",
+    "F04_B_RADIATOR_01__UnionTailpiece",
+    "F04_C_RADIATOR_01__UnionTailpiece",
+    "F04_D_RADIATOR_01__UnionTailpiece",
+    "F05_A_RADIATOR_01__UnionTailpiece",
+    "F05_B_RADIATOR_01__UnionTailpiece",
+    "F05_C_RADIATOR_01__UnionTailpiece",
+    "F05_D_RADIATOR_01__UnionTailpiece",
+    "F06_A_RADIATOR_01__UnionTailpiece",
+    "F06_B_RADIATOR_01__UnionTailpiece",
+    "F06_C_RADIATOR_01__UnionTailpiece",
+    "F06_D_RADIATOR_01__UnionTailpiece"
+  ],
+  "checks": [
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00__ExitPlate",
+      "required_radius_m": 0.05819470778782659
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01__EntryPlate",
+      "required_radius_m": 0.05823003198838011
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01__ExitPlate",
+      "required_radius_m": 0.05823003198838011
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02__EntryPlate",
+      "required_radius_m": 0.05823003283060107
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02__ExitPlate",
+      "required_radius_m": 0.05823003283060107
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03__EntryPlate",
+      "required_radius_m": 0.05823003198838011
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03__ExitPlate",
+      "required_radius_m": 0.05823003198838011
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04__EntryPlate",
+      "required_radius_m": 0.05823003198838011
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04__ExitPlate",
+      "required_radius_m": 0.05823003198838011
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05__EntryPlate",
+      "required_radius_m": 0.05823003367282114
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05__ExitPlate",
+      "required_radius_m": 0.05823003367282114
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06__EntryPlate",
+      "required_radius_m": 0.05798275605729691
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06__ExitPlate",
+      "required_radius_m": 0.05798275605729691
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07__ExitPlate",
+      "required_radius_m": 0.058373211216382774
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08__EntryPlate",
+      "required_radius_m": 0.05912158282886553
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08__ExitPlate",
+      "required_radius_m": 0.05912158282886553
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09__EntryPlate",
+      "required_radius_m": 0.05912158593192734
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09__ExitPlate",
+      "required_radius_m": 0.05912158593192734
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10__EntryPlate",
+      "required_radius_m": 0.05843828862776073
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10__ExitPlate",
+      "required_radius_m": 0.05843828862776073
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11__EntryPlate",
+      "required_radius_m": 0.05798275605729691
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11__ExitPlate",
+      "required_radius_m": 0.05798275605729691
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12__ExitPlate",
+      "required_radius_m": 0.05874750431386671
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13__EntryPlate",
+      "required_radius_m": 0.0585945523704005
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13__ExitPlate",
+      "required_radius_m": 0.0585945523704005
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14__EntryPlate",
+      "required_radius_m": 0.0585945523704005
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14__ExitPlate",
+      "required_radius_m": 0.0585945523704005
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15__EntryPlate",
+      "required_radius_m": 0.05859455445417366
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15__ExitPlate",
+      "required_radius_m": 0.05859455445417366
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16__EntryPlate",
+      "required_radius_m": 0.05798275605729691
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16__ExitPlate",
+      "required_radius_m": 0.05798275605729691
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17__ExitPlate",
+      "required_radius_m": 0.05874750431386671
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18__EntryPlate",
+      "required_radius_m": 0.0585945523704005
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18__ExitPlate",
+      "required_radius_m": 0.0585945523704005
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18",
+      "ray": 15
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19__EntryPlate",
+      "required_radius_m": 0.05798275605729691
+    },
+    {
+      "label": "round face plate covers rectangular port corners",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19__ExitPlate",
+      "required_radius_m": 0.05798275605729691
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19",
+      "ray": 15
+    },
+    {
+      "label": "enclosed main liner fits wholly inside retained shaft bore",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20"
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 0
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 1
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 2
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 3
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 4
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 5
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 6
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 7
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 8
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 9
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 10
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 11
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 12
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 13
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 14
+    },
+    {
+      "label": "actual native sleeve and both face bores remain open",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20",
+      "ray": 15
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_00__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_01__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_02__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_03__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_04__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_05__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F02_D_RADIATOR_01_PASSAGE_06__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_07__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_08__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_09__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_10__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F03_C_RADIATOR_01_PASSAGE_11__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_12__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_13__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_14__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_15__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_PASSAGE_16__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_17__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_18__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19__EntryPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19__EntryPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19__ExitPlate"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F06_D_RADIATOR_01_PASSAGE_19__ExitPlate"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20__Neck"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "F05_D_RADIATOR_01_MAIN_SLAB_PASSAGE_20__Neck"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07__Band"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07__Band"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07__LugLeft"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07__LugLeft"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07__LugRight"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07__LugRight"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08__Band"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08__Band"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08__LugLeft"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08__LugLeft"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08__LugRight"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08__LugRight"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09__Band"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09__Band"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09__LugLeft"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09__LugLeft"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09__LugRight"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09__LugRight"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10__Band"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10__Band"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10__LugLeft"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10__LugLeft"
+    },
+    {
+      "label": "closed positive sleeve/bearing stock",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10__LugRight"
+    },
+    {
+      "label": "finite noncollapsed sleeve/bearing UV",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10__LugRight"
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07",
+      "point": [
+        8.675,
+        10.342,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07",
+      "point": [
+        8.675,
+        10.342,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07",
+      "point": [
+        8.675,
+        10.357999999999999,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07",
+      "point": [
+        8.675,
+        10.357999999999999,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07",
+      "point": [
+        8.805,
+        10.342,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07",
+      "point": [
+        8.805,
+        10.342,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07",
+      "point": [
+        8.805,
+        10.357999999999999,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_07",
+      "point": [
+        8.805,
+        10.357999999999999,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08",
+      "point": [
+        8.675,
+        11.842,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08",
+      "point": [
+        8.675,
+        11.842,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08",
+      "point": [
+        8.675,
+        11.857999999999999,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08",
+      "point": [
+        8.675,
+        11.857999999999999,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08",
+      "point": [
+        8.805,
+        11.842,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08",
+      "point": [
+        8.805,
+        11.842,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08",
+      "point": [
+        8.805,
+        11.857999999999999,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_08",
+      "point": [
+        8.805,
+        11.857999999999999,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09",
+      "point": [
+        8.675,
+        13.342,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09",
+      "point": [
+        8.675,
+        13.342,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09",
+      "point": [
+        8.675,
+        13.357999999999999,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09",
+      "point": [
+        8.675,
+        13.357999999999999,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09",
+      "point": [
+        8.805,
+        13.342,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09",
+      "point": [
+        8.805,
+        13.342,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09",
+      "point": [
+        8.805,
+        13.357999999999999,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_09",
+      "point": [
+        8.805,
+        13.357999999999999,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10",
+      "point": [
+        8.675,
+        14.842,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10",
+      "point": [
+        8.675,
+        14.842,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10",
+      "point": [
+        8.675,
+        14.857999999999999,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10",
+      "point": [
+        8.675,
+        14.857999999999999,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10",
+      "point": [
+        8.805,
+        14.842,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10",
+      "point": [
+        8.805,
+        14.842,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10",
+      "point": [
+        8.805,
+        14.857999999999999,
+        0.5780000000000001
+      ]
+    },
+    {
+      "label": "new main lug tip bears on retained shaft after all planned cuts",
+      "passed": true,
+      "id": "HEAT_H-D_SUPPORT_10",
+      "point": [
+        8.805,
+        14.857999999999999,
+        0.6020000000000001
+      ]
+    },
+    {
+      "label": "reopened native PBR source resolves",
+      "passed": true,
+      "id": "T_ai_materials_iron_neutral_albedo.png.001"
+    },
+    {
+      "label": "reopened native PBR source resolves",
+      "passed": true,
+      "id": "T_ai_materials_iron_neutral_normal.png.001"
+    },
+    {
+      "label": "reopened native PBR source resolves",
+      "passed": true,
+      "id": "T_ai_materials_iron_neutral_rough.png.001"
+    }
+  ],
+  "failures": []
+}

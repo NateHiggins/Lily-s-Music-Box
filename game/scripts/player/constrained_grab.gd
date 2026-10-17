@@ -4,6 +4,7 @@ var player: Node3D
 var target: Dictionary = {}
 var contact := Vector3.ZERO
 var changed := false
+var _holder_pose := Transform3D.IDENTITY
 
 func _init(holder: Node3D) -> void:
 	player = holder
@@ -22,12 +23,28 @@ func find_target() -> Dictionary:
 		if node.has_method("manipulation_target"):
 			var result: Dictionary = node.call("manipulation_target",hit)
 			if result.get("legacy",false): return {}
-			if player.inspecting() and result.get("owner")!=player.inspect_owner: return {"blocked":true}
 			if result.is_empty(): return {"blocked":true}
+			var inspection_owner := _context_owner(result,true)
+			if player.inspecting() and inspection_owner!=player.inspect_owner: return {"blocked":true}
 			if not result.is_empty(): result["hit_position"] = hit.position
 			return result
 		node = node.get_parent()
 	return {}
+
+func _context_owner(descriptor: Dictionary,inspection := false) -> Node3D:
+	var owner: Node3D=descriptor.get("owner")
+	if owner!=null and not inspection and owner.has_method("interaction_owner_for"): return owner.interaction_owner_for(descriptor.part)
+	if owner!=null and owner.has_method("inspection_owner_for"): return owner.inspection_owner_for(descriptor.part)
+	return owner
+
+func _same_assembly(hit: Dictionary) -> bool:
+	var node: Node=hit.collider
+	while node!=null:
+		if node.has_method("manipulation_target"):
+			var other: Dictionary=node.manipulation_target(hit)
+			return not other.is_empty() and _context_owner(other)==_context_owner(target)
+		node=node.get_parent()
+	return false
 
 func active() -> bool:
 	return not target.is_empty()
@@ -39,7 +56,25 @@ func acquire(candidate: Dictionary) -> bool:
 	target = candidate
 	contact = target.part.to_local(candidate.hit_position)
 	changed = false
+	_holder_pose=player.global_transform
 	return true
+
+func follow_holder() -> void:
+	var previous := _holder_pose
+	_holder_pose=player.global_transform
+	if not active() or target.kind!="free" or player.inspecting(): return
+	validate()
+	if not active(): return
+	var point: Vector3=target.part.to_global(contact)
+	var motion: Vector3=_holder_pose*previous.affine_inverse()*point-point
+	if motion.length()>.5:
+		release()
+		return
+	if motion.length_squared()<1e-12: return
+	var before: Vector3=target.read.call()
+	target.write.call(before+target.frame.global_basis.inverse()*motion)
+	if not before.is_equal_approx(target.read.call()): changed=true
+	validate()
 
 func release(notify_change := true) -> void:
 	if not active(): return
@@ -70,7 +105,7 @@ func validate() -> void:
 	query.collide_with_areas = true
 	query.exclude = [player.get_rid()]
 	var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
-	if not hit.is_empty() and hit.collider != target.owner and not target.owner.is_ancestor_of(hit.collider): release()
+	if not hit.is_empty() and hit.collider != target.owner and not target.owner.is_ancestor_of(hit.collider) and not _same_assembly(hit): release()
 
 func move(relative: Vector2) -> void:
 	validate()

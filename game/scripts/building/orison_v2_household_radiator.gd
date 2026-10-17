@@ -53,6 +53,7 @@ func perform_physical_action(action_id: String) -> Dictionary:
 
 func _apply_visual_state() -> void:
 	super._apply_visual_state()
+	if use_native_v2: return
 	if _section_multimesh == null or _balance == null: return
 	var heat := get_heat_state()
 	var warmth := clampf(float(heat.get("heat",0)) / maxf(.01,float(heat.get("target",.62))),0,1)

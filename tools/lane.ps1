@@ -180,7 +180,10 @@ function Wait-ForLane {
                 Write-LaneStatus (Get-LaneStatus) | ForEach-Object { Write-Host $_ }
                 $announced = $true
             }
-            Start-Sleep -Seconds 5
+            # Unrelated projects can release/reacquire Godot between short
+            # runs while this mutex is free. A five-second poll repeatedly
+            # misses those gaps. Keep both ownership checks above intact.
+            Start-Sleep -Milliseconds 200
         }
     }
     finally {

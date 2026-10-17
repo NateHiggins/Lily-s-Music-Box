@@ -1,0 +1,118 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Current casting material diagnostic inputs; no runtime_contract or integration qualification.",
+  "inputs": {
+    "art/tools/build_radiator_cast_iron.py": {
+      "sha256": "dea35a8c814c98ef4032ba7297be532faa34842000afd9f2d867862229a5a389",
+      "normalization": "LF"
+    },
+    "art/textures/procedural/radiator_cast_iron/material.json": {
+      "sha256": "5f7cb8775ed983e088ee0e01de512eb2be63949836419d9de1276afa6b335795",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/prepare_radiator_mechanisms.py": {
+      "sha256": "970f0ea00d5e8cdb435b08f9101ad98ac1e4628a5ee533915c4a0aab61901869",
+      "normalization": "LF"
+    },
+    "art/blender/scripts/review_radiator_cast_surface.py": {
+      "sha256": "dbe121e3f6505d434801d72584760ef158cb728a99dc380924a6ce8fa6794405",
+      "normalization": "LF"
+    },
+    "art/data/material_catalog.json": {
+      "sha256": "f7c15abb06369f85132f51961f326be0a3b1dadabe31209eed553cc97cd3ef47",
+      "normalization": "LF"
+    },
+    "art/textures/catalog_mapping.json": {
+      "sha256": "ce56124af8035a8f3581c73e5cb50ec5d26a978db0868d8acd5b394c3e75ca8c",
+      "normalization": "LF"
+    },
+    "art/tools/generate_runtime_materials.py": {
+      "sha256": "5e830dea1d99332c1881f4f3ab18055b09dad73ee302b88fa1d94957827460e4",
+      "normalization": "LF"
+    },
+    "art/data/runtime_material_sets.json": {
+      "sha256": "b4cfab66ca2f7e2f78f7de0f3ddff1e483ba0fe9a5a29013d6059cd3c737761e",
+      "normalization": "LF"
+    },
+    "game/data/runtime_material_sets.json": {
+      "sha256": "b4cfab66ca2f7e2f78f7de0f3ddff1e483ba0fe9a5a29013d6059cd3c737761e",
+      "normalization": "LF"
+    },
+    "game/scripts/generated/material_sets.gd": {
+      "sha256": "b27f6c8f7e95e47489c57025041e72c308c1519b87e1615f3b5c446be9a5317b",
+      "normalization": "LF"
+    },
+    "game/scripts/props/radiator_native_parts.gd": {
+      "sha256": "1bad2de635a28db4a30d74d20f9a844802980df43665f69af4a88078813f9902",
+      "normalization": "LF"
+    },
+    "game/tests/radiator_native_review.gd": {
+      "sha256": "de5e9d79437f1ce2ca6a04647dcf660c5e298cf5a0344a1d065444beefb7babe",
+      "normalization": "LF"
+    },
+    "game/tests/radiator_cutover_review.gd": {
+      "sha256": "a132309548ffc089bb61f194b5239f62020e69aa5a508857c717609675a0f67f",
+      "normalization": "LF"
+    },
+    "art/blender/radiator_mechanisms.blend": {
+      "sha256": "66f19d4ece97f92c18131a7e797f5cab8af37fdd88f7b52d59ae15714d41c643",
+      "normalization": "raw"
+    },
+    "game/assets/props/radiator_mechanisms.glb": {
+      "sha256": "afa5e4293d49d73e0081335b4145b13cd303ea75bb63a39b602754b9dcf82275",
+      "normalization": "raw"
+    },
+    "art/textures/procedural/radiator_cast_iron/albedo.png": {
+      "sha256": "44fa59f0b5a38d0391da11c2c7ac0b931e4d0cf3b5ea5ab82f773bd44195c718",
+      "normalization": "raw"
+    },
+    "art/textures/procedural/radiator_cast_iron/height.png": {
+      "sha256": "2b9feba6ef3c250e95bac191f31959d8a4384896edb1b1d33cdec52de9adc219",
+      "normalization": "raw"
+    },
+    "art/textures/procedural/radiator_cast_iron/normal.png": {
+      "sha256": "c5b2e1fd2754316410f5a805a52592d231ddeedd19b9e74a0fc12d4c50016956",
+      "normalization": "raw"
+    },
+    "art/textures/procedural/radiator_cast_iron/roughness.png": {
+      "sha256": "4423086a5c4f5d0085f7a14115fcfeed24d9cf72b7e943c3b26ad0b80ee1b4d1",
+      "normalization": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_cast_iron_albedo.png": {
+      "sha256": "44fa59f0b5a38d0391da11c2c7ac0b931e4d0cf3b5ea5ab82f773bd44195c718",
+      "normalization": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_cast_iron_albedo.png.import": {
+      "sha256": "7768c81b1a4e643bfa6e9b7327b05d7670414ba1385559b6440ed81acd60f9de",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_cast_iron_normal.png": {
+      "sha256": "c5b2e1fd2754316410f5a805a52592d231ddeedd19b9e74a0fc12d4c50016956",
+      "normalization": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_cast_iron_normal.png.import": {
+      "sha256": "f45cf8567855498b451029f40e5d145e3f1268c1e5210f75ed187f1541e24df5",
+      "normalization": "LF"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_cast_iron_rough.png": {
+      "sha256": "4423086a5c4f5d0085f7a14115fcfeed24d9cf72b7e943c3b26ad0b80ee1b4d1",
+      "normalization": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_radiator_cast_iron_rough.png.import": {
+      "sha256": "fa50e1f796e9b5edb800701b13697d22d093393401d1fe3609c1e02f5fd2e2ee",
+      "normalization": "LF"
+    },
+    "art/data/orison_v2/heating_refit_authoring.json": {
+      "sha256": "3893c84854a7c6bb098e5fe2d809c3d950752501886ae526a6434557b9c6b40a",
+      "normalization": "LF"
+    },
+    "art/blender/heating_distribution.blend": {
+      "sha256": "4d5cca65c30079fe492ac9d850e5efe019a453e732d7cde0c66d61aa6f4b3232",
+      "normalization": "raw"
+    },
+    "game/assets/props/heating_distribution.glb": {
+      "sha256": "8022d0b3368eceed0caece53527514fb8f7965f6c7ae85d567ab7e9e3bf13184",
+      "normalization": "raw"
+    }
+  }
+}

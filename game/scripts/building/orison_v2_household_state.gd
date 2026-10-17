@@ -44,8 +44,9 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 		if record.kind == "mirror": _kinds[str(record.id)] = "mirror"
 	var heating: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/heating.json"))
 	for record: Dictionary in heating.installed:
-		# Lena's packing/situation owner retains sole custody of the 2B valve.
-		if record.unit != "2B": _kinds[str(record.id)] = "radiator"
+		# This domain saves physical part positions. Lena's case and inventory
+		# retain condition, work-order and packing-custody authority.
+		_kinds[str(record.id)] = "radiator"
 	var shelves: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/bookshelves.json"))
 	for record: Dictionary in shelves.shelves: _kinds[str(record.id)] = "books"
 	for window: Node in get_tree().get_nodes_in_group("v2_window_treatments"):
@@ -109,6 +110,9 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 			if _subjects[identity].has_signal("manipulation_changed"): _connect(_subjects[identity], "manipulation_changed", _commit_change)
 		elif _kinds[identity] == "radiator":
 			_connect(_subjects[identity], "supply_changed", _on_valve_changed)
+			_connect(_subjects[identity], "manipulation_changed", _commit_change)
+			_connect(_subjects[identity], "vent_changed", _on_radiator_setting_changed)
+			_connect(_subjects[identity], "pitch_changed", _on_radiator_setting_changed)
 		elif _kinds[identity] in ["prep", "mirror", "window"]:
 			_connect(_subjects[identity], "open_state_changed", _on_cabinet_changed)
 		elif _kinds[identity] == "blind":
@@ -152,7 +156,9 @@ func validate(value: Variant, kinds: Dictionary) -> bool:
 		elif record.kind == "window":
 			if setting is not bool and not _subjects[identity].valid_mechanism(setting): errors.append("invalid window sash/cam position")
 		elif record.kind == "radiator":
-			if typeof(setting) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(setting)) \
+			if setting is Dictionary:
+				if not _subjects[identity].valid_mechanism(setting): errors.append("invalid saved radiator mechanism")
+			elif typeof(setting) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(setting)) \
 					or float(setting) < 0.0 or float(setting) > 1.0:
 				errors.append("invalid saved radiator position")
 		elif record.kind == "blind":
@@ -164,6 +170,10 @@ func validate(value: Variant, kinds: Dictionary) -> bool:
 				errors.append("invalid partial cabinet travel")
 		elif setting is not bool:
 			errors.append("household switch/door value must be boolean")
+	if errors.is_empty():
+		for identity: String in _subjects:
+			if _subjects[identity].has_method("validate_related_records") and not _subjects[identity].validate_related_records(value.records):
+				errors.append("inconsistent related mechanism identities")
 	return errors.is_empty()
 
 func _valid_book_order(identity: String, value: Variant) -> bool:
@@ -188,7 +198,7 @@ func snapshot() -> Dictionary:
 			"fuse_service", "tank_service", "boiler_service":
 				setting = {"completed":_service_completed[identity],"mechanism":prop.mechanism_snapshot()} if prop.has_method("mechanism_snapshot") else _service_completed[identity]
 			"light": setting = prop.get("powered")
-			"radiator": setting = prop.get("supply_position")
+			"radiator": setting = prop.mechanism_snapshot()
 			"window": setting = prop.mechanism_snapshot()
 			"prep": setting = prop._slide.position.x/prop.TRAVEL
 			"mirror": setting = prop.get("_swing")
@@ -205,12 +215,18 @@ func _restore(saved: Dictionary) -> void:
 		var record: Dictionary = saved.records.get(identity, _defaults.records[identity])
 		var prop: Node = _subjects[identity]
 		match record.kind:
-			"mechanism": prop.call("restore_mechanism",record.value)
+			"mechanism":
+				var value: Variant=record.value
+				if not saved.records.has(identity) and prop.has_method("migrate_legacy_snapshot"):
+					value=prop.migrate_legacy_snapshot(value,saved.records)
+				prop.call("restore_mechanism",value)
 			"fuse_service", "tank_service", "boiler_service":
 				_restore_service(identity, record.value.completed if record.value is Dictionary else record.value)
 				if record.value is Dictionary: prop.restore_mechanism(record.value.mechanism)
 			"light": prop.call("set_powered", record.value)
-			"radiator": prop.call("set_supply_position", float(record.value), 0.0)
+			"radiator":
+				if record.value is Dictionary: prop.restore_mechanism(record.value)
+				else: prop.call("set_supply_position", float(record.value), 0.0)
 			"blind": prop.call("restore_settings", record.value)
 			"books": prop.call("restore_order", record.value)
 			"window":
@@ -285,6 +301,9 @@ func _commit_change() -> void:
 	if capture_now(): RealityState.commit()
 
 func _on_room_changed(_room: String, _on: bool) -> void:
+	_commit_change()
+
+func _on_radiator_setting_changed(_value: Variant) -> void:
 	_commit_change()
 
 func _on_valve_changed(_open: bool, _position: float) -> void:

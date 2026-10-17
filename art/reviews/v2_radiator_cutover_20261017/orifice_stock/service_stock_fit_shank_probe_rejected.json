@@ -1,0 +1,229 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native shelf fitting only; no room, controls, save or human acceptance.",
+  "native_sha256": "0c9240abd7c1743884e09500239a805d49f3a3500afd9440a3c51c25d446c233",
+  "checks": [
+    {
+      "passed": true,
+      "label": "blind pocket accepts eight millimetre insert stem",
+      "pocket": 0,
+      "hit": [
+        -0.11999999731779099,
+        0.0,
+        -0.00899999774992466
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 0,
+      "side": -0.004,
+      "hit": [
+        -0.12399999797344208,
+        0.0,
+        -1.862645149230957e-09
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 0,
+      "side": 0.004,
+      "hit": [
+        -0.11599999666213989,
+        0.0,
+        1.862645149230957e-09
+      ]
+    },
+    {
+      "passed": true,
+      "label": "blind pocket accepts eight millimetre insert stem",
+      "pocket": 1,
+      "hit": [
+        -0.05999999865889549,
+        0.0,
+        -0.008999999612569809
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 1,
+      "side": -0.004,
+      "hit": [
+        -0.06400000303983688,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 1,
+      "side": 0.004,
+      "hit": [
+        -0.0560000017285347,
+        0.0,
+        1.862645149230957e-09
+      ]
+    },
+    {
+      "passed": true,
+      "label": "blind pocket accepts eight millimetre insert stem",
+      "pocket": 2,
+      "hit": [
+        0.0,
+        0.0,
+        -0.008999999612569809
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 2,
+      "side": -0.004,
+      "hit": [
+        -0.004000000189989805,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 2,
+      "side": 0.004,
+      "hit": [
+        0.004000000189989805,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "passed": true,
+      "label": "blind pocket accepts eight millimetre insert stem",
+      "pocket": 3,
+      "hit": [
+        0.05999999865889549,
+        0.0,
+        -0.009000001475214958
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 3,
+      "side": -0.004,
+      "hit": [
+        0.0560000017285347,
+        0.0,
+        -1.862645149230957e-09
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 3,
+      "side": 0.004,
+      "hit": [
+        0.06400000303983688,
+        0.0,
+        1.862645149230957e-09
+      ]
+    },
+    {
+      "passed": true,
+      "label": "blind pocket accepts eight millimetre insert stem",
+      "pocket": 4,
+      "hit": [
+        0.11999999731779099,
+        0.0,
+        -0.00899999774992466
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 4,
+      "side": -0.004,
+      "hit": [
+        0.11599999666213989,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "passed": true,
+      "label": "native wrench head has timber bearing outside pocket",
+      "pocket": 4,
+      "side": 0.004,
+      "hit": [
+        0.12399999797344208,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "passed": false,
+      "label": "wall standoff terminates on authored mounting plane",
+      "side": -0.14,
+      "hit": [
+        -0.14000000059604645,
+        0.10199999809265137,
+        0.04500000178813934
+      ]
+    },
+    {
+      "passed": true,
+      "label": "continuous bracket supports tray underside",
+      "side": -0.14,
+      "hit": [
+        -0.14000000059604645,
+        -0.029999999329447746,
+        -0.017999999225139618
+      ]
+    },
+    {
+      "passed": false,
+      "label": "wall standoff terminates on authored mounting plane",
+      "side": 0.14,
+      "hit": [
+        0.14000000059604645,
+        0.10199999809265137,
+        0.04500000178813934
+      ]
+    },
+    {
+      "passed": true,
+      "label": "continuous bracket supports tray underside",
+      "side": 0.14,
+      "hit": [
+        0.14000000059604645,
+        -0.029999999329447746,
+        -0.017999999225139618
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "passed": false,
+      "label": "wall standoff terminates on authored mounting plane",
+      "side": -0.14,
+      "hit": [
+        -0.14000000059604645,
+        0.10199999809265137,
+        0.04500000178813934
+      ]
+    },
+    {
+      "passed": false,
+      "label": "wall standoff terminates on authored mounting plane",
+      "side": 0.14,
+      "hit": [
+        0.14000000059604645,
+        0.10199999809265137,
+        0.04500000178813934
+      ]
+    }
+  ]
+}

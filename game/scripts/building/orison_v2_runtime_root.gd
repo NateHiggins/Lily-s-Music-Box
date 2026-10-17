@@ -95,6 +95,9 @@ func _ready() -> void:
 		startup_failure_reason = "missing or invalid street coordinate frame"
 		return
 	var started := Time.get_ticks_usec()
+	var contact_precision := preload("res://scripts/building/orison_v2_contact_precision.gd").new()
+	contact_precision.name="V2ContactPrecision"
+	add_child(contact_precision)
 	campaign_clock = CampaignClock.new()
 	if not campaign_clock.bind_state():
 		startup_failed = true

@@ -9,6 +9,9 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/radiator_service_stock.glb", # Blind pockets and worked screw/bevel charts collapse under UV quantization.
+    "props/radiator_mechanisms.glb", "props/radiator_air_vent.glb",
+    "props/radiator_wall_support.glb", "props/radiator_pitch_shims.glb", # Preserve fitted bores, cloth folds and shim charts.
     "props/front_lighting_trim.glb", # Preserve the small drilled wood passage charts.
     "props/front_lighting_supply.glb", "props/front_lighting_fixtures.glb", # Preserve small fitted bores and stock bevel charts.
     "props/heating_distribution.glb", # Imported small pipe charts collapsed in the native candidate check.

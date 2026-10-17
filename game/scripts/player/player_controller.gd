@@ -1119,6 +1119,7 @@ func _physics_process(delta: float) -> void:
 		var up := (0.0 if _inspection_jump_consumed else Input.get_action_strength("jump")) \
 				- Input.get_action_strength("crouch")
 		global_position += (wish * 6.0 + Vector3.UP * up * 4.0) * delta
+		if _grab!=null: _grab.follow_holder()
 		_stride_last = Vector3.INF
 		_stride_travel = 0.0
 		return
@@ -1151,6 +1152,7 @@ func _physics_process(delta: float) -> void:
 	if gravity_direction.dot(Vector3.DOWN) > 0.98:
 		_try_step_up(delta)
 	move_and_slide()
+	if _grab!=null: _grab.follow_holder()
 	_publish_foot_contacts()
 	if _stagger_left > 0.0:
 		_stagger_left = maxf(0.0, _stagger_left - delta)
@@ -1290,8 +1292,9 @@ func inspecting() -> bool:
 func begin_inspection() -> bool:
 	if call_locked or mouse_released or _grab == null or not _grab.active(): return false
 	var owner: Node3D = _grab.target.owner
+	if owner.has_method("inspection_owner_for"): owner=owner.inspection_owner_for(_grab.target.part)
 	if not owner.has_method("inspection_view"): return false
-	var view: Dictionary = owner.inspection_view()
+	var view: Dictionary = owner.inspection_view_for(_grab.target.part) if owner.has_method("inspection_view_for") else owner.inspection_view()
 	var from: Vector3 = view.from
 	var at: Vector3 = view.at
 	# Do not move the eye through a neighbouring wall into another room.
@@ -1313,6 +1316,7 @@ func begin_inspection() -> bool:
 	velocity=Vector3.ZERO
 	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	Input.warp_mouse(get_viewport().get_visible_rect().size*.5)
+	if owner.has_method("inspection_started"): owner.call("inspection_started")
 	return true
 
 func end_inspection(notify_change := true) -> void:

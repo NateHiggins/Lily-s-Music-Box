@@ -1,0 +1,1736 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Production preparation: retained reviewed castings, refined fitting edges and metric charts. Separate diagnostics cover native fit and runtime review; no broad qualification.",
+  "source_manifest_sha256": "b131ee4de1828c2d7687b2c4e74d894d380390e293da34fc641cf476fb778ddb",
+  "families": {
+    "radiator_mechanisms": {
+      "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-radiator-polish-20261017\\fitting_detail\\radiator_mechanisms.glb",
+      "primitives": 20,
+      "triangles": 134066,
+      "minimum_tangent_agreement": 0.9999999530438852,
+      "status": "PASS",
+      "native_geometry_sha256": "58d3a9ba37a45c4be8945cafb8857328527d8d9441a8cb6df4370297eaaff22e",
+      "native_parts": {
+        "ArticulatedValveHousing": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "ThreadedMovingValveCore": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "SixSpokeHandwheel": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened",
+            "door_brass"
+          ]
+        },
+        "FixedStemPacking": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "graphited_packing"
+          ]
+        },
+        "CastSectionThreeColumnCandidate": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_cast_iron",
+            "door_brass"
+          ]
+        },
+        "CastShoeFoot": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_cast_iron",
+            "door_brass"
+          ]
+        },
+        "BlindHeaderPlug": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened",
+            "door_brass"
+          ]
+        },
+        "VentHeaderReducer": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "HeaderSealWasher": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SweptSupplyElbow": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SphericalNeck_7": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SphericalNeck_8": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SphericalNeck_9": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SphericalNeck_10": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "FloatingMetalBearingRing": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "ValveSphericalRetainer": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "HeaderSphericalRetainer": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "PackedHeaderSocket": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "RemovableFibrousUnionPacking": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "graphited_packing"
+          ]
+        }
+      },
+      "source_native_geometry_sha256": "2227c654cd74ee8684513a7800bd2bce4ebb4d12b80cf071a450d38e04133890",
+      "cast_refinement": {
+        "CastSectionThreeColumnCandidate": {
+          "retained_reviewed_native": true
+        },
+        "CastShoeFoot": {
+          "retained_reviewed_native": true
+        },
+        "BlindHeaderPlug": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 8.534897504709453e-05,
+          "physical_charts": {
+            "local_metric_repairs": 5,
+            "minimum_metric_scale": 0.838348786658634,
+            "maximum_metric_scale": 1.218953137470957
+          },
+          "triangles": 894
+        },
+        "VentHeaderReducer": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 7.336153798583166e-05,
+          "physical_charts": {
+            "local_metric_repairs": 18,
+            "minimum_metric_scale": 0.8372579636192856,
+            "maximum_metric_scale": 1.3222542499115986
+          },
+          "triangles": 1592
+        },
+        "ValveSphericalRetainer": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 8.808215808642764e-05,
+          "physical_charts": {
+            "local_metric_repairs": 1641,
+            "minimum_metric_scale": 0.7541649093872911,
+            "maximum_metric_scale": 1.3292293136643516
+          },
+          "triangles": 12680
+        },
+        "HeaderSphericalRetainer": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 5.9907746489225266e-05,
+          "physical_charts": {
+            "local_metric_repairs": 780,
+            "minimum_metric_scale": 0.7501797722641346,
+            "maximum_metric_scale": 1.3293143065654585
+          },
+          "triangles": 11752
+        },
+        "PackedHeaderSocket": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 7.360807187872234e-05,
+          "physical_charts": {
+            "local_metric_repairs": 20,
+            "minimum_metric_scale": 0.8320596572162077,
+            "maximum_metric_scale": 1.2591860301938445
+          },
+          "triangles": 8064
+        }
+      },
+      "asset_sha256": "20cdf482879b55c87cad2d5d458b25657fe885e8db650e6a69e78faa45181360",
+      "native_sha256": "dbef8bdaa07482f3aad054d4a7d3b5f48f2d80af31593c4bff8e1cf1fb719c72"
+    },
+    "radiator_air_vent": {
+      "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-radiator-polish-20261017\\production_prepared\\radiator_air_vent.glb",
+      "primitives": 8,
+      "triangles": 9734,
+      "minimum_tangent_agreement": 0.9999999586438214,
+      "status": "PASS",
+      "native_geometry_sha256": "cd298ef0d96a376809d9f44630122455cfff052794f1e82985edce3e9591bba0",
+      "native_parts": {
+        "VentBody": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "VentCap": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "FloatAndNeedle": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "VentOrificeInsert_0": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "VentOrificeInsert_1": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "VentOrificeInsert_2": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "VentOrificeInsert_3": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "VentOrificeInsert_4": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        }
+      },
+      "asset_sha256": "d008dd65b9615118f63b5d03bf8edbd84ccaf7dfd4f73d2bf39239b0ec437746",
+      "native_sha256": "79092cab0c056b1bc0c5f65e86c7abc40977afeb79a507876d99e515a7def0eb"
+    },
+    "radiator_wall_support": {
+      "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-radiator-polish-20261017\\production_prepared\\radiator_wall_support.glb",
+      "primitives": 8,
+      "triangles": 5872,
+      "minimum_tangent_agreement": 0.9999999601161926,
+      "status": "PASS",
+      "native_geometry_sha256": "e4aaea1c06d7c6ffe88b6639f07dede80d8b74fec3e55738e781745d00429ce4",
+      "native_parts": {
+        "SlottedWallBracket": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened"
+          ]
+        },
+        "WallAnchors_61000um": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral"
+          ]
+        },
+        "WallAnchors_45000um": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral"
+          ]
+        },
+        "MovingTie_174000um": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened"
+          ]
+        },
+        "MovingTie_144000um": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened"
+          ]
+        },
+        "MovingTie_124000um": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened"
+          ]
+        },
+        "MovingTie_94000um": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened"
+          ]
+        },
+        "MovingTie_58000um": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened"
+          ]
+        }
+      },
+      "asset_sha256": "953af1c9b1de8a3dfd7061c8fa2393572106703910cbf56688c7a6bdbaa20b57",
+      "native_sha256": "0bd05261c26d27c1d14d2ff2e17c11ea981c21cfe0f0407117f76256f1a49cf8"
+    },
+    "radiator_pitch_shims": {
+      "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-radiator-polish-20261017\\production_prepared\\radiator_pitch_shims.glb",
+      "primitives": 16,
+      "triangles": 192,
+      "minimum_tangent_agreement": 1.0,
+      "status": "PASS",
+      "native_geometry_sha256": "9db0f51b112a503b212814c494b1f0541f1ab6e85cf7649dff72268c1054544c",
+      "native_parts": {
+        "Shim_7_minus1_supply": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_7_minus0.35_supply": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_7_0.35_far": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_7_1_far": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_8_minus1_supply": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_8_minus0.35_supply": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_8_0.35_far": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_8_1_far": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_9_minus1_supply": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_9_minus0.35_supply": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_9_0.35_far": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_9_1_far": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_10_minus1_supply": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_10_minus0.35_supply": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_10_0.35_far": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        },
+        "Shim_10_1_far": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "timber"
+          ]
+        }
+      },
+      "asset_sha256": "2527b6ad0de9f2f8271f472b243f354933b76648f0d0bc3a86bd577a7adbb28f",
+      "native_sha256": "cb18bbf1a31c49c2ffafe0c55d3ef3fca05cc4b0b0ef3f7f6bd5aebf75dacedb"
+    }
+  },
+  "recipe_lf_sha256": {
+    "prepare_radiator_mechanisms.py": "c066a3f884e4e959bc510c5e181b55ab4011a86415a860f13ea7420a434472b5",
+    "radiator_cast_detail.py": "908281aed7edd24b0e6910ed464cf70a491175a0690cd8c12281461975b442b7",
+    "radiator_fitting_detail.py": "cdb530fdbea4a69d9aba45bb4fbc9158a16b5e3a7c14f843db3e642bb60f614a"
+  },
+  "retained_cast_native_sha256": "7c2d5853e86fb93059ec0b3aff7e3d56f4904a8a6c2b6deeeed623b5c4ee0256"
+}

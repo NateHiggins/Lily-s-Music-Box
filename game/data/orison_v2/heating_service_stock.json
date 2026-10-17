@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "B1_VENT_SERVICE_STOCK",
+  "level": "B1",
+  "position": [7.65, 1.35, 5.63],
+  "yaw": 3.141592653589793,
+  "asset": "res://assets/props/radiator_service_stock.glb",
+  "spares": [
+    {"id": "VENT_SPARE_0", "grade": 0, "pocket": 0},
+    {"id": "VENT_SPARE_1", "grade": 1, "pocket": 1},
+    {"id": "VENT_SPARE_2", "grade": 2, "pocket": 2},
+    {"id": "VENT_SPARE_3", "grade": 3, "pocket": 3},
+    {"id": "VENT_SPARE_4", "grade": 4, "pocket": 4}
+  ]
+}

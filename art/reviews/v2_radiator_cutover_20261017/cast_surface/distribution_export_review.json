@@ -1,0 +1,124 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Scratch export of inspected native geometry only. Per-triangle original metric UVs and native corner normals retained; explicit exported tangent/bitangent handedness passes strict final buffer derivative checks. Godot imported precision/mips/materials, installed collision/control/save and human acceptance are unverified.",
+  "native_sha256": "4d5cca65c30079fe492ac9d850e5efe019a453e732d7cde0c66d61aa6f4b3232",
+  "asset_sha256": "8022d0b3368eceed0caece53527514fb8f7965f6c7ae85d567ab7e9e3bf13184",
+  "bytes": 70914056,
+  "closed_native_stocks": 2032,
+  "batches": {
+    "Heating_F01": {
+      "source_parts": 125,
+      "triangles": 45316,
+      "bounds_blender": [
+        -15.45199966430664,
+        -0.6180539727210999,
+        -0.16494950652122498,
+        15.45199966430664,
+        7.2220001220703125,
+        0.004000000189989805
+      ],
+      "exported_vertices_before_weld": 135948,
+      "exported_vertices_after_exact_weld": 115506
+    },
+    "Heating_F02": {
+      "source_parts": 486,
+      "triangles": 119332,
+      "bounds_blender": [
+        -15.414000511169434,
+        -9.121999740600586,
+        2.656282663345337,
+        15.53499984741211,
+        7.734000205993652,
+        3.2039999961853027
+      ],
+      "exported_vertices_before_weld": 357996,
+      "exported_vertices_after_exact_weld": 302445
+    },
+    "Heating_F03": {
+      "source_parts": 293,
+      "triangles": 71224,
+      "bounds_blender": [
+        -15.45199966430664,
+        -11.414000511169434,
+        5.856520652770996,
+        15.45199966430664,
+        7.072000026702881,
+        6.4039998054504395
+      ],
+      "exported_vertices_before_weld": 213672,
+      "exported_vertices_after_exact_weld": 180124
+    },
+    "Heating_F04": {
+      "source_parts": 314,
+      "triangles": 80088,
+      "bounds_blender": [
+        -15.45199966430664,
+        -9.121999740600586,
+        9.435047149658203,
+        15.53499984741211,
+        7.072000026702881,
+        9.604000091552734
+      ],
+      "exported_vertices_before_weld": 240264,
+      "exported_vertices_after_exact_weld": 204252
+    },
+    "Heating_F05": {
+      "source_parts": 337,
+      "triangles": 89804,
+      "bounds_blender": [
+        -14.42199993133545,
+        -9.217094421386719,
+        12.256698608398438,
+        15.414000511169434,
+        5.394000053405762,
+        12.804000854492188
+      ],
+      "exported_vertices_before_weld": 269412,
+      "exported_vertices_after_exact_weld": 226412
+    },
+    "Heating_F06": {
+      "source_parts": 330,
+      "triangles": 88012,
+      "bounds_blender": [
+        -14.42199993133545,
+        -9.217094421386719,
+        15.45669937133789,
+        15.414000511169434,
+        5.394000053405762,
+        16.003999710083008
+      ],
+      "exported_vertices_before_weld": 264036,
+      "exported_vertices_after_exact_weld": 222490
+    },
+    "Heating_SHAFT": {
+      "source_parts": 147,
+      "triangles": 35160,
+      "bounds_blender": [
+        8.545000076293945,
+        -0.6279999613761902,
+        -0.6499999761581421,
+        8.804999351501465,
+        -0.30000001192092896,
+        16.04599952697754
+      ],
+      "exported_vertices_before_weld": 105480,
+      "exported_vertices_after_exact_weld": 93760
+    }
+  },
+  "roundtrip": [
+    "Heating_F01",
+    "Heating_F02",
+    "Heating_F03",
+    "Heating_F04",
+    "Heating_F05",
+    "Heating_F06",
+    "Heating_SHAFT"
+  ],
+  "exported_tangents": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-radiator-polish-20261017\\distribution_cast_catalog\\export\\heating_distribution.glb",
+    "primitives": 7,
+    "triangles": 528936,
+    "minimum_tangent_agreement": 0.9999999501762679,
+    "status": "PASS"
+  }
+}

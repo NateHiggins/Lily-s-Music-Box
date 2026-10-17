@@ -270,7 +270,7 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # res://assets/building/textures/ and MatLib silently falls back to flat
 # colour. Copying them here keeps that reproducible instead of a manual
 # step somebody has to remember after every regeneration.
-GODOT_STAGE = ("door_oak", "water_clear", "leather_worn", "mineral_scale", "toast_crumb", "brass_bright", "brass_dull", "bronze", "car_paint",
+GODOT_STAGE = ("radiator_service_brass", "door_oak", "water_clear", "leather_worn", "mineral_scale", "toast_crumb", "brass_bright", "brass_dull", "bronze", "car_paint",
                "oak_quartered", "enamel_appliance", "zinc_liner", "copper_aged",
                "cast_iron", "soot", "fx_grease", "nickel_plated", "mirror_aged",
                "mica_heater", "porcelain_fixture",
@@ -330,7 +330,8 @@ def stage_for_godot(key, mapping):
     mapped = str(mapping.get(key, ""))
     source_key = os.path.basename(mapped) if mapped.startswith(
         "ai_materials/") else key
-    src = os.path.join(OUT, source_key)
+    src = (os.path.join(ROOT, 'art', 'textures', mapped)
+           if mapped.startswith('procedural/') else os.path.join(OUT, source_key))
     if not os.path.isdir(src):
         return False
     pairs = (("albedo.png", "albedo"), ("roughness.png", "rough"),

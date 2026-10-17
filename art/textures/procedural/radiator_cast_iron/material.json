@@ -1,0 +1,32 @@
+{
+  "material": "radiator_cast_iron",
+  "generator": "art/tools/build_radiator_cast_iron.py",
+  "source": "Author periodic oxide-covered sand-cast iron, independent of worked iron.\n\nThe continuous dark oxide is dielectric. No exposed-metal islands, rust\nstains, baked highlights, lettering or photographic pixels are present.\nRelief is a physical height field; colour is quiet mineral variation rather\nthan painted cavity shadows. All fields are periodic before differentiation.\n",
+  "meters_per_tile": 0.064,
+  "normal_convention": "OpenGL",
+  "metallic": 0.0,
+  "finish": "Continuous dark oxide over sand-cast iron; no bare-metal patches.",
+  "normal_strength": 1.0,
+  "height_encoding_range_mm": [
+    -0.13907799602298604,
+    0.13907799602298604
+  ],
+  "rms_relief_mm": 0.03060100607359808,
+  "maximum_normal_slope": 0.3336743827822866,
+  "roughness_range": [
+    0.48,
+    0.72
+  ],
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "44fa59f0b5a38d0391da11c2c7ac0b931e4d0cf3b5ea5ab82f773bd44195c718",
+    "roughness": "4423086a5c4f5d0085f7a14115fcfeed24d9cf72b7e943c3b26ad0b80ee1b4d1",
+    "normal": "c5b2e1fd2754316410f5a805a52592d231ddeedd19b9e74a0fc12d4c50016956",
+    "height": "2b9feba6ef3c250e95bac191f31959d8a4384896edb1b1d33cdec52de9adc219"
+  }
+}

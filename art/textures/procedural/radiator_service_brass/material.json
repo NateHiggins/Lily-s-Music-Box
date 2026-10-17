@@ -1,0 +1,32 @@
+{
+  "material": "radiator_service_brass",
+  "generator": "art/tools/build_radiator_service_brass.py",
+  "source": "Periodic aged service brass, without door-buffing streaks or painted wear.\n\nFine oxide colour variation and isotropic tool microrelief are independent.\nNo baked lighting, fixture-sized dirt, lettering or photographic source.\n",
+  "seed": 1928101702,
+  "meters_per_tile": 0.04,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "metallic": 0.92,
+  "roughness_range": [
+    0.3409948136678584,
+    0.4512309509289
+  ],
+  "height_encoding_range_mm": [
+    -0.003413484593022135,
+    0.003413484593022135
+  ],
+  "rms_relief_mm": 0.0006757804383425899,
+  "maximum_normal_slope": 0.014058173756509631,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "d34dfa52bc7d1187f64d0452af888f13b41a17ca8761a97f63e8d0b8764aae34",
+    "roughness": "12b9ae52e582c53f60f189b4563374a21953e67d68e92e6501f46b000c6e4d24",
+    "normal": "7825ae9dad6e96961bbe819c91b2688cca7110ba750745fd295f83b72365023c",
+    "height": "d25c14cb810b6119fd39d0620ffb0046ee4eab206f9e855434d2eac395593ca2"
+  }
+}

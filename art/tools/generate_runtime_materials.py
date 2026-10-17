@@ -28,6 +28,7 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 RUNTIME_POLICY = {
     "washer_zinc": {}, "washer_enamel": {}, "washer_brass": {}, "washer_rubber": {},
 	"bath_wall_tile": {}, "bath_floor_tile": {},
+    "graphited_packing": {}, "radiator_cast_iron": {}, "radiator_service_brass": {},
     "door_brass": {},
     "faucet_nickel": {},
     "door_oak": {},

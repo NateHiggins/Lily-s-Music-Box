@@ -10609,6 +10609,20 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    # Registered V2 finishes must survive layout/catalogue regeneration.
+    'bath_floor_tile': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0},
+    'bath_wall_tile': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0},
+    'door_brass': {'base_color': [0.8, 0.66, 0.41, 1.0], 'roughness': 0.3, 'metallic': 0.92},
+    'door_oak': {'base_color': [0.65, 0.39, 0.18, 1.0], 'roughness': 0.38, 'metallic': 0.0},
+    'door_paint': {'base_color': [0.925, 0.922, 0.906, 1.0], 'roughness': 0.44, 'metallic': 0.0},
+    'faucet_nickel': {'base_color': [0.827, 0.82, 0.792, 1.0], 'roughness': 0.24, 'metallic': 0.92},
+    'graphited_packing': {'base_color': [0.169, 0.173, 0.169, 1.0], 'roughness': 0.83, 'metallic': 0.0},
+    'radiator_cast_iron': {'base_color': [0.263, 0.278, 0.286, 1.0], 'roughness': 0.6, 'metallic': 0.0},
+    'washer_brass': {'base_color': [0.71, 0.53, 0.23, 1], 'roughness': 0.31, 'metallic': 1.0},
+    'washer_enamel': {'base_color': [0.89, 0.88, 0.83, 1], 'roughness': 0.24, 'metallic': 0.0},
+    'washer_rubber': {'base_color': [0.095, 0.1, 0.092, 1], 'roughness': 0.66, 'metallic': 0.0},
+    'washer_zinc': {'base_color': [0.62, 0.64, 0.65, 1], 'roughness': 0.43, 'metallic': 0.94},
+    'radiator_service_brass': {'base_color': [0.651, 0.537, 0.314, 1.0], 'roughness': 0.4, 'metallic': 0.92},
     'roof_bitumen': {'base_color': [0.16, 0.16, 0.15, 1.0], 'roughness': 0.86, 'metallic': 0.0},
     'tank_staves': {'base_color': [0.576, 0.486, 0.369, 1.0], 'roughness': 0.67},
     'beacon_lacquer': {'base_color': [0.5215686274509804, 0.1411764705882353, 0.10980392156862745, 1], 'roughness': 0.34, 'metallic': 0},

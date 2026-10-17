@@ -1,0 +1,13 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "native_geometry_equal": true,
+  "exported_binary_equal": true,
+  "accessors_equal": true,
+  "mesh_geometry_records_equal": true,
+  "changed_material_stocks": [
+    "CastSectionThreeColumnCandidate",
+    "CastShoeFoot"
+  ],
+  "scope": "Material-only rebuild; native geometry digest and entire exported binary identical. Material indices compared by identity."
+}

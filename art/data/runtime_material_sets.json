@@ -532,6 +532,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "graphited_packing": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.008,
+      "catalog_mapping": "procedural/graphited_packing",
+      "files": [
+        "T_ai_materials_graphited_packing_albedo.png",
+        "T_ai_materials_graphited_packing_rough.png",
+        "T_ai_materials_graphited_packing_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.008,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "indicator_enamel": {
       "alpha": false,
       "canonical_meters_per_tile": 0.5,
@@ -795,6 +809,34 @@
       ],
       "metallic": 0.0,
       "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "radiator_cast_iron": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.064,
+      "catalog_mapping": "procedural/radiator_cast_iron",
+      "files": [
+        "T_ai_materials_radiator_cast_iron_albedo.png",
+        "T_ai_materials_radiator_cast_iron_rough.png",
+        "T_ai_materials_radiator_cast_iron_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.064,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "radiator_service_brass": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.04,
+      "catalog_mapping": "procedural/radiator_service_brass",
+      "files": [
+        "T_ai_materials_radiator_service_brass_albedo.png",
+        "T_ai_materials_radiator_service_brass_rough.png",
+        "T_ai_materials_radiator_service_brass_normal.png"
+      ],
+      "metallic": 0.92,
+      "meters_per_tile": 0.04,
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },

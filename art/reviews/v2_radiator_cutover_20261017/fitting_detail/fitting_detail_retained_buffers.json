@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "scope": "Retained GLB stock buffers, indices, material identities, all morph attributes and node frames; not behavior or runtime proof.",
+  "retained_stocks": [
+    "ArticulatedValveHousing",
+    "CastSectionThreeColumnCandidate",
+    "CastShoeFoot",
+    "FixedStemPacking",
+    "FloatingMetalBearingRing",
+    "HeaderSealWasher",
+    "RemovableFibrousUnionPacking",
+    "SixSpokeHandwheel",
+    "SphericalNeck_7",
+    "SphericalNeck_8",
+    "SphericalNeck_9",
+    "SphericalNeck_10",
+    "SweptSupplyElbow",
+    "ThreadedMovingValveCore"
+  ],
+  "allowed_changed_stocks": [
+    "BlindHeaderPlug",
+    "HeaderSphericalRetainer",
+    "PackedHeaderSocket",
+    "ValveSphericalRetainer",
+    "VentHeaderReducer"
+  ],
+  "before_sha256": "091b412e6c73c1939d3fec2215644e5615770e7cd226fb11f5f8319376c4ea16",
+  "after_sha256": "20cdf482879b55c87cad2d5d458b25657fe885e8db650e6a69e78faa45181360"
+}

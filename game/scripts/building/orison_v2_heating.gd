@@ -1,6 +1,7 @@
 extends RefCounted
 ## Full authored demand roster and installed emitters share retained authorities.
 const PATH := "res://data/orison_v2/heating.json"
+const STOCK_PATH := "res://data/orison_v2/heating_service_stock.json"
 const Household := preload("res://scripts/building/orison_v2_household_radiator.gd")
 const UNITS := ["LOBBY", "1A", "1D", "2C", "3D", "4C", "4D", "2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C", "2D", "3C", "5D", "6D"]
 var errors: Array[String] = []
@@ -10,6 +11,7 @@ func mount(adapter: Variant, inventory: MaintenanceInventory) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	if not validate(source,adapter): return false
 	var acoustic_ids: Array[String] = []
+	var installed: Array=[]
 	var mounts := preload("res://scripts/building/orison_v2_radiator_mounts.gd").new()
 	mounts.configure(adapter.root)
 	for record: Dictionary in source.installed: acoustic_ids.append(str(record.id))
@@ -24,8 +26,12 @@ func mount(adapter: Variant, inventory: MaintenanceInventory) -> bool:
 		radiator.riser = record.riser
 		radiator.section_count = int(record.sections)
 		radiator.installation_drop = .75
+		radiator.use_native_v2 = true
 		radiator.graph_node_id = record.id
-		mounts.fit(radiator,adapter.resolve(str(record.id)),str(record.id).left(3))
+		if not mounts.fit(radiator,adapter.resolve(str(record.id)),str(record.id).left(3)):
+			radiator.free()
+			errors.append_array(mounts.errors)
+			return false
 		if record.unit == "2B": radiator.bind_inventory(inventory)
 		radiator.bind_heat_balance(balance)
 		_add_collision(radiator)
@@ -34,13 +40,44 @@ func mount(adapter: Variant, inventory: MaintenanceInventory) -> bool:
 			errors.append("radiator mount refused: "+str(record.id))
 			return false
 		if str(record.get("drying","")) == "rag": _hang_rag(radiator)
+		installed.append(radiator)
 	mounts.draw()
+	return _mount_orifice_stock(adapter,installed)
+
+func _mount_orifice_stock(adapter: Variant,installed: Array) -> bool:
+	var source: Variant=JSON.parse_string(FileAccess.get_file_as_string(STOCK_PATH))
+	if source is not Dictionary or source.get("schema_version")!=1 or source.get("id")!="B1_VENT_SERVICE_STOCK" or source.get("level")!="B1" or source.get("asset")!="res://assets/props/radiator_service_stock.glb" or source.get("position") is not Array or source.position.size()!=3 or source.get("spares") is not Array or source.spares.size()!=5:
+		errors.append("invalid workshop vent stock source")
+		return false
+	var ids := {};var grades := {};var pockets := {}
+	for record: Variant in source.spares:
+		if record is not Dictionary or record.get("id") is not String or str(record.id).is_empty() or ids.has(record.id) or typeof(record.get("grade"))!=TYPE_FLOAT and typeof(record.get("grade"))!=TYPE_INT:
+			errors.append("invalid workshop spare identity")
+			return false
+		if record.grade!=floor(record.grade) or record.grade<0 or record.grade>4 or grades.has(record.grade) or record.get("pocket")!=record.grade:
+			errors.append("invalid workshop spare grade/pocket")
+			return false
+		ids[record.id]=true;grades[record.grade]=true;pockets[record.pocket]=true
+	for number: Variant in source.position:
+		if typeof(number) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(number)):
+			errors.append("nonfinite workshop stock location")
+			return false
+	if typeof(source.get("yaw")) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(source.yaw)):
+		errors.append("invalid workshop stock orientation")
+		return false
+	var stock := preload("res://scripts/props/radiator_vent_stock.gd").new()
+	stock.name=source.id
+	stock.position=Vector3(source.position[0],float(adapter.root.level_y[source.level])+source.position[1],source.position[2])
+	stock.rotation.y=float(source.yaw)
+	adapter.root.add_child(stock)
+	stock.install_rack(str(source.asset))
+	stock.configure(installed,source)
 	return true
 
 ## Dossier slice 66 (F05_C_MAIN-003): a paint rag folded over the radiator's top to dry, mid-length so
 ## the supply valve and the air vent stay in reach. Visual only: no collision and no owner.
 func _hang_rag(radiator: RadiatorProp) -> void:
-	var top := RadiatorProp.BODY_TOP - radiator.installation_drop
+	var top := RadiatorProp.BODY_TOP if radiator.use_native_v2 else RadiatorProp.BODY_TOP-radiator.installation_drop
 	var half_depth := RadiatorProp.BODY_DEPTH * .5
 	for part: Array in [
 			["DryingRag", MatLib.get_mat("linen", Color(.74, .70, .62)), [
@@ -61,7 +98,10 @@ func _hang_rag(radiator: RadiatorProp) -> void:
 		mesh.name = part[0]
 		mesh.mesh = surface.commit()
 		mesh.material_override = part[1]
-		radiator.add_child(mesh)
+		if radiator.use_native_v2:
+			mesh.position = Vector3(maxf(0.0,float(radiator.section_count-1)*.092*.5-.322),0,-.03)
+			radiator.native_rig.body.add_child(mesh)
+		else: radiator.add_child(mesh)
 
 func _add_collision(radiator: RadiatorProp) -> void:
 	var body := StaticBody3D.new()

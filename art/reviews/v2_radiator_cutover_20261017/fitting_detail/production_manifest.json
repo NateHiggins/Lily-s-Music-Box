@@ -1,0 +1,700 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Production preparation, not installation or runtime proof.",
+  "source_manifest_sha256": "b131ee4de1828c2d7687b2c4e74d894d380390e293da34fc641cf476fb778ddb",
+  "recipe_lf_sha256": {
+    "prepare_radiator_mechanisms.py": "c066a3f884e4e959bc510c5e181b55ab4011a86415a860f13ea7420a434472b5",
+    "radiator_cast_detail.py": "908281aed7edd24b0e6910ed464cf70a491175a0690cd8c12281461975b442b7",
+    "radiator_fitting_detail.py": "cdb530fdbea4a69d9aba45bb4fbc9158a16b5e3a7c14f843db3e642bb60f614a"
+  },
+  "families": {
+    "radiator_mechanisms": {
+      "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-radiator-polish-20261017\\fitting_detail\\radiator_mechanisms.glb",
+      "primitives": 20,
+      "triangles": 134066,
+      "minimum_tangent_agreement": 0.9999999530438852,
+      "status": "PASS",
+      "native_geometry_sha256": "58d3a9ba37a45c4be8945cafb8857328527d8d9441a8cb6df4370297eaaff22e",
+      "native_parts": {
+        "ArticulatedValveHousing": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "ThreadedMovingValveCore": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "SixSpokeHandwheel": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened",
+            "door_brass"
+          ]
+        },
+        "FixedStemPacking": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "graphited_packing"
+          ]
+        },
+        "CastSectionThreeColumnCandidate": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_cast_iron",
+            "door_brass"
+          ]
+        },
+        "CastShoeFoot": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "radiator_cast_iron",
+            "door_brass"
+          ]
+        },
+        "BlindHeaderPlug": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_blackened",
+            "door_brass"
+          ]
+        },
+        "VentHeaderReducer": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "HeaderSealWasher": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SweptSupplyElbow": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SphericalNeck_7": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SphericalNeck_8": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SphericalNeck_9": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "SphericalNeck_10": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "FloatingMetalBearingRing": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "ValveSphericalRetainer": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "HeaderSphericalRetainer": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "door_brass",
+            "door_brass"
+          ]
+        },
+        "PackedHeaderSocket": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "iron_neutral",
+            "door_brass"
+          ]
+        },
+        "RemovableFibrousUnionPacking": {
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "graphited_packing"
+          ]
+        }
+      },
+      "source_native_geometry_sha256": "2227c654cd74ee8684513a7800bd2bce4ebb4d12b80cf071a450d38e04133890",
+      "cast_refinement": {
+        "CastSectionThreeColumnCandidate": {
+          "retained_reviewed_native": true
+        },
+        "CastShoeFoot": {
+          "retained_reviewed_native": true
+        },
+        "BlindHeaderPlug": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 8.534897504709453e-05,
+          "physical_charts": {
+            "local_metric_repairs": 5,
+            "minimum_metric_scale": 0.838348786658634,
+            "maximum_metric_scale": 1.218953137470957
+          },
+          "triangles": 894
+        },
+        "VentHeaderReducer": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 7.336153798583166e-05,
+          "physical_charts": {
+            "local_metric_repairs": 18,
+            "minimum_metric_scale": 0.8372579636192856,
+            "maximum_metric_scale": 1.3222542499115986
+          },
+          "triangles": 1592
+        },
+        "ValveSphericalRetainer": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 8.808215808642764e-05,
+          "physical_charts": {
+            "local_metric_repairs": 1641,
+            "minimum_metric_scale": 0.7541649093872911,
+            "maximum_metric_scale": 1.3292293136643516
+          },
+          "triangles": 12680
+        },
+        "HeaderSphericalRetainer": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 5.9907746489225266e-05,
+          "physical_charts": {
+            "local_metric_repairs": 780,
+            "minimum_metric_scale": 0.7501797722641346,
+            "maximum_metric_scale": 1.3293143065654585
+          },
+          "triangles": 11752
+        },
+        "PackedHeaderSocket": {
+          "edge_break_m": 0.00045,
+          "segments": 3,
+          "closed": true,
+          "volume_m3": 7.360807187872234e-05,
+          "physical_charts": {
+            "local_metric_repairs": 20,
+            "minimum_metric_scale": 0.8320596572162077,
+            "maximum_metric_scale": 1.2591860301938445
+          },
+          "triangles": 8064
+        }
+      },
+      "asset_sha256": "20cdf482879b55c87cad2d5d458b25657fe885e8db650e6a69e78faa45181360",
+      "native_sha256": "dbef8bdaa07482f3aad054d4a7d3b5f48f2d80af31593c4bff8e1cf1fb719c72"
+    }
+  },
+  "retained_cast_native_sha256": "7c2d5853e86fb93059ec0b3aff7e3d56f4904a8a6c2b6deeeed623b5c4ee0256"
+}
