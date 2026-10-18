@@ -19,6 +19,14 @@ Assertions about shared material defaults must account for V2's active UV
 policy and verify restoration after world teardown. Check runtime registration
 as well as the art catalogue: an art key alone does not populate MatLib's sets.
 
+Before the final capture, run the complete static/tools board in a clean
+candidate checkout as well as the focused preflight. Review and register new
+spatial dependencies without replacing existing manifest rows. Renew source
+discoveries through their actual probe before freezing surface inputs: even
+an unchanged trim-instance set with a renewed layout binding invalidates the
+broad surface and access digests. Catch that metadata change before the long
+Godot batch, rather than repeating unchanged world builds afterward.
+
 For a reflection defect, isolate its actual light and emitting geometry before
 altering material roughness. Compare the configured source size with the native
 emitting envelope, and inspect other fixtures in that same physical family at
