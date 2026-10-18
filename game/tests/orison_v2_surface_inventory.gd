@@ -63,6 +63,9 @@ func _run() -> void:
 	var pavement_review := preload("res://tests/orison_v2_front_pavement_test.gd").new()
 	pavement_review.batch_mode=true;pavement_review.capture_enabled=true;add_child(pavement_review)
 	var pavement_result: Dictionary=await pavement_review.validate_in_world(world)
+	if not pavement_result.has_all(["checks","failures"]):
+		check(false,"pavement validation aborted without a complete result")
+		world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	batch_checks+=int(pavement_result.checks)
 	for failure: String in pavement_result.failures:failures.append(failure)
 	pavement_review.free()
@@ -70,6 +73,9 @@ func _run() -> void:
 	var paving_review := preload("res://tests/orison_v2_street_paving_details_test.gd").new()
 	paving_review.batch_mode=true;paving_review.capture_enabled=true;add_child(paving_review)
 	var paving_result: Dictionary=await paving_review.validate_in_world(world)
+	if not paving_result.has_all(["checks","failures"]):
+		check(false,"street validation aborted without a complete result")
+		world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	batch_checks+=int(paving_result.checks)
 	for failure: String in paving_result.failures:failures.append(failure)
 	paving_review.free()

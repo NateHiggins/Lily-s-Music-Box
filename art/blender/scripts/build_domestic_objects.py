@@ -31,6 +31,16 @@ import os
 OUT=Path(os.environ.get('DOMESTIC_OBJECTS_OUT',str(ROOT)))
 plan_path=Path(os.environ.get('DOMESTIC_OBJECTS_PLAN',str(ROOT/'art/data/domestic_objects/source_plan.json')));layout_path=ROOT/'art/data/building_layout.json'
 plan=json.loads(plan_path.read_text(encoding='utf-8'));layout=json.loads(layout_path.read_text(encoding='utf-8'));assert plan['classification']=='ADAPTATION'
+# Bounded native preflight may never replace the installed family.
+assert len(plan['instances'])==248
+review_kinds={k.strip() for k in os.environ.get('DOMESTIC_OBJECTS_REVIEW_KINDS','').split(',') if k.strip()}
+if review_kinds:
+ assert (ROOT/'tmp').resolve() in OUT.resolve().parents, 'bounded review output must be below repository tmp/'
+ assert review_kinds <= {v['kind'] for v in plan['variants']}, 'unknown review kind'
+ plan['variants']=[v for v in plan['variants'] if v['kind'] in review_kinds]
+ selected_variants={v['id'] for v in plan['variants']}
+ plan['instances']=[i for i in plan['instances'] if i['variant'] in selected_variants]
+ assert plan['instances'], 'empty review instance set'
 rows={record['id']:record for floor in layout['floors'] for record in floor['furniture']}
 domestic=json.loads((ROOT/'game/data/orison_v2/domestic_furniture.json').read_text(encoding='utf-8'));table_records={row['id']:row for row in domestic['furniture']};variants={row['id']:row for row in plan['variants']}
 source_gltf=json.loads((ROOT/'game/assets/building/floor_b1.gltf').read_text(encoding='utf-8'))
@@ -61,7 +71,7 @@ calibrate_sets(ROOT,sets,plan,catalog)
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
 selected=[rows[identity] for identity in plan['source_ids']]
-assert len(selected)==16 and len(plan['instances'])==248
+assert len(selected)==16
 assemblies=[{'id':v['id'],'kind':v['kind'],'cell':'shared','members':[table_records[v['source_id']]],'body':{'rect':[0,0,0,0],'z0':0.}} for v in plan['variants']]
 # Reject future source/template drift before sharing a native variant.
 completion={row['id']:row['template'] for row in json.loads((ROOT/'game/data/orison_v2/completion_interiors.json').read_text(encoding='utf-8'))['furniture']}

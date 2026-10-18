@@ -13,6 +13,22 @@ func check(value: bool,label: String) -> void:
 
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests();CampaignTime.set_frozen_for_tests(true)
+	# Exercise the retained source box after the same authored metre-UV
+	# conversion used by the street. Its concrete mesh subclass is not authority.
+	var paving := preload("res://tests/orison_v2_street_paving_details_test.gd").new()
+	var primitive := BoxMesh.new();primitive.size=Vector3(2.,.12,3.)
+	check(paving._retained_box(primitive,primitive.size),"retained primitive box has its source geometry")
+	var converted := preload("res://scripts/building/v2_metre_box_uv.gd").chart(primitive)
+	check(converted is ArrayMesh and paving._retained_box(converted,primitive.size),"authored UV ArrayMesh retains the exact source box")
+	check(not paving._retained_box(converted,Vector3(2.,.13,3.)),"different physical box dimensions are refused")
+	var arrays := converted.surface_get_arrays(0)
+	var points: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX];points[0]*=.9;arrays[Mesh.ARRAY_VERTEX]=points
+	var deformed := ArrayMesh.new();deformed.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+	check(not paving._retained_box(deformed,primitive.size),"a deformed corner is refused even with the same enclosing bounds")
+	paving.free()
+	var finish_box := AABB(Vector3.ZERO,Vector3.ONE)
+	check(preload("res://tests/v2_furnishing_clearance_review.gd")._triangle_box(Vector3(-1,.5,.5),Vector3(2,.5,.5),Vector3(.5,2,.5),finish_box),"finish review detects a crossing triangle")
+	check(not preload("res://tests/v2_furnishing_clearance_review.gd")._triangle_box(Vector3(-1,2,.5),Vector3(2,2,.5),Vector3(.5,3,.5),finish_box),"finish review retains clear space inside a leaning prop envelope")
 	var resolver: Variant=Resolver.load_default()
 	check(resolver.is_valid(),"all six public regions resolve")
 	if not resolver.is_valid():print(resolver.errors);_finish();return
@@ -49,6 +65,6 @@ func _finish() -> void:
 	var out:=OS.get_environment("SHOT_DIR")
 	if not out.is_empty():
 		DirAccess.make_dir_recursive_absolute(out)
-		FileAccess.open(out.path_join("public_programme_diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"scope":"Public frames, routes and bounded geometry ownership only; no actual route walk, loaded module binding or human acceptance."},"\t"))
+		FileAccess.open(out.path_join("public_programme_diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"scope":"Public frames, routes, bounded ownership, retained box UV conversion and finish triangle predicates only; no actual route walk, loaded module binding or human acceptance."},"\t"))
 	print("PUBLIC REGION PROGRAMME BENCH ","PASS" if failures.is_empty() else "FAIL"," checks=",checks," failures=",failures.size())
 	get_tree().quit(0 if failures.is_empty() else 1)

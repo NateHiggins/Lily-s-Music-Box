@@ -7,6 +7,17 @@ func _init() -> void:
 	contract_key="street_paving_details"
 	contract_scope="Twenty installed native street detail groups, exact source records, metre UV/tangent checks, original collision owners and 224 current surface bearings; supported player-height captures; actual grab/motion/release entrance operation, player-input street crossing and return; shared-world owner retirement. No save reconstruction or drainage/weather capacity."
 
+func _retained_box(mesh: Mesh,size: Vector3) -> bool:
+	# Authored-UV conversion changes BoxMesh to ArrayMesh. Verify the actual
+	# twelve-triangle box and corner coordinates, not its resource subclass.
+	if mesh==null or mesh.get_faces().size()!=36:return false
+	var bounds:=mesh.get_aabb()
+	if not bounds.size.is_equal_approx(size) or not bounds.position.is_equal_approx(-size*.5):return false
+	for point: Vector3 in mesh.get_faces():
+		for axis in 3:
+			if absf(absf(point[axis])-size[axis]*.5)>.000001:return false
+	return true
+
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	contract_started=Time.get_ticks_msec()
 	world.player.set_physics_process(false)
@@ -31,14 +42,15 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		parts+=1;triangles+=draw.mesh.get_faces().size()/3
 		_check_cap_mapping(draw.mesh,true)
 		var original: MeshInstance3D=originals[str(row.id)]
-		check(not original.visible and original.mesh is BoxMesh,"original primitive retained but visually superseded: "+str(row.id))
 		var source: Dictionary=row.source
-		check(original.position.is_equal_approx(Vector3(source.position_m[0],source.position_m[1],source.position_m[2])) and original.mesh.size.is_equal_approx(Vector3(source.size_m[0],source.size_m[1],source.size_m[2])),"source pose and dimensions retained")
+		var size:=Vector3(source.size_m[0],source.size_m[1],source.size_m[2])
+		check(not original.visible and _retained_box(original.mesh,size),"original box geometry retained but visually superseded: "+str(row.id))
+		check(original.position.is_equal_approx(Vector3(source.position_m[0],source.position_m[1],source.position_m[2])) and original.mesh.get_aabb().size.is_equal_approx(size),"source pose and dimensions retained")
 		if bool(source.collision):
 			check(shapes.has(str(row.id)),"original passage floor shape remains")
 			if shapes.has(str(row.id)):
 				var shape: CollisionShape3D=shapes[str(row.id)]
-				check(not shape.disabled and shape.shape is BoxShape3D and shape.shape.size.is_equal_approx(original.mesh.size),"original floor physics extents unchanged")
+				check(not shape.disabled and shape.shape is BoxShape3D and shape.shape.size.is_equal_approx(size),"original floor physics extents unchanged")
 		var mat:=draw.material_override as StandardMaterial3D
 		check(mat!=null and mat.albedo_texture!=null and mat.normal_texture!=null and mat.roughness_texture!=null and not mat.uv1_triplanar,"native metric charts use existing three-map finish")
 		for tex: Texture2D in [mat.albedo_texture,mat.normal_texture,mat.roughness_texture]:check(tex.get_image().has_mipmaps(),"loaded street finish has mip chain")

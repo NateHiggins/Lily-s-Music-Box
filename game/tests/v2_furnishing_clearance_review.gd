@@ -70,10 +70,40 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> void:
 	DirAccess.make_dir_recursive_absolute(directory)
 	FileAccess.open(directory.path_join("furnishing_clearance.json"),FileAccess.WRITE).store_string(JSON.stringify(report,"\t"))
 	var stock := Fit.finish_stock(world.adapter.root)
+	# Inspect omitted kinds as well: a fixed service fitting needs an explicit
+	# bearing decision rather than silently escaping the furniture census.
+	var omitted: Array=[]
+	for body: Node in world.adapter.root.find_children("*","Node3D",true,false):
+		if not body.has_meta("v2_furniture_kind"):continue
+		var kind := str(body.get_meta("v2_furniture_kind"))
+		if kind in Fit.FLOOR_KINDS or kind in Fit.HANGING_KINDS:continue
+		var contacts := Fit.overlaps(Fit.parts(world.adapter.root,body),stock)
+		if not contacts.is_empty():
+			omitted.append({"id":str(body.name),"kind":kind,"contacts":contacts.size(),"triangles_clear":_leaning_tool_clear(world.adapter.root,body,stock),"boxes":Fit._pack(Fit.parts(world.adapter.root,body))})
+	FileAccess.open(directory.path_join("omitted_finish_contacts.json"),FileAccess.WRITE).store_string(JSON.stringify(omitted,"\t"))
+	for row: Dictionary in omitted:check(bool(row.triangles_clear),"retained fitting clears actual finish triangles: "+str(row.id))
+	print("RETAINED FINISH CONTACTS: reviewed=%d unresolved=%d" % [omitted.size(),omitted.filter(func(row):return not row.triangles_clear).size()])
 	var ladder := world.adapter.resolve("B1_laundry_stepladder") as Node3D
 	check(ladder!=null and _leaning_tool_clear(world.adapter.root,ladder,stock),"actual leaning ladder triangles clear trim while retaining floor and wall bearings")
+	for row: Dictionary in omitted:
+		var body := world.adapter.resolve(str(row.id)) as Node3D
+		var boxes := Fit.parts(world.adapter.root,body)
+		var bounds: AABB=boxes[0]
+		for box: AABB in boxes:bounds=bounds.merge(box)
+		var center: Vector3=world.adapter.root.to_global(bounds.get_center())
+		var nearest := INF;var normal := Vector3.BACK
+		for finish: Dictionary in stock:
+			var box: AABB=finish.bounds
+			var distance := bounds.get_center().distance_squared_to(bounds.get_center().clamp(box.position,box.end))
+			if distance<nearest:nearest=distance;normal=finish.normal
+		world.player.camera.global_position=center+world.adapter.root.global_basis*normal*1.8+Vector3.UP*.2
+		world.player.camera.look_at(center);world.player.camera.make_current()
+		world.player.set_lamp_enabled(true)
+		await get_tree().create_timer(.1).timeout
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(directory.path_join("omitted_"+str(row.id)+".png"))
 	var moved := 0;var unresolved := 0
-	var selected := ["EastRack","1A_wardrobe","1A_frame_a","4C_story_colorboard","3B_toolboard","5C_w0_wardrobe","6B_abed","F01_lobby_photo","F06_PUBLIC_LANDING_PIECE","2A_k_wall_cupboard","F02_2A_BOOKSHELF_01","3A_prop_shelf_n","2B_repair_rail","6A_prep_cabinet","2B_dress_form"]
+	var selected := ["EastRack","1A_wardrobe","1A_frame_a","4C_story_colorboard","3B_toolboard","5C_w0_wardrobe","6B_abed","F01_lobby_photo","F06_PUBLIC_LANDING_PIECE","2A_k_wall_cupboard","F02_2A_BOOKSHELF_01","3A_prop_shelf_n","2B_repair_rail","6A_prep_cabinet","2B_dress_form","2C_threshold","4C_threshold","6C_threshold","6A_print_line"]
 	for row: Dictionary in report.items:
 		if not row.resolved:unresolved+=1
 		var offset := Vector3(row.offset[0],row.offset[1],row.offset[2])
@@ -120,6 +150,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> void:
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(directory.path_join("clearance_%02d_%s.png" % [moved,row.id]))
 	check(unresolved==0,"every selected furnishing has a safe finish-clear placement")
+	check(Fit.apply(world)==report,"reapplying placement retains the fitted actors and original report")
 	print("FURNISHING CLEARANCE: inspected=%d moved=%d unresolved=%d failures=%d" % [report.items.size(),moved,unresolved,failures.size()])
 	world.player.camera.global_transform=camera_pose
 	world.player.set_lamp_enabled(lamp_on)

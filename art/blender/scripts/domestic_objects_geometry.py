@@ -21,6 +21,20 @@ def wall_mount(source,width,height):
  for x in [-width*.35,width*.35]:
   for z in [.08,height-.08]:support(identity,'wall',(x,back,z),(0,1,0),'retained wall face behind fitted spacer')
 
+def finished_mount(source,width,height,front_start):
+ # Separate timber/metal packers retain real plaster bearings while the
+ # hanging face stands beyond the installed 42 mm eye rail.
+ off=float(source.get('finish_standoff_m',0))
+ if not off:return
+ for record in stock_checks[front_start:]:
+  transform(bpy.data.objects[record['name']],Matrix.Translation((0,off,0)))
+ back=variants[identity]['rear_wall_y']
+ zs=[height-.08] if source.get('kind')=='backdroprail' else [.08,height-.035]
+ for x in [-width*.35,width*.35]:
+  for z in zs:
+   stock('FinishPacker'+str((x,z)),(x-.018,back,z-.025),(x+.018,off+(.001 if source.get('kind')=='backdroprail' else .021),z+.025),'wood_dark',.001)
+   support(identity,'wall',(x,back,z),(0,1,0),'separate packer screwed to plaster clear of finish rail')
+
 def pinboard(source,collected):
  start=len(stock_checks);width=source.get('W',.9);height=source.get('H',.6)
  stock('Back',(-width/2,0,0),(width/2,.016,height),'wood_dark',.0008)
@@ -359,13 +373,15 @@ def blanket(source):
  # Dossier slice 13: a moving blanket hung from a batten, edges bound and
  # quilted in rows.
  start=len(stock_checks);width=source['W'];height=source['H'];key=source['key']
- wall_mount(source,width,height)
+ if not source.get("finish_standoff_m"):wall_mount(source,width,height)
+ front_start=len(stock_checks)
  stock('Batten',(-width/2-.03,0,height-.05),(width/2+.03,.02,height),'timber',.0006)
  stock('Blanket',(-width/2,.0195,0),(width/2,.04,height-.02),key,.003)
  for side in [-1,1]:stock('Bind'+str(side),(min(side*width/2,side*(width/2-.025)),.018,0),(max(side*width/2,side*(width/2-.025)),.0415,height-.02),'linen',.0004)
  stock('BindFoot',(-width/2+.024,.018,0),(width/2-.024,.0415,.025),'linen',.0004)
  for i in range(1,int(height/.3)):
   z=i*.3;stock('Stitch'+str(i),(-width/2+.03,.0398,z-.0012),(width/2-.03,.0412,z+.0012),'linen',.0001)
+ finished_mount(dict(source,kind='blanket'),width,height,front_start)
  group('HungBlanket',start)
 
 def hamper(source):
@@ -492,12 +508,14 @@ def backdroprail(source):
  # Dossier slice 20: a photographer's backdrop, a paper roll on a rail in
  # two brackets under a header strip, the paper hanging almost to the floor.
  start=len(stock_checks);width=source['W'];height=source['H']
- wall_mount(source,width,height)
+ if not source.get("finish_standoff_m"):wall_mount(source,width,height)
+ front_start=len(stock_checks)
  stock('Header',(-width/2,0,height-.12),(width/2,.02,height),'wood_dark',.001)
  for x in [-width/2+.02,width/2-.02]:stock('Bracket'+str(x),(x-.01,.0,height-.1),(x+.01,.1,height-.04),'metal',.0006)
  tube('Rail',(-width/2+.015,.08,height-.065),(width/2-.015,.08,height-.065),.012,'metal')
  tube('Roll',(-width/2+.04,.08,height-.065),(width/2-.04,.08,height-.065),.05,'paper')
  stock('Sheet',(-width/2+.05,.124,.05),(width/2-.05,.13,height-.065),'paper',.0005)
+ finished_mount(dict(source,kind='backdroprail'),width,height,front_start)
  group('BackdropRail',start)
 
 def printline(source):
@@ -644,7 +662,14 @@ def conduit(source):
  start=len(stock_checks)
  for label,z0,z1 in [('Riser',0,low),('Trunk',high,top-.45),('SpareStub',top-.31,top)]:
   ring(label,0,y,z0,.016,.0125,z1-z0,'metal')
- ring('RiserFlange',0,y,0,.035,.0163,.020,'metal')
+ foot=ring('RiserFlange',0,y,0,.035,.0163,.020,'metal')
+ # A D-shaped flange clears the 32 mm skirting at floor level. Its complete
+ # pipe bore, ten millimetres of rear iron and original floor bearings remain.
+ bm=bmesh.new();bm.from_mesh(foot.data)
+ bmesh.ops.bisect_plane(bm,geom=list(bm.verts)+list(bm.edges)+list(bm.faces),dist=1e-7,plane_co=(0,.014-foot.location.y,0),plane_no=(0,1,0),clear_inner=True)
+ bmesh.ops.holes_fill(bm,edges=[e for e in bm.edges if e.is_boundary],sides=0)
+ bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(foot.data);bm.free()
+ foot["uv_axis"]=(0,0,0)  # the new flat cope receives planar metre charts
  for label,at in [('LowerCabinetBush',low+.005),('UpperCabinetBush',high-.005)]:
   ring(label,0,y,at-.013,.020,.0163,.026,'metal')
  for p in [(.03,y,0),(-.03,y,0),(0,y+.03,0)]:bearing('flange '+str(p),p)
@@ -905,10 +930,11 @@ def chargingcase(source):
  for x in [-.1,.1]:
   lathe('Terminal'+str(x),x,back+.2,.239,[(0,0),(.012,0),(.012,.02),(.007,.024),(.007,.035),(0,.035)],'brass')
  stock('Handle',(-.06,back+.16,.239),(.06,back+.18,.26),'rubber_aged',.002)
+ for record in stock_checks[start:]:transform(bpy.data.objects[record['name']],Matrix.Translation((0,.025,0)))
  stock('Plate',(-.05,back,.32),(.05,back+.008,.42),'bakelite',.002)
  support(identity,'wall',(0,back,.37),(0,1,0),'signal plate screwed to the wall')
- wire('Lead',[(-.1,back+.2,.265),(-.12,back+.12,.32),(-.06,back+.05,.36),(0,back+.006,.37)],.004,'linen')
- for p in [(-.16,back+.06,0),(.16,back+.06,0),(-.16,back+.28,0),(.16,back+.28,0)]:bearing('case '+str(p),p)
+ wire('Lead',[(-.1,back+.225,.265),(-.12,back+.145,.32),(-.06,back+.05,.36),(0,back+.006,.37)],.004,'linen')
+ for p in [(-.16,back+.085,0),(.16,back+.085,0),(-.16,back+.305,0),(.16,back+.305,0)]:bearing('case '+str(p),p)
  group('ChargingCase',start)
 
 def wallbell(source):
@@ -922,7 +948,7 @@ def wallbell(source):
  stock('Bracket',(-.03,back+.011,height-.03),(.03,back+.1,height),'brass',.002)
  lathe('Dome',0,back+.06,height-.001,[(0,0),(.05,0),(.05,.008),(.045,.03),(.03,.045),(0,.05)],'bakelite')
  lathe('Knob',0,back+.06,height+.048,[(0,0),(.008,0),(.008,.012),(0,.014)],'brass')
- wire('Flex',[(0,back+.008,height-.06),(0,back+.012,height-.2),(.004,back+.012,1.5),(0,back+.012,1.006),(.003,back+.012,.4),(0,back+.012,.028)],.0035,'blanket_grey')
+ wire('Flex',[(0,back+.008,height-.06),(0,back+.012,height-.2),(.004,back+.012,1.56),(.003,back+.060,1.515),(0,back+.064,1.47),(0,back+.060,1.425),(0,back+.012,1.38),(0,back+.012,1.006),(.003,back+.012,.4),(0,back+.012,.028)],.0035,'blanket_grey')
  stock('Terminal',(-.014,back,.005),(.014,back+.02,.035),'bakelite',.0015)
  support(identity,'wall',(0,back,.02),(0,1,0),'flex terminal screwed to the wall above the skirting')
  stock('Tape',(-.008,back+.006,1.55),(.008,back+.02,1.58),'rubber_aged',.0005)

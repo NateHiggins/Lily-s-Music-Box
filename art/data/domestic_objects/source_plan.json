@@ -446,7 +446,8 @@
       "params": {
         "W": 1.2,
         "H": 2.0,
-        "key": "blanket_grey"
+        "key": "blanket_grey",
+        "finish_standoff_m": 0.035
       },
       "rear_wall_y": -0.02
     },
@@ -535,7 +536,8 @@
       "source_id": "6A_backdrop_rail",
       "params": {
         "W": 1.2,
-        "H": 2.25
+        "H": 2.25,
+        "finish_standoff_m": 0.035
       },
       "rear_wall_y": -0.02
     },

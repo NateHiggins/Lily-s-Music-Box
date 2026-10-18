@@ -31,6 +31,19 @@ Assertions about shared material defaults must account for V2's active UV
 policy and verify restoration after world teardown. Check runtime registration
 as well as the art catalogue: an art key alone does not populate MatLib's sets.
 
+For household-object edits, preflight the changed native kinds before the full
+family export. Set `DOMESTIC_OBJECTS_REVIEW_KINDS` to a comma-separated list and
+`DOMESTIC_OBJECTS_OUT` to a directory below repository `tmp/`; create the normal
+output folders and copy the installed `.glb.import` there first. The owning
+builder preserves all copies of each requested variant and refuses canonical
+or non-temporary destinations for partial output. Run the original UV, normal,
+closed-stock and bearing checks against that export before the complete build.
+Keep internal-contact scope explicit: the conduit has separated branches at
+its retained cabinet and a clearance bore, so its pre-existing disconnected
+join graph is not evidence of a newly broken part. Check its actual contacts
+and bore separately, and retain the failed diagnostic rather than widening
+the contact tolerance.
+
 Before the final capture, run the complete static/tools board in a clean
 candidate checkout as well as the focused preflight. Review and register new
 spatial dependencies without replacing existing manifest rows. Renew source
