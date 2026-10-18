@@ -30,6 +30,25 @@ func _run() -> void:
 	await get_tree().physics_frame;await get_tree().physics_frame
 	check(not world.startup_failed and world.player!=null,"production world composes every public geometry provider")
 	if world.startup_failed or world.player==null:world.free();_finish();return
+	if OS.get_environment("ORISON_PREFLIGHT_STREET_AND_PUBLIC")=="1":
+		var street:=preload("res://tests/orison_v2_street_crossing_test.gd").new()
+		street.externally_managed=true;street.world=world;street.player=world.player;add_child(street)
+		world.player.set_physics_process(true);world.player.set_process_unhandled_input(true)
+		world.player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+		street._prepare_player_start();await get_tree().process_frame;await get_tree().process_frame
+		await street._route()
+		check(street.failures.is_empty() and street.trace.size()>=18,"ordinary entrance, street crossing and return preflight")
+		for failure: String in street.failures:print("STREET PREFLIGHT FAILURE: ",failure)
+		if OS.get_environment("ORISON_PREFLIGHT_STREET_ONLY")=="1":
+			trace.append_array(street.trace)
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(out.path_join("entrance_street_last.png"))
+			street.free()
+			var retired_only: WeakRef=weakref(world)
+			world.shutdown_for_tests();world.free();await get_tree().process_frame
+			check(retired_only.get_ref()==null,"focused street world retires")
+			_finish();return
+		street.free()
 	await run(world,self)
 	var retired: WeakRef=weakref(world)
 	world.shutdown_for_tests();world.free();await get_tree().process_frame
@@ -42,15 +61,20 @@ func run(current: OrisonV2RuntimeRoot,suite: Node) -> void:
 	var prior_position:=player.global_position;var prior_rotation:=player.rotation;var prior_camera:=player.camera.rotation
 	var prior_physics:=player.is_physics_processing()
 	var programmes: Variant=world.public_regions
-	var states: Array=programmes.snapshot()
+	player.set_physics_process(true);player.set_lamp_enabled(false);player.carried_device.set_capture_hidden(true)
+	var first: Dictionary=programmes.route("ROUTE_STREET_TO_ARCADE").nodes[0].placement
+	player.global_position=(first.position as Vector3)+Vector3.UP*.025;player.velocity=Vector3.ZERO
+	# A preceding interior route may have retired the exterior draw cells.
+	# Let ordinary player-driven streaming rebuild them before inspecting residency.
+	var states: Array=[]
+	for frame in 120:
+		await get_tree().physics_frame
+		states=programmes.snapshot()
+		if states.size()==4 and states.all(func(state):return bool(state.resident)):break
 	check(states.size()==4,"four programme regions have actual module owners")
 	for state: Dictionary in states:
 		check(bool(state.resident),"actual region geometry is resident: "+str(state.region_id))
 		check(state.owner!=null,"actual region has its retained physical owner: "+str(state.region_id))
-	player.set_physics_process(true);player.set_lamp_enabled(false);player.carried_device.set_capture_hidden(true)
-	var first: Dictionary=programmes.route("ROUTE_STREET_TO_ARCADE").nodes[0].placement
-	player.global_position=(first.position as Vector3)+Vector3.UP*.025;player.velocity=Vector3.ZERO
-	await get_tree().physics_frame
 	var route_failed:=false
 	for identity: String in ["ROUTE_STREET_TO_ARCADE","ROUTE_ARCADE_TO_STREET","ROUTE_STREET_TO_CONSTRUCTION","ROUTE_CONSTRUCTION_TO_STREET"]:
 		var route: Dictionary=programmes.route(identity)

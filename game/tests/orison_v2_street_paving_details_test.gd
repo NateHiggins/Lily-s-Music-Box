@@ -105,7 +105,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var walker:=StreetWalker.new();walker.world=world;walker.player=world.player;add_child(walker)
 	world.player.set_physics_process(true);world.player.set_process_unhandled_input(true)
 	world.player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-	walker._prepare_player_start();await get_tree().physics_frame;await get_tree().physics_frame
+	walker._prepare_player_start();await get_tree().process_frame;await get_tree().process_frame
 	await walker._route()
 	Input.action_release("move_forward")
 	check(walker.failures.is_empty() and walker.trace.size()>=18,"original input/physics street crossing and return completes")

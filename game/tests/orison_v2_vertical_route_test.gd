@@ -25,7 +25,8 @@ func _run() -> void:
 		_prepare_player_start()
 		player.camera.make_current()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		await get_tree().physics_frame
+		await get_tree().process_frame
+		await get_tree().process_frame
 		await _route()
 	Input.action_release("move_forward")
 	var directory := OS.get_environment("SHOT_DIR")
@@ -103,7 +104,9 @@ func _walk(local_target: Vector3) -> bool:
 	var started := Time.get_ticks_msec()
 	var travel_budget_ms := maxi(6000, int(player.global_position.distance_to(target) / player.WALK * 1000.0) + 2000)
 	var contacts := {}
+	var frames := 0
 	while Time.get_ticks_msec() - started < travel_budget_ms:
+		frames+=1
 		var delta := target - player.global_position
 		delta.y = 0
 		if delta.length() < 0.1: break
@@ -128,13 +131,13 @@ func _walk(local_target: Vector3) -> bool:
 		var label := "target %s actual %s" % [local_target, actual]
 		failures.append(label)
 		push_error(route_label + ": " + label)
-		print("ROUTE_COLLISION_DIAGNOSTIC ", JSON.stringify(contacts))
+		print("ROUTE_COLLISION_DIAGNOSTIC ", JSON.stringify({"contacts":contacts,"frames":frames,"elapsed_ms":Time.get_ticks_msec()-started,"call_locked":player.call_locked,"inspecting":player.inspecting(),"physics":player.is_physics_processing(),"velocity":str(player.velocity)}))
 	return ok
 
 ## Every street round now passes the same closed production landmark leaf.
-## Use ordinary E input at the last interior stance before walking outside.
+## Grab from outside the real leaf sweep, then walk through the settled opening.
 func _leave_front_entrance() -> bool:
-	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.1)]:
+	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65)]:
 		if not await _walk(point):return false
 	if not await _open_front_entrance("F01_INNER_DOOR"):return false
 	if not await _walk(Vector3(0,0,-10.2)):return false
@@ -152,14 +155,17 @@ func _enter_front_entrance() -> bool:
 func _open_front_entrance(identity: String="F01_DOOR_06") -> bool:
 	var anchor:=world.adapter.resolve(identity) as Node3D
 	var door:=anchor.get_node(identity+"_Leaf") as DoorProp
-	if not door.is_ready_for_passage():
-		player.face_world_point(door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)))
+	var goal:=door.motion_target_angle(true)
+	if not door.is_ready_for_passage() or absf(door._body.rotation.y-goal)>.01:
+		# The free edge travels out of arm reach during the outward swing.
+		# Grab the hinge-side third without changing the real reach constraint.
+		player.face_world_point(door._body.to_global(Vector3(door.width/3.0,1.1,door._hinge_offset)))
 		player.set_mouse_released(false)
 		await get_tree().physics_frame
 		var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
 		player._unhandled_input(click)
-		var goal:=door.motion_target_angle(true)
-		for frame in 120:
+		var held_contact: Vector3=player._grab.contact
+		for frame in 160:
 			if not player._grab.active() or player._grab.target.owner!=door:break
 			var angle: float=player._grab.target.read.call()
 			if absf(angle-goal)<.000001:break
@@ -173,5 +179,9 @@ func _open_front_entrance(identity: String="F01_DOOR_06") -> bool:
 			await get_tree().physics_frame
 		if player._grab.active():player._unhandled_input(click)
 		await get_tree().physics_frame
-		if not door.is_ready_for_passage():failures.append(identity+" did not open through player input");return false
+		if not door.is_ready_for_passage() or absf(door._body.rotation.y-goal)>.01:
+			var at:=door._body.to_global(held_contact)
+			var obstruction:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(player.camera.global_position,at,1,[player.get_rid()]))
+			print("DOOR_HAND_DIAGNOSTIC ",identity," angle=",door._body.rotation.y," wanted=",goal," point=",at," camera=",player.camera.global_position," distance=",at.distance_to(player.camera.global_position)," blocker=",obstruction.get("collider"))
+			failures.append(identity+" did not reach its opening stop through player input: "+str(door._body.rotation.y)+" / "+str(goal));return false
 	return true
