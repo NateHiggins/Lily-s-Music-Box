@@ -1,0 +1,1 @@
+Evidence class: INERT. Canonical dirty-tree board before repairing the historical-only design fixture. It has two completeness-tool failures; it is not final clean candidate acceptance. The source-bound ledger itself shows actual current scope counts.

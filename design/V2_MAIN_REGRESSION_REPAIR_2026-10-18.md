@@ -95,6 +95,9 @@ The archive retains the exact source findings and per-entry rationale.
 The new home proof restores all 15 regressed statuses. Structural blockers
 return from 114 to main’s 102, whole-building runtime 35 to 34, cutover 131 to
 119 and retirement 133 to 121. First slice remains zero and golden shift one.
+The remaining-home receipt further reduces structural blockers to 48, runtime
+blockers to 25, cutover to 65 and retirement to 67. These are the ledger's scope
+counts; the new apartment evidence grants spatial access, not runtime authority.
 Targeted reader/surface gates still pass. A complete clean-candidate comparison
 against the preserved clean-main board is the next integration check; it is
 not yet claimed here.
@@ -104,6 +107,14 @@ walking/golden shift, visual polish and human acceptance remain open. No V2
 completion, global resource-clean, whole-building runtime or retirement grant
 is made. Seven known Texture RID shutdown warnings remain outside measured
 root/driver retirement.
+
+The full board also exposed two historical-fixture test failures: the
+capture-only design directory included the newly played spatial checkpoints.
+That fixture now excludes SPATIAL_ACCESS checkpoints as a class, preserving
+its original acceptance provenance and whole-building blockers. A new control
+checks all nine upper units stay PROGRAMMED in that historical fixture while
+today's source-bound proofs grant only SPATIALLY_PROVEN. All 109 completeness
+tests pass. Current admission and synthetic proof-rejection checks remain active.
 
 ## Developer report
 
@@ -117,11 +128,13 @@ Worktree clean at end: no; inherited render/receipt and generated UID changes
 remain outside this checkpoint. Only named owned paths are staged.
 Protected 17/17: yes; selector: **v2**, explicit V1 rollback retained.
 Ledger clean-main before -> renewed proof: first slice / golden / structural /
-runtime / cutover / retirement: final board comparison pending. The intervening
+runtime / cutover / retirement **0/1/102/34/119/121 -> 0/1/48/25/65/67**.
+Final clean-tree comparison is pending. The intervening
 15-status expired home-proof regression is repaired; the remaining-home
 checkpoint advances 54 further statuses. Requirement inventory is unchanged.
 Gates: spatial tools **59 tests PASS**; physical-import retention **6 tests PASS**,
 308 sources, zero missing/wrong; surface qualification **PASS**, zero defects.
+Completeness tools: **109 tests PASS**. Reader: zero new unread fields.
 Godot: **roof2.log.receipt.json**, completed exit 0, 9 rooms/2 legs/214 checks;
 **home3.log.receipt.json**, completed exit 0, 62 rooms/9 legs/909 checks;
 **remaining2.log.receipt.json**, completed exit 0, 60 rooms/9 legs/792 checks.

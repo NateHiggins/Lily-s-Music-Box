@@ -1187,16 +1187,15 @@ class LiveRepoSmokeTests(unittest.TestCase):
         cls.addClassCleanup(cls.historical_design.cleanup)
         historical = Path(cls.historical_design.name)
         for source in (REPO_ROOT / "design").glob("*"):
-            if source.is_file() and source.name not in {
+            if source.is_file() and "SPATIAL_ACCESS_CHECKPOINT" not in source.name and source.name not in {
                 "ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
-                "ORISON_V2_APARTMENT_SPATIAL_ACCESS_CHECKPOINT_2026-10-12.md",
-                "ORISON_V2_REMAINING_APARTMENT_SPATIAL_ACCESS_CHECKPOINT_2026-10-13.md",
             }:
                 shutil.copy2(source, historical / source.name)
         cls.code, cls.payload, _ = run_payload(REPO_ROOT, "--design-dir", str(historical))
+        cls.current_code, cls.current_payload, _ = run_payload(REPO_ROOT)
 
     def test_live_first_slice_current_checkpoint_has_executed_contracts(self):
-        code, current, _ = run_payload(REPO_ROOT)
+        code, current = self.current_code, self.current_payload
         self.assertEqual(code, 2)  # broader building remains incomplete
         self.assertEqual(current["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"], [])
         for rid in ("ritual.F01_WATCHMAN_DETECTOR", "ritual.F01_NIGHT_REGISTER",
@@ -1206,6 +1205,14 @@ class LiveRepoSmokeTests(unittest.TestCase):
             self.assertEqual(req(current, rid)["status"], "RUNTIME_PROVEN", rid)
         receipt = json.loads((REPO_ROOT / "art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json").read_text(encoding="utf8"))
         self.assertEqual(audit.runtime_receipt_errors(receipt, REPO_ROOT), [])
+
+    def test_played_cohorts_do_not_leak_into_capture_only_history(self):
+        # Renewed played proof must advance today's rooms without changing
+        # the historical capture-only controls or granting runtime acceptance.
+        for unit in ("3A", "3B", "4A", "5A", "5B", "5C", "6A", "6B", "6C"):
+            rid = "unit." + unit
+            self.assertEqual(req(self.payload, rid)["status"], "PROGRAMMED", rid)
+            self.assertEqual(req(self.current_payload, rid)["status"], "SPATIALLY_PROVEN", rid)
 
     M08D_TEN = {
         "ritual.F01_WATCHMAN_DETECTOR", "ritual.F01_NIGHT_REGISTER",
