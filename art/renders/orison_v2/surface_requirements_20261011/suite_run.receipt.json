@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 616.95,
+  "elapsed_s": 611.65,
   "exit_code": 0,
-  "finished_utc": "2026-10-18T20:27:58Z",
-  "started_utc": "2026-10-18T20:17:41Z",
+  "finished_utc": "2026-10-18T22:48:59Z",
+  "started_utc": "2026-10-18T22:38:47Z",
   "timed_out": false
  },
  "log": {
@@ -19,19 +19,19 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-wall-clearance-20261018/surface6.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-public-landing-integration-20261018/surface1.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-wall-clearance-20261018/surface6.log",
-  "stdout_sha256": "1e2809041ec60794eebb166828233307d14090cd3738e3d712e3dc6dce63ac26"
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-public-landing-integration-20261018/surface1.log",
+  "stdout_sha256": "0e924ef07ccdcc71da6d75a7709a017d192e1272b5c2c7a59eb663c202e76699"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-wall-clearance-20261018\\surface6",
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-public-landing-integration-20261018\\surface1",
  "source": {
-  "dirty_paths": 1619,
+  "dirty_paths": 1615,
   "dirty_sample": [
    "M art/renders/insitu/shots.md",
    " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
@@ -54,9 +54,9 @@
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json"
   ],
-  "repository_head": "7d59b519e9891c0e92e697ac420eee210406e20d",
-  "repository_tree": "fd082e38fdec423ace1a12bcc8c39b70728c4fdc",
-  "runtime_inputs_sha256": "6bc3536d2a360ff8e0001d0937384c49aef5acecc4e9635d1bca6f7d2a60d191",
+  "repository_head": "bc748321354b08089426c495597eed738db0cab4",
+  "repository_tree": "986673df23909730bccad9f99838d82922fa28e6",
+  "runtime_inputs_sha256": "ab790737a87e3488e93fec8ce45b2b6eaf87e245e7940f057440ef8a264d0975",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "c355acb358ed832a95af61f1c8b479fa65b7bcc72800c72855c43618d0ffb352"
  },

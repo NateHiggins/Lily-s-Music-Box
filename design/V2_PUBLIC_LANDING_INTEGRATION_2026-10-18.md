@@ -74,12 +74,17 @@ The original landing1 contract passes 41 checks and 748 collision-bearing
 waypoints with zero failures, six actual landing claims and 3/0 measured object
 retirement. Review5 passes 125 checks with zero failures; all six plaque close-ups
 and the new F01 east passage render were inspected. These seven captures are
-archived with their original matching wrapper/logs. The broad surface/service/
-home/upper qualifications remain running in the same serial lane batch.
+archived with their original matching wrapper/logs. Surface1 passes 35,051
+checks with zero failures: 25,666 draws, 16,640 meshes, 6,112 material instances
+and 497 loaded textures; zero unresolved UV/PBR/mipmap surfaces. Seven current
+clearance/installation captures were inspected and published with the original
+contract, wrapper and byte-matched logs. Seven standing Texture RID shutdown
+warnings remain. Bright lamp hotspots, repetitive grain and simple wall art
+remain appearance work. Service/home/upper qualification is still running.
 
-The new source intentionally expires broad qualification. The changed-schema
-native fixtures needed by the surface pass must be renewed through their owning
-builders/inspectors. Then freeze the source, execute the played landing contract
-and renew surface, service and both access cohorts. Final clean candidate
-comparison, reviewed archive, commit and push are pending. FullV2, the authored
-eleven-beat run and human acceptance remain incomplete.
+The native renewals, landing contract and surface publication are complete.
+Production sources remain frozen while service and both access cohorts run.
+A clean checkout independently matches both runtime and surface hashes in the
+played landing receipt. Final clean candidate comparison and push remain
+pending. Full V2, the authored eleven-beat run, V2 acoustic rederivation and
+human acceptance remain incomplete.
