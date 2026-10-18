@@ -41,12 +41,12 @@ class LandingFootprints(unittest.TestCase):
         self.assertEqual(radius,.33)
         result = derive(layout,radius)['landings']
         self.assertEqual(layout,original)
-        self.assertEqual([r['union_area_m2'] for r in result],[30.62]+[38.32]*5)
+        self.assertEqual([r['union_area_m2'] for r in result],[33.815]+[38.32]*5)
         for r in result:
             self.assertFalse(contains(r['support_rects'],[0,-1.5]),r['level'])
-        for r in result[1:4]:
-            # Six square metres of lift void plus .125 m2 beside the stair.
-            self.assertEqual(r['legacy_unsupported_area_m2'],6.125)
+        for r in result:
+            self.assertEqual(r['legacy_unsupported_area_m2'],0)
+            self.assertEqual(r['programme_space_id'],r['level']+'_LANDING')
         for r in [result[1],result[3]]:
             self.assertTrue(r['review_stance_supports_capsule'])
         self.assertIsNone(result[2]['review_stance'])
@@ -56,6 +56,15 @@ class LandingFootprints(unittest.TestCase):
                 p=candidate['position']
                 self.assertTrue(capsule_supported(r['support_rects'],[p[0],p[2]],radius))
         self.assertEqual([r['legacy_space_id'] for r in [result[0],result[4],result[5]]],[None]*3)
+
+    def test_old_review_envelopes_remain_a_measurable_negative_fixture(self):
+        layout=json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text(encoding='utf-8'))
+        for space in layout['spaces']:
+            if space['id'] not in ['F02_LANDING','F03_LANDING','F04_LANDING']:continue
+            for field in ['floor_platforms','landing_core','programme_anchors']:space.pop(field,None)
+            space['rect']=[-2.2,-3.35,1.45,.6]
+        result=derive(layout,.33)['landings']
+        self.assertEqual([r['legacy_unsupported_area_m2'] for r in result[1:4]],[6.125]*3)
 
     def test_invalid_or_foreign_floor_stock_is_rejected(self):
         for r in [[0,0,0,1],[0,0,float('nan'),1]]:

@@ -54,6 +54,10 @@ def inputs(root=ROOT):
                  'art/tools/fix_v2_mesh_imports.py','art/tools/generate_runtime_materials.py',
                  'art/tools/ingest_material_sources.py','art/tools/build_clear_water_maps.py',
                  'art/data/gen_layout.py','art/data/material_catalog.json','art/textures/catalog_mapping.json'])
+    paths.update(root/p for p in ['art/data/orison_v2/public_landings_source.json',
+                                 'tools/build_v2_public_landings.py',
+                                 'tools/derive_v2_public_landings.py',
+                                 'tools/v2_space_footprints.py'])
     for name in ('toast_crumb','leather_worn','mineral_scale'):
         paths.add(root/f'art/textures/ai_sources/{name}.png')
     paths.add(root/'art/textures/ai_sources/v2_surface_stock_20261011.json')

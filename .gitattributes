@@ -2344,3 +2344,25 @@ art/reviews/v2_wall_stock_clearance_20261018/** -text -whitespace
 
 # Source-bound landing authoring diagnoses and original clean verification.
 art/reviews/v2_public_landing_footprints_20261018/** -text -whitespace
+
+# Platform-backed public landing source, consumers and collision diagnoses.
+art/data/orison_v2/public_landings_source.json -text
+tools/build_v2_public_landings.py -text
+tools/derive_v2_public_landings.py -text
+tools/v2_space_footprints.py -text
+tools/audit_orison_v2_completeness.py -text
+tools/tests/test_v2_public_landing_programmes.py -text
+game/scripts/building/orison_v2_space_footprints.gd -text
+game/scripts/building/orison_v2_landing_programmes.gd -text
+game/scripts/building/orison_v2_wayfinding.gd -text
+game/tests/orison_v2_landing_programme_bench.gd -text
+game/tests/OrisonV2LandingProgrammeBench.tscn -text
+game/tests/orison_v2_landing_programme_review.gd -text
+game/tests/OrisonV2LandingProgrammeReview.tscn -text
+game/tests/orison_v2_public_landing_walk.gd -text
+game/tests/OrisonV2PublicLandingWalk.tscn -text
+game/tests/v2_public_landing_access_contract.gd -text
+game/tests/V2PublicLandingAccessContract.tscn -text
+tools/spatial_access_evidence.py -text
+tools/tests/test_spatial_access_evidence.py -text
+tools/tests/test_v2_public_landing_footprints.py -text

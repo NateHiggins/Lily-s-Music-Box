@@ -996,6 +996,12 @@ class V2Model:
     def space_status(self, space: dict) -> tuple[str, str]:
         """Base geometric status of one space with a reason."""
         sid = space["id"]
+        if any(k in space for k in ["floor_platforms", "landing_core", "programme_anchors"]):
+            from v2_space_footprints import programme_errors
+            errors = programme_errors(self.raw, space)
+            if errors:
+                return "SHELL_ONLY", "; ".join(errors)
+            return "PROGRAMMED", "platform-backed landing, native landmark and retained vertical core entrance"
         if space.get("open_shell"):
             return "SHELL_ONLY", "declared open_shell in the v2 schema"
         if not str(space.get("purpose", "")).strip():
@@ -1015,9 +1021,9 @@ class V2Model:
         if not pos or level is None:
             return None
         x, z = float(pos[0]), float(pos[2])
+        from v2_space_footprints import contains
         for space in self.spaces_on(level):
-            rect = space.get("rect")
-            if rect and rect[0] <= x <= rect[2] and rect[1] <= z <= rect[3]:
+            if space.get("rect") and contains(self.raw, space, x, z):
                 return space
         return None
 

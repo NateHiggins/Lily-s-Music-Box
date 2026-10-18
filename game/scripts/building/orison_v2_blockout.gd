@@ -103,6 +103,8 @@ func _validate_layout() -> void:
 			failures.append("invalid apartment unit for space level: " + str(space.get("id", "?")))
 		if not _valid_rect(space.get("rect", [])):
 			failures.append("invalid space rect: " + str(space.get("id", "?")))
+		for fault: String in preload("res://scripts/building/orison_v2_space_footprints.gd").programme_errors(layout,space):
+			failures.append(str(space.get("id","?"))+": "+fault)
 	for opening: Dictionary in layout.get("slab_openings", []):
 		if opening.get("surface","") not in ["Floor","Ceiling"] or not _valid_rect(opening.get("rect",[])):
 			failures.append("invalid slab opening: " + str(opening.get("id","?")))
@@ -487,6 +489,10 @@ func _build_spaces() -> void:
 		parent.name = str(space.id)
 		parent.set_meta("purpose", str(space.get("purpose", "")))
 		parent.set_meta("room_id", str(space.id))
+		if space.has("floor_platforms"):
+			parent.set_meta("floor_platforms",space.floor_platforms.duplicate())
+			parent.set_meta("landing_core",str(space.landing_core))
+			parent.set_meta("programme_anchors",space.programme_anchors.duplicate())
 		add_child(parent)
 		if str(space.id) in space_geometry_exclusions:
 			parent.set_meta("geometry_owned_by_exterior", true)

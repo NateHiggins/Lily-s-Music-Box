@@ -1,6 +1,7 @@
 extends Node3D
 ## Lit physical plaques; coordinates come from the actual core/stair schedule.
 var plaques: Array[Node3D] = []
+var finish_report: Array[Dictionary]=[]
 const HARDWARE := preload("res://assets/props/wayfinding_plate.glb")
 
 func mount(layout: Dictionary) -> bool:
@@ -49,6 +50,22 @@ func mount(layout: Dictionary) -> bool:
 			_letter(plaque,"Floor",title,.09,96,.0022)
 			_letter(plaque,"Directions",note,-.12,40,.0018)
 	return plaques.size()==16
+
+func fit_to_finishes(root: Node3D) -> bool:
+	var fitter:=preload("res://scripts/building/orison_v2_furnishing_clearance.gd")
+	var stock:=fitter.finish_stock(root)
+	finish_report.clear()
+	for plaque: Node3D in plaques:
+		var y:=float(root.level_y[str(plaque.get_meta("level"))])
+		# The entire native plate/spacers/lettering stay on their original wall.
+		plaque.position.y=y+2.0
+		var boxes:=fitter.parts(root,plaque)
+		var result:=fitter.displacement(boxes,stock,true,Vector2(y+1.70,y+float(root.layout.dimensions.clear_height)-.12))
+		if not bool(result.resolved):return false
+		plaque.position+=result.offset
+		if not fitter.overlaps(fitter.parts(root,plaque),stock,Vector3.ZERO,fitter.HANGING_GAP).is_empty():return false
+		finish_report.append({"id":str(plaque.name),"position":plaque.position,"parts":boxes.size(),"resolved":true})
+	return finish_report.size()==16
 
 func _letter(parent: Node3D, label: String, words: String, y: float, size: int, scale_m: float) -> void:
 	var text := Label3D.new()

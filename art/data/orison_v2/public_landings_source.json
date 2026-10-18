@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "programmes": [
+    {
+      "id": "F01_LANDING",
+      "level": "F01",
+      "core": "F01_PUBLIC_CORE",
+      "purpose": "floor and unit decision at the passenger lift and primary stair",
+      "landmark_anchor": "F01_PUBLIC_LANDING_PIECE"
+    },
+    {
+      "id": "F02_LANDING",
+      "level": "F02",
+      "core": "F02_PUBLIC_CORE",
+      "purpose": "floor and unit decision at the passenger lift and primary stair",
+      "landmark_anchor": "F02_PUBLIC_LANDING_PIECE"
+    },
+    {
+      "id": "F03_LANDING",
+      "level": "F03",
+      "core": "F03_PUBLIC_CORE",
+      "purpose": "floor and unit decision at the passenger lift and primary stair",
+      "landmark_anchor": "F03_PUBLIC_LANDING_PIECE"
+    },
+    {
+      "id": "F04_LANDING",
+      "level": "F04",
+      "core": "F04_PUBLIC_CORE",
+      "purpose": "floor and unit decision at the passenger lift and primary stair",
+      "landmark_anchor": "F04_PUBLIC_LANDING_PIECE"
+    },
+    {
+      "id": "F05_LANDING",
+      "level": "F05",
+      "core": "F05_PUBLIC_CORE",
+      "purpose": "floor and unit decision at the passenger lift and primary stair",
+      "landmark_anchor": "F05_PUBLIC_LANDING_PIECE"
+    },
+    {
+      "id": "F06_LANDING",
+      "level": "F06",
+      "core": "F06_PUBLIC_CORE",
+      "purpose": "floor and unit decision at the passenger lift and primary stair",
+      "landmark_anchor": "F06_PUBLIC_LANDING_PIECE"
+    }
+  ],
+  "platform_repairs": [
+    {
+      "id": "F01_PUBLIC_LANDING_E",
+      "level": "F01",
+      "rect": [
+        4.5,
+        -1.9,
+        5.4,
+        1.65
+      ],
+      "class": "core",
+      "reason": "Restore the missing east public passage after the shifted watch-room footprint removed the western floor bypass. Preserve the lift and stair voids; butt the two existing slab edges."
+    }
+  ]
+}

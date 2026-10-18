@@ -4,6 +4,7 @@ import json
 import math
 import re
 from pathlib import Path
+from v2_space_footprints import contains, programme_errors
 
 
 def validate(data, root, runtime_digest, surface_digest):
@@ -76,6 +77,9 @@ def validate(data, root, runtime_digest, surface_digest):
                 errors.append('room lacks a played trace point: ' + identity)
                 continue
             p = claim['actual']; room = rooms[identity]; r = room['rect']
+            if any(k in room for k in ['landing_core', 'floor_platforms', 'programme_anchors']):
+                if programme_errors(layout, room) or not contains(layout, room, p[0], p[2]):
+                    errors.append('trace point lacks valid landing floor support: ' + identity)
             if not (r[0]+.05 < p[0] < r[2]-.05 and r[1]+.05 < p[2] < r[3]-.05 and abs(p[1]-floors[room['level']]) < .15):
                 errors.append('trace point is outside claimed room: ' + identity)
     except (KeyError, TypeError, ValueError, OSError, AttributeError) as exc:

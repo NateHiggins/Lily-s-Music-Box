@@ -49,7 +49,6 @@
     {"id":"F01_FRONT_WORKROOM","level":"F01","rect":[5.4,-12.35,8.3,-8.3],"wall_sides":["south"],"class":"public","purpose":"restored front maintenance workroom","wall_extensions":[{"side":"east","start":-12.35,"end":-9.25}],"exterior_sides":["south"]},
     {"id":"F01_FRONT_SERVICE_RETURN","level":"F01","rect":[8.3,-12.35,9.5,-9.25],"wall_sides":["south"],"class":"public","purpose":"restored street-front service return","exterior_sides":["south"]},
     {"id":"F01_FRONT_STORE_ALCOVE","level":"F01","rect":[5.4,-4.6,8.3,-3.85],"wall_sides":["north"],"class":"public","purpose":"shallow storage recess behind the retained staff restroom"},
-
     {"id":"B1_STORAGE_NORTH_BAY","level":"B1","rect":[3.45,9.5,5.4,11.85],"class":"service","purpose":"one dry resident storage cage at the north end of the existing aisle","wall_sides":["north","west","east"]},
     {"id":"B1_LAUNDRY","level":"B1","class":"service","rect":[-10.0,-3.85,-2.2,3.85],"purpose":"shared wringer washing, rinse tubs and ceiling airer","exterior_sides":["west"]},
     {"id":"B1_PUBLIC_CORE","level":"B1","class":"core","rect":[-2.2,-3.85,5.4,3.85],"purpose":"readable basement arrival and primary stair","no_floor":true,"no_ceiling":true,"wall_sides":["south","north"]},
@@ -67,7 +66,7 @@
     {"id":"F01_CORE_TO_SERVICE","level":"F01","class":"service","rect":[5.4,-1.0,8.3,1.0],"purpose":"controlled public-to-service transfer","wall_sides":["south","north"]},
     {"id":"F01_SERVICE_HALL","level":"F01","class":"service","rect":[8.3,-9.25,9.5,9.25],"purpose":"staff, delivery and maintenance route"},
     {"id":"F01_SERVICE_CORE","level":"F01","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair","no_floor":true,"no_ceiling":true},
-    {"id":"F02_LANDING","level":"F02","class":"public","rect":[-2.2,-3.35,1.45,0.6],"purpose":"floor and unit decision","open_shell":true,"no_floor":true,"no_ceiling":true},
+    {"id":"F02_LANDING","level":"F02","class":"public","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F02_PUBLIC_CORE","floor_platforms":["F02_PUBLIC_LANDING_S","F02_PUBLIC_LANDING_N","F02_PUBLIC_LANDING_W","F02_PUBLIC_LANDING_W_SHAFT_1","F02_PUBLIC_LANDING_W_SHAFT_2","F02_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F02_PUBLIC_LANDING_PIECE"]},
     {"id":"F02_WEST_HALL","level":"F02","class":"public","rect":[-5.6,-0.6,-2.2,0.6],"purpose":"2A public approach"},
     {"id":"F02_A_VESTIBULE","level":"F02","class":"private","rect":[-7.55,-1.35,-5.6,1.35],"purpose":"2A privacy and distribution","wall_sides":["south","north","west"], "wall_extensions": [{"side":"east","start":-1.35,"end":-0.6},{"side":"east","start":0.6,"end":1.35}]},
     {"id":"F02_A_MAIN","level":"F02","class":"private","rect":[-15.65,-3.85,-7.55,3.1],"purpose":"Mina living, caption work and conversation","wall_sides":["south","north","west"],"exterior_sides":["west"], "wall_extensions": [{"side":"east","start":-3.85,"end":-1.35},{"side":"east","start":1.35,"end":3.1}]},
@@ -89,7 +88,7 @@
     {"id":"F02_SERVICE_CORE","level":"F02","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair","no_floor":true,"no_ceiling":true},
     {"id":"F03_PUBLIC_CORE","level":"F03","class":"core","rect":[-2.2,-3.85,5.4,3.85],"purpose":"intermediate passenger lift and primary stair transfer","no_floor":true,"no_ceiling":true},
     {"id":"F03_SERVICE_CORE","level":"F03","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"intermediate service lift and stair transfer","no_floor":true,"no_ceiling":true},
-    {"id":"F04_LANDING","level":"F04","class":"public","rect":[-2.2,-3.35,1.45,0.6],"purpose":"floor and unit decision","open_shell":true,"no_floor":true,"no_ceiling":true},
+    {"id":"F04_LANDING","level":"F04","class":"public","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F04_PUBLIC_CORE","floor_platforms":["F04_PUBLIC_LANDING_S","F04_PUBLIC_LANDING_N","F04_PUBLIC_LANDING_W","F04_PUBLIC_LANDING_W_SHAFT_1","F04_PUBLIC_LANDING_W_SHAFT_2","F04_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F04_PUBLIC_LANDING_PIECE"]},
     {"id":"F04_WEST_HALL","level":"F04","class":"public","rect":[-5.6,-0.6,-2.2,0.6],"purpose":"4B public approach"},
     {"id":"F04_B_VESTIBULE","level":"F04","class":"private","rect":[-7.55,-1.35,-5.6,1.65],"purpose":"4B privacy and distribution","wall_sides":["south","north","west"], "wall_extensions": [{"side":"east","start":-1.35,"end":-0.6},{"side":"east","start":0.6,"end":1.65}]},
     {"id":"F04_B_MAIN","level":"F04","class":"private","rect":[-15.65,-3.85,-7.55,3.45],"purpose":"player rest, work and calls","wall_sides":["south","north","west"],"exterior_sides":["west"], "wall_extensions": [{"side":"east","start":-3.85,"end":-1.35},{"side":"east","start":1.65,"end":3.45}]},
@@ -102,7 +101,7 @@
     {"id":"F04_PUBLIC_CORE","level":"F04","class":"core","rect":[-2.2,-3.85,5.4,3.85],"purpose":"passenger lift and primary stair","no_floor":true,"no_ceiling":true,"wall_sides":["south","north","east"]},
     {"id":"F04_SERVICE_HALL","level":"F04","class":"service","rect":[7.1,-2.65,9.5,9.25],"purpose":"maintenance continuity"},
     {"id":"F04_SERVICE_CORE","level":"F04","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair","no_floor":true,"no_ceiling":true},
-    {"id":"F03_LANDING","level":"F03","rect":[-2.2,-3.35,1.45,0.6],"purpose":"floor and unit decision","class":"public","open_shell":true,"no_floor":true,"no_ceiling":true},
+    {"id":"F03_LANDING","level":"F03","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","class":"public","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F03_PUBLIC_CORE","floor_platforms":["F03_PUBLIC_LANDING_S","F03_PUBLIC_LANDING_N","F03_PUBLIC_LANDING_W","F03_PUBLIC_LANDING_W_SHAFT_1","F03_PUBLIC_LANDING_W_SHAFT_2","F03_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F03_PUBLIC_LANDING_PIECE"]},
     {"id":"F03_EAST_HALL","level":"F03","rect":[5.4,-3.85,8.3,-2.65],"purpose":"public approach to Omar Bell at 3B","class":"public"},
     {"id":"F03_SERVICE_CROSSING","level":"F03","rect":[8.3,-3.85,9.5,-2.65],"purpose":"controlled public crossing of the service spine","class":"service"},
     {"id":"F03_SERVICE_HALL","level":"F03","rect":[7.1,-2.65,9.5,9.25],"purpose":"maintenance route with bypass and inspection clearance around continuous risers","class":"service"},
@@ -250,7 +249,10 @@
     {"id":"B1_COAL_ROOM","level":"B1","rect":[9.5,-12.35,15.65,-5.5],"purpose":"fuel bunker and short firing supply route, separate from dry electrical room","wall_sides":["south","west","east"],"class":"service"},
     {"id":"B1_RESIDENT_STORAGE","level":"B1","rect":[-10,3.85,5.4,9.5],"purpose":"eighteen dry resident storage cages, including north-end bay, with central and east aisles","wall_sides":["west","north","east"],"class":"service"},
     {"id":"B1_SERVICE_CORE","level":"B1","rect":[9.5,4.0,13.2,10.2],"purpose":"service stair continuation from basement plant to ground floor","wall_sides":["west","east","north"],"class":"core","no_ceiling":true},
-    {"id":"B1_ELECTRICAL_RECESS","level":"B1","rect":[6.5,-2,8.3,-1],"class":"service","purpose":"outward panel-room leaf swings outside the through corridor","wall_sides":["west","east"]}
+    {"id":"B1_ELECTRICAL_RECESS","level":"B1","rect":[6.5,-2,8.3,-1],"class":"service","purpose":"outward panel-room leaf swings outside the through corridor","wall_sides":["west","east"]},
+    {"id":"F01_LANDING","level":"F01","class":"public","rect":[-1.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F01_PUBLIC_CORE","floor_platforms":["F01_PUBLIC_LANDING_S","F01_PUBLIC_LANDING_N","F01_PUBLIC_LANDING_W","F01_PUBLIC_LANDING_W_SHAFT_1","F01_PUBLIC_LANDING_W_SHAFT_3","F01_PUBLIC_LANDING_E"],"programme_anchors":["F01_PUBLIC_LANDING_PIECE"]},
+    {"id":"F05_LANDING","level":"F05","class":"public","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F05_PUBLIC_CORE","floor_platforms":["F05_PUBLIC_LANDING_S","F05_PUBLIC_LANDING_N","F05_PUBLIC_LANDING_W","F05_PUBLIC_LANDING_W_SHAFT_1","F05_PUBLIC_LANDING_W_SHAFT_2","F05_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F05_PUBLIC_LANDING_PIECE"]},
+    {"id":"F06_LANDING","level":"F06","class":"public","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F06_PUBLIC_CORE","floor_platforms":["F06_PUBLIC_LANDING_S","F06_PUBLIC_LANDING_N","F06_PUBLIC_LANDING_W","F06_PUBLIC_LANDING_W_SHAFT_1","F06_PUBLIC_LANDING_W_SHAFT_2","F06_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F06_PUBLIC_LANDING_PIECE"]}
   ],
   "doors": [
     {"id":"B1_LAUNDRY_DOOR","level":"B1","center":[-2.2,-1.5],"width":1.1,"height":2.13,"yaw":1.5707963267948966,"hinge":"left","swing":"laundry","connects":["B1_PUBLIC_CORE","B1_LAUNDRY"]},
@@ -2337,7 +2339,8 @@
     {"id":"ROOF_LIFT_DECK_N","level":"ROOF","rect":[-0.86,-0.42,-0.64,3.85],"class":"core"},
     {"id":"B1_PRIMARY_STAIR_BASE","level":"B1","rect":[1.4,-1.9,4.5,1.65],"class":"service"},
     {"id":"F01_LIGHT_COURT_BASE","level":"F01","rect":[2.45,-1.9,3.45,-0.25],"class":"public"},
-    {"id":"ROOF_PUBLIC_LANDING_E","level":"ROOF","rect":[4.5,-1.9,5.4,1.65],"class":"core"}
+    {"id":"ROOF_PUBLIC_LANDING_E","level":"ROOF","rect":[4.5,-1.9,5.4,1.65],"class":"core"},
+    {"id":"F01_PUBLIC_LANDING_E","level":"F01","rect":[4.5,-1.9,5.4,1.65],"class":"core"}
   ],
   "lift_landings": [
     {"id":"F01_PASSENGER_LIFT_LANDING","level":"F01","shaft":"PASSENGER_LIFT_SHAFT","center":[0.0,-2.8],"width":0.91,"height":2.13,"yaw":0.0,"clear_depth":1.8},

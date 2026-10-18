@@ -113,7 +113,13 @@ def derive(layout, capsule_radius):
             raise ValueError("Missing or foreign-floor landing stock: "+floor)
         rects = [r['rect'] for r in owners]
         area,edges = union(rects)
-        legacy = [r for r in layout['spaces'] if r['id'] == floor+'_LANDING']
+        spaces = [r for r in layout['spaces'] if r['id'] == floor+'_LANDING']
+        legacy = [r for r in spaces if 'floor_platforms' not in r]
+        programmes = [r for r in spaces if 'floor_platforms' in r]
+        for space in programmes:
+            from v2_space_footprints import programme_errors
+            if programme_errors(layout,space):
+                raise ValueError('Invalid installed landing programme: '+floor)
         old_area = 0.0
         if legacy:
             r = legacy[0]['rect']
@@ -133,6 +139,7 @@ def derive(layout, capsule_radius):
                        'support_rects':rects,'union_area_m2':round(area,9),
                        'exposed_edges':edges,
                        'legacy_space_id':legacy[0]['id'] if legacy else None,
+                       'programme_space_id':programmes[0]['id'] if programmes else None,
                        'legacy_unsupported_area_m2':round(old_area,9),
                        'review_stance':witness,
                        'geometric_stance_candidates':candidates,

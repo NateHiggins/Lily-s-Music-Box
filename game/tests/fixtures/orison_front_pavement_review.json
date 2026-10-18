@@ -1,9 +1,9 @@
 {
   "evidence_class": "INERT",
   "schema": "orison.front-pavement-consumed-source-review.v1",
-  "original_fixture_sha256": "a49b13d34738c68db929f2ccbb9914a3612be8885d0d75719dae28fe689c5dd9",
+  "original_fixture_sha256": "c3a9fcc5de9f6073606c9f12c16e87c4381f3e032960628a604337d8421c9cea",
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "0b48ecebf8a454e6b2a95372c64a550d351f8553ea10f19755201de8724302ae",
+    "game/data/orison_v2_blockout.json": "7e80b06b87c00675c51ea5bc5e7a6f515642654f36f0f09f4f39bef91baf4f6f",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
     "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
     "game/data/orison_v2/exterior/construction_shed.json": "adc2740f083de4a85eaf9314f01a503ee76fdd0a5706af5acd197f43522e8baa",
@@ -13,7 +13,7 @@
     "art/blender/scripts/build_front_pavement.py": "3ee27182b7fe15efc3988866ac2c485b74a17a3cb76214cc56ba8d9eb4c754fa"
   },
   "asset_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
-  "native_sha256": "abef0f3f70f0b3b757de527ad161d8beddf75de1759dbb2b3a3a3f0a3982f88f",
+  "native_sha256": "b568a6b7272ca9a5a1feb96dac2a611df7ce2917b612e9abee0a406b4b5b4fe3",
   "blockout_projection": {
     "door": {
       "id": "F01_DOOR_06",
@@ -596,7 +596,7 @@
     ]
   },
   "mask_max_difference_m": 0.0,
-  "closed_union_volume_m3": 27.583769631318688,
+  "closed_union_volume_m3": 27.58376963131869,
   "parts": 34,
   "scope": "Exact consumed layout and 24 native masonry mask comparison. Original source fixture and native paving/export unchanged; no runtime proof."
 }

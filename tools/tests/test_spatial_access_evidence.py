@@ -76,6 +76,23 @@ class SpatialAccessEvidence(unittest.TestCase):
         for data in [None,[],{},dict(self.data,source=None),dict(self.data,legs=[None])]:
             self.assertTrue(validate(data,self.root,'b'*64,'c'*64))
 
+    def test_landing_envelope_cannot_prove_shaft_or_invalid_support(self):
+        layout=json.loads((Path(__file__).resolve().parents[2]/'game/data/orison_v2_blockout.json').read_text(encoding='utf-8'))
+        path=self.root/'game/data/orison_v2_blockout.json'
+        path.write_text(json.dumps(layout),encoding='utf-8')
+        landing=next(s for s in layout['spaces'] if s.get('id')=='F01_LANDING')
+        self.assertIn('floor_platforms',landing)
+        def claim(point):
+            self.data['legs'][0]['trace']=[{'actual':point,'target':point,'ok':True}]
+            self.data['contracts']['room_access']['rooms']={'F01_LANDING':{'actual':point,'leg':'A'}}
+        claim([3.4,0,2.75])
+        self.assertEqual(self.check_receipt(),[])
+        claim([0,0,-1.5])
+        self.assertTrue(any('floor support' in e for e in self.check_receipt()))
+        claim([3.4,0,2.75]);landing['floor_platforms']=['invented_support']
+        path.write_text(json.dumps(layout),encoding='utf-8')
+        self.assertTrue(any('floor support' in e for e in self.check_receipt()))
+
     def test_ledger_grants_only_played_spatial_rooms_and_expires(self):
         import audit_orison_v2_completeness as audit
         import v2_surface_evidence

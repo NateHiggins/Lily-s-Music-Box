@@ -21,6 +21,7 @@ const PassageRegion := preload("res://scripts/building/orison_v2_passage_region.
 const BarRegion := preload("res://scripts/building/orison_v2_bar_region.gd")
 const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
 const HouseholdState := preload("res://scripts/building/orison_v2_household_state.gd")
+const Wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -42,6 +43,7 @@ var boiler_tend: BoilerTend
 var heat_balance: HeatBalance
 var mirror_renderer: PlanarMirrorRenderer
 var household_state: HouseholdState
+var wayfinding: Wayfinding
 var open_shift_ecosystem: Node
 var observation_ledger: NpcObservationLedger
 var resident_presence: ScheduleDirector
@@ -83,6 +85,7 @@ var mina_infestation: Node3D
 var _infestation_revision := 0
 var _exterior_resolver: Variant
 var public_regions: Variant
+var public_landings: Variant
 var _connection: Dictionary = {}
 
 func _read_street_frame() -> Dictionary:
@@ -161,7 +164,7 @@ func _ready() -> void:
 	cues.show_route_bands = false
 	cues.show_light_pools = false  # Accord 15: every lumen has a fixture; the cue pools are development aids
 	_blockout.add_child(cues)
-	var wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd").new()
+	wayfinding = Wayfinding.new()
 	wayfinding.name = "Wayfinding"
 	_blockout.add_child(wayfinding)
 	if not wayfinding.mount(_blockout.layout):
@@ -562,6 +565,11 @@ func _compose_authorities() -> void:
 		open_shift_radiator.bind_inventory(maintenance_inventory)
 	_compose_observation_ledger()
 	preload("res://scripts/building/orison_v2_furnishing_clearance.gd").apply(self)
+	if not wayfinding.fit_to_finishes(_blockout):
+		startup_failed=true;push_error("V2 wayfinding cannot clear installed wall finishes");return
+	public_landings=preload("res://scripts/building/orison_v2_landing_programmes.gd").new()
+	if not public_landings.setup(self):
+		startup_failed=true;push_error("V2 landing programmes refused: %s" % [public_landings.errors]);return
 	if not preload("res://scripts/building/orison_v2_window_treatments.gd").mount(self):
 		startup_failed=true;push_error("V2 window treatments refused");return
 	mina_routine = preload("res://scripts/characters/orison_v2_mina_routine.gd").new()
@@ -996,6 +1004,7 @@ func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
 
 func shutdown_for_tests() -> void:
+	if public_landings!=null:public_landings.teardown()
 	if is_instance_valid(household_state): household_state.shutdown()
 	if is_instance_valid(mirror_renderer): mirror_renderer.shutdown()
 	if is_instance_valid(shop_simulation):
@@ -1012,6 +1021,7 @@ func shutdown_for_tests() -> void:
 		adapter.restore_all(true)
 
 func _exit_tree() -> void:
+	if public_landings!=null:public_landings.teardown();public_landings=null
 	if public_regions!=null:public_regions.teardown();public_regions=null
 	if is_instance_valid(household_state): household_state.shutdown()
 	if is_instance_valid(mirror_renderer): mirror_renderer.shutdown()
@@ -1020,3 +1030,8 @@ func _exit_tree() -> void:
 		_exterior_resolver = null
 	if adapter != null:
 		adapter.restore_all()
+
+func room_at_world(world_position: Vector3) -> String:
+	if _blockout==null or layout.is_empty():return ""
+	if public_landings!=null:return public_landings.room_at(world_position)
+	return preload("res://scripts/building/orison_v2_space_footprints.gd").room_at(layout,_blockout.to_local(world_position))
