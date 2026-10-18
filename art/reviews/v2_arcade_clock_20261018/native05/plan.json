@@ -1,0 +1,3865 @@
+{
+  "evidence_class": "INERT",
+  "source": "art/data/building_layout.json",
+  "source_sha256_lf": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+  "origin": [
+    14.0,
+    6.210000000000001,
+    51.599999999999994
+  ],
+  "retire": [
+    {
+      "id": "site_passage_crossing_clock_body",
+      "key": "bakelite_black",
+      "low": [
+        13.72,
+        5.9,
+        51.31999999999999
+      ],
+      "high": [
+        14.28,
+        6.5200000000000005,
+        51.879999999999995
+      ],
+      "expected_triangles": 12
+    },
+    {
+      "id": "site_passage_crossing_clock_face_ns",
+      "key": "milk_glass",
+      "low": [
+        13.76,
+        5.96,
+        51.28999999999999
+      ],
+      "high": [
+        14.24,
+        6.46,
+        51.91
+      ],
+      "expected_triangles": 12
+    },
+    {
+      "id": "site_passage_crossing_clock_face_ew",
+      "key": "milk_glass",
+      "low": [
+        13.69,
+        5.96,
+        51.35999999999999
+      ],
+      "high": [
+        14.31,
+        6.46,
+        51.839999999999996
+      ],
+      "expected_triangles": 12
+    },
+    {
+      "id": "site_passage_crossing_clock_band_0",
+      "key": "brass_dull",
+      "low": [
+        13.7,
+        5.84,
+        51.3
+      ],
+      "high": [
+        14.3,
+        5.8999999999999995,
+        51.89999999999999
+      ],
+      "expected_triangles": 12
+    },
+    {
+      "id": "site_passage_crossing_clock_band_1",
+      "key": "brass_dull",
+      "low": [
+        13.7,
+        6.52,
+        51.3
+      ],
+      "high": [
+        14.3,
+        6.579999999999999,
+        51.89999999999999
+      ],
+      "expected_triangles": 12
+    }
+  ],
+  "parts": [
+    {
+      "id": "bottom_foot",
+      "kind": "box",
+      "low": [
+        -0.3,
+        -0.370000000000001,
+        -0.3
+      ],
+      "high": [
+        0.3,
+        -0.352000000000001,
+        0.3
+      ],
+      "catalog_key": "radiator_service_brass",
+      "bevel_m": 0.0018
+    },
+    {
+      "id": "bottom_step",
+      "kind": "box",
+      "low": [
+        -0.286,
+        -0.352000000000001,
+        -0.286
+      ],
+      "high": [
+        0.286,
+        -0.31,
+        0.286
+      ],
+      "catalog_key": "radiator_service_brass",
+      "bevel_m": 0.0015
+    },
+    {
+      "id": "top_step",
+      "kind": "box",
+      "low": [
+        -0.286,
+        0.31,
+        -0.286
+      ],
+      "high": [
+        0.286,
+        0.3519999999999983,
+        0.286
+      ],
+      "catalog_key": "radiator_service_brass",
+      "bevel_m": 0.0015
+    },
+    {
+      "id": "top_crown",
+      "kind": "box",
+      "low": [
+        -0.3,
+        0.3519999999999983,
+        -0.3
+      ],
+      "high": [
+        0.3,
+        0.36999999999999833,
+        0.3
+      ],
+      "catalog_key": "radiator_service_brass",
+      "bevel_m": 0.0018
+    },
+    {
+      "id": "corner_-1_-1",
+      "kind": "box",
+      "low": [
+        -0.278,
+        -0.31,
+        -0.278
+      ],
+      "high": [
+        -0.25,
+        0.31,
+        -0.25
+      ],
+      "catalog_key": "iron_blackened",
+      "bevel_m": 0.0012
+    },
+    {
+      "id": "corner_-1_1",
+      "kind": "box",
+      "low": [
+        -0.278,
+        -0.31,
+        0.25
+      ],
+      "high": [
+        -0.25,
+        0.31,
+        0.278
+      ],
+      "catalog_key": "iron_blackened",
+      "bevel_m": 0.0012
+    },
+    {
+      "id": "corner_1_-1",
+      "kind": "box",
+      "low": [
+        0.25,
+        -0.31,
+        -0.278
+      ],
+      "high": [
+        0.278,
+        0.31,
+        -0.25
+      ],
+      "catalog_key": "iron_blackened",
+      "bevel_m": 0.0012
+    },
+    {
+      "id": "corner_1_1",
+      "kind": "box",
+      "low": [
+        0.25,
+        -0.31,
+        0.25
+      ],
+      "high": [
+        0.278,
+        0.31,
+        0.278
+      ],
+      "catalog_key": "iron_blackened",
+      "bevel_m": 0.0012
+    },
+    {
+      "id": "north_pierced_side",
+      "kind": "square_ring",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "half": 0.27,
+      "half_height": 0.31,
+      "radius": 0.212,
+      "low": -0.005,
+      "high": 0.001,
+      "bevel_m": 0.0004
+    },
+    {
+      "id": "north_bezel",
+      "kind": "lathe",
+      "catalog_key": "radiator_service_brass",
+      "face": "north",
+      "profile": [
+        [
+          0.214,
+          0.005
+        ],
+        [
+          0.214,
+          0.021
+        ],
+        [
+          0.217,
+          0.025
+        ],
+        [
+          0.226,
+          0.027
+        ],
+        [
+          0.234,
+          0.024
+        ],
+        [
+          0.242,
+          0.012
+        ],
+        [
+          0.242,
+          0
+        ],
+        [
+          0.238,
+          -0.005
+        ],
+        [
+          0.22,
+          -0.005
+        ]
+      ],
+      "segments": 72
+    },
+    {
+      "id": "north_dial",
+      "kind": "disc",
+      "catalog_key": "washer_enamel",
+      "face": "north",
+      "radius": 0.211,
+      "low": 0.005,
+      "high": 0.0065,
+      "segments": 72
+    },
+    {
+      "id": "north_index_00",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.0,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_01",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.10471975511965977,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_02",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.20943951023931953,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_03",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.3141592653589793,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_04",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.41887902047863906,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_05",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.5235987755982988,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_06",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.6283185307179586,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_07",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.7330382858376184,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_08",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.8377580409572781,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_09",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 0.9424777960769379,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_10",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.0471975511965976,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_11",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.1519173063162573,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_12",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.2566370614359172,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_13",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.3613568165555772,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_14",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.4660765716752369,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_15",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.5707963267948963,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_16",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.6755160819145563,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_17",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.7802358370342162,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_18",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.8849555921538759,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_19",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 1.9896753472735356,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_20",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 2.0943951023931953,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_21",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 2.199114857512855,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_22",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 2.3038346126325147,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_23",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 2.4085543677521746,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_24",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 2.5132741228718345,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_25",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 2.6179938779914944,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_26",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 2.7227136331111543,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_27",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 2.827433388230814,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_28",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 2.9321531433504737,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_29",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.0368728984701336,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_30",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.1415926535897927,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_31",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.2463124087094526,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_32",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.3510321638291125,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_33",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.4557519189487724,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_34",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.5604716740684323,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_35",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.665191429188092,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_36",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.7699111843077517,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_37",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.8746309394274117,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_38",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 3.979350694547071,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_39",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 4.084070449666731,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_40",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 4.1887902047863905,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_41",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 4.29350995990605,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_42",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 4.39822971502571,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_43",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 4.50294947014537,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_44",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 4.607669225265029,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_45",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 4.71238898038469,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_46",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 4.817108735504349,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_47",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 4.9218284906240095,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_48",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.026548245743669,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_49",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.1312680008633285,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_50",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.235987755982989,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_51",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.340707511102648,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_52",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.445427266222309,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_53",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.550147021341968,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_54",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.654866776461628,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_55",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.759586531581288,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "north_index_56",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.8643062867009474,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_57",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 5.969026041820607,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_58",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 6.073745796940267,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_index_59",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "angle": 6.178465552059927,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "north_hour_hand",
+      "kind": "hand",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "length": 0.126,
+      "width": 0.01,
+      "low": 0.01,
+      "high": 0.0112,
+      "pivot": true
+    },
+    {
+      "id": "north_minute_hand",
+      "kind": "hand",
+      "catalog_key": "iron_blackened",
+      "face": "north",
+      "length": 0.177,
+      "width": 0.007,
+      "low": 0.013,
+      "high": 0.014199999999999999,
+      "pivot": true
+    },
+    {
+      "id": "north_spindle_cap",
+      "kind": "disc",
+      "catalog_key": "radiator_service_brass",
+      "face": "north",
+      "radius": 0.012,
+      "low": 0.0145,
+      "high": 0.018,
+      "segments": 32
+    },
+    {
+      "id": "north_glass",
+      "kind": "disc",
+      "catalog_key": "water_clear",
+      "face": "north",
+      "radius": 0.213,
+      "low": 0.02,
+      "high": 0.021,
+      "segments": 72,
+      "review_glass": true
+    },
+    {
+      "id": "north_screw_-1_-1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "north",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        -0.184,
+        -0.238
+      ]
+    },
+    {
+      "id": "north_screw_-1_1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "north",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        -0.184,
+        0.238
+      ]
+    },
+    {
+      "id": "north_screw_1_-1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "north",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        0.184,
+        -0.238
+      ]
+    },
+    {
+      "id": "north_screw_1_1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "north",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        0.184,
+        0.238
+      ]
+    },
+    {
+      "id": "east_pierced_side",
+      "kind": "square_ring",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "half": 0.27,
+      "half_height": 0.31,
+      "radius": 0.212,
+      "low": -0.005,
+      "high": 0.001,
+      "bevel_m": 0.0004
+    },
+    {
+      "id": "east_bezel",
+      "kind": "lathe",
+      "catalog_key": "radiator_service_brass",
+      "face": "east",
+      "profile": [
+        [
+          0.214,
+          0.005
+        ],
+        [
+          0.214,
+          0.021
+        ],
+        [
+          0.217,
+          0.025
+        ],
+        [
+          0.226,
+          0.027
+        ],
+        [
+          0.234,
+          0.024
+        ],
+        [
+          0.242,
+          0.012
+        ],
+        [
+          0.242,
+          0
+        ],
+        [
+          0.238,
+          -0.005
+        ],
+        [
+          0.22,
+          -0.005
+        ]
+      ],
+      "segments": 72
+    },
+    {
+      "id": "east_dial",
+      "kind": "disc",
+      "catalog_key": "washer_enamel",
+      "face": "east",
+      "radius": 0.211,
+      "low": 0.005,
+      "high": 0.0065,
+      "segments": 72
+    },
+    {
+      "id": "east_index_00",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.0,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_01",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.10471975511965977,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_02",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.20943951023931953,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_03",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.3141592653589793,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_04",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.41887902047863906,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_05",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.5235987755982988,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_06",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.6283185307179586,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_07",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.7330382858376184,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_08",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.8377580409572781,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_09",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 0.9424777960769379,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_10",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.0471975511965976,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_11",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.1519173063162573,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_12",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.2566370614359172,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_13",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.3613568165555772,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_14",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.4660765716752369,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_15",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.5707963267948963,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_16",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.6755160819145563,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_17",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.7802358370342162,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_18",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.8849555921538759,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_19",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 1.9896753472735356,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_20",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 2.0943951023931953,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_21",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 2.199114857512855,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_22",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 2.3038346126325147,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_23",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 2.4085543677521746,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_24",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 2.5132741228718345,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_25",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 2.6179938779914944,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_26",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 2.7227136331111543,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_27",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 2.827433388230814,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_28",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 2.9321531433504737,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_29",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.0368728984701336,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_30",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.1415926535897927,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_31",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.2463124087094526,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_32",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.3510321638291125,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_33",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.4557519189487724,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_34",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.5604716740684323,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_35",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.665191429188092,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_36",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.7699111843077517,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_37",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.8746309394274117,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_38",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 3.979350694547071,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_39",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 4.084070449666731,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_40",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 4.1887902047863905,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_41",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 4.29350995990605,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_42",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 4.39822971502571,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_43",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 4.50294947014537,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_44",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 4.607669225265029,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_45",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 4.71238898038469,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_46",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 4.817108735504349,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_47",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 4.9218284906240095,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_48",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.026548245743669,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_49",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.1312680008633285,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_50",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.235987755982989,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_51",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.340707511102648,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_52",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.445427266222309,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_53",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.550147021341968,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_54",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.654866776461628,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_55",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.759586531581288,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "east_index_56",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.8643062867009474,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_57",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 5.969026041820607,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_58",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 6.073745796940267,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_index_59",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "angle": 6.178465552059927,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "east_hour_hand",
+      "kind": "hand",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "length": 0.126,
+      "width": 0.01,
+      "low": 0.01,
+      "high": 0.0112,
+      "pivot": true
+    },
+    {
+      "id": "east_minute_hand",
+      "kind": "hand",
+      "catalog_key": "iron_blackened",
+      "face": "east",
+      "length": 0.177,
+      "width": 0.007,
+      "low": 0.013,
+      "high": 0.014199999999999999,
+      "pivot": true
+    },
+    {
+      "id": "east_spindle_cap",
+      "kind": "disc",
+      "catalog_key": "radiator_service_brass",
+      "face": "east",
+      "radius": 0.012,
+      "low": 0.0145,
+      "high": 0.018,
+      "segments": 32
+    },
+    {
+      "id": "east_glass",
+      "kind": "disc",
+      "catalog_key": "water_clear",
+      "face": "east",
+      "radius": 0.213,
+      "low": 0.02,
+      "high": 0.021,
+      "segments": 72,
+      "review_glass": true
+    },
+    {
+      "id": "east_screw_-1_-1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "east",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        -0.184,
+        -0.238
+      ]
+    },
+    {
+      "id": "east_screw_-1_1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "east",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        -0.184,
+        0.238
+      ]
+    },
+    {
+      "id": "east_screw_1_-1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "east",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        0.184,
+        -0.238
+      ]
+    },
+    {
+      "id": "east_screw_1_1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "east",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        0.184,
+        0.238
+      ]
+    },
+    {
+      "id": "south_pierced_side",
+      "kind": "square_ring",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "half": 0.27,
+      "half_height": 0.31,
+      "radius": 0.212,
+      "low": -0.005,
+      "high": 0.001,
+      "bevel_m": 0.0004
+    },
+    {
+      "id": "south_bezel",
+      "kind": "lathe",
+      "catalog_key": "radiator_service_brass",
+      "face": "south",
+      "profile": [
+        [
+          0.214,
+          0.005
+        ],
+        [
+          0.214,
+          0.021
+        ],
+        [
+          0.217,
+          0.025
+        ],
+        [
+          0.226,
+          0.027
+        ],
+        [
+          0.234,
+          0.024
+        ],
+        [
+          0.242,
+          0.012
+        ],
+        [
+          0.242,
+          0
+        ],
+        [
+          0.238,
+          -0.005
+        ],
+        [
+          0.22,
+          -0.005
+        ]
+      ],
+      "segments": 72
+    },
+    {
+      "id": "south_dial",
+      "kind": "disc",
+      "catalog_key": "washer_enamel",
+      "face": "south",
+      "radius": 0.211,
+      "low": 0.005,
+      "high": 0.0065,
+      "segments": 72
+    },
+    {
+      "id": "south_index_00",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.0,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_01",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.10471975511965977,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_02",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.20943951023931953,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_03",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.3141592653589793,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_04",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.41887902047863906,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_05",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.5235987755982988,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_06",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.6283185307179586,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_07",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.7330382858376184,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_08",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.8377580409572781,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_09",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 0.9424777960769379,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_10",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.0471975511965976,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_11",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.1519173063162573,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_12",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.2566370614359172,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_13",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.3613568165555772,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_14",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.4660765716752369,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_15",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.5707963267948963,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_16",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.6755160819145563,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_17",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.7802358370342162,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_18",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.8849555921538759,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_19",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 1.9896753472735356,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_20",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 2.0943951023931953,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_21",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 2.199114857512855,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_22",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 2.3038346126325147,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_23",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 2.4085543677521746,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_24",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 2.5132741228718345,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_25",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 2.6179938779914944,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_26",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 2.7227136331111543,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_27",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 2.827433388230814,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_28",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 2.9321531433504737,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_29",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.0368728984701336,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_30",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.1415926535897927,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_31",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.2463124087094526,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_32",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.3510321638291125,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_33",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.4557519189487724,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_34",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.5604716740684323,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_35",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.665191429188092,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_36",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.7699111843077517,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_37",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.8746309394274117,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_38",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 3.979350694547071,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_39",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 4.084070449666731,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_40",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 4.1887902047863905,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_41",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 4.29350995990605,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_42",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 4.39822971502571,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_43",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 4.50294947014537,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_44",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 4.607669225265029,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_45",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 4.71238898038469,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_46",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 4.817108735504349,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_47",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 4.9218284906240095,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_48",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.026548245743669,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_49",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.1312680008633285,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_50",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.235987755982989,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_51",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.340707511102648,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_52",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.445427266222309,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_53",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.550147021341968,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_54",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.654866776461628,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_55",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.759586531581288,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "south_index_56",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.8643062867009474,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_57",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 5.969026041820607,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_58",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 6.073745796940267,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_index_59",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "angle": 6.178465552059927,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "south_hour_hand",
+      "kind": "hand",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "length": 0.126,
+      "width": 0.01,
+      "low": 0.01,
+      "high": 0.0112,
+      "pivot": true
+    },
+    {
+      "id": "south_minute_hand",
+      "kind": "hand",
+      "catalog_key": "iron_blackened",
+      "face": "south",
+      "length": 0.177,
+      "width": 0.007,
+      "low": 0.013,
+      "high": 0.014199999999999999,
+      "pivot": true
+    },
+    {
+      "id": "south_spindle_cap",
+      "kind": "disc",
+      "catalog_key": "radiator_service_brass",
+      "face": "south",
+      "radius": 0.012,
+      "low": 0.0145,
+      "high": 0.018,
+      "segments": 32
+    },
+    {
+      "id": "south_glass",
+      "kind": "disc",
+      "catalog_key": "water_clear",
+      "face": "south",
+      "radius": 0.213,
+      "low": 0.02,
+      "high": 0.021,
+      "segments": 72,
+      "review_glass": true
+    },
+    {
+      "id": "south_screw_-1_-1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "south",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        -0.184,
+        -0.238
+      ]
+    },
+    {
+      "id": "south_screw_-1_1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "south",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        -0.184,
+        0.238
+      ]
+    },
+    {
+      "id": "south_screw_1_-1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "south",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        0.184,
+        -0.238
+      ]
+    },
+    {
+      "id": "south_screw_1_1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "south",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        0.184,
+        0.238
+      ]
+    },
+    {
+      "id": "west_pierced_side",
+      "kind": "square_ring",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "half": 0.27,
+      "half_height": 0.31,
+      "radius": 0.212,
+      "low": -0.005,
+      "high": 0.001,
+      "bevel_m": 0.0004
+    },
+    {
+      "id": "west_bezel",
+      "kind": "lathe",
+      "catalog_key": "radiator_service_brass",
+      "face": "west",
+      "profile": [
+        [
+          0.214,
+          0.005
+        ],
+        [
+          0.214,
+          0.021
+        ],
+        [
+          0.217,
+          0.025
+        ],
+        [
+          0.226,
+          0.027
+        ],
+        [
+          0.234,
+          0.024
+        ],
+        [
+          0.242,
+          0.012
+        ],
+        [
+          0.242,
+          0
+        ],
+        [
+          0.238,
+          -0.005
+        ],
+        [
+          0.22,
+          -0.005
+        ]
+      ],
+      "segments": 72
+    },
+    {
+      "id": "west_dial",
+      "kind": "disc",
+      "catalog_key": "washer_enamel",
+      "face": "west",
+      "radius": 0.211,
+      "low": 0.005,
+      "high": 0.0065,
+      "segments": 72
+    },
+    {
+      "id": "west_index_00",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.0,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_01",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.10471975511965977,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_02",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.20943951023931953,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_03",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.3141592653589793,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_04",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.41887902047863906,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_05",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.5235987755982988,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_06",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.6283185307179586,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_07",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.7330382858376184,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_08",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.8377580409572781,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_09",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 0.9424777960769379,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_10",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.0471975511965976,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_11",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.1519173063162573,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_12",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.2566370614359172,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_13",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.3613568165555772,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_14",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.4660765716752369,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_15",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.5707963267948963,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_16",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.6755160819145563,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_17",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.7802358370342162,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_18",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.8849555921538759,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_19",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 1.9896753472735356,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_20",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 2.0943951023931953,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_21",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 2.199114857512855,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_22",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 2.3038346126325147,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_23",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 2.4085543677521746,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_24",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 2.5132741228718345,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_25",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 2.6179938779914944,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_26",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 2.7227136331111543,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_27",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 2.827433388230814,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_28",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 2.9321531433504737,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_29",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.0368728984701336,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_30",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.1415926535897927,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_31",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.2463124087094526,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_32",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.3510321638291125,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_33",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.4557519189487724,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_34",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.5604716740684323,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_35",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.665191429188092,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_36",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.7699111843077517,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_37",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.8746309394274117,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_38",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 3.979350694547071,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_39",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 4.084070449666731,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_40",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 4.1887902047863905,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_41",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 4.29350995990605,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_42",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 4.39822971502571,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_43",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 4.50294947014537,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_44",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 4.607669225265029,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_45",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 4.71238898038469,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_46",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 4.817108735504349,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_47",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 4.9218284906240095,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_48",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.026548245743669,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_49",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.1312680008633285,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_50",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.235987755982989,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_51",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.340707511102648,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_52",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.445427266222309,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_53",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.550147021341968,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_54",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.654866776461628,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_55",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.759586531581288,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.018,
+      "width": 0.003
+    },
+    {
+      "id": "west_index_56",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.8643062867009474,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_57",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 5.969026041820607,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_58",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 6.073745796940267,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_index_59",
+      "kind": "stroke",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "angle": 6.178465552059927,
+      "low": 0.0065,
+      "high": 0.00658,
+      "radius": 0.201,
+      "length": 0.007,
+      "width": 0.001
+    },
+    {
+      "id": "west_hour_hand",
+      "kind": "hand",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "length": 0.126,
+      "width": 0.01,
+      "low": 0.01,
+      "high": 0.0112,
+      "pivot": true
+    },
+    {
+      "id": "west_minute_hand",
+      "kind": "hand",
+      "catalog_key": "iron_blackened",
+      "face": "west",
+      "length": 0.177,
+      "width": 0.007,
+      "low": 0.013,
+      "high": 0.014199999999999999,
+      "pivot": true
+    },
+    {
+      "id": "west_spindle_cap",
+      "kind": "disc",
+      "catalog_key": "radiator_service_brass",
+      "face": "west",
+      "radius": 0.012,
+      "low": 0.0145,
+      "high": 0.018,
+      "segments": 32
+    },
+    {
+      "id": "west_glass",
+      "kind": "disc",
+      "catalog_key": "water_clear",
+      "face": "west",
+      "radius": 0.213,
+      "low": 0.02,
+      "high": 0.021,
+      "segments": 72,
+      "review_glass": true
+    },
+    {
+      "id": "west_screw_-1_-1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "west",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        -0.184,
+        -0.238
+      ]
+    },
+    {
+      "id": "west_screw_-1_1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "west",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        -0.184,
+        0.238
+      ]
+    },
+    {
+      "id": "west_screw_1_-1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "west",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        0.184,
+        -0.238
+      ]
+    },
+    {
+      "id": "west_screw_1_1",
+      "kind": "screw",
+      "catalog_key": "radiator_service_brass",
+      "face": "west",
+      "radius": 0.0045,
+      "low": 0.001,
+      "high": 0.003,
+      "segments": 32,
+      "offset": [
+        0.184,
+        0.238
+      ]
+    }
+  ],
+  "faces": [
+    {
+      "id": "north",
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "u": [
+        -1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "center": [
+        0.0,
+        0.0,
+        -0.28
+      ],
+      "dial_radius": 0.211
+    },
+    {
+      "id": "east",
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "u": [
+        0,
+        0,
+        -1
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "center": [
+        0.28,
+        0.0,
+        0.0
+      ],
+      "dial_radius": 0.211
+    },
+    {
+      "id": "south",
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "center": [
+        0.0,
+        0.0,
+        0.28
+      ],
+      "dial_radius": 0.211
+    },
+    {
+      "id": "west",
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "u": [
+        0,
+        0,
+        1
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "center": [
+        -0.28,
+        0.0,
+        0.0
+      ],
+      "dial_radius": 0.211
+    }
+  ],
+  "retained_stem": "site_crossing_clock_stem",
+  "retained_finial": "site_crossing_clock_drop",
+  "support_low": -0.370000000000001,
+  "support_high": 0.36999999999999833,
+  "numerals": "Runtime Label3D only; no generated texture or exported font mesh.",
+  "scope": "Offline native clock candidate. No game publication, clock authority, interaction, UV/PBR/mipmap qualification or appearance acceptance."
+}

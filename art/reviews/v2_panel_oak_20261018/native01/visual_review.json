@@ -1,0 +1,31 @@
+{
+  "evidence_class": "INERT",
+  "status": "REVIEWED_CANDIDATE",
+  "scope": "All four actual native specimen images reviewed. Smaller, quieter oak figure is promising; repeated figure remains visible. No tiling, loaded mip, composed material or human acceptance.",
+  "images": [
+    {
+      "file": "albedo_before.png",
+      "sha256": "76ef97839d39cd98a541191a5915c9610b0e537b459daf643cd2fabd8a1fb527",
+      "scope": "Offline 1.8 m material specimen; not a composed-world or loaded-mipmap qualification.",
+      "reviewed": true
+    },
+    {
+      "file": "albedo_after.png",
+      "sha256": "00aa42a1842358f82d23ab2932ec7f3f8f1da9fc9024934da289e2f7ea9da788",
+      "scope": "Offline 1.8 m material specimen; not a composed-world or loaded-mipmap qualification.",
+      "reviewed": true
+    },
+    {
+      "file": "lit_before.png",
+      "sha256": "6a84576a2eaccd0e5f4c79f51796496e203c84698b1676248b5ed9f8369d37a8",
+      "scope": "Offline 1.8 m material specimen; not a composed-world or loaded-mipmap qualification.",
+      "reviewed": true
+    },
+    {
+      "file": "lit_after.png",
+      "sha256": "286dae1fb49721766407aa40407dfae08c21625bbba5e3eb545f4758f2130535",
+      "scope": "Offline 1.8 m material specimen; not a composed-world or loaded-mipmap qualification.",
+      "reviewed": true
+    }
+  ]
+}

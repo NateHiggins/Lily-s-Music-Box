@@ -2300,3 +2300,14 @@ game/data/orison_v2/arcade_lantern.json -text
 art/reviews/v2_startup_trim_20261018/** -text -whitespace
 game/tests/v2_millwork_culling_review.gd -text
 game/tests/millwork_unculled_reference.gd -text
+
+# Uninstalled source-fitted arcade clock kit and its native review.
+art/reviews/v2_arcade_clock_20261018/** -text -whitespace
+art/blender/arcade_fabric_candidate/build_arcade_clock.py -text
+tools/plan_v2_arcade_clock.py -text
+tools/tests/test_arcade_clock.py -text
+
+# Uninstalled custom oak source and calibrated technical-map review.
+art/reviews/v2_panel_oak_20261018/** -text -whitespace
+art/blender/arcade_fabric_candidate/build_panel_oak_maps.py -text
+art/blender/arcade_fabric_candidate/review_panel_oak.py -text

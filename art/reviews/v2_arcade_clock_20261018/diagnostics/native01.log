@@ -1,0 +1,40 @@
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+10:37:57 | INFO: Starting glTF 2.0 export
+10:37:57 | INFO: Extracting primitive: clock_fixed__brass_dull
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: clock_fixed__enamel
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: clock_fixed__iron_blackened
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: clock_fixed__water_clear
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: east_hour_hand.001
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: east_minute_hand.001
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: north_hour_hand.001
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: north_minute_hand.001
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: south_hour_hand.001
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: south_minute_hand.001
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: west_hour_hand.001
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Extracting primitive: west_minute_hand.001
+10:37:57 | INFO: Primitives created: 1
+10:37:57 | INFO: Finished glTF 2.0 export in 0.34764766693115234 s
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\arcade_fabric_candidate\build_arcade_clock.py", line 122, in <module>
+    proof=validate(asset);verify(proof.get('result')=='PASS', 'exported corner normals, tangents and UV derivatives')
+                          ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\art\blender\arcade_fabric_candidate\build_arcade_clock.py", line 23, in verify
+    if not ok:raise ValueError(label)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: exported corner normals, tangents and UV derivatives
+
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

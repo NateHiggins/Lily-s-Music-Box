@@ -51,17 +51,34 @@ The windowed profile completed with 218 stage marks and no script errors.
 Original logs, wrappers, probe sources and measurement JSON are retained in
 **art/reviews/v2_startup_trim_20261018/**. The probes do not own game state.
 
+The actual composed comparison passed all 216 enclosed rooms and 12,392
+generated instances with identical buffers and sources. Its fitting totals were
+11.35 seconds unculled and 0.85 seconds culled. The source specimen and
+production frame have different instance counts; equality is checked within
+each actual frame. The surface suite passed 33,067 checks with zero failures;
+28 current views were reviewed. The actual repair/save proof passed 360 checks.
+The home cohort passed 62 rooms, nine legs and 909 checks; the upper cohort
+passed 69 rooms, eleven legs and 989 checks. These are original test-written
+contracts with matching completed wrappers and raw logs. No old receipt was
+repinned.
+
+The new surface run measured 96.11 seconds at world startup versus 99.21 in
+the earlier windowed probe. That comparison is not controlled for cache/load;
+it is not a guaranteed whole-startup improvement. The reproducible fitting
+comparison above supplies the narrower timing evidence. Broader construction
+costs, finish quality, navigation/performance and human acceptance remain open.
+
 ## Management report
 
     REPORT - V2-STARTUP-TRIM - 2026-10-18
-    Branch / HEAD / origin/main / merge-base: main / pending source commit / de076e789b834b7b1290dbac8c5d657d6a11f748 / de076e789b834b7b1290dbac8c5d657d6a11f748
+    Branch / HEAD / origin/main / merge-base: main / 4f893de644b292792f71f13be6c25aaaef794a22 (verified game-source checkpoint; proof/artifact follow-up pending clean comparison) / de076e789b834b7b1290dbac8c5d657d6a11f748 / de076e789b834b7b1290dbac8c5d657d6a11f748
     Worktree clean at end: no; inherited shared-checkout changes are excluded.
     Protected 17/17: pending clean comparison. Selector: v2; explicit v1 rollback retained.
-    Ledger before -> after: 0/1/48/25/65/67 -> pending qualification; no new grant requested.
+    Ledger before -> after: 0/1/48/25/65/67 -> pending final clean comparison; no new human grant requested.
     Gates: reader NEW0; physical-input tools tests 11 pass; complete clean comparison pending.
-    Godot receipts: profile1 PASS 275/0; startup3 completed PASS 218 stage marks; millwork1 and millwork2 completed PASS 216/0. These are INERT diagnostics, not runtime grants.
+    Godot receipts: original test-written contracts and matching wrappers/raw logs: surface1 PASS 33067/0, service1 PASS 360/0, home1 PASS 62/9/909/0, upper1 PASS 69/11/989/0. Earlier profiles and source benches remain INERT diagnostics.
     Numbers: 1715 source walls; 216 enclosed rooms; 12390 source-bench instances; 11.65 -> 0.82 seconds same-run fitting.
     Changes outside expected boundary: surface digest explicitly registers both differential review sources; original replacement filtering remains unchanged.
-    Open findings: composed qualification, whole-startup measurement and clean comparison remain pending. Broader V2 obligations and human/photoreal acceptance remain open.
+    Open findings: final clean comparison remains pending. Whole-startup bottlenecks, broader V2 obligations and human/photoreal acceptance remain open. Seven existing Texture RID shutdown warnings remain.
     Decision needed from owner: none for the authorized build/performance work.
-    BLOCKED composed qualification and clean comparison pending
+    BLOCKED final clean source/proof comparison pending

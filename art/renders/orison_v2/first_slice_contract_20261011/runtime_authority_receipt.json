@@ -1317,15 +1317,15 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (12.5, 3.2, -2.5) actual=(12.42801, 3.199831, -2.503018)",
+			"label": "service walking (12.5, 3.2, -2.5) actual=(12.42801, 3.200805, -2.503018)",
 			"ok": true
 		},
 		{
-			"label": "service walking (13.6, 3.2, -2.8) actual=(13.53025, 3.199831, -2.781789)",
+			"label": "service walking (13.6, 3.2, -2.8) actual=(13.53025, 3.200805, -2.781789)",
 			"ok": true
 		},
 		{
-			"label": "service walking (14.5, 3.2, -3.0) actual=(14.42762, 3.199831, -2.983714)",
+			"label": "service walking (14.5, 3.2, -3.0) actual=(14.42762, 3.200805, -2.983714)",
 			"ok": true
 		},
 		{
@@ -1361,7 +1361,7 @@
 			"ok": true
 		},
 		{
-			"label": "service walking (13.6, 3.2, -1.8) actual=(13.64267, 3.199831, -1.860722)",
+			"label": "service walking (13.6, 3.2, -1.8) actual=(13.64267, 3.200805, -1.860722)",
 			"ok": true
 		},
 		{
@@ -1476,14 +1476,14 @@
 			"status": "PASS",
 			"tracked_borrowed_shapes": 168,
 			"tracked_nodes": 126400,
-			"tracked_playbacks": 158,
+			"tracked_playbacks": 164,
 			"tracked_resources": 234
 		}
 	},
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 413.441,
+		"elapsed_s": 373.814,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -3621,13 +3621,13 @@
 			"target": "(10.95, 3.2, -2.5)"
 		},
 		{
-			"actual": "(12.42801, 3.199831, -2.503018)",
+			"actual": "(12.42801, 3.200805, -2.503018)",
 			"cargo": {
-				"at": "(12.77764, 4.549841, -2.488495)",
-				"camera_distance": 0.355032086372375,
+				"at": "(12.77764, 4.550815, -2.488498)",
+				"camera_distance": 0.35503289103508,
 				"grip_active": true,
 				"sight_hit": "/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
-				"sight_position": "(12.77331, 4.550584, -2.488675)"
+				"sight_position": "(12.77331, 4.551558, -2.488678)"
 			},
 			"carried": "VENT_SPARE_2",
 			"contacts": [
@@ -3638,55 +3638,55 @@
 			"target": "(12.5, 3.2, -2.5)"
 		},
 		{
-			"actual": "(13.53025, 3.199831, -2.781789)",
+			"actual": "(13.53025, 3.200805, -2.781789)",
 			"cargo": {
-				"at": "(13.86878, 4.549841, -2.870324)",
-				"camera_distance": 0.355025053024292,
+				"at": "(13.86878, 4.550815, -2.870329)",
+				"camera_distance": 0.35502627491951,
 				"grip_active": true,
 				"sight_hit": "/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
-				"sight_position": "(13.86445, 4.550608, -2.869192)"
+				"sight_position": "(13.86445, 4.551582, -2.869196)"
 			},
 			"carried": "VENT_SPARE_2",
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
 			],
-			"from": "(12.42801, 3.199831, -2.503018)",
+			"from": "(12.42801, 3.200805, -2.503018)",
 			"ok": true,
 			"target": "(13.6, 3.2, -2.8)"
 		},
 		{
-			"actual": "(14.42762, 3.199831, -2.983714)",
+			"actual": "(14.42762, 3.200805, -2.983714)",
 			"cargo": {
-				"at": "(14.76897, 4.549841, -3.060679)",
-				"camera_distance": 0.355024874210358,
+				"at": "(14.76897, 4.550815, -3.060684)",
+				"camera_distance": 0.355025917291641,
 				"grip_active": true,
 				"sight_hit": "/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
-				"sight_position": "(14.76464, 4.550602, -3.059703)"
+				"sight_position": "(14.76464, 4.551576, -3.059708)"
 			},
 			"carried": "VENT_SPARE_2",
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
 			],
-			"from": "(13.53025, 3.199831, -2.781789)",
+			"from": "(13.53025, 3.200805, -2.781789)",
 			"ok": true,
 			"target": "(14.5, 3.2, -3.0)"
 		},
 		{
-			"actual": "(13.64267, 3.199831, -1.860722)",
+			"actual": "(13.64267, 3.200805, -1.860722)",
 			"cargo": {},
 			"carried": "",
 			"contacts": [
 				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
 			],
-			"from": "(14.42762, 3.199831, -2.983714)",
+			"from": "(14.42762, 3.200805, -2.983714)",
 			"ok": true,
 			"target": "(13.6, 3.2, -1.8)"
 		}
 	],
 	"source": {
 		"physical_inputs_sha256": "7b41c36942487aa5abc04d7a82fea187413a2e2d75eafb1bc6511e0daf8ea1d5",
-		"repository_head": "003d5993c6f2554782a1f25f253b6c4e24596171",
-		"runtime_inputs_sha256": "8f9e7cbdba214d80ef29936bd770e0b54a87409d865402b3ad9c46e26cec7cdd",
+		"repository_head": "4f893de644b292792f71f13be6c25aaaef794a22",
+		"runtime_inputs_sha256": "69deb2930fbd0318ddaca03e516d7e8331c8a55d80c1cc77e59dabc3f3c0eaf1",
 		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
 		"test_sha256": "59f0f5275b8215cd449afea46904fabf8485acfc6485172bfd82a5ac594d8c28"
 	}

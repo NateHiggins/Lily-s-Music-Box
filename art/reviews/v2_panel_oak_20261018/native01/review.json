@@ -1,0 +1,45 @@
+{
+  "evidence_class": "INERT",
+  "status": "RENDERED_UNREVIEWED",
+  "candidate_material_sha256": "bd2a7ba0e74ced2a7f201457e4591d4ea19271bd1167d71cb6b1c52b28d58265",
+  "new_repeat_m": 0.6,
+  "old_repeat_m": 1.2,
+  "specimen_size_m": [
+    1.8,
+    1.8
+  ],
+  "images": [
+    {
+      "file": "albedo_before.png",
+      "sha256": "76ef97839d39cd98a541191a5915c9610b0e537b459daf643cd2fabd8a1fb527",
+      "scope": "Offline 1.8 m material specimen; not a composed-world or loaded-mipmap qualification."
+    },
+    {
+      "file": "albedo_after.png",
+      "sha256": "00aa42a1842358f82d23ab2932ec7f3f8f1da9fc9024934da289e2f7ea9da788",
+      "scope": "Offline 1.8 m material specimen; not a composed-world or loaded-mipmap qualification."
+    },
+    {
+      "file": "lit_before.png",
+      "sha256": "6a84576a2eaccd0e5f4c79f51796496e203c84698b1676248b5ed9f8369d37a8",
+      "scope": "Offline 1.8 m material specimen; not a composed-world or loaded-mipmap qualification."
+    },
+    {
+      "file": "lit_after.png",
+      "sha256": "286dae1fb49721766407aa40407dfae08c21625bbba5e3eb545f4758f2130535",
+      "scope": "Offline 1.8 m material specimen; not a composed-world or loaded-mipmap qualification."
+    }
+  ],
+  "pending": [
+    "Albedo tiling/appearance review",
+    "Catalogue registration and runtime ingest",
+    "Actual UV orientation and loaded mip qualification",
+    "Composed diffuse/grazing/carried-light review",
+    "Human acceptance"
+  ],
+  "source_bindings_lf": {
+    "art/blender/arcade_fabric_candidate/review_panel_oak.py": "66040bf7a4b013e78d6056479d9f785eb270a72a9a016957795a2698c8598244",
+    "art/blender/arcade_fabric_candidate/build_panel_oak_maps.py": "b7cf3a38042fcba89cbef213d638b1498adbdc6080a5dcf1dd9e6160f6b425dd",
+    "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d"
+  }
+}

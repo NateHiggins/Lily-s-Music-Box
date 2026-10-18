@@ -1,0 +1,42 @@
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+10:38:42 | INFO: Starting glTF 2.0 export
+10:38:42 | INFO: Extracting primitive: clock_fixed__brass_dull
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: clock_fixed__enamel
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: clock_fixed__iron_blackened
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: clock_fixed__water_clear
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: east_hour_hand
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: east_minute_hand
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: north_hour_hand
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: north_minute_hand
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: south_hour_hand
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: south_minute_hand
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: west_hour_hand
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Extracting primitive: west_minute_hand
+10:38:42 | INFO: Primitives created: 1
+10:38:42 | INFO: Finished glTF 2.0 export in 0.27469515800476074 s
+C:\PleaseRemainOnTheLine\art\blender\arcade_fabric_candidate\build_arcade_clock.py:136: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('ControlledReview');scene.world=world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs[0].default_value=(.16,.19,.23,1);world.node_tree.nodes['Background'].inputs[1].default_value=.65
+00:06.047  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_clock_20261018\native02\detail_before.png'
+00:11.437  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_clock_20261018\native02\detail_after.png'
+00:14.500  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_clock_20261018\native02\underside_before.png'
+00:19.328  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_clock_20261018\native02\underside_after.png'
+00:20.844  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_clock_20261018\native02\player_before.png'
+00:22.484  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_clock_20261018\native02\player_after.png'
+
+Info: Saved as "arcade_clock.blend"
+CLOCK NATIVE CANDIDATE 12 draws; 292 closed stock specifications
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

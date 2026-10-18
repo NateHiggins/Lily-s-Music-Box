@@ -1,0 +1,38 @@
+{
+  "evidence_class": "INERT",
+  "status": "UNINSTALLED_CANDIDATE",
+  "generator": "art/blender/arcade_fabric_candidate/build_panel_oak_maps.py",
+  "source": "art/reviews/v2_panel_oak_20261018/source02.png",
+  "source_sha256": "e5e520beb10b058f42ac938d95b1582a6837c46c0aa4ec766b0ace2c293619f5",
+  "meters_per_tile": 0.6,
+  "size": 2048,
+  "seed": 1928101806,
+  "normal_convention": "OpenGL",
+  "planned_normal_gain": 1.0,
+  "planned_roughness_gain": 1.0,
+  "metallic": 0.0,
+  "roughness_range": [
+    0.24,
+    0.36636573692602237
+  ],
+  "relief_rms_microns": 2.568777686942695,
+  "height_range_microns": [
+    -11.690596142300095,
+    11.690596142300095
+  ],
+  "maximum_normal_slope": 0.021205173560329162,
+  "physical_scope": "Offline oak-film technical-map candidate; original albedo bytes are retained.\n\nThe shellac microrelief and roughness are independent periodic fields, not\nlighting inferred from the generated wood pigment. No production publication.\n",
+  "pending": [
+    "Albedo tiling/appearance review",
+    "Catalogue registration and runtime ingest",
+    "Actual UV orientation and loaded mip qualification",
+    "Composed diffuse/grazing/carried-light review",
+    "Human acceptance"
+  ],
+  "map_sha256": {
+    "albedo_source.png": "e5e520beb10b058f42ac938d95b1582a6837c46c0aa4ec766b0ace2c293619f5",
+    "normal.png": "dc9aaa48bba6d188b7aa7a2e7500fc75e385222f1cd24268322318d47c70c02c",
+    "roughness.png": "29c35deaf5fccd96a5e3e8bca59cc41090cd15944f472a7741a5a3964b3df553",
+    "height.png": "6b08c9b599564e39a7020923a94db6209e9f440a54467a4c988abdc8ab1e0578"
+  }
+}
