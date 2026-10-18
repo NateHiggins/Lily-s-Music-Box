@@ -85,6 +85,11 @@ def inputs(root=ROOT):
     paths.add(root/'tools/check_v2_recipe_projections.py')
     # Installed arcade fabric owns its actual native recipes and custom maps.
     paths.update(root/p for p in (
+        'tools/plan_v2_arcade_clock.py','tools/publish_v2_arcade_clock.py',
+        'art/blender/arcade_fabric_candidate/build_arcade_clock.py',
+        'art/blender/arcade_clock.blend', 'game/tests/arcade_clock_bench.gd',
+        'game/tests/ArcadeClockBench.tscn'))
+    paths.update(root/p for p in (
         'tools/plan_v2_arcade_lantern.py','tools/publish_v2_arcade_lantern.py',
         'art/blender/arcade_fabric_candidate/build_arcade_lantern.py',
         'art/blender/arcade_lantern.blend'))

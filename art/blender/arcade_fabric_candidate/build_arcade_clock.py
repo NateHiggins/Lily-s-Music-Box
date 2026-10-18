@@ -8,7 +8,7 @@ sys.path[:0]=[str(ROOT/'tools'),str(ROOT/'art/blender/scripts')]
 from plan_v2_arcade_clock import build
 from fabrication_native_batch import material,partition
 from check_exported_tangents import validate
-p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work-dir',type=Path,required=True);args=p.parse_args(sys.argv[sys.argv.index('--')+1:])
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work-dir',type=Path,required=True);p.add_argument('--publish-native',action='store_true');args=p.parse_args(sys.argv[sys.argv.index('--')+1:])
 work=args.work_dir.resolve();work.mkdir(parents=True,exist_ok=True);plan=build()
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 scene=bpy.context.scene
@@ -107,11 +107,22 @@ for group in groups:
     key=group.removesuffix('_turned_rims')
     finish=dict(catalog_key=key,normal=.12,roughness=1.,pigment=1.,tint=[1.,1.,1.,1.])
     if key=='iron_blackened':finish['normal']=.035
-    if key=='water_clear':finish['normal']=0.
     mat=materials.get(key)
     if mat is None:mat=material(ROOT,'Clock_'+key,finish,catalog);materials[key]=mat
-    if key=='water_clear':
-        node=mat.node_tree.nodes['Principled BSDF'];node.inputs['Transmission Weight'].default_value=1.;node.inputs['IOR'].default_value=1.52
+    if key=='milk_glass':
+        # The registered clear dielectric has zero diffuse absorption. Its
+        # two custom maps are the same physical stock used by the V2 glazing
+        # authority; the old clear-water preview is retired.
+        nodes=mat.node_tree.nodes;nodes.clear();links=mat.node_tree.links
+        output=nodes.new('ShaderNodeOutputMaterial');node=nodes.new('ShaderNodeBsdfPrincipled');links.new(node.outputs[0],output.inputs[0])
+        node.inputs['Base Color'].default_value=(1,1,1,1);node.inputs['Transmission Weight'].default_value=1.;node.inputs['IOR'].default_value=1.52
+        uv=nodes.new('ShaderNodeTexCoord')
+        for filename,normal_map in [('T_glass_rough.png',False),('T_glass_normal.png',True)]:
+            texture=nodes.new('ShaderNodeTexImage');texture.image=bpy.data.images.load(str(ROOT/'game/assets/building/textures'/filename),check_existing=True);texture.image.colorspace_settings.name='Non-Color';links.new(uv.outputs['UV'],texture.inputs[0])
+            if normal_map:
+                normal=nodes.new('ShaderNodeNormalMap');normal.inputs['Strength'].default_value=.035;links.new(texture.outputs[0],normal.inputs['Color']);links.new(normal.outputs[0],node.inputs['Normal'])
+            else:
+                gain=nodes.new('ShaderNodeMath');gain.operation='MULTIPLY_ADD';gain.inputs[1].default_value=.03;gain.inputs[2].default_value=.045;links.new(texture.outputs[0],gain.inputs[0]);links.new(gain.outputs[0],node.inputs['Roughness'])
     obj=partition(exports,'clock_fixed__'+group,groups[group],finish,mat,frame,catalog)
     if group.endswith('_turned_rims'):
         normals=[]
@@ -124,7 +135,22 @@ for group in groups:
     models.append(obj)
 for name,(row,objs,matrix) in moving.items():
     finish=dict(catalog_key=row['catalog_key'],normal=.035,roughness=1.,pigment=1.,tint=[1.,1.,1.,1.])
-    models.append(partition(exports,name,objs,finish,materials[row['catalog_key']],matrix,catalog))
+    obj=partition(exports,name,objs,finish,materials[row['catalog_key']],matrix,catalog)
+    # The minute-tip bevel produces very slender triangles. A periodic chart
+    # near UV 1 loses its area in float32 even without mesh compression. Author
+    # local metre charts and export the signed V directly, avoiding 1-V loss.
+    exact=obj.data.attributes.new(name='_uv_exact',type='FLOAT_VECTOR',domain='CORNER')
+    guide=obj.data.attributes['_tangent_guide']
+    for poly in obj.data.polygons:
+        loops=list(poly.loop_indices);points=np.array([obj.data.vertices[obj.data.loops[i].vertex_index].co[:] for i in loops],dtype=float)
+        edges=[points[(i+1)%3]-points[i] for i in range(3)];u=max(edges,key=lambda e:np.linalg.norm(e));u=u/np.linalg.norm(u)
+        normal=np.cross(points[1]-points[0],points[2]-points[0]);normal/=np.linalg.norm(normal);v=np.cross(normal,u)
+        for i,position in zip(loops,points):
+            uv=(float((position-points[0])@u),float((position-points[0])@v))
+            obj.data.uv_layers.active.data[i].uv=uv
+            exact.data[i].vector=(uv[0],-uv[1],0.)
+            guide.data[i].vector=(u[0],u[2],-u[1])
+    models.append(obj)
 # Actual bounds/cavity and hand-depth checks precede export and review.
 verify(plan['support_high']>0 and plan['support_low']<0,'retained upper/lower support bearings bound the case')
 from mathutils.bvhtree import BVHTree
@@ -152,6 +178,9 @@ class ExportUV:
         from io_scene_gltf2.io.com.constants import BufferViewTarget
         for primitive in mesh.primitives:
             def values(key):return np.frombuffer(primitive.attributes[key].buffer_view.data,dtype='<f4').reshape((-1,3)).astype(float)
+            if '_UV_EXACT' in primitive.attributes:
+                primitive.attributes['TEXCOORD_0'].buffer_view=BinaryData(values('_UV_EXACT')[:,:2].astype('<f4').tobytes(),BufferViewTarget.ARRAY_BUFFER)
+                del primitive.attributes['_UV_EXACT']
             n=values('NORMAL');n/=np.linalg.norm(n,axis=1)[:,None];g=values('_TANGENT_GUIDE');t=g-n*np.sum(g*n,axis=1)[:,None];t/=np.linalg.norm(t,axis=1)[:,None]
             primitive.attributes['TANGENT'].buffer_view=BinaryData(np.column_stack((t,-np.ones(len(t)))).astype('<f4').tobytes(),BufferViewTarget.ARRAY_BUFFER);del primitive.attributes['_TANGENT_GUIDE']
 import io_scene_gltf2
@@ -182,12 +211,24 @@ for name,eye,target,lens in [('detail',(15.0,6.6,50.3),(14,6.21,51.6),62),('unde
     for state in ['before','after']:
         before.hide_render=state=='after';exports.hide_render=state=='before';file=name+'_'+state+'.png';scene.render.filepath=str(work/file);bpy.ops.render.render(write_still=True);views.append(file)
 before.hide_render=True;exports.hide_render=False
+for obj in models:
+    if obj.name in moving:
+        obj.matrix_world=moving[obj.name][2]
+        verify(max(abs(obj.matrix_world[i][j]-moving[obj.name][2][i][j]) for i in range(4) for j in range(4))<1e-8,'saved zero-angle spindle reference '+obj.name)
 for image in bpy.data.images:
     if image.source=='FILE':image.filepath=bpy.path.relpath(str(ROOT/'game/assets/building/textures'/Path(image.filepath).name),start=str(work))
 bpy.ops.wm.save_as_mainfile(filepath=str(work/'arcade_clock.blend'),relative_remap=False)
-proof.update(evidence_class='INERT',scope=plan['scope'],asset_sha256=hashlib.sha256(asset.read_bytes()).hexdigest(),checks=checks,views=views,stocks=len(plan['parts']),draws=len(models),numerals=plan['numerals'],glass='Mapped water_clear is a preview placeholder; purpose-made glazing stock and composed optics remain pending.')
+proof.update(evidence_class='INERT',scope=plan['scope'],asset_sha256=hashlib.sha256(asset.read_bytes()).hexdigest(),checks=checks,views=views,stocks=len(plan['parts']),draws=len(models),numerals=plan['numerals'],glass='Registered clear dielectric, custom T_glass roughness and normal maps; composed optical review remains pending.')
 proof['published_runtime']=False
+proof['saved_hand_reference']='12:00'
 proof['native_sha256']=hashlib.sha256((work/'arcade_clock.blend').read_bytes()).hexdigest()
 proof['source_bindings_lf']={relative:hashlib.sha256((ROOT/relative).read_bytes().replace(b'\r\n',b'\n')).hexdigest() for relative in ['tools/plan_v2_arcade_clock.py','art/blender/arcade_fabric_candidate/build_arcade_clock.py','art/blender/scripts/fabrication_native_batch.py','art/blender/scripts/fabrication_chart_batch.py','art/blender/scripts/fabrication_normals.py','art/blender/scripts/check_exported_tangents.py','art/data/building_layout.json','game/data/runtime_material_sets.json']}
 proof['mapped_source_sha256']={name:hashlib.sha256((ROOT/'game/assets/building/textures'/name).read_bytes()).hexdigest() for key in materials for name in catalog[key]['files']}
+for name in ['T_glass_rough.png','T_glass_normal.png']:proof['mapped_source_sha256'][name]=hashlib.sha256((ROOT/'game/assets/building/textures'/name).read_bytes()).hexdigest()
+if args.publish_native:
+    destination=ROOT/'art/blender/arcade_clock.blend'
+    for image in bpy.data.images:
+        if image.source=='FILE':image.filepath=bpy.path.relpath(str(ROOT/'game/assets/building/textures'/Path(image.filepath).name),start=str(destination.parent))
+    bpy.ops.wm.save_as_mainfile(filepath=str(destination),relative_remap=False)
+    proof['published_native']='art/blender/arcade_clock.blend';proof['published_native_sha256']=hashlib.sha256(destination.read_bytes()).hexdigest()
 (work/'plan.json').write_text(json.dumps(plan,indent=2)+'\n',encoding='utf8',newline='\n');(work/'native_review.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8',newline='\n');print('CLOCK NATIVE CANDIDATE',len(models),'draws;',len(plan['parts']),'closed stock specifications')

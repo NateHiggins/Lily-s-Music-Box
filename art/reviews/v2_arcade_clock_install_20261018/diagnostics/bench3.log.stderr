@@ -1,0 +1,28 @@
+ERROR: imported metre UVs and tangent arrays: east_minute_hand error=0.01052160987552
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/arcade_clock_bench.gd:16)
+       [1] _check_surface (res://tests/arcade_clock_bench.gd:88)
+       [2] validate_cell (res://tests/arcade_clock_bench.gd:47)
+       [3] _run (res://tests/arcade_clock_bench.gd:26)
+ERROR: imported metre UVs and tangent arrays: north_minute_hand error=0.01049867156596
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/arcade_clock_bench.gd:16)
+       [1] _check_surface (res://tests/arcade_clock_bench.gd:88)
+       [2] validate_cell (res://tests/arcade_clock_bench.gd:47)
+       [3] _run (res://tests/arcade_clock_bench.gd:26)
+ERROR: imported metre UVs and tangent arrays: south_minute_hand error=0.01049867156596
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/arcade_clock_bench.gd:16)
+       [1] _check_surface (res://tests/arcade_clock_bench.gd:88)
+       [2] validate_cell (res://tests/arcade_clock_bench.gd:47)
+       [3] _run (res://tests/arcade_clock_bench.gd:26)
+ERROR: imported metre UVs and tangent arrays: west_minute_hand error=0.01052160987552
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/arcade_clock_bench.gd:16)
+       [1] _check_surface (res://tests/arcade_clock_bench.gd:88)
+       [2] validate_cell (res://tests/arcade_clock_bench.gd:47)
+       [3] _run (res://tests/arcade_clock_bench.gd:26)

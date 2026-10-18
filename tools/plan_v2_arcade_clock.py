@@ -55,7 +55,7 @@ def build(layout=None):
         for hand,length,width,depth in [('hour',.126,.010,.010),('minute',.177,.007,.013)]:
             part(hand+'_hand','hand','iron_blackened',length=length,width=width,low=depth,high=depth+.0012,pivot=True)
         part('spindle_cap','disc','brass_dull',radius=.012,low=.0145,high=.018,segments=32)
-        part('glass','disc','water_clear',radius=.213,low=.020,high=.021,segments=72,review_glass=True)
+        part('glass','disc','milk_glass',radius=.213,low=.020,high=.021,segments=72,optics_role='registered_clear_glass')
         for sx in [-1,1]:
             for sy in [-1,1]:part('screw_%s_%s'%(sx,sy),'screw','brass_dull',radius=.0045,low=.001,high=.003,segments=32,offset=[sx*.184,sy*.238])
     for row in parts:

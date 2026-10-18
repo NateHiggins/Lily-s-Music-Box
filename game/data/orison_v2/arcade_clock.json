@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/arcade_clock.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "passage",
+      "replace": [
+        {
+          "id": "site_passage_crossing_clock_body",
+          "key": "bakelite_black",
+          "low": [
+            13.72,
+            5.9,
+            51.31999999999999
+          ],
+          "high": [
+            14.28,
+            6.5200000000000005,
+            51.879999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_crossing_clock_face_ns",
+          "key": "milk_glass",
+          "low": [
+            13.76,
+            5.96,
+            51.28999999999999
+          ],
+          "high": [
+            14.24,
+            6.46,
+            51.91
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_crossing_clock_face_ew",
+          "key": "milk_glass",
+          "low": [
+            13.69,
+            5.96,
+            51.35999999999999
+          ],
+          "high": [
+            14.31,
+            6.46,
+            51.839999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_crossing_clock_band_0",
+          "key": "brass_dull",
+          "low": [
+            13.7,
+            5.84,
+            51.3
+          ],
+          "high": [
+            14.3,
+            5.8999999999999995,
+            51.89999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_crossing_clock_band_1",
+          "key": "brass_dull",
+          "low": [
+            13.7,
+            6.52,
+            51.3
+          ],
+          "high": [
+            14.3,
+            6.579999999999999,
+            51.89999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ],
+      "parts": [
+        {
+          "name": "clock_fixed__radiator_service_brass",
+          "key": "radiator_service_brass",
+          "tile": 0.04,
+          "catalog_key": "radiator_service_brass"
+        },
+        {
+          "name": "clock_fixed__radiator_service_brass_turned_rims",
+          "key": "radiator_service_brass",
+          "tile": 0.04,
+          "catalog_key": "radiator_service_brass"
+        },
+        {
+          "name": "clock_fixed__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "clock_fixed__washer_enamel",
+          "key": "washer_enamel",
+          "tile": 0.1,
+          "catalog_key": "washer_enamel"
+        },
+        {
+          "name": "north_hour_hand",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "north_minute_hand",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "east_hour_hand",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "east_minute_hand",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "south_hour_hand",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "south_minute_hand",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "west_hour_hand",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "west_minute_hand",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "clock_fixed__milk_glass",
+          "key": "milk_glass",
+          "tile": 0.5
+        }
+      ]
+    }
+  ],
+  "origin": [
+    14.0,
+    6.210000000000001,
+    51.599999999999994
+  ],
+  "faces": [
+    {
+      "id": "north",
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "u": [
+        -1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "center": [
+        0.0,
+        0.0,
+        -0.28
+      ]
+    },
+    {
+      "id": "east",
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "u": [
+        0,
+        0,
+        -1
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "center": [
+        0.28,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "south",
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "center": [
+        0.0,
+        0.0,
+        0.28
+      ]
+    },
+    {
+      "id": "west",
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "u": [
+        0,
+        0,
+        1
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "center": [
+        -0.28,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "presentation": {
+    "time_owner": "CampaignClock.minute_of_day",
+    "update_interval_s": 0.2,
+    "letter_depth_m": 0.0075,
+    "numeral_radius_m": 0.161,
+    "font_size": 48,
+    "pixel_size_m": 0.0005
+  },
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "registered_owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06,
+    "normal_strength": 0.035,
+    "glass_part": "clock_fixed__milk_glass"
+  }
+}

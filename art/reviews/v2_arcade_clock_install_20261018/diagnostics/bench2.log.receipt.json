@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 60.11,
+  "exit_code": null,
+  "finished_utc": "2026-10-18T15:38:28Z",
+  "started_utc": "2026-10-18T15:37:28Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Cannot call method 'store_string' on a null value."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-clock-install-20261018/bench2.log.stderr",
+  "stderr_sha256": "8a758f486110e606d991c15a9464ea9bc5bfb0411c6f1b648d48eb59cb1579d7",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-clock-install-20261018/bench2.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/ArcadeClockBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_arcade_clock_install_20261018/bench2",
+ "source": {
+  "dirty_paths": 1629,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/arcade_fabric_candidate/build_arcade_clock.py",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json"
+  ],
+  "repository_head": "6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3",
+  "repository_tree": "d5f9114dd19e222d9b050faa37b321bb9fca7321",
+  "runtime_inputs_sha256": "eceb7e825eb24f9b7f14346624abbdd0f11bc515aea62a8e7015ab5048e9a50b",
+  "test_path": "game/tests/arcade_clock_bench.gd",
+  "test_sha256": "4283cfb9757b5b6e06db2a608991e02b6e84df76e3bd3af843c9f0ebc64465bc"
+ },
+ "windowed": true
+}

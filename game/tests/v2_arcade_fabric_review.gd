@@ -12,6 +12,11 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	add_child(diagnosis)
 	await diagnosis.validate_cell(passage.cell_nodes.passage, passage.source_layout)
 	diagnosis.free()
+	var clock_diagnosis:=preload("res://tests/arcade_clock_bench.gd").new()
+	clock_diagnosis.externally_managed=true;clock_diagnosis.review_suite=suite
+	add_child(clock_diagnosis)
+	await clock_diagnosis.validate_cell(passage.cell_nodes.passage)
+	clock_diagnosis.free()
 	var directory := OS.get_environment("SHOT_DIR")
 	var camera := world.player.camera
 	var prior_pose := camera.global_transform
@@ -19,6 +24,10 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	var prior_lamp := world.player.lamp_is_enabled()
 	world.player.set_physics_process(false)
 	var stations: Array[Dictionary] = [
+		{"name":"arcade_clock_player", "eye":Vector3(14,1.65,46), "target":Vector3(14,6.21,51.6), "lamp":false},
+		{"name":"arcade_clock_detail", "eye":Vector3(14.85,6.45,50.5), "target":Vector3(14,6.21,51.6), "lamp":false},
+		{"name":"arcade_clock_carried", "eye":Vector3(14,1.65,49), "target":Vector3(14,6.21,51.6), "lamp":true},
+		{"name":"arcade_clock_underside", "eye":Vector3(14.65,5.5,50.8), "target":Vector3(14,6.21,51.6), "lamp":false},
 		{"name":"arcade_floor_diffuse", "eye":Vector3(14, 1.65, 33), "target":Vector3(13.4, .02, 34.4), "lamp":false},
 		{"name":"arcade_floor_carried", "eye":Vector3(14, 1.65, 33), "target":Vector3(13.4, .02, 34.4), "lamp":true},
 		{"name":"arcade_clay_joint", "eye":Vector3(11.45, 1.65, 23.8), "target":Vector3(11, 2.6, 24.4), "lamp":false},

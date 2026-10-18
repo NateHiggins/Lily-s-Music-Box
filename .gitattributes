@@ -2307,6 +2307,16 @@ art/blender/arcade_fabric_candidate/build_arcade_clock.py -text
 tools/plan_v2_arcade_clock.py -text
 tools/tests/test_arcade_clock.py -text
 
+# Installed clock native source, source-bound publication and original diagnoses.
+art/blender/arcade_clock.blend -text
+art/reviews/v2_arcade_clock_install_20261018/** -text -whitespace
+tools/publish_v2_arcade_clock.py -text
+game/assets/props/arcade_clock.glb* -text
+game/data/orison_v2/arcade_clock.json -text
+game/scripts/building/orison_v2_arcade_clock*.gd -text
+game/tests/arcade_clock_bench.gd -text
+game/tests/ArcadeClockBench.tscn -text
+
 # Uninstalled custom oak source and calibrated technical-map review.
 art/reviews/v2_panel_oak_20261018/** -text -whitespace
 art/blender/arcade_fabric_candidate/build_panel_oak_maps.py -text
