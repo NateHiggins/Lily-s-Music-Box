@@ -84,19 +84,30 @@ REPORT - V2-WORK-LIGHT-APERTURES - 2026-10-18
 
 Branch / HEAD / origin/main / merge-base: **main**;
 **5a4a320cdea6fd253382d97605c3fbe1e4ecb3f1** before the named repair diff.
+Verified source candidate: **19a20d07f3573e59453e468df24449a8b994ad95**.
+Origin/main and merge-base at comparison: **5a4a320cdea6fd253382d97605c3fbe1e4ecb3f1**.
+The following publication commit changes only report/verification metadata.
 
 Worktree clean at end: **no**. Unrelated shared changes, generated UIDs and
-import/EOL noise remain preserved. Only named owned paths will be staged.
+import/EOL noise remain preserved. Only named owned paths were staged.
+The path-only snapshot is **art/reviews/v2_glazing_20261018/shared_checkout_status.json**.
 
-Protected 17/17 and selector: final comparison pending; explicit V1 rollback
-and V2 selection are preserved by this repair.
+Protected **17/17 unchanged**, selector **V2**, explicit V1 rollback preserved.
+The clean temporary checkout passes candidate verification in **in-place** mode
+with **--no-godot**. No fresh-cache Godot import or runtime execution is claimed
+there; the genuine canonical runs above are reused. Exact outputs are retained
+under **art/reviews/v2_glazing_20261018/candidate_verification**.
 
-Ledger baseline: **0 / 1 / 48 / 25 / 65 / 67**. No new region or room status
-is claimed by this report. Final current-source comparison is pending.
+Ledger before -> after: **0 / 1 / 48 / 25 / 65 / 67** ->
+**0 / 1 / 48 / 25 / 65 / 67**; **requirements_changed: []**. No new region or
+room status is claimed by this report.
 
-Gates: reader **zero NEW** fields. One reviewed optical/camera fixture row is
-added to the spatial manifest; all previous records remain. Final gates and
-actual current-source execution results will be recorded after completion.
+Gates: clean comparison has **81 rows**, **69 tools suites / 980 tests PASS**,
+**zero regressions, zero improvements**, no accepted regressions. The full build
+remains intentionally **INCOMPLETE**. Reader has **zero NEW** fields. One reviewed optical/camera fixture row is
+added to the spatial manifest; all previous records remain. Spatial preflight is clean; systemic
+preflight has no new actionable findings, with the same 21 preexisting review
+findings. Actual current-source execution results are recorded above.
 
 Numbers management asked for: six fitted service lamps plus the matching native fixed-light family; the
 observed native envelope,
@@ -114,4 +125,4 @@ missing region programs, broader V2 work and known shutdown warnings.
 
 Decision needed from owner: **none** for the authorized incremental repair.
 
-BLOCKED verification is still running; not a final merge recommendation.
+MERGE-CANDIDATE 19a20d07f3573e59453e468df24449a8b994ad95
