@@ -225,3 +225,20 @@ bounded retry; failed staging leaves the prior target file intact.
 A publication failure alone does not justify another Godot run. Reuse the
 completed capture while its bound rendering inputs remain unchanged. This tool
 does not author, promote or repin runtime evidence.
+
+## Physical service input binding
+
+**python tools/v2_physical_inputs.py [--json]** records authored mesh triangle
+positions, winding, morph positions, node frames, material slot names and mesh
+import parameters. Identical expanded triangles survive vertex repacking for
+new UVs or normals. Texture pixels are qualified separately by the surface
+packet. Animated, compressed and unsupported geometry is conservatively hashed
+in full, including local buffers. The output is input provenance, not proof of
+play or appearance acceptance.
+
+First-slice receipts containing **physical_service_round** must bind this
+digest as well as their root test and production code/data. The test measures
+all three before and after execution; the ledger independently rechecks them.
+A geometry edit invalidates the old physical pass, including same-size edits
+with restored timestamps. Reuse a gameplay run after an optical-only change
+only while its physical and production input bindings remain current.

@@ -1,0 +1,2463 @@
+{
+  "schema": "orison.physical-inputs.v1",
+  "tool_sha256": "08a1271b80470ef2b343352a708bdfd79dd249deffa46ea66e045f036d69fd29",
+  "assets": [
+    [
+      "game/assets/building/floor_01.gltf",
+      {
+        "method": "physical",
+        "sha256": "e9e9d3ddf6b87556711f7689e069b5ae17d4f16e69b67695e5691ab010c384fe"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/orison_f01_interior.gltf",
+      {
+        "method": "physical",
+        "sha256": "17ec180018c1fc72745b3c8a6d9145650a06f40693bf168665b3e5128f7becc9"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/orison_facade_shell.gltf",
+      {
+        "method": "physical",
+        "sha256": "0c80b2c6e165546d27f331fa071d1344c581d529cce0e40de856b8ec2dfdbede"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/passage.gltf",
+      {
+        "method": "physical",
+        "sha256": "2f9ee7089e60f77b51d71d5f784cbbf5ecdfa6f0a351fe8acc9a046a6d9e346a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_bar.gltf",
+      {
+        "method": "physical",
+        "sha256": "fa3a31ec39ec32ff9f14814399b44d6e6be271917dab9aac720db5875b68d37d"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_bodega.gltf",
+      {
+        "method": "physical",
+        "sha256": "bdef07bb3fe448e2ec5a6b41aeef85342d5a9a0190e5bf3d14b7d54c5b3d42bd"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+      {
+        "method": "physical",
+        "sha256": "eb63d7b7a4b443c1782357ff3b11f21a2120fd1db5b537c4a9eae6236e829882"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_hardware_paint.gltf",
+      {
+        "method": "physical",
+        "sha256": "503c918f7729c331bec032c30b5d74565807f4dfffe28e3b3366af77568fb1ba"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_keys_cut.gltf",
+      {
+        "method": "physical",
+        "sha256": "7f655dce6b3a2d841a4848c40db2a019ca744ead4e9e02f68983e47a4bd197db"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_luncheonette.gltf",
+      {
+        "method": "physical",
+        "sha256": "21126ce60f04ab8c652c413369b179d81d2c8fedea4b9362431b24bb89951493"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_model_laundry.gltf",
+      {
+        "method": "physical",
+        "sha256": "f9794279384e9909b45119f42742d8a76dcf9ee8bfb7d76257ba488aa7162b28"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_news_cigars.gltf",
+      {
+        "method": "physical",
+        "sha256": "0d59112ebad214d84b7e83da92994c033265f7ec83771676b0a41e3df16b1d3e"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_otis_son.gltf",
+      {
+        "method": "physical",
+        "sha256": "b4a89ea27a61b81bae6856c14b0237c7f21cc05ab060c8dee4ce5c1965a128ac"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_pawnbroker.gltf",
+      {
+        "method": "physical",
+        "sha256": "2890a12bd8b0ea92adf9188c221c7ec726f862f159e90ac19fccd0b616fe4866"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_photo_supplies.gltf",
+      {
+        "method": "physical",
+        "sha256": "83759884f0353c0f99260578a337e750842069b092efe833dda502b0860b466d"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_radio_service.gltf",
+      {
+        "method": "physical",
+        "sha256": "b6bcc50c17acbcc726479969c6f2bb7810fc75415a5d8ef12faaad383a725efa"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+      {
+        "method": "physical",
+        "sha256": "34919477d8017660b3b1ed090f6cc5279eb82e84d47db6bb38c1dc39be64250b"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_01_cells/site_street_common.gltf",
+      {
+        "method": "physical",
+        "sha256": "a9806d7c51a1500a282732eb9cf0ca960a4a31fc080368b686cfaa8eb0646b90"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_02.gltf",
+      {
+        "method": "physical",
+        "sha256": "73d9b92b4dea64a2dd28843dd28a6b72fb5df7db0bdeefddaf52b203e51bc954"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_03.gltf",
+      {
+        "method": "physical",
+        "sha256": "148f6ebbe74ecabecc427d0460b0cad4634a7c8e24238180c071466623b50aae"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_04.gltf",
+      {
+        "method": "physical",
+        "sha256": "94408d22d2d73b83152a1470c4e63aa16c0964f3b2d6aadcc7d7aada95c16d47"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_05.gltf",
+      {
+        "method": "physical",
+        "sha256": "adad1d96df6910cc200a2d187578adee767231fe903f08e76f4156216b6c6015"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_06.gltf",
+      {
+        "method": "physical",
+        "sha256": "000bcd9d13e2274479a61a9aa627fa3758ab144ec2091cad097fa865eafba611"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/floor_b1.gltf",
+      {
+        "method": "physical",
+        "sha256": "2f1a1b1ec466315c768b826a8a338e8ae0c900ea1e48c317cc2dc4aedb039f8e"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/orison_v2/exterior/passage_gateway.gltf",
+      {
+        "method": "physical",
+        "sha256": "ac62724ac0967c122f03be772da504d9be40c41e72da15703baaba757968f1ce"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/orison_v2/passage/passage.gltf",
+      {
+        "method": "physical",
+        "sha256": "56cf0cc588d7b5a3f2d6683799ecf38ce5012b11dbfc53e813c2b4eeadfd964e"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/roof.gltf",
+      {
+        "method": "physical",
+        "sha256": "0a922034dadb996792cda48e4be98badc89cd38f40820117ddf41f3a4c10205c"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/v2_coal_delivery.glb",
+      {
+        "method": "physical",
+        "sha256": "596cd67187e352817f05b9bab8f0bdbc690cdc52727dd40a26bc4a2fe61f7ddd"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/building/v2_lift_drive.glb",
+      {
+        "method": "physical",
+        "sha256": "42d495b1968a9626d600718137cee01d2174731fdc50fd9b78adc7e283f30db6"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/characters/cal_dwyer/cal_dwyer.gltf",
+      {
+        "method": "conservative",
+        "sha256": "a790c0a07c104aa2dd7a48035ce425e598c4a4a6928b2ccf9fb5c67d56e6dd59"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/cal_dwyer/cal_dwyer_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "292e50a7b6ebdcce7a79d0c01dbfb09bdf24f998160c9cc0ea9b64e114af7845"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/cam_ortiz/cam_ortiz.gltf",
+      {
+        "method": "conservative",
+        "sha256": "27aee8d43881fbf3f990b6a839898773b086d457dcb063728efa673438277ed3"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/cam_ortiz/cam_ortiz_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "d29b119f6f2fddc7bec64743a70861638df7175ef54c09d10619814c74313380"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/evelyn_marsh/evelyn_marsh.gltf",
+      {
+        "method": "conservative",
+        "sha256": "5964ec16eb79e26df9e5471466ecaef9fe839b2454e43ba1ec58e9f26ce178d2"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/iris_bell/iris_bell.gltf",
+      {
+        "method": "conservative",
+        "sha256": "9fabfe16bb3a2fa23596493ab9806bbf05cb06cd83c6ca24674433dac1b72e5f"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/iris_bell/iris_bell_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "34a83075959e3cd438b1c797155ae3d10344d5b35aaef238432726c7ff07a70b"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/jonah_price/jonah_price.gltf",
+      {
+        "method": "conservative",
+        "sha256": "000b775564c5a5dd34e0fcd3ec675d10f3bf48f4c65068bc8b4c455c0a628c9b"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/jonah_price/jonah_price_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "453cb3c481b042e32ea4a85bdaeb6cede41a02507c02552d583babc74659b5b4"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/juno_kells/juno_kells.gltf",
+      {
+        "method": "conservative",
+        "sha256": "7e572f7be36be456eb4beca95830365205a06e9bc2d7801e740a74096dc14911"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/juno_kells/juno_kells_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "3730fdf858c09e76082cd0a4f317c862be11367b599f7f537c88a27d4e327d7f"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/lena_ortiz/lena_ortiz.gltf",
+      {
+        "method": "conservative",
+        "sha256": "036f0f1770397a61fc6403b074bf5c9b0b5d11397173943d20ebd82f5877aba8"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/lena_ortiz/lena_ortiz_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "a293f55b1e1f73aed51e639d0bb0b10182382686b388056334809bb538654364"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/mae_kessler/mae_kessler.gltf",
+      {
+        "method": "conservative",
+        "sha256": "f133ccb7e69e6ccc9ce1e46c799cd9928a7a582494e0272e5cf716d08c19e202"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/mae_kessler/mae_kessler_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "aad7913f5a0c9c3061f37170ce372b0d95fd34b6b692acb8fa2bc0821de1f1e2"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/malcolm_reed/malcolm_reed.gltf",
+      {
+        "method": "conservative",
+        "sha256": "ac97cdabd03c7db275002045a54734e77463012a021370a51bb66a0ccb39a809"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/malcolm_reed/malcolm_reed_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "7354701bea3454f7991b3805ac71785309a8a9b98e9fa087b2fd40001f50b81b"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/mina_vale/mina_vale.gltf",
+      {
+        "method": "conservative",
+        "sha256": "7a6d899c7d3173e982016f9d05074a1067133cd293a014cf42110dd13c14ab00"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/mina_vale/mina_vale_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "631be60060389d48255b6f61ccb438f7c43b863ff720e13b28a3fb1c867a81d3"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/nadia_quell/nadia_quell.gltf",
+      {
+        "method": "conservative",
+        "sha256": "6004aa232d3471c6b10df5c9c05f0139b0e5b5a33dff76b29bc40030b3b886e1"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/nadia_quell/nadia_quell_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "11fb1850fec3ca23798fc22d6ff7b57fee676b75bf7466903c1dfe4e74cf24b0"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/noel_price/noel_price.gltf",
+      {
+        "method": "conservative",
+        "sha256": "52a68763e8f6804f378e3e606be1058461f0ce3031c38c6055ea72ebf6121ff6"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/noel_price/noel_price_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "46ec9c2ed8571346098ccd5ba9de20935bf636d02234ca43c3094c66cdbbe778"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/omar_bell/omar_bell.gltf",
+      {
+        "method": "conservative",
+        "sha256": "a3da6059578840cd785454d358251513816293213bc0c3acec071a75b806f355"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/omar_bell/omar_bell_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "e6ef508e54455a4037f29c8d4a3c0b1c7fd063e9015485faa53fe93da72931f6"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/peter_wren/peter_wren.gltf",
+      {
+        "method": "conservative",
+        "sha256": "3d351da5dacc785b26972ca2ef3263c421b27e5916d08c9150ee35df1afc8ce2"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/peter_wren/peter_wren_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "d0cd4697d0476d69370c41ed139148b1a44e75555ce6ef5e7123e2ab5f069e83"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/rhea_sato/rhea_sato.gltf",
+      {
+        "method": "conservative",
+        "sha256": "7a74e8a2e8fd9f30a840733815caf7061d084feae953d5258d10cad09182a03a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/rhea_sato/rhea_sato_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "765cdbbf8417221d87b18edeb345ef852c5b0974c51f85f9f54971a149648ca1"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/sacha_reed/sacha_reed.gltf",
+      {
+        "method": "conservative",
+        "sha256": "52829e1b197cb46a2367a713da95ace0b6150847c79ca96239fa15d1215ea319"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/sacha_reed/sacha_reed_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "e47fbe6a547e6b9cc2d51d01710803103a00af7c28d829c99b47c6ec0205d43a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/shared/biped_gestures.glb",
+      {
+        "method": "conservative",
+        "sha256": "f725dbdc025c9e121c5fd2ffe5f58a199b67e48c4cf034c6a8ef76ffca9fceb9"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/shared/resident_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "520a698cfb49aa7f9fb03c74f5129a906d6c72171ae71d256545d11917199bd7"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/teresa_vale/teresa_vale.gltf",
+      {
+        "method": "conservative",
+        "sha256": "b4b37c2a6a315c061207f05fe9c711338f2d6aca0119e3e168c0747cfb5a9349"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/teresa_vale/teresa_vale_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "903dc93ee657819197dc243cf4f4af9922d35eef9d79721bb82da6d0e42cc292"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/transient_guests/transient_guests.gltf",
+      {
+        "method": "conservative",
+        "sha256": "5e34ec6260d0bd4bee535d1f95219c00b1a4bd6c342b363a2473e01eb656f264"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/characters/transient_guests/transient_guests_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "627a606bbaf0d7857e3868aa7e8b4974a50d032b69751976b363ee66a7456972"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/creatures/harpy/harpy.gltf",
+      {
+        "method": "conservative",
+        "sha256": "e0b05da7b68791ef69e0dad7b87dab53221048536294b1151ea22450bdb5bd32"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/creatures/harpy/harpy_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "350e4e0f2fd744f0c6308b1e36319c77e39f21420b26544f545bb6029ca4a666"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/creatures/oni/oni.gltf",
+      {
+        "method": "conservative",
+        "sha256": "f11b0b83b16ee3d3f90cb372e6afd3b7d1eaea21df7adfe0607f6f81fee14f41"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/creatures/oni/oni_moves.glb",
+      {
+        "method": "conservative",
+        "sha256": "a8271429d86726976580acb7bf0bbb868538fbea10e7d7e5bf683cb7ac82283d"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/device/service_teletype/service_teletype.glb",
+      {
+        "method": "physical",
+        "sha256": "22858f03d1f7439cc08382370fc7753e6e69b1745b6a08304699acdbe689193f"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/bacillaria/bacillaria.glb",
+      {
+        "method": "conservative",
+        "sha256": "4f7353d75aefcae725b8b51af5caa44b2a91ae89f5d8ac55978e7675fa5b8c55"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/bacillaria/bacillaria_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "1eccba47e17e31d18f8a254449724885ac8459fb53631f3119fdb160c631a3a5"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/crystal_listener/crystal_listener.glb",
+      {
+        "method": "conservative",
+        "sha256": "18a91e4ffc04987da27dbef8b8001c14dc4979c68137864bd9f84b778987ba4a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/crystal_listener/crystal_listener_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "24f44ae306d6f27b56d025ddc0efdd7f38844f752b0e910bcaf6f6e429807c6a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/euglena/euglena.glb",
+      {
+        "method": "conservative",
+        "sha256": "f250df3fae0e4e9630daa98851a0aabed44efae2deb304bcf2e9d858d0401727"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/euglena/euglena_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "e8ca9eff567b0cd2d925da35ec270b5642fbedbd4f4d74d6217c34107f4ad0c3"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/euplotes/euplotes.glb",
+      {
+        "method": "conservative",
+        "sha256": "cd01614eed640241caa7b4fd8fd582160a393c71bbf263719adf467a7e29580b"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/euplotes/euplotes_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "029ac71291ee83cffd4223c3afc35d9f6df35e9c2853e73cf6312471dc0b4b46"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/fold_crab/fold_crab.glb",
+      {
+        "method": "conservative",
+        "sha256": "ac4e0e2619154d425d13262105121f1a7afa5810d8cafa20597cce4f4adb316a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/fold_crab/fold_crab_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "9fcc079e9e72eb661da787a61231618e13489dcc1a803ef3d81ca444b8f85990"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/heliozoan/heliozoan.glb",
+      {
+        "method": "conservative",
+        "sha256": "abf3f22f8cb612943f62947d8c45092461f193ac653e965b67a4eaa95871bc69"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/heliozoan/heliozoan_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "ba1f5abf15959456fa3d6b1638171138b0ea3699b3ed3132f3fded0353f781ca"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/lacrymaria/lacrymaria.glb",
+      {
+        "method": "conservative",
+        "sha256": "61bf9db55c6f3208ac9af61391702d7c1287b43d9e43b1019a901f0857b35aab"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/lacrymaria/lacrymaria_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "47b5a1b0ae8afae13924daffd418114e2df84cb3d2c7bc5c3376a196f2169729"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/mesodinium/mesodinium.glb",
+      {
+        "method": "conservative",
+        "sha256": "9f7ca3d6bb140ce17e2af0f7f2923f8e6dba13875d9d39ce544123d6154545e5"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/mesodinium/mesodinium_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "5cf3883237cc6a738b820f4272f91ab9d07870bdd9621ef043113cbb6e06914b"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/noctiluca/noctiluca.glb",
+      {
+        "method": "conservative",
+        "sha256": "15285b6386b9a78222feb5eaabd702cc4dd39e86c5de6d45f090eee18d09e721"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/noctiluca/noctiluca_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "566cd3718aa09019e5772221934e3606eab3f4926b08c251600654c275011842"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/salpingoeca/salpingoeca.glb",
+      {
+        "method": "conservative",
+        "sha256": "ee228e01ca0e51743b393af876bafdfa0c9305a47b7a913392a02fb0948d2af0"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/salpingoeca/salpingoeca_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "5fa18b36e5ed42dc61942f372742f0b057ee36b07be300d4ddb6ad2d16af12d5"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/seam_grazer/seam_grazer.glb",
+      {
+        "method": "conservative",
+        "sha256": "3756fde426cd6cb8ba0178c186e6083c4539fa7859c0b68ec14b50d669749018"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/seam_grazer/seam_grazer_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "6667810fe7c00f2e65320fd358ee9f7e082706c06383d974e1aa6f61718207fb"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/spirostomum/spirostomum.glb",
+      {
+        "method": "conservative",
+        "sha256": "0d3b4bb112923a088156057924bf233ddc62b97775a7cd3d12eeb615f37c764f"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/spirostomum/spirostomum_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "235e0610154457dbb194c057d0329eb270f40323d415e0b4346153d77b8efd0f"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/stentor/stentor.glb",
+      {
+        "method": "conservative",
+        "sha256": "d0177f0b48c2be5e14658dd9258d24283e4a59f2776697758f4595682a52e743"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/stentor/stentor_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "ecbeb664784db36969177689478a12ae065ce21b6119025894422ef165136409"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/tardigrade/tardigrade.glb",
+      {
+        "method": "conservative",
+        "sha256": "30872b5f9df818a2a4f868ed2079a4e278f164bf4be7d40b721351bd9aa80e86"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/tardigrade/tardigrade_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "ba4ed937e7a61d0571f341aaf2706389814565d47d99401fd330fce1017e6212"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/volvox/volvox.glb",
+      {
+        "method": "conservative",
+        "sha256": "79cb863cbbedd54714afb67fbe12dc94d4e071bb84aa00196bc9935533704401"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/volvox/volvox_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "1bc19dc3944b01040742a833f7082b335d9d4e08387fb05460a7f3207aeef2f9"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/vorticella/vorticella.glb",
+      {
+        "method": "conservative",
+        "sha256": "e0eebba070d187c1e7762bd705965e1a46560a89acdd833b299c645adc3c6f4f"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/critters_blender/vorticella/vorticella_lod0.glb",
+      {
+        "method": "conservative",
+        "sha256": "bab12dd3157f9f9a5489fee69d6648cf304cdb890c6452e8e09bb1524e2c5bbd"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/dream/tentacle/dream_tentacle.glb",
+      {
+        "method": "conservative",
+        "sha256": "fe17ca962c35a5bc033cabfb9d3b42791ef3eff0bd474d257a48dcb8e38a84a3"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/active_household_projector.glb",
+      {
+        "method": "physical",
+        "sha256": "2f532919b7c8e487c1cc3208e841180cc8b5fb30f24e0b99b2a43ce9f2078f42"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/active_household_radios.glb",
+      {
+        "method": "physical",
+        "sha256": "eaa647e7fff4f0202706c10bd3d4ee18fd28aa0446a8d1c3e303a7f0e284f348"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/alley_groundworks.glb",
+      {
+        "method": "physical",
+        "sha256": "69143cc7feec8c8c800894a9282b4cb08972a0291bb612a124a2a0362bc7d9cd"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/annunciator_controls.glb",
+      {
+        "method": "physical",
+        "sha256": "b2d0558949c885ee3648b8a8d3cbb469eb33dc229d051b2ceff8b48c565dc0db"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/annunciator_dispatch.glb",
+      {
+        "method": "physical",
+        "sha256": "06a3ef40c3d987f7ff03f8b23b68e011e881b762fd2bac7519914246bc1473e5"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/bar_ceiling_finish.glb",
+      {
+        "method": "physical",
+        "sha256": "72e6d51b108ae61c4a08fd4342bcc89b24013a1abd3a736cd66cab2d082c5e73"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/bar_fixture_mounts.glb",
+      {
+        "method": "physical",
+        "sha256": "da33f1bec41175668df0b272730f1d7e3bee1e874b990c74bc0317dda7240ea7"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/bar_furniture.glb",
+      {
+        "method": "physical",
+        "sha256": "2951fa4bde0c4abc443cae4baa234178a572aaa2bf8228dbbc05a63c7c799801"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/bar_gallery.glb",
+      {
+        "method": "physical",
+        "sha256": "1e69c8d654f872a5cc224239edbd392b1b1ddcb6bd66456f541beb8266deb3e0"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/bar_instruments.glb",
+      {
+        "method": "physical",
+        "sha256": "f7320b25be85743f335c7f5fce2f62b466875a925a811441e2445e9c9f40a21c"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/bar_pipe_supports.glb",
+      {
+        "method": "physical",
+        "sha256": "1631d2a1ff453d661531b48fb0d95599f308436a3a88718aa85c6377d48fa69c"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/bar_pool.glb",
+      {
+        "method": "physical",
+        "sha256": "e32c11aa08ca98e2a0f7cb15a3e0d26f4cba5e901e12c68704f29fde7e768b76"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/bar_receiving.glb",
+      {
+        "method": "physical",
+        "sha256": "40b1478ab99a4bded7edcb6ac02335ce830f11829dae95885dee86a2003f53e0"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/bar_stage.glb",
+      {
+        "method": "physical",
+        "sha256": "6d22bef3b2cd9f4fa092ff7d3b7404d7a7e4eef5db2ce8e725556bd4d4dfec7b"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/basement_airer.glb",
+      {
+        "method": "physical",
+        "sha256": "9c6fa729fe8625267406c9ea39d20ae5442ffcc99df211e917c5d10e418af6c1"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/bath_lavatory.glb",
+      {
+        "method": "physical",
+        "sha256": "1d90abfed0b11ad7df5555248202acf25a5895a00cafa3af5bb4aa4d925e8e3c"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/bath_paper_holder.glb",
+      {
+        "method": "physical",
+        "sha256": "84198a3437e38f6db8392177dc3302de5fb2f0993ecf3f7b55d5f52e6fbc14fd"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/bath_shower.glb",
+      {
+        "method": "physical",
+        "sha256": "b31c0e9f4144b5271c71f35c62e369457b567b2e1ea61f0c95470477c3b2c181"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/bath_towel.glb",
+      {
+        "method": "physical",
+        "sha256": "c48b3eac0cc9db341984b72c50bcd365172075f639a4bdee94973c005f03a43f"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/bath_water_closet.glb",
+      {
+        "method": "physical",
+        "sha256": "2f1729e228fd1781815b864602a9b4d600cff9e362b8e4fa7b04fe7486da5cc8"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/bedding.glb",
+      {
+        "method": "physical",
+        "sha256": "34de667be8ce8c7f677b4d9b005c0907a0e0d9b738f5d8de3bd6dab069719b6f"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/bodega_fittings.glb",
+      {
+        "method": "physical",
+        "sha256": "6d281dcb241f78932d16aebafc2f04d4e262d015a64724093c301d8ae0f5033b"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/bodega_frontage.glb",
+      {
+        "method": "physical",
+        "sha256": "ec2b8c9977a7ebd647f9dec04d749c8a37b2dd6a7e5e78cabc495c8dc578d389"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/bodega_power.glb",
+      {
+        "method": "physical",
+        "sha256": "4f12f95d52cb4c6c3e07384719b599b11cf48343c664f4f57b66200540cf6642"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/bodega_receiving.glb",
+      {
+        "method": "physical",
+        "sha256": "fa85840cd73dceb4b58d2428a92bb8ef9543f1276248a4d975887b359fe3bfb8"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/boiler_body.glb",
+      {
+        "method": "physical",
+        "sha256": "a97731006d2510b688a001e8fa95e314fbad03f2b55f5abb1c2114ad3be9226f"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/boiler_inlet.glb",
+      {
+        "method": "physical",
+        "sha256": "d0f5db3925fe518d5dfa3739ee98996a6691007c79550e5dc4423c24a17ff1b1"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/boiler_instruments.glb",
+      {
+        "method": "physical",
+        "sha256": "00a8578e2bb7a1a7f17cbb9ac7a34b6e55366ca937be45ce346ff987d2bc5ec9"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/boiler_pipework.glb",
+      {
+        "method": "physical",
+        "sha256": "7c6cb9ecac27b7c35a1cc7c42c1eb6fba2519fd6665d4338786734f99aed70c4"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/boiler_window.glb",
+      {
+        "method": "physical",
+        "sha256": "7bb215b6b504e1031f8551612af74ddc06de25589b4354c601604b47091fc3ff"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/bookcase_lift_door.glb",
+      {
+        "method": "physical",
+        "sha256": "c0601c7b79f10100113a40177c5178bd3b74487c9b77ba433f3558a237016c02"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/breeching.glb",
+      {
+        "method": "physical",
+        "sha256": "7cf5034b86e74ee42248bad2c5b84d57d8b761c2222bc514668e8cbc18d7f1c0"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/ceiling_top_closures.glb",
+      {
+        "method": "physical",
+        "sha256": "86430d5bfaf8c211cb208cae6ec5f2d58c1ee65938316a02970c00e8c2ef769b"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/chimney_crown.glb",
+      {
+        "method": "physical",
+        "sha256": "d245f9503aab69af5093b77cd24c6629d19d53a5fbb2fcf9ac7af75e446315ca"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/city_aerials.glb",
+      {
+        "method": "physical",
+        "sha256": "aaf4dc757d325222681e050f6b6f4b93807af18c51200a7766685d3d9763fbdb"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/city_beacons.glb",
+      {
+        "method": "physical",
+        "sha256": "6e8ce5069131614047d060adaee2de79be8b7e0c34cba859c1aacf7da50ef3cd"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/city_foundations.glb",
+      {
+        "method": "physical",
+        "sha256": "a9a6cc97ba10ac5769a4c2929a76f58bdef11fff03e6f13e7359d14076771e0e"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/city_masts.glb",
+      {
+        "method": "physical",
+        "sha256": "eb484750a67909b8b24716128b25e538a22f144991b248ecd0b8dde5765907c4"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/city_shells.glb",
+      {
+        "method": "physical",
+        "sha256": "d640529504566a371cdec323b57ebad4c6923e5a9b67cafe1e7dd11a687a284e"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/city_tanks.glb",
+      {
+        "method": "physical",
+        "sha256": "5698e5ac47073daae9ed17e605efd9428bf479dfed6b4491b20d3ea155b7a9f5"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/coal_heap.glb",
+      {
+        "method": "physical",
+        "sha256": "702133c76c799a914de897a0b73b6ee22743683212c6896efcd6acc4bcde29e8"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/cobbler_fittings.glb",
+      {
+        "method": "physical",
+        "sha256": "bc6c69710fcb81df17a3d96a71ea6c9d9a66d398514f184518b2558a4a14384f"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/court_roof_bridge.glb",
+      {
+        "method": "physical",
+        "sha256": "65c0b6abcce55151db6159946bd71043b676cf754730ac77ea1edd04d9a13365"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/diner_apparatus.glb",
+      {
+        "method": "physical",
+        "sha256": "ede7b8ac01a0f63225aff153c6dd499b5a1641bf670bb1a506e4cd1cada81298"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/diner_backbar.glb",
+      {
+        "method": "physical",
+        "sha256": "9eb0e334cb2effb56a83302353caa00d46f47c69cfd6a80052d0abf90266c3a0"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/diner_counter.glb",
+      {
+        "method": "physical",
+        "sha256": "096060281aeb3dc095935f312fb06a5e5f4f36ac7314ab95864eead934fd1865"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/diner_overhead.glb",
+      {
+        "method": "physical",
+        "sha256": "c00fd11679738e6833aecf63c984d653f5e6e219a1f4210ac02f078ebd166758"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/diner_receiving.glb",
+      {
+        "method": "physical",
+        "sha256": "cb31c3c452655808bbdd556dc0b70709127169a1a54ecd1ed390c860723df60d"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/diner_till.glb",
+      {
+        "method": "physical",
+        "sha256": "e10a7e219ecf5b1795fc94fb7f3dc8118cb1ddc0e37dbf961b91b7bc18af4e1f"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/diner_urns.glb",
+      {
+        "method": "physical",
+        "sha256": "8b968b08bdc89e218296da65ec796a44553a5364a136617d4bd7dfd81f1ef75a"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/domestic_door_leaves.glb",
+      {
+        "method": "physical",
+        "sha256": "95010138de3e321a31502bb48a84c1c6636edbcd05a3361b1317d7889602e81f"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/domestic_objects.glb",
+      {
+        "method": "physical",
+        "sha256": "f8850f78ae72a1ed2fc661a61bcc3b9da8a5e641cdf306e15d6f009a52b73323"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/domestic_seating.glb",
+      {
+        "method": "physical",
+        "sha256": "81fc65201b54a7f98cef7482c7bc4e948b6d163fdeca31debc35b2d4a962cf4a"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/domestic_storage.glb",
+      {
+        "method": "physical",
+        "sha256": "6ad646e9ff1e526fcab47f3d907eb97089cdc3000fb9d87da4a31562e3069aa3"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/domestic_tables.glb",
+      {
+        "method": "physical",
+        "sha256": "ef9b7f7adc5e8ba8b48105e41dbcef7c433f679c3aea9ecd3955117efb55d250"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/door_butt_hinge.glb",
+      {
+        "method": "physical",
+        "sha256": "eba21629a28f88a4ab8398eb3ff15b345196b09fd0ecb17562069a2785b4cf55"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/door_keyway.glb",
+      {
+        "method": "physical",
+        "sha256": "1cfbc23c250245a79c41ff705cc61745c5027b8cc6c72b44b302d23bf9516ca3"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/door_knob_set.glb",
+      {
+        "method": "physical",
+        "sha256": "2a0a4408bd59482bc1a354728e4dd79626b8c3bbcc4d81b1a4e32fc5c1adf784"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/druggist_carboys.glb",
+      {
+        "method": "physical",
+        "sha256": "c976d5bba909f24e6d9516426bc110d608d99e91271f77f17213d5396c65a543"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/druggist_counter.glb",
+      {
+        "method": "physical",
+        "sha256": "71315743c840eb111d8aa241812390c75ea28b1e8b988af76d5c0f89423328e2"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/druggist_cupboard.glb",
+      {
+        "method": "physical",
+        "sha256": "be00af20ef4a3ec66e00c6d00fc54f1980ee4cd886b83ecfc6d14d7cfacc6013"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/druggist_dispensary.glb",
+      {
+        "method": "physical",
+        "sha256": "c5942c95d618c911e2f6292a239027eec0e3895cea42a72263b776e794fc74aa"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/druggist_drawers.glb",
+      {
+        "method": "physical",
+        "sha256": "4f6e9c50468121f951c3ba3c37d4811c3e67d23233b65d1a94dbbb6b13fbdcb2"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/druggist_fountain.glb",
+      {
+        "method": "physical",
+        "sha256": "fd056de0b63c619e2d78c003d3fb33f6bc501e680965a3cc6fc1d0a011efa1a5"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/druggist_mortar.glb",
+      {
+        "method": "physical",
+        "sha256": "14c1374f1218d0f6e4380e1e43b9c1c0218838bd62790e99744a999c5007a242"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/duct_hanger.glb",
+      {
+        "method": "physical",
+        "sha256": "1f1afedef86ff5ee8047413eda9a8c7c6c8b5c260ba0ffc076190c6115ed63bb"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/electrical_connections.glb",
+      {
+        "method": "physical",
+        "sha256": "6f152205b9899303e0c030ea5412782e09c7b43b5a24fb42df4cd2bf49caaae0"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/electrical_service.glb",
+      {
+        "method": "physical",
+        "sha256": "0b0a20d642f70866f190ef5e91c29a5928dc2ebb1a30a47976863ea42985e1ac"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/exterior_masonry.glb",
+      {
+        "method": "physical",
+        "sha256": "59c4ea78a19e1ff9cf9ee18cabc6c1e19e5020d320a505964e6e563fe268adc8"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/fire_repairs.glb",
+      {
+        "method": "physical",
+        "sha256": "9cf1627209c58c4783a8ffbbfbaa0f705677323e96de547ba3e9dbc5266bae82"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/fire_service.glb",
+      {
+        "method": "physical",
+        "sha256": "389bfa72ed653642ff67b6539a055f2ab85c2a9607bcc692fa51be1f048de907"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/first_upper_hall_seats.glb",
+      {
+        "method": "physical",
+        "sha256": "678b1c3e1471a33baf2e0e548a8165aba1e1feeeeca133b9e24a8f1547231381"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/fixed_lighting.glb",
+      {
+        "method": "physical",
+        "sha256": "d5cbdbc8a089ca7bd8e274b8012385c8b220a870466aa330f9cf1fbb2aeb083d"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/front_court_roof.glb",
+      {
+        "method": "physical",
+        "sha256": "e61786a472fc6231b0b90f0209c613db1d13a1fd0b4aa05c785d73c435ede668"
+      },
+      "665456ca569e0a40a3b545297bc6d4d044162ccb6d6a17e053f1ffa554608ec5"
+    ],
+    [
+      "game/assets/props/front_facade.glb",
+      {
+        "method": "physical",
+        "sha256": "4ceee89397fa2d6387e4a903cee5905cdc91f072f362f3036638ca9e796ae1ed"
+      },
+      "665456ca569e0a40a3b545297bc6d4d044162ccb6d6a17e053f1ffa554608ec5"
+    ],
+    [
+      "game/assets/props/front_lighting_fixtures.glb",
+      {
+        "method": "physical",
+        "sha256": "a494d3f8870ceffa585b0ffbf6b4b8cfa387dd59336f84d0dfeb907d793bd1ff"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/front_lighting_supply.glb",
+      {
+        "method": "physical",
+        "sha256": "75e37982ce5baf72c72c27ed7364d99644bc7266d2db5032ae363ca6c19947cc"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/front_lighting_trim.glb",
+      {
+        "method": "physical",
+        "sha256": "b280649ef40cb3ea8dccb06702490a7c412f12ef8a6bcb8aa75e5b5b481d75b8"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/front_pavement.glb",
+      {
+        "method": "physical",
+        "sha256": "e4a6871085af393e14e89a9b48b70ca90d79b44bba78e95edbd621e7211bd435"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/front_restoration_details.glb",
+      {
+        "method": "physical",
+        "sha256": "d4d8ff2c191d7446f1482a3bd137622e992ad1442d7b74cc69c9429774cc4032"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/funeral_drapes.glb",
+      {
+        "method": "physical",
+        "sha256": "8acd1cb51315e5be964b726b37654944d06f6058c91e8719d879ed0a374ce869"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/funeral_fittings.glb",
+      {
+        "method": "physical",
+        "sha256": "167edf9a43f5e68bb754df7b31957707f6a87726971ae86472432989c9b9704c"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/funeral_foliage.glb",
+      {
+        "method": "physical",
+        "sha256": "0efc5a42b5d365629ff2867314b0d9dcf71da59fb758dcf49d4f96d64be7d7e0"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/ground_core_transfer.glb",
+      {
+        "method": "physical",
+        "sha256": "0fc9490b24c4511b42af3e478a8e4c4d298aa36f2f6303d92ccf713587b2bb81"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/hardware_apparatus.glb",
+      {
+        "method": "physical",
+        "sha256": "6f6d527ce5598a011c9ddeb4799c73f0b113b15432e2dbf79aceddcf08a1d24e"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/hardware_drawers.glb",
+      {
+        "method": "physical",
+        "sha256": "c10925df1cab9bbc792d56ecd8d7db72fbfee2b2798cfab56bbb30dc9eaf58db"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/hardware_stock.glb",
+      {
+        "method": "physical",
+        "sha256": "dcc9645544b4c03f51510ca82c516baa40c01bb8a25f6e719738c4877c661d00"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/hardware_tools.glb",
+      {
+        "method": "physical",
+        "sha256": "3ee0d9ca50f91e2caa89f9cbd6f9d54a678086ed2f59639e0a1ccf9083d2b00e"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/heating_distribution.glb",
+      {
+        "method": "physical",
+        "sha256": "8c6ac50c9a9b5fcecfce1edfe247ad48fb33bdf139e928295c9436e8b39676e5"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/house_tank.glb",
+      {
+        "method": "physical",
+        "sha256": "f91d46c9496d9f4179212c05138d8c3b22d1cd53e150c9d9e2b45d9ff20c308c"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/household_fridges.glb",
+      {
+        "method": "physical",
+        "sha256": "47a4f66a415e6c5d746fea65bbe85e1f44f6fb3d1b898b8bd66e9a5c1ac035ba"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/household_radios.glb",
+      {
+        "method": "physical",
+        "sha256": "7597434367fc30ee94792ba8b28db9c56ae1ebb3fabd6fdf7a5e61e534646632"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/household_stoves.glb",
+      {
+        "method": "physical",
+        "sha256": "3c0c8cade2ab4c03e8656a1ff14b0fb7895ccd365ce394b487d7395d8f6b44a9"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/household_toasters.glb",
+      {
+        "method": "physical",
+        "sha256": "0823eb38111da3f6aa7e18b9dc3cc71ff24aa12d8c04c58bce8953c8ffd3aeb6"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/household_wardrobes.glb",
+      {
+        "method": "physical",
+        "sha256": "a757130e43dd3d0cead7a28d4624299d4a7cd061081e0dbe89fe45cd2ad3f0fb"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/kitchen_basins.glb",
+      {
+        "method": "physical",
+        "sha256": "8352e9350dbc4859f267987c46a8d5326b3c8a7aa418b7d263dbd89fff50896a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/kitchen_faucet.glb",
+      {
+        "method": "physical",
+        "sha256": "aa06fdf2451670861aaf0b28692dd99a747eaa60bb9b14f4b92591028f331050"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/laundry_apparatus.glb",
+      {
+        "method": "physical",
+        "sha256": "c6ef15d5b6d4609a94196f47c47ee1d7eddcd57bd57e550a164d3947b6b9ed27"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/laundry_fittings.glb",
+      {
+        "method": "physical",
+        "sha256": "18afc3d11916c547edf60ef0cd9303ac7491c7611389a4e84c0cf4087a5a6c4a"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/laundry_receiving.glb",
+      {
+        "method": "physical",
+        "sha256": "240fb71fcd2b83edced53f0b908a4b1f6c999a0029510fa8720024b05ee0c431"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/laundry_trade.glb",
+      {
+        "method": "physical",
+        "sha256": "83f295b0894be2792a840730477da7bcb5e776327417b8c80d3af8945a2cb006"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/lift_cab_controls.glb",
+      {
+        "method": "physical",
+        "sha256": "8f80e83da38cae0fab76b0576f713f4b670a89d2647a0e94525f86ecd3ea1adf"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/lift_call_plate.glb",
+      {
+        "method": "physical",
+        "sha256": "aba63ccbabc5b24b4aa00f1cb3423c6cff3bf4fdc5407eba9ec9d6a9319b5a2e"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/lift_ceiling_lamp.glb",
+      {
+        "method": "physical",
+        "sha256": "4b0322f4d8413f13d50a6f46126cde0bf379ee077ddc1238186a0ebfcaa62371"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/lift_gate.glb",
+      {
+        "method": "physical",
+        "sha256": "29ba94cdc1b03fc08d8158371e29de06d7f72dc0c0ad38d15cd25eee28c0cef6"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/lift_handrails.glb",
+      {
+        "method": "physical",
+        "sha256": "b15bd7a8a2ab7cdd732639a78fcca0191e45ace49b6ff598ce56271369eb8591"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/lift_indicator.glb",
+      {
+        "method": "physical",
+        "sha256": "24667f119a7f43ee8bb83436536e137c8dde90a061752be423d4d72cb7ad9d4b"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/lift_joinery.glb",
+      {
+        "method": "physical",
+        "sha256": "40771ffa1827b8238234341cfcaa2839d38d4677d8acade9257f5878d9e87eeb"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/lift_mirror.glb",
+      {
+        "method": "physical",
+        "sha256": "abcf3c42f25fdba5ca323e142bbeb4fc62d47818f5ca55541b1222d18ec91e78"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/lift_panels.glb",
+      {
+        "method": "physical",
+        "sha256": "958257457499deb31437f43377c6b0d72a1a195ab1c16bd579f59ad6c12fec95"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/light_court_skylight.glb",
+      {
+        "method": "physical",
+        "sha256": "3e2e292b1824e6ecf3d0cb3d3c9118f0538e41fce8784c359106a42cd9906088"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/light_court_structure.glb",
+      {
+        "method": "physical",
+        "sha256": "966434021991ec417dbc945061529c36986f9a4e036703226d8317370b6a78ab"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/light_switch.glb",
+      {
+        "method": "physical",
+        "sha256": "dae51a7ca9a0164fd4e20e468cdd18be17cc6316e39e87efa2d17bb18a96aa57"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/locksmith_fittings.glb",
+      {
+        "method": "physical",
+        "sha256": "28be94798d82a17669190a12285e28e809e894bc32ee863f540172ac3d079e6f"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/mail_bank.glb",
+      {
+        "method": "physical",
+        "sha256": "6ed996bc5c98e083ba57d47a0865b505668a232d49c1b2f890bdacbce67003f7"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/media_ac_supply.glb",
+      {
+        "method": "physical",
+        "sha256": "fd23702afb28ce05c55602c115d2b22bce63b1a06cb33d0edaf772888733746e"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/media_battery_supply.glb",
+      {
+        "method": "physical",
+        "sha256": "8e831b147ebee3b36b20c65535256ee281ca2429dbae605f5f63ca48278c6f6d"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/medicine_cabinets.glb",
+      {
+        "method": "physical",
+        "sha256": "cb0f175a20a33bc409c6f0246c1dd8ae78518e6c83bdb9ed12843741ef4aad13"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/millwork_profile.glb",
+      {
+        "method": "physical",
+        "sha256": "a94f7dddd8d4883974ee87cccd3ae4f9a34a35adcdfde2d573f0cc54925ca574"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/news_fittings.glb",
+      {
+        "method": "physical",
+        "sha256": "c869aa8b089cc4ee5284da19da9d4d88126aaecf5c6cdc0df22499b8f2222759"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/news_receiving.glb",
+      {
+        "method": "physical",
+        "sha256": "59eb7210f6418e729e90c75ace9f86432de032f515bce235bbceea897729d5ba"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/orison_foundations.glb",
+      {
+        "method": "physical",
+        "sha256": "a8b6261bb710878790368d3f6ce57cedbd73f50ff801573ff381dfa9cb43d09f"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/orison_ground.glb",
+      {
+        "method": "physical",
+        "sha256": "d77ba85d940b283cc5d030ae26d42345fea0cdf8d342ca6e5426f11aed61200d"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/pawn_clocks.glb",
+      {
+        "method": "physical",
+        "sha256": "70252c79dae3b4fa8fde597693f5a870d8e0d345b2a1fe14b04da0d26006f732"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/pawn_display.glb",
+      {
+        "method": "physical",
+        "sha256": "21a464db48d3a3b0f101d2d265e59d34010c297b7cf26928d7a907cd20494d39"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/pawn_fittings.glb",
+      {
+        "method": "physical",
+        "sha256": "b8c70095b9965e83212b41e82b5c4732884514fc108121b466caee8a07693033"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/pawn_receiving.glb",
+      {
+        "method": "physical",
+        "sha256": "a1adc6981a35b41acdde44937ddeedd1184c1d95ccbf531b4df5813bc0d788aa"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/photo_cameras.glb",
+      {
+        "method": "physical",
+        "sha256": "c5e748f73a65b1975556d3b908898b0171f97e9448a8e81b17d9c2adaba9dee7"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/photo_counter.glb",
+      {
+        "method": "physical",
+        "sha256": "36592717b7872567955ae0e3f1d4265639deafeda300b253de6b10f13470a23c"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/photo_enlargers.glb",
+      {
+        "method": "physical",
+        "sha256": "63cd456bb9980bf697d652493af945758b9d4aa811a0cee4988c202f52c3de8e"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/photo_glazing.glb",
+      {
+        "method": "physical",
+        "sha256": "3d68405882b7d7111e43e7d0d7910928d8fbdf064f839121b342fcb943917026"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/photo_portraits.glb",
+      {
+        "method": "physical",
+        "sha256": "e50ad2187f98e387c4b90b2c925b47a801748d967f77e00fb6bc3945a4bf2ec8"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/photo_process.glb",
+      {
+        "method": "physical",
+        "sha256": "01232069df99213745f7eb331e3ca4b5f004520a59f2cf9b4640048d0d905186"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/photo_radio_fittings.glb",
+      {
+        "method": "physical",
+        "sha256": "36ab85fb490960727e803f526dc4bad4ed652e9b46d72be7baa5751f044113db"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/photo_receiving.glb",
+      {
+        "method": "physical",
+        "sha256": "55e0296bc991f98073827de67f7bf60b44f7514fff92eb51f3fb36b9ad914691"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/photo_stock.glb",
+      {
+        "method": "physical",
+        "sha256": "98f953783a0e00490d49d3b353b6ea4cd39c673a5d0f0d54d6a2bc504b52d826"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/prep_cabinets.glb",
+      {
+        "method": "physical",
+        "sha256": "e9c31bab5321e803201f31e78af35e56af2ec3e9cc66edbccd5cc8c93c253d9f"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/public_furnishings.glb",
+      {
+        "method": "physical",
+        "sha256": "64ed814d7fedb1e497644f841726ea2fda05d08db69d9288a59ecb6658dfb528"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/radiator_air_vent.glb",
+      {
+        "method": "physical",
+        "sha256": "4c556208eb003d2deaab71f5d4171e9b7bba378a59f86e4507e1690fa3d6e53d"
+      },
+      "f3bbdcc6a88dcfebbf585eef783688e1efc2c953f92e50222820b971368257e2"
+    ],
+    [
+      "game/assets/props/radiator_mechanisms.glb",
+      {
+        "method": "physical",
+        "sha256": "d734b84bdd3ae8a863e20c6d30cfb17eab2bfa8e27e7c894f42ca0f25587b154"
+      },
+      "f3bbdcc6a88dcfebbf585eef783688e1efc2c953f92e50222820b971368257e2"
+    ],
+    [
+      "game/assets/props/radiator_paper_tag.glb",
+      {
+        "method": "physical",
+        "sha256": "b4b332507e97748e47260d2a94e7f02165e05b32f19ebac183bb9b047dacc4f4"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/radiator_pitch_shims.glb",
+      {
+        "method": "physical",
+        "sha256": "3f25074b2dd457c2a9e9998c7793b18f54cd2243bfc50c0b2eaff4ba81d69734"
+      },
+      "f3bbdcc6a88dcfebbf585eef783688e1efc2c953f92e50222820b971368257e2"
+    ],
+    [
+      "game/assets/props/radiator_section.glb",
+      {
+        "method": "physical",
+        "sha256": "9a4987a348ebdca82f81dd6354a97aa01c873ecc1ed641205ff020b815941206"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/radiator_service_stock.glb",
+      {
+        "method": "physical",
+        "sha256": "c9bda4ef62c4015e560fdf1134c54f67e2fa5315c5a0699831336ae38df8bf84"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/radiator_sliding_wedge.glb",
+      {
+        "method": "physical",
+        "sha256": "89afe6ed1e3b691d6ac5b163600cbf5077786c5d9d7d4f804c4d87d71ddc699a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/radiator_wall_support.glb",
+      {
+        "method": "physical",
+        "sha256": "fd5e92f6a30446994c8da62f8d424f72af49a86801a76e36fa39b1c45fddac56"
+      },
+      "f3bbdcc6a88dcfebbf585eef783688e1efc2c953f92e50222820b971368257e2"
+    ],
+    [
+      "game/assets/props/radiator_wall_tie.glb",
+      {
+        "method": "physical",
+        "sha256": "6d0866621bd21f1342d9a6a14e81482ba9a3f24190b815c6c6a65c8b2d9a422a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/radio_apparatus.glb",
+      {
+        "method": "physical",
+        "sha256": "3456872d04cd2171df64db8d709815267c9ed2b631cdab45c75bbd273e3a494f"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/radio_battery.glb",
+      {
+        "method": "physical",
+        "sha256": "e79522851a2d75795e6fc7e0ebfc2d6ebdf5cda18cd611b8de53380f4116e688"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/radio_bench.glb",
+      {
+        "method": "physical",
+        "sha256": "0d368be481bdd42624da9fa50ad402ff297e17eb173957afedce0814a5e96483"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/radio_display.glb",
+      {
+        "method": "physical",
+        "sha256": "f963df44acbefd0b0f1ad8794cc65eff48d3f495935e2c872580f628cedbf44b"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/radio_receiving.glb",
+      {
+        "method": "physical",
+        "sha256": "6e1d9f61ac0cc1fbc181bb75be37e7678b8aa9f29c29f5c69242582bf31b1a23"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/radio_stock.glb",
+      {
+        "method": "physical",
+        "sha256": "9013bb82b67603c1805c7ff863c63ae068e14a87912b30ebd6f7c23b586b0e60"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/radio_wire.glb",
+      {
+        "method": "physical",
+        "sha256": "45162ebac0c47804f1208e044ad167e31886d5d3101db7e71a01b0c27041ea88"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/reading_furniture.glb",
+      {
+        "method": "physical",
+        "sha256": "7147d76060376e369a25dc870691d812fbdd37526fbb88f82d57897dc2455f6d"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/reading_nook.glb",
+      {
+        "method": "physical",
+        "sha256": "4fbfa26f1d8f8f1a2c68a17ebeb23c821a5cb3f136fc29a099396f25c3762560"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/rear_wing_a_support.glb",
+      {
+        "method": "physical",
+        "sha256": "3c352c933f345fdfc413e59927d4f875c4441e41250c74bcaacc167b9bad717f"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/rear_wing_c_support.glb",
+      {
+        "method": "physical",
+        "sha256": "055a4a78a12b7c98cd97a856a49d6cf00322b450a49f3193df0376f2a9fe55ed"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/remaining_upper_transfers.glb",
+      {
+        "method": "physical",
+        "sha256": "9bb40123832af608b2db936429b4081f07891875a632b7cff0bda9e70365e221"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/resident_key.glb",
+      {
+        "method": "physical",
+        "sha256": "06f2ea37affeddf36c2540a7923593fdc271f609fd8b730f9b77a9b8111f5b90"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/resident_storage.glb",
+      {
+        "method": "physical",
+        "sha256": "91d64711119448480ed6e2f5d66468a44099ab0b0d211cd38b318094b17dee31"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/roof_base_flashings.glb",
+      {
+        "method": "physical",
+        "sha256": "01d7d7c9f751743dfdd62ed8cca83bb717e41e1890d333c512cb98f6be4cfc08"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_bulkhead_caps.glb",
+      {
+        "method": "physical",
+        "sha256": "e573f33b60ec27e62a57b341a9fafbdc0297aa7e5e804338f67c0cbc59360142"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/roof_coping.glb",
+      {
+        "method": "physical",
+        "sha256": "0e65c4d02070f5158a81ebfde1e166bab69304ce9ba18293a7a23f2643765e97"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/roof_drainage_door_weather.glb",
+      {
+        "method": "physical",
+        "sha256": "a7ec6c26a511f037a569e711a98808f94ba7d81de7826433acbc6d9a46809c67"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_drainage_falls.glb",
+      {
+        "method": "physical",
+        "sha256": "7c9d2a4af0bd7d2003534e67c2e6529a195f1061331ce62fb478d701e94a13a3"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_drainage_leaders.glb",
+      {
+        "method": "physical",
+        "sha256": "b1f7fd8f8132960af1e1e2bc06ead6543f4d0547ce650ee0f6340f901da150c1"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_drainage_plant_weather.glb",
+      {
+        "method": "physical",
+        "sha256": "ef0391940c59b635cff553d6d8ae1e00cff999e74896c4113b43f3a012185ddf"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_drainage_ports.glb",
+      {
+        "method": "physical",
+        "sha256": "b0b25280ba44e8442e06c5f97bcbb90658e3a4d6494545e1af6ab116d1cb0375"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_drainage_receivers.glb",
+      {
+        "method": "physical",
+        "sha256": "f09618d3f477cb788b80d2d9b529c04bea30ee2feb16ae410452f5430f4bc015"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_edge_support.glb",
+      {
+        "method": "physical",
+        "sha256": "b669febb097888e3a67dc3b21e8dbc8b070e2fc3fe1b6c394196f9001e530d8a"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/roof_lighting_supply.glb",
+      {
+        "method": "physical",
+        "sha256": "5eeea99dc51774c7989c64bd7dfb38105c8010d6e2a8e62c45e4ff6be52747ef"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/roof_membrane.glb",
+      {
+        "method": "physical",
+        "sha256": "9d9a6d2eec16c4be3b9b02b9f8812ee1ba46a01c50dd8ea42dcf181da933d559"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_public_weathering.glb",
+      {
+        "method": "physical",
+        "sha256": "114b61a8b30042ecafec58fc710f831471c7b0bfe5d4df1ebee7f93b52b7ce4c"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_service_weathering.glb",
+      {
+        "method": "physical",
+        "sha256": "e009aac24757fcc6745546f0221d373d346a0dfe779da0028fb00a71d7078045"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/roof_ventilator.glb",
+      {
+        "method": "physical",
+        "sha256": "f5b977ff3f9853c72a675acb64bc59bacce927bb0b3ca021f66afe809d11287a"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/service_alley.glb",
+      {
+        "method": "physical",
+        "sha256": "45ef9975f7e5cd0d692b4bf2b125e590a5726f2adb30d5b977178cf45923a857"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/service_instruments.glb",
+      {
+        "method": "physical",
+        "sha256": "59a56cb4b1593f76de54ffb59a38a67beb2b35e15e1a14a23d39ab2d0d8f800f"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/shop_clerestories.glb",
+      {
+        "method": "physical",
+        "sha256": "5cf1e10e423050d3b454063f09f6dbb21993fda6d90a2690008f28730f30f99f"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/shop_joinery.glb",
+      {
+        "method": "physical",
+        "sha256": "62c1e9fbe41b24e5c29d3fd987a6d57fc7bb69aa7f709d15690fd43269e0c184"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/shop_seating.glb",
+      {
+        "method": "physical",
+        "sha256": "2ba3081ebaa7ee921c42a92c0afcb10a403da7dcec301aa36ff72120b7cbea2b"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/signage.glb",
+      {
+        "method": "physical",
+        "sha256": "b344adc6f625dec26930bde9b67eb1eab94004e7392c3798dcbee21bd003a499"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/signal_terminal.glb",
+      {
+        "method": "physical",
+        "sha256": "869f2d3a58a9edc0fce620a3a8609e60680b301dfcef1bbb842b0d7c1446be00"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/stair_ironwork_court.glb",
+      {
+        "method": "physical",
+        "sha256": "06be94d0bc713532a4038e06442c30cd7cd71c0affba6d56dc91907b0ee0a0c2"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/stair_ironwork_public.glb",
+      {
+        "method": "physical",
+        "sha256": "80c69d1749a1bf690239f5f512ef73258b782eb95a5824dd92748d9b11594a22"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/stair_ironwork_service.glb",
+      {
+        "method": "physical",
+        "sha256": "f9d625e90024d08123de3b90d186e441ea0090c60375f733de2925319f12192e"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/street_paving_details.glb",
+      {
+        "method": "physical",
+        "sha256": "d17e713be4c11c1ee3d9a70b825c9254675f066d3b29a1dc8363c6c0f6b4cad4"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/surface_stock.glb",
+      {
+        "method": "physical",
+        "sha256": "0d2ee8be201dee2a3109049f67f5d94aacca54d6e7e0edbd71fd6c4a63f4b412"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/task_lamp_supply.glb",
+      {
+        "method": "physical",
+        "sha256": "ec1be7b1c582b2e0888c8a43e6969e6fedf22db590dfb7d98b7229acfce43d42"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/task_lamps.glb",
+      {
+        "method": "physical",
+        "sha256": "680358a2b01becea174a61cf81df7f02186227f7f139f7178866326da5a2e091"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/props/upper_wall_seats.glb",
+      {
+        "method": "physical",
+        "sha256": "880398e2e9b0b63b7e452789f0117e5b00aa5a7fe3364879b912615b907f1080"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/vent_register.glb",
+      {
+        "method": "physical",
+        "sha256": "39dfcd731886e81f322dece02ea61c7577d94c8aa25b630de385499f09ac5fa1"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/ventilation_ducts.glb",
+      {
+        "method": "physical",
+        "sha256": "a081a7447a3257e87e000a891f0b4f45b27a8934ca457777c102f799e1c7cea4"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/ventilation_fabric_lining.glb",
+      {
+        "method": "physical",
+        "sha256": "00911d2cbd1abe0b7c036fb8495a207b4aed194fc4fc0fb256ee7822e8d66a0b"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/ventilation_slab_sleeve.glb",
+      {
+        "method": "physical",
+        "sha256": "caa3b58f8d1d4da89ddc6e7795b821156cbb6407cf3a4cc82470612171ff3fd6"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/washer_controls.glb",
+      {
+        "method": "physical",
+        "sha256": "b56cf6b0005aff6dd40634b15fdc259ec5dcc5114fc3425de679c13219fecb72"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/watch_stations.glb",
+      {
+        "method": "physical",
+        "sha256": "b6801ff564257f3735114e2ad1c9357b54d2a00581ed24b0bba76508f9227063"
+      },
+      "ff43bdec705f93fd8b2452bc3c91e2f862bb16e07e379d269109d88296be7e90"
+    ],
+    [
+      "game/assets/props/wayfinding_plate.glb",
+      {
+        "method": "physical",
+        "sha256": "e44d3874d2e72416a057025b7a840a1593f52876cf19472875c1c1c71de11c85"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/wc_swing_clear_hinge.glb",
+      {
+        "method": "physical",
+        "sha256": "5a1f9561df4bf1cd80453b6f798d0332015743338c3dd8612789b0fef73d0464"
+      },
+      "ea299e315f34af43714037afd188b5310e50f5bce1a846a27c9f7d0c8e338576"
+    ],
+    [
+      "game/assets/props/window_joinery.glb",
+      {
+        "method": "physical",
+        "sha256": "3ac79b143cf6d84a80d603ac9fb50d15054f9673437cfef77b2176b46785ae52"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/window_treatments.glb",
+      {
+        "method": "physical",
+        "sha256": "490c6f1dfb71e223646ea230cda5a1ac28930eca766126d009d7c51179779fdd"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ],
+    [
+      "game/assets/props/work_tables.glb",
+      {
+        "method": "physical",
+        "sha256": "115d9ed5973924b1bc9e41233e0ed30625e357de38be351c1aa621354b89310e"
+      },
+      "20beb6978e2691ccb97bd4010a4215454a08fdc15916ef39e44323e078b7ffe5"
+    ],
+    [
+      "game/assets/vehicles/piano_truck.glb",
+      {
+        "method": "physical",
+        "sha256": "ce581f97d8a2818c6474374cca329292984f7d08221bbadde0693a3dbce8e2da"
+      },
+      "2d509cd8b0a4256994e86c9e22a4160f21b3b8403ab1998dc1a1934e66076803"
+    ]
+  ],
+  "sha256": "69007318d61ae776a49673f90d3240a1187e547d50a1d351a4c4a5cad396ec44"
+}

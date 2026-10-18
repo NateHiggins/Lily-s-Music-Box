@@ -1,0 +1,139 @@
+{
+	"checks": [
+		{
+			"label": "service cursor resolves actual part: @MeshInstance3D@12",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @MeshInstance3D@12",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @MeshInstance3D@34",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @MeshInstance3D@34",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @MeshInstance3D@35",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @MeshInstance3D@35",
+			"ok": true
+		},
+		{
+			"label": "physical flag/contact/reset cycle publishes exactly one comparison",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @Node3D@41",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @Node3D@41",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @Node3D@44",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @Node3D@44",
+			"ok": true
+		},
+		{
+			"label": "actual boiler drain lever acquisition",
+			"ok": true
+		},
+		{
+			"label": "held drain empties the real isolated column",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: WaterWitnessMarker",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: WaterWitnessMarker",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @Node3D@41",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @Node3D@41",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @Node3D@44",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @Node3D@44",
+			"ok": true
+		},
+		{
+			"label": "wrong physical witness cannot certify returned water",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: WaterWitnessMarker",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: WaterWitnessMarker",
+			"ok": true
+		},
+		{
+			"label": "physical drain, return and correct witness publish one boiler comparison",
+			"ok": true
+		},
+		{
+			"label": "physical one-pipe supply travel to 0.0",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: F02_B_RADIATOR_01_ORIFICE",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: F02_B_RADIATOR_01_ORIFICE",
+			"ok": true
+		},
+		{
+			"label": "actual free part acquisition: F02_B_RADIATOR_01_ORIFICE",
+			"ok": true
+		},
+		{
+			"label": "bench original insert physically clears seat",
+			"ok": true
+		},
+		{
+			"label": "actual free part acquisition: VENT_SPARE_2",
+			"ok": true
+		},
+		{
+			"label": "bench spare physically lifts clear of rack",
+			"ok": true
+		},
+		{
+			"label": "bench spare physically reaches receiver",
+			"ok": false
+		},
+		{
+			"label": "bench delivered spare catches existing thread",
+			"ok": false
+		},
+		{
+			"label": "service cursor resolves actual part: VENT_SPARE_2",
+			"ok": false
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": 3,
+	"scope": "Actual board/boiler pointer operations using the bound first-slice driver. No composed-world, job, travel, disk or runtime-contract acceptance."
+}

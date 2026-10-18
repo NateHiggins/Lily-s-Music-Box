@@ -12,22 +12,24 @@ class PatrolHand extends Node3D:
 		player._unhandled_input(event)
 
 	func move_to(goal: float) -> bool:
-		for i in 180:
+		for i in 640:
 			if not player._grab.active(): return false
 			var target: Dictionary=player._grab.target
 			var value: float=target.read.call()
-			if absf(goal-value)<.001: return true
+			if absf(goal-value)<.000001: return true
 			var point: Vector3=target.part.to_global(player._grab.contact)
-			var axis: Vector3=target.frame.global_basis*target.axis
+			var local_axis: Vector3=target.axis.call() if target.axis is Callable else target.axis
+			var axis: Vector3=target.frame.global_basis*local_axis
 			var tangent: Vector3=axis
 			if target.kind=="hinge":
 				tangent=axis.cross(point-target.part.global_position)
 				if tangent.length()<.025: tangent=axis.cross(player.camera.global_basis.x)*.06
+				if tangent.length()<.01:tangent=axis.cross(player.camera.global_basis.y)*.06
 			var screen: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
 			var depth_gesture := screen.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5
 			if depth_gesture: screen=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
 			var event := InputEventMouseMotion.new()
-			event.relative=screen*clampf(goal-value,-.15 if target.kind=="hinge" else -.04,.15 if target.kind=="hinge" else .04)
+			event.relative=screen*clampf(goal-value,-.12 if target.kind=="hinge" else -.02,.12 if target.kind=="hinge" else .02)/float(target.get("motion_scale",1.0))
 			var before_screen: Vector2=player.camera.unproject_position(point)
 			player._unhandled_input(event)
 			await get_tree().physics_frame
@@ -82,14 +84,22 @@ const EXERCISED := ["F01_WATCHMAN_DETECTOR", "F01_NIGHT_REGISTER",
 var observations: Array[Dictionary] = []
 var nodes: Array[WeakRef] = []
 var resources: Array[WeakRef] = []
+var borrowed_shapes: Array[WeakRef] = []
+var first_shape_cache: Dictionary = {}
 var playbacks: Array[WeakRef] = []
 var expected_ritual: Dictionary = {}
 var ritual_executed := false
+var service_executed := false
+var service_travel: Array[Dictionary] = []
 var reconstruction_executed := false
+var service_bench_only := false
 var started := Time.get_ticks_msec()
+var initial_inputs: Dictionary = {}
 
 
 func _ready() -> void:
+	if service_bench_only:return
+	initial_inputs=_input_snapshot()
 	var save_path := "user://tests/m08f_runtime_%s.json" % Crypto.new().generate_random_bytes(8).hex_encode()
 	var save_directory := ProjectSettings.globalize_path(save_path).get_base_dir()
 	var directory_error := DirAccess.make_dir_recursive_absolute(save_directory)
@@ -140,45 +150,11 @@ func _ready() -> void:
 			"station_number": 9}), "ritual denial states refuse invented acts")
 	await _exercise_ritual(world)
 
-	_close_previous_job(world.work_orders)
-	world.service_round.route_beat.connect(func(beat: String): beats.append(beat))
-	_check(world.service_round.has_incoming_call()
-			and world.service_round.answer_incoming_call()
-			and not world.service_round.answer_incoming_call(),
-			"service-set call issues exactly one authored radiator obligation")
-	world.service_round.dialogue.choose(0)
-	boiler.apply_maintenance_result({"note": "premature boiler"})
-	radiator.apply_maintenance_result({"note": "premature radiator"})
-	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID) == "issued"
-			and world.work_orders.job_state(ServiceRoundDirector.JOB_ID).evidence.is_empty(),
-			"premature mechanisms cannot counterfeit progress")
-	RealityCases.interact_with_resident(ServiceRoundDirector.RESIDENT_ID)
-	world.service_round.dialogue.choose(0)
-	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID) == "acknowledged",
-			"resident threshold acknowledges the production work order")
-	world.player.world_modified.emit(radiator.global_position,
-			ServiceRoundDirector.RADIATOR_ID)
-	world.player.world_modified.emit(radiator.global_position,
-			ServiceRoundDirector.RADIATOR_ID)
-	board.apply_maintenance_result({"note": "contacts squared"})
-	boiler.apply_maintenance_result({"note": "water column proved"})
-	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID) == "repairable",
-			"radiator, porter board, and boiler evidence earns repairability")
-	var before_duplicate := world.work_orders.job_state(ServiceRoundDirector.JOB_ID).duplicate(true)
-	boiler.apply_maintenance_result({"note": "duplicate"})
-	_check(world.work_orders.job_state(ServiceRoundDirector.JOB_ID) == before_duplicate,
-			"duplicate interaction cannot double-advance")
-	radiator.apply_maintenance_result({
-			"note": "vent freed and clocked; supply returned fully open"})
-	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID) == "repaired",
-			"real 2B radiator authority records the repair")
-	RealityCases.interact_with_resident(ServiceRoundDirector.RESIDENT_ID)
-	world.service_round.dialogue.choose(0)
-	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID) == "closed",
-			"resident return closes the authored service round")
-	_check(beats == ["call", "resident", "radiator_evidence", "lobby_comparison",
-			"basement_comparison", "diagnosis", "repair", "resident_return"],
-			"production event trace preserves the complete round")
+	if not await _exercise_physical_round(world,radiator,board,boiler):
+		_track_retirement(world);world.shutdown_for_tests();remove_child(world);world.free()
+		await get_tree().process_frame;await get_tree().create_timer(.1).timeout
+		_finish_contract();RealityState.persistence_enabled=saved_persistence
+		get_tree().quit(1);return
 
 	var old_path := RealityState.save_path
 	RealityState.save_path = save_path
@@ -329,12 +305,27 @@ func _track_retirement(world: OrisonV2RuntimeRoot) -> void:
 		if node is AudioStreamPlayer3D and node.playing:
 			var playback: AudioStreamPlayback = node.get_stream_playback()
 			if playback!=null:playbacks.append(weakref(playback))
-	# Only shapes created by the exercised owners; imported and shared warm
-	# caches are intentionally outside runtime-owned retirement measurements.
+	# Identify the exact process-owned warm caches, rather than exempting all
+	# retained shapes. Keep only weak references in this test.
+	var cached := _shared_shape_ids()
+	if first_shape_cache.is_empty():first_shape_cache=cached.duplicate()
+	else:_check(cached==first_shape_cache,"reconstruction creates no additional shared radiator shapes")
 	for identity: String in EXERCISED:
 		var actor := world.find_child(identity,true,false)
 		for shape: CollisionShape3D in actor.find_children("*","CollisionShape3D",true,false):
-			if shape.shape!=null and shape.shape.resource_path.is_empty():resources.append(weakref(shape.shape))
+			if shape.shape!=null and shape.shape.resource_path.is_empty():
+				if cached.has(shape.shape.get_instance_id()):borrowed_shapes.append(weakref(shape.shape))
+				else:resources.append(weakref(shape.shape))
+
+func _shared_shape_ids() -> Dictionary:
+	var result := {}
+	var shapes: Array=[]
+	shapes.append_array(RadiatorNativeParts._collision_shapes.values())
+	shapes.append_array(preload("res://scripts/props/radiator_vent_cap.gd")._shared_hulls)
+	shapes.append_array(preload("res://scripts/props/radiator_union_packing.gd")._closed)
+	shapes.append_array(preload("res://scripts/props/radiator_union_packing.gd")._opened)
+	for shape: Shape3D in shapes:result[shape.get_instance_id()]=true
+	return result
 
 func _check_reconstruction(world: OrisonV2RuntimeRoot) -> void:
 	_check(world.first_shift_director.ritual_state()==expected_ritual,
@@ -353,6 +344,15 @@ func _remaining(refs: Array[WeakRef]) -> int:
 		if ref.get_ref()!=null:count+=1
 	return count
 
+func _input_snapshot() -> Dictionary:
+	var root:=ProjectSettings.globalize_path("res://..").simplify_path()
+	var digest: Array=[];var physical: Array=[]
+	_check(OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],digest)==0,"record current runtime inputs")
+	_check(OS.execute("python",[root.path_join("tools/v2_physical_inputs.py"),"--root",root],physical)==0,"record current physical inputs")
+	var hash:=HashingContext.new();hash.start(HashingContext.HASH_SHA256)
+	hash.update(FileAccess.get_file_as_string(get_script().resource_path).replace("\r\n","\n").to_utf8_buffer())
+	return {"runtime":str(digest[0]).strip_edges() if not digest.is_empty() else "","physical":str(physical[0]).strip_edges() if not physical.is_empty() else "","test":hash.finish().hex_encode()}
+
 func _finish_contract() -> void:
 	var retained_nodes := _remaining(nodes)
 	var retained_resources := _remaining(resources)
@@ -361,25 +361,23 @@ func _finish_contract() -> void:
 		"both production worlds release tracked nodes, authority shapes and observed audio playbacks")
 	var root := ProjectSettings.globalize_path("res://..").simplify_path()
 	var head: Array=[]
-	var digest: Array=[]
 	_check(OS.execute("git",["-C",root,"rev-parse","HEAD"],head)==0,"record repository provenance")
-	_check(OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],digest)==0,"record current runtime inputs")
+	var current_inputs:=_input_snapshot()
+	_check(current_inputs==initial_inputs,"test, production code and physical inputs remain unchanged throughout execution")
 	var source: String = get_script().resource_path
-	var hash := HashingContext.new()
-	hash.start(HashingContext.HASH_SHA256)
-	hash.update(FileAccess.get_file_as_string(source).replace("\r\n","\n").to_utf8_buffer())
-	var passed := failures==0 and ritual_executed and reconstruction_executed
+	var passed := failures==0 and ritual_executed and service_executed and reconstruction_executed
 	var status := "PASS" if passed else "FAIL"
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Direct service-owner calls are contract stimuli; continuous walking and whole-world visual acceptance are not claimed.",
+		"scope":"Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Call/dialogue and the closed prior-job gate are fixtures; board, boiler and radiator outcomes come from physical input. Service travel and workshop insert delivery use the collision-bearing controller. Patrol stance placement and whole-world visual acceptance remain separate.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},
-		"source":{"test_path":"game/"+source.trim_prefix("res://"),"test_sha256":hash.finish().hex_encode(),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
+		"source":{"test_path":"game/"+source.trim_prefix("res://"),"test_sha256":current_inputs.test,"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":current_inputs.runtime,"physical_inputs_sha256":current_inputs.physical},
 		"contracts":{"production_composition":{"executed":ritual_executed,"status":status,"identities":EXERCISED},
 			"save_reconstruction":{"executed":reconstruction_executed,"status":status},
+			"physical_service_round":{"executed":service_executed,"status":status,"scope":"Actual part input, controller movement and finite workshop insert delivery; call/dialogue choices remain stimuli."},
 			"premature_action_denial":{"executed":ritual_executed,"status":status},
 			"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned","retained_nodes":retained_nodes,"retained_resources":retained_resources,"retained_playbacks":retained_playbacks,
-				"resource_scope":"Unpathed collision shapes below the seven exercised authorities; shared imported caches excluded.","tracked_nodes":nodes.size(),"tracked_resources":resources.size(),"tracked_playbacks":playbacks.size()}},
-		"checks":observations,"failures":failures,"route_beats":beats}
+				"resource_scope":"Unpathed collision shapes below the seven exercised authorities; exact process-owned radiator cache IDs separately measured.","shared_cache_count":first_shape_cache.size(),"tracked_borrowed_shapes":borrowed_shapes.size(),"retained_borrowed_shapes":_remaining(borrowed_shapes),"tracked_nodes":nodes.size(),"tracked_resources":resources.size(),"tracked_playbacks":playbacks.size()}},
+		"checks":observations,"failures":failures,"route_beats":beats,"service_travel":service_travel}
 	var directory := OS.get_environment("SHOT_DIR")
 	if directory.is_empty():directory=ProjectSettings.globalize_path("res://../tmp/v2-first-slice-20261011/runtime")
 	DirAccess.make_dir_recursive_absolute(directory)
@@ -462,3 +460,270 @@ func _look(world: Node, feet: Vector3, target: Vector3) -> void:
 	world.player.rotation.y = atan2(-flat.x,-flat.y)
 	world.player.camera.rotation = Vector3(atan2(target.y-eye.y,flat.length()),0,0)
 	for i in 8: await get_tree().process_frame
+
+
+func _service_focus(player: PlayerController,frame: Node3D,at: Vector3,offset: Vector3) -> void:
+	player.cancel_manipulation()
+	if player.inspecting():player.end_inspection()
+	player.camera.make_current();player.call_locked=false;player.mouse_released=false
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	player.camera.global_position=at+frame.global_basis*offset;player.camera.look_at(at)
+	await get_tree().physics_frame;await get_tree().physics_frame
+
+func _service_move(hand: Node3D,frame: Node3D,part: Node3D,point: Vector3,offset: Vector3,goal: float) -> bool:
+	await _service_focus(hand.player,frame,part.to_global(point),offset)
+	var target: Dictionary=hand.player._grab.find_target()
+	var found: bool=target.get("part")==part
+	_check(found,"service cursor resolves actual part: "+str(part.name))
+	if not found:
+		print("[SERVICE PICK] expected=",part.get_path()," actual=",target," camera=",hand.player.camera.global_position)
+		return false
+	var result: bool=await hand.operate(part.to_global(point),goal)
+	_check(result,"grab, mouse travel and release: "+str(part.name))
+	return result
+
+func _prove_board(player: PlayerController,board: OtisProp) -> bool:
+	var hand:=PatrolHand.new();add_child(hand);hand.player=player
+	var events: Array=[];var observe:=func(result: Dictionary):events.append(result.duplicate(true))
+	board.maintenance_completed.connect(observe)
+	var good:=await _service_move(hand,board,board._flag_arms[0],Vector3.ZERO,Vector3(.012,.025,.32),board._native_service.FLAG_HIGH)
+	if good:good=await _service_move(hand,board,board._contact_bridge,Vector3.ZERO,Vector3(.012,.025,.32),0.0)
+	if good:good=await _service_move(hand,board,board._reset_spindle,Vector3(.010,.035,0),Vector3(.012,.025,.32),PI*.5)
+	await get_tree().create_timer(1.0).timeout
+	_check(good and not board.stuck_flag and board.bank_reset==1. and events.size()==1,"physical flag/contact/reset cycle publishes exactly one comparison")
+	board.maintenance_completed.disconnect(observe);hand.free()
+	return good and events.size()==1
+
+func _prove_boiler(player: PlayerController,boiler: BoilerProp) -> bool:
+	var hand:=PatrolHand.new();add_child(hand);hand.player=player
+	var events: Array=[];var observe:=func(result: Dictionary):events.append(result.duplicate(true))
+	boiler.maintenance_completed.connect(observe)
+	var good:=true
+	for cock: Node3D in boiler._column_cocks:
+		if not await _service_move(hand,boiler,cock,Vector3(.09,0,0),Vector3(.035,.03,-.30),0.):good=false;break
+	if good:
+		await _service_focus(player,boiler,boiler._blowdown_lever.to_global(Vector3(.12,0,0)),Vector3(.035,.03,-.30))
+		hand.click()
+		good=player._grab.active() and player._grab.target.part==boiler._blowdown_lever
+		_check(good,"actual boiler drain lever acquisition")
+		if good:
+			good=await hand.move_to(deg_to_rad(34))
+			await get_tree().create_timer(1.8).timeout
+			_check(boiler._glass_level<.025 and boiler._drain_proved and boiler.column_isolated,"held drain empties the real isolated column")
+			hand.click()
+	if good:good=await _service_move(hand,boiler,boiler._witness_marker,Vector3.ZERO,Vector3(.04,.03,-.30),.85)
+	if good:
+		for cock: Node3D in boiler._column_cocks:
+			if not await _service_move(hand,boiler,cock,Vector3(.09,0,0),Vector3(.035,.03,-.30),deg_to_rad(82)):good=false;break
+	await get_tree().create_timer(1.6).timeout
+	_check(not boiler.column_proved and events.is_empty(),"wrong physical witness cannot certify returned water")
+	if good:good=await _service_move(hand,boiler,boiler._witness_marker,Vector3.ZERO,Vector3(.04,.03,-.30),boiler._column_level_y(boiler.water_level))
+	await get_tree().create_timer(.2).timeout
+	_check(good and boiler.column_proved and events.size()==1,"physical drain, return and correct witness publish one boiler comparison")
+	boiler.maintenance_completed.disconnect(observe);hand.free()
+	return good and events.size()==1
+
+
+func _walk_service(world: OrisonV2RuntimeRoot,target: Vector3) -> bool:
+	var player:=world.player;var frame: Node3D=world.adapter.root
+	var carrying: Node3D=player._grab.target.part if player._grab.active() and player._grab.target.kind=="free" else null
+	player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0);player.camera.rotation=Vector3.ZERO
+	player.set_physics_process(true);player.autopilot=Vector3.ZERO
+	var goal:=frame.to_global(target);var deadline:=Time.get_ticks_msec()+15000
+	var initial:=frame.to_local(player.global_position)
+	while Time.get_ticks_msec()<deadline:
+		var offset: Vector3=goal-player.global_position;offset.y=0
+		if offset.length()<.075 and absf(player.global_position.y-goal.y)<.24:break
+		var heading:=atan2(-offset.x,-offset.z)
+		var turn:=wrapf(heading-player.rotation.y,-PI,PI)
+		# Turn continuously so carried stock follows an actual sweep rather
+		# than the teleport-denial guard rejecting a one-frame corner snap.
+		player.rotation.y+=clampf(turn,-.06,.06);player.camera.rotation=Vector3.ZERO
+		if absf(turn)>.18:Input.action_release("move_forward")
+		else:Input.action_press("move_forward",clampf(offset.length()/.3,.20,1.))
+		await get_tree().physics_frame
+	Input.action_release("move_forward");player.velocity=Vector3.ZERO;player.set_physics_process(false)
+	var at:=frame.to_local(player.global_position)
+	var valid: bool=Vector2(at.x-target.x,at.z-target.z).length()<.10 and absf(at.y-target.y)<.24 and not player.noclip and player.collision_mask==1
+	if carrying!=null:valid=valid and player._grab.active() and player._grab.target.part==carrying and carrying.global_position.distance_to(player.camera.global_position)<1.8
+	var contacts: Array=[]
+	for i in player.get_slide_collision_count():
+		var collider: Object=player.get_slide_collision(i).get_collider()
+		if collider is Node:contacts.append(str(collider.get_path()))
+	var cargo := {}
+	if carrying!=null:
+		cargo={"at":frame.to_local(carrying.global_position),"grip_active":player._grab.active(),"camera_distance":carrying.global_position.distance_to(player.camera.global_position)}
+		var sight:=PhysicsRayQueryParameters3D.create(player.camera.global_position,carrying.global_position)
+		sight.collide_with_areas=true;sight.exclude=[player.get_rid()]
+		var hit:=world.get_world_3d().direct_space_state.intersect_ray(sight)
+		if not hit.is_empty():cargo["sight_hit"]=str(hit.collider.get_path());cargo["sight_position"]=frame.to_local(hit.position)
+	service_travel.append({"from":initial,"target":target,"actual":at,"carried":str(carrying.name) if carrying!=null else "","cargo":cargo,"contacts":contacts,"ok":valid})
+	_check(valid,"service walking "+str(target)+" actual="+str(at))
+	if not valid:print("[SERVICE WALK BLOCKED] ",JSON.stringify(service_travel.back()))
+	return valid
+
+func _service_stairs(base: float,up: bool,across_north := true) -> Array[Vector3]:
+	var points: Array[Vector3]=[]
+	for i in 10:points.append(Vector3(1.925,base+.16*(i+1),-3.1+.285*(i+.5)))
+	points.append_array([Vector3(1.925,base+1.6,1.25),Vector3(3.975,base+1.6,1.25)])
+	for i in 10:points.append(Vector3(3.975,base+1.6+.16*(i+1),1.03-.285*(i+.5)))
+	# Approach north of the stair opening, leaving real capsule clearance at
+	# the closed fire cabinet on the east wall.
+	points.append(Vector3(3.65,base+3.2,-2.9))
+	if across_north:points.append_array([Vector3(3.65,base+3.2,-3.45),Vector3(1.925,base+3.2,-3.45)])
+	else:points.append(Vector3(3.65,base+3.2,-3.15))
+	if not up:points.reverse();points.append(Vector3(1.925,base,-3.45))
+	return points
+
+func _walk_service_points(world: OrisonV2RuntimeRoot,points: Array) -> bool:
+	for target: Vector3 in points:
+		if not await _walk_service(world,target):return false
+	return true
+
+func _service_door(world: OrisonV2RuntimeRoot,identity: String) -> bool:
+	var opening:=world.adapter.resolve(identity) as Node3D
+	var door:=opening.get_node_or_null(identity+"_Leaf") as DoorProp if opening!=null else null
+	_check(door!=null,"service route has an actual door: "+identity)
+	if door==null:return false
+	if door.open:return true
+	var leaf:=door.get_node("HingedLeaf") as Node3D
+	world.player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0)
+	var hand:=PatrolHand.new();add_child(hand);hand.player=world.player
+	var result: bool=await hand.operate(leaf.to_global(Vector3(door.width*.5,1.1,0)),door.motion_target_angle(true),door)
+	_check(result and door.open,"actual hand opens service route leaf: "+identity)
+	hand.free();return result and door.open
+
+func _service_supply(player: PlayerController,prop: RadiatorProp,value: float) -> bool:
+	var hand:=PatrolHand.new();add_child(hand);hand.player=player
+	var point: Vector3=prop._wheel.global_position+prop.global_basis*Vector3(0,0,-.045)
+	await _service_focus(player,prop,point,Vector3(0,.15,-.35))
+	var result: bool=await hand.operate(point,value*TAU*3.5,prop)
+	_check(result and absf(prop.supply_position-value)<.00001,"physical one-pipe supply travel to "+str(value))
+	hand.free();return result
+
+func _carry_service_part(player: PlayerController,body: Node3D,goal: Vector3) -> bool:
+	var start:=body.to_global(player._grab.contact)
+	player.camera.global_position=(start+goal)*.5+Vector3.UP*.35+player.camera.global_basis.z*.8
+	player.camera.look_at(start)
+	for i in 320:
+		if not player._grab.active():
+			print("[SERVICE CARRY RELEASED] part=",body.name," at=",body.global_position," goal=",goal," camera=",player.camera.global_position)
+			return false
+		var contact: Vector3=body.to_global(player._grab.contact)
+		if body.global_position.distance_to(goal)<.001:return true
+		var destination: Vector3=goal+body.global_basis*player._grab.contact
+		var axis: Vector3=(contact-player.camera.global_position).normalized()
+		var depth: float=(destination-contact).dot(axis)
+		if absf(depth)>.0001:
+			var wheel:=InputEventMouseButton.new();wheel.pressed=true
+			wheel.button_index=MOUSE_BUTTON_WHEEL_DOWN if depth>0 else MOUSE_BUTTON_WHEEL_UP
+			wheel.factor=minf(3.,absf(depth)/.025);player._unhandled_input(wheel)
+		contact=body.to_global(player._grab.contact)
+		var motion:=InputEventMouseMotion.new()
+		motion.relative=player.camera.unproject_position(destination)-player.camera.unproject_position(contact)
+		player._unhandled_input(motion);await get_tree().physics_frame
+	print("[SERVICE CARRY BLOCKED] part=",body.name," at=",body.global_position," goal=",goal," active=",player._grab.active()," camera=",player.camera.global_position)
+	return false
+
+func _pick_service_part(player: PlayerController,body: Node3D,frame: Node3D,offset: Vector3) -> bool:
+	await _service_focus(player,frame,body.to_global(Vector3(0,.004,0)),offset)
+	# Released stock can fall during the two physics frames above. Track its
+	# current surface, matching the production live pointer.
+	player.camera.look_at(body.to_global(Vector3(0,.004,0)))
+	var hand:=PatrolHand.new();add_child(hand);hand.player=player;hand.click();hand.free()
+	var good: bool=player._grab.active() and player._grab.target.part==body
+	if not good:print("[FREE SERVICE PICK] at=",body.global_transform," cursor=",player._grab.find_target()," camera=",player.camera.global_position)
+	_check(good,"actual free part acquisition: "+str(body.name));return good
+
+func _deliver_service_part(player: PlayerController,body: Node3D,goal: Vector3) -> bool:
+	# Clear the casting before approaching the upward-facing threaded seat.
+	# Every leg remains a mouse/wheel gesture through the real swept body.
+	var raised:=body.global_position;raised.y=maxf(raised.y,goal.y+.20)
+	if not await _carry_service_part(player,body,raised):return false
+	if not await _carry_service_part(player,body,goal+Vector3.UP*.20):return false
+	return await _carry_service_part(player,body,goal)
+
+func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,board: OtisProp,boiler: BoilerProp) -> bool:
+	_close_previous_job(world.work_orders)
+	world.service_round.route_beat.connect(func(beat: String):beats.append(beat))
+	_check(world.service_round._radiator==radiator and world.service_round._board==board and world.service_round._boiler==boiler,"service director binds the installed native owners")
+	_check(world.service_round.has_incoming_call() and world.service_round.answer_incoming_call() and not world.service_round.answer_incoming_call(),"call issues one original radiator obligation")
+	world.service_round.dialogue.choose(0)
+	boiler.apply_maintenance_result({"note":"premature boiler"});radiator.apply_maintenance_result({"note":"premature radiator"})
+	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)=="issued" and world.work_orders.job_state(ServiceRoundDirector.JOB_ID).evidence.is_empty(),"premature legacy stimuli cannot counterfeit progress")
+	if not await _walk_service_points(world,[Vector3(-1.8,0,-1.5),Vector3(-1.8,0,-3.45),Vector3(1.925,0,-3.45),Vector3(1.925,0,-3.)]):return false
+	if not await _walk_service_points(world,_service_stairs(0.,true,false)):return false
+	if not await _walk_service_points(world,[Vector3(5.9,3.2,-3.15),Vector3(8.55,3.2,-3.25)]):return false
+	if not await _service_door(world,"F02_B_ENTRY_DOOR"):return false
+	if not await _walk_service_points(world,[Vector3(10.95,3.2,-3.25),Vector3(10.95,3.2,-2.5),Vector3(12.5,3.2,-2.5),Vector3(13.6,3.2,-1.8)]):return false
+	RealityCases.interact_with_resident(ServiceRoundDirector.RESIDENT_ID);world.service_round.dialogue.choose(0)
+	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)=="acknowledged","resident threshold acknowledges original work order")
+	if not await _walk_service(world,Vector3(14.5,3.2,-3.)):return false
+	if not await _service_supply(world.player,radiator,0.):return false
+	var hand:=PatrolHand.new();add_child(hand);hand.player=world.player
+	var nut: Node3D=radiator.native_rig.header_nut
+	var at: Vector3=nut.global_position+radiator.global_basis*Vector3(0,0,-.045)
+	await _service_focus(world.player,radiator,at,Vector3(-.45,.20,-.30));hand.click()
+	var key:=InputEventKey.new();key.keycode=KEY_SPACE;key.physical_keycode=KEY_SPACE;key.pressed=true;world.player._unhandled_input(key)
+	_check(world.player.inspecting() and "radiator_airbound" in world.work_orders.job_state(ServiceRoundDirector.JOB_ID).evidence,"Space inspection earns original radiator evidence")
+	world.player.end_inspection();hand.free()
+	var stock: Node3D=radiator.native_orifices
+	var original: Dictionary=stock.active(radiator)
+	var original_id: String=original.body.identity
+	print("[PHYSICAL ROUND INITIAL] ",JSON.stringify(radiator.mechanism_snapshot())," insert=",original_id)
+	if not await _service_move_new(world.player,radiator,original.body,Vector3(0,.004,0),Vector3(.03,.10,-.08),stock.THREAD_END):return false
+	_check(stock.active(radiator).is_empty(),"old insert actually unthreads without changing identity")
+	if not await _pick_service_part(world.player,original.body,radiator,Vector3(.03,.10,-.08)):return false
+	var park: Vector3=radiator.native_rig.to_global(Vector3(-.30,.12,-.55))
+	var parked: bool=await _carry_service_part(world.player,original.body,park)
+	_check(parked,"old insert physically moves clear of its seat")
+	hand=PatrolHand.new();add_child(hand);hand.player=world.player;hand.click();hand.free()
+	if not parked:return false
+	if not await _walk_service_points(world,[Vector3(13.6,3.2,-2.8),Vector3(12.5,3.2,-2.5),Vector3(10.95,3.2,-2.5),Vector3(10.95,3.2,-3.25),Vector3(8.55,3.2,-3.25),Vector3(5.9,3.2,-3.15),Vector3(3.65,3.2,-3.15)]):return false
+	if not await _walk_service_points(world,_service_stairs(0.,false,false)):return false
+	if not await _walk_service_points(world,[Vector3(-1.8,0,-3.45),Vector3(-1.8,0,-1.5),Vector3(-2.,0,-.65)]):return false
+	if not await _prove_board(world.player,board):return false
+	_check("lobby_contact_compared" in world.work_orders.job_state(ServiceRoundDirector.JOB_ID).evidence,"physical board outcome reaches original ordered comparison")
+	if not await _walk_service_points(world,[Vector3(-1.8,0,-1.5),Vector3(-1.8,0,-3.45),Vector3(1.925,0,-3.45)]):return false
+	if not await _walk_service_points(world,_service_stairs(-3.2,false)):return false
+	if not await _walk_service_points(world,[Vector3(3.65,-3.2,-3.45),Vector3(4.9,-3.2,-2.5),Vector3(4.9,-3.2,-.4),Vector3(7.2,-3.2,-.4),Vector3(8.7,-3.2,-.4)]):return false
+	if not await _service_door(world,"B1_BOILER_FIRE_DOOR"):return false
+	if not await _walk_service_points(world,[Vector3(10.1,-3.2,-.4),Vector3(10.9,-3.2,-.5)]):return false
+	if not await _prove_boiler(world.player,boiler):return false
+	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)=="repairable","real board and boiler outcomes earn repairability")
+	if not await _walk_service_points(world,[Vector3(10.9,-3.2,-.4),Vector3(8.7,-3.2,-.4),Vector3(7.4,-3.2,-.4)]):return false
+	if not await _service_door(world,"B1_SHOP_DOOR"):return false
+	if not await _walk_service_points(world,[Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,3.),Vector3(7.65,-3.2,4.45)]):return false
+	var replacement: Dictionary=stock.rows.VENT_SPARE_2
+	if not await _pick_service_part(world.player,replacement.body,stock,Vector3(.03,.10,.08)):return false
+	if not await _carry_service_part(world.player,replacement.body,world.player.to_global(Vector3(0,1.35,-.35))):return false
+	if not await _walk_service_points(world,[Vector3(7.4,-3.2,3.),Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,-.4),Vector3(4.9,-3.2,-.4),Vector3(4.9,-3.2,-2.5),Vector3(3.65,-3.2,-3.45),Vector3(1.925,-3.2,-3.45),Vector3(1.925,-3.2,-3.)]):return false
+	if not await _walk_service_points(world,_service_stairs(-3.2,true)):return false
+	if not await _walk_service_points(world,_service_stairs(0.,true,false)):return false
+	if not await _walk_service_points(world,[Vector3(5.9,3.2,-3.15),Vector3(8.55,3.2,-3.25),Vector3(10.95,3.2,-3.25),Vector3(10.95,3.2,-2.5),Vector3(12.5,3.2,-2.5),Vector3(13.6,3.2,-2.8),Vector3(14.5,3.2,-3.)]):return false
+	var receiving: Transform3D=stock._thread_pose(radiator,stock.THREAD_END)
+	world.player.camera.global_position=receiving.origin+radiator.global_basis*Vector3(.02,.15,-.35);world.player.camera.look_at(receiving.origin)
+	if not await _deliver_service_part(world.player,replacement.body,receiving.origin):return false
+	hand=PatrolHand.new();add_child(hand);hand.player=world.player;hand.click();hand.free()
+	_check(replacement.slot==radiator.graph_node_id and absf(replacement.turn-stock.THREAD_END)<.0001,"delivered spare catches thread without auto seating")
+	if not await _service_move_new(world.player,radiator,replacement.body,Vector3(0,.004,0),Vector3(.03,.10,-.08),0.):return false
+	_check(radiator.vent_grade==2 and stock.active(radiator).body==replacement.body and stock.rows.size()==28 and stock.rows[original_id].body.identity==original_id,"physical exchange preserves all 28 identities and sets actual vent grade")
+	if not await _service_supply(world.player,radiator,.42):return false
+	await get_tree().create_timer(1.).timeout
+	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)=="repairable" and radiator._native_repair_seconds==0.,"partial one-pipe supply cannot prove repair")
+	if not await _service_supply(world.player,radiator,1.):return false
+	var deadline:=Time.get_ticks_msec()+20000
+	while Time.get_ticks_msec()<deadline and world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)!="repaired":await get_tree().physics_frame
+	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)=="repaired" and radiator.open_shift_condition=="repaired","sustained real steam completes original physical repair")
+	if world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)!="repaired":print("[SERVICE THERMAL] ",radiator.get_heat_state()," mechanism=",radiator.mechanism_snapshot());return false
+	if not await _walk_service(world,Vector3(13.6,3.2,-1.8)):return false
+	RealityCases.interact_with_resident(ServiceRoundDirector.RESIDENT_ID);world.service_round.dialogue.choose(0)
+	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)=="closed","resident return closes authored round after actual repair")
+	_check(beats==["call","resident","radiator_evidence","lobby_comparison","basement_comparison","diagnosis","repair","resident_return"],"physical production trace preserves complete ordered round")
+	service_executed=world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)=="closed" and failures==0
+	return service_executed
+
+func _service_move_new(player: PlayerController,frame: Node3D,part: Node3D,point: Vector3,offset: Vector3,goal: float) -> bool:
+	var hand:=PatrolHand.new();add_child(hand);hand.player=player
+	var good: bool=await _service_move(hand,frame,part,point,offset,goal)
+	hand.free();return good

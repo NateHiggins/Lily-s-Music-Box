@@ -1,0 +1,86 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 95.52,
+  "exit_code": -1,
+  "finished_utc": "2026-10-18T02:06:21Z",
+  "started_utc": "2026-10-18T02:04:45Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 3,
+  "fail_lines": [
+   "FIRST SLICE SERVICE HAND BENCH: FAIL; 17 passes; 2 failures",
+   "ERROR:   FAIL  grab, mouse travel and release: @MeshInstance3D@12",
+   "ERROR:   FAIL  physical flag/contact/reset cycle publishes exactly one comparison"
+  ],
+  "pass_count": 17,
+  "pass_lines": [
+   "PASS  service cursor resolves actual part: @MeshInstance3D@12",
+   "PASS  service cursor resolves actual part: @Node3D@41",
+   "PASS  grab, mouse travel and release: @Node3D@41",
+   "PASS  service cursor resolves actual part: @Node3D@44",
+   "PASS  grab, mouse travel and release: @Node3D@44",
+   "PASS  actual boiler drain lever acquisition",
+   "PASS  held drain empties the real isolated column",
+   "PASS  service cursor resolves actual part: WaterWitnessMarker",
+   "PASS  grab, mouse travel and release: WaterWitnessMarker",
+   "PASS  service cursor resolves actual part: @Node3D@41",
+   "PASS  grab, mouse travel and release: @Node3D@41",
+   "PASS  service cursor resolves actual part: @Node3D@44",
+   "PASS  grab, mouse travel and release: @Node3D@44",
+   "PASS  wrong physical witness cannot certify returned water",
+   "PASS  service cursor resolves actual part: WaterWitnessMarker",
+   "PASS  grab, mouse travel and release: WaterWitnessMarker",
+   "PASS  physical drain, return and correct witness publish one boiler comparison"
+  ],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Attempted to free a RefCounted object."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-first-slice-physical-20261017/service_hand.log.stderr",
+  "stderr_sha256": "11cd8c818cc56c0b5f9f528aa5d09b5ceaa91a61c6400dcce71f88115cb40c6e",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-first-slice-physical-20261017/service_hand.log",
+  "stdout_sha256": "a2950706525722cf8567fbbc42d4d5c98ab3c274e1fa4f716a979a35d03dc9d6"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/FirstSliceServiceHandBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-first-slice-physical-20261017/service_hand",
+ "source": {
+  "dirty_paths": 1393,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json"
+  ],
+  "repository_head": "a9f61f8bfa3021c0762c2acc05c75ba7914755e4",
+  "repository_tree": "7429a0ad4fae6a28231460230c8f297cff1223ba",
+  "runtime_inputs_sha256": "98923b1757bb2ca268b5fa0238a7110f525e2dde8150bc8bd097575d325d2f33",
+  "test_path": "game/tests/first_slice_service_hand_bench.gd",
+  "test_sha256": "88a7c7711174f45a13276faa0a5638ae8d7dd526376d8865ca60ea8aa4d79423"
+ },
+ "windowed": true
+}

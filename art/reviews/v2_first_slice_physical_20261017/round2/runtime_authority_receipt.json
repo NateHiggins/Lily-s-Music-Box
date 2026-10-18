@@ -1,0 +1,910 @@
+{
+	"checks": [
+		{
+			"label": "production-composed v2 root starts",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_WATCHMAN_DETECTOR",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_WATCHMAN_DETECTOR",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_NIGHT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_NIGHT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_SIGNAL_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_SIGNAL_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_TOUR_KEY_GUARD",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_TOUR_KEY_GUARD",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "one lifecycle and save authority per contract",
+			"ok": true
+		},
+		{
+			"label": "review-only cues are absent from production runtime",
+			"ok": true
+		},
+		{
+			"label": "central formatter produces carrier-neutral prompts",
+			"ok": true
+		},
+		{
+			"label": "ritual denial states refuse invented acts",
+			"ok": true
+		},
+		{
+			"label": "arrival refuses premature clock-out and report acceptance",
+			"ok": true
+		},
+		{
+			"label": "empty spindle cannot invent an opening report",
+			"ok": true
+		},
+		{
+			"label": "open detector cover through actual pointer motion",
+			"ok": true
+		},
+		{
+			"label": "production detector key stroke clocks in and offers exactly the authored opening job",
+			"ok": true
+		},
+		{
+			"label": "physical spindle lift acknowledges one report and denies duplicate taking",
+			"ok": true
+		},
+		{
+			"label": "one network carries a box from every floor",
+			"ok": true
+		},
+		{
+			"label": "the register has a drop for every box",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "guard latch opens through mouse travel",
+			"ok": true
+		},
+		{
+			"label": "key physically lifts from its hook",
+			"ok": true
+		},
+		{
+			"label": "original custody authorizes the round after physical lift",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "every mark reached the register",
+			"ok": true
+		},
+		{
+			"label": "the register's sequence is the round: plant, floors 2 to 6, lobby",
+			"ok": true
+		},
+		{
+			"label": "register drop 1 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 2 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 3 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 4 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 5 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 6 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 7 down",
+			"ok": true
+		},
+		{
+			"label": "carried key physically returns to hook",
+			"ok": true
+		},
+		{
+			"label": "original network receives returned custody",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "register reset lever works through mouse travel",
+			"ok": true
+		},
+		{
+			"label": "physical reset restores shutters without erasing signal count",
+			"ok": true
+		},
+		{
+			"label": "physical guard and first-shift observer agree on returned tour key",
+			"ok": true
+		},
+		{
+			"label": "service director binds the installed native owners",
+			"ok": true
+		},
+		{
+			"label": "call issues one original radiator obligation",
+			"ok": true
+		},
+		{
+			"label": "premature legacy stimuli cannot counterfeit progress",
+			"ok": true
+		},
+		{
+			"label": "service walking (-1.8, 0.0, -1.5) actual=(-1.867689, 0.0, -1.471665)",
+			"ok": true
+		},
+		{
+			"label": "service walking (-1.8, 0.0, -3.45) actual=(-1.802507, 0.0, -3.376741)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.0, -3.45) actual=(1.851788, 0.0, -3.448562)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.0, -3.0) actual=(1.916313, 0.213119, -3.061012)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.16, -2.9575) actual=(1.923106, 0.384618, -3.030761)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.32, -2.6725) actual=(1.92465, 0.543877, -2.74505)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.48, -2.3875) actual=(1.924935, 0.703855, -2.460052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.64, -2.1025) actual=(1.924988, 0.863843, -2.175056)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.8, -1.8175) actual=(1.924998, 1.023885, -1.890052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.96, -1.5325) actual=(1.924999, 1.183861, -1.605052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.12, -1.2475) actual=(1.925, 1.343843, -1.320053)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.28, -0.9625) actual=(1.925, 1.50388, -1.03505)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.44, -0.6775) actual=(1.925, 1.663857, -0.750052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.6, -0.3925) actual=(1.925, 1.600835, -0.464473)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.6, 1.25) actual=(1.925, 1.600444, 1.177613)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.6, 1.25) actual=(3.900402, 1.600906, 1.247366)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.76, 0.8875) actual=(3.960225, 1.76013, 0.958864)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.92, 0.6025) actual=(3.97201, 1.920104, 0.674699)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.08, 0.3175) actual=(3.974395, 2.080087, 0.389793)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.24, 0.0325) actual=(3.974878, 2.240086, 0.104802)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.4, -0.2525) actual=(3.974975, 2.400086, -0.180198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.56, -0.5375) actual=(3.974995, 2.560086, -0.465198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.72, -0.8225) actual=(3.974999, 2.720086, -0.750197)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.88, -1.1075) actual=(3.974999, 2.880086, -1.035198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 3.04, -1.3925) actual=(3.974999, 3.040086, -1.320198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 3.2, -1.6775) actual=(3.974999, 3.200613, -1.605175)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 3.2, -2.9) actual=(3.667925, 3.200222, -2.828586)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 3.2, -3.15) actual=(3.654057, 3.200222, -3.07727)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 3.2, -3.15) actual=(2.742448, 3.200855, -3.137752)",
+			"ok": false
+		},
+		{
+			"label": "both production worlds release tracked nodes, authority shapes and observed audio playbacks",
+			"ok": true
+		},
+		{
+			"label": "record repository provenance",
+			"ok": true
+		},
+		{
+			"label": "record current runtime inputs",
+			"ok": true
+		},
+		{
+			"label": "open runtime contract output",
+			"ok": true
+		}
+	],
+	"contracts": {
+		"physical_service_round": {
+			"executed": false,
+			"scope": "Actual part input, controller movement and finite workshop insert delivery; call/dialogue choices remain stimuli.",
+			"status": "FAIL"
+		},
+		"premature_action_denial": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"production_composition": {
+			"executed": true,
+			"identities": [
+				"F01_WATCHMAN_DETECTOR",
+				"F01_NIGHT_REGISTER",
+				"F01_SIGNAL_REGISTER",
+				"F01_TOUR_KEY_GUARD",
+				"F02_B_RADIATOR_01",
+				"B1_BOILER_01",
+				"LobbyPorterBoard"
+			],
+			"status": "FAIL"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "FAIL"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"resource_scope": "Unpathed collision shapes below the seven exercised authorities; exact process-owned radiator cache IDs separately measured.",
+			"retained_borrowed_shapes": 84,
+			"retained_nodes": 0,
+			"retained_playbacks": 0,
+			"retained_resources": 0,
+			"shared_cache_count": 84,
+			"status": "FAIL",
+			"tracked_borrowed_shapes": 84,
+			"tracked_nodes": 60743,
+			"tracked_playbacks": 63,
+			"tracked_resources": 117
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 157.717,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": 1,
+	"production_runtime": true,
+	"route_beats": [
+		"call"
+	],
+	"schema_version": 2,
+	"scope": "Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Call/dialogue and the closed prior-job gate are fixtures; board, boiler and radiator outcomes come from physical input. Service travel and workshop insert delivery use the collision-bearing controller. Patrol stance placement and whole-world visual acceptance remain separate.",
+	"selector": "v2",
+	"service_travel": [
+		{
+			"actual": "(-1.867689, 0.0, -1.471665)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+			],
+			"from": "(-3.95, 0.0, -0.6)",
+			"ok": true,
+			"target": "(-1.8, 0.0, -1.5)"
+		},
+		{
+			"actual": "(-1.802507, 0.0, -3.376741)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+			],
+			"from": "(-1.867689, 0.0, -1.471665)",
+			"ok": true,
+			"target": "(-1.8, 0.0, -3.45)"
+		},
+		{
+			"actual": "(1.851788, 0.0, -3.448562)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(-1.802507, 0.0, -3.376741)",
+			"ok": true,
+			"target": "(1.925, 0.0, -3.45)"
+		},
+		{
+			"actual": "(1.916313, 0.213119, -3.061012)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.851788, 0.0, -3.448562)",
+			"ok": true,
+			"target": "(1.925, 0.0, -3.0)"
+		},
+		{
+			"actual": "(1.923106, 0.384618, -3.030761)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.916313, 0.213119, -3.061012)",
+			"ok": true,
+			"target": "(1.925, 0.16, -2.9575)"
+		},
+		{
+			"actual": "(1.92465, 0.543877, -2.74505)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.923106, 0.384618, -3.030761)",
+			"ok": true,
+			"target": "(1.925, 0.32, -2.6725)"
+		},
+		{
+			"actual": "(1.924935, 0.703855, -2.460052)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.92465, 0.543877, -2.74505)",
+			"ok": true,
+			"target": "(1.925, 0.48, -2.3875)"
+		},
+		{
+			"actual": "(1.924988, 0.863843, -2.175056)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.924935, 0.703855, -2.460052)",
+			"ok": true,
+			"target": "(1.925, 0.64, -2.1025)"
+		},
+		{
+			"actual": "(1.924998, 1.023885, -1.890052)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.924988, 0.863843, -2.175056)",
+			"ok": true,
+			"target": "(1.925, 0.8, -1.8175)"
+		},
+		{
+			"actual": "(1.924999, 1.183861, -1.605052)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.924998, 1.023885, -1.890052)",
+			"ok": true,
+			"target": "(1.925, 0.96, -1.5325)"
+		},
+		{
+			"actual": "(1.925, 1.343843, -1.320053)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.924999, 1.183861, -1.605052)",
+			"ok": true,
+			"target": "(1.925, 1.12, -1.2475)"
+		},
+		{
+			"actual": "(1.925, 1.50388, -1.03505)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, 1.343843, -1.320053)",
+			"ok": true,
+			"target": "(1.925, 1.28, -0.9625)"
+		},
+		{
+			"actual": "(1.925, 1.663857, -0.750052)",
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, 1.50388, -1.03505)",
+			"ok": true,
+			"target": "(1.925, 1.44, -0.6775)"
+		},
+		{
+			"actual": "(1.925, 1.600835, -0.464473)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightA_Step09/Collision"
+			],
+			"from": "(1.925, 1.663857, -0.750052)",
+			"ok": true,
+			"target": "(1.925, 1.6, -0.3925)"
+		},
+		{
+			"actual": "(1.925, 1.600444, 1.177613)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/HalfLanding/Collision"
+			],
+			"from": "(1.925, 1.600835, -0.464473)",
+			"ok": true,
+			"target": "(1.925, 1.6, 1.25)"
+		},
+		{
+			"actual": "(3.900402, 1.600906, 1.247366)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/HalfLanding/Collision"
+			],
+			"from": "(1.925, 1.600444, 1.177613)",
+			"ok": true,
+			"target": "(3.975, 1.6, 1.25)"
+		},
+		{
+			"actual": "(3.960225, 1.76013, 0.958864)",
+			"carried": "",
+			"contacts": [],
+			"from": "(3.900402, 1.600906, 1.247366)",
+			"ok": true,
+			"target": "(3.975, 1.76, 0.8875)"
+		},
+		{
+			"actual": "(3.97201, 1.920104, 0.674699)",
+			"carried": "",
+			"contacts": [],
+			"from": "(3.960225, 1.76013, 0.958864)",
+			"ok": true,
+			"target": "(3.975, 1.92, 0.6025)"
+		},
+		{
+			"actual": "(3.974395, 2.080087, 0.389793)",
+			"carried": "",
+			"contacts": [],
+			"from": "(3.97201, 1.920104, 0.674699)",
+			"ok": true,
+			"target": "(3.975, 2.08, 0.3175)"
+		},
+		{
+			"actual": "(3.974878, 2.240086, 0.104802)",
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974395, 2.080087, 0.389793)",
+			"ok": true,
+			"target": "(3.975, 2.24, 0.0325)"
+		},
+		{
+			"actual": "(3.974975, 2.400086, -0.180198)",
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974878, 2.240086, 0.104802)",
+			"ok": true,
+			"target": "(3.975, 2.4, -0.2525)"
+		},
+		{
+			"actual": "(3.974995, 2.560086, -0.465198)",
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974975, 2.400086, -0.180198)",
+			"ok": true,
+			"target": "(3.975, 2.56, -0.5375)"
+		},
+		{
+			"actual": "(3.974999, 2.720086, -0.750197)",
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974995, 2.560086, -0.465198)",
+			"ok": true,
+			"target": "(3.975, 2.72, -0.8225)"
+		},
+		{
+			"actual": "(3.974999, 2.880086, -1.035198)",
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974999, 2.720086, -0.750197)",
+			"ok": true,
+			"target": "(3.975, 2.88, -1.1075)"
+		},
+		{
+			"actual": "(3.974999, 3.040086, -1.320198)",
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974999, 2.880086, -1.035198)",
+			"ok": true,
+			"target": "(3.975, 3.04, -1.3925)"
+		},
+		{
+			"actual": "(3.974999, 3.200613, -1.605175)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step09/Collision"
+			],
+			"from": "(3.974999, 3.040086, -1.320198)",
+			"ok": true,
+			"target": "(3.975, 3.2, -1.6775)"
+		},
+		{
+			"actual": "(3.667925, 3.200222, -2.828586)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.974999, 3.200613, -1.605175)",
+			"ok": true,
+			"target": "(3.65, 3.2, -2.9)"
+		},
+		{
+			"actual": "(3.654057, 3.200222, -3.07727)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.667925, 3.200222, -2.828586)",
+			"ok": true,
+			"target": "(3.65, 3.2, -3.15)"
+		},
+		{
+			"actual": "(2.742448, 3.200855, -3.137752)",
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F02_F03/FlightA_Step00/Collision"
+			],
+			"from": "(3.654057, 3.200222, -3.07727)",
+			"ok": false,
+			"target": "(1.925, 3.2, -3.15)"
+		}
+	],
+	"source": {
+		"repository_head": "a9f61f8bfa3021c0762c2acc05c75ba7914755e4",
+		"runtime_inputs_sha256": "98923b1757bb2ca268b5fa0238a7110f525e2dde8150bc8bd097575d325d2f33",
+		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
+		"test_sha256": "b53f9b610f291775b8a92d72ce1fb126f31c7064183ca64037726cdf23cccb09"
+	}
+}

@@ -1,0 +1,31 @@
+{
+  "evidence_class": "INERT",
+  "runtime_contract_errors": [],
+  "printed_checks": 360,
+  "raw_log_hashes_verified": true,
+  "source_wrapper_bindings_verified": true,
+  "runtime_execution": {
+    "completed": true,
+    "elapsed_s": 372.12,
+    "exit_code": 0,
+    "finished_utc": "2026-10-18T02:59:00Z",
+    "started_utc": "2026-10-18T02:52:48Z",
+    "timed_out": false
+  },
+  "physical_inputs_sha256": "69007318d61ae776a49673f90d3240a1187e547d50a1d351a4c4a5cad396ec44",
+  "teardown": {
+    "executed": true,
+    "measurement_scope": "runtime_owned",
+    "resource_scope": "Unpathed collision shapes below the seven exercised authorities; exact process-owned radiator cache IDs separately measured.",
+    "retained_borrowed_shapes": 168,
+    "retained_nodes": 0,
+    "retained_playbacks": 0,
+    "retained_resources": 0,
+    "shared_cache_count": 84,
+    "status": "PASS",
+    "tracked_borrowed_shapes": 168,
+    "tracked_nodes": 126411,
+    "tracked_playbacks": 161,
+    "tracked_resources": 234
+  }
+}

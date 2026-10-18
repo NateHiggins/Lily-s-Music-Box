@@ -2,11 +2,11 @@
 
 Evidence class: **CHECKPOINT**. Executed runtime authority proof.
 
-Requalified after lobby heating on 2026-10-16: current test-written authority
-contract prints 133 passing checks, including save/load reconstruction and
-both-world teardown. The receipt serializes 132 because its final output-flush
+Requalified through physical service on 2026-10-17: current test-written authority
+contract prints 360 passing checks, including finite workshop-part delivery,
+save/load reconstruction and both-world teardown. The receipt serializes 359 because its final output-flush
 check follows serialization. Completed wrapper:
-**art/renders/orison_v2/heating_lobby_20261016/firstslice.log.receipt.json**.
+**art/renders/orison_v2/first_slice_contract_20261011/suite_run.receipt.json**.
 Status: **TECHNICAL PASS**, scoped to the seven authorities below.
 
 The disk comparison preserves the complete serialized job record and checks
@@ -18,9 +18,10 @@ fuse packet. Production save and work-order authorities were not changed.
 The self-contained production test is
 **game/tests/orison_v2_first_slice_contract_test.gd**. Its test-written schema-2
 receipt is **art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json**.
-The receipt binds the root test source and current production runtime inputs.
+The receipt binds the root test source, current production runtime inputs and
+physical geometry/morph/import inputs, measured before and after execution.
 The current wrapper above confirms completed execution without
-timeout. Current run: 133 printed checks, zero failures. An earlier parse-failed run is
+timeout. Current run: 360 printed checks, zero failures. Earlier failed runs are
 diagnostic only; it grants no proof.
 
 | Function | Composition | Authority | Durable/save owner | Teardown owner |
@@ -46,12 +47,16 @@ clear approaches, station legends, reset and returned key custody are checked.
 Player positions are placed at the established test stances: this proves
 interaction access, not continuous walking between those stances.
 
-The inherited M08F service sequence is now included directly in the bound test
-source. Production owner signals execute Lena's call, threshold conversation,
-radiator inspection, lobby comparison, basement comparison, repair and resident
-return. Premature and duplicate completions cannot counterfeit progress. The
-opening repair is explicitly completed as a prerequisite fixture on WorkOrders;
-this checkpoint does not claim the complete Mina repair/dream journey.
+The bound test now operates the board, boiler and radiator through actual
+grabbing, mouse/wheel travel and release. Normal collision-bearing controller
+movement connects the apartment, lobby, boiler and workshop. Door leaves swing
+through actual hand input. The original insert unthreads and moves clear; the
+existing grade-2 spare is carried upstairs, catches the receiver and reverse-
+threads home. All 28 physical identities survive. Partial supply refuses repair;
+fully open supply and sustained real steam complete it before resident return.
+Premature legacy stimuli cannot counterfeit progress. Call/dialogue choices,
+camera/heading placements and previous Mina job closure remain explicit
+fixtures; this does not claim the complete Mina repair/dream journey.
 
 Actual disk save, destruction, load and CampaignShell reconstruction preserve
 the closed round and durable ritual state. Transient guard custody and central
@@ -59,11 +64,13 @@ marks reconstruct with their existing semantics; no session marks are invented.
 The test uses a unique isolated save, never the player's save. Nodes in both
 worlds, unpathed collision shapes below the seven authorities, and active audio
 playbacks are tracked by WeakRef. All measured retained counts are zero.
-Imported/shared caches are outside that resource measurement scope.
+The 84 exact shared radiator shape IDs are separately measured and do not grow
+on reconstruction. Imported/shared caches remain outside runtime-owned resource
+retirement. The seven known Texture RID shutdown warnings remain disclosed.
 
 No geometry, texture, production authority or protected selector logic changes.
 Existing Blender and composed surface reviews remain valid. This checkpoint
-does not grant human acceptance, movement-route proof, whole-building service
+does not grant human acceptance, continuous patrol-route proof, whole-building service
 continuity, acoustics acceptance, performance acceptance or V1 retirement.
 
 ## Direct-manipulation regression renewal, 2026-10-12

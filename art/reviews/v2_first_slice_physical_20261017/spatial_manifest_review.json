@@ -1,0 +1,274 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Eight reviewed test-only dependencies. No production entries, old classifications, universe counts or prior drift are rebaselined. The exercised route retains its gameplay-binding classification.",
+  "previous_record_count": 10063,
+  "added": [
+    {
+      "key": "81b2ae56ec5b7f77",
+      "kind": "id_reference",
+      "token": "B1_BOILER_01",
+      "file": "game/tests/first_slice_service_hand_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        12,
+        15,
+        16
+      ],
+      "count": 3,
+      "context": [
+        "var boiler:=BoilerProp.new();boiler.name=\"B1_BOILER_01\";boiler.prop_type=\"boiler\";boiler.position.x=3.;add_child(boiler)",
+        "data.actors=data.actors.filter(func(row):return row.id in [\"LobbyPorterBoard\",\"B1_BOILER_01\"])",
+        "data.source_materials=data.source_materials.filter(func(row):return row.actor in [\"LobbyPorterBoard\",\"B1_BOILER_01\"])"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "944ff4634e9b536e",
+      "kind": "id_reference",
+      "token": "F02_B_RADIATOR_01",
+      "file": "game/tests/first_slice_service_hand_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_radiator_transfer"
+      ],
+      "lines": [
+        35
+      ],
+      "count": 1,
+      "context": [
+        "var prop:=RadiatorProp.new();prop.use_native_v2=true;prop.unit=\"2B\";prop.graph_node_id=\"F02_B_RADIATOR_01\""
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "a32c81269208b24c",
+      "kind": "runtime_id",
+      "token": "LobbyPorterBoard",
+      "file": "game/tests/first_slice_service_hand_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        11,
+        15,
+        16
+      ],
+      "count": 3,
+      "context": [
+        "var board:=OtisProp.new();board.name=\"LobbyPorterBoard\";board.prop_type=\"otis\";board.position=Vector3(-3.,1.4,0);add_child(board)",
+        "data.actors=data.actors.filter(func(row):return row.id in [\"LobbyPorterBoard\",\"B1_BOILER_01\"])",
+        "data.source_materials=data.source_materials.filter(func(row):return row.actor in [\"LobbyPorterBoard\",\"B1_BOILER_01\"])"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "GENERATED_IDENTITY",
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "HIGH",
+      "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+      "resolved_target": "v2_blockout+runtime_created",
+      "target_exists": true
+    },
+    {
+      "key": "e3cca6820ab256f6",
+      "kind": "unit_reference",
+      "token": "2B",
+      "file": "game/tests/first_slice_service_hand_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_radiator_transfer"
+      ],
+      "lines": [
+        35
+      ],
+      "count": 1,
+      "context": [
+        "var prop:=RadiatorProp.new();prop.use_native_v2=true;prop.unit=\"2B\";prop.graph_node_id=\"F02_B_RADIATOR_01\""
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "unit",
+      "target_exists": true
+    },
+    {
+      "key": "877c95a37cfbecbb",
+      "kind": "id_reference",
+      "token": "B1_BOILER_FIRE_DOOR",
+      "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_exercise_physical_round"
+      ],
+      "lines": [
+        690
+      ],
+      "count": 1,
+      "context": [
+        "if not await _service_door(world,\"B1_BOILER_FIRE_DOOR\"):return false"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "4cad19590d39283a",
+      "kind": "id_reference",
+      "token": "B1_SHOP_DOOR",
+      "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_exercise_physical_round"
+      ],
+      "lines": [
+        695
+      ],
+      "count": 1,
+      "context": [
+        "if not await _service_door(world,\"B1_SHOP_DOOR\"):return false"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "7890c62ce09ce7a7",
+      "kind": "id_reference",
+      "token": "F02_B_ENTRY_DOOR",
+      "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_exercise_physical_round"
+      ],
+      "lines": [
+        657
+      ],
+      "count": 1,
+      "context": [
+        "if not await _service_door(world,\"F02_B_ENTRY_DOOR\"):return false"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "d66d41a4ddcceee0",
+      "kind": "vector3_coordinate",
+      "token": "_exercise_physical_round",
+      "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_exercise_physical_round"
+      ],
+      "lines": [
+        656,
+        656,
+        658,
+        658,
+        658,
+        658,
+        682,
+        682,
+        682,
+        682,
+        682,
+        682,
+        682,
+        703,
+        703,
+        703,
+        703,
+        703,
+        703,
+        719
+      ],
+      "count": 20,
+      "context": [
+        "if not await _walk_service_points(world,[Vector3(5.9,3.2,-3.15),Vector3(8.55,3.2,-3.25)]):return false",
+        "if not await _walk_service_points(world,[Vector3(10.95,3.2,-3.25),Vector3(10.95,3.2,-2.5),Vector3(12.5,3.2,-2.5),Vector3(13.6,3.2,-1.8)]):return false",
+        "if not await _walk_service_points(world,[Vector3(13.6,3.2,-2.8),Vector3(12.5,3.2,-2.5),Vector3(10.95,3.2,-2.5),Vector3(10.95,3.2,-3.25),Vector3(8.55,3.2,-3.25),",
+        "if not await _walk_service_points(world,[Vector3(5.9,3.2,-3.15),Vector3(8.55,3.2,-3.25),Vector3(10.95,3.2,-3.25),Vector3(10.95,3.2,-2.5),Vector3(12.5,3.2,-2.5),"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    }
+  ],
+  "existing_records_unchanged": true
+}

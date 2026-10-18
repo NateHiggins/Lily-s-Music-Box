@@ -601,6 +601,9 @@ class _InputDigests:
     def _read(self, kind: str) -> str:
         if kind == "runtime":
             return runtime_inputs_sha256(self.root)
+        if kind == "physical":
+            from v2_physical_inputs import snapshot
+            return snapshot(self.root)["sha256"]
         if kind != "surface":
             raise ValueError("unknown input digest: " + kind)
         from v2_surface_evidence import inputs as surface_inputs
@@ -673,6 +676,17 @@ def runtime_receipt_errors(data: dict, root: Path,
     contracts = data.get("contracts", {})
     if not isinstance(contracts, dict):
         contracts = {}
+    # Physical service evidence also depends on imported triangle positions,
+    # node frames, morph travel and mesh import settings. Optical-only edits
+    # retain this proof and are separately qualified by the surface packet.
+    if "physical_service_round" in contracts:
+        physical = contracts["physical_service_round"]
+        if not isinstance(physical, dict) or physical.get("executed") is not True or physical.get("status") != "PASS":
+            errors.append("physical_service_round: executed PASS required")
+        from v2_physical_inputs import snapshot
+        current = _digests.get("physical") if _digests is not None else snapshot(root)["sha256"]
+        if source.get("physical_inputs_sha256") != current:
+            errors.append("physical-input SHA-256 is missing or stale")
     for name in ("production_composition", "save_reconstruction",
                  "premature_action_denial", "teardown"):
         contract = contracts.get(name, {})
