@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Measured V2 startup costs and exact comparison of bounded room-trim fitting | `design/V2_STARTUP_TRIM_CULLING_2026-10-18.md` |
 | Folded arcade lantern roof, real top-light well and retained clock hanger | `design/V2_ARCADE_LANTERN_2026-10-18.md` |
 | Finished-wall furniture fitting, retained service access and installed native arcade fabric | `design/V2_FINISHED_WALL_CLEARANCE_2026-10-18.md` |
 | Native work-lamp source apertures and controlled storefront reflection diagnosis | `design/V2_WORK_LIGHT_APERTURES_2026-10-18.md` |

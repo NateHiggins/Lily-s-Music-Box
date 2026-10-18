@@ -1,0 +1,6380 @@
+{
+  "evidence_class": "INERT",
+  "failures": [],
+  "programmes": 74,
+  "rows": [
+    {
+      "boxes": 26,
+      "cell": "passage",
+      "counts": {
+        "site_passage_lantern_diaphragm_n_0": 12,
+        "site_passage_lantern_diaphragm_n_1": 12,
+        "site_passage_lantern_diaphragm_n_2": 12,
+        "site_passage_lantern_diaphragm_s_0": 12,
+        "site_passage_lantern_diaphragm_s_1": 12,
+        "site_passage_lantern_diaphragm_s_2": 12,
+        "site_passage_vault_glass_00_0": 12,
+        "site_passage_vault_glass_00_1": 12,
+        "site_passage_vault_glass_01_0": 12,
+        "site_passage_vault_glass_01_1": 12,
+        "site_passage_vault_glass_02_0": 12,
+        "site_passage_vault_glass_02_1": 12,
+        "site_passage_vault_glass_03_0": 12,
+        "site_passage_vault_glass_03_1": 12,
+        "site_passage_vault_glass_04_0": 12,
+        "site_passage_vault_glass_04_1": 12,
+        "site_passage_vault_glass_05_0": 12,
+        "site_passage_vault_glass_05_1": 12,
+        "site_passage_vault_glass_06_0": 12,
+        "site_passage_vault_glass_06_1": 12,
+        "site_passage_vault_glass_07_0": 12,
+        "site_passage_vault_glass_07_1": 12,
+        "site_passage_vault_glass_08_0": 12,
+        "site_passage_vault_glass_08_1": 12,
+        "site_passage_vault_glass_09_0": 12,
+        "site_passage_vault_glass_09_1": 12
+      },
+      "draw": "F01_OWN_PASSAGE_retail_passage_shell_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/arcade_canopy.json",
+      "timings": [
+        {
+          "candidate_us": 3003,
+          "legacy_us": 14126
+        },
+        {
+          "candidate_us": 2988,
+          "legacy_us": 13312
+        }
+      ]
+    },
+    {
+      "boxes": 8,
+      "cell": "passage",
+      "counts": {
+        "site_passage_nave_gable_n_1": 12,
+        "site_passage_nave_gable_n_2": 12,
+        "site_passage_nave_gable_n_3": 12,
+        "site_passage_nave_gable_s_crown1": 12,
+        "site_passage_nave_gable_s_crown2": 12,
+        "site_passage_nave_gable_s_head": 12,
+        "site_passage_nave_gable_s_stepa": 12,
+        "site_passage_nave_gable_s_stepb": 12
+      },
+      "draw": "F01_OWN_PASSAGE_retail_passage_shell_plaster",
+      "equal": true,
+      "programme": "data/orison_v2/arcade_canopy.json",
+      "timings": [
+        {
+          "candidate_us": 1605,
+          "legacy_us": 5800
+        },
+        {
+          "candidate_us": 1592,
+          "legacy_us": 5830
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "passage",
+      "counts": {
+        "site_passage_lantern_cap_0": 0,
+        "site_passage_lantern_cap_1": 0,
+        "site_passage_lantern_cap_2": 0
+      },
+      "draw": "F01_OWN_PASSAGE_retail_passage_shell_cast_iron",
+      "equal": true,
+      "programme": "data/orison_v2/arcade_lantern.json",
+      "timings": [
+        {
+          "candidate_us": 771,
+          "legacy_us": 2180
+        },
+        {
+          "candidate_us": 751,
+          "legacy_us": 2140
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "passage",
+      "counts": {
+        "site_passage_lantern_cap_0": 12,
+        "site_passage_lantern_cap_1": 12,
+        "site_passage_lantern_cap_2": 12
+      },
+      "draw": "F01_OWN_PASSAGE_retail_passage_shell_cast_iron-col",
+      "equal": true,
+      "programme": "data/orison_v2/arcade_lantern.json",
+      "timings": [
+        {
+          "candidate_us": 155,
+          "legacy_us": 387
+        },
+        {
+          "candidate_us": 152,
+          "legacy_us": 385
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "passage",
+      "counts": {
+        "site_passage_throat_e": 12,
+        "site_passage_throat_w": 12
+      },
+      "draw": "F01_OWN_PASSAGE_retail_passage_shell_common_brick",
+      "equal": true,
+      "programme": "data/orison_v2/arcade_throat.json",
+      "timings": [
+        {
+          "candidate_us": 469,
+          "legacy_us": 1208
+        },
+        {
+          "candidate_us": 451,
+          "legacy_us": 1161
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "passage",
+      "counts": {
+        "site_passage_throat_e": 0,
+        "site_passage_throat_w": 0
+      },
+      "draw": "F01_OWN_PASSAGE_retail_shop_keys_cut_common_brick",
+      "equal": true,
+      "programme": "data/orison_v2/arcade_throat.json",
+      "timings": [
+        {
+          "candidate_us": 28,
+          "legacy_us": 70
+        },
+        {
+          "candidate_us": 27,
+          "legacy_us": 44
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "passage",
+      "counts": {
+        "site_passage_throat_e": 0,
+        "site_passage_throat_w": 0
+      },
+      "draw": "F01_OWN_PASSAGE_retail_shop_pawnbroker_common_brick",
+      "equal": true,
+      "programme": "data/orison_v2/arcade_throat.json",
+      "timings": [
+        {
+          "candidate_us": 26,
+          "legacy_us": 45
+        },
+        {
+          "candidate_us": 25,
+          "legacy_us": 43
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball4": 0
+      },
+      "draw": "F01_OWN_SHOP_BAR_furnish_bakelite",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 421,
+          "legacy_us": 898
+        },
+        {
+          "candidate_us": 413,
+          "legacy_us": 855
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball2": 0
+      },
+      "draw": "F01_OWN_SHOP_BAR_furnish_brass",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 134,
+          "legacy_us": 275
+        },
+        {
+          "candidate_us": 133,
+          "legacy_us": 271
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball0": 0
+      },
+      "draw": "F01_OWN_SHOP_BAR_furnish_enamel",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 130,
+          "legacy_us": 272
+        },
+        {
+          "candidate_us": 130,
+          "legacy_us": 274
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball3": 0
+      },
+      "draw": "F01_OWN_SHOP_BAR_furnish_fabric_green",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 270,
+          "legacy_us": 560
+        },
+        {
+          "candidate_us": 267,
+          "legacy_us": 556
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_pool_felt": 0
+      },
+      "draw": "F01_OWN_SHOP_BAR_furnish_felt_violet",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 123,
+          "legacy_us": 241
+        },
+        {
+          "candidate_us": 123,
+          "legacy_us": 233
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball1": 0
+      },
+      "draw": "F01_OWN_SHOP_BAR_furnish_terracotta",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 1066,
+          "legacy_us": 2255
+        },
+        {
+          "candidate_us": 1137,
+          "legacy_us": 2299
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_pool_body": 0
+      },
+      "draw": "F01_OWN_SHOP_BAR_furnish_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 73,
+          "legacy_us": 139
+        },
+        {
+          "candidate_us": 72,
+          "legacy_us": 126
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_pool_body": 0
+      },
+      "draw": "F01_OWN_SHOP_BAR_furniture_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 258,
+          "legacy_us": 569
+        },
+        {
+          "candidate_us": 337,
+          "legacy_us": 517
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball4": 12
+      },
+      "draw": "F01_OWN_SHOP_BAR_retail_bar_bakelite",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 24,
+          "legacy_us": 42
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball2": 12
+      },
+      "draw": "F01_OWN_SHOP_BAR_retail_bar_brass",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 39,
+          "legacy_us": 64
+        },
+        {
+          "candidate_us": 38,
+          "legacy_us": 59
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball0": 12
+      },
+      "draw": "F01_OWN_SHOP_BAR_retail_bar_enamel",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        },
+        {
+          "candidate_us": 20,
+          "legacy_us": 30
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball3": 12
+      },
+      "draw": "F01_OWN_SHOP_BAR_retail_bar_fabric_green",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 20,
+          "legacy_us": 30
+        },
+        {
+          "candidate_us": 20,
+          "legacy_us": 29
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_pool_felt": 12
+      },
+      "draw": "F01_OWN_SHOP_BAR_retail_bar_felt_violet",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 20,
+          "legacy_us": 30
+        },
+        {
+          "candidate_us": 20,
+          "legacy_us": 30
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_ball1": 12
+      },
+      "draw": "F01_OWN_SHOP_BAR_retail_bar_terracotta",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 21,
+          "legacy_us": 30
+        },
+        {
+          "candidate_us": 20,
+          "legacy_us": 29
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_pool_body": 12
+      },
+      "draw": "F01_OWN_SHOP_BAR_retail_bar_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/bar_pool.json",
+      "timings": [
+        {
+          "candidate_us": 209,
+          "legacy_us": 350
+        },
+        {
+          "candidate_us": 179,
+          "legacy_us": 364
+        }
+      ]
+    },
+    {
+      "boxes": 17,
+      "cell": "shop_bar",
+      "counts": {
+        "retail_bar_drape0": 12,
+        "retail_bar_drape1": 12,
+        "retail_bar_drape10": 12,
+        "retail_bar_drape11": 12,
+        "retail_bar_drape12": 12,
+        "retail_bar_drape13": 12,
+        "retail_bar_drape14": 12,
+        "retail_bar_drape15": 12,
+        "retail_bar_drape2": 12,
+        "retail_bar_drape3": 12,
+        "retail_bar_drape4": 12,
+        "retail_bar_drape5": 12,
+        "retail_bar_drape6": 12,
+        "retail_bar_drape7": 12,
+        "retail_bar_drape8": 12,
+        "retail_bar_drape9": 12,
+        "retail_bar_pelmet": 12
+      },
+      "draw": "F01_OWN_SHOP_BAR_retail_bar_bar_wall_red",
+      "equal": true,
+      "programme": "data/orison_v2/bar_stage.json",
+      "timings": [
+        {
+          "candidate_us": 876,
+          "legacy_us": 3570
+        },
+        {
+          "candidate_us": 908,
+          "legacy_us": 3589
+        }
+      ]
+    },
+    {
+      "boxes": 14,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_finisher": 12,
+        "storm_shop_shoe_rebuilding_finisher_wheel0": 12,
+        "storm_shop_shoe_rebuilding_finisher_wheel2": 12,
+        "storm_shop_shoe_rebuilding_last0": 12,
+        "storm_shop_shoe_rebuilding_last1": 12,
+        "storm_shop_shoe_rebuilding_last2": 12,
+        "storm_shop_shoe_rebuilding_last3": 12,
+        "storm_shop_shoe_rebuilding_last4": 12,
+        "storm_shop_shoe_rebuilding_last5": 12,
+        "storm_shop_shoe_rebuilding_last6": 12,
+        "storm_shop_shoe_rebuilding_last7": 12,
+        "storm_shop_shoe_rebuilding_last8": 12,
+        "storm_shop_shoe_rebuilding_outsole_stand": 12,
+        "storm_shop_shoe_rebuilding_patcher_treadle": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_cast_iron",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 552,
+          "legacy_us": 2075
+        },
+        {
+          "candidate_us": 559,
+          "legacy_us": 2259
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_counter_top": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 24,
+          "legacy_us": 37
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_finisher_hd": 12,
+        "storm_shop_shoe_rebuilding_finisher_shaft": 12,
+        "storm_shop_shoe_rebuilding_outsole_head": 12,
+        "storm_shop_shoe_rebuilding_patcher_arm": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_metal",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 137,
+          "legacy_us": 350
+        },
+        {
+          "candidate_us": 132,
+          "legacy_us": 330
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_ledger": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_paper",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 63,
+          "legacy_us": 109
+        },
+        {
+          "candidate_us": 62,
+          "legacy_us": 105
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_window_back": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 24,
+          "legacy_us": 34
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_finisher_wheel1": 12,
+        "storm_shop_shoe_rebuilding_finisher_wheel3": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_rubber_aged",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 42,
+          "legacy_us": 81
+        },
+        {
+          "candidate_us": 41,
+          "legacy_us": 78
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_dust_felt": 12,
+        "storm_shop_shoe_rebuilding_finisher_hood": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_soot",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 42,
+          "legacy_us": 79
+        },
+        {
+          "candidate_us": 41,
+          "legacy_us": 77
+        }
+      ]
+    },
+    {
+      "boxes": 8,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_bench": 12,
+        "storm_shop_shoe_rebuilding_last_rack": 12,
+        "storm_shop_shoe_rebuilding_ledger_clean": 12,
+        "storm_shop_shoe_rebuilding_rack0": 12,
+        "storm_shop_shoe_rebuilding_rack1": 12,
+        "storm_shop_shoe_rebuilding_rack2": 12,
+        "storm_shop_shoe_rebuilding_rack3": 12,
+        "storm_shop_shoe_rebuilding_rack4": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_timber",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 232,
+          "legacy_us": 736
+        },
+        {
+          "candidate_us": 260,
+          "legacy_us": 737
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_shoe0": 12,
+        "storm_shop_shoe_rebuilding_shoe3": 12,
+        "storm_shop_shoe_rebuilding_shoe6": 12,
+        "storm_shop_shoe_rebuilding_shoe9": 12,
+        "storm_shop_shoe_rebuilding_sole_stack": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_vinyl_oxblood",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 121,
+          "legacy_us": 327
+        },
+        {
+          "candidate_us": 133,
+          "legacy_us": 323
+        }
+      ]
+    },
+    {
+      "boxes": 11,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_bench_top": 12,
+        "storm_shop_shoe_rebuilding_counter": 12,
+        "storm_shop_shoe_rebuilding_shoe1": 12,
+        "storm_shop_shoe_rebuilding_shoe10": 12,
+        "storm_shop_shoe_rebuilding_shoe2": 12,
+        "storm_shop_shoe_rebuilding_shoe4": 12,
+        "storm_shop_shoe_rebuilding_shoe5": 12,
+        "storm_shop_shoe_rebuilding_shoe7": 12,
+        "storm_shop_shoe_rebuilding_shoe8": 12,
+        "storm_shop_shoe_rebuilding_waiting_seat": 12,
+        "storm_shop_shoe_rebuilding_window_plinth": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/cobbler_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 937,
+          "legacy_us": 3559
+        },
+        {
+          "candidate_us": 921,
+          "legacy_us": 3525
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_griddle_top": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_cast_iron",
+      "equal": true,
+      "programme": "data/orison_v2/diner_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 27,
+          "legacy_us": 54
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 33
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_mixer_base": 0
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel",
+      "equal": true,
+      "programme": "data/orison_v2/diner_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 140,
+          "legacy_us": 280
+        },
+        {
+          "candidate_us": 136,
+          "legacy_us": 275
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_mixer_base": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel-col",
+      "equal": true,
+      "programme": "data/orison_v2/diner_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 34
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_soda_fount": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_marble_lobby",
+      "equal": true,
+      "programme": "data/orison_v2/diner_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_griddle": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_metal",
+      "equal": true,
+      "programme": "data/orison_v2/diner_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 119,
+          "legacy_us": 220
+        },
+        {
+          "candidate_us": 118,
+          "legacy_us": 226
+        }
+      ]
+    },
+    {
+      "boxes": 6,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_mixer_post": 12,
+        "storm_shop_luncheonette_syrup0": 12,
+        "storm_shop_luncheonette_syrup1": 12,
+        "storm_shop_luncheonette_syrup2": 12,
+        "storm_shop_luncheonette_syrup3": 12,
+        "storm_shop_luncheonette_syrup4": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_nickel_plated",
+      "equal": true,
+      "programme": "data/orison_v2/diner_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 265,
+          "legacy_us": 789
+        },
+        {
+          "candidate_us": 267,
+          "legacy_us": 795
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_backbar": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome",
+      "equal": true,
+      "programme": "data/orison_v2/diner_backbar.json",
+      "timings": [
+        {
+          "candidate_us": 273,
+          "legacy_us": 615
+        },
+        {
+          "candidate_us": 227,
+          "legacy_us": 458
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_backbar_top": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/diner_backbar.json",
+      "timings": [
+        {
+          "candidate_us": 41,
+          "legacy_us": 66
+        },
+        {
+          "candidate_us": 40,
+          "legacy_us": 62
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_bbshelf0": 12,
+        "storm_shop_luncheonette_bbshelf1": 12,
+        "storm_shop_luncheonette_bbshelf2": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_timber",
+      "equal": true,
+      "programme": "data/orison_v2/diner_backbar.json",
+      "timings": [
+        {
+          "candidate_us": 66,
+          "legacy_us": 142
+        },
+        {
+          "candidate_us": 64,
+          "legacy_us": 138
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_counter_kick": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome",
+      "equal": true,
+      "programme": "data/orison_v2/diner_counter.json",
+      "timings": [
+        {
+          "candidate_us": 238,
+          "legacy_us": 525
+        },
+        {
+          "candidate_us": 232,
+          "legacy_us": 459
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_counter_top": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/diner_counter.json",
+      "timings": [
+        {
+          "candidate_us": 40,
+          "legacy_us": 65
+        },
+        {
+          "candidate_us": 41,
+          "legacy_us": 62
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_ledger": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_paper",
+      "equal": true,
+      "programme": "data/orison_v2/diner_counter.json",
+      "timings": [
+        {
+          "candidate_us": 64,
+          "legacy_us": 110
+        },
+        {
+          "candidate_us": 63,
+          "legacy_us": 108
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_counter": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/diner_counter.json",
+      "timings": [
+        {
+          "candidate_us": 144,
+          "legacy_us": 274
+        },
+        {
+          "candidate_us": 145,
+          "legacy_us": 277
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_menu_board": 0
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black",
+      "equal": true,
+      "programme": "data/orison_v2/diner_overhead.json",
+      "timings": [
+        {
+          "candidate_us": 248,
+          "legacy_us": 518
+        },
+        {
+          "candidate_us": 243,
+          "legacy_us": 484
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_menu_board": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black-col",
+      "equal": true,
+      "programme": "data/orison_v2/diner_overhead.json",
+      "timings": [
+        {
+          "candidate_us": 24,
+          "legacy_us": 34
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_fan_blade0": 12,
+        "storm_shop_luncheonette_fan_blade1": 12,
+        "storm_shop_luncheonette_fan_blade2": 12,
+        "storm_shop_luncheonette_fan_blade3": 12,
+        "storm_shop_luncheonette_fan_hub": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_metal",
+      "equal": true,
+      "programme": "data/orison_v2/diner_overhead.json",
+      "timings": [
+        {
+          "candidate_us": 200,
+          "legacy_us": 562
+        },
+        {
+          "candidate_us": 200,
+          "legacy_us": 564
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_cigar_case": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/diner_till.json",
+      "timings": [
+        {
+          "candidate_us": 102,
+          "legacy_us": 197
+        },
+        {
+          "candidate_us": 97,
+          "legacy_us": 186
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_register": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_nickel_plated",
+      "equal": true,
+      "programme": "data/orison_v2/diner_till.json",
+      "timings": [
+        {
+          "candidate_us": 143,
+          "legacy_us": 276
+        },
+        {
+          "candidate_us": 142,
+          "legacy_us": 281
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_urn0_tap": 12,
+        "storm_shop_luncheonette_urn1_tap": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/diner_urns.json",
+      "timings": [
+        {
+          "candidate_us": 66,
+          "legacy_us": 135
+        },
+        {
+          "candidate_us": 63,
+          "legacy_us": 117
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_piecase": 12,
+        "storm_shop_luncheonette_urn0_gauge": 12,
+        "storm_shop_luncheonette_urn1_gauge": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/diner_urns.json",
+      "timings": [
+        {
+          "candidate_us": 174,
+          "legacy_us": 355
+        },
+        {
+          "candidate_us": 133,
+          "legacy_us": 319
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_urn0": 12,
+        "storm_shop_luncheonette_urn0_lid": 12,
+        "storm_shop_luncheonette_urn1": 12,
+        "storm_shop_luncheonette_urn1_lid": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_nickel_plated",
+      "equal": true,
+      "programme": "data/orison_v2/diner_urns.json",
+      "timings": [
+        {
+          "candidate_us": 210,
+          "legacy_us": 553
+        },
+        {
+          "candidate_us": 206,
+          "legacy_us": 556
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_carboy3": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_book_ochre",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_carboys.json",
+      "timings": [
+        {
+          "candidate_us": 27,
+          "legacy_us": 51
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_carboy0": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_book_teal",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_carboys.json",
+      "timings": [
+        {
+          "candidate_us": 79,
+          "legacy_us": 142
+        },
+        {
+          "candidate_us": 76,
+          "legacy_us": 132
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_carboy2": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_fabric_green",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_carboys.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 35
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_carboy_stop0": 12,
+        "storm_shop_otis___son_carboy_stop1": 12,
+        "storm_shop_otis___son_carboy_stop2": 12,
+        "storm_shop_otis___son_carboy_stop3": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_carboys.json",
+      "timings": [
+        {
+          "candidate_us": 533,
+          "legacy_us": 1556
+        },
+        {
+          "candidate_us": 533,
+          "legacy_us": 1500
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_carboy1": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_lacquer_red",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_carboys.json",
+      "timings": [
+        {
+          "candidate_us": 63,
+          "legacy_us": 109
+        },
+        {
+          "candidate_us": 64,
+          "legacy_us": 112
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_window_back": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_carboys.json",
+      "timings": [
+        {
+          "candidate_us": 22,
+          "legacy_us": 34
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_carboy_ped0": 12,
+        "storm_shop_otis___son_carboy_ped1": 12,
+        "storm_shop_otis___son_carboy_ped2": 12,
+        "storm_shop_otis___son_carboy_ped3": 12,
+        "storm_shop_otis___son_window_plinth": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_carboys.json",
+      "timings": [
+        {
+          "candidate_us": 639,
+          "legacy_us": 1956
+        },
+        {
+          "candidate_us": 1497,
+          "legacy_us": 1968
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_telephone": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_bakelite_black",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_counter.json",
+      "timings": [
+        {
+          "candidate_us": 27,
+          "legacy_us": 47
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_ledger": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_paper",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_counter.json",
+      "timings": [
+        {
+          "candidate_us": 52,
+          "legacy_us": 94
+        },
+        {
+          "candidate_us": 50,
+          "legacy_us": 89
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_poison1": 12,
+        "storm_shop_otis___son_poison3": 12,
+        "storm_shop_otis___son_poison5": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_book_teal",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_cupboard.json",
+      "timings": [
+        {
+          "candidate_us": 104,
+          "legacy_us": 253
+        },
+        {
+          "candidate_us": 103,
+          "legacy_us": 229
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_poison_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_cupboard.json",
+      "timings": [
+        {
+          "candidate_us": 453,
+          "legacy_us": 693
+        },
+        {
+          "candidate_us": 354,
+          "legacy_us": 715
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_poison0": 12,
+        "storm_shop_otis___son_poison2": 12,
+        "storm_shop_otis___son_poison4": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_lacquer_red",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_cupboard.json",
+      "timings": [
+        {
+          "candidate_us": 91,
+          "legacy_us": 192
+        },
+        {
+          "candidate_us": 86,
+          "legacy_us": 189
+        }
+      ]
+    },
+    {
+      "boxes": 6,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_poison_rib0": 12,
+        "storm_shop_otis___son_poison_rib1": 12,
+        "storm_shop_otis___son_poison_rib2": 12,
+        "storm_shop_otis___son_poison_rib3": 12,
+        "storm_shop_otis___son_poison_rib4": 12,
+        "storm_shop_otis___son_poison_rib5": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_porcelain",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_cupboard.json",
+      "timings": [
+        {
+          "candidate_us": 150,
+          "legacy_us": 435
+        },
+        {
+          "candidate_us": 148,
+          "legacy_us": 434
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_poison_cupboard": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_cupboard.json",
+      "timings": [
+        {
+          "candidate_us": 372,
+          "legacy_us": 742
+        },
+        {
+          "candidate_us": 371,
+          "legacy_us": 737
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_disp_top": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_dispensary.json",
+      "timings": [
+        {
+          "candidate_us": 44,
+          "legacy_us": 78
+        },
+        {
+          "candidate_us": 39,
+          "legacy_us": 62
+        }
+      ]
+    },
+    {
+      "boxes": 23,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_balance_case": 12,
+        "storm_shop_otis___son_disp_screen": 12,
+        "storm_shop_otis___son_round0_0": 12,
+        "storm_shop_otis___son_round0_1": 12,
+        "storm_shop_otis___son_round0_2": 12,
+        "storm_shop_otis___son_round0_3": 12,
+        "storm_shop_otis___son_round0_4": 12,
+        "storm_shop_otis___son_round0_5": 12,
+        "storm_shop_otis___son_round0_6": 12,
+        "storm_shop_otis___son_round1_0": 12,
+        "storm_shop_otis___son_round1_1": 12,
+        "storm_shop_otis___son_round1_2": 12,
+        "storm_shop_otis___son_round1_3": 12,
+        "storm_shop_otis___son_round1_4": 12,
+        "storm_shop_otis___son_round1_5": 12,
+        "storm_shop_otis___son_round1_6": 12,
+        "storm_shop_otis___son_round2_0": 12,
+        "storm_shop_otis___son_round2_1": 12,
+        "storm_shop_otis___son_round2_2": 12,
+        "storm_shop_otis___son_round2_3": 12,
+        "storm_shop_otis___son_round2_4": 12,
+        "storm_shop_otis___son_round2_5": 12,
+        "storm_shop_otis___son_round2_6": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_dispensary.json",
+      "timings": [
+        {
+          "candidate_us": 1689,
+          "legacy_us": 7164
+        },
+        {
+          "candidate_us": 1584,
+          "legacy_us": 6499
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_round_shelf0": 12,
+        "storm_shop_otis___son_round_shelf1": 12,
+        "storm_shop_otis___son_round_shelf2": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_timber",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_dispensary.json",
+      "timings": [
+        {
+          "candidate_us": 69,
+          "legacy_us": 155
+        },
+        {
+          "candidate_us": 65,
+          "legacy_us": 141
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_disp": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_dispensary.json",
+      "timings": [
+        {
+          "candidate_us": 362,
+          "legacy_us": 732
+        },
+        {
+          "candidate_us": 361,
+          "legacy_us": 729
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_counter_top": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 45,
+          "legacy_us": 82
+        },
+        {
+          "candidate_us": 41,
+          "legacy_us": 63
+        }
+      ]
+    },
+    {
+      "boxes": 40,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_drw0_1": 12,
+        "storm_shop_otis___son_drw0_2": 12,
+        "storm_shop_otis___son_drw0_3": 12,
+        "storm_shop_otis___son_drw0_5": 12,
+        "storm_shop_otis___son_drw0_6": 12,
+        "storm_shop_otis___son_drw0_7": 12,
+        "storm_shop_otis___son_drw1_0": 12,
+        "storm_shop_otis___son_drw1_1": 12,
+        "storm_shop_otis___son_drw1_2": 12,
+        "storm_shop_otis___son_drw1_4": 12,
+        "storm_shop_otis___son_drw1_5": 12,
+        "storm_shop_otis___son_drw1_6": 12,
+        "storm_shop_otis___son_drw1_8": 12,
+        "storm_shop_otis___son_drw2_0": 12,
+        "storm_shop_otis___son_drw2_1": 12,
+        "storm_shop_otis___son_drw2_3": 12,
+        "storm_shop_otis___son_drw2_4": 12,
+        "storm_shop_otis___son_drw2_5": 12,
+        "storm_shop_otis___son_drw2_7": 12,
+        "storm_shop_otis___son_drw2_8": 12,
+        "storm_shop_otis___son_drw3_0": 12,
+        "storm_shop_otis___son_drw3_2": 12,
+        "storm_shop_otis___son_drw3_3": 12,
+        "storm_shop_otis___son_drw3_4": 12,
+        "storm_shop_otis___son_drw3_6": 12,
+        "storm_shop_otis___son_drw3_7": 12,
+        "storm_shop_otis___son_drw3_8": 12,
+        "storm_shop_otis___son_drw4_1": 12,
+        "storm_shop_otis___son_drw4_2": 12,
+        "storm_shop_otis___son_drw4_3": 12,
+        "storm_shop_otis___son_drw4_5": 12,
+        "storm_shop_otis___son_drw4_6": 12,
+        "storm_shop_otis___son_drw4_7": 12,
+        "storm_shop_otis___son_drw5_0": 12,
+        "storm_shop_otis___son_drw5_1": 12,
+        "storm_shop_otis___son_drw5_2": 12,
+        "storm_shop_otis___son_drw5_4": 12,
+        "storm_shop_otis___son_drw5_5": 12,
+        "storm_shop_otis___son_drw5_6": 12,
+        "storm_shop_otis___son_drw5_8": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_oak_quartered",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 3192,
+          "legacy_us": 15480
+        },
+        {
+          "candidate_us": 3314,
+          "legacy_us": 15588
+        }
+      ]
+    },
+    {
+      "boxes": 15,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_counter": 12,
+        "storm_shop_otis___son_drw0_0": 12,
+        "storm_shop_otis___son_drw0_4": 12,
+        "storm_shop_otis___son_drw0_8": 12,
+        "storm_shop_otis___son_drw1_3": 12,
+        "storm_shop_otis___son_drw1_7": 12,
+        "storm_shop_otis___son_drw2_2": 12,
+        "storm_shop_otis___son_drw2_6": 12,
+        "storm_shop_otis___son_drw3_1": 12,
+        "storm_shop_otis___son_drw3_5": 12,
+        "storm_shop_otis___son_drw4_0": 12,
+        "storm_shop_otis___son_drw4_4": 12,
+        "storm_shop_otis___son_drw4_8": 12,
+        "storm_shop_otis___son_drw5_3": 12,
+        "storm_shop_otis___son_drw5_7": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 1669,
+          "legacy_us": 4834
+        },
+        {
+          "candidate_us": 1204,
+          "legacy_us": 4757
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_fount_tap0": 12,
+        "storm_shop_otis___son_fount_tap1": 12,
+        "storm_shop_otis___son_fount_tap2": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_chrome",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_fountain.json",
+      "timings": [
+        {
+          "candidate_us": 139,
+          "legacy_us": 340
+        },
+        {
+          "candidate_us": 143,
+          "legacy_us": 315
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_fount": 12,
+        "storm_shop_otis___son_fount_top": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_marble_lobby",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_fountain.json",
+      "timings": [
+        {
+          "candidate_us": 79,
+          "legacy_us": 158
+        },
+        {
+          "candidate_us": 76,
+          "legacy_us": 154
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_mortar": 12,
+        "storm_shop_otis___son_pestle": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_marble_lobby",
+      "equal": true,
+      "programme": "data/orison_v2/druggist_mortar.json",
+      "timings": [
+        {
+          "candidate_us": 101,
+          "legacy_us": 171
+        },
+        {
+          "candidate_us": 76,
+          "legacy_us": 150
+        }
+      ]
+    },
+    {
+      "boxes": 10,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_drape0": 12,
+        "storm_shop_funeral_parlour_drape1": 12,
+        "storm_shop_funeral_parlour_drape10": 12,
+        "storm_shop_funeral_parlour_drape11": 12,
+        "storm_shop_funeral_parlour_drape12": 12,
+        "storm_shop_funeral_parlour_drape13": 12,
+        "storm_shop_funeral_parlour_drape6": 12,
+        "storm_shop_funeral_parlour_drape7": 12,
+        "storm_shop_funeral_parlour_drape8": 12,
+        "storm_shop_funeral_parlour_drape9": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_vinyl_oxblood",
+      "equal": true,
+      "programme": "data/orison_v2/funeral_drapes.json",
+      "timings": [
+        {
+          "candidate_us": 350,
+          "legacy_us": 1135
+        },
+        {
+          "candidate_us": 341,
+          "legacy_us": 1086
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_lectern_top": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_oak_quartered",
+      "equal": true,
+      "programme": "data/orison_v2/funeral_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 47,
+          "legacy_us": 88
+        },
+        {
+          "candidate_us": 41,
+          "legacy_us": 65
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_book": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_paper",
+      "equal": true,
+      "programme": "data/orison_v2/funeral_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 24,
+          "legacy_us": 34
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_bier": 12,
+        "storm_shop_funeral_parlour_bier_trestle0": 12,
+        "storm_shop_funeral_parlour_bier_trestle1": 12,
+        "storm_shop_funeral_parlour_lectern": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/funeral_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 834,
+          "legacy_us": 2455
+        },
+        {
+          "candidate_us": 908,
+          "legacy_us": 2556
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_palm_pot_e": 12,
+        "storm_shop_funeral_parlour_palm_pot_w": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/funeral_foliage.json",
+      "timings": [
+        {
+          "candidate_us": 69,
+          "legacy_us": 138
+        },
+        {
+          "candidate_us": 63,
+          "legacy_us": 120
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_palm_e": 12,
+        "storm_shop_funeral_parlour_palm_w": 12,
+        "storm_shop_funeral_parlour_wreath": 12,
+        "storm_shop_funeral_parlour_wreath_e": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_plant",
+      "equal": true,
+      "programme": "data/orison_v2/funeral_foliage.json",
+      "timings": [
+        {
+          "candidate_us": 93,
+          "legacy_us": 228
+        },
+        {
+          "candidate_us": 91,
+          "legacy_us": 224
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_stand": 12,
+        "storm_shop_funeral_parlour_stand_e": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/funeral_foliage.json",
+      "timings": [
+        {
+          "candidate_us": 643,
+          "legacy_us": 1542
+        },
+        {
+          "candidate_us": 649,
+          "legacy_us": 1583
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_scale_beam": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 589,
+          "legacy_us": 1177
+        },
+        {
+          "candidate_us": 577,
+          "legacy_us": 1158
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_paint_shaker": 12,
+        "storm_shop_hardware_paint_scale_base": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_cast_iron",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 44,
+          "legacy_us": 82
+        },
+        {
+          "candidate_us": 42,
+          "legacy_us": 79
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_paddle": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_timber",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 314,
+          "legacy_us": 621
+        },
+        {
+          "candidate_us": 311,
+          "legacy_us": 620
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_can1": 12,
+        "storm_shop_hardware_paint_can5": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_book_teal",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 47,
+          "legacy_us": 94
+        },
+        {
+          "candidate_us": 42,
+          "legacy_us": 80
+        }
+      ]
+    },
+    {
+      "boxes": 35,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_drawer_pull0_0": 12,
+        "storm_shop_hardware_paint_drawer_pull0_1": 12,
+        "storm_shop_hardware_paint_drawer_pull0_2": 12,
+        "storm_shop_hardware_paint_drawer_pull0_3": 12,
+        "storm_shop_hardware_paint_drawer_pull0_4": 12,
+        "storm_shop_hardware_paint_drawer_pull0_5": 12,
+        "storm_shop_hardware_paint_drawer_pull0_6": 12,
+        "storm_shop_hardware_paint_drawer_pull1_0": 12,
+        "storm_shop_hardware_paint_drawer_pull1_1": 12,
+        "storm_shop_hardware_paint_drawer_pull1_2": 12,
+        "storm_shop_hardware_paint_drawer_pull1_3": 12,
+        "storm_shop_hardware_paint_drawer_pull1_4": 12,
+        "storm_shop_hardware_paint_drawer_pull1_5": 12,
+        "storm_shop_hardware_paint_drawer_pull1_6": 12,
+        "storm_shop_hardware_paint_drawer_pull2_0": 12,
+        "storm_shop_hardware_paint_drawer_pull2_1": 12,
+        "storm_shop_hardware_paint_drawer_pull2_2": 12,
+        "storm_shop_hardware_paint_drawer_pull2_3": 12,
+        "storm_shop_hardware_paint_drawer_pull2_4": 12,
+        "storm_shop_hardware_paint_drawer_pull2_5": 12,
+        "storm_shop_hardware_paint_drawer_pull2_6": 12,
+        "storm_shop_hardware_paint_drawer_pull3_0": 12,
+        "storm_shop_hardware_paint_drawer_pull3_1": 12,
+        "storm_shop_hardware_paint_drawer_pull3_2": 12,
+        "storm_shop_hardware_paint_drawer_pull3_3": 12,
+        "storm_shop_hardware_paint_drawer_pull3_4": 12,
+        "storm_shop_hardware_paint_drawer_pull3_5": 12,
+        "storm_shop_hardware_paint_drawer_pull3_6": 12,
+        "storm_shop_hardware_paint_drawer_pull4_0": 12,
+        "storm_shop_hardware_paint_drawer_pull4_1": 12,
+        "storm_shop_hardware_paint_drawer_pull4_2": 12,
+        "storm_shop_hardware_paint_drawer_pull4_3": 12,
+        "storm_shop_hardware_paint_drawer_pull4_4": 12,
+        "storm_shop_hardware_paint_drawer_pull4_5": 12,
+        "storm_shop_hardware_paint_drawer_pull4_6": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 3838,
+          "legacy_us": 17521
+        },
+        {
+          "candidate_us": 4314,
+          "legacy_us": 17224
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_can2": 12,
+        "storm_shop_hardware_paint_can6": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_fabric_green",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 82,
+          "legacy_us": 185
+        },
+        {
+          "candidate_us": 77,
+          "legacy_us": 153
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_can0": 12,
+        "storm_shop_hardware_paint_can4": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_lacquer_red",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 43,
+          "legacy_us": 80
+        },
+        {
+          "candidate_us": 45,
+          "legacy_us": 89
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_paint_top": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_metal",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 300,
+          "legacy_us": 511
+        },
+        {
+          "candidate_us": 273,
+          "legacy_us": 600
+        }
+      ]
+    },
+    {
+      "boxes": 35,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_drawer0_0": 12,
+        "storm_shop_hardware_paint_drawer0_1": 12,
+        "storm_shop_hardware_paint_drawer0_2": 12,
+        "storm_shop_hardware_paint_drawer0_3": 12,
+        "storm_shop_hardware_paint_drawer0_4": 12,
+        "storm_shop_hardware_paint_drawer0_5": 12,
+        "storm_shop_hardware_paint_drawer0_6": 12,
+        "storm_shop_hardware_paint_drawer1_0": 12,
+        "storm_shop_hardware_paint_drawer1_1": 12,
+        "storm_shop_hardware_paint_drawer1_2": 12,
+        "storm_shop_hardware_paint_drawer1_3": 12,
+        "storm_shop_hardware_paint_drawer1_4": 12,
+        "storm_shop_hardware_paint_drawer1_5": 12,
+        "storm_shop_hardware_paint_drawer1_6": 12,
+        "storm_shop_hardware_paint_drawer2_0": 12,
+        "storm_shop_hardware_paint_drawer2_1": 12,
+        "storm_shop_hardware_paint_drawer2_2": 12,
+        "storm_shop_hardware_paint_drawer2_3": 12,
+        "storm_shop_hardware_paint_drawer2_4": 12,
+        "storm_shop_hardware_paint_drawer2_5": 12,
+        "storm_shop_hardware_paint_drawer2_6": 12,
+        "storm_shop_hardware_paint_drawer3_0": 12,
+        "storm_shop_hardware_paint_drawer3_1": 12,
+        "storm_shop_hardware_paint_drawer3_2": 12,
+        "storm_shop_hardware_paint_drawer3_3": 12,
+        "storm_shop_hardware_paint_drawer3_4": 12,
+        "storm_shop_hardware_paint_drawer3_5": 12,
+        "storm_shop_hardware_paint_drawer3_6": 12,
+        "storm_shop_hardware_paint_drawer4_0": 12,
+        "storm_shop_hardware_paint_drawer4_1": 12,
+        "storm_shop_hardware_paint_drawer4_2": 12,
+        "storm_shop_hardware_paint_drawer4_3": 12,
+        "storm_shop_hardware_paint_drawer4_4": 12,
+        "storm_shop_hardware_paint_drawer4_5": 12,
+        "storm_shop_hardware_paint_drawer4_6": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_oak_quartered",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 2780,
+          "legacy_us": 11814
+        },
+        {
+          "candidate_us": 2823,
+          "legacy_us": 12463
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_can3": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_safety_orange",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 171,
+          "legacy_us": 335
+        },
+        {
+          "candidate_us": 167,
+          "legacy_us": 322
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_paint_bench": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_timber",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 321,
+          "legacy_us": 665
+        },
+        {
+          "candidate_us": 310,
+          "legacy_us": 608
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_drawer_carcass": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_drawers.json",
+      "timings": [
+        {
+          "candidate_us": 288,
+          "legacy_us": 577
+        },
+        {
+          "candidate_us": 281,
+          "legacy_us": 555
+        }
+      ]
+    },
+    {
+      "boxes": 12,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_stock_e1": 12,
+        "storm_shop_hardware_paint_stock_e10": 12,
+        "storm_shop_hardware_paint_stock_e13": 12,
+        "storm_shop_hardware_paint_stock_e16": 12,
+        "storm_shop_hardware_paint_stock_e4": 12,
+        "storm_shop_hardware_paint_stock_e7": 12,
+        "storm_shop_hardware_paint_stock_w1": 12,
+        "storm_shop_hardware_paint_stock_w10": 12,
+        "storm_shop_hardware_paint_stock_w13": 12,
+        "storm_shop_hardware_paint_stock_w16": 12,
+        "storm_shop_hardware_paint_stock_w4": 12,
+        "storm_shop_hardware_paint_stock_w7": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_stock.json",
+      "timings": [
+        {
+          "candidate_us": 1545,
+          "legacy_us": 6127
+        },
+        {
+          "candidate_us": 1513,
+          "legacy_us": 6081
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_counter_top": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_stock.json",
+      "timings": [
+        {
+          "candidate_us": 25,
+          "legacy_us": 38
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 33
+        }
+      ]
+    },
+    {
+      "boxes": 12,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_stock_e11": 12,
+        "storm_shop_hardware_paint_stock_e14": 12,
+        "storm_shop_hardware_paint_stock_e17": 12,
+        "storm_shop_hardware_paint_stock_e2": 12,
+        "storm_shop_hardware_paint_stock_e5": 12,
+        "storm_shop_hardware_paint_stock_e8": 12,
+        "storm_shop_hardware_paint_stock_w11": 12,
+        "storm_shop_hardware_paint_stock_w14": 12,
+        "storm_shop_hardware_paint_stock_w17": 12,
+        "storm_shop_hardware_paint_stock_w2": 12,
+        "storm_shop_hardware_paint_stock_w5": 12,
+        "storm_shop_hardware_paint_stock_w8": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_metal",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_stock.json",
+      "timings": [
+        {
+          "candidate_us": 801,
+          "legacy_us": 2687
+        },
+        {
+          "candidate_us": 715,
+          "legacy_us": 2722
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_ledger": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_paper",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_stock.json",
+      "timings": [
+        {
+          "candidate_us": 64,
+          "legacy_us": 116
+        },
+        {
+          "candidate_us": 62,
+          "legacy_us": 107
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_window_back": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_stock.json",
+      "timings": [
+        {
+          "candidate_us": 40,
+          "legacy_us": 64
+        },
+        {
+          "candidate_us": 40,
+          "legacy_us": 65
+        }
+      ]
+    },
+    {
+      "boxes": 12,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_stock_e0": 12,
+        "storm_shop_hardware_paint_stock_e12": 12,
+        "storm_shop_hardware_paint_stock_e15": 12,
+        "storm_shop_hardware_paint_stock_e3": 12,
+        "storm_shop_hardware_paint_stock_e6": 12,
+        "storm_shop_hardware_paint_stock_e9": 12,
+        "storm_shop_hardware_paint_stock_w0": 12,
+        "storm_shop_hardware_paint_stock_w12": 12,
+        "storm_shop_hardware_paint_stock_w15": 12,
+        "storm_shop_hardware_paint_stock_w3": 12,
+        "storm_shop_hardware_paint_stock_w6": 12,
+        "storm_shop_hardware_paint_stock_w9": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_safety_orange",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_stock.json",
+      "timings": [
+        {
+          "candidate_us": 472,
+          "legacy_us": 1676
+        },
+        {
+          "candidate_us": 474,
+          "legacy_us": 1752
+        }
+      ]
+    },
+    {
+      "boxes": 12,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_bin_e0": 12,
+        "storm_shop_hardware_paint_bin_e1": 12,
+        "storm_shop_hardware_paint_bin_e2": 12,
+        "storm_shop_hardware_paint_bin_e3": 12,
+        "storm_shop_hardware_paint_bin_e4": 12,
+        "storm_shop_hardware_paint_bin_e5": 12,
+        "storm_shop_hardware_paint_bin_w0": 12,
+        "storm_shop_hardware_paint_bin_w1": 12,
+        "storm_shop_hardware_paint_bin_w2": 12,
+        "storm_shop_hardware_paint_bin_w3": 12,
+        "storm_shop_hardware_paint_bin_w4": 12,
+        "storm_shop_hardware_paint_bin_w5": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_timber",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_stock.json",
+      "timings": [
+        {
+          "candidate_us": 888,
+          "legacy_us": 3296
+        },
+        {
+          "candidate_us": 887,
+          "legacy_us": 3309
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_counter": 12,
+        "storm_shop_hardware_paint_window_plinth": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_stock.json",
+      "timings": [
+        {
+          "candidate_us": 328,
+          "legacy_us": 794
+        },
+        {
+          "candidate_us": 332,
+          "legacy_us": 782
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_glass_cutter": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_tools.json",
+      "timings": [
+        {
+          "candidate_us": 603,
+          "legacy_us": 1187
+        },
+        {
+          "candidate_us": 572,
+          "legacy_us": 1144
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_glass_sheet0": 12,
+        "storm_shop_hardware_paint_glass_sheet1": 12,
+        "storm_shop_hardware_paint_glass_sheet2": 12,
+        "storm_shop_hardware_paint_glass_sheet3": 12,
+        "storm_shop_hardware_paint_glass_sheet4": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_tools.json",
+      "timings": [
+        {
+          "candidate_us": 189,
+          "legacy_us": 516
+        },
+        {
+          "candidate_us": 185,
+          "legacy_us": 504
+        }
+      ]
+    },
+    {
+      "boxes": 7,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_tool0": 12,
+        "storm_shop_hardware_paint_tool1": 12,
+        "storm_shop_hardware_paint_tool2": 12,
+        "storm_shop_hardware_paint_tool3": 12,
+        "storm_shop_hardware_paint_tool4": 12,
+        "storm_shop_hardware_paint_tool6": 12,
+        "storm_shop_hardware_paint_tool7": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_metal",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_tools.json",
+      "timings": [
+        {
+          "candidate_us": 490,
+          "legacy_us": 1644
+        },
+        {
+          "candidate_us": 486,
+          "legacy_us": 1636
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_tool_board": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_tools.json",
+      "timings": [
+        {
+          "candidate_us": 41,
+          "legacy_us": 64
+        },
+        {
+          "candidate_us": 39,
+          "legacy_us": 62
+        }
+      ]
+    },
+    {
+      "boxes": 8,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_tool_shadow0": 12,
+        "storm_shop_hardware_paint_tool_shadow1": 12,
+        "storm_shop_hardware_paint_tool_shadow2": 12,
+        "storm_shop_hardware_paint_tool_shadow3": 12,
+        "storm_shop_hardware_paint_tool_shadow4": 12,
+        "storm_shop_hardware_paint_tool_shadow5": 12,
+        "storm_shop_hardware_paint_tool_shadow6": 12,
+        "storm_shop_hardware_paint_tool_shadow7": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_soot",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_tools.json",
+      "timings": [
+        {
+          "candidate_us": 229,
+          "legacy_us": 757
+        },
+        {
+          "candidate_us": 227,
+          "legacy_us": 732
+        }
+      ]
+    },
+    {
+      "boxes": 12,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_glass_rack": 12,
+        "storm_shop_hardware_paint_ladder_r0": 12,
+        "storm_shop_hardware_paint_ladder_r1": 12,
+        "storm_shop_hardware_paint_ladder_rung0": 12,
+        "storm_shop_hardware_paint_ladder_rung1": 12,
+        "storm_shop_hardware_paint_ladder_rung2": 12,
+        "storm_shop_hardware_paint_ladder_rung3": 12,
+        "storm_shop_hardware_paint_ladder_rung4": 12,
+        "storm_shop_hardware_paint_ladder_rung5": 12,
+        "storm_shop_hardware_paint_ladder_rung6": 12,
+        "storm_shop_hardware_paint_ladder_rung7": 12,
+        "storm_shop_hardware_paint_ladder_rung8": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_timber",
+      "equal": true,
+      "programme": "data/orison_v2/hardware_tools.json",
+      "timings": [
+        {
+          "candidate_us": 839,
+          "legacy_us": 3206
+        },
+        {
+          "candidate_us": 873,
+          "legacy_us": 3362
+        }
+      ]
+    },
+    {
+      "boxes": 6,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_gas_ring": 12,
+        "storm_shop_model_laundry_mangle_crank": 12,
+        "storm_shop_model_laundry_sad_iron0": 12,
+        "storm_shop_model_laundry_sad_iron1": 12,
+        "storm_shop_model_laundry_sad_iron2": 12,
+        "storm_shop_model_laundry_sad_iron3": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_cast_iron",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 161,
+          "legacy_us": 460
+        },
+        {
+          "candidate_us": 155,
+          "legacy_us": 435
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_tub0_rim": 0,
+        "storm_shop_model_laundry_tub1_rim": 0
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_metal",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 30,
+          "legacy_us": 63
+        },
+        {
+          "candidate_us": 27,
+          "legacy_us": 47
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_tub0_rim": 12,
+        "storm_shop_model_laundry_tub1_rim": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_metal-col",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 101,
+          "legacy_us": 219
+        },
+        {
+          "candidate_us": 101,
+          "legacy_us": 218
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_mangle_roll0": 12,
+        "storm_shop_model_laundry_mangle_roll1": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_rubber_aged",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 42,
+          "legacy_us": 80
+        },
+        {
+          "candidate_us": 40,
+          "legacy_us": 77
+        }
+      ]
+    },
+    {
+      "boxes": 11,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_airer0_0": 12,
+        "storm_shop_model_laundry_airer0_1": 12,
+        "storm_shop_model_laundry_airer0_2": 12,
+        "storm_shop_model_laundry_airer0_3": 12,
+        "storm_shop_model_laundry_airer0_4": 12,
+        "storm_shop_model_laundry_airer1_0": 12,
+        "storm_shop_model_laundry_airer1_1": 12,
+        "storm_shop_model_laundry_airer1_2": 12,
+        "storm_shop_model_laundry_airer1_3": 12,
+        "storm_shop_model_laundry_airer1_4": 12,
+        "storm_shop_model_laundry_mangle_frame": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_timber",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 602,
+          "legacy_us": 2192
+        },
+        {
+          "candidate_us": 606,
+          "legacy_us": 2152
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_tub0": 12,
+        "storm_shop_model_laundry_tub1": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_zinc_liner",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 42,
+          "legacy_us": 80
+        },
+        {
+          "candidate_us": 41,
+          "legacy_us": 77
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_rail": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_chrome",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 27,
+          "legacy_us": 49
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 24,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_iron_pad": 12,
+        "storm_shop_model_laundry_parcel0_0": 12,
+        "storm_shop_model_laundry_parcel0_3": 12,
+        "storm_shop_model_laundry_parcel0_6": 12,
+        "storm_shop_model_laundry_parcel1_2": 12,
+        "storm_shop_model_laundry_parcel1_5": 12,
+        "storm_shop_model_laundry_parcel2_1": 12,
+        "storm_shop_model_laundry_parcel2_4": 12,
+        "storm_shop_model_laundry_parcel2_7": 12,
+        "storm_shop_model_laundry_parcel3_0": 12,
+        "storm_shop_model_laundry_parcel3_3": 12,
+        "storm_shop_model_laundry_parcel3_6": 12,
+        "storm_shop_model_laundry_parcel4_2": 12,
+        "storm_shop_model_laundry_parcel4_5": 12,
+        "storm_shop_model_laundry_shirt0": 12,
+        "storm_shop_model_laundry_shirt1": 12,
+        "storm_shop_model_laundry_shirt2": 12,
+        "storm_shop_model_laundry_shirt3": 12,
+        "storm_shop_model_laundry_shirt4": 12,
+        "storm_shop_model_laundry_shirt5": 12,
+        "storm_shop_model_laundry_shirt6": 12,
+        "storm_shop_model_laundry_shirt7": 12,
+        "storm_shop_model_laundry_shirt8": 12,
+        "storm_shop_model_laundry_sleeve_board": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_linen",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 1360,
+          "legacy_us": 5566
+        },
+        {
+          "candidate_us": 1328,
+          "legacy_us": 5448
+        }
+      ]
+    },
+    {
+      "boxes": 27,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_parcel0_1": 12,
+        "storm_shop_model_laundry_parcel0_2": 12,
+        "storm_shop_model_laundry_parcel0_4": 12,
+        "storm_shop_model_laundry_parcel0_5": 12,
+        "storm_shop_model_laundry_parcel0_7": 12,
+        "storm_shop_model_laundry_parcel1_0": 12,
+        "storm_shop_model_laundry_parcel1_1": 12,
+        "storm_shop_model_laundry_parcel1_3": 12,
+        "storm_shop_model_laundry_parcel1_4": 12,
+        "storm_shop_model_laundry_parcel1_6": 12,
+        "storm_shop_model_laundry_parcel1_7": 12,
+        "storm_shop_model_laundry_parcel2_0": 12,
+        "storm_shop_model_laundry_parcel2_2": 12,
+        "storm_shop_model_laundry_parcel2_3": 12,
+        "storm_shop_model_laundry_parcel2_5": 12,
+        "storm_shop_model_laundry_parcel2_6": 12,
+        "storm_shop_model_laundry_parcel3_1": 12,
+        "storm_shop_model_laundry_parcel3_2": 12,
+        "storm_shop_model_laundry_parcel3_4": 12,
+        "storm_shop_model_laundry_parcel3_5": 12,
+        "storm_shop_model_laundry_parcel3_7": 12,
+        "storm_shop_model_laundry_parcel4_0": 12,
+        "storm_shop_model_laundry_parcel4_1": 12,
+        "storm_shop_model_laundry_parcel4_3": 12,
+        "storm_shop_model_laundry_parcel4_4": 12,
+        "storm_shop_model_laundry_parcel4_6": 12,
+        "storm_shop_model_laundry_parcel4_7": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_paper",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 2622,
+          "legacy_us": 11393
+        },
+        {
+          "candidate_us": 2652,
+          "legacy_us": 11783
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_iron_table": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_timber",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 229,
+          "legacy_us": 446
+        },
+        {
+          "candidate_us": 231,
+          "legacy_us": 439
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_counter_top": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_trade.json",
+      "timings": [
+        {
+          "candidate_us": 25,
+          "legacy_us": 45
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_ticket_rail": 0
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_metal",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_trade.json",
+      "timings": [
+        {
+          "candidate_us": 26,
+          "legacy_us": 42
+        },
+        {
+          "candidate_us": 24,
+          "legacy_us": 35
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_ticket_rail": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_metal-col",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_trade.json",
+      "timings": [
+        {
+          "candidate_us": 84,
+          "legacy_us": 154
+        },
+        {
+          "candidate_us": 84,
+          "legacy_us": 150
+        }
+      ]
+    },
+    {
+      "boxes": 14,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_ledger": 12,
+        "storm_shop_model_laundry_ticket0": 12,
+        "storm_shop_model_laundry_ticket1": 12,
+        "storm_shop_model_laundry_ticket10": 12,
+        "storm_shop_model_laundry_ticket11": 12,
+        "storm_shop_model_laundry_ticket12": 12,
+        "storm_shop_model_laundry_ticket2": 12,
+        "storm_shop_model_laundry_ticket3": 12,
+        "storm_shop_model_laundry_ticket4": 12,
+        "storm_shop_model_laundry_ticket5": 12,
+        "storm_shop_model_laundry_ticket6": 12,
+        "storm_shop_model_laundry_ticket7": 12,
+        "storm_shop_model_laundry_ticket8": 12,
+        "storm_shop_model_laundry_ticket9": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_paper",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_trade.json",
+      "timings": [
+        {
+          "candidate_us": 1446,
+          "legacy_us": 5890
+        },
+        {
+          "candidate_us": 1615,
+          "legacy_us": 6730
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_window_back": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_trade.json",
+      "timings": [
+        {
+          "candidate_us": 64,
+          "legacy_us": 64
+        },
+        {
+          "candidate_us": 24,
+          "legacy_us": 41
+        }
+      ]
+    },
+    {
+      "boxes": 7,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_bench": 12,
+        "storm_shop_model_laundry_parcel_shelf0": 12,
+        "storm_shop_model_laundry_parcel_shelf1": 12,
+        "storm_shop_model_laundry_parcel_shelf2": 12,
+        "storm_shop_model_laundry_parcel_shelf3": 12,
+        "storm_shop_model_laundry_parcel_shelf4": 12,
+        "storm_shop_model_laundry_pencil": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_timber",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_trade.json",
+      "timings": [
+        {
+          "candidate_us": 475,
+          "legacy_us": 1983
+        },
+        {
+          "candidate_us": 465,
+          "legacy_us": 1551
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_counter": 12,
+        "storm_shop_model_laundry_window_plinth": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/laundry_trade.json",
+      "timings": [
+        {
+          "candidate_us": 176,
+          "legacy_us": 414
+        },
+        {
+          "candidate_us": 177,
+          "legacy_us": 412
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_safe_dial": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_brass_bright",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 47,
+          "legacy_us": 94
+        },
+        {
+          "candidate_us": 48,
+          "legacy_us": 64
+        }
+      ]
+    },
+    {
+      "boxes": 77,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_guide_stylus": 12,
+        "storm_shop_keys_cut_key0_1": 12,
+        "storm_shop_keys_cut_key0_10": 12,
+        "storm_shop_keys_cut_key0_11": 12,
+        "storm_shop_keys_cut_key0_13": 12,
+        "storm_shop_keys_cut_key0_2": 12,
+        "storm_shop_keys_cut_key0_4": 12,
+        "storm_shop_keys_cut_key0_5": 12,
+        "storm_shop_keys_cut_key0_7": 12,
+        "storm_shop_keys_cut_key0_8": 12,
+        "storm_shop_keys_cut_key1_0": 12,
+        "storm_shop_keys_cut_key1_1": 12,
+        "storm_shop_keys_cut_key1_10": 12,
+        "storm_shop_keys_cut_key1_12": 12,
+        "storm_shop_keys_cut_key1_13": 12,
+        "storm_shop_keys_cut_key1_3": 12,
+        "storm_shop_keys_cut_key1_4": 12,
+        "storm_shop_keys_cut_key1_6": 12,
+        "storm_shop_keys_cut_key1_7": 12,
+        "storm_shop_keys_cut_key1_9": 12,
+        "storm_shop_keys_cut_key2_0": 12,
+        "storm_shop_keys_cut_key2_11": 12,
+        "storm_shop_keys_cut_key2_12": 12,
+        "storm_shop_keys_cut_key2_2": 12,
+        "storm_shop_keys_cut_key2_3": 12,
+        "storm_shop_keys_cut_key2_5": 12,
+        "storm_shop_keys_cut_key2_6": 12,
+        "storm_shop_keys_cut_key2_8": 12,
+        "storm_shop_keys_cut_key2_9": 12,
+        "storm_shop_keys_cut_key3_1": 12,
+        "storm_shop_keys_cut_key3_10": 12,
+        "storm_shop_keys_cut_key3_11": 12,
+        "storm_shop_keys_cut_key3_13": 12,
+        "storm_shop_keys_cut_key3_2": 12,
+        "storm_shop_keys_cut_key3_4": 12,
+        "storm_shop_keys_cut_key3_5": 12,
+        "storm_shop_keys_cut_key3_7": 12,
+        "storm_shop_keys_cut_key3_8": 12,
+        "storm_shop_keys_cut_key4_0": 12,
+        "storm_shop_keys_cut_key4_1": 12,
+        "storm_shop_keys_cut_key4_10": 12,
+        "storm_shop_keys_cut_key4_12": 12,
+        "storm_shop_keys_cut_key4_13": 12,
+        "storm_shop_keys_cut_key4_3": 12,
+        "storm_shop_keys_cut_key4_4": 12,
+        "storm_shop_keys_cut_key4_6": 12,
+        "storm_shop_keys_cut_key4_7": 12,
+        "storm_shop_keys_cut_key4_9": 12,
+        "storm_shop_keys_cut_key5_0": 12,
+        "storm_shop_keys_cut_key5_11": 12,
+        "storm_shop_keys_cut_key5_12": 12,
+        "storm_shop_keys_cut_key5_2": 12,
+        "storm_shop_keys_cut_key5_3": 12,
+        "storm_shop_keys_cut_key5_5": 12,
+        "storm_shop_keys_cut_key5_6": 12,
+        "storm_shop_keys_cut_key5_8": 12,
+        "storm_shop_keys_cut_key5_9": 12,
+        "storm_shop_keys_cut_key6_1": 12,
+        "storm_shop_keys_cut_key6_10": 12,
+        "storm_shop_keys_cut_key6_11": 12,
+        "storm_shop_keys_cut_key6_13": 12,
+        "storm_shop_keys_cut_key6_2": 12,
+        "storm_shop_keys_cut_key6_4": 12,
+        "storm_shop_keys_cut_key6_5": 12,
+        "storm_shop_keys_cut_key6_7": 12,
+        "storm_shop_keys_cut_key6_8": 12,
+        "storm_shop_keys_cut_mortise0": 12,
+        "storm_shop_keys_cut_mortise1": 12,
+        "storm_shop_keys_cut_mortise2": 12,
+        "storm_shop_keys_cut_mortise3": 12,
+        "storm_shop_keys_cut_padlock0": 12,
+        "storm_shop_keys_cut_padlock1": 12,
+        "storm_shop_keys_cut_padlock2": 12,
+        "storm_shop_keys_cut_padlock3": 12,
+        "storm_shop_keys_cut_padlock4": 12,
+        "storm_shop_keys_cut_padlock5": 12,
+        "storm_shop_keys_cut_padlock_rail": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 11670,
+          "legacy_us": 56344
+        },
+        {
+          "candidate_us": 11543,
+          "legacy_us": 55615
+        }
+      ]
+    },
+    {
+      "boxes": 6,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_bench_vise": 12,
+        "storm_shop_keys_cut_cutter": 12,
+        "storm_shop_keys_cut_cutter_vise0": 12,
+        "storm_shop_keys_cut_cutter_vise1": 12,
+        "storm_shop_keys_cut_grinder": 12,
+        "storm_shop_keys_cut_safe": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_cast_iron",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 155,
+          "legacy_us": 482
+        },
+        {
+          "candidate_us": 154,
+          "legacy_us": 436
+        }
+      ]
+    },
+    {
+      "boxes": 33,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_key0_0": 12,
+        "storm_shop_keys_cut_key0_12": 12,
+        "storm_shop_keys_cut_key0_3": 12,
+        "storm_shop_keys_cut_key0_6": 12,
+        "storm_shop_keys_cut_key0_9": 12,
+        "storm_shop_keys_cut_key1_11": 12,
+        "storm_shop_keys_cut_key1_2": 12,
+        "storm_shop_keys_cut_key1_5": 12,
+        "storm_shop_keys_cut_key1_8": 12,
+        "storm_shop_keys_cut_key2_1": 12,
+        "storm_shop_keys_cut_key2_10": 12,
+        "storm_shop_keys_cut_key2_13": 12,
+        "storm_shop_keys_cut_key2_4": 12,
+        "storm_shop_keys_cut_key2_7": 12,
+        "storm_shop_keys_cut_key3_0": 12,
+        "storm_shop_keys_cut_key3_12": 12,
+        "storm_shop_keys_cut_key3_3": 12,
+        "storm_shop_keys_cut_key3_6": 12,
+        "storm_shop_keys_cut_key3_9": 12,
+        "storm_shop_keys_cut_key4_11": 12,
+        "storm_shop_keys_cut_key4_2": 12,
+        "storm_shop_keys_cut_key4_5": 12,
+        "storm_shop_keys_cut_key4_8": 12,
+        "storm_shop_keys_cut_key5_1": 12,
+        "storm_shop_keys_cut_key5_10": 12,
+        "storm_shop_keys_cut_key5_13": 12,
+        "storm_shop_keys_cut_key5_4": 12,
+        "storm_shop_keys_cut_key5_7": 12,
+        "storm_shop_keys_cut_key6_0": 12,
+        "storm_shop_keys_cut_key6_12": 12,
+        "storm_shop_keys_cut_key6_3": 12,
+        "storm_shop_keys_cut_key6_6": 12,
+        "storm_shop_keys_cut_key6_9": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_chrome",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 2435,
+          "legacy_us": 10158
+        },
+        {
+          "candidate_us": 2461,
+          "legacy_us": 10993
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_counter_top": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 24,
+          "legacy_us": 38
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_lock_cloth": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_linen",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 33
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_cutter_wheel": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_metal",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 43,
+          "legacy_us": 77
+        },
+        {
+          "candidate_us": 40,
+          "legacy_us": 64
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_ledger": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_paper",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 39,
+          "legacy_us": 63
+        },
+        {
+          "candidate_us": 40,
+          "legacy_us": 61
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_board": 12,
+        "storm_shop_keys_cut_window_back": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 45,
+          "legacy_us": 82
+        },
+        {
+          "candidate_us": 40,
+          "legacy_us": 77
+        }
+      ]
+    },
+    {
+      "boxes": 7,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_cutter_bench": 12,
+        "storm_shop_keys_cut_step_rail0": 12,
+        "storm_shop_keys_cut_step_rail1": 12,
+        "storm_shop_keys_cut_step_rung0": 12,
+        "storm_shop_keys_cut_step_rung1": 12,
+        "storm_shop_keys_cut_step_rung2": 12,
+        "storm_shop_keys_cut_step_rung3": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_timber",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 194,
+          "legacy_us": 578
+        },
+        {
+          "candidate_us": 193,
+          "legacy_us": 606
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_pick_roll": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_vinyl_oxblood",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 22,
+          "legacy_us": 33
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_counter": 12,
+        "storm_shop_keys_cut_window_plinth": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/locksmith_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 176,
+          "legacy_us": 417
+        },
+        {
+          "candidate_us": 170,
+          "legacy_us": 406
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_pipe0": 0,
+        "storm_shop_news_cigars_pipe1": 0,
+        "storm_shop_news_cigars_pipe2": 0,
+        "storm_shop_news_cigars_pipe3": 0,
+        "storm_shop_news_cigars_pipe4": 0
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_bakelite_black",
+      "equal": true,
+      "programme": "data/orison_v2/news_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 209,
+          "legacy_us": 617
+        },
+        {
+          "candidate_us": 199,
+          "legacy_us": 582
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_pipe0": 12,
+        "storm_shop_news_cigars_pipe1": 12,
+        "storm_shop_news_cigars_pipe2": 12,
+        "storm_shop_news_cigars_pipe3": 12,
+        "storm_shop_news_cigars_pipe4": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_bakelite_black-col",
+      "equal": true,
+      "programme": "data/orison_v2/news_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 119,
+          "legacy_us": 327
+        },
+        {
+          "candidate_us": 156,
+          "legacy_us": 444
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_counter_top": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/news_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 25,
+          "legacy_us": 40
+        },
+        {
+          "candidate_us": 49,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_candy_jar0": 12,
+        "storm_shop_news_cigars_candy_jar1": 12,
+        "storm_shop_news_cigars_candy_jar2": 12,
+        "storm_shop_news_cigars_candy_jar3": 12,
+        "storm_shop_news_cigars_cigars": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/news_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 194,
+          "legacy_us": 717
+        },
+        {
+          "candidate_us": 220,
+          "legacy_us": 510
+        }
+      ]
+    },
+    {
+      "boxes": 11,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_ledger": 12,
+        "storm_shop_news_cigars_paper0": 12,
+        "storm_shop_news_cigars_paper1": 12,
+        "storm_shop_news_cigars_paper2": 12,
+        "storm_shop_news_cigars_paper3": 12,
+        "storm_shop_news_cigars_paper4": 12,
+        "storm_shop_news_cigars_paper5": 12,
+        "storm_shop_news_cigars_paper6": 12,
+        "storm_shop_news_cigars_paper7": 12,
+        "storm_shop_news_cigars_punchboard": 12,
+        "storm_shop_news_cigars_racing_form": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_paper",
+      "equal": true,
+      "programme": "data/orison_v2/news_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 367,
+          "legacy_us": 1295
+        },
+        {
+          "candidate_us": 365,
+          "legacy_us": 1292
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_chair_hollow": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_soot",
+      "equal": true,
+      "programme": "data/orison_v2/news_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 22,
+          "legacy_us": 34
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 10,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_rack0": 12,
+        "storm_shop_news_cigars_rack1": 12,
+        "storm_shop_news_cigars_rack2": 12,
+        "storm_shop_news_cigars_rack3": 12,
+        "storm_shop_news_cigars_service_shelf": 12,
+        "storm_shop_news_cigars_shelf0": 12,
+        "storm_shop_news_cigars_shelf1": 12,
+        "storm_shop_news_cigars_shelf2": 12,
+        "storm_shop_news_cigars_shelf3": 12,
+        "storm_shop_news_cigars_shelf4": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_timber",
+      "equal": true,
+      "programme": "data/orison_v2/news_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 319,
+          "legacy_us": 1081
+        },
+        {
+          "candidate_us": 321,
+          "legacy_us": 1081
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_cash_drawer": 12,
+        "storm_shop_news_cigars_counter": 12,
+        "storm_shop_news_cigars_pipe_rack": 12,
+        "storm_shop_news_cigars_service_hatch": 12,
+        "storm_shop_news_cigars_stool": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/news_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 302,
+          "legacy_us": 910
+        },
+        {
+          "candidate_us": 304,
+          "legacy_us": 908
+        }
+      ]
+    },
+    {
+      "boxes": 7,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_clock1": 12,
+        "storm_shop_pawnbroker_clock11": 12,
+        "storm_shop_pawnbroker_clock13": 12,
+        "storm_shop_pawnbroker_clock3": 12,
+        "storm_shop_pawnbroker_clock5": 12,
+        "storm_shop_pawnbroker_clock7": 12,
+        "storm_shop_pawnbroker_clock9": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_clocks.json",
+      "timings": [
+        {
+          "candidate_us": 340,
+          "legacy_us": 1076
+        },
+        {
+          "candidate_us": 739,
+          "legacy_us": 1086
+        }
+      ]
+    },
+    {
+      "boxes": 8,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_clock0": 12,
+        "storm_shop_pawnbroker_clock10": 12,
+        "storm_shop_pawnbroker_clock12": 12,
+        "storm_shop_pawnbroker_clock14": 12,
+        "storm_shop_pawnbroker_clock2": 12,
+        "storm_shop_pawnbroker_clock4": 12,
+        "storm_shop_pawnbroker_clock6": 12,
+        "storm_shop_pawnbroker_clock8": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_clocks.json",
+      "timings": [
+        {
+          "candidate_us": 655,
+          "legacy_us": 2276
+        },
+        {
+          "candidate_us": 587,
+          "legacy_us": 2035
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_case_e_top": 12,
+        "storm_shop_pawnbroker_case_w_top": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_display.json",
+      "timings": [
+        {
+          "candidate_us": 206,
+          "legacy_us": 481
+        },
+        {
+          "candidate_us": 197,
+          "legacy_us": 455
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_case_e_gl": 12,
+        "storm_shop_pawnbroker_case_w_gl": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_display.json",
+      "timings": [
+        {
+          "candidate_us": 91,
+          "legacy_us": 189
+        },
+        {
+          "candidate_us": 89,
+          "legacy_us": 185
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_window_back": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_display.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 34
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_case_e": 12,
+        "storm_shop_pawnbroker_case_w": 12,
+        "storm_shop_pawnbroker_window_plinth": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_display.json",
+      "timings": [
+        {
+          "candidate_us": 376,
+          "legacy_us": 989
+        },
+        {
+          "candidate_us": 373,
+          "legacy_us": 976
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_loupe": 0
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite_black",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 140,
+          "legacy_us": 276
+        },
+        {
+          "candidate_us": 129,
+          "legacy_us": 252
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_loupe": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite_black-col",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 34
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_balance_base": 12,
+        "storm_shop_pawnbroker_balance_beam": 12,
+        "storm_shop_pawnbroker_wicket": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 231,
+          "legacy_us": 585
+        },
+        {
+          "candidate_us": 219,
+          "legacy_us": 556
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_grille": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_mesh",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 35
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 35
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_safe": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_cast_iron",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 21,
+          "legacy_us": 33
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 30
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_grille_top": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 21,
+          "legacy_us": 33
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_sewing_case": 0
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_enamel",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 70,
+          "legacy_us": 134
+        },
+        {
+          "candidate_us": 67,
+          "legacy_us": 131
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_sewing_case": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_enamel-col",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 22,
+          "legacy_us": 34
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_coat": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_fabric_warm",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 21,
+          "legacy_us": 31
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 12,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_pledge0_0": 12,
+        "storm_shop_pawnbroker_pledge0_2": 12,
+        "storm_shop_pawnbroker_pledge0_4": 12,
+        "storm_shop_pawnbroker_pledge1_1": 12,
+        "storm_shop_pawnbroker_pledge1_3": 12,
+        "storm_shop_pawnbroker_pledge1_5": 12,
+        "storm_shop_pawnbroker_pledge2_0": 12,
+        "storm_shop_pawnbroker_pledge2_2": 12,
+        "storm_shop_pawnbroker_pledge2_4": 12,
+        "storm_shop_pawnbroker_pledge3_1": 12,
+        "storm_shop_pawnbroker_pledge3_3": 12,
+        "storm_shop_pawnbroker_pledge3_5": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_linen",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 732,
+          "legacy_us": 1619
+        },
+        {
+          "candidate_us": 450,
+          "legacy_us": 1843
+        }
+      ]
+    },
+    {
+      "boxes": 13,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_ledger": 12,
+        "storm_shop_pawnbroker_pledge0_1": 12,
+        "storm_shop_pawnbroker_pledge0_3": 12,
+        "storm_shop_pawnbroker_pledge0_5": 12,
+        "storm_shop_pawnbroker_pledge1_0": 12,
+        "storm_shop_pawnbroker_pledge1_2": 12,
+        "storm_shop_pawnbroker_pledge1_4": 12,
+        "storm_shop_pawnbroker_pledge2_1": 12,
+        "storm_shop_pawnbroker_pledge2_3": 12,
+        "storm_shop_pawnbroker_pledge2_5": 12,
+        "storm_shop_pawnbroker_pledge3_0": 12,
+        "storm_shop_pawnbroker_pledge3_2": 12,
+        "storm_shop_pawnbroker_pledge3_4": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_paper",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 575,
+          "legacy_us": 2086
+        },
+        {
+          "candidate_us": 569,
+          "legacy_us": 2043
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_pledge_shelf0": 12,
+        "storm_shop_pawnbroker_pledge_shelf1": 12,
+        "storm_shop_pawnbroker_pledge_shelf2": 12,
+        "storm_shop_pawnbroker_pledge_shelf3": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_timber",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 94,
+          "legacy_us": 231
+        },
+        {
+          "candidate_us": 93,
+          "legacy_us": 228
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_grille_counter": 12,
+        "storm_shop_pawnbroker_violin_case": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/pawn_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 324,
+          "legacy_us": 765
+        },
+        {
+          "candidate_us": 326,
+          "legacy_us": 769
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_camera_body0": 0,
+        "storm_shop_photo_supplies_camera_body1": 0,
+        "storm_shop_photo_supplies_camera_body2": 0
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite_black",
+      "equal": true,
+      "programme": "data/orison_v2/photo_cameras.json",
+      "timings": [
+        {
+          "candidate_us": 180,
+          "legacy_us": 466
+        },
+        {
+          "candidate_us": 174,
+          "legacy_us": 452
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_camera_body0": 12,
+        "storm_shop_photo_supplies_camera_body1": 12,
+        "storm_shop_photo_supplies_camera_body2": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite_black-col",
+      "equal": true,
+      "programme": "data/orison_v2/photo_cameras.json",
+      "timings": [
+        {
+          "candidate_us": 68,
+          "legacy_us": 146
+        },
+        {
+          "candidate_us": 66,
+          "legacy_us": 142
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_camera_lens0": 12,
+        "storm_shop_photo_supplies_camera_lens1": 12,
+        "storm_shop_photo_supplies_camera_lens2": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/photo_cameras.json",
+      "timings": [
+        {
+          "candidate_us": 106,
+          "legacy_us": 235
+        },
+        {
+          "candidate_us": 105,
+          "legacy_us": 232
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_window_back": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/photo_cameras.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 35
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_window_plinth": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/photo_cameras.json",
+      "timings": [
+        {
+          "candidate_us": 170,
+          "legacy_us": 327
+        },
+        {
+          "candidate_us": 168,
+          "legacy_us": 321
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_counter_top": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/photo_counter.json",
+      "timings": [
+        {
+          "candidate_us": 79,
+          "legacy_us": 149
+        },
+        {
+          "candidate_us": 82,
+          "legacy_us": 135
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_counter_gl": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/photo_counter.json",
+      "timings": [
+        {
+          "candidate_us": 78,
+          "legacy_us": 112
+        },
+        {
+          "candidate_us": 152,
+          "legacy_us": 109
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_ledger": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_paper",
+      "equal": true,
+      "programme": "data/orison_v2/photo_counter.json",
+      "timings": [
+        {
+          "candidate_us": 197,
+          "legacy_us": 334
+        },
+        {
+          "candidate_us": 148,
+          "legacy_us": 319
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_counter": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/photo_counter.json",
+      "timings": [
+        {
+          "candidate_us": 166,
+          "legacy_us": 323
+        },
+        {
+          "candidate_us": 222,
+          "legacy_us": 539
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_enl0": 12,
+        "storm_shop_photo_supplies_enl1": 12,
+        "storm_shop_photo_supplies_enl2": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_cast_iron",
+      "equal": true,
+      "programme": "data/orison_v2/photo_enlargers.json",
+      "timings": [
+        {
+          "candidate_us": 70,
+          "legacy_us": 153
+        },
+        {
+          "candidate_us": 66,
+          "legacy_us": 141
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_enl_shelf": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_timber",
+      "equal": true,
+      "programme": "data/orison_v2/photo_enlargers.json",
+      "timings": [
+        {
+          "candidate_us": 146,
+          "legacy_us": 275
+        },
+        {
+          "candidate_us": 143,
+          "legacy_us": 273
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_sf_photo_supplies_glass1": 12,
+        "storm_sf_photo_supplies_transom": 12,
+        "storm_shop_photo_supplies_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/photo_glazing.json",
+      "timings": [
+        {
+          "candidate_us": 92,
+          "legacy_us": 214
+        },
+        {
+          "candidate_us": 89,
+          "legacy_us": 199
+        }
+      ]
+    },
+    {
+      "boxes": 7,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_portrait0": 12,
+        "storm_shop_photo_supplies_portrait1": 12,
+        "storm_shop_photo_supplies_portrait2": 12,
+        "storm_shop_photo_supplies_portrait3": 12,
+        "storm_shop_photo_supplies_portrait4": 12,
+        "storm_shop_photo_supplies_portrait5": 12,
+        "storm_shop_photo_supplies_portrait6": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_paper",
+      "equal": true,
+      "programme": "data/orison_v2/photo_portraits.json",
+      "timings": [
+        {
+          "candidate_us": 302,
+          "legacy_us": 928
+        },
+        {
+          "candidate_us": 293,
+          "legacy_us": 908
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_portrait_rail": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_timber",
+      "equal": true,
+      "programme": "data/orison_v2/photo_portraits.json",
+      "timings": [
+        {
+          "candidate_us": 139,
+          "legacy_us": 267
+        },
+        {
+          "candidate_us": 141,
+          "legacy_us": 288
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_dev_tray0": 0,
+        "storm_shop_photo_supplies_dev_tray1": 0,
+        "storm_shop_photo_supplies_dev_tray2": 0,
+        "storm_shop_photo_supplies_dev_tray3": 0,
+        "storm_shop_photo_supplies_print_dryer": 0
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_enamel",
+      "equal": true,
+      "programme": "data/orison_v2/photo_process.json",
+      "timings": [
+        {
+          "candidate_us": 189,
+          "legacy_us": 742
+        },
+        {
+          "candidate_us": 120,
+          "legacy_us": 384
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_dev_tray0": 12,
+        "storm_shop_photo_supplies_dev_tray1": 12,
+        "storm_shop_photo_supplies_dev_tray2": 12,
+        "storm_shop_photo_supplies_dev_tray3": 12,
+        "storm_shop_photo_supplies_print_dryer": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_enamel-col",
+      "equal": true,
+      "programme": "data/orison_v2/photo_process.json",
+      "timings": [
+        {
+          "candidate_us": 124,
+          "legacy_us": 411
+        },
+        {
+          "candidate_us": 123,
+          "legacy_us": 421
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_flash_tin0": 12,
+        "storm_shop_photo_supplies_flash_tin1": 12,
+        "storm_shop_photo_supplies_flash_tin2": 12,
+        "storm_shop_photo_supplies_flash_tin3": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_metal",
+      "equal": true,
+      "programme": "data/orison_v2/photo_process.json",
+      "timings": [
+        {
+          "candidate_us": 153,
+          "legacy_us": 437
+        },
+        {
+          "candidate_us": 152,
+          "legacy_us": 384
+        }
+      ]
+    },
+    {
+      "boxes": 3,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_tank0": 12,
+        "storm_shop_photo_supplies_tank1": 12,
+        "storm_shop_photo_supplies_tank2": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_nickel_plated",
+      "equal": true,
+      "programme": "data/orison_v2/photo_process.json",
+      "timings": [
+        {
+          "candidate_us": 132,
+          "legacy_us": 315
+        },
+        {
+          "candidate_us": 131,
+          "legacy_us": 313
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_tripod0": 12,
+        "storm_shop_photo_supplies_tripod1": 12,
+        "storm_shop_photo_supplies_tripod2": 12,
+        "storm_shop_photo_supplies_tripod3": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_timber",
+      "equal": true,
+      "programme": "data/orison_v2/photo_process.json",
+      "timings": [
+        {
+          "candidate_us": 222,
+          "legacy_us": 602
+        },
+        {
+          "candidate_us": 217,
+          "legacy_us": 596
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_dr_lamp": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_lacquer_red",
+      "equal": true,
+      "programme": "data/orison_v2/photo_radio_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 90,
+          "legacy_us": 175
+        },
+        {
+          "candidate_us": 87,
+          "legacy_us": 154
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_dr_door": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/photo_radio_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 169,
+          "legacy_us": 320
+        },
+        {
+          "candidate_us": 167,
+          "legacy_us": 325
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_window_back": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/photo_radio_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 27,
+          "legacy_us": 53
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 33
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_window_plinth": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/photo_radio_fittings.json",
+      "timings": [
+        {
+          "candidate_us": 170,
+          "legacy_us": 326
+        },
+        {
+          "candidate_us": 167,
+          "legacy_us": 316
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_box0": 12,
+        "storm_shop_photo_supplies_box12": 12,
+        "storm_shop_photo_supplies_box3": 12,
+        "storm_shop_photo_supplies_box6": 12,
+        "storm_shop_photo_supplies_box9": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_book_ochre",
+      "equal": true,
+      "programme": "data/orison_v2/photo_stock.json",
+      "timings": [
+        {
+          "candidate_us": 125,
+          "legacy_us": 349
+        },
+        {
+          "candidate_us": 120,
+          "legacy_us": 327
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_box1": 12,
+        "storm_shop_photo_supplies_box10": 12,
+        "storm_shop_photo_supplies_box13": 12,
+        "storm_shop_photo_supplies_box4": 12,
+        "storm_shop_photo_supplies_box7": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_book_teal",
+      "equal": true,
+      "programme": "data/orison_v2/photo_stock.json",
+      "timings": [
+        {
+          "candidate_us": 119,
+          "legacy_us": 322
+        },
+        {
+          "candidate_us": 121,
+          "legacy_us": 321
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_box11": 12,
+        "storm_shop_photo_supplies_box14": 12,
+        "storm_shop_photo_supplies_box2": 12,
+        "storm_shop_photo_supplies_box5": 12,
+        "storm_shop_photo_supplies_box8": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_lacquer_red",
+      "equal": true,
+      "programme": "data/orison_v2/photo_stock.json",
+      "timings": [
+        {
+          "candidate_us": 147,
+          "legacy_us": 403
+        },
+        {
+          "candidate_us": 146,
+          "legacy_us": 395
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_cab_sh0": 12,
+        "storm_shop_photo_supplies_cab_sh1": 12,
+        "storm_shop_photo_supplies_cab_sh2": 12,
+        "storm_shop_photo_supplies_cab_sh3": 12,
+        "storm_shop_photo_supplies_cab_sh4": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_timber",
+      "equal": true,
+      "programme": "data/orison_v2/photo_stock.json",
+      "timings": [
+        {
+          "candidate_us": 242,
+          "legacy_us": 680
+        },
+        {
+          "candidate_us": 241,
+          "legacy_us": 680
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_scope": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance",
+      "equal": true,
+      "programme": "data/orison_v2/radio_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 28,
+          "legacy_us": 52
+        },
+        {
+          "candidate_us": 23,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_chassis": 0,
+        "storm_shop_radio_service_signal_gen": 0
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black",
+      "equal": true,
+      "programme": "data/orison_v2/radio_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 153,
+          "legacy_us": 371
+        },
+        {
+          "candidate_us": 150,
+          "legacy_us": 358
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_chassis": 12,
+        "storm_shop_radio_service_signal_gen": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "equal": true,
+      "programme": "data/orison_v2/radio_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 119,
+          "legacy_us": 254
+        },
+        {
+          "candidate_us": 117,
+          "legacy_us": 252
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_bench_valve0": 0,
+        "storm_shop_radio_service_bench_valve1": 0,
+        "storm_shop_radio_service_bench_valve2": 0,
+        "storm_shop_radio_service_bench_valve3": 0,
+        "storm_shop_radio_service_bench_valve4": 0
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass",
+      "equal": true,
+      "programme": "data/orison_v2/radio_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 38,
+          "legacy_us": 75
+        },
+        {
+          "candidate_us": 35,
+          "legacy_us": 72
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_bench_valve0": 12,
+        "storm_shop_radio_service_bench_valve1": 12,
+        "storm_shop_radio_service_bench_valve2": 12,
+        "storm_shop_radio_service_bench_valve3": 12,
+        "storm_shop_radio_service_bench_valve4": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass-col",
+      "equal": true,
+      "programme": "data/orison_v2/radio_apparatus.json",
+      "timings": [
+        {
+          "candidate_us": 387,
+          "legacy_us": 1125
+        },
+        {
+          "candidate_us": 383,
+          "legacy_us": 1163
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_cell_cap0": 0,
+        "storm_shop_radio_service_cell_cap1": 0,
+        "storm_shop_radio_service_cell_cap2": 0,
+        "storm_shop_radio_service_cell_cap3": 0,
+        "storm_shop_radio_service_cell_cap4": 0
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black",
+      "equal": true,
+      "programme": "data/orison_v2/radio_battery.json",
+      "timings": [
+        {
+          "candidate_us": 213,
+          "legacy_us": 663
+        },
+        {
+          "candidate_us": 212,
+          "legacy_us": 684
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_cell_cap0": 12,
+        "storm_shop_radio_service_cell_cap1": 12,
+        "storm_shop_radio_service_cell_cap2": 12,
+        "storm_shop_radio_service_cell_cap3": 12,
+        "storm_shop_radio_service_cell_cap4": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "equal": true,
+      "programme": "data/orison_v2/radio_battery.json",
+      "timings": [
+        {
+          "candidate_us": 172,
+          "legacy_us": 462
+        },
+        {
+          "candidate_us": 171,
+          "legacy_us": 438
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_wet_cell0": 12,
+        "storm_shop_radio_service_wet_cell1": 12,
+        "storm_shop_radio_service_wet_cell2": 12,
+        "storm_shop_radio_service_wet_cell3": 12,
+        "storm_shop_radio_service_wet_cell4": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/radio_battery.json",
+      "timings": [
+        {
+          "candidate_us": 295,
+          "legacy_us": 515
+        },
+        {
+          "candidate_us": 193,
+          "legacy_us": 530
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_battery_rack": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_timber",
+      "equal": true,
+      "programme": "data/orison_v2/radio_battery.json",
+      "timings": [
+        {
+          "candidate_us": 87,
+          "legacy_us": 159
+        },
+        {
+          "candidate_us": 86,
+          "legacy_us": 154
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_bench": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_timber",
+      "equal": true,
+      "programme": "data/orison_v2/radio_bench.json",
+      "timings": [
+        {
+          "candidate_us": 101,
+          "legacy_us": 188
+        },
+        {
+          "candidate_us": 89,
+          "legacy_us": 160
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_bench_top": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/radio_bench.json",
+      "timings": [
+        {
+          "candidate_us": 168,
+          "legacy_us": 315
+        },
+        {
+          "candidate_us": 167,
+          "legacy_us": 311
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_horn_mouth": 12,
+        "storm_shop_radio_service_horn_throat": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/radio_display.json",
+      "timings": [
+        {
+          "candidate_us": 70,
+          "legacy_us": 138
+        },
+        {
+          "candidate_us": 71,
+          "legacy_us": 131
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_counter_top": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_countertop",
+      "equal": true,
+      "programme": "data/orison_v2/radio_display.json",
+      "timings": [
+        {
+          "candidate_us": 24,
+          "legacy_us": 35
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_cone_speaker": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fabric_warm",
+      "equal": true,
+      "programme": "data/orison_v2/radio_display.json",
+      "timings": [
+        {
+          "candidate_us": 25,
+          "legacy_us": 32
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_ledger": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_paper",
+      "equal": true,
+      "programme": "data/orison_v2/radio_display.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 38
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 31
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_counter": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/radio_display.json",
+      "timings": [
+        {
+          "candidate_us": 168,
+          "legacy_us": 321
+        },
+        {
+          "candidate_us": 167,
+          "legacy_us": 324
+        }
+      ]
+    },
+    {
+      "boxes": 14,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_valve0": 0,
+        "storm_shop_radio_service_valve1": 0,
+        "storm_shop_radio_service_valve10": 0,
+        "storm_shop_radio_service_valve11": 0,
+        "storm_shop_radio_service_valve12": 0,
+        "storm_shop_radio_service_valve13": 0,
+        "storm_shop_radio_service_valve2": 0,
+        "storm_shop_radio_service_valve3": 0,
+        "storm_shop_radio_service_valve4": 0,
+        "storm_shop_radio_service_valve5": 0,
+        "storm_shop_radio_service_valve6": 0,
+        "storm_shop_radio_service_valve7": 0,
+        "storm_shop_radio_service_valve8": 0,
+        "storm_shop_radio_service_valve9": 0
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass",
+      "equal": true,
+      "programme": "data/orison_v2/radio_stock.json",
+      "timings": [
+        {
+          "candidate_us": 65,
+          "legacy_us": 177
+        },
+        {
+          "candidate_us": 88,
+          "legacy_us": 153
+        }
+      ]
+    },
+    {
+      "boxes": 14,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_valve0": 12,
+        "storm_shop_radio_service_valve1": 12,
+        "storm_shop_radio_service_valve10": 12,
+        "storm_shop_radio_service_valve11": 12,
+        "storm_shop_radio_service_valve12": 12,
+        "storm_shop_radio_service_valve13": 12,
+        "storm_shop_radio_service_valve2": 12,
+        "storm_shop_radio_service_valve3": 12,
+        "storm_shop_radio_service_valve4": 12,
+        "storm_shop_radio_service_valve5": 12,
+        "storm_shop_radio_service_valve6": 12,
+        "storm_shop_radio_service_valve7": 12,
+        "storm_shop_radio_service_valve8": 12,
+        "storm_shop_radio_service_valve9": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass-col",
+      "equal": true,
+      "programme": "data/orison_v2/radio_stock.json",
+      "timings": [
+        {
+          "candidate_us": 723,
+          "legacy_us": 2823
+        },
+        {
+          "candidate_us": 715,
+          "legacy_us": 2723
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_valve_sh0": 12,
+        "storm_shop_radio_service_valve_sh1": 12,
+        "storm_shop_radio_service_valve_sh2": 12,
+        "storm_shop_radio_service_valve_sh3": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_timber",
+      "equal": true,
+      "programme": "data/orison_v2/radio_stock.json",
+      "timings": [
+        {
+          "candidate_us": 133,
+          "legacy_us": 335
+        },
+        {
+          "candidate_us": 136,
+          "legacy_us": 330
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_solder_ring": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_cast_iron",
+      "equal": true,
+      "programme": "data/orison_v2/radio_wire.json",
+      "timings": [
+        {
+          "candidate_us": 28,
+          "legacy_us": 49
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_aerial_spools": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_copper_aged",
+      "equal": true,
+      "programme": "data/orison_v2/radio_wire.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 43
+        },
+        {
+          "candidate_us": 21,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 47,
+          "legacy_us": 90
+        },
+        {
+          "candidate_us": 41,
+          "legacy_us": 63
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_back_hi": 12,
+        "storm_shop_funeral_parlour_back_lo_e": 12,
+        "storm_shop_funeral_parlour_back_lo_lintel": 12,
+        "storm_shop_funeral_parlour_back_lo_w": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 140,
+          "legacy_us": 343
+        },
+        {
+          "candidate_us": 137,
+          "legacy_us": 334
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_borrowed_head": 12,
+        "storm_shop_funeral_parlour_borrowed_muntin1": 12,
+        "storm_shop_funeral_parlour_borrowed_muntin2": 12,
+        "storm_shop_funeral_parlour_borrowed_muntin3": 12,
+        "storm_shop_funeral_parlour_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 129,
+          "legacy_us": 334
+        },
+        {
+          "candidate_us": 126,
+          "legacy_us": 326
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 131,
+          "legacy_us": 229
+        },
+        {
+          "candidate_us": 114,
+          "legacy_us": 204
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_back_hi": 12,
+        "storm_shop_hardware_paint_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 85,
+          "legacy_us": 157
+        },
+        {
+          "candidate_us": 79,
+          "legacy_us": 164
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_borrowed_head": 12,
+        "storm_shop_hardware_paint_borrowed_muntin1": 12,
+        "storm_shop_hardware_paint_borrowed_muntin2": 12,
+        "storm_shop_hardware_paint_borrowed_muntin3": 12,
+        "storm_shop_hardware_paint_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 128,
+          "legacy_us": 346
+        },
+        {
+          "candidate_us": 127,
+          "legacy_us": 345
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 60,
+          "legacy_us": 113
+        },
+        {
+          "candidate_us": 53,
+          "legacy_us": 89
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_back_hi": 12,
+        "storm_shop_keys_cut_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 78,
+          "legacy_us": 165
+        },
+        {
+          "candidate_us": 79,
+          "legacy_us": 194
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_borrowed_head": 12,
+        "storm_shop_keys_cut_borrowed_muntin1": 12,
+        "storm_shop_keys_cut_borrowed_muntin2": 12,
+        "storm_shop_keys_cut_borrowed_muntin3": 12,
+        "storm_shop_keys_cut_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 127,
+          "legacy_us": 338
+        },
+        {
+          "candidate_us": 125,
+          "legacy_us": 333
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 103,
+          "legacy_us": 204
+        },
+        {
+          "candidate_us": 98,
+          "legacy_us": 178
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_back_hi": 12,
+        "storm_shop_luncheonette_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 79,
+          "legacy_us": 156
+        },
+        {
+          "candidate_us": 78,
+          "legacy_us": 158
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_borrowed_head": 12,
+        "storm_shop_luncheonette_borrowed_muntin1": 12,
+        "storm_shop_luncheonette_borrowed_muntin2": 12,
+        "storm_shop_luncheonette_borrowed_muntin3": 12,
+        "storm_shop_luncheonette_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 128,
+          "legacy_us": 335
+        },
+        {
+          "candidate_us": 149,
+          "legacy_us": 332
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 59,
+          "legacy_us": 118
+        },
+        {
+          "candidate_us": 53,
+          "legacy_us": 86
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_back_hi": 12,
+        "storm_shop_model_laundry_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 211,
+          "legacy_us": 480
+        },
+        {
+          "candidate_us": 317,
+          "legacy_us": 618
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_borrowed_head": 12,
+        "storm_shop_model_laundry_borrowed_muntin1": 12,
+        "storm_shop_model_laundry_borrowed_muntin2": 12,
+        "storm_shop_model_laundry_borrowed_muntin3": 12,
+        "storm_shop_model_laundry_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 138,
+          "legacy_us": 489
+        },
+        {
+          "candidate_us": 127,
+          "legacy_us": 329
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 115,
+          "legacy_us": 222
+        },
+        {
+          "candidate_us": 109,
+          "legacy_us": 203
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_back_hi": 12,
+        "storm_shop_news_cigars_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 78,
+          "legacy_us": 155
+        },
+        {
+          "candidate_us": 78,
+          "legacy_us": 152
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_borrowed_head": 12,
+        "storm_shop_news_cigars_borrowed_muntin1": 12,
+        "storm_shop_news_cigars_borrowed_muntin2": 12,
+        "storm_shop_news_cigars_borrowed_muntin3": 12,
+        "storm_shop_news_cigars_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 127,
+          "legacy_us": 333
+        },
+        {
+          "candidate_us": 124,
+          "legacy_us": 328
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 362,
+          "legacy_us": 719
+        },
+        {
+          "candidate_us": 356,
+          "legacy_us": 728
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_back_hi": 12,
+        "storm_shop_otis___son_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 80,
+          "legacy_us": 157
+        },
+        {
+          "candidate_us": 78,
+          "legacy_us": 153
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_borrowed_head": 12,
+        "storm_shop_otis___son_borrowed_muntin1": 12,
+        "storm_shop_otis___son_borrowed_muntin2": 12,
+        "storm_shop_otis___son_borrowed_muntin3": 12,
+        "storm_shop_otis___son_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 127,
+          "legacy_us": 334
+        },
+        {
+          "candidate_us": 125,
+          "legacy_us": 331
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 87,
+          "legacy_us": 214
+        },
+        {
+          "candidate_us": 76,
+          "legacy_us": 134
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_back_hi": 12,
+        "storm_shop_pawnbroker_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 80,
+          "legacy_us": 156
+        },
+        {
+          "candidate_us": 78,
+          "legacy_us": 151
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_borrowed_head": 12,
+        "storm_shop_pawnbroker_borrowed_muntin1": 12,
+        "storm_shop_pawnbroker_borrowed_muntin2": 12,
+        "storm_shop_pawnbroker_borrowed_muntin3": 12,
+        "storm_shop_pawnbroker_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 127,
+          "legacy_us": 330
+        },
+        {
+          "candidate_us": 125,
+          "legacy_us": 327
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_back_hi": 12,
+        "storm_shop_photo_supplies_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 186,
+          "legacy_us": 419
+        },
+        {
+          "candidate_us": 169,
+          "legacy_us": 386
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_borrowed_head": 12,
+        "storm_shop_photo_supplies_borrowed_muntin1": 12,
+        "storm_shop_photo_supplies_borrowed_muntin2": 12,
+        "storm_shop_photo_supplies_borrowed_muntin3": 12,
+        "storm_shop_photo_supplies_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 130,
+          "legacy_us": 341
+        },
+        {
+          "candidate_us": 124,
+          "legacy_us": 337
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 115,
+          "legacy_us": 226
+        },
+        {
+          "candidate_us": 109,
+          "legacy_us": 197
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_back_hi": 12,
+        "storm_shop_radio_service_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 78,
+          "legacy_us": 153
+        },
+        {
+          "candidate_us": 78,
+          "legacy_us": 149
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_borrowed_head": 12,
+        "storm_shop_radio_service_borrowed_muntin1": 12,
+        "storm_shop_radio_service_borrowed_muntin2": 12,
+        "storm_shop_radio_service_borrowed_muntin3": 12,
+        "storm_shop_radio_service_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 127,
+          "legacy_us": 328
+        },
+        {
+          "candidate_us": 124,
+          "legacy_us": 323
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_borrowed_glass": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_glassish",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 66,
+          "legacy_us": 123
+        },
+        {
+          "candidate_us": 53,
+          "legacy_us": 87
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_back_hi": 12,
+        "storm_shop_shoe_rebuilding_back_lo": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plaster_stained",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 83,
+          "legacy_us": 155
+        },
+        {
+          "candidate_us": 77,
+          "legacy_us": 152
+        }
+      ]
+    },
+    {
+      "boxes": 5,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_borrowed_head": 12,
+        "storm_shop_shoe_rebuilding_borrowed_muntin1": 12,
+        "storm_shop_shoe_rebuilding_borrowed_muntin2": 12,
+        "storm_shop_shoe_rebuilding_borrowed_muntin3": 12,
+        "storm_shop_shoe_rebuilding_borrowed_sill": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_trim",
+      "equal": true,
+      "programme": "data/orison_v2/shop_clerestories.json",
+      "timings": [
+        {
+          "candidate_us": 126,
+          "legacy_us": 331
+        },
+        {
+          "candidate_us": 139,
+          "legacy_us": 484
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 58,
+          "legacy_us": 110
+        },
+        {
+          "candidate_us": 53,
+          "legacy_us": 84
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_window_back": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_plywood",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 23,
+          "legacy_us": 35
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 2,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "storm_shop_funeral_parlour_boh_door": 12,
+        "storm_shop_funeral_parlour_window_plinth": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 634,
+          "legacy_us": 1527
+        },
+        {
+          "candidate_us": 635,
+          "legacy_us": 1537
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 564,
+          "legacy_us": 1189
+        },
+        {
+          "candidate_us": 567,
+          "legacy_us": 1133
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_hardware_paint",
+      "counts": {
+        "storm_shop_hardware_paint_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 277,
+          "legacy_us": 545
+        },
+        {
+          "candidate_us": 277,
+          "legacy_us": 537
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 883,
+          "legacy_us": 1810
+        },
+        {
+          "candidate_us": 958,
+          "legacy_us": 1754
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_keys_cut",
+      "counts": {
+        "storm_shop_keys_cut_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 155,
+          "legacy_us": 295
+        },
+        {
+          "candidate_us": 182,
+          "legacy_us": 283
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 62,
+          "legacy_us": 121
+        },
+        {
+          "candidate_us": 51,
+          "legacy_us": 86
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 144,
+          "legacy_us": 277
+        },
+        {
+          "candidate_us": 142,
+          "legacy_us": 270
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 28,
+          "legacy_us": 56
+        },
+        {
+          "candidate_us": 23,
+          "legacy_us": 33
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_model_laundry",
+      "counts": {
+        "storm_shop_model_laundry_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 156,
+          "legacy_us": 300
+        },
+        {
+          "candidate_us": 153,
+          "legacy_us": 286
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 28,
+          "legacy_us": 54
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 33
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_news_cigars",
+      "counts": {
+        "storm_shop_news_cigars_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 186,
+          "legacy_us": 375
+        },
+        {
+          "candidate_us": 283,
+          "legacy_us": 369
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 28,
+          "legacy_us": 53
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 33
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 385,
+          "legacy_us": 765
+        },
+        {
+          "candidate_us": 377,
+          "legacy_us": 749
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 174,
+          "legacy_us": 351
+        },
+        {
+          "candidate_us": 180,
+          "legacy_us": 366
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_pawnbroker",
+      "counts": {
+        "storm_shop_pawnbroker_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 276,
+          "legacy_us": 550
+        },
+        {
+          "candidate_us": 299,
+          "legacy_us": 544
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 82,
+          "legacy_us": 157
+        },
+        {
+          "candidate_us": 75,
+          "legacy_us": 136
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_photo_supplies",
+      "counts": {
+        "storm_shop_photo_supplies_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 166,
+          "legacy_us": 318
+        },
+        {
+          "candidate_us": 166,
+          "legacy_us": 315
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 58,
+          "legacy_us": 117
+        },
+        {
+          "candidate_us": 53,
+          "legacy_us": 86
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_radio_service",
+      "counts": {
+        "storm_shop_radio_service_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 166,
+          "legacy_us": 316
+        },
+        {
+          "candidate_us": 164,
+          "legacy_us": 313
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_boh_knob": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_brass_dull",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 28,
+          "legacy_us": 53
+        },
+        {
+          "candidate_us": 22,
+          "legacy_us": 32
+        }
+      ]
+    },
+    {
+      "boxes": 1,
+      "cell": "shop_shoe_rebuilding",
+      "counts": {
+        "storm_shop_shoe_rebuilding_boh_door": 12
+      },
+      "draw": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_joinery.json",
+      "timings": [
+        {
+          "candidate_us": 381,
+          "legacy_us": 741
+        },
+        {
+          "candidate_us": 371,
+          "legacy_us": 714
+        }
+      ]
+    },
+    {
+      "boxes": 36,
+      "cell": "shop_funeral_parlour",
+      "counts": {
+        "site_rear_funeral_parlour_chapel_pew0": 12,
+        "site_rear_funeral_parlour_chapel_pew1": 12,
+        "site_rear_funeral_parlour_chapel_pewback0": 12,
+        "site_rear_funeral_parlour_chapel_pewback1": 12,
+        "storm_shop_funeral_parlour_chair0_0": 12,
+        "storm_shop_funeral_parlour_chair0_1": 12,
+        "storm_shop_funeral_parlour_chair0_2": 12,
+        "storm_shop_funeral_parlour_chair0_3": 12,
+        "storm_shop_funeral_parlour_chair1_0": 12,
+        "storm_shop_funeral_parlour_chair1_1": 12,
+        "storm_shop_funeral_parlour_chair1_2": 12,
+        "storm_shop_funeral_parlour_chair1_3": 12,
+        "storm_shop_funeral_parlour_chair2_0": 12,
+        "storm_shop_funeral_parlour_chair2_1": 12,
+        "storm_shop_funeral_parlour_chair2_2": 12,
+        "storm_shop_funeral_parlour_chair2_3": 12,
+        "storm_shop_funeral_parlour_chair3_0": 12,
+        "storm_shop_funeral_parlour_chair3_1": 12,
+        "storm_shop_funeral_parlour_chair3_2": 12,
+        "storm_shop_funeral_parlour_chair3_3": 12,
+        "storm_shop_funeral_parlour_chairb0_0": 12,
+        "storm_shop_funeral_parlour_chairb0_1": 12,
+        "storm_shop_funeral_parlour_chairb0_2": 12,
+        "storm_shop_funeral_parlour_chairb0_3": 12,
+        "storm_shop_funeral_parlour_chairb1_0": 12,
+        "storm_shop_funeral_parlour_chairb1_1": 12,
+        "storm_shop_funeral_parlour_chairb1_2": 12,
+        "storm_shop_funeral_parlour_chairb1_3": 12,
+        "storm_shop_funeral_parlour_chairb2_0": 12,
+        "storm_shop_funeral_parlour_chairb2_1": 12,
+        "storm_shop_funeral_parlour_chairb2_2": 12,
+        "storm_shop_funeral_parlour_chairb2_3": 12,
+        "storm_shop_funeral_parlour_chairb3_0": 12,
+        "storm_shop_funeral_parlour_chairb3_1": 12,
+        "storm_shop_funeral_parlour_chairb3_2": 12,
+        "storm_shop_funeral_parlour_chairb3_3": 12
+      },
+      "draw": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_wood_dark",
+      "equal": true,
+      "programme": "data/orison_v2/shop_seating.json",
+      "timings": [
+        {
+          "candidate_us": 3770,
+          "legacy_us": 16153
+        },
+        {
+          "candidate_us": 3511,
+          "legacy_us": 16290
+        }
+      ]
+    },
+    {
+      "boxes": 8,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_stool0": 12,
+        "storm_shop_luncheonette_stool1": 12,
+        "storm_shop_luncheonette_stool2": 12,
+        "storm_shop_luncheonette_stool3": 12,
+        "storm_shop_luncheonette_stool4": 12,
+        "storm_shop_luncheonette_stool5": 12,
+        "storm_shop_luncheonette_stool6": 12,
+        "storm_shop_luncheonette_stool7": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome",
+      "equal": true,
+      "programme": "data/orison_v2/shop_seating.json",
+      "timings": [
+        {
+          "candidate_us": 504,
+          "legacy_us": 1693
+        },
+        {
+          "candidate_us": 500,
+          "legacy_us": 1683
+        }
+      ]
+    },
+    {
+      "boxes": 8,
+      "cell": "shop_luncheonette",
+      "counts": {
+        "storm_shop_luncheonette_stool0_top": 12,
+        "storm_shop_luncheonette_stool1_top": 12,
+        "storm_shop_luncheonette_stool2_top": 12,
+        "storm_shop_luncheonette_stool3_top": 12,
+        "storm_shop_luncheonette_stool4_top": 12,
+        "storm_shop_luncheonette_stool5_top": 12,
+        "storm_shop_luncheonette_stool6_top": 12,
+        "storm_shop_luncheonette_stool7_top": 12
+      },
+      "draw": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_vinyl_oxblood",
+      "equal": true,
+      "programme": "data/orison_v2/shop_seating.json",
+      "timings": [
+        {
+          "candidate_us": 259,
+          "legacy_us": 782
+        },
+        {
+          "candidate_us": 245,
+          "legacy_us": 740
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_stool0": 12,
+        "storm_shop_otis___son_stool1": 12,
+        "storm_shop_otis___son_stool2": 12,
+        "storm_shop_otis___son_stool3": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_chrome",
+      "equal": true,
+      "programme": "data/orison_v2/shop_seating.json",
+      "timings": [
+        {
+          "candidate_us": 153,
+          "legacy_us": 412
+        },
+        {
+          "candidate_us": 146,
+          "legacy_us": 380
+        }
+      ]
+    },
+    {
+      "boxes": 4,
+      "cell": "shop_otis_son",
+      "counts": {
+        "storm_shop_otis___son_stool0_top": 12,
+        "storm_shop_otis___son_stool1_top": 12,
+        "storm_shop_otis___son_stool2_top": 12,
+        "storm_shop_otis___son_stool3_top": 12
+      },
+      "draw": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_vinyl_oxblood",
+      "equal": true,
+      "programme": "data/orison_v2/shop_seating.json",
+      "timings": [
+        {
+          "candidate_us": 130,
+          "legacy_us": 228
+        },
+        {
+          "candidate_us": 90,
+          "legacy_us": 226
+        }
+      ]
+    }
+  ]
+}

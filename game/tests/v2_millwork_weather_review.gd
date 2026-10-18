@@ -1,6 +1,7 @@
 extends RefCounted
 ## Independent short-ray wall census, actual trim bounds, and seasonal captures.
 func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
+	preload("res://tests/v2_millwork_culling_review.gd").new().run(world,suite)
 	var shell: Node3D = world.adapter.root
 	coverage(shell,world,suite)
 	await details(world,suite)

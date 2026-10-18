@@ -114,7 +114,7 @@ def inputs(root=ROOT):
         paths.add(root/f'art/textures/procedural/{key}/material.json')
     for name in ('v2_bathroom_tile_review.gd','v2_millwork_weather_review.gd','v2_millwork_weather_test.gd','v2_window_treatments_review.gd','v2_window_treatments_test.gd','v2_watch_stations_review.gd','orison_v2_patrol_stations_test.gd','v2_mail_bank_review.gd','v2_fire_service_review.gd','v2_electrical_service_review.gd','v2_electrical_connections_review.gd','orison_v2_domestic_objects_test.gd','orison_v2_domestic_native_test.gd','orison_v2_service_instruments_test.gd'):
         paths.add(root/'game/tests'/name)
-    paths.update(root/'game/tests'/name for name in ('orison_v2_front_facade_test.gd','v2_kitchen_sink_review.gd','orison_v2_domestic_storage_test.gd','orison_v2_domestic_seating_test.gd','orison_v2_bedding_test.gd','watch_station_hand_test.gd'))
+    paths.update(root/'game/tests'/name for name in ('orison_v2_front_facade_test.gd','v2_kitchen_sink_review.gd','orison_v2_domestic_storage_test.gd','orison_v2_domestic_seating_test.gd','orison_v2_bedding_test.gd','watch_station_hand_test.gd','v2_millwork_culling_review.gd','millwork_unculled_reference.gd'))
     paths.update(root/'game/tests'/name for name in ('v2_street_optics_probe.gd','v2_street_uv_bench.gd','orison_v2_bodega_frontage_test.gd','orison_v2_signage_test.gd','v2_glazing_optical_probe.gd'))
     # Texture source bindings and selective UV precision settings are authored
     # inputs. Cache destinations, generated UIDs, and line endings are not.

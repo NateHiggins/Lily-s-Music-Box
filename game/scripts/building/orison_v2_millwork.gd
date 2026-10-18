@@ -106,7 +106,11 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 		wall_stock: Array[Dictionary] = []) -> void:
 	if record.get("open_shell",false): return
 	if wall_stock.is_empty(): wall_stock=collect_wall_stock(room.get_parent())
-	var faces := _room_wall_faces(record,wall_stock,wall_thickness)
+	# Profiles occupy this room's floor-to-ceiling band. Walls wholly outside
+	# it cannot supply a face, obscure one, or close a corner in that band.
+	# Keep touching/cross-storey stock and original order; the exact face and
+	# aperture operations still decide every emitted piece.
+	var faces := _room_wall_faces(record,wall_stock_for_band(wall_stock,floor_y,floor_y+clear_height),wall_thickness)
 	var casings := _casing_boxes(record,doors,floor_y,wall_thickness)
 	casings.append_array(window_boxes)
 	var decorative: bool = str(record.get("class","")) in ["private","public"] or "PUBLIC_CORE" in str(record.id)
@@ -159,6 +163,14 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 						sources.PublicWainscotFrames.append(str(face.source))
 	for label: String in batches:
 		_emit(room,label,batches[label],sources[label],"trim" if label=="HistoricMillwork" else "wood_dark")
+
+static func wall_stock_for_band(stock: Array[Dictionary], low: float, high: float) -> Array[Dictionary]:
+	var result: Array[Dictionary]=[]
+	for wall: Dictionary in stock:
+		var bounds: AABB=wall.bounds
+		if bounds.end.y<low or bounds.position.y>high:continue
+		result.append(wall)
+	return result
 
 static func _placement(face: Dictionary, run: Vector2, height_at: float, height: float, depth: float) -> Transform3D:
 	var inward: float = face.inward

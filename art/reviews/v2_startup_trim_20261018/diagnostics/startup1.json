@@ -1,0 +1,879 @@
+{
+  "events": [
+    {
+      "label": "orison_v2_runtime_root._ready:enter",
+      "us": 7289696
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:3 if not preload(\"res://scripts/building/orison_v2_street_frame.gd\").valid_source_header(_read_street_",
+      "us": 7289699
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:8 var contact_precision := preload(\"res://scripts/building/orison_v2_contact_precision.gd\").new()",
+      "us": 7289943
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:10 add_child(contact_precision)",
+      "us": 7289950
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:12 if not campaign_clock.bind_state():",
+      "us": 7290118
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:17 if not frame_contract.errors.is_empty():",
+      "us": 7290356
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:23 if not corruption_lineages.load_registry():",
+      "us": 7290360
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:29 var atmosphere := Atmosphere.new()",
+      "us": 7290531
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:31 add_child(atmosphere)",
+      "us": 7290536
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:50 add_child(_blockout)",
+      "us": 7744096
+    },
+    {
+      "label": "orison_v2_blockout._ready:enter",
+      "us": 7744112
+    },
+    {
+      "label": "orison_v2_blockout._ready:12 if not failures.is_empty():",
+      "us": 7783685
+    },
+    {
+      "label": "orison_v2_blockout._ready:19 _build_palette()",
+      "us": 7783687
+    },
+    {
+      "label": "orison_v2_blockout._ready:20 _build_spaces()",
+      "us": 7783751
+    },
+    {
+      "label": "orison_v2_blockout._ready:21 _build_single_owner_opening_frames()",
+      "us": 20539255
+    },
+    {
+      "label": "orison_v2_blockout._ready:22 _build_doors()",
+      "us": 20553756
+    },
+    {
+      "label": "orison_v2_blockout._ready:23 _build_windows()",
+      "us": 20562208
+    },
+    {
+      "label": "orison_v2_blockout._ready:24 _build_envelopes()",
+      "us": 20579808
+    },
+    {
+      "label": "orison_v2_blockout._ready:25 _build_fixtures()",
+      "us": 20594582
+    },
+    {
+      "label": "orison_v2_blockout._ready:26 _build_platforms()",
+      "us": 20687636
+    },
+    {
+      "label": "orison_v2_blockout._ready:27 _build_lift_landings()",
+      "us": 20776762
+    },
+    {
+      "label": "orison_v2_blockout._ready:28 _build_stairs()",
+      "us": 20777696
+    },
+    {
+      "label": "orison_v2_blockout._ready:29 _build_risers()",
+      "us": 21078116
+    },
+    {
+      "label": "orison_v2_blockout._ready:30 _build_anchors()",
+      "us": 21106180
+    },
+    {
+      "label": "orison_v2_blockout._ready:end",
+      "us": 21114684
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:51 if not _blockout.failures.is_empty():",
+      "us": 21114693
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:55 var service_alley := preload(\"res://scripts/building/orison_v2_service_alley.gd\").new()",
+      "us": 21114699
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:61 if not adapter.resolves_required_uniquely():",
+      "us": 21233075
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:65 var cues := CUES.new()",
+      "us": 21254460
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:73 var wayfinding := preload(\"res://scripts/building/orison_v2_wayfinding.gd\").new()",
+      "us": 21254545
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:76 if not wayfinding.mount(_blockout.layout):",
+      "us": 21254550
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:80 if not adapter.install_acoustic_overrides([",
+      "us": 21261423
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:86 _compose_authorities()",
+      "us": 21268792
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:enter",
+      "us": 21268795
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:4 add_child(objective_tracker)",
+      "us": 21268803
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:9 add_child(work_orders)",
+      "us": 21269389
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:13 add_child(maintenance_inventory)",
+      "us": 21269408
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:14 _compose_vantry()",
+      "us": 21269410
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:15 var mail_bank := MailBankProp.new()",
+      "us": 21285030
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:17 _mount(\"LobbyMailBank\", mail_bank)",
+      "us": 21285038
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:18 if not mail_bank.get_meta(\"v2_native_mail_bank\", false):",
+      "us": 21535807
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:22 _mount(\"LobbyPorterBoard\", OtisProp.new())",
+      "us": 21535811
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:23 var tank_ballcock := RoofTankBallcockProp.new()",
+      "us": 21540827
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:25 _mount(\"ROOF_TANK_BALLCOCK\", tank_ballcock)",
+      "us": 21540839
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:26 _compose_service_round_props()",
+      "us": 21548194
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:28 if not DomesticDoors.new().mount(adapter, layout):",
+      "us": 23304213
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:32 if not preload(\"res://scripts/building/orison_v2_upper_floor_doors.gd\").new().mount(adapter, layout)",
+      "us": 24126205
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:36 var fittings := DomesticFittings.new()",
+      "us": 25028461
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:37 if not fittings.mount(adapter):",
+      "us": 25028471
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:41 var completion := preload(\"res://scripts/building/orison_v2_completion_interiors.gd\").new()",
+      "us": 33181603
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:42 if not completion.mount(adapter,layout,self):",
+      "us": 33181613
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:46 preload(\"res://scripts/building/orison_v2_reading_furniture.gd\").mount(adapter,layout)",
+      "us": 43406030
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:47 preload(\"res://scripts/building/orison_v2_public_furnishings.gd\").mount(adapter,layout)",
+      "us": 43605906
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:48 preload(\"res://scripts/building/orison_v2_door_casings.gd\").mount(adapter,layout)",
+      "us": 43656975
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:49 preload(\"res://scripts/building/orison_v2_window_joinery.gd\").mount(_blockout)",
+      "us": 44086247
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:50 preload(\"res://scripts/building/orison_v2_exterior_masonry.gd\").mount(_blockout)",
+      "us": 44105866
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:51 preload(\"res://scripts/building/orison_v2_front_restoration.gd\").mount(_blockout)",
+      "us": 44121401
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:52 preload(\"res://scripts/building/orison_v2_fire_repairs.gd\").mount(_blockout)",
+      "us": 44154876
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:53 preload(\"res://scripts/building/orison_v2_roof_edge_support.gd\").mount(_blockout)",
+      "us": 44167882
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:54 preload(\"res://scripts/building/orison_v2_roof_bulkhead_caps.gd\").mount(_blockout)",
+      "us": 44174367
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:55 preload(\"res://scripts/building/orison_v2_roof_service_weathering.gd\").mount(_blockout)",
+      "us": 44174534
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:56 preload(\"res://scripts/building/orison_v2_light_court_structure.gd\").mount(_blockout)",
+      "us": 44186501
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:57 preload(\"res://scripts/building/orison_v2_light_court_skylight.gd\").mount(_blockout)",
+      "us": 44190155
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:58 preload(\"res://scripts/building/orison_v2_court_roof_bridge.gd\").mount(_blockout)",
+      "us": 44197848
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:59 preload(\"res://scripts/building/orison_v2_roof_public_weathering.gd\").mount(_blockout)",
+      "us": 44199847
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:60 preload(\"res://scripts/building/orison_v2_roof_base_flashings.gd\").mount(_blockout)",
+      "us": 44212645
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:61 preload(\"res://scripts/building/orison_v2_roof_membrane.gd\").mount(_blockout)",
+      "us": 44247609
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:62 preload(\"res://scripts/building/orison_v2_front_court_roof.gd\").mount(_blockout)",
+      "us": 44267896
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:63 preload(\"res://scripts/building/orison_v2_foundations.gd\").mount(_blockout)",
+      "us": 44290014
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:64 preload(\"res://scripts/building/orison_v2_ceiling_top_closures.gd\").mount(_blockout)",
+      "us": 44328166
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:65 preload(\"res://scripts/building/orison_v2_ground_core_transfer.gd\").mount(_blockout)",
+      "us": 44328696
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:67 if not preload(\"res://scripts/building/orison_v2_positional_wear.gd\").mount(_blockout):",
+      "us": 44332526
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:70 preload(\"res://scripts/building/orison_v2_rear_wing_a_support.gd\").mount(_blockout)",
+      "us": 44341647
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:71 preload(\"res://scripts/building/orison_v2_rear_wing_c_support.gd\").mount(_blockout)",
+      "us": 44359202
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:72 preload(\"res://scripts/building/orison_v2_first_upper_hall_seats.gd\").mount(_blockout)",
+      "us": 44386891
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:73 preload(\"res://scripts/building/orison_v2_upper_wall_seats.gd\").mount(_blockout)",
+      "us": 44397710
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:74 preload(\"res://scripts/building/orison_v2_remaining_upper_transfers.gd\").mount(_blockout)",
+      "us": 44406084
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:75 preload(\"res://scripts/building/orison_v2_house_tank.gd\").mount(_blockout)",
+      "us": 44430159
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:76 preload(\"res://scripts/building/orison_v2_roof_coping.gd\").mount(_blockout)",
+      "us": 44492854
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:77 if not preload(\"res://scripts/building/orison_v2_basement.gd\").new().mount(adapter):",
+      "us": 44493094
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:81 if not _compose_hot_water():",
+      "us": 44660670
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:83 var furniture := DomesticFurniture.new()",
+      "us": 44700935
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:84 if not preload(\"res://scripts/building/orison_v2_laundry.gd\").new().mount(adapter):",
+      "us": 44701847
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:88 if not furniture.mount(adapter):",
+      "us": 45022939
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:99 var lighting := RoomLighting.new()",
+      "us": 50617890
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:100 if not lighting.mount(adapter, self):",
+      "us": 50617901
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:104 if not lighting.mount_roof(adapter,self):",
+      "us": 53299822
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:108 if not preload(\"res://scripts/building/orison_v2_reading_nook.gd\").mount(adapter):",
+      "us": 53344011
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:112 var task_lamps := preload(\"res://scripts/building/orison_v2_task_lamp_installations.gd\").new()",
+      "us": 53630848
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:113 if not task_lamps.mount(adapter):",
+      "us": 53630857
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:117 var lamp_supply := preload(\"res://scripts/building/orison_v2_task_lamp_supply.gd\").new()",
+      "us": 54487398
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:118 if not lamp_supply.mount(adapter):",
+      "us": 54487408
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:127 var telephone := HouseSwitchboardProp.new()",
+      "us": 54610865
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:128 var line := HouseTelephoneNetwork.new()",
+      "us": 54610877
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:130 add_child(line)",
+      "us": 54610884
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:133 _mount(\"F01_HOUSE_TELEPHONE_BOARD\", telephone)",
+      "us": 54610908
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:134 _mount(\"LobbyServiceDumbwaiter\", DumbwaiterProp.new())",
+      "us": 54620771
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:135 var terminal := preload(\"res://scripts/building/orison_v2_native_signal_terminal.gd\").new()",
+      "us": 54630085
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:137 _mount(\"F04_B_MONITOR_01\", terminal)",
+      "us": 54630097
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:138 if not terminal.native_ready:",
+      "us": 54684536
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:142 if not preload(\"res://scripts/building/orison_v2_task_lamp_installations.gd\").fit_terminal(adapter, ",
+      "us": 54684539
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:149 add_child(player)",
+      "us": 54700559
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:150 if not _compose_exterior():",
+      "us": 54815128
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:enter",
+      "us": 54815132
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:3 add_child(shop_service)",
+      "us": 54815139
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:5 if not shop_service.is_valid():",
+      "us": 54815386
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:9 if not exterior_cell.configure_dependencies({\"player\": player,",
+      "us": 54815401
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:16 add_child(exterior_cell)",
+      "us": 54815623
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:21 var front_pavement:=preload(\"res://scripts/building/orison_v2_front_pavement.gd\").new()",
+      "us": 54940932
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:24 var ground:=preload(\"res://scripts/building/orison_v2_ground.gd\").new()",
+      "us": 54950795
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:27 var city_foundations:=preload(\"res://scripts/building/orison_v2_city_foundations.gd\").new()",
+      "us": 55448250
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:30 var receiving := preload(\"res://scripts/building/orison_v2_bodega_receiving.gd\").new()",
+      "us": 55705779
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:32 if not receiving.configure(exterior_cell):",
+      "us": 55705788
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:35 add_child(receiving)",
+      "us": 55707373
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:37 var bodega_power:=preload(\"res://scripts/building/orison_v2_bodega_power.gd\").new()",
+      "us": 55711168
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:39 if not bodega_power.configure(exterior_cell):",
+      "us": 55711174
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:42 add_child(bodega_power)",
+      "us": 55711180
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:46 var street_boundaries := StreetBoundaries.new()",
+      "us": 56154051
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:48 add_child(street_boundaries)",
+      "us": 56154066
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:51 if not passage_region.configure(shop_service):",
+      "us": 56317589
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:55 add_child(passage_region)",
+      "us": 56353434
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:58 if not passage_region.enable_residency(player, _blockout, layout):",
+      "us": 64468595
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:62 add_child(bar_region)",
+      "us": 64475740
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:65 if not passage_region.receiving_row.bind_registered_graph():",
+      "us": 65652153
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:67 var city_shells := preload(\"res://scripts/building/orison_v2_city_shells.gd\").new()",
+      "us": 65652160
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:69 add_child(city_shells)",
+      "us": 65652164
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:70 if not preload(\"res://scripts/building/orison_v2_front_facade.gd\").mount(self):return false",
+      "us": 66590940
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:72 var signage := preload(\"res://scripts/building/orison_v2_native_signage.gd\").new()",
+      "us": 67138660
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_exterior:73 if not signage.install(self):",
+      "us": 67138673
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:163 add_child(call_interface)",
+      "us": 67305532
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:164 if not _compose_call_station(terminal):",
+      "us": 67308408
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:171 add_child(virus_director)",
+      "us": 67328728
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:175 add_child(first_shift_director)",
+      "us": 67330474
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:180 add_child(mina_gameplay)",
+      "us": 67334198
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:181 if not preload(\"res://scripts/building/orison_v2_case_one_placement.gd\").new().mount(adapter, mina_g",
+      "us": 67335482
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:185 var surface_props := preload(\"res://scripts/building/orison_v2_surface_props.gd\").new()",
+      "us": 67412750
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:186 if not surface_props.mount(adapter):",
+      "us": 67413612
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:190 var bath_details := preload(\"res://scripts/building/orison_v2_bath_details.gd\").new()",
+      "us": 73791028
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:191 if not bath_details.mount(adapter):",
+      "us": 73791911
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:195 var radios := preload(\"res://scripts/building/orison_v2_radios.gd\").new()",
+      "us": 74943180
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:196 if not radios.mount(adapter):",
+      "us": 74943189
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:200 var projectors := preload(\"res://scripts/building/orison_v2_projectors.gd\").new()",
+      "us": 75530531
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:201 if not projectors.mount(adapter):",
+      "us": 75530536
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:205 var media_supply := preload(\"res://scripts/building/orison_v2_media_ac_supply.gd\").new()",
+      "us": 75650965
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:206 if not media_supply.mount(adapter):",
+      "us": 75650973
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:210 var battery_supply := preload(\"res://scripts/building/orison_v2_media_battery_supply.gd\").new()",
+      "us": 75848470
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:211 if not battery_supply.mount(adapter):",
+      "us": 75848482
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:215 var accessories := preload(\"res://scripts/building/orison_v2_household_accessories.gd\").new()",
+      "us": 76015329
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:216 if not accessories.mount(adapter):",
+      "us": 76015341
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:220 var bookshelves := preload(\"res://scripts/building/orison_v2_bookshelves.gd\").new()",
+      "us": 77384518
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:221 if not bookshelves.mount(adapter):",
+      "us": 77384528
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:225 var fire_service := preload(\"res://scripts/building/orison_v2_native_fire_service.gd\").new()",
+      "us": 77791216
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:226 if not fire_service.mount(adapter,_blockout.layout):",
+      "us": 77791226
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:231 var electrical_service := preload(\"res://scripts/building/orison_v2_native_electrical_service.gd\").n",
+      "us": 78067034
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:232 if not electrical_service.mount(adapter):",
+      "us": 78067046
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:237 var electrical_connections := preload(\"res://scripts/building/orison_v2_native_electrical_connection",
+      "us": 78257716
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:238 if not electrical_connections.mount(self,electrical_service):",
+      "us": 78257724
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:243 var roof_supply := preload(\"res://scripts/building/orison_v2_roof_lighting_supply.gd\").new()",
+      "us": 78306761
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:244 if not roof_supply.mount(self, electrical_service):",
+      "us": 78306768
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:249 var front_supply := preload(\"res://scripts/building/orison_v2_front_lighting_supply.gd\").new()",
+      "us": 78483069
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:250 if not front_supply.mount(self,electrical_service):",
+      "us": 78483081
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:255 var front_trim := preload(\"res://scripts/building/orison_v2_front_trim_fittings.gd\").new()",
+      "us": 79690519
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:256 if not front_trim.mount(self):",
+      "us": 79690528
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:261 var service_instruments := preload(\"res://scripts/building/orison_v2_native_service_instruments.gd\")",
+      "us": 79699155
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:262 if not service_instruments.mount(self):",
+      "us": 79699162
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:267 var bar_instruments := preload(\"res://scripts/building/orison_v2_native_service_instruments.gd\").new",
+      "us": 80007761
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:268 if not bar_instruments.mount(self,bar_instruments.BAR_PATH):",
+      "us": 80007768
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:277 add_child(mirror_renderer)",
+      "us": 80095888
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:281 add_child(chirp_hunt)",
+      "us": 80096178
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:298 add_child(service_round)",
+      "us": 80101758
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:302 add_child(open_shift_ecosystem)",
+      "us": 80103268
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:307 _compose_observation_ledger()",
+      "us": 80103274
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:308 preload(\"res://scripts/building/orison_v2_furnishing_clearance.gd\").apply(self)",
+      "us": 80106221
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:309 if not preload(\"res://scripts/building/orison_v2_window_treatments.gd\").mount(self):",
+      "us": 85024753
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:313 add_child(mina_routine)",
+      "us": 85090725
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:314 if not mina_routine.setup(self):",
+      "us": 85090732
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:318 if not preload(\"res://scripts/building/orison_v2_case_one_placement.gd\").new().mount_captions(adapte",
+      "us": 85128394
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:322 var remote_captions := preload(\"res://scripts/cases/orison_v2_remote_caption_display.gd\").new()",
+      "us": 85165634
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:325 add_child(remote_captions)",
+      "us": 85165646
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:328 add_child(shop_simulation)",
+      "us": 85165665
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:329 if not shop_simulation.setup(campaign_clock, resident_presence,",
+      "us": 85165668
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:340 add_child(safety_net)",
+      "us": 85165857
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:343 add_child(household_state)",
+      "us": 85165866
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:344 if not household_state.bind(adapter, get_node(\"V2RoomSwitches\") as SwitchSystem):",
+      "us": 85165870
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:348 var economy := preload(\"res://scripts/game/caretaker_economy.gd\").new()",
+      "us": 99060401
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:350 add_child(economy)",
+      "us": 99060417
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:351 var care := preload(\"res://scripts/building/orison_v2_caretaking.gd\").new()",
+      "us": 99060428
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:353 add_child(care)",
+      "us": 99060433
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:354 if not economy.setup(work_orders) or not care.setup(_blockout,economy):",
+      "us": 99060436
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:358 var notebook := preload(\"res://scripts/ui/caretaker_notebook.gd\").new()",
+      "us": 99099013
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:363 add_child(notebook)",
+      "us": 99099034
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:364 preload(\"res://scripts/building/orison_v2_owner_finishes.gd\").new().apply_service_actors(self)",
+      "us": 99099316
+    },
+    {
+      "label": "orison_v2_runtime_root._compose_authorities:end",
+      "us": 99536525
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:94 var lift_drive := preload(\"res://scripts/building/orison_v2_lift_drive.gd\").new()",
+      "us": 100013856
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:100 if not lift_drive.configure(elevator as OrisonElevator) or not adapter.mount_consumer(\"ROOF_LIFT_DRI",
+      "us": 100023179
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:105 if not preload(\"res://scripts/building/orison_v2_ventilation.gd\").new().mount(adapter,layout):",
+      "us": 100035280
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:109 var roof_drainage:=preload(\"res://scripts/building/orison_v2_roof_drainage.gd\").new()",
+      "us": 100473164
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:110 if not roof_drainage.mount(self):",
+      "us": 100473172
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:114 var fixed_lighting := preload(\"res://scripts/building/orison_v2_native_fixed_lighting.gd\").new()",
+      "us": 101008814
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:115 if not fixed_lighting.mount(self):",
+      "us": 101008825
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:120 var front_lighting := preload(\"res://scripts/building/orison_v2_native_front_lighting.gd\").new()",
+      "us": 102662727
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:121 if not front_lighting.mount(self):",
+      "us": 102662738
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:126 var work_lights := preload(\"res://scripts/building/orison_v2_native_service_work_lights.gd\").new()",
+      "us": 102934778
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:127 if not work_lights.mount(self,fixed_lighting,adapter.root.get_meta(\"v2_native_service_instruments\"))",
+      "us": 102934787
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:132 var cage_apertures := preload(\"res://scripts/building/orison_v2_cage_light_apertures.gd\").new()",
+      "us": 102981426
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:133 if not cage_apertures.setup(self,light_rig):",
+      "us": 102981435
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:138 var lamp_air := preload(\"res://scripts/building/orison_v2_lamp_atmosphere.gd\").new()",
+      "us": 103017155
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:140 add_child(lamp_air)",
+      "us": 103017167
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:141 if not lamp_air.setup(player, atmosphere.environment):",
+      "us": 103017179
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:145 preload(\"res://scripts/building/orison_v2_owner_building_finishes.gd\").new().apply(self)",
+      "us": 106036466
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:146 preload(\"res://scripts/building/v2_legacy_material_stock.gd\").apply(self)",
+      "us": 106229171
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:147 var embedded_stock := preload(\"res://scripts/building/v2_embedded_surface_stock.gd\").new()",
+      "us": 106334454
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:149 var uv_policy := preload(\"res://scripts/building/orison_v2_uv_material_policy.gd\").new()",
+      "us": 106382253
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:153 _compose_debug_controls()",
+      "us": 106497215
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:155 var room_reflections := preload(\"res://scripts/building/orison_v2_room_reflections.gd\").new()",
+      "us": 106497314
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:157 add_child(room_reflections)",
+      "us": 106497322
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:158 if not room_reflections.setup(self):",
+      "us": 106497326
+    },
+    {
+      "label": "orison_v2_runtime_root._ready:end",
+      "us": 106498488
+    }
+  ],
+  "evidence_class": "INERT",
+  "startup_failed": false,
+  "startup_ms": 99207.699
+}

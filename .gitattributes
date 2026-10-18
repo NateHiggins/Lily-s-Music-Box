@@ -2295,3 +2295,8 @@ tools/publish_v2_arcade_lantern.py -text
 tools/tests/test_arcade_lantern.py -text
 game/assets/props/arcade_lantern.glb* -text
 game/data/orison_v2/arcade_lantern.json -text
+
+# Bounded trim fitting and original differential/profiling records.
+art/reviews/v2_startup_trim_20261018/** -text -whitespace
+game/tests/v2_millwork_culling_review.gd -text
+game/tests/millwork_unculled_reference.gd -text

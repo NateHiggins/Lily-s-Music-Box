@@ -145,6 +145,13 @@ runs. The current packing still needs a convincing fabric finish and the union
 hardware needs eased edges; passing its input/contact bench does not close
 those appearance defects.
 
+Measure suspected construction costs before optimizing them. A faster helper
+may explain only a fraction of startup. For spatial culling, compare the whole
+authored set against the uncropped operation, including exact instance buffers,
+wall-source ordering, materials and geometry. Retain touching and cross-storey
+stock. A headless MultiMesh pose failure is not a successful rendered-world
+profile; keep that rejected diagnostic and use the windowed renderer.
+
 When refining an exported stock, discard and rebuild its corner tangent guides
 after changing topology. Duplicate guide attributes can silently retain stale
 values. Weld Boolean slivers before unwrapping and validate final float32

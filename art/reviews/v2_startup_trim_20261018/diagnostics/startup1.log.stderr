@@ -1,0 +1,12 @@
+ERROR: Attempt to open script 'res://tests/_v2_startup_profile_runtime.gd' resulted in error 'File not found'.
+   at: load_source_code (modules/gdscript/gdscript.cpp:1139)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/_v2_startup_profile.gd:11)
+ERROR: Failed loading resource: res://tests/_v2_startup_profile_runtime.gd.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/_v2_startup_profile.gd:11)
+SCRIPT ERROR: Invalid access to property or key 'startup_failed' on a base object of type 'Node3D'.
+   at: run (res://tests/_v2_startup_profile.gd:14)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/_v2_startup_profile.gd:14)
