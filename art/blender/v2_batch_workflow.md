@@ -44,6 +44,15 @@ join graph is not evidence of a newly broken part. Check its actual contacts
 and bore separately, and retain the failed diagnostic rather than widening
 the contact tolerance.
 
+For public landing work, first run
+`python tools/derive_v2_public_landings.py --out tmp/v2-public-landings-20261018/footprints.json`.
+This read-only preflight measures the retained platform union and its exposed
+hole boundaries. Require a full capsule disc and a supported swept segment;
+safe endpoints alone cannot prove a route around a lift shaft. Derived platform
+centres are geometric candidates only: other floor owners, furniture, doors,
+vertical travel and production collision still require composed review. Do not
+fill a shaft or treat the enclosing review rectangle as supported floor.
+
 Before the final capture, run the complete static/tools board in a clean
 candidate checkout as well as the focused preflight. Review and register new
 spatial dependencies without replacing existing manifest rows. Renew source
