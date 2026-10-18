@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Sequential same-tree warm-cache timings; all structured results equal. Timing varies with system load.",
+  "runs": [
+    {
+      "mode": "optimized",
+      "elapsed_s": 5.306425100017805,
+      "equal": true,
+      "canonical_sha256": "b540f980b93d3cd6e5ceca2c17789cda14837af57c9b63d55067edbb976eefbf"
+    },
+    {
+      "mode": "original",
+      "elapsed_s": 31.159362500009593,
+      "equal": true,
+      "canonical_sha256": "b540f980b93d3cd6e5ceca2c17789cda14837af57c9b63d55067edbb976eefbf"
+    }
+  ]
+}

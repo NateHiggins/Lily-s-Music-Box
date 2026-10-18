@@ -27,6 +27,14 @@ an unchanged trim-instance set with a renewed layout binding invalidates the
 broad surface and access digests. Catch that metadata change before the long
 Godot batch, rather than repeating unchanged world builds afterward.
 
+For a replacement shell, enumerate every retained support touching its old
+envelope and measure contact against the new imported stock before the world
+batch. A roof can have correct closed faces and a clear light well while
+floating above its original posts. Exclude other colliders, or require the
+replacement's actual collision owner, so a post's own end cap cannot satisfy
+the bearing ray. The lantern correction retained a failed 118 mm-gap probe
+and added centre/ring samples before renewing the long production proofs.
+
 For a reflection defect, isolate its actual light and emitting geometry before
 altering material roughness. Compare the configured source size with the native
 emitting envelope, and inspect other fixtures in that same physical family at

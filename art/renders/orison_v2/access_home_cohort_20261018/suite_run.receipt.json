@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 456.87,
+  "elapsed_s": 445.53,
   "exit_code": 0,
-  "finished_utc": "2026-10-18T12:09:49Z",
-  "started_utc": "2026-10-18T12:02:12Z",
+  "finished_utc": "2026-10-18T13:34:44Z",
+  "started_utc": "2026-10-18T13:27:19Z",
   "timed_out": false
  },
  "log": {
@@ -19,22 +19,26 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-clearance-20261018/home2.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-lantern-20261018/home2.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-clearance-20261018/home2.log",
-  "stdout_sha256": "2183257216431f2c72ae7abfe8cb6f0e2b227ec0077fc8d5cd64a13987c07315"
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-lantern-20261018/home2.log",
+  "stdout_sha256": "0c809e2c31c52345c4987d55945bd18f5c05c4587f14a49311a37fb3adbb25ab"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2HomeAccessCohort.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-clearance-20261018\\home2",
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-lantern-20261018\\home2",
  "source": {
-  "dirty_paths": 1638,
+  "dirty_paths": 1656,
   "dirty_sample": [
    "M art/blender/v2_batch_workflow.md",
    " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/first_slice_contract_20261011/verification.json",
    " M art/renders/orison_v2/surface_requirements_20261011/arcade_barrel_underside.png",
    " M art/renders/orison_v2/surface_requirements_20261011/arcade_clay_carried.png",
    " M art/renders/orison_v2/surface_requirements_20261011/arcade_clay_joint.png",
@@ -48,15 +52,11 @@
    " M art/renders/orison_v2/surface_requirements_20261011/clearance_137_3A_prop_shelf_n.png",
    " M art/renders/orison_v2/surface_requirements_20261011/clearance_140_F01_lobby_photo.png",
    " M art/renders/orison_v2/surface_requirements_20261011/clearance_152_2B_dress_form.png",
-   " M art/renders/orison_v2/surface_requirements_20261011/clearance_170_F06_PUBLIC_LANDING_PIECE.png",
-   " M art/renders/orison_v2/surface_requirements_20261011/clearance_178_F02_2A_BOOKSHELF_01.png",
-   " M art/renders/orison_v2/surface_requirements_20261011/clearance_33_1A_frame_a.png",
-   " M art/renders/orison_v2/surface_requirements_20261011/clearance_45_4C_story_colorboard.png",
-   " M art/renders/orison_v2/surface_requirements_20261011/clearance_47_2A_k_wall_cupboard.png"
+   " M art/renders/orison_v2/surface_requirements_20261011/clearance_170_F06_PUBLIC_LANDING_PIECE.png"
   ],
-  "repository_head": "f7cc1245c7018ccb12f8ff046aa1037f302c946a",
-  "repository_tree": "ff8d7054a7dfadbad5ba153ee9b6844f15c17ea1",
-  "runtime_inputs_sha256": "c67103eec5c5d1bd2a61f958c64a2c2e2e90f523a698e6125811f2f6cb76c6bf",
+  "repository_head": "003d5993c6f2554782a1f25f253b6c4e24596171",
+  "repository_tree": "f5afb0426f13620faf41eaae2cb464d2d0df12ec",
+  "runtime_inputs_sha256": "8f9e7cbdba214d80ef29936bd770e0b54a87409d865402b3ad9c46e26cec7cdd",
   "test_path": "game/tests/v2_spatial_access_cohort.gd",
   "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
  },

@@ -69,6 +69,24 @@ class RulingsTests(unittest.TestCase):
         self.assertTrue(any("authority" in e for e in errors))
         self.assertTrue(any("date" in e for e in errors))
 
+    def test_large_generated_inventory_without_marker_has_no_citations(self):
+        note = self.root / "design/inventory.json"
+        note.write_bytes(b'{"draws":[' + b'"mapped_surface",' * 300000 + b'null]}')
+        subprocess.run(["git", "-C", str(self.root), "add", "design/inventory.json"], check=True)
+        result = self.write([ruling("RUL-001")])
+        self.assertEqual(result["errors"], [])
+        self.assertEqual(result["citations"], {})
+
+    def test_utf8_replacement_and_word_boundaries_keep_original_citation_semantics(self):
+        note = self.root / "design/NOTE.md"
+        note.write_bytes(b"XRUL-001 RUL-001x _RUL-001 RUL-001_\r\n\xff<RUL-001>\r\n")
+        subprocess.run(["git", "-C", str(self.root), "add", "design/NOTE.md"], check=True)
+        result = self.write([ruling("RUL-001")])
+        self.assertEqual(result["errors"], [])
+        self.assertEqual(result["citations"], {"RUL-001": ["design/NOTE.md"]})
+        note.write_bytes(b"XRUL-001 RUL-001x _RUL-001 RUL-001_")
+        self.assertEqual(cr.check(self.root)["citations"], {})
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

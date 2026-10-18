@@ -15,14 +15,18 @@ returns, standing seams, well frames, a cross-tie and a collar meeting the
 retained clock stem at its actual endpoint. All three tiers have a real
 central well. The original top-light surface remains its own source stock.
 The roof is one material draw and 8,400 triangles, with metre UV charts and
-the registered custom blackened-iron PBR finish. No new catalogue key or
+registered custom iron PBR finishes. The native geometry preview uses
+blackened iron; the existing production retail-finish authority assigns
+neutral iron at the same 400 mm repeat. Its original material ownership is
+retained, and the actual loaded maps are recorded in the surface inventory. No new catalogue key or
 generated texture is introduced.
 
 Six Blender comparisons are retained in
 **art/reviews/v2_arcade_lantern_20261018/native05/**. All pieces are closed and
 outward-facing; export tangent checks pass. Four actual mesh rays cross the
 well, three check the tier undersides and one checks the hanger bearing. Thirty-six further
-mesh rays check the full bearing circles of the four retained corner posts.
+mesh rays sample each centre and eight surrounding locations on the four
+retained post caps.
 Four focused tools tests check clear paths against the original solid-slab
 negative control, source preservation, deterministic fitting and refusal of
 changed tier/light/hanger geometry. The imported Godot bench passed 378
@@ -42,11 +46,24 @@ so their own end caps cannot fake a roof bearing. The rejected mesh queries
 and the interrupted run are retained as diagnostics. Blender comparisons hold
 the same mapped finish and lighting across the two geometry states.
 
-Composed surface, physical repair/save and played-access qualification are
-pending. Existing canonical proofs are historical while their broad source
-digests differ. No proof is repinned. The native result remains incremental
+The corrected source passed the full clean static preflight apart from the
+expected stale canonical proofs. The fresh repair/save execution passed 360
+checks, and the composed surface execution passed 32,850 checks with zero
+failures: 25,655 draws, 16,625 meshes, 6,105 materials and 497 loaded textures.
+Twenty-six current production views were reviewed. The home cohort passed 62 rooms, nine legs and 909 checks; the upper cohort
+passed 69 rooms, eleven legs and 989 checks. Both retired all tracked roots
+and drivers. Original test-written contracts and exact matching wrapper/raw
+logs are published. The final clean comparison remains pending. No proof is repinned. The native result remains incremental
 detail work; it does not close the arcade's fascia, clock-face, overall
 lighting or broader material-finish obligations.
+
+The static ruling-citation checker now rejects marker-free byte buffers before
+decoding or regex work, while still reading every tracked text file and using
+the same citation rules. Eight focused tests pass. Same-tree structured results
+match the original checker; warm-cache timings were 5.3 versus 31.2 seconds.
+The runtime, physical and surface input digests are unchanged by this tooling
+change. The comparison and its cache/load limitation are recorded under
+**static_optimization/**.
 
 ## Management report
 

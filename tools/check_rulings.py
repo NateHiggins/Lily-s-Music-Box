@@ -95,9 +95,15 @@ def check(root: Path) -> dict:
         if rel == REGISTRY or path.suffix not in TEXT_SUFFIXES or not path.is_file():
             continue
         try:
-            text = path.read_text(encoding="utf-8", errors="replace")
+            raw = path.read_bytes()
         except OSError:
             continue
+        # Large generated inventories contain no citations. Every matching
+        # UTF-8 string necessarily contains these literal ASCII bytes, so this
+        # skips decoding/regex work without excluding any tracked text file.
+        if b"RUL-" not in raw:
+            continue
+        text = raw.decode("utf-8", errors="replace")
         for rid in set(CITE_RE.findall(text)):
             citations.setdefault(rid, []).append(rel)
     for rid, files in sorted(citations.items()):
