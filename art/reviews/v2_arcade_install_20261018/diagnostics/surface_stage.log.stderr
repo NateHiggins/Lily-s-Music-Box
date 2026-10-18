@@ -1,0 +1,44 @@
+ERROR: authored normal calibration reaches renderer: arcade_brick_bond
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_material_contract (res://tests/v2_control_finish_review.gd:18)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:22)
+ERROR: authored normal calibration reaches renderer: arcade_brick_face
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_material_contract (res://tests/v2_control_finish_review.gd:18)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:22)
+ERROR: authored normal calibration reaches renderer: arcade_lime_mortar
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_material_contract (res://tests/v2_control_finish_review.gd:18)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:22)
+ERROR: authored normal calibration reaches renderer: arcade_terrazzo
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_material_contract (res://tests/v2_control_finish_review.gd:18)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:22)
+ERROR: authored normal calibration reaches renderer: arcade_terrazzo_dark
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_material_contract (res://tests/v2_control_finish_review.gd:18)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:22)
+ERROR: physically close station door: B1_STATION_BOILER
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_in_world (res://tests/orison_v2_patrol_stations_test.gd:90)
+       [2] operate (res://tests/orison_v2_patrol_stations_test.gd:13)
+ERROR: native door uses original open action
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] run (res://tests/v2_watch_stations_review.gd:41)
+       [2] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

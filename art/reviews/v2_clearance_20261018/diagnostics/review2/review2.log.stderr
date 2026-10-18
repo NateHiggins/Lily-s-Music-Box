@@ -1,0 +1,7 @@
+ERROR: every selected furnishing has a safe finish-clear placement
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] _run (res://tests/v2_furnishing_clearance_review.gd:51)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

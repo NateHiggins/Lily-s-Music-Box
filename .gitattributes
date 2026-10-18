@@ -2258,3 +2258,31 @@ art/tools/build_arcade_terrazzo.py -text
 tools/plan_v2_arcade_canopy.py -text
 tools/check_v2_arcade_fabric_candidate.py -text
 tools/tests/test_arcade_canopy_shells.py -text
+
+# Installed arcade fabric recipes, stock and diagnostic evidence.
+art/reviews/v2_arcade_install_20261018/** -text -whitespace
+art/textures/procedural/arcade_*/** -text
+art/blender/arcade_canopy.blend -text
+art/blender/arcade_throat.blend -text
+art/blender/arcade_throat_construction.json -text
+art/tools/build_arcade_masonry.py -text
+art/tools/publish_arcade_materials.py -text
+tools/publish_v2_arcade_canopy.py -text
+game/assets/props/arcade_canopy.glb* -text
+game/assets/props/arcade_throat.glb* -text
+game/assets/building/textures/T_ai_materials_arcade_*.png* -text
+game/assets/building/orison_v2/passage/passage.gltf.import -text
+game/data/orison_v2/arcade_canopy.json -text
+game/data/orison_v2/arcade_throat.json -text
+game/scripts/building/orison_v2_arcade_fabric.gd -text
+game/tests/ArcadeFabricBench.tscn -text
+game/tests/arcade_fabric_bench.gd -text
+game/tests/v2_arcade_fabric_review.gd -text
+
+# Finish-aware furnishing placement and its native/composed review packet.
+game/scripts/building/orison_v2_furnishing_clearance.gd -text
+game/tests/v2_furnishing_clearance_review.gd -text
+game/tests/V2FurnishingClearanceReview.tscn -text
+art/reviews/v2_clearance_20261018/** -text -whitespace
+# Preserve the existing layout bytes while recognizing its Windows line ends.
+game/data/orison_v2_blockout.json -text whitespace=cr-at-eol

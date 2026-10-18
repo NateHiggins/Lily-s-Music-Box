@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 1.6,
+  "exit_code": 1,
+  "finished_utc": "2026-10-18T09:35:41Z",
+  "started_utc": "2026-10-18T09:35:39Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "ARCADE FABRIC BENCH FAIL checks=2 failures=1"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-arcade-fabric-20261018/fit_bench.log.stderr",
+  "stderr_sha256": "5d6417ccb64e51e4d6641d184c462518333486ce0aeb8cf15e5f326269192b22",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-arcade-fabric-20261018/fit_bench.log",
+  "stdout_sha256": "735ea86540d777ae4bd0a2b8a47e48b917753804e559b9875c886a304c764357"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/ArcadeFabricBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_arcade_install_20261018/fit_bench",
+ "source": {
+  "dirty_paths": 1461,
+  "dirty_sample": [
+   "M art/data/gen_layout.py",
+   " M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json"
+  ],
+  "repository_head": "57df6f2289160b639a5941299a6b44a0650134e5",
+  "repository_tree": "b09f2db2b0eb1e0be0e40a365fa4e460828aa1f1",
+  "runtime_inputs_sha256": "f38630db25ceb0457e995319ec6a832fe7f9b2b640b9f4289a83940cc110b09f",
+  "test_path": "game/tests/arcade_fabric_bench.gd",
+  "test_sha256": "11e950333bae8ced2d7ab9bbbdf1c54b1b564a7e743884712ab7c90dc702ee55"
+ },
+ "windowed": false
+}

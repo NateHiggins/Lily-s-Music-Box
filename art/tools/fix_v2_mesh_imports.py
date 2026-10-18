@@ -9,6 +9,8 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "building/orison_v2/passage/passage.gltf", # Shared long-range UV quantization stretches thin terrazzo border charts by 1.66%.
+    "props/arcade_canopy.glb", "props/arcade_throat.glb", # Source-fitted glass and small mortar/bevel charts retain metric UVs.
     "props/construction_shed.glb", # Native small stock bevels and mirrored charts require full UV precision.
     "props/light_switch.glb", # Imported metre charts stretch 9.3% and their tangent derivatives fail under quantization.
     "props/annunciator_controls.glb", # Loaded bearing cap charts collapse even after periodic UV rebasing.

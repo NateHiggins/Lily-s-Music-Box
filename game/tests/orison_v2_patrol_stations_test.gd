@@ -10,8 +10,11 @@ class PatrolHand extends "res://tests/watch_station_hand_test.gd":
 		await get_tree().physics_frame
 		await get_tree().physics_frame
 		click()
-		if not player._grab.active(): return false
+		if not player._grab.active():
+			print("PATROL ACQUISITION FAILED point=",point," target=",target," inspecting=",player.inspecting())
+			return false
 		var moved: bool=await move_to(target)
+		if not moved:print("PATROL MOTION FAILED goal=",target," active=",player._grab.active()," held=",player._grab.target.get("part")," value=",player._grab.target.read.call() if player._grab.active() else -1)
 		click()
 		return moved and not player._grab.active()
 

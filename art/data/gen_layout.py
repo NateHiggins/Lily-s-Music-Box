@@ -10610,6 +10610,11 @@ PROP_CATALOG = {
 
 MATERIAL_CATALOG = {
     # Registered V2 finishes must survive layout/catalogue regeneration.
+    'arcade_terrazzo': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'arcade_terrazzo_dark': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'arcade_brick_face': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'arcade_brick_bond': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'arcade_lime_mortar': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'site_softwood': {'base_color': [0.714, 0.678, 0.588, 1.0], 'roughness': 0.79, 'metallic': 0.0},
     'site_softwood_endgrain': {'base_color': [0.694, 0.647, 0.545, 1.0], 'roughness': 0.805, 'metallic': 0.0},
     'bath_floor_tile': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0},

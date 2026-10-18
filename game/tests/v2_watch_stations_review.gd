@@ -37,6 +37,7 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	camera.global_position=station.to_global(Vector3(.23,.24,.62));camera.look_at(station.to_global(Vector3(0,.18,.07)),Vector3.UP)
 	var fill := OmniLight3D.new();fill.light_energy=.35;fill.omni_range=2;world.add_child(fill);fill.global_position=camera.global_position
 	var guard := world.find_child("F01_TOUR_KEY_GUARD",true,false) as TourKeyGuardProp
+	if station.door_open:station.close_door()
 	await suite.shot("native_station_closed")
 	suite.check(station.open_door(),"native door uses original open action")
 	await suite.shot("native_station_open")

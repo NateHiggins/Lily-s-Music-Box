@@ -339,6 +339,8 @@ func _stage_one() -> void:
 		if not region.DinerReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
 			_fail("native Diner receiving pair reload refused: "+identity)
 			return
+		if not region.ArcadeFabric.mount_cell(cell, region.source_layout):
+			_fail("source-fitted arcade fabric reload refused: " + identity); return
 		preload("res://scripts/building/orison_v2_owner_finishes.gd").new().apply_shop_cell(cell)
 		preload("res://scripts/building/v2_legacy_material_stock.gd").apply(cell)
 		_staged_surface.apply({identity: cell})

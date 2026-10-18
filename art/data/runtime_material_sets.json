@@ -14,6 +14,76 @@
       "roughness_multiplier": 1.0,
       "visual_lock": true
     },
+    "arcade_brick_bond": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "procedural/arcade_brick_bond",
+      "files": [
+        "T_ai_materials_arcade_brick_bond_albedo.png",
+        "T_ai_materials_arcade_brick_bond_rough.png",
+        "T_ai_materials_arcade_brick_bond_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "arcade_brick_face": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.25,
+      "catalog_mapping": "procedural/arcade_brick_face",
+      "files": [
+        "T_ai_materials_arcade_brick_face_albedo.png",
+        "T_ai_materials_arcade_brick_face_rough.png",
+        "T_ai_materials_arcade_brick_face_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.25,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "arcade_lime_mortar": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.25,
+      "catalog_mapping": "procedural/arcade_lime_mortar",
+      "files": [
+        "T_ai_materials_arcade_lime_mortar_albedo.png",
+        "T_ai_materials_arcade_lime_mortar_rough.png",
+        "T_ai_materials_arcade_lime_mortar_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.25,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "arcade_terrazzo": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "procedural/arcade_terrazzo",
+      "files": [
+        "T_ai_materials_arcade_terrazzo_albedo.png",
+        "T_ai_materials_arcade_terrazzo_rough.png",
+        "T_ai_materials_arcade_terrazzo_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "arcade_terrazzo_dark": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "procedural/arcade_terrazzo_dark",
+      "files": [
+        "T_ai_materials_arcade_terrazzo_dark_albedo.png",
+        "T_ai_materials_arcade_terrazzo_dark_rough.png",
+        "T_ai_materials_arcade_terrazzo_dark_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "asphalt": {
       "alpha": false,
       "canonical_meters_per_tile": 2.5,

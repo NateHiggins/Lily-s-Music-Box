@@ -43,6 +43,12 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	var furnishing_review := preload("res://tests/v2_furnishing_clearance_review.gd").new()
+	furnishing_review.set_meta("shared_world_validation",true);add_child(furnishing_review)
+	await furnishing_review.validate_in_world(world)
+	batch_checks+=furnishing_review.batch_checks
+	for failure: String in furnishing_review.failures:failures.append(failure)
+	furnishing_review.free()
 	var front_review := preload("res://tests/v2_front_restoration_review.gd").new()
 	add_child(front_review)
 	await front_review.run(world,self)
@@ -59,6 +65,10 @@ func _run() -> void:
 	glazing_review.externally_managed=true;add_child(glazing_review)
 	await glazing_review.run(world,self)
 	glazing_review.free()
+	var arcade_review := preload("res://tests/v2_arcade_fabric_review.gd").new()
+	add_child(arcade_review)
+	await arcade_review.run(world,self)
+	arcade_review.free()
 	var bodega_frontage := preload("res://tests/orison_v2_bodega_frontage_test.gd").new()
 	bodega_frontage.batch_mode=true;bodega_frontage.capture_enabled=false;add_child(bodega_frontage)
 	var bodega_result: Dictionary=await bodega_frontage.validate_in_world(world)

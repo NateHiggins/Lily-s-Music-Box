@@ -1,0 +1,661 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/arcade_canopy.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "passage",
+      "replace": [
+        {
+          "id": "site_passage_vault_glass_00_0",
+          "key": "glassish",
+          "low": [
+            11.025,
+            8.376902714755984,
+            54.599999999999994
+          ],
+          "high": [
+            11.575,
+            8.411902714755984,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_00_1",
+          "key": "glassish",
+          "low": [
+            11.025,
+            8.376902714755984,
+            38.6
+          ],
+          "high": [
+            11.575,
+            8.411902714755984,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_01_0",
+          "key": "glassish",
+          "low": [
+            11.625,
+            9.128185675706568,
+            54.599999999999994
+          ],
+          "high": [
+            12.174999999999999,
+            9.163185675706568,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_01_1",
+          "key": "glassish",
+          "low": [
+            11.625,
+            9.128185675706568,
+            38.6
+          ],
+          "high": [
+            12.174999999999999,
+            9.163185675706568,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_02_0",
+          "key": "glassish",
+          "low": [
+            12.225,
+            9.538268590217985,
+            54.599999999999994
+          ],
+          "high": [
+            12.774999999999999,
+            9.573268590217985,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_02_1",
+          "key": "glassish",
+          "low": [
+            12.225,
+            9.538268590217985,
+            38.6
+          ],
+          "high": [
+            12.774999999999999,
+            9.573268590217985,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_03_0",
+          "key": "glassish",
+          "low": [
+            12.825000000000001,
+            9.775635843825754,
+            54.599999999999994
+          ],
+          "high": [
+            13.375,
+            9.810635843825754,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_03_1",
+          "key": "glassish",
+          "low": [
+            12.825000000000001,
+            9.775635843825754,
+            38.6
+          ],
+          "high": [
+            13.375,
+            9.810635843825754,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_04_0",
+          "key": "glassish",
+          "low": [
+            13.425,
+            9.886466080187875,
+            54.599999999999994
+          ],
+          "high": [
+            13.975,
+            9.921466080187875,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_04_1",
+          "key": "glassish",
+          "low": [
+            13.425,
+            9.886466080187875,
+            38.6
+          ],
+          "high": [
+            13.975,
+            9.921466080187875,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_05_0",
+          "key": "glassish",
+          "low": [
+            14.025,
+            9.886466080187875,
+            54.599999999999994
+          ],
+          "high": [
+            14.575,
+            9.921466080187875,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_05_1",
+          "key": "glassish",
+          "low": [
+            14.025,
+            9.886466080187875,
+            38.6
+          ],
+          "high": [
+            14.575,
+            9.921466080187875,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_06_0",
+          "key": "glassish",
+          "low": [
+            14.625,
+            9.775635843825754,
+            54.599999999999994
+          ],
+          "high": [
+            15.174999999999999,
+            9.810635843825754,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_06_1",
+          "key": "glassish",
+          "low": [
+            14.625,
+            9.775635843825754,
+            38.6
+          ],
+          "high": [
+            15.174999999999999,
+            9.810635843825754,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_07_0",
+          "key": "glassish",
+          "low": [
+            15.225,
+            9.538268590217985,
+            54.599999999999994
+          ],
+          "high": [
+            15.774999999999999,
+            9.573268590217985,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_07_1",
+          "key": "glassish",
+          "low": [
+            15.225,
+            9.538268590217985,
+            38.6
+          ],
+          "high": [
+            15.774999999999999,
+            9.573268590217985,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_08_0",
+          "key": "glassish",
+          "low": [
+            15.825000000000001,
+            9.128185675706568,
+            54.599999999999994
+          ],
+          "high": [
+            16.375000000000004,
+            9.163185675706568,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_08_1",
+          "key": "glassish",
+          "low": [
+            15.825000000000001,
+            9.128185675706568,
+            38.6
+          ],
+          "high": [
+            16.375000000000004,
+            9.163185675706568,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_09_0",
+          "key": "glassish",
+          "low": [
+            16.424999999999997,
+            8.376902714755984,
+            54.599999999999994
+          ],
+          "high": [
+            16.975,
+            8.411902714755984,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_vault_glass_09_1",
+          "key": "glassish",
+          "low": [
+            16.424999999999997,
+            8.376902714755984,
+            38.6
+          ],
+          "high": [
+            16.975,
+            8.411902714755984,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_nave_gable_n_1",
+          "key": "plaster",
+          "low": [
+            11.6,
+            7.2,
+            38.6
+          ],
+          "high": [
+            16.4,
+            8.3,
+            38.84
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_nave_gable_n_2",
+          "key": "plaster",
+          "low": [
+            12.5,
+            8.3,
+            38.6
+          ],
+          "high": [
+            15.5,
+            9.2,
+            38.84
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_nave_gable_n_3",
+          "key": "plaster",
+          "low": [
+            13.3,
+            9.2,
+            38.6
+          ],
+          "high": [
+            14.7,
+            9.9,
+            38.84
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_nave_gable_s_head",
+          "key": "plaster",
+          "low": [
+            11.6,
+            8.0,
+            64.36
+          ],
+          "high": [
+            16.4,
+            8.3,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_nave_gable_s_stepa",
+          "key": "plaster",
+          "low": [
+            11.6,
+            7.2,
+            64.36
+          ],
+          "high": [
+            12.9,
+            8.0,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_nave_gable_s_stepb",
+          "key": "plaster",
+          "low": [
+            15.1,
+            7.2,
+            64.36
+          ],
+          "high": [
+            16.4,
+            8.0,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_nave_gable_s_crown1",
+          "key": "plaster",
+          "low": [
+            12.5,
+            8.3,
+            64.36
+          ],
+          "high": [
+            15.5,
+            9.200000000000001,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_nave_gable_s_crown2",
+          "key": "plaster",
+          "low": [
+            13.3,
+            9.2,
+            64.36
+          ],
+          "high": [
+            14.7,
+            9.899999999999999,
+            64.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_lantern_diaphragm_s_0",
+          "key": "glassish",
+          "low": [
+            11.0,
+            7.2,
+            54.56999999999999
+          ],
+          "high": [
+            17.0,
+            8.4,
+            54.629999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_lantern_diaphragm_s_1",
+          "key": "glassish",
+          "low": [
+            11.8,
+            8.4,
+            54.56999999999999
+          ],
+          "high": [
+            16.2,
+            9.3,
+            54.629999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_lantern_diaphragm_s_2",
+          "key": "glassish",
+          "low": [
+            12.7,
+            9.3,
+            54.56999999999999
+          ],
+          "high": [
+            15.3,
+            9.92,
+            54.629999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_lantern_diaphragm_n_0",
+          "key": "glassish",
+          "low": [
+            11.0,
+            7.2,
+            48.56999999999999
+          ],
+          "high": [
+            17.0,
+            8.4,
+            48.629999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_lantern_diaphragm_n_1",
+          "key": "glassish",
+          "low": [
+            11.8,
+            8.4,
+            48.56999999999999
+          ],
+          "high": [
+            16.2,
+            9.3,
+            48.629999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_lantern_diaphragm_n_2",
+          "key": "glassish",
+          "low": [
+            12.7,
+            9.3,
+            48.56999999999999
+          ],
+          "high": [
+            15.3,
+            9.92,
+            48.629999999999995
+          ],
+          "expected_triangles": 12
+        }
+      ],
+      "parts": [
+        {
+          "name": "canopy__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "canopy__plaster_stained",
+          "key": "plaster",
+          "catalog_key": "plaster_stained",
+          "tile": 1.8,
+          "tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "canopy__iron_blackened",
+          "key": "iron_blackened",
+          "catalog_key": "iron_blackened",
+          "tile": 0.4,
+          "tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "canopy__enamel_appliance",
+          "key": "enamel_appliance",
+          "catalog_key": "enamel_appliance",
+          "tile": 0.72,
+          "tint": [
+            0.12,
+            0.5,
+            0.42,
+            1.0
+          ]
+        }
+      ]
+    }
+  ],
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "registered_owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  },
+  "legacy_ornaments": [
+    {
+      "name": "V2_PASSAGE_finish_ceiling_teal",
+      "triangles": 14400,
+      "low": [
+        11.078742831328775,
+        8.173902714755984,
+        39.244331421687676
+      ],
+      "high": [
+        16.921257168671225,
+        9.755966080187875,
+        64.06974116687401
+      ]
+    },
+    {
+      "name": "V2_PASSAGE_finish_ceiling_brass",
+      "triangles": 7608,
+      "low": [
+        11.031,
+        6.912,
+        38.8455
+      ],
+      "high": [
+        16.968999999999998,
+        9.886466080187875,
+        64.3545
+      ]
+    },
+    {
+      "name": "V2_PASSAGE_finish_ceiling_ochre",
+      "triangles": 336,
+      "low": [
+        11.08,
+        6.92,
+        38.839999999999996
+      ],
+      "high": [
+        16.92,
+        9.25,
+        64.36
+      ]
+    }
+  ],
+  "retained_finish_draws": [
+    {
+      "name": "F01_OWN_PASSAGE_retail_passage_shell_common_brick",
+      "colliding": true,
+      "source_key": "common_brick",
+      "source_metres": 1.2,
+      "catalog_key": "arcade_brick_bond"
+    },
+    {
+      "name": "F01_OWN_PASSAGE_retail_passage_shell_terrazzo",
+      "colliding": false,
+      "source_key": "terrazzo",
+      "source_metres": 4.0,
+      "catalog_key": "arcade_terrazzo"
+    },
+    {
+      "name": "F01_OWN_PASSAGE_retail_passage_shell_terrazzo",
+      "colliding": true,
+      "source_key": "terrazzo",
+      "source_metres": 4.0,
+      "catalog_key": "arcade_terrazzo"
+    },
+    {
+      "name": "F01_OWN_PASSAGE_retail_passage_shell_terrazzo_dark",
+      "colliding": false,
+      "source_key": "terrazzo_dark",
+      "source_metres": 1.2,
+      "catalog_key": "arcade_terrazzo_dark"
+    },
+    {
+      "name": "F01_OWN_PASSAGE_retail_shop_keys_cut_common_brick",
+      "colliding": true,
+      "source_key": "common_brick",
+      "source_metres": 1.2,
+      "catalog_key": "arcade_brick_bond"
+    },
+    {
+      "name": "F01_OWN_PASSAGE_retail_shop_pawnbroker_common_brick",
+      "colliding": true,
+      "source_key": "common_brick",
+      "source_metres": 1.2,
+      "catalog_key": "arcade_brick_bond"
+    }
+  ]
+}

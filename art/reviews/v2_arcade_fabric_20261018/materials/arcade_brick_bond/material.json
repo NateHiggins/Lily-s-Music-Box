@@ -1,0 +1,35 @@
+{
+  "material": "arcade_brick_bond",
+  "status": "QUALIFICATION_PENDING",
+  "meters_per_tile": 1.2,
+  "generator": "art/tools/build_arcade_masonry.py",
+  "generator_sha256_lf": "dd7c71e1cc7fbd1365dd30f721c8efa3bd7bb7c5de014fff44fcffb3813c7e72",
+  "albedo_source": "art/textures/ai_sources/arcade_brick_face_20261018.png",
+  "albedo_source_sha256": "f3be0a491ed35b04829624b92b2dc75f20d0b8ae48e33b8802d9f86bf1c07c81",
+  "height_model": "independent_physical_bond_v1",
+  "course_m": [
+    0.2,
+    0.075
+  ],
+  "mortar_joint_m": 0.009,
+  "relief_mm": 4.595529731103794,
+  "height_storage_bits": 16,
+  "normal_strength": 1.0,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
+    "roughness": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
+    "normal": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b",
+    "height": "4fc82d7df4e6d340d2c2bff1c625b1910d1db46e0ddda83627d983541dc35e9d"
+  },
+  "measurements": {
+    "roughness_min": 0.7624738214858239,
+    "roughness_max": 0.9592243055607124,
+    "normal_slope_rms": 0.561747642270736
+  }
+}

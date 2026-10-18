@@ -116,6 +116,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 					collision.position = (high + low) * 0.5
 					body.add_child(collision)
 		body.set_meta("v2_furniture_id", str(record.id))
+		body.set_meta("v2_furniture_kind", str(record.kind))
 		if native_table:
 			if not WorkTables.mount_on(body, str(record.id), record):
 				body.free()

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/arcade_throat.glb",
+  "tolerance": 1e-05,
+  "cells": [
+    {
+      "id": "passage",
+      "replace": [
+        {
+          "id": "site_passage_throat_w",
+          "key": "common_brick",
+          "low": [
+            10.78,
+            0.0,
+            28.316
+          ],
+          "high": [
+            11.0,
+            4.2,
+            38.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_throat_e",
+          "key": "common_brick",
+          "low": [
+            17.0,
+            0.0,
+            28.316
+          ],
+          "high": [
+            17.22,
+            4.2,
+            38.6
+          ],
+          "expected_triangles": 12
+        }
+      ],
+      "parts": [
+        {
+          "name": "throat_mortar__common_brick",
+          "key": "common_brick",
+          "catalog_key": "arcade_lime_mortar",
+          "tile": 0.25,
+          "tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "throat_face_0__common_brick",
+          "key": "common_brick",
+          "catalog_key": "arcade_brick_face",
+          "tile": 0.25,
+          "tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "throat_face_2__common_brick",
+          "key": "common_brick",
+          "catalog_key": "arcade_brick_face",
+          "tile": 0.25,
+          "tint": [
+            0.95,
+            0.96,
+            0.98,
+            1.0
+          ]
+        },
+        {
+          "name": "throat_face_1__common_brick",
+          "key": "common_brick",
+          "catalog_key": "arcade_brick_face",
+          "tile": 0.25,
+          "tint": [
+            0.98,
+            0.96,
+            0.94,
+            1.0
+          ]
+        }
+      ]
+    }
+  ]
+}

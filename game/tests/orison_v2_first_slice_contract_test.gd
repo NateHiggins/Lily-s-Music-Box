@@ -602,12 +602,16 @@ func _service_supply(player: PlayerController,prop: RadiatorProp,value: float) -
 	hand.free();return result
 
 func _carry_service_part(player: PlayerController,body: Node3D,goal: Vector3) -> bool:
+	var held_contact: Vector3=player._grab.contact
 	var start:=body.to_global(player._grab.contact)
 	player.camera.global_position=(start+goal)*.5+Vector3.UP*.35+player.camera.global_basis.z*.8
 	player.camera.look_at(start)
 	for i in 320:
 		if not player._grab.active():
 			print("[SERVICE CARRY RELEASED] part=",body.name," at=",body.global_position," goal=",goal," camera=",player.camera.global_position)
+			var query:=PhysicsRayQueryParameters3D.create(player.camera.global_position,body.to_global(held_contact))
+			query.collide_with_areas=true;query.exclude=[player.get_rid()]
+			print("[SERVICE CARRY RELEASE DIAGNOSIS] blocker=",player.get_world_3d().direct_space_state.intersect_ray(query)," call_locked=",player.call_locked," mouse_released=",player.mouse_released," mode=",Input.mouse_mode," distance=",player.camera.global_position.distance_to(body.to_global(held_contact)))
 			return false
 		var contact: Vector3=body.to_global(player._grab.contact)
 		if body.global_position.distance_to(goal)<.001:return true

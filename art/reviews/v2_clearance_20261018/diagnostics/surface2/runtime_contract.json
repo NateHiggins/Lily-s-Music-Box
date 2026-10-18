@@ -1,0 +1,46 @@
+{
+	"checks": 32753,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"surface_requirements": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"status": "FAIL"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 422.937,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": [
+		"installed furnishing clears real finish: 6A_prep_cabinet",
+		"installed furnishing clears real finish: 2B_repair_rail",
+		"every selected furnishing has a safe finish-clear placement"
+	],
+	"inventory_sha256": "5f17c2b99bed04eb63f928143ed7b3c36fb3ecbe3390c5b71baaa3b659fcbf1a",
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
+	"selector": "v2",
+	"source": {
+		"repository_head": "57df6f2289160b639a5941299a6b44a0650134e5",
+		"runtime_inputs_sha256": "74078bd8a75f9cf4e721c106ade937678fa6009533f4db6c8082ed005f1db88e",
+		"test_path": "game/tests/orison_v2_surface_inventory.gd",
+		"test_sha256": "cc25dfe9ac07a7a1949656ed9831bb00ac73122adcd14ac2a3d76942b069e760"
+	},
+	"surface_inputs_sha256": "d6dce29ddb25ff0a490b4473082ed5ead22b2821691e81553d32765e31612b55"
+}

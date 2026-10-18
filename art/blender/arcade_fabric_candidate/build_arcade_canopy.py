@@ -25,6 +25,7 @@ from check_exported_tangents import validate
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--work-dir', type=Path, required=True)
+parser.add_argument('--publish-native', action='store_true')
 args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
 work = args.work_dir.resolve()
 work.mkdir(parents=True, exist_ok=True)
@@ -209,6 +210,13 @@ for image in bpy.data.images:
     if image.source == 'FILE':
         image.filepath = bpy.path.relpath(image.filepath, start=str(work))
 bpy.ops.wm.save_as_mainfile(filepath=str(work / 'arcade_canopy.blend'))
+published_native = ROOT / 'art/blender/arcade_canopy.blend'
+if args.publish_native:
+    for image in bpy.data.images:
+        if image.source == 'FILE':
+            absolute = bpy.path.abspath(image.filepath)
+            image.filepath = bpy.path.relpath(absolute, start=str(published_native.parent))
+    bpy.ops.wm.save_as_mainfile(filepath=str(published_native))
 (work / 'canopy_plan.json').write_text(json.dumps(plan, indent=2) + '\n', encoding='utf8', newline='\n')
 proof.update(evidence_class='INERT', scope='Blender candidate only; no loaded-world, collision or runtime acceptance.',
              stock_count=len(plan['parts']), closed_glass_panes=plan['pane_count'],
@@ -226,5 +234,8 @@ for relative in [plan['source'], 'tools/plan_v2_arcade_canopy.py',
 proof['retained_source_guides_excluded_from_export'] = len(reference.objects)
 proof['lantern_closed_glass_panes'] = plan['lantern_closed_panes']
 proof['native_sha256'] = hashlib.sha256((work / 'arcade_canopy.blend').read_bytes()).hexdigest()
+if args.publish_native:
+    proof['published_native'] = published_native.relative_to(ROOT).as_posix()
+    proof['published_native_sha256'] = hashlib.sha256(published_native.read_bytes()).hexdigest()
 (work / 'native_review.json').write_text(json.dumps(proof, indent=2) + '\n', encoding='utf8', newline='\n')
 print('ARCADE CANOPY CANDIDATE', json.dumps(proof))

@@ -8,6 +8,7 @@ const Surface := preload("res://scripts/building/surface_pass.gd")
 const Finish := preload("res://scripts/building/passage_finish_pass.gd")
 const Residency := preload("res://scripts/building/orison_v2_passage_residency.gd")
 const Seating := preload("res://scripts/building/orison_v2_shop_seating.gd")
+const ArcadeFabric := preload("res://scripts/building/orison_v2_arcade_fabric.gd")
 const Laundry := preload("res://scripts/building/orison_v2_laundry_fittings.gd")
 const LaundryApparatus := preload("res://scripts/building/orison_v2_laundry_apparatus.gd")
 const ShopClerestories := preload("res://scripts/building/orison_v2_shop_clerestories.gd")
@@ -283,6 +284,8 @@ func _ready() -> void:
 	for cell: Node3D in cell_nodes.values():
 		if not preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_cell(cell,source_layout):
 			_fail("standard wall millwork fit refused: "+str(cell.name)); return
+	if not ArcadeFabric.mount_cell(cell_nodes.passage, source_layout):
+		_fail("source-fitted arcade fabric refused"); return
 	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_cell(cell)
 	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_wear(cell)
 	surface_pass.apply(cell_nodes)

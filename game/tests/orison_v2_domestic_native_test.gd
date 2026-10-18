@@ -36,7 +36,8 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var anchor: Dictionary = anchors[identity]
 		var position: Array = anchor.position
 		var expected_position: Vector3 = world.adapter.root.to_global(Vector3(position[0],float(position[1])+float(levels[str(anchor.level)]),position[2]))
-		check(body.global_position.is_equal_approx(expected_position) and body.global_basis.is_equal_approx(world.adapter.root.global_basis*Basis(Vector3.UP,float(anchor.yaw))),"original furniture placement preserved: "+identity)
+		expected_position+=world.adapter.root.global_basis*preload("res://tests/v2_furnishing_clearance_review.gd").refit_delta(world.adapter.root,identity)
+		check(body.global_position.is_equal_approx(expected_position) and body.global_basis.is_equal_approx(world.adapter.root.global_basis*Basis(Vector3.UP,float(anchor.yaw))),"source placement and measured finish refit preserved: "+identity)
 		var first := not first_actors.has(variant)
 		if first: first_actors[variant] = identity
 		var shapes := body.find_children("*","CollisionShape3D",false,false)

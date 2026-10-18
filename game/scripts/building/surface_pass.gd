@@ -39,6 +39,8 @@ const RELIEF_MM := {
 ## Metres of world per texture tile, as the ingest recorded them
 ## (art/textures/ai_materials/<key>/material.json) and the builder baked them.
 const TILE_M := {
+	"arcade_terrazzo": .4, "arcade_terrazzo_dark": .4,
+	"arcade_brick_face": .25, "arcade_lime_mortar": .25, "arcade_brick_bond": 1.2,
 	"face_brick": 2.2, "common_brick": 1.2, "brick": 1.5, "brick_patched": 1.2,
 	"concrete": 2.8, "slab": 2.8, "limestone": 1.6, "plaster": 1.8,
 	"plaster_stained": 1.8, "subway_tile": 0.67, "ceramic": 0.65, "terrazzo": 4.0,

@@ -1,0 +1,17 @@
+ERROR: installed furnishing clears real finish: 6A_prep_cabinet
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_in_world (res://tests/v2_furnishing_clearance_review.gd:86)
+ERROR: installed furnishing clears real finish: 2B_repair_rail
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_in_world (res://tests/v2_furnishing_clearance_review.gd:86)
+ERROR: every selected furnishing has a safe finish-clear placement
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_in_world (res://tests/v2_furnishing_clearance_review.gd:122)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

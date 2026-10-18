@@ -12,7 +12,7 @@ func validate_material_contract(suite: Node) -> void:
 		suite.check(stock.transparency==(BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS if spec.alpha else BaseMaterial3D.TRANSPARENCY_DISABLED),"normal calibration preserves optical alpha: "+key)
 		var expected_normal := .35
 		if key=="bakelite":expected_normal=float(resin_recipe.normal_strength)
-		elif key.begins_with("site_softwood"):
+		elif key.begins_with("site_softwood") or key.begins_with("arcade_"):
 			var recipe: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(source_root.path_join("art/textures/procedural/"+key+"/material.json")))
 			expected_normal=float(recipe.normal_strength)
 		suite.check(is_equal_approx(stock.normal_scale,expected_normal),"authored normal calibration reaches renderer: "+key)

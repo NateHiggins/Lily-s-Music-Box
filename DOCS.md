@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Finished-wall furniture fitting, retained service access and installed native arcade fabric | `design/V2_FINISHED_WALL_CLEARANCE_2026-10-18.md` |
 | Native work-lamp source apertures and controlled storefront reflection diagnosis | `design/V2_WORK_LIGHT_APERTURES_2026-10-18.md` |
 | Bodega tile scale/stock, registered limestone, lower fascia emission and optical controls | `design/V2_STREET_FINISH_2026-10-18.md` |
 | Played-home proof renewal, finite stock identity audit and main regression repair | `design/V2_MAIN_REGRESSION_REPAIR_2026-10-18.md` |

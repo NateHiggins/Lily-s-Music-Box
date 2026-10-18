@@ -83,6 +83,26 @@ def inputs(root=ROOT):
     _,authored_recipes=recipe_dependencies(root)
     paths.update(authored_recipes)
     paths.add(root/'tools/check_v2_recipe_projections.py')
+    # Installed arcade fabric owns its actual native recipes and custom maps.
+    paths.update(root/p for p in (
+        'art/blender/arcade_fabric_candidate/build_arcade_canopy.py',
+        'art/blender/arcade_fabric_candidate/build_arcade_throat.py',
+        'art/blender/arcade_throat.blend', 'art/blender/arcade_throat_construction.json',
+        'art/blender/arcade_canopy.blend',
+        'art/reviews/v2_arcade_install_20261018/canopy/arcade_canopy.blend',
+        'art/reviews/v2_arcade_install_20261018/canopy/canopy_plan.json',
+        'tools/plan_v2_arcade_canopy.py', 'tools/publish_v2_arcade_canopy.py',
+        'art/tools/build_arcade_terrazzo.py', 'art/tools/build_arcade_masonry.py',
+        'art/tools/publish_arcade_materials.py',
+        'game/tests/v2_arcade_fabric_review.gd', 'game/tests/arcade_fabric_bench.gd',
+        'game/tests/v2_furnishing_clearance_review.gd'))
+    for name in ('arcade_fine_terrazzo_20261018.png','arcade_dark_terrazzo_20261018.png',
+                 'arcade_terrazzo_20261018.json','arcade_brick_face_20261018.png',
+                 'arcade_brick_face_20261018.json'):
+        paths.add(root/'art/textures/ai_sources'/name)
+    for key in ('arcade_terrazzo','arcade_terrazzo_dark','arcade_brick_face','arcade_brick_bond','arcade_lime_mortar'):
+        for filename in ('material.json','albedo.png','normal.png','roughness.png','height.png'):
+            paths.add(root/f'art/textures/procedural/{key}/{filename}')
     paths.update(root/p for p in ('art/blender/annunciator_controls.blend',
         'art/tools/build_bakelite.py','art/textures/procedural/bakelite/material.json',
         'art/tools/build_radiator_service_brass.py','art/textures/procedural/radiator_service_brass/material.json'))

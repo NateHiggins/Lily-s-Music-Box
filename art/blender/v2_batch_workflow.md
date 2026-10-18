@@ -27,6 +27,17 @@ disposable; apply production calibration through the existing lighting authority
 
 ## Visual detail priority (owner direction, 2026-10-17)
 
+Furnishing placement is measured against installed wall finishes, including
+baseboard beads, panel caps and rails, rather than the bare wall plane. Keep
+the whole actor, collision, supported stock, appliances and approach anchors
+together. Wall hangings must clear trim without floating off the plaster.
+The composed surface suite includes **v2_furnishing_clearance_review.gd**;
+unresolved placements fail qualification. Retain clear walking routes and
+exercise moving parts after refitting an installation.
+Include adjacent service access in that review: trim-clear furniture can still
+occlude a valve or a loose part during removal. Check the real grab, withdrawal,
+carry and replacement path before renewing the broad surface and route proofs.
+
 Prioritize observed material and construction defects within each batch,
 especially surfaces seen close up or handled repeatedly. A catalogue entry,
 valid UVs and complete mipmaps are necessary checks, not visual acceptance.
