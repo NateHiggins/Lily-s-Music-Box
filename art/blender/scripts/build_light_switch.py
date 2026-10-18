@@ -2,24 +2,26 @@
 Run: blender -b -P art/blender/scripts/build_light_switch.py
 """
 from pathlib import Path
-import math
-import bpy
+import math,json,sys
+import bpy,bmesh,numpy as np
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[3]
-bpy.ops.object.select_all(action='SELECT')
-bpy.ops.object.delete(use_global=False)
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.context.preferences.filepaths.save_version=0
+sys.path.insert(0,str(Path(__file__).parent))
+from fabrication_native_batch import material as stock_material,export
+from fabrication_chart_batch import triangle_charts
+from fabrication_normals import stock_corner_normals
+catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
 
 def p(v): return Vector((v[0], -v[2], v[1]))
 
 def material(name, color, metal, rough):
-    m = bpy.data.materials.new(name)
-    m.use_nodes = True
-    s = m.node_tree.nodes.get('Principled BSDF')
-    s.inputs['Base Color'].default_value = (*color, 1)
-    s.inputs['Metallic'].default_value = metal
-    s.inputs['Roughness'].default_value = rough
-    return m
+    # Geometry retains its existing named material slots; runtime still owns
+    # their resources. Native review now samples those same catalogue maps.
+    return stock_material(ROOT,name,{'catalog_key':name,'normal':1. if name=='bakelite' else .35,
+        'roughness':catalog[name]['roughness_multiplier'],'pigment':1.,'tint':[1,1,1]},catalog)
 
 phenolic = material('bakelite', (.065,.041,.027), 0, .32)
 nickel = material('nickel_plated', (.64,.63,.58), .82, .3)
@@ -90,17 +92,32 @@ for o in list(bpy.context.scene.objects):
     bpy.ops.object.select_all(action='DESELECT')
     o.select_set(True)
     bpy.context.view_layer.objects.active = o
-    bpy.ops.object.mode_set(mode='EDIT')
-    bpy.ops.mesh.select_all(action='SELECT')
-    bpy.ops.mesh.normals_make_consistent(inside=False)
-    bpy.ops.uv.smart_project(island_margin=.02)
-    bpy.ops.object.mode_set(mode='OBJECT')
-    for face in o.data.polygons: face.use_smooth = True
-    normal = o.modifiers.new('Weighted manufactured normals', 'WEIGHTED_NORMAL')
-    normal.keep_sharp = True
-    normal.weight = 50
-    bpy.ops.object.modifier_apply(modifier=normal.name)
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/light_switch.blend'))
+    bpy.ops.object.transform_apply(location=False,rotation=True,scale=True)
+    mesh=o.data;bm=bmesh.new();bm.from_mesh(mesh)
+    # The old half-thickness bevel leaves subnanometre duplicate seams.
+    # Weld those manufacturing-zero edges instead of exempting their charts.
+    bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-8)
+    bmesh.ops.dissolve_degenerate(bm,edges=list(bm.edges),dist=1e-9)
+    bmesh.ops.triangulate(bm,faces=list(bm.faces));bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(mesh);bm.free()
+    points=np.array([v.co[:] for v in mesh.vertices]);indices=np.array([loop.vertex_index for loop in mesh.loops]).reshape((-1,3))
+    _,us,charts,_=triangle_charts(points[indices],np.zeros(3),1.,np.broadcast_to(np.eye(3),(len(indices),3,3)),np.zeros(len(indices),dtype=bool))
+    while mesh.uv_layers:mesh.uv_layers.remove(mesh.uv_layers[0])
+    uv=mesh.uv_layers.new(name='Metres').data;uv.foreach_set('uv',charts.astype(np.float32).ravel())
+    tile=catalog[mesh.materials[0].name]['meters_per_tile']
+    for face in mesh.polygons:
+        center=sum((uv[i].uv for i in face.loop_indices),Vector((0,0)))/len(face.loop_indices)
+        shift=Vector((round(center.x/tile)*tile,round(center.y/tile)*tile))
+        for i in face.loop_indices:uv[i].uv-=shift
+    guide=mesh.attributes.new(name='_tangent_guide',type='FLOAT_VECTOR',domain='CORNER')
+    values=np.repeat(us[:,[0,2,1]],3,axis=0);values[:,2]*=-1;guide.data.foreach_set('vector',values.astype(np.float32).ravel())
+    mesh.normals_split_custom_set(stock_corner_normals(mesh,planar_axes=[[1,0,0],[0,1,0],[0,0,1]]))
+# Preserve individually editable fabrication pieces beside the runtime batch.
+construction=bpy.data.collections.new('Closed construction');bpy.context.scene.collection.children.link(construction)
+construction.hide_render=True;construction.hide_viewport=True
+for o in list(bpy.context.scene.objects):
+    if o.type!='MESH':continue
+    original=o.matrix_world.copy();copy=o.copy();copy.data=o.data.copy();copy.name=o.name+'_Construction'
+    copy.parent=None;construction.objects.link(copy);copy.matrix_world=original
 # Keep the fabrication parts editable in the .blend; batch stationary hardware
 # for the many installed instances. The toggle remains mechanically independent.
 bpy.ops.object.select_all(action='DESELECT')
@@ -108,4 +125,4 @@ for o in bpy.context.scene.objects:
     if o.type == 'MESH' and o.parent is None: o.select_set(True)
 bpy.context.view_layer.objects.active = plate
 bpy.ops.object.join()
-bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/light_switch.glb'),export_format='GLB',export_yup=True,export_apply=True)
+print('LIGHT SWITCH',export(ROOT,'light_switch',bpy.context.scene.collection,material_names_only=True,staged_output=True),flush=True)

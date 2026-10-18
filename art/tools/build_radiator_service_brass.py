@@ -33,9 +33,11 @@ def build():
     normal = np.stack((-dx, dy, np.ones_like(dx)), axis=-1)
     normal /= np.linalg.norm(normal, axis=-1)[..., None]
     albedo = np.clip(np.array([166, 137, 80])[None, None, :]
-                     + oxide[..., None] * np.array([1.4, 1.2, .7])
-                     + tooling[..., None] * .25, 0, 255)
-    roughness = np.clip(.40 + oxide * .010 + tooling * .006 + fine * .003, .34, .48)
+                     + oxide[..., None] * np.array([.35, .28, .18])
+                     + tooling[..., None] * .15, 0, 255)
+    # Worked stock should not inherit the cloudlike contrast of a cast skin.
+    # Retain physical microrelief; quiet optical variation is independent.
+    roughness = np.clip(.40 + oxide * .002 + tooling * .004 + fine * .002, .34, .48)
     extent = float(np.abs(height_m).max())
     values = dict(albedo=albedo, roughness=roughness * 255,
                   normal=(normal * .5 + .5) * 255,

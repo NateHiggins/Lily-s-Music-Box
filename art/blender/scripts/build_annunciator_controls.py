@@ -54,6 +54,8 @@ def tube(name,outer,inner,low,high,at=(0,0,0),axis='z',scallop=False,edge=0):
 def finish(name,key):
     global pieces
     spec=dict(catalog_key=key,normal=1.0 if key=='radiator_service_brass' else .12 if name=='FlagArm' else .35,roughness=.6 if name=='FlagArm' else 1.0,pigment=1.0,tint=[.48,.08,.055] if name=='FlagArm' else [1,1,1])
+    if name in ['ResetKnob','ResetBearing','LampBezel','FixedContactMetal','MovingContactMetal']:
+        spec['planar_axes']=[[1,0,0],[0,1,0],[0,0,1]]
     mat=material(ROOT,key,spec,catalog)
     draw=partition(exports,name,pieces,spec,mat,Matrix.Identity(4),catalog)
     # Keep tiny bevel charts near zero rather than near a whole-metre UV

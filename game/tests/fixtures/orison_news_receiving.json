@@ -3112,14 +3112,14 @@
         "name": "storm_shopcab_news_cigars0__bakelite",
         "key": "bakelite",
         "catalog_key": "bakelite",
-        "tile": 0.35,
+        "tile": 0.04,
         "triangles": 5092
       },
       {
         "name": "storm_shopcab_news_cigars0__bakelite__service_panel",
         "key": "bakelite",
         "catalog_key": "bakelite",
-        "tile": 0.35,
+        "tile": 0.04,
         "triangles": 188
       },
       {
@@ -3187,7 +3187,7 @@
       }
     ]
   },
-  "asset_sha256": "9a36a750e5754e6a40cddf80581a2480281dd3558a881f22b75d77901c582c2c",
+  "asset_sha256": "779cb5afba4d0fd3b9810774e454b10a359836a76ec7c8cf1f315bed8f2befae",
   "fitted_datums": {
     "floor_top": 0.009999999999999995,
     "maximum": 1.83,
@@ -3201,15 +3201,15 @@
     "service_panel_closed": true
   },
   "source_bindings": {
-    "art/data/news_receiving/source_plan.json": "b4eef11a946789a85e83290fa851020bfdcb72fc72a35d0ca74304377472c12c",
+    "art/data/news_receiving/source_plan.json": "5f5a58e5317298892d949142b2a0bbc8695bb9e581e781b1e6ddbdd1bbc28e0e",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_news_receiving.py": "216f4739926f86fd96a518d4dc3e1d655ab83103b3c9ca29a7008b2e606e6609",
+    "art/blender/scripts/build_news_receiving.py": "1c0c5f64a02196f8b88c38828bb389d26c46d6071456099d3f3e2954740321a3",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
-    "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
+    "game/data/runtime_material_sets.json": "35fcbbd435ca9fc2aea51aad1549bcbe98a84c9b1acb3bbf392a6ab05b11a242",
+    "game/scripts/generated/material_sets.gd": "82e10536302f4b0cf0bd5a1b99658eb1e8f07fc41279f00b5444bb07e7448e9e",
     "game/assets/props/news_receiving.glb.import": "430f8969d1978e5db7bf8dc762297ea4da5025b29903fcee4ffd4b9f44640377",
-    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/procedural/bakelite/material.json": "603ae8cb52e04ab4dcc71479d033528fffa5522c62eaf12c401891604ef5e8e2",
     "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
     "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
     "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
@@ -3217,9 +3217,9 @@
     "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
     "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
     "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
-    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
-    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
-    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_bakelite_albedo.png": "8015275b1d7f82aa2229087bbfd6d4c1f66c29a3d6525f7f6386265271475b2a",
+    "game/assets/building/textures/T_ai_materials_bakelite_rough.png": "389a7dfebb0bb02dad213256749c38a6c7afee25b6fe3b8f716f8ffa0be45b5a",
+    "game/assets/building/textures/T_ai_materials_bakelite_normal.png": "178957a6d7b03dd9aa3e20585f4b7294abf6000dbcdf8097eb6afc4e7e7948ac",
     "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
     "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
     "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
@@ -3248,9 +3248,10 @@
     "game/assets/props/shop_seating.glb": "8336aae5a62910769a0f4738b2f78c1a305af1fb2a7063d201a6ab822a52378a",
     "game/data/orison_v2/shop_seating.json": "0a1436c3c1a4ab1dd57de3536c9af74a100067b705c69d39fee956c867c2d01d",
     "art/blender/shop_seating.blend": "fcd4daf82636bf0379fd9dc05638a51e1d486948e20a9c37f1bb15f554a1bbfd",
-    "game/assets/props/news_fittings.glb": "6ca5a72ded402ba354621d5939c93354cef4b777fd0e16f4dbf84e3a1b7cfcea",
-    "game/data/orison_v2/news_fittings.json": "7ce068e28fde69aec1e55b447a97a6fc8d47f3f2e434e5b04cc8a09af687147d",
-    "art/blender/news_fittings.blend": "a804f7ed1f57889b02fd418b92ad56d08415cfbafbaee86433765437fe1d2eb2"
+    "game/assets/props/news_fittings.glb": "38c4d5e0534d20b0349bd422f54bc9a894f691e2f79a90bb87b653d1887957cd",
+    "game/data/orison_v2/news_fittings.json": "925bbef088a546da3b55baab8f0bc612ded917ba3bb04289fceb830a9082c248",
+    "art/blender/news_fittings.blend": "2fe9dab9dc8ec74589b993f1ca425bc3ef8514d5826823bd7b75635d3c34db38",
+    "art/blender/scripts/fabrication_recipe_migration.py": "d038890622d43b8e11895aadf4bacc3ded3ca6e4172b016d0a04b358e0c4dfbb"
   },
   "open_work": [
     "Bible VIII.5.g governs this period ADAPTATION of the exact variant-0 original chassis: Bakelite case, circular brass bezel, cloth-backed grille, original controls, passive valve rack behind closed hinged service stock, letter-free inside-lid diagram, wet cells and braided flex. OUTER RIM keeps its original programme/card and genre-control owner.",

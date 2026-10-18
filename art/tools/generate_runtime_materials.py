@@ -43,7 +43,7 @@ RUNTIME_POLICY = {
     "book_ochre": {}, "book_teal": {}, "book_brown": {},
     "enamel": {}, "enamel_appliance": {}, "appliance": {},
     "metal": {}, "chrome": {}, "iron_neutral": {}, "zinc_quiet": {},
-    "bakelite": {}, "cast_iron": {"roughness_multiplier": 0.60},
+    "bakelite": {"normal_scale": 1.0}, "cast_iron": {"roughness_multiplier": 0.60},
     "soot": {"roughness_multiplier": 0.90},
     "fx_grease": {"roughness_multiplier": 0.78, "alpha": True,
                   "generated": True, "meters_per_tile": 0.70},
@@ -83,7 +83,6 @@ VISUAL_LOCKS = {
     "appliance": ("T_library_appliances_aged_enamel_worn_appliance", 1.00),
     "metal": ("T_library_appliances_galvanized_metal_worn_metal", 0.90),
     "chrome": ("T_library_appliances_brushed_steel", 0.80),
-    "bakelite": ("T_library_appliances_bakelite", 0.35),
     "brass": ("T_library_metals_aged_brass", 0.50),
     "brass_dull": ("T_ai_materials_brass_dull", 0.50),
     "porcelain": ("T_library_furniture_porcelain", 0.90),
@@ -217,6 +216,13 @@ def render_gd(contract: dict) -> str:
     for key, spec in contract["materials"].items():
         suffix = " # visual lock" if spec["visual_lock"] else ""
         lines.append('\t%r: %s,%s' % (key, _gd_value(spec), suffix))
+    lines += ["}", ""]
+    # Runtime-only optical calibration is compiled directly from its policy.
+    # Keep it out of the authoring-only JSON mirror and retain tuple ABI.
+    lines += ["const OPTICS := {"]
+    for key,policy in RUNTIME_POLICY.items():
+        if "normal_scale" in policy:
+            lines.append('\t%r: %s,' % (key,json.dumps({"normal_scale":float(policy["normal_scale"])})))
     lines += ["}", ""]
     return "\n".join(lines)
 

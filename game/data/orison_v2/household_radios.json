@@ -10,7 +10,7 @@
           "name": "HouseholdRadio__Body_ON_bakelite",
           "component": "Body",
           "key": "bakelite",
-          "tile": 0.35,
+          "tile": 0.04,
           "catalog_key": "bakelite",
           "tint": [
             0.3,
@@ -19,8 +19,8 @@
             1
           ],
           "finish": {
-            "normal_scale": 0.025,
-            "roughness": 0.42
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -109,7 +109,7 @@
           "name": "HouseholdRadio__PowerTuningKnob_ON_bakelite",
           "component": "PowerTuningKnob",
           "key": "bakelite",
-          "tile": 0.35,
+          "tile": 0.04,
           "catalog_key": "bakelite",
           "tint": [
             0.3,
@@ -118,8 +118,8 @@
             1
           ],
           "finish": {
-            "normal_scale": 0.025,
-            "roughness": 0.42
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {

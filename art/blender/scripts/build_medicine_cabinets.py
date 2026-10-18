@@ -56,6 +56,9 @@ for key in plan['runtime_keys']:
  material_definitions.append(definition)
  sets[key].update(plan.get('finish_parameters',{}).get(key,{}))
 
+from fabrication_recipe_migration import calibrate_sets
+calibrate_sets(ROOT,sets,plan,catalog)
+
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
 accessories=json.loads((ROOT/'game/data/orison_v2/household_accessories.json').read_text(encoding='utf-8'))['accessories']
@@ -334,6 +337,7 @@ bindings.extend(ROOT/name for name in ['art/blender/scripts/inspect_medicine_cab
 bindings.extend(ROOT/name for name in ['game/assets/building/floor_b1.gltf','game/scripts/building/orison_v2_architectural_materials.gd','game/shaders/lamp_glass_surface.gdshader'])
 bindings.extend(ROOT/name for name in ['art/blender/scripts/inspect_household_toaster_motion.py','art/blender/scripts/render_medicine_cabinet_interiors.py','art/blender/scripts/inspect_medicine_cabinet_motion.py','art/blender/scripts/inspect_medicine_cabinets_context.py','game/data/orison_v2_blockout.json','art/blender/work_tables.blend','game/data/orison_v2/domestic_surface_props.json','game/tests/fixtures/orison_surface_stock.json'])
 bindings.extend(ROOT/name for name in ['art/blender/domestic_storage.blend','art/blender/prep_cabinets.blend','art/blender/household_wardrobes.blend','art/blender/domestic_objects.blend','game/scripts/props/medicine_cabinet_prop.gd','game/scripts/props/functional_prop.gd','game/data/orison_v2/household_accessories.json','art/blender/scripts/surface_stock_geometry.py','art/blender/domestic_seating.blend','art/blender/domestic_tables.blend'])
+bindings.append(ROOT/'art/blender/scripts/fabrication_recipe_migration.py')
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'source_record':a['members'][0]['id']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'retained_stock':retained_stock,'construction_groups':construction_groups,'placement':plan['placement'],'open_work':plan['open_work']}
 for name in ['art/blender/medicine_cabinets_construction.json','game/tests/fixtures/orison_medicine_cabinets.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('MEDICINE CABINETS',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

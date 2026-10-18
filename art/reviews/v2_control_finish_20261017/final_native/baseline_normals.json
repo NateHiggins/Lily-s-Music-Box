@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Controlled diagnostic only; no production acceptance",
+  "metrics": {
+    "Apron": {
+      "front_triangles": 467,
+      "front_area_m2": 0.008817743281007928,
+      "maximum_front_normal_bias_degrees": 0.019782341029446364,
+      "maximum_inner_bevel_tangent_bias_degrees": 0.027976455118293345,
+      "unanchored_negative_control": {
+        "front_triangles": 467,
+        "front_area_m2": 0.008817743281007928,
+        "maximum_front_normal_bias_degrees": 13.478510427907413,
+        "maximum_inner_bevel_tangent_bias_degrees": 13.482202232374945
+      }
+    },
+    "ButtonCap": {
+      "front_triangles": 46,
+      "front_area_m2": 0.0001385013769379384,
+      "maximum_front_normal_bias_degrees": 0.019782341029446364,
+      "maximum_inner_bevel_tangent_bias_degrees": 0.027976455118293345,
+      "unanchored_negative_control": {
+        "front_triangles": 46,
+        "front_area_m2": 0.0001385013769379384,
+        "maximum_front_normal_bias_degrees": 12.97524679416236,
+        "maximum_inner_bevel_tangent_bias_degrees": 12.97941366686647
+      }
+    }
+  }
+}

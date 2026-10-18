@@ -37,7 +37,8 @@ static func get_mat(key: String, tint := Color.WHITE,
 		mat.roughness = float(spec[5]) if spec.size() > 5 else 1.0
 	mat.normal_enabled = true
 	mat.normal_texture = load(TEX + spec[2])
-	mat.normal_scale = 0.35
+	var optics: Dictionary = GENERATED_SETS.OPTICS.get(key, {})
+	mat.normal_scale = float(optics.get("normal_scale", 0.35))
 	mat.metallic = float(spec[4])
 	if spec.size() > 6 and bool(spec[6]):
 		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS

@@ -1,0 +1,58 @@
+{
+  "evidence_class": "INERT",
+  "asset": "res://assets/props/task_lamp_supply.glb",
+  "asset_sha256": "51d5814fcf72968602af9beb291d3d4e9ca517df60a434e99d3cfcf63465fa77",
+  "source_sha256": {
+    "art/blender/scripts/inspect_flex_rest_uv.py": "4a3859181e807284335388a1bf50cab24ca46da45b5675d114f22c97cd1b16d8",
+    "art/blender/task_lamp_supply.blend": "80c71b0cc72521f8050885afde2f9a378ae569fcef5547bd75c98bfcb94e7ce0",
+    "art/blender/task_lamp_supply_construction.json": "61e2728b336abb8e4f36b8b198e956281b470c8ec4c6c8b599259cf6b7fc887a"
+  },
+  "scope": "Native rest-length/radius chart, negative controls and exported position/UV identity; no runtime, routing or appearance acceptance.",
+  "meshes": {
+    "B1_NOOK_LAMP_ClothFlex": {
+      "radius_m": 0.0033,
+      "reference_length_m": 0.5173921968820778,
+      "maximum_radius_error_m": 2.4856374440055534e-08,
+      "maximum_native_uv_error_m": 0.0,
+      "double_radius_negative_error_m": 0.02073452161307341,
+      "unique_position_uv_pairs": 831,
+      "position_uv_sha256": "64236309b69915adb1b99dc2be257dbd7722927f8a38d972eaa0663df1f6df51"
+    },
+    "F02_A_LAMP_01_ClothFlex": {
+      "radius_m": 0.0033,
+      "reference_length_m": 1.2082173300417127,
+      "maximum_radius_error_m": 3.047186228778004e-08,
+      "maximum_native_uv_error_m": 0.0,
+      "double_radius_negative_error_m": 0.02073456372226905,
+      "unique_position_uv_pairs": 831,
+      "position_uv_sha256": "56f7ed7844f6a24b98a1a3b8d6476a9e2d8c25701e428bcaca28fb8dbd18715a"
+    },
+    "F03_B_LAMP_01_ClothFlex": {
+      "radius_m": 0.0033,
+      "reference_length_m": 1.799386790046064,
+      "maximum_radius_error_m": 5.475551215260513e-08,
+      "maximum_native_uv_error_m": 0.0,
+      "double_radius_negative_error_m": 0.02073456372226905,
+      "unique_position_uv_pairs": 1137,
+      "position_uv_sha256": "6f8a656cc672d774167602f7325545b6a075ac04deab1d280bcf15392cc18cfa"
+    },
+    "F04_B_LAMP_01_ClothFlex": {
+      "radius_m": 0.0033,
+      "reference_length_m": 0.9521629501425672,
+      "maximum_radius_error_m": 3.1225475264490266e-08,
+      "maximum_native_uv_error_m": 0.0,
+      "double_radius_negative_error_m": 0.02073456372226905,
+      "unique_position_uv_pairs": 678,
+      "position_uv_sha256": "27a90a2a1adf18e78b88430176aa23c212ccc7cd9209fd0851dfe720b754da29"
+    },
+    "F05_A_LAMP_01_ClothFlex": {
+      "radius_m": 0.0033,
+      "reference_length_m": 1.2475465753456203,
+      "maximum_radius_error_m": 5.8399432623090775e-08,
+      "maximum_native_uv_error_m": 0.0,
+      "double_radius_negative_error_m": 0.02073456372226905,
+      "unique_position_uv_pairs": 831,
+      "position_uv_sha256": "fa8252d406ab2d37fb1aeb7d76b93c9b3b096713bd00e2bd559bd4032c659397"
+    }
+  }
+}

@@ -1027,6 +1027,13 @@ def main() -> None:
         # unrelated plate changed while it was in progress.
         if requested and slot not in requested:
             continue
+        external = {key for key in _slot_keys(slot,len(cands))
+                    if str(mapping.get(key, "")).startswith("procedural/")}
+        if external and len(external)==len(_slot_keys(slot,len(cands))):
+            # The catalogue retired this AI slot. Even --full stages the
+            # custom recipe; it cannot silently restore an obsolete plate.
+            processed_keys.update(external);skipped.append(slot)
+            continue
         fingerprint = _slot_fingerprint(slot, cands)
         force = args.full or slot in requested
         current = state["slots"].get(slot) == fingerprint
@@ -1045,6 +1052,7 @@ def main() -> None:
         albedos = [prep(stem, fname, slot) for _, stem, fname in cands]
         base = albedos[0]
         for key in keys:
+            if key in external:continue
             fam = [] if slot in COMPOSITION or key in NO_VARIANTS \
                     else synthesize_family(slot, key, albedos)
             validate_family(slot, key, base, fam)
@@ -1056,6 +1064,7 @@ def main() -> None:
                           strength, cands[0][1] + sfx)
                 mapping[key + sfx] = "ai_materials/%s" % (key + sfx)
         for extra_key, degrees in RECOLOR.get(slot, []):
+            if extra_key in external:continue
             write_set(extra_key, hue_rotate(base, degrees), metres,
                       rough_base, rough_span, strength, cands[0][1])
             mapping[extra_key] = "ai_materials/%s" % extra_key

@@ -32,6 +32,9 @@ for key in plan['runtime_keys']:
   sets[key]={'files':files,'meters_per_tile':tile,'metallic':pbr.get('metallicFactor',1),'roughness':pbr.get('roughnessFactor',1),'normal_scale':shipping['normalTexture'].get('scale',1),'source_color':pbr.get('baseColorFactor',[1,1,1,1]),'alpha':shipping.get('alphaMode')=='BLEND'}
  material_definitions.append(definition)
 
+from fabrication_recipe_migration import calibrate_sets
+calibrate_sets(ROOT,sets,plan,catalog)
+
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
 floor=rows['storm_shop_pawnbroker_floor'];ceil=rows['storm_shop_pawnbroker_ceil'];selected=[];assemblies=[]
@@ -325,6 +328,7 @@ bindings.extend(ROOT/f'game/assets/building/floor_01_cells/shop_pawnbroker.{suff
 bindings.extend([OUT/'art/blender/scripts/inspect_pawn_receiving.py',ROOT/'art/data/shop_interiors.py'])
 # This cell has no previously accepted native furnishing; every unrelated
 # original shipping owner remains inspection context.
+bindings.append(ROOT/'art/blender/scripts/fabrication_recipe_migration.py')
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'original_primitives':collector.records,
  'original_assembler_function_sha256':hashlib.sha256(ast.get_source_segment(assembler_source,function).encode()).hexdigest(),
  'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],

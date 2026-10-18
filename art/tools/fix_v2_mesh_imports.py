@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/light_switch.glb", # Imported metre charts stretch 9.3% and their tangent derivatives fail under quantization.
     "props/annunciator_controls.glb", # Loaded bearing cap charts collapse even after periodic UV rebasing.
     "props/annunciator_dispatch.glb", # Loaded collar/cap UV metrics and tangent derivatives fail under default quantization.
     "props/radiator_service_stock.glb", # Blind pockets and worked screw/bevel charts collapse under UV quantization.

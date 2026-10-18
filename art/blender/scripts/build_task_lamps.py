@@ -51,6 +51,9 @@ for key in plan['runtime_keys']:
  material_definitions.append(definition)
  sets[key].update(plan.get('finish_parameters',{}).get(key,{}))
 
+from fabrication_recipe_migration import calibrate_sets
+calibrate_sets(ROOT,sets,plan,catalog)
+
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
 selected=[m for f in layout['floors'] for m in f['markers'] if m.get('kind')=='lamp']
@@ -271,6 +274,7 @@ bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrica
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'] if f is not None)
 bindings.extend([ROOT/'art/data/material_catalog.json',ROOT/'art/textures/catalog_mapping.json',ROOT/'art/tools/generate_runtime_materials.py'])
 bindings.extend(ROOT/name for name in ['art/blender/scripts/inspect_task_lamps.py','art/blender/scripts/task_lamps_geometry.py','game/scripts/props/lamp_prop.gd','game/scripts/props/functional_prop.gd','game/scripts/props/native_task_lamp.gd','game/scripts/building/orison_v2_room_lighting.gd','game/tests/orison_v2_task_lamps_test.gd','art/data/orison_v2/domestic_furniture_source.json','game/data/orison_v2/domestic_furniture.json'])
+bindings.append(ROOT/'art/blender/scripts/fabrication_recipe_migration.py')
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'source_marker':a['members'][0]['id']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
 for name in ['art/blender/task_lamps_construction.json','game/tests/fixtures/orison_task_lamps.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('TASK LAMPS',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

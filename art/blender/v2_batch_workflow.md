@@ -33,6 +33,20 @@ detail in the composed game before closing its defect. Reuse unchanged views
 and batch related corrections into one Godot capture. Unreviewed details stay
 open, including when static gates pass.
 
+On manufactured flats, measure the corner normals against the actual plane
+and check the tangent at the adjoining bevel. Area weighting alone can bend
+a small cap's reflection by thirteen degrees. Use named planar axes only on
+genuinely flat stock, keep convex lenses/turned skins curved, and retain an
+unanchored negative control. Compare exported triangles, UV derivatives and
+moving-shape positions so a shading repair cannot hide a fit change.
+
+Separate material defects with mapped, normal-off and constant-finish views
+under the same controlled lights. Mottling can come from pigment, roughness or
+biased geometry normals; raising normal strength does not diagnose it. Keep
+physical height calibration and optical contrast distinct. Retiring an AI
+plate includes its active visual lock and ingestion route: a later --full
+must stage the catalogue's custom recipe rather than resurrect the old plate.
+
 When production physics disagrees with Blender, isolate the imported mesh and
 its existing factory in a small brokered bench before another full world boot.
 Keep contact tolerances and expected owners/normals intact; use a floating or
@@ -527,3 +541,14 @@ receipts. Seasonal camera sweeps deliberately change calendar dates: use the
 supported frozen campaign-time driver in that visual suite, while ordinary
 access and save/reconstruction suites retain live time. Never use frozen
 camera captures as evidence that campaign simulation advances correctly.
+
+### Curved textile charts
+
+A swept cord keeps its continuous rest-length/radius chart. Do not force each
+bent triangle into an independent flat chart: inspect the weave for seams.
+After rebuilding task-lamp supply, run **inspect_flex_rest_uv.py** in Blender
+and the brokered **RecipeMigrationBench.tscn**. The INERT native witness checks
+physical radius, cumulative length and a wrong-radius negative control; the
+bench checks exact imported position/UV identity plus basis and derivatives.
+Every other manufactured mesh keeps the strict planar metric. These checks
+supply no routing, interaction or visual acceptance.

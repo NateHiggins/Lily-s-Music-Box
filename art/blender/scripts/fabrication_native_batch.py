@@ -4,6 +4,7 @@ Inputs are Blender meshes, metre frames and existing catalogue finishes.
 No gameplay data, cameras, lights or material images are exported.
 """
 from pathlib import Path
+import os,time
 import bpy,bmesh,numpy as np
 from mathutils import Vector
 from fabrication_chart_batch import triangle_charts
@@ -50,17 +51,25 @@ def partition(collection,name,objects,finish,mat,frame,catalog):
     ns,us,charts,_=triangle_charts(coords[indices],np.zeros(3),1.,rotations,grain)
     uv=mesh.uv_layers.new(name='Metres');uv.data.foreach_set('uv',charts.astype(np.float32).ravel())
     guide=mesh.attributes.new(name='_tangent_guide',type='FLOAT_VECTOR',domain='CORNER');g=np.repeat(us[:,[0,2,1]],3,axis=0);g[:,2]*=-1;guide.data.foreach_set('vector',g.astype(np.float32).ravel())
-    mesh.normals_split_custom_set(stock_corner_normals(mesh))
+    mesh.normals_split_custom_set(stock_corner_normals(mesh,planar_axes=finish.get('planar_axes',())))
     obj=bpy.data.objects.new(name,mesh);collection.objects.link(obj);obj.matrix_world=frame
     return obj
 
-def export(root,family,exports):
+def export(root,family,exports,material_names_only=False,staged_output=False):
     for image in bpy.data.images:
         if image.source=='FILE':image.filepath=bpy.path.relpath(image.filepath,start=str(root/'art/blender'))
     bpy.ops.wm.save_as_mainfile(filepath=str(root/'art/blender'/f'{family}.blend'))
     bpy.ops.object.select_all(action='DESELECT')
     for obj in exports.objects:obj.select_set(True)
     class ExportUVHandedness:
+        def gather_material_hook(self,gltf_material,blender_material,export_settings):
+            if material_names_only:
+                # Some original owners bind by slot name. Preserve that ABI
+                # without embedding a second copy of their catalogue images.
+                gltf_material.pbr_metallic_roughness=None
+                gltf_material.normal_texture=None;gltf_material.occlusion_texture=None
+                gltf_material.emissive_texture=None;gltf_material.emissive_factor=None
+                gltf_material.extensions=None
         def gather_mesh_hook(self,mesh,blender_data,blender_object,vertex_groups,modifiers,materials,export_settings):
             from io_scene_gltf2.io.exp.binary_data import BinaryData
             from io_scene_gltf2.io.com.constants import BufferViewTarget
@@ -72,5 +81,17 @@ def export(root,family,exports):
     import io_scene_gltf2
     io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
     path=root/'game/assets/props'/f'{family}.glb'
-    bpy.ops.export_scene.gltf(filepath=str(path),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True,export_materials='PLACEHOLDER')
-    return validate_export(path)
+    destination=path
+    if staged_output:
+        destination=root/'tmp/native_exports'/f'{family}_{os.getpid()}.glb'
+        destination.parent.mkdir(parents=True,exist_ok=True)
+    bpy.ops.export_scene.gltf(filepath=str(destination),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True,export_materials='EXPORT' if material_names_only else 'PLACEHOLDER')
+    proof=validate_export(destination)
+    if staged_output:
+        for attempt in range(40):
+            try:os.replace(destination,path);break
+            except OSError as error:
+                if attempt==39 or (error.errno not in [13,22] and getattr(error,'winerror',None) not in [5,32,33]):raise
+                time.sleep(.1)
+        proof['asset']=str(path)
+    return proof

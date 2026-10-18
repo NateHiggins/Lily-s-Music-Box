@@ -59,9 +59,10 @@ def finish(name,key):
         bm=bmesh.new();bm.from_mesh(obj.data)
         assert all(e.is_manifold for e in bm.edges) and bm.calc_volume(signed=True)>0,obj.name
         stocks.append({'name':obj.name,'part':name,'volume_m3':bm.calc_volume(signed=True)});bm.free()
-    normal=.06 if key=='bakelite' else .08 if key=='faucet_nickel' else 1. if key=='radiator_service_brass' else .18
-    roughness=.35 if key=='bakelite' else .82 if key=='faucet_nickel' else 1.
+    normal=1. if key in ['bakelite','radiator_service_brass'] else .08 if key=='faucet_nickel' else .18
+    roughness=.82 if key=='faucet_nickel' else 1.
     spec={'catalog_key':key,'normal':normal,'roughness':roughness,'pigment':1.,'tint':[1,1,1]}
+    if name not in ['ReturnSpring','DispatchLeads']:spec['planar_axes']=[[1,0,0],[0,1,0],[0,0,1]]
     mat=material(R,key,spec,catalog);obj=partition(collection,name,raw,spec,mat,Matrix.Identity(4),catalog)
     # Whole tile shifts retain appearance without magnifying tiny UV offsets.
     tile=catalog[key]['meters_per_tile'];uv=obj.data.uv_layers.active.data

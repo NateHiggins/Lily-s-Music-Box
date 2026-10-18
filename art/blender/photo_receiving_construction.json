@@ -3112,14 +3112,14 @@
         "name": "storm_shopcab_photo_supplies0__bakelite",
         "key": "bakelite",
         "catalog_key": "bakelite",
-        "tile": 0.35,
+        "tile": 0.04,
         "triangles": 5092
       },
       {
         "name": "storm_shopcab_photo_supplies0__bakelite__service_panel",
         "key": "bakelite",
         "catalog_key": "bakelite",
-        "tile": 0.35,
+        "tile": 0.04,
         "triangles": 188
       },
       {
@@ -3187,7 +3187,7 @@
       }
     ]
   },
-  "asset_sha256": "9c8411b41d3ac3e5c69b0e71ba19667d3e3306bde7b90ba8cc4d93c149a02622",
+  "asset_sha256": "e8bf7eca3c576cc6f683aa20ebe15ebfdf7c2d0d0bb59ef8ff8e3c47c8a9039d",
   "fitted_datums": {
     "floor_top": 0.009999999999999995,
     "maximum": 1.72,
@@ -3201,15 +3201,15 @@
     "service_panel_closed": true
   },
   "source_bindings": {
-    "art/data/photo_receiving/source_plan.json": "ff547c5a512896e95f50c35c705229a828f31cde12182ddb2dcfb5e73c07e30e",
+    "art/data/photo_receiving/source_plan.json": "74290eac53e3d4a1fa91b5652219cf63769fef1c547fd752fc94be7c2eb4ec63",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_photo_receiving.py": "4f7f47080bac7840adf32b555ee2d6b39bb03675f13e070ae6302b37d2b759e2",
+    "art/blender/scripts/build_photo_receiving.py": "ce4a642ad543acdabb18ce981b067b9ca4450266789f6bbd7707d5a50cc91857",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
-    "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
+    "game/data/runtime_material_sets.json": "35fcbbd435ca9fc2aea51aad1549bcbe98a84c9b1acb3bbf392a6ab05b11a242",
+    "game/scripts/generated/material_sets.gd": "82e10536302f4b0cf0bd5a1b99658eb1e8f07fc41279f00b5444bb07e7448e9e",
     "game/assets/props/photo_receiving.glb.import": "7ed52517f61c97435829b02c04ee235c658d881b542333466c7587a78d2addec",
-    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/procedural/bakelite/material.json": "603ae8cb52e04ab4dcc71479d033528fffa5522c62eaf12c401891604ef5e8e2",
     "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
     "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
     "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
@@ -3217,9 +3217,9 @@
     "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
     "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
     "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
-    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
-    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
-    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_bakelite_albedo.png": "8015275b1d7f82aa2229087bbfd6d4c1f66c29a3d6525f7f6386265271475b2a",
+    "game/assets/building/textures/T_ai_materials_bakelite_rough.png": "389a7dfebb0bb02dad213256749c38a6c7afee25b6fe3b8f716f8ffa0be45b5a",
+    "game/assets/building/textures/T_ai_materials_bakelite_normal.png": "178957a6d7b03dd9aa3e20585f4b7294abf6000dbcdf8097eb6afc4e7e7948ac",
     "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
     "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
     "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
@@ -3268,7 +3268,8 @@
     "art/blender/photo_process.blend": "ab265a9051ad88182041abf94a6ca43a84b15a90f66ae9783df102468418fe72",
     "game/assets/props/photo_enlargers.glb": "969f352a40d134e278c789c1cd4c607b730a339630315def7272f5d5843cd741",
     "game/data/orison_v2/photo_enlargers.json": "7e4fa7980a8db037d086d07fb4f2ea133010f85018390c021da24538202de1bc",
-    "art/blender/photo_enlargers.blend": "dec2bbc3d525ed74d519e1cbb152335cb012304d25cc5ef6ccaece442f4485f4"
+    "art/blender/photo_enlargers.blend": "dec2bbc3d525ed74d519e1cbb152335cb012304d25cc5ef6ccaece442f4485f4",
+    "art/blender/scripts/fabrication_recipe_migration.py": "d038890622d43b8e11895aadf4bacc3ded3ca6e4172b016d0a04b358e0c4dfbb"
   },
   "open_work": [
     "Bible VIII.5.g governs the period replacement of the original variant-2 chrome chassis: Bakelite carcass, circular brass bezel, braided cloth flex, passive valve rack behind closed hinged service stock, letter-free inside-lid diagram and base wet cells. Original COUNTY LEAGUE programme/card/genre controls stay with their persistent owner.",

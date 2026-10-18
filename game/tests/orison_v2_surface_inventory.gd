@@ -18,6 +18,8 @@ func _run() -> void:
 	var before := _input_snapshot(root)
 	if before.is_empty(): get_tree().quit(1); return
 	var shared_uv_defaults: Array = []
+	var finish_review := preload("res://tests/v2_control_finish_review.gd").new()
+	finish_review.validate_material_contract(self)
 	for key in ["metal","wood_dark","timber","cast_iron","paper"]:
 		var stock := MatLib.get_mat(key) as StandardMaterial3D
 		shared_uv_defaults.append({"stock":stock,"uv1":stock.uv1_triplanar,"uv2":stock.uv2_triplanar})
@@ -252,6 +254,7 @@ func _run() -> void:
 		review_camera.make_current()
 		await shot(str(station[3]))
 	manager.set_process(weather_processing)
+	await finish_review.run(world,self)
 	var after := _input_snapshot(root)
 	check(before.get("sha256","") == after.get("sha256","changed"),"rendering inputs stayed fixed during qualification")
 	for entry: Dictionary in embedded_flags:

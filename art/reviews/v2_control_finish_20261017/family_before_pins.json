@@ -1,0 +1,478 @@
+[
+  {
+    "path": "art/blender/bar_instruments.blend",
+    "raw_sha256": "c9adb7beace95a79fe6d251aa7689f4181b9815f10d6dc8af6d3acc9e1773626"
+  },
+  {
+    "path": "art/blender/bar_instruments_construction.json",
+    "raw_sha256": "1420fb0a6ee92831e6b3de5b1b224d826c7b178c6fbf523168f5251792d11525"
+  },
+  {
+    "path": "game/assets/props/bar_instruments.glb",
+    "raw_sha256": "dce5f9760d9023253123d1ceb8f4a34eee84b94bbbf4c558071c092c2999aeb4"
+  },
+  {
+    "path": "game/data/orison_v2/bar_instruments.json",
+    "raw_sha256": "deb9e1f6939f558c8b2cf99c6475813e75fac30b963113c0cbb03c60e1f54ba2"
+  },
+  {
+    "path": "game/tests/fixtures/orison_bar_instruments.json",
+    "raw_sha256": "1420fb0a6ee92831e6b3de5b1b224d826c7b178c6fbf523168f5251792d11525"
+  },
+  {
+    "path": "art/data/bar_instruments/source_plan.json",
+    "raw_sha256": "73af16a8c0782d5f96354e759191b87b03282e4bb03992848156bdec6f58ac78"
+  },
+  {
+    "path": "art/blender/scripts/build_bar_instruments.py",
+    "raw_sha256": "da3fa6c60746df6c221965de9680f885748b72bbb7fa6567aa5c304e25190259"
+  },
+  {
+    "path": "art/blender/bar_receiving.blend",
+    "raw_sha256": "0282c22a320136f69ebe7baae8dc82625ca75ad3db869d1104ec80f3f056c366"
+  },
+  {
+    "path": "art/blender/bar_receiving_construction.json",
+    "raw_sha256": "79900d10d133df9815e6def3fe8f58a1f4ae1986af5bd881b188df7c490d1d1b"
+  },
+  {
+    "path": "game/assets/props/bar_receiving.glb",
+    "raw_sha256": "326347ba4c9784f3c9af3400fe55f001f2513739116cf875b65c323ab7dcc110"
+  },
+  {
+    "path": "game/data/orison_v2/bar_receiving.json",
+    "raw_sha256": "aef49415c393619d34a70c1590fc393fc16532ffb3c76339528cdc55283d5bc1"
+  },
+  {
+    "path": "game/tests/fixtures/orison_bar_receiving.json",
+    "raw_sha256": "79900d10d133df9815e6def3fe8f58a1f4ae1986af5bd881b188df7c490d1d1b"
+  },
+  {
+    "path": "art/data/bar_receiving/source_plan.json",
+    "raw_sha256": "8e630bd36ceeb823da186dd35681ab7650e5ac8c485ee1a61d88cf33e2f95be8"
+  },
+  {
+    "path": "art/blender/scripts/build_bar_receiving.py",
+    "raw_sha256": "a3a488ced07fb8563dc5a6fcf9fd0a861dea39eb05b2d1e1bb837a60cce9bc08"
+  },
+  {
+    "path": "art/blender/diner_receiving.blend",
+    "raw_sha256": "f9fa3045bd596bd7dd4cdfc2dc070dc70e6e3d15ddf4efb33b2377919e96859b"
+  },
+  {
+    "path": "art/blender/diner_receiving_construction.json",
+    "raw_sha256": "63810a8c5806c613acdcc0ac285d1b8bd64fb92de27b9aff36a425dc6c70e170"
+  },
+  {
+    "path": "game/assets/props/diner_receiving.glb",
+    "raw_sha256": "893976dd77612880fefb9f1e381574614165eb188372aa31b628c7592d8caa0f"
+  },
+  {
+    "path": "game/data/orison_v2/diner_receiving.json",
+    "raw_sha256": "1a8afcb2c950401e11cbf51536f0c0a5200fdff482d1c4e47bc18e5540fe52fa"
+  },
+  {
+    "path": "game/tests/fixtures/orison_diner_receiving.json",
+    "raw_sha256": "63810a8c5806c613acdcc0ac285d1b8bd64fb92de27b9aff36a425dc6c70e170"
+  },
+  {
+    "path": "art/data/diner_receiving/source_plan.json",
+    "raw_sha256": "fe40eb9e51b50f0ff4450e86d88944c9d481089bd409fadacecda0dcabfd1893"
+  },
+  {
+    "path": "art/blender/scripts/build_diner_receiving.py",
+    "raw_sha256": "200496b6653ea9290d56d476e0ee3a1d9fd25ca95febf65d586e38f06653ad51"
+  },
+  {
+    "path": "art/blender/domestic_objects.blend",
+    "raw_sha256": "c4f317539a107bc1f6c3b6546bc636bf58f8a982364702eae09297e60595c56a"
+  },
+  {
+    "path": "art/blender/domestic_objects_construction.json",
+    "raw_sha256": "34541b88e8565d1514faeb3e18383013222b12388a11f3d5586176b7dc3e012d"
+  },
+  {
+    "path": "game/assets/props/domestic_objects.glb",
+    "raw_sha256": "1cbe0217a2410cbac6fb223ec33662ede0e5aa1fe9f8d389743bdd71f3ba55a2"
+  },
+  {
+    "path": "game/data/orison_v2/domestic_objects.json",
+    "raw_sha256": "dbc70c3f2a447a37d2e042a6fa517bf9a1f494484c6f74bd6049366199da0d99"
+  },
+  {
+    "path": "game/tests/fixtures/orison_domestic_objects.json",
+    "raw_sha256": "34541b88e8565d1514faeb3e18383013222b12388a11f3d5586176b7dc3e012d"
+  },
+  {
+    "path": "art/data/domestic_objects/source_plan.json",
+    "raw_sha256": "422faee0b7a35c79aa7e43154fb41eeac75ac28b840a18209612c4b4f2bee4fa"
+  },
+  {
+    "path": "art/blender/scripts/build_domestic_objects.py",
+    "raw_sha256": "55014ba5ccf45a7f48360d8663243431381d5b2fcb9cd967f887c2c36cc1b3b1"
+  },
+  {
+    "path": "art/blender/household_radios.blend",
+    "raw_sha256": "e078e4c45fdabe3e0cff79633625f84c82dc4ecafc2a70b3c20b13081a260993"
+  },
+  {
+    "path": "art/blender/household_radios_construction.json",
+    "raw_sha256": "ca3a90e9412ff0e1ce68ed4a06bffba676331eb7309f255d5dbaaf9e9821086e"
+  },
+  {
+    "path": "game/assets/props/household_radios.glb",
+    "raw_sha256": "40834a2cd5c7db6c9a903441cc5c21d38fabdfa3e88e63d5062038daf73f96be"
+  },
+  {
+    "path": "game/data/orison_v2/household_radios.json",
+    "raw_sha256": "411e1a7a10d6678839adef6f21185bb4278ce05ac9524e14e20ff06370960947"
+  },
+  {
+    "path": "game/tests/fixtures/orison_household_radios.json",
+    "raw_sha256": "ca3a90e9412ff0e1ce68ed4a06bffba676331eb7309f255d5dbaaf9e9821086e"
+  },
+  {
+    "path": "art/data/household_radios/source_plan.json",
+    "raw_sha256": "8611bf65a1a31a052851c7fee41c3096f3b0cd755476e21de17dc5a72bfa1faa"
+  },
+  {
+    "path": "art/blender/scripts/build_household_radios.py",
+    "raw_sha256": "651218c7e27e9b8819007971162b74f31251e4b7c2b9a7199f7a2d3f0356b1a5"
+  },
+  {
+    "path": "art/blender/household_toasters.blend",
+    "raw_sha256": "b64f9def36c00b0d6b054985cc80dd839e91aef5039c3b9745dd6dbf9c1d420c"
+  },
+  {
+    "path": "art/blender/household_toasters_construction.json",
+    "raw_sha256": "81d155a19ae1742f95a6ca13c0dc314c69609bfa807a33988911ee789ad33974"
+  },
+  {
+    "path": "game/assets/props/household_toasters.glb",
+    "raw_sha256": "e0bf1afe76a5402d93c6eb7abd4c3c9a5272679a1ddb1d8abfe6af053881dac2"
+  },
+  {
+    "path": "game/data/orison_v2/household_toasters.json",
+    "raw_sha256": "f70188ec0f1a671836988ee3b4b84d0cdea77fd82a365406e6210767b2801706"
+  },
+  {
+    "path": "game/tests/fixtures/orison_household_toasters.json",
+    "raw_sha256": "81d155a19ae1742f95a6ca13c0dc314c69609bfa807a33988911ee789ad33974"
+  },
+  {
+    "path": "art/data/household_toasters/source_plan.json",
+    "raw_sha256": "a5a891158f9f0954b82a27066c4f60fe7afefdaf5d6f33af1e52d56e8d5c5599"
+  },
+  {
+    "path": "art/blender/scripts/build_household_toasters.py",
+    "raw_sha256": "8296e04fa2f7e2142acc13d31eee6cc9107accac6bccd322b5b4095dbf9614a9"
+  },
+  {
+    "path": "art/blender/laundry_receiving.blend",
+    "raw_sha256": "ddced6c22060ade067699ad3441f66d73e7804f5520550f5668693a678607f2e"
+  },
+  {
+    "path": "art/blender/laundry_receiving_construction.json",
+    "raw_sha256": "71bb41b5ee74e5ce78eec5ba2fd1cf1e0a7ea6b0f2fba853fe4c682906270ed7"
+  },
+  {
+    "path": "game/assets/props/laundry_receiving.glb",
+    "raw_sha256": "ecd104db9019c3964522828d57d538b611801bfbcf5d12d6b9a48ef841f81f35"
+  },
+  {
+    "path": "game/data/orison_v2/laundry_receiving.json",
+    "raw_sha256": "93c71d17bb32859c011b7b176e29a1edda395503761459deb2539cb9ae3cfdda"
+  },
+  {
+    "path": "game/tests/fixtures/orison_laundry_receiving.json",
+    "raw_sha256": "803c1aaa502e985f2eee67719b296c3d3d1abd4610710d2fd2a7ee0e999667c5"
+  },
+  {
+    "path": "art/data/laundry_receiving/source_plan.json",
+    "raw_sha256": "62d2776e370ae6ec3de7553e99e5d04ed8d53fa721594c7b063f300aed39a310"
+  },
+  {
+    "path": "art/blender/scripts/build_laundry_receiving.py",
+    "raw_sha256": "2f850342fcfbcdcfb6b36b26c7dd07ab3170c1b47aec707b368bdc17ebc570b3"
+  },
+  {
+    "path": "art/blender/medicine_cabinets.blend",
+    "raw_sha256": "ed6fd796662d54d4f49adf3b24a3288044561f6f0fbe9f42197500766807b9c9"
+  },
+  {
+    "path": "art/blender/medicine_cabinets_construction.json",
+    "raw_sha256": "812fd9070cdfbab6c0a6090739ebe600e011e39c242a8035897ef77ce3161a7f"
+  },
+  {
+    "path": "game/assets/props/medicine_cabinets.glb",
+    "raw_sha256": "2c3c377d417b508ddf92da8200296a646295befdc5e2cb21afc46107cfd4a87e"
+  },
+  {
+    "path": "game/data/orison_v2/medicine_cabinets.json",
+    "raw_sha256": "ce25e4fcd665269ac0f831e5b05a3231778b21cffc5457aebf75555186cd8798"
+  },
+  {
+    "path": "game/tests/fixtures/orison_medicine_cabinets.json",
+    "raw_sha256": "812fd9070cdfbab6c0a6090739ebe600e011e39c242a8035897ef77ce3161a7f"
+  },
+  {
+    "path": "art/data/medicine_cabinets/source_plan.json",
+    "raw_sha256": "eb791cfd48c387b9cb3b11f2df3f150d3c9526ee664ca6047cd7844322cd25ee"
+  },
+  {
+    "path": "art/blender/scripts/build_medicine_cabinets.py",
+    "raw_sha256": "eeeefaf5c8c99cb30cf38ac3ab3418ff3bc8e152b9f691475f681f31d4d654b6"
+  },
+  {
+    "path": "art/blender/news_receiving.blend",
+    "raw_sha256": "cc8f84d935a259dcf02b2be24d784d8e51de711e727c406c46abe6759462a25d"
+  },
+  {
+    "path": "art/blender/news_receiving_construction.json",
+    "raw_sha256": "13f59f2fb1858f7e6bd50205f62aea2381649b0da07727bc78edd8d1747dc7e6"
+  },
+  {
+    "path": "game/assets/props/news_receiving.glb",
+    "raw_sha256": "9a36a750e5754e6a40cddf80581a2480281dd3558a881f22b75d77901c582c2c"
+  },
+  {
+    "path": "game/data/orison_v2/news_receiving.json",
+    "raw_sha256": "e09d274d8701a4a50c5ddf258592aa63302b42436056509e1d2a099f2fb27ce4"
+  },
+  {
+    "path": "game/tests/fixtures/orison_news_receiving.json",
+    "raw_sha256": "13f59f2fb1858f7e6bd50205f62aea2381649b0da07727bc78edd8d1747dc7e6"
+  },
+  {
+    "path": "art/data/news_receiving/source_plan.json",
+    "raw_sha256": "b4eef11a946789a85e83290fa851020bfdcb72fc72a35d0ca74304377472c12c"
+  },
+  {
+    "path": "art/blender/scripts/build_news_receiving.py",
+    "raw_sha256": "216f4739926f86fd96a518d4dc3e1d655ab83103b3c9ca29a7008b2e606e6609"
+  },
+  {
+    "path": "art/blender/pawn_receiving.blend",
+    "raw_sha256": "8edf9e7e4da4dc83f4bdfca3cb6d34d6fde283aa1fb481bb3348f9aecfdec150"
+  },
+  {
+    "path": "art/blender/pawn_receiving_construction.json",
+    "raw_sha256": "42077201050e2ab59f31a6adbdf195f08b25caa089a8638c27532ddf45888a54"
+  },
+  {
+    "path": "game/assets/props/pawn_receiving.glb",
+    "raw_sha256": "9f963737dbad1bc150a1f28447262d06d1a0d13fca0b5d4745ba5c2eb5f1ad25"
+  },
+  {
+    "path": "game/data/orison_v2/pawn_receiving.json",
+    "raw_sha256": "d594a6ce67e31d188518b0cc194d652c012df047772429006396bb9725885579"
+  },
+  {
+    "path": "game/tests/fixtures/orison_pawn_receiving.json",
+    "raw_sha256": "42077201050e2ab59f31a6adbdf195f08b25caa089a8638c27532ddf45888a54"
+  },
+  {
+    "path": "art/data/pawn_receiving/source_plan.json",
+    "raw_sha256": "634b7d4ebaebc94caeaba65ea26b574f42dd433930d3f55b9a8c13964aa611a3"
+  },
+  {
+    "path": "art/blender/scripts/build_pawn_receiving.py",
+    "raw_sha256": "e986ecbc9c87562ad71639003c93b3e1dc95478804ea33e81ecaa7662fd422aa"
+  },
+  {
+    "path": "art/blender/photo_receiving.blend",
+    "raw_sha256": "e83cb97475897d65ecee181b7ac5404457d8f728fe2d3def143e6ab015a6e74a"
+  },
+  {
+    "path": "art/blender/photo_receiving_construction.json",
+    "raw_sha256": "a755c0942b6417be2f144c0f50243e7663a82986bd539a045516bac19fb5bbaa"
+  },
+  {
+    "path": "game/assets/props/photo_receiving.glb",
+    "raw_sha256": "9c8411b41d3ac3e5c69b0e71ba19667d3e3306bde7b90ba8cc4d93c149a02622"
+  },
+  {
+    "path": "game/data/orison_v2/photo_receiving.json",
+    "raw_sha256": "bc3da7bd45a5a2976fc3cb71d9e81ed175d2163e2cefab5a2056ba7d97cb9acf"
+  },
+  {
+    "path": "game/tests/fixtures/orison_photo_receiving.json",
+    "raw_sha256": "a755c0942b6417be2f144c0f50243e7663a82986bd539a045516bac19fb5bbaa"
+  },
+  {
+    "path": "art/data/photo_receiving/source_plan.json",
+    "raw_sha256": "ff547c5a512896e95f50c35c705229a828f31cde12182ddb2dcfb5e73c07e30e"
+  },
+  {
+    "path": "art/blender/scripts/build_photo_receiving.py",
+    "raw_sha256": "4f7f47080bac7840adf32b555ee2d6b39bb03675f13e070ae6302b37d2b759e2"
+  },
+  {
+    "path": "art/blender/radio_receiving.blend",
+    "raw_sha256": "ea4df397c769d2b1935c053c05387689509d288e5a60d8c90bd469038e09e4ce"
+  },
+  {
+    "path": "art/blender/radio_receiving_construction.json",
+    "raw_sha256": "159dc789adc2384ea600e7c26b261dd4fe490dfd90163c604d9ca1aec2e87b29"
+  },
+  {
+    "path": "game/assets/props/radio_receiving.glb",
+    "raw_sha256": "3430a78a621c7aba367e22c9cc489bc9eec0fd775f6c52b0488e586d8dccec01"
+  },
+  {
+    "path": "game/data/orison_v2/radio_receiving.json",
+    "raw_sha256": "0f97a4c54406f14e3f2180ec41905d7f2279fddee344be3c90f03ad66ee3da84"
+  },
+  {
+    "path": "game/tests/fixtures/orison_radio_receiving.json",
+    "raw_sha256": "159dc789adc2384ea600e7c26b261dd4fe490dfd90163c604d9ca1aec2e87b29"
+  },
+  {
+    "path": "art/data/radio_receiving/source_plan.json",
+    "raw_sha256": "65f44f3b7745f111ca2a15146b9a1e87c4422ead53f886880cea42aeeaa34c99"
+  },
+  {
+    "path": "art/blender/scripts/build_radio_receiving.py",
+    "raw_sha256": "bae936b2493812579cf795e543f39578fc851e4b8055564cf518c5c47635e5a5"
+  },
+  {
+    "path": "art/blender/service_instruments.blend",
+    "raw_sha256": "70570e70d2b67394ca017b3ab744ca0b324ca777148d1c1a79d18ee2f13e72c9"
+  },
+  {
+    "path": "art/blender/service_instruments_construction.json",
+    "raw_sha256": "54fd3b22ca734172ccbb2243f9c93537dafe5b2cd8d034f15100f3f93b6888ea"
+  },
+  {
+    "path": "game/assets/props/service_instruments.glb",
+    "raw_sha256": "94fd267813e36ef397fa306eb98c832d8bf871aca97719cd3c1f1eac29176574"
+  },
+  {
+    "path": "game/data/orison_v2/service_instruments.json",
+    "raw_sha256": "d741aebfaa614b6c003b574def05144e7aaf2b0cb004f350b99dd8bc0f523f2d"
+  },
+  {
+    "path": "game/tests/fixtures/orison_service_instruments.json",
+    "raw_sha256": "54fd3b22ca734172ccbb2243f9c93537dafe5b2cd8d034f15100f3f93b6888ea"
+  },
+  {
+    "path": "art/data/service_instruments/source_plan.json",
+    "raw_sha256": "8e71ff0f12cd2cbf70d3efb7bff4070e6beca55496f92b4d5b29ef6961eaeca8"
+  },
+  {
+    "path": "art/blender/scripts/build_service_instruments.py",
+    "raw_sha256": "5c39f2bdb694f9cde5d903f9a0790273b15d805f6ffadf70801889789de8d959"
+  },
+  {
+    "path": "art/blender/signal_terminal.blend",
+    "raw_sha256": "9a9c1d37b0acfc78c1d1005cab526d17e8b661e796c3825576bd1efceef0de5e"
+  },
+  {
+    "path": "art/blender/signal_terminal_construction.json",
+    "raw_sha256": "ce874e6a56b34efc61b7017f1f23b0eba47323acae8f04680baa0d3e224fa50c"
+  },
+  {
+    "path": "game/assets/props/signal_terminal.glb",
+    "raw_sha256": "0b8f01928222bc41e2b045308c92bd67bab93220a76037b03350fa2812225f43"
+  },
+  {
+    "path": "game/data/orison_v2/signal_terminal.json",
+    "raw_sha256": "ec80308184495fc3e001c9e2041344c16f60466e87b2dc13d7e9bd7afae029e8"
+  },
+  {
+    "path": "game/tests/fixtures/orison_signal_terminal.json",
+    "raw_sha256": "ce874e6a56b34efc61b7017f1f23b0eba47323acae8f04680baa0d3e224fa50c"
+  },
+  {
+    "path": "art/data/signal_terminal/source_plan.json",
+    "raw_sha256": "16e81b62f3fb1733c77612b76cf924607ee125357d9cbe94047878692cdfe92d"
+  },
+  {
+    "path": "art/blender/scripts/build_signal_terminal.py",
+    "raw_sha256": "cf7c67f2f36b909a275592519ecf0abe9dba6ee6ea36b8e8c8b4979801cd237f"
+  },
+  {
+    "path": "art/blender/surface_stock.blend",
+    "raw_sha256": "a68c75174b4bc866466d89653c84dbf624ac11cbe9e257f6cca1a91f29ff3d5a"
+  },
+  {
+    "path": "art/blender/surface_stock_construction.json",
+    "raw_sha256": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4"
+  },
+  {
+    "path": "game/assets/props/surface_stock.glb",
+    "raw_sha256": "03381793d48458e49e80da0eec57c251270d3cc1c11b587a251d46f4880b4015"
+  },
+  {
+    "path": "game/data/orison_v2/surface_stock.json",
+    "raw_sha256": "2c4293bfa9112296534386bb82197ffc91b8bcca105413a7a6a151054e35b399"
+  },
+  {
+    "path": "game/tests/fixtures/orison_surface_stock.json",
+    "raw_sha256": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4"
+  },
+  {
+    "path": "art/data/surface_stock/source_plan.json",
+    "raw_sha256": "18a448919e99fed8f83f2f9f1793c2d85c30588883257c425b96129bb6e7440c"
+  },
+  {
+    "path": "art/blender/scripts/build_surface_stock.py",
+    "raw_sha256": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a"
+  },
+  {
+    "path": "art/blender/task_lamp_supply.blend",
+    "raw_sha256": "65629353f67a77b54fc461760824d75d6a46fce529fad58b31f306e24b560097"
+  },
+  {
+    "path": "art/blender/task_lamp_supply_construction.json",
+    "raw_sha256": "89eaa7a5f6904c35331490ae18c8f32915c3ceecd8c9307608630303df2ed9e6"
+  },
+  {
+    "path": "game/assets/props/task_lamp_supply.glb",
+    "raw_sha256": "51d5814fcf72968602af9beb291d3d4e9ca517df60a434e99d3cfcf63465fa77"
+  },
+  {
+    "path": "game/data/orison_v2/task_lamp_supply.json",
+    "raw_sha256": "889bfdadd15d6f76c9cbf8a2c55a4fce88735eb8eab9e7ee659a2ff3323ddcc4"
+  },
+  {
+    "path": "game/tests/fixtures/orison_task_lamp_supply.json",
+    "raw_sha256": "89eaa7a5f6904c35331490ae18c8f32915c3ceecd8c9307608630303df2ed9e6"
+  },
+  {
+    "path": "art/data/task_lamp_supply/source_plan.json",
+    "raw_sha256": "c9fe5197b43aff421bbeb74621df0e8dba5295e798ea52fe6578296317c81272"
+  },
+  {
+    "path": "art/blender/scripts/build_task_lamp_supply.py",
+    "raw_sha256": "69a49c13ebaf30e05baa03c17e851b4dbbf29fa27925e7b281dab4ce77a7fe1d"
+  },
+  {
+    "path": "art/blender/task_lamps.blend",
+    "raw_sha256": "b9a7912a7810eeef005cac1b610493c3923e9555d21a4e7038e83c94802e1265"
+  },
+  {
+    "path": "art/blender/task_lamps_construction.json",
+    "raw_sha256": "d329bdd97593ec7a4ec6cff06f086795c08b9025f55e98144c65913f00056e97"
+  },
+  {
+    "path": "game/assets/props/task_lamps.glb",
+    "raw_sha256": "a6ef4d6c4de1590f02f19853c3c42c6bc501ad21ebf50a1f3bc92fcb38d6c721"
+  },
+  {
+    "path": "game/data/orison_v2/task_lamps.json",
+    "raw_sha256": "47871de59464ec868265eea784fa6328077c982f094cfa5f997decd8ca0b3544"
+  },
+  {
+    "path": "game/tests/fixtures/orison_task_lamps.json",
+    "raw_sha256": "d329bdd97593ec7a4ec6cff06f086795c08b9025f55e98144c65913f00056e97"
+  },
+  {
+    "path": "art/data/task_lamps/source_plan.json",
+    "raw_sha256": "c1873819ccb4f62c495f41cabb806d0a74a26a8240dc4d49a11646f8c5eaa572"
+  },
+  {
+    "path": "art/blender/scripts/build_task_lamps.py",
+    "raw_sha256": "92f217ab92d24e42bfe931a3601b7ede63ad2f04dffa0520101fd93af25f18f5"
+  }
+]

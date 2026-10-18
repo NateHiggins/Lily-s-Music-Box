@@ -30,17 +30,17 @@
     },
     "bakelite": {
       "alpha": false,
-      "canonical_meters_per_tile": 0.3,
-      "catalog_mapping": "ai_materials/bakelite",
+      "canonical_meters_per_tile": 0.04,
+      "catalog_mapping": "procedural/bakelite",
       "files": [
-        "T_library_appliances_bakelite_albedo.png",
-        "T_library_appliances_bakelite_rough.png",
-        "T_library_appliances_bakelite_normal.png"
+        "T_ai_materials_bakelite_albedo.png",
+        "T_ai_materials_bakelite_rough.png",
+        "T_ai_materials_bakelite_normal.png"
       ],
       "metallic": 0.0,
-      "meters_per_tile": 0.35,
+      "meters_per_tile": 0.04,
       "roughness_multiplier": 1.0,
-      "visual_lock": true
+      "visual_lock": false
     },
     "bakelite_black": {
       "alpha": false,
@@ -1166,7 +1166,6 @@
   "schema": 1,
   "visual_locks": [
     "appliance",
-    "bakelite",
     "brass",
     "brass_dull",
     "chrome",

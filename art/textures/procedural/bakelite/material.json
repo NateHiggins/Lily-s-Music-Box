@@ -1,0 +1,32 @@
+{
+  "material": "bakelite",
+  "generator": "art/tools/build_bakelite.py",
+  "source": "Periodic moulded brown phenolic resin, replacing the library's marbled plate.\n\nQuiet filler/flow colour and submicron polishing relief have independent\nfields. No cavities, highlights, dirt islands, lettering or photographs.\n",
+  "seed": 1928101718,
+  "meters_per_tile": 0.04,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "metallic": 0.0,
+  "roughness_range": [
+    0.2304121372312485,
+    0.2879303702723879
+  ],
+  "rms_relief_mm": 0.0004162565327308757,
+  "height_encoding_range_mm": [
+    -0.0018598152957413833,
+    0.0018598152957413833
+  ],
+  "maximum_normal_slope": 0.013447743030231891,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "8015275b1d7f82aa2229087bbfd6d4c1f66c29a3d6525f7f6386265271475b2a",
+    "roughness": "389a7dfebb0bb02dad213256749c38a6c7afee25b6fe3b8f716f8ffa0be45b5a",
+    "normal": "178957a6d7b03dd9aa3e20585f4b7294abf6000dbcdf8097eb6afc4e7e7948ac",
+    "height": "e51c465e19c79d4e39d00050bb0fe3de0cf775f14662af34bb73d8fb6de89123"
+  }
+}

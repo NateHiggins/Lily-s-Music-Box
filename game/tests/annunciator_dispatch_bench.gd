@@ -10,6 +10,7 @@ func _run() -> void:
 	out=OS.get_environment("SHOT_DIR")
 	if out.is_empty() or DisplayServer.get_name()=="headless":get_tree().quit(1);return
 	DirAccess.make_dir_recursive_absolute(out)
+	preload("res://tests/v2_control_finish_review.gd").new().validate_material_contract(self)
 	var environment := WorldEnvironment.new();environment.environment=Environment.new()
 	environment.environment.background_mode=Environment.BG_COLOR;environment.environment.background_color=Color(.13,.15,.17)
 	environment.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;environment.environment.ambient_light_color=Color(.75,.82,.90);environment.environment.ambient_light_energy=.4;add_child(environment)

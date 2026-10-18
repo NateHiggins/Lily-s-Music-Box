@@ -21,6 +21,7 @@ finishes['brass_dull'].update(tint=[.68,.62,.52,1.],roughness=.48,pigment=.32)
 finishes['fabric_warm'].update(normal=.10,roughness=.84,pigment=.65)
 finishes['paper'].update(tint=[.81,.78,.70,1.],normal=.01,roughness=.90,pigment=.12)
 finishes['milk_glass'].update(normal=.007,roughness=.3,pigment=.04)
+finishes['bakelite'].update(normal=1.,roughness=1.)
 materials={k:material(ROOT,k,f,catalog) for k,f in finishes.items()}
 pieces=collections.defaultdict(list);checks=[];contacts=[];frames={};source_hashes={}
 floor_top=plan['floor']['z0']+plan['floor']['h']

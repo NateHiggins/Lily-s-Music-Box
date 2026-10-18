@@ -37,6 +37,7 @@ def material(key,source=None):
   specs[key]['metallic']=0. if key=='cast_iron' else spec['metallic']
   specs[key]['tint']=[.30,.28,.25,1.] if key=='cast_iron' else [.55,.53,.50,1.] if key=='wood_dark' else [1.,1.,1.,1.]
   if key=='paper':specs[key]['tint']=[.58,.55,.50,1.]
+  if key=='bakelite':specs[key].update(normal=1.,roughness=1.)
   node.inputs['Metallic'].default_value=specs[key]['metallic']
   coord=mat.node_tree.nodes.new('ShaderNodeTexCoord');scale=mat.node_tree.nodes.new('ShaderNodeVectorMath');scale.operation='SCALE';scale.inputs['Scale'].default_value=1/spec['meters_per_tile'];mat.node_tree.links.new(coord.outputs['UV'],scale.inputs[0])
   for i,target in [(0,'Base Color'),(1,'Roughness'),(2,'Normal')]:

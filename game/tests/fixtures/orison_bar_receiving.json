@@ -14563,7 +14563,7 @@
         "assembly": "retail_bar_cab01",
         "key": "bakelite",
         "triangles": 4528,
-        "tile": 0.35,
+        "tile": 0.04,
         "catalog_key": "bakelite",
         "tint": [
           0.42,
@@ -14571,8 +14571,8 @@
           0.33,
           1.0
         ],
-        "normal": 0.025,
-        "roughness": 0.48,
+        "normal": 1.0,
+        "roughness": 1.0,
         "pigment": 0.2
       },
       {
@@ -14716,7 +14716,7 @@
         "assembly": "retail_bar_cab02",
         "key": "bakelite",
         "triangles": 5656,
-        "tile": 0.35,
+        "tile": 0.04,
         "catalog_key": "bakelite",
         "tint": [
           0.42,
@@ -14724,8 +14724,8 @@
           0.33,
           1.0
         ],
-        "normal": 0.025,
-        "roughness": 0.48,
+        "normal": 1.0,
+        "roughness": 1.0,
         "pigment": 0.2
       },
       {
@@ -20939,20 +20939,20 @@
   },
   "source_bindings": {
     "art/data/bar_receiving/source_plan.json": "8e630bd36ceeb823da186dd35681ab7650e5ac8c485ee1a61d88cf33e2f95be8",
-    "art/blender/scripts/build_bar_receiving.py": "a3a488ced07fb8563dc5a6fcf9fd0a861dea39eb05b2d1e1bb837a60cce9bc08",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
+    "art/blender/scripts/build_bar_receiving.py": "179472be5ff8ab74427bfa9da6cd4171d940644d0bea6d5ecae1df888e057544",
+    "game/data/runtime_material_sets.json": "35fcbbd435ca9fc2aea51aad1549bcbe98a84c9b1acb3bbf392a6ab05b11a242",
     "game/assets/building/floor_01_cells/shop_bar.gltf": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
     "game/assets/building/floor_01_cells/shop_bar.bin": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
     "art/blender/scripts/prepare_bar_receiving.py": "0ec92d8359058adfc04728630d8fa70c6110577844e6fd59ce1019d264b3115b",
     "art/blender/scripts/inspect_bar_receiving.py": "36eb63e1081549689ba77a57fcaa253cdd2657bd48f63600b69fb6fb2e6edb98",
-    "art/blender/scripts/fabrication_native_batch.py": "3c61d2a98d9e75cefcbb949cfefb72aced140d3440262f8afdcd02a8e853917e",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
-    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
-    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
-    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
-    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_bakelite_albedo.png": "8015275b1d7f82aa2229087bbfd6d4c1f66c29a3d6525f7f6386265271475b2a",
+    "game/assets/building/textures/T_ai_materials_bakelite_rough.png": "389a7dfebb0bb02dad213256749c38a6c7afee25b6fe3b8f716f8ffa0be45b5a",
+    "game/assets/building/textures/T_ai_materials_bakelite_normal.png": "178957a6d7b03dd9aa3e20585f4b7294abf6000dbcdf8097eb6afc4e7e7948ac",
     "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
     "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
     "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
@@ -20977,10 +20977,10 @@
     "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
     "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
     "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
-    "art/blender/news_receiving.blend": "344ecfbf6438b714ef9e5dc9eb60d9daf2a184c22999946c85f8103183aa08c4",
-    "art/blender/news_receiving_construction.json": "fad313714e5052a300ca4f61a67a8da64e9288d69fa3ec289fe84dde1411156d",
-    "art/blender/diner_receiving.blend": "9b6d17c79ebe9aa8e6d10d57b7467632396da8d973e3111f888eee78b152ec68",
-    "art/blender/diner_receiving_construction.json": "5c540b77be1929b43974d47cfc65983c8174d8ab2b1dae21dad25ae2006c5d9e",
+    "art/blender/news_receiving.blend": "647bbfe1fe6bc91d2f5069371c084519155aec455914b84f494f3a8ffdec46e6",
+    "art/blender/news_receiving_construction.json": "f543e174d96427607a2a00ac78fc34fd168d5621ea56c2127b8a1f0dd85d93a2",
+    "art/blender/diner_receiving.blend": "80f83b937fdb6f99ce3c9ef83a8b46d8cc86e3e3efe78db4152c6d474e0c76fb",
+    "art/blender/diner_receiving_construction.json": "8d881e06e52f3eb5816eca4af4ed8c7aa5ce04b8ee3974178f60f0890a69d678",
     "game/assets/props/bar_receiving.glb.import": "aed6106bb1b067feb020c6f98464281a3d4887e543eef5823d0b87e53bfa48ee"
   }
 }

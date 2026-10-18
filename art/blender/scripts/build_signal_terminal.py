@@ -58,6 +58,9 @@ for key in plan['runtime_keys']:
  material_definitions.append(definition)
  sets[key].update(plan.get('finish_parameters',{}).get(key,{}))
 
+from fabrication_recipe_migration import calibrate_sets
+calibrate_sets(ROOT,sets,plan,catalog)
+
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
 selected=[rows[identity] for identity in plan['source_ids']]
@@ -310,6 +313,7 @@ bindings.extend(ROOT/name for name in ['art/blender/scripts/inspect_signal_termi
 bindings.append(terminal_script)
 bindings.append(ROOT/'art/blender/scripts/render_signal_terminal.py')
 bindings.extend(ROOT/name for name in ['art/blender/scripts/inspect_signal_terminal.py','art/blender/scripts/signal_terminal_geometry.py','art/blender/scripts/build_orison.py','game/data/orison_v2/domestic_surface_props.json','game/data/orison_v2/domestic_surface_props.json','game/data/orison_v2/task_lamp_installations.json','art/blender/task_lamps.blend','art/blender/work_tables.blend','game/data/orison_v2/domestic_furniture.json'])
+bindings.append(ROOT/'art/blender/scripts/fabrication_recipe_migration.py')
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'source_record':a['members'][0]['id']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'retained_stock':retained_stock,'construction_groups':construction_groups,'placement':plan['placement'],'open_work':plan['open_work']}
 for name in ['art/blender/signal_terminal_construction.json','game/tests/fixtures/orison_signal_terminal.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('SURFACE STOCK',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

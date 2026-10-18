@@ -1,0 +1,906 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Publication source identities, not runtime evidence.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "13602cfcda3bb1647f7c57ae6aa62bca7c765b972928ea1e5f22ebc712076a2a",
+      "normalization": "LF"
+    },
+    {
+      "path": "DOCS.md",
+      "sha256": "5e7d56ded7292bb46283c4f74961806240eb2f2dd53e60c1b7557c6b61ea121b",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/annunciator_controls.blend",
+      "sha256": "72bb468d6a48c10fcac9c35c2d03fb6c7507ec10fdd13ff429b05b79cc01f4fa",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/annunciator_dispatch.blend",
+      "sha256": "4a341ac37a00301ba2b45b4c40cbd337f90f09917c1c695b756f447094cba268",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/bar_instruments.blend",
+      "sha256": "74c92d7ba585e49acad456fc7c8f29b0a2a00637d89638c8d508465dc755fc7f",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/bar_instruments_construction.json",
+      "sha256": "b111fe82c5d3218db9f9c5e48ee76e34ef4f7f8860c8e189e5d6b4ea4eb6988d",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/bar_receiving.blend",
+      "sha256": "0f275952e643c7a5ea429dbb9b985c9bd8242611c429c67a79bfe10e1664f2f4",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/bar_receiving_construction.json",
+      "sha256": "2f8d9734dbec2f77bc9c8cf2c58edc59182fb4864aa4a26b4af8cf471c6c60cb",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/diner_receiving.blend",
+      "sha256": "80f83b937fdb6f99ce3c9ef83a8b46d8cc86e3e3efe78db4152c6d474e0c76fb",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/diner_receiving_construction.json",
+      "sha256": "8d881e06e52f3eb5816eca4af4ed8c7aa5ce04b8ee3974178f60f0890a69d678",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/domestic_objects.blend",
+      "sha256": "3fbdabb489e9ce152a4ef5266393279ea32d2f0a4b84d689ea700f4506665b08",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/domestic_objects_construction.json",
+      "sha256": "b5672c23be5ae532781a3f1ac646e952aadb4b1bd6e5717c6c3d73f9b19e0c11",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/household_radios.blend",
+      "sha256": "e15b9e70f5fc3e73f730ed3a751302fee8053cd28cc4e6b218c524e9ef4ff198",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/household_radios_construction.json",
+      "sha256": "eae1fe61e352a02e75dafc111c47a103e7dd0a9274db7ac2af5220c2e69643b1",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/household_toasters.blend",
+      "sha256": "8ccd6c6695e6271a6f554d8135f1a62c47a573dac7dc8f24560fbc3ec9d93ba9",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/household_toasters_construction.json",
+      "sha256": "971c0fadc6d1b0895dac1f5e54ada980a9a3137ea3000570ce3d10d855ac0c63",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/laundry_receiving.blend",
+      "sha256": "bd4e7b343096ec424cc04d0810b77b2c002b69048748f733c44a849b7b75ac17",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/laundry_receiving_construction.json",
+      "sha256": "4892011552290810069d009612b0e006f0ae8454d8090f3a0b9ce990dea86cbc",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/light_switch.blend",
+      "sha256": "2e58358bf8a14215e69a3dacc6d3e7e4581cd019ce9d9bed43c32f7db682d609",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/medicine_cabinets.blend",
+      "sha256": "0033c35dcca796ff52abc5352a64ac7875a00eb896f826c89b93994189cd9551",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/medicine_cabinets_construction.json",
+      "sha256": "8c532cb0946af3f04a3d3e8ce4a96e333fb96a926603ad36f6774571e3865987",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/news_receiving.blend",
+      "sha256": "647bbfe1fe6bc91d2f5069371c084519155aec455914b84f494f3a8ffdec46e6",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/news_receiving_construction.json",
+      "sha256": "f543e174d96427607a2a00ac78fc34fd168d5621ea56c2127b8a1f0dd85d93a2",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/pawn_receiving.blend",
+      "sha256": "a9079b510a4a128008593a3ed70d7c459bd2afe61e3ab8d0d3e973ee46b4c62a",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/pawn_receiving_construction.json",
+      "sha256": "be5fe724ab71e55b3462355f7c28d199252a64c56f1e7c94f7365663039d3143",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/photo_receiving.blend",
+      "sha256": "4299ab889601005103b5cbec7c7cbcb7e92d2a1335ca61984da19ff773a6e2af",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/photo_receiving_construction.json",
+      "sha256": "0b8617c19a1d79d49fda3b017a29f8ac9a425804a52cc4c40203d4c347e17bbe",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/radio_receiving.blend",
+      "sha256": "0275b07d818392875c6cdb9cb89ba51e659d5a18e5b8a65cf637365bfe25f3a0",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/radio_receiving_construction.json",
+      "sha256": "b5b4dd94a1d5979afcc41dae9a06504f806c70ef333c4f6a16b24927f08d60c3",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_annunciator_controls.py",
+      "sha256": "e285f5142d585ad96e381ae390e66875edba5c35a089a2390e90ce0c1fb81db1",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_annunciator_dispatch.py",
+      "sha256": "1e945220cbd8cd16a203169f5cd2b35643ae85c8e815d9b19f9fd4f122cddb2e",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_bar_instruments.py",
+      "sha256": "47f29a15be9fd640e8ffb5007c2a03d2765767915467009392cac298f2309823",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_bar_receiving.py",
+      "sha256": "179472be5ff8ab74427bfa9da6cd4171d940644d0bea6d5ecae1df888e057544",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_diner_receiving.py",
+      "sha256": "3020327592ad024405a260400273f41f1ab057646812f5b10c9a396b6fd1e69e",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_domestic_objects.py",
+      "sha256": "c3a8a991151a7e20d23f69bb03fe9813af5259340c45c498f1e9bed091441986",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_household_radios.py",
+      "sha256": "6ad61259af1e68683fd5cdc62f4dfffda6f4f0969a590b8afb67649538f39afa",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_household_toasters.py",
+      "sha256": "fed8e7270bce886a3cdf925bc6e3e8a66b0efd99d622ba54012dc0c1ccbbe664",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_laundry_receiving.py",
+      "sha256": "9d8932fea0dd847e14bac774a304a1327927ed1dd0b555ede2b69506370ae668",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_light_switch.py",
+      "sha256": "62101ac64f71808dca9fe659bb4f45dbf17ee5e3cbd3ae10c289a22009422d25",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_medicine_cabinets.py",
+      "sha256": "7ce6b6f2534e0a219e41fc0eede498ccf1eb437794ee41294fb2af5e3feda181",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_news_receiving.py",
+      "sha256": "1c0c5f64a02196f8b88c38828bb389d26c46d6071456099d3f3e2954740321a3",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_pawn_receiving.py",
+      "sha256": "b046e43f9366a66356aa6ae65aa9327227c5cd91c6409a12f19052b2e9b87524",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_photo_receiving.py",
+      "sha256": "ce4a642ad543acdabb18ce981b067b9ca4450266789f6bbd7707d5a50cc91857",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_radio_receiving.py",
+      "sha256": "b8d5965827149a8011f234cb0aabcad6edcfcd59b146bf8d4cbc19c1bafceb51",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_service_instruments.py",
+      "sha256": "23d8bc5fb4deb787a7a87c67c517c0dc19b1014b2b263c5b97cb88ee6c7416be",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_signal_terminal.py",
+      "sha256": "d127ced53f551c681c7d2712f210999782dc7282eb384d6222ae4016a9946867",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_surface_stock.py",
+      "sha256": "38bbe27167643a3a972fdab651ae7338f6eaf7c4f337a7ee1b7f757ec12bdaae",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_task_lamp_supply.py",
+      "sha256": "ebb6b3ae58f0e2253689d21b4dcd49228209caea08301165823769bfaa0dc207",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/build_task_lamps.py",
+      "sha256": "1a862e66db7f73c0fbb1b3c0b496d4fb01e5778500b2da41b262608afdef2dc7",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/fabrication_native_batch.py",
+      "sha256": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/fabrication_normals.py",
+      "sha256": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/fabrication_recipe_migration.py",
+      "sha256": "d038890622d43b8e11895aadf4bacc3ded3ca6e4172b016d0a04b358e0c4dfbb",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/inspect_flex_rest_uv.py",
+      "sha256": "4a3859181e807284335388a1bf50cab24ca46da45b5675d114f22c97cd1b16d8",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/review_control_finishes.py",
+      "sha256": "98e6641da2cfd885723fbe276a740b230089d84255ceeba47d75069f8ebb69e8",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/review_light_switch.py",
+      "sha256": "5165af277765ce7cf8187e06328d9ae4e8fcece55241db5cee78db9579b56602",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/service_instruments.blend",
+      "sha256": "d0745459bdb5f02b98e87bec7a3505e4916334fe9dd0d73b45f36e490a8e481f",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/service_instruments_construction.json",
+      "sha256": "8f289dca224816267761baa74d56f689e07692e00d09ceb4bf6aeb580553d366",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/signal_terminal.blend",
+      "sha256": "231a80c6aadc5726a14d4babcdbb85247ecc9ddbd9f3c5882046d37234ac4f8f",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/signal_terminal_construction.json",
+      "sha256": "6d45c75ec887e0fd993f15f5f758849704ce04097d85899b78693525b83dc69b",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/surface_stock.blend",
+      "sha256": "3372be458359781c99f743d053911d3080232eb31ff35d06fd596a0a83062d93",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/surface_stock_construction.json",
+      "sha256": "35f319fd27dfb1ba45b0b8e1fa38a0cf7ed3699e3cc1939745d76f0ce917fee7",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/task_lamp_supply.blend",
+      "sha256": "80c71b0cc72521f8050885afde2f9a378ae569fcef5547bd75c98bfcb94e7ce0",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/task_lamp_supply_construction.json",
+      "sha256": "61e2728b336abb8e4f36b8b198e956281b470c8ec4c6c8b599259cf6b7fc887a",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/task_lamps.blend",
+      "sha256": "b32d2fcb0f8d0cfcc8485a568dbc5ad9d707fd0472e18b47b46999afcfafdc2e",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/task_lamps_construction.json",
+      "sha256": "0aa3d5b68510bd36ce0221693d06b745ba4c70a66078085a83fd4ea5af26d8cc",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/v2_batch_workflow.md",
+      "sha256": "867b95707c1c705c80439d45508e7848cad926f890a24566d68a6f1da9737608",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/bar_instruments/source_plan.json",
+      "sha256": "73af16a8c0782d5f96354e759191b87b03282e4bb03992848156bdec6f58ac78",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/bar_receiving/source_plan.json",
+      "sha256": "8e630bd36ceeb823da186dd35681ab7650e5ac8c485ee1a61d88cf33e2f95be8",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/diner_receiving/source_plan.json",
+      "sha256": "99867fad1363398c584d72f3d9e3945f2bc1a17eea3ba9a71108e1c8beab55c9",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/domestic_objects/source_plan.json",
+      "sha256": "f6a9b364a496e7ff6163c0df1f42408fcbfe4c20157148e570c52e8d33ac7700",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/household_radios/source_plan.json",
+      "sha256": "8fea731d8af31ae9058086ac9a9e565201d49fbf74b00ae8aeecb1868cfaeffe",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/household_toasters/source_plan.json",
+      "sha256": "f2a4f5974b76500dc6c6132dcb3194f9f4200675aa2fd4b892943c9f6aa8e959",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/laundry_receiving/source_plan.json",
+      "sha256": "abb80e4a7d827ad7ddad0ed033ac803ad3b8b5fcf47a6410371f6af4885a5549",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/medicine_cabinets/source_plan.json",
+      "sha256": "d68862aa903f9b9cb83cac308cbe203724d66fd8a32fc27f2d6787ac1801dbcf",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/news_receiving/source_plan.json",
+      "sha256": "5f5a58e5317298892d949142b2a0bbc8695bb9e581e781b1e6ddbdd1bbc28e0e",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/pawn_receiving/source_plan.json",
+      "sha256": "5c63d84bde4c4bbc9df495d46f0fe37496af17731193b9e4c81c7878f653f30b",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/photo_receiving/source_plan.json",
+      "sha256": "74290eac53e3d4a1fa91b5652219cf63769fef1c547fd752fc94be7c2eb4ec63",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/radio_receiving/source_plan.json",
+      "sha256": "2d57e40255fdcdc13e1da00e78b3bb02800316c1ae59e9e5671c3387ead8af3e",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/runtime_material_sets.json",
+      "sha256": "35fcbbd435ca9fc2aea51aad1549bcbe98a84c9b1acb3bbf392a6ab05b11a242",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/service_instruments/source_plan.json",
+      "sha256": "8e71ff0f12cd2cbf70d3efb7bff4070e6beca55496f92b4d5b29ef6961eaeca8",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/signal_terminal/source_plan.json",
+      "sha256": "4c10cc78def93ad257df0b23998f4ba4ffa75bf6e41aa326b3c982be94c726cb",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/surface_stock/source_plan.json",
+      "sha256": "1cb406ba201763b25e1a7ba549c515c366b06912563b78baa68bcb741d65d815",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/task_lamp_supply/source_plan.json",
+      "sha256": "c9fe5197b43aff421bbeb74621df0e8dba5295e798ea52fe6578296317c81272",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/data/task_lamps/source_plan.json",
+      "sha256": "f9f343890bf9abd7d83eee87b50cd23a46cbb109858d4ce9e320c5368b6aee93",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/textures/catalog_mapping.json",
+      "sha256": "18a87a7de109dab101e752048b7960492d02b48e8087477daef00c19578247f8",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/textures/procedural/bakelite/albedo.png",
+      "sha256": "8015275b1d7f82aa2229087bbfd6d4c1f66c29a3d6525f7f6386265271475b2a",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/textures/procedural/bakelite/height.png",
+      "sha256": "e51c465e19c79d4e39d00050bb0fe3de0cf775f14662af34bb73d8fb6de89123",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/textures/procedural/bakelite/material.json",
+      "sha256": "603ae8cb52e04ab4dcc71479d033528fffa5522c62eaf12c401891604ef5e8e2",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/textures/procedural/bakelite/normal.png",
+      "sha256": "178957a6d7b03dd9aa3e20585f4b7294abf6000dbcdf8097eb6afc4e7e7948ac",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/textures/procedural/bakelite/roughness.png",
+      "sha256": "389a7dfebb0bb02dad213256749c38a6c7afee25b6fe3b8f716f8ffa0be45b5a",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/textures/procedural/radiator_service_brass/albedo.png",
+      "sha256": "8f268c3d78d27029b03cc8e86a81728e5f6ebbc49aec4baf2bacf1423f43a5cc",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/textures/procedural/radiator_service_brass/height.png",
+      "sha256": "d25c14cb810b6119fd39d0620ffb0046ee4eab206f9e855434d2eac395593ca2",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/textures/procedural/radiator_service_brass/material.json",
+      "sha256": "001be699d0b27324a881abf0f0343761bf31f9f937503e49507294825463896f",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/textures/procedural/radiator_service_brass/normal.png",
+      "sha256": "7825ae9dad6e96961bbe819c91b2688cca7110ba750745fd295f83b72365023c",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/textures/procedural/radiator_service_brass/roughness.png",
+      "sha256": "9f771a878ccb61a995325183b7d261e019d3d444858c916b77b817317af54043",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/tools/build_bakelite.py",
+      "sha256": "824eb6faf9e3278472f1e7a394a17fe8a7a73998f0c9727450f8aa2a4ffcf4ac",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/tools/build_radiator_service_brass.py",
+      "sha256": "f1a02478ec67a89dc7f9b4e189664d79f1468a20d281f3e94e1a08d340e42f03",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/tools/fix_v2_mesh_imports.py",
+      "sha256": "9255269dcc259e922bb59b05fc468fb39529f5a59bad3c882c1d338a8bb5e868",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/tools/generate_runtime_materials.py",
+      "sha256": "81482ddad177783cf9429b6097e79295a753457ae5d70b1f071f566b84043fc9",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/tools/ingest_material_sources.py",
+      "sha256": "d9b5668713abab4d0f7ce9f5e2e07359f9df316f273606a275e7e1313a239c6e",
+      "normalization": "LF"
+    },
+    {
+      "path": "design/V2_CONTROL_FINISH_2026-10-17.md",
+      "sha256": "979f6136a820c768c4bb15fc3018e05978e69d4f6c017e39f3d154e5e0312edd",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/assets/building/textures/T_ai_materials_bakelite_albedo.png",
+      "sha256": "8015275b1d7f82aa2229087bbfd6d4c1f66c29a3d6525f7f6386265271475b2a",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/building/textures/T_ai_materials_bakelite_normal.png",
+      "sha256": "178957a6d7b03dd9aa3e20585f4b7294abf6000dbcdf8097eb6afc4e7e7948ac",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/building/textures/T_ai_materials_bakelite_rough.png",
+      "sha256": "389a7dfebb0bb02dad213256749c38a6c7afee25b6fe3b8f716f8ffa0be45b5a",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/building/textures/T_ai_materials_radiator_service_brass_albedo.png",
+      "sha256": "8f268c3d78d27029b03cc8e86a81728e5f6ebbc49aec4baf2bacf1423f43a5cc",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/building/textures/T_ai_materials_radiator_service_brass_normal.png",
+      "sha256": "7825ae9dad6e96961bbe819c91b2688cca7110ba750745fd295f83b72365023c",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/building/textures/T_ai_materials_radiator_service_brass_rough.png",
+      "sha256": "9f771a878ccb61a995325183b7d261e019d3d444858c916b77b817317af54043",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/annunciator_controls.glb",
+      "sha256": "44ed32f823201c7a232de63317f925f929bec9341d9a0b5c73594cb232f17e4f",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/annunciator_dispatch.glb",
+      "sha256": "1892c8142818f402252abd491dd425630fe3793e40633a585cb623ff9f336aac",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/bar_instruments.glb",
+      "sha256": "dce5f9760d9023253123d1ceb8f4a34eee84b94bbbf4c558071c092c2999aeb4",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/bar_receiving.glb",
+      "sha256": "326347ba4c9784f3c9af3400fe55f001f2513739116cf875b65c323ab7dcc110",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/diner_receiving.glb",
+      "sha256": "6e3cf6e739bb6aca5aa5f0ec9fbcd098e98be8a34918278a9e8e70929ecd50ab",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/domestic_objects.glb",
+      "sha256": "38b67b93f55de318add726b80cb2179eb0636640ddfafcd31926d640c49e2a90",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/household_radios.glb",
+      "sha256": "22534eab84d235b9d556592be3c43aec1cc5a0f0a6aaa836cc5c2395b53a3f8b",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/household_toasters.glb",
+      "sha256": "67b6be7919c15b9429833f671618686b2c2e661bf0dfaf5d0d2db3f80d4d531b",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/laundry_receiving.glb",
+      "sha256": "6e7b1ba19c44890d0bd97da4657b9d9a81bbfd1a1b71bec71941377b1ca43d85",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/light_switch.glb",
+      "sha256": "2c1f48f26ccc133a891075cc1d1232349ed1909f462370d7fef17a923f6df6e0",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/light_switch.glb.import",
+      "sha256": "73cfe20c8cc8935d7e261d02b6a43443cd5e279b76e2981f2144a41828115bb5",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/assets/props/medicine_cabinets.glb",
+      "sha256": "52595584e3ffe41088696f4e97e2586f8e39bc90e1688edbd6e4235e5f178108",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/news_receiving.glb",
+      "sha256": "779cb5afba4d0fd3b9810774e454b10a359836a76ec7c8cf1f315bed8f2befae",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/pawn_receiving.glb",
+      "sha256": "dbc4d692857a853889cbd189525918f7716b8cea2266d53764c136e7380cc3d2",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/photo_receiving.glb",
+      "sha256": "e8bf7eca3c576cc6f683aa20ebe15ebfdf7c2d0d0bb59ef8ff8e3c47c8a9039d",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/radio_receiving.glb",
+      "sha256": "495a03a72ede3968746fdc694e1e7a4f79f1a92ae4ec2903f873dd24ff8fd88c",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/service_instruments.glb",
+      "sha256": "94fd267813e36ef397fa306eb98c832d8bf871aca97719cd3c1f1eac29176574",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/signal_terminal.glb",
+      "sha256": "e2e96b1b339c32f5ace3a858e52afecdd8f8fa64e12dd142123baf3a5a04aaa5",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/surface_stock.glb",
+      "sha256": "a19231e086230b9809fc2810ac9a4280b1356e1af92269487a35d00894e31695",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/task_lamp_supply.glb",
+      "sha256": "51d5814fcf72968602af9beb291d3d4e9ca517df60a434e99d3cfcf63465fa77",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/task_lamps.glb",
+      "sha256": "f8b54cfc4dd6e4faf939ccd64192b0b672943e3fe6fb2fc9821b60ba62a16c44",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/data/orison_v2/annunciator_dispatch.json",
+      "sha256": "20d34c226e86dc3ba4119d6468ca041b2b74ec14db5ecd9756cde8dc2095275c",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/bar_instruments.json",
+      "sha256": "2719bd70da72d83a3d723d9bf786848e9447095c2ada924ab0154597c421a31b",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/bar_receiving.json",
+      "sha256": "b4bba5b508dc003b6abacb95dcc8a9945fc1329f655504bc334f42cc9acdd6d2",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/diner_receiving.json",
+      "sha256": "45ec86ecc410ad2a84ad2c799adf1e7b606c3019d7e520963d0f0031ec779d17",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/domestic_objects.json",
+      "sha256": "b6d627879482e0b42d9ab5721371493ef14c628409bbd72e0fbec89dd37d3fb2",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/household_radios.json",
+      "sha256": "1f78c23fda7b80cda1daee55ed809c8f54bc9daca99685cfcfe97d333f2f51bc",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/household_toasters.json",
+      "sha256": "6b598fecf1bf314c3d465b67182ea5ce59750b25d88c095c9e60746330acd051",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/laundry_receiving.json",
+      "sha256": "082bd10ded5acbcd24149cdcd51054f7a8935c28cb7e1982d921c3893333bc21",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/medicine_cabinets.json",
+      "sha256": "5ab829d97980b0270fe6ab65e493a0040c9dd5f38c104fb47c947bd3756305ce",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/news_receiving.json",
+      "sha256": "e54861dccf2fe7d53188997a3bd0730b5a6c68e222567ebbb961818dda48b8ab",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/pawn_receiving.json",
+      "sha256": "e35a6c0df5a56d920b88f9318decba9eea67d44ba916a065a278c4fac29c2704",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/photo_receiving.json",
+      "sha256": "fc649b7fb55354b4ff02c9193827613bdc501a06e4ae9c83e1a02571b901d392",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/radio_receiving.json",
+      "sha256": "63adeae73388dac4a376ce457b6ce8d79d1cc6da5d6f5a42cf353793664942d7",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/service_instruments.json",
+      "sha256": "f689e39f14183918fd9ae80d266ae26d130bbda5f57d0cd14106d368fe8cd69f",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/signal_terminal.json",
+      "sha256": "d553a69939aee8236a16637aea9e69dfb396c02fc1b628a757db551c79215bb9",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/surface_stock.json",
+      "sha256": "9b1d87dfffb25dad3ef3b3b34e91a42c3fcb6ff971bd5fa97101b8177564d3c5",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/task_lamp_supply.json",
+      "sha256": "6a305b4666088a2c27b969567b13b717e2dfe24b45d1848fc710a0623682cd6b",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/orison_v2/task_lamps.json",
+      "sha256": "288df8dcffff40d2925b25ea09344b468513ab3fe696c1a4fd33da9139d8a088",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/data/runtime_material_sets.json",
+      "sha256": "35fcbbd435ca9fc2aea51aad1549bcbe98a84c9b1acb3bbf392a6ab05b11a242",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/scripts/generated/material_sets.gd",
+      "sha256": "82e10536302f4b0cf0bd5a1b99658eb1e8f07fc41279f00b5444bb07e7448e9e",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/scripts/material_library.gd",
+      "sha256": "7818c9651d9d6bd292e682b8cfe414f28c0ffe3335f13f04cb9a0cab4788f883",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/RecipeMigrationBench.tscn",
+      "sha256": "e9e20e6c27551485d27ef760299a8b797949275c8c7a21365a239a92aa8a7ee7",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/annunciator_dispatch_bench.gd",
+      "sha256": "57d466f94211b1f53d4777bbec1923eac872cf31535af83dd109f8bf508e626c",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_bar_instruments.json",
+      "sha256": "b111fe82c5d3218db9f9c5e48ee76e34ef4f7f8860c8e189e5d6b4ea4eb6988d",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_bar_receiving.json",
+      "sha256": "2f8d9734dbec2f77bc9c8cf2c58edc59182fb4864aa4a26b4af8cf471c6c60cb",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_receiving.json",
+      "sha256": "8d881e06e52f3eb5816eca4af4ed8c7aa5ce04b8ee3974178f60f0890a69d678",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_objects.json",
+      "sha256": "b5672c23be5ae532781a3f1ac646e952aadb4b1bd6e5717c6c3d73f9b19e0c11",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_household_radios.json",
+      "sha256": "eae1fe61e352a02e75dafc111c47a103e7dd0a9274db7ac2af5220c2e69643b1",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_household_toasters.json",
+      "sha256": "971c0fadc6d1b0895dac1f5e54ada980a9a3137ea3000570ce3d10d855ac0c63",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_laundry_receiving.json",
+      "sha256": "4892011552290810069d009612b0e006f0ae8454d8090f3a0b9ce990dea86cbc",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_medicine_cabinets.json",
+      "sha256": "8c532cb0946af3f04a3d3e8ce4a96e333fb96a926603ad36f6774571e3865987",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_news_receiving.json",
+      "sha256": "f543e174d96427607a2a00ac78fc34fd168d5621ea56c2127b8a1f0dd85d93a2",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_pawn_receiving.json",
+      "sha256": "be5fe724ab71e55b3462355f7c28d199252a64c56f1e7c94f7365663039d3143",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_receiving.json",
+      "sha256": "0b8617c19a1d79d49fda3b017a29f8ac9a425804a52cc4c40203d4c347e17bbe",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_radio_receiving.json",
+      "sha256": "b5b4dd94a1d5979afcc41dae9a06504f806c70ef333c4f6a16b24927f08d60c3",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_service_instruments.json",
+      "sha256": "8f289dca224816267761baa74d56f689e07692e00d09ceb4bf6aeb580553d366",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_signal_terminal.json",
+      "sha256": "6d45c75ec887e0fd993f15f5f758849704ce04097d85899b78693525b83dc69b",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_surface_stock.json",
+      "sha256": "35f319fd27dfb1ba45b0b8e1fa38a0cf7ed3699e3cc1939745d76f0ce917fee7",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_task_lamp_supply.json",
+      "sha256": "61e2728b336abb8e4f36b8b198e956281b470c8ec4c6c8b599259cf6b7fc887a",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/orison_task_lamps.json",
+      "sha256": "0aa3d5b68510bd36ce0221693d06b745ba4c70a66078085a83fd4ea5af26d8cc",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/fixtures/task_lamp_flex_uv.json",
+      "sha256": "0a99e187e6b25343e5bf7ec06469f67a44a3fdad1f19c005537cfc4ab0c1e014",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/orison_v2_surface_inventory.gd",
+      "sha256": "a715742ef5bb21d04044de2040dcd94064d315420669f9f721c85108e09c30a0",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/recipe_migration_bench.gd",
+      "sha256": "46700c589af0246e06211b810af345ff8712d4a841a1b9e9195821ab4136bbb7",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/recipe_migration_bench.gd.uid",
+      "sha256": "c48bf56aeb1fefb2362eb61ac0cca1f66b318d79ad88086b153bfe95680be035",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/v2_control_finish_review.gd",
+      "sha256": "64695b9295b177491061a8d7ffc921b6b0d6580297b3c4496a0b1d65cc0a5305",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/v2_control_finish_review.gd.uid",
+      "sha256": "89639c2c2152282db70f78f0bc23e17054eff3eaa1a9c12b981c12a8c815dc9e",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/check_v2_recipe_projections.py",
+      "sha256": "e675c9f70cc193ebefe5d5db8d7489c069ed7f64bc11b9a1002a8dfed7ff031e",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/gate_board.py",
+      "sha256": "51e6da773b931ed005aa58a4da0f80302d793576ce04553ff9e70ceb3becee53",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/orison_spatial_dependency_manifest.json",
+      "sha256": "06f7f8ca1a78309da6212ad52025fbff38236383ada20ede8badeaf69e79818c",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/tests/test_ingest_retirement.py",
+      "sha256": "b3730b280978803cbdee56f7d4bb1d73349baf0611304ca3617e436295368af1",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/tests/test_v2_recipe_projections.py",
+      "sha256": "de8863025e61f830ab9c72185fa46cfe34fbea6e18f357b0435362acffda4b6f",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/v2_surface_evidence.py",
+      "sha256": "a989a9117dc9f83a7d03436cb1eee87bf63ceac866a2c66dcacefae06e803cb9",
+      "normalization": "LF"
+    }
+  ]
+}

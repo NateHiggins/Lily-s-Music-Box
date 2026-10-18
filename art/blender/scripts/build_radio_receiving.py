@@ -32,6 +32,9 @@ for key in plan['runtime_keys']:
   sets[key]={'files':files,'meters_per_tile':tile,'metallic':pbr.get('metallicFactor',1),'roughness':pbr.get('roughnessFactor',1),'normal_scale':shipping['normalTexture'].get('scale',1),'source_color':pbr.get('baseColorFactor',[1,1,1,1]),'alpha':shipping.get('alphaMode')=='BLEND'}
  material_definitions.append(definition)
 
+from fabrication_recipe_migration import calibrate_sets
+calibrate_sets(ROOT,sets,plan,catalog)
+
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
 floor=rows['storm_shop_radio_service_floor'];ceil=rows['storm_shop_radio_service_ceil'];selected=[];assemblies=[]
@@ -316,6 +319,7 @@ bindings.extend(ROOT/f'game/assets/building/floor_01_cells/shop_radio_service.{s
 bindings.extend([OUT/'art/blender/scripts/inspect_radio_receiving.py',ROOT/'art/data/shop_interiors.py'])
 for stem in ['shop_seating','radio_bench','radio_apparatus','radio_stock','radio_battery','radio_wire','radio_display']:
  bindings.extend([ROOT/f'game/assets/props/{stem}.glb',ROOT/f'game/data/orison_v2/{stem}.json',ROOT/f'art/blender/{stem}.blend'])
+bindings.append(ROOT/'art/blender/scripts/fabrication_recipe_migration.py')
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'original_primitives':collector.records,
  'original_assembler_function_sha256':hashlib.sha256(ast.get_source_segment(assembler_source,function).encode()).hexdigest(),
  'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],
