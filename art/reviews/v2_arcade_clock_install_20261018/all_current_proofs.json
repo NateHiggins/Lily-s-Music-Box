@@ -1,0 +1,105 @@
+{
+  "evidence_class": "INERT",
+  "created_utc": "2026-10-18T16:38:14.817799+00:00",
+  "runtime_inputs_sha256": "eceb7e825eb24f9b7f14346624abbdd0f11bc515aea62a8e7015ab5048e9a50b",
+  "surface_inputs_sha256": "9cfbd440889da0e03ac77a73f23d6ac68d58d294b393f14498e581c1e9bd3c63",
+  "surface": {
+    "result": "PASS",
+    "counts": {
+      "defects": 0
+    },
+    "defects": [],
+    "coverage": {
+      "draws": 25668,
+      "materials": 6108,
+      "textures": 497
+    }
+  },
+  "proofs": {
+    "first_slice_contract_20261011": {
+      "errors": [],
+      "execution": {
+        "completed": true,
+        "elapsed_s": 369.422,
+        "exit_code": 0,
+        "timed_out": false
+      },
+      "source": {
+        "physical_inputs_sha256": "476b4bc8c0c6b1bdd9af15a81a7ea4779379924a40168ac26813ae6df85ecd96",
+        "repository_head": "59b7897b1c30a6ca19a4d09012d6f6dfb8261ae1",
+        "runtime_inputs_sha256": "eceb7e825eb24f9b7f14346624abbdd0f11bc515aea62a8e7015ab5048e9a50b",
+        "test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
+        "test_sha256": "59f0f5275b8215cd449afea46904fabf8485acfc6485172bfd82a5ac594d8c28"
+      }
+    },
+    "access_home_cohort_20261018": {
+      "errors": [],
+      "execution": {
+        "completed": true,
+        "elapsed_s": 463.335,
+        "exit_code": 0,
+        "timed_out": false
+      },
+      "source": {
+        "repository_head": "59b7897b1c30a6ca19a4d09012d6f6dfb8261ae1",
+        "runtime_inputs_sha256": "eceb7e825eb24f9b7f14346624abbdd0f11bc515aea62a8e7015ab5048e9a50b",
+        "scene_path": "res://tests/OrisonV2HomeAccessCohort.tscn",
+        "surface_inputs_sha256": "9cfbd440889da0e03ac77a73f23d6ac68d58d294b393f14498e581c1e9bd3c63",
+        "test_dependencies": {
+          "game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
+          "game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",
+          "game/tests/OrisonV2HomeAccessCohort.tscn": "852dad0e2498e3fab6156abe49d4cf4c7c7d2ba83421a22dccba9ef7c6fa3b82",
+          "game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",
+          "game/tests/orison_v2_4b_door_route_test.gd": "812dda33b098642cfd39f85c858cbe8e431821e49b02b827d0273007e9b029db",
+          "game/tests/orison_v2_apartment_access_contract_test.gd": "a1480f27f488006185702af8cecf1f7f8f0ceea1d9da42a6a06dbcac2069764d",
+          "game/tests/orison_v2_apartment_door_route_test.gd": "e2d8fe48ac080e55d43bda8d0514d52f4cf6e57cec14c5849b89181d55cfa9ac",
+          "game/tests/orison_v2_completion_access_contract_test.gd": "d2bbf278c10712fea959a312ff06e8b3272d0fc92b4d3b007f544fc727ce80cd",
+          "game/tests/orison_v2_completion_interiors_test.gd": "bde71f1b87bb0759f98dd222d3c94fa750621641e1738316492d08f570b59405",
+          "game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+          "game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
+          "game/tests/orison_v2_vertical_route_test.gd": "bc078c6b25710e41dbbaccceaa59478be550a528573f577266aa94476a106a8b",
+          "game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
+          "game/tests/v2_completion_door_settle.gd": "459389748e0fa4374d352f4a618cac42477b407fc40ed8c53599878a4161819a",
+          "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+        },
+        "test_path": "game/tests/v2_spatial_access_cohort.gd",
+        "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+      }
+    },
+    "access_upper_cohort_20261018": {
+      "errors": [],
+      "execution": {
+        "completed": true,
+        "elapsed_s": 1149.466,
+        "exit_code": 0,
+        "timed_out": false
+      },
+      "source": {
+        "repository_head": "4504a302d06a299b9f2dc816154b7b7824584402",
+        "runtime_inputs_sha256": "eceb7e825eb24f9b7f14346624abbdd0f11bc515aea62a8e7015ab5048e9a50b",
+        "scene_path": "res://tests/OrisonV2UpperAccessCohort.tscn",
+        "surface_inputs_sha256": "9cfbd440889da0e03ac77a73f23d6ac68d58d294b393f14498e581c1e9bd3c63",
+        "test_dependencies": {
+          "game/tests/OrisonV2RemainingApartmentAccessContractTest.tscn": "d68123786dcc531a7ad0063c790fd92b273b302768d6b7ee7d54c0b682bb414f",
+          "game/tests/OrisonV2RoofProgramContractTest.tscn": "b8ad7093d82c3dfda068621fe24698a882dab835cb1d9c14f0f14ccee110b659",
+          "game/tests/OrisonV2UpperAccessCohort.tscn": "b1776fe9a0c00ec6c7dcba8e27ee5d449dadbcafb2f6574b268a897c38369a14",
+          "game/tests/orison_v2_4b_door_route_test.gd": "812dda33b098642cfd39f85c858cbe8e431821e49b02b827d0273007e9b029db",
+          "game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+          "game/tests/orison_v2_lift_drive_test.gd": "f946f707a0d85fb28f4380621b8ee79f04afc71d57a090d743377b7999925fc1",
+          "game/tests/orison_v2_remaining_apartment_access_contract_test.gd": "6f03bd08ea6d386f15c07b04c565b54583d13c3268c95ec43e5d5877b24aecca",
+          "game/tests/orison_v2_roof_lift_program_route_test.gd": "8b112671a5624cd5531fdcbc439ffbada8093f7658b89bd5d4d5264bff507321",
+          "game/tests/orison_v2_roof_plant_test.gd": "a48b898eb33976b25f2e4264341e8ea8fa3d787c583378acfc7cb787b6747b38",
+          "game/tests/orison_v2_roof_program_contract_test.gd": "4be679b20ce084c6a2be036514a45116b400e2bd6392884b111c3d70b9020a2a",
+          "game/tests/orison_v2_roof_program_route_test.gd": "cdf7f722a4c2e584e3da08fee82fbfa8fb58a9b854bd79f0649e8abedd5db02d",
+          "game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
+          "game/tests/orison_v2_vertical_route_test.gd": "bc078c6b25710e41dbbaccceaa59478be550a528573f577266aa94476a106a8b",
+          "game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
+          "game/tests/v2_remaining_apartment_walk.gd": "1800867bad41aa422b64587424c074fcf7257a66fbfd3a96147721be7cd0f1be",
+          "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+        },
+        "test_path": "game/tests/v2_spatial_access_cohort.gd",
+        "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+      }
+    }
+  }
+}

@@ -72,21 +72,24 @@ contract and matching completed wrapper/raw logs were independently validated
 and published. The home cohort also passed: 62 rooms, nine legs, 909 checks,
 zero failures and zero retained nodes among ten tracked roots/drivers. Its
 original contract was independently validated against current inputs and
-published with matching completed logs. Upper route renewal and the final
-clean candidate gate comparison are pending. Earlier original runtime proofs remain historical;
+published with matching completed logs. The upper cohort passed 69 rooms,
+eleven legs and 989 checks with zero failures and zero retained nodes among
+thirteen tracked roots/drivers. Its original current-source contract and
+matching logs are published. The final clean candidate comparison is pending.
+Earlier original runtime proofs remain historical;
 none was repinned. Broader V2 construction and human acceptance remain open.
 
 ## Management report
 
     REPORT - V2-ARCADE-CLOCK-INSTALL - 2026-10-18
-    Branch / HEAD / origin/main / merge-base: main / e8583e559d1ea6efbadc67153ed37abd19504909 (executed source; report/proof follow-up pending) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3 (last verified remote) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3.
+    Branch / HEAD / origin/main / merge-base: main / 4504a302d06a299b9f2dc816154b7b7824584402 (latest executed upper-cohort source; upper-proof/report follow-up pending) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3 (refreshed remote) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3.
     Worktree clean at end: no; inherited shared-checkout changes are excluded.
     Protected 17/17 and selector: final clean candidate verification pending; no protected path intentionally edited. Explicit v1 rollback remains.
     Ledger before -> after: final comparison pending actual proof renewal. No new spatial/human grant is requested by this report.
     Gates: source preflight has 84 gates; only expired surface/ledger/live-proof gates regress. Other static/tools checks match the clean 6f181 baseline. NEW reader fields: 0; spatial audit drift: 0.
-    Godot receipts: native08 359 native checks; bench5.log.receipt.json completed PASS 163/0; corrected surface2.log.receipt.json completed PASS 33207/0; service1.log.receipt.json completed PASS 360/0 including disk reconstruction; home1.log.receipt.json completed PASS 62 rooms/9 legs/909 checks/0 failures, zero script errors. The owned canceled surface1 has no accepted verdict and is retained as a failed diagnostic.
+    Godot receipts: native08 359 native checks; bench5.log.receipt.json completed PASS 163/0; corrected surface2.log.receipt.json completed PASS 33207/0; service1.log.receipt.json completed PASS 360/0 including disk reconstruction; home1.log.receipt.json completed PASS 62 rooms/9 legs/909 checks/0 failures; upper1.log.receipt.json completed PASS 69 rooms/11 legs/989 checks/0 failures, zero script errors. The owned canceled surface1 has no accepted verdict and is retained as a failed diagnostic.
     Numbers: five original boxes retired; thirteen native draws; eight hands; forty-eight runtime numeral labels; thirty-two reviewed current surface captures; 497 complete loaded texture chains.
     Changes outside expected boundary: source-specific mesh precision policy, registered glass binding, twelve corrected capture-camera frames and twelve reviewed spatial dependencies. Existing audit logic, field baseline and contact/UV tolerances are unchanged.
-    Open findings: remaining actual route proofs, final clean gates, coarse retained clock-support finish, broader arcade finishes, V2 construction and human/photoreal acceptance.
+    Open findings: final clean gates, coarse retained clock-support finish, broader arcade finishes, V2 construction and human/photoreal acceptance.
     Decision needed from owner: none for this authorized installation and verification work.
-    NOT READY for a reviewed push until the current played-proof and clean-gate renewal finishes. No whole-V2 completion claimed.
+    NOT READY for a reviewed push until the final clean-gate comparison finishes. No whole-V2 completion claimed.
