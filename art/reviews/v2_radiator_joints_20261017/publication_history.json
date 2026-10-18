@@ -1,0 +1,19 @@
+{
+  "evidence_class": "INERT",
+  "initial_source_qualification": "PASS",
+  "initial_copy_error": "OSError 22 opening canonical surface-inventory.json",
+  "previous_inventory_verified_against_preserved_contract": true,
+  "recovery": "Atomic file replacements; qualified existing capture reused.",
+  "final_result": {
+    "result": "PASS",
+    "counts": {
+      "defects": 0
+    },
+    "defects": [],
+    "coverage": {
+      "draws": 25669,
+      "materials": 6089,
+      "textures": 474
+    }
+  }
+}

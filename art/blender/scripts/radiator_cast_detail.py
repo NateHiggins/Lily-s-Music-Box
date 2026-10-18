@@ -40,6 +40,29 @@ def _boolean(body, other, operation):
     bpy.data.objects.remove(other, do_unlink=True)
 
 
+def _port_boss(name, height):
+    # Model the rim before Boolean assembly. A global post-union bevel can
+    # clamp to zero on tiny intersection edges, leaving a perfectly sharp
+    # joining sleeve. These real 0.8 mm quarter-rounds expose the seam between
+    # adjacent sections while retaining the original end and bore datums.
+    half, radius, edge, sides = .046, .034, .0008, 48
+    end = [(half-edge+edge*math.sin(i*math.pi/12),
+            radius-edge+edge*math.cos(i*math.pi/12)) for i in range(7)]
+    profile = [(-x,r) for x,r in reversed(end)] + end
+    vertices = [(x,.055+r*math.cos(j*math.tau/sides),
+                 height+r*math.sin(j*math.tau/sides))
+                for x,r in profile for j in range(sides)]
+    faces = [tuple(reversed(range(sides)))]
+    for row in range(len(profile)-1):
+        for j in range(sides):
+            k=(j+1)%sides
+            faces.append((row*sides+j,row*sides+k,(row+1)*sides+k,(row+1)*sides+j))
+    faces.append(tuple(range((len(profile)-1)*sides,len(profile)*sides)))
+    mesh=bpy.data.meshes.new(name);mesh.from_pydata(vertices,[],faces);mesh.update()
+    obj=bpy.data.objects.new(name,mesh);bpy.context.scene.collection.objects.link(obj)
+    return obj
+
+
 def _casting():
     outer, inner = [], []
     for depth in [-.075, 0, .075]:
@@ -49,7 +72,7 @@ def _casting():
         outer.append(_ellipsoid('DetailHeader', (0, 0, height), (.040, .113, .055)))
         inner.append(_ellipsoid('DetailSteamGallery', (0, 0, height), (.034, .108, .050)))
     for height in [.085, .615]:
-        outer.append(_tube('DetailPortBoss', (-.046, .055, height), (.046, .055, height), .034))
+        outer.append(_port_boss('DetailPortBoss',height))
         inner.append(_tube('DetailOpenPort', (-.060, .055, height), (.060, .055, height), .027))
     outer.append(_tube('DetailIntegralBearing', (0, 0, 0), (0, 0, .032), .028))
     body, cavity = outer[0], inner[0]
@@ -228,7 +251,7 @@ def refine_castings():
         bm.free()
         metric = _charts(replacement)
         from fabrication_normals import stock_corner_normals
-        replacement.data.normals_split_custom_set(stock_corner_normals(replacement.data))
+        replacement.data.normals_split_custom_set(stock_corner_normals(replacement.data,planar_axes=[[1,0,0]] if is_casting else []))
         report[name] = _validate(replacement,is_casting)
         report[name]['physical_charts'] = metric
         mesh = replacement.data

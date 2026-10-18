@@ -1,0 +1,16 @@
+{
+  "evidence_class": "INERT",
+  "scope": "File identities supporting native/retained-stock comparisons; not runtime proof.",
+  "files": {
+    "art/blender/radiator_mechanisms.blend": {
+      "before_sha256": "a0ee3c1f2f715e753a3249545ccb0c159c7f69a33b1ce428567ee2e6f291b3fa",
+      "before_matches_commit": "29226611b5be9332747fff29f4011e0b0ba1ea0b",
+      "after_sha256": "d21aac4bd44cf91d3768d5df647362799d81658e5fba091e8c9f1556852c0819"
+    },
+    "game/assets/props/radiator_mechanisms.glb": {
+      "before_sha256": "c69f7e5382bda1de525da2c5a9edfcfcfb3dfc32a4f8e3d99af834d20c7506df",
+      "before_matches_commit": "29226611b5be9332747fff29f4011e0b0ba1ea0b",
+      "after_sha256": "3d95e40892085fdbe681462f555f19be8aeb874f3f7c7daf9fca86f051279bef"
+    }
+  }
+}

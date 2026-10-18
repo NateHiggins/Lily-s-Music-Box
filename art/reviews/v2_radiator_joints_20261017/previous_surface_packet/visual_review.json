@@ -1,0 +1,28 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "scope": "Review completed with explicit open appearance defects; not photoreal or human acceptance. Temporary lights are diagnostics.",
+  "surface_inputs_sha256": "5eb99bd24cbba9c931fce6d61a8c4d2e23776d8201504d6a1c58aa58526bcd1b",
+  "images": [
+    {
+      "file": "control_finish_carried.png",
+      "sha256": "9c8346a68a148de2c0223ab3200e51b6f4b335e18ef27db1c7e7eb12ba1f41eb",
+      "observation": "Actual carried lamp: flat apron and brown cap faces are coherent, but brass and pale service parts wash out; wall relief is strong. Exposure and lighting remain open."
+    },
+    {
+      "file": "control_finish_room.png",
+      "sha256": "4258724a7bde7d22c1edf1b2b1cf659639b3f1fb02a74ea84faee14da2d3d9c5",
+      "observation": "Actual settled lamp-off room view: indicator readable, assembly and caps too dark for useful finish assessment. Production room lighting remains open."
+    },
+    {
+      "file": "control_finish_diffuse.png",
+      "sha256": "26bf7e481f2d13e4f8cb65c6e4035ad7ffaff5b565a502f484dfe3130490081a",
+      "observation": "Declared temporary white diffuse lamp: continuous flat apron highlight, brown caps and bright edge separation. Lower labels crowd button silhouettes; assembly appearance remains unfinished."
+    },
+    {
+      "file": "control_finish_grazing.png",
+      "sha256": "0a26bba7053b8c5f650fa478b2de0bb4f4220e20a71869ffdebdc1cec62e47db",
+      "observation": "Declared temporary grazing lamp: moving highlight and cast shadows reveal eased stock and round caps. Dark face and chunky service knob remain visible; not photoreal acceptance."
+    }
+  ]
+}

@@ -211,3 +211,17 @@ the rule.
 python tools/check_rulings.py
 python tools/check_rulings.py --show RUL-006
 ```
+
+## Publishing a completed surface review
+
+**python tools/publish_v2_surface_packet.py --packet <capture-dir> --archive <review-dir>**
+publishes a packet that already passes **v2_surface_evidence.py**, including its
+test-written contract, wrapper, raw compressed logs and reviewed image hashes.
+It preserves the preceding packet, validates its inventory/log/image bindings,
+and stages atomic file replacements with the contract installed last. Both the
+source and published packet must qualify. Windows sharing failures receive a
+bounded retry; failed staging leaves the prior target file intact.
+
+A publication failure alone does not justify another Godot run. Reuse the
+completed capture while its bound rendering inputs remain unchanged. This tool
+does not author, promote or repin runtime evidence.

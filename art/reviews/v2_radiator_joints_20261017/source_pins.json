@@ -1,0 +1,101 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Publication source identities, not runtime proof.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "0fe0ac8d22c09941ff23bf3d491b78035b1b59c8f335d1eb43fd2cef1b7bd118",
+      "normalization": "LF"
+    },
+    {
+      "path": "DOCS.md",
+      "sha256": "ec503eb0470dfac7af01eb02a53ca9c1c08b514e768effe6b0927340fa48359e",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/v2_batch_workflow.md",
+      "sha256": "a8b878381dc2f73f36747d6163a823a36e1e3f122a35d4470c0ec24f23a75759",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/radiator_mechanisms.blend",
+      "sha256": "d21aac4bd44cf91d3768d5df647362799d81658e5fba091e8c9f1556852c0819",
+      "normalization": "raw"
+    },
+    {
+      "path": "game/assets/props/radiator_mechanisms.glb",
+      "sha256": "3d95e40892085fdbe681462f555f19be8aeb874f3f7c7daf9fca86f051279bef",
+      "normalization": "raw"
+    },
+    {
+      "path": "art/blender/scripts/prepare_radiator_mechanisms.py",
+      "sha256": "d9316d291360d27a9898ddcd4fca5a54bb08ecca89b6a536c3a2c90b0d6eb0e9",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/radiator_cast_detail.py",
+      "sha256": "bcd173f101cf9db224c05bcfb342f1678c97e735647c812b49bb394af78cfebc",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/review_radiator_cast_surface.py",
+      "sha256": "93fa4262aa1238efbc3b0af0a6da447ee410d52fa303c532817782ab038d1419",
+      "normalization": "LF"
+    },
+    {
+      "path": "art/blender/scripts/review_radiator_section_joints.py",
+      "sha256": "a544a549c3b7d6eb07cd58d8361f134f642eed531754622b53a39d1b83594c50",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/radiator_joint_review.gd",
+      "sha256": "5f1fde4c39d77406325252781a0cd8a58036fe5892becd9a62ed7e60529ac516",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/radiator_joint_review.gd.uid",
+      "sha256": "cd67222a8ba9da962ff1ede6a1710df504836847beec0a7090aa4af53fbb3561",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/orison_v2_surface_inventory.gd",
+      "sha256": "0697db5eab8b45d4c39fa2b0242a1d9a701675c7fe315c0e76b7d06be4d594be",
+      "normalization": "LF"
+    },
+    {
+      "path": "game/tests/v2_control_finish_review.gd",
+      "sha256": "2b91cfecdccab9c02c18b5a49408f549d3ce30f4f4dfa26acb92342fd4e43ccb",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/v2_surface_evidence.py",
+      "sha256": "0a2e5abc851f60c212624dedd5426ee23877a4e93a7aa8892ca59d23b1f22c40",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/orison_spatial_dependency_manifest.json",
+      "sha256": "dd8aa2cc47536e8ce8a1105c8c350b4e1df6273c521f794391c1cb3db0d4de9f",
+      "normalization": "LF"
+    },
+    {
+      "path": "design/V2_RADIATOR_SECTION_JOINTS_2026-10-17.md",
+      "sha256": "42673f616d03c5a30abdaa6ff8ffb3a43d44e9673e6fd061f2d9be30e44d8ae5",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/publish_v2_surface_packet.py",
+      "sha256": "0cf57eb3357f6b4acc1b84b1c438d75a8c4149285e3cc0a6c8b0dc8e8193ef35",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/tests/test_v2_surface_publication.py",
+      "sha256": "915219fca25d4877a30bba4484071f4dee1da9be2088b5bb352b1b1dd03b8472",
+      "normalization": "LF"
+    },
+    {
+      "path": "tools/PIPELINE_TOOLS.md",
+      "sha256": "f752a9dbaa8168e6fb689f84cdaa721244286cd16547f91c4e24edf7b3664b66",
+      "normalization": "LF"
+    }
+  ]
+}

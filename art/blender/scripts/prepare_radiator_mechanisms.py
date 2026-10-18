@@ -221,7 +221,7 @@ def prepare():
             bmesh.ops.triangulate(bm, faces=list(bm.faces))
             bm.to_mesh(mesh)
             bm.free()
-            mesh.normals_split_custom_set(stock_corner_normals(mesh))
+            mesh.normals_split_custom_set(stock_corner_normals(mesh,planar_axes=[[1,0,0]] if obj.name=='CastSectionThreeColumnCandidate' else []))
             # Native kit files may already contain corner export guides.
             # Topology edits invalidate them; replace rather than generating
             # .001 attributes beside stale guides with the same export name.

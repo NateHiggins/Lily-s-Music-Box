@@ -1,0 +1,4269 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native closed solid, visible rim breaks, retained port/seat datums and old-stock negative control. No pressure simulation, runtime or appearance acceptance.",
+  "before": {
+    "minimum_outer_recess_m": 8.940696794024205e-11,
+    "maximum_outer_recess_m": 3.814697266402156e-09,
+    "minimum_rim_radius_m": 0.03392714983580167,
+    "maximum_rim_radius_m": 0.03400003871089383
+  },
+  "after": {
+    "minimum_outer_recess_m": 0.0002789794504642479,
+    "maximum_outer_recess_m": 0.00037357574701309126,
+    "minimum_rim_radius_m": 0.03320468640775854,
+    "maximum_rim_radius_m": 0.03327596787334156
+  },
+  "checks": [
+    {
+      "passed": true,
+      "label": "closed positive source casting",
+      "negative": true
+    },
+    {
+      "passed": true,
+      "label": "closed positive source casting",
+      "negative": false
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 0,
+      "radius_m": 0.033275953879416974
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 0,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 1,
+      "radius_m": 0.033204707443696094
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 1,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 2,
+      "radius_m": 0.03327595322345161
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 2,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 3,
+      "radius_m": 0.03320469966478324
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 3,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 4,
+      "radius_m": 0.03327595912713938
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 4,
+      "recess_m": 0.0002790241539478294
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 5,
+      "radius_m": 0.03320470360902097
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 5,
+      "recess_m": 0.00037354966998100203
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 6,
+      "radius_m": 0.03327594622648697
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 6,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 7,
+      "radius_m": 0.03320470043171839
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 7,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 8,
+      "radius_m": 0.033275953879416974
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 8,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 9,
+      "radius_m": 0.033204707443696094
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 9,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 10,
+      "radius_m": 0.03327594622648697
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 10,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 11,
+      "radius_m": 0.03320470360902097
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 11,
+      "recess_m": 0.00037354966998100203
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 12,
+      "radius_m": 0.033275953879416974
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 12,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 13,
+      "radius_m": 0.03320469615879375
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 13,
+      "recess_m": 0.00037354966998100203
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 14,
+      "radius_m": 0.03327594972496947
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 14,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 15,
+      "radius_m": 0.03320470393770743
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 15,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 16,
+      "radius_m": 0.0332759503809349
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 16,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 17,
+      "radius_m": 0.03320470043171839
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 17,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 18,
+      "radius_m": 0.03327594622648697
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 18,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 19,
+      "radius_m": 0.03320470711500967
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 19,
+      "recess_m": 0.00037353849411010664
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 20,
+      "radius_m": 0.03327594863169373
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 20,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 21,
+      "radius_m": 0.03320471544173135
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 21,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 22,
+      "radius_m": 0.03327596218831041
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 22,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 23,
+      "radius_m": 0.03320470043171839
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 23,
+      "recess_m": 0.00037353849411010664
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 24,
+      "radius_m": 0.033275943383969664
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 24,
+      "recess_m": 0.0002790167033672325
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 25,
+      "radius_m": 0.03320469692572898
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 25,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 26,
+      "radius_m": 0.03327596218831041
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 26,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 27,
+      "radius_m": 0.03320471763297355
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 27,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 28,
+      "radius_m": 0.03327594863169373
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 28,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 29,
+      "radius_m": 0.03320470974450095
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 29,
+      "recess_m": 0.0003735347688198082
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 30,
+      "radius_m": 0.03327595322345161
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 30,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": -1,
+      "angle": 31,
+      "radius_m": 0.033204707443696094
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": -1,
+      "angle": 31,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 0
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 1
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 2
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 3
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 4
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 5
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 6
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 7
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 8
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 9
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 10
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 11
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 12
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 13
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 14
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 15
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 0,
+      "radius_m": 0.033275953879416974
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 0,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 1,
+      "radius_m": 0.033204707443696094
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 1,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 2,
+      "radius_m": 0.03327595322345161
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 2,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 3,
+      "radius_m": 0.03320469966478324
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 3,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 4,
+      "radius_m": 0.03327595912713938
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 4,
+      "recess_m": 0.0002790241539478294
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 5,
+      "radius_m": 0.03320470360902097
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 5,
+      "recess_m": 0.00037354966998100203
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 6,
+      "radius_m": 0.03327595322345161
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 6,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 7,
+      "radius_m": 0.03320470043171839
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 7,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 8,
+      "radius_m": 0.033275953879416974
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 8,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 9,
+      "radius_m": 0.033204707443696094
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 9,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 10,
+      "radius_m": 0.03327595322345161
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 10,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 11,
+      "radius_m": 0.03320470360902097
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 11,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 12,
+      "radius_m": 0.033275953879416974
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 12,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 13,
+      "radius_m": 0.03320469615879375
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 13,
+      "recess_m": 0.00037354966998100203
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 14,
+      "radius_m": 0.03327594972496947
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 14,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 15,
+      "radius_m": 0.03320470393770743
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 15,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 16,
+      "radius_m": 0.0332759503809349
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 16,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 17,
+      "radius_m": 0.03320470043171839
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 17,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 18,
+      "radius_m": 0.03327594622648697
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 18,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 19,
+      "radius_m": 0.03320470536201536
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 19,
+      "recess_m": 0.00037353849411010664
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 20,
+      "radius_m": 0.03327594863169373
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 20,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 21,
+      "radius_m": 0.03320471544173135
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 21,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 22,
+      "radius_m": 0.03327596218831041
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 22,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 23,
+      "radius_m": 0.03320470043171839
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 23,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 24,
+      "radius_m": 0.033275943383969664
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 24,
+      "recess_m": 0.0002790167033672325
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 25,
+      "radius_m": 0.03320469692572898
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 25,
+      "recess_m": 0.00037353849411010664
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 26,
+      "radius_m": 0.03327596218831041
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 26,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 27,
+      "radius_m": 0.03320471763297355
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 27,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 28,
+      "radius_m": 0.03327594863169373
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 28,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 29,
+      "radius_m": 0.03320470974450095
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 29,
+      "recess_m": 0.0003735347688198082
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 30,
+      "radius_m": 0.03327594622648697
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 30,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.085,
+      "side": 1,
+      "angle": 31,
+      "radius_m": 0.033204707443696094
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.085,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.085,
+      "side": 1,
+      "angle": 31,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 0
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 1
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 2
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 3
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 4
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 5
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 6
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 7
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 8
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 9
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 10
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 11
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 12
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 13
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 14
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.085,
+      "angle": 15
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 0,
+      "radius_m": 0.033275953879416974
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 0,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 1,
+      "radius_m": 0.03320470070562379
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 1,
+      "recess_m": 0.00037354966998100203
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 2,
+      "radius_m": 0.03327596175100028
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 2,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 3,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 3,
+      "recess_m": 0.0003735533952713005
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 4,
+      "radius_m": 0.03327594863169373
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 4,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 5,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 5,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 6,
+      "radius_m": 0.03327592523558422
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 6,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 7,
+      "radius_m": 0.033204687119912896
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 7,
+      "recess_m": 0.0003735608458518974
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 8,
+      "radius_m": 0.033275901402147326
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 8,
+      "recess_m": 0.0002790539562702171
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 9,
+      "radius_m": 0.03320468640775854
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 9,
+      "recess_m": 0.00037357574701309126
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 10,
+      "radius_m": 0.03327592654751602
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 10,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 11,
+      "radius_m": 0.0332046913380576
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 11,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 12,
+      "radius_m": 0.03327595125555546
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 12,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 13,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 13,
+      "recess_m": 0.00037355712056159895
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 14,
+      "radius_m": 0.03327595825251904
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 14,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 15,
+      "radius_m": 0.03320470070562379
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 15,
+      "recess_m": 0.00037354966998100203
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 16,
+      "radius_m": 0.0332759503809349
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 16,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 17,
+      "radius_m": 0.033204707717601444
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 17,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 18,
+      "radius_m": 0.03327596437486097
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 18,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 19,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 19,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 20,
+      "radius_m": 0.03327595650327828
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 20,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 21,
+      "radius_m": 0.03320470185602648
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 21,
+      "recess_m": 0.0003735124170780174
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 22,
+      "radius_m": 0.03327592939003477
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 22,
+      "recess_m": 0.00027898317575454634
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 23,
+      "radius_m": 0.03320468783206723
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 23,
+      "recess_m": 0.00037352731823921126
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 24,
+      "radius_m": 0.033275962625620534
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 24,
+      "recess_m": 0.0002790539562702171
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 25,
+      "radius_m": 0.033204687119912896
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 25,
+      "recess_m": 0.00037352731823921126
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 26,
+      "radius_m": 0.033275928078103076
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 26,
+      "recess_m": 0.0002789794504642479
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 27,
+      "radius_m": 0.03320470185602648
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 27,
+      "recess_m": 0.0003735124170780174
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 28,
+      "radius_m": 0.03327595912713938
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 28,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 29,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 29,
+      "recess_m": 0.00037353849411010664
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 30,
+      "radius_m": 0.03327596787334156
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 30,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": -1,
+      "angle": 31,
+      "radius_m": 0.033204707717601444
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": -1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": -1,
+      "angle": 31,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 0
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 1
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 2
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 3
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 4
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 5
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 6
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 7
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 8
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 9
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 10
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 11
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 12
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 13
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 14
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 15
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 0,
+      "radius_m": 0.033275953879416974
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 0,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 1,
+      "radius_m": 0.03320470070562379
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 1,
+      "recess_m": 0.00037354966998100203
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 2,
+      "radius_m": 0.03327596175100028
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 2,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 3,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 3,
+      "recess_m": 0.0003735533952713005
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 4,
+      "radius_m": 0.03327594863169373
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 4,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 5,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 5,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 6,
+      "radius_m": 0.03327592523558422
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 6,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 7,
+      "radius_m": 0.033204687119912896
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 7,
+      "recess_m": 0.0003735608458518974
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 8,
+      "radius_m": 0.033275901402147326
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 8,
+      "recess_m": 0.0002790539562702171
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 9,
+      "radius_m": 0.033204687119912896
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 9,
+      "recess_m": 0.00037357574701309126
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 10,
+      "radius_m": 0.03327592654751602
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 10,
+      "recess_m": 0.0002790353298187248
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 11,
+      "radius_m": 0.0332046913380576
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 11,
+      "recess_m": 0.00037354594469070357
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 12,
+      "radius_m": 0.03327595125555546
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 12,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 13,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 13,
+      "recess_m": 0.00037355712056159895
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 14,
+      "radius_m": 0.03327595825251904
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 14,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 15,
+      "radius_m": 0.033204704211612805
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 15,
+      "recess_m": 0.00037354966998100203
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 16,
+      "radius_m": 0.0332759503809349
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 16,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 17,
+      "radius_m": 0.033204707717601444
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 17,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 18,
+      "radius_m": 0.03327596437486097
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 18,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 19,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 19,
+      "recess_m": 0.0003735347688198082
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 20,
+      "radius_m": 0.03327595912713938
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 20,
+      "recess_m": 0.00027903160452842635
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 21,
+      "radius_m": 0.03320470185602648
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 21,
+      "recess_m": 0.0003735124170780174
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 22,
+      "radius_m": 0.03327592939003477
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 22,
+      "recess_m": 0.00027898317575454634
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 23,
+      "radius_m": 0.03320468783206723
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 23,
+      "recess_m": 0.00037352731823921126
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 24,
+      "radius_m": 0.033275962625620534
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 24,
+      "recess_m": 0.0002790539562702171
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 25,
+      "radius_m": 0.033204687119912896
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 25,
+      "recess_m": 0.00037352731823921126
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 26,
+      "radius_m": 0.033275928078103076
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 26,
+      "recess_m": 0.0002789794504642479
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 27,
+      "radius_m": 0.03320470185602648
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 27,
+      "recess_m": 0.0003735124170780174
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 28,
+      "radius_m": 0.03327595912713938
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 28,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 29,
+      "radius_m": 0.03320469352930139
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 29,
+      "recess_m": 0.00037353849411010664
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 30,
+      "radius_m": 0.03327596787334156
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 30,
+      "recess_m": 0.0002790278792381279
+    },
+    {
+      "passed": true,
+      "label": "real quarter-round near the joining face",
+      "height": 0.615,
+      "side": 1,
+      "angle": 31,
+      "radius_m": 0.033204707717601444
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.03
+    },
+    {
+      "passed": true,
+      "label": "retained flat sealing annulus",
+      "height": 0.615,
+      "side": 1,
+      "radius_m": 0.032
+    },
+    {
+      "passed": true,
+      "label": "outer joint recess is actual geometry",
+      "height": 0.615,
+      "side": 1,
+      "angle": 31,
+      "recess_m": 0.0003735422194004051
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 0
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 1
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 2
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 3
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 4
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 5
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 6
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 7
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 8
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 9
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 10
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 11
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 12
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 13
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 14
+    },
+    {
+      "passed": true,
+      "label": "retained open 54 mm port",
+      "height": 0.615,
+      "angle": 15
+    },
+    {
+      "passed": true,
+      "label": "machined faces retain their actual plane normals",
+      "triangles": 384,
+      "maximum_degrees": 0.027976455118293345
+    },
+    {
+      "passed": true,
+      "label": "old-stock negative control reproduces absent rim break",
+      "before": {
+        "minimum_outer_recess_m": 8.940696794024205e-11,
+        "maximum_outer_recess_m": 3.814697266402156e-09,
+        "minimum_rim_radius_m": 0.03392714983580167,
+        "maximum_rim_radius_m": 0.03400003871089383
+      }
+    }
+  ],
+  "failures": []
+}

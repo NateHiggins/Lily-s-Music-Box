@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 376.02,
+  "exit_code": 0,
+  "finished_utc": "2026-10-18T01:21:37Z",
+  "started_utc": "2026-10-18T01:15:21Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 28144 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-control-finish-20261017/surface_final.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-control-finish-20261017/surface_final.log",
+  "stdout_sha256": "702706fac91114430751e040a8e89407fa27225666f660e0fd503f0e06c5101a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-control-finish-20261017/surface_final",
+ "source": {
+  "dirty_paths": 1560,
+  "dirty_sample": [
+   "M  .gitattributes",
+   " M DOCS.md",
+   "M  art/blender/annunciator_controls.blend",
+   "M  art/blender/annunciator_dispatch.blend",
+   "M  art/blender/bar_instruments.blend",
+   "M  art/blender/bar_instruments_construction.json",
+   "M  art/blender/bar_receiving.blend",
+   "M  art/blender/bar_receiving_construction.json",
+   "M  art/blender/diner_receiving.blend",
+   "M  art/blender/diner_receiving_construction.json",
+   "M  art/blender/domestic_objects.blend",
+   "M  art/blender/domestic_objects_construction.json",
+   "M  art/blender/household_radios.blend",
+   "M  art/blender/household_radios_construction.json",
+   "M  art/blender/household_toasters.blend",
+   "M  art/blender/household_toasters_construction.json",
+   "M  art/blender/laundry_receiving.blend",
+   "M  art/blender/laundry_receiving_construction.json",
+   "M  art/blender/light_switch.blend",
+   "M  art/blender/medicine_cabinets.blend"
+  ],
+  "repository_head": "0ae108b720cb662a8e705d0473189cc979ff836e",
+  "repository_tree": "494bf946f88a5c0b2c18a79b313eee9337e23a4d",
+  "runtime_inputs_sha256": "98923b1757bb2ca268b5fa0238a7110f525e2dde8150bc8bd097575d325d2f33",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "a715742ef5bb21d04044de2040dcd94064d315420669f9f721c85108e09c30a0"
+ },
+ "windowed": true
+}

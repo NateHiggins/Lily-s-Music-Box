@@ -552,3 +552,19 @@ physical radius, cumulative length and a wrong-radius negative control; the
 bench checks exact imported position/UV identity plus basis and derivatives.
 Every other manufactured mesh keeps the strict planar metric. These checks
 supply no routing, interaction or visual acceptance.
+
+### Cast joining rims
+
+Do not infer a finished edge from a bevel modifier. Probe the final solid:
+small Boolean intersections can clamp a global bevel to zero. Author the
+radiator joining rim profile before union, retain the port and sealing-face
+datums, and run **review_radiator_section_joints.py** with an unrelieved source
+negative control. Review the port side under diffuse and grazing light;
+the opposite side can conceal these joints. Keep native and exported machined
+face normals consistent. Recheck actual retained stock buffers, native fit and
+player manipulation before the combined world capture.
+
+If only surface publication fails, use **tools/publish_v2_surface_packet.py**
+on the already qualified and reviewed capture. It preserves the previous
+packet and performs staged replacements; do not repeat Godot solely to copy an
+unchanged, successfully qualified inventory.

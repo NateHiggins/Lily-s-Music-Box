@@ -67,6 +67,10 @@ def inputs(root=ROOT):
     paths.add(root/'art/blender/annunciator_dispatch.blend')
     paths.add(root/'art/blender/light_switch.blend')
     paths.add(root/'game/tests/v2_control_finish_review.gd')
+    paths.update(root/p for p in ('game/tests/radiator_joint_review.gd',
+        'art/blender/radiator_mechanisms.blend','art/tools/build_radiator_cast_iron.py',
+        'art/textures/procedural/radiator_cast_iron/material.json',
+        'art/reviews/v2_radiator_native_20261017/native_recipe/export_mechanisms.py'))
     from check_v2_recipe_projections import evaluate as recipe_dependencies
     _,authored_recipes=recipe_dependencies(root)
     paths.update(authored_recipes)

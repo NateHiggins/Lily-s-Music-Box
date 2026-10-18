@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Cast radiator rim profiles, retained sealing datums and current joint review | `design/V2_RADIATOR_SECTION_JOINTS_2026-10-17.md` |
 | Worked control shading, calibrated resin migration, switch UVs and retained curved textile charts | `design/V2_CONTROL_FINISH_2026-10-17.md` |
 | Native porter-board dispatch keys, real lift binding, disk restoration and remaining appearance work | `design/V2_ANNUNCIATOR_DISPATCH_2026-10-17.md` |
 | Current bounded room reflections, ceiling shadow repair and loaded surface qualification, with remaining appearance work | `design/V2_REFLECTION_INSTALL_2026-10-17.md` |

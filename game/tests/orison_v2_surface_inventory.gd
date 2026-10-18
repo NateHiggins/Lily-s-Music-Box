@@ -255,6 +255,7 @@ func _run() -> void:
 		await shot(str(station[3]))
 	manager.set_process(weather_processing)
 	await finish_review.run(world,self)
+	await preload("res://tests/radiator_joint_review.gd").new().run(world,self)
 	var after := _input_snapshot(root)
 	check(before.get("sha256","") == after.get("sha256","changed"),"rendering inputs stayed fixed during qualification")
 	for entry: Dictionary in embedded_flags:

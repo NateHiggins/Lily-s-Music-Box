@@ -21,6 +21,7 @@ parser.add_argument('--out', type=Path, required=True)
 parser.add_argument('--target-height', type=float, default=.35)
 parser.add_argument('--view-height', type=float, default=.52)
 parser.add_argument('--cast-only', action='store_true')
+parser.add_argument('--from-port-side',action='store_true',help='Match the installed player-facing joining-port side')
 parser.add_argument('--stock', choices=['CastSectionThreeColumnCandidate','CastShoeFoot'],
                     default='CastSectionThreeColumnCandidate')
 args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
@@ -53,9 +54,9 @@ scene.world = bpy.data.worlds.new('Neutral_cast_review')
 scene.world.use_nodes = True
 scene.world.node_tree.nodes['Background'].inputs['Color'].default_value = (.16, .16, .16, 1)
 scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value = .4
-bpy.ops.object.camera_add(location=(.30, -.60, args.target_height + .18))
+bpy.ops.object.camera_add(location=(.10, .60, args.target_height + .12) if args.from_port_side else (.30, -.60, args.target_height + .18))
 camera = bpy.context.object
-target = Vector((0, .05, args.target_height))
+target = Vector((0, .055 if args.from_port_side else .05, args.target_height))
 camera.rotation_euler = (target - camera.location).to_track_quat('-Z', 'Y').to_euler()
 camera.data.type = 'ORTHO'
 camera.data.ortho_scale = args.view_height
@@ -67,6 +68,7 @@ light.data.shape = 'DISK'
 light.data.size = .20
 for identity, at in [('diffuse', (.25, -.55, args.target_height + .35)),
                      ('grazing', (-.45, .0, args.target_height + .11))]:
+    if args.from_port_side:at=(at[0],abs(at[1])+.05,at[2])
     light.location = at
     light.rotation_euler = (target - light.location).to_track_quat('-Z', 'Y').to_euler()
     for finish, mat in [('worked_before', old), ('cast_after', new)]:

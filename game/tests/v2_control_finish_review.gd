@@ -50,6 +50,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	await _shot(suite,directory,"control_finish_room")
 	var fixture := OmniLight3D.new();fixture.name="TestOnlyControlFinishLight"
 	fixture.light_color=Color.WHITE;fixture.light_energy=.08;fixture.omni_range=.85;fixture.shadow_enabled=true
+	fixture.layers=player.flashlight.layers
 	world.add_child(fixture)
 	for setup in [["diffuse",Vector3(.02,-.22,.36)],["grazing",Vector3(.30,-.30,.09)]]:
 		fixture.global_position=board.to_global(setup[1])
