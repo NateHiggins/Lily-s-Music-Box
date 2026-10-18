@@ -1,0 +1,22 @@
+C:\PleaseRemainOnTheLine\art\blender\arcade_fabric_candidate\build_arcade_lantern.py:65: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  glass=bpy.data.materials.new('RetainedMilkGlassReviewOnly');glass.use_nodes=True
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+08:44:02 | INFO: Starting glTF 2.0 export
+08:44:02 | INFO: Extracting primitive: lantern_roof__cast_iron
+08:44:02 | INFO: Primitives created: 1
+08:44:02 | INFO: Finished glTF 2.0 export in 0.0957341194152832 s
+C:\PleaseRemainOnTheLine\art\blender\arcade_fabric_candidate\build_arcade_lantern.py:111: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('LanternReviewSky');scene.world.use_nodes=True
+00:08.984  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native03\underside_before.png'
+00:15.750  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native03\underside_after.png'
+00:19.062  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native03\top_before.png'
+00:22.640  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native03\top_after.png'
+00:27.265  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native03\player_before.png'
+00:31.984  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native03\player_after.png'
+
+Info: Saved as "arcade_lantern.blend"
+LANTERN NATIVE CANDIDATE {"asset": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_arcade_lantern_20261018\\native03\\arcade_lantern.glb", "primitives": 1, "triangles": 7680, "minimum_tangent_agreement": 0.9999999704959938, "status": "PASS", "geometry_checks": [{"ok": true, "label": "actual exported roof leaves the retained light well clear (13.4, 51.0)"}, {"ok": true, "label": "actual exported roof leaves the retained light well clear (13.4, 52.2)"}, {"ok": true, "label": "actual exported roof leaves the retained light well clear (14.6, 51.0)"}, {"ok": true, "label": "actual exported roof leaves the retained light well clear (14.6, 52.2)"}, {"ok": true, "label": "actual underside of tier 0 has its intended height and outward normal"}, {"ok": true, "label": "actual underside of tier 1 has its intended height and outward normal"}, {"ok": true, "label": "actual underside of tier 2 has its intended height and outward normal"}, {"ok": true, "label": "native collar meets the retained clock stem endpoint with a closed bearing face"}], "evidence_class": "INERT", "scope": "Offline native candidate; composed fit, UV/PBR/mips and appearance verification remain pending.", "stock_count": 128, "views": ["underside_before.png", "underside_after.png", "top_before.png", "top_after.png", "player_before.png", "player_after.png"], "asset_sha256": "87c38335a74173753bd45f7712f35181722e34a4f68ea1a91fec238a9eed11de", "source_bindings_lf": {"art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c", "tools/plan_v2_arcade_lantern.py": "b81a82b085383582ff452d16b3a46efe7b7b97959ed82a31188e1835855b4224", "art/blender/arcade_fabric_candidate/build_arcade_lantern.py": "a5d81b8889dd5b7550995ebdd1b301bb526be734a6cfd39c19f5eb62559c3d60", "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea", "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d", "art/blender/arcade_canopy.blend": "1ad28ab1df9d5d531f3943f22d244504f063bcd699125e6f9251bc5c917ba3ce"}}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

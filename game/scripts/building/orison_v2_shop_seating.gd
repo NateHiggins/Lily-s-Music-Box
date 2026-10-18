@@ -5,6 +5,9 @@ static func mount_arcade_canopy(cell: Node3D, layout: Dictionary) -> bool:
 
 static func mount_arcade_throat(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/arcade_throat.json","ArcadeThroat","F01_retail_arcade_","arcade_throat_part")
+
+static func mount_arcade_lantern(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/arcade_lantern.json","ArcadeLantern","F01_retail_arcade_","arcade_lantern_part")
 ## Native furniture replaces only identified source box boundaries. The
 ## imported shop, its other triangles and its physical actors remain owners.
 static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:

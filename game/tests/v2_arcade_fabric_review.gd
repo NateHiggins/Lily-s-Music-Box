@@ -26,6 +26,7 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 		{"name":"arcade_barrel_underside", "eye":Vector3(14, 1.65, 32), "target":Vector3(14, 8.3, 41), "lamp":false},
 		{"name":"arcade_lantern_shoulders", "eye":Vector3(14, 1.65, 38), "target":Vector3(11.3, 9.1, 39.1), "lamp":false},
 		{"name":"arcade_south_gable", "eye":Vector3(14, 1.65, 48), "target":Vector3(14, 7.8, 54.7), "lamp":false},
+		{"name":"arcade_lantern_well", "eye":Vector3(14, 1.65, 46), "target":Vector3(14, 11.2, 51.6), "lamp":false},
 	]
 	var records: Array[Dictionary] = []
 	for station: Dictionary in stations:

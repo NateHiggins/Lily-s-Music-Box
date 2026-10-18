@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/arcade_lantern.glb", # Folded 2 mm roof skin and small closed seams retain metric charts.
     "building/orison_v2/passage/passage.gltf", # Shared long-range UV quantization stretches thin terrazzo border charts by 1.66%.
     "props/arcade_canopy.glb", "props/arcade_throat.glb", # Source-fitted glass and small mortar/bevel charts retain metric UVs.
     "props/construction_shed.glb", # Native small stock bevels and mirrored charts require full UV precision.

@@ -36,6 +36,11 @@ func _run() -> void:
 func validate_cell(cell: Node3D, layout: Dictionary) -> void:
 	var canopy: Node3D = cell.get_node("ArcadeCanopy")
 	var throat: Node3D = cell.get_node("ArcadeThroat")
+	var lantern: Node3D = cell.get_node("ArcadeLantern")
+	var roof_removed: Dictionary = lantern.get_meta("removed_triangles")
+	_check(roof_removed.size() == 3, "only three original lantern cap slabs retire")
+	for identity: String in roof_removed:
+		_check(identity.begins_with("site_passage_lantern_cap_") and int(roof_removed[identity]) == 12, "exact lantern source boundary: " + identity)
 	var removed: Dictionary = canopy.get_meta("removed_triangles")
 	_check(removed.size() == 34, "all 34 selected roof/gable/diaphragm source boxes retire")
 	for id: String in removed: _check(int(removed[id]) == 12, "exact source boundary: " + id)
@@ -103,6 +108,22 @@ func validate_cell(cell: Node3D, layout: Dictionary) -> void:
 	var world_normal := (cell.global_basis * normal).normalized()
 	_check(not outside.is_empty() and outside.get("normal", Vector3.ZERO).dot(world_normal) > .999, "outer native glass surface is collidable")
 	_check(not inside.is_empty() and inside.get("normal", Vector3.ZERO).dot(-world_normal) > .999, "native glass underside has its own outward normal")
+	# Trace beneath the retained opal top light, stopping before its original
+	# glass surface. These four paths were blocked by all three solid slabs.
+	for x: float in [13.4, 14.6]:
+		for z: float in [51.0, 52.2]:
+			var well := _ray(cell.to_global(Vector3(x,10.8,z)), cell.to_global(Vector3(x,11.439,z)))
+			_check(well.is_empty(), "loaded lantern has a real light well: " + str(Vector2(x,z)))
+	for tier in 3:
+		var x: float = [11.2,12.0,12.7][tier]
+		var skin := _ray(cell.to_global(Vector3(x,10.8,52)), cell.to_global(Vector3(x,11.5,52)))
+		var height: float = 11.12 + .16*tier - .022
+		_check(not skin.is_empty() and absf(cell.to_local(skin.get("position",Vector3.ZERO)).y-height)<.00004, "native roof skin retains physical tier height: " + str(tier))
+		if not skin.is_empty():
+			_check((skin.get("normal",Vector3.ZERO) as Vector3).dot(cell.global_basis*Vector3.DOWN)>.999, "roof underside has its own outward normal: " + str(tier))
+			_check(str(skin.collider.get_parent().get_meta("arcade_lantern_part",""))=="lantern_roof__cast_iron", "roof skin hit belongs to the native lantern: " + str(tier))
+	var collar := _ray(cell.to_global(Vector3(14.035,10.89,51.6)), cell.to_global(Vector3(14.035,10.92,51.6)))
+	_check(not collar.is_empty() and absf(cell.to_local(collar.get("position",Vector3.ZERO)).y-10.9)<.00004, "closed native clock hanger meets the original stem endpoint")
 
 func _finish() -> void:
 	var directory := OS.get_environment("SHOT_DIR")

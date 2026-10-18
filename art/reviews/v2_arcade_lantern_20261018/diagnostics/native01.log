@@ -1,0 +1,82 @@
+C:\PleaseRemainOnTheLine\art\blender\arcade_fabric_candidate\build_arcade_lantern.py:45: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  glass=bpy.data.materials.new('RetainedMilkGlassReviewOnly');glass.use_nodes=True
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+08:41:23 | INFO: Starting glTF 2.0 export
+08:41:23 | INFO: Extracting primitive: lantern_roof__cast_iron
+08:41:23 | INFO: Primitives created: 1
+08:41:23 | INFO: Finished glTF 2.0 export in 0.09534144401550293 s
+C:\PleaseRemainOnTheLine\art\blender\arcade_fabric_candidate\build_arcade_lantern.py:83: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('LanternReviewSky');scene.world.use_nodes=True
+00:06.594  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_normal.png does not exist.
+00:06.594  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_normal.png does not exist.
+00:06.594  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_normal.png does not exist.
+00:06.594  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_rough.png does not exist.
+00:06.594  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_rough.png does not exist.
+00:06.594  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_rough.png does not exist.
+00:06.594  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_albedo.png does not exist.
+00:06.594  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_albedo.png does not exist.
+00:06.594  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_albedo.png does not exist.
+00:06.625  cycles           | ERROR Failed to load 9 image files
+00:13.516  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native01\underside_before.png'
+00:13.516  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_normal.png does not exist.
+00:13.516  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_normal.png does not exist.
+00:13.516  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_normal.png does not exist.
+00:13.516  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_rough.png does not exist.
+00:13.516  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_rough.png does not exist.
+00:13.516  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_rough.png does not exist.
+00:13.516  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_albedo.png does not exist.
+00:13.516  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_albedo.png does not exist.
+00:13.516  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_albedo.png does not exist.
+00:13.547  cycles           | ERROR Failed to load 9 image files
+00:20.312  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native01\underside_after.png'
+00:20.328  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_normal.png does not exist.
+00:20.328  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_normal.png does not exist.
+00:20.328  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_normal.png does not exist.
+00:20.328  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_rough.png does not exist.
+00:20.328  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_rough.png does not exist.
+00:20.328  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_rough.png does not exist.
+00:20.328  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_albedo.png does not exist.
+00:20.328  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_albedo.png does not exist.
+00:20.328  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_albedo.png does not exist.
+00:20.359  cycles           | ERROR Failed to load 9 image files
+00:23.625  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native01\top_before.png'
+00:23.625  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_normal.png does not exist.
+00:23.625  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_normal.png does not exist.
+00:23.625  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_normal.png does not exist.
+00:23.625  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_rough.png does not exist.
+00:23.625  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_rough.png does not exist.
+00:23.625  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_rough.png does not exist.
+00:23.625  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_albedo.png does not exist.
+00:23.625  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_albedo.png does not exist.
+00:23.625  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_albedo.png does not exist.
+00:23.656  cycles           | ERROR Failed to load 9 image files
+00:27.062  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native01\top_after.png'
+00:27.062  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_normal.png does not exist.
+00:27.062  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_normal.png does not exist.
+00:27.062  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_normal.png does not exist.
+00:27.062  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_rough.png does not exist.
+00:27.062  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_rough.png does not exist.
+00:27.062  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_rough.png does not exist.
+00:27.062  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_albedo.png does not exist.
+00:27.062  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_albedo.png does not exist.
+00:27.062  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_albedo.png does not exist.
+00:27.094  cycles           | ERROR Failed to load 9 image files
+00:31.703  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native01\player_before.png'
+00:31.703  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_normal.png does not exist.
+00:31.703  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_normal.png does not exist.
+00:31.703  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_rough.png does not exist.
+00:31.703  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_rough.png does not exist.
+00:31.703  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_normal.png does not exist.
+00:31.703  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_enamel_appliance_albedo.png does not exist.
+00:31.703  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_iron_blackened_albedo.png does not exist.
+00:31.703  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_rough.png does not exist.
+00:31.703  cycles           | WARNING Image file C:\PleaseRemainOnTheLine\art\reviews\game\assets\building\textures\T_ai_materials_plaster_stained_albedo.png does not exist.
+00:31.734  cycles           | ERROR Failed to load 9 image files
+00:36.281  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native01\player_after.png'
+
+Info: Saved as "arcade_lantern.blend"
+LANTERN NATIVE CANDIDATE {"asset": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_arcade_lantern_20261018\\native01\\arcade_lantern.glb", "primitives": 1, "triangles": 5040, "minimum_tangent_agreement": 0.9999999704947651, "status": "PASS", "evidence_class": "INERT", "scope": "Offline native candidate; composed fit, UV/PBR/mips and appearance verification remain pending.", "stock_count": 84, "views": ["underside_before.png", "underside_after.png", "top_before.png", "top_after.png", "player_before.png", "player_after.png"], "asset_sha256": "b9e6db2c64bab2416398eed63bf890f32972acea710569043bc23c43646bfe06", "source_bindings_lf": {"art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c", "tools/plan_v2_arcade_lantern.py": "6d2ede8e49528df2ce96b75120008939c2dac3127e5ff480f7bb7e22b5343245", "art/blender/arcade_fabric_candidate/build_arcade_lantern.py": "50fa3a6303f45a04b4d07fc65b8c30fd2dfc59f8859ea6e83e445c631be0f76e", "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea", "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d", "art/blender/arcade_canopy.blend": "1ad28ab1df9d5d531f3943f22d244504f063bcd699125e6f9251bc5c917ba3ce"}}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

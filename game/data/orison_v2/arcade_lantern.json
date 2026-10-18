@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/arcade_lantern.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "passage",
+      "replace": [
+        {
+          "id": "site_passage_lantern_cap_0",
+          "key": "cast_iron",
+          "low": [
+            10.9,
+            10.96,
+            48.35999999999999
+          ],
+          "high": [
+            17.1,
+            11.120000000000001,
+            54.839999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_lantern_cap_1",
+          "key": "cast_iron",
+          "low": [
+            11.6,
+            11.120000000000001,
+            49.059999999999995
+          ],
+          "high": [
+            16.400000000000002,
+            11.280000000000001,
+            54.13999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_passage_lantern_cap_2",
+          "key": "cast_iron",
+          "low": [
+            12.3,
+            11.280000000000001,
+            49.75999999999999
+          ],
+          "high": [
+            15.700000000000001,
+            11.440000000000001,
+            53.44
+          ],
+          "expected_triangles": 12
+        }
+      ],
+      "parts": [
+        {
+          "name": "lantern_roof__cast_iron",
+          "key": "cast_iron",
+          "catalog_key": "iron_blackened",
+          "tile": 0.4
+        }
+      ]
+    }
+  ]
+}

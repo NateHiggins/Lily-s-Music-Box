@@ -43,6 +43,7 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 	model.set_meta("retired_ornament_draws", ornaments.size())
 	for draw: MeshInstance3D in ornaments: draw.free()
 	if not Seating.mount_arcade_throat(cell, layout): return _refuse("throat source boundary/native fitting")
+	if not Seating.mount_arcade_lantern(cell, layout): return _refuse("lantern source boundary/native fitting")
 	# The retained source charts are already baked in their original metre
 	# scale. Convert those charts rather than applying a second generic scale.
 	var converted := {"terrazzo": 0, "terrazzo_dark": 0, "common_brick": 0}

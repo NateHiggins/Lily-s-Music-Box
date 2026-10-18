@@ -2286,3 +2286,12 @@ game/tests/V2FurnishingClearanceReview.tscn -text
 art/reviews/v2_clearance_20261018/** -text -whitespace
 # Preserve the existing layout bytes while recognizing its Windows line ends.
 game/data/orison_v2_blockout.json -text whitespace=cr-at-eol
+
+# Folded arcade lantern roof recipe, native stock and diagnostic evidence.
+art/reviews/v2_arcade_lantern_20261018/** -text -whitespace
+art/blender/arcade_lantern.blend -text
+tools/plan_v2_arcade_lantern.py -text
+tools/publish_v2_arcade_lantern.py -text
+tools/tests/test_arcade_lantern.py -text
+game/assets/props/arcade_lantern.glb* -text
+game/data/orison_v2/arcade_lantern.json -text

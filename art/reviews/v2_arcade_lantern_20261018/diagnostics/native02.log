@@ -1,0 +1,22 @@
+C:\PleaseRemainOnTheLine\art\blender\arcade_fabric_candidate\build_arcade_lantern.py:45: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  glass=bpy.data.materials.new('RetainedMilkGlassReviewOnly');glass.use_nodes=True
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+08:42:39 | INFO: Starting glTF 2.0 export
+08:42:39 | INFO: Extracting primitive: lantern_roof__cast_iron
+08:42:39 | INFO: Primitives created: 1
+08:42:39 | INFO: Finished glTF 2.0 export in 0.08933329582214355 s
+C:\PleaseRemainOnTheLine\art\blender\arcade_fabric_candidate\build_arcade_lantern.py:90: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('LanternReviewSky');scene.world.use_nodes=True
+00:08.734  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native02\underside_before.png'
+00:15.468  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native02\underside_after.png'
+00:18.765  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native02\top_before.png'
+00:22.234  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native02\top_after.png'
+00:26.703  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native02\player_before.png'
+00:31.234  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_arcade_lantern_20261018\native02\player_after.png'
+
+Info: Saved as "arcade_lantern.blend"
+LANTERN NATIVE CANDIDATE {"asset": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_arcade_lantern_20261018\\native02\\arcade_lantern.glb", "primitives": 1, "triangles": 5040, "minimum_tangent_agreement": 0.9999999704947651, "status": "PASS", "evidence_class": "INERT", "scope": "Offline native candidate; composed fit, UV/PBR/mips and appearance verification remain pending.", "stock_count": 84, "views": ["underside_before.png", "underside_after.png", "top_before.png", "top_after.png", "player_before.png", "player_after.png"], "asset_sha256": "b9e6db2c64bab2416398eed63bf890f32972acea710569043bc23c43646bfe06", "source_bindings_lf": {"art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c", "tools/plan_v2_arcade_lantern.py": "a001702493e0f4a68b06287014afcbf73ceeb86eb6ff5a1a997fe41843230777", "art/blender/arcade_fabric_candidate/build_arcade_lantern.py": "31d24bf4ec4e63ff25400d1b26c054f3aeea928999f79cca0eea66ca8dd07629", "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea", "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d", "art/blender/arcade_canopy.blend": "1ad28ab1df9d5d531f3943f22d244504f063bcd699125e6f9251bc5c917ba3ce"}}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
