@@ -1,78 +1,123 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "scope": "Reviewed incremental tile scale/stock, limestone registration and valance emission repair. Not photoreal, human, four-region, gameplay or V2 completion acceptance. Explicit unresolved glazing highlight, warm cast and period signage debt remain.",
-  "surface_inputs_sha256": "6a53803518a59dfa1a922f4191d5a11d23c7a6be341ce549418bae234bf1c4cc",
+  "scope": "Reviewed incremental native cage-source aperture repair for 72 fixtures, retained street stock and next-area arcade observations. Not photoreal, human, region, gameplay or V2 completion acceptance. Simplified bright glints, stretched red panels, repeated floor stock, brick relief and roof joints remain open.",
+  "surface_inputs_sha256": "fcd2951ed0313007955b0158ba12e8c83c507c8d05d92482f032d953d4e29932",
   "images": [
     {
       "file": "construction_approach_diffuse.png",
-      "sha256": "52a3907b6a78800cd9cb926497c98fd1e58085e2f081482c79f012d91c5146de",
-      "observation": "Loaded tiled party wall seen through the shop glazing now has coherent small running-bond courses rather than baked cracks; the lower-emission fascia retains a surface. White glazing oval and warm cast remain open."
+      "sha256": "d5dd5a26b17c3b70690d1448dee195711ea60fc85da8b76d95bbad38134deece",
+      "observation": "Current production approach retains regular tile courses, native timber seams and fascia stock. The former large white reflection is now a small source-sized glint. Warm cast and broader shop/detail work remain open."
     },
     {
       "file": "construction_approach_carried.png",
-      "sha256": "4fdd1d2b9e5ea84de8e4829dc6156120e52cabd65e6f5fc13c58b29a08c6789a",
-      "observation": "Carried light illuminates individual shed boards and fitted post/beam framing. The tile scale remains consistent; glazing highlight still clips white."
+      "sha256": "b7ee13fa97d96add5a8756a966bc78544e608844d37e465fd06242f816992b99",
+      "observation": "Real carried light illuminates seated timber and individual grain while the smaller window glint remains. No source pose, energy, glass roughness or stock maps were changed."
     },
     {
       "file": "construction_framing_diffuse.png",
-      "sha256": "5c3381c2e592001cc66747e10acc060fd807e1531c87a0a415761bff1fac3c87",
+      "sha256": "2b57e0041ea996b527647621810910b632f0890740c8c517e0ff4b0514e6e841",
       "observation": "Overhead decking, secondary joists and supported beams remain distinct and opaque. No native shed geometry changed in this finish pass."
     },
     {
       "file": "construction_framing_carried.png",
-      "sha256": "f26ff2e81d5de0784adbff269617d95a7eb6b241622a132c14864aa253b90da0",
+      "sha256": "335cb7ebcd491b2bb024b87d5e48f9ba919a04459cb6876fbf68967265ddebbd",
       "observation": "Carried light shows timber direction, separate board edges and fasteners; warm production lighting remains dominant."
     },
     {
       "file": "construction_closure_diffuse.png",
-      "sha256": "4f10aac2cf478e39235eaff040f34db927d44b95c7a7727f6c4115d224687383",
+      "sha256": "dabba5783bfed95209bbe00e9b14623fef44239aeb8d99a660d551bc7f803d73",
       "observation": "Separate original closure lettering remains readable on paper; seated diagonal brace and fasteners remain visible."
     },
     {
       "file": "construction_closure_carried.png",
-      "sha256": "9f0b417433b524b254a241dce756792752082cc031a3e02891703cf86efe83c5",
+      "sha256": "1d1cc901a62f4329d49c79a82885c04a24287be493e050f7cbf6b484f46d1ed6",
       "observation": "Closer carried-light view retains blank paper stock beneath separate lettering, board grain, joints and bolt heads."
     },
     {
       "file": "construction_joinery_diffuse.png",
-      "sha256": "eddde6ee38abb2bd6f41fabdf485de49bf42dc0dd5dce4b94eac0f7a90675598",
+      "sha256": "ef8ac95c651864e37c56dc623f0f8afe7cc3203ed0e5079f204fa36edfa752aa",
       "observation": "Post/beam joint retains seated solids, end grain and bolt hardware; no new gaps through native stock."
     },
     {
       "file": "construction_joinery_carried.png",
-      "sha256": "ff75f67d5f65f4f7adcbaf029db635e8126944ca3896d962c41280c4f4bb1f3e",
+      "sha256": "2ab234bd3e7299e679d199c3ee123eb5ed1e875f83f8c62d93d9a7a7b6bed30e",
       "observation": "Grazing carried light retains grain direction and bolt hardware on the unchanged native joint."
     },
     {
       "file": "street_approach_original.png",
-      "sha256": "bc6782479f85e41a38fedbb72ac8a41f54fa76c7825149f1f1d541c2240e0bd5",
-      "observation": "Actual production view: corrected tile courses behind the right store glass; valance retains soft transmitted illumination and texture. White oval remains an unacceptable glazing highlight."
+      "sha256": "0e769c155d9dcbbf669e077360121b41159f0a55860c0b4e1f2dfc1230b600be",
+      "observation": "The fitted cage source produces a smaller bright glass reflection in the original camera; tile courses and fascia remain intact. The simplified reflection remains bright, without a photoreal acceptance claim."
     },
     {
       "file": "street_approach_selected_normals_off.png",
-      "sha256": "ea48c4946a3dceadde1d50b51d85c468ac44f4e91e31f4ad969619afd99cd4c8",
-      "observation": "Disposable selected-material normal-off control keeps the same regular tile courses. The former cracks were baked albedo, not simply exaggerated normal strength."
+      "sha256": "b112094560176f1fc48cb0e199ed2591e5f45f204a32ddcebfdabe54b5c0c9d4",
+      "observation": "Normal-off control preserves the small source reflection. Calibrating native source aperture, rather than changing the glass normal map, reduces the oversized oval."
     },
     {
       "file": "street_approach_selected_emission_off.png",
-      "sha256": "6a4032553a819b9bb55cb32a0b14e910284277d51e91df9da1dfd66ea7a7dc8d",
-      "observation": "Disposable emission-off control reveals valance surface colour. Normal production emission is restored after this control."
+      "sha256": "009b2c659cc43e5479ed19a9d1150bd3fca386b2514308e6a2a7a4a93a2d161f",
+      "observation": "Selected-material emission-off control retains the source reflection while valance darkens. Glass maps and production emission are restored after this temporary control."
     },
     {
       "file": "street_approach_right_glazing_hidden.png",
-      "sha256": "a4681e43d2d352fdb8cfb40e56bb6a395d72af61a3458edabdc955b4c265c5c2",
-      "observation": "Disposable right-pane-hidden control removes the clipped white oval while retaining tile and practical lamp, isolating the remaining defect to glazing. Production pane visibility is restored."
+      "sha256": "2201d77ed89789f4b22123165ce9fa366d8b5766e9726e6a766263b715fa2480",
+      "observation": "Temporary right-pane-hidden control removes the remaining source glint; production pane visibility is restored. This remains a clear-window specular effect, not a wall fitting."
     },
     {
       "file": "street_sign_front.png",
-      "sha256": "f56bea7a4980e9994931684ed61fd80d5a6b78688e1427b9a069e34234b6318a",
+      "sha256": "b1ef8f60a80f25827edb8975cd11486eaaa6d635ce68a209d160fcddfaf29cd1",
       "observation": "Front view retains original independent red lettering and softly lit fascia. Construction post partially occludes the sign; original bright projecting cabinet and period material/wording remain open."
     },
     {
       "file": "street_sign_front_emission_off.png",
-      "sha256": "60cb46b0316e5abc25d6a884ae3f9e62aed229a943c4a96a3605605bdd903f52",
+      "sha256": "2aed448c21e6a2ea5bb11174f4d683e374379962efde0126374b782ed2708171",
       "observation": "Same front camera with only valance emission disabled: face darkens while original cabinet and practical lamp remain lit, confirming their distinct material authorities."
+    },
+    {
+      "file": "street_glazing_fitted_19_1.png",
+      "sha256": "38a9511662eeec5fa23d4d86315b1ad7b51eb6e7fae5ba2f848ccf353d2d02e1",
+      "observation": "Left offset camera shows small finite bright source reflection through clear glazing; tile/wood stock remains readable. The lamp and glass still react to viewpoint."
+    },
+    {
+      "file": "street_glazing_fitted_19_5.png",
+      "sha256": "0cdef8d4fc02f4678f8490f2f41d1f406ec688cf9460597995c1edde9e01d817",
+      "observation": "Original approach camera now shows the roughly 45 mm modeled-source glint rather than the generic 160 mm source oval. No roughness or diffuse-light suppression hides it."
+    },
+    {
+      "file": "street_glazing_fitted_19_9.png",
+      "sha256": "ec330edee5cdcd061794633ea171b5fe1b1166271a2960f2608edfbf416ea77a",
+      "observation": "Right offset camera moves the reflection behind the original green mullion, retaining its correct occlusion by that frame. Lamp pose and source position remain fixed."
+    },
+    {
+      "file": "street_work_aperture_AlleyEast.png",
+      "sha256": "2a2dc297023299b175e3f753259bd73a28a71b77b874448cc9f34f5e3543ae52",
+      "observation": "Native east service-lamp cage, bulb, suspension and seated bracket remain visible with real original illumination. The adjacent red panel has coarse stretched appearance and remains an open material defect."
+    },
+    {
+      "file": "street_work_aperture_AlleyWest.png",
+      "sha256": "516027bdd5504e2d4f356ff58671e27ac8575b8c2ec3ca748f135ef8fd867016",
+      "observation": "Native west service-lamp mount is seated; source remains inside the original emitting envelope and the bulb/cage silhouette survives. Adjacent red panel finish remains unaccepted."
+    },
+    {
+      "file": "street_work_aperture_Shed.png",
+      "sha256": "d83473bba563f5665416f955c83acab8e319551d2115e8e4f7651911eee29066",
+      "observation": "Close native shed lamp retains original suspension, mounting plate, cage and emitting bulb. Timber decking and joinery remain unchanged; highlights retain specular light."
+    },
+    {
+      "file": "street_arcade_portal_current.png",
+      "sha256": "03ceebe0d7948c09a1c84c7a92e7bd3c2a9571217e2f199f5cf27486259e89fc",
+      "observation": "Current portal observation: prior large side-glass reflection shrinks after the same native cage-family calibration. Frame, entrance floor and throat remain visible. This camera is not a region, walk or acceptance proof."
+    },
+    {
+      "file": "street_arcade_throat_current.png",
+      "sha256": "84416dddec73cad8ffa4456f29b9b343888ca04ee8291873d293aad9b97f385c",
+      "observation": "Current throat observation: brick outlines/relief, repeating floor patterns and coarse wood/cap detail need further work. Ceiling members remain visible; no structural completion is granted."
+    },
+    {
+      "file": "street_arcade_hall_current.png",
+      "sha256": "f48ad1a3e00306412cefb1cc827c69587cda166fb1b493784548c80b896f73a0",
+      "observation": "Current hall observation: native shops, open leaves, cart, fascia and roof framing remain present. Repeating floor stock, heavy brick relief and upper roof joints/openings need inspection; no region or photoreal acceptance is claimed."
     }
   ]
 }

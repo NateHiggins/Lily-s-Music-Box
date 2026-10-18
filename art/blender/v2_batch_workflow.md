@@ -19,6 +19,12 @@ Assertions about shared material defaults must account for V2's active UV
 policy and verify restoration after world teardown. Check runtime registration
 as well as the art catalogue: an art key alone does not populate MatLib's sets.
 
+For a reflection defect, isolate its actual light and emitting geometry before
+altering material roughness. Compare the configured source size with the native
+emitting envelope, and inspect other fixtures in that same physical family at
+adjoining windows before freezing the broad capture. Keep optical controls
+disposable; apply production calibration through the existing lighting authority.
+
 ## Visual detail priority (owner direction, 2026-10-17)
 
 Prioritize observed material and construction defects within each batch,

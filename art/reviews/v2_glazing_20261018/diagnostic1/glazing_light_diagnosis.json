@@ -1,0 +1,8573 @@
+{
+	"evidence_class": "INERT",
+	"lights": [
+		{
+			"energy": 0.115000002086163,
+			"path": "WakingAtmosphere/CelestialKey",
+			"position": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"size": 0.0,
+			"specular": 1.0,
+			"type": "DirectionalLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F02_SERVICE_HALL_CORE_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-9.49999904632568,
+				5.54000043869019,
+				-14.8500003814697
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F04_SERVICE_HALL_CORE_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-9.49999904632568,
+				11.9399995803833,
+				-14.8500003814697
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F03_CORE_EAST_HALL_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-5.39999961853027,
+				8.73999977111816,
+				-8.39999961853027
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F03_EAST_CROSSING_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-8.29999923706055,
+				8.73999977111816,
+				-8.40000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F03_SERVICE_NORTH_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-8.89999866485596,
+				8.73999977111816,
+				-9.0
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F03_SERVICE_SOUTH_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-8.89999866485596,
+				8.73999977111816,
+				-7.80000019073486
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F03_B_MAIN_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-11.4999990463257,
+				8.73999977111816,
+				-9.15000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F03_B_MAIN_HALL_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-14.1999988555908,
+				8.73999977111816,
+				-6.40000104904175
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F03_B_KITCHEN_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-13.0,
+				8.73999977111816,
+				-4.85000038146973
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F03_CORE_WEST_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				2.20000100135803,
+				8.73999977111816,
+				-11.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F05_SERVICE_HALL_CORE_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-9.49999904632568,
+				15.1400003433228,
+				-14.8500003814697
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 3.20000004768372,
+			"path": "OrisonV2Blockout/F06_SERVICE_HALL_CORE_OPENING/ServicePractical/WarmServiceLight",
+			"position": [
+				-9.49999904632568,
+				18.3400001525879,
+				-14.8500003814697
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.770447790622711,
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3101/@Node3D@3102/@OmniLight3D@3109",
+			"position": [
+				-17.7999973297119,
+				1.83999991416931,
+				-2.65000152587891
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3101/@OmniLight3D@3110",
+			"position": [
+				-17.7999973297119,
+				0.839999914169312,
+				-2.65000152587891
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.771400153636932,
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3111/@Node3D@3112/@OmniLight3D@3119",
+			"position": [
+				-17.7999973297119,
+				1.83999991416931,
+				-13.6500015258789
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3111/@OmniLight3D@3120",
+			"position": [
+				-17.7999973297119,
+				0.839999914169312,
+				-13.6500015258789
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.772054553031921,
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3121/@Node3D@3122/@OmniLight3D@3129",
+			"position": [
+				-17.7999954223633,
+				1.83999991416931,
+				-24.1500015258789
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3121/@OmniLight3D@3130",
+			"position": [
+				-17.7999954223633,
+				0.839999914169312,
+				-24.1500015258789
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.772408187389374,
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3131/@Node3D@3132/@OmniLight3D@3139",
+			"position": [
+				-7.99999809265137,
+				1.83999991416931,
+				-22.6500015258789
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3131/@OmniLight3D@3140",
+			"position": [
+				-7.99999809265137,
+				0.839999914169312,
+				-22.6500015258789
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3B_STOVE_01/BurnerGlow1",
+			"position": [
+				-11.4800004959106,
+				7.3600001335144,
+				-5.80000066757202
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3B_STOVE_01/BurnerGlow2",
+			"position": [
+				-11.8200006484985,
+				7.3600001335144,
+				-5.80000066757202
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3B_STOVE_01/BurnerGlow3",
+			"position": [
+				-11.4800004959106,
+				7.3600001335144,
+				-6.07000064849854
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3B_STOVE_01/BurnerGlow4",
+			"position": [
+				-11.8200006484985,
+				7.3600001335144,
+				-6.07000064849854
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_STOVE_01/BurnerGlow1",
+			"position": [
+				13.4200019836426,
+				10.5600004196167,
+				-17.3700008392334
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_STOVE_01/BurnerGlow2",
+			"position": [
+				13.0800018310547,
+				10.5600004196167,
+				-17.3700008392334
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_STOVE_01/BurnerGlow3",
+			"position": [
+				13.4200019836426,
+				10.5600004196167,
+				-17.6399993896484
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_STOVE_01/BurnerGlow4",
+			"position": [
+				13.0800018310547,
+				10.5600004196167,
+				-17.6399993896484
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2A_STOVE_01/BurnerGlow1",
+			"position": [
+				12.9700021743774,
+				4.15999984741211,
+				-17.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2A_STOVE_01/BurnerGlow2",
+			"position": [
+				12.6300020217896,
+				4.15999984741211,
+				-17.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2A_STOVE_01/BurnerGlow3",
+			"position": [
+				12.9700021743774,
+				4.15999984741211,
+				-17.5099983215332
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2A_STOVE_01/BurnerGlow4",
+			"position": [
+				12.6300020217896,
+				4.15999984741211,
+				-17.5099983215332
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2B_STOVE_01/BurnerGlow1",
+			"position": [
+				-10.0900011062622,
+				4.15999984741211,
+				-5.58000040054321
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2B_STOVE_01/BurnerGlow2",
+			"position": [
+				-10.0900011062622,
+				4.15999984741211,
+				-5.9200005531311
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2B_STOVE_01/BurnerGlow3",
+			"position": [
+				-9.82000064849854,
+				4.15999984741211,
+				-5.58000040054321
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.109999999403954,
+			"path": "OrisonV2Blockout/F02_2B_STOVE_01/BurnerGlow4",
+			"position": [
+				-9.82000064849854,
+				4.15999984741211,
+				-5.9200005531311
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3A_FRIDGE_01/InteriorLamp",
+			"position": [
+				11.2000017166138,
+				7.48000001907349,
+				-17.4499988555908
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3A_STOVE_01/BurnerGlow1",
+			"position": [
+				12.9700021743774,
+				7.3600001335144,
+				-17.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3A_STOVE_01/BurnerGlow2",
+			"position": [
+				12.6300020217896,
+				7.3600001335144,
+				-17.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3A_STOVE_01/BurnerGlow3",
+			"position": [
+				12.9700021743774,
+				7.3600001335144,
+				-17.5099983215332
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3A_STOVE_01/BurnerGlow4",
+			"position": [
+				12.6300020217896,
+				7.3600001335144,
+				-17.5099983215332
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4A_STOVE_01/BurnerGlow1",
+			"position": [
+				-10.0900011062622,
+				10.5600004196167,
+				-5.58000040054321
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4A_STOVE_01/BurnerGlow2",
+			"position": [
+				-10.0900011062622,
+				10.5600004196167,
+				-5.9200005531311
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4A_STOVE_01/BurnerGlow3",
+			"position": [
+				-9.82000064849854,
+				10.5600004196167,
+				-5.58000040054321
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4A_STOVE_01/BurnerGlow4",
+			"position": [
+				-9.82000064849854,
+				10.5600004196167,
+				-5.9200005531311
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5A_STOVE_01/BurnerGlow1",
+			"position": [
+				10.6400003433228,
+				13.7600002288818,
+				-4.22999858856201
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5A_STOVE_01/BurnerGlow2",
+			"position": [
+				10.6400003433228,
+				13.7600002288818,
+				-4.5699987411499
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5A_STOVE_01/BurnerGlow3",
+			"position": [
+				10.9100008010864,
+				13.7600002288818,
+				-4.22999858856201
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5A_STOVE_01/BurnerGlow4",
+			"position": [
+				10.9100008010864,
+				13.7600002288818,
+				-4.5699987411499
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5B_STOVE_01/BurnerGlow1",
+			"position": [
+				7.0500020980835,
+				13.7600002288818,
+				-20.9200000762939
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5B_STOVE_01/BurnerGlow2",
+			"position": [
+				7.0500020980835,
+				13.7600002288818,
+				-20.5799999237061
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5B_STOVE_01/BurnerGlow3",
+			"position": [
+				6.78000211715698,
+				13.7600002288818,
+				-20.9200000762939
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5B_STOVE_01/BurnerGlow4",
+			"position": [
+				6.78000211715698,
+				13.7600002288818,
+				-20.5799999237061
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5B_FRIDGE_01/InteriorLamp",
+			"position": [
+				6.84000205993652,
+				13.8800001144409,
+				-22.5
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5C_STOVE_01/BurnerGlow1",
+			"position": [
+				-6.54999828338623,
+				13.7600002288818,
+				-16.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5C_STOVE_01/BurnerGlow2",
+			"position": [
+				-6.54999828338623,
+				13.7600002288818,
+				-15.8999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5C_STOVE_01/BurnerGlow3",
+			"position": [
+				-6.81999826431274,
+				13.7600002288818,
+				-16.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_5C_STOVE_01/BurnerGlow4",
+			"position": [
+				-6.81999826431274,
+				13.7600002288818,
+				-15.8999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6A_STOVE_01/BurnerGlow1",
+			"position": [
+				10.6400003433228,
+				16.9599990844727,
+				-4.22999858856201
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6A_STOVE_01/BurnerGlow2",
+			"position": [
+				10.6400003433228,
+				16.9599990844727,
+				-4.5699987411499
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6A_STOVE_01/BurnerGlow3",
+			"position": [
+				10.9100008010864,
+				16.9599990844727,
+				-4.22999858856201
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6A_STOVE_01/BurnerGlow4",
+			"position": [
+				10.9100008010864,
+				16.9599990844727,
+				-4.5699987411499
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6B_STOVE_01/BurnerGlow1",
+			"position": [
+				7.0500020980835,
+				16.9599990844727,
+				-20.9200000762939
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6B_STOVE_01/BurnerGlow2",
+			"position": [
+				7.0500020980835,
+				16.9599990844727,
+				-20.5799999237061
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6B_STOVE_01/BurnerGlow3",
+			"position": [
+				6.78000211715698,
+				16.9599990844727,
+				-20.9200000762939
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6B_STOVE_01/BurnerGlow4",
+			"position": [
+				6.78000211715698,
+				16.9599990844727,
+				-20.5799999237061
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6C_STOVE_01/BurnerGlow1",
+			"position": [
+				-6.54999828338623,
+				16.9599990844727,
+				-16.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6C_STOVE_01/BurnerGlow2",
+			"position": [
+				-6.54999828338623,
+				16.9599990844727,
+				-15.8999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6C_STOVE_01/BurnerGlow3",
+			"position": [
+				-6.81999826431274,
+				16.9599990844727,
+				-16.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6C_STOVE_01/BurnerGlow4",
+			"position": [
+				-6.81999826431274,
+				16.9599990844727,
+				-15.8999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_6C_FRIDGE_01/InteriorLamp",
+			"position": [
+				-6.71999835968018,
+				17.0799999237061,
+				-17.2000007629395
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2C_STOVE_01/BurnerGlow1",
+			"position": [
+				-6.54999828338623,
+				4.15999984741211,
+				-16.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2C_STOVE_01/BurnerGlow2",
+			"position": [
+				-6.54999828338623,
+				4.15999984741211,
+				-15.8999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2C_STOVE_01/BurnerGlow3",
+			"position": [
+				-6.81999826431274,
+				4.15999984741211,
+				-16.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_2C_STOVE_01/BurnerGlow4",
+			"position": [
+				-6.81999826431274,
+				4.15999984741211,
+				-15.8999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4C_STOVE_01/BurnerGlow1",
+			"position": [
+				-6.54999828338623,
+				10.5600004196167,
+				-16.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4C_STOVE_01/BurnerGlow2",
+			"position": [
+				-6.54999828338623,
+				10.5600004196167,
+				-15.8999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4C_STOVE_01/BurnerGlow3",
+			"position": [
+				-6.81999826431274,
+				10.5600004196167,
+				-16.2399997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4C_STOVE_01/BurnerGlow4",
+			"position": [
+				-6.81999826431274,
+				10.5600004196167,
+				-15.8999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_1D_STOVE_01/BurnerGlow1",
+			"position": [
+				-10.0900011062622,
+				0.959999978542328,
+				-5.58000040054321
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_1D_STOVE_01/BurnerGlow2",
+			"position": [
+				-10.0900011062622,
+				0.959999978542328,
+				-5.9200005531311
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.109999999403954,
+			"path": "OrisonV2Blockout/F01_1D_STOVE_01/BurnerGlow3",
+			"position": [
+				-9.82000064849854,
+				0.959999978542328,
+				-5.58000040054321
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_1D_STOVE_01/BurnerGlow4",
+			"position": [
+				-9.82000064849854,
+				0.959999978542328,
+				-5.9200005531311
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_1A_STOVE_01/BurnerGlow1",
+			"position": [
+				10.7700004577637,
+				0.959999978542328,
+				-3.86999845504761
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_1A_STOVE_01/BurnerGlow2",
+			"position": [
+				10.4300003051758,
+				0.959999978542328,
+				-3.86999869346619
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_1A_STOVE_01/BurnerGlow3",
+			"position": [
+				10.7700004577637,
+				0.959999978542328,
+				-4.13999843597412
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_1A_STOVE_01/BurnerGlow4",
+			"position": [
+				10.4300003051758,
+				0.959999978542328,
+				-4.13999843597412
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_1A_FRIDGE_01/InteriorLamp",
+			"position": [
+				9.0,
+				1.08000004291534,
+				-2.35999870300293
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3D_STOVE_01/BurnerGlow1",
+			"position": [
+				10.7700004577637,
+				7.3600001335144,
+				-3.86999845504761
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3D_STOVE_01/BurnerGlow2",
+			"position": [
+				10.4300003051758,
+				7.3600001335144,
+				-3.86999869346619
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3D_STOVE_01/BurnerGlow3",
+			"position": [
+				10.7700004577637,
+				7.3600001335144,
+				-4.13999843597412
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_3D_STOVE_01/BurnerGlow4",
+			"position": [
+				10.4300003051758,
+				7.3600001335144,
+				-4.13999843597412
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4D_STOVE_01/BurnerGlow1",
+			"position": [
+				10.7700004577637,
+				10.5600004196167,
+				-3.86999845504761
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4D_STOVE_01/BurnerGlow2",
+			"position": [
+				10.4300003051758,
+				10.5600004196167,
+				-3.86999869346619
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4D_STOVE_01/BurnerGlow3",
+			"position": [
+				10.7700004577637,
+				10.5600004196167,
+				-4.13999843597412
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_4D_STOVE_01/BurnerGlow4",
+			"position": [
+				10.4300003051758,
+				10.5600004196167,
+				-4.13999843597412
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_VESTIBULE_LT_FLUSH_DOME/@Node3D@16429/@OmniLight3D@16434",
+			"position": [
+				0.850001394748688,
+				6.04999971389771,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@16435",
+			"position": [
+				0.850001394748688,
+				5.04999971389771,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_MAIN_LT_PENDANT_SHADE/@Node3D@16436/@OmniLight3D@16442",
+			"position": [
+				2.55000138282776,
+				5.57999992370605,
+				-20.6499996185303
+			],
+			"size": 0.127000004053116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_MAIN_LT_PENDANT_SHADE/@OmniLight3D@16443",
+			"position": [
+				2.55000138282776,
+				4.57999992370605,
+				-20.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_STUDIO_LT_FLUSH_DOME/@Node3D@16444/@OmniLight3D@16449",
+			"position": [
+				3.90000152587891,
+				6.04999971389771,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_STUDIO_LT_FLUSH_DOME/@OmniLight3D@16450",
+			"position": [
+				3.90000152587891,
+				5.04999971389771,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@16451/@OmniLight3D@16456",
+			"position": [
+				-3.79999828338623,
+				6.04999971389771,
+				-18.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@16457",
+			"position": [
+				-3.79999828338623,
+				5.04999971389771,
+				-18.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_BATH_LT_FLUSH_DOME/@Node3D@16458/@OmniLight3D@16463",
+			"position": [
+				-2.14999866485596,
+				6.04999971389771,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_BATH_LT_FLUSH_DOME/@OmniLight3D@16464",
+			"position": [
+				-2.14999866485596,
+				5.04999971389771,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@16465/@OmniLight3D@16469",
+			"position": [
+				-5.44999837875366,
+				6.12999963760376,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_KITCHEN_LT_KITCHEN_LINEAR/@OmniLight3D@16470",
+			"position": [
+				-5.44999837875366,
+				5.12999963760376,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_BED1_LT_FLUSH_DOME/@Node3D@16471/@OmniLight3D@16476",
+			"position": [
+				-2.1499981880188,
+				6.04999971389771,
+				-21.3999996185303
+			],
+			"size": 0.152999997138977,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_BED1_LT_FLUSH_DOME/@OmniLight3D@16477",
+			"position": [
+				-2.1499981880188,
+				5.04999971389771,
+				-21.3999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_BED2_LT_FLUSH_DOME/@Node3D@16478/@OmniLight3D@16483",
+			"position": [
+				-5.4499979019165,
+				6.04999971389771,
+				-21.3999996185303
+			],
+			"size": 0.170000001788139,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_C_BED2_LT_FLUSH_DOME/@OmniLight3D@16484",
+			"position": [
+				-5.4499979019165,
+				5.04999971389771,
+				-21.3999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_VESTIBULE_LT_FLUSH_DOME/@Node3D@16485/@OmniLight3D@16490",
+			"position": [
+				0.850001394748688,
+				12.4500007629395,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@16491",
+			"position": [
+				0.850001394748688,
+				11.4500007629395,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_MAIN_LT_PENDANT_SHADE/@Node3D@16492/@OmniLight3D@16498",
+			"position": [
+				2.55000138282776,
+				11.9800004959106,
+				-20.6499996185303
+			],
+			"size": 0.13400000333786,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_MAIN_LT_PENDANT_SHADE/@OmniLight3D@16499",
+			"position": [
+				2.55000138282776,
+				10.9800004959106,
+				-20.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_STUDIO_LT_FLUSH_DOME/@Node3D@16500/@OmniLight3D@16505",
+			"position": [
+				3.90000152587891,
+				12.4500007629395,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_STUDIO_LT_FLUSH_DOME/@OmniLight3D@16506",
+			"position": [
+				3.90000152587891,
+				11.4500007629395,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@16507/@OmniLight3D@16512",
+			"position": [
+				-3.79999828338623,
+				12.4500007629395,
+				-18.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@16513",
+			"position": [
+				-3.79999828338623,
+				11.4500007629395,
+				-18.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_BATH_LT_FLUSH_DOME/@Node3D@16514/@OmniLight3D@16519",
+			"position": [
+				-2.14999866485596,
+				12.4500007629395,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_BATH_LT_FLUSH_DOME/@OmniLight3D@16520",
+			"position": [
+				-2.14999866485596,
+				11.4500007629395,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@16521/@OmniLight3D@16525",
+			"position": [
+				-5.44999837875366,
+				12.5300006866455,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_KITCHEN_LT_KITCHEN_LINEAR/@OmniLight3D@16526",
+			"position": [
+				-5.44999837875366,
+				11.5300006866455,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_BED1_LT_FLUSH_DOME/@Node3D@16527/@OmniLight3D@16532",
+			"position": [
+				-2.1499981880188,
+				12.4500007629395,
+				-21.3999996185303
+			],
+			"size": 0.118000000715256,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_BED1_LT_FLUSH_DOME/@OmniLight3D@16533",
+			"position": [
+				-2.1499981880188,
+				11.4500007629395,
+				-21.3999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_BED2_LT_FLUSH_DOME/@Node3D@16534/@OmniLight3D@16539",
+			"position": [
+				-5.4499979019165,
+				12.4500007629395,
+				-21.3999996185303
+			],
+			"size": 0.119999997317791,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_C_BED2_LT_FLUSH_DOME/@OmniLight3D@16540",
+			"position": [
+				-5.4499979019165,
+				11.4500007629395,
+				-21.3999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.75328528881073,
+			"path": "OrisonV2Blockout/F01_D_VESTIBULE_LT_FLUSH_DOME/@Node3D@16541/@OmniLight3D@16546",
+			"position": [
+				-10.4999990463257,
+				2.84999990463257,
+				-9.15000057220459
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_D_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@16547",
+			"position": [
+				-10.4999990463257,
+				1.85000002384186,
+				-9.15000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.66329121589661,
+			"path": "OrisonV2Blockout/F01_D_MAIN_LT_PENDANT_SHADE/@Node3D@16548/@OmniLight3D@16554",
+			"position": [
+				-13.5999994277954,
+				2.38000011444092,
+				-9.90000057220459
+			],
+			"size": 0.14300000667572,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_D_MAIN_LT_PENDANT_SHADE/@OmniLight3D@16555",
+			"position": [
+				-13.5999994277954,
+				1.37999999523163,
+				-9.90000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.05178594589233,
+			"path": "OrisonV2Blockout/F01_D_KITCHEN_LT_FLUSH_DOME/@Node3D@16556/@OmniLight3D@16561",
+			"position": [
+				-11.1500005722046,
+				2.84999990463257,
+				-5.55000066757202
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_D_KITCHEN_LT_FLUSH_DOME/@OmniLight3D@16562",
+			"position": [
+				-11.1500005722046,
+				1.85000002384186,
+				-5.55000066757202
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.85665225982666,
+			"path": "OrisonV2Blockout/F01_D_BED_LT_FLUSH_DOME/@Node3D@16563/@OmniLight3D@16568",
+			"position": [
+				-11.1499996185303,
+				2.84999990463257,
+				-1.30000019073486
+			],
+			"size": 0.17399999499321,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_D_BED_LT_FLUSH_DOME/@OmniLight3D@16569",
+			"position": [
+				-11.1499996185303,
+				1.85000002384186,
+				-1.30000019073486
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.2012984752655,
+			"path": "OrisonV2Blockout/F01_D_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@16570/@OmniLight3D@16575",
+			"position": [
+				-14.1499996185303,
+				2.84999990463257,
+				-4.90000104904175
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_D_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@16576",
+			"position": [
+				-14.1499996185303,
+				1.85000002384186,
+				-4.90000104904175
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.62763345241547,
+			"path": "OrisonV2Blockout/F01_D_BATH_LT_FLUSH_DOME/@Node3D@16577/@OmniLight3D@16582",
+			"position": [
+				-14.1999998092651,
+				2.84999990463257,
+				-0.850000381469727
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_D_BATH_LT_FLUSH_DOME/@OmniLight3D@16583",
+			"position": [
+				-14.1999998092651,
+				1.85000002384186,
+				-0.850000381469727
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.94974911212921,
+			"path": "OrisonV2Blockout/F01_A_VESTIBULE_LT/@Node3D@16584/@OmniLight3D@16589",
+			"position": [
+				6.80000066757202,
+				2.75,
+				-6.44999933242798
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_A_VESTIBULE_LT/@OmniLight3D@16590",
+			"position": [
+				6.80000066757202,
+				1.75000011920929,
+				-6.44999933242798
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.17736315727234,
+			"path": "OrisonV2Blockout/F01_A_MAIN_LT/@Node3D@16591/@OmniLight3D@16597",
+			"position": [
+				11.9249992370605,
+				2.28000020980835,
+				-6.12499856948853
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_A_MAIN_LT/@OmniLight3D@16598",
+			"position": [
+				11.9249992370605,
+				1.28000009059906,
+				-6.12499856948853
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.45901608467102,
+			"path": "OrisonV2Blockout/F01_A_PRIVATE_HALL_LT/@Node3D@16599/@OmniLight3D@16604",
+			"position": [
+				6.80000066757202,
+				2.75,
+				-3.54999828338623
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_A_PRIVATE_HALL_LT/@OmniLight3D@16605",
+			"position": [
+				6.80000066757202,
+				1.75000011920929,
+				-3.54999828338623
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.21999025344849,
+			"path": "OrisonV2Blockout/F01_A_BATH_LT/@Node3D@16606/@OmniLight3D@16611",
+			"position": [
+				6.80000019073486,
+				2.75,
+				-0.649998664855957
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_A_BATH_LT/@OmniLight3D@16612",
+			"position": [
+				6.80000019073486,
+				1.75000011920929,
+				-0.649998664855957
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.37507009506226,
+			"path": "OrisonV2Blockout/F01_A_KITCHEN_LT/@Node3D@16613/@OmniLight3D@16618",
+			"position": [
+				9.75,
+				2.75,
+				-3.22499847412109
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_A_KITCHEN_LT/@OmniLight3D@16619",
+			"position": [
+				9.75,
+				1.75000011920929,
+				-3.22499847412109
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.92492532730103,
+			"path": "OrisonV2Blockout/F01_A_BED_LT/@Node3D@16620/@OmniLight3D@16625",
+			"position": [
+				13.4750003814697,
+				2.75,
+				-1.87499904632568
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_A_BED_LT/@OmniLight3D@16626",
+			"position": [
+				13.4750003814697,
+				1.75000011920929,
+				-1.87499904632568
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.25897765159607,
+			"path": "OrisonV2Blockout/F01_A_STUDY_LT/@Node3D@16627/@OmniLight3D@16632",
+			"position": [
+				9.75,
+				2.75,
+				-0.649998664855957
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_A_STUDY_LT/@OmniLight3D@16633",
+			"position": [
+				9.75,
+				1.75000011920929,
+				-0.649998664855957
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_VESTIBULE_LT/@Node3D@16634/@OmniLight3D@16639",
+			"position": [
+				6.90000057220459,
+				9.15000057220459,
+				-6.44999933242798
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_VESTIBULE_LT/@OmniLight3D@16640",
+			"position": [
+				6.90000057220459,
+				8.15000057220459,
+				-6.44999933242798
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_MAIN_LT/@Node3D@16641/@OmniLight3D@16647",
+			"position": [
+				11.9249992370605,
+				8.68000030517578,
+				-6.12499856948853
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_MAIN_LT/@OmniLight3D@16648",
+			"position": [
+				11.9249992370605,
+				7.68000030517578,
+				-6.12499856948853
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_PRIVATE_HALL_LT/@Node3D@16649/@OmniLight3D@16654",
+			"position": [
+				6.90000057220459,
+				9.15000057220459,
+				-3.54999828338623
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_PRIVATE_HALL_LT/@OmniLight3D@16655",
+			"position": [
+				6.90000057220459,
+				8.15000057220459,
+				-3.54999828338623
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_BATH_LT/@Node3D@16656/@OmniLight3D@16661",
+			"position": [
+				6.90000009536743,
+				9.15000057220459,
+				-0.649998664855957
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_BATH_LT/@OmniLight3D@16662",
+			"position": [
+				6.90000009536743,
+				8.15000057220459,
+				-0.649998664855957
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_KITCHEN_LT/@Node3D@16663/@OmniLight3D@16668",
+			"position": [
+				9.75,
+				9.15000057220459,
+				-3.22499847412109
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_KITCHEN_LT/@OmniLight3D@16669",
+			"position": [
+				9.75,
+				8.15000057220459,
+				-3.22499847412109
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_BED_LT/@Node3D@16670/@OmniLight3D@16675",
+			"position": [
+				13.4750003814697,
+				9.15000057220459,
+				-1.87499904632568
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_BED_LT/@OmniLight3D@16676",
+			"position": [
+				13.4750003814697,
+				8.15000057220459,
+				-1.87499904632568
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_STUDY_LT/@Node3D@16677/@OmniLight3D@16682",
+			"position": [
+				9.75,
+				9.15000057220459,
+				-0.649998664855957
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_D_STUDY_LT/@OmniLight3D@16683",
+			"position": [
+				9.75,
+				8.15000057220459,
+				-0.649998664855957
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_VESTIBULE_LT/@Node3D@16684/@OmniLight3D@16689",
+			"position": [
+				6.90000057220459,
+				12.3500003814697,
+				-6.44999933242798
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_VESTIBULE_LT/@OmniLight3D@16690",
+			"position": [
+				6.90000057220459,
+				11.3500003814697,
+				-6.44999933242798
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_MAIN_LT/@Node3D@16691/@OmniLight3D@16697",
+			"position": [
+				11.9249992370605,
+				11.8800001144409,
+				-6.12499856948853
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_MAIN_LT/@OmniLight3D@16698",
+			"position": [
+				11.9249992370605,
+				10.8800001144409,
+				-6.12499856948853
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_PRIVATE_HALL_LT/@Node3D@16699/@OmniLight3D@16704",
+			"position": [
+				6.90000057220459,
+				12.3500003814697,
+				-3.54999828338623
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_PRIVATE_HALL_LT/@OmniLight3D@16705",
+			"position": [
+				6.90000057220459,
+				11.3500003814697,
+				-3.54999828338623
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_BATH_LT/@Node3D@16706/@OmniLight3D@16711",
+			"position": [
+				6.90000009536743,
+				12.3500003814697,
+				-0.649998664855957
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_BATH_LT/@OmniLight3D@16712",
+			"position": [
+				6.90000009536743,
+				11.3500003814697,
+				-0.649998664855957
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_KITCHEN_LT/@Node3D@16713/@OmniLight3D@16718",
+			"position": [
+				9.75,
+				12.3500003814697,
+				-3.22499847412109
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_KITCHEN_LT/@OmniLight3D@16719",
+			"position": [
+				9.75,
+				11.3500003814697,
+				-3.22499847412109
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_BED_LT/@Node3D@16720/@OmniLight3D@16725",
+			"position": [
+				13.4750003814697,
+				12.3500003814697,
+				-1.87499904632568
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_BED_LT/@OmniLight3D@16726",
+			"position": [
+				13.4750003814697,
+				11.3500003814697,
+				-1.87499904632568
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_STUDY_LT/@Node3D@16727/@OmniLight3D@16732",
+			"position": [
+				9.75,
+				12.3500003814697,
+				-0.649998664855957
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_D_STUDY_LT/@OmniLight3D@16733",
+			"position": [
+				9.75,
+				11.3500003814697,
+				-0.649998664855957
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_SOUTHWEST_HALL_LT/@Node3D@16734/@OmniLight3D@16739",
+			"position": [
+				3.90000081062317,
+				5.94999980926514,
+				-7.69999980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_SOUTHWEST_HALL_LT/@OmniLight3D@16740",
+			"position": [
+				3.90000081062317,
+				4.94999980926514,
+				-7.69999980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_SOUTHWEST_HALL_LT/@Node3D@16741/@OmniLight3D@16746",
+			"position": [
+				3.90000081062317,
+				9.15000057220459,
+				-7.69999980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_SOUTHWEST_HALL_LT/@OmniLight3D@16747",
+			"position": [
+				3.90000081062317,
+				8.15000057220459,
+				-7.69999980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_SOUTHWEST_HALL_LT/@Node3D@16748/@OmniLight3D@16753",
+			"position": [
+				3.90000081062317,
+				12.3500003814697,
+				-7.69999980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_SOUTHWEST_HALL_LT/@OmniLight3D@16754",
+			"position": [
+				3.90000081062317,
+				11.3500003814697,
+				-7.69999980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.15431356430054,
+			"path": "OrisonV2Blockout/F01_STAFF_RESTROOM_LT/@Node3D@16755/@OmniLight3D@16760",
+			"position": [
+				-6.84999942779541,
+				2.75,
+				-5.20000028610229
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_STAFF_RESTROOM_LT/@OmniLight3D@16761",
+			"position": [
+				-6.84999942779541,
+				1.75000011920929,
+				-5.20000028610229
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_ELECTRICAL_LT/@Node3D@16762/@OmniLight3D@16767",
+			"position": [
+				-7.44999933242798,
+				-0.5,
+				-7.5
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_ELECTRICAL_LT/@OmniLight3D@16768",
+			"position": [
+				-7.44999933242798,
+				-1.5,
+				-7.5
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_MAINTENANCE_SHOP_LT/@Node3D@16769/@OmniLight3D@16774",
+			"position": [
+				-7.44999837875366,
+				-0.5,
+				-14.6500005722046
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_MAINTENANCE_SHOP_LT/@OmniLight3D@16775",
+			"position": [
+				-7.44999837875366,
+				-1.5,
+				-14.6500005722046
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_COAL_ROOM_LT/@Node3D@16776/@OmniLight3D@16781",
+			"position": [
+				-12.5749998092651,
+				-0.5,
+				-3.80000019073486
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_COAL_ROOM_LT/@OmniLight3D@16782",
+			"position": [
+				-12.5749998092651,
+				-1.5,
+				-3.80000019073486
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_RESIDENT_STORAGE_LT/@Node3D@16783/@OmniLight3D@16788",
+			"position": [
+				2.30000114440918,
+				-0.5,
+				-18.3250007629395
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_RESIDENT_STORAGE_LT/@OmniLight3D@16789",
+			"position": [
+				2.30000114440918,
+				-1.5,
+				-18.3250007629395
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_SERVICE_CORE_LT/@Node3D@16790/@OmniLight3D@16795",
+			"position": [
+				-11.3499984741211,
+				1.25,
+				-20.2500019073486
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_SERVICE_CORE_LT/@OmniLight3D@16796",
+			"position": [
+				-11.3499984741211,
+				0.250000029802322,
+				-20.2500019073486
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_BOILER_ROOM_LT_A/@Node3D@16797/@OmniLight3D@16804",
+			"position": [
+				-10.5999994277954,
+				-0.860000014305115,
+				-10.0500001907349
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_BOILER_ROOM_LT_A/@OmniLight3D@16805",
+			"position": [
+				-10.5999994277954,
+				-1.86000001430511,
+				-10.0500001907349
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_BOILER_ROOM_LT_B/@Node3D@16806/@OmniLight3D@16813",
+			"position": [
+				-10.5999994277954,
+				-0.860000014305115,
+				-12.2500009536743
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_BOILER_ROOM_LT_B/@OmniLight3D@16814",
+			"position": [
+				-10.5999994277954,
+				-1.86000001430511,
+				-12.2500009536743
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/4B_terminal_desk/F04_B_LAMP_01/@SpotLight3D@20608",
+			"position": [
+				9.25000095367432,
+				10.6359004974365,
+				-12.2897453308105
+			],
+			"size": 0.0939999967813492,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/2A_desk/F02_A_LAMP_01/@SpotLight3D@20605",
+			"position": [
+				13.3300018310547,
+				4.2649998664856,
+				-18.5999984741211
+			],
+			"size": 0.112000003457069,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/2A_projector_stand/2A_tv/@OmniLight3D@26709",
+			"position": [
+				9.80000114440918,
+				4.26500034332275,
+				-10.149998664856
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/2A_projector_stand/2A_tv/@SpotLight3D@26718",
+			"position": [
+				9.80000114440918,
+				4.15000009536743,
+				-9.96999835968018
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/3B_projector_stand/3B_tv/@OmniLight3D@26721",
+			"position": [
+				-15.1999988555908,
+				7.46500015258789,
+				-11.1500005722046
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/3B_projector_stand/3B_tv/@SpotLight3D@26730",
+			"position": [
+				-15.1999988555908,
+				7.34999990463257,
+				-11.3300008773804
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/4B_projector_stand/4B_tv/@OmniLight3D@26733",
+			"position": [
+				10.100001335144,
+				10.664999961853,
+				-9.74999904632568
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/4B_projector_stand/4B_tv/@SpotLight3D@26742",
+			"position": [
+				10.100001335144,
+				10.5500001907349,
+				-9.5699987411499
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/5A_plantable/F05_A_LAMP_01/@SpotLight3D@20611",
+			"position": [
+				11.8977098464966,
+				14.1504135131836,
+				-7.04999876022339
+			],
+			"size": 0.116999998688698,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_LAUNDRY_LT_FLUSH_DOME/@Node3D@19491/@OmniLight3D@19496",
+			"position": [
+				6.00000095367432,
+				-0.5,
+				-11.649998664856
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/B1_LAUNDRY_LT_FLUSH_DOME/@OmniLight3D@19497",
+			"position": [
+				6.00000095367432,
+				-1.5,
+				-11.649998664856
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_MAIN_LT_PENDANT_SHADE/@Node3D@19498/@OmniLight3D@19504",
+			"position": [
+				11.2000007629395,
+				5.22000026702881,
+				-12.399998664856
+			],
+			"size": 0.104999996721745,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19505",
+			"position": [
+				11.2000007629395,
+				4.22000026702881,
+				-12.399998664856
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_MAIN_LT_PENDANT_SHADE/@Node3D@19506/@OmniLight3D@19512",
+			"position": [
+				-13.5999994277954,
+				8.68000030517578,
+				-9.25000095367432
+			],
+			"size": 0.170000001788139,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19513",
+			"position": [
+				-13.5999994277954,
+				7.68000030517578,
+				-9.25000095367432
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@19514/@OmniLight3D@19518",
+			"position": [
+				-11.3000001907349,
+				9.23000049591064,
+				-5.00000047683716
+			],
+			"size": 0.172000005841255,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_KITCHEN_LT_KITCHEN_LINEAR/@OmniLight3D@19519",
+			"position": [
+				-11.3000001907349,
+				8.23000049591064,
+				-5.00000047683716
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_ALCOVE_LT_FLUSH_DOME/@Node3D@19520/@OmniLight3D@19525",
+			"position": [
+				-11.1999998092651,
+				9.15000057220459,
+				-1.35000038146973
+			],
+			"size": 0.0939999967813492,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_ALCOVE_LT_FLUSH_DOME/@OmniLight3D@19526",
+			"position": [
+				-11.1999998092651,
+				8.15000057220459,
+				-1.35000038146973
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/3B_LT_SCONCE/@Node3D@19527/@OmniLight3D@19531",
+			"position": [
+				-15.414999961853,
+				8.11000061035156,
+				-1.35000014305115
+			],
+			"size": 0.140000000596046,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/3B_LT_SCONCE/@OmniLight3D@19532",
+			"position": [
+				-15.414999961853,
+				7.11000061035156,
+				-1.35000014305115
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_LAMP_01/@SpotLight3D@19533",
+			"position": [
+				-14.2409362792969,
+				7.7917685508728,
+				-11.6300010681152
+			],
+			"size": 0.13400000333786,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_ALCOVE_LT_FLUSH_DOME/@Node3D@19536/@OmniLight3D@19541",
+			"position": [
+				13.1000022888184,
+				12.3500003814697,
+				-20.6499977111816
+			],
+			"size": 0.167999997735024,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_ALCOVE_LT_FLUSH_DOME/@OmniLight3D@19542",
+			"position": [
+				13.1000022888184,
+				11.3500003814697,
+				-20.6499977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_MAIN_LT_PENDANT_SHADE/@Node3D@19543/@OmniLight3D@19549",
+			"position": [
+				11.7000007629395,
+				11.9800004959106,
+				-11.4499988555908
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19550",
+			"position": [
+				11.7000007629395,
+				10.9800004959106,
+				-11.4499988555908
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_BATH_LT_FLUSH_DOME/@Node3D@19551/@OmniLight3D@19556",
+			"position": [
+				7.50000143051147,
+				12.4500007629395,
+				-16.3999996185303
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_BATH_LT_FLUSH_DOME/@OmniLight3D@19557",
+			"position": [
+				7.50000143051147,
+				11.4500007629395,
+				-16.3999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_KITCHEN_LT_FLUSH_DOME/@Node3D@19558/@OmniLight3D@19563",
+			"position": [
+				13.3000001907349,
+				12.4500007629395,
+				-16.4500007629395
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_KITCHEN_LT_FLUSH_DOME/@OmniLight3D@19564",
+			"position": [
+				13.3000001907349,
+				11.4500007629395,
+				-16.4500007629395
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19565/@OmniLight3D@19570",
+			"position": [
+				10.0500001907349,
+				12.4500007629395,
+				-16.5499992370605
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19571",
+			"position": [
+				10.0500001907349,
+				11.4500007629395,
+				-16.5499992370605
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_CLOSET_LT_FLUSH_DOME/@Node3D@19572/@OmniLight3D@19577",
+			"position": [
+				6.75000143051147,
+				12.4500007629395,
+				-18.7999992370605
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_CLOSET_LT_FLUSH_DOME/@OmniLight3D@19578",
+			"position": [
+				6.75000143051147,
+				11.4500007629395,
+				-18.7999992370605
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@19579/@OmniLight3D@19584",
+			"position": [
+				6.60000085830688,
+				6.04999971389771,
+				-11.649998664856
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19585",
+			"position": [
+				6.60000085830688,
+				5.04999971389771,
+				-11.649998664856
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_KITCHEN_LT_FLUSH_DOME/@Node3D@19586/@OmniLight3D@19591",
+			"position": [
+				12.9000005722046,
+				6.04999971389771,
+				-16.3499984741211
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_KITCHEN_LT_FLUSH_DOME/@OmniLight3D@19592",
+			"position": [
+				12.9000005722046,
+				5.04999971389771,
+				-16.3499984741211
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19593/@OmniLight3D@19598",
+			"position": [
+				9.60000228881836,
+				6.04999971389771,
+				-17.3999977111816
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19599",
+			"position": [
+				9.60000228881836,
+				5.04999971389771,
+				-17.3999977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_BATH_LT_FLUSH_DOME/@Node3D@19600/@OmniLight3D@19605",
+			"position": [
+				7.40000152587891,
+				6.04999971389771,
+				-16.0
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_BATH_LT_FLUSH_DOME/@OmniLight3D@19606",
+			"position": [
+				7.40000152587891,
+				5.04999971389771,
+				-16.0
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_BED_LT_FLUSH_DOME/@Node3D@19607/@OmniLight3D@19612",
+			"position": [
+				12.8000020980835,
+				6.04999971389771,
+				-20.8999977111816
+			],
+			"size": 0.129999995231628,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_A_BED_LT_FLUSH_DOME/@OmniLight3D@19613",
+			"position": [
+				12.8000020980835,
+				5.04999971389771,
+				-20.8999977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@19614/@OmniLight3D@19619",
+			"position": [
+				-10.4999990463257,
+				6.04999971389771,
+				-9.15000057220459
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19620",
+			"position": [
+				-10.4999990463257,
+				5.04999971389771,
+				-9.15000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_MAIN_LT_PENDANT_SHADE/@Node3D@19621/@OmniLight3D@19627",
+			"position": [
+				-13.5999994277954,
+				5.57999992370605,
+				-9.90000057220459
+			],
+			"size": 0.0949999988079071,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19628",
+			"position": [
+				-13.5999994277954,
+				4.57999992370605,
+				-9.90000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_KITCHEN_LT_FLUSH_DOME/@Node3D@19629/@OmniLight3D@19634",
+			"position": [
+				-11.1499996185303,
+				6.04999971389771,
+				-5.35000038146973
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_KITCHEN_LT_FLUSH_DOME/@OmniLight3D@19635",
+			"position": [
+				-11.1499996185303,
+				5.04999971389771,
+				-5.35000038146973
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_BED_LT_FLUSH_DOME/@Node3D@19636/@OmniLight3D@19641",
+			"position": [
+				-11.1499996185303,
+				6.04999971389771,
+				-1.30000019073486
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_BED_LT_FLUSH_DOME/@OmniLight3D@19642",
+			"position": [
+				-11.1499996185303,
+				5.04999971389771,
+				-1.30000019073486
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19643/@OmniLight3D@19648",
+			"position": [
+				-14.1499996185303,
+				6.04999971389771,
+				-4.90000104904175
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19649",
+			"position": [
+				-14.1499996185303,
+				5.04999971389771,
+				-4.90000104904175
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_BATH_LT_FLUSH_DOME/@Node3D@19650/@OmniLight3D@19655",
+			"position": [
+				-14.1999998092651,
+				6.04999971389771,
+				-0.850000381469727
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_B_BATH_LT_FLUSH_DOME/@OmniLight3D@19656",
+			"position": [
+				-14.1999998092651,
+				5.04999971389771,
+				-0.850000381469727
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@19657/@OmniLight3D@19662",
+			"position": [
+				-10.4999990463257,
+				9.25,
+				-9.15000057220459
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19663",
+			"position": [
+				-10.4999990463257,
+				8.25,
+				-9.15000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19664/@OmniLight3D@19669",
+			"position": [
+				-14.3000001907349,
+				9.25,
+				-4.15000104904175
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_B_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19670",
+			"position": [
+				-14.3000001907349,
+				8.25,
+				-4.15000104904175
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@19671/@OmniLight3D@19676",
+			"position": [
+				6.60000085830688,
+				12.4500007629395,
+				-11.7999992370605
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19677",
+			"position": [
+				6.60000085830688,
+				11.4500007629395,
+				-11.7999992370605
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME/@Node3D@19678/@OmniLight3D@19683",
+			"position": [
+				9.0500020980835,
+				12.4500007629395,
+				-18.9499969482422
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME/@OmniLight3D@19684",
+			"position": [
+				9.0500020980835,
+				11.4500007629395,
+				-18.9499969482422
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_MAIN_LT_PENDANT_SHADE/@Node3D@19685/@OmniLight3D@19691",
+			"position": [
+				11.2000007629395,
+				8.42000007629395,
+				-12.399998664856
+			],
+			"size": 0.128999993205071,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19692",
+			"position": [
+				11.2000007629395,
+				7.42000007629395,
+				-12.399998664856
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@19693/@OmniLight3D@19698",
+			"position": [
+				6.60000085830688,
+				9.25,
+				-11.649998664856
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19699",
+			"position": [
+				6.60000085830688,
+				8.25,
+				-11.649998664856
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_KITCHEN_LT_FLUSH_DOME/@Node3D@19700/@OmniLight3D@19705",
+			"position": [
+				12.9000005722046,
+				9.25,
+				-16.3499984741211
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_KITCHEN_LT_FLUSH_DOME/@OmniLight3D@19706",
+			"position": [
+				12.9000005722046,
+				8.25,
+				-16.3499984741211
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19707/@OmniLight3D@19712",
+			"position": [
+				9.60000228881836,
+				9.25,
+				-17.3999977111816
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19713",
+			"position": [
+				9.60000228881836,
+				8.25,
+				-17.3999977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_BATH_LT_FLUSH_DOME/@Node3D@19714/@OmniLight3D@19719",
+			"position": [
+				7.40000152587891,
+				9.25,
+				-16.0
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_BATH_LT_FLUSH_DOME/@OmniLight3D@19720",
+			"position": [
+				7.40000152587891,
+				8.25,
+				-16.0
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_BED_LT_FLUSH_DOME/@Node3D@19721/@OmniLight3D@19726",
+			"position": [
+				12.8000020980835,
+				9.25,
+				-20.8999977111816
+			],
+			"size": 0.155000001192093,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_A_BED_LT_FLUSH_DOME/@OmniLight3D@19727",
+			"position": [
+				12.8000020980835,
+				8.25,
+				-20.8999977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@19728/@OmniLight3D@19733",
+			"position": [
+				-10.4999990463257,
+				12.4500007629395,
+				-9.15000057220459
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19734",
+			"position": [
+				-10.4999990463257,
+				11.4500007629395,
+				-9.15000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_MAIN_LT_PENDANT_SHADE/@Node3D@19735/@OmniLight3D@19741",
+			"position": [
+				-13.5999994277954,
+				11.9800004959106,
+				-9.90000057220459
+			],
+			"size": 0.131999999284744,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19742",
+			"position": [
+				-13.5999994277954,
+				10.9800004959106,
+				-9.90000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_KITCHEN_LT_FLUSH_DOME/@Node3D@19743/@OmniLight3D@19748",
+			"position": [
+				-11.1499996185303,
+				12.4500007629395,
+				-5.35000038146973
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_KITCHEN_LT_FLUSH_DOME/@OmniLight3D@19749",
+			"position": [
+				-11.1499996185303,
+				11.4500007629395,
+				-5.35000038146973
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_BED_LT_FLUSH_DOME/@Node3D@19750/@OmniLight3D@19755",
+			"position": [
+				-11.1499996185303,
+				12.4500007629395,
+				-1.30000019073486
+			],
+			"size": 0.10700000077486,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_BED_LT_FLUSH_DOME/@OmniLight3D@19756",
+			"position": [
+				-11.1499996185303,
+				11.4500007629395,
+				-1.30000019073486
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19757/@OmniLight3D@19762",
+			"position": [
+				-14.1499996185303,
+				12.4500007629395,
+				-4.90000104904175
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19763",
+			"position": [
+				-14.1499996185303,
+				11.4500007629395,
+				-4.90000104904175
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_BATH_LT_FLUSH_DOME/@Node3D@19764/@OmniLight3D@19769",
+			"position": [
+				-14.1999998092651,
+				12.4500007629395,
+				-0.850000381469727
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_A_BATH_LT_FLUSH_DOME/@OmniLight3D@19770",
+			"position": [
+				-14.1999998092651,
+				11.4500007629395,
+				-0.850000381469727
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_MAIN_LT_PENDANT_SHADE/@Node3D@19771/@OmniLight3D@19777",
+			"position": [
+				11.975001335144,
+				15.1800003051758,
+				-8.17499923706055
+			],
+			"size": 0.0810000002384186,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19778",
+			"position": [
+				11.975001335144,
+				14.1800003051758,
+				-8.17499923706055
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@19779/@OmniLight3D@19784",
+			"position": [
+				6.95000076293945,
+				15.6500005722046,
+				-9.42499923706055
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19785",
+			"position": [
+				6.95000076293945,
+				14.6500005722046,
+				-9.42499923706055
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19786/@OmniLight3D@19791",
+			"position": [
+				6.95000028610229,
+				15.6500005722046,
+				-5.29999923706055
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19792",
+			"position": [
+				6.95000028610229,
+				14.6500005722046,
+				-5.29999923706055
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_BATH_LT_FLUSH_DOME/@Node3D@19793/@OmniLight3D@19798",
+			"position": [
+				6.94999980926514,
+				15.6500005722046,
+				-1.04999828338623
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_BATH_LT_FLUSH_DOME/@OmniLight3D@19799",
+			"position": [
+				6.94999980926514,
+				14.6500005722046,
+				-1.04999828338623
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_BED_LT_FLUSH_DOME/@Node3D@19800/@OmniLight3D@19805",
+			"position": [
+				13.4250001907349,
+				15.6500005722046,
+				-2.29999828338623
+			],
+			"size": 0.144999995827675,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_BED_LT_FLUSH_DOME/@OmniLight3D@19806",
+			"position": [
+				13.4250001907349,
+				14.6500005722046,
+				-2.29999828338623
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@19807/@OmniLight3D@19811",
+			"position": [
+				9.75,
+				15.7300004959106,
+				-3.79999876022339
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_KITCHEN_LT_KITCHEN_LINEAR/@OmniLight3D@19812",
+			"position": [
+				9.75,
+				14.7300004959106,
+				-3.79999876022339
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_STUDY_LT_FLUSH_DOME/@Node3D@19813/@OmniLight3D@19818",
+			"position": [
+				9.75,
+				15.6500005722046,
+				-0.79999828338623
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_A_STUDY_LT_FLUSH_DOME/@OmniLight3D@19819",
+			"position": [
+				9.75,
+				14.6500005722046,
+				-0.79999828338623
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_MAIN_LT_PENDANT_SHADE/@Node3D@19820/@OmniLight3D@19826",
+			"position": [
+				12.475001335144,
+				15.1800003051758,
+				-15.1249980926514
+			],
+			"size": 0.163000002503395,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19827",
+			"position": [
+				12.475001335144,
+				14.1800003051758,
+				-15.1249980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@19828/@OmniLight3D@19833",
+			"position": [
+				7.90000104904175,
+				15.6500005722046,
+				-13.4999990463257
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19834",
+			"position": [
+				7.90000104904175,
+				14.6500005722046,
+				-13.4999990463257
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_BATH_LT_FLUSH_DOME/@Node3D@19835/@OmniLight3D@19840",
+			"position": [
+				7.90000152587891,
+				15.6500005722046,
+				-16.375
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_BATH_LT_FLUSH_DOME/@OmniLight3D@19841",
+			"position": [
+				7.90000152587891,
+				14.6500005722046,
+				-16.375
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_ALCOVE_LT_FLUSH_DOME/@Node3D@19842/@OmniLight3D@19847",
+			"position": [
+				13.4250020980835,
+				15.6500005722046,
+				-20.6499977111816
+			],
+			"size": 0.158000007271767,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_ALCOVE_LT_FLUSH_DOME/@OmniLight3D@19848",
+			"position": [
+				13.4250020980835,
+				14.6500005722046,
+				-20.6499977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19849/@OmniLight3D@19854",
+			"position": [
+				10.2500019073486,
+				15.6500005722046,
+				-20.6499977111816
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19855",
+			"position": [
+				10.2500019073486,
+				14.6500005722046,
+				-20.6499977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@19856/@OmniLight3D@19860",
+			"position": [
+				7.90000200271606,
+				15.7300004959106,
+				-20.6499977111816
+			],
+			"size": 0.0829999968409538,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_B_KITCHEN_LT_KITCHEN_LINEAR/@OmniLight3D@19861",
+			"position": [
+				7.90000200271606,
+				14.7300004959106,
+				-20.6499977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_VESTIBULE_LT_FLUSH_DOME/@Node3D@19862/@OmniLight3D@19867",
+			"position": [
+				0.850001394748688,
+				15.6500005722046,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19868",
+			"position": [
+				0.850001394748688,
+				14.6500005722046,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_MAIN_LT_PENDANT_SHADE/@Node3D@19869/@OmniLight3D@19875",
+			"position": [
+				2.55000138282776,
+				15.1800003051758,
+				-20.6499996185303
+			],
+			"size": 0.123000003397465,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19876",
+			"position": [
+				2.55000138282776,
+				14.1800003051758,
+				-20.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_STUDIO_LT_FLUSH_DOME/@Node3D@19877/@OmniLight3D@19882",
+			"position": [
+				3.90000152587891,
+				15.6500005722046,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_STUDIO_LT_FLUSH_DOME/@OmniLight3D@19883",
+			"position": [
+				3.90000152587891,
+				14.6500005722046,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19884/@OmniLight3D@19889",
+			"position": [
+				-3.79999828338623,
+				15.6500005722046,
+				-18.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19890",
+			"position": [
+				-3.79999828338623,
+				14.6500005722046,
+				-18.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_BATH_LT_FLUSH_DOME/@Node3D@19891/@OmniLight3D@19896",
+			"position": [
+				-2.14999866485596,
+				15.6500005722046,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_BATH_LT_FLUSH_DOME/@OmniLight3D@19897",
+			"position": [
+				-2.14999866485596,
+				14.6500005722046,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@19898/@OmniLight3D@19902",
+			"position": [
+				-5.44999837875366,
+				15.7300004959106,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_KITCHEN_LT_KITCHEN_LINEAR/@OmniLight3D@19903",
+			"position": [
+				-5.44999837875366,
+				14.7300004959106,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_BED1_LT_FLUSH_DOME/@Node3D@19904/@OmniLight3D@19909",
+			"position": [
+				-2.1499981880188,
+				15.6500005722046,
+				-21.3999996185303
+			],
+			"size": 0.0820000022649765,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_BED1_LT_FLUSH_DOME/@OmniLight3D@19910",
+			"position": [
+				-2.1499981880188,
+				14.6500005722046,
+				-21.3999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_BED2_LT_FLUSH_DOME/@Node3D@19911/@OmniLight3D@19916",
+			"position": [
+				-5.4499979019165,
+				15.6500005722046,
+				-21.3999996185303
+			],
+			"size": 0.153999999165535,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_C_BED2_LT_FLUSH_DOME/@OmniLight3D@19917",
+			"position": [
+				-5.4499979019165,
+				14.6500005722046,
+				-21.3999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_MAIN_LT_PENDANT_SHADE/@Node3D@19918/@OmniLight3D@19924",
+			"position": [
+				11.975001335144,
+				18.3799991607666,
+				-8.17499923706055
+			],
+			"size": 0.090999998152256,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19925",
+			"position": [
+				11.975001335144,
+				17.3799991607666,
+				-8.17499923706055
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@19926/@OmniLight3D@19931",
+			"position": [
+				6.95000076293945,
+				18.8500003814697,
+				-9.42499923706055
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19932",
+			"position": [
+				6.95000076293945,
+				17.8500003814697,
+				-9.42499923706055
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19933/@OmniLight3D@19938",
+			"position": [
+				6.95000028610229,
+				18.8500003814697,
+				-5.29999923706055
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@19939",
+			"position": [
+				6.95000028610229,
+				17.8500003814697,
+				-5.29999923706055
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_BATH_LT_FLUSH_DOME/@Node3D@19940/@OmniLight3D@19945",
+			"position": [
+				6.94999980926514,
+				18.8500003814697,
+				-1.04999828338623
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_BATH_LT_FLUSH_DOME/@OmniLight3D@19946",
+			"position": [
+				6.94999980926514,
+				17.8500003814697,
+				-1.04999828338623
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_BED_LT_FLUSH_DOME/@Node3D@19947/@OmniLight3D@19952",
+			"position": [
+				13.4250001907349,
+				18.8500003814697,
+				-2.29999828338623
+			],
+			"size": 0.177000001072884,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_BED_LT_FLUSH_DOME/@OmniLight3D@19953",
+			"position": [
+				13.4250001907349,
+				17.8500003814697,
+				-2.29999828338623
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@19954/@OmniLight3D@19958",
+			"position": [
+				9.75,
+				18.9300003051758,
+				-3.79999876022339
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_KITCHEN_LT_KITCHEN_LINEAR/@OmniLight3D@19959",
+			"position": [
+				9.75,
+				17.9300003051758,
+				-3.79999876022339
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_STUDY_LT_FLUSH_DOME/@Node3D@19960/@OmniLight3D@19965",
+			"position": [
+				9.75,
+				18.8500003814697,
+				-0.79999828338623
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_A_STUDY_LT_FLUSH_DOME/@OmniLight3D@19966",
+			"position": [
+				9.75,
+				17.8500003814697,
+				-0.79999828338623
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_MAIN_LT_PENDANT_SHADE/@Node3D@19967/@OmniLight3D@19973",
+			"position": [
+				12.475001335144,
+				18.3799991607666,
+				-15.1249980926514
+			],
+			"size": 0.187999993562698,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_MAIN_LT_PENDANT_SHADE/@OmniLight3D@19974",
+			"position": [
+				12.475001335144,
+				17.3799991607666,
+				-15.1249980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@19975/@OmniLight3D@19980",
+			"position": [
+				7.90000104904175,
+				18.8500003814697,
+				-13.4999990463257
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@19981",
+			"position": [
+				7.90000104904175,
+				17.8500003814697,
+				-13.4999990463257
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_BATH_LT_FLUSH_DOME/@Node3D@19982/@OmniLight3D@19987",
+			"position": [
+				7.90000152587891,
+				18.8500003814697,
+				-16.375
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_BATH_LT_FLUSH_DOME/@OmniLight3D@19988",
+			"position": [
+				7.90000152587891,
+				17.8500003814697,
+				-16.375
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_ALCOVE_LT_FLUSH_DOME/@Node3D@19989/@OmniLight3D@19994",
+			"position": [
+				13.4250020980835,
+				18.8500003814697,
+				-20.6499977111816
+			],
+			"size": 0.103000000119209,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_ALCOVE_LT_FLUSH_DOME/@OmniLight3D@19995",
+			"position": [
+				13.4250020980835,
+				17.8500003814697,
+				-20.6499977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19996/@OmniLight3D@20001",
+			"position": [
+				10.2500019073486,
+				18.8500003814697,
+				-20.6499977111816
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@20002",
+			"position": [
+				10.2500019073486,
+				17.8500003814697,
+				-20.6499977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@20003/@OmniLight3D@20007",
+			"position": [
+				7.90000200271606,
+				18.9300003051758,
+				-20.6499977111816
+			],
+			"size": 0.151999995112419,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_B_KITCHEN_LT_KITCHEN_LINEAR/@OmniLight3D@20008",
+			"position": [
+				7.90000200271606,
+				17.9300003051758,
+				-20.6499977111816
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_VESTIBULE_LT_FLUSH_DOME/@Node3D@20009/@OmniLight3D@20014",
+			"position": [
+				0.850001394748688,
+				18.8500003814697,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_VESTIBULE_LT_FLUSH_DOME/@OmniLight3D@20015",
+			"position": [
+				0.850001394748688,
+				17.8500003814697,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_MAIN_LT_PENDANT_SHADE/@Node3D@20016/@OmniLight3D@20022",
+			"position": [
+				2.55000138282776,
+				18.3799991607666,
+				-20.6499996185303
+			],
+			"size": 0.116999998688698,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_MAIN_LT_PENDANT_SHADE/@OmniLight3D@20023",
+			"position": [
+				2.55000138282776,
+				17.3799991607666,
+				-20.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_STUDIO_LT_FLUSH_DOME/@Node3D@20024/@OmniLight3D@20029",
+			"position": [
+				3.90000152587891,
+				18.8500003814697,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_STUDIO_LT_FLUSH_DOME/@OmniLight3D@20030",
+			"position": [
+				3.90000152587891,
+				17.8500003814697,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@20031/@OmniLight3D@20036",
+			"position": [
+				-3.79999828338623,
+				18.8500003814697,
+				-18.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_PRIVATE_HALL_LT_FLUSH_DOME/@OmniLight3D@20037",
+			"position": [
+				-3.79999828338623,
+				17.8500003814697,
+				-18.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_BATH_LT_FLUSH_DOME/@Node3D@20038/@OmniLight3D@20043",
+			"position": [
+				-2.14999866485596,
+				18.8500003814697,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_BATH_LT_FLUSH_DOME/@OmniLight3D@20044",
+			"position": [
+				-2.14999866485596,
+				17.8500003814697,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@20045/@OmniLight3D@20049",
+			"position": [
+				-5.44999837875366,
+				18.9300003051758,
+				-16.75
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_KITCHEN_LT_KITCHEN_LINEAR/@OmniLight3D@20050",
+			"position": [
+				-5.44999837875366,
+				17.9300003051758,
+				-16.75
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_BED1_LT_FLUSH_DOME/@Node3D@20051/@OmniLight3D@20056",
+			"position": [
+				-2.1499981880188,
+				18.8500003814697,
+				-21.3999996185303
+			],
+			"size": 0.136999994516373,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_BED1_LT_FLUSH_DOME/@OmniLight3D@20057",
+			"position": [
+				-2.1499981880188,
+				17.8500003814697,
+				-21.3999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_BED2_LT_FLUSH_DOME/@Node3D@20058/@OmniLight3D@20063",
+			"position": [
+				-5.4499979019165,
+				18.8500003814697,
+				-21.3999996185303
+			],
+			"size": 0.101999998092651,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_C_BED2_LT_FLUSH_DOME/@OmniLight3D@20064",
+			"position": [
+				-5.4499979019165,
+				17.8500003814697,
+				-21.3999996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_WEST_HALL_LT/@Node3D@20065/@OmniLight3D@20070",
+			"position": [
+				3.90000104904175,
+				5.94999980926514,
+				-11.6499996185303
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_WEST_HALL_LT/@OmniLight3D@20071",
+			"position": [
+				3.90000104904175,
+				4.94999980926514,
+				-11.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_EAST_HALL_LT/@Node3D@20072/@OmniLight3D@20077",
+			"position": [
+				-6.84999990463257,
+				5.94999980926514,
+				-8.40000057220459
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_EAST_HALL_LT/@OmniLight3D@20078",
+			"position": [
+				-6.84999990463257,
+				4.94999980926514,
+				-8.40000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_WEST_HALL_LT/@Node3D@20079/@OmniLight3D@20084",
+			"position": [
+				3.90000104904175,
+				9.15000057220459,
+				-11.6499996185303
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_WEST_HALL_LT/@OmniLight3D@20085",
+			"position": [
+				3.90000104904175,
+				8.15000057220459,
+				-11.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_EAST_HALL_LT/@Node3D@20086/@OmniLight3D@20091",
+			"position": [
+				-6.84999990463257,
+				9.15000057220459,
+				-8.40000057220459
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_EAST_HALL_LT/@OmniLight3D@20092",
+			"position": [
+				-6.84999990463257,
+				8.15000057220459,
+				-8.40000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_WEST_HALL_LT/@Node3D@20093/@OmniLight3D@20098",
+			"position": [
+				3.90000104904175,
+				12.3500003814697,
+				-11.6499996185303
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_WEST_HALL_LT/@OmniLight3D@20099",
+			"position": [
+				3.90000104904175,
+				11.3500003814697,
+				-11.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_EAST_HALL_LT/@Node3D@20100/@OmniLight3D@20105",
+			"position": [
+				-6.84999990463257,
+				12.3500003814697,
+				-8.40000057220459
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_EAST_HALL_LT/@OmniLight3D@20106",
+			"position": [
+				-6.84999990463257,
+				11.3500003814697,
+				-8.40000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_WEST_HALL_LT_A/@Node3D@20107/@OmniLight3D@20112",
+			"position": [
+				6.60000085830688,
+				15.5500001907349,
+				-11.649998664856
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_WEST_HALL_LT_A/@OmniLight3D@20113",
+			"position": [
+				6.60000085830688,
+				14.5500001907349,
+				-11.649998664856
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_WEST_HALL_LT_B/@Node3D@20114/@OmniLight3D@20119",
+			"position": [
+				3.40000104904175,
+				15.5500001907349,
+				-11.6499996185303
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_WEST_HALL_LT_B/@OmniLight3D@20120",
+			"position": [
+				3.40000104904175,
+				14.5500001907349,
+				-11.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_EAST_HALL_LT/@Node3D@20121/@OmniLight3D@20126",
+			"position": [
+				-6.84999990463257,
+				15.5500001907349,
+				-8.40000057220459
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_EAST_HALL_LT/@OmniLight3D@20127",
+			"position": [
+				-6.84999990463257,
+				14.5500001907349,
+				-8.40000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_WEST_HALL_LT_A/@Node3D@20128/@OmniLight3D@20133",
+			"position": [
+				6.60000085830688,
+				18.75,
+				-11.649998664856
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_WEST_HALL_LT_A/@OmniLight3D@20134",
+			"position": [
+				6.60000085830688,
+				17.75,
+				-11.649998664856
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_WEST_HALL_LT_B/@Node3D@20135/@OmniLight3D@20140",
+			"position": [
+				3.40000104904175,
+				18.75,
+				-11.6499996185303
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_WEST_HALL_LT_B/@OmniLight3D@20141",
+			"position": [
+				3.40000104904175,
+				17.75,
+				-11.6499996185303
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_EAST_HALL_LT/@Node3D@20142/@OmniLight3D@20147",
+			"position": [
+				-6.84999990463257,
+				18.75,
+				-8.40000057220459
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_EAST_HALL_LT/@OmniLight3D@20148",
+			"position": [
+				-6.84999990463257,
+				17.75,
+				-8.40000057220459
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_LANDING_LT_SCONCE/@Node3D@20149/@OmniLight3D@20153",
+			"position": [
+				1.50000071525574,
+				5.28999996185303,
+				-8.03499889373779
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_LANDING_LT_SCONCE/@OmniLight3D@20154",
+			"position": [
+				1.50000071525574,
+				4.28999996185303,
+				-8.03499889373779
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_LANDING_LT_SCONCE/@Node3D@20155/@OmniLight3D@20159",
+			"position": [
+				1.50000071525574,
+				8.48999977111816,
+				-8.03499889373779
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_LANDING_LT_SCONCE/@OmniLight3D@20160",
+			"position": [
+				1.50000071525574,
+				7.48999977111816,
+				-8.03499889373779
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_LANDING_LT_SCONCE/@Node3D@20161/@OmniLight3D@20165",
+			"position": [
+				1.50000071525574,
+				11.6900005340576,
+				-8.03499889373779
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_LANDING_LT_SCONCE/@OmniLight3D@20166",
+			"position": [
+				1.50000071525574,
+				10.6900005340576,
+				-8.03499889373779
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_LANDING_LT_SCONCE/@Node3D@20167/@OmniLight3D@20171",
+			"position": [
+				1.50000071525574,
+				14.8900003433228,
+				-8.03499889373779
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_LANDING_LT_SCONCE/@OmniLight3D@20172",
+			"position": [
+				1.50000071525574,
+				13.8900003433228,
+				-8.03499889373779
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_LANDING_LT_SCONCE/@Node3D@20173/@OmniLight3D@20177",
+			"position": [
+				1.50000071525574,
+				18.0900001525879,
+				-8.03499889373779
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_LANDING_LT_SCONCE/@OmniLight3D@20178",
+			"position": [
+				1.50000071525574,
+				17.0900001525879,
+				-8.03499889373779
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_GALLERY_LT_1/@Node3D@20179/@OmniLight3D@20184",
+			"position": [
+				3.28333282470703,
+				5.96999979019165,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_GALLERY_LT_1/@OmniLight3D@20185",
+			"position": [
+				3.28333282470703,
+				4.96999979019165,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_GALLERY_LT_2/@Node3D@20186/@OmniLight3D@20191",
+			"position": [
+				-1.34999966621399,
+				5.96999979019165,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_GALLERY_LT_2/@OmniLight3D@20192",
+			"position": [
+				-1.34999966621399,
+				4.96999979019165,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_GALLERY_LT_3/@Node3D@20193/@OmniLight3D@20198",
+			"position": [
+				-5.98333311080933,
+				5.96999979019165,
+				-1.82500171661377
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_GALLERY_LT_3/@OmniLight3D@20199",
+			"position": [
+				-5.98333311080933,
+				4.96999979019165,
+				-1.82500171661377
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_HALL_LT_1/@Node3D@20200/@OmniLight3D@20205",
+			"position": [
+				-0.424999475479126,
+				5.96999979019165,
+				-6.07499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_HALL_LT_1/@OmniLight3D@20206",
+			"position": [
+				-0.424999475479126,
+				4.96999979019165,
+				-6.07499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_HALL_LT_2/@Node3D@20207/@OmniLight3D@20212",
+			"position": [
+				-5.67499971389771,
+				5.96999979019165,
+				-6.07500028610229
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_HALL_LT_2/@OmniLight3D@20213",
+			"position": [
+				-5.67499971389771,
+				4.96999979019165,
+				-6.07500028610229
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_SERVICE_RETURN_LT_1/@Node3D@20214/@OmniLight3D@20221",
+			"position": [
+				-8.89999961853027,
+				5.32000017166138,
+				-0.850000381469727
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F02_FRONT_SERVICE_RETURN_LT_1/@OmniLight3D@20222",
+			"position": [
+				-8.89999961853027,
+				4.32000017166138,
+				-0.850000381469727
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_GALLERY_LT_1/@Node3D@20223/@OmniLight3D@20228",
+			"position": [
+				3.28333282470703,
+				9.17000007629395,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_GALLERY_LT_1/@OmniLight3D@20229",
+			"position": [
+				3.28333282470703,
+				8.17000007629395,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_GALLERY_LT_2/@Node3D@20230/@OmniLight3D@20235",
+			"position": [
+				-1.34999966621399,
+				9.17000007629395,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_GALLERY_LT_2/@OmniLight3D@20236",
+			"position": [
+				-1.34999966621399,
+				8.17000007629395,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_GALLERY_LT_3/@Node3D@20237/@OmniLight3D@20242",
+			"position": [
+				-5.98333311080933,
+				9.17000007629395,
+				-1.82500171661377
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_GALLERY_LT_3/@OmniLight3D@20243",
+			"position": [
+				-5.98333311080933,
+				8.17000007629395,
+				-1.82500171661377
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_HALL_LT_1/@Node3D@20244/@OmniLight3D@20249",
+			"position": [
+				-0.424999475479126,
+				9.17000007629395,
+				-6.07499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_HALL_LT_1/@OmniLight3D@20250",
+			"position": [
+				-0.424999475479126,
+				8.17000007629395,
+				-6.07499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_HALL_LT_2/@Node3D@20251/@OmniLight3D@20256",
+			"position": [
+				-5.67499971389771,
+				9.17000007629395,
+				-6.07500028610229
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_HALL_LT_2/@OmniLight3D@20257",
+			"position": [
+				-5.67499971389771,
+				8.17000007629395,
+				-6.07500028610229
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_SERVICE_RETURN_LT_1/@Node3D@20258/@OmniLight3D@20265",
+			"position": [
+				-8.89999961853027,
+				8.52000045776367,
+				-0.850000381469727
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F03_FRONT_SERVICE_RETURN_LT_1/@OmniLight3D@20266",
+			"position": [
+				-8.89999961853027,
+				7.52000045776367,
+				-0.850000381469727
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_GALLERY_LT_1/@Node3D@20267/@OmniLight3D@20272",
+			"position": [
+				3.28333282470703,
+				12.3700008392334,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_GALLERY_LT_1/@OmniLight3D@20273",
+			"position": [
+				3.28333282470703,
+				11.3700008392334,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_GALLERY_LT_2/@Node3D@20274/@OmniLight3D@20279",
+			"position": [
+				-1.34999966621399,
+				12.3700008392334,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_GALLERY_LT_2/@OmniLight3D@20280",
+			"position": [
+				-1.34999966621399,
+				11.3700008392334,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_GALLERY_LT_3/@Node3D@20281/@OmniLight3D@20286",
+			"position": [
+				-5.98333311080933,
+				12.3700008392334,
+				-1.82500171661377
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_GALLERY_LT_3/@OmniLight3D@20287",
+			"position": [
+				-5.98333311080933,
+				11.3700008392334,
+				-1.82500171661377
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_HALL_LT_1/@Node3D@20288/@OmniLight3D@20293",
+			"position": [
+				-0.424999475479126,
+				12.3700008392334,
+				-6.07499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_HALL_LT_1/@OmniLight3D@20294",
+			"position": [
+				-0.424999475479126,
+				11.3700008392334,
+				-6.07499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_HALL_LT_2/@Node3D@20295/@OmniLight3D@20300",
+			"position": [
+				-5.67499971389771,
+				12.3700008392334,
+				-6.07500028610229
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_HALL_LT_2/@OmniLight3D@20301",
+			"position": [
+				-5.67499971389771,
+				11.3700008392334,
+				-6.07500028610229
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_SERVICE_RETURN_LT_1/@Node3D@20302/@OmniLight3D@20309",
+			"position": [
+				-8.89999961853027,
+				11.7200002670288,
+				-0.850000381469727
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F04_FRONT_SERVICE_RETURN_LT_1/@OmniLight3D@20310",
+			"position": [
+				-8.89999961853027,
+				10.7200002670288,
+				-0.850000381469727
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_GALLERY_LT_1/@Node3D@20311/@OmniLight3D@20316",
+			"position": [
+				3.28333282470703,
+				15.5700006484985,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_GALLERY_LT_1/@OmniLight3D@20317",
+			"position": [
+				3.28333282470703,
+				14.5700006484985,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_GALLERY_LT_2/@Node3D@20318/@OmniLight3D@20323",
+			"position": [
+				-1.34999966621399,
+				15.5700006484985,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_GALLERY_LT_2/@OmniLight3D@20324",
+			"position": [
+				-1.34999966621399,
+				14.5700006484985,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_GALLERY_LT_3/@Node3D@20325/@OmniLight3D@20330",
+			"position": [
+				-5.98333311080933,
+				15.5700006484985,
+				-1.82500171661377
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_GALLERY_LT_3/@OmniLight3D@20331",
+			"position": [
+				-5.98333311080933,
+				14.5700006484985,
+				-1.82500171661377
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_HALL_LT_1/@Node3D@20332/@OmniLight3D@20337",
+			"position": [
+				2.12500047683716,
+				15.5700006484985,
+				-6.07499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_HALL_LT_1/@OmniLight3D@20338",
+			"position": [
+				2.12500047683716,
+				14.5700006484985,
+				-6.07499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_HALL_LT_2/@Node3D@20339/@OmniLight3D@20344",
+			"position": [
+				-4.82499933242798,
+				15.5700006484985,
+				-6.07500028610229
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_HALL_LT_2/@OmniLight3D@20345",
+			"position": [
+				-4.82499933242798,
+				14.5700006484985,
+				-6.07500028610229
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_SERVICE_RETURN_LT_1/@Node3D@20346/@OmniLight3D@20353",
+			"position": [
+				-8.89999961853027,
+				14.9200000762939,
+				-0.850000381469727
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F05_FRONT_SERVICE_RETURN_LT_1/@OmniLight3D@20354",
+			"position": [
+				-8.89999961853027,
+				13.9200000762939,
+				-0.850000381469727
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_GALLERY_LT_1/@Node3D@20355/@OmniLight3D@20360",
+			"position": [
+				3.28333282470703,
+				18.7700004577637,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_GALLERY_LT_1/@OmniLight3D@20361",
+			"position": [
+				3.28333282470703,
+				17.7700004577637,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_GALLERY_LT_2/@Node3D@20362/@OmniLight3D@20367",
+			"position": [
+				-1.34999966621399,
+				18.7700004577637,
+				-1.82499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_GALLERY_LT_2/@OmniLight3D@20368",
+			"position": [
+				-1.34999966621399,
+				17.7700004577637,
+				-1.82499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_GALLERY_LT_3/@Node3D@20369/@OmniLight3D@20374",
+			"position": [
+				-5.98333311080933,
+				18.7700004577637,
+				-1.82500171661377
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_GALLERY_LT_3/@OmniLight3D@20375",
+			"position": [
+				-5.98333311080933,
+				17.7700004577637,
+				-1.82500171661377
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_HALL_LT_1/@Node3D@20376/@OmniLight3D@20381",
+			"position": [
+				2.12500047683716,
+				18.7700004577637,
+				-6.07499980926514
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_HALL_LT_1/@OmniLight3D@20382",
+			"position": [
+				2.12500047683716,
+				17.7700004577637,
+				-6.07499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_HALL_LT_2/@Node3D@20383/@OmniLight3D@20388",
+			"position": [
+				-4.82499933242798,
+				18.7700004577637,
+				-6.07500028610229
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_HALL_LT_2/@OmniLight3D@20389",
+			"position": [
+				-4.82499933242798,
+				17.7700004577637,
+				-6.07500028610229
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_SERVICE_RETURN_LT_1/@Node3D@20390/@OmniLight3D@20397",
+			"position": [
+				-8.89999961853027,
+				18.1200008392334,
+				-0.850000381469727
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F06_FRONT_SERVICE_RETURN_LT_1/@OmniLight3D@20398",
+			"position": [
+				-8.89999961853027,
+				17.1200008392334,
+				-0.850000381469727
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.75290560722351,
+			"path": "OrisonV2Blockout/F01_FRONT_WEST_BAY_LT_1/@Node3D@20399/@OmniLight3D@20404",
+			"position": [
+				3.90000009536743,
+				2.76999998092651,
+				-0.84999942779541
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_FRONT_WEST_BAY_LT_1/@OmniLight3D@20405",
+			"position": [
+				3.90000009536743,
+				1.7700001001358,
+				-0.84999942779541
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.61618769168854,
+			"path": "OrisonV2Blockout/F01_FRONT_EAST_BAY_LT_1/@Node3D@20406/@OmniLight3D@20411",
+			"position": [
+				-3.90000009536743,
+				2.76999998092651,
+				-0.84999942779541
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_FRONT_EAST_BAY_LT_1/@OmniLight3D@20412",
+			"position": [
+				-3.90000009536743,
+				1.7700001001358,
+				-0.84999942779541
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.23969423770905,
+			"path": "OrisonV2Blockout/F01_FRONT_WORKROOM_LT_1/@Node3D@20413/@OmniLight3D@20420",
+			"position": [
+				-6.84999990463257,
+				2.11999988555908,
+				-1.32500076293945
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_FRONT_WORKROOM_LT_1/@OmniLight3D@20421",
+			"position": [
+				-6.84999990463257,
+				1.11999988555908,
+				-1.32500076293945
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.28557693958282,
+			"path": "OrisonV2Blockout/F01_FRONT_SERVICE_RETURN_LT_1/@Node3D@20422/@OmniLight3D@20429",
+			"position": [
+				-8.89999961853027,
+				2.11999988555908,
+				-0.850000381469727
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_FRONT_SERVICE_RETURN_LT_1/@OmniLight3D@20430",
+			"position": [
+				-8.89999961853027,
+				1.11999988555908,
+				-0.850000381469727
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.57214641571045,
+			"path": "OrisonV2Blockout/F01_FRONT_STORE_ALCOVE_LT_1/@Node3D@20431/@OmniLight3D@20436",
+			"position": [
+				-6.84999942779541,
+				2.76999998092651,
+				-7.42500019073486
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/F01_FRONT_STORE_ALCOVE_LT_1/@OmniLight3D@20437",
+			"position": [
+				-6.84999942779541,
+				1.7700001001358,
+				-7.42500019073486
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/ROOF_PUBLIC_PLANT_LT/@Node3D@20549/@OmniLight3D@20556",
+			"position": [
+				-0.199999019503593,
+				21.3999996185303,
+				-11.25
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/ROOF_PUBLIC_PLANT_LT/@OmniLight3D@20557",
+			"position": [
+				-0.199999019503593,
+				20.3999996185303,
+				-11.25
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/ROOF_SERVICE_PLANT_LT/@Node3D@20558/@OmniLight3D@20565",
+			"position": [
+				-11.899998664856,
+				21.3999996185303,
+				-13.9500007629395
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/ROOF_SERVICE_PLANT_LT/@OmniLight3D@20566",
+			"position": [
+				-11.899998664856,
+				20.3999996185303,
+				-13.9500007629395
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "OrisonV2Blockout/V2ReadingNook/nook_table/B1_NOOK_LAMP/@SpotLight3D@20602",
+			"position": [
+				0.146603673696518,
+				-2.43499994277954,
+				-13.0499992370605
+			],
+			"size": 0.118000000715256,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.239999994635582,
+			"path": "OrisonV2Blockout/F04_B_MONITOR_01/ScopePool",
+			"position": [
+				9.27500152587891,
+				10.5500001907349,
+				-13.0799989700317
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 2.29999995231628,
+			"path": "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@OmniLight3D@25754",
+			"position": [
+				-0.720000028610229,
+				2.62999987602234,
+				1.21599972248077
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 2.29999995231628,
+			"path": "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@OmniLight3D@25772",
+			"position": [
+				0.720000028610229,
+				2.62999987602234,
+				1.21599972248077
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 2.40000009536743,
+			"path": "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@SpotLight3D@25790",
+			"position": [
+				-0.0000000244782540903543,
+				2.51999998092651,
+				1.10799980163574
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 1.70000004768372,
+			"path": "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@SpotLight3D@25791",
+			"position": [
+				-1.14999997615814,
+				2.1399998664856,
+				2.37999963760376
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 1.70000004768372,
+			"path": "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@SpotLight3D@25792",
+			"position": [
+				-0.0000000244782540903543,
+				2.1399998664856,
+				2.37999963760376
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 1.70000004768372,
+			"path": "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@SpotLight3D@25793",
+			"position": [
+				1.14999997615814,
+				2.1399998664856,
+				2.37999963760376
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 1.25,
+			"path": "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@SpotLight3D@25794",
+			"position": [
+				-2.15000009536743,
+				2.32999992370605,
+				1.26999974250793
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 1.25,
+			"path": "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@SpotLight3D@25795",
+			"position": [
+				2.15000009536743,
+				2.32999992370605,
+				1.26999974250793
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 2.20000004768372,
+			"path": "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@SpotLight3D@25797",
+			"position": [
+				-0.0000000244782540903543,
+				2.32999992370605,
+				2.49999976158142
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.533293604850769,
+			"path": "OrisonV2Blockout/F01_NEON_BLADE/@OmniLight3D@26172",
+			"position": [
+				5.84999990463257,
+				6.59999990463257,
+				1.76000142097473
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.899999976158142,
+			"path": "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@31184/@OmniLight3D@31280",
+			"position": [
+				0.00000086985664893291,
+				2.11999988555908,
+				-9.94999980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.349999994039536,
+			"path": "Player/@Camera3D@20711/ServiceSetCarrier/ServiceSetPass/@OmniLight3D@26332",
+			"position": [
+				-0.180000007152557,
+				0.219999998807907,
+				-0.0599999986588955
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.119999997317791,
+			"path": "Player/@Camera3D@20711/ServiceSetCarrier/ServiceSetPass/@OmniLight3D@26333",
+			"position": [
+				0.239999994635582,
+				-0.119999997317791,
+				-0.0199999995529652
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.550000011920929,
+			"path": "Player/@Camera3D@20711/ServiceSetCarrier/ServiceSetPass/InstrumentBroadReflection",
+			"position": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"size": 0.0,
+			"specular": 1.0,
+			"type": "DirectionalLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.000960984383709729,
+			"path": "Player/ServiceSetHand/@SpotLight3D@20712",
+			"position": [
+				19.5398063659668,
+				1.63306486606598,
+				3.10128712654114
+			],
+			"size": 0.0179999992251396,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": false
+		},
+		{
+			"energy": 2.15000009536743,
+			"path": "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/ExteriorPractical",
+			"position": [
+				18.6550006866455,
+				2.72000002861023,
+				0.274999976158142
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 1.85000002384186,
+			"path": "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/@OmniLight3D@20856",
+			"position": [
+				18.6550006866455,
+				2.72000002861023,
+				-3.07499980926514
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 1.54999995231628,
+			"path": "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/@OmniLight3D@20857",
+			"position": [
+				18.6550006866455,
+				2.72000002861023,
+				-6.42500019073486
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 1.54999995231628,
+			"path": "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/@OmniLight3D@20858",
+			"position": [
+				18.6550006866455,
+				2.29999995231628,
+				2.97499990463257
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.75,
+			"path": "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/@OmniLight3D@20859",
+			"position": [
+				17.5050010681152,
+				2.09999990463257,
+				0.0250000953674316
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.600000023841858,
+			"path": "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/@OmniLight3D@20860",
+			"position": [
+				19.855001449585,
+				1.35000002384186,
+				-5.92500019073486
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.779999971389771,
+			"path": "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/@OmniLight3D@20861",
+			"position": [
+				19.3050003051758,
+				2.64000010490417,
+				-9.30500030517578
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.850000023841858,
+			"path": "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/ExteriorFunctionalProp/@OmniLight3D@20970",
+			"position": [
+				18.6550006866455,
+				2.0699999332428,
+				2.85500001907349
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.449999988079071,
+			"path": "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/ExteriorFunctionalProp/@OmniLight3D@20977",
+			"position": [
+				16.605001449585,
+				3.03999996185303,
+				3.15499997138977
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 2.34999990463257,
+			"path": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/@OmniLight3D@20913",
+			"position": [
+				8.10000038146973,
+				3.03999996185303,
+				3.67499995231628
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 1.75,
+			"path": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/@OmniLight3D@20916",
+			"position": [
+				14.3500003814697,
+				2.96000003814697,
+				3.70499992370605
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.673605501651764,
+			"path": "StreetBoundaries/ShedEntryWorkLamp/@Node3D@24202/@OmniLight3D@24209",
+			"position": [
+				21.3999996185303,
+				1.95000004768372,
+				3.29999995231628
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "StreetBoundaries/ShedEntryWorkLamp/@OmniLight3D@24210",
+			"position": [
+				21.3999996185303,
+				0.950000047683716,
+				3.29999995231628
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.795849502086639,
+			"path": "StreetBoundaries/ShedTurnWorkLamp/@Node3D@24211/@OmniLight3D@24218",
+			"position": [
+				24.0,
+				1.95000004768372,
+				-1.5
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "StreetBoundaries/ShedTurnWorkLamp/@OmniLight3D@24219",
+			"position": [
+				24.0,
+				0.950000047683716,
+				-1.5
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.17309367656708,
+			"path": "VantryArcade/PassageActors/PASSAGE_PORTAL_LT_W/@Node3D@24220/@OmniLight3D@24227",
+			"position": [
+				11.4799995422363,
+				2.3199999332428,
+				17.7210006713867
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_PORTAL_LT_W/@OmniLight3D@24228",
+			"position": [
+				11.4799995422363,
+				1.3199999332428,
+				17.7210006713867
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.17325568199158,
+			"path": "VantryArcade/PassageActors/PASSAGE_PORTAL_LT_E/@Node3D@24229/@OmniLight3D@24236",
+			"position": [
+				20.3299999237061,
+				2.3199999332428,
+				17.7210006713867
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_PORTAL_LT_E/@OmniLight3D@24237",
+			"position": [
+				20.3299999237061,
+				1.3199999332428,
+				17.7210006713867
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.861859500408173,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_00/@Node3D@24238/@OmniLight3D@24245",
+			"position": [
+				14.0,
+				3.22000002861023,
+				21.4050006866455
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_00/@OmniLight3D@24246",
+			"position": [
+				14.0,
+				2.22000002861023,
+				21.4050006866455
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.861859500408173,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_01/@Node3D@24247/@OmniLight3D@24254",
+			"position": [
+				14.0,
+				3.22000002861023,
+				25.2049999237061
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_01/@OmniLight3D@24255",
+			"position": [
+				14.0,
+				2.22000002861023,
+				25.2049999237061
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.861859500408173,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_02/@Node3D@24256/@OmniLight3D@24263",
+			"position": [
+				14.0,
+				3.22000002861023,
+				31.2049999237061
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_02/@OmniLight3D@24264",
+			"position": [
+				14.0,
+				2.22000002861023,
+				31.2049999237061
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.861859500408173,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_03/@Node3D@24265/@OmniLight3D@24272",
+			"position": [
+				14.0,
+				3.22000002861023,
+				35.2050018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_03/@OmniLight3D@24273",
+			"position": [
+				14.0,
+				2.22000002861023,
+				35.2050018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.861859500408173,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_04/@Node3D@24274/@OmniLight3D@24281",
+			"position": [
+				14.0,
+				3.22000002861023,
+				39.2050018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_04/@OmniLight3D@24282",
+			"position": [
+				14.0,
+				2.22000002861023,
+				39.2050018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.861859500408173,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_05/@Node3D@24283/@OmniLight3D@24290",
+			"position": [
+				14.0,
+				3.22000002861023,
+				43.2050018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_05/@OmniLight3D@24291",
+			"position": [
+				14.0,
+				2.22000002861023,
+				43.2050018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.861859500408173,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_06/@Node3D@24292/@OmniLight3D@24299",
+			"position": [
+				14.0,
+				3.22000002861023,
+				47.2050018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_06/@OmniLight3D@24300",
+			"position": [
+				14.0,
+				2.22000002861023,
+				47.2050018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.861859500408173,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_07/@Node3D@24301/@OmniLight3D@24308",
+			"position": [
+				14.0,
+				3.22000002861023,
+				51.2050018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_07/@OmniLight3D@24309",
+			"position": [
+				14.0,
+				2.22000002861023,
+				51.2050018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.704893112182617,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_MODEL_LAUNDRY/@Node3D@24333/@OmniLight3D@24340",
+			"position": [
+				11.460000038147,
+				2.16000008583069,
+				34.0299987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_MODEL_LAUNDRY/@OmniLight3D@24341",
+			"position": [
+				11.460000038147,
+				1.16000008583069,
+				34.0299987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.08257579803467,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_MODEL_LAUNDRY/@Node3D@24342/@OmniLight3D@24349",
+			"position": [
+				10.0500001907349,
+				2.42000007629395,
+				32.2050018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_MODEL_LAUNDRY/@OmniLight3D@24350",
+			"position": [
+				10.0500001907349,
+				1.42000007629395,
+				32.2050018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.826964735984802,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_MODEL_LAUNDRY/@Node3D@24351/@OmniLight3D@24358",
+			"position": [
+				7.5,
+				2.42000007629395,
+				32.2050018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_MODEL_LAUNDRY/@OmniLight3D@24359",
+			"position": [
+				7.5,
+				1.42000007629395,
+				32.2050018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.789969801902771,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_MODEL_LAUNDRY/@Node3D@24360/@OmniLight3D@24367",
+			"position": [
+				4.94999980926514,
+				2.42000007629395,
+				32.2050018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_MODEL_LAUNDRY/@OmniLight3D@24368",
+			"position": [
+				4.94999980926514,
+				1.42000007629395,
+				32.2050018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.735730350017548,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_SHOE_REBUILDING/@Node3D@24394/@OmniLight3D@24401",
+			"position": [
+				11.460000038147,
+				2.16000008583069,
+				39.629997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_SHOE_REBUILDING/@OmniLight3D@24402",
+			"position": [
+				11.460000038147,
+				1.16000008583069,
+				39.629997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.805555045604706,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_SHOE_REBUILDING/@Node3D@24403/@OmniLight3D@24410",
+			"position": [
+				10.0500001907349,
+				2.42000007629395,
+				37.8050003051758
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_SHOE_REBUILDING/@OmniLight3D@24411",
+			"position": [
+				10.0500001907349,
+				1.42000007629395,
+				37.8050003051758
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.553675532341003,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_SHOE_REBUILDING/@Node3D@24412/@OmniLight3D@24419",
+			"position": [
+				5.94999980926514,
+				2.42000007629395,
+				37.8050003051758
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_SHOE_REBUILDING/@OmniLight3D@24420",
+			"position": [
+				5.94999980926514,
+				1.42000007629395,
+				37.8050003051758
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.615961670875549,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_KEYS_CUT/@Node3D@24446/@OmniLight3D@24453",
+			"position": [
+				11.460000038147,
+				2.16000008583069,
+				43.2300033569336
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_KEYS_CUT/@OmniLight3D@24454",
+			"position": [
+				11.460000038147,
+				1.16000008583069,
+				43.2300033569336
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.940982937812805,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_KEYS_CUT/@Node3D@24455/@OmniLight3D@24462",
+			"position": [
+				10.0500001907349,
+				2.42000007629395,
+				42.4049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_KEYS_CUT/@OmniLight3D@24463",
+			"position": [
+				10.0500001907349,
+				1.42000007629395,
+				42.4049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.769296646118164,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_KEYS_CUT/@Node3D@24464/@OmniLight3D@24471",
+			"position": [
+				6.94999980926514,
+				2.42000007629395,
+				42.4049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_KEYS_CUT/@OmniLight3D@24472",
+			"position": [
+				6.94999980926514,
+				1.42000007629395,
+				42.4049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.726209878921509,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_HARDWARE_PAINT/@Node3D@24498/@OmniLight3D@24505",
+			"position": [
+				11.460000038147,
+				2.16000008583069,
+				48.629997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_HARDWARE_PAINT/@OmniLight3D@24506",
+			"position": [
+				11.460000038147,
+				1.16000008583069,
+				48.629997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.933657169342041,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_HARDWARE_PAINT/@Node3D@24507/@OmniLight3D@24514",
+			"position": [
+				10.0500001907349,
+				2.42000007629395,
+				46.9049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_HARDWARE_PAINT/@OmniLight3D@24515",
+			"position": [
+				10.0500001907349,
+				1.42000007629395,
+				46.9049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.559618771076202,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_HARDWARE_PAINT/@Node3D@24516/@OmniLight3D@24523",
+			"position": [
+				7.75,
+				2.42000007629395,
+				46.9049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_HARDWARE_PAINT/@OmniLight3D@24524",
+			"position": [
+				7.75,
+				1.42000007629395,
+				46.9049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.639001548290253,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_HARDWARE_PAINT/@Node3D@24525/@OmniLight3D@24532",
+			"position": [
+				5.44999980926514,
+				2.42000007629395,
+				46.9049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_HARDWARE_PAINT/@OmniLight3D@24533",
+			"position": [
+				5.44999980926514,
+				1.42000007629395,
+				46.9049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.611256539821625,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_FUNERAL_PARLOUR/@Node3D@24557/@OmniLight3D@24564",
+			"position": [
+				11.460000038147,
+				2.16000008583069,
+				53.2300033569336
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_FUNERAL_PARLOUR/@OmniLight3D@24565",
+			"position": [
+				11.460000038147,
+				1.16000008583069,
+				53.2300033569336
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.727226376533508,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_FUNERAL_PARLOUR/@Node3D@24566/@OmniLight3D@24573",
+			"position": [
+				10.0500001907349,
+				2.42000007629395,
+				51.9049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_FUNERAL_PARLOUR/@OmniLight3D@24574",
+			"position": [
+				10.0500001907349,
+				1.42000007629395,
+				51.9049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.697548031806946,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_FUNERAL_PARLOUR/@Node3D@24575/@OmniLight3D@24582",
+			"position": [
+				7.5,
+				2.42000007629395,
+				51.9049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_FUNERAL_PARLOUR/@OmniLight3D@24583",
+			"position": [
+				7.5,
+				1.42000007629395,
+				51.9049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.651629567146301,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_FUNERAL_PARLOUR/@Node3D@24584/@OmniLight3D@24591",
+			"position": [
+				4.94999980926514,
+				2.42000007629395,
+				51.9049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_FUNERAL_PARLOUR/@OmniLight3D@24592",
+			"position": [
+				4.94999980926514,
+				1.42000007629395,
+				51.9049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.632140278816223,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_PHOTO_SUPPLIES/@Node3D@24616/@OmniLight3D@24623",
+			"position": [
+				16.5400009155273,
+				2.16000008583069,
+				53.1800003051758
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_PHOTO_SUPPLIES/@OmniLight3D@24624",
+			"position": [
+				16.5400009155273,
+				1.16000008583069,
+				53.1800003051758
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.793855845928192,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_PHOTO_SUPPLIES/@Node3D@24625/@OmniLight3D@24632",
+			"position": [
+				17.9500007629395,
+				2.42000007629395,
+				51.6050033569336
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_PHOTO_SUPPLIES/@OmniLight3D@24633",
+			"position": [
+				17.9500007629395,
+				1.42000007629395,
+				51.6050033569336
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.693577468395233,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_PHOTO_SUPPLIES/@Node3D@24634/@OmniLight3D@24641",
+			"position": [
+				22.0499992370605,
+				2.42000007629395,
+				51.6050033569336
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_PHOTO_SUPPLIES/@OmniLight3D@24642",
+			"position": [
+				22.0499992370605,
+				1.42000007629395,
+				51.6050033569336
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.553482174873352,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_RADIO_SERVICE/@Node3D@24666/@OmniLight3D@24673",
+			"position": [
+				16.5400009155273,
+				2.16000008583069,
+				46.7799987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_RADIO_SERVICE/@OmniLight3D@24674",
+			"position": [
+				16.5400009155273,
+				1.16000008583069,
+				46.7799987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.902054071426392,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_RADIO_SERVICE/@Node3D@24675/@OmniLight3D@24682",
+			"position": [
+				17.9500007629395,
+				2.42000007629395,
+				47.4049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_RADIO_SERVICE/@OmniLight3D@24683",
+			"position": [
+				17.9500007629395,
+				1.42000007629395,
+				47.4049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.636652410030365,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_RADIO_SERVICE/@Node3D@24684/@OmniLight3D@24691",
+			"position": [
+				21.0499992370605,
+				2.42000007629395,
+				47.4049987792969
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_RADIO_SERVICE/@OmniLight3D@24692",
+			"position": [
+				21.0499992370605,
+				1.42000007629395,
+				47.4049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.611697912216187,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_PAWNBROKER/@Node3D@24718/@OmniLight3D@24725",
+			"position": [
+				16.5400009155273,
+				2.16000008583069,
+				42.1800003051758
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_PAWNBROKER/@OmniLight3D@24726",
+			"position": [
+				16.5400009155273,
+				1.16000008583069,
+				42.1800003051758
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.07261490821838,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_PAWNBROKER/@Node3D@24727/@OmniLight3D@24734",
+			"position": [
+				17.9500007629395,
+				2.42000007629395,
+				43.504997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_PAWNBROKER/@OmniLight3D@24735",
+			"position": [
+				17.9500007629395,
+				1.42000007629395,
+				43.504997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.800352036952972,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_PAWNBROKER/@Node3D@24736/@OmniLight3D@24743",
+			"position": [
+				22.0499992370605,
+				2.42000007629395,
+				43.504997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_PAWNBROKER/@OmniLight3D@24744",
+			"position": [
+				22.0499992370605,
+				1.42000007629395,
+				43.504997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.590372979640961,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_NEWS_CIGARS/@Node3D@24770/@OmniLight3D@24777",
+			"position": [
+				16.5400009155273,
+				2.16000008583069,
+				40.1800003051758
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_NEWS_CIGARS/@OmniLight3D@24778",
+			"position": [
+				16.5400009155273,
+				1.16000008583069,
+				40.1800003051758
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.30031406879425,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_NEWS_CIGARS/@Node3D@24779/@OmniLight3D@24786",
+			"position": [
+				17.9500007629395,
+				2.42000007629395,
+				40.0550003051758
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_NEWS_CIGARS/@OmniLight3D@24787",
+			"position": [
+				17.9500007629395,
+				1.42000007629395,
+				40.0550003051758
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.745959579944611,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_NEWS_CIGARS/@Node3D@24788/@OmniLight3D@24795",
+			"position": [
+				20.0499992370605,
+				2.42000007629395,
+				40.0550003051758
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_NEWS_CIGARS/@OmniLight3D@24796",
+			"position": [
+				20.0499992370605,
+				1.42000007629395,
+				40.0550003051758
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.671464443206787,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_OTIS___SON/@Node3D@24820/@OmniLight3D@24827",
+			"position": [
+				16.5400009155273,
+				2.16000008583069,
+				35.5800018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_OTIS___SON/@OmniLight3D@24828",
+			"position": [
+				16.5400009155273,
+				1.16000008583069,
+				35.5800018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.916696488857269,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_OTIS___SON/@Node3D@24829/@OmniLight3D@24836",
+			"position": [
+				17.9500007629395,
+				2.42000007629395,
+				36.754997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_OTIS___SON/@OmniLight3D@24837",
+			"position": [
+				17.9500007629395,
+				1.42000007629395,
+				36.754997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.646247148513794,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_OTIS___SON/@Node3D@24838/@OmniLight3D@24845",
+			"position": [
+				20.5,
+				2.42000007629395,
+				36.754997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_OTIS___SON/@OmniLight3D@24846",
+			"position": [
+				20.5,
+				1.42000007629395,
+				36.754997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.608937323093414,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_OTIS___SON/@Node3D@24847/@OmniLight3D@24854",
+			"position": [
+				23.0499992370605,
+				2.42000007629395,
+				36.754997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_OTIS___SON/@OmniLight3D@24855",
+			"position": [
+				23.0499992370605,
+				1.42000007629395,
+				36.754997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.710709869861603,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_LUNCHEONETTE/@Node3D@24879/@OmniLight3D@24886",
+			"position": [
+				16.5400009155273,
+				2.16000008583069,
+				33.5800018310547
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_LT_LUNCHEONETTE/@OmniLight3D@24887",
+			"position": [
+				16.5400009155273,
+				1.16000008583069,
+				33.5800018310547
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.05079531669617,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_LUNCHEONETTE/@Node3D@24888/@OmniLight3D@24895",
+			"position": [
+				17.9500007629395,
+				2.42000007629395,
+				32.004997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN0_LUNCHEONETTE/@OmniLight3D@24896",
+			"position": [
+				17.9500007629395,
+				1.42000007629395,
+				32.004997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.03158891201019,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_LUNCHEONETTE/@Node3D@24897/@OmniLight3D@24904",
+			"position": [
+				20.5,
+				2.42000007629395,
+				32.004997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN1_LUNCHEONETTE/@OmniLight3D@24905",
+			"position": [
+				20.5,
+				1.42000007629395,
+				32.004997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.83001446723938,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_LUNCHEONETTE/@Node3D@24906/@OmniLight3D@24913",
+			"position": [
+				23.0499992370605,
+				2.42000007629395,
+				32.004997253418
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_IN2_LUNCHEONETTE/@OmniLight3D@24914",
+			"position": [
+				23.0499992370605,
+				1.42000007629395,
+				32.004997253418
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.39380955696106,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_DARKROOM_PHOTO_SUPPLIES/@Node3D@24915/@OmniLight3D@24921",
+			"position": [
+				22.7880001068115,
+				2.26999998092651,
+				49.9300003051758
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "VantryArcade/PassageActors/SITE_SHOP_DARKROOM_PHOTO_SUPPLIES/@OmniLight3D@24922",
+			"position": [
+				22.7880001068115,
+				1.26999998092651,
+				49.9300003051758
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.00976361148059368,
+			"path": "Harukiya/BarActors/F01_BAR_STAGE_SIGN/@OmniLight3D@25221",
+			"position": [
+				-0.699999928474426,
+				-0.379999995231628,
+				27.4049987792969
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0228007938712835,
+			"path": "Harukiya/BarActors/F01_BAR_LT_DARTS/@Node3D@25236/@OmniLight3D@25243",
+			"position": [
+				-11.0799999237061,
+				-0.789999961853027,
+				23.2049999237061
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_DARTS/@OmniLight3D@25244",
+			"position": [
+				-11.0799999237061,
+				-1.78999996185303,
+				23.2049999237061
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.5,
+			"path": "Harukiya/BarActors/F01_BAR_SIGNAGE/@SpotLight3D@25384",
+			"position": [
+				5.89499998092651,
+				3.17999982833862,
+				18.1149997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.5,
+			"path": "Harukiya/BarActors/F01_BAR_SIGNAGE/@SpotLight3D@25389",
+			"position": [
+				3.85500001907349,
+				3.17999982833862,
+				18.1149997711182
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "SpotLight3D",
+			"visible": false
+		},
+		{
+			"energy": 1.14999997615814,
+			"path": "Harukiya/BarActors/F01_BAR_SIGNAGE/@Node3D@25391/@OmniLight3D@25396",
+			"position": [
+				3.45130491256714,
+				2.59001278877258,
+				18.1450004577637
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.021781986579299,
+			"path": "Harukiya/BarActors/F01_BAR_LT_LOBBY/@Node3D@25408/@OmniLight3D@25415",
+			"position": [
+				4.875,
+				1.79999995231628,
+				19.5049991607666
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_LOBBY/@OmniLight3D@25416",
+			"position": [
+				4.875,
+				0.799999952316284,
+				19.5049991607666
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0148167572915554,
+			"path": "Harukiya/BarActors/F01_BAR_LT_WELL/@Node3D@25417/@OmniLight3D@25424",
+			"position": [
+				-2.59999990463257,
+				1.10000002384186,
+				23.605001449585
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_WELL/@OmniLight3D@25425",
+			"position": [
+				-2.59999990463257,
+				0.100000023841858,
+				23.605001449585
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.223298326134682,
+			"path": "Harukiya/BarActors/F01_BAR_LT_STAIR/@Node3D@25426/@OmniLight3D@25433",
+			"position": [
+				5.30000019073486,
+				0.050000011920929,
+				22.8049983978271
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_STAIR/@OmniLight3D@25434",
+			"position": [
+				5.30000019073486,
+				-0.949999988079071,
+				22.8049983978271
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0267597902566195,
+			"path": "Harukiya/BarActors/F01_BAR_LT_CAN0/@Node3D@25435/@OmniLight3D@25439",
+			"position": [
+				-3.20000004768372,
+				-1.12999999523163,
+				19.9050006866455
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_CAN0/@OmniLight3D@25440",
+			"position": [
+				-3.20000004768372,
+				-2.13000011444092,
+				19.9050006866455
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0267597902566195,
+			"path": "Harukiya/BarActors/F01_BAR_LT_CAN1/@Node3D@25441/@OmniLight3D@25445",
+			"position": [
+				-0.25,
+				-1.12999999523163,
+				19.9050006866455
+			],
+			"size": 0.100000001490116,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_CAN1/@OmniLight3D@25446",
+			"position": [
+				-0.25,
+				-2.13000011444092,
+				19.9050006866455
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0435812473297119,
+			"path": "Harukiya/BarActors/F01_BAR_LT_POOL/@Node3D@25447/@OmniLight3D@25453",
+			"position": [
+				-7.40000009536743,
+				-1.22000002861023,
+				21.4549999237061
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_POOL/@OmniLight3D@25454",
+			"position": [
+				-7.40000009536743,
+				-2.22000002861023,
+				21.4549999237061
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0314733348786831,
+			"path": "Harukiya/BarActors/F01_BAR_LT_TAB0/@Node3D@25455/@OmniLight3D@25461",
+			"position": [
+				-8.19999980926514,
+				-1.24000000953674,
+				25.5049991607666
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_TAB0/@OmniLight3D@25462",
+			"position": [
+				-8.19999980926514,
+				-2.24000000953674,
+				25.5049991607666
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0314733348786831,
+			"path": "Harukiya/BarActors/F01_BAR_LT_TAB1/@Node3D@25463/@OmniLight3D@25469",
+			"position": [
+				-5.19999980926514,
+				-1.24000000953674,
+				25.5049991607666
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_TAB1/@OmniLight3D@25470",
+			"position": [
+				-5.19999980926514,
+				-2.24000000953674,
+				25.5049991607666
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0314733348786831,
+			"path": "Harukiya/BarActors/F01_BAR_LT_TAB2/@Node3D@25471/@OmniLight3D@25477",
+			"position": [
+				-1.20000004768372,
+				-1.24000000953674,
+				25.105001449585
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_TAB2/@OmniLight3D@25478",
+			"position": [
+				-1.20000004768372,
+				-2.24000000953674,
+				25.105001449585
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0263847522437572,
+			"path": "Harukiya/BarActors/F01_BAR_LT_STAGE0/@Node3D@25479/@OmniLight3D@25486",
+			"position": [
+				-1.89999997615814,
+				-1.45000004768372,
+				26.7549991607666
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_STAGE0/@OmniLight3D@25487",
+			"position": [
+				-1.89999997615814,
+				-2.45000004768372,
+				26.7549991607666
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0263847522437572,
+			"path": "Harukiya/BarActors/F01_BAR_LT_STAGE1/@Node3D@25488/@OmniLight3D@25495",
+			"position": [
+				0.5,
+				-1.45000004768372,
+				26.7549991607666
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_STAGE1/@OmniLight3D@25496",
+			"position": [
+				0.5,
+				-2.45000004768372,
+				26.7549991607666
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0208081398159266,
+			"path": "Harukiya/BarActors/F01_BAR_LT_DECK0/@Node3D@25497/@OmniLight3D@25501",
+			"position": [
+				3.8050000667572,
+				-1.20999991893768,
+				26.8049983978271
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_DECK0/@OmniLight3D@25502",
+			"position": [
+				3.8050000667572,
+				-2.21000003814697,
+				26.8049983978271
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0208081398159266,
+			"path": "Harukiya/BarActors/F01_BAR_LT_DECK1/@Node3D@25503/@OmniLight3D@25507",
+			"position": [
+				3.8050000667572,
+				-1.20999991893768,
+				23.4050006866455
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_DECK1/@OmniLight3D@25508",
+			"position": [
+				3.8050000667572,
+				-2.21000003814697,
+				23.4050006866455
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0208081398159266,
+			"path": "Harukiya/BarActors/F01_BAR_LT_DECK2/@Node3D@25509/@OmniLight3D@25513",
+			"position": [
+				3.8050000667572,
+				-1.20999991893768,
+				22.2549991607666
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_DECK2/@OmniLight3D@25514",
+			"position": [
+				3.8050000667572,
+				-2.21000003814697,
+				22.2549991607666
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.020572604611516,
+			"path": "Harukiya/BarActors/F01_BAR_LT_WEST0/@Node3D@25515/@OmniLight3D@25519",
+			"position": [
+				-11.2250003814697,
+				-0.709999918937683,
+				25.605001449585
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_WEST0/@OmniLight3D@25520",
+			"position": [
+				-11.2250003814697,
+				-1.70999991893768,
+				25.605001449585
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.020572604611516,
+			"path": "Harukiya/BarActors/F01_BAR_LT_WEST1/@Node3D@25521/@OmniLight3D@25525",
+			"position": [
+				-11.2350006103516,
+				-1.20999991893768,
+				21.5049991607666
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_WEST1/@OmniLight3D@25526",
+			"position": [
+				-11.2350006103516,
+				-2.21000003814697,
+				21.5049991607666
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0207454934716225,
+			"path": "Harukiya/BarActors/F01_BAR_LT_WC/@Node3D@25527/@OmniLight3D@25534",
+			"position": [
+				-10.6199998855591,
+				-0.949999988079071,
+				27.3049983978271
+			],
+			"size": 0.159999996423721,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/F01_BAR_LT_WC/@OmniLight3D@25535",
+			"position": [
+				-10.6199998855591,
+				-1.95000004768372,
+				27.3049983978271
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": false
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/Arcade_retail_bar_cab01/@OmniLight3D@25549",
+			"position": [
+				3.04399991035461,
+				-1.32999992370605,
+				25.5549983978271
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.850000023841858,
+			"path": "Harukiya/BarActors/Arcade_retail_bar_cab01/@OmniLight3D@25553",
+			"position": [
+				2.96399998664856,
+				-0.879999876022339,
+				25.5549983978271
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.0,
+			"path": "Harukiya/BarActors/Arcade_retail_bar_cab02/@OmniLight3D@25570",
+			"position": [
+				3.04399991035461,
+				-1.27499985694885,
+				26.5049991607666
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"energy": 0.850000023841858,
+			"path": "Harukiya/BarActors/Arcade_retail_bar_cab02/@OmniLight3D@25574",
+			"position": [
+				2.96399998664856,
+				-0.829999923706055,
+				26.5049991607666
+			],
+			"size": 0.0,
+			"specular": 0.5,
+			"type": "OmniLight3D",
+			"visible": true
+		}
+	],
+	"scope": "All direct-specular lights disabled only for one control, then restored. Three temporary architectural-glass roughness controls and normal-off control; no production changes or acceptance."
+}

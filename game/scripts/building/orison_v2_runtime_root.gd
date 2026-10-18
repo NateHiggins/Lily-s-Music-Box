@@ -219,6 +219,12 @@ func _ready() -> void:
 		push_error("V2 service work lights refused: %s" % [work_lights.errors])
 		return
 	adapter.root.set_meta("v2_native_service_work_lights",work_lights)
+	var cage_apertures := preload("res://scripts/building/orison_v2_cage_light_apertures.gd").new()
+	if not cage_apertures.setup(self,light_rig):
+		startup_failed=true
+		push_error("V2 native cage-light aperture refused: %s" % [cage_apertures.errors])
+		return
+	adapter.root.set_meta("v2_cage_light_apertures",cage_apertures)
 	var lamp_air := preload("res://scripts/building/orison_v2_lamp_atmosphere.gd").new()
 	lamp_air.name = "LampAtmosphere"
 	add_child(lamp_air)

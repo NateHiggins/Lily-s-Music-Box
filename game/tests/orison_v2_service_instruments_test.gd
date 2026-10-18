@@ -29,6 +29,24 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(lamp.position.is_equal_approx(row.position) and lamp.light.transform.is_equal_approx(row.light_pose),"work-light source anchor and emitter pose retained")
 		check(lamp.light.get_instance_id()==row.light and lamp.bounce.get_instance_id()==row.bounce and lamp._halo.get_instance_id()==row.halo and lamp._swing_node.get_instance_id()==row.swing and lamp._bulb_mat.get_instance_id()==row.bulb_material,"work-light original optical and motion owners retained")
 		check(is_equal_approx(lamp._base_energy,row.energy) and is_equal_approx(lamp.light.omni_range,row.range) and lamp.navigation_light==row.navigation and is_equal_approx(lamp.standby_scale,row.standby),"work-light photometric settings retained")
+		var aperture: Dictionary=world.adapter.root.get_meta("v2_cage_light_apertures").for_fixture(lamp)
+		var bulbs: Array[MeshInstance3D]=[]
+		for draw: MeshInstance3D in lamp._swing_node.find_children("*","MeshInstance3D",true,false):
+			if draw.material_override==lamp._bulb_mat:bulbs.append(draw)
+		check(bulbs.size()==1,"work lamp retains one actual native emitting envelope")
+		if bulbs.size()==1:
+			var draw := bulbs[0]
+			var vertices: PackedVector3Array=draw.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+			var center: Vector3=draw.transform*draw.mesh.get_aabb().get_center()
+			var radius := 0.0
+			for vertex: Vector3 in vertices:
+				var point: Vector3=draw.transform*vertex-center
+				radius=maxf(radius,Vector2(point.x,point.z).length())
+			check(radius>.0 and absf(lamp.light.light_size-radius)<.0001,"actual finite-source size fits native bulb vertices, not the surrounding cage")
+			check(is_equal_approx(lamp.light.light_size,aperture.radius) and float(aperture.tuning_before.source_size)>aperture.radius,
+				"native mount retains the former generic aperture as provenance and applies the fitted radius")
+			check(is_equal_approx(float(world.light_rig.fixture_tuning(lamp).source_size),lamp.light.light_size),
+				"original light-rig tuning owns the fitted source size")
 		var at := lamp.to_global(row.seat)
 		var normal: Vector3 = lamp.global_basis*row.normal
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at-normal*.004,at+normal*.004,1))

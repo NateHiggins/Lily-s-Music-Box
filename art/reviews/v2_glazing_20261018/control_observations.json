@@ -1,0 +1,23 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Fixed raw-image ROI [345,270,500,375] around the observed window oval. Descriptive diagnostic only, not an acceptance threshold. Light personality remains real and may vary in time.",
+  "rows": [
+    {
+      "name": "original",
+      "file": "diagnostic2/street_approach_original.png",
+      "white_pixels_rgb_ge_250": 9959
+    },
+    {
+      "name": "fitted_control",
+      "file": "diagnostic2/street_glazing_entry_size_0_045.png",
+      "white_pixels_rgb_ge_250": 934
+    },
+    {
+      "name": "entry_specular_off",
+      "file": "diagnostic2/street_glazing_entry_specular_off.png",
+      "white_pixels_rgb_ge_250": 0
+    }
+  ],
+  "documentation": "https://docs.godotengine.org/en/4.7/classes/class_light3d.html#class-light3d-property-light-size",
+  "source_implementation": "https://github.com/godotengine/godot/blob/4.7-stable/servers/rendering/renderer_rd/shaders/scene_forward_lights_inc.glsl#L444"
+}

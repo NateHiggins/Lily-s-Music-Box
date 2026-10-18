@@ -1,0 +1,150 @@
+{
+	"evidence_class": "INERT",
+	"lights": [
+		{
+			"bulbs": [
+				{
+					"center": [
+						-17.7999973297119,
+						1.84999990463257,
+						-2.65000152587891
+					],
+					"node": "/root/V2GlazingOpticalProbe/OrisonV2Runtime/OrisonV2Blockout/ServiceAlley/@Node3D@3101/@Node3D@3102/cage_bulb_rise300__Bulb_ON_bulb",
+					"size": [
+						0.0899772644042969,
+						0.110000133514404,
+						0.0899772644042969
+					]
+				}
+			],
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3101",
+			"source": [
+				-17.7999973297119,
+				1.83999991416931,
+				-2.65000152587891
+			],
+			"source_size": 0.159999996423721
+		},
+		{
+			"bulbs": [
+				{
+					"center": [
+						-17.7999973297119,
+						1.84999990463257,
+						-13.6500015258789
+					],
+					"node": "/root/V2GlazingOpticalProbe/OrisonV2Runtime/OrisonV2Blockout/ServiceAlley/@Node3D@3111/@Node3D@3112/cage_bulb_rise300__Bulb_ON_bulb",
+					"size": [
+						0.0899772644042969,
+						0.110000133514404,
+						0.0899772644042969
+					]
+				}
+			],
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3111",
+			"source": [
+				-17.7999973297119,
+				1.83999991416931,
+				-13.6500015258789
+			],
+			"source_size": 0.159999996423721
+		},
+		{
+			"bulbs": [
+				{
+					"center": [
+						-17.7999954223633,
+						1.84999990463257,
+						-24.1500015258789
+					],
+					"node": "/root/V2GlazingOpticalProbe/OrisonV2Runtime/OrisonV2Blockout/ServiceAlley/@Node3D@3121/@Node3D@3122/cage_bulb_rise300__Bulb_ON_bulb",
+					"size": [
+						0.0899772644042969,
+						0.110000133514404,
+						0.0899772644042969
+					]
+				}
+			],
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3121",
+			"source": [
+				-17.7999954223633,
+				1.83999991416931,
+				-24.1500015258789
+			],
+			"source_size": 0.159999996423721
+		},
+		{
+			"bulbs": [
+				{
+					"center": [
+						-7.99999809265137,
+						1.84999990463257,
+						-22.6500015258789
+					],
+					"node": "/root/V2GlazingOpticalProbe/OrisonV2Runtime/OrisonV2Blockout/ServiceAlley/@Node3D@3131/@Node3D@3132/cage_bulb_rise300__Bulb_ON_bulb",
+					"size": [
+						0.0899772644042969,
+						0.110000133514404,
+						0.0899772644042969
+					]
+				}
+			],
+			"path": "OrisonV2Blockout/ServiceAlley/@Node3D@3131",
+			"source": [
+				-7.99999809265137,
+				1.83999991416931,
+				-22.6500015258789
+			],
+			"source_size": 0.159999996423721
+		},
+		{
+			"bulbs": [
+				{
+					"center": [
+						21.3999996185303,
+						1.96000003814697,
+						3.29999995231628
+					],
+					"node": "/root/V2GlazingOpticalProbe/OrisonV2Runtime/StreetBoundaries/ShedEntryWorkLamp/@Node3D@24202/cage_bulb_rise300__Bulb_ON_bulb",
+					"size": [
+						0.0899772644042969,
+						0.110000133514404,
+						0.0899772644042969
+					]
+				}
+			],
+			"path": "StreetBoundaries/ShedEntryWorkLamp",
+			"source": [
+				21.3999996185303,
+				1.95000004768372,
+				3.29999995231628
+			],
+			"source_size": 0.159999996423721
+		},
+		{
+			"bulbs": [
+				{
+					"center": [
+						24.0,
+						1.96000003814697,
+						-1.5
+					],
+					"node": "/root/V2GlazingOpticalProbe/OrisonV2Runtime/StreetBoundaries/ShedTurnWorkLamp/@Node3D@24211/cage_bulb_rise300__Bulb_ON_bulb",
+					"size": [
+						0.0899772644042969,
+						0.110000133514404,
+						0.0899770259857178
+					]
+				}
+			],
+			"path": "StreetBoundaries/ShedTurnWorkLamp",
+			"source": [
+				24.0,
+				1.95000004768372,
+				-1.5
+			],
+			"source_size": 0.159999996423721
+		}
+	],
+	"scope": "Only the entry lamp specular and finite-source size change in temporary controls, then restore. Exact loaded native bulb extents are recorded. No production change or acceptance."
+}

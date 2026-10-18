@@ -1,0 +1,1 @@
+Evidence class: INERT. Temporary optical controls restored. Valid diagnosis, no production qualification, room, runtime or acceptance grant. The exact test_source.gd snapshot is retained; later probe edits do not relabel this run.
