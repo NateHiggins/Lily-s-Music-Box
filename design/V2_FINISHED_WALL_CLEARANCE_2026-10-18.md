@@ -73,10 +73,20 @@ passed 69 rooms, eleven legs and 989 checks. Both recorded zero failures and
 retired all tracked production roots/drivers. Clean candidate comparison is
 pending below.
 
+The first clean candidate comparison identified 69 new spatial references and
+a stale trim-discovery binding. All 69 were individually reviewed: 36 retained
+arcade source identities, 13 furnishing-coupling references and 20 test/capture
+dependencies. They extend the manifest while retaining all 10,146 prior rows
+and unchanged audit rules. A new windowed shell discovery found all 9,085
+trim instances exactly equal; its current observed binding replaces the stale
+discovery binding. The unchanged projection still yields 42 fittings and 154
+bounded source cuts. Both initial failure and resolution are retained under
+**static_resolution/**. Historical runtime proofs are untouched.
+
 ## Management report
 
     REPORT - V2-FURNISHING-CLEARANCE - 2026-10-18
-    Branch / HEAD / origin/main / merge-base: main / pending source commit / 57df6f2289160b639a5941299a6b44a0650134e5 / 57df6f2289160b639a5941299a6b44a0650134e5
+    Branch / HEAD / origin/main / merge-base: main / 6ff81cdf plus static-inventory correction / 57df6f2289160b639a5941299a6b44a0650134e5 / 57df6f2289160b639a5941299a6b44a0650134e5
     Worktree clean at end: no; inherited UID/import, enamel metadata, old receipt and unrelated M08F test changes are excluded.
     Protected 17/17: pending clean candidate verification. Selector: v2; explicit v1 rollback retained.
     Ledger before -> after: 0/1/48/25/65/67 -> pending; requirements_changed: []
