@@ -191,11 +191,15 @@ SECONDARY_AUTHORITIES = (
     # parity surface; v2-only ids (envelopes, capsule stations, thresholds)
     # are its own vocabulary and do not spam the inventory.
     ("game/data/orison_v2_blockout.json", "v2_blockout", "id"),
+    # Finite workshop stock and its individually retained physical inserts.
+    # This named source defines identities, not room-access acceptance.
+    ("game/data/orison_v2/heating_service_stock.json", "physical_stock", "id"),
 )
 DOMAIN_AUTHORITY_FILE = {
     "acoustic_node": "acoustic_graph.json",
     "fixture": "fixture_light_map.json",
     "v2_blockout": "orison_v2_blockout.json",
+    "physical_stock": "heating_service_stock.json",
 }
 
 # Stable identifiers CREATED AT RUNTIME by production code (not present in
@@ -1011,7 +1015,7 @@ def _base_classification(finding: Finding, universe: dict) -> dict:
         if any(d in domains for d in
                ("marker", "socket", "vantry", "vent", "furniture",
                 "bookshelf", "stairs", "elevator", "acoustic_node",
-                "fixture", "runtime_created")):
+                "fixture", "runtime_created", "physical_stock")):
             spatial.append("SEMANTIC_ANCHOR")
         if "unit" in domains and "SEMANTIC_ANCHOR" not in spatial:
             spatial.append("SEMANTIC_ANCHOR")

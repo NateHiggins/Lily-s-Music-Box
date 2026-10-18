@@ -72,6 +72,46 @@ def write_manifest(root: Path) -> Path:
     return manifest
 
 
+class PhysicalStockAuthorityTests(unittest.TestCase):
+    def prepare(self,root):
+        source=root/'game/data/orison_v2/heating_service_stock.json'
+        source.parent.mkdir(parents=True,exist_ok=True)
+        source.write_text(json.dumps({'schema_version':1,'id':'B1_VENT_SERVICE_STOCK','level':'B1',
+            'spares':[{'id':'VENT_SPARE_2','grade':2,'pocket':2}]}),encoding='utf8')
+        consumer=root/'game/scripts/props/physical_stock_lookup.gd'
+        consumer.parent.mkdir(parents=True,exist_ok=True)
+        consumer.write_text('extends Node\nfunc resolve():\n\treturn ["B1_VENT_SERVICE_STOCK", "VENT_SPARE_2", "B1_UNREGISTERED_STOCK"]\n',encoding='utf8')
+        return source
+
+    def test_declared_stock_identities_are_foreign_keys_not_self_consumers(self):
+        with TempRepo() as root:
+            self.prepare(root);_,records=scan(root)
+            for token in ['B1_VENT_SERVICE_STOCK','VENT_SPARE_2']:
+                rows=rec(records,token=token)
+                self.assertEqual(len(rows),1)
+                self.assertEqual(rows[0]['kind'],'id_reference')
+                self.assertIs(rows[0]['target_exists'],True)
+                self.assertIn('SEMANTIC_ANCHOR',rows[0]['spatial'])
+                self.assertEqual(rows[0]['disposition'],'PRESERVE_OR_ALIAS')
+
+    def test_removed_authority_cannot_keep_a_stock_reference_known(self):
+        with TempRepo() as root:
+            source=self.prepare(root);source.unlink();_,records=scan(root)
+            rows=rec(records,token='B1_VENT_SERVICE_STOCK')
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0]['kind'],'id_candidate')
+            self.assertIs(rows[0]['target_exists'],False)
+            self.assertEqual(rows[0]['disposition'],'UNRESOLVED')
+
+    def test_unregistered_stock_name_is_still_unknown(self):
+        with TempRepo() as root:
+            self.prepare(root);_,records=scan(root)
+            rows=rec(records,token='B1_UNREGISTERED_STOCK')
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0]['kind'],'id_candidate')
+            self.assertIs(rows[0]['target_exists'],False)
+
+
 class ScanTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Script" path="res://tests/v2_spatial_access_cohort.gd" id="1"]
+[ext_resource type="Script" path="res://tests/orison_v2_roof_program_contract_test.gd" id="2"]
+[node name="OrisonV2RoofAccessCohort" type="Node"]
+script = ExtResource("1")
+groups = PackedStringArray("roof")
+families = Array[Script]([ExtResource("2")])

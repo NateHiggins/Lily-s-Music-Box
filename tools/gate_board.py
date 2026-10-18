@@ -200,6 +200,10 @@ def parse_v2_surface_imports(code, out, err):
 
 
 GATES = [
+    {"id":"physical_import_sources",
+     "argv":["tools/check_physical_import_sources.py"],
+     "parse":parse_v2_surface_imports,"incomplete":set(),"error":set(),
+     "optional":True},
     {"id":"v2_recipe_projections",
      "argv":["tools/check_v2_recipe_projections.py","--json"],
      "parse":lambda code,out,err: {"counts":_json(out).get("counts",{}),"defects":_json(out).get("wrong",[]),"states":{},"info":{"checked_tiles":_json(out).get("checked_tiles")}},

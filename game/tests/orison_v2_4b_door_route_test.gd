@@ -127,6 +127,60 @@ func _use_water_valves(identity: String) -> bool:
 	var stopped := tap.get_flow_state()
 	return _require(not stopped.hot and not stopped.cold, "both valves shut through input")
 
+## Inherited route callers describe a desired operation, not an E-key toggle.
+## Acquire the actual part and drive its existing physical constraints.
+func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
+	player.camera.look_at(target)
+	await get_tree().physics_frame
+	player.camera.look_at(target)
+	var grip: Dictionary=player._grab.find_target()
+	if not _require(grip.get("owner")==owner_node,"actual player ray selects route part: "+label):return false
+	if owner_node is DoorProp:
+		var door := owner_node as DoorProp
+		if door.leaf_state=="locked":return await _try_locked_leaf(door,grip,label)
+		return await _drag_part(door,target,0.0 if door.open else door.motion_target_angle(true),label)
+	if not _require(grip.kind in ["hinge","slide"],"route part has a physical scalar constraint: "+label):return false
+	var current: float=grip.read.call()
+	var goal := float(grip.maximum) if absf(current-float(grip.minimum))<=absf(current-float(grip.maximum)) else float(grip.minimum)
+	return await _drag_part(owner_node,target,goal,label)
+
+func _try_locked_leaf(door: DoorProp,grip: Dictionary,label: String) -> bool:
+	var initial: float=grip.read.call()
+	var click := InputEventMouseButton.new()
+	click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+	player._unhandled_input(click)
+	if not _require(player._grab.active() and is_equal_approx(initial,float(grip.read.call())),"locked leaf can be held without toggling: "+label):return false
+	var opening_gesture := _part_gesture(grip,door.motion_target_angle(true))
+	if not _require(opening_gesture.is_finite() and opening_gesture.length()>1.0,"locked refusal receives a nonzero opening gesture: "+label):
+		player._unhandled_input(click)
+		return false
+	for attempt in 12:
+		var event := InputEventMouseMotion.new()
+		event.relative=_part_gesture(grip,door.motion_target_angle(true))
+		player._unhandled_input(event)
+		await get_tree().physics_frame
+	var refused := is_equal_approx(initial,float(grip.read.call())) and not door.open and door.leaf_state=="locked"
+	if player._grab.active():player._unhandled_input(click)
+	await get_tree().physics_frame
+	return _require(refused and not player._grab.active(),"locked leaf refuses actual opening motion and releases: "+label)
+
+func _part_gesture(grip: Dictionary,goal: float) -> Vector2:
+	var part: Node3D=grip.part
+	var frame: Node3D=grip.frame
+	var point: Vector3=part.to_global(player._grab.contact)
+	var local_axis: Vector3=grip.axis.call() if grip.axis is Callable else grip.axis
+	var axis: Vector3=(frame.global_basis*local_axis).normalized()
+	var tangent := axis
+	if grip.kind=="hinge":
+		tangent=axis.cross(point-part.global_position)
+		if tangent.length()<.025:
+			tangent=axis.cross(player.camera.global_basis.x)*.06
+			if tangent.length()<.01:tangent=axis.cross(player.camera.global_basis.y)*.06
+	var gesture: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
+	if gesture.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5:
+		gesture=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
+	return gesture*signf(goal-float(grip.read.call()))*.06
+
 ## Drive only player input. Read the constraint to choose a screen-space gesture;
 ## never call its writer, bypass collision, or move the walking player.
 func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) -> bool:
@@ -146,22 +200,8 @@ func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) ->
 	for step in 160:
 		if absf(float(grip.read.call()) - goal) < .00001: break
 		if not player._grab.active(): break
-		var part: Node3D = grip.part
-		var frame: Node3D = grip.frame
-		var point: Vector3 = part.to_global(player._grab.contact)
-		var local_axis: Vector3 = grip.axis.call() if grip.axis is Callable else grip.axis
-		var axis: Vector3 = (frame.global_basis * local_axis).normalized()
-		var tangent := axis
-		if grip.kind == "hinge":
-			tangent = axis.cross(point-part.global_position)
-			if tangent.length() < .025:
-				tangent = axis.cross(player.camera.global_basis.x)*.06
-				if tangent.length() < .01: tangent = axis.cross(player.camera.global_basis.y)*.06
-		var gesture: Vector2 = (player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
-		if gesture.length() < 24.0 and absf(tangent.dot(player.camera.global_basis.z)) > tangent.length()*.5:
-			gesture = Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
 		var motion := InputEventMouseMotion.new()
-		motion.relative = gesture * signf(goal-float(grip.read.call())) * .06
+		motion.relative = _part_gesture(grip,goal)
 		player._unhandled_input(motion)
 		await get_tree().physics_frame
 		if label == "F02_B_ENTRY_DOOR_close" and step == 0:

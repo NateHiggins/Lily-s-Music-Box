@@ -1,0 +1,2197 @@
+{
+	"checks": [
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "explicit route families supplied by the bound scene",
+			"ok": true
+		},
+		{
+			"label": "bound scene supplies one route definition per family",
+			"ok": true
+		},
+		{
+			"label": "night campaign fixture is valid",
+			"ok": true
+		},
+		{
+			"label": "production-selected V2 world starts",
+			"ok": true
+		},
+		{
+			"label": "known complete route family: roof",
+			"ok": true
+		},
+		{
+			"label": "carried light recovers a finite unit rotation from measured-size scale drift",
+			"ok": true
+		},
+		{
+			"label": "drift correction retains the light chasing the intended camera aim",
+			"ok": true
+		},
+		{
+			"label": "production handheld carrier is available for unobstructed roof review",
+			"ok": true
+		},
+		{
+			"label": "complete native roof supply is installed",
+			"ok": true
+		},
+		{
+			"label": "superseded upper cap retired; original lower cap retained",
+			"ok": true
+		},
+		{
+			"label": "actual bulkhead bore is clear at 5.4",
+			"ok": true
+		},
+		{
+			"label": "actual bulkhead bore is clear at 9.5",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (3.975, 19.2, -3.4)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (5.0, 19.2, -3.4)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (5.0, 19.2, 2.5)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 2.5)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.1, 19.2, 0.8)",
+			"ok": true
+		},
+		{
+			"label": "source-owned roof lamps and switch exist",
+			"ok": true
+		},
+		{
+			"label": "accepted native cage stock is installed",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: roof_public_switch0",
+			"ok": true
+		},
+		{
+			"label": "route part has a physical scalar constraint: roof_public_switch0",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: roof_public_switch0",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: roof_public_switch0",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: roof_public_switch0",
+			"ok": true
+		},
+		{
+			"label": "physical switch throw changes only its own roof circuit",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: roof_public_switch1",
+			"ok": true
+		},
+		{
+			"label": "route part has a physical scalar constraint: roof_public_switch1",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: roof_public_switch1",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: roof_public_switch1",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: roof_public_switch1",
+			"ok": true
+		},
+		{
+			"label": "physical switch throw changes only its own roof circuit",
+			"ok": true
+		},
+		{
+			"label": "original light owner supplies the visible task illumination",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-3.9, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: ROOF_PUBLIC_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: ROOF_PUBLIC_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: ROOF_PUBLIC_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: ROOF_PUBLIC_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-14.5, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "live player is stopped by the west parapet above the street",
+			"ok": true
+		},
+		{
+			"label": "campaign advances from 20:00 to the next 08:00",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-12.0, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-9.4, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-9.4, 19.2, -3.05)",
+			"ok": true
+		},
+		{
+			"label": "roof has the production overflowing ballcock",
+			"ok": true
+		},
+		{
+			"label": "installed tank repair uses actual grabbing, motion, release and inspection",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-11.0, 19.2, -3.05)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-11.0, 19.2, -4.95)",
+			"ok": true
+		},
+		{
+			"label": "tank support stops the real upright controller: (-10.09973, 19.28925, -4.983553)",
+			"ok": true
+		},
+		{
+			"label": "raised tank body has matching solid collision",
+			"ok": true
+		},
+		{
+			"label": "tank support is solid 0",
+			"ok": true
+		},
+		{
+			"label": "tank support is solid 1",
+			"ok": true
+		},
+		{
+			"label": "tank support is solid 2",
+			"ok": true
+		},
+		{
+			"label": "tank support is solid 3",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-12.0, 19.2, -5.7)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-12.0, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-12.0, 19.2, -9.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (0.0, 19.2, -9.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (14.0, 19.2, -9.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (14.0, 19.2, -1.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (14.0, 19.2, 10.8)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (11.0, 19.2, 10.8)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (7.5, 19.2, 10.8)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (0.0, 19.2, 7.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-7.0, 19.2, 7.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (7.5, 19.2, 7.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (7.5, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (8.0, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: ROOF_SERVICE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: ROOF_SERVICE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: ROOF_SERVICE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: ROOF_SERVICE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: ROOF_SERVICE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: ROOF_SERVICE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: ROOF_SERVICE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (10.3, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (12.425, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (12.425, 19.2, 5.65)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (12.425, 19.2, 5.65)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (12.425, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (10.3, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (7.8, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (10.3, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (10.3, 19.2, 4.0)",
+			"ok": true
+		},
+		{
+			"label": "source-owned roof lamps and switch exist",
+			"ok": true
+		},
+		{
+			"label": "accepted native cage stock is installed",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: roof_service_switch0",
+			"ok": true
+		},
+		{
+			"label": "route part has a physical scalar constraint: roof_service_switch0",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: roof_service_switch0",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: roof_service_switch0",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: roof_service_switch0",
+			"ok": true
+		},
+		{
+			"label": "physical switch throw changes only its own roof circuit",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: roof_service_switch1",
+			"ok": true
+		},
+		{
+			"label": "route part has a physical scalar constraint: roof_service_switch1",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: roof_service_switch1",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: roof_service_switch1",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: roof_service_switch1",
+			"ok": true
+		},
+		{
+			"label": "physical switch throw changes only its own roof circuit",
+			"ok": true
+		},
+		{
+			"label": "original light owner supplies the visible task illumination",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (10.3, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (8.1, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "former service-switch return stance intersects the real door sweep",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (7.8, 19.2, 3.0)",
+			"ok": true
+		},
+		{
+			"label": "standing closing stance clears the complete service leaf sweep",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: ROOF_SERVICE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: ROOF_SERVICE_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: ROOF_SERVICE_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: ROOF_SERVICE_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: ROOF_SERVICE_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: ROOF_SERVICE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "solid roof edge SOUTH",
+			"ok": true
+		},
+		{
+			"label": "solid roof edge NORTH",
+			"ok": true
+		},
+		{
+			"label": "solid roof edge WEST",
+			"ok": true
+		},
+		{
+			"label": "solid roof edge EAST",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (7.0, 19.2, -6.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (14.1, 19.2, -6.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (14.1, 19.2, 2.15)",
+			"ok": true
+		},
+		{
+			"label": "chimney mouth remains open above the structural shaft",
+			"ok": true
+		},
+		{
+			"label": "chimney masonry has actual collision",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (14.1, 19.2, -6.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (7.0, 19.2, -6.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-4.0, 19.2, -6.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-3.9, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 2.5)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (5.0, 19.2, 2.5)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (5.0, 19.2, -3.4)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (3.975, 19.2, -3.4)",
+			"ok": true
+		},
+		{
+			"label": "roof circuit returns to F06 with collision active",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: roof/ROOF PLANT",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (3.975, 19.2, -3.4)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (5.0, 19.2, -3.4)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (5.0, 19.2, 2.5)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 2.5)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (0.0, 19.2, 0.15)",
+			"ok": true
+		},
+		{
+			"label": "drive observes the production lift",
+			"ok": true
+		},
+		{
+			"label": "imported sheave stands vertically on its driven X axle: (0.235, 0.68, 0.68)",
+			"ok": true
+		},
+		{
+			"label": "actual capsule stops at the extended machinery guard: (-0.096114, 19.20094, -0.040133)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (0.0, 19.2, 0.15)",
+			"ok": true
+		},
+		{
+			"label": "guarded machine has not changed idle lift state",
+			"ok": true
+		},
+		{
+			"label": "rear rope tangent raises the car with the sheave",
+			"ok": true
+		},
+		{
+			"label": "stopped car stops the sheave",
+			"ok": true
+		},
+		{
+			"label": "imported counterweight matches the rear-shaft envelope: (0.4, 1.58, 0.1)",
+			"ok": true
+		},
+		{
+			"label": "suspension reaches F06",
+			"ok": true
+		},
+		{
+			"label": "counterweight follows the car in opposite travel",
+			"ok": true
+		},
+		{
+			"label": "suspension reaches B1",
+			"ok": true
+		},
+		{
+			"label": "counterweight follows the car in opposite travel",
+			"ok": true
+		},
+		{
+			"label": "suspension reaches F01",
+			"ok": true
+		},
+		{
+			"label": "counterweight follows the car in opposite travel",
+			"ok": true
+		},
+		{
+			"label": "continuous real-physics clearance samples: 2062",
+			"ok": true
+		},
+		{
+			"label": "rope passes through a real roof opening at -2.141",
+			"ok": true
+		},
+		{
+			"label": "rope passes through a real roof opening at -0.474",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: ROOF_PUBLIC_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: ROOF_PUBLIC_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: ROOF_PUBLIC_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: ROOF_PUBLIC_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: ROOF_PUBLIC_DOOR",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-3.6, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (-1.35, 19.2, 2.5)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (5.0, 19.2, 2.5)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (5.0, 19.2, -3.4)",
+			"ok": true
+		},
+		{
+			"label": "retained route has its actual fitted floor at (3.975, 19.2, -3.4)",
+			"ok": true
+		},
+		{
+			"label": "machine route returns to F06 with ordinary collision",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: roof/LIFT DRIVE",
+			"ok": true
+		},
+		{
+			"label": "every requested family completes before proof is written",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: ROOF_PUBLIC_CORE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: ROOF_SERVICE_CORE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: ROOF_DECK_WEST",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: ROOF_DECK_SOUTH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: ROOF_DECK_NORTH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: ROOF_DECK_MIDDLE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: ROOF_DECK_EAST",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: ROOF_DECK_SOUTHEAST",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: ROOF_DECK_NORTHEAST",
+			"ok": true
+		},
+		{
+			"label": "shared production root and every route/check driver retire",
+			"ok": true
+		},
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "runtime and geometry/surface inputs stay fixed throughout the cohort",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "root, scene and all transitive route sources stay fixed throughout the cohort",
+			"ok": true
+		},
+		{
+			"label": "record repository provenance",
+			"ok": true
+		},
+		{
+			"label": "explicit writable receipt destination",
+			"ok": true
+		},
+		{
+			"label": "open cohort runtime contract",
+			"ok": true
+		}
+	],
+	"completed_groups": [
+		"roof"
+	],
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"room_access": {
+			"executed": true,
+			"rooms": {
+				"ROOF_DECK_EAST": {
+					"actual": [
+						14.0989103317261,
+						19.2502536773682,
+						2.05352687835693
+					],
+					"leg": "roof/ROOF PLANT"
+				},
+				"ROOF_DECK_MIDDLE": {
+					"actual": [
+						7.89611768722534,
+						19.3219413757324,
+						3.00101470947266
+					],
+					"leg": "roof/ROOF PLANT"
+				},
+				"ROOF_DECK_NORTH": {
+					"actual": [
+						7.40289926528931,
+						19.2919921875,
+						6.9999942779541
+					],
+					"leg": "roof/ROOF PLANT"
+				},
+				"ROOF_DECK_NORTHEAST": {
+					"actual": [
+						11.0965433120728,
+						19.21946144104,
+						10.7968997955322
+					],
+					"leg": "roof/ROOF PLANT"
+				},
+				"ROOF_DECK_SOUTH": {
+					"actual": [
+						7.09671020507813,
+						19.3098030090332,
+						-5.99868726730347
+					],
+					"leg": "roof/ROOF PLANT"
+				},
+				"ROOF_DECK_SOUTHEAST": {
+					"actual": [
+						13.9988460540771,
+						19.232250213623,
+						-1.09654808044434
+					],
+					"leg": "roof/ROOF PLANT"
+				},
+				"ROOF_DECK_WEST": {
+					"actual": [
+						-3.50383639335632,
+						19.3354568481445,
+						0.000185012817382813
+					],
+					"leg": "roof/LIFT DRIVE"
+				},
+				"ROOF_PUBLIC_CORE": {
+					"actual": [
+						3.98841500282288,
+						19.2009410858154,
+						-3.23556804656982
+					],
+					"leg": "roof/LIFT DRIVE"
+				},
+				"ROOF_SERVICE_CORE": {
+					"actual": [
+						10.298999786377,
+						19.2008113861084,
+						3.09683418273926
+					],
+					"leg": "roof/ROOF PLANT"
+				}
+			},
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "shared production root and all route/check drivers only",
+			"retained_nodes": 0,
+			"status": "PASS",
+			"tracked_nodes": 4
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 363.961,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": 0,
+	"groups": [
+		"roof"
+	],
+	"legs": [
+		{
+			"failures": [],
+			"group": "roof",
+			"initial_placement_only": true,
+			"name": "roof/ROOF PLANT",
+			"trace": [
+				{
+					"actual": [
+						1.92500019073486,
+						17.6008625030518,
+						1.20409202575684
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						17.6000003814697,
+						1.29999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						3.87984156608582,
+						17.6009426116943,
+						1.27155876159668
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						17.6000003814697,
+						1.29999995231628
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-3.87984, 18.485, -13.2525)"
+					}
+				},
+				{
+					"actual": [
+						3.97173118591309,
+						19.2009468078613,
+						-3.23929977416992
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						19.2000007629395,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29478/NativeCaseCollision": "(-4.044999, 20.4, -8.088)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29480/NativeCaseCollision": "(-4.045, 20.4, -8.088)"
+					}
+				},
+				{
+					"actual": [
+						4.99749374389648,
+						19.2009429931641,
+						-3.26697826385498
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						19.2000007629395,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@29529/PipeCollision": "(-4.905365, 20.39494, -8.062811)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29480/NativeCaseCollision": "(-4.654999, 20.4, -8.088)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.382276)"
+					}
+				},
+				{
+					"actual": [
+						4.99995708465576,
+						19.2009429931641,
+						2.40161037445068
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						19.2000007629395,
+						2.5
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329998, 20.39494, -14.05161)"
+					}
+				},
+				{
+					"actual": [
+						-1.25348365306854,
+						19.2009429931641,
+						2.49850368499756
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.34627604484558,
+						19.2009429931641,
+						0.0964040756225586
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.1317150592804,
+						19.2009429931641,
+						0.709391593933105
+					],
+					"ok": true,
+					"target": [
+						-1.10000002384186,
+						19.2000007629395,
+						0.800000011920929
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.32185697555542,
+						19.2009429931641,
+						0.091461181640625
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.80023694038391,
+						19.3325309753418,
+						0.00353813171386719
+					],
+					"ok": true,
+					"target": [
+						-3.90000009536743,
+						19.3312492370605,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-14.4036455154419,
+						19.2265644073486,
+						0.0000324249267578125
+					],
+					"ok": true,
+					"target": [
+						-14.5,
+						19.2252502441406,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.0959386825562,
+						19.2494716644287,
+						0.0000333786010742188
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						19.2502498626709,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.49610996246338,
+						19.275239944458,
+						0.0000314712524414063
+					],
+					"ok": true,
+					"target": [
+						-9.39999961853027,
+						19.2762489318848,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.40308475494385,
+						19.3057956695557,
+						-2.95334434509277
+					],
+					"ok": true,
+					"target": [
+						-9.39999961853027,
+						19.3067493438721,
+						-3.04999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.9037885665894,
+						19.2922172546387,
+						-3.04417610168457
+					],
+					"ok": true,
+					"target": [
+						-11.0,
+						19.29075050354,
+						-3.04999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.9950933456421,
+						19.2828979492188,
+						-4.85274648666382
+					],
+					"ok": true,
+					"target": [
+						-11.0,
+						19.2807502746582,
+						-4.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-11.9064769744873,
+						19.2658042907715,
+						-5.66474008560181
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						19.2632503509521,
+						-5.69999980926514
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_TANK_LEG_2/Collision": "(9.76, 20.48428, -6.666447)"
+					}
+				},
+				{
+					"actual": [
+						-11.9983816146851,
+						19.2515258789063,
+						-0.0982198715209961
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						19.2502498626709,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.0000104904175,
+						19.2594470977783,
+						-8.90325164794922
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						19.2602500915527,
+						-9.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.0966702103614807,
+						19.3114604949951,
+						-8.99922752380371
+					],
+					"ok": true,
+					"target": [
+						0.0,
+						19.3122501373291,
+						-9.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						13.9038743972778,
+						19.2415637969971,
+						-9.00000190734863
+					],
+					"ok": true,
+					"target": [
+						14.0,
+						19.2402496337891,
+						-9.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						13.9988460540771,
+						19.232250213623,
+						-1.09654808044434
+					],
+					"ok": true,
+					"target": [
+						14.0,
+						19.2302513122559,
+						-1.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						13.9999971389771,
+						19.2483692169189,
+						10.7038021087646
+					],
+					"ok": true,
+					"target": [
+						14.0,
+						19.2472515106201,
+						10.8000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0965433120728,
+						19.21946144104,
+						10.7968997955322
+					],
+					"ok": true,
+					"target": [
+						11.0,
+						19.217248916626,
+						10.8000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.59619188308716,
+						19.2514934539795,
+						10.7999534606934
+					],
+					"ok": true,
+					"target": [
+						7.5,
+						19.2522506713867,
+						10.8000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						0.0857656002044678,
+						19.3643283843994,
+						7.04290390014648
+					],
+					"ok": true,
+					"target": [
+						0.0,
+						19.3652515411377,
+						7.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.90489721298218,
+						19.3215732574463,
+						7.00057983398438
+					],
+					"ok": true,
+					"target": [
+						-7.0,
+						19.3202495574951,
+						7.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.40289926528931,
+						19.2919921875,
+						6.9999942779541
+					],
+					"ok": true,
+					"target": [
+						7.5,
+						19.2902507781982,
+						7.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.49767208099365,
+						19.3269023895264,
+						3.09660911560059
+					],
+					"ok": true,
+					"target": [
+						7.5,
+						19.3252506256104,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.90402173995972,
+						19.3215293884277,
+						3.01845932006836
+					],
+					"ok": true,
+					"target": [
+						8.0,
+						19.3202514648438,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.2040500640869,
+						19.2008228302002,
+						3.00073909759521
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						19.2000007629395,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3261489868164,
+						19.2008228302002,
+						3.00003242492676
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						19.2000007629395,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4213972091675,
+						19.2008228302002,
+						5.55341148376465
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						19.2000007629395,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4249019622803,
+						17.6532745361328,
+						9.05128288269043
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						17.6000003814697,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.170129776001,
+						17.6009407043457,
+						9.12158012390137
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						17.6000003814697,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/FlightB_Step00/Collision": "(-12.21907, 17.76, -20.45)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/StairGuards": "(-11.17013, 18.485, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						16.0008296966553,
+						4.39877319335938
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						16.0,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0750398635864,
+						17.6006355285645,
+						9.05129623413086
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						17.6000003814697,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3297529220581,
+						17.6009407043457,
+						9.12158203125
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						17.6000003814697,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/StairGuards": "(-12.32975, 18.485, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						12.4223928451538,
+						19.2004203796387,
+						5.74530601501465
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						19.2000007629395,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4249095916748,
+						19.2004203796387,
+						3.09600448608398
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						19.2000007629395,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3994569778442,
+						19.2004203796387,
+						3.00449371337891
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						19.2000007629395,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.89647531509399,
+						19.3221168518066,
+						3.00013637542725
+					],
+					"ok": true,
+					"target": [
+						7.80000019073486,
+						19.3222503662109,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.2032270431519,
+						19.2008113861084,
+						3.0000057220459
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						19.2000007629395,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.29065990448,
+						19.2008113861084,
+						3.90347957611084
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						19.2000007629395,
+						4.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.298999786377,
+						19.2008113861084,
+						3.09683418273926
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						19.2000007629395,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.19648838043213,
+						19.3190536499023,
+						3.00425910949707
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						19.3192520141602,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.89611768722534,
+						19.3219413757324,
+						3.00101470947266
+					],
+					"ok": true,
+					"target": [
+						7.80000019073486,
+						19.3222503662109,
+						3.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.00952816009521,
+						19.3113441467285,
+						-5.90438508987427
+					],
+					"ok": true,
+					"target": [
+						7.0,
+						19.3102493286133,
+						-6.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.0044164657593,
+						19.2413234710693,
+						-5.99871110916138
+					],
+					"ok": true,
+					"target": [
+						14.1000003814697,
+						19.2392501831055,
+						-6.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.0989103317261,
+						19.2502536773682,
+						2.05352687835693
+					],
+					"ok": true,
+					"target": [
+						14.1000003814697,
+						19.2507514953613,
+						2.15000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.0999975204468,
+						19.2412891387939,
+						-5.90305519104004
+					],
+					"ok": true,
+					"target": [
+						14.1000003814697,
+						19.2392501831055,
+						-6.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.09671020507813,
+						19.3098030090332,
+						-5.99868726730347
+					],
+					"ok": true,
+					"target": [
+						7.0,
+						19.3102493286133,
+						-6.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.90377068519592,
+						19.3042011260986,
+						-5.99999523162842
+					],
+					"ok": true,
+					"target": [
+						-4.0,
+						19.3022499084473,
+						-6.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.90007400512695,
+						19.3323421478271,
+						-0.0965452194213867
+					],
+					"ok": true,
+					"target": [
+						-3.90000009536743,
+						19.3312492370605,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.4465674161911,
+						19.2008190155029,
+						-0.00364971160888672
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.35374200344086,
+						19.2008190155029,
+						2.40298557281494
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.90300464630127,
+						19.2008190155029,
+						2.4985179901123
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						19.2000007629395,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.99768877029419,
+						19.2009410858154,
+						-3.25940036773682
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						19.2000007629395,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@29529/PipeCollision": "(-4.905412, 20.39494, -8.062797)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.389855)"
+					}
+				},
+				{
+					"actual": [
+						3.98841047286987,
+						19.2009410858154,
+						-3.23555564880371
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						19.2000007629395,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@29529/PipeCollision": "(-4.888381, 20.39494, -8.064977)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29480/NativeCaseCollision": "(-4.045, 20.4, -8.088)"
+					}
+				},
+				{
+					"actual": [
+						3.97529315948486,
+						17.6153469085693,
+						1.22527885437012
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						17.6000003814697,
+						1.29999995231628
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/FlightB_Step00/Collision": "(-3.975302, 17.76, -12.6)"
+					}
+				},
+				{
+					"actual": [
+						2.02011632919312,
+						17.6009407043457,
+						1.2715892791748
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						17.6000003814697,
+						1.29999995231628
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/FlightB_Step00/Collision": "(-3.970413, 17.76, -12.6)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-2.023058, 18.485, -13.2525)"
+					}
+				},
+				{
+					"actual": [
+						1.92694580554962,
+						16.000789642334,
+						-3.40253448486328
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						16.0,
+						-3.5
+					],
+					"wall_contacts": {}
+				}
+			]
+		},
+		{
+			"failures": [],
+			"group": "roof",
+			"initial_placement_only": true,
+			"name": "roof/LIFT DRIVE",
+			"trace": [
+				{
+					"actual": [
+						1.92503941059113,
+						17.6008644104004,
+						1.20406913757324
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						17.6000003814697,
+						1.29999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						3.87981700897217,
+						17.6009407043457,
+						1.2715892791748
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						17.6000003814697,
+						1.29999995231628
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-3.876843, 18.485, -13.2525)"
+					}
+				},
+				{
+					"actual": [
+						3.97172808647156,
+						19.2009544372559,
+						-3.23923397064209
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						19.2000007629395,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29480/NativeCaseCollision": "(-4.045, 20.4, -8.088)"
+					}
+				},
+				{
+					"actual": [
+						4.99744510650635,
+						19.2009410858154,
+						-3.26702880859375
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						19.2000007629395,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@29529/PipeCollision": "(-4.905369, 20.39494, -8.062809)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29480/NativeCaseCollision": "(-4.654999, 20.4, -8.088)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.382159)"
+					}
+				},
+				{
+					"actual": [
+						4.99995708465576,
+						19.2009410858154,
+						2.40154838562012
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						19.2000007629395,
+						2.5
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329998, 20.39494, -14.05155)"
+					}
+				},
+				{
+					"actual": [
+						-1.25342547893524,
+						19.2009410858154,
+						2.49850177764893
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.34627270698547,
+						19.2009410858154,
+						0.0964279174804688
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.0961140096187592,
+						19.2009410858154,
+						0.146175384521484
+					],
+					"ok": true,
+					"target": [
+						0.0,
+						19.2000007629395,
+						0.150000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.0449591763317585,
+						19.2009410858154,
+						0.061060905456543
+					],
+					"ok": true,
+					"target": [
+						0.0,
+						19.2000007629395,
+						0.150000005960464
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_LIFT_DRIVE/PlantGuard": "(0.096115, 20.39494, -11.28)"
+					}
+				},
+				{
+					"actual": [
+						-1.25291991233826,
+						19.2009410858154,
+						0.00454235076904297
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.50383639335632,
+						19.3354568481445,
+						0.000185012817382813
+					],
+					"ok": true,
+					"target": [
+						-3.59999990463257,
+						19.3342514038086,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.44685649871826,
+						19.2008399963379,
+						0.0000143051147460938
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.35374248027802,
+						19.2008399963379,
+						2.40340137481689
+					],
+					"ok": true,
+					"target": [
+						-1.35000002384186,
+						19.2000007629395,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.90298748016357,
+						19.2008399963379,
+						2.49852657318115
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						19.2000007629395,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.99768686294556,
+						19.2009410858154,
+						-3.25936603546143
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						19.2000007629395,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@29529/PipeCollision": "(-4.905414, 20.39494, -8.062796)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.389915)"
+					}
+				},
+				{
+					"actual": [
+						3.98841500282288,
+						19.2009410858154,
+						-3.23556804656982
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						19.2000007629395,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@29529/PipeCollision": "(-4.888434, 20.39494, -8.064978)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29478/NativeCaseCollision": "(-4.044999, 20.4, -8.088)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29480/NativeCaseCollision": "(-4.045, 20.4, -8.088)"
+					}
+				},
+				{
+					"actual": [
+						3.97529292106628,
+						17.6155395507813,
+						1.22514057159424
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						17.6000003814697,
+						1.29999995231628
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/FlightB_Step00/Collision": "(-3.975301, 17.76, -12.6)"
+					}
+				},
+				{
+					"actual": [
+						2.02012968063354,
+						17.6009292602539,
+						1.27160453796387
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						17.6000003814697,
+						1.29999995231628
+					],
+					"wall_contacts": {
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/FlightB_Step00/Collision": "(-3.970413, 17.76, -12.6)",
+						"/root/OrisonV2RoofAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-2.023095, 18.485, -13.2525)"
+					}
+				},
+				{
+					"actual": [
+						1.92694628238678,
+						16.0008201599121,
+						-3.40251064300537
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						16.0,
+						-3.5
+					],
+					"wall_contacts": {}
+				}
+			]
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Played room access in one shared production world. Complete route families retain their declared initial placements; roof circuits share one F06 arrival. Subsequent travel uses the normal collision-bearing controller. Physical input replaces inherited E-key toggles. The lift travel request remains a declared stimulus. No inter-floor connection, case completion, disk save, whole-building runtime or human acceptance grant.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "79e416fa5df3f2c3dcd9da880616eafd2a2b82f7",
+		"runtime_inputs_sha256": "286d8d9633941906eb5b2b61ca43461e98194d813cfbfb98143335090f533808",
+		"scene_path": "res://tests/OrisonV2RoofAccessCohort.tscn",
+		"surface_inputs_sha256": "06af3498e86ee9e2f0f6d01ab2dc9894e5df95ab1ef7bb42634bf96877cd6fd0",
+		"test_dependencies": {
+			"game/tests/OrisonV2RoofAccessCohort.tscn": "d71487f8839e1c920bf8bbed50f71ab40817e4ac712088c4fdfa6b25589de0de",
+			"game/tests/OrisonV2RoofProgramContractTest.tscn": "b8ad7093d82c3dfda068621fe24698a882dab835cb1d9c14f0f14ccee110b659",
+			"game/tests/orison_v2_4b_door_route_test.gd": "812dda33b098642cfd39f85c858cbe8e431821e49b02b827d0273007e9b029db",
+			"game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+			"game/tests/orison_v2_lift_drive_test.gd": "f946f707a0d85fb28f4380621b8ee79f04afc71d57a090d743377b7999925fc1",
+			"game/tests/orison_v2_roof_lift_program_route_test.gd": "8b112671a5624cd5531fdcbc439ffbada8093f7658b89bd5d4d5264bff507321",
+			"game/tests/orison_v2_roof_plant_test.gd": "a48b898eb33976b25f2e4264341e8ea8fa3d787c583378acfc7cb787b6747b38",
+			"game/tests/orison_v2_roof_program_contract_test.gd": "4be679b20ce084c6a2be036514a45116b400e2bd6392884b111c3d70b9020a2a",
+			"game/tests/orison_v2_roof_program_route_test.gd": "cdf7f722a4c2e584e3da08fee82fbfa8fb58a9b854bd79f0649e8abedd5db02d",
+			"game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
+			"game/tests/orison_v2_vertical_route_test.gd": "bc078c6b25710e41dbbaccceaa59478be550a528573f577266aa94476a106a8b",
+			"game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
+			"game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+		},
+		"test_path": "game/tests/v2_spatial_access_cohort.gd",
+		"test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+	}
+}

@@ -2212,3 +2212,18 @@ game/assets/props/construction_shed.glb.import -text
 
 art/data/gen_layout.py -text
 game/scripts/building/orison_v2_street_boundaries.gd -text
+
+art/reviews/v2_access_regressions_20261018/** -text -whitespace
+art/renders/orison_v2/access_home_cohort_20261018/** -text -whitespace
+game/tests/v2_spatial_access_cohort.gd -text
+game/tests/OrisonV2HomeAccessCohort.tscn -text
+game/tests/OrisonV2UpperAccessCohort.tscn -text
+
+# Effective mesh settings are physical source, not an ignored machine cache.
+game/assets/**/*.glb.import -text
+game/assets/**/*.gltf.import -text
+game/assets/**/*.obj.import -text
+game/tests/OrisonV2RemainingAccessCohort.tscn -text
+game/tests/OrisonV2RoofAccessCohort.tscn -text
+
+art/renders/orison_v2/access_roof_cohort_20261018/** -text -whitespace

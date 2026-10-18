@@ -1,0 +1,68 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Five exact REVIEW findings only; no audit classifier, confidence, tier or enforcement change. Existing 21 unreviewed findings remain visible.",
+  "entries": [
+    {
+      "id": "ea51a0ac0460d426",
+      "domain": "custody",
+      "class": "DUPLICATE_CUSTODY",
+      "file": "game/scripts/props/radiator_prop.gd",
+      "scope": "_prove_native_repair",
+      "evidence": "if inventory!=null and inventory.has_item(PACKING_ITEM) and not inventory.consume(PACKING_ITEM): return",
+      "confidence": "HEURISTIC",
+      "tier": "production",
+      "disposition": "REVIEW"
+    },
+    {
+      "id": "5c169ca68317db25",
+      "domain": "timer",
+      "class": "TIMER_IMPERSONATES_ACTOR",
+      "file": "game/tests/annunciator_lamp_world_shot.gd",
+      "scope": "_run",
+      "evidence": "elapsed gate + var board := world.adapter.resolve(\"LobbyPorterBoard\") as OtisProp",
+      "confidence": "HEURISTIC",
+      "tier": "test",
+      "disposition": "REVIEW"
+    },
+    {
+      "id": "63e6cacdcd0b2344",
+      "domain": "timer",
+      "class": "TIMER_IMPERSONATES_ACTOR",
+      "file": "game/tests/annunciator_world_review.gd",
+      "scope": "_run",
+      "evidence": "elapsed gate + var board := world.adapter.resolve(\"LobbyPorterBoard\") as OtisProp",
+      "confidence": "HEURISTIC",
+      "tier": "test",
+      "disposition": "REVIEW"
+    },
+    {
+      "id": "c727358ac9dc394f",
+      "domain": "timer",
+      "class": "TIMER_IMPERSONATES_ACTOR",
+      "file": "game/tests/radiator_hand_bench.gd",
+      "scope": "_packing_pass",
+      "evidence": "elapsed gate + prop.inventory.consume(prop.PACKING_ITEM)",
+      "confidence": "HEURISTIC",
+      "tier": "test",
+      "disposition": "REVIEW"
+    },
+    {
+      "id": "f8532cae716bd429",
+      "domain": "timer",
+      "class": "TIMER_IMPERSONATES_ACTOR",
+      "file": "game/tests/room_reflection_review.gd",
+      "scope": "_run",
+      "evidence": "elapsed gate + var board := world.adapter.resolve(\"LobbyPorterBoard\") as OtisProp",
+      "confidence": "HEURISTIC",
+      "tier": "test",
+      "disposition": "REVIEW"
+    }
+  ],
+  "rationale": {
+    "ea51a0ac0460d426": "Physical repair is measured by the radiator authority after seated parts, pressure, heat and supply pass. Existing one-time packing custody is read/consumed only through MaintenanceInventory, never written into situation state. Current production physical-service/save proof and the packing hand bench separately cover finite identity and used-item behavior.",
+    "5c169ca68317db25": "Installed lamp diagnostic waits for actual flashlight output after a real flag gesture; it does not fabricate a porter action or repair. Its output is explicitly INERT.",
+    "63e6cacdcd0b2344": "Installed input/disk test drives the board through its real hand input owner. Timers observe mechanical/lighting settling; work-order non-advancement is explicitly asserted. No timer substitutes for a player action.",
+    "c727358ac9dc394f": "Bench explicitly stages an already-used Inventory state through the rightful Inventory API, then grabs/removes the same physical liner to deny reminting. This is a declared negative-control fixture, not player consumption proof or repair outcome.",
+    "f8532cae716bd429": "Inert optical experiment waits for lamp cooldown and renderer frames, resolves installed actors and compares reflections. No NPC, inventory or case consequence is timer-authored."
+  }
+}

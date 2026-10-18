@@ -39,9 +39,28 @@ func _close_door(identity: String) -> bool:
 		if not await _switch_lamp("ROOF_SERVICE_PLANT_SWITCH","ROOF_SERVICE_PLANT_LT","ROOF_PUBLIC_PLANT_LT","service"):return false
 		for point in [Vector3(10.3,19.2,3),Vector3(8.1,19.2,3)]:
 			if not await _walk(point):return false
+		var leaf := _leaf(identity)
+		# The added switch detour returned the player inside the leaf sweep.
+		# Preserve that former stance as a real capsule negative control, then
+		# walk back to the original route's clear stance before closing.
+		if not _require(_player_in_leaf_sweep(leaf),"former service-switch return stance intersects the real door sweep"):return false
+		if not await _walk(Vector3(7.8,19.2,3)):return false
+		if not _require(not _player_in_leaf_sweep(leaf),"standing closing stance clears the complete service leaf sweep"):return false
 		await _roof_capture("roof_supply_bridge", Vector3(7.45,21.9,1))
 		service_checked=true
 	return await super._close_door(identity)
+
+func _player_in_leaf_sweep(leaf: DoorProp) -> bool:
+	var shell := leaf._body.get_child(0) as CollisionShape3D
+	for step in 65:
+		var pose: Transform3D=leaf._body.transform
+		pose.basis=Basis(Vector3.UP,leaf.motion_target_angle(true)*float(step)/64.0)
+		var query := PhysicsShapeQueryParameters3D.new()
+		query.shape=shell.shape;query.transform=leaf.global_transform*pose*shell.transform
+		query.collision_mask=leaf._body.collision_mask;query.exclude=[leaf._body.get_rid()];query.margin=.001
+		for hit: Dictionary in world.get_world_3d().direct_space_state.intersect_shape(query,32):
+			if hit.collider==player:return true
+	return false
 
 func _switch_lamp(switch_id: String,lamp_id: String,other_id: String,label: String) -> bool:
 	var plate := world.adapter.resolve(switch_id) as StaticBody3D
@@ -55,7 +74,7 @@ func _switch_lamp(switch_id: String,lamp_id: String,other_id: String,label: Stri
 	for iteration in 2:
 		if not await _use(plate,plate.global_position,"roof_"+label+"_switch"+str(iteration)):return false
 		if not _require(lamp.powered== (not initial if iteration==0 else initial) and other.powered==other_initial,
-			"ordinary E toggles only its own roof circuit"):return false
+			"physical switch throw changes only its own roof circuit"):return false
 		await get_tree().create_timer(.6).timeout
 		if lamp.powered:
 			if not _require(lamp.light.light_energy>.01 and lamp.light.get_instance_id()==light_identity,

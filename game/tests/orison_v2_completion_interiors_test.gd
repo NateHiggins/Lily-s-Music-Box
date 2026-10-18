@@ -1,5 +1,5 @@
 extends "res://tests/orison_v2_roof_route_test.gd"
-## Each home has one initial hall placement, then actual walking and E input.
+## Each home has one initial hall placement, then walking and physical input.
 
 func _init() -> void:
 	route_label="COMPLETION INTERIORS"
@@ -147,4 +147,4 @@ func _refuse_locked_door(identity: String) -> bool:
 	if not await _use(door, door.to_global(Vector3(door.width * .5, 1.1, 0)), identity): return false
 	await get_tree().create_timer(.6).timeout
 	return _require(not door.open and door.leaf_state == "locked",
-			"locked leaf refuses ordinary E and stays shut: " + identity)
+			"locked leaf refuses primary grab/motion and stays shut: " + identity)

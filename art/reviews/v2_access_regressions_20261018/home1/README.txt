@@ -1,0 +1,1 @@
+Evidence class: INERT. Initial cohort root failed parsing before world creation because an entry-path expression needed an explicit String type. The owned empty test process was cancelled after verifying its exact PID/scene/root. This is not runtime proof; home2 is the subsequent actual completed run.

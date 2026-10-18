@@ -562,6 +562,61 @@
    "confidence": "HEURISTIC",
    "tier": "test",
    "disposition": "REVIEW"
+  },
+  {
+   "id": "ea51a0ac0460d426",
+   "domain": "custody",
+   "class": "DUPLICATE_CUSTODY",
+   "file": "game/scripts/props/radiator_prop.gd",
+   "scope": "_prove_native_repair",
+   "evidence": "if inventory!=null and inventory.has_item(PACKING_ITEM) and not inventory.consume(PACKING_ITEM): return",
+   "confidence": "HEURISTIC",
+   "tier": "production",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "5c169ca68317db25",
+   "domain": "timer",
+   "class": "TIMER_IMPERSONATES_ACTOR",
+   "file": "game/tests/annunciator_lamp_world_shot.gd",
+   "scope": "_run",
+   "evidence": "elapsed gate + var board := world.adapter.resolve(\"LobbyPorterBoard\") as OtisProp",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "63e6cacdcd0b2344",
+   "domain": "timer",
+   "class": "TIMER_IMPERSONATES_ACTOR",
+   "file": "game/tests/annunciator_world_review.gd",
+   "scope": "_run",
+   "evidence": "elapsed gate + var board := world.adapter.resolve(\"LobbyPorterBoard\") as OtisProp",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "c727358ac9dc394f",
+   "domain": "timer",
+   "class": "TIMER_IMPERSONATES_ACTOR",
+   "file": "game/tests/radiator_hand_bench.gd",
+   "scope": "_packing_pass",
+   "evidence": "elapsed gate + prop.inventory.consume(prop.PACKING_ITEM)",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "f8532cae716bd429",
+   "domain": "timer",
+   "class": "TIMER_IMPERSONATES_ACTOR",
+   "file": "game/tests/room_reflection_review.gd",
+   "scope": "_run",
+   "evidence": "elapsed gate + var board := world.adapter.resolve(\"LobbyPorterBoard\") as OtisProp",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "REVIEW"
   }
  ]
 }
