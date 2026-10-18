@@ -68,17 +68,22 @@ it is not a guaranteed whole-startup improvement. The reproducible fitting
 comparison above supplies the narrower timing evidence. Broader construction
 costs, finish quality, navigation/performance and human acceptance remain open.
 
+The final clean candidate comparison is retained under **final_verification/**.
+It reports zero regressions, 17 unchanged protected paths and unchanged scoped
+readiness. The added clock source test passes; the uninstalled clock and oak
+artifacts supply no runtime or human grant.
+
 ## Management report
 
     REPORT - V2-STARTUP-TRIM - 2026-10-18
-    Branch / HEAD / origin/main / merge-base: main / 4f893de644b292792f71f13be6c25aaaef794a22 (verified game-source checkpoint; proof/artifact follow-up pending clean comparison) / de076e789b834b7b1290dbac8c5d657d6a11f748 / de076e789b834b7b1290dbac8c5d657d6a11f748
+    Branch / HEAD / origin/main / merge-base: main / 69be3796af1ddef2cde5484e5bb6541e508009b1 (verified source/proof and uninstalled-art checkpoint; this report is a metadata follow-up) / de076e789b834b7b1290dbac8c5d657d6a11f748 / de076e789b834b7b1290dbac8c5d657d6a11f748
     Worktree clean at end: no; inherited shared-checkout changes are excluded.
-    Protected 17/17: pending clean comparison. Selector: v2; explicit v1 rollback retained.
-    Ledger before -> after: 0/1/48/25/65/67 -> pending final clean comparison; no new human grant requested.
-    Gates: reader NEW0; physical-input tools tests 11 pass; complete clean comparison pending.
+    Protected 17/17: unchanged in the clean candidate comparison. Selector: v2; explicit v1 rollback retained.
+    Ledger before -> after: 0/1/48/25/65/67 -> 0/1/48/25/65/67; requirements_changed: [].
+    Gates: reader NEW0; complete clean comparison has 84 gates, 72 passing tools suites and zero regressions. The new clock-source test is an additional passing gate.
     Godot receipts: original test-written contracts and matching wrappers/raw logs: surface1 PASS 33067/0, service1 PASS 360/0, home1 PASS 62/9/909/0, upper1 PASS 69/11/989/0. Earlier profiles and source benches remain INERT diagnostics.
     Numbers: 1715 source walls; 216 enclosed rooms; 12390 source-bench instances; 11.65 -> 0.82 seconds same-run fitting.
     Changes outside expected boundary: surface digest explicitly registers both differential review sources; original replacement filtering remains unchanged.
-    Open findings: final clean comparison remains pending. Whole-startup bottlenecks, broader V2 obligations and human/photoreal acceptance remain open. Seven existing Texture RID shutdown warnings remain.
+    Open findings: whole-startup bottlenecks, broader V2 obligations and human/photoreal acceptance remain open. The clock and oak material candidates are uninstalled and unqualified for runtime. Seven existing Texture RID shutdown warnings remain.
     Decision needed from owner: none for the authorized build/performance work.
-    BLOCKED final clean source/proof comparison pending
+    READY verified source/proof checkpoint; no whole-V2 or human acceptance.

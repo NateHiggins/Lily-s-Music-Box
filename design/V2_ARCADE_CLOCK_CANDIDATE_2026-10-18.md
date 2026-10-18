@@ -50,11 +50,11 @@ batch with the other pending arcade finish work.
 ## Management report
 
     REPORT - V2-ARCADE-CLOCK-CANDIDATE - 2026-10-18
-    Branch / HEAD / origin/main / merge-base: main / local candidate, pending commit / de076e789b834b7b1290dbac8c5d657d6a11f748 / de076e789b834b7b1290dbac8c5d657d6a11f748
+    Branch / HEAD / origin/main / merge-base: main / 69be3796af1ddef2cde5484e5bb6541e508009b1 (verified uninstalled source-kit checkpoint; report metadata follow-up) / de076e789b834b7b1290dbac8c5d657d6a11f748 / de076e789b834b7b1290dbac8c5d657d6a11f748
     Worktree clean at end: no; unrelated inherited changes are excluded.
-    Protected 17/17: no candidate edit; final clean comparison pending. Selector: v2; explicit v1 rollback retained.
+    Protected 17/17: unchanged in the clean candidate comparison. Selector: v2; explicit v1 rollback retained.
     Ledger before -> after: no acceptance grant requested for this uninstalled native kit.
-    Gates: four focused clock source/frame tests pass; final clean board pending.
+    Gates: four focused clock source/frame tests pass; clean comparison has 84 gates, 72 passing tools suites and zero regressions. This does not qualify an uninstalled model.
     Godot receipts: none for this candidate; it is not installed. Current trim qualification is a separate source-bound run.
     Numbers: 5 exact source boxes; 4 dial frames; 8 independent hands; 13 draws; 37424 triangles; 6 native comparison views.
     Changes outside expected boundary: none; no runtime asset or material authority was replaced.
