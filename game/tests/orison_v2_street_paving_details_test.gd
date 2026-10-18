@@ -5,7 +5,7 @@ class StreetWalker extends "res://tests/orison_v2_street_crossing_test.gd":
 
 func _init() -> void:
 	contract_key="street_paving_details"
-	contract_scope="Twenty installed native street detail groups, exact source records, metre UV/tangent checks, original collision owners and 223 surface bearings; supported player-height captures; original player-input street crossing and return; shared-world owner retirement. No save reconstruction or drainage/weather capacity."
+	contract_scope="Twenty installed native street detail groups, exact source records, metre UV/tangent checks, original collision owners and 224 current surface bearings; supported player-height captures; actual grab/motion/release entrance operation, player-input street crossing and return; shared-world owner retirement. No save reconstruction or drainage/weather capacity."
 
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	contract_started=Time.get_ticks_msec()
@@ -69,7 +69,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				owner_ok=str(shape_owner.get_meta("authored_record_id",""))==str(row.owner)
 		check(owner_ok and hit.position.distance_to(at)<.00003 and hit.normal.y>.99,"retained actual bearing: "+str(row.id)+" -> "+str(row.owner))
 		support_samples+=1
-	check(support_samples==223,"all native support samples retained")
+	check(support_samples==224,"all current rebuilt native support samples tested")
 	for guide: Node in get_tree().get_nodes_in_group("orison_v2_explicit_route_guide"):
 		if street.is_ancestor_of(guide):check(not guide.visible,"original route-guide policy remains hidden")
 	world.player.camera.make_current()

@@ -8134,7 +8134,7 @@
       "site_ne4": 5.579999999999998,
       "site_far_sw": -4.830000000000005
     },
-    "historical_blockout_binding_stale": false
+    "historical_blockout_binding_stale": true
   },
   "asset_sha256": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e",
   "source_bindings": {
@@ -8142,12 +8142,12 @@
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/city_shells_registration.json": "4d509e6de0a55ac7ed29da7cd1f0f350f3bf9cfcbbc36fb2f874551ab6ff0df5",
     "art/blender/city_shells.blend": "4fd36ba5ab8d4e8c45cde2da1edb5afe7444f0c9ad79ec371007459fa718c3a7",
-    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
-    "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
-    "art/blender/scripts/build_city_closure.py": "26102671b91835476021ef757ccad7ef98d4bcb4db18cf5029ef01d8c28a4eb2",
+    "game/data/orison_v2_blockout.json": "0b48ecebf8a454e6b2a95372c64a550d351f8553ea10f19755201de8724302ae",
+    "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
+    "art/blender/scripts/build_city_closure.py": "21cb5c806d55dd02fcfe759f8a6d6c7a89b7c46c5497b22c605492d8ba57597a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
+    "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d",
     "game/assets/building/textures/T_ai_materials_brick_albedo.png": "832731a0eb590c719c2df4d18269d900fba901409ad959b7250fcfa7ccbd47a6",
     "game/assets/building/textures/T_ai_materials_brick_rough.png": "13981cad068720de19ae2108c4f3fa38b92f6fa016527c382632d65d6c43674a",
     "game/assets/building/textures/T_ai_materials_brick_normal.png": "c6a75f76f4053be29629bb1a8b235eebef29d60d60b01cc66332abdaf8711a19",

@@ -1,19 +1,19 @@
 {
   "evidence_class": "INERT",
   "schema": "orison.front-pavement-consumed-source-review.v1",
-  "original_fixture_sha256": "6b224e0f26be0002a0c510a977fba9938b28a57cd63df521c9009483878a97c0",
+  "original_fixture_sha256": "a49b13d34738c68db929f2ccbb9914a3612be8885d0d75719dae28fe689c5dd9",
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "a4eb64d3f886c75d5e3a46d5629d5c364fc199f564b451df0f730f4787315843",
+    "game/data/orison_v2_blockout.json": "0b48ecebf8a454e6b2a95372c64a550d351f8553ea10f19755201de8724302ae",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
-    "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
+    "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
     "game/data/orison_v2/exterior/construction_shed.json": "adc2740f083de4a85eaf9314f01a503ee76fdd0a5706af5acd197f43522e8baa",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
-    "art/blender/exterior_masonry.blend": "3e529ba1738cc26f090fe03107730b208873eabeebca7b89c19cfcc626421ec3",
+    "art/blender/exterior_masonry.blend": "cdc25bcdbbdc4afab7d510f879dd4edda8dab995b9b95d412cacb0e8d93b6230",
     "art/blender/roof_drainage_reservations.json": "b8925c91e6a8c60e76c282d5bc23a185f55a4af7245b5b17a0381f963f4ef051",
     "art/blender/scripts/build_front_pavement.py": "3ee27182b7fe15efc3988866ac2c485b74a17a3cb76214cc56ba8d9eb4c754fa"
   },
-  "asset_sha256": "c3461f121f9992a5679db5746c602894a1d696768ddcb8f11aac13a57081122d",
-  "native_sha256": "6dae77b94e0046e4f27f6039b2e4212743cbbd8005f4ab515be7041ca706e040",
+  "asset_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
+  "native_sha256": "abef0f3f70f0b3b757de527ad161d8beddf75de1759dbb2b3a3a3f0a3982f88f",
   "blockout_projection": {
     "door": {
       "id": "F01_DOOR_06",
@@ -33,6 +33,66 @@
       ]
     },
     "floors": [
+      {
+        "id": "F01_FRONT_WEST_BAY",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -5.4,
+          -12.35,
+          -2.4,
+          -9.25
+        ]
+      },
+      {
+        "id": "F01_FRONT_EAST_BAY",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          2.4,
+          -12.35,
+          5.4,
+          -9.25
+        ]
+      },
+      {
+        "id": "F01_FRONT_WORKROOM",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          5.4,
+          -12.35,
+          8.3,
+          -8.3
+        ]
+      },
+      {
+        "id": "F01_FRONT_SERVICE_RETURN",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          8.3,
+          -12.35,
+          9.5,
+          -9.25
+        ]
+      },
+      {
+        "id": "F01_FRONT_STORE_ALCOVE",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          5.4,
+          -4.6,
+          8.3,
+          -3.85
+        ]
+      },
       {
         "id": "F01_VESTIBULE",
         "level": "F01",
@@ -327,7 +387,93 @@
     "orison_window_3_head",
     "orison_window_3_mullion"
   ],
+  "historical_projection_matches": false,
+  "regenerated_current_source": true,
   "masonry_masks": {
+    "ExteriorMasonry/F01_FRONT_WEST_BAY_south_ConstructionBound": [
+      -5.400000184774399,
+      -12.629999615252018,
+      -4.450000196695328,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WEST_BAY_south_ConstructionBound.001": [
+      -2.9499999582767487,
+      -12.629999615252018,
+      -2.3999999463558197,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WEST_BAY_south_ConstructionBound.002": [
+      -4.450000047683716,
+      -12.629999615252018,
+      -2.950000047683716,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WEST_BAY_east_ConstructionBound": [
+      -2.329999901354313,
+      -12.349999994039536,
+      -2.119999907910824,
+      -11.650000005960464
+    ],
+    "ExteriorMasonry/F01_FRONT_EAST_BAY_south_ConstructionBound": [
+      2.3999999463558197,
+      -12.629999615252018,
+      2.9499999582767487,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_EAST_BAY_south_ConstructionBound.001": [
+      4.450000196695328,
+      -12.629999615252018,
+      5.400000184774399,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_EAST_BAY_south_ConstructionBound.002": [
+      2.950000047683716,
+      -12.629999615252018,
+      4.450000047683716,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_EAST_BAY_west_ConstructionBound": [
+      2.119999907910824,
+      -12.349999994039536,
+      2.329999901354313,
+      -11.650000005960464
+    ],
+    "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound": [
+      5.399999797344208,
+      -12.629999615252018,
+      5.999999821186066,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound.001": [
+      7.599999815225601,
+      -12.629999615252018,
+      8.299999803304672,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound.002": [
+      6.000000178813934,
+      -12.629999615252018,
+      7.600000202655792,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound": [
+      8.299999803304672,
+      -12.629999615252018,
+      8.599999815225601,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound.001": [
+      9.200000375509262,
+      -12.629999615252018,
+      9.500000387430191,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound.002": [
+      8.599999606609344,
+      -12.629999615252018,
+      9.199999630451202,
+      -12.419999621808529
+    ],
     "ExteriorMasonry/F01_VESTIBULE_south_ConstructionBound": [
       -2.400000035762787,
       -11.929999805986881,
@@ -364,12 +510,6 @@
       11.850000381469727,
       -12.419999621808529
     ],
-    "ExteriorMasonry/F01_D_BED_west_ConstructionBound": [
-      9.219999812543392,
-      -12.350000143051147,
-      9.429999805986881,
-      -9.250000238418579
-    ],
     "ExteriorMasonry/F01_D_BATH_south_ConstructionBound": [
       12.800000429153442,
       -12.629999615252018,
@@ -387,12 +527,6 @@
       -12.629999615252018,
       -5.400000214576721,
       -12.419999621808529
-    ],
-    "ExteriorMasonry/F01_A_BATH_east_ConstructionBound": [
-      -5.329999901354313,
-      -12.350000023841858,
-      -5.119999907910824,
-      -9.649999976158142
     ],
     "ExteriorMasonry/F01_A_BED_south_ConstructionBound": [
       -15.649999797344208,
@@ -437,44 +571,32 @@
       -12.419999621808529
     ],
     "ExteriorMasonry/F01_Corner_ConstructionBound.003": [
-      -5.400000229477882,
-      -12.62999977171421,
-      -5.1200002282857895,
-      -12.349999770522118
-    ],
-    "ExteriorMasonry/F01_Corner_ConstructionBound.005": [
       15.649999961256981,
       -12.62999977171421,
       15.929999962449074,
       -12.349999770522118
     ],
-    "ExteriorMasonry/F01_Corner_ConstructionBound.006": [
+    "ExteriorMasonry/F01_Corner_ConstructionBound.004": [
       -15.929999962449074,
       -12.62999977171421,
       -15.649999961256981,
       -12.349999770522118
     ],
-    "ExteriorMasonry/F01_Corner_ConstructionBound.007": [
-      -2.679999962449074,
-      -11.929999962449074,
-      -2.399999961256981,
-      -11.649999961256981
-    ],
-    "ExteriorMasonry/F01_Corner_ConstructionBound.013": [
-      2.399999961256981,
-      -11.929999962449074,
-      2.679999962449074,
-      -11.649999961256981
-    ],
-    "ExteriorMasonry/F01_Corner_ConstructionBound.016": [
-      9.2199996560812,
+    "ExteriorMasonry/F01_Corner_ConstructionBound.009": [
+      -2.3999999910593033,
       -12.62999977171421,
-      9.499999657273293,
+      -2.1199999898672104,
+      -12.349999770522118
+    ],
+    "ExteriorMasonry/F01_Corner_ConstructionBound.012": [
+      2.1199999898672104,
+      -12.62999977171421,
+      2.3999999910593033,
       -12.349999770522118
     ]
   },
   "mask_max_difference_m": 0.0,
-  "closed_union_volume_m3": 29.015130837270807,
-  "parts": 37,
+  "closed_union_volume_m3": 27.583769631318688,
+  "parts": 34,
   "scope": "Exact consumed layout and 24 native masonry mask comparison. Original source fixture and native paving/export unchanged; no runtime proof."
 }

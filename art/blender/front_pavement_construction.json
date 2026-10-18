@@ -42,6 +42,46 @@
       "kind": "retained_street_solid"
     },
     {
+      "owner": "F01_FRONT_WEST_BAY/Floor",
+      "bounds": [
+        -5.4,
+        -12.35,
+        -2.4,
+        -9.25
+      ],
+      "kind": "current_occupied_floor"
+    },
+    {
+      "owner": "F01_FRONT_EAST_BAY/Floor",
+      "bounds": [
+        2.4,
+        -12.35,
+        5.4,
+        -9.25
+      ],
+      "kind": "current_occupied_floor"
+    },
+    {
+      "owner": "F01_FRONT_WORKROOM/Floor",
+      "bounds": [
+        5.4,
+        -12.35,
+        8.3,
+        -8.3
+      ],
+      "kind": "current_occupied_floor"
+    },
+    {
+      "owner": "F01_FRONT_SERVICE_RETURN/Floor",
+      "bounds": [
+        8.3,
+        -12.35,
+        9.5,
+        -9.25
+      ],
+      "kind": "current_occupied_floor"
+    },
+    {
       "owner": "F01_D_BED/Floor",
       "bounds": [
         9.5,
@@ -90,6 +130,146 @@
         -9.65
       ],
       "kind": "current_occupied_floor"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_WEST_BAY_south_ConstructionBound",
+      "bounds": [
+        -5.400000184774399,
+        -12.629999615252018,
+        -4.450000196695328,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_WEST_BAY_south_ConstructionBound.001",
+      "bounds": [
+        -2.9499999582767487,
+        -12.629999615252018,
+        -2.3999999463558197,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_WEST_BAY_south_ConstructionBound.002",
+      "bounds": [
+        -4.450000047683716,
+        -12.629999615252018,
+        -2.950000047683716,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_WEST_BAY_east_ConstructionBound",
+      "bounds": [
+        -2.329999901354313,
+        -12.349999994039536,
+        -2.119999907910824,
+        -11.650000005960464
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_EAST_BAY_south_ConstructionBound",
+      "bounds": [
+        2.3999999463558197,
+        -12.629999615252018,
+        2.9499999582767487,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_EAST_BAY_south_ConstructionBound.001",
+      "bounds": [
+        4.450000196695328,
+        -12.629999615252018,
+        5.400000184774399,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_EAST_BAY_south_ConstructionBound.002",
+      "bounds": [
+        2.950000047683716,
+        -12.629999615252018,
+        4.450000047683716,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_EAST_BAY_west_ConstructionBound",
+      "bounds": [
+        2.119999907910824,
+        -12.349999994039536,
+        2.329999901354313,
+        -11.650000005960464
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound",
+      "bounds": [
+        5.399999797344208,
+        -12.629999615252018,
+        5.999999821186066,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound.001",
+      "bounds": [
+        7.599999815225601,
+        -12.629999615252018,
+        8.299999803304672,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound.002",
+      "bounds": [
+        6.000000178813934,
+        -12.629999615252018,
+        7.600000202655792,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound",
+      "bounds": [
+        8.299999803304672,
+        -12.629999615252018,
+        8.599999815225601,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound.001",
+      "bounds": [
+        9.200000375509262,
+        -12.629999615252018,
+        9.500000387430191,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound.002",
+      "bounds": [
+        8.599999606609344,
+        -12.629999615252018,
+        9.199999630451202,
+        -12.419999621808529
+      ],
+      "kind": "authored_original_box"
     },
     {
       "owner": "ExteriorMasonry/F01_VESTIBULE_south_ConstructionBound",
@@ -152,16 +332,6 @@
       "kind": "authored_original_box"
     },
     {
-      "owner": "ExteriorMasonry/F01_D_BED_west_ConstructionBound",
-      "bounds": [
-        9.219999812543392,
-        -12.350000143051147,
-        9.429999805986881,
-        -9.250000238418579
-      ],
-      "kind": "authored_original_box"
-    },
-    {
       "owner": "ExteriorMasonry/F01_D_BATH_south_ConstructionBound",
       "bounds": [
         12.800000429153442,
@@ -188,16 +358,6 @@
         -12.629999615252018,
         -5.400000214576721,
         -12.419999621808529
-      ],
-      "kind": "authored_original_box"
-    },
-    {
-      "owner": "ExteriorMasonry/F01_A_BATH_east_ConstructionBound",
-      "bounds": [
-        -5.329999901354313,
-        -12.350000023841858,
-        -5.119999907910824,
-        -9.649999976158142
       ],
       "kind": "authored_original_box"
     },
@@ -274,16 +434,6 @@
     {
       "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.003",
       "bounds": [
-        -5.400000229477882,
-        -12.62999977171421,
-        -5.1200002282857895,
-        -12.349999770522118
-      ],
-      "kind": "authored_original_box"
-    },
-    {
-      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.005",
-      "bounds": [
         15.649999961256981,
         -12.62999977171421,
         15.929999962449074,
@@ -292,7 +442,7 @@
       "kind": "authored_original_box"
     },
     {
-      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.006",
+      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.004",
       "bounds": [
         -15.929999962449074,
         -12.62999977171421,
@@ -302,31 +452,21 @@
       "kind": "authored_original_box"
     },
     {
-      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.007",
+      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.009",
       "bounds": [
-        -2.679999962449074,
-        -11.929999962449074,
-        -2.399999961256981,
-        -11.649999961256981
-      ],
-      "kind": "authored_original_box"
-    },
-    {
-      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.013",
-      "bounds": [
-        2.399999961256981,
-        -11.929999962449074,
-        2.679999962449074,
-        -11.649999961256981
-      ],
-      "kind": "authored_original_box"
-    },
-    {
-      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.016",
-      "bounds": [
-        9.2199996560812,
+        -2.3999999910593033,
         -12.62999977171421,
-        9.499999657273293,
+        -2.1199999898672104,
+        -12.349999770522118
+      ],
+      "kind": "authored_original_box"
+    },
+    {
+      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.012",
+      "bounds": [
+        2.1199999898672104,
+        -12.62999977171421,
+        2.3999999910593033,
         -12.349999770522118
       ],
       "kind": "authored_original_box"
@@ -519,7 +659,7 @@
         0.0,
         -16
       ],
-      "quads": 18
+      "quads": 15
     },
     {
       "id": "Pavement_N2_N4",
@@ -529,21 +669,9 @@
         -16,
         -4,
         0.0,
-        -12
+        -12.35
       ],
-      "quads": 94
-    },
-    {
-      "id": "Pavement_N2_N3",
-      "bounds": [
-        -5.4,
-        -0.16,
-        -12,
-        -4,
-        0.0,
-        -11.65
-      ],
-      "quads": 23
+      "quads": 77
     },
     {
       "id": "Pavement_N1_N5",
@@ -555,7 +683,7 @@
         0.0,
         -16
       ],
-      "quads": 12
+      "quads": 18
     },
     {
       "id": "Pavement_N1_N4",
@@ -567,12 +695,12 @@
         0.0,
         -12
       ],
-      "quads": 64
+      "quads": 93
     },
     {
       "id": "Pavement_N1_N3",
       "bounds": [
-        -4,
+        -2.4,
         -0.16,
         -12,
         0,
@@ -591,7 +719,7 @@
         0.0,
         -16
       ],
-      "quads": 12
+      "quads": 18
     },
     {
       "id": "Pavement_P0_N4",
@@ -603,7 +731,7 @@
         0.0,
         -12
       ],
-      "quads": 64
+      "quads": 93
     },
     {
       "id": "Pavement_P0_N3",
@@ -611,7 +739,7 @@
         0,
         -0.16,
         -12,
-        4,
+        2.4,
         0.0,
         -11.65
       ],
@@ -627,7 +755,7 @@
         0.0,
         -16
       ],
-      "quads": 3
+      "quads": 15
     },
     {
       "id": "Pavement_P1_N4",
@@ -637,21 +765,9 @@
         -16,
         8,
         0.0,
-        -12
+        -12.35
       ],
-      "quads": 16
-    },
-    {
-      "id": "Pavement_P1_N3",
-      "bounds": [
-        4,
-        -0.16,
-        -12,
-        8,
-        0.0,
-        -11.65
-      ],
-      "quads": 7
+      "quads": 75
     },
     {
       "id": "Pavement_P2_N5",
@@ -663,7 +779,7 @@
         0.0,
         -16
       ],
-      "quads": 24
+      "quads": 27
     },
     {
       "id": "Pavement_P2_N4",
@@ -673,21 +789,9 @@
         -16,
         12,
         0.0,
-        -12
+        -12.35
       ],
-      "quads": 124
-    },
-    {
-      "id": "Pavement_P2_N3",
-      "bounds": [
-        8,
-        -0.16,
-        -12,
-        9.5,
-        0.0,
-        -11.65
-      ],
-      "quads": 23
+      "quads": 137
     },
     {
       "id": "Pavement_P3_N5",
@@ -798,21 +902,21 @@
       "quads": 10
     }
   ],
-  "volume_m3": 29.015130837270807,
+  "volume_m3": 27.583769631318688,
   "closed_source_non_manifold_edges": 0,
   "zero_area_edge_contacts_split": 4,
   "vertex_fans_split": 8,
-  "asset_sha256": "c3461f121f9992a5679db5746c602894a1d696768ddcb8f11aac13a57081122d",
-  "source_native_sha256": "27ccd2abf88dde0782f6d842f49a7276d9335ae17ed206550138398afc21a93c",
+  "asset_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
+  "source_native_sha256": "cdc25bcdbbdc4afab7d510f879dd4edda8dab995b9b95d412cacb0e8d93b6230",
   "note": "Current public-slab ownership construction. Existing rooms, shop and shed floors, curb and exterior masonry retain their own volumes. Public top datum stays zero. Drainage grade and finished joints remain open.",
   "schema": "orison.v2.front-pavement-construction.v1",
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
+    "game/data/orison_v2_blockout.json": "0b48ecebf8a454e6b2a95372c64a550d351f8553ea10f19755201de8724302ae",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
-    "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
+    "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
     "game/data/orison_v2/exterior/construction_shed.json": "adc2740f083de4a85eaf9314f01a503ee76fdd0a5706af5acd197f43522e8baa",
-    "game/data/orison_v2/world_connection.json": "dc5c822ed19d68c6aeb749f0d07eb5ef38533402f16add94106b6b5270925226",
-    "art/blender/exterior_masonry.blend": "27ccd2abf88dde0782f6d842f49a7276d9335ae17ed206550138398afc21a93c",
+    "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
+    "art/blender/exterior_masonry.blend": "cdc25bcdbbdc4afab7d510f879dd4edda8dab995b9b95d412cacb0e8d93b6230",
     "art/blender/roof_drainage_reservations.json": "b8925c91e6a8c60e76c282d5bc23a185f55a4af7245b5b17a0381f963f4ef051",
     "art/blender/scripts/build_front_pavement.py": "3ee27182b7fe15efc3988866ac2c485b74a17a3cb76214cc56ba8d9eb4c754fa"
   }

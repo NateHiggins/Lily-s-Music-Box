@@ -1,0 +1,38 @@
+{
+  "evidence_class": "INERT",
+  "front_pavement": {
+    "identical": false,
+    "before_sha256": "c3461f121f9992a5679db5746c602894a1d696768ddcb8f11aac13a57081122d",
+    "after_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1"
+  },
+  "street_paving_details": {
+    "identical": false,
+    "before_sha256": "c99c6be32702ee5375683a4a8863f6ca31b3ec2fe17af213e4c901437d2bc30c",
+    "after_sha256": "99e4bddfb8fe67d827884f554e8f3545740b1781570a78365bceb27ea40b14fd"
+  },
+  "city_shells": {
+    "identical": true,
+    "before_sha256": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e",
+    "after_sha256": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e"
+  },
+  "pavement_manifest_changed_keys": [
+    "source_bindings",
+    "asset_sha256",
+    "source_native_sha256",
+    "parts",
+    "volume_m3",
+    "masks"
+  ],
+  "street_manifest_changed_keys": [
+    "source_bindings",
+    "asset_sha256",
+    "triangles",
+    "stocks",
+    "parts",
+    "contacts"
+  ],
+  "city_manifest_changed_keys": [
+    "current_native_derivation",
+    "source_bindings"
+  ]
+}

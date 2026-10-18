@@ -1,0 +1,10 @@
+ERROR: fitted frontage binds actual source and original leaf builder
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_bodega_frontage_test.gd:34)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:78)
+       [4] run (res://tests/v2_arcade_fabric_review.gd:66)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

@@ -1,0 +1,29 @@
+{
+  "evidence_class": "INERT",
+  "new_stale_bindings": [
+    {
+      "fixture": "game/tests/fixtures/orison_bodega_frontage.json",
+      "source": "game/data/orison_v2/exterior/regions.json",
+      "expected": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
+      "current": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_city_closure.json",
+      "source": "game/data/orison_v2/exterior/regions.json",
+      "expected": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
+      "current": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_front_pavement_construction.json",
+      "source": "game/data/orison_v2/exterior/regions.json",
+      "expected": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
+      "current": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5"
+    },
+    {
+      "fixture": "game/tests/fixtures/orison_front_pavement_review.json",
+      "source": "game/data/orison_v2/exterior/regions.json",
+      "expected": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
+      "current": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5"
+    }
+  ]
+}

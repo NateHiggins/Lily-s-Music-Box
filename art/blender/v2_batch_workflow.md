@@ -9,6 +9,13 @@ no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not
 proof of the current interaction contract.
 
+The composed surface harness checks its five street/fabrication fixtures before
+building the world. Other batches can run
+`python tools/preflight_spatial_test_bindings.py --all --fixture game/tests/fixtures/NAME.json`.
+An expired source binding requires its owning native builder and actual native
+comparison, not a new hash on an old runtime receipt. Surface qualification also
+binds inherited test helpers and their referenced assets automatically.
+
 Before starting the combined Godot run, check catalogue projections, texture
 import policy, focused geometry/material tests and the reader baseline. Include
 **tools/tests/test_material_catalog_persistence.py** when adding catalogue keys;

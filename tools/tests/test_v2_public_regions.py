@@ -1,5 +1,6 @@
 """Real source frame conservation, complete old-record retention and dogleg shape."""
 import copy,json,sys,unittest
+import importlib.util
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools'))
 from build_v2_public_regions import derive,NAMES
@@ -50,5 +51,30 @@ class PublicRegionTests(unittest.TestCase):
             if change=='frame':values[3]['arcade_building_line_z']+=.1
             if change=='roof':next(r for r in values[2]['boxes'] if r['id']=='ShedTurnRoof')['center'][2]+=.1
             with self.subTest(change=change),self.assertRaises(ValueError):derive(*values)
+
+    def city_derivation(self):
+        spec=importlib.util.spec_from_file_location('public_city_registration',ROOT/'art/blender/scripts/city_registration.py')
+        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+        return module.derive_city_offsets
+
+    def test_public_programmes_preserve_every_registered_city_offset(self):
+        derive_offsets=self.city_derivation()
+        blockout=json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text())
+        registered=json.loads((ROOT/'art/blender/city_shells_registration.json').read_text())['offsets']
+        augmented,_=derive(*self.values)
+        actual=derive_offsets(self.values[0],blockout,augmented)
+        self.assertEqual(actual,registered)
+
+    def test_actual_street_boundary_change_cannot_reuse_city_registration(self):
+        derive_offsets=self.city_derivation()
+        blockout=json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text())
+        original=derive_offsets(self.values[0],blockout,self.values[1])
+        changed=copy.deepcopy(self.values[1]);boundary=next(r['boundary'] for r in changed['regions'] if r['id']=='REGION_STREET')
+        east=max(p[0] for p in boundary)
+        for point in boundary:
+            if point[0]==east:point[0]+=1.0
+        updated=derive_offsets(self.values[0],blockout,changed)
+        self.assertNotEqual(updated,original)
+        self.assertTrue(all(abs(updated[k]-original[k]-1.0)<1e-9 for k in original if k.startswith('site_ne')))
 
 if __name__=='__main__':unittest.main()

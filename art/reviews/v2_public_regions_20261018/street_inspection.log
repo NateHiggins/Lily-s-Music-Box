@@ -1,0 +1,15 @@
+00:01.469  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\street_paving_details.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_street_paving_details.py:88: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('NeutralStreetReview');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.65,.72,.8,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.5
+00:04.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-public-regions-20261018\native_renewal\paving.png'
+00:06.563  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-public-regions-20261018\native_renewal\paving_before.png'
+00:09.516  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-public-regions-20261018\native_renewal\coping.png'
+00:12.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-public-regions-20261018\native_renewal\coping_before.png'
+00:14.797  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-public-regions-20261018\native_renewal\passage.png'
+00:17.110  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-public-regions-20261018\native_renewal\passage_before.png'
+00:19.828  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-public-regions-20261018\native_renewal\coping_end.png'
+00:22.516  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-public-regions-20261018\native_renewal\coping_end_before.png'
+STREET NATIVE REVIEW {"evidence_class": "INERT", "parts": 20, "closed_positive_stocks": 187, "triangles": 9060, "support_samples": 224, "maximum_front_support_error_m": 7.450580596923828e-09, "native_sha256": "fcc8132d3dc9d962da44fe5790f66cb3a3f5dabb42c1474e3a40665d2db1ebfb", "asset_sha256": "99e4bddfb8fe67d827884f554e8f3545740b1781570a78365bceb27ea40b14fd", "views": ["paving", "coping", "passage", "coping_end"], "scope": "Native solids, metric export, actual fitted-floor BVH bearings and retained collider bounds. Neutral daylight reference; before shows original proxy geometry with catalogue reference finishes, not original lighting/material acceptance. No route proof."}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

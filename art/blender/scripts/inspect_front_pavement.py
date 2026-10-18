@@ -19,7 +19,21 @@ layout=read('game/data/orison_v2_blockout.json')
 projection={'door':next(r for r in layout['doors'] if r['id']=='F01_DOOR_06'),
     'floors':[{k:r.get(k) for k in ['id','level','open_shell','no_floor','rect']}
         for r in layout['spaces'] if r['level']=='F01' and not r.get('open_shell') and not r.get('no_floor')]}
-assert projection==resume['pavement_preflight']['blockout_projection']
+historical_projection=resume['pavement_preflight']['blockout_projection']
+regenerated_current=fixture['source_bindings']['game/data/orison_v2_blockout.json']==digest('game/data/orison_v2_blockout.json')
+assert projection['door']==historical_projection['door'], 'Public entrance frame changed'
+if regenerated_current:
+    # A current native rebuild may legitimately cut around newly restored
+    # rooms. Independently match every occupied-floor mask, rather than
+    # replacing the immutable historical projection with a fresh hash.
+    a,z,c,d=fixture['envelope']
+    expected_floors={r['id']+'/Floor':r['rect'] for r in projection['floors']
+        if r['rect'][2]>a and r['rect'][0]<c and r['rect'][3]>z and r['rect'][1]<d}
+    actual_floors={r['owner']:r['bounds'] for r in fixture['masks'] if r['kind']=='current_occupied_floor'}
+    assert actual_floors==expected_floors, 'Current floor masks do not match actual occupied rooms'
+    assert fixture['source_native_sha256']==digest('art/blender/exterior_masonry.blend')
+else:
+    assert projection==historical_projection
 connection=read('game/data/orison_v2/world_connection.json')
 assert digest('game/data/orison_v2/world_connection.json')==resume['source_hashes']['game/data/orison_v2/world_connection.json']
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -60,6 +74,8 @@ report={'evidence_class':'INERT','schema':'orison.front-pavement-consumed-source
     'source_bindings':{p:digest(p) for p in fixture['source_bindings']},
     'asset_sha256':fixture['asset_sha256'],'native_sha256':digest('art/blender/front_pavement.blend'),
     'blockout_projection':projection,'connection_remove_boxes':connection['remove_boxes'],
+    'historical_projection_matches':projection==historical_projection,
+    'regenerated_current_source':regenerated_current,
     'masonry_masks':actual,'mask_max_difference_m':error,'closed_union_volume_m3':volume,'parts':len(parts),
     'scope':'Exact consumed layout and 24 native masonry mask comparison. Original source fixture and native paving/export unchanged; no runtime proof.'}
 (OUT/'pavement_source_review.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')

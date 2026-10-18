@@ -9,6 +9,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import audit_orison_v2_completeness as audit
+import v2_surface_evidence as surface
 
 
 class DigestSnapshotTests(unittest.TestCase):
@@ -19,6 +20,24 @@ class DigestSnapshotTests(unittest.TestCase):
         self.source = self.root / 'game/scripts/fixture.gd'
         self.source.parent.mkdir(parents=True)
         self.source.write_bytes(b'original')
+
+    def test_surface_binds_transitive_test_helpers_and_binary_assets(self):
+        tests=self.root/'game/tests';tests.mkdir(parents=True)
+        a=tests/'a.gd';b=tests/'b.gd';asset=tests/'fixture.bin'
+        a.write_text('extends "res://tests/b.gd"')
+        b.write_text('const X="res://tests/a.gd"\nconst DATA="res://tests/fixture.bin"')
+        asset.write_bytes(b'\x00\xffbinary')
+        self.assertEqual(surface.test_dependency_paths(self.root,{a}),{a,b,asset})
+
+    def test_changed_inherited_helper_changes_bound_surface_hash(self):
+        tests=self.root/'game/tests';tests.mkdir(parents=True)
+        entry=tests/'entry.gd';helper=tests/'helper.gd'
+        entry.write_text('extends "res://tests/helper.gd"');helper.write_text('old')
+        paths=surface.test_dependency_paths(self.root,{entry})
+        before={p:surface.file_hash(p) for p in paths}
+        helper.write_text('new')
+        after={p:surface.file_hash(p) for p in surface.test_dependency_paths(self.root,{entry})}
+        self.assertNotEqual(before,after)
 
     def test_repeated_receipts_hash_each_domain_once_then_recheck(self):
         snapshot = audit._InputDigests(self.root)

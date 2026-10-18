@@ -1,0 +1,635 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Source-only exact orthogonal area diagnosis. No support ray, played access, spatial status, runtime or human acceptance. Existing shaft reservation is projected into each public level for plan comparison, not asserted to be an actual collision object on each floor.",
+  "source": "game/data/orison_v2_blockout.json",
+  "source_sha256_lf": "0b48ecebf8a454e6b2a95372c64a550d351f8553ea10f19755201de8724302ae",
+  "findings": [
+    {
+      "floor": "F01",
+      "core": {
+        "id": "F01_PUBLIC_CORE",
+        "level": "F01",
+        "class": "core",
+        "rect": [
+          -1.2,
+          -3.85,
+          5.4,
+          3.85
+        ],
+        "purpose": "passenger lift and primary stair approach",
+        "no_floor": true,
+        "no_ceiling": true
+      },
+      "existing_support_platforms": [
+        {
+          "id": "F01_PUBLIC_LANDING_S",
+          "level": "F01",
+          "rect": [
+            1.4,
+            -3.85,
+            5.4,
+            -1.9
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F01_PUBLIC_LANDING_N",
+          "level": "F01",
+          "rect": [
+            1.4,
+            1.65,
+            5.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F01_PUBLIC_LANDING_W",
+          "level": "F01",
+          "rect": [
+            -1.2,
+            -3.85,
+            1.4,
+            -2.8
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F01_PUBLIC_LANDING_W_SHAFT_1",
+          "level": "F01",
+          "rect": [
+            -1.2,
+            -0.3,
+            1.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F01_PUBLIC_LANDING_W_SHAFT_3",
+          "level": "F01",
+          "rect": [
+            1.2,
+            -2.8,
+            1.4,
+            -0.3
+          ],
+          "class": "core"
+        }
+      ],
+      "decision_record": null,
+      "supported_core_area_m2": 30.62,
+      "lift_shaft_reserved_xz": [
+        -1.2,
+        -2.8,
+        1.2,
+        -0.3
+      ],
+      "purpose_tokens": "passenger lift and primary stair approach"
+    },
+    {
+      "floor": "F02",
+      "core": {
+        "id": "F02_PUBLIC_CORE",
+        "level": "F02",
+        "class": "core",
+        "rect": [
+          -2.2,
+          -3.85,
+          5.4,
+          3.85
+        ],
+        "purpose": "passenger lift and primary stair",
+        "no_floor": true,
+        "no_ceiling": true,
+        "wall_sides": [
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      "existing_support_platforms": [
+        {
+          "id": "F02_PUBLIC_LANDING_S",
+          "level": "F02",
+          "rect": [
+            1.4,
+            -3.85,
+            5.4,
+            -1.9
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F02_PUBLIC_LANDING_N",
+          "level": "F02",
+          "rect": [
+            1.4,
+            1.65,
+            5.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F02_PUBLIC_LANDING_W",
+          "level": "F02",
+          "rect": [
+            -2.2,
+            -3.85,
+            1.4,
+            -2.8
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F02_PUBLIC_LANDING_W_SHAFT_1",
+          "level": "F02",
+          "rect": [
+            -2.2,
+            -0.3,
+            1.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F02_PUBLIC_LANDING_W_SHAFT_2",
+          "level": "F02",
+          "rect": [
+            -2.2,
+            -2.8,
+            -1.2,
+            -0.3
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F02_PUBLIC_LANDING_W_SHAFT_3",
+          "level": "F02",
+          "rect": [
+            1.2,
+            -2.8,
+            1.4,
+            -0.3
+          ],
+          "class": "core"
+        }
+      ],
+      "decision_record": {
+        "id": "F02_LANDING",
+        "level": "F02",
+        "class": "public",
+        "rect": [
+          -2.2,
+          -3.35,
+          1.45,
+          0.6
+        ],
+        "purpose": "floor and unit decision",
+        "open_shell": true,
+        "no_floor": true,
+        "no_ceiling": true
+      },
+      "supported_core_area_m2": 38.32,
+      "lift_shaft_reserved_xz": [
+        -1.2,
+        -2.8,
+        1.2,
+        -0.3
+      ],
+      "purpose_tokens": "passenger lift and primary stair",
+      "decision_area_m2": 14.4175,
+      "decision_over_physical_platform_m2": 8.2925,
+      "decision_over_reserved_shaft_m2": 6.0
+    },
+    {
+      "floor": "F03",
+      "core": {
+        "id": "F03_PUBLIC_CORE",
+        "level": "F03",
+        "class": "core",
+        "rect": [
+          -2.2,
+          -3.85,
+          5.4,
+          3.85
+        ],
+        "purpose": "intermediate passenger lift and primary stair transfer",
+        "no_floor": true,
+        "no_ceiling": true
+      },
+      "existing_support_platforms": [
+        {
+          "id": "F03_PUBLIC_LANDING_S",
+          "level": "F03",
+          "rect": [
+            1.4,
+            -3.85,
+            5.4,
+            -1.9
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F03_PUBLIC_LANDING_N",
+          "level": "F03",
+          "rect": [
+            1.4,
+            1.65,
+            5.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F03_PUBLIC_LANDING_W",
+          "level": "F03",
+          "rect": [
+            -2.2,
+            -3.85,
+            1.4,
+            -2.8
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F03_PUBLIC_LANDING_W_SHAFT_1",
+          "level": "F03",
+          "rect": [
+            -2.2,
+            -0.3,
+            1.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F03_PUBLIC_LANDING_W_SHAFT_2",
+          "level": "F03",
+          "rect": [
+            -2.2,
+            -2.8,
+            -1.2,
+            -0.3
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F03_PUBLIC_LANDING_W_SHAFT_3",
+          "level": "F03",
+          "rect": [
+            1.2,
+            -2.8,
+            1.4,
+            -0.3
+          ],
+          "class": "core"
+        }
+      ],
+      "decision_record": {
+        "id": "F03_LANDING",
+        "level": "F03",
+        "rect": [
+          -2.2,
+          -3.35,
+          1.45,
+          0.6
+        ],
+        "purpose": "floor and unit decision",
+        "class": "public",
+        "open_shell": true,
+        "no_floor": true,
+        "no_ceiling": true
+      },
+      "supported_core_area_m2": 38.32,
+      "lift_shaft_reserved_xz": [
+        -1.2,
+        -2.8,
+        1.2,
+        -0.3
+      ],
+      "purpose_tokens": "intermediate passenger lift and primary stair transfer",
+      "decision_area_m2": 14.4175,
+      "decision_over_physical_platform_m2": 8.2925,
+      "decision_over_reserved_shaft_m2": 6.0
+    },
+    {
+      "floor": "F04",
+      "core": {
+        "id": "F04_PUBLIC_CORE",
+        "level": "F04",
+        "class": "core",
+        "rect": [
+          -2.2,
+          -3.85,
+          5.4,
+          3.85
+        ],
+        "purpose": "passenger lift and primary stair",
+        "no_floor": true,
+        "no_ceiling": true,
+        "wall_sides": [
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      "existing_support_platforms": [
+        {
+          "id": "F04_PUBLIC_LANDING_S",
+          "level": "F04",
+          "rect": [
+            1.4,
+            -3.85,
+            5.4,
+            -1.9
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F04_PUBLIC_LANDING_N",
+          "level": "F04",
+          "rect": [
+            1.4,
+            1.65,
+            5.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F04_PUBLIC_LANDING_W",
+          "level": "F04",
+          "rect": [
+            -2.2,
+            -3.85,
+            1.4,
+            -2.8
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F04_PUBLIC_LANDING_W_SHAFT_1",
+          "level": "F04",
+          "rect": [
+            -2.2,
+            -0.3,
+            1.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F04_PUBLIC_LANDING_W_SHAFT_2",
+          "level": "F04",
+          "rect": [
+            -2.2,
+            -2.8,
+            -1.2,
+            -0.3
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F04_PUBLIC_LANDING_W_SHAFT_3",
+          "level": "F04",
+          "rect": [
+            1.2,
+            -2.8,
+            1.4,
+            -0.3
+          ],
+          "class": "core"
+        }
+      ],
+      "decision_record": {
+        "id": "F04_LANDING",
+        "level": "F04",
+        "class": "public",
+        "rect": [
+          -2.2,
+          -3.35,
+          1.45,
+          0.6
+        ],
+        "purpose": "floor and unit decision",
+        "open_shell": true,
+        "no_floor": true,
+        "no_ceiling": true
+      },
+      "supported_core_area_m2": 38.32,
+      "lift_shaft_reserved_xz": [
+        -1.2,
+        -2.8,
+        1.2,
+        -0.3
+      ],
+      "purpose_tokens": "passenger lift and primary stair",
+      "decision_area_m2": 14.4175,
+      "decision_over_physical_platform_m2": 8.2925,
+      "decision_over_reserved_shaft_m2": 6.0
+    },
+    {
+      "floor": "F05",
+      "core": {
+        "id": "F05_PUBLIC_CORE",
+        "level": "F05",
+        "class": "core",
+        "rect": [
+          -2.2,
+          -3.85,
+          5.4,
+          3.85
+        ],
+        "purpose": "passenger lift landing and primary stair",
+        "no_floor": true,
+        "no_ceiling": true,
+        "wall_sides": [
+          "south",
+          "north",
+          "west",
+          "east"
+        ]
+      },
+      "existing_support_platforms": [
+        {
+          "id": "F05_PUBLIC_LANDING_S",
+          "level": "F05",
+          "rect": [
+            1.4,
+            -3.85,
+            5.4,
+            -1.9
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F05_PUBLIC_LANDING_N",
+          "level": "F05",
+          "rect": [
+            1.4,
+            1.65,
+            5.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F05_PUBLIC_LANDING_W",
+          "level": "F05",
+          "rect": [
+            -2.2,
+            -3.85,
+            1.4,
+            -2.8
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F05_PUBLIC_LANDING_W_SHAFT_1",
+          "level": "F05",
+          "rect": [
+            -2.2,
+            -0.3,
+            1.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F05_PUBLIC_LANDING_W_SHAFT_2",
+          "level": "F05",
+          "rect": [
+            -2.2,
+            -2.8,
+            -1.2,
+            -0.3
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F05_PUBLIC_LANDING_W_SHAFT_3",
+          "level": "F05",
+          "rect": [
+            1.2,
+            -2.8,
+            1.4,
+            -0.3
+          ],
+          "class": "core"
+        }
+      ],
+      "decision_record": null,
+      "supported_core_area_m2": 38.32,
+      "lift_shaft_reserved_xz": [
+        -1.2,
+        -2.8,
+        1.2,
+        -0.3
+      ],
+      "purpose_tokens": "passenger lift landing and primary stair"
+    },
+    {
+      "floor": "F06",
+      "core": {
+        "id": "F06_PUBLIC_CORE",
+        "level": "F06",
+        "class": "core",
+        "rect": [
+          -2.2,
+          -3.85,
+          5.4,
+          3.85
+        ],
+        "purpose": "passenger lift landing and primary stair",
+        "no_floor": true,
+        "no_ceiling": true,
+        "wall_sides": [
+          "south",
+          "north",
+          "west",
+          "east"
+        ]
+      },
+      "existing_support_platforms": [
+        {
+          "id": "F06_PUBLIC_LANDING_S",
+          "level": "F06",
+          "rect": [
+            1.4,
+            -3.85,
+            5.4,
+            -1.9
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F06_PUBLIC_LANDING_N",
+          "level": "F06",
+          "rect": [
+            1.4,
+            1.65,
+            5.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F06_PUBLIC_LANDING_W",
+          "level": "F06",
+          "rect": [
+            -2.2,
+            -3.85,
+            1.4,
+            -2.8
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F06_PUBLIC_LANDING_W_SHAFT_1",
+          "level": "F06",
+          "rect": [
+            -2.2,
+            -0.3,
+            1.4,
+            3.85
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F06_PUBLIC_LANDING_W_SHAFT_2",
+          "level": "F06",
+          "rect": [
+            -2.2,
+            -2.8,
+            -1.2,
+            -0.3
+          ],
+          "class": "core"
+        },
+        {
+          "id": "F06_PUBLIC_LANDING_W_SHAFT_3",
+          "level": "F06",
+          "rect": [
+            1.2,
+            -2.8,
+            1.4,
+            -0.3
+          ],
+          "class": "core"
+        }
+      ],
+      "decision_record": null,
+      "supported_core_area_m2": 38.32,
+      "lift_shaft_reserved_xz": [
+        -1.2,
+        -2.8,
+        1.2,
+        -0.3
+      ],
+      "purpose_tokens": "passenger lift landing and primary stair"
+    }
+  ],
+  "next_action": "Do not seal old open-shell rectangles: F02-F04 decision rectangles include 6m2 of lift reservation. Bind supported public-floor programmes to actual separated platform union, retain stair voids and real lift/door owners, then prove ordinary-controller decisions and lift/stair arrivals on all six public floors. F01/F05/F06 need explicit decision ownership rather than new duplicate slabs."
+}

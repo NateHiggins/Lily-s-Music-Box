@@ -1,0 +1,602 @@
+{
+  "evidence_class": "INERT",
+  "schema": "orison.front-pavement-consumed-source-review.v1",
+  "original_fixture_sha256": "a49b13d34738c68db929f2ccbb9914a3612be8885d0d75719dae28fe689c5dd9",
+  "source_bindings": {
+    "game/data/orison_v2_blockout.json": "0b48ecebf8a454e6b2a95372c64a550d351f8553ea10f19755201de8724302ae",
+    "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
+    "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
+    "game/data/orison_v2/exterior/construction_shed.json": "adc2740f083de4a85eaf9314f01a503ee76fdd0a5706af5acd197f43522e8baa",
+    "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
+    "art/blender/exterior_masonry.blend": "cdc25bcdbbdc4afab7d510f879dd4edda8dab995b9b95d412cacb0e8d93b6230",
+    "art/blender/roof_drainage_reservations.json": "b8925c91e6a8c60e76c282d5bc23a185f55a4af7245b5b17a0381f963f4ef051",
+    "art/blender/scripts/build_front_pavement.py": "3ee27182b7fe15efc3988866ac2c485b74a17a3cb76214cc56ba8d9eb4c754fa"
+  },
+  "asset_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
+  "native_sha256": "abef0f3f70f0b3b757de527ad161d8beddf75de1759dbb2b3a3a3f0a3982f88f",
+  "blockout_projection": {
+    "door": {
+      "id": "F01_DOOR_06",
+      "level": "F01",
+      "center": [
+        0.0,
+        -11.65
+      ],
+      "width": 1.1,
+      "height": 2.13,
+      "yaw": 0.0,
+      "hinge": "left",
+      "swing": "out",
+      "connects": [
+        "F01_STREET_APRON",
+        "F01_VESTIBULE"
+      ]
+    },
+    "floors": [
+      {
+        "id": "F01_FRONT_WEST_BAY",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -5.4,
+          -12.35,
+          -2.4,
+          -9.25
+        ]
+      },
+      {
+        "id": "F01_FRONT_EAST_BAY",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          2.4,
+          -12.35,
+          5.4,
+          -9.25
+        ]
+      },
+      {
+        "id": "F01_FRONT_WORKROOM",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          5.4,
+          -12.35,
+          8.3,
+          -8.3
+        ]
+      },
+      {
+        "id": "F01_FRONT_SERVICE_RETURN",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          8.3,
+          -12.35,
+          9.5,
+          -9.25
+        ]
+      },
+      {
+        "id": "F01_FRONT_STORE_ALCOVE",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          5.4,
+          -4.6,
+          8.3,
+          -3.85
+        ]
+      },
+      {
+        "id": "F01_VESTIBULE",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -2.4,
+          -11.65,
+          2.4,
+          -9.25
+        ]
+      },
+      {
+        "id": "F01_LOBBY",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -5.4,
+          -9.25,
+          5.4,
+          -3.85
+        ]
+      },
+      {
+        "id": "F01_WATCH",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -5.4,
+          -3.85,
+          -1.2,
+          0.55
+        ]
+      },
+      {
+        "id": "F01_MAIL_TELEPHONE",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -9.2,
+          -3.85,
+          -5.4,
+          0.55
+        ]
+      },
+      {
+        "id": "F01_PACKAGE",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -9.2,
+          0.55,
+          -5.4,
+          4.25
+        ]
+      },
+      {
+        "id": "F01_COMMON_B",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -15.65,
+          -3.85,
+          -9.2,
+          5.65
+        ]
+      },
+      {
+        "id": "F01_CORE_TO_SERVICE",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          5.4,
+          -1.0,
+          8.3,
+          1.0
+        ]
+      },
+      {
+        "id": "F01_SERVICE_HALL",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          8.3,
+          -9.25,
+          9.5,
+          9.25
+        ]
+      },
+      {
+        "id": "F01_D_VESTIBULE",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          9.5,
+          -3.85,
+          11.5,
+          -1.15
+        ]
+      },
+      {
+        "id": "F01_D_MAIN",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          11.5,
+          -4.2,
+          15.65,
+          0.3
+        ]
+      },
+      {
+        "id": "F01_D_KITCHEN",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          9.5,
+          -8.35,
+          12.8,
+          -4.2
+        ]
+      },
+      {
+        "id": "F01_D_BED",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          9.5,
+          -12.35,
+          12.8,
+          -8.35
+        ]
+      },
+      {
+        "id": "F01_D_PRIVATE_HALL",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          12.8,
+          -9.35,
+          15.65,
+          -4.2
+        ]
+      },
+      {
+        "id": "F01_D_BATH",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          12.8,
+          -12.35,
+          15.65,
+          -9.35
+        ]
+      },
+      {
+        "id": "F01_A_VESTIBULE",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -8.2,
+          -6.55,
+          -5.4,
+          -3.85
+        ]
+      },
+      {
+        "id": "F01_A_MAIN",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -15.65,
+          -7.2,
+          -8.2,
+          -3.85
+        ]
+      },
+      {
+        "id": "F01_A_PRIVATE_HALL",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -8.2,
+          -9.65,
+          -5.4,
+          -6.55
+        ]
+      },
+      {
+        "id": "F01_A_BATH",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -8.2,
+          -12.35,
+          -5.4,
+          -9.65
+        ]
+      },
+      {
+        "id": "F01_A_KITCHEN",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -11.3,
+          -9.65,
+          -8.2,
+          -7.2
+        ]
+      },
+      {
+        "id": "F01_A_BED",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -15.65,
+          -12.35,
+          -11.3,
+          -7.2
+        ]
+      },
+      {
+        "id": "F01_A_STUDY",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          -11.3,
+          -12.35,
+          -8.2,
+          -9.65
+        ]
+      },
+      {
+        "id": "F01_STAFF_RESTROOM",
+        "level": "F01",
+        "open_shell": null,
+        "no_floor": null,
+        "rect": [
+          5.4,
+          -8.3,
+          8.3,
+          -4.6
+        ]
+      }
+    ]
+  },
+  "connection_remove_boxes": [
+    "pavement_slab",
+    "orison_entry_recess",
+    "orison_entry_door",
+    "orison_door_glass",
+    "orison_door_kick",
+    "orison_facade_left",
+    "orison_facade_right",
+    "orison_facade_lintel",
+    "orison_upper_mass",
+    "orison_base_course",
+    "orison_string_course",
+    "orison_cornice_lower",
+    "orison_cornice_cap",
+    "orison_threshold_step",
+    "orison_window_west",
+    "orison_window_center",
+    "orison_window_east",
+    "orison_window_1_sill",
+    "orison_window_1_head",
+    "orison_window_1_mullion",
+    "orison_window_2_sill",
+    "orison_window_2_head",
+    "orison_window_2_mullion",
+    "orison_window_3_sill",
+    "orison_window_3_head",
+    "orison_window_3_mullion"
+  ],
+  "historical_projection_matches": false,
+  "regenerated_current_source": true,
+  "masonry_masks": {
+    "ExteriorMasonry/F01_FRONT_WEST_BAY_south_ConstructionBound": [
+      -5.400000184774399,
+      -12.629999615252018,
+      -4.450000196695328,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WEST_BAY_south_ConstructionBound.001": [
+      -2.9499999582767487,
+      -12.629999615252018,
+      -2.3999999463558197,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WEST_BAY_south_ConstructionBound.002": [
+      -4.450000047683716,
+      -12.629999615252018,
+      -2.950000047683716,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WEST_BAY_east_ConstructionBound": [
+      -2.329999901354313,
+      -12.349999994039536,
+      -2.119999907910824,
+      -11.650000005960464
+    ],
+    "ExteriorMasonry/F01_FRONT_EAST_BAY_south_ConstructionBound": [
+      2.3999999463558197,
+      -12.629999615252018,
+      2.9499999582767487,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_EAST_BAY_south_ConstructionBound.001": [
+      4.450000196695328,
+      -12.629999615252018,
+      5.400000184774399,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_EAST_BAY_south_ConstructionBound.002": [
+      2.950000047683716,
+      -12.629999615252018,
+      4.450000047683716,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_EAST_BAY_west_ConstructionBound": [
+      2.119999907910824,
+      -12.349999994039536,
+      2.329999901354313,
+      -11.650000005960464
+    ],
+    "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound": [
+      5.399999797344208,
+      -12.629999615252018,
+      5.999999821186066,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound.001": [
+      7.599999815225601,
+      -12.629999615252018,
+      8.299999803304672,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound.002": [
+      6.000000178813934,
+      -12.629999615252018,
+      7.600000202655792,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound": [
+      8.299999803304672,
+      -12.629999615252018,
+      8.599999815225601,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound.001": [
+      9.200000375509262,
+      -12.629999615252018,
+      9.500000387430191,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound.002": [
+      8.599999606609344,
+      -12.629999615252018,
+      9.199999630451202,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_VESTIBULE_south_ConstructionBound": [
+      -2.400000035762787,
+      -11.929999805986881,
+      -0.550000011920929,
+      -11.719999812543392
+    ],
+    "ExteriorMasonry/F01_VESTIBULE_south_ConstructionBound.001": [
+      0.550000011920929,
+      -11.929999805986881,
+      2.400000035762787,
+      -11.719999812543392
+    ],
+    "ExteriorMasonry/F01_VESTIBULE_south_ConstructionBound.002": [
+      -0.550000011920929,
+      -11.929999805986881,
+      0.550000011920929,
+      -11.719999812543392
+    ],
+    "ExteriorMasonry/F01_D_BED_south_ConstructionBound": [
+      9.500000178813934,
+      -12.629999615252018,
+      10.350000202655792,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_D_BED_south_ConstructionBound.001": [
+      11.849999815225601,
+      -12.629999615252018,
+      12.799999803304672,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_D_BED_south_ConstructionBound.002": [
+      10.350000381469727,
+      -12.629999615252018,
+      11.850000381469727,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_D_BATH_south_ConstructionBound": [
+      12.800000429153442,
+      -12.629999615252018,
+      15.65000033378601,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_D_BATH_east_ConstructionBound": [
+      15.719999812543392,
+      -12.350000202655792,
+      15.929999805986881,
+      -11.250000178813934
+    ],
+    "ExteriorMasonry/F01_A_BATH_south_ConstructionBound": [
+      -8.200000166893005,
+      -12.629999615252018,
+      -5.400000214576721,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_A_BED_south_ConstructionBound": [
+      -15.649999797344208,
+      -12.629999615252018,
+      -14.249999821186066,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_A_BED_south_ConstructionBound.001": [
+      -12.749999642372131,
+      -12.629999615252018,
+      -11.299999594688416,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_A_BED_south_ConstructionBound.002": [
+      -14.25,
+      -12.629999615252018,
+      -12.75,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_A_BED_west_ConstructionBound": [
+      -15.929999805986881,
+      -12.34999966621399,
+      -15.719999812543392,
+      -7.199999570846558
+    ],
+    "ExteriorMasonry/F01_A_STUDY_south_ConstructionBound": [
+      -11.300000011920929,
+      -12.629999615252018,
+      -10.449999988079071,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_A_STUDY_south_ConstructionBound.001": [
+      -8.949999809265137,
+      -12.629999615252018,
+      -8.199999809265137,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_A_STUDY_south_ConstructionBound.002": [
+      -10.449999809265137,
+      -12.629999615252018,
+      -8.949999809265137,
+      -12.419999621808529
+    ],
+    "ExteriorMasonry/F01_Corner_ConstructionBound.003": [
+      15.649999961256981,
+      -12.62999977171421,
+      15.929999962449074,
+      -12.349999770522118
+    ],
+    "ExteriorMasonry/F01_Corner_ConstructionBound.004": [
+      -15.929999962449074,
+      -12.62999977171421,
+      -15.649999961256981,
+      -12.349999770522118
+    ],
+    "ExteriorMasonry/F01_Corner_ConstructionBound.009": [
+      -2.3999999910593033,
+      -12.62999977171421,
+      -2.1199999898672104,
+      -12.349999770522118
+    ],
+    "ExteriorMasonry/F01_Corner_ConstructionBound.012": [
+      2.1199999898672104,
+      -12.62999977171421,
+      2.3999999910593033,
+      -12.349999770522118
+    ]
+  },
+  "mask_max_difference_m": 0.0,
+  "closed_union_volume_m3": 27.583769631318688,
+  "parts": 34,
+  "scope": "Exact consumed layout and 24 native masonry mask comparison. Original source fixture and native paving/export unchanged; no runtime proof."
+}

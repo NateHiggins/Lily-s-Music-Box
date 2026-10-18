@@ -4,7 +4,7 @@ Changes never inherit an old pass. Text is LF-normalized; imported cache UIDs
 are excluded. The test itself writes runtime_contract.json. This tool checks
 that receipt, independently re-evaluates its inventory, and checks review files.
 """
-import argparse,gzip,hashlib,json,sys,subprocess
+import argparse,gzip,hashlib,json,re,sys,subprocess
 from pathlib import Path
 from audit_v2_surfaces import evaluate
 
@@ -12,6 +12,23 @@ ROOT=Path(__file__).resolve().parents[1]
 PACKET=ROOT/'art/renders/orison_v2/surface_requirements_20261011'
 TEXT={'.gd','.tscn','.tres','.godot','.json','.py','.gdshader','.gdshaderinc','.gltf','.import'}
 ASSETS={'.glb','.gltf','.bin','.rg8','.png','.jpg','.jpeg','.webp','.tres','.tscn'}
+
+def test_dependency_paths(root,seeds):
+    """Bind transitive test helpers/assets as well as the selected root tests."""
+    root=Path(root).resolve();tests=root/'game/tests';result=set(seeds)
+    pending=[p for p in result if p.resolve().is_relative_to(tests)]
+    seen=set()
+    while pending:
+        path=pending.pop().resolve()
+        if path in seen:continue
+        seen.add(path)
+        if not path.is_file() or path.suffix not in TEXT:continue
+        for reference in re.findall(r'res://tests/[A-Za-z0-9_/.-]+',path.read_text(encoding='utf-8')):
+            dependency=(root/'game'/reference.removeprefix('res://')).resolve()
+            if not dependency.is_relative_to(root):raise ValueError('Test dependency escapes repository: '+reference)
+            if dependency.is_file() and dependency not in result:
+                result.add(dependency);pending.append(dependency)
+    return result
 
 def file_hash(path):
     raw=path.read_bytes()
@@ -75,6 +92,7 @@ def inputs(root=ROOT):
         for filename in ('material.json','albedo.png','normal.png','roughness.png','height.png'):
             paths.add(root/f'art/textures/procedural/{key}/{filename}')
     paths.add(root/'game/tests/v2_control_finish_review.gd')
+    paths.add(root/'tools/preflight_spatial_test_bindings.py')
     paths.update(root/p for p in ('tools/build_v2_public_regions.py',
         'game/tests/public_region_programme_bench.gd',
         'game/tests/public_region_walk_probe.gd'))
@@ -133,6 +151,7 @@ def inputs(root=ROOT):
     imports.extend(root/'game/assets'/(asset+'.import') for asset in UV_IMPORTS)
     imports.extend(p for p in (root/'game/assets/characters/mina_vale').glob('*.png.import') if p.relative_to(root).as_posix() in versioned)
     imports.extend(p for p in (root/'game/assets/ui/telegram').glob('*.png.import') if p.relative_to(root).as_posix() in versioned)
+    paths.update(test_dependency_paths(root,paths))
     manifest=sorted([p.relative_to(root).as_posix(),file_hash(p)] for p in paths)
     for path in sorted(imports):
         text=path.read_text(encoding='utf-8').replace('\r\n','\n')

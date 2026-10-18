@@ -85,14 +85,52 @@ arcade fascias and cloth remain simplified, and the shed timber repeats visibly.
 Landing programmes, acoustic rederivation, broader gameplay/circulation and
 human acceptance remain part of the full V2 objective.
 
+## Native fixture renewal and actual pavement repair
+
+The first combined surface run completed 33,262 checks with one failure: an
+expired Bodega source binding. Its technical inventory found zero unresolved
+UV/PBR/mipmap surfaces across 25,668 draws, 16,638 meshes, 6,108 materials and
+497 loaded textures. This failed execution is retained, not published as proof.
+The owning Blender recipe regenerated the shopfront byte-for-byte identically.
+
+Source preflight also identified the pavement and city bindings affected by the
+new region document. City offsets were independently rederived and all 335
+saved construction envelopes checked against the native source; the city GLB
+is byte-for-byte identical. Its historical registration is not rewritten.
+
+Pavement regeneration exposed a real older mismatch: the original cuts predate
+the restored front rooms and current masonry/grade reservations. The fresh
+closed paving union is 27.583769631 m3, compared with the original
+29.015130837 m3. It now excludes the current occupied floor masks. Independent
+Blender inspection checks the actual masonry masks, every current occupied
+floor mask, the unchanged entrance/frame, manifold positive volume and exported
+part bounds. Historical resume and source references remain historical.
+
+The related seam stock was rebuilt against that fitted slab: 20 groups,
+187 closed stocks and 9,060 triangles. All 224 actual support samples pass
+native BVH bearings with the existing normal and 30-micron limits. Four native
+views were reviewed; their before-reference views are also retained. Current
+source and loaded Godot render/walk qualification is still required. The shared
+surface pass now includes the real paving/room-floor and street-bearing tests,
+and its street crossing opens the entrance by grab/motion/release.
+
+A new early fixture check stops a stale street/fabrication binding before a
+full production composition. Six negative/portability tests extend the existing
+preflight suite to 13 checks. Surface hashing now follows inherited test helper
+and asset references, with two added regression checks. Public-region source
+checks also verify that every registered city offset is preserved and that an
+actual street-boundary move changes that registration. Thirty focused tools
+checks pass. These guard and fixture changes grant no acceptance and do not
+alter the protected geometry, historic runtime receipts or completion policy.
+
 ## Management report
 
     REPORT - V2-PUBLIC-REGIONS - 2026-10-18
-    Branch / HEAD / origin/main / merge-base: main / 9928c343 (parent; this source batch is being committed) / 9928c343 / 9928c343
+    Branch / HEAD / origin/main / merge-base: main / 756d7d46 (parent of native renewal; broad qualification pending) / 9928c343 / 9928c343
     Worktree clean at end: no; inherited UID/import, enamel metadata, old receipts and unrelated M08F edits excluded.
     Protected boundary and selector: historical receipt unchanged; v2 default and explicit v1 rollback pass focused checks. Final candidate verification pending.
     Ledger before -> source-only after: region.arcade_portal/throat/hall/construction_seam ABSENT -> PROGRAMMED; no spatial or runtime acceptance granted. Existing broad proofs correctly expire with current source changes.
-    Gates: five generator checks pass; 64 focused tools checks pass; reader NEW0; spatial audit clean after reviewed manifest update. Full qualification/zero-regression comparison pending.
+    Gates: seven public-region checks and 30 focused digest/preflight/source checks pass; reader NEW0; spatial audit clean; recipe projections0/125 wrong; UV/texture import policy checks pass. Full qualification/zero-regression comparison pending.
     Godot receipts: walk2 PASS60/0 with42 played legs; bench2 PASS60/0; audio2 PASS50/0; m11a15 PASS43/0 with objects-10/resources0/orphans0 and no retained audio bindings.
     Changes outside expected boundary: deferred animated-body readback and semantic audio cache lifecycle fixes were discovered by real fixture replay; strict assertions retained.
     Open findings: broad surface/repair/access renewals, public-region formal proof integration, traffic/circulation, landing programmes, acoustics, visual defects and human acceptance remain.

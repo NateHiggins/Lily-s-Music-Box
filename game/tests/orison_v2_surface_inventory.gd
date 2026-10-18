@@ -15,6 +15,13 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	var root := ProjectSettings.globalize_path("res://..").simplify_path()
+	var binding_args: Array[String]=[root.path_join("tools/preflight_spatial_test_bindings.py"),"--root",root]
+	for fixture: String in ["orison_bodega_frontage.json","orison_city_closure.json","orison_front_pavement_construction.json","orison_front_pavement_review.json","orison_street_paving_details.json"]:
+		binding_args.append_array(["--fixture","game/tests/fixtures/"+fixture])
+	var binding_output: Array=[]
+	if OS.execute("python",binding_args,binding_output)!=0:
+		push_error("Native fixture source preflight failed before world composition: "+str(binding_output))
+		get_tree().quit(1);return
 	var before := _input_snapshot(root)
 	if before.is_empty(): get_tree().quit(1); return
 	var shared_uv_defaults: Array = []
@@ -53,6 +60,20 @@ func _run() -> void:
 	add_child(front_review)
 	await front_review.run(world,self)
 	front_review.free()
+	var pavement_review := preload("res://tests/orison_v2_front_pavement_test.gd").new()
+	pavement_review.batch_mode=true;pavement_review.capture_enabled=true;add_child(pavement_review)
+	var pavement_result: Dictionary=await pavement_review.validate_in_world(world)
+	batch_checks+=int(pavement_result.checks)
+	for failure: String in pavement_result.failures:failures.append(failure)
+	pavement_review.free()
+	var street_pose:=world.player.global_transform;var street_camera:=world.player.camera.transform
+	var paving_review := preload("res://tests/orison_v2_street_paving_details_test.gd").new()
+	paving_review.batch_mode=true;paving_review.capture_enabled=true;add_child(paving_review)
+	var paving_result: Dictionary=await paving_review.validate_in_world(world)
+	batch_checks+=int(paving_result.checks)
+	for failure: String in paving_result.failures:failures.append(failure)
+	paving_review.free()
+	world.player.global_transform=street_pose;world.player.camera.transform=street_camera;world.player.velocity=Vector3.ZERO
 	var public_review := preload("res://tests/public_region_walk_probe.gd").new()
 	public_review.externally_managed=true;add_child(public_review)
 	await public_review.run(world,self)

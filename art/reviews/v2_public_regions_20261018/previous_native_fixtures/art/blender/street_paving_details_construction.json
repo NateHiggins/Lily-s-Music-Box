@@ -1,0 +1,2726 @@
+{
+  "schema": "orison.street-paving-details.v1",
+  "evidence_class": "INERT",
+  "source_bindings": {
+    "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
+    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
+    "game/tests/fixtures/orison_front_pavement_construction.json": "6b224e0f26be0002a0c510a977fba9938b28a57cd63df521c9009483878a97c0",
+    "game/tests/fixtures/orison_front_pavement_review.json": "cbb19816bc2335545c938d6f038467b9f17603f05123c6d37103e8c189a9dcfd",
+    "art/blender/scripts/build_street_paving_details.py": "88cba18a659c1c0f8b7b5c3aab98d8479c9644ae2218c5dafdcd012bb63370d6",
+    "art/blender/scripts/fabrication_native_batch.py": "3c61d2a98d9e75cefcbb949cfefb72aced140d3440262f8afdcd02a8e853917e"
+  },
+  "asset_sha256": "c99c6be32702ee5375683a4a8863f6ca31b3ec2fe17af213e4c901437d2bc30c",
+  "runtime": {
+    "asset": "res://assets/props/street_paving_details.glb"
+  },
+  "parts": [
+    {
+      "id": "pavement_long_joint",
+      "kind": "joint",
+      "source": {
+        "id": "pavement_long_joint",
+        "size_m": [
+          25,
+          0.01,
+          0.035
+        ],
+        "position_m": [
+          9.5,
+          0.011,
+          3.02
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 31,
+      "triangles": 372,
+      "bounds": [
+        -3.0,
+        -0.002400000113993883,
+        3.0164999961853027,
+        22.0,
+        0.00039999998989515007,
+        3.0234999656677246
+      ]
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "kind": "joint",
+      "source": {
+        "id": "pavement_cross_joint_01",
+        "size_m": [
+          0.035,
+          0.01,
+          4.675
+        ],
+        "position_m": [
+          -1.5,
+          0.011,
+          2.4775
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 8,
+      "triangles": 96,
+      "bounds": [
+        -1.503499984741211,
+        -0.002400000113993883,
+        0.2799999713897705,
+        -1.496500015258789,
+        0.00039999998989515007,
+        4.614999771118164
+      ]
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "kind": "joint",
+      "source": {
+        "id": "pavement_cross_joint_02",
+        "size_m": [
+          0.035,
+          0.01,
+          4.675
+        ],
+        "position_m": [
+          2.5,
+          0.011,
+          2.4775
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 8,
+      "triangles": 96,
+      "bounds": [
+        2.496500015258789,
+        -0.002400000113993883,
+        0.2799999713897705,
+        2.503499984741211,
+        0.00039999998989515007,
+        4.614999771118164
+      ]
+    },
+    {
+      "id": "pavement_cross_joint_03",
+      "kind": "joint",
+      "source": {
+        "id": "pavement_cross_joint_03",
+        "size_m": [
+          0.035,
+          0.01,
+          4.675
+        ],
+        "position_m": [
+          6.5,
+          0.011,
+          2.4775
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 6,
+      "triangles": 72,
+      "bounds": [
+        6.496500015258789,
+        -0.002400000113993883,
+        0.7000002861022949,
+        6.503499984741211,
+        0.00039999998989515007,
+        4.614999771118164
+      ]
+    },
+    {
+      "id": "pavement_cross_joint_04",
+      "kind": "joint",
+      "source": {
+        "id": "pavement_cross_joint_04",
+        "size_m": [
+          0.035,
+          0.01,
+          4.675
+        ],
+        "position_m": [
+          10.5,
+          0.011,
+          2.4775
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 6,
+      "triangles": 72,
+      "bounds": [
+        10.496500015258789,
+        -0.002400000113993883,
+        0.7000002861022949,
+        10.503499984741211,
+        0.00039999998989515007,
+        4.614999771118164
+      ]
+    },
+    {
+      "id": "pavement_cross_joint_05",
+      "kind": "joint",
+      "source": {
+        "id": "pavement_cross_joint_05",
+        "size_m": [
+          0.035,
+          0.01,
+          4.675
+        ],
+        "position_m": [
+          14.5,
+          0.011,
+          2.4775
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 6,
+      "triangles": 72,
+      "bounds": [
+        14.496500015258789,
+        -0.002400000113993883,
+        0.7000002861022949,
+        14.503499984741211,
+        0.00039999998989515007,
+        4.614999771118164
+      ]
+    },
+    {
+      "id": "pavement_cross_joint_06",
+      "kind": "joint",
+      "source": {
+        "id": "pavement_cross_joint_06",
+        "size_m": [
+          0.035,
+          0.01,
+          4.675
+        ],
+        "position_m": [
+          18.5,
+          0.011,
+          2.4775
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "triangles": 12,
+      "bounds": [
+        18.49650001525879,
+        -0.002400000113993883,
+        2.125,
+        18.50349998474121,
+        0.00039999998989515007,
+        4.614999771118164
+      ]
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "kind": "joint",
+      "source": {
+        "id": "pavement_cross_joint_07",
+        "size_m": [
+          0.035,
+          0.01,
+          4.675
+        ],
+        "position_m": [
+          21.5,
+          0.011,
+          2.4775
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 10,
+      "triangles": 120,
+      "bounds": [
+        21.49650001525879,
+        -0.002400000113993883,
+        0.1400001049041748,
+        21.50349998474121,
+        0.00039999998989515007,
+        4.815000057220459
+      ]
+    },
+    {
+      "id": "curb_coping_west",
+      "kind": "coping",
+      "source": {
+        "id": "curb_coping_west",
+        "size_m": [
+          4.82,
+          0.035,
+          0.37
+        ],
+        "position_m": [
+          -0.53,
+          0.135,
+          4.785
+        ],
+        "yaw_degrees": 0,
+        "material_id": "limestone",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 4,
+      "triangles": 240,
+      "bounds": [
+        -2.940000057220459,
+        0.11999999731779099,
+        4.599999904632568,
+        1.9129998683929443,
+        0.1525000035762787,
+        4.96999979019165
+      ]
+    },
+    {
+      "id": "curb_coping_midwest",
+      "kind": "coping",
+      "source": {
+        "id": "curb_coping_midwest",
+        "size_m": [
+          4.82,
+          0.035,
+          0.37
+        ],
+        "position_m": [
+          4.36,
+          0.135,
+          4.785
+        ],
+        "yaw_degrees": 0,
+        "material_id": "limestone",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 4,
+      "triangles": 240,
+      "bounds": [
+        1.9170000553131104,
+        0.11999999731779099,
+        4.599999904632568,
+        6.802999973297119,
+        0.1525000035762787,
+        4.96999979019165
+      ]
+    },
+    {
+      "id": "curb_coping_middle",
+      "kind": "coping",
+      "source": {
+        "id": "curb_coping_middle",
+        "size_m": [
+          4.82,
+          0.035,
+          0.37
+        ],
+        "position_m": [
+          9.25,
+          0.135,
+          4.785
+        ],
+        "yaw_degrees": 0,
+        "material_id": "limestone",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 4,
+      "triangles": 240,
+      "bounds": [
+        6.807000160217285,
+        0.11999999731779099,
+        4.599999904632568,
+        11.692999839782715,
+        0.1525000035762787,
+        4.96999979019165
+      ]
+    },
+    {
+      "id": "curb_coping_mideast",
+      "kind": "coping",
+      "source": {
+        "id": "curb_coping_mideast",
+        "size_m": [
+          4.82,
+          0.035,
+          0.37
+        ],
+        "position_m": [
+          14.14,
+          0.135,
+          4.785
+        ],
+        "yaw_degrees": 0,
+        "material_id": "limestone",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 4,
+      "triangles": 240,
+      "bounds": [
+        11.696999549865723,
+        0.11999999731779099,
+        4.599999904632568,
+        16.58300018310547,
+        0.1525000035762787,
+        4.96999979019165
+      ]
+    },
+    {
+      "id": "curb_coping_east",
+      "kind": "coping",
+      "source": {
+        "id": "curb_coping_east",
+        "size_m": [
+          4.82,
+          0.035,
+          0.37
+        ],
+        "position_m": [
+          19.03,
+          0.135,
+          4.785
+        ],
+        "yaw_degrees": 0,
+        "material_id": "limestone",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 4,
+      "triangles": 240,
+      "bounds": [
+        16.586999893188477,
+        0.11999999731779099,
+        4.599999904632568,
+        20.799999237060547,
+        0.1525000035762787,
+        4.96999979019165
+      ]
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "kind": "panel",
+      "source": {
+        "id": "passage_pavement_slab_west",
+        "size_m": [
+          20.255,
+          0.16,
+          4.422000000000001
+        ],
+        "position_m": [
+          -10.172500000000001,
+          -0.08,
+          16.310000000000002
+        ],
+        "yaw_degrees": 0,
+        "material_id": "pavement",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 42,
+      "triangles": 2520,
+      "bounds": [
+        -20.299999237060547,
+        -0.00800000037997961,
+        14.098999977111816,
+        -0.04500007629394531,
+        0.0,
+        18.520999908447266
+      ]
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "kind": "panel",
+      "source": {
+        "id": "passage_pavement_slab_east",
+        "size_m": [
+          17.905,
+          0.16,
+          4.422000000000001
+        ],
+        "position_m": [
+          13.0475,
+          -0.08,
+          16.310000000000002
+        ],
+        "yaw_degrees": 0,
+        "material_id": "pavement",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 36,
+      "triangles": 2160,
+      "bounds": [
+        4.095000267028809,
+        -0.00800000037997961,
+        14.098999977111816,
+        22.0,
+        0.0,
+        18.520999908447266
+      ]
+    },
+    {
+      "id": "passage_pavement_slab_street",
+      "kind": "panel",
+      "source": {
+        "id": "passage_pavement_slab_street",
+        "size_m": [
+          4.14,
+          0.16,
+          1.3759999999999994
+        ],
+        "position_m": [
+          2.025,
+          -0.08,
+          14.786999999999999
+        ],
+        "yaw_degrees": 0,
+        "material_id": "pavement",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 3,
+      "triangles": 180,
+      "bounds": [
+        -0.04500007629394531,
+        -0.00800000037997961,
+        14.098999977111816,
+        4.09499979019165,
+        0.0,
+        15.475000381469727
+      ]
+    },
+    {
+      "id": "passage_pavement_slab_arcade",
+      "kind": "panel",
+      "source": {
+        "id": "passage_pavement_slab_arcade",
+        "size_m": [
+          4.14,
+          0.16,
+          1.9960000000000022
+        ],
+        "position_m": [
+          2.025,
+          -0.08,
+          17.523
+        ],
+        "yaw_degrees": 0,
+        "material_id": "pavement",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 6,
+      "triangles": 360,
+      "bounds": [
+        -0.04500007629394531,
+        -0.00800000037997961,
+        16.524999618530273,
+        4.09499979019165,
+        0.0,
+        18.520999908447266
+      ]
+    },
+    {
+      "id": "pavement_wet_west",
+      "kind": "damp",
+      "source": {
+        "id": "pavement_wet_west",
+        "size_m": [
+          4.8,
+          0.008,
+          1.1
+        ],
+        "position_m": [
+          2,
+          0.006,
+          4.2250000000000005
+        ],
+        "yaw_degrees": 0,
+        "material_id": "pavement_wet",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "triangles": 572,
+      "bounds": [
+        -0.2278299331665039,
+        0.00019999999494757503,
+        3.8896470069885254,
+        4.264524936676025,
+        0.0012000000569969416,
+        4.590124130249023
+      ]
+    },
+    {
+      "id": "pavement_wet_middle",
+      "kind": "damp",
+      "source": {
+        "id": "pavement_wet_middle",
+        "size_m": [
+          5.5,
+          0.008,
+          0.82
+        ],
+        "position_m": [
+          9,
+          0.007,
+          2.05
+        ],
+        "yaw_degrees": 0,
+        "material_id": "pavement_wet",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "triangles": 572,
+      "bounds": [
+        6.62649393081665,
+        0.00019999999494757503,
+        1.6712911128997803,
+        11.630228996276855,
+        0.0012000000569969416,
+        2.4326748847961426
+      ]
+    },
+    {
+      "id": "pavement_wet_east",
+      "kind": "damp",
+      "source": {
+        "id": "pavement_wet_east",
+        "size_m": [
+          5,
+          0.008,
+          1
+        ],
+        "position_m": [
+          15.4,
+          0.006,
+          4.275
+        ],
+        "yaw_degrees": 0,
+        "material_id": "pavement_wet",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "triangles": 572,
+      "bounds": [
+        13.179215431213379,
+        0.00019999999494757503,
+        3.9679160118103027,
+        17.731765747070312,
+        0.0012000000569969416,
+        4.571447849273682
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        -2.839999981224537,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        -2.5399999991059303,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        -1.9517499806284904,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        -1.0232500059604646,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        0.0,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        1.474999986588955,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        2.4482500178813935,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        2.591749981224537,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        3.899999935179949,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        5.225000064820051,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        5.364999950677157,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        5.948250114738942,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        6.676749952316284,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        7.0,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        7.674999952316284,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        8.574999988079071,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        9.699999809265137,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        10.473249994039534,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        10.901749797344209,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        12.02499982714653,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        13.499999910593033,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        14.373249999999999,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        15.076749898672105,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        15.684999906271695,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        15.824999809265137,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        16.192499981224536,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        17.47575,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        19.65175,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        20.8275,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        21.17575,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_long_joint",
+      "point": [
+        21.75175,
+        0,
+        3.02
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "point": [
+        -1.5,
+        0,
+        0.48999981433153117
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "point": [
+        -1.5,
+        0,
+        0.7349999122321602
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "point": [
+        -1.5,
+        0,
+        0.8749996185302731
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "point": [
+        -1.5,
+        0,
+        0.9899996951222416
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "point": [
+        -1.5,
+        0,
+        1.1499997138977047
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "point": [
+        -1.5,
+        0,
+        1.4999999046325678
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "point": [
+        -1.5,
+        0,
+        1.9124999999999996
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "point": [
+        -1.5,
+        0,
+        3.37
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "point": [
+        2.5,
+        0,
+        0.48999981433153117
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "point": [
+        2.5,
+        0,
+        0.7349999122321602
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "point": [
+        2.5,
+        0,
+        0.8749996185302731
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "point": [
+        2.5,
+        0,
+        0.9899996951222416
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "point": [
+        2.5,
+        0,
+        1.1499997138977047
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "point": [
+        2.5,
+        0,
+        1.4999999046325678
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "point": [
+        2.5,
+        0,
+        1.9124999999999996
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "point": [
+        2.5,
+        0,
+        3.37
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_03",
+      "point": [
+        6.5,
+        0,
+        0.7349999122321602
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_03",
+      "point": [
+        6.5,
+        0,
+        0.9899996951222416
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_03",
+      "point": [
+        6.5,
+        0,
+        1.1499997138977047
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_03",
+      "point": [
+        6.5,
+        0,
+        1.4999999046325678
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_03",
+      "point": [
+        6.5,
+        0,
+        1.9124999999999996
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_03",
+      "point": [
+        6.5,
+        0,
+        3.37
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_04",
+      "point": [
+        10.5,
+        0,
+        0.7349999122321602
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_04",
+      "point": [
+        10.5,
+        0,
+        0.9899996951222416
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_04",
+      "point": [
+        10.5,
+        0,
+        1.1499997138977047
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_04",
+      "point": [
+        10.5,
+        0,
+        1.4999999046325678
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_04",
+      "point": [
+        10.5,
+        0,
+        1.9124999999999996
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_04",
+      "point": [
+        10.5,
+        0,
+        3.37
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_05",
+      "point": [
+        14.5,
+        0,
+        0.7349999122321602
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_05",
+      "point": [
+        14.5,
+        0,
+        0.9899996951222416
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_05",
+      "point": [
+        14.5,
+        0,
+        1.1499997138977047
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_05",
+      "point": [
+        14.5,
+        0,
+        1.4999999046325678
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_05",
+      "point": [
+        14.5,
+        0,
+        1.9124999999999996
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_05",
+      "point": [
+        14.5,
+        0,
+        3.37
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_06",
+      "point": [
+        18.5,
+        0,
+        3.37
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        0.2099999029934405
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        0.48999981433153117
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        0.7349999122321602
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        0.8749996185302731
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        0.9899996951222416
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        1.1499997138977047
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        1.4999999046325678
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        1.9124999999999996
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        3.37
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "point": [
+        21.5,
+        0,
+        4.715
+      ],
+      "owner": "front_pavement"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        -2.9000000000000004,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        -2.3343750000000005,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        -1.7687500000000003,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        -1.6847500000000002,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        -1.1201250000000003,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        -0.5555000000000001,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        -0.4715000000000001,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        0.0931249999999999,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        0.6577499999999998,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        0.7417499999999999,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        1.307375,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_west",
+      "point": [
+        1.8730000000000002,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        1.957,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        2.5267500000000003,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        3.0965000000000003,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        3.1805,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        3.74925,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        4.3180000000000005,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        4.402,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        4.970750000000001,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        5.5395,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        5.6235,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        6.19325,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "point": [
+        6.763,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        6.8469999999999995,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        7.416749999999999,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        7.986499999999999,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        8.0705,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        8.63925,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        9.208,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        9.292,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        9.86075,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        10.429499999999999,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        10.513499999999999,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        11.08325,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_middle",
+      "point": [
+        11.653,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        11.737,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        12.306750000000001,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        12.876500000000002,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        12.960500000000001,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        13.529250000000001,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        14.098,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        14.182,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        14.75075,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        15.319500000000001,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        15.403500000000001,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        15.973250000000002,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "point": [
+        16.543000000000003,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        16.627,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        17.112625,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        17.598250000000004,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        17.68225,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        18.166875,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        18.651500000000002,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        18.7355,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        19.220125,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        19.70475,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        19.788749999999997,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        20.274375,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "curb_coping_east",
+      "point": [
+        20.76,
+        0.12,
+        4.785
+      ],
+      "owner": "street_curb"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -19.577357142857146,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -19.577357142857146,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -19.577357142857146,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -18.129821428571432,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -18.129821428571432,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -18.129821428571432,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -16.683035714285715,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -16.683035714285715,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -16.683035714285715,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -15.23625,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -15.23625,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -15.23625,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -13.789464285714287,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -13.789464285714287,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -13.789464285714287,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -12.342678571428571,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -12.342678571428571,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -12.342678571428571,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -10.895892857142858,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -10.895892857142858,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -10.895892857142858,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -9.449107142857144,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -9.449107142857144,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -9.449107142857144,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -8.002321428571431,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -8.002321428571431,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -8.002321428571431,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -6.555535714285716,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -6.555535714285716,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -6.555535714285716,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -5.108750000000002,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -5.108750000000002,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -5.108750000000002,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -3.661964285714287,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -3.661964285714287,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -3.661964285714287,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -2.215178571428572,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -2.215178571428572,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -2.215178571428572,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -0.7676428571428584,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -0.7676428571428584,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "point": [
+        -0.7676428571428584,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_west"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        4.8402916666666655,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        4.8402916666666655,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        4.8402916666666655,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        6.333124999999999,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        6.333124999999999,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        6.333124999999999,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        7.825208333333332,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        7.825208333333332,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        7.825208333333332,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        9.317291666666666,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        9.317291666666666,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        9.317291666666666,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        10.809375,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        10.809375,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        10.809375,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        12.301458333333333,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        12.301458333333333,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        12.301458333333333,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        13.793541666666666,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        13.793541666666666,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        13.793541666666666,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        15.285625,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        15.285625,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        15.285625,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        16.777708333333333,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        16.777708333333333,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        16.777708333333333,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        18.269791666666666,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        18.269791666666666,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        18.269791666666666,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        19.761875,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        19.761875,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        19.761875,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        21.254708333333333,
+        0,
+        14.835250000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        21.254708333333333,
+        0,
+        16.310000000000002
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "point": [
+        21.254708333333333,
+        0,
+        17.784750000000003
+      ],
+      "owner": "passage_pavement_slab_east"
+    },
+    {
+      "id": "passage_pavement_slab_street",
+      "point": [
+        0.64425,
+        0,
+        14.786999999999999
+      ],
+      "owner": "passage_pavement_slab_street"
+    },
+    {
+      "id": "passage_pavement_slab_street",
+      "point": [
+        2.025,
+        0,
+        14.786999999999999
+      ],
+      "owner": "passage_pavement_slab_street"
+    },
+    {
+      "id": "passage_pavement_slab_street",
+      "point": [
+        3.40575,
+        0,
+        14.786999999999999
+      ],
+      "owner": "passage_pavement_slab_street"
+    },
+    {
+      "id": "passage_pavement_slab_arcade",
+      "point": [
+        0.64425,
+        0,
+        17.023249999999997
+      ],
+      "owner": "passage_pavement_slab_arcade"
+    },
+    {
+      "id": "passage_pavement_slab_arcade",
+      "point": [
+        0.64425,
+        0,
+        18.022750000000002
+      ],
+      "owner": "passage_pavement_slab_arcade"
+    },
+    {
+      "id": "passage_pavement_slab_arcade",
+      "point": [
+        2.025,
+        0,
+        17.023249999999997
+      ],
+      "owner": "passage_pavement_slab_arcade"
+    },
+    {
+      "id": "passage_pavement_slab_arcade",
+      "point": [
+        2.025,
+        0,
+        18.022750000000002
+      ],
+      "owner": "passage_pavement_slab_arcade"
+    },
+    {
+      "id": "passage_pavement_slab_arcade",
+      "point": [
+        3.40575,
+        0,
+        17.023249999999997
+      ],
+      "owner": "passage_pavement_slab_arcade"
+    },
+    {
+      "id": "passage_pavement_slab_arcade",
+      "point": [
+        3.40575,
+        0,
+        18.022750000000002
+      ],
+      "owner": "passage_pavement_slab_arcade"
+    }
+  ],
+  "finishes": {
+    "joint": {
+      "catalog_key": "concrete",
+      "tint": [
+        0.43,
+        0.42,
+        0.39,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "coping": {
+      "catalog_key": "concrete",
+      "tint": [
+        0.92,
+        0.9,
+        0.84,
+        1
+      ],
+      "normal": 0.17,
+      "roughness": 0.93,
+      "pigment": 1.0
+    },
+    "panel": {
+      "catalog_key": "concrete",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.24,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "damp": {
+      "catalog_key": "concrete",
+      "tint": [
+        0.73,
+        0.76,
+        0.73,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 0.32,
+      "pigment": 1.0
+    }
+  },
+  "triangles": 9048,
+  "stocks": 186,
+  "adaptations": [
+    "7mm seams clipped to fitted paving, seated at +0.4mm; original 35mm proxy removed visually.",
+    "Coping lower face seats on original +0.12m curb. Internal 70mm proxy gaps become 4mm stone joints. The east 640mm unsupported source overhang is clipped to the retained curb end.",
+    "Passage panels have 3mm joints and 0.8mm arrises within original floor extents. Original full floor collision remains.",
+    "Finite irregular damp films use vertex edge fade within original patch envelopes. No liquid/service simulation."
+  ],
+  "preservation": "Only 20 original environment draws hidden. Collision, route guides, lights and source records remain original."
+}

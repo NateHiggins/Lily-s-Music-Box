@@ -152,11 +152,26 @@ func _enter_front_entrance() -> bool:
 func _open_front_entrance(identity: String="F01_DOOR_06") -> bool:
 	var anchor:=world.adapter.resolve(identity) as Node3D
 	var door:=anchor.get_node(identity+"_Leaf") as DoorProp
-	if not door.open:
+	if not door.is_ready_for_passage():
 		player.face_world_point(door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)))
-		await get_tree().physics_frame;player.use_primary_interaction()
+		player.set_mouse_released(false)
+		await get_tree().physics_frame
+		var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+		player._unhandled_input(click)
+		var goal:=door.motion_target_angle(true)
 		for frame in 120:
+			if not player._grab.active() or player._grab.target.owner!=door:break
+			var angle: float=player._grab.target.read.call()
+			if absf(angle-goal)<.000001:break
+			var point:=door._body.to_global(player._grab.contact)
+			var tangent: Vector3=door.global_basis.y.cross(point-door._body.global_position)
+			var screen: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
+			if screen.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5:
+				screen=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
+			var motion:=InputEventMouseMotion.new();motion.relative=screen*clampf(goal-angle,-.12,.12)
+			player._unhandled_input(motion)
 			await get_tree().physics_frame
-			if not door._moving:break
+		if player._grab.active():player._unhandled_input(click)
+		await get_tree().physics_frame
 		if not door.is_ready_for_passage():failures.append(identity+" did not open through player input");return false
 	return true

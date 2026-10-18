@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 11.77,
+  "exit_code": 0,
+  "finished_utc": "2026-10-18T18:18:30Z",
+  "started_utc": "2026-10-18T18:18:18Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-public-regions-20261018/import-regeneration.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-public-regions-20261018/import-regeneration.log",
+  "stdout_sha256": "4cf59469be7f384a3f6642c1cd0470450480975b0f2bd11c74386acc89c0587f"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 1663,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/bodega_frontage.blend",
+   " M art/blender/bodega_frontage_construction.json",
+   " M art/blender/city_closure.blend",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/front_pavement.blend",
+   " M art/blender/front_pavement_construction.json",
+   " M art/blender/scripts/build_city_closure.py",
+   " M art/blender/scripts/inspect_front_pavement.py",
+   " M art/blender/street_paving_details.blend",
+   " M art/blender/street_paving_details_construction.json",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json"
+  ],
+  "repository_head": "756d7d46bf3fe0bdf0cec98ad0706ceeb2053227",
+  "repository_tree": "4b727a3ce513ee0e3a587de0f61db9290a38e128",
+  "runtime_inputs_sha256": "8993bc770dcb94073e4e43063e16e6ca45d21fcba22c67901b4d97462fdfa5e6",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

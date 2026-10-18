@@ -19,8 +19,9 @@ registration=json.loads(registration_path.read_text())
 def digest(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') if path.suffix not in ['.blend','.glb','.png'] else path.read_bytes()).hexdigest()
 assert plan['classification']=='ADAPTATION' and digest(native_path)==registration['source_native_sha256']
 for path,value in registration['bindings'].items():
- if path!='game/data/orison_v2_blockout.json':assert digest(ROOT/path)==value,path
-# The historical registration predates later blockout ports. Re-derive every
+ if path not in ['game/data/orison_v2_blockout.json','game/data/orison_v2/exterior/regions.json']:assert digest(ROOT/path)==value,path
+# The historical registration predates later blockout ports and public-region
+# programmes. Re-derive every
 # consumed registration value from the current authority; do not silently reuse
 # an old whole-file binding. Actual saved bounds are checked below as well.
 v2=json.loads(v2_path.read_text());regions=json.loads((ROOT/'game/data/orison_v2/exterior/regions.json').read_text())
