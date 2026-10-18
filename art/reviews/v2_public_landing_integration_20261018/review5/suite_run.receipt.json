@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 131.44,
+  "exit_code": 0,
+  "finished_utc": "2026-10-18T22:38:46Z",
+  "started_utc": "2026-10-18T22:36:35Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 LANDING PROGRAMME REVIEW PASS checks=125 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-public-landing-integration-20261018/review5.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-public-landing-integration-20261018/review5.log",
+  "stdout_sha256": "8200826cf7dc6ee13478d574ec6ec18f77d5ff81a3e4a28b4ca21e4fe630eb8b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2LandingProgrammeReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-public-landing-integration-20261018\\review5",
+ "source": {
+  "dirty_paths": 1619,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json"
+  ],
+  "repository_head": "9e866f6289800a8f5c7ff3525ef1cfefbb56dc72",
+  "repository_tree": "9db1c36dd4e4107a9174c122bcc287bf899bf6f1",
+  "runtime_inputs_sha256": "ab790737a87e3488e93fec8ce45b2b6eaf87e245e7940f057440ef8a264d0975",
+  "test_path": "game/tests/orison_v2_landing_programme_review.gd",
+  "test_sha256": "6ed0eb3c56e507ff0aeb2988e36e3dd9533610e2d131b95bb5d0eb964cb430f6"
+ },
+ "windowed": true
+}

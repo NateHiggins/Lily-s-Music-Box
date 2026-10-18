@@ -35,7 +35,9 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
-| Measured public landing platform unions, unsupported legacy shells and pending semantic integration | `design/V2_PUBLIC_LANDING_FOOTPRINTS_2026-10-18.md` |
+| Six supported public landing programmes, fitted signs, repaired F01 passage and pending broad qualification | `design/V2_PUBLIC_LANDING_INTEGRATION_2026-10-18.md` |
+| Original single-placement six-floor played landing access; separate broader and human gates | `design/ORISON_V2_PUBLIC_LANDING_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md` |
+| Measured public landing platform unions and unsupported legacy shells | `design/V2_PUBLIC_LANDING_FOOTPRINTS_2026-10-18.md` |
 | Wall-stock fitting, native hanging supports, doorstep stock and current clearance qualification | `design/V2_WALL_STOCK_CLEARANCE_2026-10-18.md` |
 | Retained public-region ownership, actual street/arcade/dogleg walks and deferred hand/audio lifecycle repairs | `design/V2_PUBLIC_REGION_OWNERSHIP_2026-10-18.md` |
 | Measured V2 startup costs and exact comparison of bounded room-trim fitting | `design/V2_STARTUP_TRIM_CULLING_2026-10-18.md` |

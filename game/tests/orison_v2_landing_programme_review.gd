@@ -67,6 +67,8 @@ func _run() -> void:
 			await capture(floor+"_floor_decision",plaque_feet,sign.global_position,true)
 			var north:=Vector3(-.5 if floor=="F01" else -1.7,y,.9)
 			await capture(floor+"_north_landing",north,world.adapter.root.to_global(Vector3(4.7,y+1.35,2.75)))
+			if floor=="F01":
+				await capture("F01_east_passage",Vector3(4.95,y,2.6),world.adapter.root.to_global(Vector3(4.95,y+.2,-.5)),true)
 			observations.append({"id":str(space.id),"units":row.units,"supports":space.floor_platforms,"plaque_stance_clear":clear_stance(plaque_feet),"north_stance_clear":clear_stance(north)})
 	var root_ref: WeakRef=weakref(world)
 	var programme_ref: WeakRef=weakref(world.public_landings) if world.public_landings!=null else null

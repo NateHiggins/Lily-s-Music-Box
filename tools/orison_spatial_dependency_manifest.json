@@ -299721,12 +299721,14 @@
    ],
    "lines": [
     58,
-    68
+    68,
+    70
    ],
-   "count": 2,
+   "count": 3,
    "context": [
     "check(row.units.size()==(2 if floor==\"F01\" else 4),\"unit decisions come from actual fitted leaves: \"+floor)",
-    "var north:=Vector3(-.5 if floor==\"F01\" else -1.7,y,.9)"
+    "var north:=Vector3(-.5 if floor==\"F01\" else -1.7,y,.9)",
+    "if floor==\"F01\":"
    ],
    "gameplay_binding": false,
    "authority": [

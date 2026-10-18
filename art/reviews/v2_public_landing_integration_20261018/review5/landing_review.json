@@ -1,0 +1,120 @@
+{
+	"checks": 125,
+	"evidence_class": "INERT",
+	"failures": [],
+	"observations": [
+		{
+			"id": "F02_LANDING",
+			"north_stance_clear": true,
+			"plaque_stance_clear": true,
+			"supports": [
+				"F02_PUBLIC_LANDING_S",
+				"F02_PUBLIC_LANDING_N",
+				"F02_PUBLIC_LANDING_W",
+				"F02_PUBLIC_LANDING_W_SHAFT_1",
+				"F02_PUBLIC_LANDING_W_SHAFT_2",
+				"F02_PUBLIC_LANDING_W_SHAFT_3"
+			],
+			"units": [
+				"2A",
+				"2B",
+				"2C",
+				"2D"
+			]
+		},
+		{
+			"id": "F04_LANDING",
+			"north_stance_clear": true,
+			"plaque_stance_clear": true,
+			"supports": [
+				"F04_PUBLIC_LANDING_S",
+				"F04_PUBLIC_LANDING_N",
+				"F04_PUBLIC_LANDING_W",
+				"F04_PUBLIC_LANDING_W_SHAFT_1",
+				"F04_PUBLIC_LANDING_W_SHAFT_2",
+				"F04_PUBLIC_LANDING_W_SHAFT_3"
+			],
+			"units": [
+				"4A",
+				"4B",
+				"4C",
+				"4D"
+			]
+		},
+		{
+			"id": "F03_LANDING",
+			"north_stance_clear": true,
+			"plaque_stance_clear": true,
+			"supports": [
+				"F03_PUBLIC_LANDING_S",
+				"F03_PUBLIC_LANDING_N",
+				"F03_PUBLIC_LANDING_W",
+				"F03_PUBLIC_LANDING_W_SHAFT_1",
+				"F03_PUBLIC_LANDING_W_SHAFT_2",
+				"F03_PUBLIC_LANDING_W_SHAFT_3"
+			],
+			"units": [
+				"3A",
+				"3B",
+				"3C",
+				"3D"
+			]
+		},
+		{
+			"id": "F01_LANDING",
+			"north_stance_clear": true,
+			"plaque_stance_clear": true,
+			"supports": [
+				"F01_PUBLIC_LANDING_S",
+				"F01_PUBLIC_LANDING_N",
+				"F01_PUBLIC_LANDING_W",
+				"F01_PUBLIC_LANDING_W_SHAFT_1",
+				"F01_PUBLIC_LANDING_W_SHAFT_3",
+				"F01_PUBLIC_LANDING_E"
+			],
+			"units": [
+				"1A",
+				"1D"
+			]
+		},
+		{
+			"id": "F05_LANDING",
+			"north_stance_clear": true,
+			"plaque_stance_clear": true,
+			"supports": [
+				"F05_PUBLIC_LANDING_S",
+				"F05_PUBLIC_LANDING_N",
+				"F05_PUBLIC_LANDING_W",
+				"F05_PUBLIC_LANDING_W_SHAFT_1",
+				"F05_PUBLIC_LANDING_W_SHAFT_2",
+				"F05_PUBLIC_LANDING_W_SHAFT_3"
+			],
+			"units": [
+				"5A",
+				"5B",
+				"5C",
+				"5D"
+			]
+		},
+		{
+			"id": "F06_LANDING",
+			"north_stance_clear": true,
+			"plaque_stance_clear": true,
+			"supports": [
+				"F06_PUBLIC_LANDING_S",
+				"F06_PUBLIC_LANDING_N",
+				"F06_PUBLIC_LANDING_W",
+				"F06_PUBLIC_LANDING_W_SHAFT_1",
+				"F06_PUBLIC_LANDING_W_SHAFT_2",
+				"F06_PUBLIC_LANDING_W_SHAFT_3"
+			],
+			"units": [
+				"6A",
+				"6B",
+				"6C",
+				"6D"
+			]
+		}
+	],
+	"scope": "Loaded owners, exact floor queries and capsule-checked renders only. Posed capture stations are not played circulation or runtime acceptance."
+}

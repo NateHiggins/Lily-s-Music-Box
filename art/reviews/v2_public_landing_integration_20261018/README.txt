@@ -1,0 +1,1 @@
+Evidence class: INERT. Original diagnostic run wrappers and byte-matched raw logs. Walk1 fails physical F01 connectivity; walk2 exposes grid snap; walk3 passes 748 points. Review4 precedes the F01 platform repair. These diagnostics grant no runtime or human acceptance. Original schema-2 played proof is published separately.

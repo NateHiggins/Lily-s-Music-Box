@@ -70,9 +70,12 @@ all five required native fixture preflights pass. Their unchanged native visual
 reviews are reused. Only four new, inspected test dependencies are appended to
 the existing spatial manifest; historical rows are preserved.
 
-The source-bound landing contract, renewed loaded render review and broad
-surface/service/home/upper qualifications are running in one serial lane batch.
-No successful result is claimed in advance.
+The original landing1 contract passes 41 checks and 748 collision-bearing
+waypoints with zero failures, six actual landing claims and 3/0 measured object
+retirement. Review5 passes 125 checks with zero failures; all six plaque close-ups
+and the new F01 east passage render were inspected. These seven captures are
+archived with their original matching wrapper/logs. The broad surface/service/
+home/upper qualifications remain running in the same serial lane batch.
 
 The new source intentionally expires broad qualification. The changed-schema
 native fixtures needed by the surface pass must be renewed through their owning
