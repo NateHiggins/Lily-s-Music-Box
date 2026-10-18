@@ -36,6 +36,14 @@ reference and review scripts participate in the surface input digest. This
 matters because a zero-origin source bench alone cannot establish that the
 transformed production room produces the same fitted instances.
 
+The clean preflight refused the old front-trim discovery binding after the
+millwork source changed. A new windowed discovery observed all 9,085 source
+instances exactly equal to the prior snapshot. The existing projection remains
+42 fittings and 154 bounded cuts. Only the newly observed binding is published;
+the prior snapshot, original run and exact comparison remain under
+**trim_discovery/**. Five front-trim tools tests pass. No old runtime receipt
+was repinned to the new source.
+
 The first startup probe was explicitly stopped after its source preparation
 failed, before it could produce a valid profile. A later headless profile
 refused a MultiMesh trim pose. Neither is accepted as a successful world run.
