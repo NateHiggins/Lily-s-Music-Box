@@ -132,11 +132,11 @@ alter the protected geometry, historic runtime receipts or completion policy.
     REPORT - V2-PUBLIC-REGIONS - 2026-10-18
     Branch / HEAD / origin/main / merge-base: main / 7d59b519 (source checkpoint; current four runtime proofs published) / 9928c343 / 9928c343
     Worktree clean at end: no; inherited UID/import, enamel metadata, old receipts and unrelated M08F edits excluded.
-    Protected boundary and selector: historical receipt unchanged; v2 default and explicit v1 rollback pass focused checks. Final candidate verification pending.
+    Protected boundary and selector: historical receipt unchanged; v2 default and explicit v1 rollback pass focused checks. Clean candidate8d1ce179 verifies 17/17 unchanged, selector v2 and zero regressions against9928c343.
     Ledger before -> source-only after: region.arcade_portal/throat/hall/construction_seam ABSENT -> PROGRAMMED; no spatial or runtime acceptance granted. Existing broad proofs correctly expire with current source changes.
-    Gates: seven public-region checks and 30 focused digest/preflight/source checks pass; reader NEW0; spatial audit clean; recipe projections0/125 wrong; UV/texture import policy checks pass. Current surface/service/access proofs qualify; final clean zero-regression comparison pending.
+    Gates: seven public-region checks and 30 focused digest/preflight/source checks pass; reader NEW0; spatial audit clean; recipe projections0/125 wrong; UV/texture import policy checks pass. Current surface/service/access proofs qualify; clean candidate8d1ce179 reports zero regressions, 86 gates including74 tools suites and zero design lint errors.
     Godot receipts: walk2 PASS60/0 with42 played legs; bench2 PASS60/0; audio2 PASS50/0; m11a15 PASS43/0 with objects-10/resources0/orphans0 and no retained audio bindings.
     Changes outside expected boundary: deferred animated-body readback and semantic audio cache lifecycle fixes were discovered by real fixture replay; strict assertions retained.
     Open findings: public-region formal proof integration, traffic/circulation, landing programmes, acoustics, visual defects and human acceptance remain.
     Decision needed from owner: none for this authorized implementation and verification.
-    Current surface/service/access qualification is complete for the limited checkpoint; final clean comparison pending. No whole-V2 completion or human acceptance claim.
+    Current surface/service/access qualification is complete for the limited checkpoint; clean candidate8d1ce179 passes comparison against9928c343. Ready to push the limited checkpoint; no whole-V2 completion or human acceptance claim.

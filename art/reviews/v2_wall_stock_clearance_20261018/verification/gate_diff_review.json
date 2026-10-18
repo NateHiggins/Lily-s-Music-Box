@@ -1,0 +1,17 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Manual review of five gate-path diffs identified by candidate verifier; no waived regression or changed acceptance threshold.",
+  "manifest": {
+    "existing_values_changed": 0,
+    "removed": "Obsolete F01_DOOR_06 lookup in passage.configure is removed in production and replaced by registered public-region body transform.",
+    "added_test_dependencies": 12,
+    "unicode_serialization": "Equivalent parsed JSON values; escaping-only display changes."
+  },
+  "tests": [
+    "Five bounded native-output safeguards retain original full-family count and prevent partial installation overwrite.",
+    "Six fixture source-binding tests add stale/missing/path-escape/empty-fixture negatives and LF/binary portability coverage; original checks retained.",
+    "Two digest tests add transitive helper and binary dependency coverage.",
+    "Seven public-region tests independently preserve frames, owner census, existing records, concave dogleg, real datums and city registration."
+  ],
+  "result": "Reviewed; original assertions are retained or strengthened, not waived."
+}

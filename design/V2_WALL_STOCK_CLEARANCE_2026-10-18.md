@@ -93,8 +93,13 @@ technical nonregression pass. The original physical service contract passes
 cohort passes 69 rooms / 11 legs / 989 checks. Each has zero failures. Their
 original current-source contracts, matching wrapper receipts and compressed raw
 logs are validated and published. The cohorts retire all 10 and 13 tracked
-world/driver nodes respectively, with none retained. Final clean comparison
-is pending; these checks do not grant whole-V2 or human acceptance.
+world/driver nodes respectively, with none retained. Clean candidate **8d1ce179** passes comparison with **9928c343**: zero
+regressions, four public-region programming improvements, all 17 protected
+paths unchanged, V2 selected and zero design lint errors. The 86-gate board
+includes 74 tools suites; reader NEW0. The clean owned verification checkout
+uses static in-place verification; Godot ran separately in the canonical
+checkout, with original current-source receipts. No fresh Godot import or
+human/photoreal/whole-V2 acceptance is claimed.
 Seven pre-existing Texture RID shutdown warnings remain; no script error or
 failed surface check occurred. They are not hidden or claimed repaired.
 Appearance remains an incremental review: coarse cloth, repetitive timber,
@@ -105,12 +110,12 @@ other model/material defects and broader V2 work remain open.
     REPORT - V2-WALL-STOCK-CLEARANCE - 2026-10-18
     Branch / HEAD / origin/main / merge-base: main / 7d59b519 (source checkpoint) / 9928c34361cb7315270917d4d79c02b137e78a5a / 9928c34361cb7315270917d4d79c02b137e78a5a
     Worktree clean at end: no; inherited UID/import, enamel, old receipt and unrelated M08F changes excluded.
-    Protected 17/17: final candidate comparison pending. Selector v2, explicit v1 rollback retained.
-    Ledger before -> after: final qualified comparison pending; no document acceptance grant.
-    Gates: reader NEW0; native source/import preflight passes; current four runtime proofs qualify. Final clean candidate board comparison pending.
+    Protected 17/17: unchanged against merge-base in clean candidate verification. Selector v2, explicit v1 rollback retained.
+    Ledger before -> after: blockers unchanged at 0 / 1 / 48 / 25 / 65 / 67. Four public regions ABSENT -> PROGRAMMED only; no document acceptance grant.
+    Gates: reader NEW0; native source/import preflight passes; current four runtime proofs qualify. Clean candidate8d1ce179: 86 gates /74 tools suites, zero regressions, zero lint errors; no accepted regression or suite waiver.
     Godot receipts: original surface6 PASS35051/0; service1 PASS360/0; home1 PASS909/0; upper1 PASS989/0. Successful test-written runtime contracts are published with matching wrapper receipts/raw logs. Corner bench PASS90/0 is diagnostic only. Interrupted/failed runs remain diagnostic.
     Numbers: corrected native139 variants /2725 closed stocks /622 partitions /593 own bearings; five changed internal-join groups;21 exact subset matches.
     Changes outside expected boundary: safe native preflight tooling and the retained street-box test correction; actual geometry/UV checks replace a concrete resource-class assumption. No authority or contact tolerance weakened.
     Open findings: twenty pre-existing riser-mark context failures and the conduit branch-join diagnostic; broader art/gameplay/region work and human acceptance remain open.
     Decision needed from owner: none for this authorized fitting and verification work.
-    Runtime qualification complete for this limited checkpoint; clean final comparison pending.
+    READY to push this verified limited checkpoint. Full V2 and human acceptance remain incomplete.
