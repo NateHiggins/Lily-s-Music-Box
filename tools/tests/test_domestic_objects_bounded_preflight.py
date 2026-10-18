@@ -48,3 +48,6 @@ class BoundedNativePreflightTest(unittest.TestCase):
         self.plan["instances"].pop()
         with self.assertRaises(AssertionError):
             self.run_guard(self.root, "")
+
+if __name__ == "__main__":
+    unittest.main()
