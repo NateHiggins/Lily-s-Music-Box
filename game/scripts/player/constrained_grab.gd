@@ -4,6 +4,7 @@ var player: Node3D
 var target: Dictionary = {}
 var contact := Vector3.ZERO
 var changed := false
+var _motion_origin: Variant
 var _holder_pose := Transform3D.IDENTITY
 
 func _init(holder: Node3D) -> void:
@@ -56,6 +57,7 @@ func acquire(candidate: Dictionary) -> bool:
 	target = candidate
 	contact = target.part.to_local(candidate.hit_position)
 	changed = false
+	_motion_origin=target.read.call()
 	_holder_pose=player.global_transform
 	return true
 
@@ -78,14 +80,27 @@ func follow_holder() -> void:
 
 func release(notify_change := true) -> void:
 	if not active(): return
+	_observe_motion()
 	var old := target
+	var accepted_change:=changed
 	target = {}
+	changed=false
 	if is_instance_valid(old.get("owner")):
 		if old.has("owns") and not old.owns.call(): changed=false;return
 		if old.has("end"): old.end.call()
-		if changed and notify_change:
+		if accepted_change and notify_change:
 			player.world_modified.emit(old.owner.global_position, str(old.owner.name))
 	changed = false
+
+func _observe_motion() -> void:
+	# AnimatableBody3D may publish an accepted transform on the next physics
+	# tick. Observe the real readback, not just the immediate setter result.
+	if not active() or not is_instance_valid(target.get("part")) or not is_instance_valid(target.get("owner")) or not is_instance_valid(target.get("frame")):return
+	var current: Variant=target.read.call()
+	if current is Vector3 and _motion_origin is Vector3:
+		changed=changed or not current.is_equal_approx(_motion_origin)
+	elif typeof(current) in [TYPE_FLOAT,TYPE_INT] and typeof(_motion_origin) in [TYPE_FLOAT,TYPE_INT]:
+		changed=changed or not is_equal_approx(float(current),float(_motion_origin))
 
 func validate() -> void:
 	if not active(): return
@@ -95,6 +110,7 @@ func validate() -> void:
 	if target.has("owns") and not target.owns.call():
 		target={};changed=false
 		return
+	_observe_motion()
 	if player.call_locked or player.mouse_released \
 			or (not player.touch_input and not player.inspecting() and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) \
 			or not target.part.is_inside_tree() \

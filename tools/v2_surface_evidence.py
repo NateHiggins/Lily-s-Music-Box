@@ -75,6 +75,9 @@ def inputs(root=ROOT):
         for filename in ('material.json','albedo.png','normal.png','roughness.png','height.png'):
             paths.add(root/f'art/textures/procedural/{key}/{filename}')
     paths.add(root/'game/tests/v2_control_finish_review.gd')
+    paths.update(root/p for p in ('tools/build_v2_public_regions.py',
+        'game/tests/public_region_programme_bench.gd',
+        'game/tests/public_region_walk_probe.gd'))
     paths.update(root/p for p in ('game/tests/radiator_joint_review.gd',
         'art/blender/radiator_mechanisms.blend','art/tools/build_radiator_cast_iron.py',
         'art/textures/procedural/radiator_cast_iron/material.json',

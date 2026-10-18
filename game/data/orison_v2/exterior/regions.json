@@ -11,13 +11,163 @@
       "id": "REGION_STREET",
       "kind": "street",
       "lineage_id": "street",
-      "boundary": [[-20.3,0],[22.5,0],[22.5,-3.16],[25.5,-3.16],[25.5,4.955],[22,4.955],[22,18.521],[-20.3,18.521]]
+      "boundary": [
+        [
+          -20.3,
+          0
+        ],
+        [
+          22.5,
+          0
+        ],
+        [
+          22.5,
+          -3.16
+        ],
+        [
+          25.5,
+          -3.16
+        ],
+        [
+          25.5,
+          4.955
+        ],
+        [
+          22,
+          4.955
+        ],
+        [
+          22,
+          18.521
+        ],
+        [
+          -20.3,
+          18.521
+        ]
+      ]
     },
     {
       "id": "REGION_SHOPS",
       "kind": "shops",
       "lineage_id": "shopfronts",
-      "boundary": [[16.455,-10.575],[20.855,-10.575],[20.855,2.205],[16.455,2.205]]
+      "boundary": [
+        [
+          16.455,
+          -10.575
+        ],
+        [
+          20.855,
+          -10.575
+        ],
+        [
+          20.855,
+          2.205
+        ],
+        [
+          16.455,
+          2.205
+        ]
+      ]
+    },
+    {
+      "id": "REGION_CONSTRUCTION_SEAM",
+      "kind": "construction_seam",
+      "lineage_id": "entrance_apron",
+      "boundary": [
+        [
+          19.0,
+          1.7
+        ],
+        [
+          22.5,
+          1.7
+        ],
+        [
+          22.5,
+          -3.0
+        ],
+        [
+          25.5,
+          -3.0
+        ],
+        [
+          25.5,
+          4.8
+        ],
+        [
+          19.0,
+          4.8
+        ]
+      ]
+    },
+    {
+      "id": "REGION_ARCADE_PORTAL",
+      "kind": "arcade_portal",
+      "lineage_id": "arcade_portal",
+      "boundary": [
+        [
+          6.300000000000001,
+          17.261000000000003
+        ],
+        [
+          20.700000000000003,
+          17.261000000000003
+        ],
+        [
+          20.700000000000003,
+          23.455
+        ],
+        [
+          6.300000000000001,
+          23.455
+        ]
+      ]
+    },
+    {
+      "id": "REGION_ARCADE_THROAT",
+      "kind": "arcade_throat",
+      "lineage_id": "arcade_portal",
+      "boundary": [
+        [
+          10.78,
+          18.521
+        ],
+        [
+          17.22,
+          18.521
+        ],
+        [
+          17.22,
+          28.805
+        ],
+        [
+          10.78,
+          28.805
+        ]
+      ]
+    },
+    {
+      "id": "REGION_ARCADE_HALL",
+      "kind": "arcade_hall",
+      "lineage_id": "arcade_portal",
+      "boundary": [
+        [
+          3.78,
+          28.554999999999993
+        ],
+        [
+          24.22,
+          28.554999999999993
+        ],
+        [
+          24.22,
+          55.05499999999999
+        ],
+        [
+          3.78,
+          55.05499999999999
+        ]
+      ]
     }
   ],
   "surface_templates": [
@@ -25,25 +175,96 @@
       "id": "TEMPLATE_STREET_SEGMENT_V1",
       "kind": "street",
       "lineage_id": "street",
-      "boundary_xz_m": [-20.3,-3.16,25.5,18.521],
+      "boundary_xz_m": [
+        -20.3,
+        -3.16,
+        25.5,
+        18.521
+      ],
       "surfaces": [
         {
           "id": "pavement",
           "kind": "walkable",
-          "point_m": [2.6,0.0,2.4775],
-          "u_axis": [1.0,0.0,0.0],
-          "v_axis": [0.0,0.0,1.0],
-          "normal": [0.0,1.0,0.0],
-          "size_m": [45.8,4.955]
+          "point_m": [
+            2.6,
+            0.0,
+            2.4775
+          ],
+          "u_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "v_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "size_m": [
+            45.8,
+            4.955
+          ]
         },
         {
           "id": "orison_threshold",
           "kind": "threshold",
-          "point_m": [0.0,0.0,0.0],
-          "u_axis": [1.0,0.0,0.0],
-          "v_axis": [0.0,1.0,0.0],
-          "normal": [0.0,0.0,1.0],
-          "size_m": [1.4,2.5]
+          "point_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "u_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "v_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "size_m": [
+            1.4,
+            2.5
+          ]
+        },
+        {
+          "id": "arcade_crossing",
+          "kind": "walkable",
+          "point_m": [
+            14.0,
+            0,
+            11.738
+          ],
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            0,
+            1
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            2.5,
+            13.566
+          ]
         }
       ],
       "placements": [
@@ -51,29 +272,136 @@
           "id": "orison_exit",
           "purpose": "player route begins outside Orison",
           "surface_id": "pavement",
-          "offset_uvn_m": [-2.5999999999999996,-1.8975,0.04],
-          "facing_local": [0.0,0.0,1.0]
+          "offset_uvn_m": [
+            -2.5999999999999996,
+            -1.8975,
+            0.04
+          ],
+          "facing_local": [
+            0.0,
+            0.0,
+            1.0
+          ]
         },
         {
           "id": "pavement_out",
           "purpose": "turn along the Orison-side pavement",
           "surface_id": "pavement",
-          "offset_uvn_m": [-2.5999999999999996,1.5225,0.04],
-          "facing_local": [1.0,0.0,0.0]
+          "offset_uvn_m": [
+            -2.5999999999999996,
+            1.5225,
+            0.04
+          ],
+          "facing_local": [
+            1.0,
+            0.0,
+            0.0
+          ]
         },
         {
           "id": "route_overview_eye",
           "purpose": "player-height route-origin stance retaining Orison and outbound pavement",
           "surface_id": "pavement",
-          "offset_uvn_m": [-1.5999999999999996,2.0225,1.41],
-          "facing_local": [0.64,0.0,-0.77]
+          "offset_uvn_m": [
+            -1.5999999999999996,
+            2.0225,
+            1.41
+          ],
+          "facing_local": [
+            0.64,
+            0.0,
+            -0.77
+          ]
         },
         {
           "id": "route_overview_target",
           "purpose": "shared Orison-entrance and outbound-pavement look target",
           "surface_id": "pavement",
-          "offset_uvn_m": [1.2000000000000002,-2.2775,1.55],
-          "facing_local": [0.55,0.0,-0.84]
+          "offset_uvn_m": [
+            1.2000000000000002,
+            -2.2775,
+            1.55
+          ],
+          "facing_local": [
+            0.55,
+            0.0,
+            -0.84
+          ]
+        },
+        {
+          "id": "public_pavement_clear",
+          "purpose": "Clear centre of the retained pavement",
+          "surface_id": "pavement",
+          "offset_uvn_m": [
+            -2.6,
+            0,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "arcade_pavement_turn",
+          "purpose": "Pavement approach to arcade crossing",
+          "surface_id": "pavement",
+          "offset_uvn_m": [
+            11.4,
+            0,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "arcade_crossing_near",
+          "purpose": "Crossing near-side stance",
+          "surface_id": "arcade_crossing",
+          "offset_uvn_m": [
+            0,
+            -6.383,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "arcade_crossing_far",
+          "purpose": "Crossing far-side stance",
+          "surface_id": "arcade_crossing",
+          "offset_uvn_m": [
+            0,
+            6.083,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "construction_approach",
+          "purpose": "Covered construction route arrival",
+          "surface_id": "pavement",
+          "offset_uvn_m": [
+            16.9,
+            0.5225,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
         }
       ]
     },
@@ -81,52 +409,152 @@
       "id": "TEMPLATE_BODEGA_CELL_V1",
       "kind": "shop",
       "lineage_id": "shopfronts",
-      "boundary_xz_m": [-2.2,-12.70,2.2,0.08],
+      "boundary_xz_m": [
+        -2.2,
+        -12.7,
+        2.2,
+        0.08
+      ],
       "surfaces": [
         {
           "id": "floor",
           "kind": "walkable",
-          "point_m": [0.0,0.0,-5.27],
-          "u_axis": [1.0,0.0,0.0],
-          "v_axis": [0.0,0.0,1.0],
-          "normal": [0.0,1.0,0.0],
-          "size_m": [4.4,10.54]
+          "point_m": [
+            0.0,
+            0.0,
+            -5.27
+          ],
+          "u_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "v_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "size_m": [
+            4.4,
+            10.54
+          ]
         },
         {
           "id": "threshold",
           "kind": "threshold",
-          "point_m": [0.0,0.0,0.0],
-          "u_axis": [1.0,0.0,0.0],
-          "v_axis": [0.0,1.0,0.0],
-          "normal": [0.0,0.0,1.0],
-          "size_m": [1.2,2.5]
+          "point_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "u_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "v_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "size_m": [
+            1.2,
+            2.5
+          ]
         },
         {
           "id": "counter_top",
           "kind": "service",
-          "point_m": [-1.25,0.92,-2.0],
-          "u_axis": [1.0,0.0,0.0],
-          "v_axis": [0.0,0.0,1.0],
-          "normal": [0.0,1.0,0.0],
-          "size_m": [1.55,1.15]
+          "point_m": [
+            -1.25,
+            0.92,
+            -2.0
+          ],
+          "u_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "v_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "size_m": [
+            1.55,
+            1.15
+          ]
         },
         {
           "id": "back_room_threshold",
           "kind": "threshold",
-          "point_m": [0.65,0.0,-10.56],
-          "u_axis": [-1.0,0.0,0.0],
-          "v_axis": [0.0,1.0,0.0],
-          "normal": [0.0,0.0,-1.0],
-          "size_m": [1.05,2.25]
+          "point_m": [
+            0.65,
+            0.0,
+            -10.56
+          ],
+          "u_axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "v_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "size_m": [
+            1.05,
+            2.25
+          ]
         },
         {
           "id": "receiving_floor",
           "kind": "walkable",
-          "point_m": [0,0,-11.54],
-          "u_axis": [1,0,0],
-          "v_axis": [0,0,1],
-          "normal": [0,1,0],
-          "size_m": [4.4,2.0]
+          "point_m": [
+            0,
+            0,
+            -11.54
+          ],
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            0,
+            1
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            4.4,
+            2.0
+          ]
         }
       ],
       "placements": [
@@ -134,106 +562,649 @@
           "id": "street_alignment",
           "purpose": "street route alignment outside the shop",
           "surface_id": "threshold",
-          "offset_uvn_m": [0.0,0.04,3.4],
-          "facing_local": [0.0,0.0,-1.0]
+          "offset_uvn_m": [
+            0.0,
+            0.04,
+            3.4
+          ],
+          "facing_local": [
+            0.0,
+            0.0,
+            -1.0
+          ]
         },
         {
           "id": "exterior_stance",
           "purpose": "storefront interaction stance",
           "surface_id": "threshold",
-          "offset_uvn_m": [0.0,0.04,0.95],
-          "facing_local": [0.0,0.0,-1.0]
+          "offset_uvn_m": [
+            0.0,
+            0.04,
+            0.95
+          ],
+          "facing_local": [
+            0.0,
+            0.0,
+            -1.0
+          ]
         },
         {
           "id": "interior_arrival",
           "purpose": "first supported position inside the shop",
           "surface_id": "floor",
-          "offset_uvn_m": [0.0,4.15,0.04],
-          "facing_local": [0.0,0.0,-1.0]
+          "offset_uvn_m": [
+            0.0,
+            4.15,
+            0.04
+          ],
+          "facing_local": [
+            0.0,
+            0.0,
+            -1.0
+          ]
         },
         {
           "id": "service_stance",
           "purpose": "maintenance-shop counter stance",
           "surface_id": "floor",
-          "offset_uvn_m": [0.35,2.55,0.04],
-          "facing_local": [-1.0,0.0,0.0]
+          "offset_uvn_m": [
+            0.35,
+            2.55,
+            0.04
+          ],
+          "facing_local": [
+            -1.0,
+            0.0,
+            0.0
+          ]
         },
         {
           "id": "counter_center",
           "purpose": "maintenance-shop counter mount",
           "surface_id": "counter_top",
-          "offset_uvn_m": [0.0,-0.5,0.275],
-          "facing_local": [1.0,0.0,0.0]
+          "offset_uvn_m": [
+            0.0,
+            -0.5,
+            0.275
+          ],
+          "facing_local": [
+            1.0,
+            0.0,
+            0.0
+          ]
         },
         {
           "id": "cooler_center",
           "purpose": "cold-case fixture mount",
           "surface_id": "floor",
-          "offset_uvn_m": [1.55,-2.8,0.95],
-          "facing_local": [-1.0,0.0,0.0]
+          "offset_uvn_m": [
+            1.55,
+            -2.8,
+            0.95
+          ],
+          "facing_local": [
+            -1.0,
+            0.0,
+            0.0
+          ]
         },
         {
           "id": "aisle_a_center",
           "purpose": "first merchandise aisle mount",
           "surface_id": "floor",
-          "offset_uvn_m": [-0.75,-0.55,0.56],
-          "facing_local": [0.0,0.0,1.0]
+          "offset_uvn_m": [
+            -0.75,
+            -0.55,
+            0.56
+          ],
+          "facing_local": [
+            0.0,
+            0.0,
+            1.0
+          ]
         },
         {
           "id": "aisle_b_center",
           "purpose": "second merchandise aisle mount",
           "surface_id": "floor",
-          "offset_uvn_m": [0.75,-0.55,0.56],
-          "facing_local": [0.0,0.0,1.0]
+          "offset_uvn_m": [
+            0.75,
+            -0.55,
+            0.56
+          ],
+          "facing_local": [
+            0.0,
+            0.0,
+            1.0
+          ]
         },
         {
           "id": "inside_view",
           "purpose": "player-height interior evidence stance",
           "surface_id": "floor",
-          "offset_uvn_m": [0.25,1.85,0.04],
-          "facing_local": [0.0,0.0,-1.0]
+          "offset_uvn_m": [
+            0.25,
+            1.85,
+            0.04
+          ],
+          "facing_local": [
+            0.0,
+            0.0,
+            -1.0
+          ]
         },
         {
           "id": "delivery_aisle_entry",
           "purpose": "supported receiving route through the existing sales aisle",
           "surface_id": "floor",
-          "offset_uvn_m": [0,1.27,0.04],
-          "facing_local": [0,0,-1]
+          "offset_uvn_m": [
+            0,
+            1.27,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            -1
+          ]
         },
         {
           "id": "delivery_aisle_center",
           "purpose": "supported receiving route through the existing sales aisle",
           "surface_id": "floor",
-          "offset_uvn_m": [0,-0.55,0.04],
-          "facing_local": [0,0,-1]
+          "offset_uvn_m": [
+            0,
+            -0.55,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            -1
+          ]
         },
         {
           "id": "delivery_aisle_end",
           "purpose": "supported receiving route through the existing sales aisle",
           "surface_id": "floor",
-          "offset_uvn_m": [0,-1.93,0.04],
-          "facing_local": [0,0,-1]
+          "offset_uvn_m": [
+            0,
+            -1.93,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            -1
+          ]
         },
         {
           "id": "delivery_turn",
           "purpose": "turn past the retained cooler toward deliveries",
           "surface_id": "floor",
-          "offset_uvn_m": [0.5,-4.03,0.04],
-          "facing_local": [0,0,-1]
+          "offset_uvn_m": [
+            0.5,
+            -4.03,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            -1
+          ]
         },
         {
           "id": "receiving_before",
           "purpose": "receiving leaf approach from the sales floor",
           "surface_id": "back_room_threshold",
-          "offset_uvn_m": [0,0.04,-0.8],
-          "facing_local": [0,0,-1]
+          "offset_uvn_m": [
+            0,
+            0.04,
+            -0.8
+          ],
+          "facing_local": [
+            0,
+            0,
+            -1
+          ]
         },
         {
           "id": "receiving_arrival",
           "purpose": "supported room arrival and door stance",
           "surface_id": "receiving_floor",
-          "offset_uvn_m": [0.65,-0.11,0.04],
-          "facing_local": [0,0,1]
+          "offset_uvn_m": [
+            0.65,
+            -0.11,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TEMPLATE_CONSTRUCTION_SEAM_V2",
+      "kind": "construction_seam",
+      "lineage_id": "entrance_apron",
+      "boundary_xz_m": [
+        -3.25,
+        -3.0,
+        3.25,
+        4.8
+      ],
+      "surfaces": [
+        {
+          "id": "floor",
+          "kind": "walkable",
+          "point_m": [
+            0,
+            0,
+            3
+          ],
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            0,
+            1
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            6.5,
+            3.0999999999999996
+          ]
+        },
+        {
+          "id": "turn_floor",
+          "kind": "walkable",
+          "point_m": [
+            1.75,
+            0,
+            -0.6499999999999999
+          ],
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            0,
+            1
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            3.0,
+            4.7
+          ]
+        }
+      ],
+      "placements": [
+        {
+          "id": "under_roof",
+          "purpose": "Covered street run",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            -0.75,
+            0,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "dogleg",
+          "purpose": "Turn into the covered service dogleg",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            1.75,
+            0,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "turn_middle",
+          "purpose": "Inside the covered return",
+          "surface_id": "turn_floor",
+          "offset_uvn_m": [
+            0,
+            0,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "closure_before",
+          "purpose": "Stop before the retained closure",
+          "surface_id": "turn_floor",
+          "offset_uvn_m": [
+            0,
+            -1.4500000000000002,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TEMPLATE_ARCADE_PORTAL_V2",
+      "kind": "arcade_portal",
+      "lineage_id": "arcade_portal",
+      "boundary_xz_m": [
+        -7.699999999999999,
+        -1.259999999999998,
+        6.700000000000003,
+        4.9339999999999975
+      ],
+      "surfaces": [
+        {
+          "id": "floor",
+          "kind": "walkable",
+          "point_m": [
+            0,
+            0,
+            0
+          ],
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            0,
+            1
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            6.0,
+            1.4
+          ]
+        },
+        {
+          "id": "opening",
+          "kind": "portal",
+          "point_m": [
+            0,
+            1.6,
+            0
+          ],
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "size_m": [
+            2.5,
+            3.2
+          ]
+        }
+      ],
+      "placements": [
+        {
+          "id": "before",
+          "purpose": "Public arcade opening exterior",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0,
+            -0.7,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "inside",
+          "purpose": "Public arcade opening interior",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0,
+            0.45,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TEMPLATE_ARCADE_THROAT_V2",
+      "kind": "arcade_throat",
+      "lineage_id": "arcade_portal",
+      "boundary_xz_m": [
+        -3.2200000000000006,
+        0.0,
+        3.219999999999999,
+        10.283999999999999
+      ],
+      "surfaces": [
+        {
+          "id": "floor",
+          "kind": "walkable",
+          "point_m": [
+            0,
+            0,
+            5.142000000000001
+          ],
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            0,
+            1
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            6.0,
+            10.284000000000002
+          ]
+        }
+      ],
+      "placements": [
+        {
+          "id": "near",
+          "purpose": "Throat arrival",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0,
+            -4.142000000000001,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "middle",
+          "purpose": "Compressed arcade throat",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0,
+            0,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hall_before",
+          "purpose": "Hall threshold approach",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0,
+            4.492000000000001,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TEMPLATE_ARCADE_HALL_V2",
+      "kind": "arcade_hall",
+      "lineage_id": "arcade_portal",
+      "boundary_xz_m": [
+        -10.22,
+        -0.2500000000000071,
+        10.219999999999999,
+        26.249999999999993
+      ],
+      "surfaces": [
+        {
+          "id": "floor",
+          "kind": "walkable",
+          "point_m": [
+            0,
+            0,
+            12.999999999999996
+          ],
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            0,
+            1
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "size_m": [
+            6.0,
+            25.999999999999993
+          ]
+        }
+      ],
+      "placements": [
+        {
+          "id": "arrival",
+          "purpose": "Arcade hall arrival",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0,
+            -12.199999999999996,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "middle",
+          "purpose": "Shopfront and cart circulation",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0,
+            0,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "clock_stance",
+          "purpose": "Crossing-clock player stance",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0,
+            -2.9999999999999964,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "far_turn",
+          "purpose": "Far arcade return stance",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0,
+            11.999999999999996,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            -1
+          ]
         }
       ]
     }
@@ -246,7 +1217,11 @@
       "lineage_id": "street",
       "owner_instance_id": "",
       "owner_surface_id": "",
-      "offset_uvn_m": [0.0,0.0,0.0],
+      "offset_uvn_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
       "local_yaw_degrees": 0.0,
       "root_frame_identity": "ORISON_FRONT_DOOR_THRESHOLD",
       "semantic_identity": "ORISON_SIDE_PAVEMENT",
@@ -259,11 +1234,83 @@
       "lineage_id": "shopfronts",
       "owner_instance_id": "STREET_ORISON_01",
       "owner_surface_id": "pavement",
-      "offset_uvn_m": [16.055,-0.35250000000000004,0.0],
+      "offset_uvn_m": [
+        16.055,
+        -0.35250000000000004,
+        0.0
+      ],
       "local_yaw_degrees": 0.0,
       "root_frame_identity": "",
       "semantic_identity": "SHOP_BODEGA",
       "display_name": "BODEGA & NOTIONS"
+    },
+    {
+      "id": "CONSTRUCTION_SEAM_01",
+      "template_id": "TEMPLATE_CONSTRUCTION_SEAM_V2",
+      "region_id": "REGION_CONSTRUCTION_SEAM",
+      "lineage_id": "entrance_apron",
+      "owner_instance_id": "STREET_ORISON_01",
+      "owner_surface_id": "pavement",
+      "offset_uvn_m": [
+        19.65,
+        -2.4775,
+        0
+      ],
+      "local_yaw_degrees": 0,
+      "root_frame_identity": "",
+      "semantic_identity": "CONSTRUCTION_SEAM",
+      "display_name": "CONSTRUCTION SEAM"
+    },
+    {
+      "id": "ARCADE_PORTAL_01",
+      "template_id": "TEMPLATE_ARCADE_PORTAL_V2",
+      "region_id": "REGION_ARCADE_PORTAL",
+      "lineage_id": "arcade_portal",
+      "owner_instance_id": "STREET_ORISON_01",
+      "owner_surface_id": "pavement",
+      "offset_uvn_m": [
+        11.4,
+        16.0435,
+        0.009999999999999995
+      ],
+      "local_yaw_degrees": 0,
+      "root_frame_identity": "",
+      "semantic_identity": "ARCADE_PORTAL",
+      "display_name": "ARCADE PORTAL"
+    },
+    {
+      "id": "ARCADE_THROAT_01",
+      "template_id": "TEMPLATE_ARCADE_THROAT_V2",
+      "region_id": "REGION_ARCADE_THROAT",
+      "lineage_id": "arcade_portal",
+      "owner_instance_id": "ARCADE_PORTAL_01",
+      "owner_surface_id": "floor",
+      "offset_uvn_m": [
+        0,
+        0,
+        0
+      ],
+      "local_yaw_degrees": 0,
+      "root_frame_identity": "",
+      "semantic_identity": "ARCADE_THROAT",
+      "display_name": "ARCADE THROAT"
+    },
+    {
+      "id": "ARCADE_HALL_01",
+      "template_id": "TEMPLATE_ARCADE_HALL_V2",
+      "region_id": "REGION_ARCADE_HALL",
+      "lineage_id": "arcade_portal",
+      "owner_instance_id": "ARCADE_THROAT_01",
+      "owner_surface_id": "floor",
+      "offset_uvn_m": [
+        0,
+        5.142000000000001,
+        0
+      ],
+      "local_yaw_degrees": 0,
+      "root_frame_identity": "",
+      "semantic_identity": "ARCADE_HALL",
+      "display_name": "ARCADE HALL"
     }
   ],
   "thresholds": [
@@ -295,8 +1342,13 @@
       "id": "ROUTE_ORISON_TO_SHOP_BODEGA",
       "direction": "toward_shop",
       "lineage_id": "street",
-      "region_ids": ["REGION_STREET","REGION_SHOPS"],
-      "threshold_ids": ["THRESHOLD_SHOP_BODEGA_FRONT"],
+      "region_ids": [
+        "REGION_STREET",
+        "REGION_SHOPS"
+      ],
+      "threshold_ids": [
+        "THRESHOLD_SHOP_BODEGA_FRONT"
+      ],
       "nodes": [
         {
           "id": "ORISON_EXIT",
@@ -329,8 +1381,13 @@
       "id": "ROUTE_SHOP_BODEGA_TO_ORISON",
       "direction": "toward_orison",
       "lineage_id": "street",
-      "region_ids": ["REGION_SHOPS","REGION_STREET"],
-      "threshold_ids": ["THRESHOLD_SHOP_BODEGA_FRONT"],
+      "region_ids": [
+        "REGION_SHOPS",
+        "REGION_STREET"
+      ],
+      "threshold_ids": [
+        "THRESHOLD_SHOP_BODEGA_FRONT"
+      ],
       "nodes": [
         {
           "id": "BODEGA_INTERIOR",
@@ -354,6 +1411,268 @@
         },
         {
           "id": "ORISON_EXIT",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "orison_exit"
+        }
+      ]
+    },
+    {
+      "id": "ROUTE_STREET_TO_ARCADE",
+      "direction": "toward_shop",
+      "lineage_id": "arcade_portal",
+      "region_ids": [
+        "REGION_STREET",
+        "REGION_ARCADE_PORTAL",
+        "REGION_ARCADE_THROAT",
+        "REGION_ARCADE_HALL"
+      ],
+      "threshold_ids": [],
+      "nodes": [
+        {
+          "id": "STREET_ORISON_01__orison_exit",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "orison_exit"
+        },
+        {
+          "id": "STREET_ORISON_01__public_pavement_clear",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "public_pavement_clear"
+        },
+        {
+          "id": "STREET_ORISON_01__arcade_pavement_turn",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "arcade_pavement_turn"
+        },
+        {
+          "id": "STREET_ORISON_01__arcade_crossing_near",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "arcade_crossing_near"
+        },
+        {
+          "id": "STREET_ORISON_01__arcade_crossing_far",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "arcade_crossing_far"
+        },
+        {
+          "id": "ARCADE_PORTAL_01__before",
+          "owner_instance_id": "ARCADE_PORTAL_01",
+          "placement_id": "before"
+        },
+        {
+          "id": "ARCADE_PORTAL_01__inside",
+          "owner_instance_id": "ARCADE_PORTAL_01",
+          "placement_id": "inside"
+        },
+        {
+          "id": "ARCADE_THROAT_01__near",
+          "owner_instance_id": "ARCADE_THROAT_01",
+          "placement_id": "near"
+        },
+        {
+          "id": "ARCADE_THROAT_01__middle",
+          "owner_instance_id": "ARCADE_THROAT_01",
+          "placement_id": "middle"
+        },
+        {
+          "id": "ARCADE_THROAT_01__hall_before",
+          "owner_instance_id": "ARCADE_THROAT_01",
+          "placement_id": "hall_before"
+        },
+        {
+          "id": "ARCADE_HALL_01__arrival",
+          "owner_instance_id": "ARCADE_HALL_01",
+          "placement_id": "arrival"
+        },
+        {
+          "id": "ARCADE_HALL_01__middle",
+          "owner_instance_id": "ARCADE_HALL_01",
+          "placement_id": "middle"
+        },
+        {
+          "id": "ARCADE_HALL_01__clock_stance",
+          "owner_instance_id": "ARCADE_HALL_01",
+          "placement_id": "clock_stance"
+        },
+        {
+          "id": "ARCADE_HALL_01__far_turn",
+          "owner_instance_id": "ARCADE_HALL_01",
+          "placement_id": "far_turn"
+        }
+      ]
+    },
+    {
+      "id": "ROUTE_ARCADE_TO_STREET",
+      "direction": "toward_orison",
+      "lineage_id": "arcade_portal",
+      "region_ids": [
+        "REGION_ARCADE_HALL",
+        "REGION_ARCADE_THROAT",
+        "REGION_ARCADE_PORTAL",
+        "REGION_STREET"
+      ],
+      "threshold_ids": [],
+      "nodes": [
+        {
+          "id": "ARCADE_HALL_01__far_turn",
+          "owner_instance_id": "ARCADE_HALL_01",
+          "placement_id": "far_turn"
+        },
+        {
+          "id": "ARCADE_HALL_01__clock_stance",
+          "owner_instance_id": "ARCADE_HALL_01",
+          "placement_id": "clock_stance"
+        },
+        {
+          "id": "ARCADE_HALL_01__middle",
+          "owner_instance_id": "ARCADE_HALL_01",
+          "placement_id": "middle"
+        },
+        {
+          "id": "ARCADE_HALL_01__arrival",
+          "owner_instance_id": "ARCADE_HALL_01",
+          "placement_id": "arrival"
+        },
+        {
+          "id": "ARCADE_THROAT_01__hall_before",
+          "owner_instance_id": "ARCADE_THROAT_01",
+          "placement_id": "hall_before"
+        },
+        {
+          "id": "ARCADE_THROAT_01__middle",
+          "owner_instance_id": "ARCADE_THROAT_01",
+          "placement_id": "middle"
+        },
+        {
+          "id": "ARCADE_THROAT_01__near",
+          "owner_instance_id": "ARCADE_THROAT_01",
+          "placement_id": "near"
+        },
+        {
+          "id": "ARCADE_PORTAL_01__inside",
+          "owner_instance_id": "ARCADE_PORTAL_01",
+          "placement_id": "inside"
+        },
+        {
+          "id": "ARCADE_PORTAL_01__before",
+          "owner_instance_id": "ARCADE_PORTAL_01",
+          "placement_id": "before"
+        },
+        {
+          "id": "STREET_ORISON_01__arcade_crossing_far",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "arcade_crossing_far"
+        },
+        {
+          "id": "STREET_ORISON_01__arcade_crossing_near",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "arcade_crossing_near"
+        },
+        {
+          "id": "STREET_ORISON_01__arcade_pavement_turn",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "arcade_pavement_turn"
+        },
+        {
+          "id": "STREET_ORISON_01__public_pavement_clear",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "public_pavement_clear"
+        },
+        {
+          "id": "STREET_ORISON_01__orison_exit",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "orison_exit"
+        }
+      ]
+    },
+    {
+      "id": "ROUTE_STREET_TO_CONSTRUCTION",
+      "direction": "toward_shop",
+      "lineage_id": "entrance_apron",
+      "region_ids": [
+        "REGION_STREET",
+        "REGION_CONSTRUCTION_SEAM"
+      ],
+      "threshold_ids": [],
+      "nodes": [
+        {
+          "id": "STREET_ORISON_01__orison_exit",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "orison_exit"
+        },
+        {
+          "id": "STREET_ORISON_01__public_pavement_clear",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "public_pavement_clear"
+        },
+        {
+          "id": "STREET_ORISON_01__construction_approach",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "construction_approach"
+        },
+        {
+          "id": "CONSTRUCTION_SEAM_01__under_roof",
+          "owner_instance_id": "CONSTRUCTION_SEAM_01",
+          "placement_id": "under_roof"
+        },
+        {
+          "id": "CONSTRUCTION_SEAM_01__dogleg",
+          "owner_instance_id": "CONSTRUCTION_SEAM_01",
+          "placement_id": "dogleg"
+        },
+        {
+          "id": "CONSTRUCTION_SEAM_01__turn_middle",
+          "owner_instance_id": "CONSTRUCTION_SEAM_01",
+          "placement_id": "turn_middle"
+        },
+        {
+          "id": "CONSTRUCTION_SEAM_01__closure_before",
+          "owner_instance_id": "CONSTRUCTION_SEAM_01",
+          "placement_id": "closure_before"
+        }
+      ]
+    },
+    {
+      "id": "ROUTE_CONSTRUCTION_TO_STREET",
+      "direction": "toward_orison",
+      "lineage_id": "entrance_apron",
+      "region_ids": [
+        "REGION_CONSTRUCTION_SEAM",
+        "REGION_STREET"
+      ],
+      "threshold_ids": [],
+      "nodes": [
+        {
+          "id": "CONSTRUCTION_SEAM_01__closure_before",
+          "owner_instance_id": "CONSTRUCTION_SEAM_01",
+          "placement_id": "closure_before"
+        },
+        {
+          "id": "CONSTRUCTION_SEAM_01__turn_middle",
+          "owner_instance_id": "CONSTRUCTION_SEAM_01",
+          "placement_id": "turn_middle"
+        },
+        {
+          "id": "CONSTRUCTION_SEAM_01__dogleg",
+          "owner_instance_id": "CONSTRUCTION_SEAM_01",
+          "placement_id": "dogleg"
+        },
+        {
+          "id": "CONSTRUCTION_SEAM_01__under_roof",
+          "owner_instance_id": "CONSTRUCTION_SEAM_01",
+          "placement_id": "under_roof"
+        },
+        {
+          "id": "STREET_ORISON_01__construction_approach",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "construction_approach"
+        },
+        {
+          "id": "STREET_ORISON_01__public_pavement_clear",
+          "owner_instance_id": "STREET_ORISON_01",
+          "placement_id": "public_pavement_clear"
+        },
+        {
+          "id": "STREET_ORISON_01__orison_exit",
           "owner_instance_id": "STREET_ORISON_01",
           "placement_id": "orison_exit"
         }

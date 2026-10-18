@@ -1,0 +1,29 @@
+{
+  "evidence_class": "INERT",
+  "walk2": {
+    "checks": 60,
+    "legs": 42,
+    "failures": 0,
+    "reviewed_images": [
+      "walk2/public_arcade_portal.png",
+      "walk2/public_arcade_hall.png",
+      "walk2/public_construction_dogleg.png"
+    ]
+  },
+  "bench2": {
+    "checks": 60,
+    "failures": 0
+  },
+  "audio2": {
+    "checks": 50,
+    "failures": 0
+  },
+  "m11a15": {
+    "checks": 43,
+    "failures": 0,
+    "retained_resources": 0,
+    "object_delta": -10,
+    "orphan_delta": 0
+  },
+  "scope": "Technical diagnostics only; source-bound broad qualification pending. No human, photoreal, spatial ledger or V2 completion acceptance."
+}

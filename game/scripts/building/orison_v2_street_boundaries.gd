@@ -6,6 +6,13 @@ const SOURCE := "res://data/orison_v2/exterior/construction_shed.json"
 const NATIVE := "res://assets/props/construction_shed.glb"
 const NATIVE_ORIGIN := Vector3(22.25,0,0)
 var detail: ExteriorDetailPass
+var startup_failed:=false
+var _programmes: Variant
+
+func configure(programmes: Variant) -> bool:
+	if is_inside_tree() or programmes==null:return false
+	_programmes=programmes
+	return true
 
 static func valid_source_header(source: Variant) -> bool:
 	if source is not Dictionary: return false
@@ -15,6 +22,11 @@ static func valid_source_header(source: Variant) -> bool:
 			and source.get("boxes") is Array and source.get("lights") is Array
 
 func _ready() -> void:
+	if _programmes==null:_programmes=preload("res://scripts/building/orison_v2_public_region_programmes.gd").load_default()
+	if _programmes==null:startup_failed=true;push_error("Construction public programme is invalid");return
+	var registered: Transform3D=_programmes.body_transform("StreetBoundaries")
+	if not registered.origin.is_finite():startup_failed=true;push_error("Construction frame is invalid");return
+	transform=registered
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(SOURCE))
 	if not valid_source_header(source):
 		push_error("Street boundaries require the supported front-door source frame")

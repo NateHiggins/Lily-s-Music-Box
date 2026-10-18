@@ -82,6 +82,7 @@ var building_debug: BuildingDebug
 var mina_infestation: Node3D
 var _infestation_revision := 0
 var _exterior_resolver: Variant
+var public_regions: Variant
 var _connection: Dictionary = {}
 
 func _read_street_frame() -> Dictionary:
@@ -691,6 +692,8 @@ func debug_destinations() -> Dictionary:
 	return destinations
 
 func _compose_exterior() -> bool:
+	public_regions=preload("res://scripts/building/orison_v2_public_region_programmes.gd").new()
+	if not public_regions.configure(_exterior_resolver):return false
 	shop_service = MaintenanceShopService.new()
 	shop_service.name = "MaintenanceShopService"
 	add_child(shop_service)
@@ -702,7 +705,8 @@ func _compose_exterior() -> bool:
 	if not exterior_cell.configure_dependencies({"player": player,
 			"work_orders": work_orders, "maintenance_inventory": maintenance_inventory,
 			"shop_service": shop_service, "spatial_resolver": _exterior_resolver,
-			"geometry_source": _connection.geometry}):
+			"geometry_source": _connection.geometry,
+			"geometry_instance_ids":public_regions.bounded_instance_ids()}):
 		exterior_cell.free()
 		exterior_cell = null
 		return false
@@ -738,10 +742,12 @@ func _compose_exterior() -> bool:
 		return false
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
+	if not street_boundaries.configure(public_regions):street_boundaries.free();return false
 	add_child(street_boundaries)
+	if street_boundaries.startup_failed:return false
 	passage_region = PassageRegion.new()
 	passage_region.name = "VantryArcade"
-	if not passage_region.configure(shop_service):
+	if not passage_region.configure(shop_service,public_regions):
 		passage_region.free()
 		passage_region = null
 		return false
@@ -767,6 +773,7 @@ func _compose_exterior() -> bool:
 		push_error("V2 SIGNAGE: %s" % [signage.errors])
 		return false
 	adapter.root.set_meta("v2_native_signage",signage)
+	if not public_regions.bind(self):return false
 	return bool(exterior_cell.set_route_guides_visible(false).get("ok", false))
 
 func _compose_call_station(terminal: SignalTerminalProp) -> bool:
@@ -1005,6 +1012,7 @@ func shutdown_for_tests() -> void:
 		adapter.restore_all(true)
 
 func _exit_tree() -> void:
+	if public_regions!=null:public_regions.teardown();public_regions=null
 	if is_instance_valid(household_state): household_state.shutdown()
 	if is_instance_valid(mirror_renderer): mirror_renderer.shutdown()
 	if _exterior_resolver != null:

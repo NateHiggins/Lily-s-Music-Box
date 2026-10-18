@@ -144,6 +144,17 @@ func _ready() -> void:
 			int(policy.census().history) == 0
 			and int(policy.census().catalog_size) == 31
 			and int(policy.census().mix_requests) == 0)
+	# Expired slots are reused: the first owner's old cache references must
+	# still retire even when another source now occupies its former slot.
+	policy.advance_for_test(60.0)
+	_check("lifecycle owner presents its latch",policy.present_3d(&"interaction.door_latch",Vector3.ZERO,1.0,&"cache_owner"))
+	policy.advance_for_test(60.0)
+	_check("same owner replaces latch with movement",policy.present_3d(&"interaction.door_move",Vector3.ZERO,1.0,&"cache_owner"))
+	policy.advance_for_test(60.0)
+	_check("unrelated source reuses the expired slot",policy.present_3d(&"interaction.counter_empty",Vector3.ZERO,1.0,&"other_cache_owner"))
+	policy.release_source(&"cache_owner")
+	_check("teardown retires earlier owner streams after slot reuse without silencing another source",not PropAudio._cache.has("tick") and not PropAudio._cache.has("door_squeak") and not policy._source_streams.has(&"cache_owner") and policy.active_voice(&"other_cache_owner")!=null)
+	policy.release_source(&"other_cache_owner")
 	_finish(policy)
 
 

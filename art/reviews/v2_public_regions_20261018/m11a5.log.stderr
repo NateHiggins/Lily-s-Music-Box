@@ -1,0 +1,33 @@
+ERROR:   FAIL  PlayerController ray opens the real storefront leaf
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1131)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:360)
+ERROR:   FAIL  same collision-bearing controller follows the semantic return to Orison
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1131)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:409)
+       [2] _walk_named (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:846)
+ERROR:   FAIL  save contains semantic exterior identities and no raw world coordinates
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1131)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:471)
+       [2] _walk_named (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:846)
+ERROR:   FAIL  reconstruction restores the bucket-driven depleted fixture state
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1131)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:528)
+ERROR:   FAIL  save, destruction, reload, and source reconstruction preserve exact semantic facts
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1131)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:566)
+ERROR:   FAIL  teardown retains zero ObjectDB instances
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1131)
+       [1] _ready (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:141)
+       [2] _settle_teardown (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:911)

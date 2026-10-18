@@ -97,6 +97,9 @@ var _old_save_path := ""
 
 
 func _ready() -> void:
+	if DisplayServer.get_name()=="headless":
+		push_error("M11A direct mouse manipulation requires a windowed broker run")
+		get_tree().quit(64);return
 	var save_directory := ProjectSettings.globalize_path(SAVE_PATH).get_base_dir()
 	var directory_error := DirAccess.make_dir_recursive_absolute(save_directory)
 	if directory_error != OK:
@@ -118,6 +121,7 @@ func _ready() -> void:
 	# ownership baseline. Every subsequently tested module must return here.
 	await _warm_and_release()
 	_baseline_counts = _object_counts()
+	_receipt["teardown"]["caches_before"]=_cache_diagnostic()
 	_receipt["teardown"]["baseline"] = _baseline_counts.duplicate(true)
 
 	_test_authoritative_bucket_reader()
@@ -125,7 +129,15 @@ func _ready() -> void:
 	await _test_rotated_piece_two()
 	_test_protected_boundary()
 	await _settle_teardown()
+	# Wait a bounded interval for asynchronous renderer/input retirement;
+	# the final comparison still permits no positive amplification.
+	for frame in 60:
+		var now:=_object_counts()
+		if int(now.objects)<=int(_baseline_counts.objects) and int(now.resources)<=int(_baseline_counts.resources):break
+		await get_tree().physics_frame
 	var final_counts: Dictionary = _object_counts()
+	_check(AudioPolicy._source_streams.is_empty(),"all retired exterior owners release remembered audio cache bindings")
+	_receipt["teardown"]["caches_after"]=_cache_diagnostic()
 	_receipt["teardown"]["final"] = final_counts.duplicate(true)
 	var orphan_delta := int(final_counts.orphan_nodes) \
 			- int(_baseline_counts.orphan_nodes)
@@ -146,7 +158,11 @@ func _ready() -> void:
 func _warm_and_release() -> void:
 	var warm: Node = _cell_scene.instantiate()
 	add_child(warm)
+	(warm.get("player") as PlayerController).set_mouse_released(false)
 	await get_tree().physics_frame
+	# A windowed input proof must actually draw its warmed fixture before
+	# the strict resource baseline; one physics tick can precede first draw.
+	for frame in 5:await RenderingServer.frame_post_draw
 	if warm.has_method("shutdown_for_tests"):
 		warm.call("shutdown_for_tests")
 	remove_child(warm)
@@ -314,7 +330,7 @@ func _test_primary_runtime_route_and_save() -> void:
 
 	var geometry: Dictionary = _read_json(GEOMETRY_PATH)
 	var declared: Dictionary = _declared_geometry_counts(geometry,
-			resolver.instance_ids())
+			[PRIMARY_STREET, PRIMARY_SHOP])
 	var cost: Dictionary = module.call("cost_report")
 	_receipt["route"]["cost"] = cost.duplicate(true)
 	_receipt["route"]["declared_records"] = declared
@@ -684,6 +700,8 @@ func _test_rotated_piece_two() -> void:
 			"configure_dependencies", {
 				"spatial_resolver": resolver,
 				"shop_bucket_registry": registry,
+				"geometry_instance_ids": [PRIMARY_STREET, PRIMARY_SHOP,
+						SECOND_STREET, SECOND_SHOP],
 			}))
 	add_child(module)
 	await get_tree().physics_frame
@@ -781,6 +799,11 @@ func _test_protected_boundary() -> void:
 			# The original receipt hashed CRLF bytes; the current source
 			# contract uses LF so ordinary Windows checkout cannot alter it.
 			expected_contract = SELECTOR_V1_CONTRACT_LF_SHA256
+		elif path.ends_with(".gltf") or path.ends_with(".json"):
+			# Retain the original protected byte hashes. Only canonicalize
+			# checkout newlines back to their historical CRLF representation.
+			if actual != expected:
+				compared = FileAccess.get_file_as_string(path).replace("\r\n", "\n").replace("\n", "\r\n").sha256_text()
 		comparison[path] = {"before": expected, "after": actual,
 				"contract_sha256": compared, "expected_contract_sha256": expected_contract,
 				"match": compared == expected_contract}
@@ -825,6 +848,11 @@ func _walk_named(player: PlayerController, raw_nodes: Array,
 				return false
 		player.autopilot = Vector3.ZERO
 		await get_tree().physics_frame
+		# A downward curb step can finish between floor contacts. Let ordinary
+		# gravity settle the stationary controller; do not force its pose.
+		for settle in 30:
+			if player.is_on_floor():break
+			await get_tree().physics_frame
 		var planar := Vector2(player.global_position.x - target.x,
 				player.global_position.z - target.z).length()
 		var leg_distance := Vector2(start.x - player.global_position.x,
@@ -863,8 +891,29 @@ func _public_interact(player: PlayerController, expected_owner: Node,
 		owner = owner.get_parent()
 	if not belongs:
 		return false
+	player.set_mouse_released(false)
 	player.use_primary_interaction()
 	await get_tree().process_frame
+	if expected_owner is DoorProp:
+		if not player._grab.active() or player._grab.target.owner!=expected_owner:return false
+		var untouched: Dictionary=expected_owner.mechanism_snapshot()
+		var notifications: Array[String]=[]
+		var observe:=func(_at: Vector3,what: String):notifications.append(what)
+		player.world_modified.connect(observe)
+		player.use_primary_interaction()
+		await get_tree().physics_frame
+		player.world_modified.disconnect(observe)
+		_check(not player._grab.active() and notifications.is_empty() and expected_owner.mechanism_snapshot()==untouched,"grabbing and releasing the unmoved native leaf changes no state and emits no false modification")
+		player.use_primary_interaction()
+		await get_tree().physics_frame
+		if not player._grab.active() or player._grab.target.owner!=expected_owner:return false
+		var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+		hand.player=player;add_child(hand)
+		var moved: bool=await hand.move_to(expected_owner.motion_target_angle(true))
+		print("[M11A HAND] leaf=",expected_owner.name," moved=",moved," active=",player._grab.active()," changed=",player._grab.changed," owns=",player._grab.target.owns.call() if player._grab.active() else false," angle=",expected_owner.mechanism_snapshot())
+		player.use_primary_interaction()
+		hand.free()
+		return moved and not player._grab.active()
 	return true
 
 
@@ -941,6 +990,15 @@ func _extended_spatial_source() -> Dictionary:
 		"interior_placement_id": "interior_arrival",
 		"interactive_leaf_id": "%s_STOREFRONT_LEAF" % SECOND_SHOP,
 	})
+	# The current shop has a second physical receiving leaf. Its disposable
+	# rotated copy needs that same semantic ownership, not an unbound door.
+	for primary: Dictionary in (source.thresholds as Array).duplicate(true):
+		if str(primary.owner_instance_id)!=PRIMARY_SHOP or str(primary.id)==PRIMARY_THRESHOLD:continue
+		var copied:=primary.duplicate(true)
+		copied.id=str(primary.id).replace(PRIMARY_SHOP,SECOND_SHOP)
+		copied.shop_id=SECOND_SHOP;copied.owner_instance_id=SECOND_SHOP
+		copied.interactive_leaf_id=str(primary.interactive_leaf_id).replace(PRIMARY_SHOP,SECOND_SHOP)
+		(source.thresholds as Array).append(copied)
 	(source.routes as Array).append(_second_route(SECOND_OUTBOUND,
 			"toward_shop", false))
 	(source.routes as Array).append(_second_route(SECOND_RETURN,
@@ -1083,6 +1141,17 @@ func _array_vec3(value: Variant) -> Vector3:
 func _vec(value: Vector3) -> Array[float]:
 	return [value.x, value.y, value.z]
 
+
+func _cache_diagnostic() -> Dictionary:
+	var streams: Dictionary={}
+	for key: String in PropAudio._cache:
+		var stream: AudioStream=PropAudio._cache[key]
+		streams[key]={"path":stream.resource_path,"id":stream.get_instance_id()}
+	var voices: Array=[]
+	for i in AudioPolicy._voice_state.size():
+		var voice: AudioStreamPlayer3D=AudioPolicy._voices[i]
+		voices.append({"state":AudioPolicy._voice_state[i].duplicate(),"playing":voice.playing,"stream":voice.stream.resource_path if voice.stream!=null else ""})
+	return {"streams":streams,"voices":voices,"tweens":get_tree().get_processed_tweens().size()}
 
 func _object_counts() -> Dictionary:
 	return {

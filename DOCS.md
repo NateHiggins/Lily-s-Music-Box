@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Retained public-region ownership, actual street/arcade/dogleg walks and deferred hand/audio lifecycle repairs | `design/V2_PUBLIC_REGION_OWNERSHIP_2026-10-18.md` |
 | Measured V2 startup costs and exact comparison of bounded room-trim fitting | `design/V2_STARTUP_TRIM_CULLING_2026-10-18.md` |
 | Current four-face arcade clock installation and pending composed qualification | `design/V2_ARCADE_CLOCK_INSTALL_2026-10-18.md` |
 | Earlier uninstalled arcade clock kit and native comparisons | `design/V2_ARCADE_CLOCK_CANDIDATE_2026-10-18.md` |

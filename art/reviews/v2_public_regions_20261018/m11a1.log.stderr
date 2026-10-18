@@ -1,0 +1,68 @@
+ERROR:   FAIL  generic builder consumes every declared primary geometry record
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:321)
+ERROR:   FAIL  PlayerController ray opens the real storefront leaf
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:360)
+ERROR:   FAIL  production PlayerController traverses collision-bearing street and threshold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:364)
+ERROR:   FAIL  public bodega counter transaction refuses an unrelated maintenance part without mutating authorities
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:391)
+ERROR:   FAIL  same collision-bearing controller follows the semantic return to Orison
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:409)
+       [2] _walk_named (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:827)
+ERROR:   FAIL  save contains semantic exterior identities and no raw world coordinates
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:471)
+       [2] _walk_named (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:827)
+ERROR:   FAIL  reconstruction restores the bucket-driven depleted fixture state
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:528)
+ERROR:   FAIL  save, destruction, reload, and source reconstruction preserve exact semantic facts
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:566)
+ERROR: ORISON V2 EXTERIOR CELL: SHOP_BODEGA_ROTATED_02 door has no unique semantic threshold on back_room_threshold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _fail (res://scripts/building/orison_v2_exterior_cell.gd:1115)
+       [1] _mount_door (res://scripts/building/orison_v2_exterior_cell.gd:762)
+       [2] _mount_public_interactions (res://scripts/building/orison_v2_exterior_cell.gd:751)
+       [3] build (res://scripts/building/orison_v2_exterior_cell.gd:173)
+       [4] _ready (res://scripts/building/orison_v2_exterior_cell.gd:142)
+       [5] _test_rotated_piece_two (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:690)
+       [6] _ready (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:125)
+       [7] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:609)
+       [8] _settle_teardown (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:895)
+ERROR:   FAIL  disposable second street and shop construct through the same production paths
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_rotated_piece_two (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:694)
+ERROR:   FAIL  both layouts and every floor GLTF/BIN are unchanged; selector permits only the authorized default cutover
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1106)
+       [1] _test_protected_boundary (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:791)
+       [2] _ready (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:126)
+       [3] _test_rotated_piece_two (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:701)
+       [4] _release_module (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:889)
+       [5] _settle_teardown (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:895)

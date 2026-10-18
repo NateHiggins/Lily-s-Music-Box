@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2364,
+  "v2_blockout": 2675,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -16,7 +16,8 @@
   "bookshelf": 8,
   "runtime_created": 27,
   "vantry": 119,
-  "stairs": 1
+  "stairs": 1,
+  "physical_stock": 6
  },
  "records": [
   {
@@ -192574,36 +192575,6 @@
    "target_exists": true
   },
   {
-   "key": "e060146893bd7b88",
-   "kind": "id_reference",
-   "token": "F01_DOOR_06",
-   "file": "game/scripts/building/orison_v2_passage_region.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "configure"
-   ],
-   "lines": [
-    104
-   ],
-   "count": 1,
-   "context": [
-    "if marker.id == \"F01_DOOR_06\": entries.append(marker)"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F01/marker+v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "845b38ed19d815ae",
    "kind": "id_reference",
    "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
@@ -299314,6 +299285,101 @@
    "count": 1,
    "context": [
     "var origin:=Vector3(14,6.21,51.6)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "69bf4cc87e3f5005",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/public_region_programme_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    23
+   ],
+   "count": 1,
+   "context": [
+    "check(programmes.body_transform(\"VantryArcade\").origin.distance_to(Vector3(0,0,-9.795))<.000004,\"arcade keeps actual old source-to-world transform through publi"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "DISTANCE_THRESHOLD",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "3cf608f8f89e23ca",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/public_region_walk_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0dc69ba3b39b0207",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/public_region_walk_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    67,
+    67,
+    67,
+    67,
+    67
+   ],
+   "count": 5,
+   "context": [
+    "for station: Dictionary in [{\"name\":\"public_arcade_portal\",\"eye\":portal+Vector3(0,1.65,-5),\"target\":portal+Vector3(0,3,0)},{\"name\":\"public_arcade_hall\",\"eye\":ha"
    ],
    "gameplay_binding": true,
    "authority": [

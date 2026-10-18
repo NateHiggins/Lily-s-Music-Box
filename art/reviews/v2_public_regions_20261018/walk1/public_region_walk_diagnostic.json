@@ -1,0 +1,132 @@
+{
+	"checks": 36,
+	"evidence_class": "INERT",
+	"failures": [
+		"restored front volume is walkable at (-14.0, 0.04, -15.65) actual=(-7.699952, 0.000112, -15.63238) contacts=[\"/root/PublicRegionWalkProbe/OrisonV2Runtime/StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision\"]",
+		"restored front volume is walkable at (-14.0, 0.05, -65.455) actual=(-9.444041, 0.000532, -29.42495) contacts=[\"/root/PublicRegionWalkProbe/OrisonV2Runtime/StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision\", \"/root/PublicRegionWalkProbe/OrisonV2Runtime/VantryArcade/gateway/F01_OWN_STREET_retail_passage_proxy_gateway_common_brick/StaticBody3D\"]"
+	],
+	"scope": "Actual production-owner, ordinary controller walking and rendered diagnosis. One explicit outside-street arrival fixture; no lobby, traffic-safety, spatial ledger, human or whole-V2 acceptance.",
+	"trace": [
+		{
+			"actual": "(-0.0, 0.000112, -12.32794)",
+			"contacts": [
+				"/root/PublicRegionWalkProbe/OrisonV2Runtime/OrisonV2Blockout/F01_DOOR_06/F01_DOOR_06_Leaf/CenturyOakLeaf"
+			],
+			"ok": true,
+			"target": "(-0.0, 0.04, -12.23)"
+		},
+		{
+			"actual": "(-0.0, 0.000112, -15.61082)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-0.0, 0.04, -15.65)"
+		},
+		{
+			"actual": "(-7.699952, 0.000112, -15.63238)",
+			"contacts": [
+				"/root/PublicRegionWalkProbe/OrisonV2Runtime/StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision"
+			],
+			"ok": false,
+			"target": "(-14.0, 0.04, -15.65)"
+		},
+		{
+			"actual": "(-9.444041, 0.000532, -29.42495)",
+			"contacts": [
+				"/root/PublicRegionWalkProbe/OrisonV2Runtime/StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
+				"/root/PublicRegionWalkProbe/OrisonV2Runtime/VantryArcade/gateway/F01_OWN_STREET_retail_passage_proxy_gateway_common_brick/StaticBody3D"
+			],
+			"ok": false,
+			"target": "(-14.0, 0.05, -65.455)"
+		},
+		{
+			"actual": "(-0.025572, 0.000942, -12.32798)",
+			"contacts": [
+				"/root/PublicRegionWalkProbe/OrisonV2Runtime/OrisonV2Blockout/F01_DOOR_06/F01_DOOR_06_Leaf/CenturyOakLeaf"
+			],
+			"ok": true,
+			"target": "(-0.0, 0.04, -12.23)"
+		},
+		{
+			"actual": "(-0.000302, 0.000942, -15.61081)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-0.0, 0.04, -15.65)"
+		},
+		{
+			"actual": "(-19.46072, 0.000942, -14.65193)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-19.5, 0.04, -14.65)"
+		},
+		{
+			"actual": "(-21.46283, 0.000942, -14.65003)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-21.5, 0.04, -14.65)"
+		},
+		{
+			"actual": "(-23.96297, 0.000942, -14.65)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-24.0, 0.04, -14.65)"
+		},
+		{
+			"actual": "(-23.99962, 0.000942, -11.03779)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-24.0, 0.04, -11.0)"
+		},
+		{
+			"actual": "(-23.99999, 0.000942, -9.587059)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-24.0, 0.04, -9.549997)"
+		},
+		{
+			"actual": "(-23.99999, 0.000942, -9.587059)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-24.0, 0.04, -9.549997)"
+		},
+		{
+			"actual": "(-23.99999, 0.000942, -10.96139)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-24.0, 0.04, -11.0)"
+		},
+		{
+			"actual": "(-23.99999, 0.000942, -14.61287)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-24.0, 0.04, -14.65)"
+		},
+		{
+			"actual": "(-21.5378, 0.000942, -14.64944)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-21.5, 0.04, -14.65)"
+		},
+		{
+			"actual": "(-19.53707, 0.000942, -14.64999)",
+			"contacts": [],
+			"ok": true,
+			"target": "(-19.5, 0.04, -14.65)"
+		},
+		{
+			"actual": "(-0.038625, 0.000941, -15.64799)",
+			"contacts": [
+				"/root/PublicRegionWalkProbe/OrisonV2Runtime/StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision"
+			],
+			"ok": true,
+			"target": "(-0.0, 0.04, -15.65)"
+		},
+		{
+			"actual": "(-0.001114, 0.000941, -12.32854)",
+			"contacts": [
+				"/root/PublicRegionWalkProbe/OrisonV2Runtime/OrisonV2Blockout/F01_DOOR_06/F01_DOOR_06_Leaf/CenturyOakLeaf"
+			],
+			"ok": true,
+			"target": "(-0.0, 0.04, -12.23)"
+		}
+	]
+}

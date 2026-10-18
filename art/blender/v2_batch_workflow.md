@@ -4,6 +4,11 @@ Evidence class: **INERT**. Procedure, not acceptance evidence.
 Owner direction, 2026-10-07: minimize Godot launches, tokens and elapsed time
 while continuing the full V1-to-V2 geometry and texture pass.
 
+Run actual mouse grab/motion/release harnesses windowed, even when they write
+no screenshots. Headless mouse capture cannot validate that input path. Keep
+source/ownership-only benches headless; a click-only historical harness is not
+proof of the current interaction contract.
+
 Before starting the combined Godot run, check catalogue projections, texture
 import policy, focused geometry/material tests and the reader baseline. Include
 **tools/tests/test_material_catalog_persistence.py** when adding catalogue keys;

@@ -2321,3 +2321,17 @@ game/tests/ArcadeClockBench.tscn -text
 art/reviews/v2_panel_oak_20261018/** -text -whitespace
 art/blender/arcade_fabric_candidate/build_panel_oak_maps.py -text
 art/blender/arcade_fabric_candidate/review_panel_oak.py -text
+
+# Source-fitted public regions, retained geometry ownership and route diagnosis.
+game/data/orison_v2/exterior/public_region_programmes.json -text
+game/scripts/building/orison_v2_public_region_programmes.gd -text
+game/tests/public_region_programme_bench.gd -text
+game/tests/PublicRegionProgrammeBench.tscn -text
+game/tests/public_region_walk_probe.gd -text
+game/tests/PublicRegionWalkProbe.tscn -text
+tools/build_v2_public_regions.py -text
+tools/tests/test_v2_public_regions.py -text
+game/data/orison_v2/exterior/regions.json -text
+game/tests/orison_v2_m11a_first_exterior_cell_test.gd -text
+art/reviews/v2_public_regions_20261018/** -text -whitespace
+game/tests/audio_policy_test.gd -text

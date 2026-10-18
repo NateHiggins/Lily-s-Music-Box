@@ -12,6 +12,7 @@ const SURFACE_STOCK := {"pavement": "concrete", "asphalt": "asphalt", "curb": "c
 const GEOMETRY_PATH := "res://data/orison_v2/exterior/exterior_geometry.json"
 const SpatialResolverScript := preload(
 		"res://scripts/building/orison_v2_exterior_spatial_resolver.gd")
+const PublicProgrammes := preload("res://scripts/building/orison_v2_public_region_programmes.gd")
 const ShopBucketRegistryScript := preload(
 		"res://scripts/building/orison_v2_shop_bucket_registry.gd")
 const BodegaSignageScript := preload(
@@ -38,7 +39,7 @@ const COUNTER_KEYS := ["placement_id", "interaction_size_m",
 		"physical_label"]
 const DEPENDENCY_KEYS := ["player", "work_orders", "maintenance_inventory",
 		"shop_service", "spatial_resolver", "shop_bucket_registry",
-		"geometry_source"]
+		"geometry_source", "geometry_instance_ids"]
 const PROP_SCRIPTS := {"bodega_signage": BodegaSignageScript}
 
 var startup_failed := false
@@ -54,6 +55,8 @@ var shop_bucket_registry: Variant
 
 var _objective_tracker: ObjectiveTracker
 var _geometry_source: Dictionary = {}
+var _requested_instance_ids: Array[String] = []
+var _geometry_instance_ids: Array[String] = []
 var _material_records: Dictionary = {}
 var _geometry_templates: Dictionary = {}
 var _material_cache: Dictionary = {}
@@ -123,6 +126,14 @@ func configure_dependencies(dependencies: Dictionary) -> bool:
 		if value is not Dictionary:
 			return false
 		_geometry_source = (value as Dictionary).duplicate(true)
+	if dependencies.has("geometry_instance_ids"):
+		value=dependencies.geometry_instance_ids
+		if value is not Array or value.is_empty():return false
+		var requested: Array[String]=[]
+		for identity: Variant in value:
+			if identity is not String or str(identity).is_empty() or str(identity) in requested:return false
+			requested.append(str(identity))
+		_requested_instance_ids=requested
 	_configured = true
 	return true
 
@@ -155,7 +166,7 @@ func build() -> bool:
 	instances_root.name = "ExteriorInstances"
 	add_child(instances_root)
 	_owned_nodes.append(instances_root)
-	for instance_id: String in spatial_resolver.instance_ids():
+	for instance_id: String in _geometry_instance_ids:
 		_build_instance(instances_root, instance_id)
 	if startup_failed:
 		return false
@@ -541,7 +552,18 @@ func _prepare_spatial_authority() -> bool:
 		_fail("exterior spatial authority refused its source: %s" % [
 				spatial_resolver.errors])
 		return false
-	for instance_id: String in spatial_resolver.instance_ids():
+	_geometry_instance_ids.assign(_requested_instance_ids)
+	if _geometry_instance_ids.is_empty():
+		var programme: Dictionary=PublicProgrammes.read_default()
+		if programme.get("bounded_instance_ids") is not Array:
+			_fail("bounded exterior instance ownership is missing");return false
+		for identity: Variant in programme.bounded_instance_ids:
+			if identity is not String or str(identity).is_empty() or str(identity) in _geometry_instance_ids:
+				_fail("bounded exterior instance ownership is malformed");return false
+			_geometry_instance_ids.append(str(identity))
+	if _geometry_instance_ids.is_empty():_fail("bounded exterior owns no instances");return false
+	_geometry_instance_ids.sort()
+	for instance_id: String in _geometry_instance_ids:
 		var record: Dictionary = spatial_resolver.instance_record(instance_id)
 		var template_id := str(record.get("template_id", ""))
 		if not _geometry_templates.has(template_id):
@@ -721,7 +743,7 @@ func _build_light(parent: Node3D, record: Dictionary) -> void:
 
 
 func _mount_public_interactions() -> void:
-	for instance_id: String in spatial_resolver.instance_ids():
+	for instance_id: String in _geometry_instance_ids:
 		var instance: Dictionary = spatial_resolver.instance_record(instance_id)
 		var template_id := str(instance.get("template_id", ""))
 		var geometry: Dictionary = _geometry_templates.get(template_id, {})
@@ -882,13 +904,16 @@ func _first_route_in_direction(direction: String) -> String:
 	for route_id: String in spatial_resolver.route_ids():
 		var candidate: Dictionary = spatial_resolver.route_record(route_id)
 		if str(candidate.get("direction", "")) == direction:
-			return route_id
+			var owned:=true
+			for node: Dictionary in candidate.get("nodes",[]):
+				owned=owned and str(node.owner_instance_id) in _geometry_instance_ids
+			if owned:return route_id
 	return ""
 
 
 func _spatial_shop_ids() -> Array[String]:
 	var result: Array[String] = []
-	for instance_id: String in spatial_resolver.instance_ids():
+	for instance_id: String in _geometry_instance_ids:
 		var semantic := str(spatial_resolver.instance_record(instance_id).get(
 				"semantic_identity", ""))
 		if semantic.begins_with("SHOP_"):
@@ -1038,6 +1063,8 @@ func _teardown(detach_children: bool) -> Dictionary:
 	_material_records.clear()
 	_geometry_templates.clear()
 	_geometry_source.clear()
+	_requested_instance_ids.clear()
+	_geometry_instance_ids.clear()
 	_presentation_receipt.clear()
 	player = null
 	work_orders = null

@@ -89,7 +89,7 @@ static func cell_path(identity: String) -> String:
 		return "res://assets/building/orison_v2/passage/passage.gltf"
 	return "res://assets/building/floor_01_cells/%s.gltf" % identity
 
-func configure(service: MaintenanceShopService) -> bool:
+func configure(service: MaintenanceShopService, programmes: Variant=null) -> bool:
 	if is_inside_tree() or service == null:
 		return false
 	shop_service = service
@@ -98,16 +98,11 @@ func configure(service: MaintenanceShopService) -> bool:
 	if decoded is not Dictionary:
 		return false
 	source_layout = decoded
-	var entries: Array[Dictionary] = []
-	for floor: Dictionary in source_layout.floors:
-		if floor.id != "F01": continue
-		for marker: Dictionary in floor.markers:
-			if marker.id == "F01_DOOR_06": entries.append(marker)
-	if entries.size() != 1 or float(entries[0].yaw_deg) != 0.0:
-		return false
-	var entry: Dictionary = entries[0]
-	var center := GameBoot.b2g(entry.pos) + Vector3.RIGHT * float(entry.w) * 0.5
-	position = -center
+	if programmes==null:programmes=preload("res://scripts/building/orison_v2_public_region_programmes.gd").load_default()
+	if programmes==null:return false
+	var registered: Transform3D=programmes.body_transform("VantryArcade")
+	if not registered.origin.is_finite():return false
+	transform=registered
 	return true
 
 func _ready() -> void:

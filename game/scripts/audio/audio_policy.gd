@@ -47,6 +47,7 @@ var cues: Dictionary = {}
 var errors: Array[String] = []
 var _voices: Array[AudioStreamPlayer3D] = []
 var _voice_state: Array[Dictionary] = []
+var _source_streams: Dictionary = {}
 var _last_presented: Dictionary = {}
 var _mix_requests: Dictionary = {}
 var _event_history: Array[Dictionary] = []
@@ -139,6 +140,9 @@ func present_3d(cue_id: StringName, at: Vector3, strength := 1.0,
 	var stream := PropAudio.get_stream(str(cue.stream_key))
 	if stream == null:
 		return _refuse(cue_id, "missing_stream")
+	if source_id!=&"":
+		if not _source_streams.has(source_id):_source_streams[source_id]={}
+		_source_streams[source_id][cue_id]={"key":str(cue.stream_key),"stream":weakref(stream)}
 	voice.stream = stream
 	voice.bus = str(cue.bus)
 	voice.global_position = at
@@ -267,6 +271,16 @@ func release_source(source_id: StringName, cue_id := StringName()) -> int:
 		_record_event({"cue_id":owned_cue, "source_id":source_id,
 				"outcome":"released", "at_second":_clock})
 	_clear_source_cooldowns(source_id, cue_id)
+	# A voice may have been reused since this owner's earlier cue. Its cache
+	# ownership must survive slot replacement without retaining the resource.
+	var remembered: Dictionary=_source_streams.get(source_id,{})
+	for owned_cue: StringName in remembered.keys():
+		if cue_id!=&"" and owned_cue!=cue_id:continue
+		var entry: Dictionary=remembered[owned_cue]
+		var stream: AudioStream=(entry.stream as WeakRef).get_ref() as AudioStream
+		if stream!=null:PropAudio.release_stream(str(entry.key),stream)
+		remembered.erase(owned_cue)
+	if remembered.is_empty():_source_streams.erase(source_id)
 	return released
 
 

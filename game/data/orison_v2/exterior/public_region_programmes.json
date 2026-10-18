@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "bounded_instance_ids": [
+    "SHOP_BODEGA",
+    "STREET_ORISON_01"
+  ],
+  "modules": [
+    {
+      "instance_id": "CONSTRUCTION_SEAM_01",
+      "region_id": "REGION_CONSTRUCTION_SEAM",
+      "owner_node": "StreetBoundaries",
+      "geometry_paths": [
+        "NativeConstructionStock"
+      ],
+      "source_origin_m": [
+        22.25,
+        0,
+        0
+      ]
+    },
+    {
+      "instance_id": "ARCADE_PORTAL_01",
+      "region_id": "REGION_ARCADE_PORTAL",
+      "owner_node": "VantryArcade",
+      "geometry_paths": [
+        "gateway",
+        "ResidentGeometry/passage"
+      ],
+      "source_origin_m": [
+        14.0,
+        0.009999999999999995,
+        28.316
+      ]
+    },
+    {
+      "instance_id": "ARCADE_THROAT_01",
+      "region_id": "REGION_ARCADE_THROAT",
+      "owner_node": "VantryArcade",
+      "geometry_paths": [
+        "ResidentGeometry/passage"
+      ],
+      "source_origin_m": [
+        14.0,
+        0.009999999999999995,
+        28.316
+      ]
+    },
+    {
+      "instance_id": "ARCADE_HALL_01",
+      "region_id": "REGION_ARCADE_HALL",
+      "owner_node": "VantryArcade",
+      "geometry_paths": [
+        "ResidentGeometry/passage"
+      ],
+      "source_origin_m": [
+        14.0,
+        0.009999999999999995,
+        38.6
+      ]
+    }
+  ]
+}
