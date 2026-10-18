@@ -1,0 +1,25 @@
+{
+  "evidence_class": "INERT",
+  "time_utc": "2026-10-18T13:03:44.2355828Z",
+  "reason": "Actual native04 roof/post queries show four 117.9996 mm bearing gaps. Interrupted own verification batch before further qualification; no runtime grant claimed.",
+  "processes": [
+    {
+      "ProcessId": 39088,
+      "ParentProcessId": 8228,
+      "CreationDate": "2026-10-18T08:57:08.141253-04:00",
+      "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -NoProfile -File tools/lane.ps1 batch -BatchFile C:/PleaseRemainOnTheLine/tmp/v2-lantern-20261018/world_batch.json -WaitMinutes 30"
+    },
+    {
+      "ProcessId": 60548,
+      "ParentProcessId": 39088,
+      "CreationDate": "2026-10-18T08:57:08.533444-04:00",
+      "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine\\game res://tests/orison_v2_first_slice_contract_test.tscn"
+    },
+    {
+      "ProcessId": 51472,
+      "ParentProcessId": 60548,
+      "CreationDate": "2026-10-18T08:57:08.548289-04:00",
+      "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine\\game res://tests/orison_v2_first_slice_contract_test.tscn"
+    }
+  ]
+}

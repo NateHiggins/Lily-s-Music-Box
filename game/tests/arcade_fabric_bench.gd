@@ -124,6 +124,30 @@ func validate_cell(cell: Node3D, layout: Dictionary) -> void:
 			_check(str(skin.collider.get_parent().get_meta("arcade_lantern_part",""))=="lantern_roof__cast_iron", "roof skin hit belongs to the native lantern: " + str(tier))
 	var collar := _ray(cell.to_global(Vector3(14.035,10.89,51.6)), cell.to_global(Vector3(14.035,10.92,51.6)))
 	_check(not collar.is_empty() and absf(cell.to_local(collar.get("position",Vector3.ZERO)).y-10.9)<.00004, "closed native clock hanger meets the original stem endpoint")
+	# Isolate the new roof for bearing rays: a source post's own end-cap must
+	# never masquerade as the plate that is supposed to rest on that post.
+	var excluded: Array[RID] = []
+	for body: CollisionObject3D in cell.find_children("*","CollisionObject3D",true,false):
+		if not lantern.is_ancestor_of(body): excluded.append(body.get_rid())
+	var post_count := 0
+	for floor: Dictionary in layout.floors:
+		if floor.id != "F01": continue
+		for row: Dictionary in floor.furniture:
+			if not str(row.id).begins_with("site_lantern_post_"): continue
+			post_count += 1
+			var endpoint: Array = row.p0 if float(row.p0[2]) > float(row.p1[2]) else row.p1
+			var top := Vector3(endpoint[0],endpoint[2],-endpoint[1])
+			for sample in 9:
+				var angle := TAU*(sample-1)/8.0
+				var radius: float = 0.0 if sample==0 else float(row.r)*.8
+				var at := top+Vector3(cos(angle)*radius,0,sin(angle)*radius)
+				var query := PhysicsRayQueryParameters3D.create(cell.to_global(at-Vector3.UP*.001),cell.to_global(at+Vector3.UP*.2))
+				query.exclude = excluded
+				var seat := get_world_3d().direct_space_state.intersect_ray(query)
+				_check(not seat.is_empty() and absf(cell.to_local(seat.get("position",Vector3.ZERO)).y-top.y)<.00004, "actual channel bears on retained post: "+str(row.id)+" sample "+str(sample))
+				if not seat.is_empty():
+					_check((seat.get("normal",Vector3.ZERO) as Vector3).dot(cell.global_basis*Vector3.DOWN)>.999, "post bearing has an outward underside normal: "+str(row.id)+" sample "+str(sample))
+	_check(post_count==4,"all four retained corner posts have measured native roof seats")
 
 func _finish() -> void:
 	var directory := OS.get_environment("SHOT_DIR")

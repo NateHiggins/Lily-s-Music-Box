@@ -38,5 +38,17 @@ class LanternTests(unittest.TestCase):
             row[field]=value
             with self.subTest(identity=identity),self.assertRaises(ValueError):build(source)
 
+    def test_retained_post_caps_have_real_channel_seats(self):
+        result=build(self.source)
+        for bearing in result['post_bearings']:
+            x,y,z=bearing['at']
+            seats=[row for row in result['parts'] if row['low'][0]<x<row['high'][0] and row['low'][2]<z<row['high'][2]]
+            self.assertTrue(seats)
+            self.assertAlmostEqual(min(row['low'][1] for row in seats),y)
+        source=copy.deepcopy(self.source)
+        row=next(r for f in source['floors'] if f['id']=='F01' for r in f['furniture'] if r['id']=='site_lantern_post_0')
+        row['p1'][2]+=.01
+        with self.assertRaises(ValueError):build(source)
+
 
 if __name__=='__main__':unittest.main()

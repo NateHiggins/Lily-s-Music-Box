@@ -84,6 +84,25 @@ def build(layout=None):
                     [x+.004,high[1],d])
                 x+=.60
                 n+=1
+    # The folded skin alone is above the retained corner posts. A closed
+    # perimeter channel supplies an actual seat at each source post top;
+    # the drip return is a weather edge, not a structural bearing.
+    low,high=tiers[0]
+    posts=[row for identity,row in rows.items() if identity.startswith('site_lantern_post_')]
+    if len(posts)!=4:raise ValueError('Expected four retained lantern corner posts')
+    bearings=[]
+    for post in posts:
+        p=max([post['p0'],post['p1']],key=lambda p:p[2])
+        if abs(p[2]-(low[1]+.02))>1e-7 or abs(post['r']-.045)>1e-7:
+            raise ValueError('Retained lantern post bearing changed')
+        bearings.append(dict(id=post['id'],at=[p[0],p[2],-p[1]],radius=post['r']))
+    channel_outer=[low[0]+.04,low[2]+.04,high[0]-.04,high[2]-.04]
+    channel_inner=[low[0]+.22,low[2]+.22,high[0]-.22,high[2]-.22]
+    web_inner=[channel_outer[0]+.012,channel_outer[1]+.012,channel_outer[2]-.012,channel_outer[3]-.012]
+    seat=low[1]+.02
+    ring('base_channel_lower_flange',channel_outer,channel_inner,seat,seat+.012)
+    ring('base_channel_web',channel_outer,web_inner,seat+.012,high[1]-.034)
+    ring('base_channel_upper_flange',channel_outer,channel_inner,high[1]-.034,high[1]-.022)
     # Preserve the clock's exact hanger endpoint. A cross-tie seats on the
     # first tier frame and a closed collar reaches the retained stem at 10.90.
     stem = rows['site_crossing_clock_stem']
@@ -101,6 +120,7 @@ def build(layout=None):
     return dict(evidence_class='INERT',source='art/data/building_layout.json',
                 source_sha256_lf=hashlib.sha256(source.read_bytes().replace(b'\r\n',b'\n')).hexdigest(),
                 retire=retired,parts=parts,wells=wells,
+                post_bearings=bearings,
                 retained_light=light['id'],retained_clock_stem=stem['id'],
                 hanger_bearing=[cx,top,cz],
                 scope='Offline native candidate; no runtime or appearance acceptance.')

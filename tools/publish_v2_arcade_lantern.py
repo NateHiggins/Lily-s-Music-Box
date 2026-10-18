@@ -9,7 +9,7 @@ def publish(directory):
     plan=json.loads((directory/'plan.json').read_text())
     proof=json.loads((directory/'native_review.json').read_text())
     if plan!=build():raise ValueError('Expired source fitting')
-    if proof.get('status')!='PASS' or len(proof.get('geometry_checks',[]))!=8 or not all(r['ok'] for r in proof['geometry_checks']):
+    if proof.get('status')!='PASS' or len(proof.get('geometry_checks',[]))!=44 or not all(r['ok'] for r in proof['geometry_checks']):
         raise ValueError('Native geometry/export checks are incomplete')
     for relative,expected in proof['source_bindings_lf'].items():
         raw=(ROOT/relative).read_bytes()

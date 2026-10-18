@@ -58,6 +58,15 @@ cx,top,cz=plan['hanger_bearing']
 hit=tree.ray_cast(Vector(point((cx,top-.01,cz))),Vector((0,0,1)),.2)
 verify(hit[0] is not None and abs(hit[0].z-top)<.00004 and hit[1].z<-.999,
        'native collar meets the retained clock stem endpoint with a closed bearing face')
+for bearing in plan['post_bearings']:
+    x,y,z=bearing['at']
+    for sample in range(9):
+        angle=2*math.pi*(sample-1)/8
+        radius=0 if sample==0 else bearing['radius']*.8
+        probe=(x+radius*math.cos(angle),y-.001,z+radius*math.sin(angle))
+        hit=tree.ray_cast(Vector(point(probe)),Vector((0,0,1)),.2)
+        verify(hit[0] is not None and abs(hit[0].z-y)<.00004 and hit[1].z<-.999,
+               'closed channel seats retained post '+bearing['id']+' sample '+str(sample))
 
 # Context is the exact source furniture and the installed native canopy;
 # none of these objects are included in the new native export.

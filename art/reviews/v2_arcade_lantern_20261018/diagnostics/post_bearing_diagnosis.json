@@ -1,0 +1,46 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Actual native04 roof mesh rays against retained source post endpoints",
+  "checks": [
+    {
+      "id": "site_lantern_post_0",
+      "post_top": [
+        11.02,
+        -54.71999999999999,
+        10.98
+      ],
+      "gap_m": 0.11799957275390582,
+      "ok": false
+    },
+    {
+      "id": "site_lantern_post_1",
+      "post_top": [
+        16.98,
+        -54.71999999999999,
+        10.98
+      ],
+      "gap_m": 0.11799957275390582,
+      "ok": false
+    },
+    {
+      "id": "site_lantern_post_2",
+      "post_top": [
+        11.02,
+        -48.48,
+        10.98
+      ],
+      "gap_m": 0.11799957275390582,
+      "ok": false
+    },
+    {
+      "id": "site_lantern_post_3",
+      "post_top": [
+        16.98,
+        -48.48,
+        10.98
+      ],
+      "gap_m": 0.11799957275390582,
+      "ok": false
+    }
+  ]
+}
