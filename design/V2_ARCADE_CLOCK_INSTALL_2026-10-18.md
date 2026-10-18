@@ -65,8 +65,15 @@ fascia and cloth remain simplified; the corrected wide upper-masonry station
 does not supply a close native mortar-joint appearance review. Those findings
 remain open rather than being hidden behind the surface pass.
 
-Actual service/home/upper route renewal and the final clean candidate gate
-comparison are pending. Earlier original runtime proofs remain historical;
+The actual service execution also completed: 360 checks, zero failures,
+including grabbed controls, physical repair and insert exchange, delivery,
+ordered case outcome and real disk reconstruction. Its original schema-2
+contract and matching completed wrapper/raw logs were independently validated
+and published. The home cohort also passed: 62 rooms, nine legs, 909 checks,
+zero failures and zero retained nodes among ten tracked roots/drivers. Its
+original contract was independently validated against current inputs and
+published with matching completed logs. Upper route renewal and the final
+clean candidate gate comparison are pending. Earlier original runtime proofs remain historical;
 none was repinned. Broader V2 construction and human acceptance remain open.
 
 ## Management report
@@ -77,7 +84,7 @@ none was repinned. Broader V2 construction and human acceptance remain open.
     Protected 17/17 and selector: final clean candidate verification pending; no protected path intentionally edited. Explicit v1 rollback remains.
     Ledger before -> after: final comparison pending actual proof renewal. No new spatial/human grant is requested by this report.
     Gates: source preflight has 84 gates; only expired surface/ledger/live-proof gates regress. Other static/tools checks match the clean 6f181 baseline. NEW reader fields: 0; spatial audit drift: 0.
-    Godot receipts: native08 359 native checks; bench5.log.receipt.json completed PASS 163/0; corrected surface2.log.receipt.json completed PASS 33207/0, zero script errors. The owned canceled surface1 has no accepted verdict and is retained as a failed diagnostic.
+    Godot receipts: native08 359 native checks; bench5.log.receipt.json completed PASS 163/0; corrected surface2.log.receipt.json completed PASS 33207/0; service1.log.receipt.json completed PASS 360/0 including disk reconstruction; home1.log.receipt.json completed PASS 62 rooms/9 legs/909 checks/0 failures, zero script errors. The owned canceled surface1 has no accepted verdict and is retained as a failed diagnostic.
     Numbers: five original boxes retired; thirteen native draws; eight hands; forty-eight runtime numeral labels; thirty-two reviewed current surface captures; 497 complete loaded texture chains.
     Changes outside expected boundary: source-specific mesh precision policy, registered glass binding, twelve corrected capture-camera frames and twelve reviewed spatial dependencies. Existing audit logic, field baseline and contact/UV tolerances are unchanged.
     Open findings: remaining actual route proofs, final clean gates, coarse retained clock-support finish, broader arcade finishes, V2 construction and human/photoreal acceptance.
