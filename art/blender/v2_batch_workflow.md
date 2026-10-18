@@ -4,6 +4,14 @@ Evidence class: **INERT**. Procedure, not acceptance evidence.
 Owner direction, 2026-10-07: minimize Godot launches, tokens and elapsed time
 while continuing the full V1-to-V2 geometry and texture pass.
 
+Before starting the combined Godot run, check catalogue projections, texture
+import policy, focused geometry/material tests and the reader baseline. Include
+**tools/tests/test_material_catalog_persistence.py** when adding catalogue keys;
+the layout generator must retain the exact registered definitions. Retiring
+a generated visual can leave a source field unread even when the native render
+passes. Resolve source-to-native compatibility before freezing the rendering
+inputs, so a cheap reader defect does not force another full world build.
+
 ## Visual detail priority (owner direction, 2026-10-17)
 
 Prioritize observed material and construction defects within each batch,

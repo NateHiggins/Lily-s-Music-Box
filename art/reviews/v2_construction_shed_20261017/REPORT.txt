@@ -1,0 +1,32 @@
+REPORT - V2-CONSTRUCTION-SHED - 2026-10-18
+Evidence class: INERT. Checkpoint report; not a merge-candidate grant.
+Branch / HEAD at execution / origin/main / merge-base:
+main / 837fbdef6318ea573e1e9bf6c9e113b9c8d3ae60 /
+e0b0dd293325a49c207785888112262a4990e474 /
+e0b0dd293325a49c207785888112262a4990e474
+Worktree clean at end: no; inherited receipt/capture work remains outside named owned paths.
+Protected 17/17: yes. Selector: v2 (authorized); V1 rollback retained.
+Ledger before -> after: first 0, golden 1, structural 114, runtime 35, cutover 131, retirement 133 -> unchanged; requirements_changed: [].
+Gates: board_final/board.json records actual exits: ledger 2 INCOMPLETE;
+spatial 5 FAIL; systemic, period and reader 0 PASS; 970 tools tests / 68 suites,
+67 PASS and the existing spatial-dependency suite FAIL. No regressions against
+the preceding reviewed checkpoint board. Full comparison against CLEAN MAIN
+has broader regressions, preserved separately in clean_main_comparison.md.
+Godot: surface suite_run.receipt.json in the canonical surface packet:
+V2 SURFACE QUALIFICATION: PASS; 28363 checks; 0 failures.
+Godot: first_slice_final/suite_run.receipt.json:
+ORISON V2 M08F RUNTIME: PASS checks=360.
+Numbers: 1426 planned parts, 7 native catalogue partitions, 336172 triangles;
+25649 draws / 6096 materials / 480 textures; all six new maps GPU-compressed
+with ten additional mip levels; all 27 source collision actors / 2 lamps retained.
+Changes outside expected fitting boundary: source catalogue definitions in
+gen_layout.py prevent regeneration loss; explicit surface evidence binds the
+new recipe; two scoped spatial manifest registrations preserve all prior entries;
+workflow now requires reader and catalogue-persistence preflight. A clean main
+baseline was captured and validated; its temporary checkout was removed.
+Open findings: four missing exterior regions, raw native export-origin debt,
+adjacent exaggerated masonry cracks and overbright fittings/fascia, warm lighting,
+whole-building/golden/human acceptance and V1 retirement. Seven known Texture RID
+shutdown warnings remain outside measured runtime-owned retirement.
+Decision needed from owner: none for this checkpoint.
+BLOCKED main integration: broader branch regressions and isolated clean candidate verification remain.

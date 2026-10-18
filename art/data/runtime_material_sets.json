@@ -882,6 +882,34 @@
       "roughness_multiplier": 0.62,
       "visual_lock": false
     },
+    "site_softwood": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "procedural/site_softwood",
+      "files": [
+        "T_ai_materials_site_softwood_albedo.png",
+        "T_ai_materials_site_softwood_rough.png",
+        "T_ai_materials_site_softwood_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "site_softwood_endgrain": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "procedural/site_softwood_endgrain",
+      "files": [
+        "T_ai_materials_site_softwood_endgrain_albedo.png",
+        "T_ai_materials_site_softwood_endgrain_rough.png",
+        "T_ai_materials_site_softwood_endgrain_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "smoked_plaster": {
       "alpha": false,
       "canonical_meters_per_tile": 1.8,

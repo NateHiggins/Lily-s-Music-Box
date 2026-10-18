@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Native construction shed, custom mirrored softwood, retained dogleg and current qualification | `design/V2_CONSTRUCTION_SHED_2026-10-18.md` |
 | Physical Lena service round, actual workshop-part delivery, disk rebuild and geometry-bound proof | `design/V2_PHYSICAL_SERVICE_ROUND_2026-10-17.md` |
 | Cast radiator rim profiles, retained sealing datums and current joint review | `design/V2_RADIATOR_SECTION_JOINTS_2026-10-17.md` |
 | Worked control shading, calibrated resin migration, switch UVs and retained curved textile charts | `design/V2_CONTROL_FINISH_2026-10-17.md` |

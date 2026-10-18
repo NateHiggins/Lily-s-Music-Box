@@ -26,6 +26,8 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # its authored roughness map by this value; selected finishes deliberately cap
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
+    "site_softwood": {"normal_scale": 1.0},
+    "site_softwood_endgrain": {"normal_scale": 1.0},
     "washer_zinc": {}, "washer_enamel": {}, "washer_brass": {}, "washer_rubber": {},
 	"bath_wall_tile": {}, "bath_floor_tile": {},
     "graphited_packing": {}, "radiator_cast_iron": {}, "radiator_service_brass": {},

@@ -2195,3 +2195,20 @@ art/reviews/v2_radiator_joints_20261017/** -text
 art/reviews/v2_first_slice_physical_20261017/** -text -whitespace
 game/tests/first_slice_service_hand_bench.gd -text
 game/tests/radiator_joint_review.gd -text
+
+art/reviews/v2_construction_shed_20261017/** -text -whitespace
+game/tests/v2_construction_shed_review.gd -text
+
+# New construction recipes and source bindings remain portable on Windows.
+art/blender/scripts/build_construction_shed.py -text
+art/blender/scripts/construction_shed_uv.py -text
+tools/plan_v2_construction_shed.py -text
+art/tools/build_site_softwood.py -text
+art/textures/ai_sources/site_softwood_20261017.json -text
+art/textures/procedural/site_softwood/** -text
+art/textures/procedural/site_softwood_endgrain/** -text
+game/assets/building/textures/T_ai_materials_site_softwood*.png.import -text
+game/assets/props/construction_shed.glb.import -text
+
+art/data/gen_layout.py -text
+game/scripts/building/orison_v2_street_boundaries.gd -text

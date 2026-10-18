@@ -1,0 +1,48 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "scope": "Reviewed native shed geometry/material installation, with explicit remaining appearance defects; not photoreal, human, four-region or V2 completion acceptance. The separate runtime contract covers loaded technical surfaces.",
+  "surface_inputs_sha256": "9a887f95a71b046b820ad66138a8c2606eea0917a9e5a7a07552d623edb729f7",
+  "images": [
+    {
+      "file": "construction_approach_diffuse.png",
+      "sha256": "aeb34ec145ab8ca1e22c066d20588e4e7ccfd08401d2539267aa9c2338739d3e",
+      "observation": "Production street context: separate vertical boards and lengthwise post grain replace the monolithic dark boxes. Adjacent wall has exaggerated crack relief, while the nearby white oval fitting and fascia are overbright; those existing defects remain open."
+    },
+    {
+      "file": "construction_approach_carried.png",
+      "sha256": "0401eea477966bbfa00a8e42a09431f3f5860f899c3dd9e196b9c8740c0dcd90",
+      "observation": "Real carried lamp illuminates the interior without removing the board seams or fitted framing. Warm amber lighting dominates the colour. Existing adjacent wall/fitting appearance is not accepted."
+    },
+    {
+      "file": "construction_framing_diffuse.png",
+      "sha256": "bcd69c55b35dc2730a975df4c21103bd7cb2e7c217133600fffb5007f74adaf8",
+      "observation": "Loaded overhead decking, secondary joists, primary beams and posts remain seated and show distinct stock grain. Open upper ventilation remains intentional; the underside is opaque. Original work lamp and closure notice remain visible."
+    },
+    {
+      "file": "construction_framing_carried.png",
+      "sha256": "63598e78eaf6b9515a285c74c5168825977f6ad3e32866fec28eaa9ed54724e8",
+      "observation": "Carried light grazes the overhead stock, revealing stepped joints, separate boards, fasteners and the end wall brace. No regular cross-hatched procedural grain remains. Warm production illumination still limits neutral-colour assessment."
+    },
+    {
+      "file": "construction_closure_diffuse.png",
+      "sha256": "548775cc0b095f2b9fb3db8ae2a7aad1b12e5417c48e77d0015c2e74d6b823cd",
+      "observation": "Original separate Label3D lettering remains readable on the paper stock. Diagonal brace is supported and bolted rather than floating off the boards; fine board edges and nails remain visible."
+    },
+    {
+      "file": "construction_closure_carried.png",
+      "sha256": "836643b6e9eccddcd5bb929d2157d9984aefd571cf206439680468f22c3ce0c7",
+      "observation": "Close carried-light view retains the brace, two bolt heads, narrow board joints and blank paper beneath the separate lettering. Photoreal acceptance and wear/storytelling details remain open."
+    },
+    {
+      "file": "construction_joinery_diffuse.png",
+      "sha256": "1239fb92dace1bce8d644f108e0065ea32cec36e5df7de161c69b1126fc7695b",
+      "observation": "Actual loaded corner: seated post/beam faces, separate eased edges, exposed end stock, bolt and longitudinal grain remain visible in room light. Native fitting has not become a box-textured corner."
+    },
+    {
+      "file": "construction_joinery_carried.png",
+      "sha256": "25331fd49343ee3ea3a15104de69aff322727837951e72155abd45e126d3397e",
+      "observation": "Carried light grazes the beam underside and post joint. Grain direction follows the individual stock and bolt hardware remains separate. Small dark seams are visible rather than gaps through the timber."
+    }
+  ]
+}

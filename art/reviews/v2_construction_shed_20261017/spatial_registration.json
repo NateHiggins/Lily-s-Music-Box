@@ -1,0 +1,75 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Two reviewed new bindings only; all prior 10071 entries and existing findings retained. No blanket rebaseline.",
+  "previous_records": 10071,
+  "appended": [
+    {
+      "key": "42e9be714f609cd7",
+      "kind": "vector3_coordinate",
+      "token": "<module>",
+      "file": "game/scripts/building/orison_v2_street_boundaries.gd",
+      "tier": "production",
+      "subsystem": "building",
+      "symbols": [
+        "<module>"
+      ],
+      "lines": [
+        7
+      ],
+      "count": 1,
+      "context": [
+        "const NATIVE_ORIGIN := Vector3(22.25,0,0)"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "RUNTIME_LOOKUP"
+      ],
+      "spatial": [
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "REPLACE_WITH_NAMED_ANCHOR",
+      "confidence": "MEDIUM",
+      "rationale": "Production Godot-space coordinate with gameplay context; candidate named anchor.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "07c9acd2911aba1c",
+      "kind": "vector3_coordinate",
+      "token": "run",
+      "file": "game/tests/v2_construction_shed_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        14,
+        53,
+        53
+      ],
+      "count": 3,
+      "context": [
+        "host.check(native.position.is_equal_approx(Vector3(22.25,0,0)),\"native shed keeps its source-frame export origin\")",
+        "for station in [[\"approach\",Vector3(19.5,1.65,3.1),Vector3(24,1.8,1)],"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    }
+  ],
+  "review": {
+    "42e9be714f609cd7": "Explicit local GLB stock origin in the documented front-door frame. Retained as raw export-coordinate debt; regeneration must move native stock, origin and fixture together. Not a gameplay spawn or a completion grant.",
+    "07c9acd2911aba1c": "Declared camera/street-arrival fixtures and actual controller route in the composed surface review; does not claim entry from the lobby."
+  }
+}

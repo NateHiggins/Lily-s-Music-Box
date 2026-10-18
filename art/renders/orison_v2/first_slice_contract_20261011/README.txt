@@ -1,15 +1,16 @@
 Evidence class: INERT. Packet index, not an independent proof grant.
 
-Current execution: 2026-10-17, physical service round, 360 printed checks.
+Current execution: 2026-10-18, construction-shed checkpoint, 360 printed checks.
 runtime_authority_receipt.json is the test-written schema-2 runtime contract.
 suite_run.receipt.json corroborates process completion and source bindings.
 suite_run.stdout.log.gz and suite_run.stderr.log.gz preserve the raw channels
 without rewriting; their decompressed SHA-256 values match the wrapper.
 
 Older canonical metadata is preserved at
-art/reviews/v2_first_slice_physical_20261017/previous_canonical.
+art/reviews/v2_construction_shed_20261017/previous_first_slice.
 The current geometry-bound test source, failed approaches and scoped report
-are indexed in design/V2_PHYSICAL_SERVICE_ROUND_2026-10-17.md.
+are indexed in design/V2_PHYSICAL_SERVICE_ROUND_2026-10-17.md; the renewed
+execution is recorded in design/V2_CONSTRUCTION_SHED_2026-10-18.md.
 Calls/dialogue, the previous Mina job closure, camera/heading placements and
 patrol stance placements remain declared fixtures. The actual service part
 gestures, collision-bearing travel, finite stock delivery, real steam, disk

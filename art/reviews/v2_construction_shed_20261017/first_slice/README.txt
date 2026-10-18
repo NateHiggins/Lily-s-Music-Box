@@ -1,0 +1,1 @@
+Evidence class: INERT. Deliberately cancelled after 89.29 seconds, before completion, because the source-stock validation repair would invalidate this run. Exact owned Godot child PID 15396 and wrapper 55852 were verified before cancellation. No foreign Godot process was stopped. Wrapper exit -1 is not runtime proof.

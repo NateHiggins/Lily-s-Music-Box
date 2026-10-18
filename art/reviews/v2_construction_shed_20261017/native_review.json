@@ -1,0 +1,715 @@
+{
+  "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-construction-20261017\\construction_shed.glb",
+  "primitives": 7,
+  "triangles": 336172,
+  "minimum_tangent_agreement": 0.9999988348701376,
+  "status": "PASS",
+  "evidence_class": "INERT",
+  "scope": "Native UV/tangent export and rendered candidate, not installed-world acceptance.",
+  "part_count": 1426,
+  "joints": [
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedRoadHoarding",
+      "plane_axis": 2,
+      "plane_m": 4.6455,
+      "height_m": 0.24,
+      "count": 36
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedRoadHoarding",
+      "plane_axis": 2,
+      "plane_m": 4.6455,
+      "height_m": 1.3,
+      "count": 36
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedRoadHoarding",
+      "plane_axis": 2,
+      "plane_m": 4.6455,
+      "height_m": 2.42,
+      "count": 36
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedEastHoarding",
+      "plane_axis": 0,
+      "plane_m": 25.3655,
+      "height_m": 0.24,
+      "count": 54
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedEastHoarding",
+      "plane_axis": 0,
+      "plane_m": 25.3655,
+      "height_m": 1.3,
+      "count": 54
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedEastHoarding",
+      "plane_axis": 0,
+      "plane_m": 25.3655,
+      "height_m": 2.42,
+      "count": 54
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedInnerReturn",
+      "plane_axis": 0,
+      "plane_m": 22.6345,
+      "height_m": 0.24,
+      "count": 33
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedInnerReturn",
+      "plane_axis": 0,
+      "plane_m": 22.6345,
+      "height_m": 1.3,
+      "count": 33
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedInnerReturn",
+      "plane_axis": 0,
+      "plane_m": 22.6345,
+      "height_m": 2.42,
+      "count": 33
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedTemporaryClosure",
+      "plane_axis": 2,
+      "plane_m": -3.0254999999999996,
+      "height_m": 0.24,
+      "count": 21
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedTemporaryClosure",
+      "plane_axis": 2,
+      "plane_m": -3.0254999999999996,
+      "height_m": 1.3,
+      "count": 21
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedTemporaryClosure",
+      "plane_axis": 2,
+      "plane_m": -3.0254999999999996,
+      "height_m": 2.42,
+      "count": 21
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedInnerStreetHoarding",
+      "plane_axis": 2,
+      "plane_m": 1.9045,
+      "height_m": 0.24,
+      "count": 13
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedInnerStreetHoarding",
+      "plane_axis": 2,
+      "plane_m": 1.9045,
+      "height_m": 1.3,
+      "count": 13
+    },
+    {
+      "kind": "plank_to_nailer",
+      "actor": "ShedInnerStreetHoarding",
+      "plane_axis": 2,
+      "plane_m": 1.9045,
+      "height_m": 2.42,
+      "count": 13
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedStreetRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedStreetRoof_Secondary00"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedStreetRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedStreetRoof_Secondary01"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedStreetRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedStreetRoof_Secondary02"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedStreetRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedStreetRoof_Secondary03"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedStreetRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedStreetRoof_Secondary04"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedStreetRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedStreetRoof_Secondary05"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedStreetRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedStreetRoof_Secondary06"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedTurnRoof_Secondary00"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedTurnRoof_Secondary01"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedTurnRoof_Secondary02"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedTurnRoof_Secondary03"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedTurnRoof_Secondary04"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedTurnRoof_Secondary05"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnRoof",
+      "plane_axis": 1,
+      "plane_m": 2.869,
+      "stock_id": "ShedTurnRoof_Secondary06"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary00"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary01"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary02"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary03"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary04"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary05"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary06"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary07"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary08"
+    },
+    {
+      "kind": "deck_to_secondary",
+      "actor": "ShedTurnFloor",
+      "plane_axis": 1,
+      "plane_m": -0.045,
+      "stock_id": "ShedTurnFloor_Secondary09"
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedStreetPost0",
+      "beam": "ShedStreetBeam0",
+      "plane_axis": 0,
+      "plane_m": 19.2,
+      "overlap": [
+        [
+          19.13,
+          19.27
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          4.4799999999999995,
+          4.62
+        ]
+      ],
+      "bolt_id": "ShedStreetBeam0_ShedStreetPost0_Bolt",
+      "contact_area_m2": 0.02800000000000014,
+      "sample_m": [
+        19.2,
+        2.6,
+        4.55
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedStreetPost1",
+      "beam": "ShedStreetBeam1",
+      "plane_axis": 0,
+      "plane_m": 21.0,
+      "overlap": [
+        [
+          20.93,
+          21.07
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          4.4799999999999995,
+          4.62
+        ]
+      ],
+      "bolt_id": "ShedStreetBeam1_ShedStreetPost1_Bolt",
+      "contact_area_m2": 0.02800000000000014,
+      "sample_m": [
+        21.0,
+        2.6,
+        4.55
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedStreetPost2",
+      "beam": "ShedStreetBeam2",
+      "plane_axis": 0,
+      "plane_m": 22.8,
+      "overlap": [
+        [
+          22.73,
+          22.87
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          4.4799999999999995,
+          4.62
+        ]
+      ],
+      "bolt_id": "ShedStreetBeam2_ShedStreetPost2_Bolt",
+      "contact_area_m2": 0.02800000000000014,
+      "sample_m": [
+        22.8,
+        2.55,
+        4.55
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedTurnPost0_0",
+      "beam": "ShedStreetBeam2",
+      "plane_axis": 0,
+      "plane_m": 22.76,
+      "overlap": [
+        [
+          22.720000000000002,
+          22.8
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          1.7,
+          1.77
+        ]
+      ],
+      "bolt_id": "ShedStreetBeam2_ShedTurnPost0_0_Bolt",
+      "contact_area_m2": 0.007000000000000012,
+      "sample_m": [
+        22.76,
+        2.55,
+        1.7349999999999999
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedStreetPost3",
+      "beam": "ShedStreetBeam3",
+      "plane_axis": 0,
+      "plane_m": 25.3,
+      "overlap": [
+        [
+          25.23,
+          25.37
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          4.4799999999999995,
+          4.62
+        ]
+      ],
+      "bolt_id": "ShedStreetBeam3_ShedStreetPost3_Bolt",
+      "contact_area_m2": 0.02800000000000014,
+      "sample_m": [
+        25.3,
+        2.55,
+        4.55
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedTurnPost0_1",
+      "beam": "ShedStreetBeam3",
+      "plane_axis": 0,
+      "plane_m": 25.28,
+      "overlap": [
+        [
+          25.220000000000002,
+          25.34
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          1.7,
+          1.77
+        ]
+      ],
+      "bolt_id": "ShedStreetBeam3_ShedTurnPost0_1_Bolt",
+      "contact_area_m2": 0.007000000000000012,
+      "sample_m": [
+        25.28,
+        2.55,
+        1.7349999999999999
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedTurnPost0_0",
+      "beam": "ShedTurnBeam0",
+      "plane_axis": 2,
+      "plane_m": 1.7,
+      "overlap": [
+        [
+          22.66,
+          22.8
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          1.63,
+          1.77
+        ]
+      ],
+      "bolt_id": "ShedTurnBeam0_ShedTurnPost0_0_Bolt",
+      "contact_area_m2": 0.007999999999999837,
+      "sample_m": [
+        22.78,
+        2.55,
+        1.7
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedTurnPost0_1",
+      "beam": "ShedTurnBeam0",
+      "plane_axis": 2,
+      "plane_m": 1.7,
+      "overlap": [
+        [
+          25.2,
+          25.34
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          1.63,
+          1.77
+        ]
+      ],
+      "bolt_id": "ShedTurnBeam0_ShedTurnPost0_1_Bolt",
+      "contact_area_m2": 0.011999999999999756,
+      "sample_m": [
+        25.310000000000002,
+        2.55,
+        1.7
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedTurnPost1_0",
+      "beam": "ShedTurnBeam1",
+      "plane_axis": 2,
+      "plane_m": -0.55,
+      "overlap": [
+        [
+          22.66,
+          22.8
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          -0.6200000000000001,
+          -0.48000000000000004
+        ]
+      ],
+      "bolt_id": "ShedTurnBeam1_ShedTurnPost1_0_Bolt",
+      "contact_area_m2": 0.02800000000000014,
+      "sample_m": [
+        22.73,
+        2.6,
+        -0.55
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedTurnPost1_1",
+      "beam": "ShedTurnBeam1",
+      "plane_axis": 2,
+      "plane_m": -0.55,
+      "overlap": [
+        [
+          25.2,
+          25.34
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          -0.6200000000000001,
+          -0.48000000000000004
+        ]
+      ],
+      "bolt_id": "ShedTurnBeam1_ShedTurnPost1_1_Bolt",
+      "contact_area_m2": 0.02800000000000014,
+      "sample_m": [
+        25.27,
+        2.6,
+        -0.55
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedTurnPost2_0",
+      "beam": "ShedTurnBeam2",
+      "plane_axis": 2,
+      "plane_m": -2.85,
+      "overlap": [
+        [
+          22.66,
+          22.8
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          -2.92,
+          -2.7800000000000002
+        ]
+      ],
+      "bolt_id": "ShedTurnBeam2_ShedTurnPost2_0_Bolt",
+      "contact_area_m2": 0.02800000000000014,
+      "sample_m": [
+        22.73,
+        2.6,
+        -2.85
+      ]
+    },
+    {
+      "kind": "complementary_half_lap",
+      "post": "ShedTurnPost2_1",
+      "beam": "ShedTurnBeam2",
+      "plane_axis": 2,
+      "plane_m": -2.85,
+      "overlap": [
+        [
+          25.2,
+          25.34
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          -2.92,
+          -2.7800000000000002
+        ]
+      ],
+      "bolt_id": "ShedTurnBeam2_ShedTurnPost2_1_Bolt",
+      "contact_area_m2": 0.02800000000000014,
+      "sample_m": [
+        25.27,
+        2.6,
+        -2.85
+      ]
+    },
+    {
+      "kind": "beam_cross_lap",
+      "lower": "ShedStreetBeam2",
+      "upper": "ShedTurnBeam0",
+      "plane_axis": 1,
+      "plane_m": 2.6,
+      "overlap": [
+        [
+          22.720000000000002,
+          22.88
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          1.7,
+          1.78
+        ]
+      ],
+      "contact_area_m2": 0.0007999999999999837,
+      "sample_m": [
+        22.84,
+        2.6,
+        1.775
+      ]
+    },
+    {
+      "kind": "beam_cross_lap",
+      "lower": "ShedStreetBeam3",
+      "upper": "ShedTurnBeam0",
+      "plane_axis": 1,
+      "plane_m": 2.6,
+      "overlap": [
+        [
+          25.220000000000002,
+          25.38
+        ],
+        [
+          2.5,
+          2.7
+        ],
+        [
+          1.7,
+          1.78
+        ]
+      ],
+      "contact_area_m2": 0.00039999999999999183,
+      "sample_m": [
+        25.36,
+        2.6,
+        1.775
+      ]
+    },
+    {
+      "kind": "brace_cleat",
+      "actor": "ClosureCrossbrace",
+      "plane_axis": 2,
+      "plane_m": -2.985,
+      "sample_m": [
+        23.142857142857142,
+        0.6683754125926831,
+        -2.985
+      ]
+    },
+    {
+      "kind": "brace_cleat",
+      "actor": "ClosureCrossbrace",
+      "plane_axis": 2,
+      "plane_m": -2.985,
+      "sample_m": [
+        24.857142857142858,
+        1.431624587407317,
+        -2.985
+      ]
+    }
+  ],
+  "plan_sha256": "0c4b19b43db378b485f6aaa743d51659c9351e02206947c5577a2a0af9b35aa5",
+  "native_sha256": "a8d86bed0401374509ce62f9e82fcd0ca4ae86683ed08fa7194f1ca46e3780b2",
+  "asset_sha256": "0e8966a03d53e28a080d202cc651cdd5ef86d8546d06d5b7c59ab7153c5ee397"
+}

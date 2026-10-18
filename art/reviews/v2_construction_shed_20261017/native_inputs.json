@@ -1,0 +1,28 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Current native recipe and output bindings recorded after Blender review; runtime acceptance is separate.",
+  "sha256": {
+    "tools/plan_v2_construction_shed.py": "c298252a581612d64aa20627cd3bcc8268865f4f75f36da5a6c040aed45d227b",
+    "art/blender/scripts/build_construction_shed.py": "db5983ffa28cf547b09f0d13051c184403d9bf3705299d6c76f5c4cc94ac2efa",
+    "art/blender/scripts/construction_shed_uv.py": "b5821a8f08e6242a8719edbf8da70baa38de354d40742161d0ed75acf3e16db9",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/tools/build_site_softwood.py": "3b258cba71361b04b91dc0d0d7122e0fe2f59fba57695c707dceccf8ba626795",
+    "art/blender/construction_shed.blend": "a8d86bed0401374509ce62f9e82fcd0ca4ae86683ed08fa7194f1ca46e3780b2",
+    "game/assets/props/construction_shed.glb": "0e8966a03d53e28a080d202cc651cdd5ef86d8546d06d5b7c59ab7153c5ee397",
+    "art/data/orison_v2/exterior/construction_shed_source.json": "eabf8068328b38691ae7e617faf3c021bd53722312d47e992bf3287decff92eb",
+    "game/data/orison_v2/exterior/construction_shed.json": "adc2740f083de4a85eaf9314f01a503ee76fdd0a5706af5acd197f43522e8baa",
+    "art/textures/procedural/site_softwood/material.json": "6d218d447f80faff74adcfa48adece730445f11e5f3194fb864d02774d46f20f",
+    "art/textures/procedural/site_softwood/albedo.png": "a523edbd6180bd312dfa8431fdcf65c9cd3117f5af4708d27c5a91d4871bd958",
+    "art/textures/procedural/site_softwood/roughness.png": "49589a4dfcd39021d8a36749e2290ff629ab992b058a88611003a4236ef97014",
+    "art/textures/procedural/site_softwood/normal.png": "e6a043d49cb847257bd5a5a91641a708557353f2dd61aa6e65087f0781637a61",
+    "art/textures/procedural/site_softwood/height.png": "ae152f7f1ad956148e568f48c6aa8f72111e28a797a10077e4c42ca7345399c4",
+    "art/textures/procedural/site_softwood_endgrain/material.json": "6750acaea619f796562acadf51a2a3a9c9de3f910f5857c786f648eb78245526",
+    "art/textures/procedural/site_softwood_endgrain/albedo.png": "5600cdda12e680ce25289849899498769d3867557f1029c90e61e78dab3343ab",
+    "art/textures/procedural/site_softwood_endgrain/roughness.png": "09e4cce791470fee784757673c161cb8f5ea031776f1bc94b383d2f250a696c9",
+    "art/textures/procedural/site_softwood_endgrain/normal.png": "ae57b6589b3dd0e59fcc8f1cbf694ba21e9189fbf02c6e8ca9fd087fe31cadcf",
+    "art/textures/procedural/site_softwood_endgrain/height.png": "42f1eab4a3937b8b253ed6d58df6c98bfe537476375a6177fbf08a957b8354fe"
+  }
+}

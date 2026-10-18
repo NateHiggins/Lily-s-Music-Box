@@ -10610,6 +10610,8 @@ PROP_CATALOG = {
 
 MATERIAL_CATALOG = {
     # Registered V2 finishes must survive layout/catalogue regeneration.
+    'site_softwood': {'base_color': [0.714, 0.678, 0.588, 1.0], 'roughness': 0.79, 'metallic': 0.0},
+    'site_softwood_endgrain': {'base_color': [0.694, 0.647, 0.545, 1.0], 'roughness': 0.805, 'metallic': 0.0},
     'bath_floor_tile': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0},
     'bath_wall_tile': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0},
     'door_brass': {'base_color': [0.8, 0.66, 0.41, 1.0], 'roughness': 0.3, 'metallic': 0.92},

@@ -1,0 +1,32 @@
+{
+  "material": "site_softwood_endgrain",
+  "generator": "art/tools/build_site_softwood.py",
+  "source": "New generated albedo retained byte-exact for long-grain stock; end grain and independent reflecting microrelief are code-authored. No photographic pixels, hardware marks, lettering or pigment-to-height conversion.",
+  "albedo_source": "art/textures/ai_sources/site_softwood_20261017.png",
+  "albedo_source_sha256": "a523edbd6180bd312dfa8431fdcf65c9cd3117f5af4708d27c5a91d4871bd958",
+  "uv_contract": "Mirrored metre charts with clamped texture sampling; normal slopes vanish at reflected borders.",
+  "seed": 19281118,
+  "meters_per_tile": 1.0,
+  "relief_mm": 0.1319718342624634,
+  "normal_strength": 1.0,
+  "grain_axis": "radial",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "5600cdda12e680ce25289849899498769d3867557f1029c90e61e78dab3343ab",
+    "roughness": "09e4cce791470fee784757673c161cb8f5ea031776f1bc94b383d2f250a696c9",
+    "normal": "ae57b6589b3dd0e59fcc8f1cbf694ba21e9189fbf02c6e8ca9fd087fe31cadcf",
+    "height": "42f1eab4a3937b8b253ed6d58df6c98bfe537476375a6177fbf08a957b8354fe"
+  },
+  "measurements": {
+    "roughness_min": 0.7054378933222347,
+    "roughness_max": 0.8927472582537804,
+    "normal_slope_rms": 0.010420544752312579,
+    "height_storage_bits": 16,
+    "nonfinite_values": 0
+  }
+}

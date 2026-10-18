@@ -66,6 +66,14 @@ def inputs(root=ROOT):
         'art/blender/domestic_seating_construction.json','art/data/domestic_seating/source_plan.json'))
     paths.add(root/'art/blender/annunciator_dispatch.blend')
     paths.add(root/'art/blender/light_switch.blend')
+    paths.update(root/p for p in ('art/blender/construction_shed.blend',
+        'tools/plan_v2_construction_shed.py','art/tools/build_site_softwood.py',
+        'game/tests/v2_construction_shed_review.gd',
+        'art/textures/ai_sources/site_softwood_20261017.png',
+        'art/textures/ai_sources/site_softwood_20261017.json'))
+    for key in ('site_softwood','site_softwood_endgrain'):
+        for filename in ('material.json','albedo.png','normal.png','roughness.png','height.png'):
+            paths.add(root/f'art/textures/procedural/{key}/{filename}')
     paths.add(root/'game/tests/v2_control_finish_review.gd')
     paths.update(root/p for p in ('game/tests/radiator_joint_review.gd',
         'art/blender/radiator_mechanisms.blend','art/tools/build_radiator_cast_iron.py',

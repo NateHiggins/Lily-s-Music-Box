@@ -1,38 +1,48 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "scope": "Loaded radiator joint geometry and recorded appearance defects. Not photoreal or human acceptance; exhaustive technical surfaces have their separate test-written contract.",
-  "surface_inputs_sha256": "609a00d869074539c9cb14637db1082e7943a18a6af24f058b309e8f88456f38",
+  "scope": "Reviewed native shed geometry/material installation, with explicit remaining appearance defects; not photoreal, human, four-region or V2 completion acceptance. The separate runtime contract covers loaded technical surfaces.",
+  "surface_inputs_sha256": "06af3498e86ee9e2f0f6d01ab2dc9894e5df95ab1ef7bb42634bf96877cd6fd0",
   "images": [
     {
-      "file": "radiator_joints_room.png",
-      "sha256": "846f95cb487d2eeaac3a5c71a3589717781a7a61833b2726643f4463a127fee1",
-      "observation": "Existing room circuit, actual carried lamp settled off. Full body, feet, wedges and service feed are visible; iron remains warm and dark, and shoe/wedge appearance is still conspicuous."
+      "file": "construction_approach_diffuse.png",
+      "sha256": "eba1c8a0e76f097ab4f9937a2549166e83f747a35a6f89c955c083fc1b0f0870",
+      "observation": "Production street context: separate vertical boards and lengthwise post grain replace the monolithic dark boxes. Adjacent wall has exaggerated crack relief, while the nearby white oval fitting and fascia are overbright; those existing defects remain open."
     },
     {
-      "file": "radiator_joints_carried.png",
-      "sha256": "81e227edc17617fec597fdea72b995357148be625ba03af0f565d48359d2e4cc",
-      "observation": "Actual carried lamp. The whole assembly is framed without the former crop; section separations and curved highlights read, but the warm lamp still drives a brown appearance."
+      "file": "construction_approach_carried.png",
+      "sha256": "9166f39e08a121694a7fe20f1e48a1c41d1939588801956a6f69a19c7a1594a2",
+      "observation": "Real carried lamp illuminates the interior without removing the board seams or fitted framing. Warm amber lighting dominates the colour. Existing adjacent wall/fitting appearance is not accepted."
     },
     {
-      "file": "radiator_joint_room_detail.png",
-      "sha256": "6cc99ce6cd0692b52ea133ba37ed515c137f7b78d5188067c6297e61a0bce7be",
-      "observation": "Actual installed 2B joint close-up. Thin circumferential seams are visible between section bosses and relief follows the curved faces. Global form and room lighting remain open."
+      "file": "construction_framing_diffuse.png",
+      "sha256": "59ab40316c4f14fca85355bcea8a2ada8b715f799b0df875603f47a32a35e834",
+      "observation": "Loaded overhead decking, secondary joists, primary beams and posts remain seated and show distinct stock grain. Open upper ventilation remains intentional; the underside is opaque. Original work lamp and closure notice remain visible."
     },
     {
-      "file": "radiator_joint_diffuse.png",
-      "sha256": "2df403442914b1cb729e00c27bc28f6f1c427d040ffbd95ea5a8a82acf0d09ae",
-      "observation": "Declared temporary diffuse lamp, excluded from reflection captures. Real narrow seams separate the sleeves, while highlights show the cast grain; this is a diagnostic, not production illumination acceptance."
+      "file": "construction_framing_carried.png",
+      "sha256": "b1189974d8bf5c9a434e1ee375c58c7ff454b7268d4c6d6487337c5efe89be02",
+      "observation": "Carried light grazes the overhead stock, revealing stepped joints, separate boards, fasteners and the end wall brace. No regular cross-hatched procedural grain remains. Warm production illumination still limits neutral-colour assessment."
     },
     {
-      "file": "radiator_joint_grazing.png",
-      "sha256": "7bba5831291cb7a74566ff8b50e20baa3bee040ee7123e80dfa39c42b2f10ece",
-      "observation": "Declared temporary grazing lamp. Edge response, narrow seam recesses and casting relief are visible together. The warm room remains present; no texture or pressure simulation acceptance is inferred."
+      "file": "construction_closure_diffuse.png",
+      "sha256": "5056c8dd1d2b719873725a8a7cf87bb706379bc4649b014f675ddd3cbac46443",
+      "observation": "Original separate Label3D lettering remains readable on the paper stock. Diagonal brace is supported and bolted rather than floating off the boards; fine board edges and nails remain visible."
     },
     {
-      "file": "control_finish_diffuse.png",
-      "sha256": "bdd1bdf8103cd35ad435eac6e54abfd82381242255d49dc99032684767685afd",
-      "observation": "The control diagnostic still illuminates the assembly after its temporary lamp is isolated from room probes. Flat apron and caps remain coherent; dark room readability, coarse service knob and label placement remain open."
+      "file": "construction_closure_carried.png",
+      "sha256": "cd3fde6c86026e807859c4735f49fc11b71bb7d43a1be22464ae30271bc80b77",
+      "observation": "Close carried-light view retains the brace, two bolt heads, narrow board joints and blank paper beneath the separate lettering. Photoreal acceptance and wear/storytelling details remain open."
+    },
+    {
+      "file": "construction_joinery_diffuse.png",
+      "sha256": "40b864370ba4f92ff99ebb11ccd0bdffe5a0652f9667ceae96c5b744e211d71b",
+      "observation": "Actual loaded corner: seated post/beam faces, separate eased edges, exposed end stock, bolt and longitudinal grain remain visible in room light. Native fitting has not become a box-textured corner."
+    },
+    {
+      "file": "construction_joinery_carried.png",
+      "sha256": "8ce394f2f8a4d34658cd23713b774f7e6ed34dabbd1329ce93657f76f844d489",
+      "observation": "Carried light grazes the beam underside and post joint. Grain direction follows the individual stock and bolt hardware remains separate. Small dark seams are visible rather than gaps through the timber."
     }
   ]
 }
