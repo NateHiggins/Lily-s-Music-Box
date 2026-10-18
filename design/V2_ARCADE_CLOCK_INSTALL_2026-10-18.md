@@ -51,7 +51,35 @@ individually reviewed and appended, retaining all 10,218 prior manifest rows:
 five source boundaries, one generated numeral-name pattern and six bench
 dependencies. Audit logic and existing rows are unchanged.
 
-Production surface and played-route renewal, composed optical review and the
-clean candidate gate comparison are pending. Earlier original runtime proofs
-remain historical; none was repinned. Broader V2 construction and human
-acceptance remain open.
+The corrected windowed surface2 execution completed with 33,207 checks and
+zero failures: 25,668 draws, 16,638 meshes, 6,108 materials and 497 loaded
+textures. Its original test-written schema-2 contract, completed wrapper and
+matching raw logs were independently validated and published through the
+surface-packet tool. Thirty-two current captures were reviewed. The clock now
+appears in the intended four views, with separate matching hands, shaded ink,
+angle-dependent rim response, clear glazing and a closed underside. This is
+technical qualification and incremental appearance review, not final realism.
+
+The retained source hanger and finial still have coarse mottling. Wood panels,
+fascia and cloth remain simplified; the corrected wide upper-masonry station
+does not supply a close native mortar-joint appearance review. Those findings
+remain open rather than being hidden behind the surface pass.
+
+Actual service/home/upper route renewal and the final clean candidate gate
+comparison are pending. Earlier original runtime proofs remain historical;
+none was repinned. Broader V2 construction and human acceptance remain open.
+
+## Management report
+
+    REPORT - V2-ARCADE-CLOCK-INSTALL - 2026-10-18
+    Branch / HEAD / origin/main / merge-base: main / e8583e559d1ea6efbadc67153ed37abd19504909 (executed source; report/proof follow-up pending) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3 (last verified remote) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3.
+    Worktree clean at end: no; inherited shared-checkout changes are excluded.
+    Protected 17/17 and selector: final clean candidate verification pending; no protected path intentionally edited. Explicit v1 rollback remains.
+    Ledger before -> after: final comparison pending actual proof renewal. No new spatial/human grant is requested by this report.
+    Gates: source preflight has 84 gates; only expired surface/ledger/live-proof gates regress. Other static/tools checks match the clean 6f181 baseline. NEW reader fields: 0; spatial audit drift: 0.
+    Godot receipts: native08 359 native checks; bench5.log.receipt.json completed PASS 163/0; corrected surface2.log.receipt.json completed PASS 33207/0, zero script errors. The owned canceled surface1 has no accepted verdict and is retained as a failed diagnostic.
+    Numbers: five original boxes retired; thirteen native draws; eight hands; forty-eight runtime numeral labels; thirty-two reviewed current surface captures; 497 complete loaded texture chains.
+    Changes outside expected boundary: source-specific mesh precision policy, registered glass binding, twelve corrected capture-camera frames and twelve reviewed spatial dependencies. Existing audit logic, field baseline and contact/UV tolerances are unchanged.
+    Open findings: remaining actual route proofs, final clean gates, coarse retained clock-support finish, broader arcade finishes, V2 construction and human/photoreal acceptance.
+    Decision needed from owner: none for this authorized installation and verification work.
+    NOT READY for a reviewed push until the current played-proof and clean-gate renewal finishes. No whole-V2 completion claimed.
