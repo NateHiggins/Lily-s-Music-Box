@@ -1,0 +1,28 @@
+{
+  "evidence_class": "INERT",
+  "source_candidate": "a14e6ee0b41f033600d8c982bef928680b5250cb",
+  "regressions": 0,
+  "improvements": 58,
+  "gate_rows": 81,
+  "tool_suites": 69,
+  "tool_tests": 980,
+  "protected": "PASS",
+  "selector": "v2",
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 0,
+    "FULL_BUILDING_RUNTIME": 34,
+    "FULL_BUILDING_STRUCTURAL": 102,
+    "GOLDEN_SHIFT_V2": 1,
+    "PRODUCTION_CUTOVER": 119,
+    "V1_RETIREMENT": 121
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 0,
+    "GOLDEN_SHIFT_V2": 1,
+    "FULL_BUILDING_STRUCTURAL": 48,
+    "FULL_BUILDING_RUNTIME": 25,
+    "PRODUCTION_CUTOVER": 65,
+    "V1_RETIREMENT": 67
+  },
+  "scope": "Source candidate static verification. Runtime/visual proof remains in test-written source-bound packets; not V2 completion."
+}

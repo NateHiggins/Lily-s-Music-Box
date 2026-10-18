@@ -55,7 +55,7 @@ difference. Explicit -text attributes now preserve model bytes as well as
 import settings. The diagnostic checkout, after restoring from Git under that
 policy, reproduces the exact physical fingerprint above and validates the
 unchanged first-slice receipt. This is source retention, not repinning or a
-new runtime execution. Final candidate verification is still pending.
+new runtime execution. Final source candidate verification now passes; see the publication record below.
 
 ## Spatial dependency repair
 
@@ -98,9 +98,9 @@ return from 114 to main’s 102, whole-building runtime 35 to 34, cutover 131 to
 The remaining-home receipt further reduces structural blockers to 48, runtime
 blockers to 25, cutover to 65 and retirement to 67. These are the ledger's scope
 counts; the new apartment evidence grants spatial access, not runtime authority.
-Targeted reader/surface gates still pass. A complete clean-candidate comparison
-against the preserved clean-main board is the next integration check; it is
-not yet claimed here.
+Targeted reader/surface gates still pass. The complete clean-tree source candidate comparison
+against the preserved clean-main board passes with zero regressions and 58
+improvements. All 69 tool suites pass, 980 tests.
 
 The remaining architectural-region migration, complete
 walking/golden shift, visual polish and human acceptance remain open. No V2
@@ -129,7 +129,7 @@ remain outside this checkpoint. Only named owned paths are staged.
 Protected 17/17: yes; selector: **v2**, explicit V1 rollback retained.
 Ledger clean-main before -> renewed proof: first slice / golden / structural /
 runtime / cutover / retirement **0/1/102/34/119/121 -> 0/1/48/25/65/67**.
-Final clean-tree comparison is pending. The intervening
+Final clean-tree comparison passes. The intervening
 15-status expired home-proof regression is repaired; the remaining-home
 checkpoint advances 54 further statuses. Requirement inventory is unchanged.
 Gates: spatial tools **59 tests PASS**; physical-import retention **6 tests PASS**,
@@ -140,13 +140,24 @@ Godot: **roof2.log.receipt.json**, completed exit 0, 9 rooms/2 legs/214 checks;
 **remaining2.log.receipt.json**, completed exit 0, 60 rooms/9 legs/792 checks.
 All three test-written contracts and unchanged compressed channels are published
 in the corresponding **access_roof_cohort_20261018**, **access_home_cohort_20261018**
-and **access_remaining_cohort_20261018** packets. Final static comparison is pending.
+and **access_remaining_cohort_20261018** packets. Final static comparison: 81 rows; 69 tool suites and 980 tests pass; ledger
+remains INCOMPLETE as designed. Zero regressions, 58 improvements.
 Numbers management asked for: no additional numerical request in this chunk.
 Changes outside the expected file boundary, and why: retain 145 tested model
 import sources and add their portability gate; effective physical inputs unchanged.
-Open findings not fixed: pending clean candidate verification;
-remaining exterior regions, whole-building/golden/human acceptance, visual defects
+Open findings not fixed: remaining exterior regions, whole-building/golden/human acceptance, visual defects
 and seven known Texture RID warnings remain open.
 Decision needed from owner: none for this checkpoint.
 
-BLOCKED final clean candidate verification pending
+Publication: source candidate **a14e6ee0b41f033600d8c982bef928680b5250cb**
+passes the candidate verifier without accepted regressions or suite exceptions.
+Raw results are **art/reviews/v2_access_regressions_20261018/candidate_accepted/**.
+Final verification used **--in-place --no-godot** on the clean temporary tree
+originally created fresh at **042386dc**, then advanced through Git. The model
+sources were restored using the committed attributes and match their blobs.
+This verifies static source portability; no fresh-cache Godot import is claimed.
+Canonical runtime/visual evidence is separately source-bound and unchanged.
+The temporary checkout is removed after preservation. This final publication
+adds only reports/diagnostics, so unchanged runtime qualification is reused.
+
+MERGE-CANDIDATE a14e6ee0b41f033600d8c982bef928680b5250cb

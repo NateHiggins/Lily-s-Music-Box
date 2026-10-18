@@ -1,0 +1,1 @@
+Evidence class: INERT. Clean verification of b8e9a4b1 after source byte repair. Physical proof and 54 spatial advances validate; two historical-fixture tests still fail. Preserved unchanged, not acceptance. The later candidate isolates those fixtures and separately checks current played proof.
