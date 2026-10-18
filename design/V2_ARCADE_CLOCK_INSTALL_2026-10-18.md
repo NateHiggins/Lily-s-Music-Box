@@ -75,21 +75,29 @@ original contract was independently validated against current inputs and
 published with matching completed logs. The upper cohort passed 69 rooms,
 eleven legs and 989 checks with zero failures and zero retained nodes among
 thirteen tracked roots/drivers. Its original current-source contract and
-matching logs are published. The final clean candidate comparison is pending.
+matching logs are published. The final clean candidate comparison passed:
+84 gates, all 72 tools suites passing, zero regressions, seventeen protected
+paths unchanged against the merge-base, V2 selection retained and no changed
+ledger requirement status. The complete original comparison is retained under
+**final_verification/**. It ran static/tools checks in the owned clean
+verification checkout; no Godot import or runtime suite ran there. The four
+actual canonical production executions and independently validated original
+contracts supply the separate runtime evidence. Fresh-checkout runtime/import
+behavior is outside this comparison's scope.
 Earlier original runtime proofs remain historical;
 none was repinned. Broader V2 construction and human acceptance remain open.
 
 ## Management report
 
     REPORT - V2-ARCADE-CLOCK-INSTALL - 2026-10-18
-    Branch / HEAD / origin/main / merge-base: main / 4504a302d06a299b9f2dc816154b7b7824584402 (latest executed upper-cohort source; upper-proof/report follow-up pending) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3 (refreshed remote) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3.
+    Branch / HEAD / origin/main / merge-base: main / 0fc2382b76b64b65be12275804695a664c5f9a3d (verified source/proof checkpoint; this report is a metadata follow-up) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3 (refreshed remote before push) / 6f181fd5f1b562c143418ddb4a3ef7b62a23e5c3.
     Worktree clean at end: no; inherited shared-checkout changes are excluded.
-    Protected 17/17 and selector: final clean candidate verification pending; no protected path intentionally edited. Explicit v1 rollback remains.
-    Ledger before -> after: final comparison pending actual proof renewal. No new spatial/human grant is requested by this report.
-    Gates: source preflight has 84 gates; only expired surface/ledger/live-proof gates regress. Other static/tools checks match the clean 6f181 baseline. NEW reader fields: 0; spatial audit drift: 0.
+    Protected 17/17: unchanged against the clean merge-base in final candidate verification. Selector: v2; explicit v1 rollback retained. The historical protected receipt is unchanged.
+    Ledger before -> after: 0/1/48/25/65/67 -> 0/1/48/25/65/67; requirements_changed: []. No new spatial/human grant comes from this report.
+    Gates: complete clean comparison has 84 gates, all 72 tools suites passing, zero regressions and zero improvements. Earlier expired source proofs were renewed through actual execution, never repinned. NEW reader fields: 0; spatial audit drift: 0. The sole changed gate file appends twelve reviewed dependencies while retaining every prior manifest record; no audit logic or baseline changes.
     Godot receipts: native08 359 native checks; bench5.log.receipt.json completed PASS 163/0; corrected surface2.log.receipt.json completed PASS 33207/0; service1.log.receipt.json completed PASS 360/0 including disk reconstruction; home1.log.receipt.json completed PASS 62 rooms/9 legs/909 checks/0 failures; upper1.log.receipt.json completed PASS 69 rooms/11 legs/989 checks/0 failures, zero script errors. The owned canceled surface1 has no accepted verdict and is retained as a failed diagnostic.
     Numbers: five original boxes retired; thirteen native draws; eight hands; forty-eight runtime numeral labels; thirty-two reviewed current surface captures; 497 complete loaded texture chains.
     Changes outside expected boundary: source-specific mesh precision policy, registered glass binding, twelve corrected capture-camera frames and twelve reviewed spatial dependencies. Existing audit logic, field baseline and contact/UV tolerances are unchanged.
-    Open findings: final clean gates, coarse retained clock-support finish, broader arcade finishes, V2 construction and human/photoreal acceptance.
+    Open findings: coarse retained clock-support finish, broader arcade finishes, V2 construction and human/photoreal acceptance; seven existing Texture RID shutdown warnings remain unchanged in all four runs. Static verification did not run imports or Godot suites in the clean verification checkout.
     Decision needed from owner: none for this authorized installation and verification work.
-    NOT READY for a reviewed push until the final clean-gate comparison finishes. No whole-V2 completion claimed.
+    READY verified source/proof checkpoint; no whole-V2, human or final photoreal acceptance claimed.
