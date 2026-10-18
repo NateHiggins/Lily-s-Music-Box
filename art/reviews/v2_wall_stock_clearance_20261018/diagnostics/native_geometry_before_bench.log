@@ -1,0 +1,8 @@
+C:\PleaseRemainOnTheLine\tmp\v2-wall-clearance-20261018\native_geometry_before_bench.py:79: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+CHANGED NATIVE STOCKS CLOSED: 54 volumes: 0.11093370643298592
+BASELINE JOIN DIAGNOSTIC: [('DomesticObject46_PanelConduit', 'disconnected', ['DomesticObject46_JunctionBack', 'DomesticObject46_JunctionBottom', 'DomesticObject46_JunctionCover', 'DomesticObject46_JunctionLeft', 'DomesticObject46_JunctionRight', 'DomesticObject46_JunctionScrew(-0.052, 2.5479999999999996)', 'DomesticObject46_JunctionScrew(-0.052, 2.6519999999999997)', 'DomesticObject46_JunctionScrew(0.052, 2.5479999999999996)', 'DomesticObject46_JunctionScrew(0.052, 2.6519999999999997)', 'DomesticObject46_JunctionTop', 'DomesticObject46_LowerCabinetBush', 'DomesticObject46_RiserFlange', 'DomesticObject46_Saddle1.7', 'DomesticObject46_SpareCap', 'DomesticObject46_SpareStub', 'DomesticObject46_Trunk', 'DomesticObject46_UpperCabinetBush'])]
+CHANGED NATIVE JOINS: 5 groups; 22 actual bearings
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

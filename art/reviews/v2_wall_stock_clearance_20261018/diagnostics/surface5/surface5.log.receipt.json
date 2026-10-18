@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 569.43,
+  "exit_code": 1,
+  "finished_utc": "2026-10-18T20:12:41Z",
+  "started_utc": "2026-10-18T20:03:11Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 SURFACE QUALIFICATION: FAIL; 35051 checks; 1 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-wall-clearance-20261018/surface5.log.stderr",
+  "stderr_sha256": "951df28cc9c4ace6d601606115ebcdf0bfd2f6ecb3fd7ca9a141682a21069073",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-wall-clearance-20261018/surface5.log",
+  "stdout_sha256": "2f1e7bc2184af5878229c49140b1edabb1ec4268b76170dc5e2f78b0a03c0258"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-wall-clearance-20261018\\surface5",
+ "source": {
+  "dirty_paths": 1619,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json"
+  ],
+  "repository_head": "0b249631924f43b25fde85cecc04332eb32ad8a4",
+  "repository_tree": "edad705c7d931d96006472d1e61a2207c0796d82",
+  "runtime_inputs_sha256": "6bc3536d2a360ff8e0001d0937384c49aef5acecc4e9635d1bca6f7d2a60d191",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "c355acb358ed832a95af61f1c8b479fa65b7bcc72800c72855c43618d0ffb352"
+ },
+ "windowed": true
+}

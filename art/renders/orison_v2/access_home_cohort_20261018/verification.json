@@ -4,10 +4,10 @@
   "errors": [],
   "packet": "access_home_cohort_20261018",
   "source": {
-    "repository_head": "59b7897b1c30a6ca19a4d09012d6f6dfb8261ae1",
-    "runtime_inputs_sha256": "eceb7e825eb24f9b7f14346624abbdd0f11bc515aea62a8e7015ab5048e9a50b",
+    "repository_head": "7d59b519e9891c0e92e697ac420eee210406e20d",
+    "runtime_inputs_sha256": "6bc3536d2a360ff8e0001d0937384c49aef5acecc4e9635d1bca6f7d2a60d191",
     "scene_path": "res://tests/OrisonV2HomeAccessCohort.tscn",
-    "surface_inputs_sha256": "9cfbd440889da0e03ac77a73f23d6ac68d58d294b393f14498e581c1e9bd3c63",
+    "surface_inputs_sha256": "2ce1d4e8fb3a8b195cf75cfed86cff0f8fef7fc0e9f9ed741e6efab012ad3083",
     "test_dependencies": {
       "game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
       "game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",
@@ -20,7 +20,7 @@
       "game/tests/orison_v2_completion_interiors_test.gd": "bde71f1b87bb0759f98dd222d3c94fa750621641e1738316492d08f570b59405",
       "game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
       "game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
-      "game/tests/orison_v2_vertical_route_test.gd": "bc078c6b25710e41dbbaccceaa59478be550a528573f577266aa94476a106a8b",
+      "game/tests/orison_v2_vertical_route_test.gd": "301419474f5ca1b2e5405fe74b32a2d8e9603ce9a2e5151f98e6d6e9d786e48d",
       "game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
       "game/tests/v2_completion_door_settle.gd": "459389748e0fa4374d352f4a618cac42477b407fc40ed8c53599878a4161819a",
       "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"

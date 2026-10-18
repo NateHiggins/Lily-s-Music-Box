@@ -1,0 +1,88 @@
+ERROR: retained fitting clears actual finish triangles: 3D_blanket_a
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_in_world (res://tests/v2_furnishing_clearance_review.gd:84)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:55)
+ERROR: retained fitting clears actual finish triangles: 3D_blanket_b
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] validate_in_world (res://tests/v2_furnishing_clearance_review.gd:84)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:55)
+ERROR: V2 STREET CROSSING: target (0.0, 0.0, -10.2) actual (0.691506, 0.000943, -8.841101)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _walk (res://tests/orison_v2_vertical_route_test.gd:130)
+ERROR: original input/physics street crossing and return completes
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_street_paving_details_test.gd:111)
+       [3] _route (res://tests/orison_v2_street_crossing_test.gd:8)
+       [4] _leave_front_entrance (res://tests/orison_v2_vertical_route_test.gd:140)
+       [5] _walk (res://tests/orison_v2_vertical_route_test.gd:132)
+ERROR: actual region geometry is resident: REGION_ARCADE_PORTAL
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/public_region_walk_probe.gd:13)
+       [1] run (res://tests/public_region_walk_probe.gd:48)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:85)
+       [3] validate_in_world (res://tests/orison_v2_street_paving_details_test.gd:115)
+       [4] _route (res://tests/orison_v2_street_crossing_test.gd:8)
+       [5] _leave_front_entrance (res://tests/orison_v2_vertical_route_test.gd:140)
+       [6] _walk (res://tests/orison_v2_vertical_route_test.gd:132)
+ERROR: actual region geometry is resident: REGION_ARCADE_PORTAL
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/public_region_walk_probe.gd:14)
+       [2] run (res://tests/public_region_walk_probe.gd:48)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:85)
+       [4] validate_in_world (res://tests/orison_v2_street_paving_details_test.gd:115)
+       [5] _route (res://tests/orison_v2_street_crossing_test.gd:8)
+       [6] _leave_front_entrance (res://tests/orison_v2_vertical_route_test.gd:140)
+       [7] _walk (res://tests/orison_v2_vertical_route_test.gd:132)
+ERROR: actual region geometry is resident: REGION_ARCADE_THROAT
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/public_region_walk_probe.gd:13)
+       [1] run (res://tests/public_region_walk_probe.gd:48)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:85)
+       [3] validate_in_world (res://tests/orison_v2_street_paving_details_test.gd:115)
+       [4] _route (res://tests/orison_v2_street_crossing_test.gd:8)
+       [5] _leave_front_entrance (res://tests/orison_v2_vertical_route_test.gd:140)
+       [6] _walk (res://tests/orison_v2_vertical_route_test.gd:132)
+ERROR: actual region geometry is resident: REGION_ARCADE_THROAT
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/public_region_walk_probe.gd:14)
+       [2] run (res://tests/public_region_walk_probe.gd:48)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:85)
+       [4] validate_in_world (res://tests/orison_v2_street_paving_details_test.gd:115)
+       [5] _route (res://tests/orison_v2_street_crossing_test.gd:8)
+       [6] _leave_front_entrance (res://tests/orison_v2_vertical_route_test.gd:140)
+       [7] _walk (res://tests/orison_v2_vertical_route_test.gd:132)
+ERROR: actual region geometry is resident: REGION_ARCADE_HALL
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/public_region_walk_probe.gd:13)
+       [1] run (res://tests/public_region_walk_probe.gd:48)
+       [2] _run (res://tests/orison_v2_surface_inventory.gd:85)
+       [3] validate_in_world (res://tests/orison_v2_street_paving_details_test.gd:115)
+       [4] _route (res://tests/orison_v2_street_crossing_test.gd:8)
+       [5] _leave_front_entrance (res://tests/orison_v2_vertical_route_test.gd:140)
+       [6] _walk (res://tests/orison_v2_vertical_route_test.gd:132)
+ERROR: actual region geometry is resident: REGION_ARCADE_HALL
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/public_region_walk_probe.gd:14)
+       [2] run (res://tests/public_region_walk_probe.gd:48)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:85)
+       [4] validate_in_world (res://tests/orison_v2_street_paving_details_test.gd:115)
+       [5] _route (res://tests/orison_v2_street_crossing_test.gd:8)
+       [6] _leave_front_entrance (res://tests/orison_v2_vertical_route_test.gd:140)
+       [7] _walk (res://tests/orison_v2_vertical_route_test.gd:132)

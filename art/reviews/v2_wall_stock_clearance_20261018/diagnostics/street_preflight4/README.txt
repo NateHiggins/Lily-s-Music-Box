@@ -1,0 +1,1 @@
+Evidence class: INERT. Original diagnostic run, not a qualified surface packet or a runtime acceptance grant. Surface5 completed with one capture-position obstruction from an open entrance door; its technical surface inventory was clean. Focused street preflights exercise normal hand input.

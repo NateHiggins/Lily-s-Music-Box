@@ -1,0 +1,44 @@
+{
+	"checks": 35051,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"surface_requirements": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"status": "FAIL"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 558.148,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": [
+		"ordinary standing capsule clears capture station door"
+	],
+	"inventory_sha256": "b75d8250bcbdd60e419b5539c4edf95429fbbfe8c9f0d3eff3eede9a9ff9fbf6",
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
+	"selector": "v2",
+	"source": {
+		"repository_head": "0b249631924f43b25fde85cecc04332eb32ad8a4",
+		"runtime_inputs_sha256": "6bc3536d2a360ff8e0001d0937384c49aef5acecc4e9635d1bca6f7d2a60d191",
+		"test_path": "game/tests/orison_v2_surface_inventory.gd",
+		"test_sha256": "c355acb358ed832a95af61f1c8b479fa65b7bcc72800c72855c43618d0ffb352"
+	},
+	"surface_inputs_sha256": "1a3075496b3732ece74e1ad1183106b0a1390a4bf60a85554e99ac1f0e7eabda"
+}

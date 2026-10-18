@@ -1,0 +1,46 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_objects.py:89: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_objects.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+14:57:13 | INFO: Starting glTF 2.0 export
+14:57:13 | INFO: Extracting primitive: DomesticObject24__Body_ON_blanket_grey
+14:57:13 | INFO: Primitives created: 1
+14:57:13 | INFO: Extracting primitive: DomesticObject24__Body_ON_linen
+14:57:13 | INFO: Primitives created: 1
+14:57:13 | INFO: Extracting primitive: DomesticObject24__Body_ON_timber
+14:57:13 | INFO: Primitives created: 1
+14:57:13 | INFO: Extracting primitive: DomesticObject24__Body_ON_wood_dark
+14:57:13 | INFO: Primitives created: 1
+14:57:13 | INFO: Extracting primitive: DomesticObject35__Body_ON_metal
+14:57:13 | INFO: Primitives created: 1
+14:57:13 | INFO: Extracting primitive: DomesticObject35__Body_ON_paper
+14:57:13 | INFO: Primitives created: 1
+14:57:13 | INFO: Extracting primitive: DomesticObject35__Body_ON_wood_dark
+14:57:13 | INFO: Primitives created: 1
+14:57:13 | INFO: Extracting primitive: DomesticObject46__Body_ON_metal
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Extracting primitive: DomesticObject65__Body_ON_bakelite
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Extracting primitive: DomesticObject65__Body_ON_brass
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Extracting primitive: DomesticObject65__Body_ON_linen
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Extracting primitive: DomesticObject65__Body_ON_rubber_aged
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Extracting primitive: DomesticObject65__Body_ON_timber
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Extracting primitive: DomesticObject66__Body_ON_bakelite
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Extracting primitive: DomesticObject66__Body_ON_blanket_grey
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Extracting primitive: DomesticObject66__Body_ON_brass
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Extracting primitive: DomesticObject66__Body_ON_rubber_aged
+14:57:14 | INFO: Primitives created: 1
+14:57:14 | INFO: Finished glTF 2.0 export in 0.044544219970703125 s
+
+DOMESTIC OBJECTS 16 original records; 5 assemblies; 56 closed stocks; 17 parts; 14748 triangles; 20 foot contacts
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -1,0 +1,52 @@
+{
+	"checks": 3,
+	"evidence_class": "INERT",
+	"failures": [
+		"ordinary entrance, street crossing and return preflight"
+	],
+	"scope": "Actual production-owner, ordinary controller walking and rendered diagnosis. One explicit outside-street arrival fixture; no lobby, traffic-safety, spatial ledger, human or whole-V2 acceptance.",
+	"trace": [
+		{
+			"actual": [
+				1.92499971389771,
+				0.000136282993480563,
+				-6.40357732772827
+			],
+			"ok": true,
+			"target": [
+				1.92499995231628,
+				0.0,
+				-6.5
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				0.0804072543978691,
+				0.000136282993480563,
+				-7.59793758392334
+			],
+			"ok": true,
+			"target": [
+				0.0,
+				0.0,
+				-7.65000009536743
+			],
+			"wall_contacts": {}
+		},
+		{
+			"actual": [
+				0.00298994057811797,
+				0.000136282993480563,
+				-10.1032419204712
+			],
+			"ok": true,
+			"target": [
+				0.0,
+				0.0,
+				-10.1999998092651
+			],
+			"wall_contacts": {}
+		}
+	]
+}

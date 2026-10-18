@@ -1,0 +1,237 @@
+{
+  "evidence_class": "INERT",
+  "preserved_rows": 10232,
+  "reviewed_added_rows": [
+    {
+      "key": "ba575628e9e79910",
+      "kind": "floor_reference",
+      "token": "F03",
+      "file": "game/tests/public_region_programme_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_blanket_corner_bench"
+      ],
+      "lines": [
+        124,
+        124
+      ],
+      "count": 2,
+      "context": [
+        "var result: Dictionary=fit.displacement(boxes,nearby,true,Vector2(float(shell.level_y[\"F03\"])+.18,float(shell.level_y[\"F03\"])+float(shell.layout.dimensions.clea"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "f3cca753d49b46de",
+      "kind": "generated_name",
+      "token": "_blanket_corner_bench",
+      "file": "game/tests/public_region_programme_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_blanket_corner_bench"
+      ],
+      "lines": [
+        102
+      ],
+      "count": 1,
+      "context": [
+        "identity+\"_FitBench\";body.set_meta(\"v2_furniture_kind\",\"blanket\");shell.add_child(body)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "GENERATED_IDENTITY",
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "MEDIUM",
+      "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "f17b4262a600f8e7",
+      "kind": "id_reference",
+      "token": "3D_blanket_a",
+      "file": "game/tests/public_region_programme_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_blanket_corner_bench"
+      ],
+      "lines": [
+        101
+      ],
+      "count": 1,
+      "context": [
+        "for identity: String in [\"3D_blanket_a\",\"3D_blanket_b\"]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "bb1ce63cb5e81f6a",
+      "kind": "id_reference",
+      "token": "3D_blanket_b",
+      "file": "game/tests/public_region_programme_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_blanket_corner_bench"
+      ],
+      "lines": [
+        101
+      ],
+      "count": 1,
+      "context": [
+        "for identity: String in [\"3D_blanket_a\",\"3D_blanket_b\"]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "065cc0fa74db99ee",
+      "kind": "id_reference",
+      "token": "2C_threshold",
+      "file": "game/tests/v2_furnishing_clearance_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "validate_in_world"
+      ],
+      "lines": [
+        106
+      ],
+      "count": 1,
+      "context": [
+        "var selected := [\"EastRack\",\"1A_wardrobe\",\"1A_frame_a\",\"4C_story_colorboard\",\"3B_toolboard\",\"5C_w0_wardrobe\",\"6B_abed\",\"F01_lobby_photo\",\"F06_PUBLIC_LANDING_PIE"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "2f97171b691e5f52",
+      "kind": "id_reference",
+      "token": "4C_threshold",
+      "file": "game/tests/v2_furnishing_clearance_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "validate_in_world"
+      ],
+      "lines": [
+        106
+      ],
+      "count": 1,
+      "context": [
+        "var selected := [\"EastRack\",\"1A_wardrobe\",\"1A_frame_a\",\"4C_story_colorboard\",\"3B_toolboard\",\"5C_w0_wardrobe\",\"6B_abed\",\"F01_lobby_photo\",\"F06_PUBLIC_LANDING_PIE"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "e37b40ddd319cc4d",
+      "kind": "id_reference",
+      "token": "6A_print_line",
+      "file": "game/tests/v2_furnishing_clearance_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "validate_in_world"
+      ],
+      "lines": [
+        106
+      ],
+      "count": 1,
+      "context": [
+        "var selected := [\"EastRack\",\"1A_wardrobe\",\"1A_frame_a\",\"4C_story_colorboard\",\"3B_toolboard\",\"5C_w0_wardrobe\",\"6B_abed\",\"F01_lobby_photo\",\"F06_PUBLIC_LANDING_PIE"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "6d4dfd0b4a118b98",
+      "kind": "id_reference",
+      "token": "6C_threshold",
+      "file": "game/tests/v2_furnishing_clearance_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "validate_in_world"
+      ],
+      "lines": [
+        106
+      ],
+      "count": 1,
+      "context": [
+        "var selected := [\"EastRack\",\"1A_wardrobe\",\"1A_frame_a\",\"4C_story_colorboard\",\"3B_toolboard\",\"5C_w0_wardrobe\",\"6B_abed\",\"F01_lobby_photo\",\"F06_PUBLIC_LANDING_PIE"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    }
+  ],
+  "scope": "Eight explicit test/capture dependencies only; prior records and audit policy unchanged."
+}

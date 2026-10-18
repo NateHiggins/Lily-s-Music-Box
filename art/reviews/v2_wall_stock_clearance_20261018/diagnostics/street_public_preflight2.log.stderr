@@ -1,0 +1,10 @@
+ERROR: ordinary entrance, street crossing and return preflight
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/public_region_walk_probe.gd:13)
+       [1] _run (res://tests/public_region_walk_probe.gd:40)
+       [2] _route (res://tests/orison_v2_street_crossing_test.gd:8)
+       [3] _leave_front_entrance (res://tests/orison_v2_vertical_route_test.gd:144)
+       [4] _open_front_entrance (res://tests/orison_v2_vertical_route_test.gd:180)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

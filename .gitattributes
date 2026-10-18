@@ -2338,3 +2338,6 @@ game/tests/audio_policy_test.gd -text
 tools/preflight_spatial_test_bindings.py -text
 tools/tests/test_spatial_binding_preflight.py -text
 tools/tests/test_v2_audit_digest_snapshot.py -text
+
+# Raw-hashed wall-stock diagnostics and original qualification packets.
+art/reviews/v2_wall_stock_clearance_20261018/** -text -whitespace
