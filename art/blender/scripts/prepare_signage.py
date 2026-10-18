@@ -25,7 +25,7 @@ plan={'evidence_class':'INERT','classification':'ADAPTATION','source_census_sha2
                         'ceiling':dims['ceiling']},
       'bodega_service_port':frontage['sign_service_port'],
       'source_finishes':[{'actor':'F01_BAR_SIGNAGE','index':35,'roughness':.93,'color':[.72,.14,.08,1.],'emission':[]},
-                         {'actor':'FittedBodegaSignage','index':0,'roughness':.79,'color':[.84,.73,.42,1.],'emission':[1.,.88,.55]}],
+                         {'actor':'FittedBodegaSignage','index':0,'roughness':.79,'color':[.84,.73,.42,1.],'emission':[1.,.88,.55],'emission_energy':.15}],
       'scope':'Existing sign spans, lettering, light/material state owners and observation bindings. Native housings only.',
       'electrical_scope':'Harukiya internal branches terminate at original fixture sockets and a rear service junction. Bodega branch connects to its existing independent lighting conduit. Orison retains the existing transformer, conduit and wall condulet route.'}
 p=ROOT/'art/data/signage/source_plan.json';p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(plan,indent=2)+'\n',newline='\n')

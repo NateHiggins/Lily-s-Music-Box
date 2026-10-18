@@ -40,6 +40,10 @@ func install(world: Node) -> bool:
 		if not finish.emission.is_empty():
 			var emission: Array=finish.emission
 			material.emission=Color(emission[0],emission[1],emission[2])
+		if finish.has("emission_energy"):
+			# Calibrate only the authored face's luminance. Existing material
+			# identity, electrical owner, cabinet dropout and light spill remain.
+			material.emission_energy_multiplier=float(finish.emission_energy)
 	return true
 
 func _find_actor(world: Node, identity: String) -> Node3D:

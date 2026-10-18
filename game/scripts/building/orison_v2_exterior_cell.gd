@@ -7,7 +7,7 @@ extends Node3D
 ## implementations at public semantic surfaces. It never reads either v1
 ## layout and contains no branch for a particular shop or street identity.
 
-const SURFACE_STOCK := {"pavement": "concrete", "asphalt": "asphalt", "curb": "concrete", "brick": "brick", "limestone": "concrete", "route_wear": "mineral_scale", "iron": "iron_neutral", "bodega_enamel": "enamel_appliance", "oxblood": "beacon_lacquer", "cream_tile": "ceramic", "terrazzo": "terrazzo", "oak_dark": "wood_dark", "shelf_steel": "iron_neutral", "cooler_enamel": "enamel_appliance", "glass": "milk_glass", "cooler_glass": "milk_glass", "paper_goods": "paper", "tinned_goods": "zinc_quiet", "dark_recess": "iron_blackened", "warm_practical": "milk_glass", "pavement_wet": "concrete", "paving_joint": "concrete", "aged_green": "beacon_lacquer", "window_amber": "milk_glass", "lamp_glass": "milk_glass", "crate_wood": "timber", "produce_green": "plant", "paper_cream": "paper", "paint_blue": "beacon_lacquer", "icebox_interior": "enamel_appliance"}
+const SURFACE_STOCK := {"pavement": "concrete", "asphalt": "asphalt", "curb": "concrete", "brick": "brick", "limestone": "limestone", "route_wear": "mineral_scale", "iron": "iron_neutral", "bodega_enamel": "enamel_appliance", "oxblood": "beacon_lacquer", "cream_tile": "bath_wall_tile", "terrazzo": "terrazzo", "oak_dark": "wood_dark", "shelf_steel": "iron_neutral", "cooler_enamel": "enamel_appliance", "glass": "milk_glass", "cooler_glass": "milk_glass", "paper_goods": "paper", "tinned_goods": "zinc_quiet", "dark_recess": "iron_blackened", "warm_practical": "milk_glass", "pavement_wet": "concrete", "paving_joint": "concrete", "aged_green": "beacon_lacquer", "window_amber": "milk_glass", "lamp_glass": "milk_glass", "crate_wood": "timber", "produce_green": "plant", "paper_cream": "paper", "paint_blue": "beacon_lacquer", "icebox_interior": "enamel_appliance"}
 
 const GEOMETRY_PATH := "res://data/orison_v2/exterior/exterior_geometry.json"
 const SpatialResolverScript := preload(
@@ -401,6 +401,9 @@ func _validate_material(value: Variant) -> void:
 	if ident.is_empty() or _material_records.has(ident):
 		_fail("invalid or duplicate exterior material: %s" % ident)
 		return
+	if not SURFACE_STOCK.has(ident) or not MatLib.SETS.has(SURFACE_STOCK.get(ident,"")):
+		_fail("exterior material lacks registered runtime PBR stock: %s" % ident)
+		return
 	if not _valid_color(record.get("albedo_rgba"), true) \
 			or not _valid_color(record.get("emission_rgb"), false) \
 			or not _number_in(record.get("roughness"), 0.0, 1.0) \
@@ -657,7 +660,7 @@ func _build_box(parent: Node3D, body: StaticBody3D,
 	var presentation_role := str(record.get("presentation_role", ""))
 	mesh_node.set_meta("authored_record_id", record_id)
 	mesh_node.set_meta("presentation_role", presentation_role)
-	mesh_node.mesh = _box_mesh(size)
+	mesh_node.mesh = _box_mesh(size,position)
 	mesh_node.material_override = _material(str(record.get("material_id", "")))
 	mesh_node.position = position
 	mesh_node.rotation_degrees.y = yaw
@@ -962,13 +965,17 @@ func _material(material_id: String) -> StandardMaterial3D:
 	return material
 
 
-func _box_mesh(size: Vector3) -> BoxMesh:
-	var key := "%.5f|%.5f|%.5f" % [size.x, size.y, size.z]
+func _box_mesh(size: Vector3, origin: Vector3 = Vector3.ZERO) -> ArrayMesh:
+	# These source-owned architectural stocks sample their primary UVs in V2.
+	# A normalized BoxMesh atlas enlarges tile courses and crack patterns.
+	# Include the installation phase so adjacent wall pieces share grout lines.
+	var key := [size,origin]
 	if _mesh_cache.has(key):
-		return _mesh_cache[key] as BoxMesh
-	var mesh := BoxMesh.new()
+		return _mesh_cache[key] as ArrayMesh
+	var blank := BoxMesh.new()
+	blank.size = size
+	var mesh := preload("res://scripts/building/v2_metre_box_uv.gd").chart(blank,origin)
 	mesh.set_meta(&"orison_v2_exterior_owned", true)
-	mesh.size = size
 	_mesh_cache[key] = mesh
 	return mesh
 

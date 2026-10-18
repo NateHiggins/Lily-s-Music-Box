@@ -12,6 +12,13 @@ a generated visual can leave a source field unread even when the native render
 passes. Resolve source-to-native compatibility before freezing the rendering
 inputs, so a cheap reader defect does not force another full world build.
 
+When adding an older suite to a shared-world pass, preflight its selected
+fixtures' source_bindings before booting Godot. Regenerate expired bindings
+through their owning builder and compare actual geometry; never repin a receipt.
+Assertions about shared material defaults must account for V2's active UV
+policy and verify restoration after world teardown. Check runtime registration
+as well as the art catalogue: an art key alone does not populate MatLib's sets.
+
 ## Visual detail priority (owner direction, 2026-10-17)
 
 Prioritize observed material and construction defects within each batch,

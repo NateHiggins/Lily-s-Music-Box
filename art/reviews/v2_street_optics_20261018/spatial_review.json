@@ -1,0 +1,41 @@
+{
+  "evidence_class": "INERT",
+  "scope": "One explicit existing shed-camera optical station; no player route, geometry, runtime or acceptance grant. No global manifest update.",
+  "appended": [
+    {
+      "key": "2fdea733c53fe2d6",
+      "kind": "vector3_coordinate",
+      "token": "run",
+      "file": "game/tests/v2_street_optics_probe.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        73,
+        74
+      ],
+      "count": 2,
+      "context": [
+        "camera.global_position=Vector3(19.5,1.65,3.1)",
+        "camera.look_at(Vector3(24,1.8,1));camera.make_current()"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    }
+  ],
+  "rationale": "The source camera/target reproduce the previous approach view to isolate actual triangle/material hits and two optical controls. It is a frozen-camera fixture and never gameplay movement.",
+  "all_previous_records_preserved": true
+}

@@ -1,48 +1,78 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "scope": "Reviewed native shed geometry/material installation, with explicit remaining appearance defects; not photoreal, human, four-region or V2 completion acceptance. The separate runtime contract covers loaded technical surfaces.",
-  "surface_inputs_sha256": "06af3498e86ee9e2f0f6d01ab2dc9894e5df95ab1ef7bb42634bf96877cd6fd0",
+  "scope": "Reviewed incremental tile scale/stock, limestone registration and valance emission repair. Not photoreal, human, four-region, gameplay or V2 completion acceptance. Explicit unresolved glazing highlight, warm cast and period signage debt remain.",
+  "surface_inputs_sha256": "6a53803518a59dfa1a922f4191d5a11d23c7a6be341ce549418bae234bf1c4cc",
   "images": [
     {
       "file": "construction_approach_diffuse.png",
-      "sha256": "eba1c8a0e76f097ab4f9937a2549166e83f747a35a6f89c955c083fc1b0f0870",
-      "observation": "Production street context: separate vertical boards and lengthwise post grain replace the monolithic dark boxes. Adjacent wall has exaggerated crack relief, while the nearby white oval fitting and fascia are overbright; those existing defects remain open."
+      "sha256": "52a3907b6a78800cd9cb926497c98fd1e58085e2f081482c79f012d91c5146de",
+      "observation": "Loaded tiled party wall seen through the shop glazing now has coherent small running-bond courses rather than baked cracks; the lower-emission fascia retains a surface. White glazing oval and warm cast remain open."
     },
     {
       "file": "construction_approach_carried.png",
-      "sha256": "9166f39e08a121694a7fe20f1e48a1c41d1939588801956a6f69a19c7a1594a2",
-      "observation": "Real carried lamp illuminates the interior without removing the board seams or fitted framing. Warm amber lighting dominates the colour. Existing adjacent wall/fitting appearance is not accepted."
+      "sha256": "4fdd1d2b9e5ea84de8e4829dc6156120e52cabd65e6f5fc13c58b29a08c6789a",
+      "observation": "Carried light illuminates individual shed boards and fitted post/beam framing. The tile scale remains consistent; glazing highlight still clips white."
     },
     {
       "file": "construction_framing_diffuse.png",
-      "sha256": "59ab40316c4f14fca85355bcea8a2ada8b715f799b0df875603f47a32a35e834",
-      "observation": "Loaded overhead decking, secondary joists, primary beams and posts remain seated and show distinct stock grain. Open upper ventilation remains intentional; the underside is opaque. Original work lamp and closure notice remain visible."
+      "sha256": "5c3381c2e592001cc66747e10acc060fd807e1531c87a0a415761bff1fac3c87",
+      "observation": "Overhead decking, secondary joists and supported beams remain distinct and opaque. No native shed geometry changed in this finish pass."
     },
     {
       "file": "construction_framing_carried.png",
-      "sha256": "b1189974d8bf5c9a434e1ee375c58c7ff454b7268d4c6d6487337c5efe89be02",
-      "observation": "Carried light grazes the overhead stock, revealing stepped joints, separate boards, fasteners and the end wall brace. No regular cross-hatched procedural grain remains. Warm production illumination still limits neutral-colour assessment."
+      "sha256": "f26ff2e81d5de0784adbff269617d95a7eb6b241622a132c14864aa253b90da0",
+      "observation": "Carried light shows timber direction, separate board edges and fasteners; warm production lighting remains dominant."
     },
     {
       "file": "construction_closure_diffuse.png",
-      "sha256": "5056c8dd1d2b719873725a8a7cf87bb706379bc4649b014f675ddd3cbac46443",
-      "observation": "Original separate Label3D lettering remains readable on the paper stock. Diagonal brace is supported and bolted rather than floating off the boards; fine board edges and nails remain visible."
+      "sha256": "4f10aac2cf478e39235eaff040f34db927d44b95c7a7727f6c4115d224687383",
+      "observation": "Separate original closure lettering remains readable on paper; seated diagonal brace and fasteners remain visible."
     },
     {
       "file": "construction_closure_carried.png",
-      "sha256": "cd3fde6c86026e807859c4735f49fc11b71bb7d43a1be22464ae30271bc80b77",
-      "observation": "Close carried-light view retains the brace, two bolt heads, narrow board joints and blank paper beneath the separate lettering. Photoreal acceptance and wear/storytelling details remain open."
+      "sha256": "9f0b417433b524b254a241dce756792752082cc031a3e02891703cf86efe83c5",
+      "observation": "Closer carried-light view retains blank paper stock beneath separate lettering, board grain, joints and bolt heads."
     },
     {
       "file": "construction_joinery_diffuse.png",
-      "sha256": "40b864370ba4f92ff99ebb11ccd0bdffe5a0652f9667ceae96c5b744e211d71b",
-      "observation": "Actual loaded corner: seated post/beam faces, separate eased edges, exposed end stock, bolt and longitudinal grain remain visible in room light. Native fitting has not become a box-textured corner."
+      "sha256": "eddde6ee38abb2bd6f41fabdf485de49bf42dc0dd5dce4b94eac0f7a90675598",
+      "observation": "Post/beam joint retains seated solids, end grain and bolt hardware; no new gaps through native stock."
     },
     {
       "file": "construction_joinery_carried.png",
-      "sha256": "8ce394f2f8a4d34658cd23713b774f7e6ed34dabbd1329ce93657f76f844d489",
-      "observation": "Carried light grazes the beam underside and post joint. Grain direction follows the individual stock and bolt hardware remains separate. Small dark seams are visible rather than gaps through the timber."
+      "sha256": "ff75f67d5f65f4f7adcbaf029db635e8126944ca3896d962c41280c4f4bb1f3e",
+      "observation": "Grazing carried light retains grain direction and bolt hardware on the unchanged native joint."
+    },
+    {
+      "file": "street_approach_original.png",
+      "sha256": "bc6782479f85e41a38fedbb72ac8a41f54fa76c7825149f1f1d541c2240e0bd5",
+      "observation": "Actual production view: corrected tile courses behind the right store glass; valance retains soft transmitted illumination and texture. White oval remains an unacceptable glazing highlight."
+    },
+    {
+      "file": "street_approach_selected_normals_off.png",
+      "sha256": "ea48c4946a3dceadde1d50b51d85c468ac44f4e91e31f4ad969619afd99cd4c8",
+      "observation": "Disposable selected-material normal-off control keeps the same regular tile courses. The former cracks were baked albedo, not simply exaggerated normal strength."
+    },
+    {
+      "file": "street_approach_selected_emission_off.png",
+      "sha256": "6a4032553a819b9bb55cb32a0b14e910284277d51e91df9da1dfd66ea7a7dc8d",
+      "observation": "Disposable emission-off control reveals valance surface colour. Normal production emission is restored after this control."
+    },
+    {
+      "file": "street_approach_right_glazing_hidden.png",
+      "sha256": "a4681e43d2d352fdb8cfb40e56bb6a395d72af61a3458edabdc955b4c265c5c2",
+      "observation": "Disposable right-pane-hidden control removes the clipped white oval while retaining tile and practical lamp, isolating the remaining defect to glazing. Production pane visibility is restored."
+    },
+    {
+      "file": "street_sign_front.png",
+      "sha256": "f56bea7a4980e9994931684ed61fd80d5a6b78688e1427b9a069e34234b6318a",
+      "observation": "Front view retains original independent red lettering and softly lit fascia. Construction post partially occludes the sign; original bright projecting cabinet and period material/wording remain open."
+    },
+    {
+      "file": "street_sign_front_emission_off.png",
+      "sha256": "60cb46b0316e5abc25d6a884ae3f9e62aed229a943c4a96a3605605bdd903f52",
+      "observation": "Same front camera with only valance emission disabled: face darkens while original cabinet and practical lamp remain lit, confirming their distinct material authorities."
     }
   ]
 }

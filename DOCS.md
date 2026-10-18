@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Bodega tile scale/stock, registered limestone, lower fascia emission and optical controls | `design/V2_STREET_FINISH_2026-10-18.md` |
 | Played-home proof renewal, finite stock identity audit and main regression repair | `design/V2_MAIN_REGRESSION_REPAIR_2026-10-18.md` |
 | Native construction shed, custom mirrored softwood, retained dogleg and current qualification | `design/V2_CONSTRUCTION_SHED_2026-10-18.md` |
 | Physical Lena service round, actual workshop-part delivery, disk rebuild and geometry-bound proof | `design/V2_PHYSICAL_SERVICE_ROUND_2026-10-17.md` |

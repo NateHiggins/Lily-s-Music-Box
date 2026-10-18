@@ -2,34 +2,34 @@
 
 Evidence class: **EVIDENCE**. Played spatial access only; no runtime/case or human acceptance grant.
 
-The schema-2 test-written contract at
-**art/renders/orison_v2/access_roof_cohort_20261018/runtime_contract.json** passes
-**9 rooms, two continuous collision-bearing legs and 214 checks**, zero failures.
-The matching **suite_run.receipt.json** and compressed unchanged raw channels
-corroborate the completed windowed execution. The independent spatial validator
-checks current runtime/surface inputs, the actual entry scene and all 13
-transitive test dependencies; no receipt is repinned.
+Renewed after the street finish repair through one complete upper-home/roof
+production-selected V2 cohort. The schema-2 test-written contract at
+**art/renders/orison_v2/access_upper_cohort_20261018/runtime_contract.json** passes
+**69 rooms, eleven collision-bearing legs and 989 checks**, zero failures.
+The matching completed **suite_run.receipt.json** and unchanged compressed raw
+channels corroborate execution. The full receipt is retained unchanged; it is
+not split into separately manufactured home and roof passes. Independent
+spatial validation checks current runtime/surface inputs, the actual entry
+scene and all **16** transitive test dependencies. No receipt is repinned.
 
-One original F06 arrival is retained. The service/tank circuit and guarded
-lift machinery circuit share the same production-selected world and continue
-from one another without replacing the player. Ordinary controller movement
-checks active collision, normal physics processing and tight waypoint error.
-The lift travel request remains a declared test stimulus. This proves access,
-not player-facing lift operation, inter-floor connectivity or a completed case.
+The two roof legs reach the nine rooms listed below, continuing from one original F06 arrival.
+Each original leg retains its declared arrival fixture; subsequent travel uses
+the ordinary collision-bearing controller. Recorded waypoints check normal
+physics, noclip off, mask 1, under 0.18 m horizontal error and under 0.15 m floor
+error. No floor-to-floor connection is claimed. Doors and roof switches use real
+cursor targeting, primary-click grab, constrained mouse motion and click release.
+The lift travel request remains a declared test stimulus, not player-facing
+lift-operation proof. The service-door route really walks back to the original
+clear stance after verifying the old switch-return stance intersects its sweep;
+production collision protection is unchanged. The earlier failed combined run
+remains a diagnostic in the preceding review archive, not a partial pass.
 
-Both roof switches and the doors use actual ray selection, primary-click grab,
-mouse motion constrained by their existing owner and primary-click release.
-The old service-switch return stance is checked against the actual player
-capsule and swept door shape; it intersects. The route then really walks to
-the original clear stance, verifies clearance and closes the leaf through input.
-Production collision protection is unchanged. The earlier combined upper/roof
-failure remains a failed diagnostic in the review archive, not a partial pass.
-
-Four tracked root/check/driver nodes retire, none retained. This bounded
-measurement is not global resource-clean proof: seven known Texture RID
-shutdown warnings remain. Runtime, geometry/surface and transitive test sources
-remain fixed throughout the run. No disk save, full-building runtime, golden
-shift, visual acceptance, retirement or human acceptance grant is made.
+All **13** tracked root/route/check nodes retire, none retained. This bounded
+measurement does not grant global resource cleanliness: seven known Texture RID
+shutdown warnings remain. Runtime, geometry/surface and transitive test inputs
+stay fixed throughout execution. No room appearance, resident scheduling,
+maintenance case completion, disk save, whole-building runtime, golden shift,
+retirement or human acceptance is granted by this access circuit.
 
 ## Visited rooms
 

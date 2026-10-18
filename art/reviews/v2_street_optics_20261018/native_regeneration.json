@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original exporters regenerate current source bindings. Actual exported meshes remain byte-identical; native geometry reviews can be reused. Optical changes require the new composed render.",
+  "assets": [
+    {
+      "asset": "game/assets/props/bodega_frontage.glb",
+      "before_sha256": "a780cffaed39caf71a51e0ad2cb985256060455f6e75464d59dadc40692d140a",
+      "after_sha256": "a780cffaed39caf71a51e0ad2cb985256060455f6e75464d59dadc40692d140a",
+      "byte_identical": true
+    },
+    {
+      "asset": "game/assets/props/signage.glb",
+      "before_sha256": "b5fee020477820bc2e0b1339c4feb6a272531889ec75c112de0ac39379f63d41",
+      "after_sha256": "b5fee020477820bc2e0b1339c4feb6a272531889ec75c112de0ac39379f63d41",
+      "byte_identical": true
+    }
+  ]
+}

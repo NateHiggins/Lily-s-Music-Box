@@ -3,8 +3,8 @@ extends RefCounted
 const ASSET := preload("res://assets/props/bodega_fittings.glb")
 const FABRICATION := preload("res://scripts/generated/v2_bodega_fittings.gd")
 const MAPPED := {
-	"terrazzo":"terrazzo", "brick":"brick", "limestone":"concrete",
-	"bodega_enamel":"enamel", "aged_green":"enamel", "cream_tile":"subway_tile",
+	"terrazzo":"terrazzo", "brick":"brick", "limestone":"limestone",
+	"bodega_enamel":"enamel", "aged_green":"enamel", "cream_tile":"bath_wall_tile",
 	"oak_dark":"wood_dark", "iron":"iron_blackened", "shelf_steel":"zinc_liner",
 	"cooler_enamel":"enamel_appliance", "crate_wood":"timber",
 	"pavement_wet":"concrete", "paving_joint":"rubber_aged"}
@@ -12,6 +12,8 @@ const MAPPED := {
 static func mount(exterior: OrisonV2ExteriorCell, architecture: RefCounted) -> Node3D:
 	var shop:=exterior.instance_node("SHOP_BODEGA")
 	if shop==null:push_error("Bodega fittings: source shop missing");return null
+	for key: String in MAPPED.values():
+		if not MatLib.SETS.has(key):push_error("Bodega fittings: unregistered architectural stock: "+key);return null
 	if FileAccess.get_file_as_string(OrisonV2ExteriorCell.GEOMETRY_PATH).replace("\r\n","\n").sha256_text()!=FABRICATION.SOURCE_GEOMETRY_SHA256_LF:push_error("Bodega fittings: source template digest changed");return null
 	var native:=ASSET.instantiate() as Node3D
 	var owner:=Node3D.new();owner.name="FittedRetailFabric";shop.add_child(owner)

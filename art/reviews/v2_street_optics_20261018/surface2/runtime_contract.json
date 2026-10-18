@@ -1,0 +1,46 @@
+{
+	"checks": 30659,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"surface_requirements": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"status": "FAIL"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 370.067,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": [
+		"fitted frontage binds actual source and original leaf builder",
+		"shared catalogue projection remains unchanged",
+		"all loaded surfaces satisfy UV/PBR/mip/filter requirements"
+	],
+	"inventory_sha256": "17b2ffb5100e36c766af939813e09db105407913591868bc788d3524bacf0ee9",
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
+	"selector": "v2",
+	"source": {
+		"repository_head": "111469baeaff38ca8f621593325cb9c817aff4e6",
+		"runtime_inputs_sha256": "9b45591a2853883f7f11526e5120390d4e978788c5cbf8f0ed4ba8c47d707c00",
+		"test_path": "game/tests/orison_v2_surface_inventory.gd",
+		"test_sha256": "a859e785c70eaafcaca1bd739aa0962e78936f0486d135ff09024e526eef2120"
+	},
+	"surface_inputs_sha256": "8ad83146a63266dc2f60f1270ed18f6940ec58063a68a3ac9c45899469735e29"
+}

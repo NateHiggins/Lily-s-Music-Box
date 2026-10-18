@@ -1,0 +1,1 @@
+Evidence class: INERT. Original Blender exporter output. Exact exported GLB before/after identity is recorded separately in native_regeneration.json. These build logs are not runtime or visual proof.

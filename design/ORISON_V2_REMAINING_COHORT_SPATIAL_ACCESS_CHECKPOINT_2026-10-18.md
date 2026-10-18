@@ -2,28 +2,33 @@
 
 Evidence class: **EVIDENCE**. Played spatial access only; no runtime/case or human acceptance grant.
 
-The schema-2 test-written contract at
-**art/renders/orison_v2/access_remaining_cohort_20261018/runtime_contract.json**
-passes **60 rooms, nine collision-bearing legs and 792 checks**, zero failures.
+Renewed after the street finish repair through one complete upper-home/roof
+production-selected V2 cohort. The schema-2 test-written contract at
+**art/renders/orison_v2/access_upper_cohort_20261018/runtime_contract.json** passes
+**69 rooms, eleven collision-bearing legs and 989 checks**, zero failures.
 The matching completed **suite_run.receipt.json** and unchanged compressed raw
-channels corroborate execution. Independent spatial validation passes current
-runtime/surface inputs, the actual entry scene and all ten transitive test
-sources. No receipt is repinned or assembled from successful parts of a failure.
+channels corroborate execution. The full receipt is retained unchanged; it is
+not split into separately manufactured home and roof passes. Independent
+spatial validation checks current runtime/surface inputs, the actual entry
+scene and all **16** transitive test dependencies. No receipt is repinned.
 
-One shared production-selected V2 world runs units **3A, 3B, 4A, 5A, 5B, 5C,
-6A, 6B and 6C**. Each leg retains its original public-entry arrival fixture.
-All following movement uses the ordinary controller: collision queries plan
-standing paths through current furnishings, but the actual player must walk
-every segment. Recorded waypoints check normal physics, noclip off, mask 1,
-under 0.18 m horizontal error and under 0.15 m floor error. No floor-to-floor
-connection is claimed. Entry and internal doors use actual cursor targeting,
-primary-click grab, constrained mouse motion and primary-click release.
+The nine home legs reach the 60 rooms listed below in units **3A, 3B, 4A, 5A, 5B, 5C, 6A, 6B and 6C**.
+Each original leg retains its declared arrival fixture; subsequent travel uses
+the ordinary collision-bearing controller. Recorded waypoints check normal
+physics, noclip off, mask 1, under 0.18 m horizontal error and under 0.15 m floor
+error. No floor-to-floor connection is claimed. Doors and roof switches use real
+cursor targeting, primary-click grab, constrained mouse motion and click release.
+The lift travel request remains a declared test stimulus, not player-facing
+lift-operation proof. The service-door route really walks back to the original
+clear stance after verifying the old switch-return stance intersects its sweep;
+production collision protection is unchanged. The earlier failed combined run
+remains a diagnostic in the preceding review archive, not a partial pass.
 
-Ten tracked root/driver nodes retire, none retained. This is bounded retention
-proof, not a global resource-clean grant: seven known Texture RID shutdown
-warnings remain. Runtime, geometry/surface and transitive test inputs remain
-fixed throughout the run. No room appearance, appliance operation, resident
-schedule, case completion, disk save, whole-building runtime, golden shift,
+All **13** tracked root/route/check nodes retire, none retained. This bounded
+measurement does not grant global resource cleanliness: seven known Texture RID
+shutdown warnings remain. Runtime, geometry/surface and transitive test inputs
+stay fixed throughout execution. No room appearance, resident scheduling,
+maintenance case completion, disk save, whole-building runtime, golden shift,
 retirement or human acceptance is granted by this access circuit.
 
 ## Visited rooms

@@ -79,14 +79,26 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 					check(not hit.is_empty() and hit.collider==body and hit.position.distance_to(draw.to_global(center))<.00005,"actual exposed fitted face has its own matching triangle collision")
 					contacts+=1
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles),"actual imported counts bind the native inventory")
-	check(MatLib.get_mat("oak_quartered",Color(.42,.30,.20),.8).uv1_triplanar,"shared catalogue projection remains unchanged")
+	var shared := MatLib.get_mat("oak_quartered",Color(.42,.30,.20),.8)
+	var uv_policy := world.get_node("V2UVMaterialPolicy")
+	var saved_uv: Dictionary=uv_policy.changed_materials.get(shared.get_instance_id(),{})
+	check(shared.uv1_triplanar or bool(saved_uv.get("uv1",false)),"shared catalogue projection is original or explicitly tracked for teardown restoration")
 	for point: Vector3 in [Vector3(-1.28,2.515,0),Vector3(1.28,2.515,0),Vector3(0,2.625,0)]:
 		var query:=PhysicsRayQueryParameters3D.create(shop.to_global(point+Vector3.BACK*.2),shop.to_global(point-Vector3.BACK*.2),1,[world.player.get_rid()])
 		var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
 		check(not hit.is_empty() and model.is_ancestor_of(hit.collider),"the actual formerly open frontage band is closed by this fitting")
 	for identity: String in ["left_store_glass","right_store_glass","front_transom"]:
 		var pane: MeshInstance3D=model.get_meta("authored_meshes")[identity]
-		check(pane.mesh is BoxMesh and pane.material_override is ShaderMaterial,"original pane geometry and clear-glass ownership remain")
+		var source_geometry: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(OrisonV2ExteriorCell.GEOMETRY_PATH))
+		var original: Dictionary={}
+		for template: Dictionary in source_geometry.templates:
+			if str(template.id)!="TEMPLATE_BODEGA_CELL_V1":continue
+			for row: Dictionary in template.boxes:
+				if str(row.id)==identity:original=row
+		var blank := BoxMesh.new();blank.size=Vector3(original.size_m[0],original.size_m[1],original.size_m[2])
+		check(pane.mesh is ArrayMesh and pane.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]==blank.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+			and pane.mesh.surface_get_arrays(0)[Mesh.ARRAY_INDEX]==blank.surface_get_arrays(0)[Mesh.ARRAY_INDEX]
+			and pane.material_override is ShaderMaterial,"metre-charted pane retains exact source positions, triangles and clear-glass owner")
 	var moving: CollisionShape3D=leaf._body.get_child(0)
 	var exclusions: Array[RID]=[]
 	for body: CollisionObject3D in world.find_children("*","CollisionObject3D",true,false):

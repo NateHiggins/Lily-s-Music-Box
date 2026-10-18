@@ -288654,6 +288654,39 @@
    "target_exists": null
   },
   {
+   "key": "2fdea733c53fe2d6",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/v2_street_optics_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    73,
+    74
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position=Vector3(19.5,1.65,3.1)",
+    "camera.look_at(Vector3(24,1.8,1));camera.make_current()"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "62558ed5b23bd0df",
    "kind": "node_path",
    "token": "F01_TOUR_KEY_GUARD",

@@ -39,7 +39,7 @@ RUNTIME_POLICY = {
     "leather_worn": {}, "mineral_scale": {},
     "toast_crumb": {},
     "plaster_stained": {}, "floor_oak": {}, "ceramic": {}, "subway_tile": {},
-    "concrete": {}, "asphalt": {}, "roof_bitumen": {}, "terrazzo": {}, "stair": {}, "brick": {},
+    "concrete": {}, "limestone": {}, "asphalt": {}, "roof_bitumen": {}, "terrazzo": {}, "stair": {}, "brick": {},
     "countertop": {},
     "book_burgundy": {}, "book_green": {}, "book_navy": {},
     "book_ochre": {}, "book_teal": {}, "book_brown": {},

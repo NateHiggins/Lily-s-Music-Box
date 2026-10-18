@@ -1190,7 +1190,8 @@
           1.0,
           0.88,
           0.55
-        ]
+        ],
+        "emission_energy": 0.15
       }
     ]
   },
@@ -1224,12 +1225,12 @@
     "status": "PASS"
   },
   "source_bindings": {
-    "art/data/signage/source_plan.json": "c7ddfeae3f994691ee488e9778967bc55eee43ebcc7c7c6e86bc77c28b77c269",
+    "art/data/signage/source_plan.json": "590b1ffd25cb3160160ea6c24edad50dbaa99d6d72c49a906e631fcad48f6f16",
     "art/blender/scripts/build_signage.py": "eee89611d09f3b76f62e45d7b0a7b4e57d66a00976d4ac15e7111cdd3c155426",
     "art/blender/scripts/signage_geometry.py": "fa1b86e3320c49a48374e6b7a2f0be1e5477cd82a4a9fcb944621e76ac9f0511",
     "art/blender/scripts/render_signage.py": "4cd3a5a780f6e1487484d98b4f11f2e7dffb74bb652215e7f3cef8b6e93ae5e3",
-    "art/blender/scripts/prepare_signage.py": "778dab8f605b34c3dfa6ee03abb52df976c46a00765aaa8e88620fd4fb5562b9",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
+    "art/blender/scripts/prepare_signage.py": "fea1051e1c13abd6378399c6a9b1bbaa2ac25ab26cc11060606dbc89743bacd6",
+    "game/data/runtime_material_sets.json": "97b0d3613039536b68349590807bfdeff3f2ae74b961d3cd060192f16dfb5613",
     "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
     "art/blender/scripts/bodega_services_geometry.py": "e235031c50855fa3ae06bdd7dc0361b7e61f4377f29c2b519412ca7bcc69180c",
     "art/data/bodega_frontage/source_plan.json": "d55f4df463243faa2bfcfbe5162c5395ac14fbdea94a77fd46118c583e1de498",
@@ -1238,7 +1239,7 @@
     "game/assets/props/signage.glb.import": "ae0978df39f8965f630226551ce8322e727c4311a2062889aa42924e3939535d",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
-    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
     "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",

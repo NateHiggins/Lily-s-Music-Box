@@ -23,6 +23,8 @@ func _run() -> void:
 	for key in ["metal","wood_dark","timber","cast_iron","paper"]:
 		var stock := MatLib.get_mat(key) as StandardMaterial3D
 		shared_uv_defaults.append({"stock":stock,"uv1":stock.uv1_triplanar,"uv2":stock.uv2_triplanar})
+	var frontage_stock := MatLib.get_mat("oak_quartered",Color(.42,.30,.20),.8)
+	shared_uv_defaults.append({"stock":frontage_stock,"uv1":frontage_stock.uv1_triplanar,"uv2":frontage_stock.uv2_triplanar})
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	# Seasonal renders deliberately visit four dates; gameplay clock proof is separate.
@@ -49,6 +51,21 @@ func _run() -> void:
 	add_child(construction_review)
 	await construction_review.run(world,self)
 	construction_review.free()
+	var street_review := preload("res://tests/v2_street_optics_probe.gd").new()
+	street_review.externally_managed=true;add_child(street_review)
+	await street_review.run(world,self)
+	street_review.free()
+	var bodega_frontage := preload("res://tests/orison_v2_bodega_frontage_test.gd").new()
+	bodega_frontage.batch_mode=true;bodega_frontage.capture_enabled=false;add_child(bodega_frontage)
+	var bodega_result: Dictionary=await bodega_frontage.validate_in_world(world)
+	batch_checks+=int(bodega_result.checks)
+	for failure: String in bodega_result.failures:failures.append(failure)
+	bodega_frontage.free()
+	var sign_review := preload("res://tests/orison_v2_signage_test.gd").new()
+	sign_review.capture_enabled=false;add_child(sign_review)
+	var sign_result: Dictionary=await sign_review.validate_in_world(world)
+	batch_checks+=int(sign_result.checks)
+	for failure: String in sign_result.failures:failures.append(failure)
 	var bedding_review := preload("res://tests/orison_v2_bedding_test.gd").new()
 	bedding_review.batch_mode=true;add_child(bedding_review)
 	var bedding_result: Dictionary=await bedding_review.validate_in_world(world)
@@ -270,6 +287,12 @@ func _run() -> void:
 	fixed_review.free()
 	for frame in 3: await get_tree().process_frame
 	await RenderingServer.frame_post_draw
+	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR").path_join("signage"))
+	var sign_retired: Dictionary=await sign_review.validate_after_teardown()
+	batch_checks+=int(sign_retired.checks)-int(sign_result.checks)
+	for failure: String in sign_retired.failures:
+		if not failures.has(failure):failures.append(failure)
+	sign_review.free()
 	for row: Dictionary in shared_uv_defaults:
 		check(row.stock.uv1_triplanar==row.uv1 and row.stock.uv2_triplanar==row.uv2,
 			"shared catalogue projection defaults restore after V2 teardown")

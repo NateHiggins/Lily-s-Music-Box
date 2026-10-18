@@ -56,10 +56,16 @@ func _cut_partition(port: Vector3) -> bool:
 		if child is CollisionShape3D and child.get_meta("authored_record_id","")=="back_wall_right":
 			if old_shape!=null:return false
 			old_shape=child
-	if wall==null or old_shape==null or not wall.mesh is BoxMesh or not old_shape.shape is BoxShape3D:
+	if wall==null or old_shape==null or wall.mesh==null or not old_shape.shape is BoxShape3D:
 		return false
 	if wall.rotation!=Vector3.ZERO or old_shape.rotation!=Vector3.ZERO:return false
-	var bounds:=AABB(wall.position-wall.mesh.size*.5,wall.mesh.size)
+	if wall.scale!=Vector3.ONE or old_shape.scale!=Vector3.ONE or wall.position!=old_shape.position:return false
+	# A metre UV chart changes the resource class, not the partition solid.
+	# Require the complete original triangles to agree with its collision box;
+	# an arbitrary mesh with the same bounds is not a supported partition.
+	var original := BoxMesh.new();original.size=(old_shape.shape as BoxShape3D).size
+	if wall.mesh.get_faces()!=original.get_faces():return false
+	var bounds:=AABB(wall.position-original.size*.5,original.size)
 	var aperture:=AABB(port-Vector3(.022,.022,bounds.size.z*.5+.001),Vector3(.044,.044,bounds.size.z+.002))
 	if not bounds.has_point(port-Vector3(.022,.022,0)) or not bounds.has_point(port+Vector3(.022,.022,0)):return false
 	var pieces:=Blockout._subtract_box(bounds,aperture)
@@ -69,7 +75,8 @@ func _cut_partition(port: Vector3) -> bool:
 		var piece: AABB=pieces[index]
 		var mesh:=BoxMesh.new()
 		mesh.size=piece.size
-		surface.append_from(mesh,0,Transform3D(Basis.IDENTITY,piece.get_center()-wall.position))
+		var charted := preload("res://scripts/building/v2_metre_box_uv.gd").chart(mesh,piece.get_center())
+		surface.append_from(charted,0,Transform3D(Basis.IDENTITY,piece.get_center()-wall.position))
 		var shape_node:=old_shape if index==0 else CollisionShape3D.new()
 		var shape:=BoxShape3D.new()
 		shape.size=piece.size

@@ -1,0 +1,1 @@
+Evidence class: INERT. Interim board taken before the required gameplay and spatial proofs were renewed. Surface/static source checks pass; expired source-bound proofs intentionally cause ledger regression and two live smoke-test failures. This is a diagnostic, not final acceptance. No baseline or old receipt is changed to hide expiry.
