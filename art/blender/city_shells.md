@@ -2,6 +2,12 @@
 
 Evidence class: **INERT**
 
+2026-10-18: this document describes the retained source conversion. Production
+now mounts **city_elevations.glb**, built by **scripts/build_city_elevations.py**.
+See **design/V2_CITY_ELEVATIONS_2026-10-18.md** for its continuous elevations,
+actual window stock and pending composed qualification. The source native and
+old closure export remain construction dependencies; do not delete them.
+
 **scripts/build_city_shells.py** reads the protected generated city plan and
 builds 335 existing neighboring-building/roof/back solids. It does not regenerate
 or edit the protected layout, V1 building assets, shop interiors or city ground.

@@ -49,8 +49,8 @@ func _run() -> void:
 	world.player.set_physics_process(false);world.service_set_carrier.set_capture_hidden(true)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
 	var city: Node3D=world.get_node("CityShells")
-	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_closure.json"))
-	check(FileAccess.get_sha256("res://assets/props/city_shells.glb")==fixture.asset_sha256,"installed city shell binds its native closure export")
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_elevations.json"))
+	check(FileAccess.get_sha256("res://assets/props/city_elevations.glb")==fixture.asset_sha256,"installed city shell binds its rebuilt native export")
 	var parts:=0;var triangles:=0;var bodies: Dictionary={};var expected: Dictionary={}
 	for part: Dictionary in fixture.parts:expected[part.name]=int(part.triangles)
 	for draw: MeshInstance3D in city.find_children("*","MeshInstance3D",true,false):
@@ -66,8 +66,10 @@ func _run() -> void:
 		check(physical!=null and physical.get_faces()==draw.mesh.get_faces(),"each installed city face has identical physical triangles")
 		check(shape.global_transform.is_equal_approx(draw.global_transform),"visible and physical city faces share their actual world pose")
 		bodies[body.get_rid()]=true
-	check(parts==84 and parts==fixture.parts.size() and triangles==int(fixture.triangles),"original 84 building/material batches retain the native inventory")
+	check(parts==fixture.parts.size() and triangles==int(fixture.triangles),"complete rebuilt city batches match the native inventory")
 	check(int(fixture.source_parapet_stocks)==100 and fixture.closed_joined_parapets.size()==25 and fixture.original_records.size()==335,"original city sources and all 25 joined wall rings remain explicit")
+	check(fixture.buildings.size()==25 and int(fixture.windows)>2500,"all 25 source city buildings receive physical window stock")
+	for building: Dictionary in fixture.buildings:check(int(building.new_setbacks)<=1,"repeated ziggurat tiers retired: "+str(building.id))
 	var exclude: Array[RID]=[]
 	for body: CollisionObject3D in world.find_children("*","CollisionObject3D",true,false):
 		if not bodies.has(body.get_rid()):exclude.append(body.get_rid())

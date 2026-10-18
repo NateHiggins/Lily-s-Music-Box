@@ -44,7 +44,8 @@ func _run() -> void:
 		var meshes: Array[MeshInstance3D]=[]
 		for draw: MeshInstance3D in shells.find_children("*","MeshInstance3D",true,false):
 			if draw.get_meta("retained_city_shell",false):meshes.append(draw)
-		check(meshes.size()==84,"building and material partitions retained")
+		var city_fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_elevations.json"))
+		check(meshes.size()==city_fixture.parts.size(),"complete rebuilt building and material inventory")
 		for mesh: MeshInstance3D in meshes:
 			var material := mesh.material_override as StandardMaterial3D
 			check(material!=null and material.albedo_texture!=null and material.normal_texture!=null,

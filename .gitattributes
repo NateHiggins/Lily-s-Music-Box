@@ -2370,3 +2370,21 @@ tools/tests/test_v2_public_landing_footprints.py -text
 art/renders/orison_v2/access_public_landings_20261018/** -text -whitespace
 
 art/reviews/v2_public_landing_integration_20261018/** -text -whitespace
+
+# V2 city source, native export and original qualification bindings.
+art/blender/scripts/build_city_elevations.py -text
+art/data/city_elevations/source_plan.json -text
+art/blender/city_elevations.blend -text
+art/blender/city_elevations_construction.json -text
+game/assets/props/city_elevations.glb -text
+game/data/orison_v2/exterior/city_elevations.json -text
+game/scripts/building/orison_v2_city_shells.gd -text
+game/tests/fixtures/orison_city_elevations.json -text
+game/tests/orison_v2_city_closure_test.gd -text
+game/tests/orison_v2_city_composition_test.gd -text
+game/tests/orison_v2_surface_inventory.gd -text
+game/tests/v2_city_elevation_review.gd -text
+game/tests/V2CityElevationBench.tscn -text
+game/tests/v2_city_elevation_bench.gd -text
+art/data/orison_v2/front_trim_layout_source.json -text
+art/reviews/v2_city_elevations_20261018/** -text -whitespace

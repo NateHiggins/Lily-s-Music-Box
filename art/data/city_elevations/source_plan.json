@@ -1,0 +1,682 @@
+{
+  "schema": "orison.city-elevations.v1",
+  "evidence_class": "INERT",
+  "scope": "Passive V2 masonry adaptation. Immutable original base reservations and final roof/hardware bearing datums retained. No occupied interior or play area added.",
+  "buildings": [
+    {
+      "id": "site_nbr_w",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.86,
+        0.82,
+        0.75,
+        1
+      ],
+      "frame_tint": [
+        0.65,
+        0.59,
+        0.48,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_nw1",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "limestone",
+      "wall_tint": [
+        0.95,
+        0.92,
+        0.86,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_nw2",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.72,
+        0.65,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_nw3",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "single_upper_setback",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "frame_tint": [
+        0.65,
+        0.59,
+        0.48,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_nw4",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.86,
+        0.82,
+        0.75,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_nbr_e",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.95,
+        0.92,
+        0.86,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_ne1",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.72,
+        0.65,
+        1
+      ],
+      "frame_tint": [
+        0.65,
+        0.59,
+        0.48,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_ne2",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "single_upper_setback",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "limestone",
+      "wall_tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_ne3",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.86,
+        0.82,
+        0.75,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_ne4",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "single_upper_setback",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.95,
+        0.92,
+        0.86,
+        1
+      ],
+      "frame_tint": [
+        0.65,
+        0.59,
+        0.48,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_nbr_s2",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.72,
+        0.65,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_sw2",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_sw3",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "single_upper_setback",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.86,
+        0.82,
+        0.75,
+        1
+      ],
+      "frame_tint": [
+        0.65,
+        0.59,
+        0.48,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_se2",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "single_upper_setback",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.95,
+        0.92,
+        0.86,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_se3",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.72,
+        0.65,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_back_w",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "straight_eave",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "frame_tint": [
+        0.65,
+        0.59,
+        0.48,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_back_e",
+      "description": "Neighbouring masonry commercial and apartment block",
+      "massing": "single_upper_setback",
+      "storey_height": 2.95,
+      "bay_pitch": 2.25,
+      "window_width": 1.02,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.86,
+        0.82,
+        0.75,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "all"
+    },
+    {
+      "id": "site_far_nw",
+      "description": "Distant masonry office block",
+      "massing": "single_upper_setback",
+      "storey_height": 3.15,
+      "bay_pitch": 3.55,
+      "window_width": 1.35,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.95,
+        0.92,
+        0.86,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "inward"
+    },
+    {
+      "id": "site_far_n",
+      "description": "Distant masonry office block",
+      "massing": "single_upper_setback",
+      "storey_height": 3.15,
+      "bay_pitch": 3.55,
+      "window_width": 1.35,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "limestone",
+      "wall_tint": [
+        0.78,
+        0.72,
+        0.65,
+        1
+      ],
+      "frame_tint": [
+        0.65,
+        0.59,
+        0.48,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "inward"
+    },
+    {
+      "id": "site_far_ne",
+      "description": "Distant masonry office block",
+      "massing": "single_upper_setback",
+      "storey_height": 3.15,
+      "bay_pitch": 3.55,
+      "window_width": 1.35,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "inward"
+    },
+    {
+      "id": "site_far_e",
+      "description": "Distant masonry office block",
+      "massing": "single_upper_setback",
+      "storey_height": 3.15,
+      "bay_pitch": 3.55,
+      "window_width": 1.35,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.86,
+        0.82,
+        0.75,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "inward"
+    },
+    {
+      "id": "site_far_se",
+      "description": "Distant masonry office block",
+      "massing": "single_upper_setback",
+      "storey_height": 3.15,
+      "bay_pitch": 3.55,
+      "window_width": 1.35,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.95,
+        0.92,
+        0.86,
+        1
+      ],
+      "frame_tint": [
+        0.65,
+        0.59,
+        0.48,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "inward"
+    },
+    {
+      "id": "site_far_s",
+      "description": "Distant masonry office block",
+      "massing": "single_upper_setback",
+      "storey_height": 3.15,
+      "bay_pitch": 3.55,
+      "window_width": 1.35,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "limestone",
+      "wall_tint": [
+        0.78,
+        0.72,
+        0.65,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "inward"
+    },
+    {
+      "id": "site_far_sw",
+      "description": "Distant masonry office block",
+      "massing": "single_upper_setback",
+      "storey_height": 3.15,
+      "bay_pitch": 3.55,
+      "window_width": 1.35,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "frame_tint": [
+        0.3,
+        0.33,
+        0.3,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "inward"
+    },
+    {
+      "id": "site_far_w",
+      "description": "Distant masonry office block",
+      "massing": "single_upper_setback",
+      "storey_height": 3.15,
+      "bay_pitch": 3.55,
+      "window_width": 1.35,
+      "window_height": 1.8,
+      "sash": "door_paint",
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.86,
+        0.82,
+        0.75,
+        1
+      ],
+      "frame_tint": [
+        0.65,
+        0.59,
+        0.48,
+        1
+      ],
+      "window_recess": 0.17,
+      "reveal_depth": 0.26,
+      "lintel_key": "limestone",
+      "detail_faces": "inward"
+    }
+  ]
+}

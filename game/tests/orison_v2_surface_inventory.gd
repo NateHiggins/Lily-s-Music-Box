@@ -16,7 +16,7 @@ func _run() -> void:
 		return
 	var root := ProjectSettings.globalize_path("res://..").simplify_path()
 	var binding_args: Array[String]=[root.path_join("tools/preflight_spatial_test_bindings.py"),"--root",root]
-	for fixture: String in ["orison_bodega_frontage.json","orison_city_closure.json","orison_front_pavement_construction.json","orison_front_pavement_review.json","orison_street_paving_details.json"]:
+	for fixture: String in ["orison_bodega_frontage.json","orison_city_closure.json","orison_city_elevations.json","orison_front_pavement_construction.json","orison_front_pavement_review.json","orison_street_paving_details.json"]:
 		binding_args.append_array(["--fixture","game/tests/fixtures/"+fixture])
 	var binding_output: Array=[]
 	if OS.execute("python",binding_args,binding_output)!=0:
@@ -50,6 +50,7 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	await preload("res://tests/v2_city_elevation_review.gd").new().run(world,self)
 	var furnishing_review := preload("res://tests/v2_furnishing_clearance_review.gd").new()
 	furnishing_review.set_meta("shared_world_validation",true);add_child(furnishing_review)
 	await furnishing_review.validate_in_world(world)
