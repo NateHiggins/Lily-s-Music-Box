@@ -86,16 +86,25 @@ not establish global resource cleanliness.
 REPORT - V2-STREET-FINISH - 2026-10-18
 
 Branch / HEAD / origin/main / merge-base: **main**; tested rendering source on
-**111469baeaff38ca8f621593325cb9c817aff4e6** plus the named repair diff. Final
-candidate and publication commits are recorded after verification.
+**111469baeaff38ca8f621593325cb9c817aff4e6** plus the named repair diff. Verified
+source candidate: **250fdb496a78aeb64a8605b5cc2a298464c9b43f**; origin/main and
+merge-base at comparison: **111469baeaff38ca8f621593325cb9c817aff4e6**. Subsequent
+publication changes only this report and retained verification metadata.
 
 Worktree clean at end: **no**; inherited unrelated modifications remain in the
-shared checkout. Only named owned paths will be staged.
+shared checkout. Only named owned paths were staged. The path-only snapshot is
+**art/reviews/v2_street_optics_20261018/shared_checkout_status.json**; it also
+lists generated uncommitted UIDs and import/EOL noise.
 
-Protected 17/17 and selector: pending candidate comparison; V2 remains selected
-with explicit V1 rollback preserved.
+Protected **17/17 unchanged**, selector **V2**, explicit V1 rollback preserved.
+The clean temporary checkout passes candidate verification in **in-place** mode
+with **--no-godot**. It was originally created fresh; no fresh-cache Godot import
+or fresh-tree runtime execution is claimed. The matching canonical Godot
+executions above are reused. Exact tool outputs are retained under
+**art/reviews/v2_street_optics_20261018/candidate_verification**.
 
-Ledger baseline: **0 / 1 / 48 / 25 / 65 / 67**; final comparison is pending.
+Ledger before -> after: **0 / 1 / 48 / 25 / 65 / 67** ->
+**0 / 1 / 48 / 25 / 65 / 67**; **requirements_changed: []**.
 The genuine gameplay and access renewals above restore source-bound proof; no
 new room status is claimed by this report.
 
@@ -104,7 +113,9 @@ proofs were expired. It is preserved under **pre_refresh_board** in the review
 archive. All other tools suites passed; the final candidate must pass these
 checks against the genuinely renewed proofs.
 
-Gates: final candidate board pending. Reader preflight has **zero NEW** fields;
+Gates: clean candidate **81 rows**, **69 tools suites / 980 tests PASS**,
+**zero regressions, zero improvements**, no accepted regressions. The full
+build remains intentionally **INCOMPLETE**. Reader has **zero NEW** fields;
 spatial preflight has no new failing or reported dependencies. Only one reviewed
 camera-fixture manifest row is added; no baseline blanket update. Surface and
 focused UV execution receipts above are actual, completed passes.
@@ -124,4 +135,4 @@ four absent exterior regions, broader V2 build and seven shutdown warnings.
 
 Decision needed from owner: **none** for this authorized incremental repair.
 
-BLOCKED verification still running; this is not a final merge recommendation.
+MERGE-CANDIDATE 250fdb496a78aeb64a8605b5cc2a298464c9b43f
