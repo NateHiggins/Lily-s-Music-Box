@@ -7,7 +7,7 @@ from check_physical_import_sources import evaluate
 class PhysicalImportSourcesTests(unittest.TestCase):
     def setup_repo(self,folder):
         root=Path(folder);subprocess.run(['git','init','--quiet',str(root)],check=True)
-        (root/'.gitattributes').write_text('*.import -text\n',encoding='utf8')
+        (root/'.gitattributes').write_text('*.import -text\n*.glb -text\n',encoding='utf8')
         asset=root/'game/assets/props/test.glb';asset.parent.mkdir(parents=True);asset.write_bytes(b'fixture source')
         metadata=Path(str(asset)+'.import')
         metadata.write_text('[remap]\nimporter="scene"\ntype="PackedScene"\n[deps]\nsource_file="res://assets/props/test.glb"\n[params]\nnodes/root_scale=1.0\n',encoding='utf8')
@@ -33,6 +33,11 @@ class PhysicalImportSourcesTests(unittest.TestCase):
     def test_line_ending_policy_is_explicit(self):
         with tempfile.TemporaryDirectory() as folder:
             root,_=self.setup_repo(folder);(root/'.gitattributes').write_text('',encoding='utf8')
-            self.assertTrue(any('require -text' in row for row in evaluate(root)['wrong']))
+            self.assertTrue(any('requires -text' in row for row in evaluate(root)['wrong']))
+
+    def test_model_bytes_need_protection_even_when_import_settings_are_safe(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root,_=self.setup_repo(folder);(root/'.gitattributes').write_text('*.import -text\n',encoding='utf8')
+            self.assertEqual(evaluate(root)['wrong'],['game/assets/props/test.glb: hash-bound physical source requires -text'])
 
 if __name__=='__main__':unittest.main()

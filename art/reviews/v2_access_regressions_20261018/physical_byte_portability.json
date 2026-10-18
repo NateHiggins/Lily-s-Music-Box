@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "scope": "diagnostic clean-checkout byte-policy repair; not candidate acceptance",
+  "protected_gltf_sources": [
+    "game/assets/characters/cal_dwyer/cal_dwyer.gltf",
+    "game/assets/characters/cam_ortiz/cam_ortiz.gltf",
+    "game/assets/characters/evelyn_marsh/evelyn_marsh.gltf",
+    "game/assets/characters/iris_bell/iris_bell.gltf",
+    "game/assets/characters/jonah_price/jonah_price.gltf",
+    "game/assets/characters/juno_kells/juno_kells.gltf",
+    "game/assets/characters/lena_ortiz/lena_ortiz.gltf",
+    "game/assets/characters/mae_kessler/mae_kessler.gltf",
+    "game/assets/characters/malcolm_reed/malcolm_reed.gltf",
+    "game/assets/characters/mina_vale/mina_vale.gltf",
+    "game/assets/characters/nadia_quell/nadia_quell.gltf",
+    "game/assets/characters/noel_price/noel_price.gltf",
+    "game/assets/characters/omar_bell/omar_bell.gltf",
+    "game/assets/characters/peter_wren/peter_wren.gltf",
+    "game/assets/characters/rhea_sato/rhea_sato.gltf",
+    "game/assets/characters/sacha_reed/sacha_reed.gltf",
+    "game/assets/characters/teresa_vale/teresa_vale.gltf",
+    "game/assets/characters/transient_guests/transient_guests.gltf",
+    "game/assets/creatures/harpy/harpy.gltf",
+    "game/assets/creatures/oni/oni.gltf"
+  ],
+  "actual_difference": "game/assets/characters/mina_vale/mina_vale.gltf",
+  "physical_inputs_sha256": "a607395345c18840a74138d8ce36a394cf3f6241862aac12771db342aef422e4",
+  "runtime_receipt_errors": [],
+  "receipts_unchanged": true
+}

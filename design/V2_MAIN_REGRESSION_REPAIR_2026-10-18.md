@@ -29,8 +29,9 @@ checks that former stance against the actual capsule and door shape, then
 walks back to its original clear stance before attempting a real close.
 The focused roof cohort now passes: nine rooms, two continuous legs, 214
 checks, zero failures; four tracked nodes retire. Independent current-source
-validation passes all 13 dependencies. The separate nine-home cohort is still
-running and is not claimed as passed. Each scene binds only its selected route
+validation passes all 13 dependencies. The separate nine-home cohort now
+passes 60 rooms, nine legs and 792 checks; ten tracked nodes retire. Independent
+validation passes all ten dependencies. Each scene binds only its selected route
 families, so a roof-only test correction need not repeat nine unrelated homes.
 
 ## Portable physical import settings
@@ -43,8 +44,18 @@ before and after publication, the physical digest is
 No mesh or effective import parameter changed. The surface qualification
 independently remains current: 25,649 draws, 6,096 materials, 480 textures,
 zero defects. A new source-retention gate rejects missing/untracked settings,
-wrong source bindings and missing hash-safe attributes; five synthetic tests
+wrong source bindings and missing hash-safe attributes; six synthetic tests
 pass. This gate does not qualify geometry or replace runtime proof.
+
+The first fresh candidate verification is preserved as a failure. It found
+that Mina's formatted glTF was converted from LF to CRLF on checkout, expiring
+seven first-slice proofs. All 20 conservative animated glTF sources already
+match their committed bytes; only Mina's file has an observed checkout hash
+difference. Explicit -text attributes now preserve model bytes as well as
+import settings. The diagnostic checkout, after restoring from Git under that
+policy, reproduces the exact physical fingerprint above and validates the
+unchanged first-slice receipt. This is source retention, not repinning or a
+new runtime execution. Final candidate verification is still pending.
 
 ## Spatial dependency repair
 
@@ -54,9 +65,10 @@ does not whitelist arbitrary literals or grant room proof. Three synthetic
 controls cover real declarations, source removal and an unrelated unknown ID.
 All 59 spatial-tool tests pass, including the live production smoke check.
 
-Exactly 72 reviewed current consumers are registered: the existing 23 radiator
+Exactly 73 reviewed current consumers are registered: the existing 23 radiator
 mount IDs; workshop level/bank/insert consumers; original 2B fault branches;
-local wedge/probe name generation; and explicit test/capture bindings. Two
+local wedge/probe name generation; explicit test/capture bindings; and the
+roof route's original clear closing stance, now independently checked. Two
 obsolete consumers are retired: the old household-state 2B exclusion and the
 basement cage grid now delegated to the registered native storage owner.
 The 2B identity, original case, household save domain, cage labels and storage
@@ -87,7 +99,7 @@ Targeted reader/surface gates still pass. A complete clean-candidate comparison
 against the preserved clean-main board is the next integration check; it is
 not yet claimed here.
 
-The upper/roof cohort, remaining architectural-region migration, complete
+The remaining architectural-region migration, complete
 walking/golden shift, visual polish and human acceptance remain open. No V2
 completion, global resource-clean, whole-building runtime or retirement grant
 is made. Seven known Texture RID shutdown warnings remain outside measured
@@ -103,23 +115,25 @@ Branch / input HEAD / origin/main / merge-base: **main** /
 **e0b0dd293325a49c207785888112262a4990e474**.
 Worktree clean at end: no; inherited render/receipt and generated UID changes
 remain outside this checkpoint. Only named owned paths are staged.
-Protected 17/17: not yet reverified; selector: **v2**, explicit V1 rollback retained.
+Protected 17/17: yes; selector: **v2**, explicit V1 rollback retained.
 Ledger clean-main before -> renewed proof: first slice / golden / structural /
-runtime / cutover / retirement **0/1/102/34/119/121 -> 0/1/102/34/119/121**;
-requirements_changed: none. The intervening expired-proof regression is repaired.
-Gates: spatial tools **59 tests PASS**; physical-import retention **5 tests PASS**,
+runtime / cutover / retirement: final board comparison pending. The intervening
+15-status expired home-proof regression is repaired; the remaining-home
+checkpoint advances 54 further statuses. Requirement inventory is unchanged.
+Gates: spatial tools **59 tests PASS**; physical-import retention **6 tests PASS**,
 308 sources, zero missing/wrong; surface qualification **PASS**, zero defects.
 Godot: **roof2.log.receipt.json**, completed exit 0, 9 rooms/2 legs/214 checks;
-**home3.log.receipt.json**, completed exit 0, 62 rooms/9 legs/909 checks.
-Both test-written contracts and unchanged compressed channels are published in
-the corresponding **access_roof_cohort_20261018** and **access_home_cohort_20261018**
-packets. Full static comparison and remaining-home run are pending.
+**home3.log.receipt.json**, completed exit 0, 62 rooms/9 legs/909 checks;
+**remaining2.log.receipt.json**, completed exit 0, 60 rooms/9 legs/792 checks.
+All three test-written contracts and unchanged compressed channels are published
+in the corresponding **access_roof_cohort_20261018**, **access_home_cohort_20261018**
+and **access_remaining_cohort_20261018** packets. Final static comparison is pending.
 Numbers management asked for: no additional numerical request in this chunk.
 Changes outside the expected file boundary, and why: retain 145 tested model
 import sources and add their portability gate; effective physical inputs unchanged.
-Open findings not fixed: pending upper-home run and clean candidate verification;
+Open findings not fixed: pending clean candidate verification;
 remaining exterior regions, whole-building/golden/human acceptance, visual defects
 and seven known Texture RID warnings remain open.
 Decision needed from owner: none for this checkpoint.
 
-BLOCKED clean candidate verification and final remaining-home execution pending
+BLOCKED final clean candidate verification pending

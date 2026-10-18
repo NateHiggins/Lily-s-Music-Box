@@ -1,0 +1,1 @@
+Schema-2 test-written spatial access contract. Actual complete remaining route cohort, matching completed wrapper and unchanged raw channels. Scope excludes inter-floor connection, case/save completion, human acceptance and global resource cleanup. Source changes expire the proof.

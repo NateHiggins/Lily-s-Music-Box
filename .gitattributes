@@ -2227,3 +2227,10 @@ game/tests/OrisonV2RemainingAccessCohort.tscn -text
 game/tests/OrisonV2RoofAccessCohort.tscn -text
 
 art/renders/orison_v2/access_roof_cohort_20261018/** -text -whitespace
+
+# Conservative animated-mesh proofs bind original glTF bytes as well as buffers.
+game/assets/**/*.glb -text
+game/assets/**/*.gltf -text
+game/assets/**/*.obj -text
+
+art/renders/orison_v2/access_remaining_cohort_20261018/** -text -whitespace

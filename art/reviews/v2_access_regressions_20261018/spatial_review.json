@@ -2145,6 +2145,37 @@
       "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
       "resolved_target": "v2_blockout+runtime_created",
       "target_exists": true
+    },
+    {
+      "key": "5a981cccacaaa7ca",
+      "kind": "vector3_coordinate",
+      "token": "_close_door",
+      "file": "game/tests/orison_v2_roof_plant_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_close_door"
+      ],
+      "lines": [
+        47
+      ],
+      "count": 1,
+      "context": [
+        "if not await _walk(Vector3(7.8,19.2,3)):return false"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
     }
   ],
   "retired": [
@@ -2216,5 +2247,6 @@
     "generated_names": "RoomReflection_<room> identifies a bounded probe cache; SupplyWedgeTrack/FarWedgeTrack identify local physical constraint frames. Their owner dictionaries, not saved node paths, retain state. Reviewed regeneration dependencies, not new room or save identities.",
     "test_consumers": "Named existing actors/rooms, explicit neutral-bench fixtures and capture/lighting/lifecycle stances in annunciator, radiator and reflection reviews. Default TEST_CONTRACT/UPDATE_TEST_FIXTURE classifications remain; their inert diagnostics grant no played-room or runtime promotion.",
     "resident_storage": "Old OrisonV2Basement.mount cage-grid construction delegates to OrisonV2NativeResidentStorage. Its already-registered generated-name contract 1a71adacb12487f4 preserves the Cage_<unit> labels and current native member names. Retire only the removed source consumer, not the cage labels or storage anchor."
-  }
+  },
+  "roof_clear_stance_review": "The original route clear stance at (7.8,19.2,3) is reached through real movement after the old switch-return stance is proven to intersect the actual capsule/leaf sweep. This registers a test fixture coordinate only; production collision is unchanged. roof2 completes both continuous legs."
 }

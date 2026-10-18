@@ -27,10 +27,10 @@ def evaluate(root=ROOT):
         expected='res://'+source.removeprefix('game/')
         if not match or match[1]!=expected:wrong.append(relative+': source binding differs')
         imports.append(relative)
-    if imports:
-        fields=subprocess.check_output(['git','check-attr','-z','text','--',*imports],cwd=root).decode().split('\0')
+    if imports or sources:
+        fields=subprocess.check_output(['git','check-attr','-z','text','--',*imports,*sources],cwd=root).decode().split('\0')
         for path,_,value in zip(fields[0::3],fields[1::3],fields[2::3]):
-            if value!='unset':wrong.append(path+': hash-bound settings require -text')
+            if value!='unset':wrong.append(path+': hash-bound physical source requires -text')
     return {'scope':'physical_import_source_retention','referenced':len(sources),'missing':missing,'wrong':wrong}
 
 def main():
