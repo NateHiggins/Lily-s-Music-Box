@@ -1012,6 +1012,12 @@
       "kind": "hosecoil",
       "cell": "shared",
       "source_record": "F03_riser_hose"
+    },
+    {
+      "id": "DomesticObject139",
+      "kind": "blanket",
+      "cell": "shared",
+      "source_record": "2C_blanket_a"
     }
   ],
   "closed_stocks": [
@@ -17280,6 +17286,90 @@
       "assembly": "DomesticObject138",
       "key": "brass",
       "volume_m3": 2.7410515264053955e-06
+    },
+    {
+      "name": "DomesticObject139_Batten",
+      "assembly": "DomesticObject139",
+      "key": "timber",
+      "volume_m3": 0.0011595565782091376
+    },
+    {
+      "name": "DomesticObject139_Blanket",
+      "assembly": "DomesticObject139",
+      "key": "blanket_grey",
+      "volume_m3": 0.044621152886975796
+    },
+    {
+      "name": "DomesticObject139_Bind-1",
+      "assembly": "DomesticObject139",
+      "key": "linen",
+      "volume_m3": 0.001162927144468139
+    },
+    {
+      "name": "DomesticObject139_Bind1",
+      "assembly": "DomesticObject139",
+      "key": "linen",
+      "volume_m3": 0.001162927144468139
+    },
+    {
+      "name": "DomesticObject139_BindFoot",
+      "assembly": "DomesticObject139",
+      "key": "linen",
+      "volume_m3": 0.0006178740431506751
+    },
+    {
+      "name": "DomesticObject139_Stitch1",
+      "assembly": "DomesticObject139",
+      "key": "linen",
+      "volume_m3": 3.483983550515372e-06
+    },
+    {
+      "name": "DomesticObject139_Stitch2",
+      "assembly": "DomesticObject139",
+      "key": "linen",
+      "volume_m3": 3.483931811256824e-06
+    },
+    {
+      "name": "DomesticObject139_Stitch3",
+      "assembly": "DomesticObject139",
+      "key": "linen",
+      "volume_m3": 3.4839402953403768e-06
+    },
+    {
+      "name": "DomesticObject139_Stitch4",
+      "assembly": "DomesticObject139",
+      "key": "linen",
+      "volume_m3": 3.484022459819048e-06
+    },
+    {
+      "name": "DomesticObject139_Stitch5",
+      "assembly": "DomesticObject139",
+      "key": "linen",
+      "volume_m3": 3.4838535115153503e-06
+    },
+    {
+      "name": "DomesticObject139_FinishPacker(-0.385, 0.08)",
+      "assembly": "DomesticObject139",
+      "key": "wood_dark",
+      "volume_m3": 0.00013663963396301786
+    },
+    {
+      "name": "DomesticObject139_FinishPacker(-0.385, 1.965)",
+      "assembly": "DomesticObject139",
+      "key": "wood_dark",
+      "volume_m3": 0.00013663949108800775
+    },
+    {
+      "name": "DomesticObject139_FinishPacker(0.385, 0.08)",
+      "assembly": "DomesticObject139",
+      "key": "wood_dark",
+      "volume_m3": 0.00013663963396301786
+    },
+    {
+      "name": "DomesticObject139_FinishPacker(0.385, 1.965)",
+      "assembly": "DomesticObject139",
+      "key": "wood_dark",
+      "volume_m3": 0.00013663949108800861
     }
   ],
   "contacts": [
@@ -26117,6 +26207,66 @@
         -1
       ],
       "label": "hose bracket screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject139",
+      "owner": "wall",
+      "point": [
+        -0.385,
+        0.08,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "separate packer screwed to plaster clear of finish rail"
+    },
+    {
+      "assembly": "DomesticObject139",
+      "owner": "wall",
+      "point": [
+        -0.385,
+        1.965,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "separate packer screwed to plaster clear of finish rail"
+    },
+    {
+      "assembly": "DomesticObject139",
+      "owner": "wall",
+      "point": [
+        0.385,
+        0.08,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "separate packer screwed to plaster clear of finish rail"
+    },
+    {
+      "assembly": "DomesticObject139",
+      "owner": "wall",
+      "point": [
+        0.385,
+        1.965,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "separate packer screwed to plaster clear of finish rail"
     }
   ],
   "parts": [
@@ -30445,9 +30595,37 @@
       "cell": "shared",
       "key": "rubber_aged",
       "triangles": 8852
+    },
+    {
+      "name": "DomesticObject139__Body_ON_blanket_grey",
+      "assembly": "DomesticObject139",
+      "cell": "shared",
+      "key": "blanket_grey",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject139__Body_ON_linen",
+      "assembly": "DomesticObject139",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 1504
+    },
+    {
+      "name": "DomesticObject139__Body_ON_timber",
+      "assembly": "DomesticObject139",
+      "cell": "shared",
+      "key": "timber",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject139__Body_ON_wood_dark",
+      "assembly": "DomesticObject139",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 752
     }
   ],
-  "triangles": 608964,
+  "triangles": 611596,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -40221,6 +40399,73 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject139",
+        "parts": [
+          {
+            "name": "DomesticObject139__Body_ON_blanket_grey",
+            "component": "Body",
+            "key": "blanket_grey",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.28,
+              0.27,
+              0.25,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.16,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "DomesticObject139__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject139__Body_ON_timber",
+            "component": "Body",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject139__Body_ON_wood_dark",
+            "component": "Body",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -40418,11 +40663,11 @@
       },
       {
         "id": "3D_blanket_a",
-        "variant": "DomesticObject24"
+        "variant": "DomesticObject139"
       },
       {
         "id": "3D_blanket_b",
-        "variant": "DomesticObject24"
+        "variant": "DomesticObject139"
       },
       {
         "id": "1A_hall_hamper",
@@ -41219,9 +41464,9 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "0c96894f9f5f5c5c9ccdc21511622e6715ef89ae65b3fed6cde8a0021b3b4002",
+  "asset_sha256": "4d7342ee01e655c651caa6b1e4181898513d256caa48b2eb39cd0b3f6663c1fd",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "8ec014a37bdcad140d88547ce964847a096a8fa213dda95a98d6d7f305bb11fd",
+    "art/data/domestic_objects/source_plan.json": "319e396cf8f29f4f8728a33f6bd6c1d8147479a6fe377a3f790821a066f4aa54",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_domestic_objects.py": "ce2650927c5945f0a256f9ace813afcf0c8316081c6c8c59d0c8163bb388cb05",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -48200,6 +48445,26 @@
         "DomesticObject138_Coupling",
         "DomesticObject138_Nozzle",
         "DomesticObject138_NozzleTip"
+      ]
+    },
+    {
+      "assembly": "DomesticObject139",
+      "id": "DomesticObject139_HungBlanket",
+      "stocks": [
+        "DomesticObject139_Batten",
+        "DomesticObject139_Blanket",
+        "DomesticObject139_Bind-1",
+        "DomesticObject139_Bind1",
+        "DomesticObject139_BindFoot",
+        "DomesticObject139_Stitch1",
+        "DomesticObject139_Stitch2",
+        "DomesticObject139_Stitch3",
+        "DomesticObject139_Stitch4",
+        "DomesticObject139_Stitch5",
+        "DomesticObject139_FinishPacker(-0.385, 0.08)",
+        "DomesticObject139_FinishPacker(-0.385, 1.965)",
+        "DomesticObject139_FinishPacker(0.385, 0.08)",
+        "DomesticObject139_FinishPacker(0.385, 1.965)"
       ]
     }
   ],

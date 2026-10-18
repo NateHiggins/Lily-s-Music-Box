@@ -2025,6 +2025,18 @@
         "pitch": 0.025
       },
       "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject139",
+      "kind": "blanket",
+      "source_id": "2C_blanket_a",
+      "params": {
+        "W": 1.1,
+        "H": 2.0,
+        "key": "blanket_grey",
+        "finish_standoff_m": 0.035
+      },
+      "rear_wall_y": -0.02
     }
   ],
   "instances": [
@@ -2222,11 +2234,11 @@
     },
     {
       "id": "3D_blanket_a",
-      "variant": "DomesticObject24"
+      "variant": "DomesticObject139"
     },
     {
       "id": "3D_blanket_b",
-      "variant": "DomesticObject24"
+      "variant": "DomesticObject139"
     },
     {
       "id": "1A_hall_hamper",

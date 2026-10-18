@@ -2,7 +2,7 @@ extends RefCounted
 ## Refit furnishing assemblies against the actual installed finish, once at
 ## composition. Never translate only the visual or change a mechanical datum.
 const FLOOR_KINDS := ["bed","nightstand","wardrobe","shelf","sofa","desk","workbench","chair","table_round","table_rect","coffee","hallstand","cardcabinet","canvasstack","hamper","crate","suitcase","easel","umbrellastand","verticalfile","plant","prep_cabinet","boottray","dressform","overflowtray","sewingmachine","ashcan","spittoon","foldedcot","softbox","tripod","wateringcan","trug","threshold"]
-const HANGING_KINDS := ["artframe","pinboard","toolboard","noticeframe","quietsign","hookstrip","headsethook","coathook","tsquare","cupboard","bathshelf","garmentrail","lostshelves","printline"]
+const HANGING_KINDS := ["artframe","pinboard","toolboard","noticeframe","quietsign","hookstrip","headsethook","coathook","tsquare","cupboard","bathshelf","garmentrail","lostshelves","printline","blanket"]
 const FINISH_NAMES := ["HistoricMillwork","PublicWainscot","PublicWainscotFrames","PublicWainscotCap"]
 const AIR_GAP := .012
 const HANGING_GAP := .004
@@ -21,6 +21,33 @@ static func finish_stock(root: Node3D) -> Array[Dictionary]:
 			result.append({"bounds":pose*stock.mesh.get_aabb(),"normal":pose.basis.z.normalized(),"owner":str(draw.get_parent().name),"part":str(draw.name)})
 	return result
 
+static func component_bounds(mesh: Mesh) -> Array[AABB]:
+	# Material batching can enclose empty space between separate bearing pads.
+	# Keep each connected solid's actual envelope for hanging-blanket fitting.
+	if mesh.has_meta("v2_connected_stock_bounds"):return mesh.get_meta("v2_connected_stock_bounds")
+	var links: Dictionary={}
+	var faces := mesh.get_faces()
+	for i in range(0,faces.size(),3):
+		for j in 3:
+			var vertex: Vector3=faces[i+j]
+			if not links.has(vertex):links[vertex]=[]
+			links[vertex].append(faces[i+(j+1)%3])
+			links[vertex].append(faces[i+(j+2)%3])
+	var unseen := links.duplicate()
+	var boxes: Array[AABB]=[]
+	while not unseen.is_empty():
+		var seed: Vector3=unseen.keys()[0]
+		var bounds := AABB(seed,Vector3.ZERO)
+		var pending: Array=[seed]
+		while not pending.is_empty():
+			var vertex: Vector3=pending.pop_back()
+			if not unseen.has(vertex):continue
+			unseen.erase(vertex);bounds=bounds.expand(vertex)
+			pending.append_array(links[vertex])
+		boxes.append(bounds)
+	mesh.set_meta("v2_connected_stock_bounds",boxes)
+	return boxes
+
 static func parts(root: Node3D,body: Node3D) -> Array[AABB]:
 	var result: Array[AABB]=[]
 	var inverse := root.global_transform.affine_inverse()
@@ -34,7 +61,9 @@ static func parts(root: Node3D,body: Node3D) -> Array[AABB]:
 			if str(parent.name).begins_with("Supply_") or str(parent.name).begins_with("MediaAC_") or str(parent.name).begins_with("MediaBattery_"):supply=true
 			parent=parent.get_parent()
 		if supply:continue
-		result.append(inverse*draw.global_transform*draw.mesh.get_aabb())
+		if str(body.get_meta("v2_furniture_kind",""))=="blanket":
+			for box: AABB in component_bounds(draw.mesh):result.append(inverse*draw.global_transform*box)
+		else:result.append(inverse*draw.global_transform*draw.mesh.get_aabb())
 	return result
 
 static func overlaps(boxes: Array[AABB],stock: Array[Dictionary],offset := Vector3.ZERO,gap := 0.0) -> Array[Dictionary]:
