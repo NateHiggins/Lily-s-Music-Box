@@ -2341,3 +2341,6 @@ tools/tests/test_v2_audit_digest_snapshot.py -text
 
 # Raw-hashed wall-stock diagnostics and original qualification packets.
 art/reviews/v2_wall_stock_clearance_20261018/** -text -whitespace
+
+# Source-bound landing authoring diagnoses and original clean verification.
+art/reviews/v2_public_landing_footprints_20261018/** -text -whitespace

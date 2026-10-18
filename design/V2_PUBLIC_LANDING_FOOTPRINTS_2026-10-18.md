@@ -26,6 +26,13 @@ cannot establish passage across a hole or around a concave corner.
 | F05 | 38.32 | absent | not applicable | absent |
 | F06 | 38.32 | absent | not applicable | absent |
 
+F05 and F06 already have public core volumes whose purpose mentions the
+passenger landing and stair. The ledger currently uses those generic core
+records for its landing match. Their volume is not a walkable footprint;
+the missing dedicated landing-shell identity does not mean a missing floor.
+Retain the air/stair/lift core authority while adding precise floor-bearing
+programme semantics.
+
 Each old rectangle includes six square metres of lift void plus 0.125 m² beside
 the stair. The corrected diagnosis replaces the earlier rounded six-metre
 estimate. There are 29 geometrically supported platform-centre candidates.
@@ -62,3 +69,29 @@ The clean baseline board for the next source batch is captured from
 **95c1c7be**: no dirty paths, current surface qualification passes, reader NEW0,
 and the standing completion blockers remain 0 / 1 / 48 / 25 / 65 / 67. Current changes are an authoring diagnostic and its tests only;
 no runtime material, geometry, interaction or completion grant has changed.
+
+## Verification and management report
+
+The original clean comparison is archived under
+**art/reviews/v2_public_landing_footprints_20261018/**. Candidate **f0eaf7dc**
+has zero regressions against **95c1c7be**, with 87 gates including 75 tools
+suites. The sole new gate-path file adds the seven independent footprint checks;
+no existing test, acceptance threshold or baseline is weakened. All 17 protected
+paths are unchanged, V2 remains selected, reader NEW0 and design lint is clean.
+The four existing surface/service/access packets still qualify. This is static
+in-place verification in the owned clean checkout; no new Godot launch or fresh
+engine import was performed or claimed. Subsequent changes only archive these
+results and clarify this report, leaving production inputs unchanged.
+
+    REPORT - V2-PUBLIC-LANDING-FOOTPRINTS - 2026-10-18
+    Branch / HEAD / origin/main / merge-base: main / f0eaf7dc (verified authoring candidate) / 95c1c7be / 95c1c7be
+    Worktree clean at end: canonical no (inherited changes excluded); verification checkout clean.
+    Protected 17/17: unchanged. Selector v2; existing explicit v1 rollback preserved.
+    Ledger before -> after: unchanged blockers0/1/48/25/65/67; zero requirements promoted.
+    Gates:87 including75 tools suites; zero regressions, no waivers, readerNEW0, zero design lint errors.
+    Godot receipts: no new run; existing four original runtime packets still qualify with unchanged production inputs. This preflight grants no runtime acceptance.
+    Numbers: six platform unions, three inaccurate old review shells, six-area census and29 geometric stance candidates; production radius0.33m; seven testsPASS.
+    Changes outside expected boundary: none; only authoring diagnostic, independent tools checks and workflow/report documentation.
+    Open findings: actual landing semantic migration, programmes, acoustic owners and played route/support proof remain; fullV2 and human acceptance are incomplete.
+    Decision needed from owner: none for the authorized next integration.
+    READY for this authoring-preflight checkpoint only. Landing integration is not claimed complete.
