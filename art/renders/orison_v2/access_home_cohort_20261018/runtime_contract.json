@@ -4159,7 +4159,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 428.917,
+		"elapsed_s": 421.07,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -4670,9 +4670,9 @@
 						-3.25
 					],
 					"wall_contacts": {
-						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@28964/NativeCaseCollision": "(-4.627972, 4.400011, -8.088)",
-						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@28965/NativeCaseCollision": "(-4.078071, 4.40001, -8.088)",
-						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@28967/NativeCaseCollision": "(-4.577976, 4.400004, -8.088)",
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@28965/NativeCaseCollision": "(-4.627972, 4.400011, -8.088)",
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@28966/NativeCaseCollision": "(-4.078071, 4.40001, -8.088)",
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@28968/NativeCaseCollision": "(-4.577976, 4.400004, -8.088)",
 						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F02_F03/StairGuards": "(-2.402499, 4.244854, -8.6925)"
 					}
 				},
@@ -7690,10 +7690,10 @@
 	"scope": "Played room access in one shared production world. Complete route families retain their declared initial placements; roof circuits share one F06 arrival. Subsequent travel uses the normal collision-bearing controller. Physical input replaces inherited E-key toggles. The lift travel request remains a declared stimulus. No inter-floor connection, case completion, disk save, whole-building runtime or human acceptance grant.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "7d59b519e9891c0e92e697ac420eee210406e20d",
-		"runtime_inputs_sha256": "6bc3536d2a360ff8e0001d0937384c49aef5acecc4e9635d1bca6f7d2a60d191",
+		"repository_head": "27893cd19f088b309563faa5a719078ad0c87ad3",
+		"runtime_inputs_sha256": "ab790737a87e3488e93fec8ce45b2b6eaf87e245e7940f057440ef8a264d0975",
 		"scene_path": "res://tests/OrisonV2HomeAccessCohort.tscn",
-		"surface_inputs_sha256": "2ce1d4e8fb3a8b195cf75cfed86cff0f8fef7fc0e9f9ed741e6efab012ad3083",
+		"surface_inputs_sha256": "c868856ce29477bbaa0bb18cab2d1b8de62357b6ea5beb6a3da8b0992c6ac96b",
 		"test_dependencies": {
 			"game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
 			"game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",

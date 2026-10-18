@@ -80,10 +80,13 @@ and 497 loaded textures; zero unresolved UV/PBR/mipmap surfaces. Seven current
 clearance/installation captures were inspected and published with the original
 contract, wrapper and byte-matched logs. Seven standing Texture RID shutdown
 warnings remain. Bright lamp hotspots, repetitive grain and simple wall art
-remain appearance work. Service/home/upper qualification is still running.
+remain appearance work. Service1 passes360 checks, including physical repair,
+shared authorities, actual disk reconstruction and retirement. Home1 reaches62
+rooms in9 legs with909 checks, zero failures and10/0 tracked/retained objects.
+Both original receipts and matching logs are published. Upper1 remains running.
 
 The native renewals, landing contract and surface publication are complete.
-Production sources remain frozen while service and both access cohorts run.
+Production sources remain frozen while the final upper-access cohort runs.
 A clean checkout independently matches both runtime and surface hashes in the
 played landing receipt. Final clean candidate comparison and push remain
 pending. Full V2, the authored eleven-beat run, V2 acoustic rederivation and

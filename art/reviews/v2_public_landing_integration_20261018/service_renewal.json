@@ -1,0 +1,14 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "errors": [],
+  "packet": "first_slice_contract_20261011",
+  "source": {
+    "physical_inputs_sha256": "6e78a1e40e2a7243618995a1b744dff4a13d8d6eececdbacd509fc71c35bde98",
+    "repository_head": "27893cd19f088b309563faa5a719078ad0c87ad3",
+    "runtime_inputs_sha256": "ab790737a87e3488e93fec8ce45b2b6eaf87e245e7940f057440ef8a264d0975",
+    "test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "test_sha256": "59f0f5275b8215cd449afea46904fabf8485acfc6485172bfd82a5ac594d8c28"
+  },
+  "scope": "Independent current-source validation; no added acceptance grant."
+}
