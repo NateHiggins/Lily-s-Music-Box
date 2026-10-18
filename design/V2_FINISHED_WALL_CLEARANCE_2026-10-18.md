@@ -7,7 +7,7 @@ spatial, runtime, human or photoreal acceptance grant comes from this document.
 
 The production composition now measures the actual installed baseboard,
 panel, cap and eye-rail instance envelopes. It checks 430 furnishing and
-wall-hanging assemblies and adjusts 187. Floor furniture keeps a 12 mm gap
+wall-hanging assemblies and adjusts 187: 119 floor assemblies and 68 hangings. Floor furniture keeps a 12 mm gap
 beyond the finished surface. Hanging pieces keep a 4 mm gap and move within
 the existing floor/ceiling limits, preserving their wall plane and bearings.
 
@@ -65,13 +65,12 @@ obsolete absolute-position assertions, unsafe neighbour conflicts and both
 actual insert-carry failures. The intermediate source3 surface pass was
 superseded by the authored dress-form access correction; it was not repinned.
 
-The existing three runtime packets are renewed only from original test-written
-schema-2 contracts and matching completed wrapper/raw logs. The successful
+The existing access and surface runtime packets are renewed only from original test-written
+schema-2 contracts and matching completed wrapper/raw logs. After the trim discovery was refreshed, surface5, home2 and upper2 were executed again and published from their original test-written contracts. The unchanged first-slice proof was retained. The successful
 first-slice execution reported 360 checks, including actual disk save/rebuild.
 The home cohort passed 62 rooms, nine legs and 909 checks; the upper cohort
 passed 69 rooms, eleven legs and 989 checks. Both recorded zero failures and
-retired all tracked production roots/drivers. Clean candidate comparison is
-pending below.
+retired all tracked production roots/drivers. The clean candidate comparison is recorded below.
 
 The first clean candidate comparison identified 69 new spatial references and
 a stale trim-discovery binding. All 69 were individually reviewed: 36 retained
@@ -81,19 +80,19 @@ and unchanged audit rules. A new windowed shell discovery found all 9,085
 trim instances exactly equal; its current observed binding replaces the stale
 discovery binding. The unchanged projection still yields 42 fittings and 154
 bounded source cuts. Both initial failure and resolution are retained under
-**static_resolution/**. Historical runtime proofs are untouched.
+**static_resolution/**. Historical runtime proofs are untouched. The final source and proof comparison, including the complete board and clean-checkout limitations, is archived in **final_verification/**.
 
 ## Management report
 
     REPORT - V2-FURNISHING-CLEARANCE - 2026-10-18
-    Branch / HEAD / origin/main / merge-base: main / 6ff81cdf plus static-inventory correction / 57df6f2289160b639a5941299a6b44a0650134e5 / 57df6f2289160b639a5941299a6b44a0650134e5
+    Branch / HEAD / origin/main / merge-base: main / 832b83c9ce8289c78b48fc38f75eb0555c064b36 (verified source and proof checkpoint; this report is a metadata follow-up) / 57df6f2289160b639a5941299a6b44a0650134e5 / 57df6f2289160b639a5941299a6b44a0650134e5
     Worktree clean at end: no; inherited UID/import, enamel metadata, old receipt and unrelated M08F test changes are excluded.
-    Protected 17/17: pending clean candidate verification. Selector: v2; explicit v1 rollback retained.
-    Ledger before -> after: 0/1/48/25/65/67 -> pending; requirements_changed: []
-    Gates: reader NEW0; calibrated recipe projections wrong0/125; four focused catalogue/canopy tests pass; complete clean baseline has 82 rows and 70 passing tools suites.
-    Godot receipts: surface4.log.receipt.json PASS 32756/0; first_slice_contract_20261011/suite_run.receipt.json PASS 360/0; home/upper canonical suite_run.receipt.json PASS 62/9/909/0 and 69/11/989/0.
+    Protected 17/17: unchanged in clean candidate verification. Selector: v2; explicit v1 rollback retained.
+    Ledger before -> after: 0/1/48/25/65/67 -> 0/1/48/25/65/67; requirements_changed: []
+    Gates: reader NEW0; calibrated recipe projections wrong0/125; four focused catalogue/canopy tests pass; complete clean comparison has 82 gates, 70 passing tools suites, zero regressions and zero improvements.
+    Godot receipts: surface5.log.receipt.json PASS 32756/0; first_slice_contract_20261011/suite_run.receipt.json PASS 360/0; home/upper canonical suite_run.receipt.json PASS 62/9/909/0 and 69/11/989/0.
     Numbers: 430 furnishings/hangings checked; 187 refits; 25 reviewed changed views; 497 loaded textures; the loaded mip policy qualifies.
     Changes outside expected boundary: catalogue/generator/import policy and shared native placement assertions support the installed arcade stock and finish-aware refit. No gameplay permission or contact tolerance weakened.
     Open findings: broader V2 structural/runtime obligations remain; seven existing Texture RID shutdown warnings, simplified cloth/wood/fascia finishes and opaque upper arcade equipment need further work. Historical broad provenance pins remain historical; no receipt was repinned. No human or photoreal acceptance granted.
     Decision needed from owner: none for this authorized fitting and verification work.
-    BLOCKED clean candidate comparison pending
+    READY verified source/proof checkpoint; no new human or V2 completion acceptance.
