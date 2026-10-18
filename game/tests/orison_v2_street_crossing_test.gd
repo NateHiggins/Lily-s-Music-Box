@@ -20,5 +20,12 @@ func _route() -> void:
 	crossing.reverse()
 	for point: Vector3 in crossing:
 		if not await _walk(world.adapter.root.to_local(point)): return
-	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
-		if not await _walk(point): return
+	# Return the shared world through actual hand operation, rather than
+	# leaving an open leaf occupying a subsequent standing capture station.
+	for point in [Vector3(0,0,-10.2),Vector3(0,0,-10.6)]:
+		if not await _walk(point):return
+	if not await _close_front_entrance():return
+	for point in [Vector3(0,0,-8.5),Vector3(0,0,-7.65)]:
+		if not await _walk(point):return
+	if not await _close_front_entrance("F01_INNER_DOOR"):return
+	if not await _walk(Vector3(1.925,0,-6.5)):return

@@ -153,10 +153,16 @@ func _enter_front_entrance() -> bool:
 	return await _walk(Vector3(0,0,-8.5))
 
 func _open_front_entrance(identity: String="F01_DOOR_06") -> bool:
+	return await _move_front_entrance(identity,true)
+
+func _close_front_entrance(identity: String="F01_DOOR_06") -> bool:
+	return await _move_front_entrance(identity,false)
+
+func _move_front_entrance(identity: String,want_open: bool) -> bool:
 	var anchor:=world.adapter.resolve(identity) as Node3D
 	var door:=anchor.get_node(identity+"_Leaf") as DoorProp
-	var goal:=door.motion_target_angle(true)
-	if not door.is_ready_for_passage() or absf(door._body.rotation.y-goal)>.01:
+	var goal:=door.motion_target_angle(want_open)
+	if door.open!=want_open or door._moving or absf(door._body.rotation.y-goal)>.01:
 		# The free edge travels out of arm reach during the outward swing.
 		# Grab the hinge-side third without changing the real reach constraint.
 		player.face_world_point(door._body.to_global(Vector3(door.width/3.0,1.1,door._hinge_offset)))
@@ -179,9 +185,9 @@ func _open_front_entrance(identity: String="F01_DOOR_06") -> bool:
 			await get_tree().physics_frame
 		if player._grab.active():player._unhandled_input(click)
 		await get_tree().physics_frame
-		if not door.is_ready_for_passage() or absf(door._body.rotation.y-goal)>.01:
+		if door.open!=want_open or door._moving or absf(door._body.rotation.y-goal)>.01:
 			var at:=door._body.to_global(held_contact)
 			var obstruction:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(player.camera.global_position,at,1,[player.get_rid()]))
 			print("DOOR_HAND_DIAGNOSTIC ",identity," angle=",door._body.rotation.y," wanted=",goal," point=",at," camera=",player.camera.global_position," distance=",at.distance_to(player.camera.global_position)," blocker=",obstruction.get("collider"))
-			failures.append(identity+" did not reach its opening stop through player input: "+str(door._body.rotation.y)+" / "+str(goal));return false
+			failures.append(identity+" did not reach its requested stop through player input: "+str(door._body.rotation.y)+" / "+str(goal));return false
 	return true
