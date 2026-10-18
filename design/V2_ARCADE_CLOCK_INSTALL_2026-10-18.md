@@ -16,7 +16,7 @@ and streamed reconstruction use the existing arcade fitting path. Glazing uses
 the existing registered clear dielectric, its custom roughness/normal maps and
 the same optical owner as the canopy; the water preview is retired.
 
-Native08 passes 359 native checks. The actual imported-cell bench4 passes 150
+Native08 passes 359 native checks. The actual imported-cell bench5 passes 163
 checks with zero failures: full four-face orientation at two shared times,
 unchanged shared time after display refresh, native cap bearings isolated from
 the source colliders, complete loaded glass mip chains, metre UV metrics,
@@ -24,6 +24,18 @@ normal/tangent derivatives, retirement with the cell and refusal of a changed
 authored boundary without replacing any source mesh. Three imported views were
 reviewed. This isolated cell deliberately lacks production lighting/reflections;
 its dark metal is not an appearance acceptance result.
+
+The first composed review exposed an existing camera-frame mistake. The
+production Passage is translated by its gateway alignment, while the eight
+older arcade stations and four new clock stations used raw source coordinates.
+The clock views missed the clock. The owned surface run was canceled and its
+failed wrapper, raw logs and four wrong views are retained under
+**diagnostics/wrong_source_frame/**. No remaining batch suite started. All
+twelve stations now convert source-cell coordinates through the actual
+resident cell. Checks require the observed camera pose and the actual clock
+center inside the frustum. Bench5 additionally requires every mounted clock
+draw to be visible. Corrected composed review is pending; wrong images supply
+no appearance evidence.
 
 Failed diagnoses are retained in **art/reviews/v2_arcade_clock_install_20261018/**.
 Bench1 had a fixture parse warning; bench2 exposed severe mesh quantization and

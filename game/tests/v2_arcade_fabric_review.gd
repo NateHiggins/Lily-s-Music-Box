@@ -39,8 +39,12 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	]
 	var records: Array[Dictionary] = []
 	for station: Dictionary in stations:
-		camera.global_position = station.eye
-		camera.look_at(station.target)
+		# Authored stations use source-cell metres. The gateway alignment moves
+		# the whole production Passage; raw coordinates miss the intended stock.
+		var eye: Vector3 = passage.cell_nodes.passage.to_global(station.eye)
+		var target: Vector3 = passage.cell_nodes.passage.to_global(station.target)
+		camera.global_position = eye
+		camera.look_at(target)
 		world.player.set_lamp_enabled(bool(station.lamp))
 		var deadline := Time.get_ticks_msec() + 6000
 		while world.player.flashlight.visible != bool(station.lamp) and Time.get_ticks_msec() < deadline:
@@ -48,10 +52,12 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 		suite.check(world.player.flashlight.visible == bool(station.lamp), "real carried light settles for " + str(station.name))
 		await get_tree().create_timer(.4).timeout
 		for frame in 5: await RenderingServer.frame_post_draw
+		suite.check(camera.global_position.distance_to(eye)<.0001 and (-camera.global_basis.z).dot((target-eye).normalized())>.99999, "actual camera retains source-to-world arcade station: "+str(station.name))
+		if str(station.name).begins_with("arcade_clock_"):
+			var center: Vector3=passage.cell_nodes.passage.to_global(Vector3(14,6.21,51.6))
+			suite.check(camera.is_position_in_frustum(center),"native clock center is inside the composed capture frustum: "+str(station.name))
 		var file := str(station.name) + ".png"
 		suite.check(get_viewport().get_texture().get_image().save_png(directory.path_join(file)) == OK, "composed arcade view saved: " + file)
-		var eye: Vector3 = station.eye
-		var target: Vector3 = station.target
 		records.append({"file":file, "eye":[eye.x, eye.y, eye.z], "target":[target.x, target.y, target.z], "carried_lamp":bool(station.lamp)})
 	var record := FileAccess.open(directory.path_join("arcade_fabric_views.json"), FileAccess.WRITE)
 	record.store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Composed optical views and imported source-owner checks; not played access or visual acceptance.", "stations":records}, "\t")); record.close()

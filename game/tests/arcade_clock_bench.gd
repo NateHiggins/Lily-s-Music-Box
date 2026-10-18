@@ -56,7 +56,9 @@ func validate_cell(cell: Node3D) -> void:
 	check(model.find_children("*","Label3D",true,false).size()==48,"four complete numbered dials")
 	for label: Label3D in model.find_children("*","Label3D",true,false):
 		check(label.shaded and not label.double_sided and not label.no_depth_test,"dial ink is shaded and depth tested: "+str(label.name))
-	for draw: MeshInstance3D in draws:_check_surface(draw)
+	for draw: MeshInstance3D in draws:
+		check(draw.is_visible_in_tree(),"native clock draw visible in mounted cell: "+str(draw.get_meta("arcade_clock_part")))
+		_check_surface(draw)
 	var glass:=model.get_meta("optical_material") as ShaderMaterial
 	check(glass.shader.resource_path=="res://shaders/lamp_glass_surface.gdshader","registered clear dielectric, no water proxy")
 	for parameter in ["rough_tex","normal_tex"]:

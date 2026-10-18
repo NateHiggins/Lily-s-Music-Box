@@ -35,6 +35,13 @@ replacement's actual collision owner, so a post's own end cap cannot satisfy
 the bearing ray. The lantern correction retained a failed 118 mm-gap probe
 and added centre/ring samples before renewing the long production proofs.
 
+For tiny bevels, measure the exported UV triangle areas as well as tangent
+direction. Disabling Godot mesh compression does not repair a source chart
+whose area already collapsed near UV 1 in float32. The arcade minute-hand
+diagnosis retained that failure, then used local metre charts and signed V
+export to avoid the lossy one-minus-V offset. Verify the loaded derivatives
+and metric again; do not relax the surface tolerance or disable texture mips.
+
 For a reflection defect, isolate its actual light and emitting geometry before
 altering material roughness. Compare the configured source size with the native
 emitting envelope, and inspect other fixtures in that same physical family at

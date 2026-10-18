@@ -1,0 +1,72 @@
+{
+	"checks": 163,
+	"evidence_class": "INERT",
+	"failures": [],
+	"metrics": {
+		"clock_fixed__iron_blackened": {
+			"minimum_tangent_derivative_dot": 0.999999821186066,
+			"minimum_uv_determinant": 0.0000000718114527842317,
+			"worst_metric_error": 0.000167066387530168
+		},
+		"clock_fixed__milk_glass": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.0000185815683799717,
+			"worst_metric_error": 0.0000277026389925439
+		},
+		"clock_fixed__radiator_service_brass": {
+			"minimum_tangent_derivative_dot": 0.999999821186066,
+			"minimum_uv_determinant": 0.000000121879203618391,
+			"worst_metric_error": 0.000369061956116523
+		},
+		"clock_fixed__radiator_service_brass_turned_rims": {
+			"minimum_tangent_derivative_dot": 0.999999821186066,
+			"minimum_uv_determinant": 0.0000933121997093167,
+			"worst_metric_error": 0.00000779451050214597
+		},
+		"clock_fixed__washer_enamel": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.0000276112103279047,
+			"worst_metric_error": 0.0000281452127617321
+		},
+		"east_hour_hand": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.00000000348797189695901,
+			"worst_metric_error": 0.000011609752643249
+		},
+		"east_minute_hand": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.00000000245202952120687,
+			"worst_metric_error": 0.0000101126118514649
+		},
+		"north_hour_hand": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.00000000348797189695901,
+			"worst_metric_error": 0.000010055124065822
+		},
+		"north_minute_hand": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.00000000245202952120687,
+			"worst_metric_error": 0.0000166965622534487
+		},
+		"south_hour_hand": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.00000000348797189695901,
+			"worst_metric_error": 0.000010055124065822
+		},
+		"south_minute_hand": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.00000000245202952120687,
+			"worst_metric_error": 0.0000166965622534487
+		},
+		"west_hour_hand": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.00000000348797189695901,
+			"worst_metric_error": 0.000011609752643249
+		},
+		"west_minute_hand": {
+			"minimum_tangent_derivative_dot": 0.99999988079071,
+			"minimum_uv_determinant": 0.00000000245202952120687,
+			"worst_metric_error": 0.0000101126118514649
+		}
+	}
+}
