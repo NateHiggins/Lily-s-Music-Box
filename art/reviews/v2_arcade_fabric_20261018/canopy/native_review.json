@@ -1,0 +1,26 @@
+{
+  "asset": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_arcade_fabric_20261018\\canopy\\arcade_canopy.glb",
+  "primitives": 4,
+  "triangles": 39888,
+  "minimum_tangent_agreement": 0.9999999585146396,
+  "status": "PASS",
+  "evidence_class": "INERT",
+  "scope": "Blender candidate only; no loaded-world, collision or runtime acceptance.",
+  "stock_count": 824,
+  "closed_glass_panes": 192,
+  "asset_sha256": "120c40d8f5361115d03079286fd375ddf018dac9c168f1caf3fab2aa10a4ad8e",
+  "source_bindings": {
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "tools/plan_v2_arcade_canopy.py": "8dfe787892f4fd8645a2f7e7ca2c701adfbbeaba69ec0cc27c883e90330391de",
+    "art/blender/arcade_fabric_candidate/build_arcade_canopy.py": "a523c4580d7592ea71787af7243bafd6f78dc38aa4d6a2a48b70a3f517b3b360",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "game/data/runtime_material_sets.json": "97b0d3613039536b68349590807bfdeff3f2ae74b961d3cd060192f16dfb5613"
+  },
+  "retained_source_guides_excluded_from_export": 162,
+  "lantern_closed_glass_panes": 8,
+  "native_sha256": "13aa84c9402ca2d55d59f8f5048b661fb712abbd2e35158f124dbdb4090153ae"
+}

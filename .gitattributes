@@ -2249,3 +2249,12 @@ game/tests/V2GlazingOpticalProbe.tscn -text
 art/reviews/v2_glazing_20261018/** -text -whitespace
 
 game/scripts/building/orison_v2_cage_light_apertures.gd -text
+
+# Source-bound offline arcade fabric candidate; not runtime acceptance.
+art/reviews/v2_arcade_fabric_20261018/** -text -whitespace
+art/blender/arcade_fabric_candidate/** -text
+art/textures/ai_sources/arcade_*_20261018.* -text
+art/tools/build_arcade_terrazzo.py -text
+tools/plan_v2_arcade_canopy.py -text
+tools/check_v2_arcade_fabric_candidate.py -text
+tools/tests/test_arcade_canopy_shells.py -text

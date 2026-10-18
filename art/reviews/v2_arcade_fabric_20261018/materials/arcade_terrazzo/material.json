@@ -1,0 +1,32 @@
+{
+  "material": "arcade_terrazzo",
+  "status": "DRAFT_NOT_INSTALLED",
+  "generator": "art/tools/build_arcade_terrazzo.py",
+  "generator_sha256_lf": "c7c3dd8d93e59d4adaa48602d42b434b0474a81ff91dab6bf55912e8e54a0eb7",
+  "albedo_source": "art/textures/ai_sources/arcade_fine_terrazzo_20261018.png",
+  "albedo_source_sha256": "4822c5ebb814274dc78915614cf4a595f3f8a2a291a5eda078f4e6ad93ebe21f",
+  "meters_per_tile": 0.4,
+  "relief_mm": 0.05344493931096535,
+  "normal_strength": 1.0,
+  "height_storage_bits": 16,
+  "uv_contract": "Periodic metre charts at 0.4 m per repeat; repeat sampling. No mirrored aggregate. Independent periodic relief with wrapped central derivatives.",
+  "surface": "Honed flush aggregate. Independent polish and sparse micropores; no chip displacement, cracks, grout or baked wear.",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "4822c5ebb814274dc78915614cf4a595f3f8a2a291a5eda078f4e6ad93ebe21f",
+    "roughness": "1e278306fe16918653c1039b08fa4875779843016a2f599d0539b52a95529808",
+    "normal": "74c303bd5de0aea472020cf71b06ae1f928fac0789491818a1424438432da0f3",
+    "height": "c5bb3e83fc87ac4be8a28747b1c7c7ff2cf1e80ce6b5fd15b9343502a4c70d1b"
+  },
+  "measurements": {
+    "roughness_min": 0.323787383222225,
+    "roughness_max": 0.47325482793808504,
+    "normal_slope_rms": 0.012029199813770815,
+    "nonfinite_values": 0
+  }
+}

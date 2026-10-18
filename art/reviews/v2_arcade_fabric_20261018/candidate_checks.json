@@ -1,0 +1,27 @@
+{
+  "asset": "art\\reviews\\v2_arcade_fabric_20261018\\canopy\\arcade_canopy.glb",
+  "primitives": 4,
+  "triangles": 39888,
+  "minimum_tangent_agreement": 0.9999999585146396,
+  "status": "PASS",
+  "closed_rectangular_glass_panes": 198,
+  "maximum_shell_face_area_error": 0.00017457017226873983,
+  "uv_stretch_min_max": [
+    0.9997711411891707,
+    1.0001956391215374
+  ],
+  "materials": [
+    {
+      "key": "arcade_terrazzo",
+      "relief_mm": 0.05344493931096535,
+      "maximum_normal_error": 0.003922509131661195
+    },
+    {
+      "key": "arcade_terrazzo_dark",
+      "relief_mm": 0.052527255734332715,
+      "maximum_normal_error": 0.003922676711197455
+    }
+  ],
+  "evidence_class": "INERT",
+  "scope": "Native exported candidate and offline map calibration only. No game, loaded mipmap, collision, route or acceptance proof."
+}

@@ -1,0 +1,15 @@
+{
+  "evidence_class": "INERT",
+  "tool": "built-in image_gen",
+  "sources": [
+    {
+      "file": "art/textures/ai_sources/arcade_fine_terrazzo_20261018.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: game material diffuse/albedo source, neutral historic fine marble terrazzo.\nPrimary request: Create one perfectly orthographic overhead, seamless tileable square surface representing exactly one metre square of fine poured marble terrazzo appropriate to an early twentieth-century commercial arcade. A continuous warm pale grey limestone/cement binder densely filled with many hundreds of small irregular angular marble chips, mainly ivory and warm light grey with sparse muted charcoal and ochre grains. Chips mostly 3–10 mm across, a few at most 14 mm; fine aggregate, not giant pebbles or broken paving. Surface is ground flush, honed smooth, with subtle natural mineral colour inside individual chips. Quiet balanced distribution without a distinct large pattern or focal patch.\nLighting: flat even diffuse colour only, no directional lighting, shadows, ambient occlusion, highlights, reflection, vignette, perspective, depth of field or rendered room. This is albedo stock; the game will supply illumination and separately authored PBR response.\nConstraints: seamless edges matching in both directions, edge-to-edge material only. No grout, seams, tile outlines, dividers, cracks, wear trails, grime patches, staining, objects, words, letters, numbers, logos, borders or watermark. No 2x2 or other panel montage. No raised individual stones. Photoreal material colour, no decorative pattern."
+    },
+    {
+      "file": "art/textures/ai_sources/arcade_dark_terrazzo_20261018.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: seamless game material diffuse/albedo source, dark historic fine marble terrazzo for a commercial arcade floor border.\nCreate one orthographic overhead square continuous honed terrazzo surface, representing one metre square. Charcoal-grey mineral cement binder with dense small angular marble chips mostly warm grey, muted ivory and near-black, with occasional subtle ochre grains. Fine aggregate, many hundreds of small chips, mostly 3–10 mm, largest at most 14 mm, all ground flush in the same polished plane. Quiet mineral colour with gentle natural variation, no large focal patch. Dark but readable and physically plausible, no glossy photographed reflections.\nFlat even diffuse albedo only: no directional illumination, shadows, ambient occlusion, highlights, vignette, perspective, depth of field or rendered scene. Tileable edges matching in both directions. Edge-to-edge material only, no tile lines, grout, dividers, cracks, scratches, scuff trails, grime, stains, objects, letters, words, numbers, logos, borders or watermarks. No collage or panel montage. No raised pebbles."
+    }
+  ],
+  "scope": "New custom diffuse stock. No room, render, PBR or acceptance grant. Independent physical surface maps and imported UV validation remain required."
+}
