@@ -53,7 +53,7 @@ failures: 25,655 draws, 16,625 meshes, 6,105 materials and 497 loaded textures.
 Twenty-six current production views were reviewed. The home cohort passed 62 rooms, nine legs and 909 checks; the upper cohort
 passed 69 rooms, eleven legs and 989 checks. Both retired all tracked roots
 and drivers. Original test-written contracts and exact matching wrapper/raw
-logs are published. The final clean comparison remains pending. No proof is repinned. The native result remains incremental
+logs are published. The final clean comparison has zero regressions and is retained under **final_verification/**. No proof is repinned. The native result remains incremental
 detail work; it does not close the arcade's fascia, clock-face, overall
 lighting or broader material-finish obligations.
 
@@ -65,17 +65,24 @@ The runtime, physical and surface input digests are unchanged by this tooling
 change. The comparison and its cache/load limitation are recorded under
 **static_optimization/**.
 
+Four supplementary production optical views in **optical3/** compare the actual
+carried lamp off and on. All 17 diagnostic checks pass, with the lamp state
+verified at capture. The close camera is an elevated inspection rig, not a
+played stance. The mapped neutral iron responds to the lamp, while the
+remaining opal optics and broader finish work stay open. The failed external
+script and insufficient lamp-settle attempts remain rejected diagnostics.
+
 ## Management report
 
     REPORT - V2-ARCADE-LANTERN - 2026-10-18
-    Branch / HEAD / origin/main / merge-base: main / pending source commit / f5d617379a3f9148450d5ef5eb36ce86c3c788af / f5d617379a3f9148450d5ef5eb36ce86c3c788af
+    Branch / HEAD / origin/main / merge-base: main / cc295929f414f8eab0b96cd2deb1a831af00e498 (verified source/proof checkpoint; this report is a metadata follow-up) / f5d617379a3f9148450d5ef5eb36ce86c3c788af / f5d617379a3f9148450d5ef5eb36ce86c3c788af
     Worktree clean at end: no; unrelated inherited shared-checkout changes are excluded.
-    Protected 17/17: pending clean comparison. Selector: v2; explicit v1 rollback retained.
-    Ledger before -> after: 0/1/48/25/65/67 -> pending composed proof renewal; no new grant requested.
-    Gates: reader NEW0; focused source tests and imported bench pass; complete clean static preflight pending.
-    Godot receipts: import1, import2 and import3 completed; bench2.log.receipt.json completed PASS 378/0. Bench is INERT, not a runtime grant.
+    Protected 17/17: unchanged in clean candidate verification. Selector: v2; explicit v1 rollback retained.
+    Ledger before -> after: 0/1/48/25/65/67 -> 0/1/48/25/65/67; requirements_changed: [].
+    Gates: reader NEW0; complete clean comparison has zero regressions, 83 gates and 71 passing tools suites. New retained-post tests and the unchanged-result static scan pass.
+    Godot receipts: original test-written schema-2 contracts and matching completed wrappers/raw logs: service2 PASS 360/0, surface2 PASS 32850/0, home2 PASS 62/9/909/0 and upper2 PASS 69/11/989/0. Imports and bench2 PASS 378/0 remain INERT diagnostics.
     Numbers: 3 original slabs; 140 closed native stocks; 8400 triangles; 1 draw; 6 native comparison views.
     Changes outside expected boundary: native import precision and surface-source dependency registration cover the new roof stock. Three source references extend the spatial manifest; prior rows remain unchanged.
-    Open findings: composed qualification and broad V2 obligations remain; human and photoreal acceptance are unproven.
+    Open findings: broad V2 obligations, fascia/clock-face/opal-optics and overall finish work remain; human and photoreal acceptance are unproven. Existing seven Texture RID shutdown warnings remain.
     Decision needed from owner: none for this authorized geometry/detail work.
-    BLOCKED composed qualification and clean candidate comparison pending
+    READY verified source/proof checkpoint; no new human or V2 completion acceptance.

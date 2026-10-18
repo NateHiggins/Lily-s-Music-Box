@@ -1,0 +1,5 @@
+ERROR: actual lamp state settles: roof_close_diffuse
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/_v2_lantern_optical_probe.gd:10)
+       [1] _run (res://tests/_v2_lantern_optical_probe.gd:43)

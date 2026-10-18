@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 2.52,
+  "exit_code": 1,
+  "finished_utc": "2026-10-18T13:56:34Z",
+  "started_utc": "2026-10-18T13:56:30Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Compile Error: Identifier not found: RealityState",
+   "ERROR: Failed to load script \"C:/PleaseRemainOnTheLine/tmp/v2-lantern-20261018/roof_light_probe.gd\" with error \"Compilation failed\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-lantern-20261018/optical1.log.stderr",
+  "stderr_sha256": "06fc62b68a1173d31526a0bd48520545dbf49c8e5ae34a8b2df0ce481374b880",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-lantern-20261018/optical1.log",
+  "stdout_sha256": "e9bf8c6572911525bc407470a2e7bda1231d634a09b4d5f4d2a4bd112e889976"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-lantern-20261018\\optical1",
+ "source": {
+  "dirty_paths": 1666,
+  "dirty_sample": [
+   "M art/blender/v2_batch_workflow.md",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/access_home_cohort_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_home_cohort_20261018/verification.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/verification.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/first_slice_contract_20261011/verification.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/arcade_barrel_underside.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/arcade_clay_carried.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/arcade_clay_joint.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/arcade_floor_carried.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/arcade_floor_diffuse.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/arcade_lantern_shoulders.png"
+  ],
+  "repository_head": "003d5993c6f2554782a1f25f253b6c4e24596171",
+  "repository_tree": "f5afb0426f13620faf41eaae2cb464d2d0df12ec",
+  "runtime_inputs_sha256": "8f9e7cbdba214d80ef29936bd770e0b54a87409d865402b3ad9c46e26cec7cdd",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": true
+}

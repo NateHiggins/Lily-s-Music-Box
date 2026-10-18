@@ -1,0 +1,134 @@
+{
+	"campaign_fixture": "1928-10-15 12:30",
+	"checks": [
+		{
+			"label": "production V2 world starts for optical diagnosis",
+			"ok": true
+		},
+		{
+			"label": "actual lamp state settles: roof_player_diffuse",
+			"ok": true
+		},
+		{
+			"label": "actual carried light follows camera: roof_player_diffuse",
+			"ok": true
+		},
+		{
+			"label": "capture roof_player_diffuse.png",
+			"ok": true
+		},
+		{
+			"label": "actual lamp state settles: roof_player_carried",
+			"ok": true
+		},
+		{
+			"label": "actual carried light follows camera: roof_player_carried",
+			"ok": true
+		},
+		{
+			"label": "capture roof_player_carried.png",
+			"ok": true
+		},
+		{
+			"label": "actual lamp state settles: roof_close_diffuse",
+			"ok": false
+		},
+		{
+			"label": "actual carried light follows camera: roof_close_diffuse",
+			"ok": true
+		},
+		{
+			"label": "capture roof_close_diffuse.png",
+			"ok": true
+		},
+		{
+			"label": "actual lamp state settles: roof_close_carried",
+			"ok": true
+		},
+		{
+			"label": "actual carried light follows camera: roof_close_carried",
+			"ok": true
+		},
+		{
+			"label": "capture roof_close_carried.png",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"finish": {
+		"albedo_tex": "res://assets/building/textures/T_ai_materials_iron_neutral_albedo.png",
+		"mesh_uv_scale": "(2.5, 2.5)",
+		"metallic": 0.699999988079071,
+		"normal_scale": 0.119999997317791,
+		"normal_tex": "res://assets/building/textures/T_ai_materials_iron_neutral_normal.png",
+		"rough_tex": "res://assets/building/textures/T_ai_materials_iron_neutral_rough.png",
+		"type": "ShaderMaterial"
+	},
+	"images": [
+		{
+			"eye": [
+				14.0,
+				1.64999997615814,
+				46.0
+			],
+			"file": "roof_player_diffuse.png",
+			"lamp": false,
+			"lamp_range_m": 16.0,
+			"scope": "Optical inspection rig; elevated close camera is not a played stance or navigation proof.",
+			"target": [
+				14.0,
+				11.1999998092651,
+				51.5999984741211
+			]
+		},
+		{
+			"eye": [
+				14.0,
+				1.64999997615814,
+				46.0
+			],
+			"file": "roof_player_carried.png",
+			"lamp": true,
+			"lamp_range_m": 16.0,
+			"scope": "Optical inspection rig; elevated close camera is not a played stance or navigation proof.",
+			"target": [
+				14.0,
+				11.1999998092651,
+				51.5999984741211
+			]
+		},
+		{
+			"eye": [
+				12.1999998092651,
+				10.1000003814697,
+				50.0
+			],
+			"file": "roof_close_diffuse.png",
+			"lamp": false,
+			"lamp_range_m": 16.0,
+			"scope": "Optical inspection rig; elevated close camera is not a played stance or navigation proof.",
+			"target": [
+				11.3500003814697,
+				11.0979995727539,
+				51.5999984741211
+			]
+		},
+		{
+			"eye": [
+				12.1999998092651,
+				10.1000003814697,
+				50.0
+			],
+			"file": "roof_close_carried.png",
+			"lamp": true,
+			"lamp_range_m": 16.0,
+			"scope": "Optical inspection rig; elevated close camera is not a played stance or navigation proof.",
+			"target": [
+				11.3500003814697,
+				11.0979995727539,
+				51.5999984741211
+			]
+		}
+	],
+	"scope": "Production materials and unchanged real carried lamp; optical review only, no gameplay, navigation or human acceptance."
+}

@@ -1,0 +1,4 @@
+Evidence class: INERT. Optical inspection only, no gameplay or navigation grant.
+Four production captures at frozen 1928-10-15 12:30; actual carried lamp toggled and awaited up to eight seconds. Close views use an elevated camera rig. All four images visually reviewed. Native mapped neutral iron responds to the carried lamp; broad appearance acceptance remains open.
+To reproduce, copy archived source files to their original game/tests paths named in the receipt, use the lane broker with -Windowed, and supply SHOT_DIR. No production lighting or material was changed.
+Earlier optical1 failed autoload resolution outside res://; optical2 failed its lamp-settle assertion. Their logs remain rejected diagnostics.
