@@ -1,0 +1,6 @@
+{
+  "evidence_class": "INERT",
+  "finding": "At capped5fps original .3s SceneTreeTimer expires while un-replaced .25s tween has advanced .16669179166699s; same tween then finishes normally",
+  "result": "Focused real-owner/tween checks pass, including cancellation and replacement rejection; isolated window stock suite PASS; composed requalification pending",
+  "source3": "39,526 checks, one timing assertion failure, zero unresolved PBR/UV/mipmap surfaces. Original contract unmodified; not accepted proof."
+}

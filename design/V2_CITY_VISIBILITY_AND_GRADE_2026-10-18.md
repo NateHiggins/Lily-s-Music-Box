@@ -146,3 +146,20 @@ Actual fog and heavy precipitation retain 13..58 metres and V1 retains its
 original writer and distances. The actual-writer visibility bench passes 138
 checks. New composed captures and broader proof renewals remain pending. Plain
 outward faces on the retained far buildings remain explicit appearance work.
+
+The original **final_surface3** completes in 642 seconds with 39,526 checks,
+one failure and zero unresolved surfaces. Corrected ground and camera checks
+pass; all nineteen scoped images are inspected. The remaining failure is the
+blind review's short timer, not a demonstrated cancellation: the isolated real
+save-owner diagnostic reproduces its 0.3-second timer firing while the original
+0.25-second tween has advanced only 0.166692 seconds. The same tween then reaches
+its saved destination normally. Both the failed composed original and the
+hash-verified original diagnostic source are archived unchanged.
+
+The review and isolated stock suite now observe the original tween's actual
+finished signal with a bounded frame wait. They require the same running tween
+immediately after the unrelated commit and reject a cancelled or replaced tween.
+The focused real-owner bench and the original isolated window-treatment suite
+pass without script errors. Production blind and save-owner code are unchanged.
+This strengthens the timing check; it does not grant new player-input proof.
+The next original composed qualification remains required before publication.

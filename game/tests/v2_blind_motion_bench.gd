@@ -1,0 +1,54 @@
+extends Node
+## Isolated real save-owner/tween diagnostic, no player-input or world proof.
+var failures: Array[String]=[]
+
+func check(ok: bool,label: String) -> void:
+	if not ok:failures.append(label);push_error(label)
+
+func _ready() -> void:
+	run.call_deferred()
+
+func run() -> void:
+	RealityState.persistence_enabled=false
+	RealityState.reset_campaign_for_tests()
+	var actor := preload("res://scripts/building/orison_v2_window_treatment.gd").new()
+	add_child(actor)
+	var owner := preload("res://scripts/building/orison_v2_household_state.gd").new()
+	add_child(owner)
+	owner._subjects={"bench_blind":actor};owner._kinds={"bench_blind":"blind"}
+	owner._defaults=owner.snapshot()
+	RealityState.data[owner.KEY]=owner.snapshot()
+	owner._restore(RealityState.data[owner.KEY]);owner._bound=true
+	owner._connect(RealityState,"state_changed",owner._on_state_changed)
+	owner._connect(RealityState,"snapshot_preparing",owner._capture_snapshot)
+	owner._connect(actor,"settings_changed",owner._commit_change)
+	var old_cap := Engine.max_fps
+	Engine.max_fps=5
+	var early := 0
+	for cycle in 6:
+		actor.set_settings(0,0,1,0)
+		actor.set_settings(.6,-35,.4,.25)
+		var motion: Tween=actor._motion
+		var completion := preload("res://tests/v2_tween_completion.gd").observe(motion)
+		RealityState.commit()
+		check(actor._motion==motion and motion.is_valid() and motion.is_running(),"unrelated commit preserves the actual in-flight tween")
+		await get_tree().create_timer(.3).timeout
+		var complete := is_equal_approx(actor.raised,.6) and is_equal_approx(actor.tilt_degrees,-35)
+		if not complete:early+=1
+		print("BLIND TIMER DIAGNOSTIC: cycle=",cycle," complete=",complete," raised=",actor.raised," angle=",actor.tilt_degrees," tween_elapsed=",motion.get_total_elapsed_time()," running=",motion.is_running())
+		var finished: bool=await preload("res://tests/v2_tween_completion.gd").wait_for_finish(actor,motion,completion,get_tree())
+		check(finished and actor._motion==motion and is_equal_approx(actor.raised,.6) and is_equal_approx(actor.tilt_degrees,-35),"original un-replaced tween actually reaches the saved destination")
+	actor.set_settings(.2,15,.8,.25)
+	var cancelled: Tween=actor._motion
+	var cancelled_observation := preload("res://tests/v2_tween_completion.gd").observe(cancelled)
+	cancelled.kill()
+	check(not await preload("res://tests/v2_tween_completion.gd").wait_for_finish(actor,cancelled,cancelled_observation,get_tree()),"cancelled tween cannot count as completed")
+	actor.set_settings(.3,20,.5,.25)
+	var replaced: Tween=actor._motion
+	var replaced_observation := preload("res://tests/v2_tween_completion.gd").observe(replaced)
+	actor.set_settings(.7,0,.2,.25)
+	check(not await preload("res://tests/v2_tween_completion.gd").wait_for_finish(actor,replaced,replaced_observation,get_tree()),"replacement tween cannot satisfy original completion")
+	Engine.max_fps=old_cap
+	owner.free();actor.free()
+	print("BLIND MOTION BENCH: ","PASS" if failures.is_empty() else "FAIL","; early_timer_observations=",early," failures=",failures.size())
+	get_tree().quit(0 if failures.is_empty() else 1)

@@ -33,11 +33,14 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	var id := str(player.get_meta("semantic_window"))
 	var original: Dictionary=player.settings_snapshot()
 	player.set_settings(.6,-35,.4,.25)
+	var motion: Tween=player._motion
+	var completion := preload("res://tests/v2_tween_completion.gd").observe(motion)
 	var stored: Dictionary=RealityState.data[world.household_state.KEY].records[id].value
 	suite.check(is_equal_approx(stored.raise,.6) and is_equal_approx(stored.tilt_degrees,-35) and is_equal_approx(stored.curtain_open,.4),"save commits target at start of motion")
 	RealityState.commit()
-	await suite.get_tree().create_timer(.3).timeout
-	suite.check(is_equal_approx(player.raised,.6) and is_equal_approx(player.tilt_degrees,-35),"unrelated state commit does not interrupt blind motion")
+	suite.check(player._motion==motion and motion.is_valid() and motion.is_running(),"unrelated state commit retains the original running blind tween")
+	var finished: bool=await preload("res://tests/v2_tween_completion.gd").wait_for_finish(player,motion,completion,suite.get_tree())
+	suite.check(finished and is_equal_approx(player.raised,.6) and is_equal_approx(player.tilt_degrees,-35),"unrelated state commit does not interrupt blind motion")
 	player.raised=.1;player.tilt_degrees=0;player.curtain_open=1;player._apply()
 	world.household_state._restore(RealityState.data[world.household_state.KEY])
 	suite.check(player.settings_snapshot()==stored,"household reconstruction restores lift, tilt and curtain draw")

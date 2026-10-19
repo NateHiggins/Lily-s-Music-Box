@@ -37,9 +37,11 @@ func _run() -> void:
     actor.restore_settings(invalid)
     check(actor.settings_snapshot()==unchanged,"invalid reconstruction leaves all settings unchanged")
     actor.set_settings(.5,25,.8,.25)
+    var motion: Tween=actor._motion
+    var completion: Dictionary=preload("res://tests/v2_tween_completion.gd").observe(motion)
     check(is_equal_approx(actor.settings_snapshot().raise,.5) and is_equal_approx(actor.settings_snapshot().tilt_degrees,25) and is_equal_approx(actor.settings_snapshot().curtain_open,.8),"in-flight snapshot stores destination")
-    await get_tree().create_timer(.3).timeout
-    check(is_equal_approx(actor.raised,.5) and is_equal_approx(actor.tilt_degrees,25),"height and tilt animation reach requested endpoints")
+    var finished: bool=await preload("res://tests/v2_tween_completion.gd").wait_for_finish(actor,motion,completion,get_tree())
+    check(finished and is_equal_approx(actor.raised,.5) and is_equal_approx(actor.tilt_degrees,25),"height and tilt animation reach requested endpoints through the original tween")
     await get_tree().physics_frame
     for id in ["LiftControl","TiltControl","CurtainControl"]:
         var area: Area3D=actor.get_node(id)
