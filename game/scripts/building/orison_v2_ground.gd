@@ -5,6 +5,9 @@ const ASSET:=preload("res://assets/props/orison_ground.glb")
 func _ready() -> void:
 	var model:=ASSET.instantiate() as Node3D
 	add_child(model)
+	var apron := (preload("res://assets/props/city_ground_apron.glb") as PackedScene).instantiate() as Node3D
+	apron.name = "DistantApron"
+	model.add_child(apron)
 	var asphalt:=MatLib.get_mat("asphalt").duplicate() as StandardMaterial3D
 	var original_asphalt := asphalt.duplicate() as StandardMaterial3D
 	original_asphalt.uv1_triplanar=false

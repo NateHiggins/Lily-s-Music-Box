@@ -329,6 +329,7 @@ func _apply(minute: float) -> void:
 		profile["bright_stars"] = stars
 		profile["star_strength"] = clampf((-sun.y - 0.04) / 0.18, 0.0, 1.0)
 
+	_resolve_fog_profile(profile)
 	_env.fog_mode = Environment.FOG_MODE_DEPTH
 	_env.fog_enabled = true
 	_env.fog_height_density = 0.0
@@ -406,6 +407,12 @@ func _apply(minute: float) -> void:
 		_apply_atrium(profile.atrium, profile.atrium_e)
 	_last_profile = profile
 	_last_profile["source_direction"] = source_dir
+
+
+func _resolve_fog_profile(_profile: Dictionary) -> void:
+	# The retained director owns all writes. A world may specialize its physical
+	# visibility scale without a second Environment writer or changing V1.
+	pass
 
 
 func _neighbour_occupancy_for_state(state: String) -> float:

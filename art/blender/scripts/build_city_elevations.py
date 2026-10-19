@@ -36,6 +36,20 @@ def local_box(name,key,origin,tangent,out,lo,hi):
     vv=[origin+tangent*a+out*b+Vector((0,0,c)) for a,b,c in [(x,y,z),(X,y,z),(X,Y,z),(x,Y,z),(x,y,Z),(X,y,Z),(X,Y,Z),(x,Y,Z)]]
     # tangent x out = +Z for a right-handed cell. All four facades use it.
     add(name,key,[tuple(p) for p in vv],[(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)])
+def curtain_panel(name,origin,tangent,out,left,right,low,high,depth,seed):
+    """Closed thin cloth with a continuous pleated silhouette, behind the pane."""
+    steps=max(12,math.ceil((right-left)/.035));verts=[];faces=[]
+    for i in range(steps+1):
+        x=left+(right-left)*i/steps
+        front=-depth+.025+.010*math.sin(i/steps*math.tau*3+seed)
+        for y,z in [(front,low),(front,high),(front-.004,low),(front-.004,high)]:
+            verts.append(tuple(origin+tangent*x+out*y+Vector((0,0,z))))
+    for i in range(steps):
+        a=i*4;b=(i+1)*4
+        faces.extend([(a,a+1,b+1,b),(a+2,b+2,b+3,a+3),(a,b,b+2,a+2),(a+1,a+3,b+3,b+1)])
+    faces.extend([(0,2,3,1),(steps*4,steps*4+1,steps*4+3,steps*4+2)])
+    add(name,'linen',verts,faces)
+
 def facade(name,p,rect,z0,z1):
     depth=float(p['reveal_depth']);recess=float(p['window_recess']);assert 0<recess<depth
     x,y,X,Y=rect;count=0;floor_count=max(1,round((z1-z0)/p['storey_height']));floor_h=(z1-z0)/floor_count
@@ -63,14 +77,26 @@ def facade(name,p,rect,z0,z1):
                 # Glazed, closed backing: these passive shells imply no accessible interior.
                 local_box(name,'mirror_aged',origin,tangent,out,(wl+.045,-recess-.054,low+.045),(wr-.045,-recess-.044,high-.045))
                 local_box(name,'wood_dark',origin,tangent,out,(wl+.045,-depth,low+.045),(wr-.045,-depth+.01,high-.045))
-                if (floor*7+bay*3+side)%5 != 0:
-                    drop=[.52,.76,1.][(floor+bay+side)%3]
-                    local_box(name,'linen',origin,tangent,out,(wl+.05,-depth+.012,high-h*drop),(wr-.05,-depth+.02,high-.045))
+                seed=int(p['variation_seed']);pattern=floor*7+bay*3+side+seed
+                treatment=p['window_treatment']
+                assert treatment in ['roller','draped','mixed']
+                if pattern%5 != 0:
+                    if treatment=='draped' or (treatment=='mixed' and pattern%3==0):
+                        gather=w*[.23,.31,.42][(floor+bay+seed)%3]
+                        curtain_panel(name,origin,tangent,out,wl+.05,wl+gather,low+.05,high-.05,depth,seed)
+                        curtain_panel(name,origin,tangent,out,wr-gather,wr-.05,low+.05,high-.05,depth,seed+1)
+                    else:
+                        drop=[.29,.52,.76,1.][(floor+bay+side+seed)%4]
+                        local_box(name,'linen',origin,tangent,out,(wl+.05,-depth+.012,high-h*drop),(wr-.05,-depth+.02,high-.045))
                 for lo,hi in [((wl,-recess-.044,low),(wl+.055,-recess,high)),((wr-.055,-recess-.044,low),(wr,-recess,high)),((wl+.055,-recess-.044,low),(wr-.055,-recess,low+.055)),((wl+.055,-recess-.044,high-.055),(wr-.055,-recess,high)),((wl+.055,-recess-.038,(low+high)/2-.025),(wr-.055,-recess+.014,(low+high)/2+.025))]:local_box(name,p['sash'],origin,tangent,out,lo,hi)
-                local_box(name,'limestone',origin,tangent,out,(wl-.08,-.23,low-.07),(wr+.08,.085,low))
-                local_box(name,'limestone',origin,tangent,out,(wl-.09,-.08,high),(wr+.09,.025,high+.14))
+                if p['window_joinery']=='paired_sash':
+                    local_box(name,p['sash'],origin,tangent,out,(cx-.025,-recess-.044,low+.055),(cx+.025,-recess+.014,high-.055))
+                else:assert p['window_joinery']=='single_sash'
+                local_box(name,'limestone',origin,tangent,out,(wl-.08,-.23,low-.07),(wr+.08,float(p['sill_projection']),low))
+                local_box(name,p['lintel_key'],origin,tangent,out,(wl-.09,-.08,high),(wr+.09,.025,high+float(p['lintel_height'])))
                 count+=1
-                window_rows.append(dict(building=name,side=side,floor=floor,bay=bay,center=list(origin+tangent*cx+Vector((0,0,(low+high)/2))),width=w,height=h,recess_m=recess))
+                window_rows.append(dict(building=name,side=side,floor=floor,bay=bay,center=list(origin+tangent*cx+Vector((0,0,(low+high)/2))),width=w,height=h,recess_m=recess,
+                    pane_sample=list(origin+tangent*(cx+w*.22)+Vector((0,0,(low+high)/2+h*.2)))))
     return count
 for name,p in groups.items():
     assert p['massing'] in ['straight_eave','single_upper_setback']
@@ -169,7 +195,8 @@ for asset,data in contact_sources.items():
             point=Vector(sample);hit,n,index,distance=bvh.ray_cast(point+normal*.03,-normal,.06);native_bearings+=1
             if hit is None or (hit-point).length>=.0001:native_failures.append(dict(kind='bearing',id=contact['id'],sample=sample))
 for window in window_rows:
-    point=Vector(window['center'])+Vector((0,0,window['height']*.2))
+    # Sample inside an actual pane, clear of both sash rails and paired mullions.
+    point=Vector(window['pane_sample'])
     normal=[Vector((0,-1,0)),Vector((1,0,0)),Vector((0,1,0)),Vector((-1,0,0))][window['side']]
     hit,n,index,distance=bvh.ray_cast(point+normal*.1,-normal,.4);expected=point-normal*(window['recess_m']+.044);native_windows+=1
     if hit is None or (hit-expected).length>=.0001 or not face_owners[index].endswith('__mirror_aged'):native_failures.append(dict(kind='pane',window=window))

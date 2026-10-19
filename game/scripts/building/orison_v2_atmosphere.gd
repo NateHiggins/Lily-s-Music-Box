@@ -82,7 +82,7 @@ func _ready() -> void:
 	key.directional_shadow_max_distance = 48.0
 	key.directional_shadow_fade_start = 0.80
 	add_child(key)
-	director = DayNightDirector.new()
+	director = preload("res://scripts/building/v2_city_day_night_director.gd").new()
 	director.name = "DayNightDirector"
 	add_child(director)
 	director.setup(self, environment, key, material)

@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/city_ground_apron.glb", # source_bench1: default import stretches thin-edge metre charts by 1.69%.
     "props/city_elevations.glb", # Preserve the validated metric charts of retained cap bevels and recessed window stock.
     "props/arcade_clock.glb", # bench2: fine dial/hand charts deform by up to 64% under default import quantization.
     "props/arcade_lantern.glb", # Folded 2 mm roof skin and small closed seams retain metric charts.

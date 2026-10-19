@@ -2406,3 +2406,16 @@ game/tests/V2CityElevationBench.tscn -text
 game/tests/v2_city_elevation_bench.gd -text
 art/data/orison_v2/front_trim_layout_source.json -text
 art/reviews/v2_city_elevations_20261018/** -text -whitespace
+
+# Native city-ground and weather visibility source closure.
+art/blender/scripts/build_city_ground_apron.py -text
+art/blender/scripts/city_ground_apron_geometry.py -text
+art/data/city_ground_apron/source_plan.json -text
+art/blender/city_ground_apron.blend -text
+art/blender/city_ground_apron_construction.json -text
+game/assets/props/city_ground_apron.glb -text
+game/tests/fixtures/orison_city_ground_apron.json -text
+game/scripts/building/v2_city_day_night_director.gd -text
+game/tests/V2CityVisibilityBench.tscn -text
+game/tests/v2_city_visibility_bench.gd -text
+art/reviews/v2_city_polish_20261018/** -text -whitespace
