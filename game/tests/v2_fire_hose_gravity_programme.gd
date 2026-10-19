@@ -161,7 +161,7 @@ func run(root: Node3D,rig: RefCounted,contact: RefCounted) -> bool:
 		responses+=dynamics.contacts_resolved
 		print("HOSE GRAVITY PROGRESS: step=",step," ms=",float(Time.get_ticks_usec()-step_started)/1000.," attempts=",dynamics.step_attempts," substeps=",dynamics.accepted_substeps," time_s=",dynamics.advanced_time_s)
 		exact_time=exact_time and absf(dynamics.advanced_time_s-dynamics.STEP_S)<.0000000001
-		history.append({"step":step,"energy":energy(rig,dynamics.velocities),"response_planes":dynamics.contacts_resolved,"response_iterations":dynamics.response_iterations,"projection_iterations":dynamics.kernel.iterations,"joint_accepted":dynamics.kernel.joint_accepted,"attempts":dynamics.step_attempts,"substeps":dynamics.accepted_substeps,"advanced_time_s":dynamics.advanced_time_s})
+		history.append({"step":step,"energy":energy(rig,dynamics.velocities),"response_planes":dynamics.contacts_resolved,"response_iterations":dynamics.response_iterations,"projection_iterations":dynamics.kernel.iterations,"joint_accepted":dynamics.kernel.joint_accepted,"attempts":dynamics.step_attempts,"substeps":dynamics.accepted_substeps,"advanced_time_s":dynamics.advanced_time_s,"profile_usec":dynamics.profile_usec.duplicate(),"projection_calls":dynamics.projection_calls})
 	print("HOSE GRAVITY SUPPORTED: ms=",float(Time.get_ticks_usec()-started)/1000.," response_planes=",responses)
 	check(success and responses>0,"gravity reaches real floor and resolves native shell contacts")
 	check(exact_time,"successful supported steps advance their entire requested time")

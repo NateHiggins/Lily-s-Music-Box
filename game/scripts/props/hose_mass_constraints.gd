@@ -16,6 +16,7 @@ var last_input:=PackedVector3Array()
 var last_planes: Dictionary={}
 var last_result:=PackedVector3Array()
 var joint_accepted:=false
+var joint_usec:=0
 var coupled:=preload("res://scripts/props/hose_contact_projection.gd").new()
 func configure(rest_lengths: PackedFloat64Array,rest_points: PackedVector3Array) -> bool:
 	if not lengths.is_empty() or rest_lengths.size()<2:return false
@@ -156,13 +157,10 @@ func _band_corrections(points: PackedVector3Array,mobility: Array[Basis],rows: D
 		forces[first[i]]+=vectors[i]*multipliers[i];forces[last[i]]-=vectors[i]*multipliers[i]
 	for i in forces.size():forces[i]=mobility[i]*forces[i]
 	return forces
-func project(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> PackedVector3Array:
+func _warm_result(points: PackedVector3Array,accepted: bool) -> Dictionary:
+	return {"points":points,"accepted":accepted,"iterations":iterations,"error":error}
+func _warm_start_gd(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> Dictionary:
 	error="";iterations=0
-	last_input=target.duplicate();last_planes=planes.duplicate(true);last_result=PackedVector3Array();joint_accepted=false
-	if target.size()!=masses.size():error="wrong material ring count";return PackedVector3Array()
-	if not anchor.is_finite():error="nonfinite material anchor";return PackedVector3Array()
-	for point: Vector3 in target:
-		if not point.is_finite():error="nonfinite material position";return PackedVector3Array()
 	var points:=target.duplicate()
 	# Position inequalities may release while neighbouring rings rise. Locking
 	# every first contact to equality overconstrains a bent, varying section.
@@ -178,29 +176,29 @@ func project(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> P
 		iterations=iteration+1
 		points=_bend(points)
 		points=_support(points,planes,anchor)
-		if points.is_empty():error="incompatible support constraints";return PackedVector3Array()
+		if points.is_empty():error="incompatible support constraints";return _warm_result(PackedVector3Array(),false)
 		var rhs:=PackedFloat64Array();rhs.resize(lengths.size())
 		var maximum:=0.;var total:=0.
 		for i in lengths.size():
 			var distance: float=points[i].distance_to(points[i+1])
-			if not is_finite(distance) or distance<.0000001:error="collapsed material interval";return PackedVector3Array()
+			if not is_finite(distance) or distance<.0000001:error="collapsed material interval";return _warm_result(PackedVector3Array(),false)
 			rhs[i]=.5*(distance*distance-lengths[i]*lengths[i])
 			maximum=maxf(maximum,absf(distance-lengths[i]));total+=distance-lengths[i]
 		# Float32 imported positions do not reliably resolve a0.2micrometre
 		# residual after repeated contact. Both targets remain stricter than
 		# the unchanged20micrometre per-interval AND total acceptance checks.
-		if maximum<PROJECTION_ERROR_M and absf(total)<TOTAL_ERROR_M and _bend_error(points)<PROJECTION_ERROR_M:return points
+		if maximum<PROJECTION_ERROR_M and absf(total)<TOTAL_ERROR_M and _bend_error(points)<PROJECTION_ERROR_M:return _warm_result(points,true)
 		last_maximum=maximum;last_total=total
 		var rows: Dictionary=_rows(points)
 		var multipliers: PackedFloat64Array
 		var corrections: PackedVector3Array
 		if rows.bends==0:
 			multipliers=_solve(points,mobility,rhs)
-			if multipliers.is_empty():return PackedVector3Array()
+			if multipliers.is_empty():return _warm_result(PackedVector3Array(),false)
 			corrections=_corrections(points,mobility,multipliers)
 		else:
 			multipliers=_band_solve(mobility,rows,rows.rhs)
-			if multipliers.is_empty():return PackedVector3Array()
+			if multipliers.is_empty():return _warm_result(PackedVector3Array(),false)
 			corrections=_band_corrections(points,mobility,rows,multipliers)
 		for i in points.size():points[i]-=corrections[i]
 	# The strict targets above are early-exit optimization targets. At the
@@ -213,11 +211,34 @@ func project(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> P
 		for i in lengths.size():
 			var distance: float=points[i].distance_to(points[i+1])
 			last_maximum=maxf(last_maximum,absf(distance-lengths[i]));last_total+=distance-lengths[i]
-		if last_maximum<=ACCEPT_ERROR_M and absf(last_total)<=ACCEPT_ERROR_M and _bend_error(points)<=ACCEPT_ERROR_M:return points
-		var joint: PackedVector3Array=coupled.project(points,anchor,planes)
-		if not joint.is_empty():joint_accepted=true;return joint
+		if last_maximum<=ACCEPT_ERROR_M and absf(last_total)<=ACCEPT_ERROR_M and _bend_error(points)<=ACCEPT_ERROR_M:return _warm_result(points,true)
+	return _warm_result(points,false)
+func warm_start(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> Dictionary:
+	if coupled.backend_name!="native":return _warm_start_gd(target,anchor,planes)
+	var result: Dictionary=coupled.warm_start(target,anchor,planes,bend_hints)
+	iterations=int(result.iterations);error=str(result.error)
+	return result
+func project(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> PackedVector3Array:
+	error="";iterations=0;joint_usec=0
+	last_input=target.duplicate();last_planes=planes.duplicate(true);last_result=PackedVector3Array();joint_accepted=false
+	if target.size()!=masses.size():error="wrong material ring count";return PackedVector3Array()
+	if not anchor.is_finite():error="nonfinite material anchor";return PackedVector3Array()
+	for point: Vector3 in target:
+		if not point.is_finite():error="nonfinite material position";return PackedVector3Array()
+	var warm: Dictionary=warm_start(target,anchor,planes)
+	var points: PackedVector3Array=warm.points
+	if points.is_empty():last_result=points;return points
+	if warm.accepted:return points
+	var joint_started: int=Time.get_ticks_usec()
+	var joint: PackedVector3Array=coupled.project(points,anchor,planes)
+	joint_usec=Time.get_ticks_usec()-joint_started
+	if not joint.is_empty():joint_accepted=true;return joint
 	last_result=coupled.last_iterate.duplicate() if not coupled.last_iterate.is_empty() else points.duplicate()
-	error="global length/support projection did not converge: "+str([last_maximum,last_total,_bend_error(points) if not points.is_empty() else INF])+" joint="+coupled.error;return PackedVector3Array()
+	var maximum:=0.;var total:=0.
+	for i in lengths.size():
+		var distance: float=points[i].distance_to(points[i+1]);maximum=maxf(maximum,absf(distance-lengths[i]));total+=distance-lengths[i]
+	error="global length/support projection did not converge: "+str([maximum,total,_bend_error(points)])+" joint="+coupled.error
+	return PackedVector3Array()
 func project_velocity(points: PackedVector3Array,velocity: PackedVector3Array,planes: Dictionary) -> PackedVector3Array:
 	var result: PackedVector3Array=coupled.project_velocity(points,velocity,planes)
 	if result.is_empty():error=coupled.error

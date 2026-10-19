@@ -22,7 +22,7 @@ PDB and SDK/build caches outside the checkpoint. Rebuild after changing any
 source bound by the manifest. Preserve the third-party notices in licenses/.
 The Godot lane wrappers remain mandatory for every runtime verification.
 
-Current review: design/V2_FIRE_HOSE_RELEASE_BENCH_2026-10-19.md. Numerical
+Current review: design/V2_FIRE_HOSE_WARM_START_2026-10-19.md. Numerical
 fixtures also run through res://tests/HoseProjectionRegression.tscn without
 loading the large model. Use the lane wrapper and a unique LogPath. This
 does not replace the windowed V2FireCapacityNativeTest.tscn skin/contact/hand

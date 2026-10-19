@@ -1,0 +1,40 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Diagnostic comparison only; no runtime contract or performance acceptance. Joint projection is a subtotal of position projection. Warm/bridge is their difference.",
+  "runs": [
+    {
+      "run": "stage30_profile1",
+      "trace_sha256": "0c86d1a0e62ab37e99b22de96aa962c09e423b449395bd0b99371b2a2f600b0a",
+      "seconds": {
+        "accepted_skin": 0.017735,
+        "final_sweep": 0.636518,
+        "joint_projection": 19.008079,
+        "position_projection": 40.327772,
+        "velocity_projection": 0.134477,
+        "world_contact": 4.075418,
+        "rollback_skin": 0.005577,
+        "warm_start_and_bridge": 21.319693000000004
+      },
+      "projection_calls": 110
+    },
+    {
+      "run": "stage30_native1",
+      "trace_sha256": "3ca1d5587c3620b89bd2193f21ef0a634f5cf65d8fdaad3e2136233d99020931",
+      "seconds": {
+        "accepted_skin": 0.017709,
+        "final_sweep": 0.641398,
+        "joint_projection": 19.243124,
+        "position_projection": 19.739761,
+        "velocity_projection": 0.137919,
+        "world_contact": 4.104898,
+        "rollback_skin": 0.005567,
+        "warm_start_and_bridge": 0.4966369999999998
+      },
+      "projection_calls": 110
+    }
+  ],
+  "final_pose_equal": true,
+  "physics_steps_equal": true,
+  "initial_energy_equal": true,
+  "final_energy_equal": true
+}

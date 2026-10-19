@@ -218,8 +218,145 @@ class OrisonHoseProjectionNative : public RefCounted {
         for (const Row &r:rows) value+=r.equality?std::abs(r.g):std::max(0.,-r.g);
         return value;
     }
+    struct WarmRow { int first,last; Vector3 vector; double rhs; };
+    bool warm_support(Points &points,const Vector3 &anchor,const Planes &planes) {
+        for (int i=0;i<int(points.size());++i) {
+            if (i+1==int(points.size())) {
+                for (const Plane &p:planes[i]) if (double(p.normal.dot(anchor))<p.offset-.000001) {error="incompatible support constraints";return false;}
+                continue;
+            }
+            for (int pass=0;pass<8;++pass) for (const Plane &p:planes[i]) {
+                double distance=p.offset-double(p.normal.dot(points[i]));
+                if (distance>0.) points[i]+=p.normal*real_t(distance);
+            }
+            for (const Plane &p:planes[i]) if (double(p.normal.dot(points[i]))<p.offset-.000001) {error="incompatible support constraints";return false;}
+        }
+        points.back()=anchor;return true;
+    }
+    double warm_bend_error(const Points &points) const {
+        double value=0.;
+        for (int i=1;i+1<int(points.size());++i) value=std::max(value,spans[i-1]-double(points[i+1].distance_to(points[i-1])));
+        return value;
+    }
+    Vector3 warm_weight(const Vector3 &value,int i) const {
+        // Match the reference's diagonal Float32 Basis, not a Float64
+        // redistribution that would silently choose a different trajectory.
+        return value*real_t(inverse[i]);
+    }
+    bool warm_tridiagonal(const Points &points,const std::vector<double> &rhs,Points &corrections) {
+        int n=int(lengths.size());std::vector<double> diagonal(n),off(n-1),answer=rhs;
+        for (int i=0;i<n;++i) {
+            Vector3 d=points[i]-points[i+1];
+            diagonal[i]=d.dot(warm_weight(d,i)+warm_weight(d,i+1));
+            if (i+1<n) off[i]=-double(d.dot(warm_weight(points[i+1]-points[i+2],i+1)));
+            if (diagonal[i]<1e-18) {
+                if (std::abs(rhs[i])>1e-12) {error="immobile distance constraint";return false;}
+                diagonal[i]=1.;
+            }
+        }
+        for (int i=1;i<n;++i) {
+            if (diagonal[i-1]<=1e-18) {error="singular mass projection";return false;}
+            double f=off[i-1]/diagonal[i-1];diagonal[i]-=f*off[i-1];answer[i]-=f*answer[i-1];
+        }
+        if (diagonal.back()<=1e-18) {error="singular terminal constraint";return false;}
+        answer.back()/=diagonal.back();
+        for (int i=n-2;i>=0;--i) answer[i]=(answer[i]-off[i]*answer[i+1])/diagonal[i];
+        for (double a:answer) if (!std::isfinite(a)) {error="nonfinite mass projection";return false;}
+        corrections.resize(points.size());
+        for (int i=0;i<int(points.size());++i) {
+            Vector3 force;
+            if (i<n) force+=(points[i]-points[i+1])*real_t(answer[i]);
+            if (i>0) force-=(points[i-1]-points[i])*real_t(answer[i-1]);
+            corrections[i]=warm_weight(force,i);
+        }
+        return true;
+    }
+    bool warm_banded(const Points &points,const std::vector<WarmRow> &rows,Points &corrections) {
+        int n=int(rows.size());std::vector<double> lower(size_t(n)*5,0.),diagonal(n,0.),answer(n,0.);
+        for (int i=0;i<n;++i) {
+            answer[i]=rows[i].rhs;
+            for (int j=std::max(0,i-4);j<=i;++j) {
+                const WarmRow &a=rows[i],&b=rows[j];double value=0.;
+                if (a.first==b.first) value+=a.vector.dot(warm_weight(b.vector,a.first));
+                if (a.first==b.last) value-=a.vector.dot(warm_weight(b.vector,a.first));
+                if (a.last==b.first) value-=a.vector.dot(warm_weight(b.vector,a.last));
+                if (a.last==b.last) value+=a.vector.dot(warm_weight(b.vector,a.last));
+                for (int k=std::max(0,i-4);k<j;++k) value-=lower[size_t(i)*5+i-k]*diagonal[k]*lower[size_t(j)*5+j-k];
+                if (i==j) {
+                    if (value<=1e-18) {error="singular coupled bend/length row "+std::to_string(i);return false;}
+                    diagonal[i]=value;
+                } else lower[size_t(i)*5+i-j]=value/diagonal[j];
+            }
+            for (int j=std::max(0,i-4);j<i;++j) answer[i]-=lower[size_t(i)*5+i-j]*answer[j];
+        }
+        for (int i=0;i<n;++i) answer[i]/=diagonal[i];
+        for (int i=n-1;i>=0;--i) {
+            for (int j=i+1;j<std::min(n,i+5);++j) answer[i]-=lower[size_t(j)*5+j-i]*answer[j];
+            if (!std::isfinite(answer[i])) {error="nonfinite coupled projection";return false;}
+        }
+        corrections.assign(points.size(),Vector3());
+        for (int i=0;i<n;++i) {
+            corrections[rows[i].first]+=rows[i].vector*real_t(answer[i]);
+            corrections[rows[i].last]-=rows[i].vector*real_t(answer[i]);
+        }
+        for (int i=0;i<int(points.size());++i) corrections[i]=warm_weight(corrections[i],i);
+        return true;
+    }
+    Dictionary warm_output(const Points &points,bool accepted) const {
+        Dictionary result;result["points"]=pack(points);result["accepted"]=accepted;
+        result["error"]=String(error.c_str());result["iterations"]=iterations;return result;
+    }
+public:
+    Dictionary warm_start(const PackedVector3Array &seed,const Vector3 &anchor,const Dictionary &support,const PackedVector3Array &hint_input) {
+        error.clear();iterations=0;Points points=unpack(seed),hints=unpack(hint_input);
+        if (!valid_points(points)) return warm_output({},false);
+        if (!anchor.is_finite() || hints.size()!=spans.size()) {error="invalid native warm anchor/hints";return warm_output({},false);}
+        for (const Vector3 &v:hints) if (!v.is_finite()) {error="nonfinite native bend hint";return warm_output({},false);}
+        Planes planes;if (!unpack_planes(support,int(points.size()),planes)) return warm_output({},false);
+        int limit=support.is_empty()?128:8;
+        for (int pass=0;pass<limit;++pass) {
+            iterations=pass+1;
+            // Preserve the collapsed-only bend repair and operation order.
+            for (int i=1;i+1<int(points.size());++i) {
+                Vector3 span=points[i+1]-points[i-1];double distance=span.length();
+                if (distance>=spans[i-1] || distance>.0000001) continue;
+                Vector3 direction=distance>.0000001?span/real_t(distance):hints[i-1];
+                Vector3 correction=direction*real_t(spans[i-1]-distance)/real_t(inverse[i-1]+inverse[i+1]);
+                points[i-1]-=correction*real_t(inverse[i-1]);points[i+1]+=correction*real_t(inverse[i+1]);
+            }
+            if (!warm_support(points,anchor,planes)) return warm_output({},false);
+            std::vector<double> rhs(lengths.size());double maximum=0.,total=0.;
+            for (int i=0;i<int(lengths.size());++i) {
+                double distance=points[i].distance_to(points[i+1]);
+                if (!std::isfinite(distance) || distance<.0000001) {error="collapsed material interval";return warm_output({},false);}
+                rhs[i]=.5*(distance*distance-lengths[i]*lengths[i]);
+                maximum=std::max(maximum,std::abs(distance-lengths[i]));total+=distance-lengths[i];
+            }
+            if (maximum<.000001 && std::abs(total)<.000005 && warm_bend_error(points)<.000001) return warm_output(points,true);
+            std::vector<WarmRow> rows;rows.reserve(lengths.size()+spans.size());int bends=0;
+            for (int i=0;i<int(lengths.size());++i) {
+                Vector3 d=points[i]-points[i+1];rows.push_back({i,i+1,d,.5*(double(d.length_squared())-lengths[i]*lengths[i])});
+                if (i+2>=int(points.size())) continue;
+                d=points[i]-points[i+2];
+                if (d.length()>=spans[i]) continue;
+                rows.push_back({i,i+2,d,.5*(double(d.length_squared())-spans[i]*spans[i])});++bends;
+            }
+            Points corrections;
+            if (!(bends==0?warm_tridiagonal(points,rhs,corrections):warm_banded(points,rows,corrections))) return warm_output({},false);
+            for (int i=0;i<int(points.size());++i) points[i]-=corrections[i];
+        }
+        if (!warm_support(points,anchor,planes)) return warm_output({},false);
+        double maximum=0.,total=0.;
+        for (int i=0;i<int(lengths.size());++i) {
+            double distance=points[i].distance_to(points[i+1]);maximum=std::max(maximum,std::abs(distance-lengths[i]));total+=distance-lengths[i];
+        }
+        return warm_output(points,maximum<=ERROR_M && std::abs(total)<=ERROR_M && warm_bend_error(points)<=ERROR_M);
+    }
+private:
+
 protected:
     static void _bind_methods() {
+        ClassDB::bind_method(D_METHOD("warm_start","seed","anchor","planes","hints"),&OrisonHoseProjectionNative::warm_start);
         ClassDB::bind_method(D_METHOD("configure","lengths","spans","inverse"),&OrisonHoseProjectionNative::configure);
         ClassDB::bind_method(D_METHOD("project","seed","anchor","planes"),&OrisonHoseProjectionNative::project);
         ClassDB::bind_method(D_METHOD("project_velocity","points","velocity","planes"),&OrisonHoseProjectionNative::project_velocity);

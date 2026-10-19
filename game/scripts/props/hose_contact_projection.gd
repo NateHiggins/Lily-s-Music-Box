@@ -36,6 +36,9 @@ func configure(material_lengths: PackedFloat64Array,bend_spans: PackedFloat64Arr
 func _native_result(value: Dictionary) -> PackedVector3Array:
 	error=value.error;iterations=int(value.iterations);qp_iterations=int(value.qp_iterations);last_iterate=value.last_iterate
 	return value.points
+func warm_start(seed: PackedVector3Array,anchor: Vector3,planes: Dictionary,hints: PackedVector3Array) -> Dictionary:
+	if _native==null:return {"points":PackedVector3Array(),"accepted":false,"iterations":0,"error":"native warm kernel unavailable"}
+	return _native.call("warm_start",seed,anchor,planes,hints)
 func _dot(a: Vector3,b: Vector3) -> float:
 	# Keep matrix accumulation inFloat64; imported positions remainFloat32.
 	return float(a.x)*float(b.x)+float(a.y)*float(b.y)+float(a.z)*float(b.z)

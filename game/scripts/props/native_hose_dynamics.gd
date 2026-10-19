@@ -23,6 +23,10 @@ var accepted_substeps:=0
 var advanced_time_s:=0.
 var last_attempt_delta_s:=0.
 var _accepted_contacts:=0
+var profile_usec: Dictionary={}
+var projection_calls:=0
+func _profile(category: String,started: int) -> void:
+	profile_usec[category]=int(profile_usec.get(category,0))+Time.get_ticks_usec()-started
 func configure(owner_rig: RefCounted,owner_contact: RefCounted) -> bool:
 	if rig!=null or owner_rig==null or not owner_rig.configured or owner_contact==null or not owner_contact.ready:return false
 	if owner_contact.rig!=owner_rig:return false
@@ -44,7 +48,10 @@ func _merge(planes: Dictionary,ring: int,normal: Vector3,offset: float) -> void:
 			old.offset=maxf(old.offset,offset);return
 	planes[ring].append({"normal":normal,"offset":offset})
 func _project(target: PackedVector3Array,planes: Dictionary) -> PackedVector3Array:
+	var started: int=Time.get_ticks_usec();projection_calls+=1
 	var result: PackedVector3Array=kernel.project(target,rig.strand.anchor,planes)
+	_profile("position_projection",started)
+	profile_usec["joint_projection"]=int(profile_usec.get("joint_projection",0))+kernel.joint_usec
 	projection_error=kernel.error
 	return result
 func _energy_change(before: PackedVector3Array,speed: PackedVector3Array,gravity: Vector3) -> float:
@@ -55,8 +62,10 @@ func _energy_change(before: PackedVector3Array,speed: PackedVector3Array,gravity
 		result+=masses[i]*((next_world.length_squared()-old_world.length_squared())*.5-gravity.dot(rig.model.global_basis*(rig.strand.points[i]-before[i])))
 	return result
 func _rollback(points: PackedVector3Array,speed: PackedVector3Array) -> void:
+	var started: int=Time.get_ticks_usec()
 	rig.strand.points=points.duplicate();velocities=speed.duplicate()
 	if not rig.apply_points(points):error="native dynamics rollback failed"
+	_profile("rollback_skin",started)
 func _integrate(delta: float,gravity: Vector3,depth: int) -> bool:
 	if step_attempts>=MAX_STEP_ATTEMPTS:error="bounded release work ceiling";return false
 	step_attempts+=1;last_attempt_delta_s=delta
@@ -79,6 +88,7 @@ func _integrate(delta: float,gravity: Vector3,depth: int) -> bool:
 	return false
 func step(delta: float,world_gravity: Vector3=Vector3(0,-9.81,0)) -> bool:
 	step_attempts=0;accepted_substeps=0;advanced_time_s=0.;_accepted_contacts=0
+	profile_usec={};projection_calls=0
 	if rig==null or not is_finite(delta) or delta<=0. or delta>STEP_S+.00000001 or not world_gravity.is_finite():
 		error="invalid bounded dynamics step";return false
 	var before: PackedVector3Array=rig.strand.points.duplicate();var speed:=velocities.duplicate()
@@ -109,16 +119,23 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 					var length: float=proposed[i].distance_to(proposed[i+1]);total+=length;widest=maxf(widest,absf(length-rig.strand.lengths[i]))
 				error+=" length errors "+str([widest,total-rig.strand.total_length])
 			return false
+		var contact_started: int=Time.get_ticks_usec()
 		var result: Dictionary=contact.motion_constraints(before,proposed,4096)
+		_profile("world_contact",contact_started)
 		last_proposed=proposed;last_contacts=result.planes.duplicate(true)
 		if not result.valid or result.truncated:
 			error="invalid or truncated native contact response: "+str([result.valid,result.truncated,result.error]);return false
 		if result.planes.is_empty():
-			if contact.veto(before,proposed):error="native swept shell blocked release step";return false
+			var sweep_started: int=Time.get_ticks_usec()
+			var blocked: bool=contact.veto(before,proposed)
+			_profile("final_sweep",sweep_started)
+			if blocked:error="native swept shell blocked release step";return false
 			var next_velocity:=PackedVector3Array();next_velocity.resize(velocities.size())
 			for i in velocities.size():
 				next_velocity[i]=(proposed[i]-before[i])/delta
+			var velocity_started: int=Time.get_ticks_usec()
 			next_velocity=kernel.project_velocity(proposed,next_velocity,planes)
+			_profile("velocity_projection",velocity_started)
 			if next_velocity.is_empty():error="mass velocity projection: "+kernel.error;return false
 			for i in velocities.size():
 				var old_world: Vector3=rig.model.global_basis*velocities[i]
@@ -130,7 +147,10 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 			# it is translation-independent, unlike a percentage of altitude.
 			if last_energy_delta>rig.strand.total_length*world_gravity.length()*.00002:
 				error="release proposal injects mechanical energy: "+str(last_energy_delta);return false
-			if not rig.apply_points(proposed):error="native skin rejected release pose";return false
+			var skin_started: int=Time.get_ticks_usec()
+			var applied: bool=rig.apply_points(proposed)
+			_profile("accepted_skin",skin_started)
+			if not applied:error="native skin rejected release pose";return false
 			rig.strand.points=proposed
 			velocities=next_velocity
 			velocities[-1]=Vector3.ZERO
