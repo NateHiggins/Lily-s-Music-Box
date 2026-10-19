@@ -15,9 +15,11 @@ var last_contacts: Array=[]
 var last_proposed:=PackedVector3Array()
 var last_energy_delta:=0.
 var masses:=PackedFloat64Array()
+var kernel:=preload("res://scripts/props/hose_mass_constraints.gd").new()
 func configure(owner_rig: RefCounted,owner_contact: RefCounted) -> bool:
 	if rig!=null or owner_rig==null or not owner_rig.configured or owner_contact==null or not owner_contact.ready:return false
 	if owner_contact.rig!=owner_rig:return false
+	if not kernel.configure(owner_rig.strand.lengths,owner_rig.rest):return false
 	rig=owner_rig;contact=owner_contact
 	velocities.resize(rig.strand.points.size());velocities.fill(Vector3.ZERO)
 	masses.resize(velocities.size())
@@ -34,43 +36,9 @@ func _merge(planes: Dictionary,ring: int,normal: Vector3,offset: float) -> void:
 		if (old.normal-normal).length_squared()<1e-14:
 			old.offset=maxf(old.offset,offset);return
 	planes[ring].append({"normal":normal,"offset":offset})
-func _propagate(planes: Dictionary) -> bool:
-	# A constrained child can only reach its length sphere if the parent is
-	# within one segment of that half-space. Propagate this necessary support
-	# toward the outlet before anchor-to-end projection, rather than freezing
-	# the entire strand when a neighbouring unsupported ring falls too low.
-	for ring in range(rig.strand.points.size()-1):
-		for plane: Dictionary in planes.get(ring,[]):
-			_merge(planes,ring+1,plane.normal,plane.offset-rig.strand.lengths[ring])
-	for plane: Dictionary in planes.get(rig.strand.points.size()-1,[]):
-		if plane.normal.dot(rig.strand.anchor)<plane.offset-.000001:return false
-	return true
 func _project(target: PackedVector3Array,planes: Dictionary) -> PackedVector3Array:
-	projection_error=""
-	var result:=target.duplicate();result[-1]=rig.strand.anchor
-	for i in range(result.size()-2,-1,-1):
-		var delta: Vector3=target[i]-result[i+1]
-		if delta.length_squared()<1e-14:projection_error="collapsed ring "+str(i);return PackedVector3Array()
-		var direction: Vector3=delta.normalized()
-		var length: float=rig.strand.lengths[i]
-		var limits: Array=planes.get(i,[])
-		# Intersect the exact segment-length sphere with local support planes.
-		# Multiple corner planes may require repeated projection or be infeasible.
-		for iteration in 8:
-			for plane: Dictionary in limits:
-				var normal: Vector3=plane.normal
-				var minimum: float=(plane.offset-normal.dot(result[i+1]))/length
-				if minimum>1.0001:projection_error="unreachable ring "+str([i,minimum]);return PackedVector3Array()
-				minimum=minf(minimum,1.)
-				if normal.dot(direction)>=minimum:continue
-				var tangent: Vector3=direction-normal*normal.dot(direction)
-				if tangent.length_squared()<1e-14:
-					tangent=normal.cross(Vector3.RIGHT if absf(normal.x)<.8 else Vector3.UP)
-				direction=normal*minimum+tangent.normalized()*sqrt(maxf(0.,1.-minimum*minimum))
-		result[i]=result[i+1]+direction*length
-		for plane: Dictionary in limits:
-			if plane.normal.dot(result[i])<plane.offset-.000001:
-				projection_error="corner ring "+str([i,plane.normal.dot(result[i])-plane.offset,result[i],limits]);return PackedVector3Array()
+	var result: PackedVector3Array=kernel.project(target,rig.strand.anchor,planes)
+	projection_error=kernel.error
 	return result
 func step(delta: float,world_gravity: Vector3=Vector3(0,-9.81,0)) -> bool:
 	error="";response_iterations=0;contacts_resolved=0;response_history.clear();last_contacts.clear();last_energy_delta=0.
@@ -95,12 +63,16 @@ func step(delta: float,world_gravity: Vector3=Vector3(0,-9.81,0)) -> bool:
 			return false
 		var result: Dictionary=contact.motion_constraints(before,proposed,4096)
 		last_proposed=proposed;last_contacts=result.planes.duplicate(true)
-		if not result.valid or result.truncated:error="invalid or truncated native contact response";return false
+		if not result.valid or result.truncated:
+			error="invalid or truncated native contact response: "+str([result.valid,result.truncated,result.error]);return false
 		if result.planes.is_empty():
 			if contact.veto(before,proposed):error="native swept shell blocked release step";return false
 			var next_velocity:=PackedVector3Array();next_velocity.resize(velocities.size())
 			for i in velocities.size():
 				next_velocity[i]=(proposed[i]-before[i])/delta
+			next_velocity=kernel.project_velocity(proposed,next_velocity,planes)
+			if next_velocity.is_empty():error="mass velocity projection: "+kernel.error;return false
+			for i in velocities.size():
 				var old_world: Vector3=rig.model.global_basis*velocities[i]
 				var next_world: Vector3=rig.model.global_basis*next_velocity[i]
 				last_energy_delta+=masses[i]*((next_world.length_squared()-old_world.length_squared())*.5-world_gravity.dot(rig.model.global_basis*(proposed[i]-before[i])))
@@ -123,5 +95,4 @@ func step(delta: float,world_gravity: Vector3=Vector3(0,-9.81,0)) -> bool:
 			var ring: int=plane.ring
 			if ring==before.size()-1:error="fixed outlet intersects world";return false
 			_merge(planes,ring,plane.normal,plane.offset)
-		if not _propagate(planes):error="outlet cannot reach native support constraints";return false
 	error="native response did not converge: "+str(response_history.slice(-4));return false

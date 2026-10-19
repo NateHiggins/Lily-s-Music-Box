@@ -1,0 +1,343 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled mass-aware hose release prototype. Free-fall diagnostic improves; final mass10 FAILS supported release on finite-bend convergence. Selected inspected frames only; original wrapper receipts unchanged. No runtime or human acceptance.",
+  "source_snapshot": "Final source copies captured after the run; named intermediate versions retained where captured.",
+  "files": {
+    "original_runs/stage27_mass1.log": {
+      "sha256": "eab57ef0cf5ca2af93a3a8ac84e95269c85cbbca6f9d9256c42b9a8dfda8cfb8",
+      "bytes": 55804
+    },
+    "original_runs/stage27_mass1.log.receipt.json": {
+      "sha256": "82ed135a2384d338be7663fc63c8bd9d9cb9a20c11b7b4bb4ddd478e4a65bed5",
+      "bytes": 3824
+    },
+    "original_runs/stage27_mass1.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass10.log": {
+      "sha256": "e699af1bb6d41d792924c8fc561613504c27469a60bc7d66a686e245d5a632a6",
+      "bytes": 27022
+    },
+    "original_runs/stage27_mass10.log.receipt.json": {
+      "sha256": "49d4fdf223921aef7f126c7ebd62d97d59ce79cdf13f34fc1e62a017c5eb4a73",
+      "bytes": 3827
+    },
+    "original_runs/stage27_mass10.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass1_contact.source.gd": {
+      "sha256": "2a390a378d182681bd6ec9ef63c3cb97852505bee4b8868deca1a23efb6107a7",
+      "bytes": 11723
+    },
+    "original_runs/stage27_mass1_dynamics.source.gd": {
+      "sha256": "97d1c0925b8ff18c08223917fc2ef8c8da1d38ee62015dc51636fc8bbdcf7b90",
+      "bytes": 5720
+    },
+    "original_runs/stage27_mass1_kernel.source.gd": {
+      "sha256": "a7bd50bdb2eeb2ccd4c4141f538503559d731d51b6442992cd3ee729ba1ccec9",
+      "bytes": 6106
+    },
+    "original_runs/stage27_mass2.log": {
+      "sha256": "de6b8451bee334121c579e3037daf7bb0567b4b1086fc739b756733dbe868bfa",
+      "bytes": 71235
+    },
+    "original_runs/stage27_mass2.log.receipt.json": {
+      "sha256": "06a00f1338bcc8e8dbceccfa0d55eb71699aea8df783b10102345fef059137b0",
+      "bytes": 3824
+    },
+    "original_runs/stage27_mass2.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass2_dynamics.source.gd": {
+      "sha256": "97d1c0925b8ff18c08223917fc2ef8c8da1d38ee62015dc51636fc8bbdcf7b90",
+      "bytes": 5720
+    },
+    "original_runs/stage27_mass2_kernel.source.gd": {
+      "sha256": "f20e8b905abd0e5bd21c48f9b9d4e3799005df3bb0ed0c6d729e571f4167eec8",
+      "bytes": 6515
+    },
+    "original_runs/stage27_mass3.log": {
+      "sha256": "86c7cbdc7dd45ac14e72f9480dfe4bf8cc56759ced691f5e9995e7bc59d5d6aa",
+      "bytes": 111155
+    },
+    "original_runs/stage27_mass3.log.receipt.json": {
+      "sha256": "f6f0bd536657eab0ff6325b7a146f91e13d5a24995d00a4ce4d4da9fe8002aa8",
+      "bytes": 3823
+    },
+    "original_runs/stage27_mass3.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass3_kernel.source.gd": {
+      "sha256": "a1effa0989edeb531041242ec4c4c9351cdf822a02262dad1c7af201a7b91a42",
+      "bytes": 6807
+    },
+    "original_runs/stage27_mass4.log": {
+      "sha256": "f0c77080b2c3626e5a122b11ea22fafddffb5e5d8d66f83de7461c85170b014f",
+      "bytes": 23863
+    },
+    "original_runs/stage27_mass4.log.receipt.json": {
+      "sha256": "8c0359411e31d5c6eb9c51bf65dab6479f3ad338f05f5d9e0266e187473fb96a",
+      "bytes": 3824
+    },
+    "original_runs/stage27_mass4.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass4_contact.source.gd": {
+      "sha256": "2a390a378d182681bd6ec9ef63c3cb97852505bee4b8868deca1a23efb6107a7",
+      "bytes": 11723
+    },
+    "original_runs/stage27_mass4_kernel.source.gd": {
+      "sha256": "025f3d1f85d8604df616321d0d96fdf9b2ddf75cf79b165c3145031090dc1e6b",
+      "bytes": 7553
+    },
+    "original_runs/stage27_mass5.log": {
+      "sha256": "681fcc785535926075abe7e13c2ac972ba493b35a064e04382833457f21530ed",
+      "bytes": 23883
+    },
+    "original_runs/stage27_mass5.log.receipt.json": {
+      "sha256": "21a0d5e797e52ef280419cb250bd6440f501c745daf9d77eff9354ef818bbad1",
+      "bytes": 3824
+    },
+    "original_runs/stage27_mass5.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass5_contact.source.gd": {
+      "sha256": "c50296596cff1e2c0340204f0364e558cf291b01381d4cbc57d4ab32d7ccbfb3",
+      "bytes": 12502
+    },
+    "original_runs/stage27_mass5_dynamics.source.gd": {
+      "sha256": "0534c9e3a605b7adbff35b98c83da60cb68c961bcb0c957e0982e9b98a79ba8d",
+      "bytes": 5777
+    },
+    "original_runs/stage27_mass5_kernel.source.gd": {
+      "sha256": "025f3d1f85d8604df616321d0d96fdf9b2ddf75cf79b165c3145031090dc1e6b",
+      "bytes": 7553
+    },
+    "original_runs/stage27_mass6.log": {
+      "sha256": "0308b0f2180cf7c37902e38d6af85eecc95c47c3e1a9a8218cabac9b5fa30a03",
+      "bytes": 26443
+    },
+    "original_runs/stage27_mass6.log.receipt.json": {
+      "sha256": "d1ce8a7c825615c9234dfa63da7d2be40b4de6ed9fafa30fb116d61616c3ee03",
+      "bytes": 3824
+    },
+    "original_runs/stage27_mass6.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass6_contact.source.gd": {
+      "sha256": "07e9331ecd355eec78d83895292e9ffaf9145006f26a046d90615e3d294e9701",
+      "bytes": 12611
+    },
+    "original_runs/stage27_mass6_dynamics.source.gd": {
+      "sha256": "359ff6c19f044966608eadbcec600bb1ec98ed5e76d2711dcdc7ec3eb4cc7216",
+      "bytes": 5792
+    },
+    "original_runs/stage27_mass6_kernel.source.gd": {
+      "sha256": "1111e0997de53548dd3d2a259ed6b46eb95814025d02dc3c1bea585e6f3e73fb",
+      "bytes": 9173
+    },
+    "original_runs/stage27_mass7.log": {
+      "sha256": "9c4f1b4a958e76a4aa1984e926a6b77f4b7b3db28958513ebf2b4603dddc35c1",
+      "bytes": 55468
+    },
+    "original_runs/stage27_mass7.log.receipt.json": {
+      "sha256": "03941e0b56591347962e46c51a348b65c9b81c4a95b10d7b2df8053839bd8e44",
+      "bytes": 3824
+    },
+    "original_runs/stage27_mass7.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass7_kernel.source.gd": {
+      "sha256": "9c1808beec655ad12b08da699a430d887eb83d596b1c0206b5b9bf61fa911f60",
+      "bytes": 12372
+    },
+    "original_runs/stage27_mass8.log": {
+      "sha256": "3e4e498d8bbfaf1c9cc67f350fbb3df2e297e8bf2caf6c393b83ee27ba31cf7e",
+      "bytes": 23961
+    },
+    "original_runs/stage27_mass8.log.receipt.json": {
+      "sha256": "a82edbaef692135816dd86c5a1128d15f13b92bbf29485abf3c7f5f3d95b3ae4",
+      "bytes": 3824
+    },
+    "original_runs/stage27_mass8.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass8_kernel.source.gd": {
+      "sha256": "1c6d9d1c715ab37381c7db9626b8c9e9e03ddf4d0a60b748782a820494ba95d7",
+      "bytes": 12346
+    },
+    "original_runs/stage27_mass8_test.source.gd": {
+      "sha256": "80f435c9e537b7cbd44bcf5905090e5f1b3d978d1eb1be8bf375f0703e58c8b9",
+      "bytes": 5512
+    },
+    "original_runs/stage27_mass9.log": {
+      "sha256": "af4d58d504189394889b808ddaee1c7f02a960487756eea466bc3e9697308ff6",
+      "bytes": 24112
+    },
+    "original_runs/stage27_mass9.log.receipt.json": {
+      "sha256": "51cf080d045ad64f3fa2e6d0fdd1298770ab2c75ac833a61e9c0dc624a2a6dba",
+      "bytes": 3824
+    },
+    "original_runs/stage27_mass9.log.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original_runs/stage27_mass9_contact.source.gd": {
+      "sha256": "07e9331ecd355eec78d83895292e9ffaf9145006f26a046d90615e3d294e9701",
+      "bytes": 12611
+    },
+    "original_runs/stage27_mass9_dynamics.source.gd": {
+      "sha256": "359ff6c19f044966608eadbcec600bb1ec98ed5e76d2711dcdc7ec3eb4cc7216",
+      "bytes": 5792
+    },
+    "original_runs/stage27_mass9_kernel.source.gd": {
+      "sha256": "201b55b4652974ddcec379e4715871536c077373aed034a9e8e41845de68da44",
+      "bytes": 12580
+    },
+    "original_runs/stage27_mass9_test.source.gd": {
+      "sha256": "e9538c2ca14ddf6879b1a8f2aff6e968e21e357e84783d9b5183c5a1cdb3c072",
+      "bytes": 6714
+    },
+    "original_runs/stage27_offline_case10.log": {
+      "sha256": "bab7c572ebaaa1e82e4a5d60b74c9b8b95cb30cf69ffdd7ff1d3a63f0b0126be",
+      "bytes": 1567
+    },
+    "original_runs/stage27_offline_case9.log": {
+      "sha256": "092f722dbb4be2d475f8255c3d71b35fbad4717b246270e2098a031d0ac02bbe",
+      "bytes": 1569
+    },
+    "original_runs/stage27_prepare.log": {
+      "sha256": "a1a43672f7d5b53fefb637d9e1df2ce8228cf92105f48285e3feab005b294d32",
+      "bytes": 76
+    },
+    "original_runs/stage27_reader.log": {
+      "sha256": "96be01384f73644ebafd7714eb77bffda8d86f531ae85a68f6df255443c50790",
+      "bytes": 173
+    },
+    "original_runs/stage27_tool_portable.log": {
+      "sha256": "26d0cbed70b8d709d7b6de93b26522f061ff7f97fd92860689365df1cfb52368",
+      "bytes": 1590
+    },
+    "reviewed_frames/stage27_mass10_gravity_free.png": {
+      "sha256": "de11edb07e6b47723760adee140e4b69ac43501cd18768908e2c999886188058",
+      "bytes": 307222
+    },
+    "reviewed_frames/stage27_mass10_gravity_supported.png": {
+      "sha256": "39d92286c79ac2f29d6e46c2b63e5c3928908540650da528a2270b8804ce76dc",
+      "bytes": 399799
+    },
+    "reviewed_frames/stage27_mass1_gravity_free.png": {
+      "sha256": "7886bbeb7f5191947ac51381c2acf02c0c19825f40352693bc2a77b5ea6d9a75",
+      "bytes": 307428
+    },
+    "reviewed_frames/stage27_mass2_gravity_supported.png": {
+      "sha256": "2c298b4bf418e085500648b807404c39a3ebb15d70a27f6d9ef3a1ef2076ce58",
+      "bytes": 426450
+    },
+    "reviewed_frames/stage27_mass9_gravity_free.png": {
+      "sha256": "6ca759b013cf59f04aca5676115b69633b08e2df3f387b315c20ea7f62cfe299",
+      "bytes": 307369
+    },
+    "reviewed_frames/stage27_mass9_gravity_supported.png": {
+      "sha256": "2fc6d83fdd01badd45d76070b4204384683c094a5a62634dd86853ec67e20c61",
+      "bytes": 399837
+    },
+    "cases/stage27_mass1/gravity_trace.json": {
+      "sha256": "2e71af4e3b52859787a2b6de2004a0c58ca647753dea87276f5b6412cd757212",
+      "bytes": 279835
+    },
+    "cases/stage27_mass10/gravity_trace.json": {
+      "sha256": "4c55bf78a43dadb5357892e9861bcaa6d21110055c7690fb3a1fcca86c611077",
+      "bytes": 280354
+    },
+    "cases/stage27_mass10/kernel_case.json": {
+      "sha256": "a46278c771973199a37d1e6550a7466cbec09ce45a9f9e380c64eaded01218a3",
+      "bytes": 768793
+    },
+    "cases/stage27_mass2/gravity_trace.json": {
+      "sha256": "d48cb4f6a3e33407632b204f13a8156c3726c0cf78306d6a115d62d3cf1b5d67",
+      "bytes": 280632
+    },
+    "cases/stage27_mass3/gravity_trace.json": {
+      "sha256": "bbdf752ed7a8a232c8a0fc469ed5e1749c11fd5696ea60dbd09534dfaf63427f",
+      "bytes": 280630
+    },
+    "cases/stage27_mass4/gravity_trace.json": {
+      "sha256": "bbdf752ed7a8a232c8a0fc469ed5e1749c11fd5696ea60dbd09534dfaf63427f",
+      "bytes": 280630
+    },
+    "cases/stage27_mass5/gravity_trace.json": {
+      "sha256": "bbdf752ed7a8a232c8a0fc469ed5e1749c11fd5696ea60dbd09534dfaf63427f",
+      "bytes": 280630
+    },
+    "cases/stage27_mass6/gravity_trace.json": {
+      "sha256": "95989b2d0d98038ed17abbe561d0306fcdd15d570cd5a838a36fa1357a1811a6",
+      "bytes": 278903
+    },
+    "cases/stage27_mass7/gravity_trace.json": {
+      "sha256": "869d3b27c591801de5b2ad2f8eededed58d033ed4bb6375e6ea286b4ed104e6c",
+      "bytes": 279822
+    },
+    "cases/stage27_mass8/gravity_trace.json": {
+      "sha256": "b3e33066813c31ebdc0bbdafacfe912418d0e19be8c90073fc15fabefc73a4ec",
+      "bytes": 279013
+    },
+    "cases/stage27_mass9/gravity_trace.json": {
+      "sha256": "4f88a3dc4f5ca67e5e4bc9105f503c2965551a395d701798f5e1290da1f48794",
+      "bytes": 279684
+    },
+    "cases/stage27_mass9/kernel_case.json": {
+      "sha256": "fb507745c43a1b239f516b9e429ae3f12be05659cf8658f2191325b197f07de6",
+      "bytes": 761482
+    },
+    "post_run_sources/tools/analyze_hose_constraint_case.py": {
+      "sha256": "89ab2576ff693dbd82663f0498707a76e02c5c04703bc3441e7088dda03edad6",
+      "bytes": 3538
+    },
+    "post_run_sources/game/tests/v2_fire_capacity_native_test.gd": {
+      "sha256": "714731eb4ac00094dc48ab47648482a632797b5cfefcab9f8270ee7c3c9d1cfe",
+      "bytes": 4822
+    },
+    "post_run_sources/game/tests/v2_fire_capacity_rig_programme.gd": {
+      "sha256": "c9863fd7986fd0ccb76acaf09ccfe50cb64a37d4626fe1b328af0d8fb4b1e550",
+      "bytes": 9131
+    },
+    "post_run_sources/game/tests/v2_fire_hose_gravity_programme.gd": {
+      "sha256": "9f179371b76c5701242e787e959274bc4ed5ba5ee38ae6555ac0fa30110b2a79",
+      "bytes": 6815
+    },
+    "post_run_sources/game/tests/v2_fire_hose_world_contact_programme.gd": {
+      "sha256": "51b67c39b80d68f9ef7833ac3ba81fd2f5347070cb774d3c8cf7d89565e75993",
+      "bytes": 9236
+    },
+    "post_run_sources/game/scripts/props/hose_length_constraint.gd": {
+      "sha256": "a1c2416ad8e6a85f3ffc8acacef84d231898d396e59c3224a85399f608682cbb",
+      "bytes": 3807
+    },
+    "post_run_sources/game/scripts/props/hose_mass_constraints.gd": {
+      "sha256": "4e861a06e8841aa46c11770bd991835c5e2decaabde3a6a0fadaf793b2cd8fb8",
+      "bytes": 13369
+    },
+    "post_run_sources/game/scripts/props/native_hose_dynamics.gd": {
+      "sha256": "359ff6c19f044966608eadbcec600bb1ec98ed5e76d2711dcdc7ec3eb4cc7216",
+      "bytes": 5792
+    },
+    "post_run_sources/game/scripts/props/native_hose_rig.gd": {
+      "sha256": "e8f2b17fc46df2a84d50edb1dc6e7c043b4228a35249807fe9af894a1d3d9219",
+      "bytes": 5298
+    },
+    "post_run_sources/game/scripts/props/native_hose_world_contact.gd": {
+      "sha256": "07e9331ecd355eec78d83895292e9ffaf9145006f26a046d90615e3d294e9701",
+      "bytes": 12611
+    }
+  }
+}

@@ -25,6 +25,16 @@ func capture(root: Node3D,name: String) -> void:
 	await RenderingServer.frame_post_draw
 	var directory: String=OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():root.get_viewport().get_texture().get_image().save_png(directory.path_join(name+".png"))
+func save_case(dynamics: RefCounted) -> void:
+	var directory: String=OS.get_environment("SHOT_DIR")
+	if directory.is_empty():return
+	var kernel: RefCounted=dynamics.kernel
+	var target: Array=[];var result: Array=[];var planes: Array=[]
+	for point: Vector3 in kernel.last_input:target.append([point.x,point.y,point.z])
+	for point: Vector3 in kernel.last_result:result.append([point.x,point.y,point.z])
+	for ring: int in kernel.last_planes:
+		for plane: Dictionary in kernel.last_planes[ring]:planes.append({"ring":ring,"normal":[plane.normal.x,plane.normal.y,plane.normal.z],"offset":plane.offset})
+	FileAccess.open(directory.path_join("kernel_case.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","error":dynamics.error,"target":target,"result":result,"planes":planes,"lengths":Array(kernel.lengths),"masses":Array(kernel.masses),"bend_spans":Array(kernel.bend_spans)},"\t"))
 func run(root: Node3D,rig: RefCounted,contact: RefCounted) -> bool:
 	var saved: Dictionary=rig.snapshot()
 	var initial: PackedVector3Array=rig.strand.points.duplicate()
@@ -40,6 +50,7 @@ func run(root: Node3D,rig: RefCounted,contact: RefCounted) -> bool:
 	print("HOSE GRAVITY FREE: error=",dynamics.error," mean_drop=",height(initial)-height(rig.strand.points))
 	check(success and height(initial)-height(rig.strand.points)>.001,"released native cloth falls under gravity")
 	check(rig.strand._valid_positions(rig.strand.points) and rig.strand.points[-1]==initial[-1],"fall preserves every length and fixed outlet")
+	check(dynamics.kernel._bend_error(rig.strand.points)<=dynamics.kernel.ACCEPT_ERROR_M,"free cloth retains finite native bend radius")
 	await capture(root,"gravity_free")
 	check(rig.restore(saved),"release diagnostic restores original native pose")
 	dynamics.reset_velocity()
@@ -58,16 +69,18 @@ func run(root: Node3D,rig: RefCounted,contact: RefCounted) -> bool:
 	for step in 24:
 		var before: PackedVector3Array=rig.strand.points.duplicate();var speed: PackedVector3Array=dynamics.velocities.duplicate()
 		if not dynamics.step(dynamics.STEP_S):
+			save_case(dynamics)
 			check(rig.strand.points==before and dynamics.velocities==speed and root.call("_pose_matches"),"rejected supported step preserves cloth, native skin and velocity atomically")
 			success=false;print("HOSE GRAVITY STOP: step=",step," error=",dynamics.error)
 			for plane: Dictionary in dynamics.last_contacts:
 				print("HOSE GRAVITY LAST CONTACT: ",plane," center=",dynamics.last_proposed[plane.ring]," oldcenter=",rig.strand.points[plane.ring])
 			break
 		responses+=dynamics.contacts_resolved
-		history.append({"step":step,"energy":energy(rig,dynamics.velocities),"response_planes":dynamics.contacts_resolved,"response_iterations":dynamics.response_iterations})
+		history.append({"step":step,"energy":energy(rig,dynamics.velocities),"response_planes":dynamics.contacts_resolved,"response_iterations":dynamics.response_iterations,"projection_iterations":dynamics.kernel.iterations,"polish_accepted":dynamics.kernel.polish_accepted})
 	print("HOSE GRAVITY SUPPORTED: ms=",float(Time.get_ticks_usec()-started)/1000.," response_planes=",responses)
 	check(success and responses>0,"gravity reaches real floor and resolves native shell contacts")
 	check(not contact.intersects_pose(rig.strand.points) and rig.strand._valid_positions(rig.strand.points),"supported cloth remains outside floor without length gain")
+	check(dynamics.kernel._bend_error(rig.strand.points)<=dynamics.kernel.ACCEPT_ERROR_M,"supported cloth retains finite native bend radius")
 	var final_energy: float=energy(rig,dynamics.velocities)
 	print("HOSE GRAVITY ENERGY: initial=",initial_energy," final=",final_energy)
 	check(final_energy<=initial_energy*1.001,"stationary floor response does not inject mechanical energy")

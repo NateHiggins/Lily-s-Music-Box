@@ -21,6 +21,7 @@ var _response_planes: Array[Dictionary]=[]
 var _response_valid:=false
 var _response_truncated:=false
 var _response_limit:=128
+var _response_error:=""
 func _fail(message: String) -> bool:
 	error=message;return false
 func configure(owner_rig: RefCounted,world: PhysicsDirectSpaceState3D,exclude: Array[RID]) -> bool:
@@ -98,11 +99,11 @@ func contact_constraints(points: PackedVector3Array,limit: int=128) -> Dictionar
 	# These are local contact constraints, not a replacement collision test.
 	_response_limit=clampi(limit,1,4096)
 	_test(points,points,true,true)
-	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true)}
+	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true),"error":_response_error}
 func motion_constraints(before: PackedVector3Array,after: PackedVector3Array,limit: int=128) -> Dictionary:
 	_response_limit=clampi(limit,1,4096)
 	_test(before,after,true,true)
-	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true)}
+	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true),"error":_response_error}
 func _cell_hull(posed: Array[PackedVector3Array],sector: int,origin: Vector3,fraction: float) -> PackedVector3Array:
 	var hull:=PackedVector3Array()
 	for row in 4:
@@ -116,6 +117,14 @@ func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictio
 	var normal: Vector3=info.normal
 	var point: Vector3=info.point
 	if not normal.is_finite() or not point.is_finite() or normal.length_squared()<.99:return {}
+	# Refine the manifold's approximate normal on the actual collider surface.
+	# Nearly parallel numerical normals must not pin three degrees of freedom
+	# on what is physically one flat floor. Retain the manifold if the local
+	# ray does not hit that same body or describes a different-facing surface.
+	var ray:=PhysicsRayQueryParameters3D.create(point+normal*.005,point-normal*.005,1,exclusions)
+	var hit: Dictionary=space.intersect_ray(ray)
+	if not hit.is_empty() and hit.rid==info.rid and normal.dot(hit.normal)>.9:
+		normal=hit.normal;point=hit.position
 	var local: Vector3=world.basis.transposed()*normal
 	var scale: float=local.length()
 	if not is_finite(scale) or scale<.000001:return {}
@@ -129,14 +138,17 @@ func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictio
 func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: bool,collect: bool=false) -> bool:
 	broad_queries=0;shell_queries=0;last_collider=null
 	_response_planes.clear();_response_valid=false;_response_truncated=false
+	_response_error=""
 	if not ready or before.size()!=sections.size() or after.size()!=sections.size():return true
+	var moving: bool=before!=after
 	var world: Transform3D=rig.model.global_transform
 	var whole:=AABB(before[0],Vector3.ZERO)
 	for i in before.size():
-		if not before[i].is_finite() or not after[i].is_finite():return true
+		if not before[i].is_finite() or not after[i].is_finite():_response_error="nonfinite native coordinate";return true
 		var a: Vector3=before[mini(i+1,before.size()-1)]-before[maxi(i-1,0)]
 		var b: Vector3=after[mini(i+1,after.size()-1)]-after[maxi(i-1,0)]
-		if not is_finite(a.length_squared()) or not is_finite(b.length_squared()) or a.length_squared()<1e-14 or b.length_squared()<1e-14:return true
+		if not is_finite(a.length_squared()) or not is_finite(b.length_squared()) or a.length_squared()<1e-14 or b.length_squared()<1e-14:
+			_response_error="collapsed native tangent at ring "+str(i);return true
 		whole=whole.expand(before[i]).expand(after[i])
 	_response_valid=true
 	broad_queries+=1
@@ -179,7 +191,8 @@ func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: b
 			if hits.is_empty():continue
 			last_collider=hits[0].collider
 			if not collect:return true
-			if before!=after:
+			var contact_fraction:=1.
+			if moving:
 				# Locate first contact on the conservative linear-vertex sweep.
 				# A final-pose manifold can report the underside of a thin wall
 				# after tunnelling, giving the response solver the wrong normal.
@@ -189,11 +202,24 @@ func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: b
 					_shell.points=_cell_hull(posed,sector,origin,middle)
 					if space.intersect_shape(_query,1).is_empty():low=middle
 					else:high=middle
-				_shell.points=_cell_hull(posed,sector,origin,high)
+				contact_fraction=high
+				_shell.points=_cell_hull(posed,sector,origin,contact_fraction)
 			var info: Dictionary=space.get_rest_info(_query)
+			if info.is_empty() and moving:
+				# A boolean hit at the bisection boundary can be too shallow
+				# to provide a manifold. Advance its prefix by at most10um of
+				# actual vertex travel, without changing the collision predicate.
+				var travel:=0.
+				for row in 2:
+					for vertex in posed[row].size():travel=maxf(travel,posed[row][vertex].distance_to(posed[row+2][vertex]))
+				if travel>0.:
+					_shell.points=_cell_hull(posed,sector,origin,minf(1.,contact_fraction+.00001/travel))
+					info=space.get_rest_info(_query)
 			for ring: int in [i,i+1]:
 				var plane: Dictionary=_contact_plane(ring,next[ring],world,info)
-				if plane.is_empty():_response_valid=false;return true
+				if plane.is_empty():
+					_response_error="missing native manifold "+str([i,sector,contact_fraction,info])
+					_response_valid=false;return true
 				_response_planes.append(plane)
 			if _response_planes.size()>=_response_limit:_response_truncated=true;return true
 			# One tangent support per segment is re-evaluated after response;
