@@ -3,9 +3,16 @@
 Evidence class: **INERT**. Diagnostic construction candidate; no spatial, runtime,
 mechanical, appearance or human acceptance is granted.
 
-Current state: the physical basement-to-roof-and-back route and all six direct
-thresholds have been walked. Final source-frozen qualification remains pending.
-Run6 records no failed movement, but the overall contract fails: four crossing
+Current state: the original source-frozen service contract passes 90 checks,
+439 waypoints, 27 rooms and all six direct thresholds, with zero failures.
+It completes the basement-to-roof-and-back leg with one initial placement and
+measures two tracked objects, zero retained. The independent connection validator
+passes, and all seven actual standing captures have been inspected. See
+**ORISON_V2_SERVICE_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md** and the canonical
+**art/renders/orison_v2/access_service_circulation_20261018/** packet. Broader
+surface/service/home/upper/landing renewal and human acceptance remain separate.
+
+The earlier run6 records no failed movement, but the overall contract fails: four crossing
 rooms need an explicit observed waypoint, and an additional source guard changed
 during that run. Those defects are retained in its original failed receipt.
 The final producer adds actual stops in those rooms; it does not interpolate or
@@ -93,7 +100,8 @@ The optional ledger connection channel requires the independent typed crossing
 validator in addition to the existing room validator. Fourteen connection tests
 cover this admission, fabricated edges, absent or invalid crossings and expiry
 after source changes. Invalid connection claims do not promote an edge merely
-because its adjacent rooms were reached. No new checkpoint has yet been issued.
+because its adjacent rooms were reached. The new checkpoint contains only the
+27 original played room witnesses and six independently validated crossings.
 
 An exact comparison of the previous and reopened masonry checks 2,906 occupied
 cells: all 44 changed cells lie inside the two source-bounded extensions; zero
@@ -110,4 +118,4 @@ preserving the existing service kind instead of using the older 52 mm skin datum
 
 Any further missing physical passage found by the composed run must be repaired
 through its owning source. Per-floor fixtures, private-room
-shortcuts, collision changes and weaker arrival tolerances are not remedies.
+shortcuts, collision disabling and weaker arrival tolerances are not remedies.

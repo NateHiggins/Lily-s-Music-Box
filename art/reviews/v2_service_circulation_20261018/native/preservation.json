@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "method": "Actual old/new orthogonal closed native stocks partitioned at all intersecting stock and allowed extension boundaries. Occupancy must be identical everywhere outside the two source-bounded extension envelopes.",
+  "old_stocks": 822,
+  "new_stocks": 831,
+  "partition_cells": 2906,
+  "changed_cells": 44,
+  "changed_outside_envelopes": 0,
+  "allowed_envelopes": [
+    [
+      6.75,
+      -0.2,
+      0.65,
+      8.65,
+      3.2,
+      2.35
+    ],
+    [
+      6.75,
+      3.0,
+      -1.7000000000000002,
+      8.65,
+      6.4,
+      2.35
+    ]
+  ],
+  "failures": [],
+  "old_native_sha256": "cdc25bcdbbdc4afab7d510f879dd4edda8dab995b9b95d412cacb0e8d93b6230",
+  "new_native_sha256": "d476ac33b804e78200de4355a2303387183f0a8295b250367b62dca8a5d37cb3"
+}
