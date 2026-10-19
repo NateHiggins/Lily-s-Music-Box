@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 1120.93,
+  "elapsed_s": 1120.94,
   "exit_code": 0,
-  "finished_utc": "2026-10-19T00:43:40Z",
-  "started_utc": "2026-10-19T00:24:59Z",
+  "finished_utc": "2026-10-19T02:23:19Z",
+  "started_utc": "2026-10-19T02:04:38Z",
   "timed_out": false
  },
  "log": {
@@ -19,22 +19,21 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-city-rework-20261018/upper3.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-service-circulation-20261018/final_upper1.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-city-rework-20261018/upper3.log",
-  "stdout_sha256": "dc5ff4e970d8139e9c8c44e076b0b38301ecd83eae8eea2d41d674095a42f8d4"
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-service-circulation-20261018/final_upper1.log",
+  "stdout_sha256": "4e95e822a61e9d331aa700ec030543447ce7335adcebc4935a420a5e33e9b373"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-city-rework-20261018\\upper3",
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-service-circulation-20261018\\final_upper1",
  "source": {
-  "dirty_paths": 1633,
+  "dirty_paths": 1624,
   "dirty_sample": [
-   "M .gitattributes",
-   " M art/renders/insitu/shots.md",
+   "M art/renders/insitu/shots.md",
    " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
    " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
@@ -52,11 +51,12 @@
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json",
-   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json"
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json"
   ],
-  "repository_head": "ad78632838eae6eb77989fee431e3d44169f844e",
-  "repository_tree": "90939dc82ecaf17f3852123d514e1f8bbedd9360",
-  "runtime_inputs_sha256": "907a113d640e050a715d545520d190fdfb9060bf4c8a297f1943fb0f274761eb",
+  "repository_head": "a5fb535677de7f5bed6efdd1b13880306249270b",
+  "repository_tree": "55ea2e0441bcee8a9505a066d336c38669ae5c8c",
+  "runtime_inputs_sha256": "19bab8cdb37bbd1bc6695d8b3314b8c26ef1001ff797b77dfe7aa8abe0838fda",
   "test_path": "game/tests/v2_spatial_access_cohort.gd",
   "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
  },

@@ -1,0 +1,43 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "errors": [],
+  "packet": "access_upper_cohort_20261018",
+  "source": {
+    "repository_head": "a5fb535677de7f5bed6efdd1b13880306249270b",
+    "runtime_inputs_sha256": "19bab8cdb37bbd1bc6695d8b3314b8c26ef1001ff797b77dfe7aa8abe0838fda",
+    "scene_path": "res://tests/OrisonV2UpperAccessCohort.tscn",
+    "surface_inputs_sha256": "65ee917e07628f2db5540afd100c67a53b6a76860e73e0514fbfa775cc61ab9c",
+    "test_dependencies": {
+      "game/tests/OrisonV2RemainingApartmentAccessContractTest.tscn": "d68123786dcc531a7ad0063c790fd92b273b302768d6b7ee7d54c0b682bb414f",
+      "game/tests/OrisonV2RoofProgramContractTest.tscn": "b8ad7093d82c3dfda068621fe24698a882dab835cb1d9c14f0f14ccee110b659",
+      "game/tests/OrisonV2UpperAccessCohort.tscn": "b1776fe9a0c00ec6c7dcba8e27ee5d449dadbcafb2f6574b268a897c38369a14",
+      "game/tests/orison_v2_4b_door_route_test.gd": "812dda33b098642cfd39f85c858cbe8e431821e49b02b827d0273007e9b029db",
+      "game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+      "game/tests/orison_v2_lift_drive_test.gd": "f946f707a0d85fb28f4380621b8ee79f04afc71d57a090d743377b7999925fc1",
+      "game/tests/orison_v2_remaining_apartment_access_contract_test.gd": "6f03bd08ea6d386f15c07b04c565b54583d13c3268c95ec43e5d5877b24aecca",
+      "game/tests/orison_v2_roof_lift_program_route_test.gd": "8b112671a5624cd5531fdcbc439ffbada8093f7658b89bd5d4d5264bff507321",
+      "game/tests/orison_v2_roof_plant_test.gd": "a48b898eb33976b25f2e4264341e8ea8fa3d787c583378acfc7cb787b6747b38",
+      "game/tests/orison_v2_roof_program_contract_test.gd": "4be679b20ce084c6a2be036514a45116b400e2bd6392884b111c3d70b9020a2a",
+      "game/tests/orison_v2_roof_program_route_test.gd": "cdf7f722a4c2e584e3da08fee82fbfa8fb58a9b854bd79f0649e8abedd5db02d",
+      "game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
+      "game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+      "game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
+      "game/tests/v2_remaining_apartment_walk.gd": "1800867bad41aa422b64587424c074fcf7257a66fbfd3a96147721be7cd0f1be",
+      "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+    },
+    "test_path": "game/tests/v2_spatial_access_cohort.gd",
+    "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+  },
+  "scope": "Independent current-source validation of original test-written proof. No added grant.",
+  "rooms": 69,
+  "legs": 11,
+  "checks": 989,
+  "teardown": {
+    "executed": true,
+    "measurement_scope": "shared production root and all route/check drivers only",
+    "retained_nodes": 0,
+    "status": "PASS",
+    "tracked_nodes": 13
+  }
+}
