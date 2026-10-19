@@ -36,6 +36,8 @@ class Requirements(unittest.TestCase):
             'art/blender/fire_nozzle_detail_construction.json',
             'art/blender/fire_nozzle_collision.blend',
             'art/blender/fire_nozzle_collision_construction.json',
+            'art/blender/fire_floor_enamel.blend',
+            'art/blender/fire_floor_enamel_construction.json',
             'art/blender/fire_fold_stock.blend',
             'art/blender/fire_fold_stock_construction.json',
             'art/blender/fire_hose_rack.blend',

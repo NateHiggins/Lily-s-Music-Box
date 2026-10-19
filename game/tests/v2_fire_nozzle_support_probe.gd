@@ -6,9 +6,29 @@ func _run() -> void:
 	print("NOZZLE PHYSICS ENGINE: ",ProjectSettings.get_setting("physics/3d/physics_engine")," server=",PhysicsServer3D.get_class())
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	var adapter:=Fixture.FixtureAdapter.new();adapter.root=Node3D.new();add_child(adapter.root)
+	if OS.get_environment("ORISON_NOZZLE_WORLD_POSE")=="1":adapter.root.transform=Transform3D(Basis(Vector3.UP,PI),Vector3(-4.35,-3.2,-7.87))
 	var reserve:=MeshInstance3D.new();reserve.name="FIRE_SERVICE_RISER";adapter.root.add_child(reserve)
 	var native:=preload("res://scripts/building/orison_v2_native_fire_service.gd").new()
 	if not native.mount(adapter,{"levels":[{"y":0.}]}):push_error(str(native.errors));get_tree().quit(1);return
+	if OS.get_environment("ORISON_FIRE_DOOR_PREFLIGHT")=="1":
+		var actor: Node3D=native.stations.values()[0].get_ref()
+		var saved: Dictionary=actor.mechanism_snapshot()
+		for mode: String in ["initial","open","restored"]:
+			if mode=="open":
+				var facts: Dictionary=actor.maintenance_snapshot();facts.door_open=true;actor.restore_maintenance_snapshot(facts)
+			if mode=="restored":actor.restore_mechanism(saved)
+			for frame in 3:await get_tree().physics_frame
+			var body: Node3D=actor._bodies.door
+			print("DOOR BODY: ",mode," leaf=",actor._door_pivot.global_transform," node=",body.global_transform," server=",PhysicsServer3D.body_get_state(body.get_rid(),PhysicsServer3D.BODY_STATE_TRANSFORM)," layer=",body.collision_layer," shapes=",body.get_child_count())
+			for back in [false,true]:
+				var query:=PhysicsRayQueryParameters3D.create(actor._door_pivot.to_global(Vector3(-.4,.1,.035)),actor._door_pivot.to_global(Vector3(-.4,.1,-.035)),1)
+				query.hit_back_faces=back
+				var hit: Dictionary=get_world_3d().direct_space_state.intersect_ray(query)
+				print("DOOR RAY: ",mode," back=",back," collider=",hit.collider.get_path() if not hit.is_empty() else "none"," position=",hit.get("position")," normal=",hit.get("normal")," wanted=",body.get_path())
+		get_tree().quit(0);return
+	if OS.get_environment("ORISON_NOZZLE_CLOSED_VALVE")=="1":
+		for ref: WeakRef in native.stations.values():
+			var actor: Node3D=ref.get_ref();var facts: Dictionary=actor.maintenance_snapshot();facts.nozzle_shut=true;actor.restore_maintenance_snapshot(facts)
 	var before: Dictionary={};var started: int=Time.get_ticks_usec()
 	for step in range(40):
 		await get_tree().physics_frame
@@ -22,6 +42,16 @@ func _run() -> void:
 		var joint: Node3D=native.stations[key].get_ref()._nozzle_joint
 		ok=ok and joint._support!=null and joint.body.position==before[key]
 	var joint: Node3D=native.stations.values()[0].get_ref()._nozzle_joint
+	if OS.get_environment("ORISON_NOZZLE_SUPPORT_ONLY")=="1":
+		var vertices: Array[Vector3]=[]
+		for shape: CollisionShape3D in joint.body.get_children():
+			for vertex: Vector3 in shape.shape.points:vertices.append(shape.global_transform*vertex)
+		vertices.sort_custom(func(a: Vector3,b: Vector3):return a.y<b.y)
+		for i in mini(8,vertices.size()):
+			var query:=PhysicsRayQueryParameters3D.create(vertices[i]+Vector3.UP*.005,vertices[i]-Vector3.UP*.005,1,[joint.body.get_rid(),joint.actor._bodies.lever.get_rid()])
+			var hit: Dictionary=get_world_3d().direct_space_state.intersect_ray(query)
+			print("NOZZLE LOWEST BEARING: point=",vertices[i]," hit=",hit.get("position")," gap=",vertices[i].distance_to(hit.position) if not hit.is_empty() else INF," normal=",hit.get("normal")," part=",hit.collider.get_parent().get_meta("native_fire_part","") if not hit.is_empty() else "none")
+		print("NOZZLE SUPPORT ONLY: ","PASS" if ok else "FAIL");get_tree().quit(0 if ok else 1);return
 	# Query the installed receiver alone using the same overlap API as carry.
 	# Sample the native-certified bore and retain a positive stock control.
 	var exclusions: Array[RID]=[]

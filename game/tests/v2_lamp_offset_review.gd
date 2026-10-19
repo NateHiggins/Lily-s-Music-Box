@@ -1,5 +1,5 @@
 extends Node
-## Matched composed V2 frames. Diagnostic, not interaction or route acceptance.
+## Matched composed V2 frames. Optical/collision diagnostic; no gameplay acceptance.
 const Runtime=preload("res://scenes/building/orison_v2_runtime.tscn")
 const OFFSETS=[
 	{"id":"eye","origin":Vector3(.018,-.018,-.035)},

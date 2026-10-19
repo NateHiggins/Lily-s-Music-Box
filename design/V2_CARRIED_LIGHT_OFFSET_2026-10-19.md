@@ -57,3 +57,9 @@ of seven leaked texture RIDs at immediate renderer shutdown. This is not
 accepted lifecycle evidence; drain/disposal diagnosis remains necessary.
 There were no script errors. Broad V2 completion and reviewed commit/push
 qualification remain outstanding.
+
+Subsequent work rebuilt the nozzle and forged lever in native Blender stock;
+see **design/V2_FIRE_NOZZLE_DETAIL_2026-10-19.md** and
+**design/V2_FIRE_FLOOR_AND_HAND_REVIEW_2026-10-19.md** for the later mechanical
+checks. The original matched lighting frames and receipts above remain
+historical diagnostics. They are not repinned to those later model changes.

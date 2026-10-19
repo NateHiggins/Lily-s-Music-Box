@@ -9,12 +9,15 @@ class FixtureAdapter extends RefCounted:
 		actor.name=identity;actor.position=Vector3(count*2.5,1.2,0)
 		count+=1;root.add_child(actor);return true
 var failures: Array[String]=[]
+var observations: Array[Dictionary]=[]
 var player: PlayerController
 func check(ok: bool,label: String) -> bool:
+	observations.append({"ok":ok,"label":label})
 	print("FIRE HAND CHECK: ",label," = ",ok)
 	if not ok: failures.append(label)
 	return ok
-func _ready() -> void: _run.call_deferred()
+func _ready() -> void:
+	if not bool(get_meta("shared_world_validation",false)):_run.call_deferred()
 func click() -> void:
 	var e:=InputEventMouseButton.new();e.button_index=MOUSE_BUTTON_LEFT;e.pressed=true;player._unhandled_input(e)
 func key(code: Key) -> void:
@@ -106,6 +109,11 @@ func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance
 			if stagnant>8:break
 		if not arrived:reached=false;break
 	var before_release: Transform3D=part.global_transform
+	if not reached:
+		var at: Variant=player._grab.target.read.call() if player._grab.active() else null
+		var joint: Node3D=actor._nozzle_joint
+		print("CARRY STOP: actor=",actor.name," part=",part.name," at=",at," goals=",goals," contact=",joint._last_contact.get_path() if part==actor._play_pipe and is_instance_valid(joint._last_contact) else "none")
+		if part==actor._play_pipe and is_instance_valid(joint._last_contact):print("CARRY STOCK: ",joint._last_contact.get_parent().get_meta("native_fire_part","none"))
 	if contact_stop.is_valid():print("GUIDED CARRY RESULT: reached=",reached," body=",player._grab.target.read.call() if player._grab.active() else Vector3.INF," global=",before_release)
 	if player._grab.active():click()
 	return reached and (not contact_stop.is_valid() or part.global_transform==before_release)

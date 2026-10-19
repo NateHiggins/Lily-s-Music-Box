@@ -1,0 +1,7 @@
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/v2_fire_nozzle_coupling_bench.gd:48)

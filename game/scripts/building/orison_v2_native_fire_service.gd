@@ -48,6 +48,20 @@ func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 			mesh.surface_set_material(index,finishes[key])
 		meshes[str(draw.name)]=mesh
 	nozzle_model.free()
+	# The pale finish is a thin coating on the supporting steel, not a
+	# ten-millimetre visual slab above the old floor collision.
+	var floor_packed:=load("res://assets/props/fire_floor_enamel.glb") as PackedScene
+	if floor_packed==null:errors.append("native case floor finish missing");return false
+	var floor_model: Node=floor_packed.instantiate()
+	var floor_mesh: ArrayMesh
+	for draw: MeshInstance3D in floor_model.find_children("*","MeshInstance3D",true,false):
+		if str(draw.name)!="FloorEnamel":continue
+		var mesh: ArrayMesh=draw.mesh.duplicate() as ArrayMesh
+		for surface in mesh.get_surface_count():mesh.surface_set_material(surface,finishes.Lining)
+		floor_mesh=mesh
+	floor_model.free()
+	if floor_mesh==null:errors.append("native case floor part missing");return false
+	meshes.F015=floor_mesh
 	if not errors.is_empty(): return false
 	var nozzle_detail:=preload("res://scripts/props/fire_nozzle_detail_stock.gd").new()
 	if not nozzle_detail.load_stock():errors.append("detailed nozzle stock missing");return false
@@ -72,6 +86,9 @@ func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 				var shape := BoxShape3D.new(); var size: Array = part.collision_size
 				shape.size = Vector3(size[0],size[1],size[2])
 				var collider := CollisionShape3D.new(); collider.shape = shape; body.add_child(collider)
+			# F015 is a50um cosmetic paint coating on F011 structural steel.
+			# Keep that single support collider: a second nearly coincident
+			# shell produces ambiguous recovery in the small-stock sweeps.
 			if str(part.name).begins_with("Fold_"):
 				var crown := _draw("FoldCrown",draw,Vector3(0,.131,0)); crown.name = "NativeFoldCrown"
 		var folds:=preload("res://scripts/props/fire_fold_stock.gd").new();folds.name="NativeContinuousFolds";actor.add_child(folds)

@@ -250,7 +250,7 @@ func _obstructed(id: String, value: float) -> bool:
 	# Fixed stock in this same fitted assembly supplies the hinge/valve stops.
 	# Other moving parts, the player and surrounding architecture remain solid.
 	for body: StaticBody3D in find_children("*","StaticBody3D",true,false):
-		if body is not AnimatableBody3D: excluded.append(body.get_rid())
+		if id!="lever" and body is not AnimatableBody3D: excluded.append(body.get_rid())
 	var query: PhysicsShapeQueryParameters3D = PhysicsShapeQueryParameters3D.new()
 	query.collision_mask = 1; query.exclude = excluded; query.margin = .00001
 	for stock: Dictionary in _stock[id]:

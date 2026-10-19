@@ -39,6 +39,7 @@ var _observed:=false
 var _speed:=0.
 var _support: WeakRef
 var _support_pose:=Transform3D.IDENTITY
+var _support_geometry:=Transform3D.IDENTITY
 var _support_frame: int=-1
 var _support_confirmed:=false
 var _last_contact: Node3D
@@ -190,7 +191,7 @@ func turn(value: float) -> void:
 	var query:=PhysicsTestMotionParameters3D.new();query.from=body.global_transform;query.motion=pose.origin-body.global_position;query.margin=.00002
 	query.exclude_bodies=[(seat.get_child(0) as CollisionObject3D).get_rid(),(nut.get_child(0) as CollisionObject3D).get_rid(),physical_nut.get_rid(),actor._bodies.lever.get_rid()]
 	var started: int=Time.get_ticks_usec()
-	var blocked: bool=PhysicsServer3D.body_test_motion(body.get_rid(),query)
+	var blocked: bool=not _world_motion_clear(query.from,query.motion,query.exclude_bodies) and PhysicsServer3D.body_test_motion(body.get_rid(),query)
 	last_turn_ms=(Time.get_ticks_usec()-started)/1000.
 	if blocked:return
 	angle=wanted;_observed=absf(angle)<.0001;actor.nozzle_coupled=_observed;sync()
@@ -233,7 +234,7 @@ func _carry(value: Vector3) -> void:
 		var remainder: Vector3
 		var normal: Vector3
 		var blocked: bool=false
-		if not _world_motion_clear(pose,query.motion,exclusions):blocked=PhysicsServer3D.body_test_motion(body.get_rid(),query,result)
+		if not _world_motion_clear(pose,query.motion,exclusions):blocked=_sweep_world(query,result)
 		if _profile_motion:print("NOZZLE WORLD SWEEP: ",step," blocked=",blocked," travel=",result.get_travel()," requested=",query.motion," collider=",result.get_collider().get_path() if blocked and result.get_collider()!=null else "none")
 		if not blocked:
 			pose.origin+=query.motion
@@ -247,6 +248,38 @@ func _carry(value: Vector3) -> void:
 		if remainder.length()-remaining.length()<.000001:break
 	body.global_transform=pose;_apply_visuals()
 	last_sweep_ms=(Time.get_ticks_usec()-started)/1000.
+func _above_static(collider: Object,pose: Transform3D,motion: Vector3) -> bool:
+	# A translation whose whole convex stock is above a box's highest plane
+	# and never descends cannot hit that box. Backend recovery skins can still
+	# report that separating floor contact; do not let it trap a lifted part.
+	# No negative gap tolerance, dynamic-body exemption or receiver bypass.
+	if not collider is StaticBody3D or motion.y<0.:return false
+	var ceiling: float=-INF
+	for child: Node in collider.get_children():
+		if not child is CollisionShape3D or child.disabled:continue
+		if not child.shape is BoxShape3D:return false
+		var half: Vector3=child.shape.size*.5
+		var bounds:=AABB(-half,half*2.)
+		for corner in 8:ceiling=maxf(ceiling,(child.global_transform*bounds.get_endpoint(corner)).y)
+	if not is_finite(ceiling):return false
+	for shape: CollisionShape3D in body.get_children():
+		if shape.disabled:continue
+		if not shape.shape is ConvexPolygonShape3D:return false
+		var frame: Transform3D=pose*shape.transform
+		for vertex: Vector3 in shape.shape.points:
+			if (frame*vertex).y-float(shape.shape.margin)<ceiling:return false
+	return true
+func _sweep_world(query: PhysicsTestMotionParameters3D,result: PhysicsTestMotionResult3D) -> bool:
+	# Requery after each geometrically proven separating support, so another
+	# obstacle in the same sweep retains its normal collision authority.
+	for attempt in 8:
+		if not PhysicsServer3D.body_test_motion(body.get_rid(),query,result):return false
+		var collider: Object=result.get_collider()
+		if not _above_static(collider,query.from,query.motion):return true
+		var rid: RID=collider.get_rid()
+		if query.exclude_bodies.has(rid):return true
+		var exclusions: Array[RID]=query.exclude_bodies;exclusions.append(rid);query.exclude_bodies=exclusions
+	return true
 func _on_pilot() -> bool:
 	var local: Vector3=receiver.affine_inverse()*body.position
 	return Vector2(local.x,local.z).length()<.000002 and local.y>=stock.pilot_min-.000002 and local.y<stock.pilot_max-.0001
@@ -379,6 +412,8 @@ func _physics_process(delta: float) -> void:
 	# The inserted pilot is an axial mechanical guide, not a free-falling
 	# rigid body. It remains withdrawable and is not yet a sealed thread.
 	if _on_pilot():_speed=0.;return
+	if _support!=null and _support_geometry!=actor._lever.transform:
+		_support=null;_restore_support=true
 	if _restore_support:_restore_support=false;_adopt_support()
 	if _support!=null:
 		var support: Node3D=_support.get_ref()
@@ -423,6 +458,7 @@ func _adopt_support() -> void:
 		support=hit.collider
 	if support!=null:
 		_support=weakref(support);_support_pose=support.global_transform;_speed=0.
+		_support_geometry=actor._lever.transform
 		_support_frame=Engine.get_physics_frames();_support_confirmed=false
 func snapshot() -> Dictionary:return {"angle":angle,"spin":spin,"clocking":clocking,"loose":loose,"position":[body.position.x,body.position.y,body.position.z]}
 func valid(value: Variant,made_up: bool) -> bool:
