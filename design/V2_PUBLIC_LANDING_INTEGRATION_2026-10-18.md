@@ -90,6 +90,11 @@ original receipt and matching logs pass independent current-source validation.
 The native renewals, landing contract and surface publication are complete.
 All six original qualification jobs have completed without failures.
 A clean checkout independently matches both runtime and surface hashes in the
-played landing receipt. Final clean candidate comparison and push remain
-pending. Full V2, the authored eleven-beat run, V2 acoustic rederivation and
-human acceptance remain incomplete.
+played landing receipt. The subsequent city pass renews the five original
+contracts against current source: surface3 37,903 checks; service3 360; home3
+909; upper3 989; landing3 41 checks and 748 actual waypoints, all zero failures.
+Clean candidate aae34b06 passes the complete comparison with zero regressions
+and 14 improvements; all 17 protected paths remain unchanged. See
+**V2_CITY_ELEVATIONS_REPORT_2026-10-18.md** and its archived verifier packet.
+Full V2, the authored eleven-beat run, V2 acoustic rederivation and human
+acceptance remain incomplete.

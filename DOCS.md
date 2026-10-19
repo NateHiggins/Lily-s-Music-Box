@@ -36,7 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to knowâ€¦ | Read |
 |---|---|
 | Current city massing, recessed windows, retained roof contacts and qualification | `design/V2_CITY_ELEVATIONS_2026-10-18.md` |
-| Six supported public landing programmes, fitted signs, repaired F01 passage and pending broad qualification | `design/V2_PUBLIC_LANDING_INTEGRATION_2026-10-18.md` |
+| Six supported public landing programmes, fitted signs, repaired F01 passage and completed automated qualification | `design/V2_PUBLIC_LANDING_INTEGRATION_2026-10-18.md` |
 | Original single-placement six-floor played landing access; separate broader and human gates | `design/ORISON_V2_PUBLIC_LANDING_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md` |
 | Measured public landing platform unions and unsupported legacy shells | `design/V2_PUBLIC_LANDING_FOOTPRINTS_2026-10-18.md` |
 | Wall-stock fitting, native hanging supports, doorstep stock and current clearance qualification | `design/V2_WALL_STOCK_CLEARANCE_2026-10-18.md` |

@@ -1,0 +1,73 @@
+# Candidate verification - aae34b06f736
+
+- candidate `aae34b06f736a0fbc37f96935b07203ba6d4bd7b`
+- base `3d69a10a0de791e473b5a9eade0cde59fa70e8bc`
+- merge-base `3d69a10a0de791e473b5a9eade0cde59fa70e8bc`
+- verified 2026-10-19T00:53:09Z from verifier `aae34b06f736`
+
+| check | result |
+|---|---|
+| checkout mode | in-place |
+| checkout clean | yes |
+| gate board vs merge-base | 0 regressions, 14 improvements |
+| ledger before | {'FIRST_SLICE_TECHNICAL': 0, 'FULL_BUILDING_RUNTIME': 25, 'FULL_BUILDING_STRUCTURAL': 48, 'GOLDEN_SHIFT_V2': 1, 'PRODUCTION_CUTOVER': 65, 'V1_RETIREMENT': 67} |
+| ledger after | {'FIRST_SLICE_TECHNICAL': 0, 'GOLDEN_SHIFT_V2': 1, 'FULL_BUILDING_STRUCTURAL': 37, 'FULL_BUILDING_RUNTIME': 25, 'PRODUCTION_CUTOVER': 54, 'V1_RETIREMENT': 56} |
+| requirements_changed | ['circ.F01.public_landing', 'circ.F02.public_core', 'circ.F02.public_landing', 'circ.F03.public_core', 'circ.F03.public_landing', 'circ.F04.public_core', 'circ.F04.public_landing', 'circ.F05.public_core', 'circ.F05.public_landing', 'circ.F06.public_core', 'circ.F06.public_landing'] |
+| protected | 17/17 unchanged vs merge-base; 0 authorized selector change(s) |
+| selector | v2 |
+| design doc lint errors | 0 |
+| gates changed by candidate | 5 |
+
+## Blocking reasons (0)
+
+- none
+
+## Needs human review (not blocking) (4)
+
+- candidate changes 5 gate file(s); read those diffs before trusting the board
+- ledger requirements changed: ['circ.F01.public_landing', 'circ.F02.public_core', 'circ.F02.public_landing', 'circ.F03.public_core', 'circ.F03.public_landing', 'circ.F04.public_core', 'circ.F04.public_landing', 'circ.F05.public_core', 'circ.F05.public_landing', 'circ.F06.public_core', 'circ.F06.public_landing']
+- Godot suites were not run (--no-godot)
+- Verified the clean canonical checkout; fresh-checkout import and autocrlf behavior are outside this in-place verification
+
+## Regressions (0)
+
+- none
+
+## Accepted regressions (0)
+
+- none
+
+## Improvements (14)
+
+- ledger: blockers.FULL_BUILDING_STRUCTURAL 48 -> 37
+- ledger: blockers.PRODUCTION_CUTOVER 65 -> 54
+- ledger: blockers.V1_RETIREMENT 67 -> 56
+- ledger: circ.F01.public_landing ABSENT -> SPATIALLY_PROVEN
+- ledger: circ.F02.public_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F02.public_landing SHELL_ONLY -> SPATIALLY_PROVEN
+- ledger: circ.F03.public_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F03.public_landing SHELL_ONLY -> SPATIALLY_PROVEN
+- ledger: circ.F04.public_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F04.public_landing SHELL_ONLY -> SPATIALLY_PROVEN
+- ledger: circ.F05.public_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F05.public_landing PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F06.public_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F06.public_landing PROGRAMMED -> SPATIALLY_PROVEN
+
+## Report claims contradicted (0)
+
+- none
+
+## Design doc lint (1)
+
+- INFO design/ORISON_V2_PUBLIC_LANDING_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md: this document changes 7 requirement status(es): circ.F01.public_landing PROGRAMMED->SPATIALLY_PROVEN, circ.F03.public_core PROGRAMMED->SPATIALLY_PROVEN, circ.F03.public_landing PROGRAMMED->SPATIALLY_PROVEN, circ.F05.public_core PROGRAMMED->SPATIALLY_PROVEN, circ.F05.public_landing PROGRAMMED->SPATIALLY_PROVEN, circ.F06.public_core PROGRAMMED->SPATIALLY_PROVEN, circ.F06.public_landing PROGRAMMED->SPATIALLY_PROVEN
+
+## Gates changed by the candidate (5)
+
+- M tools/audit_orison_v2_completeness.py
+- M tools/orison_spatial_dependency_manifest.json
+- M tools/tests/test_spatial_access_evidence.py
+- M tools/tests/test_v2_public_landing_footprints.py
+- A tools/tests/test_v2_public_landing_programmes.py
+
+MERGE-CANDIDATE aae34b06f736a0fbc37f96935b07203ba6d4bd7b

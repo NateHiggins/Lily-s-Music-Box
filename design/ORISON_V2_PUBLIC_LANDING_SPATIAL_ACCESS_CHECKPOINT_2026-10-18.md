@@ -35,5 +35,10 @@ outside retained stair and lift voids. The existing purpose matcher credits circ
 landing IDs, including three newly satisfied public-core circulation rows. No
 additional core-space identity, private room, lift/service mechanism, case
 completion, disk save, full-building runtime, photoreal or human acceptance
-is granted by this spatial checkpoint. Full composed surface/service/access
-renewal and clean candidate comparison remain pending at this checkpoint.
+is granted by this spatial checkpoint. The current packet is the original
+landing3 run, renewed after the city elevation change, with the same measured
+748 waypoints, 41 checks and zero failures. Its runtime input digest is
+**907a113d640e050a715d545520d190fdfb9060bf4c8a297f1943fb0f274761eb** and surface
+input digest is **7b2d589628bcece6c6a1b4028d34efa93dce748926d453195dc25cf7db7b028c**.
+All five original surface/service/access renewals pass. Clean candidate
+**aae34b06** has zero board regressions; this update adds no new claims.

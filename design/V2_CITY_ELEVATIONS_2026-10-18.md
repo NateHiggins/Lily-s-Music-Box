@@ -7,7 +7,11 @@ the current source. Surface qualification passes 37,903 checks; service repair a
 disk reconstruction pass 360; home access passes 909 across 62 rooms and nine legs;
 upper access passes 989 across 69 rooms and 11 legs; the six-floor landing walk
 passes 41 checks with one initial placement. All five packets are independently
-validated with zero errors. Clean full-board comparison and push remain pending.
+validated with zero errors. Clean candidate aae34b06 passes the complete board
+comparison with zero regressions, 14 improvements and all 17 protected paths
+unchanged. The original verifier packet is archived under
+**art/reviews/v2_city_elevations_20261018/verified/**. Publication is recorded in
+**V2_CITY_ELEVATIONS_REPORT_2026-10-18.md**.
 
 The old city conversion preserved repeated setbacks and heavy cornice bands while
 omitting window elevations. The new **build_city_elevations.py** adapts 25 retained
