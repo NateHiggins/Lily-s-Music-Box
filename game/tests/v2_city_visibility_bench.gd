@@ -19,8 +19,8 @@ func _ready() -> void:
 		legacy._apply(minute)
 		city._apply(minute)
 		check(is_equal_approx(legacy._env.fog_depth_end, 58.0), "retained V1 far distance")
-		check(is_equal_approx(city._env.fog_depth_end, 220.0), "dry V2 neighbours retain depth")
-		check(is_equal_approx(city._env.fog_depth_begin, 24.0), "dry near field stays clear")
+		check(is_equal_approx(city._env.fog_depth_end, 400.0), "dry V2 outer blocks retain depth")
+		check(is_equal_approx(city._env.fog_depth_begin, 70.0), "dry near field stays clear")
 		check(city.resolved_profile().fog_end == city._env.fog_depth_end, "reported profile is the actual Environment")
 		check(is_equal_approx(city._env.fog_density, 1.0), "far ground reaches actual extinction")
 	for conditions: Dictionary in [
@@ -37,14 +37,14 @@ func _ready() -> void:
 		if int(conditions.weather_code) in [45, 48, 95]:
 			check(expected.is_equal_approx(Vector2(13, 58)), "fog and heavy storm retain extinction distance")
 		else:
-			check(expected.y >= 170.0, "dry overcast is not ground fog")
-	var previous := 220.0
+			check(expected.y >= 300.0, "dry overcast is not ground fog")
+	var previous := 400.0
 	for index in 101:
 		var distance := CityDirector.city_visibility({"precipitation_intensity": index / 100.0}).y
 		check(distance <= previous + 0.0001 and distance >= 58.0, "continuous monotone wet transition")
 		previous = distance
 	city.set_live_conditions({})
-	check(is_equal_approx(city._env.fog_depth_end, 220.0), "clearing weather restores visibility")
+	check(is_equal_approx(city._env.fog_depth_end, 400.0), "clearing weather restores visibility")
 	legacy.free()
 	city.free()
 	print("CITY VISIBILITY BENCH: %d checks; %d failures" % [checks, failures.size()])

@@ -1,0 +1,12 @@
+SCRIPT ERROR: Parse Error: Cannot infer the type of "p" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/v2_city_elevation_review.gd:87)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tests/v2_city_elevation_bench.gd:4)
+ERROR: Failed to load script "res://tests/v2_city_elevation_review.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tests/v2_city_elevation_bench.gd:4)
+ERROR: CITY SOURCE BENCH: res://tests/v2_city_elevation_review.gd
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tests/v2_city_elevation_bench.gd:6)

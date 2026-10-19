@@ -44,22 +44,14 @@ func run(world: OrisonV2RuntimeRoot, suite: Node, camera: Camera3D) -> void:
 	for view: Dictionary in city_source.skyline_views_godot:
 		var p: Array = view.at
 		eyes.append(world.adapter.root.to_global(Vector3(p[0],float(p[1])+1.6,p[2])))
-	var found := false
-	for eye: Vector3 in eyes:
-		for row: Dictionary in stations.values():
-			var p: Array = row.point
-			var n: Array = row.normal
-			var point := horizon.to_global(Vector3(p[0],p[2],-p[1]))
-			var normal := horizon.global_basis*Vector3(n[0],n[2],-n[1])
-			var target := point-normal*float(row.recess_m)
-			var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(eye,target-normal*.04,1,[world.player.get_rid()]))
-			if hit.is_empty() or not bodies.has(hit.collider.get_rid()) or hit.position.distance_to(target)>.001:continue
-			camera.global_position=eye
-			camera.look_at(target)
-			await suite.get_tree().create_timer(.6).timeout
-			await suite.shot("city_horizon_context")
-			found=true
-			break
-		if found:break
+	var excluded: Array[RID]=[world.player.get_rid()]
+	var view := preload("res://tests/v2_city_context_review.gd").capture_station(world.get_world_3d().direct_space_state,horizon,stations.values(),bodies,eyes,excluded)
+	var found := not view.is_empty()
+	if found:
+		camera.global_position=view.eye
+		camera.look_at(view.target)
+		await suite.get_tree().create_timer(.6).timeout
+		await suite.shot("city_horizon_context")
+		print("CITY HORIZON CAMERA: retained_pose=",view.retained_camera," source_building=",view.building,"; posed context only, no played access")
 	suite.check(found, "distant context capture has an actual clear first-hit pane sightline")
 	print("CITY HORIZON REVIEW: %d buildings; %d parts; %d composed pane stations; clear_capture=%s" % [source.buildings.size(),parts,stations.size(),found])

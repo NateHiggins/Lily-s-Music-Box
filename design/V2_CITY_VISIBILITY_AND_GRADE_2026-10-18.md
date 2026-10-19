@@ -121,3 +121,28 @@ The revised source has 124 lower, varied residential/industrial buildings,
 capped chimneys. It retains the previous grade footprints and allows open sky
 above lower eaves. The original **queens_horizon_build1** passes its native
 pane/closed-stock checks; composed rendering and broader renewal are pending.
+
+Follow-up on October 19: the original **final_surface2** completes in 641
+seconds with 39,522 checks and four failures. Its inventory reports zero
+unresolved UV/custom-PBR/loaded-mipmap surfaces across 26,475 draws, 17,441
+meshes, 6,135 material instances and the same 497 textures. This is a failed
+qualification diagnostic, not an accepted packet. Three old grade stations
+land under new plinths; the retained posed cameras find no unobstructed distant
+pane. Both originals are retained without rewriting their contracts.
+
+The corrected review derives one exposed point in each of the nine source-grid
+cells per grade strip, rejecting building footprints including frame projection.
+Actual first-hit rays still include every collider and retain the 0.1 mm
+tolerance. A source-derived close context camera supplements the retained views
+when near buildings hide the lower background; it is explicitly labelled and
+grants no retained-vista or played-access claim. The production horizon/ground
+bench now passes 12,500 checks, including all 36 actual exposed-grade rays and
+the actual first-hit camera query. A parse-failed bench and a typed-array failed
+bench are retained; the passing source bench has no script errors.
+
+Dry extinction at 220 metres hid the outer rows. The V2 director now uses
+70..400 metres in dry clear air, smoothly reaching 40..300 with humidity.
+Actual fog and heavy precipitation retain 13..58 metres and V1 retains its
+original writer and distances. The actual-writer visibility bench passes 138
+checks. New composed captures and broader proof renewals remain pending. Plain
+outward faces on the retained far buildings remain explicit appearance work.

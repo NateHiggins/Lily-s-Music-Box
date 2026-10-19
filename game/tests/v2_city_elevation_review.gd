@@ -77,15 +77,17 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	suite.check(apron != null and FileAccess.get_sha256("res://assets/props/city_ground_apron.glb") == apron_source.asset_sha256, "installed distant grade matches the native source")
 	suite.check(FileAccess.get_sha256("res://assets/props/orison_ground.glb") == apron_source.retained_ground_sha256, "retained ground and its underground reservations remain byte-identical")
 	var apron_samples := 0
+	var horizon_source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
 	if apron != null:
 		for row: Dictionary in apron_source.boxes:
 			var bounds: Array = row.bounds
-			for x_fraction: float in [.1, .5, .9]:
-				for z_fraction: float in [.1, .5, .9]:
-					var p: Vector3 = world.adapter.root.to_global(Vector3(lerpf(bounds[0], bounds[3], x_fraction), bounds[4], lerpf(bounds[2], bounds[5], z_fraction)))
-					var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(p+Vector3.UP*.03,p-Vector3.UP*.03,1,[world.player.get_rid()]))
-					suite.check(not hit.is_empty() and apron.is_ancestor_of(hit.collider) and hit.position.distance_to(p)<.0001, "distant ground has its actual fitted physical top: "+str(row.id))
-					apron_samples += 1
+			var samples := preload("res://tests/v2_city_context_review.gd").exposed_grade_samples(bounds,horizon_source.buildings)
+			suite.check(samples.size()==9,"nine exposed grade stations span the source strip: "+str(row.id))
+			for local_point: Vector3 in samples:
+				var p: Vector3 = world.adapter.root.to_global(local_point)
+				var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(p+Vector3.UP*.03,p-Vector3.UP*.03,1,[world.player.get_rid()]))
+				suite.check(not hit.is_empty() and apron.is_ancestor_of(hit.collider) and hit.position.distance_to(p)<.0001, "distant exposed ground has its actual fitted physical top: "+str(row.id))
+				apron_samples += 1
 	suite.check(apron_samples == 36, "physical distant grade covers all four source strips")
 	var prior := world.get_viewport().get_camera_3d()
 	var camera := Camera3D.new()

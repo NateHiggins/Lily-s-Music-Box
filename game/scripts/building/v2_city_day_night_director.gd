@@ -10,7 +10,7 @@ static func city_visibility(conditions: Dictionary) -> Vector2:
 		obscuration = 1.0
 	# A dry cloud ceiling and high humidity alone cannot become ground fog.
 	var haze := smoothstep(0.72, 1.0, humidity)
-	var clear_air := Vector2(lerpf(24.0, 20.0, haze), lerpf(220.0, 170.0, haze))
+	var clear_air := Vector2(lerpf(70.0, 40.0, haze), lerpf(400.0, 300.0, haze))
 	return clear_air.lerp(Vector2(13.0, 58.0), obscuration)
 
 

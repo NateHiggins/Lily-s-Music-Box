@@ -1,0 +1,19 @@
+{
+  "evidence_class": "INERT",
+  "archives": [
+    {
+      "file": "final_surface1_diagnostic.zip",
+      "sha256": "78dbefbfb9ff2f6908030f25d68186fdf3517ae9c89d4810779d09e3ca351f8e",
+      "scope": "Unmodified original JSON, raw logs/wrapper and scoped images; diagnostic only, not current accepted proof"
+    },
+    {
+      "file": "final_surface2_diagnostic.zip",
+      "sha256": "5eed2d86c272d2dd4a36a5b88ac1a360eee50335527760fba7b384b90b72a448",
+      "scope": "Unmodified original JSON, raw logs/wrapper and scoped images; diagnostic only, not current accepted proof"
+    }
+  ],
+  "source1": "Technical PASS; empty horizon caused nonpublication",
+  "source2": "39,522 checks, four failures; exposed-ground/context camera corrections required; zero unresolved surfaces",
+  "corrected_benches": "context3PASS12500; source2PASS;visibility3PASS138",
+  "scope": "Original diagnostics and focused benches; composed correction still pending"
+}
