@@ -300179,6 +300179,38 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "860dc13e27b20f93",
+   "kind": "id_reference",
+   "token": "F01_STREET_APRON",
+   "file": "game/tests/v2_region_access_contract.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    38,
+    43,
+    44
+   ],
+   "count": 3,
+   "context": [
+    "if str(room.id)==\"F01_STREET_APRON\":apron=room;break",
+    "visited[\"F01_STREET_APRON\"]={\"actual\":p.duplicate(),\"leg\":\"exterior_regions\"};break",
+    "_check(visited.has(\"F01_STREET_APRON\"),\"original observed route reaches actual street apron\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
