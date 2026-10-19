@@ -1,0 +1,313 @@
+{
+	"checks": [
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "valid daytime campaign fixture",
+			"ok": true
+		},
+		{
+			"label": "production-selected V2 composition starts",
+			"ok": true
+		},
+		{
+			"label": "actual post-controller observer exists",
+			"ok": true
+		},
+		{
+			"label": "actual complete source exterior route: ROUTE_ORISON_TO_SHOP_BODEGA",
+			"ok": true
+		},
+		{
+			"label": "endpoint has an observed physics sample",
+			"ok": true
+		},
+		{
+			"label": "observed endpoint reaches its commanded target",
+			"ok": true
+		},
+		{
+			"label": "endpoint has an observed physics sample",
+			"ok": true
+		},
+		{
+			"label": "observed endpoint reaches its commanded target",
+			"ok": false
+		},
+		{
+			"label": "complete six-region single-placement leg",
+			"ok": false
+		},
+		{
+			"label": "original observed route reaches actual street apron",
+			"ok": false
+		},
+		{
+			"label": "root, driver and observer retire",
+			"ok": true
+		},
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "production and physical inputs stay fixed",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "complete original test closure stays fixed",
+			"ok": true
+		},
+		{
+			"label": "record repository provenance",
+			"ok": true
+		},
+		{
+			"label": "explicit writable original receipt destination",
+			"ok": true
+		},
+		{
+			"label": "open original exterior contract",
+			"ok": true
+		}
+	],
+	"completed_groups": [],
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"region_access": {
+			"coordinate_frame": "orison_blockout_local",
+			"executed": false,
+			"regions": {
+				"REGION_STREET": {
+					"actual": [
+						-0.0000000484772471054384,
+						0.000161214731633663,
+						-12.3779382705688
+					],
+					"floor_collider_path": "/root/V2RegionAccessContract/OrisonV2Runtime/OrisonV2Blockout/FrontPavement/front_pavement/Pavement_P0_N4/PavementCollision",
+					"floor_surface_id": "pavement",
+					"geometry_resident": true,
+					"id": "REGION_STREET",
+					"instance_id": "STREET_ORISON_01",
+					"leg": "exterior_regions",
+					"on_floor": true,
+					"sample_index": 5
+				}
+			},
+			"routes": {},
+			"status": "FAIL",
+			"threshold_controls": {}
+		},
+		"room_access": {
+			"executed": false,
+			"rooms": {},
+			"status": "FAIL"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "production root, route driver and post-controller observer only",
+			"retained_nodes": 0,
+			"status": "FAIL",
+			"tracked_nodes": 3
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 128.09,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": 3,
+	"groups": [
+		"exterior_regions"
+	],
+	"legs": [
+		{
+			"failures": [
+				"target (-0.0, 0.04, -15.65) actual (-0.0, 0.000161, -12.37794)",
+				"observed endpoint reaches its commanded target"
+			],
+			"group": "exterior_regions",
+			"initial_placement_only": true,
+			"name": "exterior_regions",
+			"samples": [
+				{
+					"actual": [
+						-0.0000000484772542108658,
+						0.0568333305418491,
+						-12.3279218673706
+					],
+					"capsule_height": 1.52400004863739,
+					"capsule_radius": 0.330000013113022,
+					"collision_mask": 1,
+					"noclip": false,
+					"on_floor": false,
+					"physics_frame": 4
+				},
+				{
+					"actual": [
+						-0.0000000484772542108658,
+						0.0486666634678841,
+						-12.3279218673706
+					],
+					"capsule_height": 1.52400004863739,
+					"capsule_radius": 0.330000013113022,
+					"collision_mask": 1,
+					"noclip": false,
+					"on_floor": false,
+					"physics_frame": 5
+				},
+				{
+					"actual": [
+						-0.0000000484772542108658,
+						0.0377777740359306,
+						-12.3279218673706
+					],
+					"capsule_height": 1.52400004863739,
+					"capsule_radius": 0.330000013113022,
+					"collision_mask": 1,
+					"noclip": false,
+					"on_floor": false,
+					"physics_frame": 6
+				},
+				{
+					"actual": [
+						-0.0000000484772542108658,
+						0.0241666622459888,
+						-12.3279218673706
+					],
+					"capsule_height": 1.52400004863739,
+					"capsule_radius": 0.330000013113022,
+					"collision_mask": 1,
+					"noclip": false,
+					"on_floor": false,
+					"physics_frame": 7
+				},
+				{
+					"actual": [
+						-0.0000000484772471054384,
+						0.00782809965312481,
+						-12.3779382705688
+					],
+					"capsule_height": 1.52400004863739,
+					"capsule_radius": 0.330000013113022,
+					"collision_mask": 1,
+					"noclip": false,
+					"on_floor": false,
+					"physics_frame": 8
+				},
+				{
+					"actual": [
+						-0.0000000484772471054384,
+						0.000161214731633663,
+						-12.3779382705688
+					],
+					"capsule_height": 1.52400004863739,
+					"capsule_radius": 0.330000013113022,
+					"collision_mask": 1,
+					"noclip": false,
+					"on_floor": true,
+					"physics_frame": 9
+				},
+				{
+					"actual": [
+						-0.0000000484772471054384,
+						0.000161214731633663,
+						-12.3779382705688
+					],
+					"capsule_height": 1.52400004863739,
+					"capsule_radius": 0.330000013113022,
+					"collision_mask": 1,
+					"noclip": false,
+					"on_floor": true,
+					"physics_frame": 10
+				}
+			],
+			"trace": [
+				{
+					"actual": [
+						-0.0000000484772542108658,
+						0.0241666622459888,
+						-12.3279218673706
+					],
+					"capsule_height": 1.52400004863739,
+					"capsule_radius": 0.330000013113022,
+					"collision_mask": 1,
+					"noclip": false,
+					"ok": true,
+					"on_floor": false,
+					"sample_index": 3,
+					"target": [
+						-0.0000000507052035914057,
+						0.0399999991059303,
+						-12.2299995422363
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.0000000484772471054384,
+						0.000161214731633663,
+						-12.3779382705688
+					],
+					"capsule_height": 1.52400004863739,
+					"capsule_radius": 0.330000013113022,
+					"collision_mask": 1,
+					"noclip": false,
+					"ok": false,
+					"on_floor": true,
+					"sample_index": 6,
+					"target": [
+						-0.000000349691106293903,
+						0.0399999991059303,
+						-15.6499996185303
+					],
+					"wall_contacts": {}
+				}
+			]
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "One declared outside street placement, all six authored public-region routes, observed consecutive physics poses, actual source floor/region capsule witnesses and real bodega front-leaf grab/motion/release. REGION_SHOPS means its authored bodega instance only; no receiving, eleven arcade-shop interiors, cases, inventory, disk saves, acoustic, photoreal, traffic safety or human acceptance.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "4887f644b9081f78bfcba317cadaa796d9bb009e",
+		"runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+		"scene_path": "res://tests/V2RegionAccessContract.tscn",
+		"surface_inputs_sha256": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709",
+		"test_dependencies": {
+			"game/tests/V2RegionAccessContract.tscn": "494a93b1c717469ab7a6253726bedaa3b144700721b71a885dea1e81640ea96d",
+			"game/tests/orison_v2_first_slice_contract_test.gd": "59f0f5275b8215cd449afea46904fabf8485acfc6485172bfd82a5ac594d8c28",
+			"game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+			"game/tests/v2_region_access_contract.gd": "40b8fa96d0a11623d6db2121f7696fb2626ce81f4331370473e2cfa54cd91adf",
+			"game/tests/v2_region_access_driver.gd": "beef9eb9f2b1e67593cb926e10cddc8aa44c231e21396608d874edb4f36a04db",
+			"game/tests/v2_region_access_observer.gd": "ecc6d771b09c2e9e5882c3c68bc56761c5751eab0b2df5b04094dcdd1747318c",
+			"game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+		},
+		"test_path": "game/tests/v2_region_access_contract.gd",
+		"test_sha256": "40b8fa96d0a11623d6db2121f7696fb2626ce81f4331370473e2cfa54cd91adf"
+	}
+}

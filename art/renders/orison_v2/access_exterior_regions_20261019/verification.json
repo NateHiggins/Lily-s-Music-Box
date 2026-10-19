@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "errors": [],
+  "checks": 130,
+  "regions": [
+    "REGION_ARCADE_HALL",
+    "REGION_ARCADE_PORTAL",
+    "REGION_ARCADE_THROAT",
+    "REGION_CONSTRUCTION_SEAM",
+    "REGION_SHOPS",
+    "REGION_STREET"
+  ],
+  "routes": [
+    "ROUTE_ARCADE_TO_STREET",
+    "ROUTE_CONSTRUCTION_TO_STREET",
+    "ROUTE_ORISON_TO_SHOP_BODEGA",
+    "ROUTE_SHOP_BODEGA_TO_ORISON",
+    "ROUTE_STREET_TO_ARCADE",
+    "ROUTE_STREET_TO_CONSTRUCTION"
+  ],
+  "samples": 6594,
+  "waypoints": 52,
+  "teardown": {
+    "executed": true,
+    "measurement_scope": "production root, route driver and post-controller observer only",
+    "retained_nodes": 0,
+    "status": "PASS",
+    "tracked_nodes": 3
+  },
+  "evidence_class": "INERT",
+  "scope": "Independent validation of the unmodified original contract. Only the explicit spatial checkpoint grants its limited regional proof."
+}

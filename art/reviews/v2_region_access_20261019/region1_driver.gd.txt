@@ -1,0 +1,73 @@
+extends "res://tests/orison_v2_vertical_route_test.gd"
+## One source-defined outside placement; subsequent motion uses the live controller.
+const Observer=preload("res://tests/v2_region_access_observer.gd")
+const Hand=preload("res://tests/orison_v2_first_slice_contract_test.gd")
+var observer: Variant
+var routes: Dictionary={}
+var threshold_controls: Dictionary={}
+
+func _init() -> void:route_label="EXTERIOR REGIONS"
+
+func _prepare_player_start() -> void:
+	var route: Dictionary=world.public_regions.route("ROUTE_ORISON_TO_SHOP_BODEGA")
+	var initial: Vector3=world.to_global(route.nodes[0].placement.position)
+	player.global_position=initial+Vector3.UP*.025;player.velocity=Vector3.ZERO
+
+func _require(ok: bool,label: String) -> bool:
+	interaction_checks.append({"ok":ok,"label":label})
+	if not ok:failures.append(label);push_error(label)
+	return ok
+
+func _walk(local_target: Vector3) -> bool:
+	var ok:=await super._walk(local_target)
+	# The endpoint is a real observed post-controller pose, not target-as-actual.
+	var first: int=observer.samples.size()
+	for frame in 4:
+		if observer.samples.size()>first:break
+		await get_tree().physics_frame
+	if not _require(observer.samples.size()>first,"endpoint has an observed physics sample"):return false
+	var sample: Dictionary=observer.samples[-1]
+	var actual: Array=sample.actual
+	ok=ok and Vector2(float(actual[0])-local_target.x,float(actual[2])-local_target.z).length()<.18 and absf(float(actual[1])-local_target.y)<.15
+	var step: Dictionary=trace[-1]
+	step.actual=actual.duplicate();step.ok=ok;step["sample_index"]=observer.samples.size()-1
+	for key: String in ["noclip","collision_mask","capsule_radius","capsule_height","on_floor"]:step[key]=sample[key]
+	return _require(ok,"observed endpoint reaches its commanded target")
+
+func _open_bodega() -> bool:
+	var threshold: Dictionary=world._exterior_resolver.threshold_record("THRESHOLD_SHOP_BODEGA_FRONT")
+	var door: DoorProp=world.exterior_cell.interaction_leaf(str(threshold.interactive_leaf_id)) as DoorProp
+	if not _require(door!=null,"actual source bodega front leaf"):return false
+	var hand:=Hand.PatrolHand.new();add_child(hand);hand.player=player
+	var body:=door.get_node("HingedLeaf") as Node3D
+	var ok:=true
+	if door.open:ok=await hand.operate(body.to_global(Vector3(door.width/3,1.1,door._hinge_offset)),0,door)
+	var before: float=body.rotation.y
+	var before_index: int=observer.samples.size()-1
+	if ok:ok=await hand.operate(body.to_global(Vector3(door.width/3,1.1,door._hinge_offset)),door.motion_target_angle(true),door)
+	var action: Dictionary={"owner_id":str(threshold.interactive_leaf_id),"kind":"grab_mouse_release",
+		"released":not player._grab.active(),"follows_cursor":hand.follows_cursor,"ready_for_passage":door.is_ready_for_passage(),
+		"before_angle":before,"actual_angle":body.rotation.y,"stop_angle":door.motion_target_angle(true),
+		"leg":"exterior_regions","before_sample_index":before_index,"after_sample_index":observer.samples.size()-1}
+	hand.free()
+	threshold_controls[str(threshold.id)]=[action]
+	return _require(ok and action.ready_for_passage and action.released and action.follows_cursor and absf(action.actual_angle-before)>.5,"actual bodega grab, mouse motion and release")
+
+func _route() -> void:
+	observer=Observer.new();observer.configure(world);add_child(observer)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	for identity: String in ["ROUTE_ORISON_TO_SHOP_BODEGA","ROUTE_SHOP_BODEGA_TO_ORISON","ROUTE_STREET_TO_ARCADE","ROUTE_ARCADE_TO_STREET","ROUTE_STREET_TO_CONSTRUCTION","ROUTE_CONSTRUCTION_TO_STREET"]:
+		var route: Dictionary=world.public_regions.route(identity)
+		if not _require(not route.is_empty(),"actual complete source exterior route: "+identity):return
+		var indices: Array[Dictionary]=[]
+		for node: Dictionary in route.nodes:
+			if identity=="ROUTE_ORISON_TO_SHOP_BODEGA" and str(node.id)=="BODEGA_INTERIOR":
+				if not await _open_bodega():return
+			var target: Vector3=world.adapter.root.to_local(world.to_global(node.placement.position))
+			if not await _walk(target):return
+			indices.append({"id":str(node.id),"trace_index":trace.size()-1})
+		routes[identity]={"leg":"exterior_regions","nodes":indices}
+	_require(observer.claims.size()==6,"all six regions have actual supported full-capsule witnesses")
+	# The future contract writer must stop/copy/free this observer before root
+	# teardown and measure all three weak references. No fixture or old diagnostic
+	# receipt may be reused as a substitute for this original played run.

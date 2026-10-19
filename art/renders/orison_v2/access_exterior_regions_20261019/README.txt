@@ -1,0 +1,1 @@
+Evidence class: INERT. Original current-source schema-2 played contract and matching wrapper/raw logs. No runtime programme, inventory, receiving, eleven shop interiors, human appearance or V1 retirement grant.

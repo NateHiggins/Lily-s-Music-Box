@@ -1089,6 +1089,7 @@ class Evidence:
             epoch = doc_epoch(name)
             access_rooms = None
             access_connections = set()
+            access_regions = set()
             access_problems = []
             if "SPATIAL_ACCESS" in name:
                 # New played-room checkpoints must expire when the actual
@@ -1122,6 +1123,17 @@ class Evidence:
                                 access_problems.extend(connection_errors)
                             else:
                                 access_connections.update(receipt["contracts"]["room_connections"]["connections"])
+                        if "region_access" in receipt["contracts"]:
+                            # A region record or room witness is not exterior
+                            # access. Require the source routes, consecutive
+                            # live poses, full capsule and actual door input.
+                            from spatial_region_evidence import validate_regions
+                            region_errors = validate_regions(receipt, inputs.root,
+                                digests.get("runtime"), digests.get("surface"))
+                            if region_errors:
+                                access_problems.extend(region_errors)
+                            else:
+                                access_regions.update(receipt["contracts"]["region_access"]["regions"])
             acceptance = bool(ACCEPTANCE_DOC_RE.search(name))
             composition = bool(RUNTIME_COMPOSITION_DOC_RE.search(name))
             status_line = next(
@@ -1144,13 +1156,13 @@ class Evidence:
                         r"Verdict:.*PASS", text, re.IGNORECASE))})
                 continue
             for token in tokens:
-                if access_rooms is not None and token not in access_rooms and token not in access_connections:
+                if access_rooms is not None and token not in access_rooms and token not in access_connections and token not in access_regions:
                     self.conflicts.append({"token": token, "source": rel,
                         "epoch": epoch, "negative_epoch": -1,
                         "note": "spatial access claim lacks current played proof: " +
                                 "; ".join(access_problems or ["room or typed connection absent from receipt"])})
                     continue
-                if token not in model.all_ids and \
+                if token not in model.all_ids and token not in access_regions and \
                         token not in RITUAL_IDENTITIES:
                     if re.match(r"^(B1|F0\d|ROOF)_", token) or \
                             token.startswith("Lobby"):
@@ -1174,7 +1186,7 @@ class Evidence:
                 # or a structured composition claim below.
                 self.by_token.setdefault(token, []).append(
                     {"tier": "SPATIALLY_PROVEN", "source": rel,
-                     "epoch": epoch, "channel": "spatial_connection" if token in access_connections else "mention"})
+                     "epoch": epoch, "channel": "spatial_region" if token in access_regions else "spatial_connection" if token in access_connections else "mention"})
 
             if composition:
                 packet_names = set(PACKET_DIR_RE.findall(text))
@@ -1489,9 +1501,14 @@ class Ledger:
             region_id = f"REGION_{key.upper()}"
             record = records.get(region_id)
             status = "PROGRAMMED" if record and record.get("boundary") else "ABSENT"
+            regional = [row for row in self.evidence.by_token.get(region_id, [])
+                        if row.get("channel") == "spatial_region"]
+            sources = sorted({row["source"] for row in regional})
+            if status == "PROGRAMMED" and regional:
+                status = "SPATIALLY_PROVEN"
             self.add("01b exterior and region axis", f"region.{key}",
                      {"region": region_id}, status, "SPATIALLY_PROVEN",
-                     [f"v2-exterior:{region_id}"] if record else
+                     [f"v2-exterior:{region_id}"] + sources if record else
                      ["derived: authoritative v2 exterior region record absent"],
                      notes=label)
 
