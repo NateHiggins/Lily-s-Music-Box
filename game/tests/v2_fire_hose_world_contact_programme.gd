@@ -93,4 +93,34 @@ func run(root: Node3D,rig: RefCounted,exclusions: Array[RID]) -> RefCounted:
 	body.free()
 	await root.get_tree().physics_frame;await root.get_tree().physics_frame
 	check(not contact.veto(rest,shifted),"removing real obstruction clears the same sweep")
+	await _response_planes(root,rig,contact,rest)
 	return contact
+func _response_planes(root: Node3D,rig: RefCounted,contact: RefCounted,rest: PackedVector3Array) -> void:
+	var wall:=StaticBody3D.new();var shape:=CollisionShape3D.new();var box:=BoxShape3D.new()
+	box.size=Vector3(4.,.04,4.);shape.shape=box;wall.add_child(shape);root.add_child(wall)
+	var lowest:=INF
+	var frame: Transform3D=rig.model_frames(rest)[0]
+	for p: Vector3 in contact.sections[0].outer:lowest=minf(lowest,(frame*p).y)
+	var local:=Transform3D(Basis.IDENTITY,Vector3(rest[0].x-.01,lowest-.02+.0005,rest[0].z))
+	var original: Transform3D=rig.model.global_transform
+	for world: Transform3D in [original,Transform3D(Basis(Vector3.UP,PI),Vector3(-4.35,9.6,-7.87))]:
+		rig.model.global_transform=world;wall.global_transform=world*local
+		await root.get_tree().physics_frame;await root.get_tree().physics_frame
+		var result: Dictionary=contact.contact_constraints(rest)
+		check(result.valid and not result.truncated and not result.planes.is_empty(),"native cloth yields bounded contact response planes "+str(world.origin))
+		var correct: bool=not result.planes.is_empty();var shift:=0.;var endpoint_depth: float=NAN
+		for plane: Dictionary in result.planes:
+			print("HOSE RESPONSE PLANE: ring=",plane.ring," normal=",plane.normal," depth=",plane.offset-plane.normal.dot(rest[plane.ring]))
+			correct=correct and plane.normal.dot(Vector3.UP)>.999 and plane.rid==wall.get_rid()
+			shift=maxf(shift,plane.offset-plane.normal.dot(rest[plane.ring]))
+			if plane.ring==0:endpoint_depth=plane.offset-plane.normal.dot(rest[0])
+		check(correct and absf(endpoint_depth-.0006)<.000002,"response preserves500micrometre intrusion plus100micrometre stand-off")
+		var lifted:=rest.duplicate()
+		for i in lifted.size():lifted[i]+=Vector3.UP*shift
+		check(not contact.intersects_pose(lifted),"native shell clears real wall after measured response translation")
+		result=contact.contact_constraints(rest,2)
+		check(result.valid and result.truncated and result.planes.size()==2,"bounded contact collection reports truncation explicitly")
+	rig.model.global_transform=original;wall.free()
+	await root.get_tree().physics_frame;await root.get_tree().physics_frame
+	var clear: Dictionary=contact.contact_constraints(rest)
+	check(clear.valid and not clear.truncated and clear.planes.is_empty(),"removed wall leaves no cached contact planes")

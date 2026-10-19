@@ -134,5 +134,8 @@ func run(holder: PlayerController) -> bool:
 	var roundtrip: Variant=JSON.parse_string(JSON.stringify(rig.snapshot()))
 	check(rig.restore(saved),"original physical strand restores")
 	check(rig.restore(roundtrip) and rig.strand.points==moved,"JSON roundtrip restores exact moved cloth positions")
+	var gravity:=preload("res://tests/v2_fire_hose_gravity_programme.gd").new()
+	check(await gravity.run(self,rig,contact),"native gravity and contact response programme")
+	for failure: String in gravity.failures:check(false,failure)
 	_sync()
 	return failures.is_empty()

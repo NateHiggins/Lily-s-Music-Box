@@ -1,0 +1,13 @@
+SCRIPT ERROR: Parse Error: Cannot infer the type of "correct" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/v2_fire_hose_world_contact_programme.gd:111)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/v2_fire_capacity_rig_programme.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/v2_fire_capacity_native_test.gd:0)
+ERROR: Failed to load script "res://tests/v2_fire_capacity_native_test.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: run (res://tests/v2_fire_capacity_rig_programme.gd:110)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/v2_fire_capacity_rig_programme.gd:110)
+       [1] _render_high_rings (res://tests/v2_fire_capacity_rig_programme.gd:77)
