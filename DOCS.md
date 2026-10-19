@@ -37,6 +37,7 @@ Knowing which kind you are reading tells you how much to trust it.
 |---|---|
 | Current city massing, recessed windows, retained roof contacts and qualification | `design/V2_CITY_ELEVATIONS_2026-10-18.md` |
 | Repaired service approaches, retained heating ports and native operable core doors | `design/V2_SERVICE_CIRCULATION_2026-10-18.md` |
+| Completed service qualification, clean regression comparison and remaining V2 blockers | `design/V2_SERVICE_CIRCULATION_REPORT_2026-10-18.md` |
 | Original basement-to-roof-and-back room access and six independently validated direct service thresholds | `design/ORISON_V2_SERVICE_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md` |
 | Six supported public landing programmes, fitted signs, repaired F01 passage and completed automated qualification | `design/V2_PUBLIC_LANDING_INTEGRATION_2026-10-18.md` |
 | Original single-placement six-floor played landing access; separate broader and human gates | `design/ORISON_V2_PUBLIC_LANDING_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md` |

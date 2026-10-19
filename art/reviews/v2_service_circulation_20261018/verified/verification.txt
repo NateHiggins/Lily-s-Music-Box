@@ -1,0 +1,73 @@
+# Candidate verification - b0216b795520
+
+- candidate `b0216b7955206cfffed849300bd1cfea8818dae9`
+- base `6dc7f5cd4a6db2a8a3f2d391086bfcb87cd73b2c`
+- merge-base `6dc7f5cd4a6db2a8a3f2d391086bfcb87cd73b2c`
+- verified 2026-10-19T02:32:23Z from verifier `b0216b795520`
+
+| check | result |
+|---|---|
+| checkout mode | in-place |
+| checkout clean | yes |
+| gate board vs merge-base | 0 regressions, 13 improvements |
+| ledger before | {'FIRST_SLICE_TECHNICAL': 0, 'FULL_BUILDING_RUNTIME': 25, 'FULL_BUILDING_STRUCTURAL': 37, 'GOLDEN_SHIFT_V2': 1, 'PRODUCTION_CUTOVER': 54, 'V1_RETIREMENT': 56} |
+| ledger after | {'FIRST_SLICE_TECHNICAL': 0, 'GOLDEN_SHIFT_V2': 1, 'FULL_BUILDING_STRUCTURAL': 27, 'FULL_BUILDING_RUNTIME': 25, 'PRODUCTION_CUTOVER': 44, 'V1_RETIREMENT': 46} |
+| requirements_changed | ['circ.F02.service_core', 'circ.F02.service_route', 'circ.F03.service_core', 'circ.F03.service_route', 'circ.F04.service_core', 'circ.F04.service_route', 'circ.F05.service_core', 'circ.F05.service_route', 'circ.F06.service_core', 'circ.F06.service_route'] |
+| protected | 17/17 unchanged vs merge-base; 0 authorized selector change(s) |
+| selector | v2 |
+| design doc lint errors | 0 |
+| gates changed by candidate | 5 |
+
+## Blocking reasons (0)
+
+- none
+
+## Needs human review (not blocking) (4)
+
+- candidate changes 5 gate file(s); read those diffs before trusting the board
+- ledger requirements changed: ['circ.F02.service_core', 'circ.F02.service_route', 'circ.F03.service_core', 'circ.F03.service_route', 'circ.F04.service_core', 'circ.F04.service_route', 'circ.F05.service_core', 'circ.F05.service_route', 'circ.F06.service_core', 'circ.F06.service_route']
+- Godot suites were not run (--no-godot)
+- Verified the clean canonical checkout; fresh-checkout import and autocrlf behavior are outside this in-place verification
+
+## Regressions (0)
+
+- none
+
+## Accepted regressions (0)
+
+- none
+
+## Improvements (13)
+
+- ledger: blockers.FULL_BUILDING_STRUCTURAL 37 -> 27
+- ledger: blockers.PRODUCTION_CUTOVER 54 -> 44
+- ledger: blockers.V1_RETIREMENT 56 -> 46
+- ledger: circ.F02.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F02.service_route PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F03.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F03.service_route PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F04.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F04.service_route PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F05.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F05.service_route PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F06.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F06.service_route PROGRAMMED -> SPATIALLY_PROVEN
+
+## Report claims contradicted (0)
+
+- none
+
+## Design doc lint (2)
+
+- INFO design/ORISON_V2_PUBLIC_LANDING_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md: this document changes 7 requirement status(es): circ.F01.public_landing PROGRAMMED->SPATIALLY_PROVEN, circ.F03.public_core PROGRAMMED->SPATIALLY_PROVEN, circ.F03.public_landing PROGRAMMED->SPATIALLY_PROVEN, circ.F05.public_core PROGRAMMED->SPATIALLY_PROVEN, circ.F05.public_landing PROGRAMMED->SPATIALLY_PROVEN, circ.F06.public_core PROGRAMMED->SPATIALLY_PROVEN, circ.F06.public_landing PROGRAMMED->SPATIALLY_PROVEN
+- INFO design/ORISON_V2_SERVICE_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md: this document changes 10 requirement status(es): circ.F02.service_core PROGRAMMED->SPATIALLY_PROVEN, circ.F02.service_route PROGRAMMED->SPATIALLY_PROVEN, circ.F03.service_core PROGRAMMED->SPATIALLY_PROVEN, circ.F03.service_route PROGRAMMED->SPATIALLY_PROVEN, circ.F04.service_core PROGRAMMED->SPATIALLY_PROVEN, circ.F04.service_route PROGRAMMED->SPATIALLY_PROVEN, circ.F05.service_core PROGRAMMED->SPATIALLY_PROVEN, circ.F05.service_route PROGRAMMED->SPATIALLY_PROVEN, circ.F06.service_core PROGRAMMED->SPATIALLY_PROVEN, circ.F06.service_route PROGRAMMED->SPATIALLY_PROVEN
+
+## Gates changed by the candidate (5)
+
+- M tools/audit_orison_v2_completeness.py
+- M tools/orison_spatial_dependency_manifest.json
+- A tools/tests/test_spatial_connection_evidence.py
+- M tools/tests/test_v2_public_landing_programmes.py
+- A tools/tests/test_v2_service_entries.py
+
+MERGE-CANDIDATE b0216b7955206cfffed849300bd1cfea8818dae9
