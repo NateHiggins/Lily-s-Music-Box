@@ -1,0 +1,39 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Four previously inspected native primary-elevation previews produced by elevations_build2 after its native checks. Original source-only and failed diagnostics retained; no new runtime or human grant.",
+  "native_sha256": "0086830bffac9ad3ee0942305f4ef91ad929c29174c80608a4efb1a8b28f2530",
+  "asset_sha256": "92421bf9920cde9c8c43573b24b35326a7ad0940477fbcc42783d3f0e9aa440a",
+  "native_checks": {
+    "bearing_samples": 1205,
+    "window_samples": 3682,
+    "failures": [],
+    "tolerance_m": 0.0001
+  },
+  "limitations": [
+    "Native ground review attempts in diagnostic ZIP had limited/misregistered context and are not accepted world registration proof",
+    "Earlier92-block horizon native previews/benches are superseded by the124-building period-informed source",
+    "Prepublication source boards intentionally show expired original receipts; final verifier must compare current published originals against complete clean fa6 baseline"
+  ],
+  "review_files": [
+    {
+      "file": "near_elevation.png",
+      "sha256": "f28abe2bf72c39bab669e71ab27efc0d3cdcc699356d9664b35989cf471e8b85"
+    },
+    {
+      "file": "west_neighbors.png",
+      "sha256": "ec5de9984bb8c9c073c36ac0c5709fad56a3985d3d1f308f0861b62eba2b0350"
+    },
+    {
+      "file": "north_skyline.png",
+      "sha256": "e4401f1048d01f26470535a3b5e1e112ab55825274819bdf50c38fee2ac6240a"
+    },
+    {
+      "file": "south_skyline.png",
+      "sha256": "478c6717fec369cb0e2eb31754c879210873daafb735d729e3be1943eb9d3aab"
+    },
+    {
+      "file": "construction.json",
+      "sha256": "5c9ed62aab9f97355166698fd320373e309e14a75ab1b5b6dc7f35e6aab9caa3"
+    }
+  ]
+}

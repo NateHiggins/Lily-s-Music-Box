@@ -1,79 +1,104 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "reviewed_utc": "2026-10-19T01:55:06.622781+00:00",
-  "scope": "Current scoped city/furnishing/entrance comparison after the service circulation repair. All fourteen actual images inspected. Separate seven standing service images inspected in their own packet. No whole-environment photoreal, gameplay, human or full-V2 acceptance. Visible distant ground/horizon edge, repeated shade/timber stock, strong carried-light hotspots and simple artwork remain open.",
-  "surface_inputs_sha256": "65ee917e07628f2db5540afd100c67a53b6a76860e73e0514fbfa775cc61ab9c",
+  "reviewed_utc": "2026-10-19T04:31:36.148630+00:00",
+  "scope": "All nineteen current images actually inspected for scoped city/ground/furnishing/entrance correspondence and visual continuity. The dedicated horizon camera is a source-derived close posed view; no retained-camera, played exterior, whole-environment photoreal, full-V2 or human acceptance grant. Plain retained far backs, repetitive glazing/timber/shade stock, coarse artwork, carried-light clipping and cloud art remain open.",
+  "surface_inputs_sha256": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709",
   "images": [
     {
-      "file": "clearance_174_F06_PUBLIC_LANDING_PIECE.png",
-      "sha256": "41010bac1b20ef058bf8a003f23cd474aca16f3b91b294e1f165edb02b4f96df",
-      "observation": "The retained landing artwork clears the rail and panel cap. Its simple graphic and flashlight hotspot remain appearance work."
-    },
-    {
-      "file": "clearance_141_F01_lobby_photo.png",
-      "sha256": "d79d46c62f225f964b99bb60cde9400d0cffc0fc26658b5545226217b1de6068",
-      "observation": "The complete frame is above the eye rail and the doorway remains clear. Small graphic content remains visually coarse."
-    },
-    {
-      "file": "clearance_139_6A_print_line.png",
-      "sha256": "b302849ef50107a5c8002ee92c5fcaa7d30d09b08dc72834a45d8fe3cda6fa11",
-      "observation": "All six prints and end supports sit above the eye rail; no rail cuts through their visible stock."
-    },
-    {
-      "file": "clearance_10_1A_wardrobe.png",
-      "sha256": "4abc48cf69fefb4aa83a1a3afe60db10af3afc0591e747761baea8fef71022e2",
-      "observation": "Wardrobe stock stands forward of the corner skirting. Wood repetition and the strong flashlight highlight remain appearance debt."
-    },
-    {
-      "file": "clearance_47_2A_k_wall_cupboard.png",
-      "sha256": "5dbd24441f385c38523164770aa86b4ccce44680cbfbb55f62b0b6d126547cee",
-      "observation": "Wall cupboard and sink remain installed; rail passes behind the projecting supported cupboard. Bright finish and simple cabinet detailing remain appearance work."
-    },
-    {
-      "file": "omitted_B1_washer_supply.png",
-      "sha256": "a36b6fd2def9620c5544cc8184e950cd7c7d1771d4b0ee3e50c99388720c12ec",
-      "observation": "Retained washer supply pipes and supports remain seated above the wall finish; no missing cold/hot line. This is a scoped installation comparison, not mechanical or photoreal acceptance."
-    },
-    {
-      "file": "front_restored_entrance.png",
-      "sha256": "cc21d51ccdfb6d1d01a97330a554719b541c93fdf412c08b8f82ef48ee8a31fd",
-      "observation": "Native entrance, marquee, blade and window trim remain intact after the service circulation repair. Simplified stone/wood shading remains broader appearance work."
+      "file": "city_west_roof.png",
+      "sha256": "25accaddf6e715507d2e6cd886df1631212cfcd45909546f04c2299c8c838930",
+      "observation": "New lower background rows are visible through gaps beneath the retained tall blocks. Existing tanks, masts and aerial silhouettes remain. Repeated window stock and simple roof detailing remain appearance work."
     },
     {
       "file": "city_north_roof.png",
-      "sha256": "8c1b7a83b3e36ccf031a365f7206203f4815a63db81d80489375f6fce9c9b6c6",
-      "observation": "Continuous primary stone elevations and a single upper crown replace the repeated setbacks. Recessed sash and varied shade drops are visible. Distance fog still flattens stone contrast; no whole-city appearance grant."
-    },
-    {
-      "file": "city_west_roof.png",
-      "sha256": "95f865c13bfcc92062a8e67fb206b15960336c682ebb5d17e74d6c74c2ab862c",
-      "observation": "The surrounding skyline retains its actual mast and water-tank silhouettes over continuous elevations. Atmospheric flattening remains broader appearance work."
+      "sha256": "11c877b25525f3b1dd03d315f81a7c89e505c0307fc1a7efa887542bf3c890ab",
+      "observation": "Masonry, sash and varied shade stock remain legible in the clearer near field; lower distant buildings fill the base of the gaps. This posed roof image grants no traversal or exact historical-site claim."
     },
     {
       "file": "city_east_roof.png",
-      "sha256": "f1139da0226239f8ba57ecb2540cc7531af29dc2a9b1cd1a0e716470f309c35a",
-      "observation": "The east skyline keeps roof plant and its existing bearings; repeated terrace tiers are absent from the main elevation. This posed roof view proves no walking route."
+      "sha256": "cb1ad1bdbd042692d0c7b7fdb272016e2623e65da9659a4c5fc5e422ac60d60d",
+      "observation": "The retained roof tanks and aerials sit over continuous primary elevations and a single crown. The new skyline treatment does not change their visible arrangement."
     },
     {
       "file": "city_street_skyline.png",
-      "sha256": "577046def866702a8d7129b62dd7c9ed5fe89fcb7cec432bd5fdbacd0233092c",
-      "observation": "The actual street perspective retains the Orison foreground and shows reworked neighbouring massing at the left; it is not a complete street sweep."
+      "sha256": "c462b10ccc00abd0e5f2f2e8c4dbc1d7f01cab8d2bb1f9a1bc8d62104764aa66",
+      "observation": "The entrance-side brick, projecting sill, blinds and construction canopy remain fitted. Background stock now adds depth beyond the street; repeated windows remain schematic."
     },
     {
       "file": "city_site_nbr_e_window.png",
-      "sha256": "bfb16c80d5fe88eb0138af73180a1f5676e01c8a4061d88d0a1a2c0f2f0ca63e",
-      "observation": "The upper window has an actual clear first-hit sightline past the construction canopy. Recess, painted sash, stone sill and varied curtain drops are visible beside the retained Orison."
+      "sha256": "b796aeb1bebcdee82d0705fb647381d2fd18ca4af86ea45141ef1fba631f623d",
+      "observation": "Recessed sash and gathered white curtains remain behind the masonry; linen and roller treatments vary among windows. Fire escape, canopy and adjacent tank remain visible."
     },
     {
       "file": "city_site_ne1_window.png",
-      "sha256": "b83a04f1e29c5af4014e0b6dcfa349a1a506c732d046ff836503cea2fdd9773f",
-      "observation": "Brick and stone elevations remain distinct. Visible window returns, sills and lintels meet the corner without the prototype coplanar overlap."
+      "sha256": "18892b8f8d7db018bc4d27b20c4b4d3962b921cab44be1923d5af00d66c38502",
+      "observation": "Paired sash joinery, separate projecting sills and varied curtains/shades are visible. Strong repetition and largely dark glazing remain appearance debt."
     },
     {
       "file": "city_site_back_e_window.png",
-      "sha256": "f5aca42978bee6f524146bc447e4f46ec133f3e38db82b2a2d6c1d61b9779383",
-      "observation": "Continuous masonry and recessed windows are visible from the clear upper station. Finite distant ground/horizon continuity and repetitive stock remain broader world work."
+      "sha256": "6efb9b95e06a7284a6dfafb9326a218df63f9734a3873617328905c6389201f0",
+      "observation": "A lower distant row is visibly present through the gap between the retained near buildings. This is visual context, not a new occupied interior or walking proof."
+    },
+    {
+      "file": "city_horizon_context.png",
+      "sha256": "bd2d3a444b67eb1d9419c02cebb0951db8ffb3a5cf390a09d5821500b0a10720",
+      "observation": "Source-derived close context camera, explicitly not a retained camera or player route: lower rooflines, separate sash, cornice stocks and capped chimneys are visible. Repetitive opaque glazing and schematic background detailing remain."
+    },
+    {
+      "file": "city_weather_dry.png",
+      "sha256": "aaa5293c30dda4e7b952745b6c770d97b0dfe6ee60a04f1dae42f43324006efb",
+      "observation": "The same posed camera retains brick and window detail in dry conditions. The sky remains visible and the near field is not flattened by the storm extinction distance."
+    },
+    {
+      "file": "city_weather_storm.png",
+      "sha256": "d708c1da890610539281151c26f7ea7cb7877d7f773b1b59a8ff317cfb263dc9",
+      "observation": "Dense weather changes the same buildings to diffuse silhouettes while retaining visible tanks and aerials. Cloud artwork remains a separate polish item."
+    },
+    {
+      "file": "city_weather_fog.png",
+      "sha256": "05e49a97c37945e90dd8fba878412bd1db59267bb7192018f5bec0e5b6e4fac1",
+      "observation": "Fog preserves the equipment silhouette and obscures facade detail as intended. This staged comparison grants no live-network weather or calendar acceptance."
+    },
+    {
+      "file": "city_ground_seam.png",
+      "sha256": "2e4b372406c3a9c8a7882426f8a82423bc138eeb37655c9b4f961365543a2fb7",
+      "observation": "Distant ground is visibly continuous around the old footprint; background rows are visible at its limits. The retained outward faces remain blank masonry and require a later geometry/detail pass."
+    },
+    {
+      "file": "clearance_174_F06_PUBLIC_LANDING_PIECE.png",
+      "sha256": "b2a054559312dee9f67b2c04b123cf353283eefb629aaa13cba462665ffb52be",
+      "observation": "The landing frame remains above the panel cap and at the eye-rail line without the rail cutting across its visible face. Simplified graphic content and a strong carried-light hotspot remain."
+    },
+    {
+      "file": "clearance_141_F01_lobby_photo.png",
+      "sha256": "ae8c376a654ab1751f822349001496c7cb115cf4c91bfa1c7aa7382363c183ce",
+      "observation": "The wall frame remains above the eye rail beside the door; the doorway stays clear. Artwork and paint still read simply under the bright carried light."
+    },
+    {
+      "file": "clearance_139_6A_print_line.png",
+      "sha256": "fa04afac5d08397573388d8d67ed70724673b37b2aab17436aa26225ca54fa31",
+      "observation": "All six prints and their end supports remain above the wall rail. Their content is visibly schematic and their paper is strongly lit."
+    },
+    {
+      "file": "clearance_10_1A_wardrobe.png",
+      "sha256": "83a8070ccc83143efa4f4a7ff582cf5aaa0501b729778978c8e4c2823d868c66",
+      "observation": "The wardrobe remains forward of the wall/skirting corner beside the window. Repeated timber and the clipped central carried-light highlight remain appearance work."
+    },
+    {
+      "file": "clearance_47_2A_k_wall_cupboard.png",
+      "sha256": "f9553dc65c83b7cd85782f47447b415ac73763708f1e21ab9684f20b98996c99",
+      "observation": "The cupboard remains in front of the wall band with the sink and faucet retained below. Bright illumination hides fine finish detail; this does not establish mechanical or photoreal acceptance."
+    },
+    {
+      "file": "omitted_B1_washer_supply.png",
+      "sha256": "ec56e98fd3607009eb4c91d49907e99a1aff95a3b04454803f632cddd3499289",
+      "observation": "Both washer/wringer installations and the hot/cold supply runs remain seated in the reviewed view. This is an installation comparison; operation is proved separately."
+    },
+    {
+      "file": "front_restored_entrance.png",
+      "sha256": "a98ec916ed870b63a8913f261f22bc6350a6473817c9ea51ba04363c455f9ba8",
+      "observation": "The native entrance door, fitted window trim, marquee and projecting blade remain intact. The restored frontage is coherent in this scoped view; further material wear and appearance review remain."
     }
   ]
 }

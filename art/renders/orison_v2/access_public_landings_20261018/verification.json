@@ -4,10 +4,10 @@
   "errors": [],
   "packet": "access_public_landings_20261018",
   "source": {
-    "repository_head": "f1a0fc5c5466534fe6c120dd6c9526b6d6cca6ae",
-    "runtime_inputs_sha256": "19bab8cdb37bbd1bc6695d8b3314b8c26ef1001ff797b77dfe7aa8abe0838fda",
+    "repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
+    "runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
     "scene_path": "res://tests/V2PublicLandingAccessContract.tscn",
-    "surface_inputs_sha256": "65ee917e07628f2db5540afd100c67a53b6a76860e73e0514fbfa775cc61ab9c",
+    "surface_inputs_sha256": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709",
     "test_dependencies": {
       "game/tests/V2PublicLandingAccessContract.tscn": "fb5e200529c4c5ec2496a91820b3080023a6fab4b10e615728e89690374061eb",
       "game/tests/orison_v2_public_landing_walk.gd": "f963fee464a3bf962b06296b02b70a16adbf7b7b7c29e4b49dcf98a0803c095f",
@@ -18,7 +18,7 @@
     "test_path": "game/tests/v2_public_landing_access_contract.gd",
     "test_sha256": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7"
   },
-  "scope": "Independent current-source validation of original test-written proof. No added grant.",
+  "scope": "Independent current-source validation of original unmodified test-written proof. No new grant.",
   "rooms": 6,
   "legs": 1,
   "checks": 41,

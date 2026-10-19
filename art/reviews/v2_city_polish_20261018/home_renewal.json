@@ -1,0 +1,42 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "errors": [],
+  "packet": "access_home_cohort_20261018",
+  "source": {
+    "repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
+    "runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+    "scene_path": "res://tests/OrisonV2HomeAccessCohort.tscn",
+    "surface_inputs_sha256": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709",
+    "test_dependencies": {
+      "game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
+      "game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",
+      "game/tests/OrisonV2HomeAccessCohort.tscn": "852dad0e2498e3fab6156abe49d4cf4c7c7d2ba83421a22dccba9ef7c6fa3b82",
+      "game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",
+      "game/tests/orison_v2_4b_door_route_test.gd": "812dda33b098642cfd39f85c858cbe8e431821e49b02b827d0273007e9b029db",
+      "game/tests/orison_v2_apartment_access_contract_test.gd": "a1480f27f488006185702af8cecf1f7f8f0ceea1d9da42a6a06dbcac2069764d",
+      "game/tests/orison_v2_apartment_door_route_test.gd": "e2d8fe48ac080e55d43bda8d0514d52f4cf6e57cec14c5849b89181d55cfa9ac",
+      "game/tests/orison_v2_completion_access_contract_test.gd": "d2bbf278c10712fea959a312ff06e8b3272d0fc92b4d3b007f544fc727ce80cd",
+      "game/tests/orison_v2_completion_interiors_test.gd": "bde71f1b87bb0759f98dd222d3c94fa750621641e1738316492d08f570b59405",
+      "game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+      "game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
+      "game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+      "game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
+      "game/tests/v2_completion_door_settle.gd": "459389748e0fa4374d352f4a618cac42477b407fc40ed8c53599878a4161819a",
+      "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+    },
+    "test_path": "game/tests/v2_spatial_access_cohort.gd",
+    "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+  },
+  "scope": "Independent current-source validation of original unmodified test-written proof. No new grant.",
+  "rooms": 62,
+  "legs": 9,
+  "checks": 909,
+  "teardown": {
+    "executed": true,
+    "measurement_scope": "shared production root and all route/check drivers only",
+    "retained_nodes": 0,
+    "status": "PASS",
+    "tracked_nodes": 10
+  }
+}

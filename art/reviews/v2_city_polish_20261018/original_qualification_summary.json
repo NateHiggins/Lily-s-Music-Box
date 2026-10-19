@@ -1,0 +1,208 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Independent current-source validation of six unmodified original contracts and byte-verified wrapper logs; no additional grant",
+  "created_utc": "2026-10-19T05:22:28.848622+00:00",
+  "inputs": {
+    "runtime": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+    "surface": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709"
+  },
+  "result": "PASS",
+  "runs": {
+    "final_surface4": {
+      "result": "PASS",
+      "original_contract_sha256": "81f543779cdca19cb783ac91be5dc3d78bc02b9704997a77928668c0923d8ff9",
+      "elapsed_s": 636.77,
+      "serialized_checks": 39527,
+      "original_source": {
+        "repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
+        "runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+        "test_path": "game/tests/orison_v2_surface_inventory.gd",
+        "test_sha256": "6ee54310eb8ccc3ac1a0aae5e33364b1c469a9d61a22cf4c27e4b4e9aea39086"
+      },
+      "reported_checks": 39527,
+      "teardown": {
+        "executed": true,
+        "measurement_scope": "runtime_owned",
+        "status": "PASS"
+      }
+    },
+    "final_circulation1": {
+      "result": "PASS",
+      "original_contract_sha256": "be950e17c6f85c95cbdb9cacdd3b2edf9197e8256f85dfe2fa0cde74d5e3d3c6",
+      "elapsed_s": 318.08,
+      "serialized_checks": 90,
+      "original_source": {
+        "repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
+        "runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+        "scene_path": "res://tests/V2ServiceCirculationContract.tscn",
+        "surface_inputs_sha256": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709",
+        "test_dependencies": {
+          "game/tests/V2ServiceCirculationContract.tscn": "e7ed5d0e65b98f3ff993ec6e1bf038a2db56964c911a419c52ff343df8f6ba73",
+          "game/tests/orison_v2_first_slice_contract_test.gd": "59f0f5275b8215cd449afea46904fabf8485acfc6485172bfd82a5ac594d8c28",
+          "game/tests/orison_v2_public_landing_walk.gd": "f963fee464a3bf962b06296b02b70a16adbf7b7b7c29e4b49dcf98a0803c095f",
+          "game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+          "game/tests/v2_service_circulation_contract.gd": "b25a23c9e339469906df0a73b84804375f920bbeccc15effdb8a16151a827e14",
+          "game/tests/v2_service_circulation_driver.gd": "737b2939b38a33f3d6d9ea7b8d60ba6c9f538ebaf3fca352d34d54ea0953d588",
+          "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+        },
+        "test_path": "game/tests/v2_service_circulation_contract.gd",
+        "test_sha256": "b25a23c9e339469906df0a73b84804375f920bbeccc15effdb8a16151a827e14"
+      },
+      "legs": 1,
+      "waypoints": 439,
+      "rooms": 27,
+      "connections": 6,
+      "teardown": {
+        "executed": true,
+        "measurement_scope": "production root and service route driver only",
+        "retained_nodes": 0,
+        "status": "PASS",
+        "tracked_nodes": 2
+      }
+    },
+    "final_service1": {
+      "result": "PASS",
+      "original_contract_sha256": "20793cd669f5f28702e8175fe0bb9a4294aa12cc2bc0d83fa4f7421a98085ed2",
+      "elapsed_s": 374.73,
+      "serialized_checks": 359,
+      "original_source": {
+        "physical_inputs_sha256": "ccc8a95c3467d919179f3ff15c0219662cf322aaf657077c141edb085c5ec192",
+        "repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
+        "runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+        "test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
+        "test_sha256": "59f0f5275b8215cd449afea46904fabf8485acfc6485172bfd82a5ac594d8c28"
+      },
+      "check_count_note": "The final flush check is executed after the JSON is written; raw stdout and matching wrapper preserve it separately.",
+      "reported_checks": 360,
+      "teardown": {
+        "executed": true,
+        "measurement_scope": "runtime_owned",
+        "resource_scope": "Unpathed collision shapes below the seven exercised authorities; exact process-owned radiator cache IDs separately measured.",
+        "retained_borrowed_shapes": 168,
+        "retained_nodes": 0,
+        "retained_playbacks": 0,
+        "retained_resources": 0,
+        "shared_cache_count": 84,
+        "status": "PASS",
+        "tracked_borrowed_shapes": 168,
+        "tracked_nodes": 131260,
+        "tracked_playbacks": 160,
+        "tracked_resources": 234
+      }
+    },
+    "final_home1": {
+      "result": "PASS",
+      "original_contract_sha256": "cfcb1e742553a91a55deafbe39c99b3534e763e8c0ab1578f742d730878f73d5",
+      "elapsed_s": 441.54,
+      "serialized_checks": 909,
+      "original_source": {
+        "repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
+        "runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+        "scene_path": "res://tests/OrisonV2HomeAccessCohort.tscn",
+        "surface_inputs_sha256": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709",
+        "test_dependencies": {
+          "game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
+          "game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",
+          "game/tests/OrisonV2HomeAccessCohort.tscn": "852dad0e2498e3fab6156abe49d4cf4c7c7d2ba83421a22dccba9ef7c6fa3b82",
+          "game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",
+          "game/tests/orison_v2_4b_door_route_test.gd": "812dda33b098642cfd39f85c858cbe8e431821e49b02b827d0273007e9b029db",
+          "game/tests/orison_v2_apartment_access_contract_test.gd": "a1480f27f488006185702af8cecf1f7f8f0ceea1d9da42a6a06dbcac2069764d",
+          "game/tests/orison_v2_apartment_door_route_test.gd": "e2d8fe48ac080e55d43bda8d0514d52f4cf6e57cec14c5849b89181d55cfa9ac",
+          "game/tests/orison_v2_completion_access_contract_test.gd": "d2bbf278c10712fea959a312ff06e8b3272d0fc92b4d3b007f544fc727ce80cd",
+          "game/tests/orison_v2_completion_interiors_test.gd": "bde71f1b87bb0759f98dd222d3c94fa750621641e1738316492d08f570b59405",
+          "game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+          "game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
+          "game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+          "game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
+          "game/tests/v2_completion_door_settle.gd": "459389748e0fa4374d352f4a618cac42477b407fc40ed8c53599878a4161819a",
+          "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+        },
+        "test_path": "game/tests/v2_spatial_access_cohort.gd",
+        "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+      },
+      "legs": 9,
+      "waypoints": 243,
+      "rooms": 62,
+      "teardown": {
+        "executed": true,
+        "measurement_scope": "shared production root and all route/check drivers only",
+        "retained_nodes": 0,
+        "status": "PASS",
+        "tracked_nodes": 10
+      }
+    },
+    "final_upper1": {
+      "result": "PASS",
+      "original_contract_sha256": "803485d9068b2d52ce1f960fe569fa47017997ed44cd0c56165a71acaa0e97b4",
+      "elapsed_s": 1127.82,
+      "serialized_checks": 989,
+      "original_source": {
+        "repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
+        "runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+        "scene_path": "res://tests/OrisonV2UpperAccessCohort.tscn",
+        "surface_inputs_sha256": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709",
+        "test_dependencies": {
+          "game/tests/OrisonV2RemainingApartmentAccessContractTest.tscn": "d68123786dcc531a7ad0063c790fd92b273b302768d6b7ee7d54c0b682bb414f",
+          "game/tests/OrisonV2RoofProgramContractTest.tscn": "b8ad7093d82c3dfda068621fe24698a882dab835cb1d9c14f0f14ccee110b659",
+          "game/tests/OrisonV2UpperAccessCohort.tscn": "b1776fe9a0c00ec6c7dcba8e27ee5d449dadbcafb2f6574b268a897c38369a14",
+          "game/tests/orison_v2_4b_door_route_test.gd": "812dda33b098642cfd39f85c858cbe8e431821e49b02b827d0273007e9b029db",
+          "game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+          "game/tests/orison_v2_lift_drive_test.gd": "f946f707a0d85fb28f4380621b8ee79f04afc71d57a090d743377b7999925fc1",
+          "game/tests/orison_v2_remaining_apartment_access_contract_test.gd": "6f03bd08ea6d386f15c07b04c565b54583d13c3268c95ec43e5d5877b24aecca",
+          "game/tests/orison_v2_roof_lift_program_route_test.gd": "8b112671a5624cd5531fdcbc439ffbada8093f7658b89bd5d4d5264bff507321",
+          "game/tests/orison_v2_roof_plant_test.gd": "a48b898eb33976b25f2e4264341e8ea8fa3d787c583378acfc7cb787b6747b38",
+          "game/tests/orison_v2_roof_program_contract_test.gd": "4be679b20ce084c6a2be036514a45116b400e2bd6392884b111c3d70b9020a2a",
+          "game/tests/orison_v2_roof_program_route_test.gd": "cdf7f722a4c2e584e3da08fee82fbfa8fb58a9b854bd79f0649e8abedd5db02d",
+          "game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
+          "game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+          "game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
+          "game/tests/v2_remaining_apartment_walk.gd": "1800867bad41aa422b64587424c074fcf7257a66fbfd3a96147721be7cd0f1be",
+          "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+        },
+        "test_path": "game/tests/v2_spatial_access_cohort.gd",
+        "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+      },
+      "legs": 11,
+      "waypoints": 1235,
+      "rooms": 69,
+      "teardown": {
+        "executed": true,
+        "measurement_scope": "shared production root and all route/check drivers only",
+        "retained_nodes": 0,
+        "status": "PASS",
+        "tracked_nodes": 13
+      }
+    },
+    "final_landing1": {
+      "result": "PASS",
+      "original_contract_sha256": "2f3242cb6a08edbf8104a1015b999756638456307d4c91ce77a0ac318ae7dd08",
+      "elapsed_s": 343.44,
+      "serialized_checks": 41,
+      "original_source": {
+        "repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
+        "runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+        "scene_path": "res://tests/V2PublicLandingAccessContract.tscn",
+        "surface_inputs_sha256": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709",
+        "test_dependencies": {
+          "game/tests/V2PublicLandingAccessContract.tscn": "fb5e200529c4c5ec2496a91820b3080023a6fab4b10e615728e89690374061eb",
+          "game/tests/orison_v2_public_landing_walk.gd": "f963fee464a3bf962b06296b02b70a16adbf7b7b7c29e4b49dcf98a0803c095f",
+          "game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+          "game/tests/v2_public_landing_access_contract.gd": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7",
+          "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+        },
+        "test_path": "game/tests/v2_public_landing_access_contract.gd",
+        "test_sha256": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7"
+      },
+      "legs": 1,
+      "waypoints": 748,
+      "rooms": 6,
+      "teardown": {
+        "executed": true,
+        "measurement_scope": "shared production root and all route/check drivers only",
+        "retained_nodes": 0,
+        "status": "PASS",
+        "tracked_nodes": 3
+      }
+    }
+  }
+}
