@@ -1,1 +1,1 @@
-Evidence class: INERT. Unmodified current-source test-written contract and matching wrapper/raw logs. Existing checkpoint prose defines the limited grant. No capture, wrapper or this README supplies runtime acceptance.
+Evidence class: INERT. Original current-source contract, matching wrapper and raw logs. Existing explicit checkpoints define the limited grant. No wrapper or capture grants runtime proof.

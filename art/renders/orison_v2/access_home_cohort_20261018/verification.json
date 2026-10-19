@@ -4,10 +4,10 @@
   "errors": [],
   "packet": "access_home_cohort_20261018",
   "source": {
-    "repository_head": "2f4aabb036802cdff2ac335207c8f6c3cdfa0561",
-    "runtime_inputs_sha256": "907a113d640e050a715d545520d190fdfb9060bf4c8a297f1943fb0f274761eb",
+    "repository_head": "90f8458cdda9dafd3ad2bfc2cc110947f99a79fb",
+    "runtime_inputs_sha256": "19bab8cdb37bbd1bc6695d8b3314b8c26ef1001ff797b77dfe7aa8abe0838fda",
     "scene_path": "res://tests/OrisonV2HomeAccessCohort.tscn",
-    "surface_inputs_sha256": "7b2d589628bcece6c6a1b4028d34efa93dce748926d453195dc25cf7db7b028c",
+    "surface_inputs_sha256": "65ee917e07628f2db5540afd100c67a53b6a76860e73e0514fbfa775cc61ab9c",
     "test_dependencies": {
       "game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
       "game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",
@@ -20,7 +20,7 @@
       "game/tests/orison_v2_completion_interiors_test.gd": "bde71f1b87bb0759f98dd222d3c94fa750621641e1738316492d08f570b59405",
       "game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
       "game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
-      "game/tests/orison_v2_vertical_route_test.gd": "301419474f5ca1b2e5405fe74b32a2d8e9603ce9a2e5151f98e6d6e9d786e48d",
+      "game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
       "game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
       "game/tests/v2_completion_door_settle.gd": "459389748e0fa4374d352f4a618cac42477b407fc40ed8c53599878a4161819a",
       "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
@@ -28,5 +28,15 @@
     "test_path": "game/tests/v2_spatial_access_cohort.gd",
     "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
   },
-  "scope": "Independent current-source validation; no added acceptance grant."
+  "scope": "Independent current-source validation of original test-written proof. No added grant.",
+  "rooms": 62,
+  "legs": 9,
+  "checks": 909,
+  "teardown": {
+    "executed": true,
+    "measurement_scope": "shared production root and all route/check drivers only",
+    "retained_nodes": 0,
+    "status": "PASS",
+    "tracked_nodes": 10
+  }
 }
