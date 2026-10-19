@@ -218,6 +218,30 @@ class OrisonHoseProjectionNative : public RefCounted {
         for (const Row &r:rows) value+=r.equality?std::abs(r.g):std::max(0.,-r.g);
         return value;
     }
+    // Line-search trials need scalar residuals, not thousands of gradient
+    // rows. Preserve make_rows()/merit()/acceptable() traversal and arithmetic
+    // while avoiding row allocation, normalization and storage for each trial.
+    bool assess(const Points &points,const Planes &planes,double &trial_merit,bool &accepted) {
+        double maximum=0.,total=0.,bend=0.,plane_error=0.;trial_merit=0.;
+        for (int i=0;i<int(points.size());++i) {
+            if (i<int(lengths.size())) {
+                double distance=(points[i]-points[i+1]).length();
+                if (distance<.0000001) {error="collapsed native length gradient";return false;}
+                double g=distance-lengths[i];maximum=std::max(maximum,std::abs(g));total+=g;trial_merit+=std::abs(g);
+            }
+            if (i<int(spans.size())) {
+                double distance=(points[i]-points[i+2]).length();
+                if (distance<.0000001) {error="collapsed native bend gradient";return false;}
+                double g=distance-spans[i];bend=std::max(bend,-g);trial_merit+=std::max(0.,-g);
+            }
+            for (const Plane &p:planes[i]) {
+                double g=dot(p.normal,points[i])-p.offset;plane_error=std::max(plane_error,-g);trial_merit+=std::max(0.,-g);
+            }
+        }
+        accepted=maximum<=ERROR_M && std::abs(total)<=ERROR_M && bend<=ERROR_M && plane_error<=.000001;
+        return true;
+    }
+
     struct WarmRow { int first,last; Vector3 vector; double rhs; };
     bool warm_support(Points &points,const Vector3 &anchor,const Planes &planes) {
         for (int i=0;i<int(points.size());++i) {
@@ -388,9 +412,9 @@ public:
             for (double alpha=1.;alpha>=1./4096.;alpha*=.5) {
                 Points trial=points;
                 for (int i=0;i<int(points.size());++i) trial[i]+=delta[i]*real_t(alpha);
-                trial.back()=anchor;Rows candidate;
-                if (!make_rows(trial,planes,candidate)) return output({});
-                if (acceptable(candidate) || merit(candidate)<=old_merit*(1.-.01*alpha)) {
+                trial.back()=anchor;double trial_merit=0.;bool accepted=false;
+                if (!assess(trial,planes,trial_merit,accepted)) return output({});
+                if (accepted || trial_merit<=old_merit*(1.-.01*alpha)) {
                     points=std::move(trial);advanced=true;break;
                 }
             }
