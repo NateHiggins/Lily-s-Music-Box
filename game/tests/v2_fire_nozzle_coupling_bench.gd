@@ -45,7 +45,12 @@ func _run() -> void:
 	if not check(native.mount(adapter,{"levels":[{"y":0.}]}),"production installer accepts actual physical nozzle coupling"):
 		print(native.errors);get_tree().quit(1);return
 	var floor_metrics: Node=preload("res://tests/orison_v2_domestic_native_test.gd").new()
-	floor_metrics._check_cap_mapping(native.meshes.F015,true)
+	var coating_finish: StandardMaterial3D=native.meshes.F015.surface_get_material(0)
+	for identity: String in ["F012","F013","F014","F015"]:
+		floor_metrics._check_cap_mapping(native.meshes[identity],true)
+		check(native.meshes[identity].surface_get_material(0)==coating_finish,"case coating shares original registered lining finish: "+identity)
+	check(coating_finish.normal_enabled and not coating_finish.uv1_triplanar,"all native case coatings use authored UVs and active normal mapping")
+	for texture: Texture2D in [coating_finish.albedo_texture,coating_finish.roughness_texture,coating_finish.normal_texture]:check(texture!=null and texture.get_image().get_mipmap_count()>0,"actual loaded case coating PBR map retains mip chain")
 	for failure: String in floor_metrics.failures:check(false,failure)
 	floor_metrics.free()
 	if not failures.is_empty():get_tree().quit(1);return

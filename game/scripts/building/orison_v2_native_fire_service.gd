@@ -53,15 +53,17 @@ func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 	var floor_packed:=load("res://assets/props/fire_floor_enamel.glb") as PackedScene
 	if floor_packed==null:errors.append("native case floor finish missing");return false
 	var floor_model: Node=floor_packed.instantiate()
-	var floor_mesh: ArrayMesh
+	var coating_ids: Dictionary={"FloorEnamel":"F015","LeftEnamel":"F012","RightEnamel":"F013","TopEnamel":"F014"}
+	var coating_meshes: Dictionary={}
 	for draw: MeshInstance3D in floor_model.find_children("*","MeshInstance3D",true,false):
-		if str(draw.name)!="FloorEnamel":continue
+		if not coating_ids.has(str(draw.name)) or draw.mesh==null:
+			errors.append("unknown native case coating "+str(draw.name));continue
 		var mesh: ArrayMesh=draw.mesh.duplicate() as ArrayMesh
 		for surface in mesh.get_surface_count():mesh.surface_set_material(surface,finishes.Lining)
-		floor_mesh=mesh
+		coating_meshes[coating_ids[str(draw.name)]]=mesh
 	floor_model.free()
-	if floor_mesh==null:errors.append("native case floor part missing");return false
-	meshes.F015=floor_mesh
+	if coating_meshes.size()!=4:errors.append("native case coatings missing");return false
+	for identity: String in coating_meshes:meshes[identity]=coating_meshes[identity]
 	if not errors.is_empty(): return false
 	var nozzle_detail:=preload("res://scripts/props/fire_nozzle_detail_stock.gd").new()
 	if not nozzle_detail.load_stock():errors.append("detailed nozzle stock missing");return false

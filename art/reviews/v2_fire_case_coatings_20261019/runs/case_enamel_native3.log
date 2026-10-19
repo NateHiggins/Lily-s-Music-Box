@@ -1,0 +1,20 @@
+00:13.641  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\case_enamel_native3\floor_enamel_assembled.png'
+00:25.672  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\case_enamel_native3\floor_enamel_layer.png'
+Info: Saved as "fire_floor_enamel.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+14:26:17 | INFO: Starting glTF 2.0 export
+14:26:17 | INFO: Extracting primitive: FloorEnamel
+14:26:17 | INFO: Primitives created: 1
+14:26:17 | INFO: Extracting primitive: LeftEnamel
+14:26:17 | INFO: Primitives created: 1
+14:26:17 | INFO: Extracting primitive: RightEnamel
+14:26:17 | INFO: Primitives created: 1
+14:26:17 | INFO: Extracting primitive: TopEnamel
+14:26:17 | INFO: Primitives created: 1
+14:26:17 | INFO: Finished glTF 2.0 export in 0.04135727882385254 s
+
+FIRE CASE ENAMEL NATIVE PASS {"evidence_class": "INERT", "scope": "Four native50um cosmetic coatings on retained steel; no runtime, manufacturing-standard or human acceptance. Original source origins and single structural collision retained.", "source_bindings": {"art/blender/scripts/build_fire_floor_enamel.py": "f338c96b8220dc535370e3952e3755df256fd75237fc04e7120c90678a465187", "art/blender/fire_service.blend": "711be36e6951534f92fe20939ff6847556515d88c1824d55aa908a8fda97103c", "art/blender/fire_nozzle_hose.blend": "f943e4262e8537be6cf579174a24e5230545ee967d040d0570bdd498aa8dcf8e", "game/data/orison_v2/fire_service.json": "4ef0d9c6482b18d6dbb40eab4dffd6d96c3d9d13b2f442ee4fb99d1f72a9b356", "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d", "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea", "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4", "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2"}, "thickness_m": 5e-05, "parts": {"FloorEnamel": {"nonmanifold_edges": 0, "volume_m3": 5.095429230502266e-06, "original_node": "F015", "original_origin_m": [0, 0.027, 0.108], "steel_bearing_rays": 36}, "LeftEnamel": {"nonmanifold_edges": 0, "volume_m3": 6.807063384065818e-06, "original_node": "F012", "original_origin_m": [-0.283, 0.39, 0.108], "steel_bearing_rays": 32}, "RightEnamel": {"nonmanifold_edges": 0, "volume_m3": 6.807063384065818e-06, "original_node": "F013", "original_origin_m": [0.283, 0.39, 0.108], "steel_bearing_rays": 32}, "TopEnamel": {"nonmanifold_edges": 0, "volume_m3": 5.3279907884600224e-06, "original_node": "F014", "original_origin_m": [0, 0.753, 0.108], "steel_bearing_rays": 32}}, "bearing_rays": 132, "tin_footprint_clear": true, "old_left_lining_cloth_intersection_pairs": 113, "new_coatings_cloth_intersection_pairs": 0, "tail_left_clearances_m": {"HoseTail00": 0.0019565729618072347, "HoseTail10": 0.016705265474319442}, "export": {"asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\case_enamel_native3\\game\\assets\\props\\fire_floor_enamel.glb", "primitives": 4, "triangles": 68, "minimum_tangent_agreement": 0.9999999999941978, "status": "PASS"}, "outputs": {"game/assets/props/fire_floor_enamel.glb": "d1cdedeb43f1b09af23b62ffa197f0f4243f0c332ba64e28599e35f2b908f761", "art/blender/fire_floor_enamel.blend": "2bb2f49ce761b83e26b128ef99c71e319cf6f650043bd53dd44b33cfa57bb44f"}}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
