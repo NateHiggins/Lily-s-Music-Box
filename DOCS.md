@@ -35,7 +35,8 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
-| Native fire-cabinet floor refit, stable loose stock and current composed hand review | `design/V2_FIRE_FLOOR_AND_HAND_REVIEW_2026-10-19.md` |
+| Eight installed fire-cabinet hand programmes, precise native contacts and remaining work | `design/V2_FIRE_INSTALLED_HAND_REVIEW_2026-10-19.md` |
+| Native fire-cabinet floor refit, stable loose stock and preceding diagnostic failures | `design/V2_FIRE_FLOOR_AND_HAND_REVIEW_2026-10-19.md` |
 | Current native fire-fitting checkpoint, verified scope and remaining merge qualification | `design/V2_FIRE_CHECKPOINT_2026-10-19.md` |
 | Native nozzle entry guide, phase-driven thread pickup and release without snapping | `design/V2_FIRE_NOZZLE_PICKUP_2026-10-19.md` |
 | Carried voxel light offset, smaller beam and lower intensity comparisons | `design/V2_CARRIED_LIGHT_OFFSET_2026-10-19.md` |

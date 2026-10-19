@@ -1,0 +1,25 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled native geometry study; all internal contacts, UVs/PBR, hand motion and support strength still require production qualification.",
+  "centreline_polyline_m": 15.239999999999998,
+  "front_leg_length_m": 0.365331630836051,
+  "front_leg_bottom_y_m": 0.04566836916394895,
+  "front_depth_m": 0.173,
+  "rear_legs": 19,
+  "front_legs": 20,
+  "crossover_y_m": 0.5,
+  "source_bindings": {
+    "tmp/v2-fire-hand-20261019/hose_capacity_candidate.py": "b2fb14280e82b834e4587eff66637336c35aa67828f5f2385cb56f04386d44f2",
+    "game/data/orison_v2/fire_fold_stock.json": "59de7980eec37b7f5462d9542d08cafd8332fddd98d1fd317d71f41f7be39876"
+  },
+  "mesh": {
+    "vertices": 203392,
+    "quads": 203392,
+    "closed": true,
+    "volume_m3": 0.003141537695879224,
+    "minimum_y_m": 0.031668368726968765,
+    "maximum_depth_m": 0.2045000046491623,
+    "maximum_x_m": 0.27900001406669617,
+    "minimum_x_m": -0.285994291305542
+  }
+}

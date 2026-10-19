@@ -56,9 +56,26 @@ assumptions. A fail-fast or explicitly fire-only run writes only its scoped
 fire contract; it cannot issue full surface acceptance. Passive parts receive
 40 physics ticks before restoration snapshots.
 
-Combined installed review is pending; the next run yields an actual rendered
-frame before querying the restored physics space. This is a test scheduling
-change under investigation, not a claim that the closed-leaf failure is fixed.
+The next combined run, **stage19_fire5**, passed the complete basement hand
+programme and both restored-door rays after yielding a rendered frame before
+the physics query. The next landing exposed five fresh-fold bearing-ray
+failures, so the eight-station review still failed and remains unaccepted.
+
+The native bearing probe now traces upward from inside the curved profiles,
+comparing the carrier's upper surface with the crown's inner upper surface.
+The rejected opposed-ray attempt measured the carrier underside. The corrected
+geometry fixture, **stage19_rack_matrix2**, passed 320 checks in 25.66 s: 800
+bearing rays across both stock poses and all eight world heights, plus 160
+deliberately displaced-crown negative controls. The 100 micrometre contact
+limit remains unchanged. This is loaded geometry verification, not a played
+route or an eight-station hand contract. A new combined run is pending.
+
+That combined run, **stage19_fire6**, still failed five centre bearing samples
+in the basement's fresh pose: the arm ray returned no intersection while the
+cloth ray remained finite. Other offsets passed. The small fixture therefore
+does not close the composed failure. Triangle-ray numerical behavior and
+exact world transforms require diagnosis before another expensive full run;
+the centre samples and 100 micrometre contact requirement remain mandatory.
 
 The current isolated staged-candidate board has 114 regressions against the
 clean merge-base board, with only the two expired-evidence completeness smoke
@@ -66,6 +83,12 @@ checks failing among the tools tests. This is diagnostic static coverage, not
 clean candidate acceptance. The lighting test's header now accurately names
 its optical/collision diagnostic scope; no public-behavior proof is inferred
 from its private policy calls, and no systemic baseline was expanded.
+
+Partial checkpoint **6529faf5** was committed and pushed to draft PR **10**.
+Its clean in-place verifier also reported 114 regressions, preserved all 17
+protected paths and the V2 selector, and found no design-document lint errors.
+It is not merge-ready. The later rack-matrix follow-up and combined review
+remain work in progress beyond that checkpoint.
 
 The broader surface, route and clean
 candidate qualification remain open, as do human appearance approval,

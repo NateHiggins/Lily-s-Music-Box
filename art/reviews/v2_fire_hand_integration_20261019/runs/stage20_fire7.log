@@ -1,0 +1,566 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1486 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2635
+[ORISON V2 RUNTIME] ready startup_ms=94350.776
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+[HARUKIYA] CLOSED, 18 fixtures
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = true
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, -1.932, -7.982)]
+FIRE HAND CHECK: actual mouse inserts spigot into native-certified entry guide; release does not snap or catch = true
+FIRE HAND CHECK: contact and release leave original body clocking and coupling facts unchanged = true
+FIRE HAND CHECK: unthreaded guided pose remains a valid household record = true
+FIRE HAND CHECK: restored entry guide derives its constraint from the saved physical pose = true
+FIRE HAND CHECK: actual loosening gesture turns inserted nut without forced pickup = true
+FIRE HAND CHECK: wrong direction and release neither tighten nor move the guided nozzle = true
+FIRE HAND CHECK: actual outward carry withdraws unthreaded spigot from guide = true
+FIRE HAND CHECK: withdrawal frees guide without fabricating a coupled fact = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, -1.932, -7.982)]
+FIRE HAND CHECK: actual mouse reinserts withdrawn original nozzle = true
+FIRE HAND CHECK: grabbing inserted nut leaves nozzle pose and engagement unchanged = true
+NOZZLE MOUSE PICKUP: loose=false angle=23.9879370497519 clocking=0.0 spin=0.0 position=(-0.00731, 0.068, 0.112)
+FIRE HAND CHECK: actual tightening gesture picks up native helix; releasing nut retains partial thread without snap = true
+FIRE HAND CHECK: actual mouse screws whole nozzle along its native thread to the seal = true
+FIRE HAND CHECK: only completed nozzle travel changes its coupling fact = true
+FIRE HAND CHECK: screwing the nozzle preserves its actual fixed hose inlet = true
+FIRE HAND CHECK: seven-field household mechanism includes physical nozzle state = true
+FIRE HAND CHECK: saved overtravel cannot replace actual thread state = true
+FIRE HAND CHECK: saved nozzle fact cannot contradict actual sealing travel = true
+FIRE HAND CHECK: actual mouse leaves a partial nozzle thread setting = true
+FIRE HAND CHECK: partial physical withdrawal follows measured pitch = true
+FIRE HAND CHECK: actual physical nozzle and all existing mechanism fields restore exactly = true
+FIRE HAND CHECK: actual mouse clears the complete threaded stroke = true
+FIRE HAND CHECK: releasing fully cleared thread frees the original nozzle = true
+FIRE HAND CHECK: resting loose nozzle retains a valid physical household record = true
+FIRE HAND CHECK: restored supported loose nozzle retains its exact saved pose = true
+FIRE HAND CHECK: restored nozzle identifies its actual physical support = true
+FIRE HAND CHECK: loose nozzle rests on retained structural floor under cosmetic enamel = true
+FIRE HAND CHECK: moving actual saved support wakes gravity and nozzle lands on displaced floor within200um = true
+FIRE HAND CHECK: actual grabbed tag opens the fixed gasket inspection view = true
+FIRE HAND CHECK: gasket work starts by actually unthreading the union = true
+FIRE HAND CHECK: actual carry exposes the receiving washer seat = true
+FIRE HAND CHECK: actual visible washer has an operable screen pixel = true
+GASKET PICK RAY: { "position": (-4.614694, -1.954569, -8.019699), "normal": (0.0, 1.0, 0.0), "face_index": -1, "collider_id": 3639095733700, "collider": PhysicalGasket:<RigidBody3D#3639095733700>, "shape": 1, "rid": RID(1550075171973885) } inspecting=true mouse=(1224.0, 941.0) desired=(1224.0, 940.9992)
+FIRE HAND CHECK: actual washer annulus is individually selectable in the relocated tin = true
+FIRE HAND CHECK: actual mouse and depth wheel lift the original washer out of its tin = true
+FIRE HAND CHECK: carrying the spare washer does not counterfeit fitting or inspection = true
+FIRE HAND CHECK: loose washer position and orientation pass the household save schema = true
+FIRE HAND CHECK: invalid washer orientation is rejected = true
+FIRE HAND CHECK: actual loose washer pose restores without duplicating its draw = true
+GASKET DIAGNOSTIC: ring=(0.245, 0.043931, 0.150015) seat=(0.17, 0.41896, 0.158) target=@MeshInstance3D@29577:<MeshInstance3D#3628173765674> seen=true sampled_pixels=21
+FIRE HAND CHECK: actual inspection cursor observes the exposed receiving annulus = true
+FIRE HAND CHECK: actual continuous grab carries the washer into the receiving seat = true
+FIRE HAND CHECK: releasing the physically fitted washer seats it without tightening the nut = true
+FIRE HAND CHECK: actual washer collision has a positive solid-annulus control = true
+FIRE HAND CHECK: actual annular collision leaves an18.8mm bore gauge unobstructed = true
+FIRE HAND CHECK: seated washer and loose union have a consistent household snapshot = true
+FIRE HAND CHECK: actual carry returns the washer-bearing hose end to the male outlet = true
+FIRE HAND CHECK: actual screw motion tightens against the real washer thickness = true
+FIRE HAND CHECK: fitted washer moves the union stop by its actual1.5mm thickness = true
+FIRE HAND CHECK: tightened gasket-bearing union passes the existing household schema = true
+FIRE HAND CHECK: saved seated washer cannot float10mm above its actual support = true
+FIRE HAND CHECK: actual mouse can unthread the repaired union again = true
+FIRE HAND CHECK: actual carry exposes the installed washer for removal = true
+FIRE HAND CHECK: actual grab removes the same installed washer from the opened union = true
+FIRE HAND CHECK: physical washer removal restores the gasket fault without changing inspection history = true
+FIRE HAND CHECK: actual seated washer pose and union stop restore together = true
+FIRE HAND CHECK: actual gasket inspection frame is saved = true
+FIRE CENTRE RAY DIAGNOSTIC: B1_FIRE_LINE_STAIR collider=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/B1_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.349999, -1.61, -8.089) door=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/B1_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision player=(-4.28, -3.175, -9.02)
+COMPOSED DOOR PHYSICS: B1_FIRE_LINE_STAIR leaf=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, -1.61, -8.076)] body=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, -1.61, -8.076)] server=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, -1.61, -8.076)] layer=1 disabled=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] hit=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/B1_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.254999, -1.51, -8.089)
+COMPOSED FIRE STATION: B1_FIRE_LINE_STAIR checks=205 failures=0
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = true
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 1.268, -7.982)]
+FIRE HAND CHECK: actual mouse inserts spigot into native-certified entry guide; release does not snap or catch = true
+FIRE HAND CHECK: contact and release leave original body clocking and coupling facts unchanged = true
+FIRE HAND CHECK: unthreaded guided pose remains a valid household record = true
+FIRE HAND CHECK: restored entry guide derives its constraint from the saved physical pose = true
+FIRE HAND CHECK: actual loosening gesture turns inserted nut without forced pickup = true
+FIRE HAND CHECK: wrong direction and release neither tighten nor move the guided nozzle = true
+FIRE HAND CHECK: actual outward carry withdraws unthreaded spigot from guide = true
+FIRE HAND CHECK: withdrawal frees guide without fabricating a coupled fact = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 1.268, -7.982)]
+FIRE HAND CHECK: actual mouse reinserts withdrawn original nozzle = true
+FIRE HAND CHECK: grabbing inserted nut leaves nozzle pose and engagement unchanged = true
+NOZZLE MOUSE PICKUP: loose=false angle=23.987937051136 clocking=0.0 spin=0.0 position=(-0.00731, 0.068, 0.112)
+FIRE HAND CHECK: actual tightening gesture picks up native helix; releasing nut retains partial thread without snap = true
+FIRE HAND CHECK: actual mouse screws whole nozzle along its native thread to the seal = true
+FIRE HAND CHECK: only completed nozzle travel changes its coupling fact = true
+FIRE HAND CHECK: screwing the nozzle preserves its actual fixed hose inlet = true
+FIRE HAND CHECK: seven-field household mechanism includes physical nozzle state = true
+FIRE HAND CHECK: saved overtravel cannot replace actual thread state = true
+FIRE HAND CHECK: saved nozzle fact cannot contradict actual sealing travel = true
+FIRE HAND CHECK: actual mouse leaves a partial nozzle thread setting = true
+FIRE HAND CHECK: partial physical withdrawal follows measured pitch = true
+FIRE HAND CHECK: actual physical nozzle and all existing mechanism fields restore exactly = true
+FIRE HAND CHECK: actual mouse clears the complete threaded stroke = true
+FIRE HAND CHECK: releasing fully cleared thread frees the original nozzle = true
+FIRE HAND CHECK: resting loose nozzle retains a valid physical household record = true
+FIRE HAND CHECK: restored supported loose nozzle retains its exact saved pose = true
+FIRE HAND CHECK: restored nozzle identifies its actual physical support = true
+FIRE HAND CHECK: loose nozzle rests on retained structural floor under cosmetic enamel = true
+FIRE HAND CHECK: moving actual saved support wakes gravity and nozzle lands on displaced floor within200um = true
+FIRE HAND CHECK: actual grabbed tag opens the fixed gasket inspection view = true
+FIRE HAND CHECK: gasket work starts by actually unthreading the union = true
+FIRE HAND CHECK: actual carry exposes the receiving washer seat = true
+FIRE HAND CHECK: actual visible washer has an operable screen pixel = true
+GASKET PICK RAY: { "position": (-4.614693, 1.245431, -8.019699), "normal": (0.0, 1.0, 0.0), "face_index": -1, "collider_id": 3674160116971, "collider": PhysicalGasket:<RigidBody3D#3674160116971>, "shape": 1, "rid": RID(1555860492921639) } inspecting=true mouse=(1224.0, 941.0) desired=(1224.0, 940.9993)
+FIRE HAND CHECK: actual washer annulus is individually selectable in the relocated tin = true
+FIRE HAND CHECK: actual mouse and depth wheel lift the original washer out of its tin = true
+FIRE HAND CHECK: carrying the spare washer does not counterfeit fitting or inspection = true
+FIRE HAND CHECK: loose washer position and orientation pass the household save schema = true
+FIRE HAND CHECK: invalid washer orientation is rejected = true
+FIRE HAND CHECK: actual loose washer pose restores without duplicating its draw = true
+GASKET DIAGNOSTIC: ring=(0.245, 0.043931, 0.150015) seat=(0.17, 0.41896, 0.158) target=@MeshInstance3D@30221:<MeshInstance3D#3664630657956> seen=true sampled_pixels=21
+FIRE HAND CHECK: actual inspection cursor observes the exposed receiving annulus = true
+FIRE HAND CHECK: actual continuous grab carries the washer into the receiving seat = true
+FIRE HAND CHECK: releasing the physically fitted washer seats it without tightening the nut = true
+FIRE HAND CHECK: actual washer collision has a positive solid-annulus control = true
+FIRE HAND CHECK: actual annular collision leaves an18.8mm bore gauge unobstructed = true
+FIRE HAND CHECK: seated washer and loose union have a consistent household snapshot = true
+FIRE HAND CHECK: actual carry returns the washer-bearing hose end to the male outlet = true
+FIRE HAND CHECK: actual screw motion tightens against the real washer thickness = true
+FIRE HAND CHECK: fitted washer moves the union stop by its actual1.5mm thickness = true
+FIRE HAND CHECK: tightened gasket-bearing union passes the existing household schema = true
+FIRE HAND CHECK: saved seated washer cannot float10mm above its actual support = true
+FIRE HAND CHECK: actual mouse can unthread the repaired union again = true
+FIRE HAND CHECK: actual carry exposes the installed washer for removal = true
+FIRE HAND CHECK: actual grab removes the same installed washer from the opened union = true
+FIRE HAND CHECK: physical washer removal restores the gasket fault without changing inspection history = true
+FIRE HAND CHECK: actual seated washer pose and union stop restore together = true
+FIRE HAND CHECK: actual gasket inspection frame is saved = true
+FIRE CENTRE RAY DIAGNOSTIC: F01_FIRE_LINE_STAIR collider=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F01_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.349999, 1.59, -8.089) door=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F01_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision player=(-4.28, 0.025, -9.02)
+COMPOSED DOOR PHYSICS: F01_FIRE_LINE_STAIR leaf=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 1.59, -8.076)] body=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 1.59, -8.076)] server=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 1.59, -8.076)] layer=1 disabled=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] hit=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F01_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.254999, 1.69, -8.089)
+COMPOSED FIRE STATION: F01_FIRE_LINE_STAIR checks=409 failures=0
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = true
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 4.468, -7.982)]
+FIRE HAND CHECK: actual mouse inserts spigot into native-certified entry guide; release does not snap or catch = true
+FIRE HAND CHECK: contact and release leave original body clocking and coupling facts unchanged = true
+FIRE HAND CHECK: unthreaded guided pose remains a valid household record = true
+FIRE HAND CHECK: restored entry guide derives its constraint from the saved physical pose = true
+FIRE HAND CHECK: actual loosening gesture turns inserted nut without forced pickup = true
+FIRE HAND CHECK: wrong direction and release neither tighten nor move the guided nozzle = true
+FIRE HAND CHECK: actual outward carry withdraws unthreaded spigot from guide = true
+FIRE HAND CHECK: withdrawal frees guide without fabricating a coupled fact = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 4.468, -7.982)]
+FIRE HAND CHECK: actual mouse reinserts withdrawn original nozzle = true
+FIRE HAND CHECK: grabbing inserted nut leaves nozzle pose and engagement unchanged = true
+NOZZLE MOUSE PICKUP: loose=false angle=23.9879370640247 clocking=0.0 spin=0.0 position=(-0.00731, 0.068, 0.112)
+FIRE HAND CHECK: actual tightening gesture picks up native helix; releasing nut retains partial thread without snap = true
+FIRE HAND CHECK: actual mouse screws whole nozzle along its native thread to the seal = true
+FIRE HAND CHECK: only completed nozzle travel changes its coupling fact = true
+FIRE HAND CHECK: screwing the nozzle preserves its actual fixed hose inlet = true
+FIRE HAND CHECK: seven-field household mechanism includes physical nozzle state = true
+FIRE HAND CHECK: saved overtravel cannot replace actual thread state = true
+FIRE HAND CHECK: saved nozzle fact cannot contradict actual sealing travel = true
+FIRE HAND CHECK: actual mouse leaves a partial nozzle thread setting = true
+FIRE HAND CHECK: partial physical withdrawal follows measured pitch = true
+FIRE HAND CHECK: actual physical nozzle and all existing mechanism fields restore exactly = true
+FIRE HAND CHECK: actual mouse clears the complete threaded stroke = true
+FIRE HAND CHECK: releasing fully cleared thread frees the original nozzle = true
+FIRE HAND CHECK: resting loose nozzle retains a valid physical household record = true
+FIRE HAND CHECK: restored supported loose nozzle retains its exact saved pose = true
+FIRE HAND CHECK: restored nozzle identifies its actual physical support = true
+FIRE HAND CHECK: loose nozzle rests on retained structural floor under cosmetic enamel = true
+FIRE HAND CHECK: moving actual saved support wakes gravity and nozzle lands on displaced floor within200um = true
+FIRE HAND CHECK: actual grabbed tag opens the fixed gasket inspection view = true
+FIRE HAND CHECK: gasket work starts by actually unthreading the union = true
+FIRE HAND CHECK: actual carry exposes the receiving washer seat = true
+FIRE HAND CHECK: actual visible washer has an operable screen pixel = true
+GASKET PICK RAY: { "position": (-4.614693, 4.445432, -8.0197), "normal": (0.0, 1.0, 0.0), "face_index": -1, "collider_id": 3709107059723, "collider": PhysicalGasket:<RigidBody3D#3709107059723>, "shape": 1, "rid": RID(1561465425242961) } inspecting=true mouse=(1224.0, 941.0) desired=(1224.0, 940.9993)
+FIRE HAND CHECK: actual washer annulus is individually selectable in the relocated tin = true
+FIRE HAND CHECK: actual mouse and depth wheel lift the original washer out of its tin = true
+FIRE HAND CHECK: carrying the spare washer does not counterfeit fitting or inspection = true
+FIRE HAND CHECK: loose washer position and orientation pass the household save schema = true
+FIRE HAND CHECK: invalid washer orientation is rejected = true
+FIRE HAND CHECK: actual loose washer pose restores without duplicating its draw = true
+GASKET DIAGNOSTIC: ring=(0.245, 0.043931, 0.150014) seat=(0.17, 0.41896, 0.158) target=@MeshInstance3D@30866:<MeshInstance3D#3699577600708> seen=true sampled_pixels=21
+FIRE HAND CHECK: actual inspection cursor observes the exposed receiving annulus = true
+FIRE HAND CHECK: actual continuous grab carries the washer into the receiving seat = true
+FIRE HAND CHECK: releasing the physically fitted washer seats it without tightening the nut = true
+FIRE HAND CHECK: actual washer collision has a positive solid-annulus control = true
+FIRE HAND CHECK: actual annular collision leaves an18.8mm bore gauge unobstructed = true
+FIRE HAND CHECK: seated washer and loose union have a consistent household snapshot = true
+FIRE HAND CHECK: actual carry returns the washer-bearing hose end to the male outlet = true
+FIRE HAND CHECK: actual screw motion tightens against the real washer thickness = true
+FIRE HAND CHECK: fitted washer moves the union stop by its actual1.5mm thickness = true
+FIRE HAND CHECK: tightened gasket-bearing union passes the existing household schema = true
+FIRE HAND CHECK: saved seated washer cannot float10mm above its actual support = true
+FIRE HAND CHECK: actual mouse can unthread the repaired union again = true
+FIRE HAND CHECK: actual carry exposes the installed washer for removal = true
+FIRE HAND CHECK: actual grab removes the same installed washer from the opened union = true
+FIRE HAND CHECK: physical washer removal restores the gasket fault without changing inspection history = true
+FIRE HAND CHECK: actual seated washer pose and union stop restore together = true
+FIRE HAND CHECK: actual gasket inspection frame is saved = true
+FIRE CENTRE RAY DIAGNOSTIC: F02_FIRE_LINE_STAIR collider=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.349999, 4.79, -8.089) door=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision player=(-4.28, 3.225, -9.02)
+COMPOSED DOOR PHYSICS: F02_FIRE_LINE_STAIR leaf=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 4.79, -8.076)] body=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 4.79, -8.076)] server=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 4.79, -8.076)] layer=1 disabled=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] hit=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.254999, 4.89, -8.089)
+COMPOSED FIRE STATION: F02_FIRE_LINE_STAIR checks=612 failures=0
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = true
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 7.668, -7.982)]
+FIRE HAND CHECK: actual mouse inserts spigot into native-certified entry guide; release does not snap or catch = true
+FIRE HAND CHECK: contact and release leave original body clocking and coupling facts unchanged = true
+FIRE HAND CHECK: unthreaded guided pose remains a valid household record = true
+FIRE HAND CHECK: restored entry guide derives its constraint from the saved physical pose = true
+FIRE HAND CHECK: actual loosening gesture turns inserted nut without forced pickup = true
+FIRE HAND CHECK: wrong direction and release neither tighten nor move the guided nozzle = true
+FIRE HAND CHECK: actual outward carry withdraws unthreaded spigot from guide = true
+FIRE HAND CHECK: withdrawal frees guide without fabricating a coupled fact = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 7.668, -7.982)]
+FIRE HAND CHECK: actual mouse reinserts withdrawn original nozzle = true
+FIRE HAND CHECK: grabbing inserted nut leaves nozzle pose and engagement unchanged = true
+NOZZLE MOUSE PICKUP: loose=false angle=23.9879370349091 clocking=0.0 spin=0.0 position=(-0.00731, 0.068, 0.112)
+FIRE HAND CHECK: actual tightening gesture picks up native helix; releasing nut retains partial thread without snap = true
+FIRE HAND CHECK: actual mouse screws whole nozzle along its native thread to the seal = true
+FIRE HAND CHECK: only completed nozzle travel changes its coupling fact = true
+FIRE HAND CHECK: screwing the nozzle preserves its actual fixed hose inlet = true
+FIRE HAND CHECK: seven-field household mechanism includes physical nozzle state = true
+FIRE HAND CHECK: saved overtravel cannot replace actual thread state = true
+FIRE HAND CHECK: saved nozzle fact cannot contradict actual sealing travel = true
+FIRE HAND CHECK: actual mouse leaves a partial nozzle thread setting = true
+FIRE HAND CHECK: partial physical withdrawal follows measured pitch = true
+FIRE HAND CHECK: actual physical nozzle and all existing mechanism fields restore exactly = true
+FIRE HAND CHECK: actual mouse clears the complete threaded stroke = true
+FIRE HAND CHECK: releasing fully cleared thread frees the original nozzle = true
+FIRE HAND CHECK: resting loose nozzle retains a valid physical household record = true
+FIRE HAND CHECK: restored supported loose nozzle retains its exact saved pose = true
+FIRE HAND CHECK: restored nozzle identifies its actual physical support = true
+FIRE HAND CHECK: loose nozzle rests on retained structural floor under cosmetic enamel = true
+FIRE HAND CHECK: moving actual saved support wakes gravity and nozzle lands on displaced floor within200um = true
+FIRE HAND CHECK: actual grabbed tag opens the fixed gasket inspection view = true
+FIRE HAND CHECK: gasket work starts by actually unthreading the union = true
+FIRE HAND CHECK: actual carry exposes the receiving washer seat = true
+FIRE HAND CHECK: actual visible washer has an operable screen pixel = true
+GASKET PICK RAY: { "position": (-4.614694, 7.645432, -8.0197), "normal": (0.0, 1.0, 0.0), "face_index": -1, "collider_id": 3744054002475, "collider": PhysicalGasket:<RigidBody3D#3744054002475>, "shape": 1, "rid": RID(1567070357564283) } inspecting=true mouse=(1224.0, 941.0) desired=(1224.0, 940.9995)
+FIRE HAND CHECK: actual washer annulus is individually selectable in the relocated tin = true
+FIRE HAND CHECK: actual mouse and depth wheel lift the original washer out of its tin = true
+FIRE HAND CHECK: carrying the spare washer does not counterfeit fitting or inspection = true
+FIRE HAND CHECK: loose washer position and orientation pass the household save schema = true
+FIRE HAND CHECK: invalid washer orientation is rejected = true
+FIRE HAND CHECK: actual loose washer pose restores without duplicating its draw = true
+GASKET DIAGNOSTIC: ring=(0.245, 0.043931, 0.150014) seat=(0.17, 0.41896, 0.158001) target=@MeshInstance3D@31511:<MeshInstance3D#3734524543460> seen=true sampled_pixels=21
+FIRE HAND CHECK: actual inspection cursor observes the exposed receiving annulus = true
+FIRE HAND CHECK: actual continuous grab carries the washer into the receiving seat = true
+FIRE HAND CHECK: releasing the physically fitted washer seats it without tightening the nut = true
+FIRE HAND CHECK: actual washer collision has a positive solid-annulus control = true
+FIRE HAND CHECK: actual annular collision leaves an18.8mm bore gauge unobstructed = true
+FIRE HAND CHECK: seated washer and loose union have a consistent household snapshot = true
+FIRE HAND CHECK: actual carry returns the washer-bearing hose end to the male outlet = true
+FIRE HAND CHECK: actual screw motion tightens against the real washer thickness = true
+FIRE HAND CHECK: fitted washer moves the union stop by its actual1.5mm thickness = true
+FIRE HAND CHECK: tightened gasket-bearing union passes the existing household schema = true
+FIRE HAND CHECK: saved seated washer cannot float10mm above its actual support = true
+FIRE HAND CHECK: actual mouse can unthread the repaired union again = true
+FIRE HAND CHECK: actual carry exposes the installed washer for removal = true
+FIRE HAND CHECK: actual grab removes the same installed washer from the opened union = true
+FIRE HAND CHECK: physical washer removal restores the gasket fault without changing inspection history = true
+FIRE HAND CHECK: actual seated washer pose and union stop restore together = true
+FIRE HAND CHECK: actual gasket inspection frame is saved = true
+FIRE CENTRE RAY DIAGNOSTIC: F03_FIRE_LINE_STAIR collider=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F03_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.349999, 7.99, -8.089) door=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F03_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision player=(-4.28, 6.425, -9.02)
+COMPOSED DOOR PHYSICS: F03_FIRE_LINE_STAIR leaf=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 7.99, -8.076)] body=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 7.99, -8.076)] server=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 7.99, -8.076)] layer=1 disabled=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] hit=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F03_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.254999, 8.09, -8.089)
+COMPOSED FIRE STATION: F03_FIRE_LINE_STAIR checks=815 failures=0
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = true
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 10.868, -7.982)]
+FIRE HAND CHECK: actual mouse inserts spigot into native-certified entry guide; release does not snap or catch = true
+FIRE HAND CHECK: contact and release leave original body clocking and coupling facts unchanged = true
+FIRE HAND CHECK: unthreaded guided pose remains a valid household record = true
+FIRE HAND CHECK: restored entry guide derives its constraint from the saved physical pose = true
+FIRE HAND CHECK: actual loosening gesture turns inserted nut without forced pickup = true
+FIRE HAND CHECK: wrong direction and release neither tighten nor move the guided nozzle = true
+FIRE HAND CHECK: actual outward carry withdraws unthreaded spigot from guide = true
+FIRE HAND CHECK: withdrawal frees guide without fabricating a coupled fact = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 10.868, -7.982)]
+FIRE HAND CHECK: actual mouse reinserts withdrawn original nozzle = true
+FIRE HAND CHECK: grabbing inserted nut leaves nozzle pose and engagement unchanged = true
+NOZZLE MOUSE PICKUP: loose=false angle=23.9879370350138 clocking=0.0 spin=0.0 position=(-0.00731, 0.068, 0.112)
+FIRE HAND CHECK: actual tightening gesture picks up native helix; releasing nut retains partial thread without snap = true
+FIRE HAND CHECK: actual mouse screws whole nozzle along its native thread to the seal = true
+FIRE HAND CHECK: only completed nozzle travel changes its coupling fact = true
+FIRE HAND CHECK: screwing the nozzle preserves its actual fixed hose inlet = true
+FIRE HAND CHECK: seven-field household mechanism includes physical nozzle state = true
+FIRE HAND CHECK: saved overtravel cannot replace actual thread state = true
+FIRE HAND CHECK: saved nozzle fact cannot contradict actual sealing travel = true
+FIRE HAND CHECK: actual mouse leaves a partial nozzle thread setting = true
+FIRE HAND CHECK: partial physical withdrawal follows measured pitch = true
+FIRE HAND CHECK: actual physical nozzle and all existing mechanism fields restore exactly = true
+FIRE HAND CHECK: actual mouse clears the complete threaded stroke = true
+FIRE HAND CHECK: releasing fully cleared thread frees the original nozzle = true
+FIRE HAND CHECK: resting loose nozzle retains a valid physical household record = true
+FIRE HAND CHECK: restored supported loose nozzle retains its exact saved pose = true
+FIRE HAND CHECK: restored nozzle identifies its actual physical support = true
+FIRE HAND CHECK: loose nozzle rests on retained structural floor under cosmetic enamel = true
+FIRE HAND CHECK: moving actual saved support wakes gravity and nozzle lands on displaced floor within200um = true
+FIRE HAND CHECK: actual grabbed tag opens the fixed gasket inspection view = true
+FIRE HAND CHECK: gasket work starts by actually unthreading the union = true
+FIRE HAND CHECK: actual carry exposes the receiving washer seat = true
+FIRE HAND CHECK: actual visible washer has an operable screen pixel = true
+GASKET PICK RAY: { "position": (-4.614694, 10.84543, -8.019699), "normal": (0.0, 1.0, 0.0), "face_index": -1, "collider_id": 3779000945227, "collider": PhysicalGasket:<RigidBody3D#3779000945227>, "shape": 1, "rid": RID(1572675289885605) } inspecting=true mouse=(1224.0, 941.0) desired=(1224.0, 940.9995)
+FIRE HAND CHECK: actual washer annulus is individually selectable in the relocated tin = true
+FIRE HAND CHECK: actual mouse and depth wheel lift the original washer out of its tin = true
+FIRE HAND CHECK: carrying the spare washer does not counterfeit fitting or inspection = true
+FIRE HAND CHECK: loose washer position and orientation pass the household save schema = true
+FIRE HAND CHECK: invalid washer orientation is rejected = true
+FIRE HAND CHECK: actual loose washer pose restores without duplicating its draw = true
+GASKET DIAGNOSTIC: ring=(0.245, 0.043931, 0.150014) seat=(0.17, 0.41896, 0.157999) target=@MeshInstance3D@32156:<MeshInstance3D#3769471486212> seen=true sampled_pixels=21
+FIRE HAND CHECK: actual inspection cursor observes the exposed receiving annulus = true
+FIRE HAND CHECK: actual continuous grab carries the washer into the receiving seat = true
+FIRE HAND CHECK: releasing the physically fitted washer seats it without tightening the nut = true
+FIRE HAND CHECK: actual washer collision has a positive solid-annulus control = true
+FIRE HAND CHECK: actual annular collision leaves an18.8mm bore gauge unobstructed = true
+FIRE HAND CHECK: seated washer and loose union have a consistent household snapshot = true
+FIRE HAND CHECK: actual carry returns the washer-bearing hose end to the male outlet = true
+FIRE HAND CHECK: actual screw motion tightens against the real washer thickness = true
+FIRE HAND CHECK: fitted washer moves the union stop by its actual1.5mm thickness = true
+FIRE HAND CHECK: tightened gasket-bearing union passes the existing household schema = true
+FIRE HAND CHECK: saved seated washer cannot float10mm above its actual support = true
+FIRE HAND CHECK: actual mouse can unthread the repaired union again = true
+FIRE HAND CHECK: actual carry exposes the installed washer for removal = true
+FIRE HAND CHECK: actual grab removes the same installed washer from the opened union = true
+FIRE HAND CHECK: physical washer removal restores the gasket fault without changing inspection history = true
+FIRE HAND CHECK: actual seated washer pose and union stop restore together = true
+FIRE HAND CHECK: actual gasket inspection frame is saved = true
+FIRE CENTRE RAY DIAGNOSTIC: F04_FIRE_LINE_STAIR collider=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F04_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.349999, 11.19, -8.089) door=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F04_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision player=(-4.28, 9.625, -9.02)
+COMPOSED DOOR PHYSICS: F04_FIRE_LINE_STAIR leaf=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 11.19, -8.076)] body=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 11.19, -8.076)] server=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 11.19, -8.076)] layer=1 disabled=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] hit=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F04_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.254999, 11.29, -8.089)
+COMPOSED FIRE STATION: F04_FIRE_LINE_STAIR checks=1018 failures=0
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = true
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 14.068, -7.982)]
+FIRE HAND CHECK: actual mouse inserts spigot into native-certified entry guide; release does not snap or catch = true
+FIRE HAND CHECK: contact and release leave original body clocking and coupling facts unchanged = true
+FIRE HAND CHECK: unthreaded guided pose remains a valid household record = true
+FIRE HAND CHECK: restored entry guide derives its constraint from the saved physical pose = true
+FIRE HAND CHECK: actual loosening gesture turns inserted nut without forced pickup = true
+FIRE HAND CHECK: wrong direction and release neither tighten nor move the guided nozzle = true
+FIRE HAND CHECK: actual outward carry withdraws unthreaded spigot from guide = true
+FIRE HAND CHECK: withdrawal frees guide without fabricating a coupled fact = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 14.068, -7.982)]
+FIRE HAND CHECK: actual mouse reinserts withdrawn original nozzle = true
+FIRE HAND CHECK: grabbing inserted nut leaves nozzle pose and engagement unchanged = true
+NOZZLE MOUSE PICKUP: loose=false angle=23.9879370774406 clocking=0.0 spin=0.0 position=(-0.00731, 0.068, 0.112)
+FIRE HAND CHECK: actual tightening gesture picks up native helix; releasing nut retains partial thread without snap = true
+FIRE HAND CHECK: actual mouse screws whole nozzle along its native thread to the seal = true
+FIRE HAND CHECK: only completed nozzle travel changes its coupling fact = true
+FIRE HAND CHECK: screwing the nozzle preserves its actual fixed hose inlet = true
+FIRE HAND CHECK: seven-field household mechanism includes physical nozzle state = true
+FIRE HAND CHECK: saved overtravel cannot replace actual thread state = true
+FIRE HAND CHECK: saved nozzle fact cannot contradict actual sealing travel = true
+FIRE HAND CHECK: actual mouse leaves a partial nozzle thread setting = true
+FIRE HAND CHECK: partial physical withdrawal follows measured pitch = true
+FIRE HAND CHECK: actual physical nozzle and all existing mechanism fields restore exactly = true
+FIRE HAND CHECK: actual mouse clears the complete threaded stroke = true
+FIRE HAND CHECK: releasing fully cleared thread frees the original nozzle = true
+FIRE HAND CHECK: resting loose nozzle retains a valid physical household record = true
+FIRE HAND CHECK: restored supported loose nozzle retains its exact saved pose = true
+FIRE HAND CHECK: restored nozzle identifies its actual physical support = true
+FIRE HAND CHECK: loose nozzle rests on retained structural floor under cosmetic enamel = true
+FIRE HAND CHECK: moving actual saved support wakes gravity and nozzle lands on displaced floor within200um = true
+FIRE HAND CHECK: actual grabbed tag opens the fixed gasket inspection view = true
+FIRE HAND CHECK: gasket work starts by actually unthreading the union = true
+FIRE HAND CHECK: actual carry exposes the receiving washer seat = true
+FIRE HAND CHECK: actual visible washer has an operable screen pixel = true
+GASKET PICK RAY: { "position": (-4.614694, 14.04543, -8.019699), "normal": (0.0, 1.0, 0.0), "face_index": -1, "collider_id": 3813947887979, "collider": PhysicalGasket:<RigidBody3D#3813947887979>, "shape": 1, "rid": RID(1578280222206927) } inspecting=true mouse=(1224.0, 941.0) desired=(1224.0, 940.9995)
+FIRE HAND CHECK: actual washer annulus is individually selectable in the relocated tin = true
+FIRE HAND CHECK: actual mouse and depth wheel lift the original washer out of its tin = true
+FIRE HAND CHECK: carrying the spare washer does not counterfeit fitting or inspection = true
+FIRE HAND CHECK: loose washer position and orientation pass the household save schema = true
+FIRE HAND CHECK: invalid washer orientation is rejected = true
+FIRE HAND CHECK: actual loose washer pose restores without duplicating its draw = true
+GASKET DIAGNOSTIC: ring=(0.245, 0.043931, 0.150014) seat=(0.17, 0.41896, 0.157999) target=@MeshInstance3D@32801:<MeshInstance3D#3804418428964> seen=true sampled_pixels=21
+FIRE HAND CHECK: actual inspection cursor observes the exposed receiving annulus = true
+FIRE HAND CHECK: actual continuous grab carries the washer into the receiving seat = true
+FIRE HAND CHECK: releasing the physically fitted washer seats it without tightening the nut = true
+FIRE HAND CHECK: actual washer collision has a positive solid-annulus control = true
+FIRE HAND CHECK: actual annular collision leaves an18.8mm bore gauge unobstructed = true
+FIRE HAND CHECK: seated washer and loose union have a consistent household snapshot = true
+FIRE HAND CHECK: actual carry returns the washer-bearing hose end to the male outlet = true
+FIRE HAND CHECK: actual screw motion tightens against the real washer thickness = true
+FIRE HAND CHECK: fitted washer moves the union stop by its actual1.5mm thickness = true
+FIRE HAND CHECK: tightened gasket-bearing union passes the existing household schema = true
+FIRE HAND CHECK: saved seated washer cannot float10mm above its actual support = true
+FIRE HAND CHECK: actual mouse can unthread the repaired union again = true
+FIRE HAND CHECK: actual carry exposes the installed washer for removal = true
+FIRE HAND CHECK: actual grab removes the same installed washer from the opened union = true
+FIRE HAND CHECK: physical washer removal restores the gasket fault without changing inspection history = true
+FIRE HAND CHECK: actual seated washer pose and union stop restore together = true
+FIRE HAND CHECK: actual gasket inspection frame is saved = true
+FIRE CENTRE RAY DIAGNOSTIC: F05_FIRE_LINE_STAIR collider=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F05_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.349999, 14.39, -8.089) door=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F05_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision player=(-4.28, 12.825, -9.02)
+COMPOSED DOOR PHYSICS: F05_FIRE_LINE_STAIR leaf=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 14.39, -8.076)] body=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 14.39, -8.076)] server=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 14.39, -8.076)] layer=1 disabled=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] hit=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F05_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.254999, 14.49, -8.089)
+COMPOSED FIRE STATION: F05_FIRE_LINE_STAIR checks=1221 failures=0
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = true
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068001, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 17.268, -7.982)]
+FIRE HAND CHECK: actual mouse inserts spigot into native-certified entry guide; release does not snap or catch = true
+FIRE HAND CHECK: contact and release leave original body clocking and coupling facts unchanged = true
+FIRE HAND CHECK: unthreaded guided pose remains a valid household record = true
+FIRE HAND CHECK: restored entry guide derives its constraint from the saved physical pose = true
+FIRE HAND CHECK: actual loosening gesture turns inserted nut without forced pickup = true
+FIRE HAND CHECK: wrong direction and release neither tighten nor move the guided nozzle = true
+FIRE HAND CHECK: actual outward carry withdraws unthreaded spigot from guide = true
+FIRE HAND CHECK: withdrawal frees guide without fabricating a coupled fact = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068001, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 17.268, -7.982)]
+FIRE HAND CHECK: actual mouse reinserts withdrawn original nozzle = true
+FIRE HAND CHECK: grabbing inserted nut leaves nozzle pose and engagement unchanged = true
+NOZZLE MOUSE PICKUP: loose=false angle=23.9879370226827 clocking=0.0 spin=0.0 position=(-0.00731, 0.068, 0.112)
+FIRE HAND CHECK: actual tightening gesture picks up native helix; releasing nut retains partial thread without snap = true
+FIRE HAND CHECK: actual mouse screws whole nozzle along its native thread to the seal = true
+FIRE HAND CHECK: only completed nozzle travel changes its coupling fact = true
+FIRE HAND CHECK: screwing the nozzle preserves its actual fixed hose inlet = true
+FIRE HAND CHECK: seven-field household mechanism includes physical nozzle state = true
+FIRE HAND CHECK: saved overtravel cannot replace actual thread state = true
+FIRE HAND CHECK: saved nozzle fact cannot contradict actual sealing travel = true
+FIRE HAND CHECK: actual mouse leaves a partial nozzle thread setting = true
+FIRE HAND CHECK: partial physical withdrawal follows measured pitch = true
+FIRE HAND CHECK: actual physical nozzle and all existing mechanism fields restore exactly = true
+FIRE HAND CHECK: actual mouse clears the complete threaded stroke = true
+FIRE HAND CHECK: releasing fully cleared thread frees the original nozzle = true
+FIRE HAND CHECK: resting loose nozzle retains a valid physical household record = true
+FIRE HAND CHECK: restored supported loose nozzle retains its exact saved pose = true
+FIRE HAND CHECK: restored nozzle identifies its actual physical support = true
+FIRE HAND CHECK: loose nozzle rests on retained structural floor under cosmetic enamel = true
+FIRE HAND CHECK: moving actual saved support wakes gravity and nozzle lands on displaced floor within200um = true
+FIRE HAND CHECK: actual grabbed tag opens the fixed gasket inspection view = true
+FIRE HAND CHECK: gasket work starts by actually unthreading the union = true
+FIRE HAND CHECK: actual carry exposes the receiving washer seat = true
+FIRE HAND CHECK: actual visible washer has an operable screen pixel = true
+GASKET PICK RAY: { "position": (-4.614695, 17.24543, -8.019697), "normal": (0.0, 1.0, 0.0), "face_index": -1, "collider_id": 3848894830731, "collider": PhysicalGasket:<RigidBody3D#3848894830731>, "shape": 1, "rid": RID(1583885154528249) } inspecting=true mouse=(1224.0, 941.0) desired=(1224.0, 941.0005)
+FIRE HAND CHECK: actual washer annulus is individually selectable in the relocated tin = true
+FIRE HAND CHECK: actual mouse and depth wheel lift the original washer out of its tin = true
+FIRE HAND CHECK: carrying the spare washer does not counterfeit fitting or inspection = true
+FIRE HAND CHECK: loose washer position and orientation pass the household save schema = true
+FIRE HAND CHECK: invalid washer orientation is rejected = true
+FIRE HAND CHECK: actual loose washer pose restores without duplicating its draw = true
+GASKET DIAGNOSTIC: ring=(0.245, 0.043928, 0.150006) seat=(0.17, 0.41896, 0.158001) target=@MeshInstance3D@33446:<MeshInstance3D#3839365371716> seen=true sampled_pixels=21
+FIRE HAND CHECK: actual inspection cursor observes the exposed receiving annulus = true
+FIRE HAND CHECK: actual continuous grab carries the washer into the receiving seat = true
+FIRE HAND CHECK: releasing the physically fitted washer seats it without tightening the nut = true
+FIRE HAND CHECK: actual washer collision has a positive solid-annulus control = true
+FIRE HAND CHECK: actual annular collision leaves an18.8mm bore gauge unobstructed = true
+FIRE HAND CHECK: seated washer and loose union have a consistent household snapshot = true
+FIRE HAND CHECK: actual carry returns the washer-bearing hose end to the male outlet = true
+FIRE HAND CHECK: actual screw motion tightens against the real washer thickness = true
+FIRE HAND CHECK: fitted washer moves the union stop by its actual1.5mm thickness = true
+FIRE HAND CHECK: tightened gasket-bearing union passes the existing household schema = true
+FIRE HAND CHECK: saved seated washer cannot float10mm above its actual support = true
+FIRE HAND CHECK: actual mouse can unthread the repaired union again = true
+FIRE HAND CHECK: actual carry exposes the installed washer for removal = true
+FIRE HAND CHECK: actual grab removes the same installed washer from the opened union = true
+FIRE HAND CHECK: physical washer removal restores the gasket fault without changing inspection history = true
+FIRE HAND CHECK: actual seated washer pose and union stop restore together = true
+FIRE HAND CHECK: actual gasket inspection frame is saved = true
+FIRE CENTRE RAY DIAGNOSTIC: F06_FIRE_LINE_STAIR collider=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F06_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.349999, 17.59, -8.089) door=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F06_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision player=(-4.28, 16.025, -9.02)
+COMPOSED DOOR PHYSICS: F06_FIRE_LINE_STAIR leaf=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 17.59, -8.076)] body=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 17.59, -8.076)] server=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 17.59, -8.076)] layer=1 disabled=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] hit=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F06_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.254999, 17.69, -8.089)
+COMPOSED FIRE STATION: F06_FIRE_LINE_STAIR checks=1424 failures=0
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = true
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068001, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 20.468, -7.982)]
+FIRE HAND CHECK: actual mouse inserts spigot into native-certified entry guide; release does not snap or catch = true
+FIRE HAND CHECK: contact and release leave original body clocking and coupling facts unchanged = true
+FIRE HAND CHECK: unthreaded guided pose remains a valid household record = true
+FIRE HAND CHECK: restored entry guide derives its constraint from the saved physical pose = true
+FIRE HAND CHECK: actual loosening gesture turns inserted nut without forced pickup = true
+FIRE HAND CHECK: wrong direction and release neither tighten nor move the guided nozzle = true
+FIRE HAND CHECK: actual outward carry withdraws unthreaded spigot from guide = true
+FIRE HAND CHECK: withdrawal frees guide without fabricating a coupled fact = true
+GUIDED CARRY RESULT: reached=true body=(-0.00728, 0.068001, 0.112) global=[X: (-0.000004, -1.0, -0.0), Y: (-1.0, 0.000004, -0.0), Z: (0.0, 0.0, -1.0), O: (-4.34272, 20.468, -7.982)]
+FIRE HAND CHECK: actual mouse reinserts withdrawn original nozzle = true
+FIRE HAND CHECK: grabbing inserted nut leaves nozzle pose and engagement unchanged = true
+NOZZLE MOUSE PICKUP: loose=false angle=23.9879371151298 clocking=0.0 spin=0.0 position=(-0.00731, 0.068, 0.112)
+FIRE HAND CHECK: actual tightening gesture picks up native helix; releasing nut retains partial thread without snap = true
+FIRE HAND CHECK: actual mouse screws whole nozzle along its native thread to the seal = true
+FIRE HAND CHECK: only completed nozzle travel changes its coupling fact = true
+FIRE HAND CHECK: screwing the nozzle preserves its actual fixed hose inlet = true
+FIRE HAND CHECK: seven-field household mechanism includes physical nozzle state = true
+FIRE HAND CHECK: saved overtravel cannot replace actual thread state = true
+FIRE HAND CHECK: saved nozzle fact cannot contradict actual sealing travel = true
+FIRE HAND CHECK: actual mouse leaves a partial nozzle thread setting = true
+FIRE HAND CHECK: partial physical withdrawal follows measured pitch = true
+FIRE HAND CHECK: actual physical nozzle and all existing mechanism fields restore exactly = true
+FIRE HAND CHECK: actual mouse clears the complete threaded stroke = true
+FIRE HAND CHECK: releasing fully cleared thread frees the original nozzle = true
+FIRE HAND CHECK: resting loose nozzle retains a valid physical household record = true
+FIRE HAND CHECK: restored supported loose nozzle retains its exact saved pose = true
+FIRE HAND CHECK: restored nozzle identifies its actual physical support = true
+FIRE HAND CHECK: loose nozzle rests on retained structural floor under cosmetic enamel = true
+FIRE HAND CHECK: moving actual saved support wakes gravity and nozzle lands on displaced floor within200um = true
+FIRE HAND CHECK: actual grabbed tag opens the fixed gasket inspection view = true
+FIRE HAND CHECK: gasket work starts by actually unthreading the union = true
+FIRE HAND CHECK: actual carry exposes the receiving washer seat = true
+FIRE HAND CHECK: actual visible washer has an operable screen pixel = true
+GASKET PICK RAY: { "position": (-4.614695, 20.44543, -8.019697), "normal": (0.0, 1.0, 0.0), "face_index": -1, "collider_id": 3883841773483, "collider": PhysicalGasket:<RigidBody3D#3883841773483>, "shape": 1, "rid": RID(1589490086849571) } inspecting=true mouse=(1224.0, 941.0) desired=(1224.0, 941.0005)
+FIRE HAND CHECK: actual washer annulus is individually selectable in the relocated tin = true
+FIRE HAND CHECK: actual mouse and depth wheel lift the original washer out of its tin = true
+FIRE HAND CHECK: carrying the spare washer does not counterfeit fitting or inspection = true
+FIRE HAND CHECK: loose washer position and orientation pass the household save schema = true
+FIRE HAND CHECK: invalid washer orientation is rejected = true
+FIRE HAND CHECK: actual loose washer pose restores without duplicating its draw = true
+GASKET DIAGNOSTIC: ring=(0.245, 0.043928, 0.150006) seat=(0.17, 0.418959, 0.158) target=@MeshInstance3D@34091:<MeshInstance3D#3874312314468> seen=true sampled_pixels=21
+FIRE HAND CHECK: actual inspection cursor observes the exposed receiving annulus = true
+FIRE HAND CHECK: actual continuous grab carries the washer into the receiving seat = true
+FIRE HAND CHECK: releasing the physically fitted washer seats it without tightening the nut = true
+FIRE HAND CHECK: actual washer collision has a positive solid-annulus control = true
+FIRE HAND CHECK: actual annular collision leaves an18.8mm bore gauge unobstructed = true
+FIRE HAND CHECK: seated washer and loose union have a consistent household snapshot = true
+FIRE HAND CHECK: actual carry returns the washer-bearing hose end to the male outlet = true
+FIRE HAND CHECK: actual screw motion tightens against the real washer thickness = true
+FIRE HAND CHECK: fitted washer moves the union stop by its actual1.5mm thickness = true
+FIRE HAND CHECK: tightened gasket-bearing union passes the existing household schema = true
+FIRE HAND CHECK: saved seated washer cannot float10mm above its actual support = true
+FIRE HAND CHECK: actual mouse can unthread the repaired union again = true
+FIRE HAND CHECK: actual carry exposes the installed washer for removal = true
+FIRE HAND CHECK: actual grab removes the same installed washer from the opened union = true
+FIRE HAND CHECK: physical washer removal restores the gasket fault without changing inspection history = true
+FIRE HAND CHECK: actual seated washer pose and union stop restore together = true
+FIRE HAND CHECK: actual gasket inspection frame is saved = true
+FIRE CENTRE RAY DIAGNOSTIC: ROOF_FIRE_LINE_STAIR collider=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.349999, 20.79, -8.089) door=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision player=(-4.28, 19.225, -9.02)
+COMPOSED DOOR PHYSICS: ROOF_FIRE_LINE_STAIR leaf=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 20.79, -8.076)] body=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 20.79, -8.076)] server=[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.654999, 20.79, -8.076)] layer=1 disabled=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] hit=/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision at=(-4.254999, 20.89, -8.089)
+COMPOSED FIRE STATION: ROOF_FIRE_LINE_STAIR checks=1628 failures=0
+COMPOSED FIRE REVIEW: checks=1637 failures=0
+V2 FIRE PREFLIGHT: PASS checks=2007 failures=0; fire-only scope, not full surface acceptance

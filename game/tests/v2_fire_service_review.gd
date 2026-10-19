@@ -64,8 +64,9 @@ func _stock(suite: Node,actor: Node3D,native: RefCounted,probe: Node) -> void:
 			for offset: float in [-.002,-.001,0.,.001,.002]:
 				var point: Vector3=arm.to_global(tip)+actor.global_basis*Vector3.RIGHT*offset
 				var direction: Vector3=actor.global_basis*Vector3.UP
-				var a: float=probe.stock_ray(arm,point,direction);var b: float=probe.stock_ray(crown,point,direction)
-				bearing=bearing and is_finite(a) and is_finite(b) and absf(a-b)<.0001
+				var measurement: Dictionary=probe.bearing_measure(arm,crown,point,direction)
+				if not measurement.ok:print("COMPOSED RACK GAP: ",identity," ",fresh," ",index," ",offset," ",measurement)
+				bearing=bearing and measurement.ok
 			check(suite,bearing,identity+" five actual rack/cloth bearing rays within100um "+str([fresh,index]))
 	actor.restore_mechanism(saved)
 func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
@@ -124,6 +125,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(from,to,1))
 		if not snapshot.facts.door_open:
 			print("FIRE CENTRE RAY DIAGNOSTIC: ",identity," collider=",hit.collider.get_path() if not hit.is_empty() else "none"," at=",hit.get("position")," door=",actor._bodies.door.get_path()," player=",player.global_position)
+			check(suite,not hit.is_empty() and hit.collider==actor._bodies.door,identity+" actual closed moving leaf collision across assembly centre")
 			# Probe the same exposed leaf patch used for actual acquisition,
 			# in the leaf's frame. A long assembly-centre ray can hit other
 			# installed architecture and does not identify the moving leaf.
