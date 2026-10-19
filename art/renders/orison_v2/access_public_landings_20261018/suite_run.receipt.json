@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 369.34,
+  "elapsed_s": 333.74,
   "exit_code": 0,
-  "finished_utc": "2026-10-18T22:36:34Z",
-  "started_utc": "2026-10-18T22:30:25Z",
+  "finished_utc": "2026-10-19T00:49:15Z",
+  "started_utc": "2026-10-19T00:43:41Z",
   "timed_out": false
  },
  "log": {
@@ -19,21 +19,26 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-public-landing-integration-20261018/landing1.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-city-rework-20261018/landing3.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-public-landing-integration-20261018/landing1.log",
-  "stdout_sha256": "41c55f7cf0cf7de3b97e4f2bd2d45f17c3c8d296c7fade8bbeca36b25e79c0dd"
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-city-rework-20261018/landing3.log",
+  "stdout_sha256": "0ee14b032b83f357bd991be443c447c71c892b9b651f2ffe7cd1f7b5829a28f6"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/V2PublicLandingAccessContract.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-public-landing-integration-20261018\\landing1",
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-city-rework-20261018\\landing3",
  "source": {
-  "dirty_paths": 1618,
+  "dirty_paths": 1638,
   "dirty_sample": [
-   "M art/renders/insitu/shots.md",
+   "M .gitattributes",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/verification.json",
    " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
    " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
@@ -47,16 +52,11 @@
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
-   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
-   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
-   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
-   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json",
-   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
-   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json"
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json"
   ],
-  "repository_head": "9e866f6289800a8f5c7ff3525ef1cfefbb56dc72",
-  "repository_tree": "9db1c36dd4e4107a9174c122bcc287bf899bf6f1",
-  "runtime_inputs_sha256": "ab790737a87e3488e93fec8ce45b2b6eaf87e245e7940f057440ef8a264d0975",
+  "repository_head": "ad78632838eae6eb77989fee431e3d44169f844e",
+  "repository_tree": "90939dc82ecaf17f3852123d514e1f8bbedd9360",
+  "runtime_inputs_sha256": "907a113d640e050a715d545520d190fdfb9060bf4c8a297f1943fb0f274761eb",
   "test_path": "game/tests/v2_public_landing_access_contract.gd",
   "test_sha256": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7"
  },

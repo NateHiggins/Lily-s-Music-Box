@@ -1,96 +1,72 @@
 # V2 city elevations, 2026-10-18
 
-Evidence class: **INERT**. Construction record and review plan; no acceptance grant.
+Evidence class: **INERT**. Construction and qualification record; no additional acceptance grant.
 
-The old city generator applies repeated setbacks and projecting cornice bands to
-all tall scenery blocks. The earlier V2 conversion retained those masses without
-window elevations. The owner requested a structural, texture and detail redesign.
+The city pass is installed and all five original qualification jobs pass against
+the current source. Surface qualification passes 37,903 checks; service repair and
+disk reconstruction pass 360; home access passes 909 across 62 rooms and nine legs;
+upper access passes 989 across 69 rooms and 11 legs; the six-floor landing walk
+passes 41 checks with one initial placement. All five packets are independently
+validated with zero errors. Clean full-board comparison and push remain pending.
 
-**build_city_elevations.py** adapts the retained closed city source into25 passive
-buildings. The primary shafts remain continuous to a single upper setback; the
-31 previous terrace steps become14. Seventeen surrounding blocks retain windows
-on all elevations; eight distant blocks concentrate window stock on their principal
-city-facing elevations and use closed mapped masonry on secondary outward walls.
+The old city conversion preserved repeated setbacks and heavy cornice bands while
+omitting window elevations. The new **build_city_elevations.py** adapts 25 retained
+building footprints into continuous main elevations with at most one upper setback.
+The 31 former terrace steps become 14. Seventeen neighbouring blocks have window
+stock on every elevation; eight distant blocks use closed mapped masonry on their
+secondary outward elevations and concentrate detail on the principal city-facing walls.
 
-The new **city_elevations.glb** replaces **city_shells.glb** as the production
-visual. The old export and original editable **city_shells.blend** and
-**city_closure.blend** remain required source/inspection dependencies. They are
-not mounted alongside the replacement. The protected generated layout is unchanged.
+The source has 2,984 built windows, 260 mm masonry reveals, recessed closed panes,
+painted five-piece sash, projecting stone sills and lintels, and separate shade
+backings at varied heights. Upper walls use existing custom running-bond brick or
+limestone with authored building palettes; provisional base stone/concrete aliases
+use catalogued limestone. Parapet bodies use masonry with retained coping faces.
+Equal stock/tint combinations share local materials. No new texture images, baked
+photographs, lettering, emission, gameplay actor or simulation authority are added.
 
-The source has2,984 built window openings,260mm masonry reveals, recessed closed
-glazing, five-piece painted sash stock, projecting stone sills and lintels, and
-separately built curtain/shade backings with varied drops. Broad stone/concrete
-aliases retire in favor of catalogued limestone; upper walls use existing custom
-running-bond brick or limestone with authored building palettes. Roof parapet
-bodies use masonry while their original upper contact faces retain coping stock.
-Existing registered PBR maps are reused with metre charts; no new texture sheet,
-photograph, lettering, emission or lighting authority is added. New glass remains
-a physical mapped surface subject to the universal loaded UV/PBR/mipmap gate.
+Production mounts **city_elevations.glb** in place of **city_shells.glb**. The old
+export and the editable **city_shells.blend** and **city_closure.blend** remain
+required construction dependencies, and are not mounted alongside the replacement.
+The protected generated layout, shop voids, base occupation reservations, final
+roof planes and roof equipment authorities remain. Native charts and the validated
+import policy preserve physical texture scale and normal/tangent frames.
 
-Original base occupation reservations, shop voids, final roof planes and rooftop
-equipment stay under their original owners. Real installed bearing rays must still
-cover all1,205 retained mast/aerial/tank footprint samples within100 micrometres.
-Native review and static source binding alone do not establish those runtime contacts.
+The final native export contains 227 material partitions and 505,287 triangles.
+Its builder checks every roof-bearing footprint and every recessed pane in the
+actual native mesh before exporting. All 1,205 bearing samples and 2,984 pane
+samples pass within 100 micrometres. These are source checks, not runtime proof.
 
-Four neutral native views were inspected during construction. They exposed and
-corrected coplanar corner overlaps and the first export's Blender name suffixes.
-The final builder refuses a suffixed portable material identity. The current native
-export passes its original UV/normal/tangent validator. Full composed surface,
-window/bearing checks and street/rooftop render inspection are pending.
+The first composed city run is retained as a failed diagnostic: 80 pane probes
+used source Y instead of source Z for their vertical offset, and two plate corners
+of **site_ne4_guy1** lost support when the **site_ne4_c0** cornice band was retired.
+A fitted local closed stone seat now carries the overhang without restoring the
+full band or overlapping the adjoining terrace top. Original hardware and contact
+targets are unchanged. Upper-window captures now require a real clear first-hit
+sightline past the retained construction canopy.
 
-The landing clean comparison caught a stale front-trim discovery binding. The
-actual windowed **FrontTrimLayoutProbe.tscn** reproduced all9,085 old instance
-records exactly. Only its source provenance changed. That original discovery is
-installed; previous runtime receipts are not repinned. Renew the original surface,
-service and access jobs against the final city inputs before clean comparison.
-The existing25-building play areas and human/whole-V2 acceptance remain incomplete.
+The corrected original surface3 run measures 25,809 draws, 16,783 meshes, 6,126
+materials and 497 loaded textures, with zero unresolved UV/PBR/mipmap surfaces.
+It also passes all 400 elevation continuity rays, 1,205 complete roof-footprint
+samples, 80 pane stations and three window-camera sightlines. Fourteen current
+city/clearance/entrance frames were inspected and published with the unmodified
+test-written contract, exact wrapper and byte-matched raw logs. Equal-finish caching
+removes 207 material instances versus the first city run. Seven standing Texture
+RID shutdown warnings remain; no new texture image is introduced.
 
-The isolated service-circulation candidate's first original route failed24 checks,
-reaching2 rooms and no hall/core crossings. It remains diagnostic future work,
-excluded from this city checkpoint. No route tolerance or wall geometry was changed
-to conceal that failure.
+The landing checkpoint's clean comparison exposed a stale front-trim discovery.
+The original windowed **FrontTrimLayoutProbe.tscn** reproduced all 9,085 instances
+exactly; only source provenance changed. That genuine renewed discovery is installed.
+All surface/service/home/upper/landing proofs were then renewed by their original
+tests. No previous runtime receipt was repinned. The clean checkout independently
+matches the current production and surface input hashes.
 
-Rebuild the city through its owning Blender builder, inspect native images, then
-use the serial lane. The shared **v2_city_elevation_review.gd** executes inside the
-full surface world to avoid an extra city composition startup. It checks exact
-visible/physical triangles, loaded catalogue maps/mips, source inventory, actual
-recessed panes and retained roof bearings. Its posed cameras grant no walking proof.
+Source and current render review records are under
+**art/reviews/v2_city_elevations_20261018/**. Full V2 and human acceptance remain
+incomplete. Finite distant ground/horizon continuity, atmospheric flattening,
+repetitive stock, strong carried-light hotspots and simple artwork remain broader
+appearance work. This scoped pass does not establish whole-city photoreal quality,
+traffic safety, access to all shop interiors or a continuous whole-building shift.
 
-The first complete city surface2 run reports37,900 checks and82 failures:80
-incorrect source-axis pane probes and2 actual unsupported plate corners on
-**site_ne4_guy1**, formerly carried by the projecting **site_ne4_c0** cornice.
-Its universal surface audit independently finds zero UV/PBR/mipmap defects on
-25,809 draws,16,783 meshes,6,333 material instances and497 loaded textures.
-The full run is a failure and is archived as a diagnostic, never published as
-acceptance. A low window capture also exposed real construction-canopy occlusion.
-
-The repair retains only a small closed stone bearing seat outside the main
-terrace, without overlapping its top face or restoring a full cornice band.
-Original anchor geometry and contact targets remain unchanged. Native BVH now
-checks all1,205 roof-bearing samples and all2,984 panes within100 micrometres;
-zero failures precede export. The pane probe uses native source Z, and upper-window
-captures must pass an actual first-hit sightline check. Equivalent finishes share
-local cached materials by stock and tint instead of duplicating them per building.
-Import policy preserves the already validated metre charts. Final original
-qualification and clean baseline comparison are pending.
-
-The corrected original surface3 qualification passes37,903 checks with zero
-failures. It measures25,809 draws,16,783 meshes,6,126 materials and497 loaded
-textures, with zero unresolved UV/PBR/mipmap surfaces. Equal-finish caching
-removes207 material instances versus surface2; no texture image is added.
-All400 elevation continuity rays,1,205 retained roof footprint samples and80
-actual pane stations pass. All3 upper-window capture sightlines are clear.
-Fourteen actual city/installation/clearance captures were inspected and published
-with the unmodified test-written contract and exact matching wrapper/logs.
-The preceding packet is preserved. Independent publication validation reports
-zero defects. Seven standing Texture RID shutdown warnings remain.
-
-The retained clean checkout independently matches both current production and
-surface input hashes. Service3 passes 360 checks, including actual physical repair and disk reconstruction.
-Home3 passes 909 checks across 62 rooms and nine legs with zero failures. Both
-original receipts and matching logs are published and independently validated
-without errors. Upper3 and landing3 continue in the same serial batch; clean
-full-board comparison and push remain pending.
-Finite distant ground/horizon continuity, atmospheric flattening, repetitive
-stock, strong carried-light hotspots and simple artwork remain broader appearance
-work. This is not a whole-environment photoreal or human acceptance grant.
+An isolated, uncommitted service-circulation candidate remains future work. Its
+original run reaches two rooms and fails at the unsupported F01 service-door
+approach; no wall, shaft, route tolerance or authority was changed to hide it.
