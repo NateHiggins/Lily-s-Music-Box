@@ -1,0 +1,9 @@
+C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\hose_capacity_single_bank5.py:96: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Unqualified clay geometry study');mat.diffuse_color=(.55,.46,.29,1);mat.use_nodes=True
+00:10.984  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\hose_capacity_native5\capacity_study.png'
+CAPACITY STUDY {"evidence_class": "INERT", "scope": "Uninstalled single-bank capacity clay study; no UV/PBR, support, deployment or contact acceptance.", "centreline_polyline_m": 15.239999999999998, "long_leg_length_m": 0.5401789869868601, "long_leg_bottom_y_m": 0.13982101301313998, "legs": 26, "crowns": 13, "crown_centre_y_m": 0.68, "single_bank_depth_m": 0.1}
+Info: Saved as "hose_capacity_study.blend"
+CAPACITY NATIVE STUDY SAVED {'vertices': 135680, 'quads': 135680, 'closed': True, 'volume_m3': 0.003140878847108459, 'minimum_y_m': 0.03859555348753929, 'maximum_depth_m': 0.13457909226417542, 'maximum_x_m': 0.19099999964237213, 'minimum_x_m': -0.28599387407302856}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
