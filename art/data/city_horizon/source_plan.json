@@ -2,31 +2,85 @@
   "schema": "orison.city-horizon.v1",
   "evidence_class": "INERT",
   "frame": "ORISON_V2_BUILDING_FRAME",
-  "scope": "Distant closed masonry and recessed opaque glazing, beyond all retained city footprints and controlled travel. No occupied interior, new public programme, actor or mechanism.",
+  "scope": "Period-informed Queens background for November 1928: mixed narrow rowhouses, walk-ups, factories and one commercial height accent. Generic art direction, not a surveyed recreation of a named neighborhood. No new occupied or controlled travel area.",
   "buildings": [
     {
-      "id": "HORIZON_NEAR_0_0_P0",
+      "id": "HORIZON_NEAR_0_0_P0R0",
       "rect": [
         -150.0,
         -170,
-        -128.0,
+        -142.66666666666666,
         -150
       ],
-      "height_m": 19,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
+        0.78,
         0.66,
-        0.59,
+        0.55,
         1
       ],
-      "variation_seed": 0
+      "variation_seed": 0,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_0_0_P0R1",
+      "rect": [
+        -142.66666666666666,
+        -170,
+        -135.33333333333334,
+        -150
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 1,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_0_0_P0R2",
+      "rect": [
+        -135.33333333333334,
+        -170,
+        -128.0,
+        -150
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 2,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_0_0_P1",
@@ -36,21 +90,23 @@
         -106.0,
         -150
       ],
-      "height_m": 22,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 10.8,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 5
+      "variation_seed": 5,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_NEAR_0_0_P2",
@@ -60,45 +116,101 @@
         -84.0,
         -150
       ],
-      "height_m": 17,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 10
+      "variation_seed": 10,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
-      "id": "HORIZON_NEAR_0_1_P0",
+      "id": "HORIZON_NEAR_0_1_P0R0",
       "rect": [
         -66.0,
+        -170,
+        -59.333333333333336,
+        -150
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.66,
+        0.55,
+        1
+      ],
+      "variation_seed": 13,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_0_1_P0R1",
+      "rect": [
+        -59.333333333333336,
+        -170,
+        -52.666666666666664,
+        -150
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 14,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_0_1_P0R2",
+      "rect": [
+        -52.666666666666664,
         -170,
         -46.0,
         -150
       ],
-      "height_m": 26,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
         0.7,
-        0.64,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 13
+      "variation_seed": 15,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_0_1_P1",
@@ -108,21 +220,23 @@
         -26.0,
         -150
       ],
-      "height_m": 29,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 18
+      "variation_seed": 18,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_0_1_P2",
@@ -132,45 +246,101 @@
         -6.0,
         -150
       ],
-      "height_m": 24,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
-      "reveal_m": 0.18,
-      "glass_recess_m": 0.11,
-      "wall_key": "limestone",
-      "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
-        1
-      ],
-      "variation_seed": 23
-    },
-    {
-      "id": "HORIZON_NEAR_0_2_P0",
-      "rect": [
-        12.0,
-        -170,
-        33.66666666666667,
-        -150
-      ],
-      "height_m": 22,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 14.4,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 26
+      "variation_seed": 23,
+      "typology": "factory",
+      "chimney_height_m": 2.2
+    },
+    {
+      "id": "HORIZON_NEAR_0_2_P0R0",
+      "rect": [
+        12.0,
+        -170,
+        19.222222222222225,
+        -150
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.66,
+        0.55,
+        1
+      ],
+      "variation_seed": 26,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_0_2_P0R1",
+      "rect": [
+        19.222222222222225,
+        -170,
+        26.44444444444445,
+        -150
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 27,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_0_2_P0R2",
+      "rect": [
+        26.44444444444445,
+        -170,
+        33.66666666666667,
+        -150
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 28,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_0_2_P1",
@@ -180,21 +350,23 @@
         55.333333333333336,
         -150
       ],
-      "height_m": 25,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 31
+      "variation_seed": 31,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_0_2_P2",
@@ -204,45 +376,101 @@
         77.0,
         -150
       ],
-      "height_m": 20,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 36
+      "variation_seed": 36,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
-      "id": "HORIZON_NEAR_0_3_P0",
+      "id": "HORIZON_NEAR_0_3_P0R0",
       "rect": [
         95.0,
-        -170,
+        -170.0,
         113.33333333333333,
-        -150
+        -163.33333333333334
       ],
-      "height_m": 31,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
         0.78,
-        0.71,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 39
+      "variation_seed": 39,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_0_3_P0R1",
+      "rect": [
+        95.0,
+        -163.33333333333334,
+        113.33333333333333,
+        -156.66666666666666
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 40,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_0_3_P0R2",
+      "rect": [
+        95.0,
+        -156.66666666666666,
+        113.33333333333333,
+        -150.0
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 41,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_0_3_P1",
@@ -252,21 +480,23 @@
         131.66666666666666,
         -150
       ],
-      "height_m": 34,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 44
+      "variation_seed": 44,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_0_3_P2",
@@ -276,45 +506,101 @@
         150.0,
         -150
       ],
-      "height_m": 29,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
-      "reveal_m": 0.18,
-      "glass_recess_m": 0.11,
-      "wall_key": "limestone",
-      "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
-        1
-      ],
-      "variation_seed": 49
-    },
-    {
-      "id": "HORIZON_NEAR_1_0_P0",
-      "rect": [
-        -150.0,
-        150,
-        -128.0,
-        170
-      ],
-      "height_m": 26,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 52
+      "variation_seed": 49,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_1_0_P0R0",
+      "rect": [
+        -150.0,
+        150,
+        -142.66666666666666,
+        170
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.66,
+        0.55,
+        1
+      ],
+      "variation_seed": 52,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_1_0_P0R1",
+      "rect": [
+        -142.66666666666666,
+        150,
+        -135.33333333333334,
+        170
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 53,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_1_0_P0R2",
+      "rect": [
+        -135.33333333333334,
+        150,
+        -128.0,
+        170
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 54,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_1_0_P1",
@@ -324,21 +610,23 @@
         -106.0,
         170
       ],
-      "height_m": 29,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 21.6,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 57
+      "variation_seed": 57,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_NEAR_1_0_P2",
@@ -348,45 +636,101 @@
         -84.0,
         170
       ],
-      "height_m": 24,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 62
+      "variation_seed": 62,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
-      "id": "HORIZON_NEAR_1_1_P0",
+      "id": "HORIZON_NEAR_1_1_P0R0",
       "rect": [
         -66.0,
+        150,
+        -59.333333333333336,
+        170
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.66,
+        0.55,
+        1
+      ],
+      "variation_seed": 65,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_1_1_P0R1",
+      "rect": [
+        -59.333333333333336,
+        150,
+        -52.666666666666664,
+        170
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 66,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_1_1_P0R2",
+      "rect": [
+        -52.666666666666664,
         150,
         -46.0,
         170
       ],
-      "height_m": 22,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
         0.7,
-        0.64,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 65
+      "variation_seed": 67,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_1_1_P1",
@@ -396,21 +740,23 @@
         -26.0,
         170
       ],
-      "height_m": 25,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 70
+      "variation_seed": 70,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_1_1_P2",
@@ -420,45 +766,101 @@
         -6.0,
         170
       ],
-      "height_m": 20,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 10.8,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 75
+      "variation_seed": 75,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
-      "id": "HORIZON_NEAR_1_2_P0",
+      "id": "HORIZON_NEAR_1_2_P0R0",
       "rect": [
         12.0,
         150,
-        33.66666666666667,
+        19.222222222222225,
         170
       ],
-      "height_m": 31,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 78
+      "variation_seed": 78,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_1_2_P0R1",
+      "rect": [
+        19.222222222222225,
+        150,
+        26.44444444444445,
+        170
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 79,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_1_2_P0R2",
+      "rect": [
+        26.44444444444445,
+        150,
+        33.66666666666667,
+        170
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 80,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_1_2_P1",
@@ -468,21 +870,23 @@
         55.333333333333336,
         170
       ],
-      "height_m": 34,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 83
+      "variation_seed": 83,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_1_2_P2",
@@ -492,45 +896,101 @@
         77.0,
         170
       ],
-      "height_m": 29,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 88
+      "variation_seed": 88,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
-      "id": "HORIZON_NEAR_1_3_P0",
+      "id": "HORIZON_NEAR_1_3_P0R0",
       "rect": [
         95.0,
-        150,
+        150.0,
         113.33333333333333,
-        170
+        156.66666666666666
       ],
-      "height_m": 19,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
         0.78,
-        0.71,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 91
+      "variation_seed": 91,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_1_3_P0R1",
+      "rect": [
+        95.0,
+        156.66666666666666,
+        113.33333333333333,
+        163.33333333333334
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 92,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_1_3_P0R2",
+      "rect": [
+        95.0,
+        163.33333333333334,
+        113.33333333333333,
+        170.0
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 93,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_1_3_P1",
@@ -540,21 +1000,23 @@
         131.66666666666666,
         170
       ],
-      "height_m": 22,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 96
+      "variation_seed": 96,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_1_3_P2",
@@ -564,45 +1026,101 @@
         150.0,
         170
       ],
-      "height_m": 17,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
-      "reveal_m": 0.18,
-      "glass_recess_m": 0.11,
-      "wall_key": "limestone",
-      "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
-        1
-      ],
-      "variation_seed": 101
-    },
-    {
-      "id": "HORIZON_NEAR_2_0_P0",
-      "rect": [
-        -170,
-        -150.0,
-        -150,
-        -128.0
-      ],
-      "height_m": 22,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 104
+      "variation_seed": 101,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_2_0_P0R0",
+      "rect": [
+        -170,
+        -150.0,
+        -150,
+        -142.66666666666666
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.66,
+        0.55,
+        1
+      ],
+      "variation_seed": 104,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_2_0_P0R1",
+      "rect": [
+        -170,
+        -142.66666666666666,
+        -150,
+        -135.33333333333334
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 105,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_2_0_P0R2",
+      "rect": [
+        -170,
+        -135.33333333333334,
+        -150,
+        -128.0
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 106,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_2_0_P1",
@@ -612,21 +1130,23 @@
         -150,
         -106.0
       ],
-      "height_m": 25,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 18,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 109
+      "variation_seed": 109,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_NEAR_2_0_P2",
@@ -636,45 +1156,101 @@
         -150,
         -84.0
       ],
-      "height_m": 20,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 114
+      "variation_seed": 114,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
-      "id": "HORIZON_NEAR_2_1_P0",
+      "id": "HORIZON_NEAR_2_1_P0R0",
       "rect": [
-        -170,
+        -170.0,
         -66.0,
-        -150,
+        -163.33333333333334,
         -46.0
       ],
-      "height_m": 31,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 117
+      "variation_seed": 117,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_2_1_P0R1",
+      "rect": [
+        -163.33333333333334,
+        -66.0,
+        -156.66666666666666,
+        -46.0
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 118,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_2_1_P0R2",
+      "rect": [
+        -156.66666666666666,
+        -66.0,
+        -150.0,
+        -46.0
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 119,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_2_1_P1",
@@ -684,21 +1260,23 @@
         -150,
         -26.0
       ],
-      "height_m": 34,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 122
+      "variation_seed": 122,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_2_1_P2",
@@ -708,45 +1286,101 @@
         -150,
         -6.0
       ],
-      "height_m": 29,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
-      "reveal_m": 0.18,
-      "glass_recess_m": 0.11,
-      "wall_key": "limestone",
-      "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
-        1
-      ],
-      "variation_seed": 127
-    },
-    {
-      "id": "HORIZON_NEAR_2_2_P0",
-      "rect": [
-        -170,
-        12.0,
-        -150,
-        33.66666666666667
-      ],
-      "height_m": 19,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 21.6,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 130
+      "variation_seed": 127,
+      "typology": "factory",
+      "chimney_height_m": 2.2
+    },
+    {
+      "id": "HORIZON_NEAR_2_2_P0R0",
+      "rect": [
+        -170,
+        12.0,
+        -150,
+        19.222222222222225
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.66,
+        0.55,
+        1
+      ],
+      "variation_seed": 130,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_2_2_P0R1",
+      "rect": [
+        -170,
+        19.222222222222225,
+        -150,
+        26.44444444444445
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 131,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_2_2_P0R2",
+      "rect": [
+        -170,
+        26.44444444444445,
+        -150,
+        33.66666666666667
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 132,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_2_2_P1",
@@ -756,21 +1390,23 @@
         -150,
         55.333333333333336
       ],
-      "height_m": 22,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 135
+      "variation_seed": 135,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_2_2_P2",
@@ -780,45 +1416,101 @@
         -150,
         77.0
       ],
-      "height_m": 17,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 140
+      "variation_seed": 140,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
-      "id": "HORIZON_NEAR_2_3_P0",
+      "id": "HORIZON_NEAR_2_3_P0R0",
       "rect": [
-        -170,
+        -170.0,
         95.0,
-        -150,
+        -163.33333333333334,
         113.33333333333333
       ],
-      "height_m": 26,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
         0.78,
-        0.71,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 143
+      "variation_seed": 143,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_2_3_P0R1",
+      "rect": [
+        -163.33333333333334,
+        95.0,
+        -156.66666666666666,
+        113.33333333333333
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 144,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_2_3_P0R2",
+      "rect": [
+        -156.66666666666666,
+        95.0,
+        -150.0,
+        113.33333333333333
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 145,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_2_3_P1",
@@ -828,21 +1520,23 @@
         -150,
         131.66666666666666
       ],
-      "height_m": 29,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 148
+      "variation_seed": 148,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_2_3_P2",
@@ -852,45 +1546,101 @@
         -150,
         150.0
       ],
-      "height_m": 24,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
-      "reveal_m": 0.18,
-      "glass_recess_m": 0.11,
-      "wall_key": "limestone",
-      "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
-        1
-      ],
-      "variation_seed": 153
-    },
-    {
-      "id": "HORIZON_NEAR_3_0_P0",
-      "rect": [
-        150,
-        -150.0,
-        170,
-        -128.0
-      ],
-      "height_m": 31,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 156
+      "variation_seed": 153,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_3_0_P0R0",
+      "rect": [
+        150,
+        -150.0,
+        170,
+        -142.66666666666666
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.78,
+        0.66,
+        0.55,
+        1
+      ],
+      "variation_seed": 156,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_3_0_P0R1",
+      "rect": [
+        150,
+        -142.66666666666666,
+        170,
+        -135.33333333333334
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 157,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_3_0_P0R2",
+      "rect": [
+        150,
+        -135.33333333333334,
+        170,
+        -128.0
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 158,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_3_0_P1",
@@ -900,21 +1650,23 @@
         170,
         -106.0
       ],
-      "height_m": 34,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 14.4,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 161
+      "variation_seed": 161,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_NEAR_3_0_P2",
@@ -924,45 +1676,101 @@
         170,
         -84.0
       ],
-      "height_m": 29,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 166
+      "variation_seed": 166,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
-      "id": "HORIZON_NEAR_3_1_P0",
+      "id": "HORIZON_NEAR_3_1_P0R0",
       "rect": [
-        150,
+        150.0,
         -66.0,
-        170,
+        156.66666666666666,
         -46.0
       ],
-      "height_m": 19,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 169
+      "variation_seed": 169,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_3_1_P0R1",
+      "rect": [
+        156.66666666666666,
+        -66.0,
+        163.33333333333334,
+        -46.0
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 170,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_3_1_P0R2",
+      "rect": [
+        163.33333333333334,
+        -66.0,
+        170.0,
+        -46.0
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 171,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_3_1_P1",
@@ -972,21 +1780,23 @@
         170,
         -26.0
       ],
-      "height_m": 22,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 174
+      "variation_seed": 174,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_3_1_P2",
@@ -996,45 +1806,101 @@
         170,
         -6.0
       ],
-      "height_m": 17,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 18,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 179
+      "variation_seed": 179,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
-      "id": "HORIZON_NEAR_3_2_P0",
+      "id": "HORIZON_NEAR_3_2_P0R0",
       "rect": [
         150,
         12.0,
         170,
-        33.66666666666667
+        19.222222222222225
       ],
-      "height_m": 26,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 182
+      "variation_seed": 182,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_3_2_P0R1",
+      "rect": [
+        150,
+        19.222222222222225,
+        170,
+        26.44444444444445
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 183,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_3_2_P0R2",
+      "rect": [
+        150,
+        26.44444444444445,
+        170,
+        33.66666666666667
+      ],
+      "height_m": 9.6,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 184,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_3_2_P1",
@@ -1044,21 +1910,23 @@
         170,
         55.333333333333336
       ],
-      "height_m": 29,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 187
+      "variation_seed": 187,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_3_2_P2",
@@ -1068,45 +1936,101 @@
         170,
         77.0
       ],
-      "height_m": 24,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 192
+      "variation_seed": 192,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
-      "id": "HORIZON_NEAR_3_3_P0",
+      "id": "HORIZON_NEAR_3_3_P0R0",
       "rect": [
-        150,
+        150.0,
         95.0,
-        170,
+        156.66666666666666,
         113.33333333333333
       ],
-      "height_m": 22,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
         0.78,
-        0.71,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 195
+      "variation_seed": 195,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_3_3_P0R1",
+      "rect": [
+        156.66666666666666,
+        95.0,
+        163.33333333333334,
+        113.33333333333333
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.9,
+        0.82,
+        0.65,
+        1
+      ],
+      "variation_seed": 196,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
+    },
+    {
+      "id": "HORIZON_NEAR_3_3_P0R2",
+      "rect": [
+        163.33333333333334,
+        95.0,
+        170.0,
+        113.33333333333333
+      ],
+      "height_m": 10.049999999999999,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.35,
+      "window_width_m": 0.94,
+      "window_height_m": 1.85,
+      "reveal_m": 0.18,
+      "glass_recess_m": 0.11,
+      "wall_key": "arcade_brick_bond",
+      "wall_tint": [
+        0.7,
+        0.6,
+        0.53,
+        1
+      ],
+      "variation_seed": 197,
+      "typology": "rowhouse",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_3_3_P1",
@@ -1116,21 +2040,23 @@
         170,
         131.66666666666666
       ],
-      "height_m": 25,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 200
+      "variation_seed": 200,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_NEAR_3_3_P2",
@@ -1140,21 +2066,23 @@
         170,
         150.0
       ],
-      "height_m": 20,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
         0.7,
-        0.64,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 205
+      "variation_seed": 205,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_0_0_P0",
@@ -1164,21 +2092,23 @@
         -171.75,
         -207
       ],
-      "height_m": 39,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
+        0.78,
         0.66,
-        0.59,
+        0.55,
         1
       ],
-      "variation_seed": 208
+      "variation_seed": 208,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_0_0_P1",
@@ -1188,21 +2118,23 @@
         -118.5,
         -207
       ],
-      "height_m": 42,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 10.8,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 213
+      "variation_seed": 213,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_FAR_0_0_P2",
@@ -1212,21 +2144,23 @@
         -65.25,
         -207
       ],
-      "height_m": 37,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 218
+      "variation_seed": 218,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_0_0_P3",
@@ -1236,21 +2170,23 @@
         -12.0,
         -207
       ],
-      "height_m": 41,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
         0.78,
-        0.71,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 223
+      "variation_seed": 223,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_0_1_P0",
@@ -1260,21 +2196,23 @@
         65.25,
         -207
       ],
-      "height_m": 43,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 221
+      "variation_seed": 221,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_0_1_P1",
@@ -1284,21 +2222,23 @@
         118.5,
         -207
       ],
-      "height_m": 46,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 14.4,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 226
+      "variation_seed": 226,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_FAR_0_1_P2",
@@ -1308,21 +2248,23 @@
         171.75,
         -207
       ],
-      "height_m": 41,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
         0.78,
-        0.71,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 231
+      "variation_seed": 231,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_0_1_P3",
@@ -1332,21 +2274,23 @@
         225.0,
         -207
       ],
-      "height_m": 45,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 236
+      "variation_seed": 236,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_1_0_P0",
@@ -1356,21 +2300,23 @@
         -171.75,
         225
       ],
-      "height_m": 43,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 234
+      "variation_seed": 234,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_1_0_P1",
@@ -1380,21 +2326,23 @@
         -118.5,
         225
       ],
-      "height_m": 46,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 18,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 239
+      "variation_seed": 239,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_FAR_1_0_P2",
@@ -1404,21 +2352,23 @@
         -65.25,
         225
       ],
-      "height_m": 41,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 244
+      "variation_seed": 244,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_1_0_P3",
@@ -1428,21 +2378,23 @@
         -12.0,
         225
       ],
-      "height_m": 45,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
         0.7,
-        0.64,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 249
+      "variation_seed": 249,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_1_1_P0",
@@ -1452,21 +2404,23 @@
         65.25,
         225
       ],
-      "height_m": 47,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
         0.78,
-        0.71,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 247
+      "variation_seed": 247,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_1_1_P1",
@@ -1476,21 +2430,23 @@
         118.5,
         225
       ],
-      "height_m": 50,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 21.6,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 252
+      "variation_seed": 252,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_FAR_1_1_P2",
@@ -1500,21 +2456,23 @@
         171.75,
         225
       ],
-      "height_m": 45,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
         0.7,
-        0.64,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 257
+      "variation_seed": 257,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_1_1_P3",
@@ -1524,21 +2482,23 @@
         225.0,
         225
       ],
-      "height_m": 49,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 262
+      "variation_seed": 262,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_2_0_P0",
@@ -1548,21 +2508,23 @@
         -207,
         -158.25
       ],
-      "height_m": 47,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 260
+      "variation_seed": 260,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_2_0_P1",
@@ -1572,21 +2534,23 @@
         -207,
         -109.5
       ],
-      "height_m": 50,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 10.8,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 265
+      "variation_seed": 265,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_FAR_2_0_P2",
@@ -1596,21 +2560,23 @@
         -207,
         -60.75
       ],
-      "height_m": 45,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 270
+      "variation_seed": 270,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_2_0_P3",
@@ -1620,21 +2586,23 @@
         -207,
         -12.0
       ],
-      "height_m": 49,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 275
+      "variation_seed": 275,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_2_1_P0",
@@ -1644,21 +2612,23 @@
         -207,
         60.75
       ],
-      "height_m": 38,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
         0.7,
-        0.64,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 273
+      "variation_seed": 273,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_2_1_P1",
@@ -1668,21 +2638,23 @@
         -207,
         109.5
       ],
-      "height_m": 41,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 14.4,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 278
+      "variation_seed": 278,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_FAR_2_1_P2",
@@ -1692,21 +2664,23 @@
         -207,
         158.25
       ],
-      "height_m": 36,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 283
+      "variation_seed": 283,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_2_1_P3",
@@ -1716,21 +2690,23 @@
         -207,
         207.0
       ],
-      "height_m": 40,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 288
+      "variation_seed": 288,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_3_0_P0",
@@ -1740,21 +2716,23 @@
         225,
         -158.25
       ],
-      "height_m": 38,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 286
+      "variation_seed": 286,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_3_0_P1",
@@ -1764,21 +2742,23 @@
         225,
         -109.5
       ],
-      "height_m": 41,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 35.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.8,
+      "window_width_m": 1.1,
+      "window_height_m": 1.95,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 291
+      "variation_seed": 291,
+      "typology": "commercial",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_FAR_3_0_P2",
@@ -1788,21 +2768,23 @@
         225,
         -60.75
       ],
-      "height_m": 36,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 296
+      "variation_seed": 296,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_3_0_P3",
@@ -1812,21 +2794,23 @@
         225,
         -12.0
       ],
-      "height_m": 40,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.78,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 301
+      "variation_seed": 301,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_3_1_P0",
@@ -1836,21 +2820,23 @@
         225,
         60.75
       ],
-      "height_m": 39,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 299
+      "variation_seed": 299,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_3_1_P1",
@@ -1860,21 +2846,23 @@
         225,
         109.5
       ],
-      "height_m": 42,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 21.6,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 304
+      "variation_seed": 304,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_FAR_3_1_P2",
@@ -1884,21 +2872,23 @@
         225,
         158.25
       ],
-      "height_m": 37,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 309
+      "variation_seed": 309,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_FAR_3_1_P3",
@@ -1908,21 +2898,23 @@
         225,
         207.0
       ],
-      "height_m": 41,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 314
+      "variation_seed": 314,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_STREET_END_0_P0",
@@ -1932,21 +2924,23 @@
         -16.0,
         -252
       ],
-      "height_m": 41,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 312
+      "variation_seed": 312,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_STREET_END_0_P1",
@@ -1956,21 +2950,23 @@
         16.0,
         -252
       ],
-      "height_m": 44,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 10.8,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 317
+      "variation_seed": 317,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_STREET_END_0_P2",
@@ -1980,21 +2976,23 @@
         48.0,
         -252
       ],
-      "height_m": 39,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.78,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 322
+      "variation_seed": 322,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_STREET_END_1_P0",
@@ -2004,21 +3002,23 @@
         -16.0,
         272
       ],
-      "height_m": 38,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
         0.7,
-        0.64,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 325
+      "variation_seed": 325,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_STREET_END_1_P1",
@@ -2028,21 +3028,23 @@
         16.0,
         272
       ],
-      "height_m": 41,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.78,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 330
+      "variation_seed": 330,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_STREET_END_1_P2",
@@ -2052,21 +3054,23 @@
         48.0,
         272
       ],
-      "height_m": 36,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.3,
-      "window_height_m": 1.96,
+      "height_m": 14.4,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 335
+      "variation_seed": 335,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_STREET_END_2_P0",
@@ -2076,21 +3080,23 @@
         -252,
         -16.0
       ],
-      "height_m": 44,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 19.2,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
-        0.75,
-        0.68,
+        0.7,
+        0.6,
+        0.53,
         1
       ],
-      "variation_seed": 338
+      "variation_seed": 338,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_STREET_END_2_P1",
@@ -2100,21 +3106,23 @@
         -252,
         16.0
       ],
-      "height_m": 47,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.81,
         0.78,
-        0.71,
+        0.66,
+        0.55,
         1
       ],
-      "variation_seed": 343
+      "variation_seed": 343,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_STREET_END_2_P2",
@@ -2124,21 +3132,23 @@
         -252,
         48.0
       ],
-      "height_m": 42,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.4,
-      "window_height_m": 1.78,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.66,
-        0.59,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 348
+      "variation_seed": 348,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_STREET_END_3_P0",
@@ -2148,21 +3158,23 @@
         272,
         -16.0
       ],
-      "height_m": 36,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 18,
+      "storey_m": 3.6,
+      "bay_pitch_m": 3.4,
+      "window_width_m": 2.35,
+      "window_height_m": 2.35,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "limestone",
       "wall_tint": [
-        0.81,
-        0.78,
-        0.71,
+        0.83,
+        0.79,
+        0.69,
         1
       ],
-      "variation_seed": 351
+      "variation_seed": 351,
+      "typology": "factory",
+      "chimney_height_m": 2.2
     },
     {
       "id": "HORIZON_STREET_END_3_P1",
@@ -2172,21 +3184,23 @@
         272,
         16.0
       ],
-      "height_m": 39,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 12.8,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
+        0.78,
         0.66,
-        0.59,
+        0.55,
         1
       ],
-      "variation_seed": 356
+      "variation_seed": 356,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     },
     {
       "id": "HORIZON_STREET_END_3_P2",
@@ -2196,21 +3210,23 @@
         272,
         48.0
       ],
-      "height_m": 34,
-      "storey_m": 3.1,
-      "bay_pitch_m": 3.1,
-      "window_width_m": 1.2,
-      "window_height_m": 1.96,
+      "height_m": 16,
+      "storey_m": 3.2,
+      "bay_pitch_m": 2.65,
+      "window_width_m": 1.03,
+      "window_height_m": 1.9,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.72,
-        0.7,
-        0.64,
+        0.9,
+        0.82,
+        0.65,
         1
       ],
-      "variation_seed": 361
+      "variation_seed": 361,
+      "typology": "walkup",
+      "chimney_height_m": 1.4
     }
   ]
 }

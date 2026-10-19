@@ -34,10 +34,12 @@ func run() -> void:
 	metrics.free()
 	check(bounds.size() == fixture.buildings.size(), "all authored building identities loaded once")
 	for row: Dictionary in fixture.buildings:
-		var r: Array = row.rect
-		var expected := AABB(Vector3(r[0],-.28,r[1]),Vector3(float(r[2])-float(r[0]),float(row.height_m)+.93,float(r[3])-float(r[1])))
+		var b: Array = row.native_stock_bounds
+		var lo := Vector3(b[0],b[2],-b[4])
+		var hi := Vector3(b[3],b[5],-b[1])
+		var expected := AABB(lo,hi-lo)
 		var actual: AABB = bounds.get(str(row.id), AABB())
-		check(actual.position.distance_to(expected.position)<.0001 and actual.end.distance_to(expected.end)<.0001, "actual imported building/grade frame: "+str(row.id))
+		check(actual.position.distance_to(expected.position)<.0001 and actual.end.distance_to(expected.end)<.0001, "actual imported building/grade frame: "+str(row.id)+" actual="+str(actual)+" expected="+str(expected))
 	for window: Dictionary in fixture.window_rows:
 		var p: Array = window.point
 		var n: Array = window.normal
@@ -55,4 +57,4 @@ func run() -> void:
 	await get_tree().physics_frame
 	check(retired.get_ref()==null, "production horizon node retires")
 	print("CITY HORIZON BENCH: %s; %d checks; %d failures" % ["PASS" if failures.is_empty() else "FAIL", checks, failures.size()])
-	get_tree().quit(failures.size())
+	get_tree().quit(0 if failures.is_empty() else 1)

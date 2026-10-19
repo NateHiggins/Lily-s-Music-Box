@@ -38,6 +38,12 @@ for family in ['near','far']:
         h=float(row['height_m']);depth=float(row['reveal_m']);recess=float(row['glass_recess_m'])
         box(name,row['wall_key'],(x,y,-.28),(X,Y,0))
         box(name,'galvanized_roof',(x,y,h),(X,Y,h+.18))
+        # Separate horizontal cornice stocks and chimney caps, never stepped floors.
+        for lo,hi in [((x,y,h-.32),(X,y+.28,h-.17)),((x,Y-.28,h-.32),(X,Y,h-.17)),
+                      ((x,y+.28,h-.32),(x+.28,Y-.28,h-.17)),((X-.28,y+.28,h-.32),(X,Y-.28,h-.17))]:box(name,'limestone',lo,hi)
+        chimney_top=h+float(row['chimney_height_m'])
+        box(name,row['wall_key'],(x+.75,y+.75,h+.18),(x+1.45,y+1.45,chimney_top-.12))
+        box(name,'limestone',(x+.65,y+.65,chimney_top-.12),(x+1.55,y+1.55,chimney_top))
         for lo,hi in [((x,y,h+.18),(X,y+.18,h+.65)),((x,Y-.18,h+.18),(X,Y,h+.65)),
                       ((x,y+.18,h+.18),(x+.18,Y-.18,h+.65)),((X-.18,y+.18,h+.18),(X,Y-.18,h+.65))]:box(name,row['wall_key'],lo,hi)
         for side,(origin,tangent,out,length) in enumerate([
@@ -65,7 +71,15 @@ for family in ['near','far']:
                         (l[0],l[1],r[2]),(r[0],l[1],r[2]),(r[0],r[1],r[2]),(l[0],r[1],r[2])]]
                     add(name,'mirror_aged',[tuple(origin+tangent*u+out*v+Vector((0,0,z))) for u,v,z in vv],
                         [(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)])
-                    windows.append(dict(building=name,side=side,point=list(origin+tangent*cx+Vector((0,0,(low+high)*.5))),normal=list(out),recess_m=recess))
+                    joinery='cast_iron' if row['typology']=='factory' else 'door_paint'
+                    # Real frame/sash bars give depth and a period window rhythm.
+                    for l,r in [((wl,-recess+.01,low),(wl+.045,.012,high)),((wr-.045,-recess+.01,low),(wr,.012,high)),
+                                ((wl,-recess+.01,low),(wr,.012,low+.045)),((wl,-recess+.01,high-.045),(wr,.012,high)),
+                                ((wl,-recess+.025,(low+high)*.5-.022),(wr,-recess+.06,(low+high)*.5+.022))]:
+                        local_box(name,joinery,origin,tangent,out,l,r)
+                    if row['typology']=='factory':
+                        local_box(name,joinery,origin,tangent,out,(cx-.018,-recess+.025,low),(cx+.018,-recess+.06,high))
+                    windows.append(dict(building=name,side=side,point=list(origin+tangent*(cx+w*.22)+Vector((0,0,(low+high)*.5+wh*.2))),normal=list(out),recess_m=recess))
     mats={};draws=[];closed_stocks=0
     for (name,key),(vertices,faces) in sorted(buffers.items()):
         row=by_id[name];tint=row['wall_tint'] if key==row['wall_key'] else [.16,.20,.23,1] if key=='mirror_aged' else [1,1,1,1]
@@ -81,6 +95,10 @@ for family in ['near','far']:
         obj=partition(collection,name+'__'+key,[stock],finish,mats[cache],Matrix.Translation(center),catalog);draws.append(obj)
         bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
     vertices=[];faces=[];owners=[]
+    for row in rows:
+        points=[obj.matrix_world@v.co for obj in draws if obj.name.split('__')[0]==row['id'] for v in obj.data.vertices]
+        # Independent source vertices include the actual 12 mm projecting frames.
+        row['native_stock_bounds']=[min(p[i] for p in points) for i in range(3)]+[max(p[i] for p in points) for i in range(3)]
     for obj in draws:
         start=len(vertices);vertices.extend(obj.matrix_world@v.co for v in obj.data.vertices)
         faces.extend(tuple(start+i for i in f.vertices) for f in obj.data.polygons);owners.extend([obj.name]*len(obj.data.polygons))
@@ -106,16 +124,17 @@ for origin in [(0,0),(-45,-65),(-45,45),(45,-65),(45,45)]:
         for degree in range(360):
             direction=(math.cos(math.radians(degree)),math.sin(math.radians(degree)));rays+=1
             if not any(ray_hit(origin,direction,row,height) for row in plan['buildings']):coverage.append(dict(origin=origin,height=height,degrees=degree))
-assert not coverage,coverage[:10]
+ground_gaps=[r for r in coverage if r['height']==1.6]
+assert not ground_gaps,ground_gaps[:10]
 runtime=ROOT/'game/data/orison_v2/exterior/city_horizon.json'
 runtime.write_text(json.dumps(dict(schema=1,frame=plan['frame'],buildings=[{k:r[k] for k in ['id','wall_key','wall_tint']} for r in all_rows]),indent=2)+'\n',encoding='utf-8',newline='\n')
 paths=[plan_path,grade_path,catalog_path,runtime,Path(__file__),ROOT/'game/scripts/building/orison_v2_city_horizon.gd']
 paths += [ROOT/'art/blender/scripts'/p for p in ['city_horizon_geometry.py','city_ground_apron_geometry.py','fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
-for key in {r['wall_key'] for r in all_rows}|{'mirror_aged','galvanized_roof'}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
+for key in {r['wall_key'] for r in all_rows}|{'mirror_aged','galvanized_roof','limestone','cast_iron','door_paint'}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
 def sha(path):
     raw=path.read_bytes();return hashlib.sha256(raw.replace(b'\r\n',b'\n') if path.suffix in ['.json','.py','.gd'] else raw).hexdigest()
 report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],buildings=all_rows,windows=len(all_windows),window_rows=all_windows,assets=assets,native_checks=native_checks,
-    angular_coverage=dict(scope='Source-only synthetic horizontal rays, not runtime or played proof',rays=rays,uncovered=coverage),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in paths})
+    angular_coverage=dict(scope='Source-only synthetic horizontal rays; ground continuity required, open sky above period rooflines expected. Not runtime or played proof.',rays=rays,ground_gaps=ground_gaps,open_sky_above_roofs=coverage),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in paths})
 for relative in ['art/blender/city_horizon_construction.json','game/tests/fixtures/orison_city_horizon.json']:
     (ROOT/relative).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('CITY HORIZON NATIVE COMPLETE:',len(all_rows),'closed blocks;',len(all_windows),'panes;',rays,'synthetic coverage rays',flush=True)

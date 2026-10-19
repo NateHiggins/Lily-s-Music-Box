@@ -45,7 +45,7 @@ def validate_plan(plan,retained_bounds):
     for index,row in enumerate(plan['buildings']):
         assert row['id'] not in seen;seen.add(row['id'])
         a,b,c,d=row['rect'];x,y,z,X,Y,Z=retained_bounds
-        assert a<c and b<d and 10<=row['height_m']<=55
+        assert a<c and b<d and 6<=row['height_m']<=55
         assert c<=x-4 or a>=X+4 or d<=z-4 or b>=Z+4
         assert min(a,b)>=-400 and max(c,d)<=400
         for other in plan['buildings'][index+1:]:

@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 7.81,
+  "exit_code": 124,
+  "finished_utc": "2026-10-19T03:43:50Z",
+  "started_utc": "2026-10-19T03:43:42Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "CITY HORIZON BENCH: FAIL; 12458 checks; 124 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-city-polish-20261018/queens_horizon_bench1.log.stderr",
+  "stderr_sha256": "f481926ae6768c5ac0392ea971cd76852d690d33d9604513fb0d78529fb42a42",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-city-polish-20261018/queens_horizon_bench1.log",
+  "stdout_sha256": "30a40aacdf15ce975c7646346f635cd1b211db83364dad99694c02e3e1f8249b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2CityHorizonBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 1643,
+  "dirty_sample": [
+   "M DOCS.md",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/city_horizon_far.blend",
+   " M art/blender/city_horizon_near.blend",
+   " M art/blender/scripts/build_city_horizon.py",
+   " M art/blender/scripts/city_horizon_geometry.py",
+   " M art/data/city_horizon/source_plan.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json"
+  ],
+  "repository_head": "d28c2d3c50adfc2fc9a82eb3f439e3ca9e14d72a",
+  "repository_tree": "59772b57f207f3355a1471da503c5b564d30dff7",
+  "runtime_inputs_sha256": "c1d043d68ba7b8804db52e51b0ee3a54c385c983098a699cde205cd4302140a2",
+  "test_path": "game/tests/v2_city_horizon_bench.gd",
+  "test_sha256": "f81c2f19ad2399c23787ac742be6eb02eb365afd2869e2292a70c8ff8b0f2993"
+ },
+ "windowed": false
+}

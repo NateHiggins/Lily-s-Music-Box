@@ -112,3 +112,12 @@ samples, then selects a clear first-hit sightline for the context image. All
 eight selected native fixture preflights pass; reader and spatial audits show
 zero new defects. Final composed images and broader original renewals are still
 pending for this additive candidate.
+
+The owner's subsequent request for 1928 Queens references supersedes the
+92-building horizon composition above. The dated research and inspected
+period plates are recorded in **V2_QUEENS_1928_CITY_REFERENCE_2026-10-18.md**.
+The revised source has 124 lower, varied residential/industrial buildings,
+12,331 recessed panes, separate sash/crossbar joinery, cornice stocks and
+capped chimneys. It retains the previous grade footprints and allows open sky
+above lower eaves. The original **queens_horizon_build1** passes its native
+pane/closed-stock checks; composed rendering and broader renewal are pending.
