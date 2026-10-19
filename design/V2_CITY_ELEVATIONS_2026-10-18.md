@@ -71,6 +71,9 @@ repetitive stock, strong carried-light hotspots and simple artwork remain broade
 appearance work. This scoped pass does not establish whole-city photoreal quality,
 traffic safety, access to all shop interiors or a continuous whole-building shift.
 
-An isolated, uncommitted service-circulation candidate remains future work. Its
-original run reaches two rooms and fails at the unsupported F01 service-door
-approach; no wall, shaft, route tolerance or authority was changed to hide it.
+The subsequent service-circulation repair is recorded separately in
+**V2_SERVICE_CIRCULATION_2026-10-18.md**. It fits the missing F01 approach and
+two riser bypasses, renews the native exterior masonry and proves the full
+basement-to-roof-and-back route. All five broader original qualification jobs
+are renewed again after that source change. The four rebuilt pavement/city
+exports remain byte-identical, preserving this city appearance review.

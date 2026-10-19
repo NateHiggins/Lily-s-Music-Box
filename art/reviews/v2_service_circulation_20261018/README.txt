@@ -26,5 +26,6 @@ positions, and verifies successful image writes.
 
 This archive grants no standalone runtime or human appearance acceptance.
 Bright carried-light hotspots, broader lighting/material polish, full-building
-runtime and whole-V2 completion remain open. The five broader original proof
-renewals are pending at this publication point.
+runtime and whole-V2 completion remain open. All five broader original proof renewals pass against the same frozen inputs.
+The separate publication report records the final clean comparison; these
+original packets do not establish whole-V2 or human appearance acceptance.

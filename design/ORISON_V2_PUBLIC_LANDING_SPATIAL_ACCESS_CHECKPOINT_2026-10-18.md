@@ -36,9 +36,11 @@ landing IDs, including three newly satisfied public-core circulation rows. No
 additional core-space identity, private room, lift/service mechanism, case
 completion, disk save, full-building runtime, photoreal or human acceptance
 is granted by this spatial checkpoint. The current packet is the original
-landing3 run, renewed after the city elevation change, with the same measured
-748 waypoints, 41 checks and zero failures. Its runtime input digest is
-**907a113d640e050a715d545520d190fdfb9060bf4c8a297f1943fb0f274761eb** and surface
-input digest is **7b2d589628bcece6c6a1b4028d34efa93dce748926d453195dc25cf7db7b028c**.
-All five original surface/service/access renewals pass. Clean candidate
-**aae34b06** has zero board regressions; this update adds no new claims.
+final_landing1 run, renewed after the service approach and native masonry repair,
+with the same measured 748 waypoints, 41 checks and zero failures. Its runtime
+input digest is **19bab8cdb37bbd1bc6695d8b3314b8c26ef1001ff797b77dfe7aa8abe0838fda**
+and surface input digest is
+**65ee917e07628f2db5540afd100c67a53b6a76860e73e0514fbfa775cc61ab9c**.
+All six original circulation/surface/service/home/upper/landing jobs pass.
+The separate service checkpoint grants only its explicitly played service rooms
+and thresholds. This renewal adds no new public-landing or public-core claims.

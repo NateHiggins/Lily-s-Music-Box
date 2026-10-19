@@ -1,6 +1,6 @@
-# Service circulation test candidate — 2026-10-18
+# Supported service circulation — 2026-10-18
 
-Evidence class: **INERT**. Diagnostic construction candidate; no spatial, runtime,
+Evidence class: **INERT**. Construction and qualification record; no spatial, runtime,
 mechanical, appearance or human acceptance is granted.
 
 Current state: the original source-frozen service contract passes 90 checks,
@@ -10,7 +10,8 @@ measures two tracked objects, zero retained. The independent connection validato
 passes, and all seven actual standing captures have been inspected. See
 **ORISON_V2_SERVICE_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md** and the canonical
 **art/renders/orison_v2/access_service_circulation_20261018/** packet. Broader
-surface/service/home/upper/landing renewal and human acceptance remain separate.
+surface/service/home/upper/landing renewals all pass against the same frozen
+inputs. Human appearance acceptance remains separate.
 The original composed surface renewal now passes 37,905 checks, zero failures:
 25,861 draws, 16,827 meshes, 6,126 material instances and 497 loaded textures,
 with zero unresolved UV/PBR/loaded-mipmap surfaces. All fourteen scoped current
@@ -22,7 +23,8 @@ The earlier run6 records no failed movement, but the overall contract fails: fou
 rooms need an explicit observed waypoint, and an additional source guard changed
 during that run. Those defects are retained in its original failed receipt.
 The final producer adds actual stops in those rooms; it does not interpolate or
-invent observations. A new current-source original run is required.
+invent observations. The subsequent original source-frozen run passes; the failed diagnostic remains
+unmodified in the archive.
 
 The candidate starts once at the actual B1 service stair. It targets all seven
 service stairs up to the roof and back, both ends of the six occupied service
@@ -88,8 +90,8 @@ The fourth source bench passes the real production layout validator without
 building a world. The next original windowed run exercises the full route with
 the real controller and hand input. The planner reuses unchanged floor candidate
 grids between targets and invalidates them after operating a door; every route
-segment still uses ordinary collision-bearing movement. Its outcome and captures
-must be inspected before this candidate can be accepted.
+segment still uses ordinary collision-bearing movement. The completed final run and seven actual standing captures are now inspected;
+its explicit checkpoint states the limited spatial-access grant.
 
 The original run4 exposes the still-solid outer masonry beside the new bypass.
 The owning Blender masonry builder has now regenerated that leaf from the actual
@@ -134,3 +136,13 @@ preserving the existing service kind instead of using the older 52 mm skin datum
 Any further missing physical passage found by the composed run must be repaired
 through its owning source. Per-floor fixtures, private-room
 shortcuts, collision disabling and weaker arrival tolerances are not remedies.
+
+The completed source-frozen batch contains six original passes: service
+circulation 90 checks, surface 37,905, physical service repair and disk
+reconstruction 360, home access 909, upper/roof access 989 and public landings 41.
+Home and upper prove 62 rooms/nine legs and 69 rooms/eleven legs respectively;
+the separate landing walk records 748 actual waypoints. All independent receipt
+validators pass. Matching wrappers and raw log bytes are preserved, and prior
+canonical packets are archived before replacement. No old runtime contract is
+repinned to the new source. The publication report records the final clean
+baseline comparison and remaining full-V2 obligations.

@@ -73,5 +73,9 @@ This grants spatial access at the played floor witnesses and openings. It does
 not prove entire air volumes, lift operation, service mechanisms, acoustic
 rederivation, cases, inventory, disk saves, full-building runtime, full-V2
 completion or human appearance acceptance. Bright light hotspots and broader
-material/lighting polish remain open. The five broader original qualification
-renewals are still pending at this checkpoint.
+material/lighting polish remain open. All five broader original qualification renewals also pass against these same
+inputs: surface 37,905 checks; physical service/save 360; home 909 across 62 rooms;
+upper 989 across 69 rooms; public landings 41 across six programmes. Those
+separate packets retain their own limited scopes; this checkpoint adds no claim
+from them. Clean candidate verification is recorded in the separate publication
+report.
