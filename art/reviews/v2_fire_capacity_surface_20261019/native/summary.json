@@ -1,0 +1,25 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled single-bank capacity clay study; no UV/PBR, support, deployment or contact acceptance.",
+  "centreline_polyline_m": 15.239999999999998,
+  "long_leg_length_m": 0.5402139766511416,
+  "long_leg_bottom_y_m": 0.13978602334885848,
+  "legs": 26,
+  "crowns": 13,
+  "crown_centre_y_m": 0.68,
+  "single_bank_depth_m": 0.1,
+  "source_bindings": {
+    "art/blender/scripts/build_fire_capacity_candidate.py": "20e8bb2aca2db60ad9a089576d26036c04a5b87e505a1c46ca910c4cd3ead99b",
+    "game/data/orison_v2/fire_fold_stock.json": "59de7980eec37b7f5462d9542d08cafd8332fddd98d1fd317d71f41f7be39876"
+  },
+  "mesh": {
+    "vertices": 41216,
+    "quads": 41216,
+    "closed": true,
+    "volume_m3": 0.00312521252010981,
+    "minimum_y_m": 0.03859555348753929,
+    "maximum_depth_m": 0.13457909226417542,
+    "maximum_x_m": 0.19099999964237213,
+    "minimum_x_m": -0.28599387407302856
+  }
+}

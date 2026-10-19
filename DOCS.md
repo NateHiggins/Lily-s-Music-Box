@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Reduced full-length hose mesh, authored metre charts and loaded voxel-light surface review | `design/V2_FIRE_CAPACITY_SURFACE_REVIEW_2026-10-19.md` |
 | Uninstalled full-length hose, taller rack bearings and remaining UV/deployment work | `design/V2_FIRE_HOSE_CAPACITY_STUDY_2026-10-19.md` |
 | Thin native cabinet coatings, loaded PBR checks and retained steel support | `design/V2_FIRE_CASE_COATINGS_2026-10-19.md` |
 | Eight installed fire-cabinet hand programmes, precise native contacts and remaining work | `design/V2_FIRE_INSTALLED_HAND_REVIEW_2026-10-19.md` |

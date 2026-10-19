@@ -1,0 +1,22 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_fire_capacity_candidate.py:106: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Unqualified clay geometry study');mat.diffuse_color=(.55,.46,.29,1);mat.use_nodes=True
+00:10.140  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\capacity_stock_native1\capacity_study.png'
+00:10.344  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\capacity_stock_native1\hose_capacity_study.blend"
+CAPACITY STUDY {"evidence_class": "INERT", "scope": "Uninstalled single-bank capacity clay study; no UV/PBR, support, deployment or contact acceptance.", "centreline_polyline_m": 15.239999999999998, "long_leg_length_m": 0.5402139766511416, "long_leg_bottom_y_m": 0.13978602334885848, "legs": 26, "crowns": 13, "crown_centre_y_m": 0.68, "single_bank_depth_m": 0.1}
+Info: Saved as "hose_capacity_study.blend"
+CAPACITY NATIVE STUDY SAVED {'vertices': 41216, 'quads': 41216, 'closed': True, 'volume_m3': 0.00312521252010981, 'minimum_y_m': 0.03859555348753929, 'maximum_depth_m': 0.13457909226417542, 'maximum_x_m': 0.19099999964237213, 'minimum_x_m': -0.28599387407302856}
+Info: Saved as "fire_capacity_candidate.blend"
+Info: Saved as "fire_capacity_candidate.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+14:59:45 | INFO: Starting glTF 2.0 export
+14:59:45 | INFO: Extracting primitive: Editable 15.24m hose
+14:59:45 | INFO: Primitives created: 1
+14:59:45 | INFO: Finished glTF 2.0 export in 0.2412874698638916 s
+00:28.750  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\capacity_stock_native1\linen_conformal.png'
+
+SEGMENTED CLOTH CANDIDATE {"asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\capacity_stock_native1\\game\\assets\\props\\fire_capacity_candidate.glb", "primitives": 1, "triangles": 82432, "minimum_tangent_agreement": 0.9999999435313047, "status": "PASS", "evidence_class": "INERT", "scope": "Uninstalled segmented conformal native cloth candidate with physical metre charts. No loaded mip, mechanism, pose or appearance acceptance.", "worst_triangles": [[1.0001770561811973, 58351, [0.07520122826099396, -0.10204844921827316, 0.13901521265506744], [1.0000012169923291, 0.9998229751621444]], [1.000172031713034, 16942, [0.07438029597202937, -0.10811507205168407, 0.1395582060019175], [1.000000976577467, 0.9998279978767859]], [1.000169395443088, 9360, [-0.13196477790673575, -0.09590310603380203, 0.1394317497809728], [1.000169395443088, 0.9999992021027709]], [1.0001618173148952, 17327, [0.07594167689482371, -0.1040968969464302, 0.13938852647940317], [1.0001618173148952, 0.9999970888065081]], [1.0001529213316425, 58447, [0.0756474956870079, -0.1040968969464302, 0.13909434775511423], [0.9999999451368717, 0.9998471020497156]], [1.000152490148324, 17295, [0.07585083941618602, -0.1040968969464302, 0.13926122585932413], [1.000152490148324, 0.9999945019457138]], [1.0001503978322763, 50512, [-0.13204114139080048, -0.09590310603380203, 0.1396837035814921], [1.0000007633814223, 0.9998496247838302]], [1.0001469552979356, 50543, [-0.1319808065891266, -0.10204844921827316, 0.13953610261281332], [1.0001469552979356, 0.9999897960165358]], [1.00014560463994, 17039, [0.0747252032160759, -0.1040968969464302, 0.1391851802666982], [1.00014560463994, 0.9999990734821421]], [1.0001439968024861, 58607, [0.07604594280322392, -0.1040968969464302, 0.1397327035665512], [1.0000031647353234, 0.9998560239296077]], [1.0001391617857165, 9423, [-0.13176055749257407, -0.10204844921827316, 0.13920648396015167], [0.9999995448141401, 0.9998608575775915]], [1.0001375204453382, 50574, [-0.1320260614156723, -0.10811507205168407, 0.13933214048544565], [1.0000033346968589, 0.9998624984639343]]], "islands": 192, "uv_area_quantiles": [0.9998314310095967, 0.9999772978898107, 0.9999999960008739, 1.0000225251894803, 1.0001758389748734], "uv_stretch_quantiles": [0.9998229751621444, 0.9999791331270246, 1.000000001825513, 1.0000209343256627, 1.000169395443088]}
+FIRE CAPACITY NATIVE CANDIDATE COMPLETE
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
