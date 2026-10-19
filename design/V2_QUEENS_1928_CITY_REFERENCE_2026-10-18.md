@@ -83,3 +83,12 @@ The bench now returns 1 for any failure, avoiding that reserved-code ambiguity.
 Reader baseline: zero new unread fields. Selected native/source preflights
 pass. These checks grant no played exterior access, human acceptance or
 whole-V2 completion status.
+
+## Publication update, 2026-10-19
+
+The pending checks above describe the candidate at that stage. The final
+original surface run passes 39,527 checks with zero unresolved surfaces; all
+five original service/access renewals pass. The clean no-regression comparison
+and scoped image review are recorded in
+**design/V2_CITY_CONTEXT_REPORT_2026-10-19.md**. Broader V2 and human appearance
+acceptance remain open.

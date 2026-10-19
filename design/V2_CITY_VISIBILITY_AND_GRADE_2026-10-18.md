@@ -163,3 +163,12 @@ The focused real-owner bench and the original isolated window-treatment suite
 pass without script errors. Production blind and save-owner code are unchanged.
 This strengthens the timing check; it does not grant new player-input proof.
 The next original composed qualification remains required before publication.
+
+## Publication update, 2026-10-19
+
+The pending checks above describe the candidate at that stage. The final
+original surface run passes 39,527 checks with zero unresolved surfaces; all
+five original service/access renewals pass. The clean no-regression comparison
+and scoped image review are recorded in
+**design/V2_CITY_CONTEXT_REPORT_2026-10-19.md**. Broader V2 and human appearance
+acceptance remain open.

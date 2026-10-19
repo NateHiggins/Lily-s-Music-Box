@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to knowâ€¦ | Read |
 |---|---|
 | Current city massing, recessed windows, retained roof contacts and qualification | `design/V2_CITY_ELEVATIONS_2026-10-18.md` |
+| Qualified period-informed city context, original six-run proof and remaining appearance work | `design/V2_CITY_CONTEXT_REPORT_2026-10-19.md` |
 | Period sources and applied November 1928 Queens skyline direction | `design/V2_QUEENS_1928_CITY_REFERENCE_2026-10-18.md` |
 | Follow-up city visibility, distant native grade and varied window stock candidate | `design/V2_CITY_VISIBILITY_AND_GRADE_2026-10-18.md` |
 | Repaired service approaches, retained heating ports and native operable core doors | `design/V2_SERVICE_CIRCULATION_2026-10-18.md` |
