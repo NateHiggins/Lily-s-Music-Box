@@ -32,6 +32,9 @@ func _run() -> void:
 	if not failures.is_empty():
 		print("V2 FIRE CAPACITY NATIVE: FAIL failures=",failures.size())
 		get_tree().quit(1);return
+	var programme:=preload("res://tests/v2_fire_capacity_rig_programme.gd").new();add_child(programme)
+	check(programme.prepare(model),"native moving-cloth programme prepares")
+	if not failures.is_empty():get_tree().quit(1);return
 	var environment:=WorldEnvironment.new();environment.environment=Environment.new();add_child(environment)
 	environment.environment.background_mode=Environment.BG_COLOR;environment.environment.background_color=Color(.025,.025,.03)
 	environment.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
@@ -54,7 +57,13 @@ func _run() -> void:
 		for frame in 12:await get_tree().process_frame
 		await RenderingServer.frame_post_draw
 		check(get_viewport().get_texture().get_image().save_png(directory.path_join("capacity_voxel_crowns.png"))==OK,"close cloth chart seams and relief frame saved")
+	check(await programme.run(player),"actual grabbing moves and restores native cloth without stretching")
+	if not directory.is_empty():
+		player.position=Vector3(0,-1.15,1.0);player.camera.look_at(Vector3(0,.38,.1))
+		for frame in 8:await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		check(get_viewport().get_texture().get_image().save_png(directory.path_join("capacity_voxel_moved.png"))==OK,"moved native cloth frame saved")
 	print("V2 FIRE CAPACITY NATIVE: ","PASS" if failures.is_empty() else "FAIL"," failures=",failures.size())
-	atmosphere.free();player.free();model.free();environment.free()
+	atmosphere.free();programme.free();player.free();model.free();environment.free()
 	for frame in 8:await get_tree().process_frame
 	get_tree().quit(0 if failures.is_empty() else 1)

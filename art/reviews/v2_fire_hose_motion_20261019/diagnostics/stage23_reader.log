@@ -1,0 +1,13 @@
+data consumption audit
+  DURABLE_NUMERIC_MONOTONIC_ONLY: 2
+  FIELD_UNREAD: 1108
+  FILE_UNREAD: 11
+  known (in baseline): 1115
+  resolved since baseline: 193
+  NEW: 6
+  - FILE_UNREAD game/data/orison_v2/fire_capacity_rig.json (no production path reader)
+  - FIELD_UNREAD game/data/orison_v2/fire_capacity_rig.json:bone_names (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/fire_capacity_rig.json:length_m (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/fire_capacity_rig.json:points (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/fire_capacity_rig.json:schema_version (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/fire_capacity_rig.json:sides (zero production token readers)
