@@ -73,3 +73,21 @@ captures must pass an actual first-hit sightline check. Equivalent finishes shar
 local cached materials by stock and tint instead of duplicating them per building.
 Import policy preserves the already validated metre charts. Final original
 qualification and clean baseline comparison are pending.
+
+The corrected original surface3 qualification passes37,903 checks with zero
+failures. It measures25,809 draws,16,783 meshes,6,126 materials and497 loaded
+textures, with zero unresolved UV/PBR/mipmap surfaces. Equal-finish caching
+removes207 material instances versus surface2; no texture image is added.
+All400 elevation continuity rays,1,205 retained roof footprint samples and80
+actual pane stations pass. All3 upper-window capture sightlines are clear.
+Fourteen actual city/installation/clearance captures were inspected and published
+with the unmodified test-written contract and exact matching wrapper/logs.
+The preceding packet is preserved. Independent publication validation reports
+zero defects. Seven standing Texture RID shutdown warnings remain.
+
+The retained clean checkout independently matches both current production and
+surface input hashes. Service/home/upper/landing original renewals are still
+running in one serial batch; clean full-board comparison and push remain pending.
+Finite distant ground/horizon continuity, atmospheric flattening, repetitive
+stock, strong carried-light hotspots and simple artwork remain broader appearance
+work. This is not a whole-environment photoreal or human acceptance grant.
