@@ -61,6 +61,15 @@ func replay_cases() -> void:
 		print("HOSE JOINT CASE: ",stem," backend=",joint.backend_name," ms=",float(Time.get_ticks_usec()-started)/1000.," iterations=",joint.iterations," qp_iterations=",joint.qp_iterations," error=",joint.error)
 		if OS.get_environment("ORISON_HOSE_EXPECT_NATIVE")=="1":check(joint.backend_name=="native","compiled numerical backend actually selected")
 		check(result.size()==seed.size(),"stored contact/bend case resolves without waived bounds "+stem)
+		if result.is_empty() and not joint.last_iterate.is_empty():
+			var directory: String=OS.get_environment("SHOT_DIR")
+			if not directory.is_empty():
+				DirAccess.make_dir_recursive_absolute(directory)
+				var exported: Array=[]
+				for point: Vector3 in joint.last_iterate:exported.append([point.x,point.y,point.z])
+				var output:=FileAccess.open(directory.path_join(stem+"_failed_iterate.json"),FileAccess.WRITE)
+				check(output!=null,"failed numerical iterate can be exported")
+				if output!=null:output.store_string(JSON.stringify({"evidence_class":"INERT","error":joint.error,"points":exported}))
 		if joint.backend_name=="native" and stem.begins_with("stage27_"):
 			var reference:=preload("res://scripts/props/hose_contact_projection.gd").new();reference.force_reference=true
 			reference.configure(PackedFloat64Array(value.lengths),PackedFloat64Array(value.bend_spans),weights)

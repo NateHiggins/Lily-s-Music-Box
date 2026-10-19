@@ -2,6 +2,7 @@ extends RefCounted
 ## Joint mass-weighted projection of length equalities and unilateral bend/
 ## contact constraints. No skin, world queries, facts or save-state ownership.
 const ERROR_M:=preload("res://scripts/props/hose_length_constraint.gd").ERROR_M
+const POSITION_ITERATIONS:=512
 var error:=""
 var iterations:=0
 var qp_iterations:=0
@@ -167,7 +168,7 @@ func project(seed: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> Pac
 	if seed.size()!=inverse.size() or lengths.size()!=seed.size()-1 or spans.size()!=seed.size()-2:
 		error="joint material sizes differ";return PackedVector3Array()
 	var points:=seed.duplicate();points[-1]=anchor
-	for iteration in 64:
+	for iteration in POSITION_ITERATIONS:
 		iterations=iteration+1
 		var rows: Array[Dictionary]=_rows(points,planes)
 		if rows.is_empty():return PackedVector3Array()

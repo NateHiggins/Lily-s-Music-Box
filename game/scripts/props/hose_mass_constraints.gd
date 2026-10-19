@@ -35,6 +35,7 @@ func configure(rest_lengths: PackedFloat64Array,rest_points: PackedVector3Array)
 		if span.length_squared()<1e-14:return false
 		bend_hints.append(span.normalized())
 	coupled.configure(lengths,bend_spans,inverse)
+	if coupled.backend_name=="native_invalid":error=coupled.error;return false
 	return true
 func _bend(points: PackedVector3Array,collapsed_only: bool=true) -> PackedVector3Array:
 	# Mass-balanced two-interval inequality prevents a zero-radius hairpin.
@@ -159,6 +160,9 @@ func project(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> P
 	error="";iterations=0
 	last_input=target.duplicate();last_planes=planes.duplicate(true);last_result=PackedVector3Array();joint_accepted=false
 	if target.size()!=masses.size():error="wrong material ring count";return PackedVector3Array()
+	if not anchor.is_finite():error="nonfinite material anchor";return PackedVector3Array()
+	for point: Vector3 in target:
+		if not point.is_finite():error="nonfinite material position";return PackedVector3Array()
 	var points:=target.duplicate()
 	# Position inequalities may release while neighbouring rings rise. Locking
 	# every first contact to equality overconstrains a bent, varying section.

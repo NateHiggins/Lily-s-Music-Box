@@ -27,6 +27,10 @@ class OrisonHoseProjectionNative : public RefCounted {
     Points last_iterate;
     std::vector<double> dependence;
     static constexpr double ERROR_M = .00002;
+    // The saved tightly curved floor case needs ~384 nonlinear iterations
+    // to satisfy the separate accumulated-length bound, even after its
+    // largest interval residual is small. Easy cases still return early.
+    static constexpr int POSITION_ITERATIONS = 512;
 
     static double dot(const Vector3 &a, const Vector3 &b) {
         return double(a.x)*double(b.x)+double(a.y)*double(b.y)+double(a.z)*double(b.z);
@@ -235,7 +239,7 @@ public:
         if (!anchor.is_finite()) {error="nonfinite native anchor";return output({});}
         Planes planes;if (!unpack_planes(support,int(points.size()),planes)) return output({});
         points.back()=anchor;
-        for (int iteration=0;iteration<64;++iteration) {
+        for (int iteration=0;iteration<POSITION_ITERATIONS;++iteration) {
             iterations=iteration+1;Rows rows;
             if (!make_rows(points,planes,rows)) return output({});
             if (acceptable(rows)) return output(points);

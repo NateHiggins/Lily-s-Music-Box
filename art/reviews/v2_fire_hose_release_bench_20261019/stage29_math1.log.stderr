@@ -1,0 +1,5 @@
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: replay_cases (res://tests/v2_fire_hose_gravity_programme.gd:69)
+   GDScript backtrace (most recent call first):
+       [0] replay_cases (res://tests/v2_fire_hose_gravity_programme.gd:69)
+       [1] _ready (res://tests/hose_projection_regression.gd:5)

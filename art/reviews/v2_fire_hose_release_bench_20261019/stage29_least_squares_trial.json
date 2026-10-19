@@ -1,0 +1,25 @@
+{
+  "evidence_class": "INERT",
+  "runs": [
+    {
+      "seed": "raw",
+      "metrics": [
+        1.0675197087589442e-05,
+        7.162049066746629e-05,
+        5.388437126072586e-06
+      ],
+      "evals": 256,
+      "message": "The maximum number of function evaluations is exceeded."
+    },
+    {
+      "seed": "smoothed",
+      "metrics": [
+        8.262019432364121e-06,
+        5.664980191602976e-05,
+        4.404275165650635e-06
+      ],
+      "evals": 256,
+      "message": "The maximum number of function evaluations is exceeded."
+    }
+  ]
+}
