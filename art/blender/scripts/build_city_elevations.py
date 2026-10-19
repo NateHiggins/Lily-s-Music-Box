@@ -3,6 +3,7 @@ from pathlib import Path
 import collections, hashlib, json, math, re, sys, os
 import bpy, bmesh
 from mathutils import Vector, Matrix
+from mathutils.bvhtree import BVHTree
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').exists())
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from fabrication_native_batch import material,partition,export
@@ -106,12 +107,39 @@ for name,p in groups.items():
         x,y,X,Y=rect0;u,v,U,V=final_rect
         for lo,hi in [((x,y,split-.12),(X,v,split)),((x,V,split-.12),(X,Y,split)),((x,v,split-.12),(u,V,split)),((U,v,split-.12),(X,V,split))]:box(name,'roof_bitumen',lo,hi)
     stats.append(dict(id=name,old_setbacks=len(ss)-1,new_setbacks=min(1,len(ss)-1),windows=len(window_rows)-first_window,roof_height=top,shaft_bottom=ss[0]['z0'],setback_height=split,original_roof_rect=final_rect,main_rect=rect0))
+# Retired continuous cornice bands can still carry original guy anchors.
+# Retain only a local closed bearing saddle outside the new terrace boundary;
+# adjoining top planes meet without coplanar overlap or a repeated facade band.
+anchor_seats=[]
+contact_sources={asset:json.loads((ROOT/f'game/tests/fixtures/orison_city_{asset}.json').read_text()) for asset in ['masts','aerials','tanks']}
+source_by_id={row['id']:row for row in rows};stats_by_id={row['id']:row for row in stats}
+for asset,data in contact_sources.items():
+    for contact in data['contacts']:
+        owner=source_by_id.get(contact['owner'])
+        if owner is None or not re.search(r'_c[0-9]+$',owner['id']):continue
+        identity=group(owner['id']);building=stats_by_id[identity]
+        top=owner['z0']+owner['h']
+        if abs(top-building['setback_height'])>.00002:continue
+        footprint=[contact['point']]+contact['footprint'];dx=owner['registration_offset_x']
+        ox,oy,oX,oY=owner['rect'];ox+=dx;oX+=dx
+        x=max(ox,min(p[0] for p in footprint)-.02);X=min(oX,max(p[0] for p in footprint)+.02)
+        y=max(oy,min(p[1] for p in footprint)-.02);Y=min(oY,max(p[1] for p in footprint)+.02)
+        u,v,U,V=building['main_rect']
+        pieces=[(x,y,X,min(Y,v)),(x,max(y,V),X,Y),(x,max(y,v),min(X,u),min(Y,V)),(max(x,U),max(y,v),X,min(Y,V))]
+        built=[]
+        for a,b,c,d in pieces:
+            if c<=a or d<=b:continue
+            box(identity,'limestone',(a,b,owner['z0']),(c,d,top));built.append([a,b,c,d])
+        if built:anchor_seats.append(dict(contact=contact['id'],source_owner=owner['id'],pieces=built,bottom=owner['z0'],top=top))
+
 materials={};draws=[]
 for (name,key),(vv,ff) in sorted(buffers.items()):
     p=groups[name];tint=p['wall_tint'] if key==p['wall_key'] else p['frame_tint'] if key=='door_paint' else [.18,.23,.25,1] if key=='mirror_aged' else [1,1,1,1]
     finish=dict(catalog_key=key,tint=tint,pigment=1.,normal=.65,roughness=1.)
     if key=='mirror_aged':finish.update(metallic=.65,roughness=.45,normal=.12)
-    mat=material(ROOT,name+'__'+key,finish,catalog)
+    cache_key=(key,tuple(tint))
+    if cache_key not in materials:materials[cache_key]=material(ROOT,name+'__'+key,finish,catalog)
+    mat=materials[cache_key]
     if key=='mirror_aged':
         bsdf=mat.node_tree.nodes['Principled BSDF'];bsdf.inputs['Metallic'].default_value=0;bsdf.inputs['Alpha'].default_value=.28;bsdf.inputs['Transmission Weight'].default_value=.5;bsdf.inputs['IOR'].default_value=1.52
     mesh=bpy.data.meshes.new(name+'__Raw');mesh.from_pydata(vv,[],ff);mesh.update();stock=bpy.data.objects.new(mesh.name,mesh)
@@ -126,6 +154,29 @@ for (name,key),(vv,ff) in sorted(buffers.items()):
     assert obj.name==name+'__'+key,(name,key,obj.name)
     obj.hide_render=False;obj.hide_set(False);draws.append(obj)
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
+# Every rebuild must pass actual native bearing and window-depth rays before
+# exporting or opening Godot. These remain source checks, never runtime proof.
+vertices=[];faces=[];face_owners=[]
+for obj in draws:
+    offset=len(vertices);vertices.extend(obj.matrix_world@v.co for v in obj.data.vertices)
+    faces.extend(tuple(offset+i for i in f.vertices) for f in obj.data.polygons);face_owners.extend([obj.name]*len(obj.data.polygons))
+bvh=BVHTree.FromPolygons(vertices,faces,all_triangles=True)
+native_bearings=0;native_windows=0;native_failures=[]
+for asset,data in contact_sources.items():
+    for contact in data['contacts']:
+        normal=Vector(contact['normal'])
+        for sample in [contact['point']]+contact['footprint']:
+            point=Vector(sample);hit,n,index,distance=bvh.ray_cast(point+normal*.03,-normal,.06);native_bearings+=1
+            if hit is None or (hit-point).length>=.0001:native_failures.append(dict(kind='bearing',id=contact['id'],sample=sample))
+for window in window_rows:
+    point=Vector(window['center'])+Vector((0,0,window['height']*.2))
+    normal=[Vector((0,-1,0)),Vector((1,0,0)),Vector((0,1,0)),Vector((-1,0,0))][window['side']]
+    hit,n,index,distance=bvh.ray_cast(point+normal*.1,-normal,.4);expected=point-normal*(window['recess_m']+.044);native_windows+=1
+    if hit is None or (hit-expected).length>=.0001 or not face_owners[index].endswith('__mirror_aged'):native_failures.append(dict(kind='pane',window=window))
+assert not native_failures,native_failures[:12]
+native_checks=dict(bearing_samples=native_bearings,window_samples=native_windows,failures=native_failures,tolerance_m=.0001)
+print('CITY NATIVE CONTACTS',native_checks,flush=True)
+
 # Native source and portable export are rebuilt together, before review cameras.
 proof=export(ROOT,'city_elevations',exports)
 def sha(path):
@@ -135,11 +186,11 @@ def sha(path):
 runtime={'schema':1,'buildings':[{k:p[k] for k in ['id','wall_key','wall_tint','frame_tint']} for p in profiles['buildings']]}
 projection=ROOT/'game/data/orison_v2/exterior/city_elevations.json'
 projection.write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')
-bindings=[ROOT/p for p in ['art/data/city_elevations/source_plan.json','art/blender/city_closure.blend','art/blender/city_closure_construction.json','art/blender/city_shells.blend','art/blender/city_shells_registration.json','game/data/runtime_material_sets.json','game/data/orison_v2/exterior/city_elevations.json','game/scripts/building/orison_v2_city_shells.gd','art/blender/scripts/fabrication_native_batch.py','art/blender/scripts/fabrication_normals.py','art/blender/scripts/fabrication_uvs.py']]+[Path(__file__)]
+bindings=[ROOT/p for p in ['art/data/city_elevations/source_plan.json','art/blender/city_closure.blend','art/blender/city_closure_construction.json','art/blender/city_shells.blend','art/blender/city_shells_registration.json','game/data/runtime_material_sets.json','game/data/orison_v2/exterior/city_elevations.json','game/tests/fixtures/orison_city_masts.json','game/tests/fixtures/orison_city_aerials.json','game/tests/fixtures/orison_city_tanks.json','game/scripts/building/orison_v2_city_shells.gd','art/blender/scripts/fabrication_native_batch.py','art/blender/scripts/fabrication_normals.py','art/blender/scripts/fabrication_uvs.py']]+[Path(__file__)]
 for key in {key for name,key in buffers}:
     bindings.extend(ROOT/'game/assets/building/textures'/f for f in catalog[key]['files'])
 construction={k:report[k] for k in ['original_records','source_parapet_stocks','closed_joined_parapets','corner_stations','capture_offsets_godot','skyline_views_godot']}
-construction.update(evidence_class='INERT',classification='ADAPTATION',scope='Passive physical city elevations. No occupied rooms or runtime acceptance inferred.',buildings=stats,windows=len(window_rows),window_rows=window_rows,parts=[dict(name=o.name,key=o.name.split('__')[-1],triangles=len(o.data.polygons)) for o in draws],triangles=sum(len(o.data.polygons) for o in draws),asset_sha256=sha(ROOT/'game/assets/props/city_elevations.glb'),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in bindings},export_check=proof)
+construction.update(anchor_seats=anchor_seats,native_checks=native_checks,evidence_class='INERT',classification='ADAPTATION',scope='Passive physical city elevations. No occupied rooms or runtime acceptance inferred.',buildings=stats,windows=len(window_rows),window_rows=window_rows,parts=[dict(name=o.name,key=o.name.split('__')[-1],triangles=len(o.data.polygons)) for o in draws],triangles=sum(len(o.data.polygons) for o in draws),asset_sha256=sha(ROOT/'game/assets/props/city_elevations.glb'),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in bindings},export_check=proof)
 for dest in ['art/blender/city_elevations_construction.json','game/tests/fixtures/orison_city_elevations.json']:
     (ROOT/dest).write_text(json.dumps(construction,indent=2)+'\n',encoding='utf-8',newline='\n')
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=12

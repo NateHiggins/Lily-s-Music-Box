@@ -9,6 +9,15 @@ no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not
 proof of the current interaction contract.
 
+For city massing changes, the owning **build_city_elevations.py** must pass
+all native roof-bearing footprint and recessed-pane BVH rays before export.
+Retired cornices may still carry a guy anchor: retain a fitted local bearing
+seat rather than restoring the full band or moving the old contact claim.
+Use source Z for native vertical offsets, and convert through the installed
+city owner for Godot queries. Inspect captures from actual clear sightlines;
+a low window can be hidden by the retained construction canopy. Runtime rays
+retain the original 100-micrometre bearing tolerance and remain separate proof.
+
 The composed surface harness checks its five street/fabrication fixtures before
 building the world. Other batches can run
 `python tools/preflight_spatial_test_bindings.py --all --fixture game/tests/fixtures/NAME.json`.

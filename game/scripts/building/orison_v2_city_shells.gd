@@ -22,7 +22,8 @@ func _ready() -> void:
 		var building := str(mesh.name).split("__")[0]
 		assert(profiles.has(building),"City elevation has no authored finish: "+building)
 		var profile: Dictionary=profiles[building]
-		var cache_key := building+"__"+key
+		var tint_key: Array=profile.wall_tint if key==str(profile.wall_key) else profile.frame_tint if key=="door_paint" else [1,1,1,1]
+		var cache_key := key+"|"+str(tint_key)
 		assert(MatLib.SETS.has(key),"City material must be catalogued: " + key)
 		if not materials.has(cache_key):
 			var material:=MatLib.get_mat(key).duplicate() as StandardMaterial3D

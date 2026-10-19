@@ -56,7 +56,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 				var p := city.to_global(Vector3(sample[0],sample[2],-sample[1]))
 				var ray := PhysicsRayQueryParameters3D.create(p+n*.03,p-n*.03,1,exclusions)
 				var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
-				suite.check(not hit.is_empty() and bodies.has(hit.collider.get_rid()) and hit.position.distance_to(p)<.0001,"retained city hardware full footprint bears on replacement stock within 100 micrometres")
+				suite.check(not hit.is_empty() and bodies.has(hit.collider.get_rid()) and hit.position.distance_to(p)<.0001,"retained city hardware full footprint bears within 100 micrometres: "+str(contact.id)+" "+str(sample))
 				contacts+=1
 	var sampled: Dictionary={}
 	for window: Dictionary in fixture.window_rows:
@@ -64,7 +64,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		if sampled.has(id):continue
 		sampled[id]=true
 		var a: Array=window.center
-		var p := Vector3(a[0],a[1],a[2])+Vector3.UP*float(window.height)*.2
+		var p := Vector3(a[0],a[1],a[2])+Vector3(0,0,float(window.height)*.2)
 		var out: Vector3=[Vector3(0,-1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(-1,0,0)][int(window.side)]
 		var ray := PhysicsRayQueryParameters3D.create(city.to_global(Vector3(p.x,p.z,-p.y)+Vector3(out.x,0,-out.y)*.1),city.to_global(Vector3(p.x,p.z,-p.y)-Vector3(out.x,0,-out.y)*.3),1,exclusions)
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
@@ -90,17 +90,25 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		camera.look_at(root.to_global(Vector3(b[0],b[1],b[2])))
 		await suite.get_tree().create_timer(.6).timeout
 		await suite.shot("city_"+str(view.id))
-	# Native window-row coordinates avoid guessed registration for close detail.
+	# Select upper windows and verify their actual first-hit sightline; low
+	# source windows can be hidden by the real construction canopy.
 	for identity: String in ["site_nbr_e","site_ne1","site_back_e"]:
+		var found := false
 		for window: Dictionary in fixture.window_rows:
-			if str(window.building)!=identity or int(window.side)!=0:continue
+			if str(window.building)!=identity or int(window.side)!=0 or float(window.center[2])<8.5:continue
 			var a: Array=window.center
 			var p := city.to_global(Vector3(a[0],a[2],-a[1]))
-			camera.global_position=p+city.global_basis*Vector3(2,.2,5)
-			camera.look_at(p)
-			await suite.get_tree().create_timer(.6).timeout
-			await suite.shot("city_"+identity+"_window")
-			break
+			for offset: Vector3 in [Vector3(2,.2,5),Vector3(-2,.2,5),Vector3(0,.6,3),Vector3(1,1.5,2)]:
+				var eye := p+city.global_basis*offset
+				var ray := PhysicsRayQueryParameters3D.create(eye,p-city.global_basis*Vector3(0,0,.3),1,[world.player.get_rid()])
+				var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
+				if hit.is_empty() or not str(bodies.get(hit.collider.get_rid(),"")).begins_with(identity+"__") or hit.position.distance_to(p)>.36:continue
+				camera.global_position=eye;camera.look_at(p);found=true
+				await suite.get_tree().create_timer(.6).timeout
+				await suite.shot("city_"+identity+"_window")
+				break
+			if found:break
+		suite.check(found,"city window capture has an actual unobstructed first-hit sightline: "+identity)
 	manager.set_process(was_processing)
 	if is_instance_valid(prior):prior.make_current()
 	camera.free()

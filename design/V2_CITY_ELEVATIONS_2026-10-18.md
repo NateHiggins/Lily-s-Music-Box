@@ -55,3 +55,21 @@ use the serial lane. The shared **v2_city_elevation_review.gd** executes inside 
 full surface world to avoid an extra city composition startup. It checks exact
 visible/physical triangles, loaded catalogue maps/mips, source inventory, actual
 recessed panes and retained roof bearings. Its posed cameras grant no walking proof.
+
+The first complete city surface2 run reports37,900 checks and82 failures:80
+incorrect source-axis pane probes and2 actual unsupported plate corners on
+**site_ne4_guy1**, formerly carried by the projecting **site_ne4_c0** cornice.
+Its universal surface audit independently finds zero UV/PBR/mipmap defects on
+25,809 draws,16,783 meshes,6,333 material instances and497 loaded textures.
+The full run is a failure and is archived as a diagnostic, never published as
+acceptance. A low window capture also exposed real construction-canopy occlusion.
+
+The repair retains only a small closed stone bearing seat outside the main
+terrace, without overlapping its top face or restoring a full cornice band.
+Original anchor geometry and contact targets remain unchanged. Native BVH now
+checks all1,205 roof-bearing samples and all2,984 panes within100 micrometres;
+zero failures precede export. The pane probe uses native source Z, and upper-window
+captures must pass an actual first-hit sightline check. Equivalent finishes share
+local cached materials by stock and tint instead of duplicating them per building.
+Import policy preserves the already validated metre charts. Final original
+qualification and clean baseline comparison are pending.
