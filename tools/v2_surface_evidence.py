@@ -60,6 +60,15 @@ def inputs(root=ROOT):
                                  'tools/v2_space_footprints.py'])
     paths.update(root/p for p in ['art/data/orison_v2/service_entry_source.json',
                                  'tools/build_v2_service_entries.py'])
+    # A changed native city/grade source must expire the old qualification,
+    # even before its builder refreshes the installed export and fixture.
+    paths.update(root/p for p in (
+        'art/data/city_elevations/source_plan.json',
+        'art/data/city_ground_apron/source_plan.json',
+        'art/blender/city_elevations.blend',
+        'art/blender/city_elevations_construction.json',
+        'art/blender/city_ground_apron.blend',
+        'art/blender/city_ground_apron_construction.json'))
     for name in ('toast_crumb','leather_worn','mineral_scale'):
         paths.add(root/f'art/textures/ai_sources/{name}.png')
     paths.add(root/'art/textures/ai_sources/v2_surface_stock_20261011.json')

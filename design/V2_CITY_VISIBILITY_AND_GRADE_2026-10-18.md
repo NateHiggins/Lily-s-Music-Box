@@ -59,6 +59,14 @@ new unread fields; the spatial audit passes. A complete clean baseline board at
 **fa6e8f97** is preserved in **tmp/v2-city-polish-20261018/baseline-fa6/**. Every
 gate except the intentionally incomplete full-V2 ledger passes there.
 
+The first clean source board correctly expires the old composed contracts and
+reports one new posed-camera dependency. That inspected coordinate record is
+appended explicitly; every earlier manifest row is retained. Surface evidence
+now directly hashes both city/grade source plans, Blender natives and construction
+reports, so editing an authoring source expires proof even before re-export. A
+mutation test confirms expiry independently for all six inputs. These strengthen
+source provenance; they waive no current surface or access requirement.
+
 The next original composed surface run must inspect actual dry/storm/fog views,
 the ground seam, facade close-ups and retained clearance/entrance frames. It checks
 36 actual fitted ground-top rays as well as the existing city rays and exhaustive

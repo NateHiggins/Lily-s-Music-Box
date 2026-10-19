@@ -300144,6 +300144,41 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "5040a33ad7b0f93e",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/v2_city_elevation_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    132,
+    133,
+    147
+   ],
+   "count": 3,
+   "context": [
+    "camera.global_position = root.to_global(Vector3(-14,20.8,-7.5))",
+    "camera.look_at(root.to_global(Vector3(-26.5,30,-8)))",
+    "camera.global_position = root.to_global(Vector3(140,8,82))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -7,6 +7,23 @@ from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    def test_city_and_grade_native_source_changes_expire_surface_proof(self):
+        import v2_surface_evidence as evidence
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+        for relative in [
+            'art/data/city_elevations/source_plan.json',
+            'art/data/city_ground_apron/source_plan.json',
+            'art/blender/city_elevations.blend',
+            'art/blender/city_elevations_construction.json',
+            'art/blender/city_ground_apron.blend',
+            'art/blender/city_ground_apron_construction.json',
+        ]:
+            with self.subTest(relative=relative):
+                target=ROOT/relative
+                with patch.object(evidence,'file_hash',side_effect=lambda path:
+                                  'changed' if path==target else 'source'):
+                    self.assertNotEqual(before,evidence.inputs()['sha256'])
     def inventory(self):
         return {'schema':'orison.v2-surface-inventory.v1','passage_state':'RESIDENT',
                 'draws':[{'path':'fixture','instances':1,'mesh':'mesh','materials':['material'],'visible':True}],
