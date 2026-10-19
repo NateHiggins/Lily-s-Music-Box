@@ -18,6 +18,24 @@ NL = chr(10)
 
 
 class ReceiptTests(unittest.TestCase):
+    def test_native_inputs_expire_proof_and_binary_newlines_are_not_normalized(self):
+        native = self.root / "game/native/probe"
+        native.mkdir(parents=True)
+        source = native / "probe.cpp"
+        library = native / "probe.dll"
+        source.write_bytes(b"// numerical owner\n")
+        library.write_bytes(b"MZ\x00\r\n\x80")
+        original = rr.runtime_inputs_sha256(self.root)
+        source.write_bytes(b"// numerical owner\r\n")
+        self.assertEqual(original, rr.runtime_inputs_sha256(self.root))
+        library.write_bytes(b"MZ\x00\n\x80")
+        changed = rr.runtime_inputs_sha256(self.root)
+        self.assertNotEqual(original, changed)
+        with mock.patch.object(rr, "_ledger_digest", return_value=None):
+            self.assertEqual(changed, rr.runtime_inputs_sha256(self.root))
+        source.write_bytes(b"// changed numerical owner\n")
+        self.assertNotEqual(changed, rr.runtime_inputs_sha256(self.root))
+
     def test_runtime_text_digest_survives_windows_checkout_but_rejects_content_change(self):
         source = self.root / "game/scripts/a.gd"
         source.write_bytes(b"extends Node\n# runtime owner\n")

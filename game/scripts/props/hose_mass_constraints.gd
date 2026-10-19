@@ -15,7 +15,8 @@ var iterations:=0
 var last_input:=PackedVector3Array()
 var last_planes: Dictionary={}
 var last_result:=PackedVector3Array()
-var polish_accepted:=false
+var joint_accepted:=false
+var coupled:=preload("res://scripts/props/hose_contact_projection.gd").new()
 func configure(rest_lengths: PackedFloat64Array,rest_points: PackedVector3Array) -> bool:
 	if not lengths.is_empty() or rest_lengths.size()<2:return false
 	if rest_points.size()!=rest_lengths.size()+1:return false
@@ -33,6 +34,7 @@ func configure(rest_lengths: PackedFloat64Array,rest_points: PackedVector3Array)
 		var span: Vector3=rest_points[i+1]-rest_points[i-1]
 		if span.length_squared()<1e-14:return false
 		bend_hints.append(span.normalized())
+	coupled.configure(lengths,bend_spans,inverse)
 	return true
 func _bend(points: PackedVector3Array,collapsed_only: bool=true) -> PackedVector3Array:
 	# Mass-balanced two-interval inequality prevents a zero-radius hairpin.
@@ -155,7 +157,7 @@ func _band_corrections(points: PackedVector3Array,mobility: Array[Basis],rows: D
 	return forces
 func project(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> PackedVector3Array:
 	error="";iterations=0
-	last_input=target.duplicate();last_planes=planes.duplicate(true);last_result=PackedVector3Array();polish_accepted=false
+	last_input=target.duplicate();last_planes=planes.duplicate(true);last_result=PackedVector3Array();joint_accepted=false
 	if target.size()!=masses.size():error="wrong material ring count";return PackedVector3Array()
 	var points:=target.duplicate()
 	# Position inequalities may release while neighbouring rings rise. Locking
@@ -164,7 +166,11 @@ func project(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> P
 	# the final check still requires both support and exact material length.
 	var mobility: Array[Basis]=_mobility(points,{})
 	var last_maximum:=0.;var last_total:=0.
-	for iteration in 128:
+	# Contact/bend inequalities now have a joint solver. A short warm start
+	# suffices; repeating128 independent projections before every subdivision
+	# dominates the prototype's cost without resolving their disagreement.
+	var warm_start_limit: int=8 if not planes.is_empty() else 128
+	for iteration in warm_start_limit:
 		iterations=iteration+1
 		points=_bend(points)
 		points=_support(points,planes,anchor)
@@ -204,30 +210,11 @@ func project(target: PackedVector3Array,anchor: Vector3,planes: Dictionary) -> P
 			var distance: float=points[i].distance_to(points[i+1])
 			last_maximum=maxf(last_maximum,absf(distance-lengths[i]));last_total+=distance-lengths[i]
 		if last_maximum<=ACCEPT_ERROR_M and absf(last_total)<=ACCEPT_ERROR_M and _bend_error(points)<=ACCEPT_ERROR_M:return points
-		# One mass-balanced bend correction can finish a near-converged case
-		# without another full global solve. Never iterate this unchecked: extra
-		# sweeps can accumulate length error even as curvature improves.
-		var polished:=_support(_bend(points.duplicate(),false),planes,anchor)
-		if not polished.is_empty():
-			var maximum:=0.;var total:=0.
-			for i in lengths.size():
-				var distance: float=polished[i].distance_to(polished[i+1])
-				maximum=maxf(maximum,absf(distance-lengths[i]));total+=distance-lengths[i]
-			if maximum<=ACCEPT_ERROR_M and absf(total)<=ACCEPT_ERROR_M and _bend_error(polished)<=ACCEPT_ERROR_M:
-				polish_accepted=true;return polished
-	last_result=points.duplicate()
-	error="global length/support projection did not converge: "+str([last_maximum,last_total,_bend_error(points) if not points.is_empty() else INF]);return PackedVector3Array()
+		var joint: PackedVector3Array=coupled.project(points,anchor,planes)
+		if not joint.is_empty():joint_accepted=true;return joint
+	last_result=coupled.last_iterate.duplicate() if not coupled.last_iterate.is_empty() else points.duplicate()
+	error="global length/support projection did not converge: "+str([last_maximum,last_total,_bend_error(points) if not points.is_empty() else INF])+" joint="+coupled.error;return PackedVector3Array()
 func project_velocity(points: PackedVector3Array,velocity: PackedVector3Array,planes: Dictionary) -> PackedVector3Array:
-	if points.size()!=masses.size() or velocity.size()!=points.size():error="wrong velocity count";return PackedVector3Array()
-	var result:=velocity.duplicate();result[-1]=Vector3.ZERO
-	for i in result.size():
-		for normal: Vector3 in _axes(points[i],planes.get(i,[])):result[i]-=normal*normal.dot(result[i])
-	var mobility: Array[Basis]=_mobility(points,planes)
-	var rows: Dictionary=_rows(points)
-	var rhs:=PackedFloat64Array();rhs.resize(rows.first.size())
-	for i in rhs.size():rhs[i]=rows.vectors[i].dot(result[rows.first[i]]-result[rows.last[i]])
-	var multipliers:=_band_solve(mobility,rows,rhs)
-	if multipliers.is_empty():return PackedVector3Array()
-	var corrections:=_band_corrections(points,mobility,rows,multipliers)
-	for i in result.size():result[i]-=corrections[i]
+	var result: PackedVector3Array=coupled.project_velocity(points,velocity,planes)
+	if result.is_empty():error=coupled.error
 	return result

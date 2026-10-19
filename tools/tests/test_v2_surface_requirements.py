@@ -7,6 +7,19 @@ from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    def test_compiled_deformer_and_native_source_changes_expire_surface_proof(self):
+        import v2_surface_evidence as evidence
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+        for relative in ['game/native/hose_math/src/hose_projection.cpp',
+                         'game/native/hose_math/hose_math.gdextension',
+                         'game/native/hose_math/build_manifest.json',
+                         'game/native/hose_math/bin/orison_hose_math.windows.x86_64.dll']:
+            with self.subTest(relative=relative):
+                target=ROOT/relative
+                with patch.object(evidence,'file_hash',side_effect=lambda path:'changed' if path==target else 'source'):
+                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+
     def test_city_and_grade_native_source_changes_expire_surface_proof(self):
         import v2_surface_evidence as evidence
         with patch.object(evidence,'file_hash',return_value='source'):

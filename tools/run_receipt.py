@@ -48,6 +48,10 @@ RECEIPT_SCHEMA = "orison.run-receipt.v1"
 RUNTIME_INPUT_GLOBS = (
     "game/scripts/**/*.gd", "game/scenes/**/*.tscn", "game/scenes/**/*.tres",
     "game/data/**/*.json", "game/project.godot",
+    "game/native/**/*.gdextension", "game/native/**/*.cpp", "game/native/**/*.h",
+    "game/native/**/*.hpp", "game/native/**/*.json", "game/native/**/CMakeLists.txt",
+    "game/native/**/*.dll", "game/native/**/*.so", "game/native/**/*.dylib",
+    "tools/build_hose_math.py",
 )
 PASS_RE = re.compile(r"\bPASS(?:ED)?\b")
 FAIL_RE = re.compile(r"\bFAIL(?:ED|URE)?\b")
@@ -76,8 +80,12 @@ def runtime_inputs_sha256(root: Path) -> str:
         return ledger
     paths = {path for pattern in RUNTIME_INPUT_GLOBS
              for path in root.glob(pattern) if path.is_file()}
-    manifest = sorted([path.relative_to(root).as_posix(),
-                       hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()]
+    def file_digest(path):
+        raw = path.read_bytes()
+        if path.suffix.lower() not in {".dll", ".so", ".dylib"}:
+            raw = raw.replace(b"\r\n", b"\n")
+        return hashlib.sha256(raw).hexdigest()
+    manifest = sorted([path.relative_to(root).as_posix(), file_digest(path)]
                       for path in paths)
     encoded = json.dumps(manifest, separators=(",", ":"), ensure_ascii=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()

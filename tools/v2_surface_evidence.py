@@ -10,7 +10,7 @@ from audit_v2_surfaces import evaluate
 
 ROOT=Path(__file__).resolve().parents[1]
 PACKET=ROOT/'art/renders/orison_v2/surface_requirements_20261011'
-TEXT={'.gd','.tscn','.tres','.godot','.json','.py','.gdshader','.gdshaderinc','.gltf','.import'}
+TEXT={'.gd','.tscn','.tres','.godot','.json','.py','.gdshader','.gdshaderinc','.gltf','.import','.cpp','.h','.hpp','.gdextension','.txt'}
 ASSETS={'.glb','.gltf','.bin','.rg8','.png','.jpg','.jpeg','.webp','.tres','.tscn'}
 
 def test_dependency_paths(root,seeds):
@@ -42,11 +42,13 @@ def inputs(root=ROOT):
     paths=set()
     for directory,suffixes in [('game/scripts',{'.gd'}),('game/scenes',{'.tscn','.tres'}),
                                ('game/data',{'.json'}),('game/shaders',{'.gdshader','.gdshaderinc'}),
+                               ('game/native',{'.cpp','.h','.hpp','.gdextension','.json','.dll','.so','.dylib'}),
                                ('game/assets',ASSETS),('art/blender/scripts',{'.py'}),
                                ('art/blender/front_lighting_candidate',{'.py'}),
                                ('art/blender/front_lighting_finish',{'.py'}),
                                ('art/textures/ai_materials',{'.json'}),('game/tests/fixtures',{'.json'})]:
         paths.update(p for p in (root/directory).rglob('*') if p.is_file() and p.suffix in suffixes and p.relative_to(root).as_posix() in versioned)
+    paths.update(p for p in (root/'game/native').rglob('CMakeLists.txt') if p.is_file() and p.relative_to(root).as_posix() in versioned)
     paths.update(root/p for p in ['game/project.godot','game/tests/orison_v2_surface_inventory.gd',
                  'game/tests/v2_front_restoration_review.gd',
                  'game/tests/OrisonV2SurfaceInventory.tscn','tools/audit_v2_surfaces.py',
