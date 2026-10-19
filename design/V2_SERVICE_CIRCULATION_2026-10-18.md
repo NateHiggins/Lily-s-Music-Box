@@ -103,6 +103,15 @@ after source changes. Invalid connection claims do not promote an edge merely
 because its adjacent rooms were reached. The new checkpoint contains only the
 27 original played room witnesses and six independently validated crossings.
 
+Checkpoint lint exposed a separate role ambiguity: the words "service lift
+landing" could promote a public-landing obligation from a service-core witness.
+Circulation selection now requires the appropriate public/core class and keeps
+service cores separate. A valid public platform-backed programme still proves
+its declared public-core circulation; no new whole-core claim is added. Three
+regression tests cover service/public separation, valid public programme evidence
+and misleading purpose words on a private room. Runtime and surface digests remain
+unchanged by this ledger-only correction.
+
 An exact comparison of the previous and reopened masonry checks 2,906 occupied
 cells: all 44 changed cells lie inside the two source-bounded extensions; zero
 cells change outside them. The four rebuilt pavement, street-detail and city

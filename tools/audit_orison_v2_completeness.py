@@ -1547,6 +1547,18 @@ class Ledger:
                     continue
                 hits = [s for s in self.model.spaces_on(floor)
                         if match_purpose(s, keywords)]
+                if key == "public_landing":
+                    # A service lift landing does not prove the public stair.
+                    hits = [s for s in hits if s.get("class") == "public" or
+                            (s.get("class") == "core" and match_purpose(s,
+                                ["passenger lift", "primary stair"]))]
+                elif key == "public_core":
+                    from v2_space_footprints import programme_errors
+                    hits = [s for s in hits if s.get("class") == "core" or
+                            (s.get("class") == "public" and s.get("landing_core") and
+                             not programme_errors(self.model.raw, s))]
+                elif key == "service_core":
+                    hits = [s for s in hits if s.get("class") == "core"]
                 if not hits:
                     self.add("03/04 circulation", f"circ.{floor}.{key}",
                              {"floor": floor}, "ABSENT",

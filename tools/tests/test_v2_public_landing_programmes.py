@@ -4,12 +4,13 @@ import json
 from pathlib import Path
 import sys
 import unittest
+from types import SimpleNamespace
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
 from build_v2_public_landings import project
 from v2_space_footprints import programme_errors,contains,rectangles
-from audit_orison_v2_completeness import V2Model
+from audit_orison_v2_completeness import V2Model,Ledger
 
 
 class PublicLandingProgrammes(unittest.TestCase):
@@ -89,6 +90,34 @@ class PublicLandingProgrammes(unittest.TestCase):
         after=project(layout,self.source)
         self.assertEqual(next(r for r in after['spaces'] if r['id']==room['id']),room)
         self.assertEqual(next(r for r in after['platforms'] if r['id']==platform['id']),platform)
+
+    def circulation(self,tiers):
+        ledger=Ledger.__new__(Ledger)
+        ledger.model=V2Model(self.layout);ledger.requirements=[]
+        ledger.evidence=SimpleNamespace(tier_for=lambda identity:(None,[]))
+        ledger.space_attained=lambda identity:(tiers.get(identity,'PROGRAMMED'),[],'')
+        ledger._dim_circulation()
+        return {r['id']:r for r in ledger.requirements}
+
+    def test_service_landing_proof_never_promotes_public_landing_or_public_core(self):
+        rows=self.circulation({'F05_SERVICE_CORE':'SPATIALLY_PROVEN','F06_SERVICE_CORE':'SPATIALLY_PROVEN'})
+        for floor in ['F05','F06']:
+            self.assertEqual(rows['circ.'+floor+'.service_core']['status'],'SPATIALLY_PROVEN')
+            for role in ['public_landing','public_core']:
+                self.assertEqual(rows['circ.'+floor+'.'+role]['status'],'PROGRAMMED')
+
+    def test_valid_public_platform_programme_still_proves_its_core_circulation(self):
+        tiers={floor+'_LANDING':'SPATIALLY_PROVEN' for floor in [f'F{i:02d}' for i in range(1,7)]}
+        rows=self.circulation(tiers)
+        for floor in [f'F{i:02d}' for i in range(1,7)]:
+            for role in ['public_landing','public_core']:
+                self.assertEqual(rows['circ.'+floor+'.'+role]['status'],'SPATIALLY_PROVEN')
+
+    def test_private_room_purpose_words_cannot_replace_circulation_roles(self):
+        self.layout['spaces'].append({'id':'F05_PRIVATE_WORDS','level':'F05','class':'private','rect':[0,0,1,1],'purpose':'passenger lift primary stair service lift service stair landing decision'})
+        rows=self.circulation({'F05_PRIVATE_WORDS':'SPATIALLY_PROVEN'})
+        for role in ['public_landing','public_core','service_core']:
+            self.assertEqual(rows['circ.F05.'+role]['status'],'PROGRAMMED')
 
 
 if __name__=='__main__':unittest.main()
