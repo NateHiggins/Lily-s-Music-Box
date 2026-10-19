@@ -181,10 +181,14 @@
       "id": "Counter05",
       "parts": [
         {
-          "name": "Counter05__metal",
-          "key": "metal",
-          "tile": 0.9,
-          "catalog_key": "metal"
+          "name": "Counter05__sink_iron",
+          "key": "sink_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.35,
+            "roughness": 1.0
+          }
         }
       ],
       "position": [
@@ -539,10 +543,14 @@
       "id": "CounterCompact",
       "parts": [
         {
-          "name": "CounterCompact__metal",
-          "key": "metal",
-          "tile": 0.9,
-          "catalog_key": "metal"
+          "name": "CounterCompact__sink_iron",
+          "key": "sink_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.35,
+            "roughness": 1.0
+          }
         }
       ],
       "position": [

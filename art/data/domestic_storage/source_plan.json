@@ -478,7 +478,8 @@
     "wool_suiting",
     "voile",
     "knit_burgundy",
-    "kraft"
+    "kraft",
+    "sink_iron"
   ],
   "catalog_variants": {
     "metal": "metal",
@@ -497,7 +498,8 @@
     "wool_suiting": "linen",
     "voile": "linen",
     "knit_burgundy": "linen",
-    "kraft": "paper"
+    "kraft": "paper",
+    "sink_iron": "iron_blackened"
   },
   "material_tints": {
     "wood_dark": [
@@ -563,6 +565,10 @@
     "kraft": {
       "normal_scale": 0.12,
       "roughness": 0.85
+    },
+    "sink_iron": {
+      "normal_scale": 0.35,
+      "roughness": 1.0
     }
   },
   "placement": {

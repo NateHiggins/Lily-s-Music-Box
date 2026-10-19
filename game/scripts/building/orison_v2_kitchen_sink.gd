@@ -128,6 +128,12 @@ func _skin_kitchen_model(model: Node3D) -> void:
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		assert(draw.mesh.get_surface_count() == 1)
 		draw.material_override = draw.get_surface_override_material(0)
+		# The cast bearers and the independent pilot frame share the support
+		# stand's quiet iron stock. Nickel valve parts retain their own finish.
+		if str(draw.mesh.surface_get_material(0).resource_name)=="cast_iron":
+			var iron:=MatLib.get_mat("iron_blackened").duplicate() as StandardMaterial3D
+			iron.uv1_triplanar=false
+			draw.material_override=iron
 
 func _build_primary_interaction() -> void:
 	super._build_primary_interaction()

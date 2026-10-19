@@ -1,0 +1,96 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_storage.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_storage.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+19:08:50 | INFO: Starting glTF 2.0 export
+19:08:50 | INFO: Extracting primitive: Counter03__countertop
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Counter03__wood_dark
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Counter05__sink_iron
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: CounterCompact__sink_iron
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Cupboard06__soot
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Cupboard06__trim
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Cupboard08__soot
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Cupboard08__trim
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf01__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf01__metal
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf01__trim
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf02__book_brown
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf02__book_burgundy
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf02__book_green
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf02__book_navy
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf02__book_ochre
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf02__book_teal
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf02__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf02__paper
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf04__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf04__metal
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf04__trim
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf07__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf07__metal
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf07__trim
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf09__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf10__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf11__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf12__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf12__knit_burgundy
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf12__paper
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf12__voile
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf12__wool_suiting
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf13__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf13__metal
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf13__paper
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf13__trim
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf13__wood_dark
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf14__floor_oak
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf14__kraft
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf14__metal
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Extracting primitive: Shelf14__trim
+19:08:50 | INFO: Primitives created: 1
+19:08:50 | INFO: Finished glTF 2.0 export in 0.2670588493347168 s
+
+SURFACE STOCK 7 original records; 15 assemblies; 649 closed stocks; 42 parts; 120784 triangles; 60 foot contacts
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

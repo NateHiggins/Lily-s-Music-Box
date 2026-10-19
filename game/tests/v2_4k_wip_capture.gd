@@ -6,6 +6,30 @@ var rows: Array=[]
 var shots: Array=[]
 var directory: String
 func _ready() -> void:_run.call_deferred()
+func review_storage() -> bool:
+	var inspector:=preload("res://tests/orison_v2_domestic_storage_test.gd").new()
+	inspector.capture_enabled=false
+	add_child(inspector)
+	var result: Dictionary=await inspector.validate_in_world(world)
+	var textures: Dictionary={}
+	for identity: int in inspector.mounted_ids:
+		var body:=instance_from_id(identity) as Node3D
+		for draw: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
+			var material:=draw.mesh.surface_get_material(0) as StandardMaterial3D
+			if material==null:continue
+			for texture: Texture2D in [material.albedo_texture,material.normal_texture,material.roughness_texture]:
+				if texture==null or textures.has(texture.resource_path):continue
+				var image:=texture.get_image()
+				var complete: bool=image!=null and image.has_mipmaps() and image.get_mipmap_count()==int(floor(log(maxi(image.get_width(),image.get_height()))/log(2.)))
+				textures[texture.resource_path]={"complete_loaded_mips":complete}
+				if not complete:result.failures.append(texture.resource_path+": incomplete loaded mips")
+	result["textures"]=textures
+	result["evidence_class"]="INERT"
+	result["scope"]="Installed storage ownership, bearing, imported UV/tangent and loaded-map diagnostic; no new hand, spatial or human acceptance"
+	FileAccess.open(directory.path_join("storage_diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+	print("STORAGE DIAGNOSTIC: actors=",result.actors," variants=",result.variants," failures=",result.failures.size())
+	inspector.free()
+	return result.failures.is_empty()
 func review_wall_floor() -> bool:
 	var failures: Array[String]=[]
 	var counts: Dictionary={"limewash_plaster":0,"arcade_terrazzo":0}
@@ -127,6 +151,7 @@ func _run() -> void:
 	if world.startup_failed or world.player==null:push_error("4K world startup failed");get_tree().quit(1);return
 	if OS.get_environment("V2_FINISH_REVIEW")=="1" and not review_painted_trim():get_tree().quit(1);return
 	if OS.get_environment("V2_WALL_FLOOR_REVIEW")=="1" and not review_wall_floor():get_tree().quit(1);return
+	if OS.get_environment("V2_STORAGE_REVIEW")=="1" and not await review_storage():get_tree().quit(1);return
 	var build_ms: int=Time.get_ticks_msec()-start
 	print("4K WORLD READY ms=",build_ms)
 	world.player.set_physics_process(false);world.player.set_lamp_enabled(false);world.player.carried_device.set_capture_hidden(true)

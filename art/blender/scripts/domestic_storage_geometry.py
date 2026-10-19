@@ -146,24 +146,25 @@ def countertop_ring():
  bpy.context.view_layer.objects.active=obj;mod=obj.modifiers.new('Worktop eased edges','BEVEL');mod.width=.001;mod.segments=3;bpy.ops.object.modifier_apply(modifier=mod.name)
 
 def counter(row,p):
+ iron='sink_iron'
  if p.get('compact_sink_frame',False):
   # The compact bowl still has its 420 mm drainboard. Support both, with
   # rail tops meeting the board underside and a 3.5 mm seat under the lip.
   for x in [-.251,.654]:
    for y in [-.19,.19]:
-    stock('CompactLeg'+str((x,y)),(x-.015,y-.015,0),(x+.015,y+.015,.8665),'metal',.001)
+    stock('CompactLeg'+str((x,y)),(x-.015,y-.015,0),(x+.015,y+.015,.8665),iron,.001)
     foot('compact sink foot'+str((x,y)),x,y)
   for y in [-.19,.19]:
    # Lower the bowl portion to clear its tapered casting, while retaining
    # the drainboard bearing plane. Narrow outboard saddles meet the rim.
-   stock('CompactBowlRail'+str(y),(-.266,y-.01,.8665),(.266,y+.01,.894),'metal',.001)
-   stock('CompactBoardRail'+str(y),(.266,y-.01,.8665),(.669,y+.01,.9015),'metal',.001)
+   stock('CompactBowlRail'+str(y),(-.266,y-.01,.8665),(.266,y+.01,.894),iron,.001)
+   stock('CompactBoardRail'+str(y),(.266,y-.01,.8665),(.669,y+.01,.9015),iron,.001)
    seat_y=.198 if y>0 else -.198
-   stock('CompactLipSeat'+str(y),(-.266,seat_y-.006,.894),(.266,seat_y+.006,.905),'metal',.0003)
+   stock('CompactLipSeat'+str(y),(-.266,seat_y-.006,.894),(.266,seat_y+.006,.905),iron,.0003)
   for x in [-.258,.258,.654]:
    top=.9015 if x>.6 else .905
    half=.015 if x>.6 else .007
-   stock('CompactEnd'+str(x),(x-half,-.18,.8665),(x+half,.18,top),'metal',.001)
+   stock('CompactEnd'+str(x),(x-half,-.18,.8665),(x+half,.18,top),iron,.001)
   return
  surfaces={s['material']:s for s in row['surfaces']}
  if 'countertop' in surfaces:
@@ -174,28 +175,39 @@ def counter(row,p):
  else:
   for i,(lo,hi) in enumerate(source_boxes(surfaces['metal'])):
    if lo[2]==0:
-    stock('FootPlate'+str(i),lo,(hi[0],hi[1],.003),'metal',.0003)
-    a=lo.copy();b=hi.copy();b[0]=a[0]+.003;stock('LegWeb'+str(i),a,b,'metal',.0005)
-    a=lo.copy();b=hi.copy();b[1]=a[1]+.003;stock('LegFlange'+str(i),a,b,'metal',.0005)
+    stock('FootPlate'+str(i),lo,(hi[0],hi[1],.003),iron,.0003)
+    a=lo.copy();b=hi.copy()
+    if (lo[0]+hi[0])*.5<.22:b[0]=a[0]+.003
+    else:a[0]=b[0]-.003
+    stock('LegWeb'+str(i),a,b,iron,.0005)
+    a=lo.copy();b=hi.copy()
+    if (lo[1]+hi[1])*.5<0:b[1]=a[1]+.003
+    else:a[1]=b[1]-.003
+    stock('LegFlange'+str(i),a,b,iron,.0005)
     foot('metal sink foot'+str(i),(lo[0]+hi[0])/2,(lo[1]+hi[1])/2)
    else:
-    # Closed thin rectangular rail, with top bearing retained at .75m.
+    # 50 x 25 x 3 mm angle, rather than a visually massive 100 mm-deep
+    # closed box. The full upper flange retains the original .75 m seat.
     axis=int(np.argmax(hi[:2]-lo[:2]));short=1-axis;t=.003
-    for sign in [-1,1]:
-     a=lo.copy();b=hi.copy()
-     if sign<0:b[short]=a[short]+t
-     else:a[short]=b[short]-t
-     stock('RailWeb%d_%d'%(i,sign),a,b,'metal',.0004)
-    for sign in [-1,1]:
-     a=lo.copy();b=hi.copy()
-     if sign<0:b[2]=a[2]+t
-     else:a[2]=b[2]-t
-     stock('RailFlange%d_%d'%(i,sign),a,b,'metal',.0004)
-    for sign in [-1,1]:
-     a=lo.copy();b=hi.copy()
-     if sign<0:b[axis]=a[axis]+t
-     else:a[axis]=b[axis]-t
-     stock('RailEnd%d_%d'%(i,sign),a,b,'metal',.0004)
+    a=lo.copy();b=hi.copy();a[2]=b[2]-.025
+    # Web faces outwards on both sides of the frame.
+    if (lo[short]+hi[short])*.5 < (.22 if short==0 else 0):b[short]=a[short]+t
+    else:a[short]=b[short]-t
+    stock('AngleWeb'+str(i),a,b,iron,.0004)
+    a=lo.copy();b=hi.copy();a[2]=b[2]-t
+    stock('AngleBearing'+str(i),a,b,iron,.0004)
+  # Fitted triangular knee plates reinforce each long-rail/leg joint.
+  # Their short lower edge bears on the retained leg; tops meet the web.
+  for end,x in enumerate([-.36,.8]):
+   inward=1 if end==0 else -1
+   for side,y in enumerate([-.24,.24]):
+    inner_y=y+(.003 if side==0 else -.003)
+    outline=[(x,.62),(x,.747),(x+inward*.13,.747)]
+    verts=[(xx,yy,zz) for yy in [y,inner_y] for xx,zz in outline]
+    solid(identity+'_Knee%d%d'%(end,side),verts,[(0,2,1),(3,4,5),(0,1,4,3),(1,2,5,4),(2,0,3,5)],identity,iron)
+    outward=-1 if side==0 else 1
+    for bolt,xx in enumerate([x+inward*.018,x+inward*.095]):
+     rod(identity+'_JointHead%d%d%d'%(end,side,bolt),(xx,y,.735),(xx,y+outward*.005,.735),.0055,identity,iron,n=24)
  retained_stock.append({'assembly':identity,'kind':'counter','worktop':.905 if 'countertop' in surfaces else .75})
 
 for item in assemblies:

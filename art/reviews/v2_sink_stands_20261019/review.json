@@ -1,0 +1,232 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Reviewed WIP storage/sink-support geometry. Shared dirty canonical composed capture, not clean candidate or full V2 qualification. No new hand, route, persistence or human acceptance.",
+  "changes": [
+    "Standard metal stands: replace100mm-deep box rails with50x25x3mm angle, outward-facing leg angles, joined triangular knee plates and fitted rivet heads.13 installed copies share the variant.",
+    "Standard and3 compact stands use the registered iron_blackened custom PBR via local sink_iron catalogue variant. Tap bearers and3B pilot stand receive matching iron while nickel valves retain their own finish.",
+    "Existing basin seats, frame top plane, feet, actor transforms, kitchen drain/valve owners and all52 storage actor identities retained. Native UVs and imported tangent frames pass."
+  ],
+  "proof": {
+    "native_closed_stocks": 649,
+    "native_connected_groups": 15,
+    "native_local_bearings": 60,
+    "context_installations": 52,
+    "context_floor_bearings": 208,
+    "composed": {
+      "actors": 52,
+      "checks": 1296,
+      "evidence_class": "INERT",
+      "failures": [],
+      "parts": 116,
+      "scope": "Installed storage ownership, bearing, imported UV/tangent and loaded-map diagnostic; no new hand, spatial or human acceptance",
+      "shared_validator_sha256": "4a3794b2dd4e0d596fb9187a637ac548431b645c44d2d89cb953ab19b19af389",
+      "textures": {
+        "res://assets/building/textures/T_ai_materials_bakelite_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_bakelite_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_bakelite_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_countertop_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_countertop_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_countertop_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_iron_blackened_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_iron_blackened_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_oak_work_surface_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_oak_work_surface_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_oak_work_surface_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_porcelain_fixture_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_porcelain_fixture_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_porcelain_fixture_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_rubber_aged_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_rubber_aged_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_rubber_aged_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_soot_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_glass_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_glass_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_appliances_aged_enamel_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_appliances_galvanized_metal_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_architectural_painted_trim_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_architectural_painted_trim_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_architectural_painted_trim_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_aged_paper_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_aged_paper_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_book_brown_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_book_burgundy_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_book_burgundy_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_book_burgundy_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_book_green_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_book_navy_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_book_ochre_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_book_teal_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_linen_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_linen_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_furniture_linen_rough.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_metals_aged_brass_albedo.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_metals_aged_brass_normal.png": {
+          "complete_loaded_mips": true
+        },
+        "res://assets/building/textures/T_library_metals_aged_brass_rough.png": {
+          "complete_loaded_mips": true
+        }
+      },
+      "unique_triangles": 120784,
+      "variants": 15,
+      "views": []
+    },
+    "reviewed_export_matches_publication": true
+  },
+  "visual_review": "Viewed all three native counter variants and full4K installed2A sink. The standard frame reads as slimmer fabricated iron with visible knee joints; coarse galvanized mottling is gone. The unchanged bearing adjusters remain part of the inherited assembly. More usable kitchen prep surface and resident-specific food-preparation stock are the next requested batch.",
+  "retained_failures": "Initial local inspector correctly refused a render-source binding changed after build; owning builder regenerated it. Context inspector incorrectly required a floor-standing compost pail to bear on a distant rail; now matches the existing runtime floor-stance contract, retaining40-micrometre tolerance. Original failure logs preserved.",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "tools/audit_data_consumption.py",
+        "--baseline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/preflight_spatial_test_bindings.py",
+        "--all",
+        "--fixture",
+        "game/tests/fixtures/orison_domestic_storage.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "art/tools/fix_runtime_texture_imports.py",
+        "--v2",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": {
+    "art/blender/scripts/domestic_storage_geometry.py": "99c58b00ee461696c4946c4f2536f71ef6fa63aadeba1ff1c97a1a2e9e7445b1",
+    "art/blender/scripts/render_domestic_storage.py": "2f623d0b0bf7eec716c12540281e7fcaa2baa85e748f7b81a68bb2405ebe53a1",
+    "art/blender/scripts/inspect_domestic_storage_context.py": "2afa965ac1c2c61a2ac49dd35f81353fd48f6c4c53b7a5412a55ed5252f6a537",
+    "art/data/domestic_storage/source_plan.json": "9f455250299f8d7a5a96ce61c45b10b888bcfbf19f22c5cd05d1bf94e57ad162",
+    "art/blender/domestic_storage.blend": "0ab65ea6fc734d1de16f67a23b6bb54a92894c2f9f47bb1abd8503066005b944",
+    "art/blender/domestic_storage_construction.json": "0b6bccf3b7d7645c1c517305cadee9d628702988a84af4636b1f6d1b29d9b777",
+    "game/assets/props/domestic_storage.glb": "2f0dc857269e3e49c492e0e78118033a6d649b83e9fa7635b5eea9c1c9ac9945",
+    "game/data/orison_v2/domestic_storage.json": "422879f88047ea247b8ef1b29f7388c22f7ea5b8fff28429337a7f7333609d93",
+    "game/tests/fixtures/orison_domestic_storage.json": "0b6bccf3b7d7645c1c517305cadee9d628702988a84af4636b1f6d1b29d9b777",
+    "game/scripts/building/orison_v2_kitchen_sink.gd": "a9d46e9f1fafa515836b0071af364fb961f5e38891eb9845ee25d77097d8e77b",
+    "game/tests/v2_4k_wip_capture.gd": "8d66fb03ee4644c29b99acf680171d5890de197d6de7e962f63d51bc6772c9ed"
+  },
+  "remaining": "Full V2 qualification and human acceptance open. Seven historical Texture RID shutdown leaks remain. Hose parked. Latest owner request: add kitchen preparation surfaces and associated objects, varied by canonical characters and period references; research started, installation not yet complete."
+}
