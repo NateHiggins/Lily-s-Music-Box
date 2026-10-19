@@ -452,7 +452,7 @@
       "kind": "authored_original_box"
     },
     {
-      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.009",
+      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.010",
       "bounds": [
         -2.3999999910593033,
         -12.62999977171421,
@@ -462,7 +462,7 @@
       "kind": "authored_original_box"
     },
     {
-      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.012",
+      "owner": "ExteriorMasonry/F01_Corner_ConstructionBound.013",
       "bounds": [
         2.1199999898672104,
         -12.62999977171421,
@@ -902,21 +902,21 @@
       "quads": 10
     }
   ],
-  "volume_m3": 27.58376963131869,
+  "volume_m3": 27.58376963131868,
   "closed_source_non_manifold_edges": 0,
   "zero_area_edge_contacts_split": 4,
   "vertex_fans_split": 8,
   "asset_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
-  "source_native_sha256": "cdc25bcdbbdc4afab7d510f879dd4edda8dab995b9b95d412cacb0e8d93b6230",
+  "source_native_sha256": "d476ac33b804e78200de4355a2303387183f0a8295b250367b62dca8a5d37cb3",
   "note": "Current public-slab ownership construction. Existing rooms, shop and shed floors, curb and exterior masonry retain their own volumes. Public top datum stays zero. Drainage grade and finished joints remain open.",
   "schema": "orison.v2.front-pavement-construction.v1",
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "7e80b06b87c00675c51ea5bc5e7a6f515642654f36f0f09f4f39bef91baf4f6f",
+    "game/data/orison_v2_blockout.json": "beb6f53f9eab4d873b89b4436d0fecaab87f976a72f4ffed9ef00a2605fd0e7e",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
     "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
     "game/data/orison_v2/exterior/construction_shed.json": "adc2740f083de4a85eaf9314f01a503ee76fdd0a5706af5acd197f43522e8baa",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
-    "art/blender/exterior_masonry.blend": "cdc25bcdbbdc4afab7d510f879dd4edda8dab995b9b95d412cacb0e8d93b6230",
+    "art/blender/exterior_masonry.blend": "d476ac33b804e78200de4355a2303387183f0a8295b250367b62dca8a5d37cb3",
     "art/blender/roof_drainage_reservations.json": "b8925c91e6a8c60e76c282d5bc23a185f55a4af7245b5b17a0381f963f4ef051",
     "art/blender/scripts/build_front_pavement.py": "3ee27182b7fe15efc3988866ac2c485b74a17a3cb76214cc56ba8d9eb4c754fa"
   }

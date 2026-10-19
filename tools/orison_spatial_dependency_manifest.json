@@ -299772,6 +299772,378 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "floor+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "e53d21ebaff6850c",
+   "kind": "id_reference",
+   "token": "F01_SERVICE_CORE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_SERVICE_CORE_DOOR\": {\"kind\": \"service\", \"swing_out\": true, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bcbb72a299d2df29",
+   "kind": "id_reference",
+   "token": "F03_SERVICE_CORE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_SERVICE_CORE_DOOR\": {\"kind\": \"service\", \"swing_out\": true, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4ccfefe3f2b6bf53",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/tests/v2_service_circulation_driver.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    125
+   ],
+   "count": 1,
+   "context": [
+    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5f85b8e2d086a4ec",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/v2_service_circulation_driver.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_probe_thresholds",
+    "_route"
+   ],
+   "lines": [
+    112,
+    125
+   ],
+   "count": 2,
+   "context": [
+    "for floor: String in [\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:",
+    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6065dee12e2dafa3",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/tests/v2_service_circulation_driver.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_probe_thresholds",
+    "_route"
+   ],
+   "lines": [
+    112,
+    125
+   ],
+   "count": 2,
+   "context": [
+    "for floor: String in [\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:",
+    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "af54b6895c05c589",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/tests/v2_service_circulation_driver.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_probe_thresholds",
+    "_route"
+   ],
+   "lines": [
+    112,
+    125
+   ],
+   "count": 2,
+   "context": [
+    "for floor: String in [\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:",
+    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "09be4016c31691c5",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/tests/v2_service_circulation_driver.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_probe_thresholds",
+    "_route"
+   ],
+   "lines": [
+    112,
+    125
+   ],
+   "count": 2,
+   "context": [
+    "for floor: String in [\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:",
+    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7efb3aea8226a5c5",
+   "kind": "floor_reference",
+   "token": "F05",
+   "file": "game/tests/v2_service_circulation_driver.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_probe_thresholds",
+    "_route"
+   ],
+   "lines": [
+    112,
+    125
+   ],
+   "count": 2,
+   "context": [
+    "for floor: String in [\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:",
+    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "920a43dd4268c214",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/tests/v2_service_circulation_driver.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_probe_thresholds",
+    "_route"
+   ],
+   "lines": [
+    112,
+    125
+   ],
+   "count": 2,
+   "context": [
+    "for floor: String in [\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:",
+    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ab5dab2768147968",
+   "kind": "floor_reference",
+   "token": "ROOF",
+   "file": "game/tests/v2_service_circulation_driver.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    125
+   ],
+   "count": 1,
+   "context": [
+    "var floors: Array[String]=[\"B1\",\"F01\",\"F02\",\"F03\",\"F04\",\"F05\",\"F06\",\"ROOF\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "437b863c2acd21c5",
+   "kind": "id_reference",
+   "token": "F03_SERVICE_CORE_DOOR",
+   "file": "game/tests/orison_v2_vertical_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    66,
+    75
+   ],
+   "count": 2,
+   "context": [
+    "if point==Vector3(10.05,6.4,5.55) and not await _move_front_entrance(\"F03_SERVICE_CORE_DOOR\",true):return",
+    "if point==Vector3(8.9,6.4,5.55) and not await _move_front_entrance(\"F03_SERVICE_CORE_DOOR\",false):return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c9513fda7bd62d99",
+   "kind": "id_reference",
+   "token": "F02_SERVICE_BYPASS_HEAT_INNER_PORT",
+   "file": "game/tests/v2_service_circulation_driver.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    157
+   ],
+   "count": 1,
+   "context": [
+    "if str(port.id)!=\"F02_SERVICE_BYPASS_HEAT_INNER_PORT\":continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

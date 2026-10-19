@@ -252,7 +252,9 @@
     {"id":"B1_ELECTRICAL_RECESS","level":"B1","rect":[6.5,-2,8.3,-1],"class":"service","purpose":"outward panel-room leaf swings outside the through corridor","wall_sides":["west","east"]},
     {"id":"F01_LANDING","level":"F01","class":"public","rect":[-1.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F01_PUBLIC_CORE","floor_platforms":["F01_PUBLIC_LANDING_S","F01_PUBLIC_LANDING_N","F01_PUBLIC_LANDING_W","F01_PUBLIC_LANDING_W_SHAFT_1","F01_PUBLIC_LANDING_W_SHAFT_3","F01_PUBLIC_LANDING_E"],"programme_anchors":["F01_PUBLIC_LANDING_PIECE"]},
     {"id":"F05_LANDING","level":"F05","class":"public","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F05_PUBLIC_CORE","floor_platforms":["F05_PUBLIC_LANDING_S","F05_PUBLIC_LANDING_N","F05_PUBLIC_LANDING_W","F05_PUBLIC_LANDING_W_SHAFT_1","F05_PUBLIC_LANDING_W_SHAFT_2","F05_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F05_PUBLIC_LANDING_PIECE"]},
-    {"id":"F06_LANDING","level":"F06","class":"public","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F06_PUBLIC_CORE","floor_platforms":["F06_PUBLIC_LANDING_S","F06_PUBLIC_LANDING_N","F06_PUBLIC_LANDING_W","F06_PUBLIC_LANDING_W_SHAFT_1","F06_PUBLIC_LANDING_W_SHAFT_2","F06_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F06_PUBLIC_LANDING_PIECE"]}
+    {"id":"F06_LANDING","level":"F06","class":"public","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F06_PUBLIC_CORE","floor_platforms":["F06_PUBLIC_LANDING_S","F06_PUBLIC_LANDING_N","F06_PUBLIC_LANDING_W","F06_PUBLIC_LANDING_W_SHAFT_1","F06_PUBLIC_LANDING_W_SHAFT_2","F06_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F06_PUBLIC_LANDING_PIECE"]},
+    {"id":"F01_SERVICE_RISER_BYPASS","level":"F01","class":"service","rect":[7.1,1.0,8.3,2.0],"purpose":"standing maintenance passage behind continuous heat and telephone risers","wall_sides":["west","north"]},
+    {"id":"F02_SERVICE_RISER_BYPASS","level":"F02","class":"service","rect":[7.1,-1.35,8.3,2.0],"purpose":"standing maintenance passage behind continuous heat and telephone risers","wall_sides":["west","south","north"]}
   ],
   "doors": [
     {"id":"B1_LAUNDRY_DOOR","level":"B1","center":[-2.2,-1.5],"width":1.1,"height":2.13,"yaw":1.5707963267948966,"hinge":"left","swing":"laundry","connects":["B1_PUBLIC_CORE","B1_LAUNDRY"]},
@@ -392,7 +394,6 @@
     {"id":"F01_FRONT_WORKROOM_SERVICE","level":"F01","center":[8.3,-10.7],"axis":"z","width":1.2,"height":2.45,"connects":["F01_FRONT_WORKROOM","F01_FRONT_SERVICE_RETURN"]},
     {"id":"F01_FRONT_SERVICE_ACCESS","level":"F01","center":[8.9,-9.25],"axis":"x","width":0.96,"height":2.45,"connects":["F01_SERVICE_HALL","F01_FRONT_SERVICE_RETURN"]},
     {"id":"F01_FRONT_STORE_ACCESS","level":"F01","center":[5.4,-4.22],"axis":"z","width":0.7,"height":2.45,"connects":["F01_LOBBY","F01_FRONT_STORE_ALCOVE"]},
-
     {"id":"B1_STORAGE_NORTH_BAY_OPENING","level":"B1","center":[4.4,9.5],"axis":"x","width":1.2,"height":2.4,"connects":["B1_RESIDENT_STORAGE","B1_STORAGE_NORTH_BAY"]},
     {"id":"F01_LOBBY_CORE_OPENING","level":"F01","center":[2.1,-3.85],"width":3.2,"height":2.65,"axis":"x","connects":["F01_LOBBY","F01_PUBLIC_CORE"]},
     {"id":"F01_LOBBY_WATCH_OPENING","level":"F01","center":[-3.3,-3.85],"width":2.0,"height":2.35,"axis":"x","connects":["F01_LOBBY","F01_WATCH"]},
@@ -480,7 +481,11 @@
     {"id":"F03_SOUTHWEST_HALL_OPENING","level":"F03","center":[-4.6,-0.6],"axis":"x","width":1.2,"height":2.4,"connects":["F03_WEST_HALL","F03_SOUTHWEST_HALL"]},
     {"id":"F04_SOUTHWEST_HALL_OPENING","level":"F04","center":[-4.6,-0.6],"axis":"x","width":1.2,"height":2.4,"connects":["F04_WEST_HALL","F04_SOUTHWEST_HALL"]},
     {"id":"B1_ELECTRICAL_RECESS_OPENING","level":"B1","center":[7.4,-1],"width":1.8,"height":2.4,"connects":["B1_BOILER_APPROACH","B1_ELECTRICAL_RECESS"],"axis":"x"},
-    {"id":"B1_COAL_DELIVERY_APERTURE","level":"B1","center":[14.2,-12.35],"axis":"x","width":0.7,"height":1,"sill":1.75,"connects":["B1_COAL_ROOM"]}
+    {"id":"B1_COAL_DELIVERY_APERTURE","level":"B1","center":[14.2,-12.35],"axis":"x","width":0.7,"height":1,"sill":1.75,"connects":["B1_COAL_ROOM"]},
+    {"id":"F01_TRANSFER_BYPASS_OPENING","level":"F01","center":[7.7,1.0],"width":1.05,"height":2.4,"axis":"x","shared_wall_owner":"F01_CORE_TO_SERVICE","connects":["F01_CORE_TO_SERVICE","F01_SERVICE_RISER_BYPASS"]},
+    {"id":"F01_BYPASS_HALL_OPENING","level":"F01","center":[8.3,1.5],"width":1.0,"height":2.4,"axis":"z","shared_wall_owner":"F01_SERVICE_HALL","connects":["F01_SERVICE_RISER_BYPASS","F01_SERVICE_HALL"]},
+    {"id":"F02_BYPASS_HALL_SOUTH_OPENING","level":"F02","center":[8.3,-0.7],"width":1.05,"height":2.4,"axis":"z","shared_wall_owner":"F02_SERVICE_HALL","connects":["F02_SERVICE_RISER_BYPASS","F02_SERVICE_HALL"]},
+    {"id":"F02_BYPASS_HALL_NORTH_OPENING","level":"F02","center":[8.3,1.45],"width":1.0,"height":2.4,"axis":"z","shared_wall_owner":"F02_SERVICE_HALL","connects":["F02_SERVICE_RISER_BYPASS","F02_SERVICE_HALL"]}
   ],
   "windows": [
     {"id":"F02_FRONT_GALLERY_WINDOW_1","level":"F02","space":"F02_FRONT_GALLERY","center":[-3.7,-12.35],"axis":"x","width":1.6,"height":1.75,"sill":0.8},
@@ -2340,7 +2345,8 @@
     {"id":"B1_PRIMARY_STAIR_BASE","level":"B1","rect":[1.4,-1.9,4.5,1.65],"class":"service"},
     {"id":"F01_LIGHT_COURT_BASE","level":"F01","rect":[2.45,-1.9,3.45,-0.25],"class":"public"},
     {"id":"ROOF_PUBLIC_LANDING_E","level":"ROOF","rect":[4.5,-1.9,5.4,1.65],"class":"core"},
-    {"id":"F01_PUBLIC_LANDING_E","level":"F01","rect":[4.5,-1.9,5.4,1.65],"class":"core"}
+    {"id":"F01_PUBLIC_LANDING_E","level":"F01","rect":[4.5,-1.9,5.4,1.65],"class":"core"},
+    {"id":"F01_SERVICE_ENTRY_PLATFORM","level":"F01","rect":[9.5,5.0,10.55,6.75],"class":"core"}
   ],
   "lift_landings": [
     {"id":"F01_PASSENGER_LIFT_LANDING","level":"F01","shaft":"PASSENGER_LIFT_SHAFT","center":[0.0,-2.8],"width":0.91,"height":2.13,"yaw":0.0,"clear_depth":1.8},
@@ -2705,7 +2711,8 @@
     {"id":"F05_D_RADIATOR_01_RETROFIT_WALL_SERVICE_OPENINGS_010","space":"F04_A_VESTIBULE","side":"west","bounds":[9.43,12.296174072710164,-1.4910000476837157,9.57,12.378785869023268,-1.409000047683716]},
     {"id":"F05_D_RADIATOR_01_RETROFIT_WALL_SERVICE_OPENINGS_011","space":"F04_A_MAIN","side":"west","bounds":[11.43,12.30491405814352,-1.4910000476837157,11.57,12.387525854456625,-1.409000047683716]},
     {"id":"F05_D_RADIATOR_01_RETROFIT_WALL_SERVICE_OPENINGS_012","space":"F04_A_MAIN","side":"south","bounds":[15.309000381469726,12.333756009240092,-4.2700000000000005,15.391000381469727,12.41636780763697,-4.13]},
-    {"id":"F06_D_RADIATOR_01_RETROFIT_WALL_SERVICE_OPENINGS_013","space":"F05_D_RESTRICTED","side":"west","bounds":[9.43,15.496174072710163,-1.4910000476837157,9.57,15.578785869023267,-1.409000047683716]}
+    {"id":"F06_D_RADIATOR_01_RETROFIT_WALL_SERVICE_OPENINGS_013","space":"F05_D_RESTRICTED","side":"west","bounds":[9.43,15.496174072710163,-1.4910000476837157,9.57,15.578785869023267,-1.409000047683716]},
+    {"id":"F02_SERVICE_BYPASS_HEAT_INNER_PORT","space":"F02_SERVICE_RISER_BYPASS","side":"north","bounds":[7.409,5.887134490238611,1.93,7.4910000000000005,5.969590021691974,2.07]}
   ],
   "masonry_service_openings": [
     {"id":"VENT_A_F05_B_BATH_VENT_REGISTER_1_MASONRY_EXTERIORMASONRY_CLEAR","bounds":[-7.35,15.39,4.625,-6.075,15.59,4.825],"owner":"ExteriorMasonry"},
@@ -2735,6 +2742,7 @@
     {"id":"VENT_C_C_STEM_MASONRY_EXTERIORMASONRY_CLEAR","bounds":[-6.275,5.79,5.7,-6.075,18.995,5.9],"owner":"ExteriorMasonry"},
     {"id":"VENT_C_C_UPTAKE_MASONRY_EXTERIORMASONRY_CLEAR","bounds":[-6.275,18.795,5.7,-6.075,19.469,5.9],"owner":"ExteriorMasonry"},
     {"id":"F03_C_RADIATOR_01_RETROFIT_MASONRY_SERVICE_OPENINGS_000","owner":"ExteriorMasonry","bounds":[7.9790004577636715,5.879780911435273,0.5489999737739563,8.270999542236328,5.962919738206843,0.6309999737739563]},
-    {"id":"F03_C_RADIATOR_01_RETROFIT_MASONRY_SERVICE_OPENINGS_001","owner":"ExteriorMasonry","bounds":[7.129000076293945,5.905648589649324,7.509000190734863,7.421000114440918,5.988787419523955,7.591000190734864]}
+    {"id":"F03_C_RADIATOR_01_RETROFIT_MASONRY_SERVICE_OPENINGS_001","owner":"ExteriorMasonry","bounds":[7.129000076293945,5.905648589649324,7.509000190734863,7.421000114440918,5.988787419523955,7.591000190734864]},
+    {"id":"F02_SERVICE_BYPASS_HEAT_OUTER_PORT","owner":"ExteriorMasonry","bounds":[7.409,5.887590021691973,2.07,7.4910000000000005,5.970273318872017,2.28]}
   ]
 }

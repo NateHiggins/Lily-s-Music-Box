@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "repairs": [
+    {
+      "id": "F01_SERVICE_ENTRY_PLATFORM",
+      "level": "F01",
+      "door": "F01_SERVICE_CORE_DOOR",
+      "stair": "SERVICE_F01_F02",
+      "rect": [9.5, 5.0, 10.55, 6.75],
+      "reason": "Replace the missing approach slab beside the first flight, including a full standing capsule beyond the latch-side swing arc. Retain the service shaft, stair and existing landing."
+    }
+  ],
+  "ports": [
+    {"id":"F02_SERVICE_BYPASS_HEAT","room":"F02_SERVICE_RISER_BYPASS","side":"north","branch":"F03_C_RADIATOR_01","segment":1,"clearance_m":0.041}
+  ],
+  "bypasses": {
+    "ground_room": {"id":"F01_SERVICE_RISER_BYPASS","level":"F01","class":"service","rect":[7.1,1.0,8.3,2.0],"purpose":"standing maintenance passage behind continuous heat and telephone risers","wall_sides":["west","north"]},
+    "ground_openings": [
+      {"id":"F01_TRANSFER_BYPASS_OPENING","level":"F01","center":[7.7,1.0],"width":1.05,"height":2.4,"axis":"x","shared_wall_owner":"F01_CORE_TO_SERVICE","connects":["F01_CORE_TO_SERVICE","F01_SERVICE_RISER_BYPASS"]},
+      {"id":"F01_BYPASS_HALL_OPENING","level":"F01","center":[8.3,1.5],"width":1.0,"height":2.4,"axis":"z","shared_wall_owner":"F01_SERVICE_HALL","connects":["F01_SERVICE_RISER_BYPASS","F01_SERVICE_HALL"]}
+    ],
+    "upper_room": {"id":"F02_SERVICE_RISER_BYPASS","level":"F02","class":"service","rect":[7.1,-1.35,8.3,2.0],"purpose":"standing maintenance passage behind continuous heat and telephone risers","wall_sides":["west","south","north"]},
+    "upper_openings": [
+      {"id":"F02_BYPASS_HALL_SOUTH_OPENING","level":"F02","center":[8.3,-0.7],"width":1.05,"height":2.4,"axis":"z","shared_wall_owner":"F02_SERVICE_HALL","connects":["F02_SERVICE_RISER_BYPASS","F02_SERVICE_HALL"]},
+      {"id":"F02_BYPASS_HALL_NORTH_OPENING","level":"F02","center":[8.3,1.45],"width":1.0,"height":2.4,"axis":"z","shared_wall_owner":"F02_SERVICE_HALL","connects":["F02_SERVICE_RISER_BYPASS","F02_SERVICE_HALL"]}
+    ]
+  }
+}

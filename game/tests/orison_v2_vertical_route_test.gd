@@ -63,6 +63,7 @@ func _route() -> void:
 					Vector3(7.65, 6.4, 2.0), Vector3(8.9, 6.4, 2.0), Vector3(8.9, 6.4, 5.55),
 					Vector3(10.05, 6.4, 5.55), Vector3(10.05, 6.4, 4.3), Vector3(11.075, 6.4, 4.3)]
 			for point in service_approach:
+				if point==Vector3(10.05,6.4,5.55) and not await _move_front_entrance("F03_SERVICE_CORE_DOOR",true):return
 				if not await _walk(point): return
 			for point in [Vector3(11.075, 8.0, 9.15), Vector3(12.425, 8.0, 9.15),
 					Vector3(12.425, 9.6, 5.65), Vector3(12.425, 8.0, 9.15),
@@ -71,6 +72,7 @@ func _route() -> void:
 			service_approach.reverse()
 			for point in service_approach:
 				if not await _walk(point): return
+				if point==Vector3(8.9,6.4,5.55) and not await _move_front_entrance("F03_SERVICE_CORE_DOOR",false):return
 			for point in [Vector3(8.85, 6.4, -3.25), Vector3(5.0, 6.4, -3.25), Vector3(3.975, 6.4, -3.4)]:
 				if not await _walk(point): return
 		elif floor_index >= 2:

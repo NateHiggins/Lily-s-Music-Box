@@ -1088,6 +1088,7 @@ class Evidence:
             name = Path(rel).name
             epoch = doc_epoch(name)
             access_rooms = None
+            access_connections = set()
             access_problems = []
             if "SPATIAL_ACCESS" in name:
                 # New played-room checkpoints must expire when the actual
@@ -1110,6 +1111,17 @@ class Evidence:
                         access_problems.extend(problems)
                     else:
                         access_rooms.update(receipt["contracts"]["room_access"]["rooms"])
+                        if "room_connections" in receipt["contracts"]:
+                            # Room residency alone cannot prove a particular
+                            # opening. Admit only independently validated typed
+                            # crossings from the same original played contract.
+                            from spatial_connection_evidence import validate_connections
+                            connection_errors = validate_connections(receipt, inputs.root,
+                                digests.get("runtime"), digests.get("surface"))
+                            if connection_errors:
+                                access_problems.extend(connection_errors)
+                            else:
+                                access_connections.update(receipt["contracts"]["room_connections"]["connections"])
             acceptance = bool(ACCEPTANCE_DOC_RE.search(name))
             composition = bool(RUNTIME_COMPOSITION_DOC_RE.search(name))
             status_line = next(
@@ -1132,11 +1144,11 @@ class Evidence:
                         r"Verdict:.*PASS", text, re.IGNORECASE))})
                 continue
             for token in tokens:
-                if access_rooms is not None and token not in access_rooms:
+                if access_rooms is not None and token not in access_rooms and token not in access_connections:
                     self.conflicts.append({"token": token, "source": rel,
                         "epoch": epoch, "negative_epoch": -1,
                         "note": "spatial access claim lacks current played proof: " +
-                                "; ".join(access_problems or ["room absent from receipt"])})
+                                "; ".join(access_problems or ["room or typed connection absent from receipt"])})
                     continue
                 if token not in model.all_ids and \
                         token not in RITUAL_IDENTITIES:
@@ -1162,7 +1174,7 @@ class Evidence:
                 # or a structured composition claim below.
                 self.by_token.setdefault(token, []).append(
                     {"tier": "SPATIALLY_PROVEN", "source": rel,
-                     "epoch": epoch, "channel": "mention"})
+                     "epoch": epoch, "channel": "spatial_connection" if token in access_connections else "mention"})
 
             if composition:
                 packet_names = set(PACKET_DIR_RE.findall(text))

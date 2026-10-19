@@ -58,6 +58,8 @@ def inputs(root=ROOT):
                                  'tools/build_v2_public_landings.py',
                                  'tools/derive_v2_public_landings.py',
                                  'tools/v2_space_footprints.py'])
+    paths.update(root/p for p in ['art/data/orison_v2/service_entry_source.json',
+                                 'tools/build_v2_service_entries.py'])
     for name in ('toast_crumb','leather_worn','mineral_scale'):
         paths.add(root/f'art/textures/ai_sources/{name}.png')
     paths.add(root/'art/textures/ai_sources/v2_surface_stock_20261011.json')

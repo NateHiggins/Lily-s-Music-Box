@@ -8134,15 +8134,15 @@
       "site_ne4": 5.579999999999998,
       "site_far_sw": -4.830000000000005
     },
-    "historical_blockout_binding_stale": true
+    "historical_blockout_binding_stale": false
   },
   "asset_sha256": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e",
   "source_bindings": {
     "art/data/city_closure/source_plan.json": "698345a5e6a97318e932e36f4a8a6374cac846c76366d4b5f95ddb363e14e088",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/city_shells_registration.json": "4d509e6de0a55ac7ed29da7cd1f0f350f3bf9cfcbbc36fb2f874551ab6ff0df5",
-    "art/blender/city_shells.blend": "4fd36ba5ab8d4e8c45cde2da1edb5afe7444f0c9ad79ec371007459fa718c3a7",
-    "game/data/orison_v2_blockout.json": "7e80b06b87c00675c51ea5bc5e7a6f515642654f36f0f09f4f39bef91baf4f6f",
+    "art/blender/city_shells_registration.json": "b2c296bdb96295c1203acd9910cbab7f1a1aeceaee4c44d8f319e860a8dd721a",
+    "art/blender/city_shells.blend": "bc56f8acfe85363368ffb8920e1588c7fa03d121c73500462356d2afcd32bd16",
+    "game/data/orison_v2_blockout.json": "beb6f53f9eab4d873b89b4436d0fecaab87f976a72f4ffed9ef00a2605fd0e7e",
     "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
     "art/blender/scripts/build_city_closure.py": "21cb5c806d55dd02fcfe759f8a6d6c7a89b7c46c5497b22c605492d8ba57597a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",

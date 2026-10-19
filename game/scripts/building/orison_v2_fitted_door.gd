@@ -2,10 +2,17 @@ class_name OrisonV2FittedDoor
 extends DoorProp
 ## Retained room jambs admit a quarter turn. Roof weather owners keep 100 degrees.
 var open_stop_degrees := 90.0
+var native_service_joinery := false
 const KEYWAY := preload("res://assets/props/door_keyway.glb")
 const JOINERY := preload("res://assets/props/domestic_door_leaves.glb")
 static var _joinery_meshes: Dictionary = {}
 static var _paint_finishes: Dictionary = {}
+
+func _build_service() -> void:
+	# The two retained timber core leaves use the Blender joinery family,
+	# while keeping service-door mechanics, hinges, lock and semantic owners.
+	if native_service_joinery:_build_domestic(false)
+	else:super._build_service()
 
 func _build_domestic(is_entry: bool) -> void:
 	if _joinery_meshes.is_empty():
@@ -37,6 +44,16 @@ func _build_domestic(is_entry: bool) -> void:
 		arm.rotation.z=-.16
 
 func _build_knob_set(_material: StandardMaterial3D) -> void:
+	if native_service_joinery and knob_mesh!=null:
+		# The retained service authority uses a 44 mm timber leaf here.
+		# Seat its backplates on that native face, not the older 52 mm metal skin.
+		for face: float in [-1.0,1.0]:
+			var part:=MeshInstance3D.new();part.mesh=knob_mesh
+			part.material_override=MatLib.get_mat("door_brass")
+			part.position=Vector3(width-.085,1.0,face*.022)
+			part.rotation.y=PI if face<0 else 0
+			_body.add_child(part)
+		return
 	super._build_knob_set(MatLib.get_mat("door_brass"))
 
 ## Only the visible slab is parted. The retained solid physics leaf still

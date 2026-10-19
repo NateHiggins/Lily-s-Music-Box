@@ -1,6 +1,6 @@
 {
   "evidence_class": "INERT",
-  "source_sha256_lf": "badcbca6fa8071363aae17f5e29d58dc5cbceaa1d48ddb133559a57b5ba83e7b",
+  "source_sha256_lf": "beb6f53f9eab4d873b89b4436d0fecaab87f976a72f4ffed9ef00a2605fd0e7e",
   "ceiling_volumes": [
     {
       "owner": "F02_FRONT_GALLERY",
@@ -3004,6 +3004,28 @@
         -1.6653345369377348e-16,
         -1
       ]
+    },
+    {
+      "owner": "F01_SERVICE_RISER_BYPASS",
+      "bounds": [
+        7.1,
+        3.0,
+        1.0,
+        8.3,
+        3.2,
+        2.0
+      ]
+    },
+    {
+      "owner": "F02_SERVICE_RISER_BYPASS",
+      "bounds": [
+        7.1,
+        6.2,
+        -1.35,
+        8.3,
+        6.4,
+        2.0
+      ]
     }
   ],
   "slab_fits": [
@@ -3070,7 +3092,7 @@
     {
       "stock": "F01_CORE_TO_SERVICE_north",
       "ceiling": "B1_MAINTENANCE_SHOP",
-      "removed_m3": 0.12179999999999991
+      "removed_m3": 0.07140000000000013
     },
     {
       "stock": "F01_SERVICE_HALL_west",
@@ -3085,7 +3107,7 @@
     {
       "stock": "F01_SERVICE_HALL_west",
       "ceiling": "B1_MAINTENANCE_SHOP",
-      "removed_m3": 0.20160000000000178
+      "removed_m3": 0.15960000000000107
     },
     {
       "stock": "F01_SERVICE_HALL_east",
@@ -3126,6 +3148,16 @@
       "stock": "F01_D_MAIN_west",
       "ceiling": "B1_BOILER_ROOM",
       "removed_m3": 0.0609000000000004
+    },
+    {
+      "stock": "F01_SERVICE_RISER_BYPASS_west",
+      "ceiling": "B1_MAINTENANCE_SHOP",
+      "removed_m3": 0.041999999999999815
+    },
+    {
+      "stock": "F01_SERVICE_RISER_BYPASS_north",
+      "ceiling": "B1_MAINTENANCE_SHOP",
+      "removed_m3": 0.0504
     },
     {
       "stock": "F02_WEST_HALL_north",
@@ -3173,11 +3205,6 @@
       "removed_m3": 0.08400000000000052
     },
     {
-      "stock": "F02_SERVICE_HALL_west",
-      "ceiling": "F01_CORE_TO_SERVICE",
-      "removed_m3": 0.0840000000000023
-    },
-    {
       "stock": "F02_C_STUDIO_south",
       "ceiling": "F01_PACKAGE",
       "removed_m3": 0.008399999999999519
@@ -3191,6 +3218,11 @@
       "stock": "F02_D_RESTRICTED_north",
       "ceiling": "F01_MAIL_TELEPHONE",
       "removed_m3": 0.0819000000000003
+    },
+    {
+      "stock": "F02_SERVICE_RISER_BYPASS_west",
+      "ceiling": "F01_CORE_TO_SERVICE",
+      "removed_m3": 0.08400000000000007
     },
     {
       "stock": "F03_SERVICE_HALL_SOUTH_east",
@@ -3321,6 +3353,11 @@
       "stock": "F01_Corner",
       "ceiling": "B1_RESIDENT_STORAGE",
       "removed_m3": 0.015679999999999944
+    },
+    {
+      "stock": "F01_Corner",
+      "ceiling": "B1_MAINTENANCE_SHOP",
+      "removed_m3": 0.01568
     },
     {
       "stock": "F01_Corner",
@@ -4208,7 +4245,7 @@
         5.4,
         -1.6653345369377348e-16,
         1.07,
-        8.3,
+        7.1,
         3.0,
         1.28
       ]
@@ -4295,7 +4332,7 @@
       "bounds": [
         8.02,
         -1.6653345369377348e-16,
-        1.0,
+        2.0,
         8.23,
         3.0,
         9.25
@@ -4860,6 +4897,28 @@
         -8.95,
         3.0,
         -12.42
+      ]
+    },
+    {
+      "name": "F01_SERVICE_RISER_BYPASS_west_FittedPiece00",
+      "bounds": [
+        6.82,
+        -1.6653345369377348e-16,
+        1.0,
+        7.029999999999999,
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "name": "F01_SERVICE_RISER_BYPASS_north_FittedPiece00",
+      "bounds": [
+        7.1,
+        -1.6653345369377348e-16,
+        2.07,
+        8.3,
+        3.0,
+        2.28
       ]
     },
     {
@@ -5666,68 +5725,24 @@
       ]
     },
     {
-      "name": "F02_SERVICE_HALL_west_FittedPiece00",
+      "name": "F02_SERVICE_HALL_west",
       "bounds": [
         8.02,
-        3.2,
-        -2.6500000000000004,
-        8.23,
-        5.879780911435273,
-        9.25
-      ]
-    },
-    {
-      "name": "F02_SERVICE_HALL_west_FittedPiece01",
-      "bounds": [
-        8.02,
-        5.962919738206843,
-        -2.6500000000000004,
+        2.9999999999999996,
+        -2.65,
         8.23,
         6.199999999999999,
-        9.25
+        -1.35
       ]
     },
     {
-      "name": "F02_SERVICE_HALL_west_FittedPiece02",
+      "name": "F02_SERVICE_HALL_west.001",
       "bounds": [
         8.02,
-        5.879780911435273,
-        -2.6500000000000004,
+        2.9999999999999996,
+        2.0,
         8.23,
-        5.962919738206843,
-        0.5489999737739563
-      ]
-    },
-    {
-      "name": "F02_SERVICE_HALL_west_FittedPiece03",
-      "bounds": [
-        8.02,
-        5.879780911435273,
-        0.6309999737739563,
-        8.23,
-        5.962919738206843,
-        9.25
-      ]
-    },
-    {
-      "name": "F02_SERVICE_HALL_west_FittedPiece04",
-      "bounds": [
-        8.02,
-        3.0,
-        -2.6500000000000004,
-        8.23,
-        3.2,
-        -1.0
-      ]
-    },
-    {
-      "name": "F02_SERVICE_HALL_west_FittedPiece05",
-      "bounds": [
-        8.02,
-        3.0,
-        1.0,
-        8.23,
-        3.2,
+        6.199999999999999,
         9.25
       ]
     },
@@ -6180,6 +6195,94 @@
         -15.72,
         6.199999999999999,
         -3.8499999999999996
+      ]
+    },
+    {
+      "name": "F02_SERVICE_RISER_BYPASS_west_FittedPiece00",
+      "bounds": [
+        6.82,
+        3.2,
+        -1.35,
+        7.029999999999999,
+        6.199999999999999,
+        2.0
+      ]
+    },
+    {
+      "name": "F02_SERVICE_RISER_BYPASS_west_FittedPiece01",
+      "bounds": [
+        6.82,
+        3.0,
+        -1.35,
+        7.029999999999999,
+        3.2,
+        -1.0
+      ]
+    },
+    {
+      "name": "F02_SERVICE_RISER_BYPASS_west_FittedPiece02",
+      "bounds": [
+        6.82,
+        3.0,
+        1.0,
+        7.029999999999999,
+        3.2,
+        2.0
+      ]
+    },
+    {
+      "name": "F02_SERVICE_RISER_BYPASS_south",
+      "bounds": [
+        7.1,
+        2.9999999999999996,
+        -1.6300000000000001,
+        8.3,
+        6.199999999999999,
+        -1.4200000000000002
+      ]
+    },
+    {
+      "name": "F02_SERVICE_RISER_BYPASS_north_FittedPiece00",
+      "bounds": [
+        7.1,
+        2.9999999999999996,
+        2.07,
+        7.409,
+        6.199999999999999,
+        2.28
+      ]
+    },
+    {
+      "name": "F02_SERVICE_RISER_BYPASS_north_FittedPiece01",
+      "bounds": [
+        7.4910000000000005,
+        2.9999999999999996,
+        2.07,
+        8.3,
+        6.199999999999999,
+        2.28
+      ]
+    },
+    {
+      "name": "F02_SERVICE_RISER_BYPASS_north_FittedPiece02",
+      "bounds": [
+        7.409,
+        2.9999999999999996,
+        2.07,
+        7.4910000000000005,
+        5.887590021691973,
+        2.28
+      ]
+    },
+    {
+      "name": "F02_SERVICE_RISER_BYPASS_north_FittedPiece03",
+      "bounds": [
+        7.409,
+        5.970273318872017,
+        2.07,
+        7.4910000000000005,
+        6.199999999999999,
+        2.28
       ]
     },
     {
@@ -11685,6 +11788,17 @@
     {
       "name": "F01_Corner_FittedPiece00.002",
       "bounds": [
+        6.82,
+        -1.6653345369377348e-16,
+        2.0,
+        7.1,
+        3.0,
+        2.2800000000000002
+      ]
+    },
+    {
+      "name": "F01_Corner_FittedPiece00.003",
+      "bounds": [
         -1.4799999999999998,
         -1.6653345369377348e-16,
         3.85,
@@ -11716,7 +11830,7 @@
       ]
     },
     {
-      "name": "F01_Corner_FittedPiece00.003",
+      "name": "F01_Corner_FittedPiece00.004",
       "bounds": [
         5.4,
         -1.6653345369377348e-16,
@@ -11762,6 +11876,28 @@
     {
       "name": "F02_Corner.002",
       "bounds": [
+        6.82,
+        3.0000000000000004,
+        2.0,
+        7.1,
+        6.200000000000001,
+        2.2800000000000002
+      ]
+    },
+    {
+      "name": "F02_Corner.003",
+      "bounds": [
+        6.82,
+        3.0000000000000004,
+        -1.63,
+        7.1,
+        6.200000000000001,
+        -1.35
+      ]
+    },
+    {
+      "name": "F02_Corner.004",
+      "bounds": [
         -8.95,
         3.0000000000000004,
         7.85,
@@ -11771,7 +11907,7 @@
       ]
     },
     {
-      "name": "F02_Corner.003",
+      "name": "F02_Corner.005",
       "bounds": [
         -10.25,
         3.0000000000000004,
@@ -11782,7 +11918,7 @@
       ]
     },
     {
-      "name": "F02_Corner.004",
+      "name": "F02_Corner.006",
       "bounds": [
         9.219999999999999,
         3.0000000000000004,
@@ -11793,7 +11929,7 @@
       ]
     },
     {
-      "name": "F02_Corner.005",
+      "name": "F02_Corner.007",
       "bounds": [
         15.65,
         3.0000000000000004,
@@ -11826,7 +11962,7 @@
       ]
     },
     {
-      "name": "F02_Corner.006",
+      "name": "F02_Corner.008",
       "bounds": [
         -15.930000000000001,
         3.0000000000000004,
@@ -11848,7 +11984,7 @@
       ]
     },
     {
-      "name": "F02_Corner.007",
+      "name": "F02_Corner.009",
       "bounds": [
         7.1,
         3.0000000000000004,
@@ -11859,7 +11995,7 @@
       ]
     },
     {
-      "name": "F02_Corner.008",
+      "name": "F02_Corner.010",
       "bounds": [
         -15.930000000000001,
         3.0000000000000004,
@@ -11870,7 +12006,7 @@
       ]
     },
     {
-      "name": "F02_Corner.009",
+      "name": "F02_Corner.011",
       "bounds": [
         8.02,
         3.0000000000000004,
@@ -11881,7 +12017,7 @@
       ]
     },
     {
-      "name": "F02_Corner.010",
+      "name": "F02_Corner.012",
       "bounds": [
         -5.879999999999999,
         3.0000000000000004,
@@ -11892,7 +12028,7 @@
       ]
     },
     {
-      "name": "F02_Corner.011",
+      "name": "F02_Corner.013",
       "bounds": [
         7.1,
         3.0000000000000004,
@@ -12410,5 +12546,5 @@
       "removed_m3": 0.18686911779002424
     }
   ],
-  "removed_m3": 5.0351999999999935
+  "removed_m3": 5.0508799999999905
 }

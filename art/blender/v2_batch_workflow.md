@@ -70,6 +70,16 @@ an unchanged trim-instance set with a renewed layout binding invalidates the
 broad surface and access digests. Catch that metadata change before the long
 Godot batch, rather than repeating unchanged world builds afterward.
 
+An added room or changed occupied footprint also changes the Blender exterior
+masonry leaf. Rebuild that owner before walking the new opening: a correct
+room-side aperture can still meet the previous solid outer leaf. Preserve
+retained pipe routes and bores; derive any new wall ports where the extension
+crosses them, and check the actual reopened native stock before importing it.
+Run the production layout validator without composing a world first, so moving
+a wall cannot silently strand an older bore at its former plane. Keep floor
+planner caches local to an unchanged physical arrangement, invalidate them when
+a door moves, and retain actual controller movement for every segment.
+
 For a replacement shell, enumerate every retained support touching its old
 envelope and measure contact against the new imported stock before the world
 batch. A roof can have correct closed faces and a clear light well while

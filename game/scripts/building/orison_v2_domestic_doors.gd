@@ -5,6 +5,8 @@ static var _hinge_meshes: Dictionary = {}
 const SPECS := {
 	"F01_INNER_DOOR": {"kind": "apartment_interior", "swing_out": true, "unit": ""},
 	"F01_REAR_SERVICE_DOOR": {"kind": "service", "swing_out": true, "unit": ""},
+	"F01_SERVICE_CORE_DOOR": {"kind": "service", "swing_out": true, "unit": "", "native_service_joinery": true},
+	"F03_SERVICE_CORE_DOOR": {"kind": "service", "swing_out": true, "unit": "", "native_service_joinery": true},
 	"F01_WATCH_MAIL_DOOR": {"kind": "service", "swing_out": false, "unit": ""},
 	"F01_MAIL_PACKAGE_DOOR": {"kind": "service", "swing_out": false, "unit": ""},
 	"F01_PACKAGE_COMMON_DOOR": {"kind": "apartment_interior", "swing_out": false, "unit": ""},
@@ -76,6 +78,7 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 		door.width = float(record.width)
 		door.height = float(record.height)
 		door.door_kind = str(specs[identity].kind)
+		door.native_service_joinery = bool(specs[identity].get("native_service_joinery",false))
 		var right_hinge: bool = str(record.hinge) == "right"
 		# DoorProp extends along local +X. A half-turn places a right-hung
 		# leaf across the same opening without negative physics scale.
