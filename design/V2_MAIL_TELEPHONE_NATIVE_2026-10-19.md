@@ -194,6 +194,25 @@ Previous canonical packets are preserved in the adjacent qualification archive.
 No previous receipt is repinned and no additional ledger marker is introduced.
 
 All nine original batch runs have completed successfully. Clean no-regression
-verification and push remain pending.
+verification passes for **8521e1c4** against clean merge-base **8db55d0d**:
+zero regressions, all seventeen protected paths unchanged, selector V2 and
+zero document-lint errors. The verifier returns **MERGE-CANDIDATE**. Its
+original JSON includes both complete gate boards and is archived under
+**qualification/candidate_8521e1c4/** alongside the matching source comparison.
+This is static in-place verification in the clean owned checkout. The nine
+original canonical Godot runs have identical runtime and surface inputs;
+no Godot or fresh-import execution is claimed for the verification checkout.
+
+Instrument review preserves all 10,259 previous spatial-manifest records and
+metadata, appending 26 individually reviewed records without duplicate keys.
+The precision-import policy adds only the measured switchboard exception,
+retaining every previous asset. The native test adds five source/stock checks;
+surface mutation coverage adds the owning blend and construction-report cases.
+No previous checker tolerance or test case is removed. The full instrument
+diff review remains in the qualification archive.
+
+The ledger remains at zero first-slice technical blockers, one Golden Shift
+blocker, 21 structural blockers, 25 runtime blockers, 38 production-cutover
+blockers and 40 retirement blockers. This checkpoint adds no new ledger grant.
 These renewals do not prove the full parcel/common/laundry programmes, resolve
 the recorded visual defects, grant human appearance acceptance or complete V2.

@@ -1,0 +1,19 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "candidate": "8521e1c4d9c0af9b013f7e48f9efc0e7f4ee0c20",
+  "source_commit": "b0cf00244b39c40e5ddc5cd75656deff1fd74c71",
+  "scope": "Clean committed candidate and original canonical source have identical frozen runtime/surface content. Original canonical runs provide engine evidence; no import or engine execution occurred in this static verification checkout.",
+  "inputs": [
+    {
+      "root": "C:\\PleaseRemainOnTheLine",
+      "runtime": "0f6dbe6c3813cd10cc58c3fe3349aaff48ad1eb49d3919a2b8c76e31fcb694d7",
+      "surface": "82b7991496f093fa22fefc406c908816b81988238dcbfda1f80a19e73f534f63"
+    },
+    {
+      "root": "C:\\ov\\v2-programme-verify",
+      "runtime": "0f6dbe6c3813cd10cc58c3fe3349aaff48ad1eb49d3919a2b8c76e31fcb694d7",
+      "surface": "82b7991496f093fa22fefc406c908816b81988238dcbfda1f80a19e73f534f63"
+    }
+  ]
+}

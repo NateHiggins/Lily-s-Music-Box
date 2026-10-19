@@ -1,0 +1,1 @@
+Evidence class: INERT. Original clean in-place candidate verification against complete clean 8db baseline, with embedded original gate boards. Source input identity matches the nine canonical Godot runs. No Godot or fresh-import execution occurred in this verification checkout. Verdict applies to candidate8521e1c4; broader V2 and human appearance acceptance remain open.
