@@ -1,0 +1,128 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Reviewed WIP finish batch; no gameplay, spatial, human or full-build acceptance. Actual captures came from the shared dirty canonical checkout, not clean-candidate qualification.",
+  "changes": [
+    "Registered deterministic limewash_plaster: independent pigment, mineral/trowel physical relief, roughness and OpenGL normals;1.8m tile;0.24mm full height span. Source regeneration produced byte-identical maps and metadata.",
+    "Replaced semantic ordinary walls and ceilings with this plaster, leaving wet-area wall tile, service concrete, resident objects and interaction authorities in place.",
+    "Public/core floors use existing fine honed arcade_terrazzo at0.4m; original metre UVs, meshes and fitted floor/ceiling surfaces remain. Existing runtime texture files unchanged."
+  ],
+  "installed_diagnostic": {
+    "evidence_class": "INERT",
+    "failures": [],
+    "scope": "Installed wall/floor maps, UV sampling and mip diagnostic; no gameplay, spatial or human acceptance",
+    "surfaces": {
+      "arcade_terrazzo": 37,
+      "limewash_plaster": 1598
+    },
+    "textures": {
+      "res://assets/building/textures/T_ai_materials_arcade_terrazzo_albedo.png": {
+        "complete_loaded_mips": true
+      },
+      "res://assets/building/textures/T_ai_materials_arcade_terrazzo_normal.png": {
+        "complete_loaded_mips": true
+      },
+      "res://assets/building/textures/T_ai_materials_arcade_terrazzo_rough.png": {
+        "complete_loaded_mips": true
+      },
+      "res://assets/building/textures/T_ai_materials_limewash_plaster_albedo.png": {
+        "complete_loaded_mips": true
+      },
+      "res://assets/building/textures/T_ai_materials_limewash_plaster_normal.png": {
+        "complete_loaded_mips": true
+      },
+      "res://assets/building/textures/T_ai_materials_limewash_plaster_rough.png": {
+        "complete_loaded_mips": true
+      }
+    }
+  },
+  "visual_review": "Directly viewed full4K kitchen and lobby renders. Uniform all-over wall crackle is gone; plaster reads as a quiet mineral substrate, and the lobby loses oversized stone aggregate. Painted rails remain distinct from dark wooden panels. This is base-finish work: localized renovation scars, room-specific decoration, floor divider details and the crude sink support still need further work.",
+  "provenance": "22 construction/fixture documents changed only source_bindings after strictly additive catalogue proof.258 previous runtime texture files remained byte-identical.849 already-stale bindings deliberately remain stale; no historical acceptance was refreshed.",
+  "checks": [
+    {
+      "name": "reader",
+      "command": [
+        "python",
+        "tools/audit_data_consumption.py",
+        "--baseline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "catalogue",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tools.tests.test_material_catalog_persistence",
+        "tools.tests.test_additive_material_rebind"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "imports",
+      "command": [
+        "python",
+        "art/tools/fix_runtime_texture_imports.py",
+        "--v2",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "selected_tool_tests",
+      "command": "python -m unittest tools.tests.test_material_catalog_persistence tools.tests.test_additive_material_rebind tools.tests.test_v2_surface_requirements",
+      "observed_terminal_session": 68543,
+      "exit_code": 0,
+      "reported_tests": 33,
+      "reported_elapsed_s": 143.931,
+      "reported_result": "OK",
+      "scope": "Static/tool tests, not a Godot runtime contract"
+    }
+  ],
+  "source_sha256": {
+    "art/blender/arcade_throat_construction.json": "3ebcd925909996da4db48c4b5ce0b40329e64727d1faf0c41eeb35fd60c2d48a",
+    "art/blender/city_closure_construction.json": "53b62f0b584bb457f0f6eccd4c1d03c36f31f413cb9238a66fff605fd6653338",
+    "art/blender/city_elevations_construction.json": "e60235cc08dc0f3026e22e014d5bc2aef61e96cb19c7763c640893f6c1b5856a",
+    "art/blender/city_ground_apron_construction.json": "5b8460882a36245366fe573d2b6ccba4f298de21e05a0292f91423c8e98f4d29",
+    "art/blender/city_horizon_construction.json": "24f5ff0f556d23ab9d8348f2d0e0bb72c5e3846243428ad39fd35ac3a5e3f2ce",
+    "art/blender/domestic_objects_construction.json": "f9bfbf09a9554dc04fd064a9ece669ee52400729cd183dd2f04157d12ee0c506",
+    "art/blender/fire_floor_enamel_construction.json": "209a8ee4647ef80345e775ef351d42dc8a0ea70a42a2e685d02034b399ffcfb9",
+    "art/blender/fire_fold_stock_construction.json": "4be61ae126cf75777063eae656f1cc7288a1ed044c575197ac46810cdce2c7a8",
+    "art/blender/fire_hose_rack_construction.json": "4d8d2d68146a824624a7efb9f8ea38fdcc73d4eba2ad1385e860845f0d46d511",
+    "art/blender/fire_hose_stock_construction.json": "3e700bd3a43a1ec9254869ce8ab379e87f162a20144ff62f20d3a1d7921ee2e6",
+    "art/blender/fire_joint_stock_construction.json": "ae15a0fa17699731f4842f787458cf4318417485c963bb3767752bd5676544a9",
+    "art/blender/fire_nozzle_detail_construction.json": "781b3c925f723261b9fee365986ef3e46341f31b2c81acc34b776fb2bc4eb6ab",
+    "art/blender/fire_nozzle_hose_construction.json": "9fd81f4f320109b4730091df5a4a1593db96e7bbc8230d3cd7ee8ce353c09434",
+    "art/blender/fire_nozzle_joint_construction.json": "4ce9c0c907b41ee59779bef1a507184a3b5067bd4dacbf7c4fb876a34869573a",
+    "art/blender/house_switchboard_construction.json": "dc454206a9311d276b8716f57f43cbe749c8b9f73695695602d0b103c1646074",
+    "art/blender/street_paving_details_construction.json": "1e0d0bbac661de6453d18d7c5f0e7904b8def7bcf4238690e8a9e3ec1f68fa6d",
+    "art/data/gen_layout.py": "f5970d59e86f2a48b33b894cae8d8f3d4dbc4b2f2fe55f8ead6788293ee5d18a",
+    "art/data/material_catalog.json": "e43a07b9618d3e9f5b0d13c329e26e3d22f6b9c7563a9da48cb0696a1379af65",
+    "art/data/runtime_material_sets.json": "a3849b873ccbe227199c6040b5a4df7903e0fa73625b738383502e9d8d67b376",
+    "art/textures/catalog_mapping.json": "62285fcb98e330f33820fcd6e12f7d2064baf46ec2c8d09f5aa5dc5d0eb56996",
+    "art/textures/procedural/limewash_plaster/albedo.png": "d86e614a73d3cf3683eae6f314cdf86c989329b5359984cef3a9c5956313c7c7",
+    "art/textures/procedural/limewash_plaster/height.png": "5ee9b0a939a42fdcb521ec9f131f5dc9ef9333f4b05cf41bef6687d1ce227bb9",
+    "art/textures/procedural/limewash_plaster/material.json": "a369d11491bb5e97b3ca516a8ed227ef80a4b4c0815dd58a0b47d5ac3ae76012",
+    "art/textures/procedural/limewash_plaster/normal.png": "dc76ec4d7246ffdc2b311d8d0461a3eac6d9e660aa3a0d4cec2d7a668d7ae7dc",
+    "art/textures/procedural/limewash_plaster/roughness.png": "503c932c64a5dbfae827cab96f8f2450b213054c84c7ec07bc9a4ff132bc3114",
+    "art/tools/build_limewash_plaster.py": "63b8c6d0768bdd2b1852dc8ef984d6a18c50b59b6584b11422e79919573cab12",
+    "art/tools/generate_runtime_materials.py": "d2cb4a28cc78f580c52401efdd63ecd8e3462a941a5f3a5ca63db3569ad2a0b1",
+    "game/assets/building/textures/T_ai_materials_limewash_plaster_albedo.png": "d86e614a73d3cf3683eae6f314cdf86c989329b5359984cef3a9c5956313c7c7",
+    "game/assets/building/textures/T_ai_materials_limewash_plaster_albedo.png.import": "7fd58dc4abd7d8bb3ffc2b7ee4ce67ed1d2faaf0292df11a7328ab4c6b9928e1",
+    "game/assets/building/textures/T_ai_materials_limewash_plaster_normal.png": "dc76ec4d7246ffdc2b311d8d0461a3eac6d9e660aa3a0d4cec2d7a668d7ae7dc",
+    "game/assets/building/textures/T_ai_materials_limewash_plaster_normal.png.import": "d5376d36ea6c35f89f8c0f18be7c692d9711ab4b55c9f9a4febdac0dd21d2249",
+    "game/assets/building/textures/T_ai_materials_limewash_plaster_rough.png": "503c932c64a5dbfae827cab96f8f2450b213054c84c7ec07bc9a4ff132bc3114",
+    "game/assets/building/textures/T_ai_materials_limewash_plaster_rough.png.import": "beb4fbd3405d986dc2086b3fba452700cbd606fba653188abe7603a1af55b05f",
+    "game/data/runtime_material_sets.json": "a3849b873ccbe227199c6040b5a4df7903e0fa73625b738383502e9d8d67b376",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "058c790a463f807066bde1ccfde6d2cc2110ad0cf9a428af43b411835754167f",
+    "game/scripts/generated/material_sets.gd": "db1fea3826f1c331b94b8092ce529c515e587527beb51b67d0a6ac7d284096f2",
+    "game/tests/fixtures/orison_city_closure.json": "53b62f0b584bb457f0f6eccd4c1d03c36f31f413cb9238a66fff605fd6653338",
+    "game/tests/fixtures/orison_city_elevations.json": "e60235cc08dc0f3026e22e014d5bc2aef61e96cb19c7763c640893f6c1b5856a",
+    "game/tests/fixtures/orison_city_ground_apron.json": "5b8460882a36245366fe573d2b6ccba4f298de21e05a0292f91423c8e98f4d29",
+    "game/tests/fixtures/orison_city_horizon.json": "24f5ff0f556d23ab9d8348f2d0e0bb72c5e3846243428ad39fd35ac3a5e3f2ce",
+    "game/tests/fixtures/orison_domestic_objects.json": "f9bfbf09a9554dc04fd064a9ece669ee52400729cd183dd2f04157d12ee0c506",
+    "game/tests/fixtures/orison_street_paving_details.json": "1e0d0bbac661de6453d18d7c5f0e7904b8def7bcf4238690e8a9e3ec1f68fa6d",
+    "game/tests/v2_4k_wip_capture.gd": "ecfef13cea29b6680c77202b877f7b295b664c01796f8fc686926a141e0a17b3"
+  },
+  "remaining": "Full V2 geometry/interaction/gameplay/retirement and clean qualification remain open. Human appearance acceptance remains open. Seven historical Texture RID shutdown leaks persist. Hose parked."
+}

@@ -1,0 +1,29 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "Installed wall/floor maps, UV sampling and mip diagnostic; no gameplay, spatial or human acceptance",
+	"surfaces": {
+		"arcade_terrazzo": 37,
+		"limewash_plaster": 1598
+	},
+	"textures": {
+		"res://assets/building/textures/T_ai_materials_arcade_terrazzo_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_arcade_terrazzo_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_arcade_terrazzo_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_limewash_plaster_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_limewash_plaster_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_limewash_plaster_rough.png": {
+			"complete_loaded_mips": true
+		}
+	}
+}

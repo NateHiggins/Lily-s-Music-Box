@@ -6,6 +6,42 @@ var rows: Array=[]
 var shots: Array=[]
 var directory: String
 func _ready() -> void:_run.call_deferred()
+func review_wall_floor() -> bool:
+	var failures: Array[String]=[]
+	var counts: Dictionary={"limewash_plaster":0,"arcade_terrazzo":0}
+	var textures: Dictionary={}
+	for draw: MeshInstance3D in world.adapter.root.find_children("*","MeshInstance3D",true,false):
+		if draw.mesh==null:continue
+		for surface in draw.mesh.get_surface_count():
+			var finish:=draw.get_active_material(surface) as ShaderMaterial
+			if finish==null:continue
+			var albedo: Texture2D=finish.get_shader_parameter("albedo_tex")
+			if albedo==null:continue
+			var key: String=""
+			for candidate: String in counts:
+				if albedo.resource_path.get_file()=="T_ai_materials_"+candidate+"_albedo.png":key=candidate;break
+			if key.is_empty():continue
+			counts[key]+=1
+			var tile: float=float(MatLib.SETS[key][3])
+			var scale: Vector2=finish.get_shader_parameter("mesh_uv_scale")
+			if int(finish.get_shader_parameter("uv_mode"))!=0 or not scale.is_equal_approx(Vector2.ONE/tile):failures.append(str(draw.get_path())+": authored metre UV scale "+str(scale))
+			if not bool(finish.get_shader_parameter("has_normal_tex")) or not is_equal_approx(float(finish.get_shader_parameter("normal_scale")),1.):failures.append(str(draw.get_path())+": physical normal response")
+			for parameter: String in ["albedo_tex","normal_tex","rough_tex"]:
+				var texture: Texture2D=finish.get_shader_parameter(parameter)
+				if texture==null:failures.append(str(draw.get_path())+": missing "+parameter);continue
+				if textures.has(texture.resource_path):continue
+				var image:=texture.get_image()
+				var complete: bool=image!=null and image.has_mipmaps() and image.get_mipmap_count()==int(floor(log(maxi(image.get_width(),image.get_height()))/log(2.)))
+				textures[texture.resource_path]={"complete_loaded_mips":complete}
+				if not complete:failures.append(texture.resource_path+": incomplete loaded mips")
+	if int(counts.limewash_plaster)==0 or int(counts.arcade_terrazzo)==0:failures.append("Missing installed wall/floor finish family")
+	var lobby:=world.adapter.root.get_node("F01_LOBBY/Floor") as MeshInstance3D
+	var lobby_finish:=lobby.get_active_material(0) as ShaderMaterial
+	if lobby_finish==null or (lobby_finish.get_shader_parameter("albedo_tex") as Texture2D).resource_path.get_file()!="T_ai_materials_arcade_terrazzo_albedo.png":failures.append("Lobby fine aggregate not installed")
+	var result: Dictionary={"evidence_class":"INERT","scope":"Installed wall/floor maps, UV sampling and mip diagnostic; no gameplay, spatial or human acceptance", "surfaces":counts,"textures":textures,"failures":failures}
+	FileAccess.open(directory.path_join("wall_floor_diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+	print("WALL FLOOR DIAGNOSTIC: ",JSON.stringify(result))
+	return failures.is_empty()
 func review_painted_trim() -> bool:
 	# Optional diagnostic in the already-built production world: one render
 	# launch covers the finish family and its actual loaded texture resources.
@@ -90,6 +126,7 @@ func _run() -> void:
 	await get_tree().physics_frame;await get_tree().physics_frame
 	if world.startup_failed or world.player==null:push_error("4K world startup failed");get_tree().quit(1);return
 	if OS.get_environment("V2_FINISH_REVIEW")=="1" and not review_painted_trim():get_tree().quit(1);return
+	if OS.get_environment("V2_WALL_FLOOR_REVIEW")=="1" and not review_wall_floor():get_tree().quit(1);return
 	var build_ms: int=Time.get_ticks_msec()-start
 	print("4K WORLD READY ms=",build_ms)
 	world.player.set_physics_process(false);world.player.set_lamp_enabled(false);world.player.carried_device.set_capture_hidden(true)

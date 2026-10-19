@@ -26,6 +26,7 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # its authored roughness map by this value; selected finishes deliberately cap
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
+    "limewash_plaster": {},
     "arcade_terrazzo": {"normal_scale": 1.0},
     "arcade_terrazzo_dark": {"normal_scale": 1.0},
     "arcade_brick_face": {"normal_scale": 1.0},

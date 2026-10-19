@@ -686,6 +686,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "limewash_plaster": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.8,
+      "catalog_mapping": "procedural/limewash_plaster",
+      "files": [
+        "T_ai_materials_limewash_plaster_albedo.png",
+        "T_ai_materials_limewash_plaster_rough.png",
+        "T_ai_materials_limewash_plaster_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.8,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "linen": {
       "alpha": false,
       "canonical_meters_per_tile": 0.5,
