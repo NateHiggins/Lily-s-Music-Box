@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Native hollow-cloth world contact, swept obstruction checks and remaining physics | `design/V2_FIRE_HOSE_WORLD_CONTACT_REVIEW_2026-10-19.md` |
 | Native full-length hose skin, actual constrained hand motion and remaining physical integration | `design/V2_FIRE_HOSE_MOTION_REVIEW_2026-10-19.md` |
 | Reduced full-length hose mesh, authored metre charts and loaded voxel-light surface review | `design/V2_FIRE_CAPACITY_SURFACE_REVIEW_2026-10-19.md` |
 | Uninstalled full-length hose, taller rack bearings and remaining UV/deployment work | `design/V2_FIRE_HOSE_CAPACITY_STUDY_2026-10-19.md` |

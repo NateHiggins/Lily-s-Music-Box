@@ -9,6 +9,7 @@ var handle: MeshInstance3D
 var player: PlayerController
 var held:=false
 var failures: Array[String]=[]
+var contact: RefCounted
 func check(ok: bool,label: String) -> void:
 	print("FIRE RIG CHECK: ",label," = ",ok)
 	if not ok:failures.append(label)
@@ -30,7 +31,7 @@ func _grip() -> Dictionary:
 	return {"owner":self,"part":handle,"frame":self,"kind":"free",
 		"read":func():return endpoint.position,
 		"write":func(value: Vector3):
-			if held and rig.move_endpoint(value):_sync(),
+			if held and contact!=null and contact.ready and rig.move_endpoint(value,contact.veto):_sync(),
 		"begin":func():
 			if held:return false
 			held=true;return true,
@@ -64,6 +65,10 @@ func run(holder: PlayerController) -> bool:
 	await get_tree().process_frame
 	check(_pose_matches(),"all native bones follow the fully extended constraint result")
 	check(rig.restore(saved),"resting cloth restores after maximum-reach test")
+	var world_checks:=preload("res://tests/v2_fire_hose_world_contact_programme.gd").new()
+	var excluded: Array[RID]=[endpoint.get_rid(),player.get_rid()]
+	contact=await world_checks.run(self,rig,excluded)
+	for failure: String in world_checks.failures:check(false,failure)
 	player.position=Vector3(-.05,-1.43,.54);Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	var pick: Vector3=handle.to_global(Vector3(.022,.004,0))
 	player.camera.look_at(pick)

@@ -35,29 +35,34 @@ func configure(root: Node3D,data: Dictionary) -> bool:
 		original_frames.append(original)
 	configured=apply_points(rest)
 	return configured
-func apply_points(points: PackedVector3Array) -> bool:
-	if skeleton==null or rest.size()<3 or points.size()!=rest.size() or original_frames.size()!=rest.size():return false
+func model_frames(points: PackedVector3Array) -> Array[Transform3D]:
+	if skeleton==null or rest.size()<3 or points.size()!=rest.size() or original_frames.size()!=rest.size():return []
 	var frames: Array[Transform3D]=[]
-	var to_skeleton: Transform3D=skeleton.global_transform.affine_inverse()*model.global_transform
 	for i in points.size():
-		if not points[i].is_finite():return false
+		if not points[i].is_finite():return []
 		var tangent: Vector3=points[mini(i+1,points.size()-1)]-points[maxi(i-1,0)]
 		var before: Vector3=rest[mini(i+1,rest.size()-1)]-rest[maxi(i-1,0)]
-		if tangent.length_squared()<1e-14 or before.length_squared()<1e-14:return false
+		if tangent.length_squared()<1e-14 or before.length_squared()<1e-14:return []
 		tangent=tangent.normalized();before=before.normalized()
 		var side: Vector3=sides[i]-before*before.dot(sides[i])
-		if side.length_squared()<1e-14:return false
+		if side.length_squared()<1e-14:return []
 		side=side.normalized()
 		var turn: Quaternion=Quaternion(side,PI) if before.dot(tangent)<-.999999 else Quaternion(before,tangent)
 		# Transport the actual native bind orientation rather than assuming an
 		# importer bone-axis convention. Godot4 poses include their rest
 		# transform; they are not deltas multiplied on top of that rest.
 		var frame:=Transform3D(Basis(turn)*original_frames[i].basis,points[i])
-		frames.append(parent_inverse[i]*to_skeleton*frame)
+		frames.append(frame)
+	return frames
+func apply_points(points: PackedVector3Array) -> bool:
+	var frames: Array[Transform3D]=model_frames(points)
+	if frames.is_empty():return false
+	var to_skeleton: Transform3D=skeleton.global_transform.affine_inverse()*model.global_transform
 	for i in indices.size():
-		skeleton.set_bone_pose_position(indices[i],frames[i].origin)
-		skeleton.set_bone_pose_rotation(indices[i],frames[i].basis.get_rotation_quaternion())
-		skeleton.set_bone_pose_scale(indices[i],frames[i].basis.get_scale())
+		var pose: Transform3D=parent_inverse[i]*to_skeleton*frames[i]
+		skeleton.set_bone_pose_position(indices[i],pose.origin)
+		skeleton.set_bone_pose_rotation(indices[i],pose.basis.get_rotation_quaternion())
+		skeleton.set_bone_pose_scale(indices[i],pose.basis.get_scale())
 	var bounds:=AABB(points[0],Vector3.ZERO)
 	for p: Vector3 in points:bounds=bounds.expand(p)
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):draw.custom_aabb=bounds.grow(.04)
