@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 627.79,
+  "elapsed_s": 630.94,
   "exit_code": 0,
-  "finished_utc": "2026-10-19T00:11:24Z",
-  "started_utc": "2026-10-19T00:00:56Z",
+  "finished_utc": "2026-10-19T01:51:18Z",
+  "started_utc": "2026-10-19T01:40:46Z",
   "timed_out": false
  },
  "log": {
@@ -13,28 +13,27 @@
   "fail_lines": [],
   "pass_count": 1,
   "pass_lines": [
-   "V2 SURFACE QUALIFICATION: PASS; 37903 checks; 0 failures"
+   "V2 SURFACE QUALIFICATION: PASS; 37905 checks; 0 failures"
   ],
   "script_error_count": 0,
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-city-rework-20261018/surface3.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-service-circulation-20261018/final_surface1.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-city-rework-20261018/surface3.log",
-  "stdout_sha256": "df7a2e6c0f0a51b20684f5377cc39a494dd146e2f8af49a8b3b83cd550794ac2"
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-service-circulation-20261018/final_surface1.log",
+  "stdout_sha256": "c1eed955024c701099f76b25705e7723581096f6979c7798e797e34f55178758"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-city-rework-20261018\\surface3",
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-service-circulation-20261018\\final_surface1",
  "source": {
-  "dirty_paths": 1633,
+  "dirty_paths": 1624,
   "dirty_sample": [
-   "M .gitattributes",
-   " M art/renders/insitu/shots.md",
+   "M art/renders/insitu/shots.md",
    " M art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
    " M art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
@@ -52,11 +51,12 @@
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
    " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json",
-   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json"
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json"
   ],
-  "repository_head": "7df30cdadfcbdfd5dd6ee7976fe6f295c958dcc1",
-  "repository_tree": "61ef2e4987b375b5e09365943997807daecdbe3f",
-  "runtime_inputs_sha256": "907a113d640e050a715d545520d190fdfb9060bf4c8a297f1943fb0f274761eb",
+  "repository_head": "94bbb68128fbc0cdb8df6ebf13f84dc50cdbbac7",
+  "repository_tree": "2a3dcc2ac6eaa88ee59fa2b8f4dc2848afe83458",
+  "runtime_inputs_sha256": "19bab8cdb37bbd1bc6695d8b3314b8c26ef1001ff797b77dfe7aa8abe0838fda",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "6271bc19268e52e7d088415f891073949337cebdd37ac755831f51b0eed43fd3"
  },

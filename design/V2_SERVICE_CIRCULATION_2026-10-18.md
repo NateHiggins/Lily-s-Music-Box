@@ -11,6 +11,12 @@ passes, and all seven actual standing captures have been inspected. See
 **ORISON_V2_SERVICE_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md** and the canonical
 **art/renders/orison_v2/access_service_circulation_20261018/** packet. Broader
 surface/service/home/upper/landing renewal and human acceptance remain separate.
+The original composed surface renewal now passes 37,905 checks, zero failures:
+25,861 draws, 16,827 meshes, 6,126 material instances and 497 loaded textures,
+with zero unresolved UV/PBR/loaded-mipmap surfaces. All fourteen scoped current
+surface captures were inspected; seven standing service captures are in their
+separate original packet. Strong carried-light hotspots, repeated shade/timber
+stock, simple artwork and the distant ground/horizon edge remain appearance work.
 
 The earlier run6 records no failed movement, but the overall contract fails: four crossing
 rooms need an explicit observed waypoint, and an additional source guard changed
