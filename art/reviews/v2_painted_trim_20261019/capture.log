@@ -1,0 +1,42 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1486 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2635
+[ORISON V2 RUNTIME] ready startup_ms=100702.421
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+[HARUKIYA] CLOSED, 18 fixtures
+PAINTED TRIM DIAGNOSTIC: {"batches":252,"evidence_class":"INERT","failures":[],"scope":"Installed coating diagnostic, not gameplay or human acceptance","splices":86,"textures":{"res://assets/building/textures/T_ai_materials_door_paint_albedo.png":{"complete_loaded_mips":true},"res://assets/building/textures/T_ai_materials_door_paint_normal.png":{"complete_loaded_mips":true},"res://assets/building/textures/T_ai_materials_door_paint_rough.png":{"complete_loaded_mips":true}},"windows":98}
+4K WORLD READY ms=109934
+4K PROFILE: {"draw_calls":86095.0,"frames":24,"label":"1080p_windowed_same_entrance","median_frame_ms":89.344,"mode":0,"p95_frame_ms":114.416,"render_pixels":[1920,1080],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":5641643152.0,"window_pixels":[1920,1080]}
+4K PROFILE: {"draw_calls":88089.0,"frames":24,"label":"1440p_windowed_same_entrance","median_frame_ms":88.784,"mode":0,"p95_frame_ms":99.117,"render_pixels":[2560,1440],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":6125856752.0,"window_pixels":[1920,1080]}
+4K PROFILE: {"draw_calls":88768.0,"frames":24,"label":"4k_windowed_same_entrance","median_frame_ms":91.93,"mode":0,"p95_frame_ms":120.243,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":7467666416.0,"window_pixels":[1920,1080]}
+4K SHOT: {"camera_world":"[X: (1.0, 0.0, 0.0), Y: (-0.0, 0.97639, 0.216016), Z: (-0.0, -0.216016, 0.97639), O: (-0.000001, 1.65, 6.35)]","file":"01_orison_entrance_4k_windowed.png","fov":57.0,"image_pixels":[3840,2160],"label":"01_orison_entrance_4k_windowed","mode":0,"readback_png_ms":2250.248,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"window_pixels":[1920,1080]}
+4K PROFILE: {"draw_calls":86680.0,"frames":24,"label":"4k_borderless_fullscreen_same_entrance","median_frame_ms":87.172,"mode":3,"p95_frame_ms":91.781,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":7467666416.0,"window_pixels":[3440,1440]}
+4K PROFILE: {"draw_calls":84518.0,"frames":24,"label":"4k_fullscreen_lobby","median_frame_ms":76.233,"mode":3,"p95_frame_ms":82.132,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":8036961392.0,"window_pixels":[3440,1440]}
+4K SHOT: {"camera_world":"[X: (0.400142, 0.0, -0.916453), Y: (0.011828, 0.999917, 0.005165), Z: (0.916377, -0.012907, 0.400108), O: (4.3, 1.6, -3.4)]","file":"02_lobby_4k_fullscreen.png","fov":68.0,"image_pixels":[3840,2160],"label":"02_lobby_4k_fullscreen","mode":3,"readback_png_ms":1974.546,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"window_pixels":[3440,1440]}
+4K PROFILE: {"draw_calls":36224.0,"frames":24,"label":"4k_fullscreen_kitchen","median_frame_ms":34.563,"mode":3,"p95_frame_ms":42.461,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":8038403184.0,"window_pixels":[3440,1440]}
+4K SHOT: {"camera_world":"[X: (0.945946, 0.0, 0.324325), Y: (0.125314, 0.922338, -0.365499), Z: (-0.299137, 0.386385, 0.872482), O: (14.1, 4.7, -15.97)]","file":"03_kitchen_4k_fullscreen.png","fov":55.0,"image_pixels":[3840,2160],"label":"03_kitchen_4k_fullscreen","mode":3,"readback_png_ms":2308.678,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"window_pixels":[3440,1440]}
+4K PROFILE: {"draw_calls":22284.0,"frames":24,"label":"4k_fullscreen_roof","median_frame_ms":41.118,"mode":3,"p95_frame_ms":43.59,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":8038403184.0,"window_pixels":[3440,1440]}
+4K SHOT: {"camera_world":"[X: (-0.768221, 0.0, 0.640184), Y: (0.09722, 0.988402, 0.116664), Z: (-0.632759, 0.151862, -0.759311), O: (3.600001, 22.8, -11.95)]","file":"04_rooftop_city_4k_fullscreen.png","fov":58.0,"image_pixels":[3840,2160],"label":"04_rooftop_city_4k_fullscreen","mode":3,"readback_png_ms":1156.608,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"window_pixels":[3440,1440]}
+V2 4K WIP CAPTURE: PASS shots=4

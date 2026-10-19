@@ -200,6 +200,9 @@ static func _profile_sections(extent: Vector2,low: float,high: float,normal_low:
 
 static func _emit(room: Node3D, label: String, transforms: Array, sources: PackedStringArray, key: String) -> void:
 	if transforms.is_empty(): return
+	# Keep the historic trim role, but give its painted wood the registered
+	# opaque coating rather than the legacy exposed-grain library.
+	if key=="trim": key="door_paint"
 	if _meshes.is_empty():
 		var source := PROFILE.instantiate()
 		for pair: Array in [["HistoricMillwork","BeadedTrim"],["PublicWainscotFrames","WainscotFrame"],["PublicWainscotCap","WainscotCap"],["PublicWainscot","WainscotBacking"]]:
@@ -215,7 +218,7 @@ static func _emit(room: Node3D, label: String, transforms: Array, sources: Packe
 		finish.set_shader_parameter("normal_tex",stock.normal_texture)
 		finish.set_shader_parameter("stock_tint",stock.albedo_color)
 		finish.set_shader_parameter("roughness_gain",stock.roughness)
-		finish.set_shader_parameter("normal_gain",.12)
+		finish.set_shader_parameter("normal_gain",1.0 if key=="door_paint" else .12)
 		finish.set_shader_parameter("longitudinal_grain",label!="PublicWainscot")
 		finish.set_shader_parameter("meters_per_tile",float(preload("res://scripts/generated/material_sets.gd").SETS[key][3]))
 		_materials[recipe]=finish

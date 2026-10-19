@@ -6,6 +6,42 @@ var rows: Array=[]
 var shots: Array=[]
 var directory: String
 func _ready() -> void:_run.call_deferred()
+func review_painted_trim() -> bool:
+	# Optional diagnostic in the already-built production world: one render
+	# launch covers the finish family and its actual loaded texture resources.
+	var failures: Array[String]=[]
+	var batches:=0;var windows:=0;var splices:=0;var textures: Dictionary={}
+	for draw: GeometryInstance3D in world.find_children("*","GeometryInstance3D",true,false):
+		var finish: Material
+		if draw is MultiMeshInstance3D and draw.name=="HistoricMillwork":
+			batches+=1;finish=draw.material_override
+			if str(draw.get_meta("material_key",""))!="door_paint":failures.append(str(draw.get_path())+": coating identity")
+		elif draw is MeshInstance3D and draw.name=="FittedWindowJoinery":
+			windows+=1;finish=draw.get_active_material(0)
+		elif draw is MeshInstance3D and draw.has_meta("native_front_trim_fit"):
+			splices+=1;finish=draw.get_active_material(0)
+		else:continue
+		var maps: Array[Texture2D]=[]
+		if finish is ShaderMaterial:
+			maps=[finish.get_shader_parameter("albedo_tex"),finish.get_shader_parameter("rough_tex"),finish.get_shader_parameter("normal_tex")]
+			if draw is MultiMeshInstance3D and not is_equal_approx(float(finish.get_shader_parameter("meters_per_tile")),.3):failures.append(str(draw.get_path())+": physical coating tile")
+		elif finish is StandardMaterial3D:
+			maps=[finish.albedo_texture,finish.roughness_texture,finish.normal_texture]
+			if not finish.normal_enabled or finish.uv1_triplanar or not finish.uv1_scale.is_equal_approx(Vector3.ONE/.3):failures.append(str(draw.get_path())+": native coating UV/normal policy")
+		else:failures.append(str(draw.get_path())+": missing coating material")
+		for texture: Texture2D in maps:
+			if texture==null:failures.append(str(draw.get_path())+": missing PBR map");continue
+			if not texture.resource_path.get_file().begins_with("T_ai_materials_door_paint_"):failures.append(str(draw.get_path())+": exposed substrate map")
+			if textures.has(texture.resource_path):continue
+			var image:=texture.get_image()
+			var complete: bool=image!=null and image.has_mipmaps() and image.get_mipmap_count()==int(floor(log(maxi(image.get_width(),image.get_height()))/log(2.)))
+			textures[texture.resource_path]={"complete_loaded_mips":complete}
+			if not complete:failures.append(texture.resource_path+": incomplete loaded mip chain")
+	if batches==0 or windows==0 or splices==0:failures.append("Missing installed trim family")
+	var result: Dictionary={"evidence_class":"INERT","scope":"Installed coating diagnostic, not gameplay or human acceptance", "batches":batches,"windows":windows,"splices":splices,"textures":textures,"failures":failures}
+	FileAccess.open(directory.path_join("painted_trim_diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+	print("PAINTED TRIM DIAGNOSTIC: ",JSON.stringify(result))
+	return failures.is_empty()
 func size_text(value: Vector2i) -> Array:return [value.x,value.y]
 func window_info() -> Dictionary:
 	return {"mode":DisplayServer.window_get_mode(),"window_pixels":size_text(DisplayServer.window_get_size()),"screen_pixels":size_text(DisplayServer.screen_get_size()),"render_pixels":size_text(get_viewport().get_texture().get_size()),"scale_3d":get_viewport().scaling_3d_scale}
@@ -53,6 +89,7 @@ func _run() -> void:
 	world=preload("res://scenes/building/orison_v2_runtime.tscn").instantiate();add_child(world)
 	await get_tree().physics_frame;await get_tree().physics_frame
 	if world.startup_failed or world.player==null:push_error("4K world startup failed");get_tree().quit(1);return
+	if OS.get_environment("V2_FINISH_REVIEW")=="1" and not review_painted_trim():get_tree().quit(1);return
 	var build_ms: int=Time.get_ticks_msec()-start
 	print("4K WORLD READY ms=",build_ms)
 	world.player.set_physics_process(false);world.player.set_lamp_enabled(false);world.player.carried_device.set_capture_hidden(true)
