@@ -86,8 +86,11 @@ The preceding packet is preserved. Independent publication validation reports
 zero defects. Seven standing Texture RID shutdown warnings remain.
 
 The retained clean checkout independently matches both current production and
-surface input hashes. Service/home/upper/landing original renewals are still
-running in one serial batch; clean full-board comparison and push remain pending.
+surface input hashes. Service3 passes 360 checks, including actual physical repair and disk reconstruction.
+Home3 passes 909 checks across 62 rooms and nine legs with zero failures. Both
+original receipts and matching logs are published and independently validated
+without errors. Upper3 and landing3 continue in the same serial batch; clean
+full-board comparison and push remain pending.
 Finite distant ground/horizon continuity, atmospheric flattening, repetitive
 stock, strong carried-light hotspots and simple artwork remain broader appearance
 work. This is not a whole-environment photoreal or human acceptance grant.
