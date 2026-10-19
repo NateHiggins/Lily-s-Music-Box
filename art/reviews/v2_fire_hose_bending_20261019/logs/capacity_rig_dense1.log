@@ -1,0 +1,14 @@
+00:01.422  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\capacity_stock_dense1\art\blender\fire_capacity_candidate.blend"
+Info: Saved as "fire_capacity_candidate.blend"
+Info: Saved as "fire_capacity_candidate.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+15:53:13 | INFO: Starting glTF 2.0 export
+15:53:13 | INFO: Extracting primitive: Editable 15.24m hose
+15:53:15 | INFO: Primitives created: 1
+15:53:16 | INFO: Finished glTF 2.0 export in 2.92303466796875 s
+
+FIRE CAPACITY RIG CANDIDATE {"evidence_class": "INERT", "scope": "Skinned native candidate, not physical deployment or runtime acceptance.", "bones": 2049, "export": {"asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\capacity_rig_dense1\\game\\assets\\props\\fire_capacity_candidate.glb", "primitives": 1, "triangles": 262272, "minimum_tangent_agreement": 0.9999999521844937, "status": "PASS"}, "source_bindings": {"art/blender/scripts/build_fire_capacity_rig.py": "e8d64da1184feb09ccad47ea1af495d878c519a6fb0f7ccaa60c3eb06b63a0e3", "tmp/v2-fire-hand-20261019/capacity_stock_dense1/art/blender/fire_capacity_candidate.blend": "9b69ed8bd66bd7f89c7c0f4c519950c9632585ab20dbd73b0ddcde64151e1e5a", "tmp/v2-fire-hand-20261019/capacity_stock_dense1/candidate_construction.json": "8aeb84d78c795d3fa7b2fc7af1cda594f05163f67f58ae9b7c1840fcf18f6688", "tmp/v2-fire-hand-20261019/capacity_stock_dense1/capacity_plan.json": "a4194b2c997197fe547b950707a84df33efcb053d8abafadb4c92c590bfe86c7", "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea"}, "outputs": {"art/blender/fire_capacity_candidate.blend": "9699a8132c1c81e288d031e3084f6aaf154be08df2376e239c8b766c7df10896", "game/assets/props/fire_capacity_candidate.glb": "ead9468d5c8e3f0fac756e9e62836b36b34a6381d24ece93111ee1c8f00befc4", "rig_projection.json": "b04e07efd62479c8d77bb71e71d1eba24d13e36546415e02b4310cd5859868bd"}}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

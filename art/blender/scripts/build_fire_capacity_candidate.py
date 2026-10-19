@@ -66,10 +66,27 @@ for _ in range(64):
 depth=(lo+hi)*.5
 points,radii,sides=build(depth);actual=length(points)
 assert abs(actual-15.24)<1e-9,(depth,actual)
+max_span=float(os.environ.get('ORISON_FIRE_CAPACITY_MAX_SPAN','.005'))
+assert math.isfinite(max_span) and .001<=max_span<=.02
+# Preserve every authored curved sample and both ports. Subdivide only long
+# intervals, carrying the original radial stock and side direction with them.
+old_points,old_radii,old_sides=points,radii,sides
+points=[old_points[0]];radii=[old_radii[0]];sides=[old_sides[0]]
+for i in range(len(old_points)-1):
+    steps=max(1,math.ceil(norm(sub(old_points[i+1],old_points[i]))/max_span))
+    for step in range(1,steps+1):
+        t=step/steps
+        points.append(add(mul(old_points[i],1-t),mul(old_points[i+1],t)))
+        radii.append(tuple(a*(1-t)+c*t for a,c in zip(old_radii[i],old_radii[i+1])))
+        sides.append(unit(add(mul(old_sides[i],1-t),mul(old_sides[i+1],t))))
+assert norm(sub(points[0],old_points[0]))<1e-12 and norm(sub(points[-1],old_points[-1]))<1e-12
+assert abs(length(points)-actual)<1e-9
+assert max(norm(sub(c,a)) for a,c in zip(points,points[1:]))<=max_span+1e-12
 report={'evidence_class':'INERT','scope':'Uninstalled single-bank capacity clay study; no UV/PBR, support, deployment or contact acceptance.',
 'centreline_polyline_m':actual,'long_leg_length_m':depth,'long_leg_bottom_y_m':.680-depth,
 'legs':26,'crowns':13,'crown_centre_y_m':.680,'single_bank_depth_m':.100,
 'points':points,'radii':radii,'sides':sides,
+'maximum_segment_m':max_span,'original_ring_count':len(old_points),'ring_count':len(points),
 'source_bindings':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [Path(__file__).resolve(),ROOT/'game/data/orison_v2/fire_fold_stock.json']}}
 (OUT/'capacity_plan.json').write_text(json.dumps(report,indent=2)+'\n')
 print('CAPACITY STUDY',json.dumps({k:v for k,v in report.items() if k not in ['points','radii','sides','source_bindings']}))
@@ -215,7 +232,30 @@ for face in mesh.polygons:
     sv=np.linalg.svd(np.array([du,dv]),compute_uv=False);stretches.extend(sv.tolist())
     worst.append((float(max(sv.max(),1/sv.min())),face.index,xyz.mean(axis=0).tolist(),sv.tolist()))
     for loop in ls:guide.data[loop].vector=(du[0],du[2],-du[1])
-mesh.normals_split_custom_set(stock_corner_normals(mesh))
+# Equivalent submicrometre chart values and submillidegree directions should
+# share a vertex. These authored precisions are independently checked again
+# in the exported GLB and loaded Godot mesh; no import tolerance is relaxed.
+charts=np.empty(len(mesh.loops)*2,dtype=np.float32);uv.data.foreach_get('uv',charts)
+charts=np.round(charts.astype(np.float64).reshape((-1,2)),7)
+uv.data.foreach_set('uv',charts.astype(np.float32).ravel())
+guides=np.empty(len(mesh.loops)*3,dtype=np.float32);guide.data.foreach_get('vector',guides)
+guides=guides.astype(np.float64).reshape((-1,3));guides/=np.linalg.norm(guides,axis=1)[:,None]
+guides=np.round(guides,5);guides/=np.linalg.norm(guides,axis=1)[:,None]
+guide.data.foreach_set('vector',guides.astype(np.float32).ravel())
+normals=np.round(np.asarray(stock_corner_normals(mesh),dtype=np.float64),5)
+normals/=np.linalg.norm(normals,axis=1)[:,None]
+mesh.normals_split_custom_set(normals.tolist())
+# Measure the stored, rounded UVs rather than reporting the earlier charts.
+ids=np.array([loop.vertex_index for loop in mesh.loops]).reshape((-1,3))
+xyz=np.array([v.co[:] for v in mesh.vertices])[ids]
+stored=np.empty(len(mesh.loops)*2,dtype=np.float32);uv.data.foreach_get('uv',stored)
+tex=stored.astype(np.float64).reshape((-1,3,2));u=tex[:,1]-tex[:,0];v=tex[:,2]-tex[:,0]
+det=u[:,0]*v[:,1]-u[:,1]*v[:,0];assert np.all(det>1e-12)
+e1=xyz[:,1]-xyz[:,0];e2=xyz[:,2]-xyz[:,0]
+du=(e1*v[:,1,None]-e2*u[:,1,None])/det[:,None]
+dv=(e2*u[:,0,None]-e1*v[:,0,None])/det[:,None]
+ratios=det/np.linalg.norm(np.cross(e1,e2),axis=1)
+stretches=np.linalg.svd(np.stack((du,dv),axis=1),compute_uv=False).ravel()
 for name in ['art/blender','game/assets/props']:(OUT/name).mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'art/blender/fire_capacity_candidate.blend'))
 catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']

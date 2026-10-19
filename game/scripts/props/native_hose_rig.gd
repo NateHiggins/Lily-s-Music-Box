@@ -8,6 +8,8 @@ var sides:=PackedVector3Array()
 var parent_inverse: Array[Transform3D]=[]
 var original_frames: Array[Transform3D]=[]
 var configured:=false
+var _frame_points: Array[PackedVector3Array]=[]
+var _frame_values: Array=[]
 var strand:=preload("res://scripts/props/hose_length_constraint.gd").new()
 func configure(root: Node3D,data: Dictionary) -> bool:
 	if model!=null:return false
@@ -37,6 +39,8 @@ func configure(root: Node3D,data: Dictionary) -> bool:
 	return configured
 func model_frames(points: PackedVector3Array) -> Array[Transform3D]:
 	if skeleton==null or rest.size()<3 or points.size()!=rest.size() or original_frames.size()!=rest.size():return []
+	for i in _frame_points.size():
+		if points==_frame_points[i]:return _frame_values[i].duplicate()
 	var frames: Array[Transform3D]=[]
 	for i in points.size():
 		if not points[i].is_finite():return []
@@ -53,6 +57,10 @@ func model_frames(points: PackedVector3Array) -> Array[Transform3D]:
 		# transform; they are not deltas multiplied on top of that rest.
 		var frame:=Transform3D(Basis(turn)*original_frames[i].basis,points[i])
 		frames.append(frame)
+	# Cache geometry only. Copy the coordinates so in-place solver edits cannot
+	# silently retain an old frame, and never cache world collision answers.
+	_frame_points.push_front(points.duplicate());_frame_values.push_front(frames.duplicate())
+	if _frame_points.size()>2:_frame_points.pop_back();_frame_values.pop_back()
 	return frames
 func apply_points(points: PackedVector3Array) -> bool:
 	var frames: Array[Transform3D]=model_frames(points)

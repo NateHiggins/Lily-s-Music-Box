@@ -1,0 +1,23 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Local closed bend coupons, not deployed/contact-qualified full hose poses.",
+  "coupons": [
+    {
+      "kind": "tight",
+      "bend_intervals": 5,
+      "actual_radius_m": 0.015889117065163168,
+      "closed_volume_m3": 1.5993342527966444e-05,
+      "source_interval_m": 0.009820014397496815,
+      "maximum_full_length_change_m": 3.808938942029272e-08
+    },
+    {
+      "kind": "loose",
+      "bend_intervals": 21,
+      "actual_radius_m": 0.06570321222828467,
+      "closed_volume_m3": 4.840230908671765e-05,
+      "source_interval_m": 0.009820014397496815,
+      "maximum_full_length_change_m": 1.7819013997666389e-07
+    }
+  ],
+  "source_glb_sha256": "ead9468d5c8e3f0fac756e9e62836b36b34a6381d24ece93111ee1c8f00befc4"
+}

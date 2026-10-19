@@ -10,8 +10,10 @@ func run(root: Node3D,rig: RefCounted,exclusions: Array[RID]) -> RefCounted:
 	check(contact.configure(rig,root.get_world_3d().direct_space_state,exclusions),"full inner/outer native ring profile binds from imported skin")
 	print("HOSE WORLD SETUP: ms=",float(Time.get_ticks_usec()-started)/1000.," error=",contact.error)
 	if not failures.is_empty():return contact
-	check(contact.sections.size()==644,"all644native sections retain32outer and32inner points")
+	check(contact.sections.size()==rig.indices.size() and contact.sections.size()>3000,"all dense native sections retain32outer and32inner points")
 	var rest: PackedVector3Array=rig.strand.points.duplicate()
+	var invalid:=rest.duplicate();invalid[0]=Vector3(INF,0,0)
+	check(contact.veto(rest,invalid),"invalid contact coordinates are rejected before broad-phase queries")
 	check(not contact.intersects_pose(rest),"unobstructed native cloth is clear")
 	var body:=StaticBody3D.new();body.name="ClothContactProbe";root.add_child(body)
 	var collider:=CollisionShape3D.new();var sphere:=SphereShape3D.new();sphere.radius=.004;collider.shape=sphere;body.add_child(collider)
@@ -27,7 +29,11 @@ func run(root: Node3D,rig: RefCounted,exclusions: Array[RID]) -> RefCounted:
 	for i in range(contact.sections.size()-1):
 		var r:=Vector2.ZERO
 		for p: Vector3 in contact.sections[i].outer:r=r.max(Vector2(absf(p.x),absf(p.z)))
-		if r.x<.005 and r.y>.030 and rest[i].distance_to(rest[i+1])>.02:flat_index=i;break
+		if r.x>=.005 or r.y<=.030 or i+8>=rest.size():continue
+		var axis: Vector3=(rest[i+1]-rest[i]).normalized();var straight:=true
+		for step in range(1,8):
+			if axis.dot((rest[i+step+1]-rest[i+step]).normalized())<.999999:straight=false;break
+		if straight:flat_index=i;break
 	check(flat_index>=0,"actual flattened native strand selected")
 	if flat_index>=0:
 		var flat_frame: Transform3D=rig.model.global_transform*rig.original_frames[flat_index]
@@ -46,6 +52,9 @@ func run(root: Node3D,rig: RefCounted,exclusions: Array[RID]) -> RefCounted:
 	started=Time.get_ticks_usec()
 	check(contact.veto(rest,shifted) and contact.last_collider==body,"swept native shell blocks tunnelling between otherwise clear poses")
 	print("HOSE WORLD SWEEP: ms=",float(Time.get_ticks_usec()-started)/1000.," broad=",contact.broad_queries," cells=",contact.shell_queries)
+	contact.chunked=false
+	check(contact.veto(rest,shifted) and contact.last_collider==body,"per-segment reference query agrees with chunked swept contact")
+	contact.chunked=true
 	var saved: Transform3D=rig.model.global_transform
 	rig.model.global_transform=Transform3D(Basis(Vector3.UP,PI),Vector3(-4.35,-3.2,-7.87))
 	frame=rig.model.global_transform*rig.original_frames[0]

@@ -1,0 +1,228 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native bending-resolution comparison and isolated imported-skin diagnostic. Candidate only, no installed-world or completed physics acceptance. Sources copied after the run; original receipts unchanged.",
+  "selected": "dense2: 3472 rings, 444416 triangles, <=5mm intervals",
+  "rejected": "dense1: 2049 rings; tight fold visibly faceted",
+  "files": {
+    "logs/capacity_rig_dense1.log": {
+      "bytes": 2317,
+      "sha256": "26e556e19f181b8dbd3da199d1a3b1b9842fdfe53e5027a24eea7c25ac9854b3"
+    },
+    "logs/capacity_rig_dense1_folds.log": {
+      "bytes": 1046,
+      "sha256": "1f29dede22cfe20e5cdd00439fc84e533e0640686d2afaea792f58e963c31961"
+    },
+    "logs/capacity_rig_dense2.log": {
+      "bytes": 2318,
+      "sha256": "1c19b52037836930f8d5cf339ecc734bce5e80936aa955f5d61408abac27a32f"
+    },
+    "logs/capacity_rig_dense2_folds.log": {
+      "bytes": 1048,
+      "sha256": "fd1c5bb9e46c2ba407c2ff8218f2db13e0c46f35e7d4393f568aaa5fa26793c7"
+    },
+    "logs/capacity_stock_dense1.log": {
+      "bytes": 4561,
+      "sha256": "57fa1bc90d17cecb64cd85b00c02959d206bdc95197d314058a1536061b2bab8"
+    },
+    "logs/capacity_stock_dense1_review.log": {
+      "bytes": 5442,
+      "sha256": "2a0c464a2fad12aadad6d8af6f6520f7dc8329e034c6efafa671b1d3652fc10a"
+    },
+    "logs/capacity_stock_dense2.log": {
+      "bytes": 4564,
+      "sha256": "839b2fc1135472c1376f881b7efecf0194328154e6db8cc1bddafc12f479a10d"
+    },
+    "logs/capacity_stock_dense2_review.log": {
+      "bytes": 5442,
+      "sha256": "fad462aec0b3e824b2e897fe808d4910055b72fb0b8c723a97655cd97ee81736"
+    },
+    "runs/stage25_dense1.log": {
+      "bytes": 5990,
+      "sha256": "f60005d8567e551d6dce9260e8075f4f5c761941c396e89e01403f73a86193a8"
+    },
+    "runs/stage25_dense1.log.receipt.json": {
+      "bytes": 3827,
+      "sha256": "02507b4e23136c386407411b3e0fb5d199df582f7243de046c542e5ed338ecde"
+    },
+    "runs/stage25_dense1.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/stage25_dense_import1.log": {
+      "bytes": 3149,
+      "sha256": "48da92ddf3b21adb70282e799702d4ba24ecdcbd066d2ed66ba48c6dc8df5b5e"
+    },
+    "runs/stage25_dense_import1.log.receipt.json": {
+      "bytes": 3587,
+      "sha256": "93a10d9cb6b85201db9f4d240d2f9ee4c4bb01746f60a1f1778fc3b151c73a3f"
+    },
+    "runs/stage25_dense_import1.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime/capacity_voxel_crowns.png": {
+      "bytes": 501612,
+      "sha256": "364372e1613a12b4e49a8890f54bd145e952f8620ac1a0c09376c405d6b864ca"
+    },
+    "runtime/capacity_voxel_full.png": {
+      "bytes": 163198,
+      "sha256": "17fd5a1e91db1e22f361379bc1ee66c5ce5900b226eae302e1c5fe2e68b8f870"
+    },
+    "runtime/capacity_voxel_moved.png": {
+      "bytes": 163994,
+      "sha256": "d37c3d65f6b4829badbe8bd22ba446009d5f18f7bb20df23d66ab6100c95941b"
+    },
+    "runtime/high_ring_hidden.png": {
+      "bytes": 30200,
+      "sha256": "75b5126a4dea1d1099b53bac5709a4d698faa4c5462c9494161fe1fa62484ad4"
+    },
+    "runtime/high_ring_visible.png": {
+      "bytes": 115556,
+      "sha256": "ea86e81da9daf233dc7e9fba2e7af6001f51e70bf6a2789b7ca04bb12aa863a6"
+    },
+    "dense1/bend_coupons/loose_new_fold.png": {
+      "bytes": 1020152,
+      "sha256": "39f2731c88882d4a3cc5fb4f8cfb72b4654095c298df0e96c4dc491a2654f3ee"
+    },
+    "dense1/bend_coupons/native_bend_coupons.blend": {
+      "bytes": 11800655,
+      "sha256": "3da0f7e4483a66ef293ff9143fb52e8c6543bb47073709396e2fb6fe032272f2"
+    },
+    "dense1/bend_coupons/review.json": {
+      "bytes": 792,
+      "sha256": "b127ac3cc707ad1d8fcd6e7b4c3119dbabbb108f556efd3d07c8c482cee03dc9"
+    },
+    "dense1/bend_coupons/tight_new_fold.png": {
+      "bytes": 1103132,
+      "sha256": "aa1a405cb295a92173ba4d4518fb739d25b600cd970fc52e932979ab0732d533"
+    },
+    "dense1/native/candidate_construction.json": {
+      "bytes": 7041,
+      "sha256": "49830014d85b786523a803bf61938c314b5ab6875dc5671e5df73a43741d19cd"
+    },
+    "dense1/native/capacity_plan.json": {
+      "bytes": 360692,
+      "sha256": "f51d86d9798527dbd9cb2f36ff7a550712f47c0f5e952dfc9ec54b78ef501136"
+    },
+    "dense1/native/current_static_contacts.json": {
+      "bytes": 3338,
+      "sha256": "881e580fce83f7b568a980363110a556d3542b31ffd084b318b1310a6d2195d8"
+    },
+    "dense1/native/rack_bearing_study.json": {
+      "bytes": 1411,
+      "sha256": "d1774a3a94d0e35e6b65cb7b66ae36c74e7a016bceabcb89b58a23121653a1aa"
+    },
+    "dense1/native/unwrap_export.json": {
+      "bytes": 3676,
+      "sha256": "946d9a1b9de3428d70b2d397db6774d9d608bacc8450db1f4e53126a8ac2e8dd"
+    },
+    "dense1/rig/construction.json": {
+      "bytes": 1522,
+      "sha256": "5b761a67147844969849b9467464026dd3cda2343f0cc06f9f2709e5a07baf2a"
+    },
+    "dense1/rig/rig_projection.json": {
+      "bytes": 346291,
+      "sha256": "fa09ab939f5daf56963fa11d1af9d38cc4e3f609f53704d9bba1ebeb4dfacbef"
+    },
+    "dense1/source/capacity_dense1_fold_recipe.py": {
+      "bytes": 5287,
+      "sha256": "fbc32284514810d33740644f26e3e086b029d9a4ead0a4f7ab2fa1380e62287e"
+    },
+    "dense1/source/capacity_dense1_recipe.py": {
+      "bytes": 17462,
+      "sha256": "8d370eb524c96fd12507e387f5d4c03aa57b5f1e22403f6ca2188c95d251c326"
+    },
+    "dense2/bend_coupons/loose_new_fold.png": {
+      "bytes": 1004596,
+      "sha256": "e80e68f33fe0b063404e019ceb50d5ba41a577c49bc25afb9d7e9d1b040c1b3b"
+    },
+    "dense2/bend_coupons/native_bend_coupons.blend": {
+      "bytes": 16917426,
+      "sha256": "152699a0c158d26a9c627cbed9b0e762abaf6455d48be3f0895ab390df57b6f9"
+    },
+    "dense2/bend_coupons/review.json": {
+      "bytes": 794,
+      "sha256": "3285843de3534c3adcc5c675d16992956bea7434789769d960f0ef733d8cea3c"
+    },
+    "dense2/bend_coupons/tight_new_fold.png": {
+      "bytes": 1046042,
+      "sha256": "5eec408230a07d1457ecf9897d867f3d709db96f6d7a67c715220b649a7f2af8"
+    },
+    "dense2/native/candidate_construction.json": {
+      "bytes": 7044,
+      "sha256": "e1f9003bb8b95cdd947f7caf8e9350a41f790af1737427d93dc05f9fd58c3ef7"
+    },
+    "dense2/native/capacity_plan.json": {
+      "bytes": 606625,
+      "sha256": "c80b419b1ac616b973140e8f993c29da413ddab358760fce99d5b99558cb8fa9"
+    },
+    "dense2/native/current_static_contacts.json": {
+      "bytes": 3338,
+      "sha256": "68f366bc40fce06a4860c376c261033f3de9b1e0ea372325889f473707496791"
+    },
+    "dense2/native/fire_capacity_candidate.blend": {
+      "bytes": 16076723,
+      "sha256": "7da23c6879c11fcb8e0851d0b5c29f584c024e67b32b9cc5fd96599f47e093fe"
+    },
+    "dense2/native/rack_bearing_study.json": {
+      "bytes": 1411,
+      "sha256": "6845845c010e92670be4c5640254ff16ff009bc304c827badc4528daa8f42f6b"
+    },
+    "dense2/native/unwrap_export.json": {
+      "bytes": 3678,
+      "sha256": "460b78a9184ee731392e11a38709424572a650e04914bc182efbdaa0ac9f55d5"
+    },
+    "dense2/rig/construction.json": {
+      "bytes": 1522,
+      "sha256": "b8499c7131b330495001c3c2b6b3996c35b4d56d994660155846deec70b925b8"
+    },
+    "dense2/rig/fire_capacity_candidate.blend": {
+      "bytes": 16699474,
+      "sha256": "d0c267c2a460fe45613f46c50c03bc3fa045bd5ca29c22fb58cb5788e5fa8fee"
+    },
+    "dense2/rig/rig_projection.json": {
+      "bytes": 586316,
+      "sha256": "138732a84daaa2aceb08a3e5cd99830cdf0f5993ad81d207debea00e13f59aca"
+    },
+    "post_run_sources/art/blender/scripts/build_fire_capacity_candidate.py": {
+      "bytes": 19054,
+      "sha256": "b72875644298bd7f20dfe5e3770607e811fbe85f81afb46288bac6fbbda14c68"
+    },
+    "post_run_sources/art/blender/scripts/build_fire_capacity_rig.py": {
+      "bytes": 3930,
+      "sha256": "e8d64da1184feb09ccad47ea1af495d878c519a6fb0f7ccaa60c3eb06b63a0e3"
+    },
+    "post_run_sources/art/blender/scripts/review_fire_capacity_candidate.py": {
+      "bytes": 10097,
+      "sha256": "2502d2df68751abf35ac9a6f85266fea7876a276ea4f155d514b01f8890a1974"
+    },
+    "post_run_sources/art/blender/scripts/review_fire_hose_new_fold.py": {
+      "bytes": 5139,
+      "sha256": "c0178a1e0dc977e2baddaebc08ffb8e220b80b2865189d41ee7145bfa6e91d14"
+    },
+    "post_run_sources/game/tests/v2_fire_capacity_native_test.gd": {
+      "bytes": 4822,
+      "sha256": "714731eb4ac00094dc48ab47648482a632797b5cfefcab9f8270ee7c3c9d1cfe"
+    },
+    "post_run_sources/game/tests/v2_fire_capacity_rig_programme.gd": {
+      "bytes": 8900,
+      "sha256": "6a7bf9f4f3d74d6e0311300dea0432df9c57f6c8b1d8cd6ba17af2fe77b11b8a"
+    },
+    "post_run_sources/game/tests/v2_fire_hose_world_contact_programme.gd": {
+      "bytes": 6743,
+      "sha256": "8d595fb1643714c8948f4551c43dcf99522d75061591a138ecde13dc68617183"
+    },
+    "post_run_sources/game/scripts/props/hose_length_constraint.gd": {
+      "bytes": 3807,
+      "sha256": "a1c2416ad8e6a85f3ffc8acacef84d231898d396e59c3224a85399f608682cbb"
+    },
+    "post_run_sources/game/scripts/props/native_hose_rig.gd": {
+      "bytes": 5298,
+      "sha256": "e8f2b17fc46df2a84d50edb1dc6e7c043b4228a35249807fe9af894a1d3d9219"
+    },
+    "post_run_sources/game/scripts/props/native_hose_world_contact.gd": {
+      "bytes": 8021,
+      "sha256": "74408552c129b11125376d363fa3cade6512fac33d38abb5a41891eccd59eb01"
+    }
+  }
+}

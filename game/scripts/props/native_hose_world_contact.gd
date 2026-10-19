@@ -10,6 +10,7 @@ var ready:=false
 var error:=""
 var broad_queries:=0
 var shell_queries:=0
+var chunked:=true
 var last_collider: Object
 var _radius:=0.0
 var _box:=BoxShape3D.new()
@@ -75,8 +76,10 @@ func configure(owner_rig: RefCounted,world: PhysicsDirectSpaceState3D,exclude: A
 			var index: int=posmod(roundi(atan2(p.z/inner_radii.y,p.x/inner_radii.x)*32./TAU),32)
 			if seen.has(index):return _fail("duplicate native inner angle")
 			seen[index]=true;sorted_inner[index]=p
-		sections.append({"outer":sorted_outer,"inner":sorted_inner})
-		_radius=maxf(_radius,maxf(radii.x,radii.y))
+		var bounds:=AABB(points[0],Vector3.ZERO)
+		for p: Vector3 in points:
+			bounds=bounds.expand(p);_radius=maxf(_radius,(rig.original_frames[ring].basis*p).length())
+		sections.append({"outer":sorted_outer,"inner":sorted_inner,"bounds":bounds})
 	ready=sections.size()==rig.indices.size()
 	return ready
 func _hits_box(bounds: AABB) -> bool:
@@ -88,26 +91,46 @@ func intersects_pose(points: PackedVector3Array) -> bool:return _test(points,poi
 func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: bool) -> bool:
 	broad_queries=0;shell_queries=0;last_collider=null
 	if not ready or before.size()!=sections.size() or after.size()!=sections.size():return true
-	var old: Array[Transform3D]=rig.model_frames(before);var next: Array[Transform3D]=rig.model_frames(after)
-	if old.is_empty() or next.is_empty():return true
 	var world: Transform3D=rig.model.global_transform
 	var whole:=AABB(before[0],Vector3.ZERO)
-	for i in before.size():whole=whole.expand(before[i]).expand(after[i])
+	for i in before.size():
+		if not before[i].is_finite() or not after[i].is_finite():return true
+		var a: Vector3=before[mini(i+1,before.size()-1)]-before[maxi(i-1,0)]
+		var b: Vector3=after[mini(i+1,after.size()-1)]-after[maxi(i-1,0)]
+		if not is_finite(a.length_squared()) or not is_finite(b.length_squared()) or a.length_squared()<1e-14 or b.length_squared()<1e-14:return true
+		whole=whole.expand(before[i]).expand(after[i])
 	broad_queries+=1
 	if not _hits_box(world*whole.grow(_radius+.000002)):return false
+	var old: Array[Transform3D]=rig.model_frames(before);var next: Array[Transform3D]=rig.model_frames(after)
+	if old.is_empty() or next.is_empty():return true
+	# Chunk bounds avoid thousands of native shape queries on long, clear
+	# spans. Every occupied chunk still gets the original per-cell narrow test.
+	var bounds_by_segment: Array[AABB]=[];bounds_by_segment.resize(sections.size()-1)
+	var occupied:=PackedByteArray();occupied.resize(sections.size()-1);occupied.fill(0)
+	for start in range(0,sections.size()-1,32):
+		var chunk:=AABB(world*old[start].origin,Vector3.ZERO)
+		for i in range(start,mini(start+32,sections.size()-1)):
+			var bounds: AABB=(world*old[i])*sections[i].bounds
+			bounds=bounds.merge((world*old[i+1])*sections[i+1].bounds)
+			bounds=bounds.merge((world*next[i])*sections[i].bounds).merge((world*next[i+1])*sections[i+1].bounds)
+			bounds_by_segment[i]=bounds;chunk=chunk.merge(bounds)
+		if chunked:broad_queries+=1
+		if not chunked or _hits_box(chunk.grow(.000002)):
+			for i in range(start,mini(start+32,sections.size()-1)):occupied[i]=1
 	for i in range(sections.size()-1):
+		if occupied[i]==0:continue
 		if not include_still and old[i]==next[i] and old[i+1]==next[i+1]:continue
+		var bounds: AABB=bounds_by_segment[i]
+		broad_queries+=1
+		if not _hits_box(bounds.grow(.000002)):continue
 		var posed: Array[PackedVector3Array]=[]
-		var bounds:=AABB(world*old[i].origin,Vector3.ZERO)
 		for frame: Transform3D in [world*old[i],world*old[i+1],world*next[i],world*next[i+1]]:
 			var index: int=i if posed.size()%2==0 else i+1
 			var points:=PackedVector3Array()
 			for layer: String in ["outer","inner"]:
 				for p: Vector3 in sections[index][layer]:
-					var point: Vector3=frame*p;points.append(point);bounds=bounds.expand(point)
+					points.append(frame*p)
 			posed.append(points)
-		broad_queries+=1
-		if not _hits_box(bounds.grow(.000002)):continue
 		var origin: Vector3=bounds.get_center()
 		for sector in 32:
 			var hull:=PackedVector3Array()

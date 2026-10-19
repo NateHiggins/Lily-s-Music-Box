@@ -1,0 +1,232 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled full-length cloth candidate only. No runtime, deployment, support-strength, loaded-mipmap or human acceptance.",
+  "construction": {
+    "evidence_class": "INERT",
+    "scope": "Uninstalled single-bank capacity clay study; no UV/PBR, support, deployment or contact acceptance.",
+    "centreline_polyline_m": 15.239999999999998,
+    "long_leg_length_m": 0.5402139766511416,
+    "long_leg_bottom_y_m": 0.13978602334885848,
+    "legs": 26,
+    "crowns": 13,
+    "crown_centre_y_m": 0.68,
+    "single_bank_depth_m": 0.1,
+    "maximum_segment_m": 0.005,
+    "original_ring_count": 644,
+    "ring_count": 3472,
+    "source_bindings": {
+      "art/blender/scripts/build_fire_capacity_candidate.py": "09ff4b2757c2e153e2d9af111ec560e7d576f80fbe49852e9b2487409373d41b",
+      "game/data/orison_v2/fire_fold_stock.json": "59de7980eec37b7f5462d9542d08cafd8332fddd98d1fd317d71f41f7be39876"
+    },
+    "mesh": {
+      "vertices": 222208,
+      "quads": 222208,
+      "closed": true,
+      "volume_m3": 0.0031252763279852073,
+      "minimum_y_m": 0.03859555348753929,
+      "maximum_depth_m": 0.13457909226417542,
+      "maximum_x_m": 0.19099999964237213,
+      "minimum_x_m": -0.28599387407302856
+    }
+  },
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\capacity_stock_dense2\\game\\assets\\props\\fire_capacity_candidate.glb",
+    "primitives": 1,
+    "triangles": 444416,
+    "minimum_tangent_agreement": 0.9999999257359071,
+    "status": "PASS",
+    "evidence_class": "INERT",
+    "scope": "Uninstalled segmented conformal native cloth candidate with physical metre charts. No loaded mip, mechanism, pose or appearance acceptance.",
+    "worst_triangles": [
+      [
+        1.0000260900848854,
+        337144,
+        [
+          -0.27278180917104083,
+          -0.07019034773111343,
+          0.17374668518702188
+        ],
+        [
+          1.0000260900848854,
+          0.9999996924340436
+        ]
+      ],
+      [
+        1.000023668554963,
+        336999,
+        [
+          -0.2716718912124634,
+          -0.1282384991645813,
+          0.1651264876127243
+        ],
+        [
+          1.000003502142591,
+          0.9999763320052243
+        ]
+      ],
+      [
+        1.0000236185861702,
+        337160,
+        [
+          -0.27293546001116437,
+          -0.1284701575835546,
+          0.1707704762617747
+        ],
+        [
+          0.9999987153494683,
+          0.9999763819716543
+        ]
+      ],
+      [
+        1.0000223672304618,
+        226514,
+        [
+          -0.27743886907895404,
+          -0.08430781960487366,
+          0.18753783901532492
+        ],
+        [
+          0.999999965078736,
+          0.9999776332698199
+        ]
+      ],
+      [
+        1.0000218874373705,
+        226448,
+        [
+          -0.2778825064500173,
+          -0.09586153676112492,
+          0.18508646388848624
+        ],
+        [
+          1.0000001552153188,
+          0.9999781130416788
+        ]
+      ],
+      [
+        1.0000209036022925,
+        226418,
+        [
+          -0.27735304832458496,
+          -0.08425041288137436,
+          0.18425593773523966
+        ],
+        [
+          0.9999999236440976,
+          0.999979096834659
+        ]
+      ],
+      [
+        1.0000207236170617,
+        226253,
+        [
+          -0.27701033155123395,
+          -0.11355551828940709,
+          0.17729748785495758
+        ],
+        [
+          0.9999999807812726,
+          0.9999792768123977
+        ]
+      ],
+      [
+        1.0000205983682167,
+        337048,
+        [
+          -0.27237709363301593,
+          -0.06995859990517299,
+          0.17062035699685416
+        ],
+        [
+          1.0000205983682167,
+          0.9999948366340247
+        ]
+      ],
+      [
+        1.000020296545095,
+        226415,
+        [
+          -0.277856985727946,
+          -0.10197755446036656,
+          0.18375694255034128
+        ],
+        [
+          0.9999999389857863,
+          0.9999797038668464
+        ]
+      ],
+      [
+        1.0000199184922258,
+        115215,
+        [
+          -0.2757541437943776,
+          -0.10368163883686066,
+          0.18104339639345804
+        ],
+        [
+          1.0000199184922258,
+          0.9999996716614727
+        ]
+      ],
+      [
+        1.0000196681606734,
+        337319,
+        [
+          -0.27324862281481427,
+          -0.1290257821480433,
+          0.17682661612828574
+        ],
+        [
+          1.0000196681606734,
+          0.9999987642372492
+        ]
+      ],
+      [
+        1.000019542024357,
+        337127,
+        [
+          -0.27237359682718915,
+          -0.1285773664712906,
+          0.16964456935723624
+        ],
+        [
+          1.000019542024357,
+          0.9999954305460753
+        ]
+      ]
+    ],
+    "islands": 1536,
+    "uv_area_quantiles": [
+      0.999411681692799,
+      0.9999188456119553,
+      0.9999991388906264,
+      1.000073588413435,
+      1.0006731137979596
+    ],
+    "uv_stretch_quantiles": [
+      0.999249566413833,
+      0.999940818960131,
+      1.0,
+      1.000075343987023,
+      1.000626191757977
+    ]
+  },
+  "catalog_tile_m": 0.6,
+  "source_bindings": {
+    "art/blender/scripts/build_fire_capacity_candidate.py": "09ff4b2757c2e153e2d9af111ec560e7d576f80fbe49852e9b2487409373d41b",
+    "game/data/orison_v2/fire_fold_stock.json": "59de7980eec37b7f5462d9542d08cafd8332fddd98d1fd317d71f41f7be39876",
+    "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485"
+  },
+  "outputs": {
+    "art/blender/fire_capacity_candidate.blend": "7da23c6879c11fcb8e0851d0b5c29f584c024e67b32b9cc5fd96599f47e093fe",
+    "game/assets/props/fire_capacity_candidate.glb": "53a850d739f8c85bd59e37f61cdf2a7b035e9d064a234482e34ac60e0dfd1a7f"
+  }
+}
