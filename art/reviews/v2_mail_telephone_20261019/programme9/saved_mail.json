@@ -1,0 +1,7266 @@
+{
+	"building_personality": {},
+	"building_stability": 0.0,
+	"campaign_clock": {
+		"calendar_mode": "gregorian",
+		"day_of_month": 10,
+		"elapsed_minutes": 0.0,
+		"epoch_date": "1928-11-10",
+		"month": 11,
+		"schema_version": 2,
+		"start_doy": 314,
+		"start_minute_of_day": 720,
+		"start_weekday": "sat",
+		"timezone": "America/New_York",
+		"utc_offset_minutes": -300,
+		"year": 1928
+	},
+	"caretaker_economy": {
+		"care": {
+			"1A_wc": {
+				"cycle": 0,
+				"due": 1904.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"1D_prep_cabinet": {
+				"cycle": 0,
+				"due": 2245.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"1D_wc": {
+				"cycle": 0,
+				"due": 8915.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"2A_prep_cabinet": {
+				"cycle": 0,
+				"due": 2403.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"2A_wc": {
+				"cycle": 0,
+				"due": 8465.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"2B_prep_cabinet": {
+				"cycle": 0,
+				"due": 7844.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"2B_wc": {
+				"cycle": 0,
+				"due": 4082.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"2C_prep_cabinet": {
+				"cycle": 0,
+				"due": 2949.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"2C_wc": {
+				"cycle": 0,
+				"due": 9779.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"3A_prep_cabinet": {
+				"cycle": 0,
+				"due": 8548.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"3A_wc": {
+				"cycle": 0,
+				"due": 4946.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"3B_prep_cabinet": {
+				"cycle": 0,
+				"due": 3909.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"3B_wc": {
+				"cycle": 0,
+				"due": 10643.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"3D_wc": {
+				"cycle": 0,
+				"due": 1877.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"4A_prep_cabinet": {
+				"cycle": 0,
+				"due": 4869.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"4A_wc": {
+				"cycle": 0,
+				"due": 11507.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"4B_prep_cabinet": {
+				"cycle": 0,
+				"due": 10054.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"4B_wc": {
+				"cycle": 0,
+				"due": 7124.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"4C_prep_cabinet": {
+				"cycle": 0,
+				"due": 5415.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"4C_wc": {
+				"cycle": 0,
+				"due": 2741.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"4D_wc": {
+				"cycle": 0,
+				"due": 8438.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"5A_prep_cabinet": {
+				"cycle": 0,
+				"due": 11014.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"5A_wc": {
+				"cycle": 0,
+				"due": 7988.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"5B_prep_cabinet": {
+				"cycle": 0,
+				"due": 6375.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"5B_wc": {
+				"cycle": 0,
+				"due": 3605.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"5C_prep_cabinet": {
+				"cycle": 0,
+				"due": 1480.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"5C_wc": {
+				"cycle": 0,
+				"due": 9302.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"6A_prep_cabinet": {
+				"cycle": 0,
+				"due": 7079.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"6A_wc": {
+				"cycle": 0,
+				"due": 4469.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"6B_prep_cabinet": {
+				"cycle": 0,
+				"due": 2440.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"6B_wc": {
+				"cycle": 0,
+				"due": 10166.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"6C_prep_cabinet": {
+				"cycle": 0,
+				"due": 7881.0,
+				"kind": "slide",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"6C_wc": {
+				"cycle": 0,
+				"due": 5783.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"B1_BOILER_ROOM_SWITCH": {
+				"cycle": 0,
+				"due": 9633.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "B1_BOILER_ROOM"
+			},
+			"B1_COAL_ROOM_SWITCH": {
+				"cycle": 0,
+				"due": 5891.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "B1_COAL_ROOM"
+			},
+			"B1_ELECTRICAL_SWITCH": {
+				"cycle": 0,
+				"due": 4960.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "B1_ELECTRICAL"
+			},
+			"B1_LAUNDRY_SWITCH": {
+				"cycle": 0,
+				"due": 10567.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "B1_LAUNDRY"
+			},
+			"B1_MAINTENANCE_SHOP_SWITCH": {
+				"cycle": 0,
+				"due": 7588.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "B1_MAINTENANCE_SHOP"
+			},
+			"B1_RESIDENT_STORAGE_SWITCH": {
+				"cycle": 0,
+				"due": 11450.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "B1_RESIDENT_STORAGE"
+			},
+			"B1_SERVICE_CORE_SWITCH": {
+				"cycle": 0,
+				"due": 3361.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "B1_SERVICE_CORE"
+			},
+			"F01_1A_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 4982.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_1A_SHOWER_01": {
+				"cycle": 0,
+				"due": 1812.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_1A_SINK_01": {
+				"cycle": 0,
+				"due": 6801.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_1D_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 1785.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"F01_1D_SHOWER_01": {
+				"cycle": 0,
+				"due": 5399.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"F01_1D_SINK_01": {
+				"cycle": 0,
+				"due": 2356.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"F01_A_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 4699.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_A_BED_SWITCH": {
+				"cycle": 0,
+				"due": 6663.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_A_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 6114.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_A_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 2337.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_A_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 11319.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_A_STUDY_SWITCH": {
+				"cycle": 0,
+				"due": 6261.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_A_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 5167.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1A"
+			},
+			"F01_D_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 4254.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"F01_D_BED_SWITCH": {
+				"cycle": 0,
+				"due": 9290.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"F01_D_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 8805.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"F01_D_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 1892.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"F01_D_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 9914.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"F01_D_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 3026.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "1D"
+			},
+			"F01_FRONT_EAST_BAY_SWITCH": {
+				"cycle": 0,
+				"due": 9004.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F01_FRONT_EAST_BAY"
+			},
+			"F01_FRONT_SERVICE_RETURN_SWITCH": {
+				"cycle": 0,
+				"due": 6612.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F01_FRONT_SERVICE_RETURN"
+			},
+			"F01_FRONT_STORE_ALCOVE_SWITCH": {
+				"cycle": 0,
+				"due": 5226.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F01_FRONT_STORE_ALCOVE"
+			},
+			"F01_FRONT_WEST_BAY_SWITCH": {
+				"cycle": 0,
+				"due": 1794.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F01_FRONT_WEST_BAY"
+			},
+			"F01_FRONT_WORKROOM_SWITCH": {
+				"cycle": 0,
+				"due": 8932.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F01_FRONT_WORKROOM"
+			},
+			"F01_STAFF_RESTROOM_SWITCH": {
+				"cycle": 0,
+				"due": 7594.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F01_STAFF_RESTROOM"
+			},
+			"F01_STAFF_SINK": {
+				"cycle": 0,
+				"due": 1587.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "staff"
+			},
+			"F01_STAFF_WC": {
+				"cycle": 0,
+				"due": 5208.0,
+				"kind": "cistern",
+				"last": -1.0,
+				"request": "",
+				"unit": "F01"
+			},
+			"F02_2A_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 6968.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_2A_MIRROR_01": {
+				"cycle": 0,
+				"due": 7801.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_2A_SHOWER_01": {
+				"cycle": 0,
+				"due": 4854.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_2A_SINK_01": {
+				"cycle": 0,
+				"due": 7699.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_2B_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 5817.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_2B_MIRROR_01": {
+				"cycle": 0,
+				"due": 5722.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_2B_SHOWER_01": {
+				"cycle": 0,
+				"due": 2775.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_2B_SINK_01": {
+				"cycle": 0,
+				"due": 9492.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_2C_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 4922.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_2C_SHOWER_01": {
+				"cycle": 0,
+				"due": 10520.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_2C_SINK_01": {
+				"cycle": 0,
+				"due": 1461.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_A_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 10844.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_A_BED_SWITCH": {
+				"cycle": 0,
+				"due": 1768.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_A_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 1955.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_A_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 8738.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_A_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 9912.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_A_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 1488.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2A"
+			},
+			"F02_B_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 10781.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_B_BED_SWITCH": {
+				"cycle": 0,
+				"due": 9449.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_B_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 6212.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_B_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 8419.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_B_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 2809.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_B_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 7409.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2B"
+			},
+			"F02_C_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 10462.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_C_BED1_SWITCH": {
+				"cycle": 0,
+				"due": 9531.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_C_BED2_SWITCH": {
+				"cycle": 0,
+				"due": 8348.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_C_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 10469.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_C_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 8356.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_C_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 5786.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_C_STUDIO_SWITCH": {
+				"cycle": 0,
+				"due": 7511.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_C_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 3250.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "2C"
+			},
+			"F02_EAST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 9610.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F02_EAST_HALL"
+			},
+			"F02_FRONT_GALLERY_SWITCH": {
+				"cycle": 0,
+				"due": 2613.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F02_FRONT_GALLERY"
+			},
+			"F02_FRONT_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 1510.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F02_FRONT_HALL"
+			},
+			"F02_FRONT_SERVICE_RETURN_SWITCH": {
+				"cycle": 0,
+				"due": 11221.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F02_FRONT_SERVICE_RETURN"
+			},
+			"F02_SOUTHWEST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 9907.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F02_SOUTHWEST_HALL"
+			},
+			"F02_WEST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 10272.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F02_WEST_HALL"
+			},
+			"F03_3A_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 8954.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_3A_MIRROR_01": {
+				"cycle": 0,
+				"due": 10843.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_3A_SHOWER_01": {
+				"cycle": 0,
+				"due": 7896.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_3A_SINK_01": {
+				"cycle": 0,
+				"due": 8341.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_3B_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 8059.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_3B_MIRROR_01": {
+				"cycle": 0,
+				"due": 8508.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_3B_SHOWER_01": {
+				"cycle": 0,
+				"due": 5561.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_3B_SINK_01": {
+				"cycle": 0,
+				"due": 10390.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_3D_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 5757.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_3D_SHOWER_01": {
+				"cycle": 0,
+				"due": 11227.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_3D_SINK_01": {
+				"cycle": 0,
+				"due": 4152.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_A_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 6909.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_A_BED_SWITCH": {
+				"cycle": 0,
+				"due": 7209.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_A_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 7876.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_A_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 4803.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_A_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 8761.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_A_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 7633.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3A"
+			},
+			"F03_B_ALCOVE_SWITCH": {
+				"cycle": 0,
+				"due": 3961.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_B_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 6846.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_B_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 2053.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_B_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 4740.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_B_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 11482.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_B_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 3474.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3B"
+			},
+			"F03_D_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 6464.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_D_BED_SWITCH": {
+				"cycle": 0,
+				"due": 10092.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_D_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 10567.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_D_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 4358.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_D_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 7356.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_D_STUDY_SWITCH": {
+				"cycle": 0,
+				"due": 10682.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_D_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 5236.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "3D"
+			},
+			"F03_EAST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 5451.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F03_EAST_HALL"
+			},
+			"F03_FRONT_GALLERY_SWITCH": {
+				"cycle": 0,
+				"due": 7318.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F03_FRONT_GALLERY"
+			},
+			"F03_FRONT_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 6151.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F03_FRONT_HALL"
+			},
+			"F03_FRONT_SERVICE_RETURN_SWITCH": {
+				"cycle": 0,
+				"due": 6006.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F03_FRONT_SERVICE_RETURN"
+			},
+			"F03_SOUTHWEST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 8500.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F03_SOUTHWEST_HALL"
+			},
+			"F03_WEST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 6113.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F03_WEST_HALL"
+			},
+			"F04_4A_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 10940.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_4A_MIRROR_01": {
+				"cycle": 0,
+				"due": 3549.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_4A_SHOWER_01": {
+				"cycle": 0,
+				"due": 10682.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_4A_SINK_01": {
+				"cycle": 0,
+				"due": 9239.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_4B_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 10045.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_4B_MIRROR_01": {
+				"cycle": 0,
+				"due": 1470.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_4B_SHOWER_01": {
+				"cycle": 0,
+				"due": 8603.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_4B_SINK_01": {
+				"cycle": 0,
+				"due": 11288.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_4C_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 8894.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_4C_SHOWER_01": {
+				"cycle": 0,
+				"due": 6268.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_4C_SINK_01": {
+				"cycle": 0,
+				"due": 3001.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_4D_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 7999.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_4D_SHOWER_01": {
+				"cycle": 0,
+				"due": 4189.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_4D_SINK_01": {
+				"cycle": 0,
+				"due": 5050.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_A_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 3230.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_A_BED_SWITCH": {
+				"cycle": 0,
+				"due": 2570.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_A_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 3717.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_A_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 10948.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_A_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 7354.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_A_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 3698.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4A"
+			},
+			"F04_B_ALCOVE_APPROACH_SWITCH": {
+				"cycle": 0,
+				"due": 11463.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_B_ALCOVE_SWITCH": {
+				"cycle": 0,
+				"due": 3066.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_B_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 2911.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_B_CLOSET_SWITCH": {
+				"cycle": 0,
+				"due": 9674.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_B_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 7974.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_B_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 10885.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_B_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 10075.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_B_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 9619.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4B"
+			},
+			"F04_C_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 2848.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_C_BED1_SWITCH": {
+				"cycle": 0,
+				"due": 1917.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_C_BED2_SWITCH": {
+				"cycle": 0,
+				"due": 10814.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_C_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 2151.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_C_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 10822.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_C_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 2972.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_C_STUDIO_SWITCH": {
+				"cycle": 0,
+				"due": 5465.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_C_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 5460.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4C"
+			},
+			"F04_D_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 2785.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_D_BED_SWITCH": {
+				"cycle": 0,
+				"due": 5197.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_D_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 6408.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_D_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 10759.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_D_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 5949.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_D_STUDY_SWITCH": {
+				"cycle": 0,
+				"due": 4859.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_D_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 11381.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "4D"
+			},
+			"F04_EAST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 11372.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F04_EAST_HALL"
+			},
+			"F04_FRONT_GALLERY_SWITCH": {
+				"cycle": 0,
+				"due": 2199.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F04_FRONT_GALLERY"
+			},
+			"F04_FRONT_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 10536.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F04_FRONT_HALL"
+			},
+			"F04_FRONT_SERVICE_RETURN_SWITCH": {
+				"cycle": 0,
+				"due": 10615.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F04_FRONT_SERVICE_RETURN"
+			},
+			"F04_SOUTHWEST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 7093.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F04_SOUTHWEST_HALL"
+			},
+			"F04_WEST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 1954.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F04_WEST_HALL"
+			},
+			"F05_5A_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 3102.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_5A_MIRROR_01": {
+				"cycle": 0,
+				"due": 6591.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_5A_SHOWER_01": {
+				"cycle": 0,
+				"due": 3644.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_5A_SINK_01": {
+				"cycle": 0,
+				"due": 10137.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_5B_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 1951.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_5B_MIRROR_01": {
+				"cycle": 0,
+				"due": 4256.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_5B_SHOWER_01": {
+				"cycle": 0,
+				"due": 11389.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_5B_SINK_01": {
+				"cycle": 0,
+				"due": 2106.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_5C_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 10880.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_5C_MIRROR_01": {
+				"cycle": 0,
+				"due": 2177.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_5C_SHOWER_01": {
+				"cycle": 0,
+				"due": 9310.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_5C_SINK_01": {
+				"cycle": 0,
+				"due": 3899.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_A_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 9375.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_A_BED_SWITCH": {
+				"cycle": 0,
+				"due": 8011.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_A_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 9894.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_A_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 7269.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_A_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 5947.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_A_STUDY_SWITCH": {
+				"cycle": 0,
+				"due": 2873.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_A_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 9843.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5A"
+			},
+			"F05_B_ALCOVE_SWITCH": {
+				"cycle": 0,
+				"due": 1915.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_B_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 9312.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_B_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 4071.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_B_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 6950.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_B_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 8924.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_B_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 5684.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5B"
+			},
+			"F05_C_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 8993.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_C_BED1_SWITCH": {
+				"cycle": 0,
+				"due": 8062.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_C_BED2_SWITCH": {
+				"cycle": 0,
+				"due": 6879.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_C_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 8072.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_C_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 6887.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_C_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 1565.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_C_STUDIO_SWITCH": {
+				"cycle": 0,
+				"due": 4314.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_C_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 1525.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "5C"
+			},
+			"F05_EAST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 7213.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F05_EAST_HALL"
+			},
+			"F05_FRONT_GALLERY_SWITCH": {
+				"cycle": 0,
+				"due": 6904.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F05_FRONT_GALLERY"
+			},
+			"F05_FRONT_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 4841.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F05_FRONT_HALL"
+			},
+			"F05_FRONT_SERVICE_RETURN_SWITCH": {
+				"cycle": 0,
+				"due": 5144.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F05_FRONT_SERVICE_RETURN"
+			},
+			"F05_WEST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 7875.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F05_WEST_HALL"
+			},
+			"F06_6A_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 5088.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_6A_MIRROR_01": {
+				"cycle": 0,
+				"due": 9377.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_6A_SHOWER_01": {
+				"cycle": 0,
+				"due": 6430.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_6A_SINK_01": {
+				"cycle": 0,
+				"due": 11035.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_6B_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 3937.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_6B_MIRROR_01": {
+				"cycle": 0,
+				"due": 7298.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_6B_SHOWER_01": {
+				"cycle": 0,
+				"due": 4351.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_6B_SINK_01": {
+				"cycle": 0,
+				"due": 2748.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_6C_KITCHEN_SINK_01": {
+				"cycle": 0,
+				"due": 3042.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_6C_MIRROR_01": {
+				"cycle": 0,
+				"due": 4963.0,
+				"kind": "hinge",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_6C_SHOWER_01": {
+				"cycle": 0,
+				"due": 2016.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_6C_SINK_01": {
+				"cycle": 0,
+				"due": 4797.0,
+				"kind": "water",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_A_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 5440.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_A_BED_SWITCH": {
+				"cycle": 0,
+				"due": 3116.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_A_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 5735.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_A_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 3334.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_A_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 4540.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_A_STUDY_SWITCH": {
+				"cycle": 0,
+				"due": 7130.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_A_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 5908.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6A"
+			},
+			"F06_B_ALCOVE_SWITCH": {
+				"cycle": 0,
+				"due": 11100.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_B_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 5377.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_B_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 9992.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_B_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 3271.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_B_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 7517.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_B_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 1749.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6B"
+			},
+			"F06_C_BATH_SWITCH": {
+				"cycle": 0,
+				"due": 5314.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_C_BED1_SWITCH": {
+				"cycle": 0,
+				"due": 4127.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_C_BED2_SWITCH": {
+				"cycle": 0,
+				"due": 2944.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_C_KITCHEN_SWITCH": {
+				"cycle": 0,
+				"due": 4169.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_C_MAIN_SWITCH": {
+				"cycle": 0,
+				"due": 3208.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_C_PRIVATE_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 10494.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_C_STUDIO_SWITCH": {
+				"cycle": 0,
+				"due": 3163.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_C_VESTIBULE_SWITCH": {
+				"cycle": 0,
+				"due": 7670.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "6C"
+			},
+			"F06_EAST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 3054.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F06_EAST_HALL"
+			},
+			"F06_FRONT_GALLERY_SWITCH": {
+				"cycle": 0,
+				"due": 1785.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F06_FRONT_GALLERY"
+			},
+			"F06_FRONT_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 9482.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F06_FRONT_HALL"
+			},
+			"F06_FRONT_SERVICE_RETURN_SWITCH": {
+				"cycle": 0,
+				"due": 9753.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F06_FRONT_SERVICE_RETURN"
+			},
+			"F06_WEST_HALL_SWITCH": {
+				"cycle": 0,
+				"due": 3716.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "F06_WEST_HALL"
+			},
+			"ROOF_PUBLIC_PLANT_SWITCH": {
+				"cycle": 0,
+				"due": 10248.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "ROOF_PUBLIC_CORE"
+			},
+			"ROOF_SERVICE_PLANT_SWITCH": {
+				"cycle": 0,
+				"due": 8474.0,
+				"kind": "switch",
+				"last": -1.0,
+				"request": "",
+				"unit": "ROOF_SERVICE_CORE"
+			}
+		},
+		"cash": 100,
+		"goodwill": {},
+		"rent_paid": 0,
+		"started": 0.0,
+		"tips": {},
+		"version": 1
+	},
+	"cases": {},
+	"core_loop": {
+		"active_job_id": "",
+		"boundary": "idle",
+		"conversation_complete": false,
+		"conversation_requested": false,
+		"dream_pending": false,
+		"safe_return_anchor": "F04_B_BED"
+	},
+	"current_case_id": "",
+	"discovered_documents": [],
+	"door_keys": {
+		"copies": {},
+		"locks": {},
+		"originals": {
+			"cal_dwyer": "5B",
+			"cam_ortiz": "4C",
+			"evelyn_marsh": "1A",
+			"iris_bell": "5C",
+			"jonah_price": "6B",
+			"juno_kells": "2C",
+			"lena_ortiz": "2B",
+			"mae_kessler": "6C",
+			"malcolm_reed": "3A",
+			"mina_vale": "2A",
+			"nadia_quell": "5A",
+			"noel_price": "4C",
+			"omar_bell": "3B",
+			"peter_wren": "4A",
+			"rhea_sato": "3D",
+			"sacha_reed": "6A",
+			"teresa_vale": "1D",
+			"transient_guests": "4D"
+		},
+		"permissions": {},
+		"version": 1
+	},
+	"dream": {},
+	"dream_seed": "f5087d09adf4cc8b",
+	"dreams_had": 0,
+	"exterior_semantics": {},
+	"first_shift": {
+		"phase": "arrived"
+	},
+	"heard_music_anecdotes": [],
+	"intro_complete": false,
+	"lamp_optics": {
+		"contact_event_depth": 0.0,
+		"contact_event_remaining_s": 0.0,
+		"contact_resistance": 0.18,
+		"filament_temperature_k": 2772.9999999999914,
+		"instability": 0.0,
+		"intensity_rate": 0.0,
+		"lens_alignment": 0.9803416235650553,
+		"limited_intensity": 0.9999999999999931,
+		"mechanical_shock": 0.0,
+		"reflector_alignment": 0.9844015723110182,
+		"seed": 42602958,
+		"simulation_time_s": 164.72871066667926,
+		"supplied_voltage": 110.0,
+		"switched_on": true,
+		"thermal_inertia": 0.9999999999999966,
+		"version": 1
+	},
+	"last_waking_residue_id": "",
+	"mail_taken": [
+		"notice_hum"
+	],
+	"maintenance_items": {},
+	"maintenance_jobs": {},
+	"music_library": [],
+	"npc_observations": {},
+	"open_shift_situations": {
+		"lena_radiator_round_2b": {
+			"abandonment_boundary": "",
+			"accepted_at": -1.0,
+			"attempted_actions": [],
+			"clock_basis": "campaign_absolute_minutes",
+			"clock_schema_version": 2,
+			"closed_at": -1.0,
+			"compensation_started_at": -1.0,
+			"compensator": "",
+			"elapsed_simulation_minutes": 0.0,
+			"last_attended_at": -1.0,
+			"noticed_at": -1.0,
+			"observed_interference": [],
+			"offered_at": -1.0,
+			"physical_severity": 0.0,
+			"player_commitment": "none",
+			"recoverable_next_state": "inspect_and_repair",
+			"residue": {},
+			"resolution_kind": "",
+			"social_owner": "",
+			"social_pressure": 0.0,
+			"urgency": 0.0
+		}
+	},
+	"organism_incidents": {},
+	"portal_rules": [],
+	"porter_actor": {
+		"acted_at": -1.0,
+		"applied_condition": "",
+		"arrived_at": -1.0,
+		"blocked_reason": "",
+		"cancel_reason": "",
+		"cancelled": false,
+		"clock_basis": "campaign_absolute_minutes",
+		"clock_schema_version": 2,
+		"departed_at": -1.0,
+		"eligible_at": -1.0,
+		"intent": "",
+		"source": "F01_WATCH",
+		"target": "F02_B_RADIATOR_01"
+	},
+	"reality_coherence": 0.0,
+	"shop_buckets": {
+		"SHOP_BODEGA": {
+			"condition": 100.0,
+			"hours": {
+				"close_minute": 1440.0,
+				"open_minute": 0.0
+			},
+			"last_advanced_minute": 0.0,
+			"staffing": {
+				"mode": "attended",
+				"roles": [
+					"night_counter",
+					"day_counter"
+				]
+			},
+			"stock": 24.0,
+			"transactions": 0.0
+		}
+	},
+	"sleep_pressure": {},
+	"v2_household_controls": {
+		"records": {
+			"1A_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"1D_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"1D_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"2A_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"2A_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"2B_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"2B_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"2C_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"2C_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"3A_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"3A_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"3B_LT_SCONCE": {
+				"kind": "light",
+				"value": true
+			},
+			"3B_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"3B_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"3D_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"4A_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"4A_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"4B_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"4B_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"4C_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"4C_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"4D_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"5A_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"5A_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"5B_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"5B_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"5C_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"5C_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"6A_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"6A_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"6B_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"6B_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"6C_prep_cabinet": {
+				"kind": "prep",
+				"value": 0.0
+			},
+			"6C_wc": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"B1_BOILER_01": {
+				"kind": "boiler_service",
+				"value": {
+					"completed": false,
+					"mechanism": {
+						"ash": 0.0,
+						"draft": 0.54,
+						"drained": false,
+						"fire": 0.0,
+						"glass": 0.5972086340277777,
+						"lower": 1.0,
+						"upper": 1.0,
+						"witness": 1.0996400117874146
+					}
+				}
+			},
+			"B1_BOILER_AIR_E": {
+				"kind": "window",
+				"value": {
+					"angle": 0.0,
+					"latch": 0.0
+				}
+			},
+			"B1_BOILER_FIRE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 1.5707963267948966
+				}
+			},
+			"B1_BOILER_ROOM_LT_A": {
+				"kind": "light",
+				"value": true
+			},
+			"B1_BOILER_ROOM_LT_B": {
+				"kind": "light",
+				"value": true
+			},
+			"B1_BOILER_STAIR_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 1.5707963267948966
+				}
+			},
+			"B1_COAL_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 1.5707963267948966
+				}
+			},
+			"B1_COAL_ROOM_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"B1_ELECTRICAL_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": -1.5707963267948966
+				}
+			},
+			"B1_ELECTRICAL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"B1_FUSE_PANEL": {
+				"kind": "fuse_service",
+				"value": {
+					"completed": true,
+					"mechanism": {
+						"door": -2.15,
+						"main": 5.2921631e-10,
+						"plugs": {
+							"items": [
+								{
+									"position": [
+										0.06499999761581421,
+										0.14499999582767487,
+										0.16500000655651093
+									],
+									"rotation": [
+										0.0,
+										0.0,
+										0.0,
+										1.0
+									],
+									"station": 1,
+									"turn": 0.0
+								},
+								{
+									"position": [
+										0.1850000023841858,
+										0.14499999582767487,
+										0.16500000655651093
+									],
+									"rotation": [
+										0.0,
+										0.0,
+										0.0,
+										1.0
+									],
+									"station": 2,
+									"turn": 0.0
+								},
+								{
+									"position": [
+										0.14499999582767487,
+										0.46000000834465027,
+										0.1080000028014183
+									],
+									"rotation": [
+										0.0,
+										0.0,
+										0.0,
+										1.0
+									],
+									"station": 0,
+									"turn": 0.0
+								},
+								{
+									"position": [
+										0.1850000023841858,
+										0.2750000059604645,
+										0.16500000655651093
+									],
+									"rotation": [
+										0.0,
+										0.0,
+										0.0,
+										1.0
+									],
+									"station": 4,
+									"turn": 0.0
+								}
+							],
+							"proved": true
+						}
+					}
+				}
+			},
+			"B1_LAUNDRY_AIRER_01": {
+				"kind": "mechanism",
+				"value": {
+					"height": 1.3800002336502075
+				}
+			},
+			"B1_LAUNDRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 1.5707963267948966
+				}
+			},
+			"B1_LAUNDRY_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"B1_MAINTENANCE_SHOP_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"B1_NOOK_LAMP": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0,
+					"enabled": true
+				}
+			},
+			"B1_RESIDENT_STORAGE_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"B1_SERVICE_CORE_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"B1_SHOP_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": -1.5707963267948966
+				}
+			},
+			"B1_SHOP_STAIR_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": -1.483529806137085
+				}
+			},
+			"B1_STORAGE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": -1.5707963267948966
+				}
+			},
+			"B1_VENT_SERVICE_STOCK": {
+				"kind": "mechanism",
+				"value": {
+					"parts": [
+						{
+							"grade": 2,
+							"id": "F02_A_RADIATOR_01_ORIFICE",
+							"slot": "F02_A_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F02_B_RADIATOR_01_ORIFICE",
+							"slot": "F02_B_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F03_A_RADIATOR_01_ORIFICE",
+							"slot": "F03_A_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F03_B_RADIATOR_01_ORIFICE",
+							"slot": "F03_B_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F04_A_RADIATOR_01_ORIFICE",
+							"slot": "F04_A_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F04_B_RADIATOR_01_ORIFICE",
+							"slot": "F04_B_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F05_A_RADIATOR_01_ORIFICE",
+							"slot": "F05_A_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F05_B_RADIATOR_01_ORIFICE",
+							"slot": "F05_B_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F05_C_RADIATOR_01_ORIFICE",
+							"slot": "F05_C_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F06_A_RADIATOR_01_ORIFICE",
+							"slot": "F06_A_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F06_B_RADIATOR_01_ORIFICE",
+							"slot": "F06_B_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F06_C_RADIATOR_01_ORIFICE",
+							"slot": "F06_C_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F01_A_RADIATOR_01_ORIFICE",
+							"slot": "F01_A_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F01_D_RADIATOR_01_ORIFICE",
+							"slot": "F01_D_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F02_C_RADIATOR_01_ORIFICE",
+							"slot": "F02_C_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F03_D_RADIATOR_01_ORIFICE",
+							"slot": "F03_D_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F04_C_RADIATOR_01_ORIFICE",
+							"slot": "F04_C_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F04_D_RADIATOR_01_ORIFICE",
+							"slot": "F04_D_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F01_LOBBY_RADIATOR_01_ORIFICE",
+							"slot": "F01_LOBBY_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F02_D_RADIATOR_01_ORIFICE",
+							"slot": "F02_D_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F03_C_RADIATOR_01_ORIFICE",
+							"slot": "F03_C_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 2,
+							"id": "F05_D_RADIATOR_01_ORIFICE",
+							"slot": "F05_D_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 3,
+							"id": "F06_D_RADIATOR_01_ORIFICE",
+							"slot": "F06_D_RADIATOR_01",
+							"turn": 0.0
+						},
+						{
+							"grade": 0,
+							"id": "VENT_SPARE_0",
+							"rack": 0
+						},
+						{
+							"grade": 1,
+							"id": "VENT_SPARE_1",
+							"rack": 1
+						},
+						{
+							"grade": 2,
+							"id": "VENT_SPARE_2",
+							"rack": 2
+						},
+						{
+							"grade": 3,
+							"id": "VENT_SPARE_3",
+							"rack": 3
+						},
+						{
+							"grade": 4,
+							"id": "VENT_SPARE_4",
+							"rack": 4
+						}
+					],
+					"version": 1
+				}
+			},
+			"B1_WASHER_01": {
+				"kind": "mechanism",
+				"value": {
+					"agitator": 0.6283185307179586,
+					"drain": 0.0,
+					"drive": 0.0,
+					"fill": [
+						0.0,
+						0.0
+					],
+					"gap": 0.0,
+					"lid": 0.20943951606750488,
+					"pressure": 0.0,
+					"swing": 0.0,
+					"water": 1.0
+				}
+			},
+			"B1_WASHER_02": {
+				"kind": "mechanism",
+				"value": {
+					"agitator": 0.6283185307179586,
+					"drain": 0.0,
+					"drive": 0.0,
+					"fill": [
+						0.0,
+						0.0
+					],
+					"gap": 0.0,
+					"lid": 0.0,
+					"pressure": 0.0,
+					"swing": 0.0,
+					"water": 1.0
+				}
+			},
+			"B1_WATCH_STATION": {
+				"kind": "mechanism",
+				"value": {
+					"crank_angle": 0.0,
+					"door_angle": 0.0
+				}
+			},
+			"F01_1A_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 0.0
+				}
+			},
+			"F01_1A_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7944999933242798,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F01_1A_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F01_1A_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F01_1A_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F01_1D_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F01_1D_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F01_1D_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F01_1D_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F01_1D_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						1.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						true,
+						false
+					]
+				}
+			},
+			"F01_A_BATH_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_A_BED_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_A_BED_STORAGE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_A_BED_WINDOW": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.5,
+					"tilt_degrees": 12.0
+				}
+			},
+			"F01_A_ENTRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_A_KITCHEN_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_A_MAIN_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_A_MAIN_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_A_MAIN_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_A_MAIN_WINDOW": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.5,
+					"tilt_degrees": 12.0
+				}
+			},
+			"F01_A_PRIVATE_HALL_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_A_PRIVATE_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_A_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.03512444165845713,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F01_A_STUDY_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_A_STUDY_WINDOW": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.5,
+					"tilt_degrees": 12.0
+				}
+			},
+			"F01_A_VESTIBULE_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_A_VESTIBULE_MAIN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_A_VESTIBULE_PRIVATE_HALL_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_COMMON_WINDOW_N": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F01_COMMON_WINDOW_S": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F01_DOOR_06_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_D_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_D_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_D_BATH_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F01_D_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_D_BED_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_D_BED_WINDOW_S": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F01_D_ENTRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_D_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_D_KITCHEN_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_D_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_D_MAIN_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F01_D_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_D_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.03512444165845713,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F01_D_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_FRONT_EAST_BAY_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_FRONT_SERVICE_RETURN_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_FRONT_SERVICE_RETURN_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F01_FRONT_STORE_ALCOVE_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_FRONT_WEST_BAY_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_FRONT_WORKROOM_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_FRONT_WORKROOM_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F01_INNER_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_LOBBY_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.045895955575009195,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F01_LOBBY_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F01_LOBBY_WINDOW_W": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F01_MAIL_PACKAGE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": -1.5707963267948966
+				}
+			},
+			"F01_NIGHT_REGISTER": {
+				"kind": "mechanism",
+				"value": {
+					"index_z": -0.06,
+					"keys_out": {
+						"apartment": false,
+						"plant": false
+					},
+					"latched_job": "",
+					"lifts": {
+						"apartment": 0.0,
+						"plant": 0.0,
+						"slip": 0.0
+					},
+					"pen_tip": [
+						0.09600000083446503,
+						0.009999999776482582
+					],
+					"round_open": false,
+					"slip_taken": false
+				}
+			},
+			"F01_PACKAGE_COMMON_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": -1.5707963267948966
+				}
+			},
+			"F01_REAR_SERVICE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_SERVICE_CORE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_SIGNAL_REGISTER": {
+				"kind": "mechanism",
+				"value": {
+					"reset": 0.0,
+					"reset_armed": true,
+					"test": 0.0
+				}
+			},
+			"F01_STAFF_RESTROOM_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F01_STAFF_RESTROOM_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F01_STAFF_SINK": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F01_STAFF_WC": {
+				"kind": "mechanism",
+				"value": {
+					"CisternHandle": 0.0,
+					"FloatArm": 0.0,
+					"FlushBall": 0.5580000281333923,
+					"RaisedLid": 1.4311699867248535,
+					"SeatHinge": 0.0,
+					"cover": [
+						-1.1368683772161603e-13,
+						0.8169999718666077,
+						0.2349996566772461
+					],
+					"draining": false,
+					"refilling": false,
+					"stroke": false,
+					"water": 1.0
+				}
+			},
+			"F01_TOUR_KEY_GUARD": {
+				"kind": "mechanism",
+				"value": {
+					"key_lift": 0.0,
+					"latch_angle": 0.0
+				}
+			},
+			"F01_WATCHMAN_DETECTOR": {
+				"kind": "mechanism",
+				"value": {
+					"datum": 0.0,
+					"datum_set": false,
+					"detector_honest": false,
+					"dial_seated": false,
+					"movement_running": true,
+					"native_drive": {
+						"spindle_turn": 0.5
+					},
+					"physical_controls": {
+						"cover": 0.0,
+						"key": 0.0,
+						"key_armed": true,
+						"seat": 0.018,
+						"stop": 0.0
+					},
+					"proof_first": -1.0,
+					"proof_second": -1.0,
+					"reading": 0.0
+				}
+			},
+			"F01_WATCH_MAIL_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 1.5707963267948966
+				}
+			},
+			"F01_WATCH_STATION": {
+				"kind": "mechanism",
+				"value": {
+					"crank_angle": 0.0,
+					"door_angle": 0.0
+				}
+			},
+			"F02_2A_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"sorting",
+					"recipes",
+					"glass",
+					"prospectus",
+					"dreams",
+					"interborough",
+					"deadletter",
+					"cordcircuits"
+				]
+			},
+			"F02_2A_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F02_2A_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F02_2A_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F02_2A_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F02_2A_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F02_2A_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F02_2B_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F02_2B_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F02_2B_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F02_2B_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F02_2B_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F02_2B_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						1.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						true
+					]
+				}
+			},
+			"F02_2C_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"wiring",
+					"deadletter",
+					"barsongs",
+					"dreams",
+					"nurse",
+					"missing",
+					"minutes",
+					"recipes"
+				]
+			},
+			"F02_2C_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F02_2C_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F02_2C_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F02_2C_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F02_2C_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F02_A_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_A_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_A_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_A_BED_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_A_BED_WINDOW_N": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.45,
+					"tilt_degrees": 24.0
+				}
+			},
+			"F02_A_BED_WINDOW_W": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.45,
+					"tilt_degrees": 24.0
+				}
+			},
+			"F02_A_HALL_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_A_KITCHEN_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_A_KITCHEN_WINDOW_W": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.65,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F02_A_LAMP_01": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0,
+					"enabled": true
+				}
+			},
+			"F02_A_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_A_MAIN_WINDOW_W_N": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.45,
+					"tilt_degrees": 24.0
+				}
+			},
+			"F02_A_MAIN_WINDOW_W_S": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.45,
+					"tilt_degrees": 24.0
+				}
+			},
+			"F02_A_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_A_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.04051020637775461,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F02_A_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_B_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_B_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_B_BATH_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F02_B_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_B_BED_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_B_BED_WINDOW_S": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.8,
+					"raise": 0.6,
+					"tilt_degrees": 18.0
+				}
+			},
+			"F02_B_ENTRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_B_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_B_KITCHEN_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_B_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_B_MAIN_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.8,
+					"raise": 0.6,
+					"tilt_degrees": 18.0
+				}
+			},
+			"F02_B_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_B_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.0512817086527745,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F02_B_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_C_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_C_BED1_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_C_BED2_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_C_ENTRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_C_KITCHEN_LT_KITCHEN_LINEAR": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_C_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_C_PRIVATE_HALL_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_C_PRIVATE_HALL_BED1_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_C_PRIVATE_HALL_BED2_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_C_PRIVATE_HALL_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_C_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_C_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.03512444165845713,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F02_C_STUDIO_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_C_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_C_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.25,
+					"raise": 0.15,
+					"tilt_degrees": 55.0
+				}
+			},
+			"F02_C_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F02_C_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F02_DOOR_02_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_D_ENTRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F02_D_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.04051020637775461,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F02_EAST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_FRONT_GALLERY_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_FRONT_GALLERY_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_FRONT_GALLERY_LT_3": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_FRONT_GALLERY_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F02_FRONT_GALLERY_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F02_FRONT_GALLERY_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F02_FRONT_GALLERY_WINDOW_4": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F02_FRONT_HALL_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_FRONT_HALL_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_FRONT_SERVICE_RETURN_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_FRONT_SERVICE_RETURN_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F02_LANDING_LT_SCONCE": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_SOUTHWEST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F02_WATCH_STATION": {
+				"kind": "mechanism",
+				"value": {
+					"crank_angle": 0.0,
+					"door_angle": 0.0
+				}
+			},
+			"F02_WEST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_3A_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"darts",
+					"birds",
+					"standards",
+					"concrete",
+					"glass",
+					"sorting",
+					"onefinger"
+				]
+			},
+			"F03_3A_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 0.0
+				}
+			},
+			"F03_3A_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F03_3A_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F03_3A_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F03_3A_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F03_3A_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F03_3B_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F03_3B_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F03_3B_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F03_3B_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F03_3B_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F03_3B_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F03_3D_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F03_3D_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7944999933242798,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F03_3D_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F03_3D_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F03_3D_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F03_A_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_A_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_A_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_A_BED_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_A_BED_WINDOW_N": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.88,
+					"tilt_degrees": 0.0
+				}
+			},
+			"F03_A_BED_WINDOW_W": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.88,
+					"tilt_degrees": 0.0
+				}
+			},
+			"F03_A_HALL_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_A_KITCHEN_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_A_KITCHEN_WINDOW_W": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.65,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F03_A_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_A_MAIN_WINDOW_W_N": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.88,
+					"tilt_degrees": 0.0
+				}
+			},
+			"F03_A_MAIN_WINDOW_W_S": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.88,
+					"tilt_degrees": 0.0
+				}
+			},
+			"F03_A_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_A_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.045895955575009195,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F03_A_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_B_ALCOVE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_B_ALCOVE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_B_ALCOVE_WINDOW_S": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.65,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F03_B_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_B_BATH_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F03_B_KITCHEN_LT_KITCHEN_LINEAR": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_B_LAMP_01": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0,
+					"enabled": true
+				}
+			},
+			"F03_B_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_B_MAIN_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.65,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F03_B_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_B_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.03512444165845713,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F03_B_SERVICE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_B_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_C_ENTRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_C_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.04051020637775461,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F03_DOOR_02_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_DOOR_03_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_D_BATH_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_D_BED_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_D_BED_STORAGE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_D_BED_WINDOW": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.7,
+					"raise": 0.4,
+					"tilt_degrees": 30.0
+				}
+			},
+			"F03_D_ENTRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_D_KITCHEN_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_D_MAIN_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_D_MAIN_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_D_MAIN_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_D_MAIN_WINDOW": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.7,
+					"raise": 0.4,
+					"tilt_degrees": 30.0
+				}
+			},
+			"F03_D_PRIVATE_HALL_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_D_PRIVATE_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_D_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.045895955575009195,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F03_D_STUDY_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_D_STUDY_WINDOW": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.7,
+					"raise": 0.4,
+					"tilt_degrees": 30.0
+				}
+			},
+			"F03_D_VESTIBULE_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_D_VESTIBULE_MAIN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_D_VESTIBULE_PRIVATE_HALL_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_EAST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_FRONT_GALLERY_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_FRONT_GALLERY_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_FRONT_GALLERY_LT_3": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_FRONT_GALLERY_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F03_FRONT_GALLERY_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F03_FRONT_GALLERY_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F03_FRONT_GALLERY_WINDOW_4": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F03_FRONT_HALL_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_FRONT_HALL_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_FRONT_SERVICE_RETURN_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_FRONT_SERVICE_RETURN_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F03_LANDING_LT_SCONCE": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_SERVICE_CORE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F03_SOUTHWEST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F03_WATCH_STATION": {
+				"kind": "mechanism",
+				"value": {
+					"crank_angle": 0.0,
+					"door_angle": 0.0
+				}
+			},
+			"F03_WEST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_4A_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"darts",
+					"missing",
+					"switchboard",
+					"hymns",
+					"photochem",
+					"knots",
+					"nurse",
+					"concrete"
+				]
+			},
+			"F04_4A_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F04_4A_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F04_4A_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F04_4A_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F04_4A_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F04_4A_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F04_4B_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7944999933242798,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F04_4B_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F04_4B_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F04_4B_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F04_4C_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"letters",
+					"knots",
+					"recipes",
+					"switchboard",
+					"dressmaking",
+					"walls",
+					"wiring",
+					"glass"
+				]
+			},
+			"F04_4C_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F04_4C_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F04_4C_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F04_4C_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F04_4C_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F04_4D_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F04_4D_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7944999933242798,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F04_4D_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F04_4D_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F04_4D_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F04_A_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_A_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_A_BATH_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F04_A_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_A_BED_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_A_BED_WINDOW_S": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.8,
+					"raise": 0.5,
+					"tilt_degrees": 25.0
+				}
+			},
+			"F04_A_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_A_KITCHEN_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_A_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_A_MAIN_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.8,
+					"raise": 0.5,
+					"tilt_degrees": 25.0
+				}
+			},
+			"F04_A_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_A_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.03512444165845713,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F04_A_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_B_ALCOVE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_B_ALCOVE_WINDOW_N": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.75,
+					"raise": 0.3,
+					"tilt_degrees": 38.0
+				}
+			},
+			"F04_B_ALCOVE_WINDOW_W": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.75,
+					"raise": 0.3,
+					"tilt_degrees": 38.0
+				}
+			},
+			"F04_B_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_B_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_B_BATH_WINDOW_E": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F04_B_CLOSET_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_B_CLOSET_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_B_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F04_B_HALL_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_B_KITCHEN_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_B_KITCHEN_WINDOW_W": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.75,
+					"raise": 0.65,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F04_B_LAMP_01": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0,
+					"enabled": true
+				}
+			},
+			"F04_B_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_B_MAIN_WINDOW_W_N": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.75,
+					"raise": 0.3,
+					"tilt_degrees": 38.0
+				}
+			},
+			"F04_B_MAIN_WINDOW_W_S": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.75,
+					"raise": 0.3,
+					"tilt_degrees": 38.0
+				}
+			},
+			"F04_B_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_B_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.04051020637775461,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F04_B_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F04_B_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_C_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_C_BED1_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_C_BED2_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_C_ENTRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_C_KITCHEN_LT_KITCHEN_LINEAR": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_C_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_C_PRIVATE_HALL_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_C_PRIVATE_HALL_BED1_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_C_PRIVATE_HALL_BED2_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_C_PRIVATE_HALL_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_C_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_C_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.045895955575009195,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F04_C_STUDIO_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_C_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_C_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.6,
+					"tilt_degrees": 18.0
+				}
+			},
+			"F04_C_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.6,
+					"tilt_degrees": 18.0
+				}
+			},
+			"F04_C_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.35,
+					"raise": 0.2,
+					"tilt_degrees": 60.0
+				}
+			},
+			"F04_DOOR_02_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_DOOR_03_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_D_BATH_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_D_BED_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_D_BED_STORAGE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_D_BED_WINDOW": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.55,
+					"tilt_degrees": 15.0
+				}
+			},
+			"F04_D_ENTRY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_D_KITCHEN_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_D_MAIN_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_D_MAIN_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_D_MAIN_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_D_MAIN_WINDOW": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.55,
+					"tilt_degrees": 15.0
+				}
+			},
+			"F04_D_PRIVATE_HALL_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_D_PRIVATE_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_D_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.03512444165845713,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F04_D_STUDY_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_D_STUDY_WINDOW": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.55,
+					"tilt_degrees": 15.0
+				}
+			},
+			"F04_D_VESTIBULE_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_D_VESTIBULE_MAIN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_D_VESTIBULE_PRIVATE_HALL_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F04_EAST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_FRONT_GALLERY_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_FRONT_GALLERY_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_FRONT_GALLERY_LT_3": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_FRONT_GALLERY_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F04_FRONT_GALLERY_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F04_FRONT_GALLERY_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F04_FRONT_GALLERY_WINDOW_4": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F04_FRONT_HALL_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_FRONT_HALL_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_FRONT_SERVICE_RETURN_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_FRONT_SERVICE_RETURN_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F04_LANDING_LT_SCONCE": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_SOUTHWEST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F04_WATCH_STATION": {
+				"kind": "mechanism",
+				"value": {
+					"crank_angle": 0.0,
+					"door_angle": 0.0
+				}
+			},
+			"F04_WEST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_5A_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"standards",
+					"atlas",
+					"dressmaking",
+					"switchboard",
+					"barsongs",
+					"walls",
+					"billiards",
+					"knots"
+				]
+			},
+			"F05_5A_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F05_5A_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F05_5A_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F05_5A_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F05_5A_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F05_5A_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F05_5B_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 0.0
+				}
+			},
+			"F05_5B_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F05_5B_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F05_5B_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F05_5B_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F05_5B_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F05_5C_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"glass",
+					"elevator",
+					"missing",
+					"cordcircuits",
+					"radio",
+					"flowers",
+					"sorting",
+					"dressmaking",
+					"standards"
+				]
+			},
+			"F05_5C_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F05_5C_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F05_5C_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F05_5C_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F05_5C_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F05_5C_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F05_A_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_A_BED_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_A_KITCHEN_LT_KITCHEN_LINEAR": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_A_KITCHEN_STUDY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_A_LAMP_01": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0,
+					"enabled": true
+				}
+			},
+			"F05_A_MAIN_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_A_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_A_PRIVATE_HALL_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_A_PRIVATE_HALL_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_A_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_A_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.04051020637775461,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F05_A_STUDY_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_A_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_A_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.75,
+					"tilt_degrees": 15.0
+				}
+			},
+			"F05_A_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.75,
+					"tilt_degrees": 15.0
+				}
+			},
+			"F05_A_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.75,
+					"tilt_degrees": 15.0
+				}
+			},
+			"F05_A_WINDOW_4": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.75,
+					"tilt_degrees": 15.0
+				}
+			},
+			"F05_A_WINDOW_5": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F05_B_ALCOVE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_B_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_B_KITCHEN_LT_KITCHEN_LINEAR": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_B_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_B_PRIVATE_HALL_ALCOVE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_B_PRIVATE_HALL_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_B_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_B_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.045895955575009195,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F05_B_VESTIBULE_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_B_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_B_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.6,
+					"raise": 0.3,
+					"tilt_degrees": 45.0
+				}
+			},
+			"F05_B_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.6,
+					"raise": 0.3,
+					"tilt_degrees": 45.0
+				}
+			},
+			"F05_B_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.6,
+					"raise": 0.3,
+					"tilt_degrees": 45.0
+				}
+			},
+			"F05_B_WINDOW_4": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.6,
+					"raise": 0.65,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F05_C_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_C_BED1_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_C_BED2_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_C_KITCHEN_LT_KITCHEN_LINEAR": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_C_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_C_PRIVATE_HALL_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_C_PRIVATE_HALL_BED1_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_C_PRIVATE_HALL_BED2_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_C_PRIVATE_HALL_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_C_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_C_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.03512444165845713,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F05_C_STUDIO_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_C_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_C_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.8,
+					"tilt_degrees": 8.0
+				}
+			},
+			"F05_C_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.8,
+					"tilt_degrees": 8.0
+				}
+			},
+			"F05_C_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 1.0,
+					"raise": 0.8,
+					"tilt_degrees": 8.0
+				}
+			},
+			"F05_DOOR_02_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_DOOR_03_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_DOOR_05_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_DOOR_06_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F05_D_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.04051020637775461,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F05_EAST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_FRONT_GALLERY_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_FRONT_GALLERY_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_FRONT_GALLERY_LT_3": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_FRONT_GALLERY_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F05_FRONT_GALLERY_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F05_FRONT_GALLERY_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F05_FRONT_GALLERY_WINDOW_4": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F05_FRONT_HALL_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_FRONT_HALL_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_FRONT_SERVICE_RETURN_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_FRONT_SERVICE_RETURN_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F05_LANDING_LT_SCONCE": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_WATCH_STATION": {
+				"kind": "mechanism",
+				"value": {
+					"crank_angle": 0.0,
+					"door_angle": 0.0
+				}
+			},
+			"F05_WEST_HALL_LT_A": {
+				"kind": "light",
+				"value": true
+			},
+			"F05_WEST_HALL_LT_B": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_6A_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"letters",
+					"cordcircuits",
+					"sorting",
+					"elevator",
+					"dreams",
+					"photochem",
+					"minutes"
+				]
+			},
+			"F06_6A_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F06_6A_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F06_6A_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F06_6A_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F06_6A_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F06_6A_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F06_6B_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"flowers",
+					"photochem",
+					"wiring",
+					"nurse",
+					"knots",
+					"deadletter",
+					"switchboard",
+					"sorting"
+				]
+			},
+			"F06_6B_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 4.768371586472142e-09
+				}
+			},
+			"F06_6B_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F06_6B_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F06_6B_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F06_6B_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F06_6B_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F06_6C_BOOKSHELF_01": {
+				"kind": "books",
+				"value": [
+					"walls",
+					"elevator",
+					"dreams",
+					"missing",
+					"glass",
+					"dressmaking",
+					"photochem",
+					"standards",
+					"prospectus"
+				]
+			},
+			"F06_6C_FRIDGE_01": {
+				"kind": "mechanism",
+				"value": {
+					"door": 0.0,
+					"ice": 0.0,
+					"tray": 0.0
+				}
+			},
+			"F06_6C_KITCHEN_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.0949999988079071,
+						0.7770000100135803,
+						-0.04500000178813934
+					],
+					"water": 0.0
+				}
+			},
+			"F06_6C_MIRROR_01": {
+				"kind": "mirror",
+				"value": 0.0
+			},
+			"F06_6C_SHOWER_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"curtain": 0.0,
+					"hot": 0.0
+				}
+			},
+			"F06_6C_SINK_01": {
+				"kind": "mechanism",
+				"value": {
+					"cold": 0.0,
+					"hot": 0.0,
+					"plug": [
+						0.11500000208616257,
+						0.7032237648963928,
+						0.004999999888241291
+					],
+					"water": 0.0
+				}
+			},
+			"F06_6C_STOVE_01": {
+				"kind": "mechanism",
+				"value": {
+					"broiler": 1.4543533322086688e-08,
+					"door": 0.0,
+					"gas": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"lit": [
+						false,
+						false,
+						false,
+						false
+					]
+				}
+			},
+			"F06_A_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_A_BED_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_A_KITCHEN_LT_KITCHEN_LINEAR": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_A_KITCHEN_STUDY_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_A_MAIN_BED_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_A_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_A_PRIVATE_HALL_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_A_PRIVATE_HALL_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_A_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_A_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.045895955575009195,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F06_A_STUDY_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_A_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_A_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.55,
+					"tilt_degrees": 25.0
+				}
+			},
+			"F06_A_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.55,
+					"tilt_degrees": 25.0
+				}
+			},
+			"F06_A_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.55,
+					"tilt_degrees": 25.0
+				}
+			},
+			"F06_A_WINDOW_4": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.55,
+					"tilt_degrees": 25.0
+				}
+			},
+			"F06_A_WINDOW_5": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.0,
+					"raise": 0.0,
+					"tilt_degrees": 75.0
+				}
+			},
+			"F06_B_ALCOVE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_B_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_B_KITCHEN_LT_KITCHEN_LINEAR": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_B_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_B_PRIVATE_HALL_ALCOVE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_B_PRIVATE_HALL_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_B_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_B_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.03512444165845713,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F06_B_VESTIBULE_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_B_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_B_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.55,
+					"tilt_degrees": 22.0
+				}
+			},
+			"F06_B_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.55,
+					"tilt_degrees": 22.0
+				}
+			},
+			"F06_B_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.55,
+					"tilt_degrees": 22.0
+				}
+			},
+			"F06_B_WINDOW_4": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.9,
+					"raise": 0.65,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F06_C_BATH_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_C_BED1_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_C_BED2_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_C_KITCHEN_LT_KITCHEN_LINEAR": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_C_MAIN_LT_PENDANT_SHADE": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_C_PRIVATE_HALL_BATH_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_C_PRIVATE_HALL_BED1_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_C_PRIVATE_HALL_BED2_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_C_PRIVATE_HALL_KITCHEN_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_C_PRIVATE_HALL_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_C_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.04051020637775461,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 2
+				}
+			},
+			"F06_C_STUDIO_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_C_VESTIBULE_LT_FLUSH_DOME": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_C_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.4,
+					"raise": 0.25,
+					"tilt_degrees": 58.0
+				}
+			},
+			"F06_C_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.4,
+					"raise": 0.25,
+					"tilt_degrees": 58.0
+				}
+			},
+			"F06_C_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.4,
+					"raise": 0.25,
+					"tilt_degrees": 58.0
+				}
+			},
+			"F06_DOOR_02_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_DOOR_03_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_DOOR_05_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_DOOR_06_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"F06_D_RADIATOR_01": {
+				"kind": "radiator",
+				"value": {
+					"packing": {
+						"station": 0
+					},
+					"packing_out": 0.0,
+					"packing_spread": 0.0,
+					"pitch": 0.35,
+					"pitch_wedges": {
+						"far": 0.045895955575009195,
+						"supply": 0.0
+					},
+					"service_progress": 0.0,
+					"supply_position": 1.0,
+					"vent_cap": {
+						"loose": false,
+						"thread_version": 2,
+						"turn": 0.0
+					},
+					"vent_grade": 3
+				}
+			},
+			"F06_EAST_HALL_LT": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_FRONT_GALLERY_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_FRONT_GALLERY_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_FRONT_GALLERY_LT_3": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_FRONT_GALLERY_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F06_FRONT_GALLERY_WINDOW_2": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F06_FRONT_GALLERY_WINDOW_3": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F06_FRONT_GALLERY_WINDOW_4": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F06_FRONT_HALL_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_FRONT_HALL_LT_2": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_FRONT_SERVICE_RETURN_LT_1": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_FRONT_SERVICE_RETURN_WINDOW_1": {
+				"kind": "blind",
+				"value": {
+					"curtain_open": 0.85,
+					"raise": 0.5,
+					"tilt_degrees": 20.0
+				}
+			},
+			"F06_LANDING_LT_SCONCE": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_WATCH_STATION": {
+				"kind": "mechanism",
+				"value": {
+					"crank_angle": 0.0,
+					"door_angle": 0.0
+				}
+			},
+			"F06_WEST_HALL_LT_A": {
+				"kind": "light",
+				"value": true
+			},
+			"F06_WEST_HALL_LT_B": {
+				"kind": "light",
+				"value": true
+			},
+			"LobbyMailBank": {
+				"kind": "mechanism",
+				"value": {
+					"door": 1.6580628156661987,
+					"pulls": {
+						"welcome_note": 0.05999999957904655
+					}
+				}
+			},
+			"LobbyPorterBoard": {
+				"kind": "mechanism",
+				"value": {
+					"armed": false,
+					"bank_reset": 0.0,
+					"contact": 0.32,
+					"dispatch": {
+						"spent": [
+							false,
+							false,
+							false,
+							false,
+							false,
+							false,
+							false
+						],
+						"strokes": [
+							0.0,
+							0.0,
+							0.0,
+							0.0,
+							0.0,
+							0.0,
+							0.0
+						]
+					},
+					"flags": [
+						0.4537856055185257,
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"reset": 0.0,
+					"stuck": true,
+					"version": 2
+				}
+			},
+			"LobbyServiceDumbwaiter": {
+				"kind": "mechanism",
+				"value": {
+					"band_seated": false,
+					"brake_bite": 0.34,
+					"car_travel": 0.0,
+					"pawl_lift": 0.0,
+					"rope_strain": 0.0
+				}
+			},
+			"ROOF_PUBLIC_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"ROOF_SERVICE_DOOR_Leaf": {
+				"kind": "mechanism",
+				"value": {
+					"angle": 0.0
+				}
+			},
+			"ROOF_TANK_BALLCOCK": {
+				"kind": "tank_service",
+				"value": {
+					"completed": false,
+					"mechanism": {
+						"ballcock_serviced": false,
+						"float_lift": 0.0,
+						"float_waterlogged": true,
+						"riser_open": true,
+						"stop_angle": 0.0,
+						"tell_tale": 0.0,
+						"weight_set": 0.18
+					}
+				}
+			}
+		},
+		"schema_version": 1
+	},
+	"version": 4,
+	"waking_residues": {},
+	"work_orders": {}
+}

@@ -22,6 +22,8 @@ class Requirements(unittest.TestCase):
             'art/blender/city_horizon_near.blend',
             'art/blender/city_horizon_far.blend',
             'art/blender/city_horizon_construction.json',
+            'art/blender/house_switchboard.blend',
+            'art/blender/house_switchboard_construction.json',
         ]:
             with self.subTest(relative=relative):
                 target=ROOT/relative

@@ -9,6 +9,22 @@ no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not
 proof of the current interaction contract.
 
+For a new native family, put imported UV metrics, normal/tangent derivatives
+and loaded-map checks in the first small family bench, together with its
+windowed hand controls where practical. A source GLB UV pass does not establish
+Godot's imported precision. Resolve any measured compression/import changes
+before spending a full composed build on route or save/rebuild qualification.
+Keep that small original failure when a source or import correction is needed.
+
+Before adding a partial-travel operation to a shared route, inspect the input
+driver's final-step behavior. A fixed six-centimetre/radian gesture can oscillate
+around an otherwise valid intermediate position; reduce only the final mouse
+event to the remaining travel, retaining real input and the mechanism's exact
+stop checks. Review the full nearby fitted envelopes when planning a bypass:
+a wall-mounted hose cabinet can obstruct a route that clears its riser pipe.
+Use the recorded collision owner and authored bounds before choosing another
+route, rather than repeatedly guessing nearby coordinates in full world runs.
+
 For city massing changes, the owning **build_city_elevations.py** must pass
 all native roof-bearing footprint and recessed-pane BVH rays before export.
 Retired cornices may still carry a guy anchor: retain a fitted local bearing

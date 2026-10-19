@@ -1,5 +1,6 @@
 class_name MailBankProp
 extends Node3D
+signal manipulation_changed
 ## The lobby mail bank, Cutler-descended: a Couch-pattern cast-brass grid
 ## of tenant boxes in a wood surround, built prop-side so the player's own
 ## box can actually open. Twenty-four doors, one per unit; typed name cards from the
@@ -58,6 +59,8 @@ var _brass: StandardMaterial3D
 var _brass_dark: StandardMaterial3D
 var _fixed: Node3D
 var _native_content_meshes: Dictionary = {}
+var _hand_controls: RefCounted
+var _door_tween: Tween
 
 
 func _ready() -> void:
@@ -73,6 +76,24 @@ func _ready() -> void:
 			push_error("ORISON V2: native mail bank refused")
 	_panel = CaseDialoguePanel.new()
 	add_child(_panel)
+	if bool(get_meta("v2_mail_bank_visuals",false)):
+		_hand_controls=preload("res://scripts/props/mail_bank_hand_controls.gd").new()
+		_hand_controls.bind(self)
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	return _hand_controls.target_for_hit(hit) if _hand_controls!=null else {"legacy":true}
+
+func mechanism_snapshot() -> Dictionary:
+	return _hand_controls.snapshot() if _hand_controls!=null else {"door":_hinge.rotation.y,"pulls":{}}
+
+func valid_mechanism(value: Variant) -> bool:
+	return _hand_controls!=null and _hand_controls.valid(value)
+
+func restore_mechanism(value: Dictionary) -> void:
+	if _hand_controls!=null:_hand_controls.restore(value)
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(-.20,1.50,-.58)),"at":to_global(Vector3(-.155,1.405,-.08)),"fov":55.}
 
 
 ## This is architectural hardware rather than a layout-marker family, but it
@@ -460,6 +481,7 @@ func _due(when: Dictionary) -> bool:
 
 
 func interact_prompt() -> String:
+	if bool(get_meta("v2_mail_bank_visuals",false)):return ""
 	var count := pending().size()
 	if not door_open:
 		return "Check box 4B — %d waiting" % count if count > 0 \
@@ -492,7 +514,7 @@ func _offer_next() -> void:
 			])
 
 
-func _take(item: Dictionary) -> void:
+func _take(item: Dictionary,physical := false) -> void:
 	var taken: Array = RealityState.data.get("mail_taken", [])
 	taken.append(str(item.id))
 	RealityState.data["mail_taken"] = taken
@@ -505,6 +527,7 @@ func _take(item: Dictionary) -> void:
 		print("[MAIL] upgrade acquired: %s" % upgrade)
 	RealityState.commit()
 	_refresh_contents()
+	if physical:return
 	if pending().is_empty():
 		_set_door(false)
 	else:
@@ -512,8 +535,11 @@ func _take(item: Dictionary) -> void:
 
 
 func _set_door(open: bool) -> void:
+	if _hand_controls!=null and not _hand_controls.held.is_empty():return
+	if _door_tween!=null and _door_tween.is_valid():_door_tween.kill()
 	door_open = open
-	create_tween().tween_property(_hinge, "rotation:y",
+	_door_tween=create_tween()
+	_door_tween.tween_property(_hinge, "rotation:y",
 			deg_to_rad(95.0) if open else 0.0, 0.4) \
 			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	_refresh_contents()
@@ -525,6 +551,7 @@ func _refresh_contents() -> void:
 	if _contents == null:
 		return
 	for old in _contents.get_children():
+		_contents.remove_child(old)
 		old.queue_free()
 	var slot := 0
 	for item in pending():
@@ -545,6 +572,7 @@ func _refresh_contents() -> void:
 						Vector3(0.125, 0.010, 0.085),
 						Color(0.88, 0.85, 0.76), "EnvelopeStock")
 				slot += 1
+	if _hand_controls!=null:_hand_controls.refresh_contents()
 
 
 func _content_box(at: Vector3, size: Vector3, color: Color, stock := "") -> void:

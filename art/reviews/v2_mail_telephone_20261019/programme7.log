@@ -1,0 +1,419 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ACCESS COHORT CHECK: bind current production inputs = true
+ACCESS COHORT CHECK: bind current geometry/surface inputs = true
+ACCESS COHORT CHECK: actual entry scene is source-bound = true
+ACCESS COHORT CHECK: valid opening-day daytime fixture = true
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1486 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2635
+[ORISON V2 RUNTIME] ready startup_ms=90257.478
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+ACCESS COHORT CHECK: production-selected V2 composition starts = true
+[HARUKIYA] CLOSED, 18 fixtures
+PROGRAMME ROUTE: {"actual":[-1.70353364944458,0.000822311849333346,-3.30267906188965],"ok":true,"on_floor":true,"physics_steps":41,"target":[-1.79999995231628,0.0,-3.29999995231628],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-1.8, 0.0, -3.3) = true
+PROGRAMME ROUTE: {"actual":[-1.79481518268585,0.000822311849333346,-1.59688854217529],"ok":true,"on_floor":true,"physics_steps":41,"target":[-1.79999995231628,0.0,-1.5],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-1.8, 0.0, -1.5) = true
+PROGRAMME ROUTE: {"actual":[-4.50284576416016,0.000822311849333346,-1.50335597991943],"ok":true,"on_floor":true,"physics_steps":61,"target":[-4.59999990463257,0.0,-1.5],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-4.6, 0.0, -1.5) = true
+PROGRAMME ROUTE: {"actual":[-4.8595232963562,0.000822311849333346,-2.30861663818359],"ok":true,"on_floor":true,"physics_steps":24,"target":[-4.90000009536743,0.0,-2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-4.9, 0.0, -2.4) = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F01_WATCH_MAIL_DOOR = true
+PROGRAMME ROUTE: {"actual":[-6.10440254211426,0.000822311849333346,-2.39348125457764],"ok":true,"on_floor":true,"physics_steps":33,"target":[-6.19999980926514,0.0,-2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-6.2, 0.0, -2.4) = true
+PROGRAMME ROUTE: {"actual":[-7.00399112701416,0.000822311849333346,-2.39937019348145],"ok":true,"on_floor":true,"physics_steps":25,"target":[-7.09999990463257,0.0,-2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.1, 0.0, -2.4) = true
+CONNECTED EXTERIOR CHECK: actual reached standing view captured: mail_telephone = true
+PROGRAMME ROUTE: {"actual":[-7.28131437301636,0.000822311849333346,-0.947803497314453],"ok":true,"on_floor":true,"physics_steps":37,"target":[-7.30000019073486,0.0,-0.850000023841858],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.3, 0.0, -0.85) = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F01_MAIL_PACKAGE_DOOR = true
+PROGRAMME ROUTE: {"actual":[-7.29929447174072,0.000822311849333346,1.50377750396729],"ok":true,"on_floor":true,"physics_steps":57,"target":[-7.30000019073486,0.0,1.60000002384186],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.3, 0.0, 1.6) = true
+PROGRAMME ROUTE: {"actual":[-7.7514796257019,0.000822311849333346,2.31315422058105],"ok":true,"on_floor":true,"physics_steps":25,"target":[-7.80000019073486,0.0,2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.8, 0.0, 2.4) = true
+CONNECTED EXTERIOR CHECK: actual reached standing view captured: parcel_package = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F01_PACKAGE_COMMON_DOOR = true
+PROGRAMME ROUTE: {"actual":[-10.2036294937134,0.000822311849333346,2.3967170715332],"ok":true,"on_floor":true,"physics_steps":57,"target":[-10.3000001907349,0.0,2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-10.3, 0.0, 2.4) = true
+PROGRAMME ROUTE: {"actual":[-10.2928314208984,0.000822311849333346,3.60305404663086],"ok":true,"on_floor":true,"physics_steps":31,"target":[-10.3000001907349,0.0,3.70000004768372],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-10.3, 0.0, 3.7) = true
+PROGRAMME ROUTE: {"actual":[-12.3025960922241,0.000822311849333346,3.69551849365234],"ok":true,"on_floor":true,"physics_steps":47,"target":[-12.3999996185303,0.0,3.70000004768372],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-12.4, 0.0, 3.7) = true
+CONNECTED EXTERIOR CHECK: actual reached standing view captured: common_reading = true
+CONNECTED EXTERIOR CHECK: actual reached standing view captured: common_return = true
+PROGRAMME ROUTE: {"actual":[-10.3967256546021,0.000822311849333346,3.69978427886963],"ok":true,"on_floor":true,"physics_steps":46,"target":[-10.3000001907349,0.0,3.70000004768372],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-10.3, 0.0, 3.7) = true
+PROGRAMME ROUTE: {"actual":[-10.3071842193604,0.000822311849333346,2.49654674530029],"ok":true,"on_floor":true,"physics_steps":31,"target":[-10.3000001907349,0.0,2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-10.3, 0.0, 2.4) = true
+PROGRAMME ROUTE: {"actual":[-7.89739227294922,0.000822311849333346,2.40375137329102],"ok":true,"on_floor":true,"physics_steps":55,"target":[-7.80000019073486,0.0,2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.8, 0.0, 2.4) = true
+PROGRAMME ROUTE: {"actual":[-7.3576192855835,0.000822311849333346,1.67752361297607],"ok":true,"on_floor":true,"physics_steps":25,"target":[-7.30000019073486,0.0,1.60000002384186],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.3, 0.0, 1.6) = true
+PROGRAMME ROUTE: {"actual":[-7.30227136611938,0.000822311849333346,-0.750361442565918],"ok":true,"on_floor":true,"physics_steps":55,"target":[-7.30000019073486,0.0,-0.850000023841858],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.3, 0.0, -0.85) = true
+PROGRAMME ROUTE: {"actual":[-7.11190319061279,0.000822311849333346,-2.30292129516602],"ok":true,"on_floor":true,"physics_steps":38,"target":[-7.09999990463257,0.0,-2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.1, 0.0, -2.4) = true
+PROGRAMME ROUTE: {"actual":[-4.99794578552246,0.000822311849333346,-2.39570236206055],"ok":true,"on_floor":true,"physics_steps":49,"target":[-4.90000009536743,0.0,-2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-4.9, 0.0, -2.4) = true
+PROGRAMME ROUTE: {"actual":[-4.63020038604736,0.000860635424032807,-1.59163570404053],"ok":true,"on_floor":true,"physics_steps":25,"target":[-4.59999990463257,0.0,-1.5],"wall_contacts":{"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/F01_RITUAL_WIRE_COLUMN/Collision":"(5.030001, 1.194938, -9.899999)"}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-4.6, 0.0, -1.5) = true
+PROGRAMME ROUTE: {"actual":[-1.89491498470306,0.000860498927067965,-1.50226974487305],"ok":true,"on_floor":true,"physics_steps":62,"target":[-1.79999995231628,0.0,-1.5],"wall_contacts":{"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/F01_watch_chair":"(3.468001, 0.9653, -9.7779)"}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-1.8, 0.0, -1.5) = true
+PROGRAMME ROUTE: {"actual":[-1.80508553981781,0.000860498927067965,-3.20368003845215],"ok":true,"on_floor":true,"physics_steps":41,"target":[-1.79999995231628,0.0,-3.29999995231628],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-1.8, 0.0, -3.3) = true
+PROGRAMME ROUTE: {"actual":[1.82964015007019,0.000860498927067965,-3.49242401123047],"ok":true,"on_floor":true,"physics_steps":80,"target":[1.92499995231628,0.0,-3.5],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (1.925, 0.0, -3.5) = true
+CONNECTED EXTERIOR CHECK: production leaf exists: B1_STORAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: B1_STORAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: B1_STORAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: B1_STORAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: B1_STORAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: B1_STORAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: B1_STORAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: production leaf exists: B1_ELECTRICAL_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: B1_ELECTRICAL_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: B1_ELECTRICAL_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: B1_ELECTRICAL_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: B1_ELECTRICAL_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: B1_ELECTRICAL_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: B1_ELECTRICAL_DOOR = true
+CONNECTED EXTERIOR CHECK: production fuse panel mounted = true
+FUSE HAND CHECK: cabinet opened by hand for unobstructed inspection = true
+FUSE HAND CHECK: full repair uses static inspection and freely selected cursor targets = true
+FUSE HAND CHECK: actual original thirty-amp plug can be grabbed = true
+FUSE HAND CHECK: live holder refuses physical unscrewing with audible feedback = true
+FUSE HAND CHECK: physical main opens completely before fuse withdrawal = true
+FUSE HAND CHECK: isolated original plug acquired = true
+FUSE HAND CHECK: counterclockwise drag backs out the real threaded plug = true
+FUSE HAND CHECK: partly unscrewed plug is not a protected electrical contact = true
+FUSE HAND CHECK: released threaded plug reacquired = true
+FUSE HAND CHECK: save restoration revokes a stale fuse hand = true
+FUSE HAND CHECK: restored partly threaded plug acquired = true
+FUSE HAND CHECK: counterclockwise rotation clears final thread = true
+FUSE HAND CHECK: released withdrawn plug leaves a genuinely empty holder = true
+FUSE HAND CHECK: removed plug becomes a free object = true
+FUSE HAND CHECK: mouse wheel pulls loose plug clear of panel face = true
+FUSE HAND CHECK: removed fuse clears the rack across the face = true
+FUSE HAND CHECK: removed fuse carried down beside spare rack = true
+FUSE HAND CHECK: removed fuse passes in front of rack lip = true
+FUSE HAND CHECK: removed fuse pushed onto lower shelf above lip = true
+FUSE HAND CHECK: removed fuse brought to empty rack place = true
+FUSE HAND CHECK: removed original rests in the physical spare rack = true
+FUSE HAND CHECK: twenty-amp spare is a separate selectable object = true
+FUSE HAND CHECK: spare raised above shelf retaining lip = true
+FUSE HAND CHECK: spare lifted clear of shelf lip = true
+FUSE HAND CHECK: oversized spare offered at actual holder mouth = true
+FUSE HAND CHECK: oversized repair is refused by retained service authority = true
+FUSE HAND CHECK: refused spare remains a real recoverable object = true
+FUSE HAND CHECK: refused spare carried in front of rack = true
+FUSE HAND CHECK: refused spare pushed above shelf lip = true
+FUSE HAND CHECK: refused spare returned to rack = true
+FUSE HAND CHECK: marked fifteen-amp spare selected physically = true
+FUSE HAND CHECK: correct spare raised above shelf retaining lip = true
+FUSE HAND CHECK: correct spare lifted clear of shelf lip = true
+FUSE HAND CHECK: correct plug delivered to holder mouth = true
+FUSE HAND CHECK: thread caught, but loose replacement is not yet electrically seated = true
+FUSE HAND CHECK: replacement thread acquired = true
+FUSE HAND CHECK: clockwise mouse motion screws correct plug home = true
+FUSE HAND CHECK: correct seating alone does not claim load proof = true
+FUSE HAND CHECK: physical main restores load = true
+FUSE HAND CHECK: contact closure alone does not bypass load proving time = true
+FUSE HAND CHECK: full repair publishes through original authority without a minigame = true
+FUSE HAND CHECK: completed physical state satisfies strict save schema = true
+FUSE HAND CHECK: serialized physical identities and protection reconstruct = true
+FUSE HAND CHECK: inspection camera stays fixed through complete repair = true
+CONNECTED EXTERIOR CHECK: fuse service: cabinet opened by hand for unobstructed inspection = true
+CONNECTED EXTERIOR CHECK: fuse service: full repair uses static inspection and freely selected cursor targets = true
+CONNECTED EXTERIOR CHECK: fuse service: actual original thirty-amp plug can be grabbed = true
+CONNECTED EXTERIOR CHECK: fuse service: live holder refuses physical unscrewing with audible feedback = true
+CONNECTED EXTERIOR CHECK: fuse service: physical main opens completely before fuse withdrawal = true
+CONNECTED EXTERIOR CHECK: fuse service: isolated original plug acquired = true
+CONNECTED EXTERIOR CHECK: fuse service: counterclockwise drag backs out the real threaded plug = true
+CONNECTED EXTERIOR CHECK: fuse service: partly unscrewed plug is not a protected electrical contact = true
+CONNECTED EXTERIOR CHECK: fuse service: released threaded plug reacquired = true
+CONNECTED EXTERIOR CHECK: fuse service: save restoration revokes a stale fuse hand = true
+CONNECTED EXTERIOR CHECK: fuse service: restored partly threaded plug acquired = true
+CONNECTED EXTERIOR CHECK: fuse service: counterclockwise rotation clears final thread = true
+CONNECTED EXTERIOR CHECK: fuse service: released withdrawn plug leaves a genuinely empty holder = true
+CONNECTED EXTERIOR CHECK: fuse service: removed plug becomes a free object = true
+CONNECTED EXTERIOR CHECK: fuse service: mouse wheel pulls loose plug clear of panel face = true
+CONNECTED EXTERIOR CHECK: fuse service: removed fuse clears the rack across the face = true
+CONNECTED EXTERIOR CHECK: fuse service: removed fuse carried down beside spare rack = true
+CONNECTED EXTERIOR CHECK: fuse service: removed fuse passes in front of rack lip = true
+CONNECTED EXTERIOR CHECK: fuse service: removed fuse pushed onto lower shelf above lip = true
+CONNECTED EXTERIOR CHECK: fuse service: removed fuse brought to empty rack place = true
+CONNECTED EXTERIOR CHECK: fuse service: removed original rests in the physical spare rack = true
+CONNECTED EXTERIOR CHECK: fuse service: twenty-amp spare is a separate selectable object = true
+CONNECTED EXTERIOR CHECK: fuse service: spare raised above shelf retaining lip = true
+CONNECTED EXTERIOR CHECK: fuse service: spare lifted clear of shelf lip = true
+CONNECTED EXTERIOR CHECK: fuse service: oversized spare offered at actual holder mouth = true
+CONNECTED EXTERIOR CHECK: fuse service: oversized repair is refused by retained service authority = true
+CONNECTED EXTERIOR CHECK: fuse service: refused spare remains a real recoverable object = true
+CONNECTED EXTERIOR CHECK: fuse service: refused spare carried in front of rack = true
+CONNECTED EXTERIOR CHECK: fuse service: refused spare pushed above shelf lip = true
+CONNECTED EXTERIOR CHECK: fuse service: refused spare returned to rack = true
+CONNECTED EXTERIOR CHECK: fuse service: marked fifteen-amp spare selected physically = true
+CONNECTED EXTERIOR CHECK: fuse service: correct spare raised above shelf retaining lip = true
+CONNECTED EXTERIOR CHECK: fuse service: correct spare lifted clear of shelf lip = true
+CONNECTED EXTERIOR CHECK: fuse service: correct plug delivered to holder mouth = true
+CONNECTED EXTERIOR CHECK: fuse service: thread caught, but loose replacement is not yet electrically seated = true
+CONNECTED EXTERIOR CHECK: fuse service: replacement thread acquired = true
+CONNECTED EXTERIOR CHECK: fuse service: clockwise mouse motion screws correct plug home = true
+CONNECTED EXTERIOR CHECK: fuse service: correct seating alone does not claim load proof = true
+CONNECTED EXTERIOR CHECK: fuse service: physical main restores load = true
+CONNECTED EXTERIOR CHECK: fuse service: contact closure alone does not bypass load proving time = true
+CONNECTED EXTERIOR CHECK: fuse service: full repair publishes through original authority without a minigame = true
+CONNECTED EXTERIOR CHECK: fuse service: completed physical state satisfies strict save schema = true
+CONNECTED EXTERIOR CHECK: fuse service: serialized physical identities and protection reconstruct = true
+CONNECTED EXTERIOR CHECK: fuse service: inspection camera stays fixed through complete repair = true
+CONNECTED EXTERIOR CHECK: physical panel service returns ordinary movement without overlay = true
+CONNECTED EXTERIOR CHECK: production leaf exists: B1_SHOP_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: B1_SHOP_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: B1_SHOP_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: B1_SHOP_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: B1_SHOP_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: B1_SHOP_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: B1_SHOP_DOOR = true
+CONNECTED EXTERIOR CHECK: production leaf exists: B1_SHOP_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: B1_SHOP_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: B1_SHOP_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: B1_SHOP_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: B1_SHOP_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: B1_SHOP_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: B1_SHOP_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: production leaf exists: B1_BOILER_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: B1_BOILER_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: B1_BOILER_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: B1_BOILER_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: B1_BOILER_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: B1_BOILER_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: B1_BOILER_STAIR_DOOR = true
+CONNECTED EXTERIOR CHECK: production leaf exists: B1_COAL_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: B1_COAL_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: B1_COAL_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: B1_COAL_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: B1_COAL_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: B1_COAL_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: B1_COAL_DOOR = true
+CONNECTED EXTERIOR CHECK: production leaf exists: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: service circuit retains actual collision = true
+PROGRAMME ROUTE: {"actual":[5.09618663787842,-3.19916701316834,-0.400027275085449],"ok":true,"on_floor":true,"physics_steps":73,"target":[5.0,-3.20000004768372,-0.400000005960464],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (5.0, -3.2, -0.4) = true
+PROGRAMME ROUTE: {"actual":[4.99995279312134,-3.19905710220337,-3.00138759613037],"ok":true,"on_floor":true,"physics_steps":59,"target":[5.0,-3.20000004768372,-3.09999990463257],"wall_contacts":{"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/WallSouth_00/Collision":"(-5.399999, -2.005059, -10.72)","/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/B1_ELECTRICAL/WallWest_00/Collision":"(-5.329999, -2.005057, -8.648612)"}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (5.0, -3.2, -3.1) = true
+PROGRAMME ROUTE: {"actual":[4.49606370925903,-3.19905710220337,-3.08420944213867],"ok":true,"on_floor":true,"physics_steps":17,"target":[4.40000009536743,-3.20000004768372,-3.09999990463257],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (4.4, -3.2, -3.1) = true
+PROGRAMME ROUTE: {"actual":[4.46323537826538,-3.19905710220337,-3.22630214691162],"ok":false,"on_floor":true,"physics_steps":360,"target":[4.40000009536743,-3.20000004768372,-3.5],"wall_contacts":{"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/B1_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29610/NativeCaseCollision":"(-4.46191, -1.999984, -8.088)"}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (4.4, -3.2, -3.5) = false
+ACCESS COHORT CHECK: ordinary controller reaches (-1.8, 0.0, -3.3) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-1.8, 0.0, -1.5) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-4.6, 0.0, -1.5) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-4.9, 0.0, -2.4) = true
+ACCESS COHORT CHECK: production leaf exists: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: ordinary controller reaches (-6.2, 0.0, -2.4) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.1, 0.0, -2.4) = true
+ACCESS COHORT CHECK: actual reached standing view captured: mail_telephone = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.3, 0.0, -0.85) = true
+ACCESS COHORT CHECK: production leaf exists: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.3, 0.0, 1.6) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.8, 0.0, 2.4) = true
+ACCESS COHORT CHECK: actual reached standing view captured: parcel_package = true
+ACCESS COHORT CHECK: production leaf exists: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: ordinary controller reaches (-10.3, 0.0, 2.4) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-10.3, 0.0, 3.7) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-12.4, 0.0, 3.7) = true
+ACCESS COHORT CHECK: actual reached standing view captured: common_reading = true
+ACCESS COHORT CHECK: actual reached standing view captured: common_return = true
+ACCESS COHORT CHECK: ordinary controller reaches (-10.3, 0.0, 3.7) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-10.3, 0.0, 2.4) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.8, 0.0, 2.4) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.3, 0.0, 1.6) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.3, 0.0, -0.85) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.1, 0.0, -2.4) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-4.9, 0.0, -2.4) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-4.6, 0.0, -1.5) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-1.8, 0.0, -1.5) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-1.8, 0.0, -3.3) = true
+ACCESS COHORT CHECK: ordinary controller reaches (1.925, 0.0, -3.5) = true
+ACCESS COHORT CHECK: production leaf exists: B1_STORAGE_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: B1_STORAGE_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: B1_STORAGE_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: B1_STORAGE_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: B1_STORAGE_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: B1_STORAGE_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: B1_STORAGE_DOOR = true
+ACCESS COHORT CHECK: production leaf exists: B1_ELECTRICAL_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: B1_ELECTRICAL_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: B1_ELECTRICAL_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: B1_ELECTRICAL_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: B1_ELECTRICAL_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: B1_ELECTRICAL_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: B1_ELECTRICAL_DOOR = true
+ACCESS COHORT CHECK: production fuse panel mounted = true
+ACCESS COHORT CHECK: fuse service: cabinet opened by hand for unobstructed inspection = true
+ACCESS COHORT CHECK: fuse service: full repair uses static inspection and freely selected cursor targets = true
+ACCESS COHORT CHECK: fuse service: actual original thirty-amp plug can be grabbed = true
+ACCESS COHORT CHECK: fuse service: live holder refuses physical unscrewing with audible feedback = true
+ACCESS COHORT CHECK: fuse service: physical main opens completely before fuse withdrawal = true
+ACCESS COHORT CHECK: fuse service: isolated original plug acquired = true
+ACCESS COHORT CHECK: fuse service: counterclockwise drag backs out the real threaded plug = true
+ACCESS COHORT CHECK: fuse service: partly unscrewed plug is not a protected electrical contact = true
+ACCESS COHORT CHECK: fuse service: released threaded plug reacquired = true
+ACCESS COHORT CHECK: fuse service: save restoration revokes a stale fuse hand = true
+ACCESS COHORT CHECK: fuse service: restored partly threaded plug acquired = true
+ACCESS COHORT CHECK: fuse service: counterclockwise rotation clears final thread = true
+ACCESS COHORT CHECK: fuse service: released withdrawn plug leaves a genuinely empty holder = true
+ACCESS COHORT CHECK: fuse service: removed plug becomes a free object = true
+ACCESS COHORT CHECK: fuse service: mouse wheel pulls loose plug clear of panel face = true
+ACCESS COHORT CHECK: fuse service: removed fuse clears the rack across the face = true
+ACCESS COHORT CHECK: fuse service: removed fuse carried down beside spare rack = true
+ACCESS COHORT CHECK: fuse service: removed fuse passes in front of rack lip = true
+ACCESS COHORT CHECK: fuse service: removed fuse pushed onto lower shelf above lip = true
+ACCESS COHORT CHECK: fuse service: removed fuse brought to empty rack place = true
+ACCESS COHORT CHECK: fuse service: removed original rests in the physical spare rack = true
+ACCESS COHORT CHECK: fuse service: twenty-amp spare is a separate selectable object = true
+ACCESS COHORT CHECK: fuse service: spare raised above shelf retaining lip = true
+ACCESS COHORT CHECK: fuse service: spare lifted clear of shelf lip = true
+ACCESS COHORT CHECK: fuse service: oversized spare offered at actual holder mouth = true
+ACCESS COHORT CHECK: fuse service: oversized repair is refused by retained service authority = true
+ACCESS COHORT CHECK: fuse service: refused spare remains a real recoverable object = true
+ACCESS COHORT CHECK: fuse service: refused spare carried in front of rack = true
+ACCESS COHORT CHECK: fuse service: refused spare pushed above shelf lip = true
+ACCESS COHORT CHECK: fuse service: refused spare returned to rack = true
+ACCESS COHORT CHECK: fuse service: marked fifteen-amp spare selected physically = true
+ACCESS COHORT CHECK: fuse service: correct spare raised above shelf retaining lip = true
+ACCESS COHORT CHECK: fuse service: correct spare lifted clear of shelf lip = true
+ACCESS COHORT CHECK: fuse service: correct plug delivered to holder mouth = true
+ACCESS COHORT CHECK: fuse service: thread caught, but loose replacement is not yet electrically seated = true
+ACCESS COHORT CHECK: fuse service: replacement thread acquired = true
+ACCESS COHORT CHECK: fuse service: clockwise mouse motion screws correct plug home = true
+ACCESS COHORT CHECK: fuse service: correct seating alone does not claim load proof = true
+ACCESS COHORT CHECK: fuse service: physical main restores load = true
+ACCESS COHORT CHECK: fuse service: contact closure alone does not bypass load proving time = true
+ACCESS COHORT CHECK: fuse service: full repair publishes through original authority without a minigame = true
+ACCESS COHORT CHECK: fuse service: completed physical state satisfies strict save schema = true
+ACCESS COHORT CHECK: fuse service: serialized physical identities and protection reconstruct = true
+ACCESS COHORT CHECK: fuse service: inspection camera stays fixed through complete repair = true
+ACCESS COHORT CHECK: physical panel service returns ordinary movement without overlay = true
+ACCESS COHORT CHECK: production leaf exists: B1_SHOP_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: B1_SHOP_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: B1_SHOP_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: B1_SHOP_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: B1_SHOP_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: B1_SHOP_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: B1_SHOP_DOOR = true
+ACCESS COHORT CHECK: production leaf exists: B1_SHOP_STAIR_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: B1_SHOP_STAIR_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: B1_SHOP_STAIR_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: B1_SHOP_STAIR_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: B1_SHOP_STAIR_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: B1_SHOP_STAIR_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: B1_SHOP_STAIR_DOOR = true
+ACCESS COHORT CHECK: production leaf exists: B1_BOILER_STAIR_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: B1_BOILER_STAIR_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: B1_BOILER_STAIR_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: B1_BOILER_STAIR_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: B1_BOILER_STAIR_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: B1_BOILER_STAIR_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: B1_BOILER_STAIR_DOOR = true
+ACCESS COHORT CHECK: production leaf exists: B1_COAL_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: B1_COAL_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: B1_COAL_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: B1_COAL_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: B1_COAL_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: B1_COAL_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: B1_COAL_DOOR = true
+ACCESS COHORT CHECK: production leaf exists: B1_BOILER_FIRE_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: B1_BOILER_FIRE_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: B1_BOILER_FIRE_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: B1_BOILER_FIRE_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: B1_BOILER_FIRE_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: B1_BOILER_FIRE_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: B1_BOILER_FIRE_DOOR = true
+ACCESS COHORT CHECK: service circuit retains actual collision = true
+ACCESS COHORT CHECK: ordinary controller reaches (5.0, -3.2, -0.4) = true
+ACCESS COHORT CHECK: ordinary controller reaches (5.0, -3.2, -3.1) = true
+ACCESS COHORT CHECK: ordinary controller reaches (4.4, -3.2, -3.1) = true
+ACCESS COHORT CHECK: ordinary controller reaches (4.4, -3.2, -3.5) = false
+ACCESS COHORT CHECK: one complete collision-bearing shared programme route = false
+ACCESS COHORT CHECK: actual walk reaches authored programme room: F01_MAIL_TELEPHONE = true
+ACCESS COHORT CHECK: actual walk reaches authored programme room: F01_PACKAGE = true
+ACCESS COHORT CHECK: actual walk reaches authored programme room: F01_COMMON_B = true
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_LAUNDRY = false
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_COAL_ROOM = true
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_ELECTRICAL = true
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_MAINTENANCE_SHOP = true
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_RESIDENT_STORAGE = true
+ACCESS COHORT CHECK: root and programme driver retire = true
+ACCESS COHORT CHECK: bind current production inputs = true
+ACCESS COHORT CHECK: bind current geometry/surface inputs = true
+ACCESS COHORT CHECK: production and surface inputs stay fixed = true
+ACCESS COHORT CHECK: actual entry scene is source-bound = true
+ACCESS COHORT CHECK: complete original programme test closure stays fixed = true
+ACCESS COHORT CHECK: record repository provenance = true
+ACCESS COHORT CHECK: explicit writable receipt destination = true
+ACCESS COHORT CHECK: open cohort runtime contract = true
+V2 SERVICE PROGRAMME CONTRACT: FAIL rooms=7 failures=3

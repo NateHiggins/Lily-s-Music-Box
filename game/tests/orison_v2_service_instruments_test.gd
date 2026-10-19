@@ -19,7 +19,11 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_service_instruments.json"))
 	check(FileAccess.get_sha256(str(fixture.runtime.asset))==fixture.asset_sha256,"native instrument export bound")
 	var factory: RefCounted = world.adapter.root.get_meta("v2_native_service_instruments")
-	check(factory.installed.size()==fixture.runtime.actors.size(),"all source instruments fabricated")
+	check(factory.installed.size()+factory.native_replacements.size()==fixture.runtime.actors.size(),"every source instrument has an installed payload or explicit native successor")
+	check(factory.native_replacements.keys()==["F01_HOUSE_TELEPHONE_BOARD"],"only the declared telephone has a separate native owner")
+	for replacement: Dictionary in factory.native_replacements.values():
+		var actor: HouseSwitchboardProp=replacement.actor.get_ref() as HouseSwitchboardProp
+		check(actor!=null and actor.native_switchboard_ready() and replacement.parts==59 and replacement.asset=="res://assets/props/house_switchboard.glb","telephone successor retains complete native stock and physical controls")
 	var work_lights: RefCounted = world.adapter.root.get_meta("v2_native_service_work_lights")
 	check(work_lights.installed.size()==6,"four alley and two shed lights reuse fitted native cages")
 	var captured_variants := {}
@@ -162,10 +166,12 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		"request lamp preserves custom PBR maps while changing its pigment")
 	check(asking_finish!=lamp_finish and asking_finish.albedo_color.is_equal_approx(Color(1.,.28,.035)),
 		"request lamp changes only its private state tint")
-	check(telephone.interact().accepted and telephone.interact().accepted,"original board answers and carries line")
-	check(telephone._cord.visible and not is_zero_approx(telephone._key.rotation.z),"native continuous cord and trunk key follow carrying state")
-	check(telephone.interact().accepted and not telephone._cord.visible,"original board releases and conceals native cord")
-	contract_checks.append("telephone request, answer, carry, visible cord and release")
+	var plug_before: Array=telephone._hand_controls.plugs.map(func(part):return part.transform)
+	var key_before: Transform3D=telephone._key.transform
+	check(line.answer("house_board") and line.carry("outside_trunk"),"retained telephone authority accepts answer and trunk API events")
+	check(telephone._cord.visible and telephone._key.transform==key_before and telephone._hand_controls.plugs.map(func(part):return part.transform)==plug_before,"network callbacks do not move physical plugs or the listening key")
+	check(line.release("house_board") and telephone._cord.visible,"releasing the network retains physical cord stock")
+	contract_checks.append("telephone network API and unchanged physical stock; actual input is exercised separately")
 	var dumbwaiter := world.find_child("LobbyServiceDumbwaiter",true,false) as DumbwaiterProp
 	var lift_before := dumbwaiter.maintenance_snapshot()
 	dumbwaiter.preview_maintenance_step({"id":"ease_pawl"},1.)

@@ -1,0 +1,6 @@
+ERROR: ORISON V2 RUNTIME: service instrument fabrication refused: ["source mesh count: F01_HOUSE_TELEPHONE_BOARD"]
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:528)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:180)
+       [2] _run (res://tests/v2_service_programme_contract.gd:12)

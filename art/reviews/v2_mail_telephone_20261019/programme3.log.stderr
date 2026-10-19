@@ -1,0 +1,7 @@
+ERROR: SERVICE PROGRAMME WALK: ordinary controller reaches (-1.75, -3.2, -3.4)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _walk (res://tests/v2_service_programme_walk.gd:35)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

@@ -92,3 +92,49 @@ five original service/access renewals pass. The clean no-regression comparison
 and scoped image review are recorded in
 **design/V2_CITY_CONTEXT_REPORT_2026-10-19.md**. Broader V2 and human appearance
 acceptance remain open.
+
+## Additional archive research, 2026-10-19
+
+The owner's renewed reference request adds the following dated sources. These
+are catalogue/caption and report-text checks; the remote panorama image opens
+did not expose inspectable pixels in this session. No new visual-inspection
+claim, asset change or runtime acceptance follows from this addendum.
+
+| Reference | Date and appropriate use |
+|---|---|
+| [Municipal Archives, Queens panoramas](https://www.archives.nyc/blog/2019/8/16/the-queens-borough-president-panoramic-photographs), Nassau Boulevard looking east from Main Street | August 20, 1928. Exact-year geographical counterpoint, not a western Queens skyline template. The archive describes a borough undergoing rapid urbanization; avoid treating every Queens district as equally dense. |
+| [Municipal Archives, Long Island City panoramas](https://www.archives.nyc/blog/2019/9/20/the-queens-borough-president-panoramic-photographs-part-2), P-856, P-856-b and P-856-c | November 16, 1929: south of the Queensboro Bridge, north toward the bridge and Sunnyside yards respectively. Near-period candidates for roof, industrial and infrastructure composition, subject to building-by-building date checks. |
+| Same archive, P-856-a, P-918-b and P-987-c | Respectively 1929, 1930 and 1934. Captions explicitly identify later Manhattan skyline features. Do not copy those distant silhouettes wholesale into November 1928. |
+
+The [LPC bank designation report](https://s-media.nyc.gov/agencies/lpc/lp/2570.pdf),
+pages 2-5, distinguishes the 1917 elevated Queensboro Plaza station from the
+underground Queens Plaza station completed in 1933. It dates the Queensboro
+Bridge to 1909 and Sunnyside yards to 1910; the Triborough Bridge and
+Queens-Midtown Tunnel belong to later construction campaigns. These dates
+constrain any future skyline infrastructure. They do not authorize moving the
+fictional Orison to a surveyed intersection or replacing its canonical transit.
+
+### Direction for subsequent city polish
+
+- Preserve the established low and middle roofline with occasional commercial
+  accents. Give ordinary buildings coherent vertical walls, roof parapets and
+  purpose-built cornices; repeated shrinking floor plates are not a default.
+- Keep domestic narrow sash bays distinct from broad industrial glazing.
+  Express material changes at real construction joints, lintels, sills and
+  party walls rather than with arbitrary bands across a stepped mass.
+- Compose open sky and industrial gaps deliberately. Rail-yard openness is a
+  reference for appropriate views, not permission to leave exposed scenery
+  backs, unsupported ground or holes in a playable street edge.
+- Treat a clock tower as an occasional landmark. The bank's documented tan
+  masonry and vertical window grouping offer a specific vocabulary; avoid
+  distributing landmark crowns over every background building.
+- Use atmospheric distance to separate local Queens fabric from any Manhattan
+  backdrop. A real landmark requires a plausible bearing and a November 1928
+  construction-state check before inclusion.
+
+These directions are consistent with the installed horizon's varied flat-roof
+stocks and separate cornices. The source owner remains
+**art/data/city_horizon/source_plan.json** and its Blender builder
+**art/blender/scripts/build_city_horizon.py**. Further geometry changes require
+native review and composed views under the normal batch workflow. References
+remain external form research; no archive photograph is a game texture.

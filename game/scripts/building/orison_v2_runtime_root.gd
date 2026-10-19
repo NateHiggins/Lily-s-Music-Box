@@ -384,12 +384,17 @@ func _compose_authorities() -> void:
 	light_rig.glow_intensity = get_node("WakingAtmosphere").environment.glow_intensity
 	get_node("WakingAtmosphere").add_child(light_rig)
 	var telephone := HouseSwitchboardProp.new()
+	telephone.set_meta("v2_house_switchboard",true)
 	var line := HouseTelephoneNetwork.new()
 	line.name = "HouseTelephoneNetwork"
 	add_child(line)
 	line.register_endpoint({"id": "F02_A_TELEPHONE", "extension": "2A"})
 	telephone.bind_line(line)
 	_mount("F01_HOUSE_TELEPHONE_BOARD", telephone)
+	if not telephone.get_meta("v2_native_house_switchboard",false) or not telephone.get_meta("v2_switchboard_physical",false):
+		startup_failed=true
+		push_error("ORISON V2 RUNTIME: native physical house telephone refused")
+		return
 	_mount("LobbyServiceDumbwaiter", DumbwaiterProp.new())
 	var terminal := preload("res://scripts/building/orison_v2_native_signal_terminal.gd").new()
 	terminal.prop_type = "signal_terminal"

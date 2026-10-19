@@ -12,6 +12,8 @@ var _asking_lamp: MeshInstance3D
 var _cord: Node3D
 var _key: Node3D
 var _heard_phase := ""
+var _native_stock: RefCounted
+var _hand_controls: RefCounted
 
 
 func bind_line(owner: Node) -> void:
@@ -22,6 +24,19 @@ func bind_line(owner: Node) -> void:
 
 
 func _build_visual() -> void:
+	if bool(get_meta("v2_house_switchboard",false)):
+		_native_stock=preload("res://scripts/building/orison_v2_native_house_switchboard.gd").new()
+		if not _native_stock.mount(self):push_error("V2 native telephone stock refused");return
+		_label("HOUSE LINE",Vector3(0,.62,-.111),.00042)
+		for connection: Dictionary in _native_stock.data.calling_ports:
+			var endpoint: String=str(connection.endpoint)
+			for port: Dictionary in _native_stock.data.ports:
+				if str(port.id)!=str(connection.port):continue
+				_label(str(network.endpoints[endpoint].extension),Vector3(port.center[0],float(port.center[1])-.034,-.122),.00022)
+		for port: Dictionary in _native_stock.data.ports:
+			if str(port.id)==str(_native_stock.data.trunk.port):_label("TRUNK",Vector3(port.center[0],float(port.center[1])+.034,-.122),.00022)
+		_label("LISTEN",Vector3(.16,.15,-.111),.00022)
+		return
 	make_box(Vector3(0.66, 0.68, 0.16), Vector3(0, 0.34, 0), WOOD)
 	make_box(Vector3(0.60, 0.55, 0.025), Vector3(0, 0.37, -0.095), EBONITE)
 	_label("HOUSE  LINE", Vector3(0, 0.642, -0.116), 0.00042)
@@ -67,8 +82,36 @@ func _label(words: String, at: Vector3, scale: float) -> void:
 func _start_normal_function() -> void:
 	state = PState.IDLE
 
+func _build_primary_interaction() -> void:
+	if not bool(get_meta("v2_house_switchboard",false)):
+		super._build_primary_interaction();return
+	if not get_meta("v2_native_house_switchboard",false):return
+	_hand_controls=preload("res://scripts/props/house_switchboard_hand_controls.gd").new()
+	var ready: bool=_hand_controls.bind(self,_native_stock)
+	set_meta("v2_switchboard_physical",ready)
+	if not ready:push_error("V2 physical telephone binding refused")
+
+func _physics_process(delta: float) -> void:
+	if _hand_controls!=null:_hand_controls.physics_tick(delta)
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(0,.35,-.85)),"at":to_global(Vector3(0,.35,-.10)),"fov":55.}
+
+func manipulation_target(_hit: Dictionary) -> Dictionary:
+	# Moving controls resolve their own exact providers before this ancestor.
+	# A fixed cabinet hit must never fall through to the legacy state cycle.
+	return {} if bool(get_meta("v2_house_switchboard",false)) else {"legacy":true}
+
+func native_switchboard_ready() -> bool:
+	return _native_stock!=null and _hand_controls!=null \
+		and _native_stock.meshes.size()==_native_stock.data.parts.size() \
+		and _hand_controls.source==_native_stock.data \
+		and _hand_controls.plugs.size()==2 and _hand_controls.cords.size()==2 \
+		and _hand_controls.plug_bodies.size()==2 \
+		and is_instance_valid(_key) and is_instance_valid(_asking_lamp)
 
 func interact_prompt() -> String:
+	if bool(get_meta("v2_house_switchboard",false)):return ""
 	if network == null: return "[E] Read the dead house board"
 	var line: Dictionary = network.call("snapshot")
 	match str(line.state):
@@ -121,6 +164,9 @@ func _on_line_changed(line: Dictionary) -> void:
 			AudioPolicy.present_3d(cue, global_position, 1.0,
 					StringName(name))
 		_heard_phase = phase
+	if _hand_controls!=null:
+		_hand_controls.present_line(line)
+		return
 	if _asking_lamp != null:
 		var tint := Color(1.0, 0.28, 0.035) if phase == "ASKING" else Color(0.18, 0.06, 0.02)
 		# The native/finish pass may have bound custom maps since startup.

@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/house_switchboard.glb", # stock2: loaded jack UVs collapse and small stock metrics stretch under default compression.
     "props/city_horizon_near.glb", "props/city_horizon_far.glb", # The same thin closed pane/reveal metre charts as validated city stock.
     "props/city_ground_apron.glb", # source_bench1: default import stretches thin-edge metre charts by 1.69%.
     "props/city_elevations.glb", # Preserve the validated metric charts of retained cap bevels and recessed window stock.

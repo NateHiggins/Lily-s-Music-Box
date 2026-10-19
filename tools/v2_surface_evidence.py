@@ -72,7 +72,9 @@ def inputs(root=ROOT):
         'art/data/city_horizon/source_plan.json',
         'art/blender/city_horizon_near.blend',
         'art/blender/city_horizon_far.blend',
-        'art/blender/city_horizon_construction.json'))
+        'art/blender/city_horizon_construction.json',
+        'art/blender/house_switchboard.blend',
+        'art/blender/house_switchboard_construction.json'))
     for name in ('toast_crumb','leather_worn','mineral_scale'):
         paths.add(root/f'art/textures/ai_sources/{name}.png')
     paths.add(root/'art/textures/ai_sources/v2_surface_stock_20261011.json')

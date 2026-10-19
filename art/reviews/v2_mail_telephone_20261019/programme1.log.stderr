@@ -1,0 +1,7 @@
+ERROR: SERVICE PROGRAMME WALK: mouse motion reaches stop and second click releases: F01_MAIL_PACKAGE_DOOR
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _drag_part (res://tests/orison_v2_4b_door_route_test.gd:220)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

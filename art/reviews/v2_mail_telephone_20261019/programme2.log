@@ -1,0 +1,131 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ACCESS COHORT CHECK: bind current production inputs = true
+ACCESS COHORT CHECK: bind current geometry/surface inputs = true
+ACCESS COHORT CHECK: actual entry scene is source-bound = true
+ACCESS COHORT CHECK: valid opening-day daytime fixture = true
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1486 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2632
+[ORISON V2 RUNTIME] ready startup_ms=105595.509
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+ACCESS COHORT CHECK: production-selected V2 composition starts = true
+[HARUKIYA] CLOSED, 18 fixtures
+PROGRAMME ROUTE: {"actual":[-1.70353364944458,0.000822311849333346,-3.30267906188965],"ok":true,"on_floor":true,"physics_steps":41,"target":[-1.79999995231628,0.0,-3.29999995231628],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-1.8, 0.0, -3.3) = true
+PROGRAMME ROUTE: {"actual":[-1.79481518268585,0.000822311849333346,-1.59688854217529],"ok":true,"on_floor":true,"physics_steps":41,"target":[-1.79999995231628,0.0,-1.5],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-1.8, 0.0, -1.5) = true
+PROGRAMME ROUTE: {"actual":[-4.50284576416016,0.000822311849333346,-1.50335597991943],"ok":true,"on_floor":true,"physics_steps":61,"target":[-4.59999990463257,0.0,-1.5],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-4.6, 0.0, -1.5) = true
+PROGRAMME ROUTE: {"actual":[-4.8595232963562,0.000822311849333346,-2.30861663818359],"ok":true,"on_floor":true,"physics_steps":24,"target":[-4.90000009536743,0.0,-2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-4.9, 0.0, -2.4) = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: F01_WATCH_MAIL_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F01_WATCH_MAIL_DOOR = true
+PROGRAMME ROUTE: {"actual":[-6.10440254211426,0.000822311849333346,-2.39348125457764],"ok":true,"on_floor":true,"physics_steps":33,"target":[-6.19999980926514,0.0,-2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-6.2, 0.0, -2.4) = true
+PROGRAMME ROUTE: {"actual":[-7.00399112701416,0.000822311849333346,-2.39937019348145],"ok":true,"on_floor":true,"physics_steps":25,"target":[-7.09999990463257,0.0,-2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.1, 0.0, -2.4) = true
+CONNECTED EXTERIOR CHECK: actual reached standing view captured: mail_telephone = true
+PROGRAMME ROUTE: {"actual":[-7.28131437301636,0.000822311849333346,-0.947803497314453],"ok":true,"on_floor":true,"physics_steps":37,"target":[-7.30000019073486,0.0,-0.850000023841858],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.3, 0.0, -0.85) = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: F01_MAIL_PACKAGE_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F01_MAIL_PACKAGE_DOOR = true
+PROGRAMME ROUTE: {"actual":[-7.29929447174072,0.000822311849333346,1.50377750396729],"ok":true,"on_floor":true,"physics_steps":57,"target":[-7.30000019073486,0.0,1.60000002384186],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.3, 0.0, 1.6) = true
+PROGRAMME ROUTE: {"actual":[-7.7514796257019,0.000822311849333346,2.31315422058105],"ok":true,"on_floor":true,"physics_steps":25,"target":[-7.80000019073486,0.0,2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-7.8, 0.0, 2.4) = true
+CONNECTED EXTERIOR CHECK: actual reached standing view captured: parcel_package = true
+CONNECTED EXTERIOR CHECK: production leaf exists: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: F01_PACKAGE_COMMON_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: F01_PACKAGE_COMMON_DOOR = true
+PROGRAMME ROUTE: {"actual":[-10.2036294937134,0.000822311849333346,2.3967170715332],"ok":true,"on_floor":true,"physics_steps":57,"target":[-10.3000001907349,0.0,2.40000009536743],"wall_contacts":{}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-10.3, 0.0, 2.4) = true
+PROGRAMME ROUTE: {"actual":[-11.1047039031982,0.000940667872782797,1.75877094268799],"ok":false,"on_floor":true,"physics_steps":360,"target":[-11.3999996185303,0.0,1.60000002384186],"wall_contacts":{"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/F01_COMMON_B/ReadingFurniture/Chair_north_2":"(11.44, 0.427, -13.41075)","/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/F01_COMMON_B/ReadingFurniture/Table":"(11.2223, 0.7587, -13.0987)"}}
+CONNECTED EXTERIOR CHECK: ordinary controller reaches (-11.4, 0.0, 1.6) = false
+ACCESS COHORT CHECK: ordinary controller reaches (-1.8, 0.0, -3.3) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-1.8, 0.0, -1.5) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-4.6, 0.0, -1.5) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-4.9, 0.0, -2.4) = true
+ACCESS COHORT CHECK: production leaf exists: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: F01_WATCH_MAIL_DOOR = true
+ACCESS COHORT CHECK: ordinary controller reaches (-6.2, 0.0, -2.4) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.1, 0.0, -2.4) = true
+ACCESS COHORT CHECK: actual reached standing view captured: mail_telephone = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.3, 0.0, -0.85) = true
+ACCESS COHORT CHECK: production leaf exists: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: F01_MAIL_PACKAGE_DOOR = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.3, 0.0, 1.6) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-7.8, 0.0, 2.4) = true
+ACCESS COHORT CHECK: actual reached standing view captured: parcel_package = true
+ACCESS COHORT CHECK: production leaf exists: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: leaf starts closed and usable: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: actual player ray selects operable part: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: click grabs without toggling: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: physical stop remains saveable: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: mouse motion reaches stop and second click releases: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: input opens physical leaf to its stop: F01_PACKAGE_COMMON_DOOR = true
+ACCESS COHORT CHECK: ordinary controller reaches (-10.3, 0.0, 2.4) = true
+ACCESS COHORT CHECK: ordinary controller reaches (-11.4, 0.0, 1.6) = false
+ACCESS COHORT CHECK: one complete collision-bearing shared programme route = false
+ACCESS COHORT CHECK: actual walk reaches authored programme room: F01_MAIL_TELEPHONE = true
+ACCESS COHORT CHECK: actual walk reaches authored programme room: F01_PACKAGE = true
+ACCESS COHORT CHECK: actual walk reaches authored programme room: F01_COMMON_B = true
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_LAUNDRY = false
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_COAL_ROOM = false
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_ELECTRICAL = false
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_MAINTENANCE_SHOP = false
+ACCESS COHORT CHECK: actual walk reaches authored programme room: B1_RESIDENT_STORAGE = false
+ACCESS COHORT CHECK: root and programme driver retire = true
+ACCESS COHORT CHECK: bind current production inputs = true
+ACCESS COHORT CHECK: bind current geometry/surface inputs = true
+ACCESS COHORT CHECK: production and surface inputs stay fixed = true
+ACCESS COHORT CHECK: actual entry scene is source-bound = true
+ACCESS COHORT CHECK: complete original programme test closure stays fixed = true
+ACCESS COHORT CHECK: record repository provenance = true
+ACCESS COHORT CHECK: explicit writable receipt destination = true
+ACCESS COHORT CHECK: open cohort runtime contract = true
+V2 SERVICE PROGRAMME CONTRACT: FAIL rooms=3 failures=7

@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/house_switchboard.glb",
+  "parts": [
+    "RearPanel",
+    "SideStile_-1",
+    "SideStile_1",
+    "LowerRail",
+    "UpperRail",
+    "TopBead",
+    "BottomBead",
+    "JackField",
+    "Jack_0_0",
+    "Insulator_0_0",
+    "Jack_0_1",
+    "Insulator_0_1",
+    "Jack_0_2",
+    "Insulator_0_2",
+    "Jack_0_3",
+    "Insulator_0_3",
+    "Jack_0_4",
+    "Insulator_0_4",
+    "Jack_0_5",
+    "Insulator_0_5",
+    "Jack_1_0",
+    "Insulator_1_0",
+    "Jack_1_1",
+    "Insulator_1_1",
+    "Jack_1_2",
+    "Insulator_1_2",
+    "Jack_1_3",
+    "Insulator_1_3",
+    "Jack_1_4",
+    "Insulator_1_4",
+    "Jack_1_5",
+    "Insulator_1_5",
+    "Jack_2_0",
+    "Insulator_2_0",
+    "Jack_2_1",
+    "Insulator_2_1",
+    "Jack_2_2",
+    "Insulator_2_2",
+    "Jack_2_3",
+    "Insulator_2_3",
+    "Jack_2_4",
+    "Insulator_2_4",
+    "Jack_2_5",
+    "Insulator_2_5",
+    "ParkingStrip",
+    "Screw_West_Lower",
+    "Screw_West_Upper",
+    "Screw_East_Lower",
+    "Screw_East_Upper",
+    "PlugHandle",
+    "PlugCollar",
+    "PlugShaft",
+    "PlugInsulator",
+    "ListeningKeyLever",
+    "ListeningKeyKnob",
+    "AskingLampBezel",
+    "AskingLampLens",
+    "MountCleat",
+    "CordStock"
+  ],
+  "finishes": [
+    {
+      "key": "wood_dark",
+      "normal": 0.1,
+      "roughness": 0.68,
+      "pigment": 0.65,
+      "tint": [
+        0.45,
+        0.3,
+        0.2,
+        1
+      ]
+    },
+    {
+      "key": "bakelite_black",
+      "normal": 0.015,
+      "roughness": 0.3,
+      "pigment": 0.15,
+      "tint": [
+        0.18,
+        0.17,
+        0.16,
+        1
+      ]
+    },
+    {
+      "key": "brass_dull",
+      "normal": 0.035,
+      "roughness": 0.6,
+      "pigment": 0.35,
+      "tint": [
+        0.85,
+        0.74,
+        0.45,
+        1
+      ],
+      "metallic": 0.85
+    },
+    {
+      "key": "iron_blackened",
+      "normal": 0.1,
+      "roughness": 0.85,
+      "pigment": 0.3,
+      "tint": [
+        0.25,
+        0.25,
+        0.25,
+        1
+      ]
+    },
+    {
+      "key": "rubber_aged",
+      "normal": 0.05,
+      "roughness": 0.8,
+      "pigment": 0.3,
+      "tint": [
+        0.2,
+        0.2,
+        0.2,
+        1
+      ]
+    },
+    {
+      "key": "nickel_plated",
+      "normal": 0.02,
+      "roughness": 0.42,
+      "pigment": 0.3,
+      "tint": [
+        0.86,
+        0.86,
+        0.86,
+        1
+      ],
+      "metallic": 0.9
+    },
+    {
+      "key": "milk_glass",
+      "normal": 0.02,
+      "roughness": 0.55,
+      "pigment": 1.0,
+      "tint": [
+        0.9,
+        0.5,
+        0.22,
+        1
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "id": "0_0",
+      "center": [
+        -0.25,
+        0.52,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "0_1",
+      "center": [
+        -0.15,
+        0.52,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "0_2",
+      "center": [
+        -0.04999999999999999,
+        0.52,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "0_3",
+      "center": [
+        0.050000000000000044,
+        0.52,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "0_4",
+      "center": [
+        0.15000000000000002,
+        0.52,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "0_5",
+      "center": [
+        0.25,
+        0.52,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "1_0",
+      "center": [
+        -0.25,
+        0.39,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "1_1",
+      "center": [
+        -0.15,
+        0.39,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "1_2",
+      "center": [
+        -0.04999999999999999,
+        0.39,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "1_3",
+      "center": [
+        0.050000000000000044,
+        0.39,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "1_4",
+      "center": [
+        0.15000000000000002,
+        0.39,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "1_5",
+      "center": [
+        0.25,
+        0.39,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "2_0",
+      "center": [
+        -0.25,
+        0.26,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "2_1",
+      "center": [
+        -0.15,
+        0.26,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "2_2",
+      "center": [
+        -0.04999999999999999,
+        0.26,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "2_3",
+      "center": [
+        0.050000000000000044,
+        0.26,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "2_4",
+      "center": [
+        0.15000000000000002,
+        0.26,
+        -0.121
+      ],
+      "bore_m": 0.016
+    },
+    {
+      "id": "2_5",
+      "center": [
+        0.25,
+        0.26,
+        -0.121
+      ],
+      "bore_m": 0.016
+    }
+  ],
+  "parking": [
+    {
+      "id": "park_0",
+      "center": [
+        -0.16,
+        0.063,
+        -0.098
+      ],
+      "bore_m": 0.017
+    },
+    {
+      "id": "park_1",
+      "center": [
+        0.16,
+        0.063,
+        -0.098
+      ],
+      "bore_m": 0.017
+    }
+  ],
+  "plug": {
+    "shaft_radius_m": 0.007,
+    "tip_z": 0.0715,
+    "collar_z": 0.0385,
+    "skin_m": 5e-05,
+    "cord_outlet_z": -0.031,
+    "rest": [
+      [
+        -0.16,
+        0.063,
+        -0.13655
+      ],
+      [
+        0.16,
+        0.063,
+        -0.13655
+      ]
+    ]
+  },
+  "cord": {
+    "length_m": 0.8,
+    "radius_m": 0.0035,
+    "anchors": [
+      [
+        -0.16,
+        0.04,
+        -0.095
+      ],
+      [
+        0.16,
+        0.04,
+        -0.095
+      ]
+    ],
+    "mesh": "CordStock"
+  },
+  "key": {
+    "pivot": [
+      0.25,
+      0.1,
+      -0.12
+    ],
+    "minimum": -0.42,
+    "maximum": 0.0,
+    "answer_stop": -0.38
+  },
+  "lamp": {
+    "at": [
+      -0.25,
+      0.58,
+      -0.122
+    ]
+  },
+  "calling_ports": [
+    {
+      "endpoint": "F02_A_TELEPHONE",
+      "port": "0_0"
+    }
+  ],
+  "trunk": {
+    "port": "2_5",
+    "id": "outside_trunk"
+  }
+}

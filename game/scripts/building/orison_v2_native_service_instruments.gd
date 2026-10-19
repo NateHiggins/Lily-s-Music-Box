@@ -5,6 +5,7 @@ const PATH := "res://data/orison_v2/service_instruments.json"
 const BAR_PATH := "res://data/orison_v2/bar_instruments.json"
 const SIGNAGE_PATH := "res://data/orison_v2/signage.json"
 var installed: Dictionary = {}
+var native_replacements: Dictionary = {}
 var errors: Array[String] = []
 var _meshes: Dictionary = {}
 var _materials: Dictionary = {}
@@ -40,6 +41,14 @@ func mount(world: Node, data_path: String = PATH) -> bool:
 		var actor := _find_actor(world,str(row.id))
 		if actor==null or actor.get_script().resource_path!=str(row.script):
 			errors.append("source owner: "+str(row.id)); continue
+		# This one actor now owns a complete native mechanism. Never apply the
+		# old indexed primitive payload over its jack bores or flexible cords.
+		# Retain an explicit replacement record instead of claiming an old fit.
+		if data_path==PATH and str(row.id)=="F01_HOUSE_TELEPHONE_BOARD" and actor is HouseSwitchboardProp and bool(actor.get_meta("v2_house_switchboard",false)):
+			if not actor.native_switchboard_ready():
+				errors.append("native telephone replacement refused");continue
+			native_replacements[str(row.id)]={"actor":weakref(actor),"asset":actor._native_stock.data.asset,"parts":actor._native_stock.meshes.size()}
+			continue
 		var draws := actor.find_children("*","MeshInstance3D",true,false).filter(func(n):return n.mesh!=null)
 		if draws.size()!=int(row.source_mesh_count):
 			errors.append("source mesh count: "+str(row.id)); continue

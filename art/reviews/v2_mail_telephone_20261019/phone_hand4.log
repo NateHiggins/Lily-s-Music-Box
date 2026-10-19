@@ -1,0 +1,44 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+PHONE HAND CHECK: native cabinet and real physical controls bind = true
+PHONE HAND CHECK: declared existing caller stimulus asks for a line = true
+PHONE HAND CHECK: fixed cabinet blocks legacy click-state interaction = true
+PHONE HAND CHECK: clicking fixed cabinet cannot answer or open a modal = true
+PHONE HAND CHECK: native cabinet offers no old click-cycle instructions = true
+PHONE HAND CHECK: grabbing key alone does not answer = true
+PHONE HAND CHECK: grab and Space inspect the physical board = true
+PHONE HAND CHECK: board inspection retains static camera and movable cursor = true
+PHONE HAND CHECK: Space leaves board inspection = true
+PHONE HAND CHECK: actual mouse movement closes listening key = true
+PHONE HAND CHECK: key without a caller plug cannot answer = true
+PHONE HAND CHECK: actual cursor selects native plug 0 = true
+PHONE HAND CHECK: click grabs plug without displacement = true
+PHONE HAND CHECK: authored physical port exists: 0_1 = true
+PHONE HAND CHECK: mouse moves plug through clear approach: (-0.16, 0.063, -0.235) = true
+PHONE HAND CHECK: mouse moves plug through clear approach: (-0.15, 0.52, -0.235) = true
+PHONE HAND CHECK: mouse moves plug through clear approach: (-0.15, 0.52, -0.15955) = true
+PHONE HAND CHECK: second click releases a physically seated plug = true
+PHONE HAND CHECK: a physically seated wrong jack does not answer the asking caller = true
+PHONE HAND CHECK: actual cursor selects native plug 0 = true
+PHONE HAND CHECK: click grabs plug without displacement = true
+PHONE HAND CHECK: authored physical port exists: 0_0 = true
+PHONE HAND CHECK: mouse moves plug through clear approach: (-0.150002, 0.520012, -0.235) = true
+PHONE HAND CHECK: mouse moves plug through clear approach: (-0.25, 0.52, -0.235) = true
+PHONE HAND CHECK: mouse moves plug through clear approach: (-0.25, 0.52, -0.15955) = true
+PHONE HAND CHECK: second click releases a physically seated plug = true
+PHONE HAND CHECK: actual caller plug plus key answers through retained network = true
+PHONE HAND CHECK: actual cursor selects native plug 1 = true
+PHONE HAND CHECK: click grabs plug without displacement = true
+PHONE HAND CHECK: authored physical port exists: 2_5 = true
+PHONE HAND CHECK: mouse moves plug through clear approach: (0.16, 0.063, -0.235) = true
+PHONE HAND CHECK: mouse moves plug through clear approach: (0.25, 0.26, -0.235) = true
+PHONE HAND CHECK: mouse moves plug through clear approach: (0.25, 0.26, -0.15955) = true
+PHONE HAND CHECK: second click releases a physically seated plug = true
+PHONE HAND CHECK: actual trunk plug carries the same line = true
+PHONE HAND CHECK: mouse physically withdraws caller plug = true
+PHONE HAND CHECK: physical disconnection releases the existing line = true
+PHONE HAND CHECK: ordinary telephone use creates no durable save or case facts = true
+PHONE HAND CHECK: physical telephone never opens a modal interaction = true
+V2 PHONE HAND BENCH: PASS checks=39 failures=0

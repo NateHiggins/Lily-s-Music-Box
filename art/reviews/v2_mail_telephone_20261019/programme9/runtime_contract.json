@@ -1,0 +1,3306 @@
+{
+	"checks": [
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "valid opening-day daytime fixture",
+			"ok": true
+		},
+		{
+			"label": "production-selected V2 composition starts",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-1.8, 0.0, -3.3)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-1.8, 0.0, -1.5)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-4.6, 0.0, -1.5)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-4.9, 0.0, -2.4)",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_WATCH_MAIL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_WATCH_MAIL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_WATCH_MAIL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_WATCH_MAIL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_WATCH_MAIL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_WATCH_MAIL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_WATCH_MAIL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-6.2, 0.0, -2.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.1, 0.0, -2.4)",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: mail_telephone",
+			"ok": true
+		},
+		{
+			"label": "reached production bank has native hand controls",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-6.37, 0.0, -0.649999)",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: production_mail_leaf",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: production_mail_leaf",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: production_mail_leaf",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: production_mail_leaf",
+			"ok": true
+		},
+		{
+			"label": "normal opening-day catalogue has a physical due delivery",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: production_mail_withdrawal",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: production_mail_withdrawal",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: production_mail_withdrawal",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: production_mail_withdrawal",
+			"ok": true
+		},
+		{
+			"label": "reached-room withdrawal uses existing custody without a modal",
+			"ok": true
+		},
+		{
+			"label": "a second opening-day article remains to test partial-pull restoration",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: production_mail_partial",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: production_mail_partial",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: production_mail_partial",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: production_mail_partial",
+			"ok": true
+		},
+		{
+			"label": "partial production-room pull retains bank custody",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: operated_mail_bank",
+			"ok": true
+		},
+		{
+			"label": "reached production telephone retains native mechanism",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-8.1, 0.0, -1.3)",
+			"ok": true
+		},
+		{
+			"label": "production telephone accepts the declared existing caller stimulus",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: production_listening_key",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: production_listening_key",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: production_listening_key",
+			"ok": true
+		},
+		{
+			"label": "reached-room caller plug and key answer through original network",
+			"ok": true
+		},
+		{
+			"label": "reached-room trunk plug carries the original line",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: operated_house_telephone",
+			"ok": true
+		},
+		{
+			"label": "reached-room physical disconnection releases the original line",
+			"ok": true
+		},
+		{
+			"label": "complete production telephone mouse sequence without a state setter",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.1, 0.0, -2.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.3, 0.0, -0.85)",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_MAIL_PACKAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_MAIL_PACKAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_MAIL_PACKAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_MAIL_PACKAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_MAIL_PACKAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_MAIL_PACKAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_MAIL_PACKAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.3, 0.0, 1.6)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.8, 0.0, 2.4)",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: parcel_package",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_PACKAGE_COMMON_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_PACKAGE_COMMON_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_PACKAGE_COMMON_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_PACKAGE_COMMON_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_PACKAGE_COMMON_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_PACKAGE_COMMON_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_PACKAGE_COMMON_DOOR",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-10.3, 0.0, 2.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-10.3, 0.0, 3.7)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-12.4, 0.0, 3.7)",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: common_reading",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: common_return",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-10.3, 0.0, 3.7)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-10.3, 0.0, 2.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.8, 0.0, 2.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.3, 0.0, 1.6)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.3, 0.0, -0.85)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.1, 0.0, -2.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-4.9, 0.0, -2.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-4.6, 0.0, -1.5)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-1.8, 0.0, -1.5)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-1.8, 0.0, -3.3)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (1.925, 0.0, -3.5)",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: B1_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: B1_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: B1_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: B1_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: B1_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: B1_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: B1_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: B1_ELECTRICAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: B1_ELECTRICAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: B1_ELECTRICAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: B1_ELECTRICAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: B1_ELECTRICAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: B1_ELECTRICAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: B1_ELECTRICAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production fuse panel mounted",
+			"ok": true
+		},
+		{
+			"label": "fuse service: cabinet opened by hand for unobstructed inspection",
+			"ok": true
+		},
+		{
+			"label": "fuse service: full repair uses static inspection and freely selected cursor targets",
+			"ok": true
+		},
+		{
+			"label": "fuse service: actual original thirty-amp plug can be grabbed",
+			"ok": true
+		},
+		{
+			"label": "fuse service: live holder refuses physical unscrewing with audible feedback",
+			"ok": true
+		},
+		{
+			"label": "fuse service: physical main opens completely before fuse withdrawal",
+			"ok": true
+		},
+		{
+			"label": "fuse service: isolated original plug acquired",
+			"ok": true
+		},
+		{
+			"label": "fuse service: counterclockwise drag backs out the real threaded plug",
+			"ok": true
+		},
+		{
+			"label": "fuse service: partly unscrewed plug is not a protected electrical contact",
+			"ok": true
+		},
+		{
+			"label": "fuse service: released threaded plug reacquired",
+			"ok": true
+		},
+		{
+			"label": "fuse service: save restoration revokes a stale fuse hand",
+			"ok": true
+		},
+		{
+			"label": "fuse service: restored partly threaded plug acquired",
+			"ok": true
+		},
+		{
+			"label": "fuse service: counterclockwise rotation clears final thread",
+			"ok": true
+		},
+		{
+			"label": "fuse service: released withdrawn plug leaves a genuinely empty holder",
+			"ok": true
+		},
+		{
+			"label": "fuse service: removed plug becomes a free object",
+			"ok": true
+		},
+		{
+			"label": "fuse service: mouse wheel pulls loose plug clear of panel face",
+			"ok": true
+		},
+		{
+			"label": "fuse service: removed fuse clears the rack across the face",
+			"ok": true
+		},
+		{
+			"label": "fuse service: removed fuse carried down beside spare rack",
+			"ok": true
+		},
+		{
+			"label": "fuse service: removed fuse passes in front of rack lip",
+			"ok": true
+		},
+		{
+			"label": "fuse service: removed fuse pushed onto lower shelf above lip",
+			"ok": true
+		},
+		{
+			"label": "fuse service: removed fuse brought to empty rack place",
+			"ok": true
+		},
+		{
+			"label": "fuse service: removed original rests in the physical spare rack",
+			"ok": true
+		},
+		{
+			"label": "fuse service: twenty-amp spare is a separate selectable object",
+			"ok": true
+		},
+		{
+			"label": "fuse service: spare raised above shelf retaining lip",
+			"ok": true
+		},
+		{
+			"label": "fuse service: spare lifted clear of shelf lip",
+			"ok": true
+		},
+		{
+			"label": "fuse service: oversized spare offered at actual holder mouth",
+			"ok": true
+		},
+		{
+			"label": "fuse service: oversized repair is refused by retained service authority",
+			"ok": true
+		},
+		{
+			"label": "fuse service: refused spare remains a real recoverable object",
+			"ok": true
+		},
+		{
+			"label": "fuse service: refused spare carried in front of rack",
+			"ok": true
+		},
+		{
+			"label": "fuse service: refused spare pushed above shelf lip",
+			"ok": true
+		},
+		{
+			"label": "fuse service: refused spare returned to rack",
+			"ok": true
+		},
+		{
+			"label": "fuse service: marked fifteen-amp spare selected physically",
+			"ok": true
+		},
+		{
+			"label": "fuse service: correct spare raised above shelf retaining lip",
+			"ok": true
+		},
+		{
+			"label": "fuse service: correct spare lifted clear of shelf lip",
+			"ok": true
+		},
+		{
+			"label": "fuse service: correct plug delivered to holder mouth",
+			"ok": true
+		},
+		{
+			"label": "fuse service: thread caught, but loose replacement is not yet electrically seated",
+			"ok": true
+		},
+		{
+			"label": "fuse service: replacement thread acquired",
+			"ok": true
+		},
+		{
+			"label": "fuse service: clockwise mouse motion screws correct plug home",
+			"ok": true
+		},
+		{
+			"label": "fuse service: correct seating alone does not claim load proof",
+			"ok": true
+		},
+		{
+			"label": "fuse service: physical main restores load",
+			"ok": true
+		},
+		{
+			"label": "fuse service: contact closure alone does not bypass load proving time",
+			"ok": true
+		},
+		{
+			"label": "fuse service: full repair publishes through original authority without a minigame",
+			"ok": true
+		},
+		{
+			"label": "fuse service: completed physical state satisfies strict save schema",
+			"ok": true
+		},
+		{
+			"label": "fuse service: serialized physical identities and protection reconstruct",
+			"ok": true
+		},
+		{
+			"label": "fuse service: inspection camera stays fixed through complete repair",
+			"ok": true
+		},
+		{
+			"label": "physical panel service returns ordinary movement without overlay",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: B1_SHOP_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: B1_SHOP_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: B1_SHOP_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: B1_SHOP_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: B1_SHOP_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: B1_SHOP_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: B1_SHOP_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: B1_SHOP_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: B1_SHOP_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: B1_SHOP_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: B1_SHOP_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: B1_SHOP_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: B1_SHOP_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: B1_SHOP_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: B1_BOILER_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: B1_BOILER_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: B1_BOILER_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: B1_BOILER_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: B1_BOILER_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: B1_BOILER_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: B1_BOILER_STAIR_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: B1_COAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: B1_COAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: B1_COAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: B1_COAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: B1_COAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: B1_COAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: B1_COAL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: B1_BOILER_FIRE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: B1_BOILER_FIRE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: B1_BOILER_FIRE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: B1_BOILER_FIRE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: B1_BOILER_FIRE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: B1_BOILER_FIRE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: B1_BOILER_FIRE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "service circuit retains actual collision",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (5.0, -3.2, -0.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (5.0, -3.2, -3.1)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (3.5, -3.2, -3.1)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (3.5, -3.2, -3.5)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (1.925, -3.2, -3.5)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-1.75, -3.2, -3.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-1.75, -3.2, -1.5)",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: B1_LAUNDRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: B1_LAUNDRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: B1_LAUNDRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: B1_LAUNDRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: B1_LAUNDRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: B1_LAUNDRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: B1_LAUNDRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-3.4, -3.2, -1.5)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-3.2, -3.2, -2.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.0, -3.2, -2.4)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-8.35, -3.2, -0.15)",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: laundry_washers",
+			"ok": true
+		},
+		{
+			"label": "actual powered wringer washer exists",
+			"ok": true
+		},
+		{
+			"label": "native parked wringer retains a usable lid clearance",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: washer_lid_partial",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: washer_lid_partial",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: washer_lid_partial",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: washer_lid_partial",
+			"ok": true
+		},
+		{
+			"label": "physical lid opens within parked-wringer clearance",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: washer_lid_clearance",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-7.0, -3.2, -0.8)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-5.3, -3.2, 1.6)",
+			"ok": true
+		},
+		{
+			"label": "actual ceiling drying rack exists",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: laundry_airer",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: airer_lower",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: airer_lower",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: airer_lower",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: airer_lower",
+			"ok": true
+		},
+		{
+			"label": "ceiling rack lowered by actual hand motion",
+			"ok": true
+		},
+		{
+			"label": "actual reached standing view captured: airer_lowered",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-4.0, -3.2, 0.0)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-3.4, -3.2, -1.5)",
+			"ok": true
+		},
+		{
+			"label": "ordinary controller reaches (-1.75, -3.2, -1.5)",
+			"ok": true
+		},
+		{
+			"label": "all programme travel retains ordinary physics",
+			"ok": true
+		},
+		{
+			"label": "one complete collision-bearing shared programme route",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored programme room: F01_MAIL_TELEPHONE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored programme room: F01_PACKAGE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored programme room: F01_COMMON_B",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored programme room: B1_LAUNDRY",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored programme room: B1_COAL_ROOM",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored programme room: B1_ELECTRICAL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored programme room: B1_MAINTENANCE_SHOP",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored programme room: B1_RESIDENT_STORAGE",
+			"ok": true
+		},
+		{
+			"label": "isolated mail save directory is writable",
+			"ok": true
+		},
+		{
+			"label": "real disk records collected mail and the existing household mechanism owner",
+			"ok": true
+		},
+		{
+			"label": "preserve the original mail disk snapshot for review",
+			"ok": true
+		},
+		{
+			"label": "root and programme driver retire",
+			"ok": true
+		},
+		{
+			"label": "fresh campaign state loads the real isolated disk save",
+			"ok": true
+		},
+		{
+			"label": "fresh production world reconstructs from the disk save",
+			"ok": true
+		},
+		{
+			"label": "disk rebuild restores collected-mail absence and partial letter/leaf positions",
+			"ok": true
+		},
+		{
+			"label": "rebuilt telephone starts with its transient line idle and native controls intact",
+			"ok": true
+		},
+		{
+			"label": "reconstructed production root retires",
+			"ok": true
+		},
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "production and surface inputs stay fixed",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "complete original programme test closure stays fixed",
+			"ok": true
+		},
+		{
+			"label": "record repository provenance",
+			"ok": true
+		},
+		{
+			"label": "explicit writable receipt destination",
+			"ok": true
+		},
+		{
+			"label": "open cohort runtime contract",
+			"ok": true
+		}
+	],
+	"completed_groups": [
+		"service_programmes"
+	],
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"room_access": {
+			"executed": true,
+			"rooms": {
+				"B1_COAL_ROOM": {
+					"actual": [
+						14.1994066238403,
+						-3.19916701316834,
+						-6.70389127731323
+					],
+					"leg": "service_programmes"
+				},
+				"B1_ELECTRICAL": {
+					"actual": [
+						7.39505958557129,
+						-3.19905734062195,
+						-2.20294857025146
+					],
+					"leg": "service_programmes"
+				},
+				"B1_LAUNDRY": {
+					"actual": [
+						-3.30282831192017,
+						-3.19905710220337,
+						-1.50568008422852
+					],
+					"leg": "service_programmes"
+				},
+				"B1_MAINTENANCE_SHOP": {
+					"actual": [
+						7.40001726150513,
+						-3.19905734062195,
+						1.40392017364502
+					],
+					"leg": "service_programmes"
+				},
+				"B1_RESIDENT_STORAGE": {
+					"actual": [
+						4.40425729751587,
+						-3.19916558265686,
+						4.9016284942627
+					],
+					"leg": "service_programmes"
+				},
+				"F01_COMMON_B": {
+					"actual": [
+						-10.2036333084106,
+						0.000822311849333346,
+						2.39671802520752
+					],
+					"leg": "service_programmes"
+				},
+				"F01_MAIL_TELEPHONE": {
+					"actual": [
+						-6.10440254211426,
+						0.000822311849333346,
+						-2.39348125457764
+					],
+					"leg": "service_programmes"
+				},
+				"F01_PACKAGE": {
+					"actual": [
+						-7.29966449737549,
+						0.000822311849333346,
+						1.50411605834961
+					],
+					"leg": "service_programmes"
+				}
+			},
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "shared production root and all route/check drivers only",
+			"retained_nodes": 0,
+			"status": "PASS",
+			"tracked_nodes": 2
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 377.984,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": 0,
+	"groups": [
+		"service_programmes"
+	],
+	"legs": [
+		{
+			"failures": [],
+			"group": "service_programmes",
+			"initial_placement_only": true,
+			"name": "service_programmes",
+			"trace": [
+				{
+					"actual": [
+						-1.70353364944458,
+						0.000822311849333346,
+						-3.30267906188965
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 41,
+					"target": [
+						-1.79999995231628,
+						0.0,
+						-3.29999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.79481518268585,
+						0.000822311849333346,
+						-1.59688854217529
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 41,
+					"target": [
+						-1.79999995231628,
+						0.0,
+						-1.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.50284576416016,
+						0.000822311849333346,
+						-1.50335597991943
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 61,
+					"target": [
+						-4.59999990463257,
+						0.0,
+						-1.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.8595232963562,
+						0.000822311849333346,
+						-2.30861663818359
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 24,
+					"target": [
+						-4.90000009536743,
+						0.0,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.10440254211426,
+						0.000822311849333346,
+						-2.39348125457764
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 33,
+					"target": [
+						-6.19999980926514,
+						0.0,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.00399112701416,
+						0.000822311849333346,
+						-2.39937019348145
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 25,
+					"target": [
+						-7.09999990463257,
+						0.0,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.40327405929565,
+						0.000822311849333346,
+						-0.741811752319336
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 43,
+					"target": [
+						-6.36999988555908,
+						0.0,
+						-0.649998664855957
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.0096435546875,
+						0.000822311849333346,
+						-1.27027416229248
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 42,
+					"target": [
+						-8.10000038146973,
+						0.0,
+						-1.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.16050386428833,
+						0.000822311849333346,
+						-2.32485580444336
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 34,
+					"target": [
+						-7.09999990463257,
+						0.0,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.29108572006226,
+						0.000822311849333346,
+						-0.94425106048584
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 35,
+					"target": [
+						-7.30000019073486,
+						0.0,
+						-0.850000023841858
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.29966449737549,
+						0.000822311849333346,
+						1.50411605834961
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 57,
+					"target": [
+						-7.30000019073486,
+						0.0,
+						1.60000002384186
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.75151968002319,
+						0.000822311849333346,
+						2.31319332122803
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 25,
+					"target": [
+						-7.80000019073486,
+						0.0,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.2036333084106,
+						0.000822311849333346,
+						2.39671802520752
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 57,
+					"target": [
+						-10.3000001907349,
+						0.0,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.2928314208984,
+						0.000822311849333346,
+						3.60305404663086
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 31,
+					"target": [
+						-10.3000001907349,
+						0.0,
+						3.70000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.3025960922241,
+						0.000822311849333346,
+						3.69551849365234
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 47,
+					"target": [
+						-12.3999996185303,
+						0.0,
+						3.70000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.3967256546021,
+						0.000822311849333346,
+						3.69978427886963
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 46,
+					"target": [
+						-10.3000001907349,
+						0.0,
+						3.70000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.3071842193604,
+						0.000822311849333346,
+						2.49654674530029
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 31,
+					"target": [
+						-10.3000001907349,
+						0.0,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.89739561080933,
+						0.000822311849333346,
+						2.40375232696533
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 55,
+					"target": [
+						-7.80000019073486,
+						0.0,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.35762071609497,
+						0.000822311849333346,
+						1.67752361297607
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 25,
+					"target": [
+						-7.30000019073486,
+						0.0,
+						1.60000002384186
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.30227184295654,
+						0.000822311849333346,
+						-0.750361442565918
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 55,
+					"target": [
+						-7.30000019073486,
+						0.0,
+						-0.850000023841858
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.11190319061279,
+						0.000822311849333346,
+						-2.30292129516602
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 38,
+					"target": [
+						-7.09999990463257,
+						0.0,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.99794673919678,
+						0.000822311849333346,
+						-2.39570236206055
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 49,
+					"target": [
+						-4.90000009536743,
+						0.0,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.63021802902222,
+						0.000933506118599325,
+						-1.59164047241211
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 25,
+					"target": [
+						-4.59999990463257,
+						0.0,
+						-1.5
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/F01_RITUAL_WIRE_COLUMN/Collision": "(5.030001, 1.194934, -9.899999)"
+					}
+				},
+				{
+					"actual": [
+						-1.89490652084351,
+						0.000860136351548135,
+						-1.50226306915283
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 62,
+					"target": [
+						-1.79999995231628,
+						0.0,
+						-1.5
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/F01_watch_chair": "(3.468001, 0.9653, -9.7779)"
+					}
+				},
+				{
+					"actual": [
+						-1.80508506298065,
+						0.000860136351548135,
+						-3.20367908477783
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 41,
+					"target": [
+						-1.79999995231628,
+						0.0,
+						-3.29999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.82963967323303,
+						0.000860136351548135,
+						-3.49242401123047
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 80,
+					"target": [
+						1.92499995231628,
+						0.0,
+						-3.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						3.8460521697998,
+						0.000941657286603004,
+						-3.29562473297119
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						0.0,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/F01_FIRE_LINE_STAIR/@MeshInstance3D@29654/NativeCaseCollision": "(-4.039999, 1.2, -8.08)",
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/F01_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29709/NativeCaseCollision": "(-4.044999, 1.2, -8.088)",
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/F01_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@29711/NativeCaseCollision": "(-4.045, 1.2, -8.088)"
+					}
+				},
+				{
+					"actual": [
+						3.97218084335327,
+						-1.57749128341675,
+						1.22029972076416
+					],
+					"ok": true,
+					"target": [
+						3.97499990463257,
+						-1.60000002384186,
+						1.29999995231628
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step00/Collision": "(-3.97218, -1.44, -12.6)"
+					}
+				},
+				{
+					"actual": [
+						2.01974034309387,
+						-1.59905958175659,
+						1.27156639099121
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						-1.60000002384186,
+						1.29999995231628
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step00/Collision": "(-3.967593, -1.44, -12.6)",
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/StairGuards": "(-2.022645, -0.715, -13.2525)"
+					}
+				},
+				{
+					"actual": [
+						1.92693746089935,
+						-3.19916224479675,
+						-3.40258121490479
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						-3.20000004768372,
+						-3.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.9256192445755,
+						-3.05426502227783,
+						-3.19672012329102
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						-3.20000004768372,
+						-3.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.90303611755371,
+						-3.19916558265686,
+						-3.10716438293457
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						-3.20000004768372,
+						-3.09999990463257
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/StairGuards": "(-2.402499, -2.155146, -8.6925)"
+					}
+				},
+				{
+					"actual": [
+						4.9984016418457,
+						-3.19916558265686,
+						2.70265197753906
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						-3.20000004768372,
+						2.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.49588632583618,
+						-3.19916558265686,
+						2.78440093994141
+					],
+					"ok": true,
+					"target": [
+						4.40000009536743,
+						-3.20000004768372,
+						2.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.40425729751587,
+						-3.19916558265686,
+						4.9016284942627
+					],
+					"ok": true,
+					"target": [
+						4.40000009536743,
+						-3.20000004768372,
+						5.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.40023756027222,
+						-3.19916558265686,
+						6.57588195800781
+					],
+					"ok": true,
+					"target": [
+						4.40000009536743,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.94779777526855,
+						-3.19906187057495,
+						6.67526817321777
+					],
+					"ok": true,
+					"target": [
+						-9.04500007629395,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/WEST_WET_STACK/RevealSection19/Collision": "(5.950002, -2.005062, -18.0)"
+					}
+				},
+				{
+					"actual": [
+						-9.03905010223389,
+						-3.19906187057495,
+						5.14948844909668
+					],
+					"ok": true,
+					"target": [
+						-9.04500007629395,
+						-3.20000004768372,
+						5.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.04461193084717,
+						-3.19906187057495,
+						6.57563591003418
+					],
+					"ok": true,
+					"target": [
+						-9.04500007629395,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.58270072937012,
+						-3.19906187057495,
+						6.66877555847168
+					],
+					"ok": true,
+					"target": [
+						-7.4850001335144,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.49096059799194,
+						-3.19906187057495,
+						5.14874458312988
+					],
+					"ok": true,
+					"target": [
+						-7.4850001335144,
+						-3.20000004768372,
+						5.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.48538827896118,
+						-3.19906187057495,
+						6.57554817199707
+					],
+					"ok": true,
+					"target": [
+						-7.4850001335144,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.97136259078979,
+						-3.19915199279785,
+						6.67537879943848
+					],
+					"ok": true,
+					"target": [
+						-4.875,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/WEST_WET_STACK/RevealSection0/Collision": "(6.324252, -2.005062, -18.0)",
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/WEST_WET_STACK/RevealSection19/Collision": "(5.974285, -2.005152, -18.0)",
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/WEST_WET_STACK/RevealSection38/Collision": "(6.124266, -2.005062, -18.0)"
+					}
+				},
+				{
+					"actual": [
+						-4.88089895248413,
+						-3.19915199279785,
+						5.14950370788574
+					],
+					"ok": true,
+					"target": [
+						-4.875,
+						-3.20000004768372,
+						5.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.87538433074951,
+						-3.19915199279785,
+						6.57563591003418
+					],
+					"ok": true,
+					"target": [
+						-4.875,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.41279101371765,
+						-3.19915199279785,
+						6.66877555847168
+					],
+					"ok": true,
+					"target": [
+						-3.31500005722046,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.32096600532532,
+						-3.19915199279785,
+						5.14874458312988
+					],
+					"ok": true,
+					"target": [
+						-3.31500005722046,
+						-3.20000004768372,
+						5.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.31538844108582,
+						-3.19915199279785,
+						6.57554817199707
+					],
+					"ok": true,
+					"target": [
+						-3.31500005722046,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.85279226303101,
+						-3.19915199279785,
+						6.66876983642578
+					],
+					"ok": true,
+					"target": [
+						-1.75499999523163,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.76096570491791,
+						-3.19915199279785,
+						5.14875030517578
+					],
+					"ok": true,
+					"target": [
+						-1.75499999523163,
+						-3.20000004768372,
+						5.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.75538873672485,
+						-3.19915199279785,
+						6.5755500793457
+					],
+					"ok": true,
+					"target": [
+						-1.75499999523163,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.292792499065399,
+						-3.19915199279785,
+						6.66876983642578
+					],
+					"ok": true,
+					"target": [
+						-0.194999992847443,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.200965583324432,
+						-3.19915199279785,
+						5.14875411987305
+					],
+					"ok": true,
+					"target": [
+						-0.194999992847443,
+						-3.20000004768372,
+						5.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.195388704538345,
+						-3.19915199279785,
+						6.5755500793457
+					],
+					"ok": true,
+					"target": [
+						-0.194999992847443,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.26720714569092,
+						-3.19915199279785,
+						6.66876983642578
+					],
+					"ok": true,
+					"target": [
+						1.36500000953674,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.35903429985046,
+						-3.19915199279785,
+						5.14875411987305
+					],
+					"ok": true,
+					"target": [
+						1.36500000953674,
+						-3.20000004768372,
+						5.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.36461126804352,
+						-3.19915199279785,
+						6.5755500793457
+					],
+					"ok": true,
+					"target": [
+						1.36500000953674,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.82720708847046,
+						-3.19915199279785,
+						6.66876983642578
+					],
+					"ok": true,
+					"target": [
+						2.92499995231628,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.91903424263,
+						-3.19915199279785,
+						5.14875411987305
+					],
+					"ok": true,
+					"target": [
+						2.92499995231628,
+						-3.20000004768372,
+						5.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.92461156845093,
+						-3.19915199279785,
+						6.5755500793457
+					],
+					"ok": true,
+					"target": [
+						2.92499995231628,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.95018577575684,
+						-3.19905734062195,
+						6.67523193359375
+					],
+					"ok": true,
+					"target": [
+						-9.04500007629395,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/WEST_WET_STACK/RevealSection19/Collision": "(5.950002, -2.005057, -18.0)"
+					}
+				},
+				{
+					"actual": [
+						-9.03919696807861,
+						-3.19905734062195,
+						8.20056533813477
+					],
+					"ok": true,
+					"target": [
+						-9.04500007629395,
+						-3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.04462242126465,
+						-3.19905734062195,
+						6.77437019348145
+					],
+					"ok": true,
+					"target": [
+						-9.04500007629395,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.58270597457886,
+						-3.19905734062195,
+						6.68122482299805
+					],
+					"ok": true,
+					"target": [
+						-7.4850001335144,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.49096059799194,
+						-3.19905734062195,
+						8.20124626159668
+					],
+					"ok": true,
+					"target": [
+						-7.4850001335144,
+						-3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.48538827896118,
+						-3.19905734062195,
+						6.77445030212402
+					],
+					"ok": true,
+					"target": [
+						-7.4850001335144,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.0227952003479,
+						-3.19905734062195,
+						6.68123054504395
+					],
+					"ok": true,
+					"target": [
+						-5.92500019073486,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-5.93096542358398,
+						-3.19905734062195,
+						8.20124626159668
+					],
+					"ok": true,
+					"target": [
+						-5.92500019073486,
+						-3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-5.92538833618164,
+						-3.19905734062195,
+						6.77445030212402
+					],
+					"ok": true,
+					"target": [
+						-5.92500019073486,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.46279382705688,
+						-3.19905734062195,
+						6.68123054504395
+					],
+					"ok": true,
+					"target": [
+						-4.36499977111816,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.37096500396729,
+						-3.19905734062195,
+						8.20124816894531
+					],
+					"ok": true,
+					"target": [
+						-4.36499977111816,
+						-3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.36538791656494,
+						-3.19905734062195,
+						6.77445030212402
+					],
+					"ok": true,
+					"target": [
+						-4.36499977111816,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-2.90279388427734,
+						-3.19905734062195,
+						6.68123054504395
+					],
+					"ok": true,
+					"target": [
+						-2.8050000667572,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-2.81096577644348,
+						-3.19905734062195,
+						8.20124816894531
+					],
+					"ok": true,
+					"target": [
+						-2.8050000667572,
+						-3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-2.80538845062256,
+						-3.19905734062195,
+						6.77445030212402
+					],
+					"ok": true,
+					"target": [
+						-2.8050000667572,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.34279429912567,
+						-3.19905734062195,
+						6.68123245239258
+					],
+					"ok": true,
+					"target": [
+						-1.24500000476837,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.25096583366394,
+						-3.19905734062195,
+						8.20124816894531
+					],
+					"ok": true,
+					"target": [
+						-1.24500000476837,
+						-3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.2453887462616,
+						-3.19905734062195,
+						6.77445220947266
+					],
+					"ok": true,
+					"target": [
+						-1.24500000476837,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						0.217206135392189,
+						-3.19905734062195,
+						6.68123245239258
+					],
+					"ok": true,
+					"target": [
+						0.314999997615814,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						0.30903422832489,
+						-3.19905734062195,
+						8.20124816894531
+					],
+					"ok": true,
+					"target": [
+						0.314999997615814,
+						-3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						0.314611226320267,
+						-3.19905734062195,
+						6.77445220947266
+					],
+					"ok": true,
+					"target": [
+						0.314999997615814,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.77720594406128,
+						-3.19905734062195,
+						6.68123245239258
+					],
+					"ok": true,
+					"target": [
+						1.875,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.86903417110443,
+						-3.19905734062195,
+						8.20124816894531
+					],
+					"ok": true,
+					"target": [
+						1.875,
+						-3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.87461125850677,
+						-3.19905734062195,
+						6.77445220947266
+					],
+					"ok": true,
+					"target": [
+						1.875,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						3.33720588684082,
+						-3.19905734062195,
+						6.68123245239258
+					],
+					"ok": true,
+					"target": [
+						3.43499994277954,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						3.42903423309326,
+						-3.19905734062195,
+						8.20124816894531
+					],
+					"ok": true,
+					"target": [
+						3.43499994277954,
+						-3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						3.43461155891418,
+						-3.19905734062195,
+						6.77445220947266
+					],
+					"ok": true,
+					"target": [
+						3.43499994277954,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.68391847610474,
+						-3.19905734062195,
+						6.68210601806641
+					],
+					"ok": true,
+					"target": [
+						4.78000020980835,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.77572679519653,
+						-3.19905734062195,
+						8.80135345458984
+					],
+					"ok": true,
+					"target": [
+						4.78000020980835,
+						-3.20000004768372,
+						8.89999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.6487340927124,
+						-3.19905734062195,
+						9.01717567443848
+					],
+					"ok": true,
+					"target": [
+						4.59999990463257,
+						-3.20000004768372,
+						9.10000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.60523223876953,
+						-3.19905734062195,
+						9.80520820617676
+					],
+					"ok": true,
+					"target": [
+						4.59999990463257,
+						-3.20000004768372,
+						9.89999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.44669485092163,
+						-3.19905734062195,
+						10.513126373291
+					],
+					"ok": true,
+					"target": [
+						4.42500019073486,
+						-3.20000004768372,
+						10.6099996566772
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.57702112197876,
+						-3.19905734062195,
+						9.99190139770508
+					],
+					"ok": true,
+					"target": [
+						4.59999990463257,
+						-3.20000004768372,
+						9.89999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.59753561019897,
+						-3.19905734062195,
+						9.19566345214844
+					],
+					"ok": true,
+					"target": [
+						4.59999990463257,
+						-3.20000004768372,
+						9.10000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.72948598861694,
+						-3.19905734062195,
+						8.98185157775879
+					],
+					"ok": true,
+					"target": [
+						4.78000020980835,
+						-3.20000004768372,
+						8.89999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.77787017822266,
+						-3.19905734062195,
+						6.77226638793945
+					],
+					"ok": true,
+					"target": [
+						4.78000020980835,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.49248695373535,
+						-3.19905734062195,
+						6.69880867004395
+					],
+					"ok": true,
+					"target": [
+						4.40000009536743,
+						-3.20000004768372,
+						6.67500019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.40228700637817,
+						-3.19905734062195,
+						2.89641857147217
+					],
+					"ok": true,
+					"target": [
+						4.40000009536743,
+						-3.20000004768372,
+						2.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.90418386459351,
+						-3.19905734062195,
+						2.81545543670654
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						-3.20000004768372,
+						2.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.99706935882568,
+						-3.19905734062195,
+						-0.301652908325195
+					],
+					"ok": true,
+					"target": [
+						5.0,
+						-3.20000004768372,
+						-0.400000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.30306959152222,
+						-3.19905734062195,
+						-0.39603328704834
+					],
+					"ok": true,
+					"target": [
+						7.40000009536743,
+						-3.20000004768372,
+						-0.400000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.39505958557129,
+						-3.19905734062195,
+						-2.20294857025146
+					],
+					"ok": true,
+					"target": [
+						7.40000009536743,
+						-3.20000004768372,
+						-2.29999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.59265041351318,
+						-3.19905734062195,
+						-4.80327939987183
+					],
+					"ok": true,
+					"target": [
+						7.59999990463257,
+						-3.20000004768372,
+						-4.90000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.40749502182007,
+						-3.19905734062195,
+						-2.39738273620605
+					],
+					"ok": true,
+					"target": [
+						7.40000009536743,
+						-3.20000004768372,
+						-2.29999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.40036106109619,
+						-3.19905734062195,
+						-0.496192932128906
+					],
+					"ok": true,
+					"target": [
+						7.40000009536743,
+						-3.20000004768372,
+						-0.400000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.40001726150513,
+						-3.19905734062195,
+						1.40392017364502
+					],
+					"ok": true,
+					"target": [
+						7.40000009536743,
+						-3.20000004768372,
+						1.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.26570415496826,
+						-3.19905734062195,
+						3.70869159698486
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						-3.20000004768372,
+						3.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.38476371765137,
+						-3.19905734062195,
+						4.45455169677734
+					],
+					"ok": true,
+					"target": [
+						8.39999961853027,
+						-3.20000004768372,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9793767929077,
+						-3.19905734062195,
+						4.54660606384277
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0729541778564,
+						-1.60030162334442,
+						9.0513858795166
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3295021057129,
+						-1.59905755519867,
+						9.12158203125
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						-1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_B1_F01/StairGuards": "(-12.32642, -0.715, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						12.4223861694336,
+						0.000420253723859787,
+						5.74530601501465
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						0.0,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248876571655,
+						0.000420253723859787,
+						3.59600162506104
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						0.0,
+						3.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.424994468689,
+						0.000420253723859787,
+						5.5530948638916
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						0.0,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4249973297119,
+						-1.54658365249634,
+						9.05119895935059
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						-1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1701440811157,
+						-1.59905707836151,
+						9.12158393859863
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_B1_F01/FlightB_Step00/Collision": "(-12.21888, -1.44, -20.45)",
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_B1_F01/StairGuards": "(-11.17014, -0.715, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						11.0770540237427,
+						-3.19916701316834,
+						4.64833068847656
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0751276016235,
+						-3.19916701316834,
+						3.19628143310547
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						3.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0750150680542,
+						-3.19916701316834,
+						2.49608325958252
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6930952072144,
+						-3.19916701316834,
+						2.41883087158203
+					],
+					"ok": true,
+					"target": [
+						10.6000003814697,
+						-3.20000004768372,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6014785766602,
+						-3.19916701316834,
+						-3.70128297805786
+					],
+					"ok": true,
+					"target": [
+						10.6000003814697,
+						-3.20000004768372,
+						-3.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.103590965271,
+						-3.19916701316834,
+						-3.79735517501831
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						-3.20000004768372,
+						-3.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1845798492432,
+						-3.19916701316834,
+						-4.30360889434814
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						-3.20000004768372,
+						-4.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1994066238403,
+						-3.19916701316834,
+						-6.70389127731323
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						-3.20000004768372,
+						-6.80000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.8876838684082,
+						-3.19916701316834,
+						-7.35638380050659
+					],
+					"ok": true,
+					"target": [
+						12.8000001907349,
+						-3.20000004768372,
+						-7.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1085243225098,
+						-3.19916701316834,
+						-6.83878326416016
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						-3.20000004768372,
+						-6.80000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1971244812012,
+						-3.19916701316834,
+						-3.89547967910767
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						-3.20000004768372,
+						-3.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6962690353394,
+						-3.19916701316834,
+						-3.80255556106567
+					],
+					"ok": true,
+					"target": [
+						10.6000003814697,
+						-3.20000004768372,
+						-3.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6027402877808,
+						-3.19916701316834,
+						-0.496872901916504
+					],
+					"ok": true,
+					"target": [
+						10.6000003814697,
+						-3.20000004768372,
+						-0.400000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.8559522628784,
+						-3.19916701316834,
+						-0.426234245300293
+					],
+					"ok": true,
+					"target": [
+						10.9499998092651,
+						-3.20000004768372,
+						-0.400000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.39714336395264,
+						-3.19916701316834,
+						-0.400997161865234
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						-3.20000004768372,
+						-0.400000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.09618663787842,
+						-3.19916701316834,
+						-0.400027275085449
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 73,
+					"target": [
+						5.0,
+						-3.20000004768372,
+						-0.400000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.99995279312134,
+						-3.19905710220337,
+						-3.00138759613037
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 59,
+					"target": [
+						5.0,
+						-3.20000004768372,
+						-3.09999990463257
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/WallSouth_00/Collision": "(-5.399999, -2.005059, -10.72)",
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/B1_ELECTRICAL/WallWest_00/Collision": "(-5.329999, -2.005057, -8.648612)"
+					}
+				},
+				{
+					"actual": [
+						3.59660053253174,
+						-3.19905710220337,
+						-3.09364700317383
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 35,
+					"target": [
+						3.5,
+						-3.20000004768372,
+						-3.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						3.52277207374573,
+						-3.19905710220337,
+						-3.40420722961426
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 13,
+					"target": [
+						3.5,
+						-3.20000004768372,
+						-3.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.00686764717102,
+						-3.19905710220337,
+						-3.44908809661865
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 39,
+					"target": [
+						1.92499995231628,
+						-3.20000004768372,
+						-3.5
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_CORE/WallSouth_00/Collision": "(-2.006867, -2.005057, -7.87)"
+					}
+				},
+				{
+					"actual": [
+						-1.65271651744843,
+						-3.19905710220337,
+						-3.40127086639404
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 80,
+					"target": [
+						-1.75,
+						-3.20000004768372,
+						-3.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.74504959583282,
+						-3.19905710220337,
+						-1.5967493057251
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 43,
+					"target": [
+						-1.75,
+						-3.20000004768372,
+						-1.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.30282831192017,
+						-3.19905710220337,
+						-1.50568008422852
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 39,
+					"target": [
+						-3.40000009536743,
+						-3.20000004768372,
+						-1.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.21101808547974,
+						-3.19905710220337,
+						-2.30417156219482
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 23,
+					"target": [
+						-3.20000004768372,
+						-3.20000004768372,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.90449476242065,
+						-3.19905710220337,
+						-2.39758396148682
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 81,
+					"target": [
+						-7.0,
+						-3.20000004768372,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.2964391708374,
+						-3.19905710220337,
+						-0.233279228210449
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 58,
+					"target": [
+						-8.35000038146973,
+						-3.20000004768372,
+						-0.150000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.08993577957153,
+						-3.19905710220337,
+						-0.760686874389648
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 34,
+					"target": [
+						-7.0,
+						-3.20000004768372,
+						-0.800000011920929
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-5.35914993286133,
+						-3.19905710220337,
+						1.52198886871338
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 64,
+					"target": [
+						-5.30000019073486,
+						-3.20000004768372,
+						1.60000002384186
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.06364393234253,
+						-3.19905710220337,
+						0.0712699890136719
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 47,
+					"target": [
+						-4.0,
+						-3.20000004768372,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.44973254203796,
+						-3.19906687736511,
+						-1.41858291625977
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 40,
+					"target": [
+						-3.40000009536743,
+						-3.20000004768372,
+						-1.5
+					],
+					"wall_contacts": {
+						"/root/V2ServiceProgrammeContract/OrisonV2Runtime/OrisonV2Blockout/B1_LAUNDRY_DOOR/B1_LAUNDRY_DOOR_Leaf/HingedLeaf": "(3.316001, -2.005067, -10.652)"
+					}
+				},
+				{
+					"actual": [
+						-1.84652757644653,
+						-3.19906687736511,
+						-1.49537658691406
+					],
+					"ok": true,
+					"on_floor": true,
+					"physics_steps": 39,
+					"target": [
+						-1.75,
+						-3.20000004768372,
+						-1.5
+					],
+					"wall_contacts": {}
+				}
+			]
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Played room access in one shared production world. Complete route families retain their declared initial placements; roof circuits share one F06 arrival. Subsequent travel uses the normal collision-bearing controller. Physical input replaces inherited E-key toggles. The lift travel request remains a declared stimulus. No inter-floor connection, case completion, disk save, whole-building runtime or human acceptance grant.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "8db55d0d0e9c7e4ba06829dd0d3be8e70085a469",
+		"runtime_inputs_sha256": "0a3fad312d5e5cbd0b73d9765fcd71514a7bd73ae25da63ebb61eb04216f3df2",
+		"scene_path": "res://tests/V2ServiceProgrammeContract.tscn",
+		"surface_inputs_sha256": "8fd7cec191afa9d1b0201e37aa1304d893a0c7a76c293547e51989d034dddf76",
+		"test_dependencies": {
+			"game/tests/V2ServiceProgrammeContract.tscn": "4ba0bbb15a70ea555acb3229ab8c9da7550762e47594697b79333326c0a6241b",
+			"game/tests/fuse_panel_hand_test.gd": "a1c73ec870d97933e356f17a7f45ebfa3add4402f1bf6a276b3d54171bf919eb",
+			"game/tests/orison_v2_4b_door_route_test.gd": "812dda33b098642cfd39f85c858cbe8e431821e49b02b827d0273007e9b029db",
+			"game/tests/orison_v2_basement_route_test.gd": "ded594bab9a9109230f49b1fa6c9c281a3b58898d998b173bd5b0ad3fb5a6513",
+			"game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+			"game/tests/orison_v2_first_slice_contract_test.gd": "59f0f5275b8215cd449afea46904fabf8485acfc6485172bfd82a5ac594d8c28",
+			"game/tests/orison_v2_roof_route_test.gd": "b3218edf5f424fcafa38aadb86a5719fd1c4bc4aa7d8d4edfead296640936f31",
+			"game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+			"game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
+			"game/tests/v2_house_switchboard_hand_bench.gd": "c19bfc81e2b2d1c9b7be14ee0f786d213d0af53f6c1cf706304a4d0132a460e2",
+			"game/tests/v2_service_mail_disk.gd": "00bbdcf4734a76de389a5b2ef5d61b699978bffb24d748ef3d6a5f2c66d3b6fb",
+			"game/tests/v2_service_mail_operations.gd": "0c50bec1c41309d1801367b9134f64e97df4cf13a9d31c572f59b00aa821fd5b",
+			"game/tests/v2_service_programme_contract.gd": "b74772d6d454a965b460ebf3802cdf8f998e44333c49fc34ec43d5c1bdedba9c",
+			"game/tests/v2_service_programme_walk.gd": "3771a07fc3b8484d326b0015e1a0e8b9b2b24d49f75b5fa5e0330c5b8d5f5702",
+			"game/tests/v2_service_telephone_operations.gd": "bbec7c19168c62c660825d26e8489c11bef019618a51ccdc78b1bea469b7b6b4",
+			"game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+		},
+		"test_path": "game/tests/v2_service_programme_contract.gd",
+		"test_sha256": "b74772d6d454a965b460ebf3802cdf8f998e44333c49fc34ec43d5c1bdedba9c"
+	}
+}

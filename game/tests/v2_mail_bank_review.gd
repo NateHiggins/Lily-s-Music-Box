@@ -20,11 +20,13 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 			if hit != null: depth = minf(depth, hit.z - start.z)
 		suite.check(is_finite(depth) and absf(depth - .482) < .001,
 				"actual vacant/player pocket reaches its rear lining without a solid face: " + unit)
-	var body := bank.get_node("PlayerBox") as StaticBody3D
+	var legacy := bank.get_node("PlayerBox") as StaticBody3D
+	suite.check(legacy.collision_layer==0 and legacy.collision_mask==0,"old filled-pocket use proxy is disabled for native hand interaction")
+	var body: AnimatableBody3D=bank._hand_controls.door_body
 	var query := PhysicsRayQueryParameters3D.create(bank.to_global(Vector3(-.155, 1.410, -1.65)),
 			bank.to_global(Vector3(-.155, 1.410, -.078)), 1, [world.player.get_rid()])
 	suite.check(world.get_world_3d().direct_space_state.intersect_ray(query).get("collider") == body,
-			"production use ray still reaches original 4B mail authority")
+			"production ray reaches the actual closed native 4B leaf")
 	var custody := _custody(); var catalog := JSON.stringify(bank.deliveries)
 	var camera := Camera3D.new(); camera.fov = 50; world.add_child(camera); camera.make_current()
 	camera.global_position = bank.to_global(Vector3(.40, 1.42, -1.65)); camera.look_at(bank.to_global(Vector3(0, 1.24, -.09)), Vector3.UP)
