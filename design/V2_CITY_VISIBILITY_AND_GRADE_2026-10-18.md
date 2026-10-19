@@ -74,3 +74,41 @@ UV/custom-PBR/loaded-mipmap inventory. Only after that rendered candidate passes
 should the broader original service/access proofs be renewed against frozen
 inputs. No wrapper, source check or image grants played exterior access or whole
 V2/human appearance acceptance.
+
+The first original composed run completes at **2d48f518** with 37,947 checks,
+zero failures and zero unresolved surfaces: 25,865 draws, 16,831 meshes, 6,126
+material instances and 497 textures. All eighteen scoped frames were inspected.
+Dry views retain masonry/window detail; dense weather produces silhouettes.
+The old ground boundary has continuous stock, but openings between buildings
+still show an empty horizon. This run is retained as a diagnostic and is not
+published as the final city qualification. The longer five-job renewal batch
+was held back until that remaining visual issue is corrected.
+
+The additive horizon candidate now contains 92 disjoint buildings beyond the
+retained grade footprint, with varied roof heights and 25,548 physically recessed
+opaque panes. It adds no occupied interior, actor, public programme, case or
+mechanism. Existing city masses and their roof/hardware authorities are unchanged.
+The first native attempt finds impossible windows on shared party walls; those
+cells now contain solid masonry. Long masses are divided into smaller buildings,
+with closed parapets, roof plates, normal-mapped walls and sealed glazing. The
+source uses the same existing catalogued maps, with shared equal-finish materials.
+Two native exports remain below the repository file-size ceiling.
+
+The original **horizon_bench2.log.receipt.json** completes with 25,643 checks and
+zero failures. It verifies all 92 imported building bounds, actual fitted physics
+on every pane, imported metric/tangent samples in both asset/material families
+and retirement of the production horizon node. Its first parse-failed attempt
+was stopped only after verifying its own scene/process identities; no checks
+from that aborted run are admitted. A later compiled-review bench catches an
+undefined label variable; the corrected **source_bench7** completes without
+script errors. Source/bench checks and native previews do not establish rendered
+appearance or played access.
+
+The new subtree belongs to **CityShells**, with its transform derived from the
+actual retained building/grade transform. It does not introduce another spatial
+or weather authority. The composed review independently checks that frame,
+native asset identity, actual visible/physical faces, loaded PBR/mips and pane
+samples, then selects a clear first-hit sightline for the context image. All
+eight selected native fixture preflights pass; reader and spatial audits show
+zero new defects. Final composed images and broader original renewals are still
+pending for this additive candidate.

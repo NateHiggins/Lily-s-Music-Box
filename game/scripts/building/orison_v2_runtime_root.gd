@@ -774,6 +774,10 @@ func _compose_exterior() -> bool:
 	var city_shells := preload("res://scripts/building/orison_v2_city_shells.gd").new()
 	city_shells.name = "CityShells"
 	add_child(city_shells)
+	var horizon := preload("res://scripts/building/orison_v2_city_horizon.gd").new()
+	horizon.name = "CityHorizon"
+	horizon.transform = city_shells.global_transform.affine_inverse() * _blockout.global_transform
+	city_shells.add_child(horizon)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
 	var signage := preload("res://scripts/building/orison_v2_native_signage.gd").new()

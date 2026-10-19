@@ -126,6 +126,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 				break
 			if found:break
 		suite.check(found,"city window capture has an actual unobstructed first-hit sightline: "+identity)
+	await preload("res://tests/v2_city_horizon_review.gd").new().run(world,suite,camera)
 	# Presentation-only comparisons in the same composed world and camera.
 	# They grant no played exterior access or live-network weather acceptance.
 	var root: Node3D = world.adapter.root

@@ -18,6 +18,10 @@ class Requirements(unittest.TestCase):
             'art/blender/city_elevations_construction.json',
             'art/blender/city_ground_apron.blend',
             'art/blender/city_ground_apron_construction.json',
+            'art/data/city_horizon/source_plan.json',
+            'art/blender/city_horizon_near.blend',
+            'art/blender/city_horizon_far.blend',
+            'art/blender/city_horizon_construction.json',
         ]:
             with self.subTest(relative=relative):
                 target=ROOT/relative

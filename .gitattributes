@@ -2419,3 +2419,18 @@ game/scripts/building/v2_city_day_night_director.gd -text
 game/tests/V2CityVisibilityBench.tscn -text
 game/tests/v2_city_visibility_bench.gd -text
 art/reviews/v2_city_polish_20261018/** -text -whitespace
+art/blender/scripts/build_city_horizon.py -text
+art/blender/scripts/city_horizon_geometry.py -text
+art/blender/scripts/review_city_horizon.py -text
+art/data/city_horizon/source_plan.json -text
+art/blender/city_horizon_near.blend -text
+art/blender/city_horizon_far.blend -text
+art/blender/city_horizon_construction.json -text
+game/assets/props/city_horizon_near.glb -text
+game/assets/props/city_horizon_far.glb -text
+game/data/orison_v2/exterior/city_horizon.json -text
+game/tests/fixtures/orison_city_horizon.json -text
+game/scripts/building/orison_v2_city_horizon.gd -text
+game/tests/V2CityHorizonBench.tscn -text
+game/tests/v2_city_horizon_bench.gd -text
+game/tests/v2_city_horizon_review.gd -text
