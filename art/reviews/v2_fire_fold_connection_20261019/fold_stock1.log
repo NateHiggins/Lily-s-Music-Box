@@ -1,0 +1,75 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_Crown tri=432 n=(-0.35743, 0.05, 0.932601) actual=(0.933768, -0.000053, 0.35788) expected=(0.933417, 0.05255, 0.354925) bitangent=(-0.000463, -0.990581, 0.046953) determinant=0.00000019803359
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_Crown tri=432 n=(-0.359435, 0.032303, 0.932611) actual=(0.933098, 0.000031, 0.359622) expected=(0.932413, 0.052667, 0.357535) bitangent=(-0.000463, -0.990581, 0.046953) determinant=0.00000019803359
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_Crown tri=432 n=(-0.638851, 0.063904, 0.766671) actual=(0.768949, 0.021666, 0.638943) expected=(0.769107, 0.077074, 0.634456) bitangent=(-0.000463, -0.990581, 0.046953) determinant=0.00000019803359
+CAP MAPPING: mesh=fire_fold_stock_Crown valid_basis=true max_uv_excess=0.00003485614434 widest=1.12529419007249 vertices=49454 derivatives=false bad_derivatives=814 min_determinant=0.00000010181958 worst_dot=0.99162399768829
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_FoldPair tri=852 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.996023, 0.00002, 0.089099) bitangent=(0.009303, 0.0, 1.017571) determinant=0.00000043436398
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_FoldPair tri=852 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.996023, 0.00002, 0.089099) bitangent=(0.009303, 0.0, 1.017571) determinant=0.00000043436398
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_FoldPair tri=852 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.996023, 0.00002, 0.089099) bitangent=(0.009303, 0.0, 1.017571) determinant=0.00000043436398
+CAP MAPPING: mesh=fire_fold_stock_FoldPair valid_basis=true max_uv_excess=0.00003484939225 widest=1.11939674022691 vertices=1642 derivatives=false bad_derivatives=24 min_determinant=0.00000037922837 worst_dot=0.99602007865906
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_LastLeg tri=852 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.996028, 0.00002, 0.089043) bitangent=(0.009342, 0.0, 1.017571) determinant=0.00000043436398
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_LastLeg tri=852 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.996028, 0.00002, 0.089043) bitangent=(0.009342, 0.0, 1.017571) determinant=0.00000043436398
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_LastLeg tri=852 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.996028, 0.00002, 0.089043) bitangent=(0.009342, 0.0, 1.017571) determinant=0.00000043436398
+CAP MAPPING: mesh=fire_fold_stock_LastLeg valid_basis=true max_uv_excess=0.00003479595762 widest=1.11891891955789 vertices=821 derivatives=false bad_derivatives=12 min_determinant=0.00000037922837 worst_dot=0.99602502584457
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_OutletThroat tri=432 n=(-0.359649, 0.029906, 0.932608) actual=(0.933026, -0.000013, 0.35981) expected=(0.93109, -0.053866, 0.36079) bitangent=(0.034148, -1.068863, 0.042539) determinant=0.0000001092919
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_OutletThroat tri=432 n=(-0.360396, 0.019301, 0.9326) actual=(0.932773, -0.000007, 0.360463) expected=(0.931044, -0.053861, 0.36091) bitangent=(0.034148, -1.068863, 0.042539) determinant=0.0000001092919
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_OutletThroat tri=432 n=(-0.640903, 0.038193, 0.766671) actual=(0.767484, 0.012952, 0.640937) expected=(0.765414, -0.043899, 0.642039) bitangent=(0.034148, -1.068863, 0.042539) determinant=0.0000001092919
+CAP MAPPING: mesh=fire_fold_stock_OutletThroat valid_basis=true max_uv_excess=0.00003953976557 widest=1.16858967933819 vertices=98642 derivatives=false bad_derivatives=1740 min_determinant=0.00000006071772 worst_dot=0.99180549383163
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_ReturnDrop tri=435 n=(0.615498, -0.054902, 0.786224) actual=(0.786997, -0.010861, -0.616861) expected=(0.788134, 0.04632, -0.613759) bitangent=(-0.043746, -1.090352, -0.081756) determinant=0.00000017003185
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_ReturnDrop tri=435 n=(0.841149, -0.073613, 0.53577) actual=(0.53786, 0.010651, -0.842967) expected=(0.540191, 0.06722, -0.838854) bitangent=(-0.043746, -1.090352, -0.081756) determinant=0.00000017003185
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_ReturnDrop tri=435 n=(0.837859, -0.103297, 0.536024) actual=(0.540132, 0.014676, -0.841452) expected=(0.543745, 0.071035, -0.836239) bitangent=(-0.043746, -1.090352, -0.081756) determinant=0.00000017003185
+CAP MAPPING: mesh=fire_fold_stock_ReturnDrop valid_basis=true max_uv_excess=0.00003792400821 widest=1.53008637095526 vertices=49394 derivatives=false bad_derivatives=1718 min_determinant=0.0 worst_dot=0.11708665639162
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_ReturnFlat tri=246 n=(-0.631838, 0.032201, 0.774432) actual=(0.775004, 0.010495, 0.631869) expected=(0.77352, -0.037575, 0.632657) bitangent=(-0.071095, -0.952675, 0.0) determinant=0.00000009715654
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_ReturnFlat tri=246 n=(-0.360522, 0.014902, 0.932632) actual=(0.932735, -0.000005, 0.360562) expected=(0.931514, -0.045717, 0.36082) bitangent=(-0.071095, -0.952675, 0.0) determinant=0.00000009715654
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_ReturnFlat tri=246 n=(-0.359406, 0.032608, 0.932611) actual=(0.933107, -0.000031, 0.359598) expected=(0.931594, -0.04573, 0.360613) bitangent=(-0.071095, -0.952675, 0.0) determinant=0.00000009715654
+CAP MAPPING: mesh=fire_fold_stock_ReturnFlat valid_basis=true max_uv_excess=0.00003567934618 widest=1.38331994944498 vertices=49387 derivatives=false bad_derivatives=2350 min_determinant=0.00000004764115 worst_dot=0.98960357904434
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_ReturnRise tri=798 n=(0.904154, -0.38638, -0.182252) actual=(-0.200642, -0.007429, -0.979636) expected=(-0.232044, -0.085977, -0.968898) bitangent=(-0.621277, -1.833237, 0.0) determinant=0.00000004951289
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_ReturnRise tri=798 n=(0.934104, -0.308604, -0.179483) actual=(-0.191476, -0.008759, -0.981458) expected=(-0.216535, -0.090046, -0.972113) bitangent=(-0.621277, -1.833237, 0.0) determinant=0.00000004951289
+UV DERIVATIVE DIAGNOSTIC: fire_fold_stock_ReturnRise tri=798 n=(0.925927, -0.309382, -0.216662) actual=(-0.226886, 0.003008, -0.973917) expected=(-0.251865, -0.078281, -0.964591) bitangent=(-0.621277, -1.833237, 0.0) determinant=0.00000004951289
+CAP MAPPING: mesh=fire_fold_stock_ReturnRise valid_basis=true max_uv_excess=0.00003559392644 widest=1.44871359136113 vertices=49404 derivatives=false bad_derivatives=1677 min_determinant=0.0 worst_dot=0.21038031578064
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: seven native templates make nine inter-fold returns = true
+FIRE RACK CHECK: continuous cloth uses authored UVs and active normal mapping = true
+FIRE RACK CHECK: actual folded cloth PBR mip chain = true
+FIRE RACK CHECK: actual folded cloth PBR mip chain = true
+FIRE RACK CHECK: actual folded cloth PBR mip chain = true
+FIRE RACK CHECK: 32 actual imported annular seams join throat to live S-curve within100um fresh=false = true
+FIRE RACK CHECK: positive neighboring annular hits do not fill the actual seam bore = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [false, 1] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [false, 2] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [false, 3] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [false, 4] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [false, 5] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [false, 6] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [false, 7] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [false, 8] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [false, 9] = true
+FIRE RACK CHECK: 32 actual imported annular seams join throat to live S-curve within100um fresh=true = true
+FIRE RACK CHECK: positive neighboring annular hits do not fill the actual seam bore = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [true, 1] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [true, 2] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [true, 3] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [true, 4] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [true, 5] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [true, 6] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [true, 7] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [true, 8] = true
+FIRE RACK CHECK: return connects successive retained fold endpoints [true, 9] = true
+FIRE RACK CHECK: actual rack frame saved: connected_fold_throat = true
+V2 FIRE FOLD STOCK: FAIL failures=14

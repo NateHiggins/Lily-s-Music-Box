@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fire_fold_stock.glb",
+  "material": {
+    "catalog_key": "linen",
+    "tint": [
+      0.75,
+      0.71,
+      0.59,
+      1
+    ],
+    "pigment": 1.0,
+    "normal": 0.08,
+    "roughness": 0.9,
+    "metallic": 0.0
+  },
+  "parts": [
+    "FoldPair",
+    "LastLeg",
+    "Crown",
+    "OutletThroat",
+    "ReturnFlat",
+    "ReturnRise",
+    "ReturnDrop"
+  ],
+  "outlet_from_crown_m": [
+    0.05,
+    0.045,
+    0
+  ]
+}

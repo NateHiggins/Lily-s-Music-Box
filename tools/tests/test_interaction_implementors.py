@@ -319,11 +319,13 @@ class ProductionSmokeTests(unittest.TestCase):
         # Four V2 hosts extend the frozen contract: cabinet, inherited
         # receiver, collision-only water body, and valve-cap action.
         # The fitted boiler hopper adds one named control through PropControlArea.
-        self.assertEqual(summary["discovered"], 93)
+        # The native V2 fire cabinet also explicitly disables its two
+        # inherited legacy prompt/action entry points with empty overrides.
+        self.assertEqual(summary["discovered"], 95)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 21, "interact_prompt": 72})
+                         {"control_prompt": 22, "interact_prompt": 73})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 2, "production": 90})
+                         {"adapter": 1, "debug-only": 2, "production": 92})
         actual = {i["file"]: i for i in self.report["implementors"]}
         self.assertEqual(actual["building/orison_v2_window_treatment.gd"]["action_method"], "interact_control")
         self.assertEqual(actual["props/key_copy_counter.gd"]["action_method"], "interact")

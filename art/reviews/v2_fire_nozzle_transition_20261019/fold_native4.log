@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_fire_fold_stock.py", line 111, in <module>
+    native.objects.link(tail);key=name[len('HoseTail'):len('HoseTail')+2];tails[key]=tail
+                                  ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: bpy_struct[key]: only strings are allowed as keys of ID properties
+
+Error: script failed, file: 'art/blender/scripts/build_fire_fold_stock.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

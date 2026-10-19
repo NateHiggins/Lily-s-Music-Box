@@ -1,0 +1,56 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: six native nozzle detail parts load = true
+CAP MAPPING: mesh=fire_nozzle_detail_Barrel valid_basis=true max_uv_excess=0.00000008993084 widest=1.0004503449183 vertices=12901 derivatives=true bad_derivatives=0 min_determinant=0.0000000000716 worst_dot=0.99993711709976
+CAP MAPPING: mesh=fire_nozzle_detail_ForgedLever valid_basis=true max_uv_excess=0.00000009062933 widest=1.00069462340486 vertices=8755 derivatives=true bad_derivatives=0 min_determinant=0.00000000018145 worst_dot=0.99996888637543
+CAP MAPPING: mesh=fire_nozzle_detail_Spindle valid_basis=true max_uv_excess=0.00000009109499 widest=1.00023213720867 vertices=754 derivatives=true bad_derivatives=0 min_determinant=0.00000000250814 worst_dot=0.99998784065247
+CAP MAPPING: mesh=fire_nozzle_detail_SpindleNut valid_basis=true max_uv_excess=0.00000006007031 widest=1.00021442985319 vertices=1595 derivatives=true bad_derivatives=0 min_determinant=0.00000018769527 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fire_nozzle_detail_ThrustWasher valid_basis=true max_uv_excess=0.00000006065238 widest=1.00021442985319 vertices=1229 derivatives=true bad_derivatives=0 min_determinant=0.00000009977801 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fire_nozzle_detail_ValveGland valid_basis=true max_uv_excess=0.00000009310315 widest=1.00038160626624 vertices=10863 derivatives=true bad_derivatives=0 min_determinant=0.00000007417027 worst_dot=0.99999982118607
+FIRE HAND CHECK: authored detailed nozzle normal mapping: brass = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: brass = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: brass = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: brass = true
+FIRE HAND CHECK: authored detailed nozzle normal mapping: iron = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: iron = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: iron = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: iron = true
+FIRE HAND CHECK: native nozzle coupling library loads = true
+CAP MAPPING: mesh=fire_nozzle_joint_HoseSeat valid_basis=true max_uv_excess=0.0000000752043 widest=1.00005408199333 vertices=2991 derivatives=true bad_derivatives=0 min_determinant=0.00000130796907 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fire_nozzle_joint_NozzleNut valid_basis=true max_uv_excess=0.0000000919681 widest=1.00067006480739 vertices=69467 derivatives=true bad_derivatives=0 min_determinant=0.00000012368461 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fire_nozzle_joint_NozzleSpigot valid_basis=true max_uv_excess=0.00000008882489 widest=1.000713880494 vertices=73071 derivatives=true bad_derivatives=0 min_determinant=0.00000012234919 worst_dot=0.99999976158142
+FIRE HAND CHECK: new coupling uses authored UVs and active normal mapping = true
+FIRE HAND CHECK: actual loaded coupling map retains mip chain = true
+FIRE HAND CHECK: actual loaded coupling map retains mip chain = true
+FIRE HAND CHECK: actual loaded coupling map retains mip chain = true
+FIRE HAND CHECK: production installer accepts actual physical nozzle coupling = true
+FIRE HAND CHECK: unthreaded original nozzle falls onto actual cabinet support = true
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+CARRY PICK FAILURE: wanted=PlayPipe:<Node3D#746267363673> actual=PlayPipeLever:<Node3D#746384804192> point=(0.064, 1.24798, 0.129) mouse=(662.0, 635.0) wanted_pixel=(662.4808, 635.4316) target={ "owner": B1_FIRE_LINE_STAIR:<Node3D#743113246749>, "part": PlayPipeLever:<Node3D#746384804192>, "frame": PlayPipe:<Node3D#746267363673>, "kind": "hinge", "axis": (0.0, 0.0, 1.0), "minimum": -0.95, "maximum": 0.0, "read": <anonymous lambda>(self lambda), "write": <anonymous lambda>(self lambda), "begin": <anonymous lambda>(self lambda), "owns": <anonymous lambda>(self lambda), "end": Node3D(v2_fire_line_cabinet.gd)::_release, "hit_position": (0.058825, 1.269683, 0.149) }
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = false
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+CARRY PICK FAILURE: wanted=PlayPipe:<Node3D#746267363673> actual=PlayPipeLever:<Node3D#746384804192> point=(0.064, 1.24798, 0.129) mouse=(662.0, 635.0) wanted_pixel=(662.4808, 635.4316) target={ "owner": B1_FIRE_LINE_STAIR:<Node3D#743113246749>, "part": PlayPipeLever:<Node3D#746384804192>, "frame": PlayPipe:<Node3D#746267363673>, "kind": "hinge", "axis": (0.0, 0.0, 1.0), "minimum": -0.95, "maximum": 0.0, "read": <anonymous lambda>(self lambda), "write": <anonymous lambda>(self lambda), "begin": <anonymous lambda>(self lambda), "owns": <anonymous lambda>(self lambda), "end": Node3D(v2_fire_line_cabinet.gd)::_release, "hit_position": (0.058825, 1.269683, 0.149) }
+FIRE HAND CHECK: actual carrying returns nozzle spigot to the receiving thread = false
+FIRE HAND CHECK: physical thread catch aligns actual clocking without tightening = false
+FIRE HAND CHECK: actual mouse screws whole nozzle along its native thread to the seal = true
+FIRE HAND CHECK: only completed nozzle travel changes its coupling fact = false
+FIRE HAND CHECK: screwing the nozzle preserves its actual fixed hose inlet = true
+FIRE HAND CHECK: seven-field household mechanism includes physical nozzle state = true
+FIRE HAND CHECK: saved overtravel cannot replace actual thread state = true
+FIRE HAND CHECK: saved nozzle fact cannot contradict actual sealing travel = false
+FIRE HAND CHECK: actual mouse leaves a partial nozzle thread setting = true
+FIRE HAND CHECK: partial physical withdrawal follows measured pitch = false
+FIRE HAND CHECK: actual physical nozzle and all existing mechanism fields restore exactly = true
+FIRE HAND CHECK: actual mouse clears the complete threaded stroke = false
+FIRE HAND CHECK: releasing fully cleared thread frees the original nozzle = true
+FIRE HAND CHECK: resting loose nozzle retains a valid physical household record = true
+FIRE HAND CHECK: restored supported loose nozzle retains its exact saved pose = true
+FIRE HAND CHECK: restored nozzle identifies its actual physical support = true
+FIRE HAND CHECK: moving actual saved support wakes nozzle gravity = true
+FIRE HAND CHECK: actual physical nozzle frame saved = true
+FIRE HAND CHECK: native screw and loose-body migration retain every original draw parent = true
+V2 FIRE NOZZLE COUPLING: FAIL failures=7

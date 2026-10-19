@@ -35,11 +35,26 @@ func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 			mesh.surface_set_material(index,finishes[key])
 		meshes[str(node.name)] = mesh
 	model.free()
+	# The right-facing successor retains the original inlet datum and source
+	# fact selector, with a properly receiving socket and coaxial hose entry.
+	var nozzle_packed:=load("res://assets/props/fire_nozzle_hose.glb") as PackedScene
+	if nozzle_packed==null:errors.append("native nozzle hose missing");return false
+	var nozzle_model:=nozzle_packed.instantiate()
+	for draw: MeshInstance3D in nozzle_model.find_children("*","MeshInstance3D",true,false):
+		var mesh: ArrayMesh=draw.mesh.duplicate() as ArrayMesh
+		for index in mesh.get_surface_count():
+			var key: String=mesh.surface_get_material(index).resource_name
+			if not finishes.has(key):errors.append("nozzle hose finish "+key);continue
+			mesh.surface_set_material(index,finishes[key])
+		meshes[str(draw.name)]=mesh
+	nozzle_model.free()
 	if not errors.is_empty(): return false
+	var nozzle_detail:=preload("res://scripts/props/fire_nozzle_detail_stock.gd").new()
+	if not nozzle_detail.load_stock():errors.append("detailed nozzle stock missing");return false
 	_root = Node3D.new(); _root.name = "NativeFireService"
 	adapter.root.add_child(_root)
 	for identity: String in data.stations:
-		var actor := FireLineCabinetProp.new(); actor.station_id = identity
+		var actor := preload("res://scripts/props/v2_fire_line_cabinet.gd").new(); actor.station_id = identity
 		if not adapter.mount_consumer(identity,actor): actor.free(); errors.append("fire anchor " + identity); return false
 		var draws := actor.find_children("*","MeshInstance3D",true,false).filter(func(n): return n.mesh != null)
 		if draws.size() != data.parts.size(): errors.append("fire source count " + identity); return false
@@ -59,8 +74,21 @@ func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 				var collider := CollisionShape3D.new(); collider.shape = shape; body.add_child(collider)
 			if str(part.name).begins_with("Fold_"):
 				var crown := _draw("FoldCrown",draw,Vector3(0,.131,0)); crown.name = "NativeFoldCrown"
+		var folds:=preload("res://scripts/props/fire_fold_stock.gd").new();folds.name="NativeContinuousFolds";actor.add_child(folds)
+		if not folds.configure(actor):errors.append("continuous native folds "+identity);return false
+		# Retire the two unaligned pins and bar, retaining every original node.
+		for draw: MeshInstance3D in actor.find_children("*","MeshInstance3D",true,false):
+			if str(draw.get_meta("native_fire_part","")) in ["F034","F035","F036"]:
+				draw.mesh=null;draw.set_meta("native_fire_successor","fire_hose_rack")
+		var rack:=preload("res://scripts/props/fire_hose_rack.gd").new();rack.name="NativeHoseRack";actor.add_child(rack)
+		if not rack.configure(actor):errors.append("fitted native fire rack "+identity);return false
+		if not actor.install_joint_stock(meshes.NozzleSocket): errors.append("fire swivel stock " + identity); return false
 		var hoses := preload("res://scripts/building/orison_v2_fire_hose_visual.gd").new()
-		hoses.name = "NativeHoseRuns"; actor.add_child(hoses); hoses.configure(actor,meshes)
+		hoses.name = "NativeHoseRuns"; actor.add_child(hoses)
+		if not hoses.configure(actor,meshes): errors.append("fire hose stock " + identity); return false
+		if not nozzle_detail.fit(actor):errors.append("detailed nozzle fitting "+identity);return false
+		if not actor.install_native_hand_controls(): errors.append("fire hand stock " + identity); return false
+		if not actor.install_nozzle_joint():errors.append("physical nozzle joint "+identity);return false
 		stations[identity] = weakref(actor); source_records[identity] = records
 		var at: Vector3 = actor.position + actor.basis * Vector3(.540,.350,.140)
 		_draw("StationTee",_root,at,actor.basis)

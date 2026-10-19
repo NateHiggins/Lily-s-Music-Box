@@ -1,0 +1,11 @@
+data consumption audit
+  DURABLE_NUMERIC_MONOTONIC_ONLY: 2
+  FIELD_UNREAD: 1107
+  FILE_UNREAD: 10
+  known (in baseline): 1115
+  resolved since baseline: 193
+  NEW: 4
+  - FIELD_UNREAD game/data/orison_v2/fire_fold_stock.json:00 (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/fire_fold_stock.json:01 (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/fire_fold_stock.json:10 (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/fire_fold_stock.json:11 (zero production token readers)

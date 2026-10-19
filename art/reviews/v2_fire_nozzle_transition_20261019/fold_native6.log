@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_fire_fold_stock.py", line 128, in <module>
+    assert min(a)>=-1e-7 and max(q)<=1e-7,(key,'tail/throat crossing',i,j,a,q)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('00', 'tail/throat crossing', 8245, 42, [1.3096723705530167e-09, -3.2014213502407074e-10, 2.153683453798294e-09, -1.0477378964424133e-09], [2.5884946808218956e-07, -0.003931611136067659, -0.0039757137128617615, 2.605083864182234e-07])
+
+Error: script failed, file: 'art/blender/scripts/build_fire_fold_stock.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

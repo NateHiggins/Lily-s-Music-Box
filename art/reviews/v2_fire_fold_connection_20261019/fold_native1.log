@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_fire_fold_stock.py", line 136, in <module>
+    assert hit is not None and abs(hit.z-y)<.0001,(key,'open seam',j,hit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('ReturnRise', 'open seam', 5, Vector((-0.0011576174292713404, -0.028201423585414886, 0.00033208250533789396)))
+
+Error: script failed, file: 'art/blender/scripts/build_fire_fold_stock.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

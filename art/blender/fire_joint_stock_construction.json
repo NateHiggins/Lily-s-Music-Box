@@ -1,0 +1,155 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled native candidate, not runtime/human acceptance.",
+  "source_bindings": {
+    "art/blender/scripts/build_fire_joint_stock.py": "840fc8bda5ca4b9c8b43f1c3724568d49d80fa7e0ee5b2e2296f81a92e9863d2",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d"
+  },
+  "dimensions": {
+    "pitch_m": 0.0028,
+    "radial_clearance_m": 0.00025,
+    "bore_radius_m": 0.01905,
+    "male_origin_y_m": 0.556,
+    "empty_union_origin_y_m": 0.513,
+    "gasket_thickness_m": 0.0015
+  },
+  "stocks": {
+    "MaleOutlet": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.5064746890770063e-05,
+      "triangles": 33792,
+      "clear_bore_rays": 17
+    },
+    "FemaleUnion": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.989636658563807e-05,
+      "triangles": 16896,
+      "clear_bore_rays": 17
+    },
+    "SwivelTail": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 4.288508696702573e-06,
+      "triangles": 1152,
+      "clear_bore_rays": 17
+    },
+    "HoseNeck": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.102853624456528e-06,
+      "triangles": 960,
+      "clear_bore_rays": 17
+    },
+    "HoseRetainer": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.4863658643653417e-06,
+      "triangles": 768,
+      "clear_bore_rays": 17
+    },
+    "UnionGasket": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 7.28297905044989e-07,
+      "triangles": 768,
+      "clear_bore_rays": 17
+    },
+    "sealing_bearing_rays": 16,
+    "retaining_lip_bearing_rays": 16
+  },
+  "thread_motion": [
+    {
+      "angle_rad": 0.0,
+      "origin_y_m": 0.513,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 292
+    },
+    {
+      "angle_rad": 1.4959965017094252,
+      "origin_y_m": 0.5123333333333333,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 2.9919930034188504,
+      "origin_y_m": 0.5116666666666667,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 3.365992128846207,
+      "origin_y_m": 0.5115000000000001,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 4.487989505128276,
+      "origin_y_m": 0.511,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 5.983986006837701,
+      "origin_y_m": 0.5103333333333333,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 7.479982508547127,
+      "origin_y_m": 0.5096666666666667,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 8.975979010256552,
+      "origin_y_m": 0.509,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 10.471975511965978,
+      "origin_y_m": 0.5083333333333333,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 11.967972013675402,
+      "origin_y_m": 0.5076666666666667,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 13.46396851538483,
+      "origin_y_m": 0.507,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 14.959965017094254,
+      "origin_y_m": 0.5063333333333333,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 16.45596151880368,
+      "origin_y_m": 0.5056666666666667,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    },
+    {
+      "angle_rad": 17.951958020513104,
+      "origin_y_m": 0.505,
+      "intersecting_triangles": 0,
+      "swivel_bearing_contact_pairs": 384
+    }
+  ],
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\joint_native9\\game\\assets\\props\\fire_joint_stock.glb",
+    "primitives": 6,
+    "triangles": 54336,
+    "minimum_tangent_agreement": 0.9999999589812603,
+    "status": "PASS"
+  },
+  "blend_sha256": "a81dda9271fa96714b92e537af655ba4878545b2e0bd5258d165beb234a72924",
+  "glb_sha256": "ded1f7e05c36aacf071364d6bfe91bcb3573a0154d4b2dc767ed833d50613778",
+  "candidate_blend_sha256": "b9162e7d5029475843fb7fd26534fc8695b7c58a63c41f31e642a5c6e9e25ab2"
+}

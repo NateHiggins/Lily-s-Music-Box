@@ -74,7 +74,23 @@ def inputs(root=ROOT):
         'art/blender/city_horizon_far.blend',
         'art/blender/city_horizon_construction.json',
         'art/blender/house_switchboard.blend',
-        'art/blender/house_switchboard_construction.json'))
+        'art/blender/house_switchboard_construction.json',
+        'art/blender/fire_hose_stock.blend',
+        'art/blender/fire_hose_stock_construction.json',
+        'art/blender/fire_joint_stock.blend',
+        'art/blender/fire_joint_stock_construction.json',
+        'art/blender/fire_nozzle_hose.blend',
+        'art/blender/fire_nozzle_hose_construction.json',
+        'art/blender/fire_nozzle_joint.blend',
+        'art/blender/fire_nozzle_joint_construction.json',
+        'art/blender/fire_nozzle_detail.blend',
+        'art/blender/fire_nozzle_detail_construction.json',
+        'art/blender/fire_nozzle_collision.blend',
+        'art/blender/fire_nozzle_collision_construction.json',
+        'art/blender/fire_fold_stock.blend',
+            'art/blender/fire_fold_stock_construction.json',
+            'art/blender/fire_hose_rack.blend',
+        'art/blender/fire_hose_rack_construction.json'))
     for name in ('toast_crumb','leather_worn','mineral_scale'):
         paths.add(root/f'art/textures/ai_sources/{name}.png')
     paths.add(root/'art/textures/ai_sources/v2_surface_stock_20261011.json')

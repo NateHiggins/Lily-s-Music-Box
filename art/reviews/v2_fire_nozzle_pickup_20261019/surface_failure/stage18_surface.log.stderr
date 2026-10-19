@@ -1,0 +1,946 @@
+ERROR: fire: B1_FIRE_LINE_STAIR retains maintenance owner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:25)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:153)
+       [4] validate_in_world (res://tests/v2_active_media_review.gd:28)
+       [5] _capture_media (res://tests/v2_active_media_review.gd:111)
+ERROR: fire: B1_FIRE_LINE_STAIR retains seven source reaches
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:26)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:153)
+       [4] validate_in_world (res://tests/v2_active_media_review.gd:28)
+       [5] _capture_media (res://tests/v2_active_media_review.gd:111)
+ERROR: fire: B1_FIRE_LINE_STAIR original door opens
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:29)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:153)
+       [4] validate_in_world (res://tests/v2_active_media_review.gd:28)
+       [5] _capture_media (res://tests/v2_active_media_review.gd:111)
+ERROR: fire: B1_FIRE_LINE_STAIR actual joint reveals pocket
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:31)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:153)
+       [4] validate_in_world (res://tests/v2_active_media_review.gd:28)
+       [5] _capture_media (res://tests/v2_active_media_review.gd:111)
+ERROR: fire: B1_FIRE_LINE_STAIR source gasket seats
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:32)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:153)
+       [4] validate_in_world (res://tests/v2_active_media_review.gd:28)
+       [5] _capture_media (res://tests/v2_active_media_review.gd:111)
+ERROR: fire: B1_FIRE_LINE_STAIR coupling remade
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:33)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:153)
+       [4] validate_in_world (res://tests/v2_active_media_review.gd:28)
+       [5] _capture_media (res://tests/v2_active_media_review.gd:111)
+ERROR: fire: B1_FIRE_LINE_STAIR nozzle and shut lever complete four joints
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:34)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:153)
+       [4] validate_in_world (res://tests/v2_active_media_review.gd:28)
+       [5] _capture_media (res://tests/v2_active_media_review.gd:111)
+ERROR: fire: B1_FIRE_LINE_STAIR fresh crease refolds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:35)
+       [3] _run (res://tests/orison_v2_surface_inventory.gd:153)
+       [4] validate_in_world (res://tests/v2_active_media_review.gd:28)
+       [5] _capture_media (res://tests/v2_active_media_review.gd:111)
+ERROR: fire: B1_FIRE_LINE_STAIR native flexible runs follow source poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:40)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: B1_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR retains maintenance owner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:25)
+ERROR: fire: F01_FIRE_LINE_STAIR retains seven source reaches
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:26)
+ERROR: fire: F01_FIRE_LINE_STAIR original door opens
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:29)
+ERROR: fire: F01_FIRE_LINE_STAIR actual joint reveals pocket
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:31)
+ERROR: fire: F01_FIRE_LINE_STAIR source gasket seats
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:32)
+ERROR: fire: F01_FIRE_LINE_STAIR coupling remade
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:33)
+ERROR: fire: F01_FIRE_LINE_STAIR nozzle and shut lever complete four joints
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:34)
+ERROR: fire: F01_FIRE_LINE_STAIR fresh crease refolds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:35)
+ERROR: fire: F01_FIRE_LINE_STAIR native flexible runs follow source poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:40)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F01_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR retains maintenance owner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:25)
+       [3] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+ERROR: fire: F02_FIRE_LINE_STAIR retains seven source reaches
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:26)
+       [3] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+ERROR: fire: F02_FIRE_LINE_STAIR original door opens
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:29)
+       [3] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+ERROR: fire: F02_FIRE_LINE_STAIR actual joint reveals pocket
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:31)
+       [3] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+ERROR: fire: F02_FIRE_LINE_STAIR source gasket seats
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:32)
+       [3] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+ERROR: fire: F02_FIRE_LINE_STAIR coupling remade
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:33)
+       [3] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+ERROR: fire: F02_FIRE_LINE_STAIR nozzle and shut lever complete four joints
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:34)
+       [3] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+ERROR: fire: F02_FIRE_LINE_STAIR fresh crease refolds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:35)
+       [3] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+ERROR: fire: F02_FIRE_LINE_STAIR native flexible runs follow source poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:40)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F02_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR retains maintenance owner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:25)
+ERROR: fire: F03_FIRE_LINE_STAIR retains seven source reaches
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:26)
+ERROR: fire: F03_FIRE_LINE_STAIR original door opens
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:29)
+ERROR: fire: F03_FIRE_LINE_STAIR actual joint reveals pocket
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:31)
+ERROR: fire: F03_FIRE_LINE_STAIR source gasket seats
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:32)
+ERROR: fire: F03_FIRE_LINE_STAIR coupling remade
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:33)
+ERROR: fire: F03_FIRE_LINE_STAIR nozzle and shut lever complete four joints
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:34)
+ERROR: fire: F03_FIRE_LINE_STAIR fresh crease refolds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:35)
+ERROR: fire: F03_FIRE_LINE_STAIR native flexible runs follow source poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:40)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F03_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR retains maintenance owner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:25)
+ERROR: fire: F04_FIRE_LINE_STAIR retains seven source reaches
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:26)
+ERROR: fire: F04_FIRE_LINE_STAIR original door opens
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:29)
+ERROR: fire: F04_FIRE_LINE_STAIR actual joint reveals pocket
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:31)
+ERROR: fire: F04_FIRE_LINE_STAIR source gasket seats
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:32)
+ERROR: fire: F04_FIRE_LINE_STAIR coupling remade
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:33)
+ERROR: fire: F04_FIRE_LINE_STAIR nozzle and shut lever complete four joints
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:34)
+ERROR: fire: F04_FIRE_LINE_STAIR fresh crease refolds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:35)
+ERROR: fire: F04_FIRE_LINE_STAIR native flexible runs follow source poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:40)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F04_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR retains maintenance owner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:25)
+ERROR: fire: F05_FIRE_LINE_STAIR retains seven source reaches
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:26)
+ERROR: fire: F05_FIRE_LINE_STAIR original door opens
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:29)
+ERROR: fire: F05_FIRE_LINE_STAIR actual joint reveals pocket
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:31)
+ERROR: fire: F05_FIRE_LINE_STAIR source gasket seats
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:32)
+ERROR: fire: F05_FIRE_LINE_STAIR coupling remade
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:33)
+ERROR: fire: F05_FIRE_LINE_STAIR nozzle and shut lever complete four joints
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:34)
+ERROR: fire: F05_FIRE_LINE_STAIR fresh crease refolds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:35)
+ERROR: fire: F05_FIRE_LINE_STAIR native flexible runs follow source poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:40)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F05_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR retains maintenance owner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:25)
+ERROR: fire: F06_FIRE_LINE_STAIR retains seven source reaches
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:26)
+ERROR: fire: F06_FIRE_LINE_STAIR original door opens
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:29)
+ERROR: fire: F06_FIRE_LINE_STAIR actual joint reveals pocket
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:31)
+ERROR: fire: F06_FIRE_LINE_STAIR source gasket seats
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:32)
+ERROR: fire: F06_FIRE_LINE_STAIR coupling remade
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:33)
+ERROR: fire: F06_FIRE_LINE_STAIR nozzle and shut lever complete four joints
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:34)
+ERROR: fire: F06_FIRE_LINE_STAIR fresh crease refolds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:35)
+ERROR: fire: F06_FIRE_LINE_STAIR native flexible runs follow source poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:40)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: F06_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR retains maintenance owner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:25)
+ERROR: fire: ROOF_FIRE_LINE_STAIR retains seven source reaches
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:26)
+ERROR: fire: ROOF_FIRE_LINE_STAIR original door opens
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:29)
+ERROR: fire: ROOF_FIRE_LINE_STAIR actual joint reveals pocket
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:31)
+ERROR: fire: ROOF_FIRE_LINE_STAIR source gasket seats
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:32)
+ERROR: fire: ROOF_FIRE_LINE_STAIR coupling remade
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:33)
+ERROR: fire: ROOF_FIRE_LINE_STAIR nozzle and shut lever complete four joints
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:34)
+ERROR: fire: ROOF_FIRE_LINE_STAIR fresh crease refolds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:35)
+ERROR: fire: ROOF_FIRE_LINE_STAIR native flexible runs follow source poses
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:40)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+ERROR: fire: ROOF_FIRE_LINE_STAIR crown follows its moving fold
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/v2_fire_service_review.gd:7)
+       [2] run (res://tests/v2_fire_service_review.gd:43)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

@@ -1,0 +1,8 @@
+ERROR: Node not found: "NativeRackCollision/CollisionShape3D" (relative to "/root/V2FireRackBench/@Node3D@6/B1_FIRE_LINE_STAIR/NativeHoseRack/CarrierArm").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/v2_fire_rack_bench.gd:69)
+SCRIPT ERROR: Invalid access to property or key 'shape' on a base object of type 'null instance'.
+   at: _run (res://tests/v2_fire_rack_bench.gd:71)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/v2_fire_rack_bench.gd:71)

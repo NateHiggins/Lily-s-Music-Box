@@ -9,6 +9,12 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/fire_nozzle_joint.glb", # nozzle_joint_stock1: default import stretches all three small thread/seat charts by up to33.6%.
+    "props/fire_nozzle_detail.glb", # nozzle_detail_stock1: small fabricated charts lose scale and tangent derivatives under default compression.
+    "props/fire_fold_stock.glb", # fold_stock1: default import collapses small annular UV derivatives on all seven templates.
+    "props/fire_hose_rack.glb", # rack_stock1: default UV quantization stretches the small worked charts by up to72.8%, with collapsed derivatives.
+    "props/fire_nozzle_hose.glb", # nozzle_stock2: default import stretches native hose/socket metre charts by up to2.74%.
+    "props/fire_joint_stock.glb", # joint_stock1: loaded small thread charts stretch by up to32.6% under default compression.
     "props/house_switchboard.glb", # stock2: loaded jack UVs collapse and small stock metrics stretch under default compression.
     "props/city_horizon_near.glb", "props/city_horizon_far.glb", # The same thin closed pane/reveal metre charts as validated city stock.
     "props/city_ground_apron.glb", # source_bench1: default import stretches thin-edge metre charts by 1.69%.

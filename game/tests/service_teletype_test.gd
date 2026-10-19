@@ -21,7 +21,7 @@ func _run() -> void:
 	player.global_position=world.adapter.root.to_global(Vector3(-8.5,3.2,0))
 	player.camera.make_current()
 	player.face_world_point(world.adapter.root.to_global(Vector3(-13.4,4.3,.75)))
-	check(carrier.beam_xform.origin.length()<.05,"beam begins within five centimetres of eye")
+	check(carrier.beam_xform.origin.x>.08 and carrier.beam_xform.origin.y<-.06 and carrier.beam_xform.origin.length()<.30,"held light begins beside and below eye within comfortable reach")
 	var card := {"title":"HOT WATER / FIELD REPORT","body":"The hot valve turns freely. Water warms steadily; the drain clears without backing up. Clean the strainer and oil the cabinet hinge before the next call.\n\nThe tenant mentioned a knocking pipe after midnight. Listen again when the upstairs shower stops.","condition":"PREVENTATIVE SERVICE COMPLETE"}
 	check(carrier.print_telegram_card(card),"full field report accepted")
 	await get_tree().create_timer(.5).timeout

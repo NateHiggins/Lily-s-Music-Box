@@ -1,0 +1,76 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Continuous folds with both end transitions; full 50-foot and deployment audits remain open.",
+  "source_bindings": {
+    "art/blender/scripts/build_fire_fold_stock.py": "65c4f7b25abeec2145419c9f04a1a01748219823d75432fa805801ef3617e398",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/fire_hose_rack.blend": "c94bef1da567b93de248fb9b2fa1cfc25958ad636d5a0ee550721ffdc15006ee",
+    "art/blender/fire_nozzle_hose.blend": "f943e4262e8537be6cf579174a24e5230545ee967d040d0570bdd498aa8dcf8e",
+    "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d"
+  },
+  "stocks": {
+    "FoldPair": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00010752525457351507
+    },
+    "FirstPair": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.931721988491747e-05
+    },
+    "LastLeg": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 5.3762627286757495e-05
+    },
+    "Crown": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.443987033426373e-06
+    },
+    "OutletThroat": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.930379140988718e-05
+    },
+    "ReturnFlat": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.060893762735428e-06
+    },
+    "ReturnRise": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 5.523304265223281e-06
+    },
+    "ReturnDrop": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 5.523304140810049e-06
+    },
+    "NozzleThroat00": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.5350769499772408e-05
+    },
+    "NozzleThroat01": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.5354298719786082e-05
+    },
+    "NozzleThroat10": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.5350733390782444e-05
+    },
+    "NozzleThroat11": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.5354155925710036e-05
+    }
+  },
+  "rack_bearings": 100,
+  "return_bearings": 96,
+  "nozzle_mouth_bearings": 128,
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\fold_native10\\game\\assets\\props\\fire_fold_stock.glb",
+    "primitives": 12,
+    "triangles": 169216,
+    "minimum_tangent_agreement": 0.9999998954227856,
+    "status": "PASS"
+  },
+  "glb_sha256": "191caa711c5e12a8d58d6217cec3569a34d608160c7699fb00210d5ee221cae8",
+  "blend_sha256": "52eb208e122b1a0b258932937ee4fa9ebaef273645f3f156e748ace55fce8902",
+  "candidate_blend_sha256": "fec6bcd520fa0a12e5b2710ccd96f61289bc65e6a5b2849826d7618d171bbe4e"
+}

@@ -1,0 +1,113 @@
+{
+  "evidence_class": "INERT",
+  "diameter_ratio_at_equal_axial_distance": 0.5703434575711945,
+  "delivered_energy_ratio": 0.5714285632860794,
+  "rows": [
+    {
+      "view": "cabinet_close",
+      "profiles": {
+        "original": {
+          "central_mean_linear": 0.23925543496070256,
+          "frame_mean_linear": 0.11923132836991858,
+          "clipped_fraction": 0.0013990162037037037,
+          "lamp_lift_area_fraction": 0.6079451195987654
+        },
+        "balanced": {
+          "central_mean_linear": 0.09148403198709322,
+          "frame_mean_linear": 0.027742770582539943,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.19285590277777778
+        },
+        "low": {
+          "central_mean_linear": 0.05860212257733228,
+          "frame_mean_linear": 0.017916293169583413,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.13552420910493826
+        },
+        "moderate": {
+          "central_mean_linear": 0.1270767635323623,
+          "frame_mean_linear": 0.03983979056008001,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.2574435763888889
+        },
+        "off": {
+          "central_mean_linear": 0.002416757118344158,
+          "frame_mean_linear": 0.0029193970775387486,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.0
+        }
+      }
+    },
+    {
+      "view": "cabinet_oblique",
+      "profiles": {
+        "original": {
+          "central_mean_linear": 0.2223570375903645,
+          "frame_mean_linear": 0.10817227796171938,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.5690793788580247
+        },
+        "balanced": {
+          "central_mean_linear": 0.07141413029473881,
+          "frame_mean_linear": 0.02339157382898644,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.20272038966049383
+        },
+        "low": {
+          "central_mean_linear": 0.042368050077570045,
+          "frame_mean_linear": 0.01413967040728491,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.1278144290123457
+        },
+        "moderate": {
+          "central_mean_linear": 0.10134027832612943,
+          "frame_mean_linear": 0.035581414020899385,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.2807118055555556
+        },
+        "off": {
+          "central_mean_linear": 0.00271381067717973,
+          "frame_mean_linear": 0.0033945279547057026,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.0
+        }
+      }
+    },
+    {
+      "view": "home",
+      "profiles": {
+        "original": {
+          "central_mean_linear": 0.29538586260113114,
+          "frame_mean_linear": 0.15657234938456868,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.7409886188271605
+        },
+        "balanced": {
+          "central_mean_linear": 0.13240142016460754,
+          "frame_mean_linear": 0.05388448687533077,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.3133227237654321
+        },
+        "low": {
+          "central_mean_linear": 0.09127343249895938,
+          "frame_mean_linear": 0.03676653665921101,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.2267312885802469
+        },
+        "moderate": {
+          "central_mean_linear": 0.17129558828394192,
+          "frame_mean_linear": 0.07294062106804725,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.3939009452160494
+        },
+        "off": {
+          "central_mean_linear": 0.011429776081697174,
+          "frame_mean_linear": 0.010696419047307167,
+          "clipped_fraction": 0.0,
+          "lamp_lift_area_fraction": 0.0
+        }
+      }
+    }
+  ],
+  "caveat": "Matched surface rendering only; original comparison disabled physics, so its origin-blocked values do not prove collision clearance. Installed successor tests actual physics."
+}

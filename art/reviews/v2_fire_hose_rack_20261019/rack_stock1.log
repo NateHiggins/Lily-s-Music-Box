@@ -1,0 +1,91 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE RACK CHECK: five imported templates form ten independently fitted carrier arms = true
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_CarrierArm tri=153 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.998556, 0.053725, 0.000144) bitangent=(0.025972, -1.086519, 0.0) determinant=0.00000015600926
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_CarrierArm tri=153 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.998556, 0.053725, 0.000144) bitangent=(0.025972, -1.086519, 0.0) determinant=0.00000015600926
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_CarrierArm tri=153 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.998556, 0.053725, 0.000144) bitangent=(0.025972, -1.086519, 0.0) determinant=0.00000015600926
+CAP MAPPING: mesh=fire_hose_rack_CarrierArm valid_basis=true max_uv_excess=0.00003705080599 widest=1.35434785051592 vertices=45927 derivatives=false bad_derivatives=11439 min_determinant=0.0 worst_dot=-0.09357838332653
+FIRE RACK CHECK: authored UVs and active normal mapping: CarrierArm = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: CarrierArm = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: CarrierArm = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: CarrierArm = true
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_EndNut tri=57 n=(-0.70715, 0.353536, 0.612333) actual=(0.654606, -0.000005, 0.755971) expected=(0.668491, 0.052159, 0.741889) bitangent=(-0.284868, -0.879145, 0.178537) determinant=0.00000008570464
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_EndNut tri=57 n=(-0.70715, 0.353536, 0.612333) actual=(0.654606, -0.000005, 0.755971) expected=(0.668491, 0.052159, 0.741889) bitangent=(-0.284868, -0.879145, 0.178537) determinant=0.00000008570464
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_EndNut tri=57 n=(-0.70715, 0.353536, 0.612333) actual=(0.654606, -0.000005, 0.755971) expected=(0.668491, 0.052159, 0.741889) bitangent=(-0.284868, -0.879145, 0.178537) determinant=0.00000008570464
+CAP MAPPING: mesh=fire_hose_rack_EndNut valid_basis=true max_uv_excess=0.00003920211748 widest=1.72766024309711 vertices=63651 derivatives=false bad_derivatives=40423 min_determinant=0.0 worst_dot=0.53796780109406
+FIRE RACK CHECK: authored UVs and active normal mapping: EndNut = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: EndNut = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: EndNut = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: EndNut = true
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_MountBracket tri=3 n=(-0.002688, -0.906648, 0.42188) actual=(0.961454, 0.113655, 0.250379) expected=(0.926906, 0.156067, 0.341303) bitangent=(0.279771, -0.676028, -0.592116) determinant=0.00000001312583
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_MountBracket tri=3 n=(-0.430406, -0.793413, 0.430402) actual=(0.867673, -0.232249, 0.439549) expected=(0.83287, -0.165269, 0.528218) bitangent=(0.279771, -0.676028, -0.592116) determinant=0.00000001312583
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_MountBracket tri=3 n=(-0.452008, -0.452119, 0.768945) actual=(0.881141, -0.092126, 0.463792) expected=(0.860809, 0.004927, 0.508905) bitangent=(0.279771, -0.676028, -0.592116) determinant=0.00000001312583
+CAP MAPPING: mesh=fire_hose_rack_MountBracket valid_basis=true max_uv_excess=0.00003110824036 widest=1.22979589448002 vertices=3311 derivatives=false bad_derivatives=753 min_determinant=0.00000000562432 worst_dot=0.56453824043274
+FIRE RACK CHECK: authored UVs and active normal mapping: MountBracket = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: MountBracket = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: MountBracket = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: MountBracket = true
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_MountScrew tri=3 n=(-0.000013, 0.818746, -0.574156) actual=(-0.999195, -0.023045, -0.032839) expected=(-0.993332, -0.066205, -0.094385) bitangent=(0.0, -0.704214, -0.703339) determinant=0.00000001971079
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_MountScrew tri=3 n=(-0.000067, 0.422876, -0.906188) actual=(-0.999786, -0.018755, -0.008678) expected=(-0.9957, -0.083978, -0.039115) bitangent=(0.0, -0.704214, -0.703339) determinant=0.00000001971079
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_MountScrew tri=3 n=(0.045133, 0.500328, -0.864659) actual=(-0.998681, 0.001403, -0.051317) expected=(-0.994147, -0.062554, -0.088089) bitangent=(0.0, -0.704214, -0.703339) determinant=0.00000001971079
+CAP MAPPING: mesh=fire_hose_rack_MountScrew valid_basis=true max_uv_excess=0.00003489780647 widest=1.67285848616471 vertices=4831 derivatives=false bad_derivatives=2676 min_determinant=0.0 worst_dot=-0.55791461467743
+FIRE RACK CHECK: authored UVs and active normal mapping: MountScrew = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: MountScrew = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: MountScrew = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: MountScrew = true
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_Shaft tri=0 n=(-0.70705, 0.707163, -0.00005) actual=(0.016282, 0.01635, 0.999734) expected=(0.053896, 0.053958, 0.997088) bitangent=(-0.649121, -0.65386, -0.042749) determinant=0.00000009507858
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_Shaft tri=0 n=(-0.707006, 0.706143, 0.038795) actual=(0.04369, -0.01114, 0.998983) expected=(0.081245, 0.026606, 0.996339) bitangent=(-0.649121, -0.65386, -0.042749) determinant=0.00000009507858
+UV DERIVATIVE DIAGNOSTIC: fire_hose_rack_Shaft tri=0 n=(-0.707019, 0.705116, 0.054174) actual=(0.054637, -0.021912, 0.998266) expected=(0.092091, 0.015846, 0.995625) bitangent=(-0.649121, -0.65386, -0.042749) determinant=0.00000009507858
+CAP MAPPING: mesh=fire_hose_rack_Shaft valid_basis=true max_uv_excess=0.00004598026862 widest=1.71629129660191 vertices=81707 derivatives=false bad_derivatives=51013 min_determinant=0.0 worst_dot=0.59228765964508
+FIRE RACK CHECK: authored UVs and active normal mapping: Shaft = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: Shaft = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: Shaft = true
+FIRE RACK CHECK: real loaded rack PBR mip chain: Shaft = true
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: planar mapping retains one texture metre per model metre = false
+FIRE RACK CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE RACK CHECK: both old primitive pins and old bar are retired on retained nodes = true
+FIRE RACK CHECK: eight loaded bracket bearings meet the actual cabinet back within100um = true
+RACK BEARING SAMPLE false 0 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 0 fresh=false = false
+RACK BEARING SAMPLE false 1 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 1 fresh=false = false
+RACK BEARING SAMPLE false 2 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 2 fresh=false = false
+RACK BEARING SAMPLE false 3 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 3 fresh=false = false
+RACK BEARING SAMPLE false 4 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 4 fresh=false = false
+RACK BEARING SAMPLE false 5 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 5 fresh=false = false
+RACK BEARING SAMPLE false 6 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 6 fresh=false = false
+RACK BEARING SAMPLE false 7 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 7 fresh=false = false
+RACK BEARING SAMPLE false 8 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 8 fresh=false = false
+RACK BEARING SAMPLE false 9 0.0 arm=0.00589990615845 cloth=0.00599992275238
+FIRE RACK CHECK: five imported contact rays fit actual fold 9 fresh=false = false
+FIRE RACK CHECK: actual rack frame saved: rack_original = true
+FIRE RACK CHECK: actual rack frame saved: rack_underside = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 0 fresh=true = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 1 fresh=true = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 2 fresh=true = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 3 fresh=true = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 4 fresh=true = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 5 fresh=true = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 6 fresh=true = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 7 fresh=true = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 8 fresh=true = true
+FIRE RACK CHECK: five imported contact rays fit actual fold 9 fresh=true = true
+FIRE RACK CHECK: actual rack frame saved: rack_fresh = true
+V2 FIRE RACK STOCK: FAIL failures=20

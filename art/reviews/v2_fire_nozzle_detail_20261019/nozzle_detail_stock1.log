@@ -1,0 +1,49 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: six native nozzle detail parts load = true
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_Barrel tri=3348 n=(0.056442, -0.032824, 0.997866) actual=(0.998405, 0.000784, -0.056446) expected=(0.997317, 0.048529, -0.054814) bitangent=(-0.001821, -1.00123, 0.000111) determinant=0.00000263557571
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_Barrel tri=3348 n=(0.032736, 0.0, 0.999464) actual=(0.999464, 0.0, -0.032736) expected=(0.99832, 0.047833, -0.032698) bitangent=(-0.001821, -1.00123, 0.000111) determinant=0.00000263557571
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_Barrel tri=3348 n=(0.032736, 0.0, 0.999464) actual=(0.999464, 0.0, -0.032736) expected=(0.99832, 0.047833, -0.032698) bitangent=(-0.001821, -1.00123, 0.000111) determinant=0.00000263557571
+CAP MAPPING: mesh=fire_nozzle_detail_Barrel valid_basis=true max_uv_excess=0.00003554537216 widest=1.1634365297208 vertices=12901 derivatives=false bad_derivatives=540 min_determinant=0.0 worst_dot=0.37314629554749
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_ForgedLever tri=180 n=(-0.000593, -0.000692, 1.0) actual=(1.0, -0.0, 0.000593) expected=(0.998997, 0.044775, 0.000623) bitangent=(0.097665, -0.943299, 0.0) determinant=0.00000050443677
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_ForgedLever tri=180 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.998997, 0.044775, 0.000144) bitangent=(0.097665, -0.943299, 0.0) determinant=0.00000050443677
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_ForgedLever tri=180 n=(-0.001134, -0.001237, 0.999999) actual=(0.999999, -0.000001, 0.001134) expected=(0.998996, 0.044774, 0.001188) bitangent=(0.097665, -0.943299, 0.0) determinant=0.00000050443677
+CAP MAPPING: mesh=fire_nozzle_detail_ForgedLever valid_basis=true max_uv_excess=0.0000365422602 widest=1.2004305712716 vertices=8755 derivatives=false bad_derivatives=3875 min_determinant=0.0 worst_dot=0.03211980313063
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_Spindle tri=456 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.956976, -0.290167, 0.000138) bitangent=(0.087726, 0.421442, 0.0) determinant=-0.00000000549663
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_Spindle tri=456 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.956976, -0.290167, 0.000138) bitangent=(0.087726, 0.421442, 0.0) determinant=-0.00000000549663
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_Spindle tri=456 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.956976, -0.290167, 0.000138) bitangent=(0.087726, 0.421442, 0.0) determinant=-0.00000000549663
+CAP MAPPING: mesh=fire_nozzle_detail_Spindle valid_basis=true max_uv_excess=0.00003037473653 widest=1.13292870161743 vertices=754 derivatives=false bad_derivatives=393 min_determinant=0.0 worst_dot=-0.92290812730789
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_SpindleNut tri=714 n=(0.378014, 0.654661, 0.654617) actual=(0.865992, -0.000016, -0.500058) expected=(0.882063, -0.039915, -0.469437) bitangent=(0.399577, -0.819428, 0.588762) determinant=0.00000018148168
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_SpindleNut tri=714 n=(0.378014, 0.654661, 0.654617) actual=(0.865992, -0.000016, -0.500058) expected=(0.882063, -0.039915, -0.469437) bitangent=(0.399577, -0.819428, 0.588762) determinant=0.00000018148168
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_SpindleNut tri=714 n=(0.378014, 0.654661, 0.654617) actual=(0.865992, -0.000016, -0.500058) expected=(0.882063, -0.039915, -0.469437) bitangent=(0.399577, -0.819428, 0.588762) determinant=0.00000018148168
+CAP MAPPING: mesh=fire_nozzle_detail_SpindleNut valid_basis=true max_uv_excess=0.00003696212661 widest=1.15308165556782 vertices=1595 derivatives=false bad_derivatives=354 min_determinant=0.00000017405561 worst_dot=0.99424147605896
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_ThrustWasher tri=669 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.99793, 0.064314, 0.000144) bitangent=(0.070517, -1.083275, 0.0) determinant=0.00000076308377
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_ThrustWasher tri=669 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.99793, 0.064314, 0.000144) bitangent=(0.070517, -1.083275, 0.0) determinant=0.00000076308377
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_ThrustWasher tri=669 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.99793, 0.064314, 0.000144) bitangent=(0.070517, -1.083275, 0.0) determinant=0.00000076308377
+CAP MAPPING: mesh=fire_nozzle_detail_ThrustWasher valid_basis=true max_uv_excess=0.00002876436338 widest=1.11186788636427 vertices=1229 derivatives=false bad_derivatives=201 min_determinant=0.00000008761351 worst_dot=0.99450874328613
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_ValveGland tri=933 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.998326, -0.057841, 0.000144) bitangent=(-0.071761, -1.083408, 0.0) determinant=0.00000101184529
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_ValveGland tri=933 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.998326, -0.057841, 0.000144) bitangent=(-0.071761, -1.083408, 0.0) determinant=0.00000101184529
+UV DERIVATIVE DIAGNOSTIC: fire_nozzle_detail_ValveGland tri=933 n=(-0.000144, 0.0, 1.0) actual=(1.0, 0.0, 0.000144) expected=(0.998326, -0.057841, 0.000144) bitangent=(-0.071761, -1.083408, 0.0) determinant=0.00000101184529
+CAP MAPPING: mesh=fire_nozzle_detail_ValveGland valid_basis=true max_uv_excess=0.00003884080797 widest=1.14785129762082 vertices=10863 derivatives=false bad_derivatives=2595 min_determinant=0.00000006514123 worst_dot=0.99131381511688
+FIRE HAND CHECK: planar mapping retains one texture metre per model metre = false
+FIRE HAND CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE HAND CHECK: planar mapping retains one texture metre per model metre = false
+FIRE HAND CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE HAND CHECK: planar mapping retains one texture metre per model metre = false
+FIRE HAND CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE HAND CHECK: planar mapping retains one texture metre per model metre = false
+FIRE HAND CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE HAND CHECK: planar mapping retains one texture metre per model metre = false
+FIRE HAND CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE HAND CHECK: planar mapping retains one texture metre per model metre = false
+FIRE HAND CHECK: tangent direction and handedness match actual imported UV derivatives = false
+FIRE HAND CHECK: authored detailed nozzle normal mapping: brass = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: brass = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: brass = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: brass = true
+FIRE HAND CHECK: authored detailed nozzle normal mapping: iron = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: iron = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: iron = true
+FIRE HAND CHECK: loaded detailed nozzle mip chain: iron = true

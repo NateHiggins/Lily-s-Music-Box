@@ -1,0 +1,316 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native candidate; not installed or accepted in game.",
+  "source_bindings": {
+    "art/blender/scripts/build_fire_nozzle_detail.py": "419d0dff6d0394d54acbf0281de68235c44ff56a009995ff77a557deb65aa6f9",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d"
+  },
+  "stocks": {
+    "Barrel": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00013419519485530587,
+      "triangles": 5028
+    },
+    "ValveGland": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.0986647838647662e-06,
+      "triangles": 3840
+    },
+    "ThrustWasher": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.231207053084668e-08,
+      "triangles": 768
+    },
+    "Spindle": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.476245327524196e-07,
+      "triangles": 380
+    },
+    "SpindleNut": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.2000596750636096e-07,
+      "triangles": 960
+    },
+    "ForgedLever": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 7.653990312518743e-06,
+      "triangles": 3430
+    }
+  },
+  "lever_travel": [
+    {
+      "angle_rad": 3.141592653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 3.1267489035897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 3.111905153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 3.097061403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 3.082217653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 3.067373903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 3.0525301535897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 3.037686403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 3.022842653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 3.007998903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.993155153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.9783114035897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.963467653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.948623903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.933780153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.918936403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.9040926535897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.889248903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.874405153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.859561403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.844717653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.8298739035897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.815030153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.800186403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.785342653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.770498903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.7556551535897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.740811403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.725967653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.711123903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.696280153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.6814364035897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.666592653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.651748903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.636905153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.622061403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.6072176535897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.592373903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.577530153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.562686403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.547842653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.5329989035897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.518155153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.503311403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.488467653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.473623903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.4587801535897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.443936403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.429092653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.414248903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.399405153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.3845614035897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.369717653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.354873903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.340030153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.325186403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.3103426535897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.295498903589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.280655153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.265811403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.250967653589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.2361239035897933,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.221280153589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.206436403589793,
+      "clearance_to_gland_m": 0.0005
+    },
+    {
+      "angle_rad": 2.191592653589793,
+      "clearance_to_gland_m": 0.0005
+    }
+  ],
+  "clear_bores": 2,
+  "gland_body_bearings": 16,
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\nozzle_detail_native6\\game\\assets\\props\\fire_nozzle_detail.glb",
+    "primitives": 6,
+    "triangles": 14406,
+    "minimum_tangent_agreement": 0.9999370593545978,
+    "status": "PASS"
+  },
+  "glb_sha256": "3637938184408a9188f2ee60271d67ca86630e695dbdc5009ccc28b345c81303",
+  "blend_sha256": "cdf29aa140e7a829c8021a2ddab68df9e2e8bc70f9109f41c3450794ed6d08b9"
+}

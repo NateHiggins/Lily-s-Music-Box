@@ -333,7 +333,8 @@ class ProductionSmokeTests(unittest.TestCase):
         # moving panel delegates a second prompt to its mechanism owner.
         # Keys Cut adds one carrier-free prompt, paired with its own action.
         # The boiler hopper and resident treatments each add a named-control host.
-        self.assertEqual(summary["prompt_methods"], 94)
+        # Native fire cabinet empty overrides disable inherited legacy input.
+        self.assertEqual(summary["prompt_methods"], 96)
         self.assertEqual(summary["legacy_uncovered"], 0)
         self.assertEqual(summary["baseline_stale"], 0)
         self.assertEqual(summary["forbidden"], 0)
