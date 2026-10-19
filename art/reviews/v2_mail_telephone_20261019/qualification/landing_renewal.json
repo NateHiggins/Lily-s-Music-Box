@@ -1,0 +1,32 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "errors": [],
+  "packet": "access_public_landings_20261018",
+  "source": {
+    "repository_head": "b0cf00244b39c40e5ddc5cd75656deff1fd74c71",
+    "runtime_inputs_sha256": "0f6dbe6c3813cd10cc58c3fe3349aaff48ad1eb49d3919a2b8c76e31fcb694d7",
+    "scene_path": "res://tests/V2PublicLandingAccessContract.tscn",
+    "surface_inputs_sha256": "82b7991496f093fa22fefc406c908816b81988238dcbfda1f80a19e73f534f63",
+    "test_dependencies": {
+      "game/tests/V2PublicLandingAccessContract.tscn": "fb5e200529c4c5ec2496a91820b3080023a6fab4b10e615728e89690374061eb",
+      "game/tests/orison_v2_public_landing_walk.gd": "f963fee464a3bf962b06296b02b70a16adbf7b7b7c29e4b49dcf98a0803c095f",
+      "game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+      "game/tests/v2_public_landing_access_contract.gd": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7",
+      "game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+    },
+    "test_path": "game/tests/v2_public_landing_access_contract.gd",
+    "test_sha256": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7"
+  },
+  "scope": "Independent current-source validation of original unmodified test-written proof. No new grant.",
+  "rooms": 6,
+  "legs": 1,
+  "checks": 41,
+  "teardown": {
+    "executed": true,
+    "measurement_scope": "shared production root and all route/check drivers only",
+    "retained_nodes": 0,
+    "status": "PASS",
+    "tracked_nodes": 3
+  }
+}

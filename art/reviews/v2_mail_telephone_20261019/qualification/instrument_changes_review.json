@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Read-only candidate instrument diff review. Does not substitute for the pending full clean no-regression board, runtime contracts or human review.",
+  "base": "8db55d0d0e9c7e4ba06829dd0d3be8e70085a469",
+  "candidate": "b0cf00244b39c40e5ddc5cd75656deff1fd74c71",
+  "manifest": {
+    "previous_records": 10259,
+    "added_records": 26,
+    "all_prior_rows_identical": true,
+    "all_metadata_identical": true,
+    "duplicate_keys": 0
+  },
+  "precision_policy": {
+    "previous_assets": 39,
+    "candidate_assets": 40,
+    "removed": [],
+    "added": [
+      "props/house_switchboard.glb"
+    ],
+    "reason": "Retained original failed loaded stock2 probe measured small-chart collapse and metric stretch with default import compression; no checker tolerance changed."
+  },
+  "surface_bindings": {
+    "added": [
+      "art/blender/house_switchboard.blend",
+      "art/blender/house_switchboard_construction.json"
+    ],
+    "review": "Owning native recipe and installed GLB/data were already scanned; explicit source blend/report bindings and both corresponding mutation-test cases were added. Existing bindings and test cases remain."
+  },
+  "result": "PASS"
+}

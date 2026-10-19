@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 1127.82,
+  "elapsed_s": 1130.38,
   "exit_code": 0,
-  "finished_utc": "2026-10-19T05:16:15Z",
-  "started_utc": "2026-10-19T04:57:27Z",
+  "finished_utc": "2026-10-19T08:48:46Z",
+  "started_utc": "2026-10-19T08:29:55Z",
   "timed_out": false
  },
  "log": {
@@ -19,22 +19,21 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-city-polish-20261018/final_upper1.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-service-programmes-20261019/final_upper2.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-city-polish-20261018/final_upper1.log",
-  "stdout_sha256": "cc6d86cde95e1ae0d2a5487728f5640b0abc2d35fc27789eaabbdcf06b6f2da7"
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-service-programmes-20261019/final_upper2.log",
+  "stdout_sha256": "344cd4a33ccdc821855bee720a6301b627f8d6da3f486569d81be5b4f0e5f881"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-city-polish-20261018\\final_upper1",
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-service-programmes-20261019/final_upper2",
  "source": {
-  "dirty_paths": 1687,
+  "dirty_paths": 1693,
   "dirty_sample": [
    "M art/renders/insitu/shots.md",
-   " M art/renders/orison_v2/access_home_cohort_20261018/README.txt",
    " M art/renders/orison_v2/access_home_cohort_20261018/runtime_contract.json",
    " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.receipt.json",
    " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.stdout.log.gz",
@@ -49,14 +48,15 @@
    " M art/renders/orison_v2/access_service_circulation_20261018/rendered_review.json",
    " M art/renders/orison_v2/access_service_circulation_20261018/runtime_contract.json",
    " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.receipt.json",
-   " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.stderr.log.gz",
    " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.stdout.log.gz",
-   " M art/renders/orison_v2/first_slice_contract_20261011/README.txt",
-   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json"
+   " M art/renders/orison_v2/access_service_circulation_20261018/verification.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.stdout.log.gz"
   ],
-  "repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
-  "repository_tree": "0db5f50af3319a7592086da7763bbf3b0626320b",
-  "runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+  "repository_head": "b0cf00244b39c40e5ddc5cd75656deff1fd74c71",
+  "repository_tree": "e2477c58d08cbf778880931346d13f00b9aeddfb",
+  "runtime_inputs_sha256": "0f6dbe6c3813cd10cc58c3fe3349aaff48ad1eb49d3919a2b8c76e31fcb694d7",
   "test_path": "game/tests/v2_spatial_access_cohort.gd",
   "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
  },

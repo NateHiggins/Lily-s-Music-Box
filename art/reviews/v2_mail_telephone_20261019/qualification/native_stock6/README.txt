@@ -1,0 +1,1 @@
+Evidence class: INERT. Original final loaded stock bench and matching byte-verified raw logs. Production-normal capture was inspected. Zero-normal and StandardMaterial images are disposable diagnosis controls, not installed materials or appearance grants. No runtime ledger or whole-V2 acceptance follows from this wrapper.

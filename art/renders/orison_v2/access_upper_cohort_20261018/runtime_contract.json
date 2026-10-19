@@ -3105,7 +3105,7 @@
 			"ok": true
 		},
 		{
-			"label": "tank support stops the real upright controller: (-10.09986, 19.28973, -4.983419)",
+			"label": "tank support stops the real upright controller: (-10.09987, 19.28973, -4.98346)",
 			"ok": true
 		},
 		{
@@ -3493,7 +3493,7 @@
 			"ok": true
 		},
 		{
-			"label": "actual capsule stops at the extended machinery guard: (-0.096124, 19.19987, -0.040121)",
+			"label": "actual capsule stops at the extended machinery guard: (-0.096125, 19.20094, -0.040121)",
 			"ok": true
 		},
 		{
@@ -4419,7 +4419,7 @@
 				},
 				"F06_C_MAIN": {
 					"actual": [
-						-0.575886368751526,
+						-0.575886309146881,
 						16.000467300415,
 						6.65548706054688
 					],
@@ -4443,7 +4443,7 @@
 				},
 				"F06_C_VESTIBULE": {
 					"actual": [
-						-0.875830590724945,
+						-0.8758305311203,
 						16.000467300415,
 						5.45552444458008
 					],
@@ -4453,7 +4453,7 @@
 					"actual": [
 						14.0989065170288,
 						19.2502536773682,
-						2.05343818664551
+						2.05343532562256
 					],
 					"leg": "roof/ROOF PLANT"
 				},
@@ -4467,8 +4467,8 @@
 				},
 				"ROOF_DECK_NORTH": {
 					"actual": [
-						7.40271186828613,
-						19.2914047241211,
+						7.40271854400635,
+						19.2920913696289,
 						6.9999942779541
 					],
 					"leg": "roof/ROOF PLANT"
@@ -4493,23 +4493,23 @@
 					"actual": [
 						13.9988431930542,
 						19.2315654754639,
-						-1.09665393829346
+						-1.09665489196777
 					],
 					"leg": "roof/ROOF PLANT"
 				},
 				"ROOF_DECK_WEST": {
 					"actual": [
-						-3.50381875038147,
-						19.3354587554932,
+						-3.50381755828857,
+						19.3354568481445,
 						0.000185012817382813
 					],
 					"leg": "roof/LIFT DRIVE"
 				},
 				"ROOF_PUBLIC_CORE": {
 					"actual": [
-						3.98842358589172,
+						3.98842334747314,
 						19.2009410858154,
-						-3.23558044433594
+						-3.23558330535889
 					],
 					"leg": "roof/LIFT DRIVE"
 				},
@@ -4535,7 +4535,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 1116.572,
+		"elapsed_s": 1119.172,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -4917,9 +4917,9 @@
 				},
 				{
 					"actual": [
-						-10.3740730285645,
+						-10.3740787506104,
 						6.40046977996826,
-						1.44473934173584
+						1.44473838806152
 					],
 					"ok": true,
 					"target": [
@@ -4933,7 +4933,7 @@
 					"actual": [
 						-10.3555269241333,
 						6.40046977996826,
-						1.52582836151123
+						1.52582740783691
 					],
 					"ok": true,
 					"target": [
@@ -4945,9 +4945,9 @@
 				},
 				{
 					"actual": [
-						-10.2742958068848,
+						-10.2742824554443,
 						6.40046977996826,
-						1.54443645477295
+						1.5444393157959
 					],
 					"ok": true,
 					"target": [
@@ -4959,9 +4959,9 @@
 				},
 				{
 					"actual": [
-						-10.2555952072144,
+						-10.2555932998657,
 						6.40046977996826,
-						1.62568187713623
+						1.62568283081055
 					],
 					"ok": true,
 					"target": [
@@ -4973,7 +4973,7 @@
 				},
 				{
 					"actual": [
-						-10.1743316650391,
+						-10.1743307113647,
 						6.40046977996826,
 						1.64439582824707
 					],
@@ -4987,7 +4987,7 @@
 				},
 				{
 					"actual": [
-						-10.1527338027954,
+						-10.1527328491211,
 						6.40046977996826,
 						1.8269157409668
 					],
@@ -5001,9 +5001,9 @@
 				},
 				{
 					"actual": [
-						-10.0729970932007,
+						-10.0729961395264,
 						6.40046977996826,
-						1.8448314666748
+						1.84483242034912
 					],
 					"ok": true,
 					"target": [
@@ -5015,9 +5015,9 @@
 				},
 				{
 					"actual": [
-						-10.0552644729614,
+						-10.0552635192871,
 						6.40046977996826,
-						1.92592430114746
+						1.92592334747314
 					],
 					"ok": true,
 					"target": [
@@ -5029,7 +5029,7 @@
 				},
 				{
 					"actual": [
-						-9.97417449951172,
+						-9.9741735458374,
 						6.40046977996826,
 						1.94447231292725
 					],
@@ -5043,7 +5043,7 @@
 				},
 				{
 					"actual": [
-						-9.95556259155273,
+						-9.95556163787842,
 						6.40046977996826,
 						2.02570819854736
 					],
@@ -5141,7 +5141,7 @@
 				},
 				{
 					"actual": [
-						-9.72817897796631,
+						-9.72817993164063,
 						6.40046977996826,
 						4.55519676208496
 					],
@@ -5155,7 +5155,7 @@
 				},
 				{
 					"actual": [
-						-7.57394742965698,
+						-7.57394647598267,
 						6.40046977996826,
 						4.5500545501709
 					],
@@ -5183,7 +5183,7 @@
 				},
 				{
 					"actual": [
-						-7.47294139862061,
+						-7.47294092178345,
 						6.40046977996826,
 						4.35500907897949
 					],
@@ -14279,7 +14279,7 @@
 				},
 				{
 					"actual": [
-						-1.07594513893127,
+						-1.0759449005127,
 						12.8006658554077,
 						7.3444938659668
 					],
@@ -14293,9 +14293,9 @@
 				},
 				{
 					"actual": [
-						-1.0944619178772,
+						-1.09446167945862,
 						12.8006658554077,
-						7.42570495605469
+						7.42570686340332
 					],
 					"ok": true,
 					"target": [
@@ -14307,7 +14307,7 @@
 				},
 				{
 					"actual": [
-						-1.17568635940552,
+						-1.17568612098694,
 						12.8006658554077,
 						7.44440078735352
 					],
@@ -14321,7 +14321,7 @@
 				},
 				{
 					"actual": [
-						-1.1943941116333,
+						-1.19439399242401,
 						12.8006658554077,
 						7.5256462097168
 					],
@@ -20619,7 +20619,7 @@
 				},
 				{
 					"actual": [
-						-0.377772867679596,
+						-0.377773016691208,
 						16.000467300415,
 						7.05008888244629
 					],
@@ -20633,7 +20633,7 @@
 				},
 				{
 					"actual": [
-						-0.398358672857285,
+						-0.398358702659607,
 						16.000467300415,
 						6.77214813232422
 					],
@@ -20647,7 +20647,7 @@
 				},
 				{
 					"actual": [
-						-0.477524012327194,
+						-0.477523952722549,
 						16.000467300415,
 						6.7548942565918
 					],
@@ -20675,7 +20675,7 @@
 				},
 				{
 					"actual": [
-						-0.575886368751526,
+						-0.575886309146881,
 						16.000467300415,
 						6.65548706054688
 					],
@@ -20731,7 +20731,7 @@
 				},
 				{
 					"actual": [
-						-0.77711033821106,
+						-0.77711021900177,
 						16.000467300415,
 						5.55513763427734
 					],
@@ -20745,7 +20745,7 @@
 				},
 				{
 					"actual": [
-						-0.794761121273041,
+						-0.794761061668396,
 						16.000467300415,
 						5.47405433654785
 					],
@@ -20759,7 +20759,7 @@
 				},
 				{
 					"actual": [
-						-0.875830590724945,
+						-0.8758305311203,
 						16.000467300415,
 						5.45552444458008
 					],
@@ -20775,7 +20775,7 @@
 					"actual": [
 						-0.899761319160461,
 						16.0066146850586,
-						3.27174282073975
+						3.27174377441406
 					],
 					"ok": true,
 					"target": [
@@ -20796,8 +20796,8 @@
 				{
 					"actual": [
 						1.92500019073486,
-						17.6007995605469,
-						1.20397186279297
+						17.6007957458496,
+						1.20396900177002
 					],
 					"ok": true,
 					"target": [
@@ -20809,9 +20809,9 @@
 				},
 				{
 					"actual": [
-						3.87978839874268,
-						17.6009407043457,
-						1.27161598205566
+						3.87978720664978,
+						17.6009426116943,
+						1.27161693572998
 					],
 					"ok": true,
 					"target": [
@@ -20820,14 +20820,14 @@
 						1.29999995231628
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-3.876789, 18.485, -13.2525)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-3.879786, 18.485, -13.2525)"
 					}
 				},
 				{
 					"actual": [
 						3.9717264175415,
-						19.2009544372559,
-						-3.23918628692627
+						19.1998062133789,
+						-3.23918533325195
 					],
 					"ok": true,
 					"target": [
@@ -20836,14 +20836,14 @@
 						-3.40000009536743
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30281/NativeCaseCollision": "(-4.044999, 20.4, -8.088)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30329/NativeCaseCollision": "(-4.044999, 20.4, -8.088)"
 					}
 				},
 				{
 					"actual": [
-						4.99743700027466,
+						4.99691200256348,
 						19.2009429931641,
-						-3.26705265045166
+						-3.26669311523438
 					],
 					"ok": true,
 					"target": [
@@ -20852,18 +20852,18 @@
 						-3.40000009536743
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30332/PipeCollision": "(-4.905356, 20.39494, -8.062813)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30280/NativeCaseCollision": "(-4.654999, 20.4, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30281/NativeCaseCollision": "(-4.089824, 20.40002, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30283/NativeCaseCollision": "(-4.60025, 20.40002, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.382164)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30380/PipeCollision": "(-4.905285, 20.39494, -8.062834)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30328/NativeCaseCollision": "(-4.654999, 20.4, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30329/NativeCaseCollision": "(-4.089638, 20.40002, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30331/NativeCaseCollision": "(-4.600256, 20.40002, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.382371)"
 					}
 				},
 				{
 					"actual": [
-						4.99995708465576,
-						19.1993808746338,
-						2.40149784088135
+						4.9999475479126,
+						19.2009429931641,
+						2.40153884887695
 					],
 					"ok": true,
 					"target": [
@@ -20872,14 +20872,14 @@
 						2.5
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329998, 20.39494, -13.33212)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329998, 20.39494, -14.05154)"
 					}
 				},
 				{
 					"actual": [
-						-1.25337409973145,
-						19.2007465362549,
-						2.49849987030029
+						-1.25337517261505,
+						19.2009429931641,
+						2.49850273132324
 					],
 					"ok": true,
 					"target": [
@@ -20892,7 +20892,7 @@
 				{
 					"actual": [
 						-1.3462700843811,
-						19.2007465362549,
+						19.2009429931641,
 						0.0964527130126953
 					],
 					"ok": true,
@@ -20906,7 +20906,7 @@
 				{
 					"actual": [
 						-1.13171970844269,
-						19.2007465362549,
+						19.2009429931641,
 						0.709383010864258
 					],
 					"ok": true,
@@ -20920,7 +20920,7 @@
 				{
 					"actual": [
 						-1.32185304164886,
-						19.2007465362549,
+						19.2009429931641,
 						0.0914745330810547
 					],
 					"ok": true,
@@ -20934,7 +20934,7 @@
 				{
 					"actual": [
 						-3.80017781257629,
-						19.3335075378418,
+						19.3335094451904,
 						0.00354194641113281
 					],
 					"ok": true,
@@ -20947,8 +20947,8 @@
 				},
 				{
 					"actual": [
-						-14.4034748077393,
-						19.2267684936523,
+						-14.4034767150879,
+						19.226770401001,
 						0.0000324249267578125
 					],
 					"ok": true,
@@ -20961,9 +20961,9 @@
 				},
 				{
 					"actual": [
-						-12.0960712432861,
-						19.250114440918,
-						0.0000410079956054688
+						-12.0960550308228,
+						19.2492408752441,
+						0.0000333786010742188
 					],
 					"ok": true,
 					"target": [
@@ -20971,15 +20971,13 @@
 						19.2502498626709,
 						0.0
 					],
-					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_COPING_WEST/Collision": "(15.475, 20.36, -11.65003)"
-					}
+					"wall_contacts": {}
 				},
 				{
 					"actual": [
-						-9.4961519241333,
-						19.2758274078369,
-						0.000034332275390625
+						-9.49614429473877,
+						19.2761344909668,
+						0.0000391006469726563
 					],
 					"ok": true,
 					"target": [
@@ -21033,9 +21031,9 @@
 				},
 				{
 					"actual": [
-						-11.9064674377441,
-						19.2653045654297,
-						-5.66472673416138
+						-11.9064693450928,
+						19.2653026580811,
+						-5.66472959518433
 					],
 					"ok": true,
 					"target": [
@@ -21044,14 +21042,14 @@
 						-5.69999980926514
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_TANK_LEG_2/Collision": "(9.76, 20.48432, -6.666574)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_TANK_LEG_2/Collision": "(9.76, 20.48431, -6.666533)"
 					}
 				},
 				{
 					"actual": [
 						-11.9983797073364,
 						19.2523975372314,
-						-0.0983295440673828
+						-0.0983304977416992
 					],
 					"ok": true,
 					"target": [
@@ -21063,7 +21061,7 @@
 				},
 				{
 					"actual": [
-						-12.0000123977661,
+						-12.0000104904175,
 						19.2594432830811,
 						-8.90312576293945
 					],
@@ -21077,7 +21075,7 @@
 				},
 				{
 					"actual": [
-						-0.0968580543994904,
+						-0.0968581587076187,
 						19.3114528656006,
 						-8.99922752380371
 					],
@@ -21091,8 +21089,8 @@
 				},
 				{
 					"actual": [
-						13.9036817550659,
-						19.24147605896,
+						13.9036808013916,
+						19.2414741516113,
 						-9.00000190734863
 					],
 					"ok": true,
@@ -21107,7 +21105,7 @@
 					"actual": [
 						13.9988431930542,
 						19.2315654754639,
-						-1.09665393829346
+						-1.09665489196777
 					],
 					"ok": true,
 					"target": [
@@ -21121,7 +21119,7 @@
 					"actual": [
 						13.9999971389771,
 						19.2488422393799,
-						10.7036533355713
+						10.7036552429199
 					],
 					"ok": true,
 					"target": [
@@ -21147,7 +21145,7 @@
 				},
 				{
 					"actual": [
-						7.59623575210571,
+						7.59623622894287,
 						19.2514934539795,
 						10.7999534606934
 					],
@@ -21161,9 +21159,9 @@
 				},
 				{
 					"actual": [
-						0.0858539491891861,
+						0.0858541950583458,
 						19.3641414642334,
-						7.04294776916504
+						7.04294967651367
 					],
 					"ok": true,
 					"target": [
@@ -21175,7 +21173,7 @@
 				},
 				{
 					"actual": [
-						-6.90480661392212,
+						-6.90480422973633,
 						19.3214683532715,
 						7.00057983398438
 					],
@@ -21189,8 +21187,8 @@
 				},
 				{
 					"actual": [
-						7.40271186828613,
-						19.2914047241211,
+						7.40271854400635,
+						19.2920913696289,
 						6.9999942779541
 					],
 					"ok": true,
@@ -21203,9 +21201,9 @@
 				},
 				{
 					"actual": [
-						7.49766826629639,
-						19.3269081115723,
-						3.09666156768799
+						7.49766778945923,
+						19.3268985748291,
+						3.09666061401367
 					],
 					"ok": true,
 					"target": [
@@ -21217,8 +21215,8 @@
 				},
 				{
 					"actual": [
-						7.90401268005371,
-						19.3215351104736,
+						7.90401315689087,
+						19.3215255737305,
 						3.01847171783447
 					],
 					"ok": true,
@@ -21231,7 +21229,7 @@
 				},
 				{
 					"actual": [
-						10.2040233612061,
+						10.2040243148804,
 						19.2008152008057,
 						3.00074100494385
 					],
@@ -21274,8 +21272,8 @@
 				{
 					"actual": [
 						12.4249019622803,
-						17.6534290313721,
-						9.05115509033203
+						17.6533908843994,
+						9.05117416381836
 					],
 					"ok": true,
 					"target": [
@@ -21289,7 +21287,7 @@
 					"actual": [
 						11.1701545715332,
 						17.6009426116943,
-						9.12161445617676
+						9.12161636352539
 					],
 					"ok": true,
 					"target": [
@@ -21298,14 +21296,14 @@
 						9.14999961853027
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/FlightB_Step00/Collision": "(-12.2191, 17.76, -20.45)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/FlightB_Step00/Collision": "(-12.2188, 17.76, -20.45)",
 						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/StairGuards": "(-11.17015, 18.485, -21.1025)"
 					}
 				},
 				{
 					"actual": [
 						11.0769481658936,
-						16.0008354187012,
+						16.0008449554443,
 						4.39880180358887
 					],
 					"ok": true,
@@ -21321,7 +21319,7 @@
 				{
 					"actual": [
 						11.0750398635864,
-						17.6008262634277,
+						17.6008281707764,
 						9.05129623413086
 					],
 					"ok": true,
@@ -21476,9 +21474,9 @@
 				},
 				{
 					"actual": [
-						7.00953674316406,
+						7.0095362663269,
 						19.3113555908203,
-						-5.9043025970459
+						-5.90430545806885
 					],
 					"ok": true,
 					"target": [
@@ -21506,7 +21504,7 @@
 					"actual": [
 						14.0989065170288,
 						19.2502536773682,
-						2.05343818664551
+						2.05343532562256
 					],
 					"ok": true,
 					"target": [
@@ -21519,8 +21517,8 @@
 				{
 					"actual": [
 						14.0999975204468,
-						19.2412872314453,
-						-5.90298795700073
+						19.2408027648926,
+						-5.90300178527832
 					],
 					"ok": true,
 					"target": [
@@ -21546,9 +21544,9 @@
 				},
 				{
 					"actual": [
-						-3.90366673469543,
-						19.3041973114014,
-						-5.99999523162842
+						-3.90357542037964,
+						19.3037223815918,
+						-5.99999380111694
 					],
 					"ok": true,
 					"target": [
@@ -21560,9 +21558,9 @@
 				},
 				{
 					"actual": [
-						-3.9000723361969,
+						-3.90007090568542,
 						19.3323383331299,
-						-0.0966110229492188
+						-0.0966129302978516
 					],
 					"ok": true,
 					"target": [
@@ -21574,9 +21572,9 @@
 				},
 				{
 					"actual": [
-						-1.44648671150208,
-						19.2008380889893,
-						-0.00364971160888672
+						-1.44663989543915,
+						19.2008399963379,
+						-0.00365447998046875
 					],
 					"ok": true,
 					"target": [
@@ -21588,8 +21586,8 @@
 				},
 				{
 					"actual": [
-						-1.35374009609222,
-						19.2008380889893,
+						-1.35374581813812,
+						19.2008399963379,
 						2.40295505523682
 					],
 					"ok": true,
@@ -21602,8 +21600,8 @@
 				},
 				{
 					"actual": [
-						4.90293598175049,
-						19.2008380889893,
+						4.90293502807617,
+						19.2008399963379,
 						2.4985179901123
 					],
 					"ok": true,
@@ -21627,15 +21625,15 @@
 						-3.40000009536743
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30332/PipeCollision": "(-4.905412, 20.39494, -8.062797)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30380/PipeCollision": "(-4.905412, 20.39494, -8.062797)",
 						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.390012)"
 					}
 				},
 				{
 					"actual": [
-						3.9884250164032,
+						3.98842334747314,
 						19.2009410858154,
-						-3.23558235168457
+						-3.23558330535889
 					],
 					"ok": true,
 					"target": [
@@ -21644,10 +21642,10 @@
 						-3.40000009536743
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30332/PipeCollision": "(-4.888428, 20.39494, -8.064978)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30280/NativeCaseCollision": "(-4.626822, 20.40002, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30281/NativeCaseCollision": "(-4.044999, 20.4, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30283/NativeCaseCollision": "(-4.095633, 20.40001, -8.088)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30380/PipeCollision": "(-4.888453, 20.39494, -8.064979)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30328/NativeCaseCollision": "(-4.626802, 20.40002, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30329/NativeCaseCollision": "(-4.044999, 20.4, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30331/NativeCaseCollision": "(-4.095626, 20.40001, -8.088)"
 					}
 				},
 				{
@@ -21669,8 +21667,8 @@
 				{
 					"actual": [
 						2.02014303207397,
-						17.6009407043457,
-						1.2716178894043
+						17.6009426116943,
+						1.27161693572998
 					],
 					"ok": true,
 					"target": [
@@ -21680,7 +21678,7 @@
 					],
 					"wall_contacts": {
 						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/FlightB_Step00/Collision": "(-3.970706, 17.76, -12.6)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-2.023134, 18.485, -13.2525)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-2.020142, 18.485, -13.2525)"
 					}
 				},
 				{
@@ -21722,7 +21720,7 @@
 				{
 					"actual": [
 						3.87979340553284,
-						17.6009292602539,
+						17.6009426116943,
 						1.27161407470703
 					],
 					"ok": true,
@@ -21737,9 +21735,9 @@
 				},
 				{
 					"actual": [
-						3.97172665596008,
-						19.1997661590576,
-						-3.23920726776123
+						3.97172689437866,
+						19.2009563446045,
+						-3.2392110824585
 					],
 					"ok": true,
 					"target": [
@@ -21748,14 +21746,14 @@
 						-3.40000009536743
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30281/NativeCaseCollision": "(-4.044999, 20.4, -8.088)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30329/NativeCaseCollision": "(-4.044999, 20.4, -8.088)"
 					}
 				},
 				{
 					"actual": [
-						4.99745225906372,
-						19.2009449005127,
-						-3.26704216003418
+						4.99743938446045,
+						19.2009429931641,
+						-3.26704406738281
 					],
 					"ok": true,
 					"target": [
@@ -21764,18 +21762,18 @@
 						-3.40000009536743
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30332/PipeCollision": "(-4.905359, 20.39494, -8.062812)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30280/NativeCaseCollision": "(-4.654999, 20.4, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30281/NativeCaseCollision": "(-4.089812, 20.40002, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30283/NativeCaseCollision": "(-4.600239, 20.40002, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.382153)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30380/PipeCollision": "(-4.905369, 20.39494, -8.062809)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30328/NativeCaseCollision": "(-4.654999, 20.4, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30329/NativeCaseCollision": "(-4.089813, 20.40002, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30331/NativeCaseCollision": "(-4.600239, 20.40002, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.382166)"
 					}
 				},
 				{
 					"actual": [
 						4.99995708465576,
-						19.1993827819824,
-						2.40149974822998
+						19.2009429931641,
+						2.40149784088135
 					],
 					"ok": true,
 					"target": [
@@ -21784,14 +21782,14 @@
 						2.5
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329998, 20.39494, -13.38212)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329998, 20.39494, -14.0515)"
 					}
 				},
 				{
 					"actual": [
-						-1.2533757686615,
-						19.2007465362549,
-						2.49850082397461
+						-1.25337409973145,
+						19.2009429931641,
+						2.49849987030029
 					],
 					"ok": true,
 					"target": [
@@ -21804,8 +21802,8 @@
 				{
 					"actual": [
 						-1.3462700843811,
-						19.2007465362549,
-						0.0964460372924805
+						19.2009429931641,
+						0.0964527130126953
 					],
 					"ok": true,
 					"target": [
@@ -21817,8 +21815,8 @@
 				},
 				{
 					"actual": [
-						-0.096124492585659,
-						19.2007465362549,
+						-0.0961249694228172,
+						19.2009429931641,
 						0.146175384521484
 					],
 					"ok": true,
@@ -21831,8 +21829,8 @@
 				},
 				{
 					"actual": [
-						-0.0449661836028099,
-						19.2008094787598,
+						-0.0449664741754532,
+						19.2009429931641,
 						0.0610618591308594
 					],
 					"ok": true,
@@ -21842,13 +21840,13 @@
 						0.150000005960464
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_LIFT_DRIVE/PlantGuard": "(0.096125, 20.39481, -11.28)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_LIFT_DRIVE/PlantGuard": "(0.096126, 20.39494, -11.28)"
 					}
 				},
 				{
 					"actual": [
-						-1.25290894508362,
-						19.2008094787598,
+						-1.25290834903717,
+						19.2009429931641,
 						0.00454235076904297
 					],
 					"ok": true,
@@ -21861,8 +21859,8 @@
 				},
 				{
 					"actual": [
-						-3.50381875038147,
-						19.3354587554932,
+						-3.50381755828857,
+						19.3354568481445,
 						0.000185012817382813
 					],
 					"ok": true,
@@ -21875,8 +21873,8 @@
 				},
 				{
 					"actual": [
-						-1.44691455364227,
-						19.2008399963379,
+						-1.44691491127014,
+						19.2008285522461,
 						0.0000143051147460938
 					],
 					"ok": true,
@@ -21889,9 +21887,9 @@
 				},
 				{
 					"actual": [
-						-1.35374557971954,
-						19.2008399963379,
-						2.40338230133057
+						-1.35374581813812,
+						19.2008285522461,
+						2.40337753295898
 					],
 					"ok": true,
 					"target": [
@@ -21903,8 +21901,8 @@
 				},
 				{
 					"actual": [
-						4.9029426574707,
-						19.2008399963379,
+						4.90293788909912,
+						19.2008285522461,
 						2.49852275848389
 					],
 					"ok": true,
@@ -21917,9 +21915,9 @@
 				},
 				{
 					"actual": [
-						4.99768495559692,
+						4.99768447875977,
 						19.2009410858154,
-						-3.25925254821777
+						-3.25923633575439
 					],
 					"ok": true,
 					"target": [
@@ -21928,15 +21926,15 @@
 						-3.40000009536743
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30332/PipeCollision": "(-4.90541, 20.39494, -8.062798)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.390006)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30380/PipeCollision": "(-4.905412, 20.39494, -8.062797)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_PUBLIC_CORE/WallEast_00/Collision": "(-5.329999, 20.39494, -8.390022)"
 					}
 				},
 				{
 					"actual": [
-						3.98842358589172,
+						3.98842334747314,
 						19.2009410858154,
-						-3.23558044433594
+						-3.23558330535889
 					],
 					"ok": true,
 					"target": [
@@ -21945,17 +21943,17 @@
 						-3.40000009536743
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30332/PipeCollision": "(-4.888317, 20.39494, -8.064975)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30280/NativeCaseCollision": "(-4.62682, 20.40002, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30281/NativeCaseCollision": "(-4.044999, 20.4, -8.088)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30283/NativeCaseCollision": "(-4.045, 20.4, -8.088)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/NativeFireService/@MeshInstance3D@30380/PipeCollision": "(-4.888453, 20.39494, -8.064979)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30328/NativeCaseCollision": "(-4.626802, 20.40002, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30329/NativeCaseCollision": "(-4.044999, 20.4, -8.088)",
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/@MeshInstance3D@30331/NativeCaseCollision": "(-4.095626, 20.40001, -8.088)"
 					}
 				},
 				{
 					"actual": [
-						3.97529363632202,
-						17.6160087585449,
-						1.22480392456055
+						3.97529339790344,
+						17.6160221099854,
+						1.22479248046875
 					],
 					"ok": true,
 					"target": [
@@ -21964,14 +21962,14 @@
 						1.29999995231628
 					],
 					"wall_contacts": {
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/FlightB_Step00/Collision": "(-3.975302, 17.76, -12.6)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/FlightB_Step00/Collision": "(-3.975301, 17.76, -12.6)"
 					}
 				},
 				{
 					"actual": [
-						2.0201416015625,
-						17.6009292602539,
-						1.27161598205566
+						2.02014303207397,
+						17.6009426116943,
+						1.2716178894043
 					],
 					"ok": true,
 					"target": [
@@ -21981,14 +21979,14 @@
 					],
 					"wall_contacts": {
 						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/FlightB_Step00/Collision": "(-3.970706, 17.76, -12.6)",
-						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-2.023085, 18.485, -13.2525)"
+						"/root/OrisonV2UpperAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-2.020142, 18.485, -13.2525)"
 					}
 				},
 				{
 					"actual": [
-						1.92694711685181,
-						16.0008125305176,
-						-3.4024772644043
+						1.92694699764252,
+						16.0008068084717,
+						-3.40248394012451
 					],
 					"ok": true,
 					"target": [
@@ -22006,10 +22004,10 @@
 	"scope": "Played room access in one shared production world. Complete route families retain their declared initial placements; roof circuits share one F06 arrival. Subsequent travel uses the normal collision-bearing controller. Physical input replaces inherited E-key toggles. The lift travel request remains a declared stimulus. No inter-floor connection, case completion, disk save, whole-building runtime or human acceptance grant.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "1d41eac16ee472bb67371b4255869e4f503b589b",
-		"runtime_inputs_sha256": "8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c",
+		"repository_head": "b0cf00244b39c40e5ddc5cd75656deff1fd74c71",
+		"runtime_inputs_sha256": "0f6dbe6c3813cd10cc58c3fe3349aaff48ad1eb49d3919a2b8c76e31fcb694d7",
 		"scene_path": "res://tests/OrisonV2UpperAccessCohort.tscn",
-		"surface_inputs_sha256": "246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709",
+		"surface_inputs_sha256": "82b7991496f093fa22fefc406c908816b81988238dcbfda1f80a19e73f534f63",
 		"test_dependencies": {
 			"game/tests/OrisonV2RemainingApartmentAccessContractTest.tscn": "d68123786dcc531a7ad0063c790fd92b273b302768d6b7ee7d54c0b682bb414f",
 			"game/tests/OrisonV2RoofProgramContractTest.tscn": "b8ad7093d82c3dfda068621fe24698a882dab835cb1d9c14f0f14ccee110b659",

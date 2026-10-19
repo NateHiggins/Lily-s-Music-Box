@@ -168,3 +168,32 @@ not an appearance acceptance decision.
 
 Passing custom-map/UV/mipmap checks does not resolve these form, scale,
 material-response and narrative-detail findings.
+
+## Current original qualification, 2026-10-19
+
+The corrected source candidate is **b0cf0024**. Original source-bound runs,
+matching wrapper receipts and byte-verified raw logs now renew these packets:
+
+| Original run | Result and scope |
+|---|---|
+| **final_stock6** | Loaded native stock bench passes all 59 physical metric charts and normal/tangent checks; the normal-enabled production capture is inspected. Diagnostic material controls remain diagnostic only. |
+| **final_surface1** | 39,240 checks, zero unresolved surfaces and zero script errors. Inventory covers 26,516 draws, 17,477 meshes, 6,138 materials and 497 textures. All 19 required current images are inspected and hash-recorded; independent qualification passes. |
+| **final_programme10** | 247 checks across eight reached rooms, actual mail and telephone operation, isolated disk save and fresh production reconstruction. Independent validation passes. All fourteen current standing/operated images are reviewed with explicit remaining art findings. |
+| **final_circulation2** | 27 rooms and six connections, zero failures; independent room and connection validation passes. Seven current standing images are inspected and hash-recorded. |
+| **final_service2** | 360 terminal checks pass, including the physical service round and disk reconstruction. The original serialized contract contains 359 checks because the final flush check occurs after writing it; independent contract validation passes. |
+| **final_home2** | 62 rooms, nine route legs and 909 checks, zero failures. Independent original source, wrapper, log and spatial validation passes. |
+| **final_upper2** | 69 rooms, eleven route legs and 989 checks, zero failures. Independent original validation passes; the unchanged contract and matching logs are installed in the existing upper-access packet. |
+| **final_landing2** | All six public landing footprints pass the original collision-bearing route; independent source-bound validation passes and the original packet is installed. |
+| **final_region3** | 6 regions, 6 routes and 130 checks pass. Independent original regional validation passes; the preceding packet is preserved and its original replacement installed. |
+
+The original surface, service, home and circulation packets are installed in
+their existing canonical destinations. The scoped programme original and
+reviewed images live under
+**art/reviews/v2_mail_telephone_20261019/qualification/programme10/**.
+Previous canonical packets are preserved in the adjacent qualification archive.
+No previous receipt is repinned and no additional ledger marker is introduced.
+
+All nine original batch runs have completed successfully. Clean no-regression
+verification and push remain pending.
+These renewals do not prove the full parcel/common/laundry programmes, resolve
+the recorded visual defects, grant human appearance acceptance or complete V2.
