@@ -222,3 +222,7 @@ game/assets/props/city_shells_T_ai_materials_brass_mesh_normal.png*
 
 # Stale Godot texture extracts from older washer exports; current native GLB has no images.
 game/assets/props/washer_controls_T_*.png
+
+# Godot editor hot-reload copies; the original native binaries stay tracked.
+game/native/hose_math/bin/~*.dll
+game/native/hose_math/bin/~*.pdb

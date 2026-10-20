@@ -1,0 +1,158 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "scope": "Rendered technical review at shown scales: UV/PBR/mip response and gross import artifacts. Existing appearance limitations remain; not whole-V2 photoreal, narrative, gameplay or human acceptance.",
+  "surface_inputs_sha256": "18615aea240e9b280d700cb7c22fdaa6686c99f3294046599d7382458c914d74",
+  "images": [
+    {
+      "file": "city_west_roof.png",
+      "sha256": "788169bddc15539d5395496bbdb5057699a20620c3aa456c0c466e6b1c733af9",
+      "observation": "Tank, masts and windowed masonry masses remain legible; roof stock and distant facade details reduce naturally at this viewing scale.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_north_roof.png",
+      "sha256": "1e2bf23cc4b4f7ced72565ea827821d5b36c5325ab7cbb2f736f74ccc0a8810e",
+      "observation": "Recessed sash grids and varied shade states remain distinct across the near elevation; no obvious texture stretch or compression blocks at this view.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_east_roof.png",
+      "sha256": "5f53e43a1a6cb30cf7e2cf91df5b96db6eed4f489e8491e4b53c716d23904c6c",
+      "observation": "Roof apparatus, guy lines and adjoining windowed elevations retain visible silhouette detail under the sky lighting.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_street_skyline.png",
+      "sha256": "44ddbd450f016edd24e84ca2db5d2f888ff21a6e855d2b718a26583bd80eb0d9",
+      "observation": "Near brick relief responds to grazing light and recessed sash/canopy stock remains separated. Repeated brick wear is still broader appearance work.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_site_nbr_e_window.png",
+      "sha256": "2727ff88e0398776e4d56dccae83ac8f5ace65a1cc20c9982095b8e04ee6affd",
+      "observation": "Revealed sash, brick/stone transitions and fire-escape geometry remain distinct in the narrow street view.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_site_ne1_window.png",
+      "sha256": "0fc97d566febfe9b3c26793983c0f74c5251a1789670600e9345ca0187e315f9",
+      "observation": "Sills and lintels project from the masonry with recessed dark sash; the neighbouring facade retains its own finish and value.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_site_back_e_window.png",
+      "sha256": "40b00bbbf5bb7df7fb1906625329b463740a4163b039da49231f63ccf17abcb2",
+      "observation": "Rear window reveals remain visible above the lower distant frontage; this is a posed context view, not route proof.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_horizon_context.png",
+      "sha256": "176739cb52c3a8ed39f995824aaa815749f2c4b38f0d2f8bdb8c622d76be69a5",
+      "observation": "Lower horizon rows, cornice lines and window grids are visible without the former stepped massing; distant surfaces remain simplified at this scale.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_weather_dry.png",
+      "sha256": "22b29cab4b411c23e5d0b49a1092ec6389ba8f64696fb48d4afb4d42570e2967",
+      "observation": "Dry sky state retains readable near masonry and roof apparatus without obvious texture aliasing in this frame.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_weather_storm.png",
+      "sha256": "0ce77566ed13b8d6dcd6d955b250eed1e28e4de33d54905a06673c184460dd35",
+      "observation": "Storm illumination lowers silhouette contrast while retaining foreground roof details; reviewed as an optical state.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_weather_fog.png",
+      "sha256": "a97c97ee3283fc6b195d5c6e1684fd5603accc81eacc6803d4cb8150ba213dac",
+      "observation": "Fog softens distant massing and preserves the near mast/tank silhouettes; no physical-surface exemption is inferred from this view.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "city_ground_seam.png",
+      "sha256": "28d309192e2cb6cee2d50fe5c1756b291d927509cedd20032ffe5c7a1ae9d926",
+      "observation": "Ground/apron joins remain continuous below the masses; dark background elevation detail is limited in this diagnostic angle.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "clearance_120_F06_PUBLIC_LANDING_PIECE.png",
+      "sha256": "a3d917fa001aeb4aad896b004590e09c7c53f7f55983387c589835cddc9a12db",
+      "observation": "Mounted frame remains above the wood panel cap with a clear wall field; no eye-level rail crosses the fixture in this view.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "clearance_97_F01_lobby_photo.png",
+      "sha256": "85bd9eda2efdd0be746f6dc6f739b84122371a5f9ed8afd33577ad375ab02e20",
+      "observation": "Small frame remains separated from door casing and lower panel cap; the removed eye-level band no longer crosses its wall field.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "clearance_96_6A_print_line.png",
+      "sha256": "ebfcce153ef487bf96e119c4e0ba26969bbd496cf480c4e27d7d7fce5ddc3211",
+      "observation": "Six clipped sheets remain visible with end supports against the clear wall field; panel cap stays below the hanging stock.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "clearance_07_1A_wardrobe.png",
+      "sha256": "e6f8229a655d18e9c153d2bb4b540eecc3309d0a14d8e50dd3a481ff9e5a4bb2",
+      "observation": "Wardrobe panels, reflected carried-light highlight and separation from neighbouring trim/window remain visible; grain follows the vertical doors.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "clearance_37_2A_k_wall_cupboard.png",
+      "sha256": "1677f8b1a39815d926432dc737c333a51f9051fb39a947123a2b14ecd2d62184",
+      "observation": "Wall cupboard, upper moulding and faucet remain visible with the clear wall field behind; wood remains distinct from surrounding plaster and metal.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "omitted_B1_washer_supply.png",
+      "sha256": "a09acb42b09563e8d7d35b3f3da6146432ad8e9378e07ae8a03ac8f176fe16b9",
+      "observation": "Both retained tubs/wringers and connected supply stock are visible; pipe and fixture surfaces remain distinct under the carried light.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "front_restored_entrance.png",
+      "sha256": "3b6ae119f98f52f0a6bbd30cb2148c7bbea6ea7237a12d398589614cf7baac3c",
+      "observation": "Continuous restored frontage, inset door, marquee/brackets and distinct sash/blind states remain visible. Door illumination and brick repetition remain appearance polish.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "repaired_handheld.png",
+      "sha256": "19baada7e035535309545081742b300ab77c2133fef9418dd21a016cdad493ce",
+      "observation": "Reused unchanged-map specimen after the28 import repairs: separate metal, rubber and paper surfaces retain detail with no obvious compression blocks at this scale. Coarse paper grain remains broader appearance review.",
+      "origin": "Unchanged earlier native specimen capture; reused visual verification"
+    },
+    {
+      "file": "repaired_mina.png",
+      "sha256": "1389cd2eb8605dd34382689c9edecbd2b5b8ec74bea5a83ddf402888fa1b9e99",
+      "observation": "Reused unchanged-map specimen after atlas mip repair: face, cloth, hat and footwear remain legible without obvious compression blocks at this scale. No animation or human character acceptance is claimed.",
+      "origin": "Unchanged earlier native specimen capture; reused visual verification"
+    },
+    {
+      "file": "fire_F01_FIRE_LINE_STAIR_closed.png",
+      "sha256": "6f5b52d2f7dbaf3170488cc3358b6cab02f7f717e0bc338167ec7335f06f9fd9",
+      "observation": "Drawn glazing retains visible stock and fine wire; enamel relief and worked edges respond to the production offset light.",
+      "origin": "Fresh surface11 composed-world capture"
+    },
+    {
+      "file": "fire_F01_FIRE_LINE_STAIR_open.png",
+      "sha256": "cc47873aac8a591f333b5e056b0b6fcaccb799469b74a698c6e456a01ea4fbc8",
+      "observation": "Continuous leaf, hinge stock, open tray and folded clip remain distinct; the lining receives the beam without the old screen overlay.",
+      "origin": "Fresh surface11 composed-world capture"
+    }
+  ],
+  "reused_verification": "The two native mip-repair specimen renders reuse byte-identical geometry, bitmap content, imported material parameters and mip-bench sources; later changes affect only fire test acquisition. Both specimens were inspected again with this review.",
+  "open_appearance_work": [
+    "Brick wear repetition and even front-door illumination",
+    "Coarse teletype paper grain at closer views",
+    "Remaining native door-guard/chassis geometry and human visual acceptance"
+  ],
+  "limitations": [
+    "Repeated brick wear and even entrance lighting remain appearance work.",
+    "Handheld paper grain remains coarse.",
+    "Six book-cover colours share a constant normal and need authored binding relief.",
+    "Seven historical renderer Texture RID warnings remain separate lifecycle work."
+  ]
+}

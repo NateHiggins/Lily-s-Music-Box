@@ -9,6 +9,11 @@ no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not
 proof of the current interaction contract.
 
+Run the static gate board early and inspect each new failure before a combined
+world run. Reconcile additive catalogue bindings and new spatial references,
+then freeze rendering inputs. Keep existing cohort-receipt debt explicit; a
+surface pass grants no separate space or gameplay acceptance.
+
 After editor import, run the V2 import-policy check before composing a world.
 New nonignored source images must be covered even before Git staging.
 

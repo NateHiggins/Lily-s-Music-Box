@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 949.69,
+  "elapsed_s": 968.84,
   "exit_code": 0,
-  "finished_utc": "2026-10-20T10:52:49Z",
-  "started_utc": "2026-10-20T10:36:59Z",
+  "finished_utc": "2026-10-20T11:25:56Z",
+  "started_utc": "2026-10-20T11:09:46Z",
   "timed_out": false
  },
  "log": {
@@ -19,19 +19,19 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface11.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface12.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface11.log",
-  "stdout_sha256": "839eb891b6db153e362c8684e71aa8d5bef3f5343cf3ec3cba773b050561655c"
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface12.log",
+  "stdout_sha256": "06a81ca429567524e3beccd857034ead3f69a4c98798d0ef7f9e2c5002762a9f"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface11",
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface12",
  "source": {
-  "dirty_paths": 2067,
+  "dirty_paths": 2096,
   "dirty_sample": [
    "M .gitattributes",
    " M DOCS.md",

@@ -2,6 +2,10 @@
 
 Evidence class: **INERT**. Reviewed implementation checkpoint; no ledger promotion.
 
+Current result: **surface12 PASS, 40,065 checks and zero failures**, after the
+switchboard-binding correction. Both checkouts qualify the published packet.
+Broader branch cohort evidence and human appearance acceptance remain open.
+
 The owner's texture direction is now part of **V2_SURFACE_REQUIREMENTS_2026-10-11.md**:
 every revised finish chooses material-specific relief and physical scale. Existing
 bespoke recipes remain supported. This is not acceptance of every legacy texture.
@@ -58,8 +62,8 @@ The packet is **art/reviews/v2_construction_normals_20261020**.
 The native source render, rack renders and corrected game frames were inspected.
 The enamel shows shallow relief; drawn/reeded/cut glass distorts the stock and
 frosted glass softens it. The fixture has a dark empty background and is not a
-room aesthetic acceptance image. The broad surface packet is stale until its
-next composed run completes; neither earlier full-world result is repinned.
+room aesthetic acceptance image. At that point the broad surface packet was stale pending its
+next composed run; neither earlier full-world result was repinned.
 Whole V2 completion, composed qualification and human appearance remain open.
 
 The first composed attempt, **surface8**, stopped at native preflight in ten
@@ -93,7 +97,7 @@ static checks pass in both checkouts. This prevents that staging gap from
 reaching another long world build. The complete board's tools tests passed;
 its surface qualification remains pending the fresh composed result.
 
-## Completed surface qualification
+## Completed surface11 qualification, superseded below
 
 **surface11** ran in the canonical checkout and passed **40,065 checks, zero
 failures**, with zero unresolved technical surface findings: 26,844 draws,
@@ -132,3 +136,24 @@ verification is retained under **candidate2377** in the review packet. Subsequen
 candidate checking uses **--no-godot** with the independently recorded, current
 canonical surface qualification; no runtime result is fabricated by that flag.
 The changed construction binding requires a fresh combined surface receipt.
+
+## Final surface12 qualification
+
+The fresh canonical **surface12** run passed 40,065 checks with zero failures;
+its wrapper completed in 968.84 seconds. The current packet in both checkouts
+qualifies with zero defects and binds the same 6,272 inputs to SHA-256
+**0e8509ebda2a5f85cfe7b8b6c61fa1b488d007e243751feaa6c5499b19692b71**.
+The current review again inspected 21 fresh composed captures and two unchanged
+native specimen captures. Surface11 is preserved as an authentic predecessor.
+The import verifier's abandoned cold run left a temporary hot-reload DLL copy;
+it was archived locally, and the engine's tilde DLL/PDB copies are now ignored.
+The original native binaries remain tracked and bound. No additional game run
+is needed for that derived-cache exclusion.
+
+The enamel pigment source was made with the built-in image-generation tool.
+The original image and full prompt/provenance are retained in
+**art/textures/ai_sources/fire_enamel_20261020.png** and its JSON companion.
+Relief and roughness come from authored construction data; generated lighting
+was not converted into height. The twelve profiles are authoring starting
+points, with family-specific UV, imported-map and light-response review still
+required before future installations.
