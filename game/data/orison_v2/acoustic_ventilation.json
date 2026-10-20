@@ -1,0 +1,2207 @@
+{
+  "schema_version": 1,
+  "network": "ventilation",
+  "coordinate_frame": "blockout_local_blender",
+  "nodes": [
+    {
+      "id": "F01_A_BATH_VENT_REGISTER",
+      "pos": [
+        -6.8,
+        11.65,
+        2.6
+      ],
+      "room": "F01_A_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F01_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F01_D_BATH_VENT_REGISTER",
+      "pos": [
+        14.875000000000002,
+        10.85,
+        2.6
+      ],
+      "room": "F01_D_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F01_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F01_RESTROOM_VENT_REGISTER",
+      "pos": [
+        7.500000000000001,
+        6.45,
+        2.6
+      ],
+      "room": "F01_STAFF_RESTROOM",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F01_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F01_V_B_RISER",
+      "pos": [
+        -5.95,
+        12.35,
+        2.69
+      ],
+      "room": "F01",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F01_A_BATH_VENT_REGISTER",
+        "F02_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F01_V_D_RISER",
+      "pos": [
+        15.6,
+        12.1,
+        2.69
+      ],
+      "room": "F01",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F01_D_BATH_VENT_REGISTER",
+        "F01_RESTROOM_VENT_REGISTER",
+        "F02_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F02_A_BATH_VENT_REGISTER",
+      "pos": [
+        -6.799999999999999,
+        -4.375,
+        5.800000000000001
+      ],
+      "room": "F02_A_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F02_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F02_B_BATH_VENT_REGISTER",
+      "pos": [
+        14.875000000000002,
+        10.85,
+        5.800000000000001
+      ],
+      "room": "F02_B_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F02_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F02_C_BATH_VENT_REGISTER",
+      "pos": [
+        2.15,
+        -5.75,
+        5.800000000000001
+      ],
+      "room": "F02_C_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F02_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F02_D_BATH_VENT_REGISTER",
+      "pos": [
+        -10.625,
+        8.75,
+        5.800000000000001
+      ],
+      "room": "F02_D_RESTRICTED",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F02_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F02_V_A_RISER",
+      "pos": [
+        -6.175,
+        -3.65,
+        5.890000000000001
+      ],
+      "room": "F02",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F02_A_BATH_VENT_REGISTER",
+        "F03_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F02_V_B_RISER",
+      "pos": [
+        -5.95,
+        12.35,
+        5.890000000000001
+      ],
+      "room": "F02",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F01_V_B_RISER",
+        "F02_D_BATH_VENT_REGISTER",
+        "F03_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F02_V_C_RISER",
+      "pos": [
+        -6.175,
+        -5.8,
+        5.890000000000001
+      ],
+      "room": "F02",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F02_C_BATH_VENT_REGISTER",
+        "F03_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F02_V_D_RISER",
+      "pos": [
+        15.6,
+        12.1,
+        5.890000000000001
+      ],
+      "room": "F02",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F01_V_D_RISER",
+        "F02_B_BATH_VENT_REGISTER",
+        "F03_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F03_A_BATH_VENT_REGISTER",
+      "pos": [
+        -6.799999999999999,
+        -4.375,
+        9.0
+      ],
+      "room": "F03_A_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F03_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F03_B_BATH_VENT_REGISTER",
+      "pos": [
+        14.975,
+        11.075,
+        9.0
+      ],
+      "room": "F03_B_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F03_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F03_C_BATH_VENT_REGISTER",
+      "pos": [
+        0.75,
+        -7.1,
+        9.0
+      ],
+      "room": "F03_C_RESTRICTED",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F03_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F03_D_BATH_VENT_REGISTER",
+      "pos": [
+        -6.8999999999999995,
+        11.65,
+        9.0
+      ],
+      "room": "F03_D_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F03_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F03_V_A_RISER",
+      "pos": [
+        -6.175,
+        -3.65,
+        9.09
+      ],
+      "room": "F03",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F02_V_A_RISER",
+        "F03_A_BATH_VENT_REGISTER",
+        "F04_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F03_V_B_RISER",
+      "pos": [
+        -5.95,
+        12.35,
+        9.09
+      ],
+      "room": "F03",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F02_V_B_RISER",
+        "F03_D_BATH_VENT_REGISTER",
+        "F04_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F03_V_C_RISER",
+      "pos": [
+        -6.175,
+        -5.8,
+        9.09
+      ],
+      "room": "F03",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F02_V_C_RISER",
+        "F03_C_BATH_VENT_REGISTER",
+        "F04_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F03_V_D_RISER",
+      "pos": [
+        15.6,
+        12.1,
+        9.09
+      ],
+      "room": "F03",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F02_V_D_RISER",
+        "F03_B_BATH_VENT_REGISTER",
+        "F04_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F04_A_BATH_VENT_REGISTER",
+      "pos": [
+        14.875000000000002,
+        10.85,
+        12.2
+      ],
+      "room": "F04_A_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F04_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F04_B_BATH_VENT_REGISTER",
+      "pos": [
+        -6.85,
+        -4.75,
+        12.2
+      ],
+      "room": "F04_B_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F04_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F04_C_BATH_VENT_REGISTER",
+      "pos": [
+        2.15,
+        -5.75,
+        12.2
+      ],
+      "room": "F04_C_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F04_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F04_D_BATH_VENT_REGISTER",
+      "pos": [
+        -6.8999999999999995,
+        11.65,
+        12.2
+      ],
+      "room": "F04_D_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F04_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F04_V_A_RISER",
+      "pos": [
+        -6.175,
+        -3.65,
+        12.29
+      ],
+      "room": "F04",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F03_V_A_RISER",
+        "F04_B_BATH_VENT_REGISTER",
+        "F05_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F04_V_B_RISER",
+      "pos": [
+        -5.95,
+        12.35,
+        12.29
+      ],
+      "room": "F04",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F03_V_B_RISER",
+        "F04_D_BATH_VENT_REGISTER",
+        "F05_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F04_V_C_RISER",
+      "pos": [
+        -6.175,
+        -5.8,
+        12.29
+      ],
+      "room": "F04",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F03_V_C_RISER",
+        "F04_C_BATH_VENT_REGISTER",
+        "F05_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F04_V_D_RISER",
+      "pos": [
+        15.6,
+        12.1,
+        12.29
+      ],
+      "room": "F04",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F03_V_D_RISER",
+        "F04_A_BATH_VENT_REGISTER",
+        "F05_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F05_A_BATH_VENT_REGISTER",
+      "pos": [
+        -6.95,
+        11.25,
+        15.4
+      ],
+      "room": "F05_A_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F05_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F05_B_BATH_VENT_REGISTER",
+      "pos": [
+        -7.25,
+        -4.725,
+        15.4
+      ],
+      "room": "F05_B_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F05_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F05_C_BATH_VENT_REGISTER",
+      "pos": [
+        2.15,
+        -5.75,
+        15.4
+      ],
+      "room": "F05_C_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F05_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F05_D_BATH_VENT_REGISTER",
+      "pos": [
+        13.225,
+        6.0249999999999995,
+        15.4
+      ],
+      "room": "F05_D_RESTRICTED",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F05_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F05_V_A_RISER",
+      "pos": [
+        -6.175,
+        -3.65,
+        15.49
+      ],
+      "room": "F05",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F04_V_A_RISER",
+        "F05_B_BATH_VENT_REGISTER",
+        "F06_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F05_V_B_RISER",
+      "pos": [
+        -5.95,
+        12.35,
+        15.49
+      ],
+      "room": "F05",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F04_V_B_RISER",
+        "F05_A_BATH_VENT_REGISTER",
+        "F06_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F05_V_C_RISER",
+      "pos": [
+        -6.175,
+        -5.8,
+        15.49
+      ],
+      "room": "F05",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F04_V_C_RISER",
+        "F05_C_BATH_VENT_REGISTER",
+        "F06_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F05_V_D_RISER",
+      "pos": [
+        15.6,
+        12.1,
+        15.49
+      ],
+      "room": "F05",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F04_V_D_RISER",
+        "F05_D_BATH_VENT_REGISTER",
+        "F06_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F06_A_BATH_VENT_REGISTER",
+      "pos": [
+        -6.95,
+        11.25,
+        18.6
+      ],
+      "room": "F06_A_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F06_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F06_B_BATH_VENT_REGISTER",
+      "pos": [
+        -7.25,
+        -4.725,
+        18.6
+      ],
+      "room": "F06_B_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F06_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F06_C_BATH_VENT_REGISTER",
+      "pos": [
+        2.15,
+        -5.75,
+        18.6
+      ],
+      "room": "F06_C_BATH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F06_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F06_D_BATH_VENT_REGISTER",
+      "pos": [
+        13.225,
+        6.0249999999999995,
+        18.6
+      ],
+      "room": "F06_D_RESTRICTED",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 16,
+      "damping": 0.22,
+      "infection_receptivity": 0.86,
+      "connections": [
+        "F06_V_D_RISER"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "F06_V_A_RISER",
+      "pos": [
+        -6.175,
+        -3.65,
+        18.69
+      ],
+      "room": "F06",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F05_V_A_RISER",
+        "F06_B_BATH_VENT_REGISTER",
+        "ROOF_VENT_FAN_A"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "F06_V_B_RISER",
+      "pos": [
+        -5.95,
+        12.35,
+        18.69
+      ],
+      "room": "F06",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F05_V_B_RISER",
+        "F06_A_BATH_VENT_REGISTER",
+        "ROOF_VENT_FAN_B"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "F06_V_C_RISER",
+      "pos": [
+        -6.175,
+        -5.8,
+        18.69
+      ],
+      "room": "F06",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F05_V_C_RISER",
+        "F06_C_BATH_VENT_REGISTER",
+        "ROOF_VENT_FAN_C"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "F06_V_D_RISER",
+      "pos": [
+        15.6,
+        12.1,
+        18.69
+      ],
+      "room": "F06",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 11,
+      "damping": 0.22,
+      "infection_receptivity": 0.74,
+      "connections": [
+        "F05_V_D_RISER",
+        "F06_D_BATH_VENT_REGISTER",
+        "ROOF_VENT_FAN_D"
+      ],
+      "riser": "V-D"
+    },
+    {
+      "id": "ROOF_VENT_FAN_A",
+      "pos": [
+        -6.175,
+        -4.375,
+        19.2
+      ],
+      "room": "ROOF_DECK_WEST",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 9,
+      "damping": 0.22,
+      "infection_receptivity": 0.82,
+      "connections": [
+        "F06_V_A_RISER"
+      ],
+      "riser": "V-A"
+    },
+    {
+      "id": "ROOF_VENT_FAN_B",
+      "pos": [
+        -6.8,
+        11.2,
+        19.2
+      ],
+      "room": "ROOF_DECK_WEST",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 9,
+      "damping": 0.22,
+      "infection_receptivity": 0.82,
+      "connections": [
+        "F06_V_B_RISER"
+      ],
+      "riser": "V-B"
+    },
+    {
+      "id": "ROOF_VENT_FAN_C",
+      "pos": [
+        -6.175,
+        -5.8,
+        19.2
+      ],
+      "room": "ROOF_DECK_WEST",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 9,
+      "damping": 0.22,
+      "infection_receptivity": 0.82,
+      "connections": [
+        "F06_V_C_RISER"
+      ],
+      "riser": "V-C"
+    },
+    {
+      "id": "ROOF_VENT_FAN_D",
+      "pos": [
+        14.7,
+        10.85,
+        19.2
+      ],
+      "room": "ROOF_DECK_SOUTH",
+      "network": "ventilation",
+      "frequency_band": [
+        35,
+        1800
+      ],
+      "delay_ms": 9,
+      "damping": 0.22,
+      "infection_receptivity": 0.82,
+      "connections": [
+        "F06_V_D_RISER"
+      ],
+      "riser": "V-D"
+    }
+  ],
+  "routes": [
+    {
+      "from": "F02_A_BATH_VENT_REGISTER",
+      "to": "F02_V_A_RISER",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -6.799999999999999,
+          5.800000000000001,
+          4.375
+        ],
+        [
+          -6.799999999999999,
+          5.890000000000001,
+          4.375
+        ],
+        [
+          -6.175,
+          5.890000000000001,
+          4.375
+        ],
+        [
+          -6.175,
+          5.890000000000001,
+          3.65
+        ]
+      ]
+    },
+    {
+      "from": "F04_B_BATH_VENT_REGISTER",
+      "to": "F04_V_A_RISER",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -6.85,
+          12.2,
+          4.75
+        ],
+        [
+          -6.85,
+          12.29,
+          4.75
+        ],
+        [
+          -6.175,
+          12.29,
+          4.75
+        ],
+        [
+          -6.175,
+          12.29,
+          3.65
+        ]
+      ]
+    },
+    {
+      "from": "F03_A_BATH_VENT_REGISTER",
+      "to": "F03_V_A_RISER",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -6.799999999999999,
+          9.0,
+          4.375
+        ],
+        [
+          -6.799999999999999,
+          9.09,
+          4.375
+        ],
+        [
+          -6.175,
+          9.09,
+          4.375
+        ],
+        [
+          -6.175,
+          9.09,
+          3.65
+        ]
+      ]
+    },
+    {
+      "from": "F05_B_BATH_VENT_REGISTER",
+      "to": "F05_V_A_RISER",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -7.25,
+          15.4,
+          4.725
+        ],
+        [
+          -7.25,
+          15.49,
+          4.725
+        ],
+        [
+          -6.175,
+          15.49,
+          4.725
+        ],
+        [
+          -6.175,
+          15.49,
+          3.65
+        ]
+      ]
+    },
+    {
+      "from": "F06_B_BATH_VENT_REGISTER",
+      "to": "F06_V_A_RISER",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -7.25,
+          18.6,
+          4.725
+        ],
+        [
+          -7.25,
+          18.69,
+          4.725
+        ],
+        [
+          -6.175,
+          18.69,
+          4.725
+        ],
+        [
+          -6.175,
+          18.69,
+          3.65
+        ]
+      ]
+    },
+    {
+      "from": "F02_V_A_RISER",
+      "to": "F03_V_A_RISER",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -6.175,
+          5.890000000000001,
+          3.65
+        ],
+        [
+          -6.175,
+          9.09,
+          3.65
+        ]
+      ]
+    },
+    {
+      "from": "F03_V_A_RISER",
+      "to": "F04_V_A_RISER",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -6.175,
+          9.09,
+          3.65
+        ],
+        [
+          -6.175,
+          12.29,
+          3.65
+        ]
+      ]
+    },
+    {
+      "from": "F04_V_A_RISER",
+      "to": "F05_V_A_RISER",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -6.175,
+          12.29,
+          3.65
+        ],
+        [
+          -6.175,
+          15.49,
+          3.65
+        ]
+      ]
+    },
+    {
+      "from": "F05_V_A_RISER",
+      "to": "F06_V_A_RISER",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -6.175,
+          15.49,
+          3.65
+        ],
+        [
+          -6.175,
+          18.69,
+          3.65
+        ]
+      ]
+    },
+    {
+      "from": "F06_V_A_RISER",
+      "to": "ROOF_VENT_FAN_A",
+      "owner": "VentilationDucts/Stack_A",
+      "points_local_godot": [
+        [
+          -6.175,
+          18.69,
+          3.65
+        ],
+        [
+          -6.175,
+          18.895,
+          3.65
+        ],
+        [
+          -6.175,
+          18.895,
+          3.65
+        ],
+        [
+          -6.175,
+          18.895,
+          4.375
+        ],
+        [
+          -6.175,
+          19.279999999999998,
+          4.375
+        ],
+        [
+          -6.175,
+          19.2,
+          4.375
+        ]
+      ]
+    },
+    {
+      "from": "F05_A_BATH_VENT_REGISTER",
+      "to": "F05_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -6.95,
+          15.4,
+          -11.25
+        ],
+        [
+          -6.95,
+          15.49,
+          -11.25
+        ],
+        [
+          -6.95,
+          15.49,
+          -12.35
+        ],
+        [
+          -5.95,
+          15.49,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F06_A_BATH_VENT_REGISTER",
+      "to": "F06_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -6.95,
+          18.6,
+          -11.25
+        ],
+        [
+          -6.95,
+          18.69,
+          -11.25
+        ],
+        [
+          -6.95,
+          18.69,
+          -12.35
+        ],
+        [
+          -5.95,
+          18.69,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F01_A_BATH_VENT_REGISTER",
+      "to": "F01_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -6.8,
+          2.6,
+          -11.65
+        ],
+        [
+          -6.8,
+          2.69,
+          -11.65
+        ],
+        [
+          -6.8,
+          2.69,
+          -12.35
+        ],
+        [
+          -5.95,
+          2.69,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F03_D_BATH_VENT_REGISTER",
+      "to": "F03_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -6.8999999999999995,
+          9.0,
+          -11.65
+        ],
+        [
+          -6.8999999999999995,
+          9.09,
+          -11.65
+        ],
+        [
+          -6.8999999999999995,
+          9.09,
+          -12.35
+        ],
+        [
+          -5.95,
+          9.09,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F04_D_BATH_VENT_REGISTER",
+      "to": "F04_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -6.8999999999999995,
+          12.2,
+          -11.65
+        ],
+        [
+          -6.8999999999999995,
+          12.29,
+          -11.65
+        ],
+        [
+          -6.8999999999999995,
+          12.29,
+          -12.35
+        ],
+        [
+          -5.95,
+          12.29,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F02_D_BATH_VENT_REGISTER",
+      "to": "F02_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -10.625,
+          5.800000000000001,
+          -8.75
+        ],
+        [
+          -10.625,
+          5.890000000000001,
+          -8.75
+        ],
+        [
+          -10.625,
+          5.890000000000001,
+          -12.35
+        ],
+        [
+          -5.95,
+          5.890000000000001,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F01_V_B_RISER",
+      "to": "F02_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -5.95,
+          2.69,
+          -12.35
+        ],
+        [
+          -5.95,
+          5.890000000000001,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F02_V_B_RISER",
+      "to": "F03_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -5.95,
+          5.890000000000001,
+          -12.35
+        ],
+        [
+          -5.95,
+          9.09,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F03_V_B_RISER",
+      "to": "F04_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -5.95,
+          9.09,
+          -12.35
+        ],
+        [
+          -5.95,
+          12.29,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F04_V_B_RISER",
+      "to": "F05_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -5.95,
+          12.29,
+          -12.35
+        ],
+        [
+          -5.95,
+          15.49,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F05_V_B_RISER",
+      "to": "F06_V_B_RISER",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -5.95,
+          15.49,
+          -12.35
+        ],
+        [
+          -5.95,
+          18.69,
+          -12.35
+        ]
+      ]
+    },
+    {
+      "from": "F06_V_B_RISER",
+      "to": "ROOF_VENT_FAN_B",
+      "owner": "VentilationDucts/Stack_B",
+      "points_local_godot": [
+        [
+          -5.95,
+          18.69,
+          -12.35
+        ],
+        [
+          -5.95,
+          18.895,
+          -12.35
+        ],
+        [
+          -6.8,
+          18.895,
+          -12.35
+        ],
+        [
+          -6.8,
+          18.895,
+          -11.2
+        ],
+        [
+          -6.8,
+          19.279999999999998,
+          -11.2
+        ],
+        [
+          -6.8,
+          19.2,
+          -11.2
+        ]
+      ]
+    },
+    {
+      "from": "F05_C_BATH_VENT_REGISTER",
+      "to": "F05_V_C_RISER",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          2.15,
+          15.4,
+          5.75
+        ],
+        [
+          2.15,
+          15.49,
+          5.75
+        ],
+        [
+          2.15,
+          15.49,
+          5.8
+        ],
+        [
+          -6.175,
+          15.49,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F06_C_BATH_VENT_REGISTER",
+      "to": "F06_V_C_RISER",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          2.15,
+          18.6,
+          5.75
+        ],
+        [
+          2.15,
+          18.69,
+          5.75
+        ],
+        [
+          2.15,
+          18.69,
+          5.8
+        ],
+        [
+          -6.175,
+          18.69,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F02_C_BATH_VENT_REGISTER",
+      "to": "F02_V_C_RISER",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          2.15,
+          5.800000000000001,
+          5.75
+        ],
+        [
+          2.15,
+          5.890000000000001,
+          5.75
+        ],
+        [
+          2.15,
+          5.890000000000001,
+          5.8
+        ],
+        [
+          -6.175,
+          5.890000000000001,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F04_C_BATH_VENT_REGISTER",
+      "to": "F04_V_C_RISER",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          2.15,
+          12.2,
+          5.75
+        ],
+        [
+          2.15,
+          12.29,
+          5.75
+        ],
+        [
+          2.15,
+          12.29,
+          5.8
+        ],
+        [
+          -6.175,
+          12.29,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F03_C_BATH_VENT_REGISTER",
+      "to": "F03_V_C_RISER",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          0.75,
+          9.0,
+          7.1
+        ],
+        [
+          0.75,
+          9.09,
+          7.1
+        ],
+        [
+          0.75,
+          9.09,
+          5.8
+        ],
+        [
+          -6.175,
+          9.09,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F02_V_C_RISER",
+      "to": "F03_V_C_RISER",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          -6.175,
+          5.890000000000001,
+          5.8
+        ],
+        [
+          -6.175,
+          9.09,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F03_V_C_RISER",
+      "to": "F04_V_C_RISER",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          -6.175,
+          9.09,
+          5.8
+        ],
+        [
+          -6.175,
+          12.29,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F04_V_C_RISER",
+      "to": "F05_V_C_RISER",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          -6.175,
+          12.29,
+          5.8
+        ],
+        [
+          -6.175,
+          15.49,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F05_V_C_RISER",
+      "to": "F06_V_C_RISER",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          -6.175,
+          15.49,
+          5.8
+        ],
+        [
+          -6.175,
+          18.69,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F06_V_C_RISER",
+      "to": "ROOF_VENT_FAN_C",
+      "owner": "VentilationDucts/Stack_C",
+      "points_local_godot": [
+        [
+          -6.175,
+          18.69,
+          5.8
+        ],
+        [
+          -6.175,
+          18.895,
+          5.8
+        ],
+        [
+          -6.175,
+          18.895,
+          5.8
+        ],
+        [
+          -6.175,
+          18.895,
+          5.8
+        ],
+        [
+          -6.175,
+          19.279999999999998,
+          5.8
+        ],
+        [
+          -6.175,
+          19.2,
+          5.8
+        ]
+      ]
+    },
+    {
+      "from": "F02_B_BATH_VENT_REGISTER",
+      "to": "F02_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          14.875000000000002,
+          5.800000000000001,
+          -10.85
+        ],
+        [
+          14.875000000000002,
+          5.890000000000001,
+          -10.85
+        ],
+        [
+          15.6,
+          5.890000000000001,
+          -10.85
+        ],
+        [
+          15.6,
+          5.890000000000001,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F03_B_BATH_VENT_REGISTER",
+      "to": "F03_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          14.975,
+          9.0,
+          -11.075
+        ],
+        [
+          14.975,
+          9.09,
+          -11.075
+        ],
+        [
+          15.6,
+          9.09,
+          -11.075
+        ],
+        [
+          15.6,
+          9.09,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F04_A_BATH_VENT_REGISTER",
+      "to": "F04_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          14.875000000000002,
+          12.2,
+          -10.85
+        ],
+        [
+          14.875000000000002,
+          12.29,
+          -10.85
+        ],
+        [
+          15.6,
+          12.29,
+          -10.85
+        ],
+        [
+          15.6,
+          12.29,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F05_D_BATH_VENT_REGISTER",
+      "to": "F05_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          13.225,
+          15.4,
+          -6.0249999999999995
+        ],
+        [
+          13.225,
+          15.49,
+          -6.0249999999999995
+        ],
+        [
+          15.6,
+          15.49,
+          -6.0249999999999995
+        ],
+        [
+          15.6,
+          15.49,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F06_D_BATH_VENT_REGISTER",
+      "to": "F06_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          13.225,
+          18.6,
+          -6.0249999999999995
+        ],
+        [
+          13.225,
+          18.69,
+          -6.0249999999999995
+        ],
+        [
+          15.6,
+          18.69,
+          -6.0249999999999995
+        ],
+        [
+          15.6,
+          18.69,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F01_D_BATH_VENT_REGISTER",
+      "to": "F01_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          14.875000000000002,
+          2.6,
+          -10.85
+        ],
+        [
+          14.875000000000002,
+          2.69,
+          -10.85
+        ],
+        [
+          15.6,
+          2.69,
+          -10.85
+        ],
+        [
+          15.6,
+          2.69,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F01_RESTROOM_VENT_REGISTER",
+      "to": "F01_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          7.500000000000001,
+          2.6,
+          -6.45
+        ],
+        [
+          7.500000000000001,
+          2.69,
+          -6.45
+        ],
+        [
+          15.6,
+          2.69,
+          -6.45
+        ],
+        [
+          15.6,
+          2.69,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F01_V_D_RISER",
+      "to": "F02_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          15.6,
+          2.69,
+          -12.1
+        ],
+        [
+          15.6,
+          5.890000000000001,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F02_V_D_RISER",
+      "to": "F03_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          15.6,
+          5.890000000000001,
+          -12.1
+        ],
+        [
+          15.6,
+          9.09,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F03_V_D_RISER",
+      "to": "F04_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          15.6,
+          9.09,
+          -12.1
+        ],
+        [
+          15.6,
+          12.29,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F04_V_D_RISER",
+      "to": "F05_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          15.6,
+          12.29,
+          -12.1
+        ],
+        [
+          15.6,
+          15.49,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F05_V_D_RISER",
+      "to": "F06_V_D_RISER",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          15.6,
+          15.49,
+          -12.1
+        ],
+        [
+          15.6,
+          18.69,
+          -12.1
+        ]
+      ]
+    },
+    {
+      "from": "F06_V_D_RISER",
+      "to": "ROOF_VENT_FAN_D",
+      "owner": "VentilationDucts/Stack_D",
+      "points_local_godot": [
+        [
+          15.6,
+          18.69,
+          -12.1
+        ],
+        [
+          15.6,
+          18.895,
+          -12.1
+        ],
+        [
+          14.7,
+          18.895,
+          -12.1
+        ],
+        [
+          14.7,
+          18.895,
+          -10.85
+        ],
+        [
+          14.7,
+          19.279999999999998,
+          -10.85
+        ],
+        [
+          14.7,
+          19.2,
+          -10.85
+        ]
+      ]
+    }
+  ],
+  "retirements": [
+    {
+      "id": "F01_V_A_RISER",
+      "reason": "Outside the installed vertical duct extent",
+      "stack": "A",
+      "duct_bottom_y": 5.890000000000001,
+      "duct_top_y": 18.895
+    },
+    {
+      "id": "F01_V_C_RISER",
+      "reason": "Outside the installed vertical duct extent",
+      "stack": "C",
+      "duct_bottom_y": 5.890000000000001,
+      "duct_top_y": 18.895
+    }
+  ],
+  "source_bindings": [
+    {
+      "path": "res://data/acoustic_graph.json",
+      "sha256": "dce8da645f584d04cd3002ca6d60ca80d0b92abd47a40f54f54b07e30b5c2634",
+      "normalize_lines": true
+    },
+    {
+      "path": "res://data/orison_v2_blockout.json",
+      "sha256": "beb6f53f9eab4d873b89b4436d0fecaab87f976a72f4ffed9ef00a2605fd0e7e",
+      "normalize_lines": true
+    },
+    {
+      "path": "res://data/orison_v2/completion_interiors.json",
+      "sha256": "ad4c99dd215a65ea7a9798ae2fa30ef683e7292811526796fbe99d5aa82de97c",
+      "normalize_lines": true
+    },
+    {
+      "path": "res://scripts/building/orison_v2_ventilation.gd",
+      "sha256": "9a4fe1e093ca43cfa7c681b80854e1815d20173ffb1b1187ed162e706da4b03c",
+      "normalize_lines": true
+    },
+    {
+      "path": "res://scripts/building/orison_v2_ventilation_sleeves.gd",
+      "sha256": "6963342a24388df49ad47ad89b62e0e3b59a4711631abb2cfeb62053af1f5ce6",
+      "normalize_lines": true
+    },
+    {
+      "path": "res://assets/props/ventilation_ducts.glb",
+      "sha256": "6094d122e6a5d1132de27f6d7042ded74c771488abd51166f4ea6077d5e5e85e",
+      "normalize_lines": false
+    },
+    {
+      "path": "res://assets/props/ventilation_fabric_lining.glb",
+      "sha256": "32b7a4693e43135def49e6e39d57104d1afd439c68fd80e109e30a58a635c5e5",
+      "normalize_lines": false
+    }
+  ]
+}

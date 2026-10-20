@@ -24,6 +24,66 @@ signal reality_event(case_id: String, node_id: String, strength: float,
 var nodes: Dictionary = {}  # id -> node dict
 var _overlay: MeshInstance3D
 var _plans: Dictionary = {}  # origin id -> Array[{id, delay, strength}]
+var _topology_epoch := 0
+var _next_topology_token := 1
+var _topology_scopes: Array[Dictionary] = []
+var _topology_base: Dictionary = {}
+
+
+## The autoload remains the propagation owner. A selected building lends it
+## source-derived topology, then releases that lease during reconstruction.
+## Out-of-order release cannot resurrect a world that has already retired.
+func push_topology(replacement: Dictionary) -> int:
+	if not _valid_topology(replacement): return 0
+	if _topology_scopes.is_empty(): _topology_base = nodes.duplicate(true)
+	var token := _next_topology_token
+	_next_topology_token += 1
+	_topology_scopes.append({"token":token,"nodes":replacement.duplicate(true)})
+	_activate_topology(replacement)
+	return token
+
+
+func release_topology(token: int) -> bool:
+	for index in _topology_scopes.size():
+		if int(_topology_scopes[index].token) != token: continue
+		var was_current := index == _topology_scopes.size()-1
+		_topology_scopes.remove_at(index)
+		if was_current:
+			_activate_topology(_topology_base if _topology_scopes.is_empty() else _topology_scopes.back().nodes)
+		if _topology_scopes.is_empty(): _topology_base.clear()
+		return true
+	return false
+
+
+func _valid_topology(replacement: Dictionary) -> bool:
+	if replacement.is_empty(): return false
+	for identity: Variant in replacement:
+		if identity is not String or replacement[identity] is not Dictionary: return false
+		var row: Dictionary = replacement[identity]
+		if row.get("id") != identity or row.get("pos") is not Array or row.pos.size()!=3: return false
+		for coordinate: Variant in row.pos:
+			if not (coordinate is float or coordinate is int) or not is_finite(float(coordinate)): return false
+		var delay: Variant = row.get("delay_ms")
+		var damping: Variant = row.get("damping")
+		if not (delay is float or delay is int) or not is_finite(float(delay)) or float(delay)<0: return false
+		if not (damping is float or damping is int) or not is_finite(float(damping)) or float(damping)<0 or float(damping)>1: return false
+		if row.get("connections") is not Array: return false
+		var seen := {}
+		for neighbor: Variant in row.connections:
+			if neighbor is not String or not replacement.has(neighbor) or seen.has(neighbor): return false
+			seen[neighbor] = true
+	return true
+
+
+func _activate_topology(replacement: Dictionary) -> void:
+	_topology_epoch += 1
+	_plans.clear()
+	# Preserve the public dictionary's identity for existing readers.
+	var next := replacement.duplicate(true)
+	nodes.clear()
+	nodes.merge(next)
+	if is_instance_valid(_overlay): _overlay.queue_free()
+	_overlay = null
 
 
 func _ready() -> void:
@@ -53,14 +113,17 @@ func propagate(origin: String, event_index: int, accent: float,
 		pitch: float) -> void:
 	if not nodes.has(origin):
 		return
+	var epoch := _topology_epoch
 	for entry in _plan_for(origin):
-		_deliver(entry, event_index, accent, pitch)
+		_deliver(entry, event_index, accent, pitch, epoch)
 
 
 func _deliver(entry: Dictionary, event_index: int, accent: float,
-		pitch: float) -> void:
+		pitch: float, epoch: int) -> void:
+	if epoch != _topology_epoch: return
 	if entry.delay > 0.0:
 		await get_tree().create_timer(entry.delay, false).timeout
+	if epoch != _topology_epoch: return
 	network_event.emit(entry.id, event_index, accent, pitch, entry.strength)
 
 
@@ -71,15 +134,18 @@ func propagate_reality(origin: String, case_id: String, intensity: float,
 		return
 	var grammar := PoltergeistLibrary.propagation(case_id)
 	var plan := _reality_plan(origin, grammar)
+	var epoch := _topology_epoch
 	for entry in plan:
-		_deliver_reality(entry, case_id, intensity, recurrence)
+		_deliver_reality(entry, case_id, intensity, recurrence, epoch)
 
 
 func _deliver_reality(entry: Dictionary, case_id: String, intensity: float,
-		recurrence: int) -> void:
+		recurrence: int, epoch: int) -> void:
+	if epoch != _topology_epoch: return
 	var authored_delay := float(entry.get("reality_delay", entry.delay))
 	if authored_delay > 0.0:
 		await get_tree().create_timer(authored_delay, false).timeout
+	if epoch != _topology_epoch: return
 	reality_event.emit(case_id, entry.id,
 			float(entry.strength) * intensity, recurrence)
 

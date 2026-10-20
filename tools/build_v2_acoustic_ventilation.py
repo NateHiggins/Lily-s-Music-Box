@@ -5,9 +5,39 @@ This does not install a graph or grant runtime/listening acceptance.
 import argparse
 import copy
 import json
+import hashlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+RUNTIME_BINDINGS = [
+    'game/data/acoustic_graph.json', 'game/data/orison_v2_blockout.json',
+    'game/data/orison_v2/completion_interiors.json',
+    'game/scripts/building/orison_v2_ventilation.gd',
+    'game/scripts/building/orison_v2_ventilation_sleeves.gd',
+    'game/assets/props/ventilation_ducts.glb',
+    'game/assets/props/ventilation_fabric_lining.glb',
+]
+
+
+def runtime_projection(root=ROOT):
+    """Keep positions local; the mounted building supplies its actual frame."""
+    root = Path(root)
+    read = lambda name: json.loads((root/name).read_text(encoding='utf8'))
+    candidate = build(read(RUNTIME_BINDINGS[1]),
+        read(RUNTIME_BINDINGS[2])['ventilation'], read(RUNTIME_BINDINGS[0]),
+        {'origin': [0,0,0], 'basis_columns': [[1,0,0],[0,1,0],[0,0,1]]})
+    bindings = []
+    for name in RUNTIME_BINDINGS:
+        raw = (root/name).read_bytes()
+        text = not name.endswith('.glb')
+        if text: raw = raw.replace(b'\r\n', b'\n')
+        bindings.append({'path': 'res://'+name.removeprefix('game/'),
+                         'sha256': hashlib.sha256(raw).hexdigest(), 'normalize_lines': text})
+    return {'schema_version': 1, 'network': 'ventilation',
+            'coordinate_frame': 'blockout_local_blender', 'nodes': candidate['nodes'],
+            'routes': candidate['routes'], 'retirements': candidate['retirements'],
+            'source_bindings': bindings}
 
 
 def build(layout, ventilation, legacy, frame):
@@ -23,6 +53,18 @@ def build(layout, ventilation, legacy, frame):
         a = anchors[identity]
         x,y,z = a['position']
         return [x, y+levels[a['level']], z]
+
+    def carrier_room(identity):
+        anchor = anchors[identity]
+        spaces = {row['id']: row for row in layout['spaces']}
+        if anchor.get('space') in spaces:
+            return anchor['space']
+        x, _, z = anchor['position']
+        candidates = [row['id'] for row in layout['spaces'] if row['level']==anchor['level']
+            and row['rect'][0]<x<row['rect'][2] and row['rect'][1]<z<row['rect'][3]]
+        if len(candidates)!=1:
+            raise ValueError('Carrier requires one explicit containing V2 space: '+identity)
+        return candidates[0]
 
     def node(identity, position, room=None, riser=None):
         if identity in nodes: raise ValueError('Duplicate generated identity: '+identity)
@@ -70,12 +112,12 @@ def build(layout, ventilation, legacy, frame):
             end = [top[0], start[1], top[2]]
             junction = a['level']+'_V_'+key+'_RISER'
             if junction not in nodes: raise ValueError('Register has no physical stack junction')
-            node(register, grille, a.get('space', old[register]['room']), 'V-'+key)
+            node(register, grille, carrier_room(register), 'V-'+key)
             corner = [end[0],start[1],start[2]] if stack['branch_axis']=='xz' else [start[0],start[1],end[2]]
             edge(register, junction, [grille,start,corner,end], 'VentilationDucts/Stack_'+key)
         for (a, pa), (b, pb) in zip(junctions, junctions[1:]):
             edge(a, b, [pa,pb], 'VentilationDucts/Stack_'+key)
-        node(fan, roof, anchors[fan].get('space', old[fan]['room']), 'V-'+key)
+        node(fan, roof, carrier_room(fan), 'V-'+key)
         last, point = junctions[-1]
         edge(last, fan, [point,top,[roof[0],top[1],top[2]],
                         [roof[0],top[1],roof[2]],[roof[0],roof[1]+.08,roof[2]],roof],
@@ -92,9 +134,19 @@ def build(layout, ventilation, legacy, frame):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--ownership-report', required=True, type=Path)
+    parser.add_argument('--ownership-report', type=Path)
+    parser.add_argument('--runtime-projection', action='store_true',
+                        help='Export the exact source-derived local network for the mounted V2 frame')
     parser.add_argument('--out', required=True, type=Path)
     args = parser.parse_args()
+    if args.runtime_projection:
+        candidate = runtime_projection()
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(json.dumps(candidate,indent=2)+'\n',encoding='utf8',newline='\n')
+        print(json.dumps({'nodes':len(candidate['nodes']), 'routes':len(candidate['routes']),
+                          'retirements':[r['id'] for r in candidate['retirements']]}))
+        return
+    if args.ownership_report is None: parser.error('--ownership-report or --runtime-projection is required')
     ownership = json.loads(args.ownership_report.read_text())
     # Input report must have been produced by the provenance-checking ownership CLI.
     import hashlib

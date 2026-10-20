@@ -2639,3 +2639,11 @@ game/scripts/building/v2_loose_library.gd -text
 game/scripts/building/v2_readable_library_stock.gd -text
 game/scripts/props/v2_readable_book.gd -text
 game/scripts/building/orison_v2_household_state.gd -text
+
+# Executed ventilation contract and derived source data retain exact bytes.
+game/scripts/building/orison_v2_acoustic_topology.gd -text whitespace=cr-at-eol
+game/data/orison_v2/acoustic_ventilation.json -text whitespace=cr-at-eol
+game/tests/v2_acoustic_ventilation_contract.gd -text whitespace=cr-at-eol
+game/tests/v2_acoustic_topology_scope_test.gd -text whitespace=cr-at-eol
+tools/build_v2_acoustic_ventilation.py -text whitespace=cr-at-eol
+art/reviews/v2_acoustic_ventilation_20261020/** -text whitespace=cr-at-eol

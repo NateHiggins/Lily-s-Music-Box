@@ -24,6 +24,7 @@ const HouseholdState := preload("res://scripts/building/orison_v2_household_stat
 const Wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd")
 
 var layout: Dictionary = {}
+var acoustic_topology
 var floor_nodes: Dictionary = {}
 var player: PlayerController
 var objective_tracker: ObjectiveTracker
@@ -174,11 +175,10 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: incomplete stair wayfinding")
 		return
-	if not adapter.install_acoustic_overrides([
-			"F02_A_MAIN_VANTRY_POINT", "F02_A_MONITOR_01",
-			"F04_B_MONITOR_01", "F03_B_RADIATOR_01"]):
+	acoustic_topology=preload("res://scripts/building/orison_v2_acoustic_topology.gd").new()
+	if not acoustic_topology.mount(adapter,layout):
 		startup_failed = true
-		push_error("ORISON V2 RUNTIME: acoustic binding failed")
+		push_error("ORISON V2 RUNTIME: acoustic binding failed: "+str(acoustic_topology.errors))
 		return
 	_compose_authorities()
 	if startup_failed:
@@ -202,6 +202,10 @@ func _ready() -> void:
 	if not preload("res://scripts/building/orison_v2_ventilation.gd").new().mount(adapter,layout):
 		startup_failed = true
 		push_error("V2 shared ventilation could not be composed")
+		return
+	if not acoustic_topology.physical_owners_valid(adapter):
+		startup_failed=true
+		push_error("V2 acoustic route disagrees with its physical owner: "+str(acoustic_topology.errors))
 		return
 	var roof_drainage:=preload("res://scripts/building/orison_v2_roof_drainage.gd").new()
 	if not roof_drainage.mount(self):
@@ -1037,6 +1041,8 @@ func shutdown_for_tests() -> void:
 		# Consumers are already detached before synchronous free, so tests and
 		# selector reconstruction do not leave deferred audio decoders behind.
 		adapter.restore_all(true)
+	# Positional owners restore inside the selected topology; release its base last.
+	if acoustic_topology!=null: acoustic_topology.release()
 
 func _exit_tree() -> void:
 	if public_landings!=null:public_landings.teardown();public_landings=null
@@ -1048,6 +1054,7 @@ func _exit_tree() -> void:
 		_exterior_resolver = null
 	if adapter != null:
 		adapter.restore_all()
+	if acoustic_topology!=null: acoustic_topology.release();acoustic_topology=null
 
 	_contact_precision.release()
 

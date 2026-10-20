@@ -7,6 +7,7 @@ func mount(adapter: OrisonV2AnchorAdapter) -> bool:
 	if not adapter.install_acoustic_overrides(ids): return false
 	for identity in ids:
 		var machine: FunctionalProp = preload("res://scripts/building/orison_v2_laundry_airer.gd").new() if "AIRER" in identity else WasherProp.new()
+		machine.graph_node_id = identity
 		machine.prop_type = "laundry_airer" if "AIRER" in identity else "washer"
 		if not adapter.mount_consumer(identity,machine):
 			machine.free()

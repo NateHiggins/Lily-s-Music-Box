@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT/'tools'))
-from build_v2_acoustic_ventilation import build
+from build_v2_acoustic_ventilation import build, runtime_projection
 
 
 class VentilationGraphTests(unittest.TestCase):
@@ -55,6 +55,25 @@ class VentilationGraphTests(unittest.TestCase):
         node = next(n for n in self.old['nodes'] if n['network']=='ventilation')
         node['connections'].append('B1_BOILER_01')
         with self.assertRaisesRegex(ValueError,'Cross-network'):
+            build(self.layout,self.vent,self.old,self.frame)
+
+    def test_fans_belong_to_actual_v2_roof_spaces(self):
+        nodes={n['id']:n for n in build(self.layout,self.vent,self.old,self.frame)['nodes']}
+        self.assertEqual(nodes['ROOF_VENT_FAN_A']['room'],'ROOF_DECK_WEST')
+        self.assertEqual(nodes['ROOF_VENT_FAN_D']['room'],'ROOF_DECK_SOUTH')
+        self.assertNotIn('ROOF_OPEN',{n['room'] for n in nodes.values()})
+
+    def test_runtime_projection_is_local_and_exactly_reproducible(self):
+        result=runtime_projection()
+        saved=json.loads((ROOT/'game/data/orison_v2/acoustic_ventilation.json').read_text(encoding='utf8'))
+        self.assertEqual(saved,result)
+        fan=next(n for n in result['nodes'] if n['id']=='ROOF_VENT_FAN_A')
+        self.assertEqual(fan['pos'],[-6.175,-4.375,19.2])
+
+    def test_ambiguous_unassigned_carrier_cannot_guess_a_room(self):
+        roof=next(n for n in self.layout['spaces'] if n['id']=='ROOF_DECK_WEST')
+        self.layout['spaces'].append(dict(roof,id='DUPLICATE_ROOF_VOLUME'))
+        with self.assertRaisesRegex(ValueError,'one explicit containing V2 space'):
             build(self.layout,self.vent,self.old,self.frame)
 
 
