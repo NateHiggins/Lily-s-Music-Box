@@ -59,11 +59,19 @@ confirm the original executed contract still matches all current runtime,
 surface and transitive test inputs and both original log hashes; the original
 receipt and its pre-commit repository identity are not rewritten.
 
-The complete branch board is still running at this publication step. Production
-changes intentionally expire earlier global proofs; no old global pass is
-carried forward as current acoustic acceptance. This remains a work-branch
-checkpoint pending broader migration and qualification, not a main cutover.
+The working board completes all 101 gates: **98 PASS**, **two FAIL**, and one
+INCOMPLETE broader ledger. The two failures are explicit proof expiry: composed
+surface qualification still binds the previous rendering-input digest, and two
+live completeness smoke assertions require current global contracts. The
+underlying surface inventory reports 28,222 draws, 6,370 materials and 524
+textures, but this does not renew its old qualification. No test or proof gate
+is waived or repinned. All other static/tools gates pass.
 
+This board started with uncommitted source and is a working diagnostic, not a
+clean candidate-verifier receipt. The production inputs stayed fixed during the
+passing world run and independently match after the main metadata merge. Broader
+migration must finish and global evidence must be renewed before integration
+into main. This is a pushed work-branch checkpoint, not a cutover.
 The installed run also reports an existing Mina imported-resource UID fallback
 to its real texture path. No UID is reassigned here. Full composed overlapping
 worlds remain unproved while legacy position writers still exist.
