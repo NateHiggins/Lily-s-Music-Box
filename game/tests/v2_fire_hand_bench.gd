@@ -95,13 +95,18 @@ func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance
 			if not player._grab.active():break
 			var before: Vector3=player._grab.target.read.call()
 			if before.distance_to(goal)<tolerance:arrived=true;break
+			# Wheel and screen motions are separate physical events. For the
+			# nozzle's narrow entry, millimetre waypoints keep the intermediate
+			# path out of its rim. Retain longer carrying gestures elsewhere.
+			var step_goal: Vector3=goal
+			if part==actor._play_pipe:step_goal=before+(goal-before).limit_length(.001)
 			point=part.to_global(player._grab.contact)
-			var delta: Vector3=actor.global_basis*(goal-before)
+			var delta: Vector3=actor.global_basis*(step_goal-before)
 			var depth: float=delta.dot((point-player.camera.global_position).normalized())
 			if absf(depth)>.000002:
 				var wheel:=InputEventMouseButton.new();wheel.pressed=true;wheel.button_index=MOUSE_BUTTON_WHEEL_DOWN if depth>0. else MOUSE_BUTTON_WHEEL_UP;wheel.factor=minf(.025,absf(depth))/.025;player._unhandled_input(wheel)
 			point=part.to_global(player._grab.contact)
-			delta=actor.global_basis*(goal-player._grab.target.read.call())
+			delta=actor.global_basis*(step_goal-player._grab.target.read.call())
 			var motion:=InputEventMouseMotion.new();motion.relative=(player.camera.unproject_position(point+delta)-player.camera.unproject_position(point)).limit_length(30.)
 			player._unhandled_input(motion);await get_tree().physics_frame
 			if contact_stop.is_valid() and contact_stop.call():arrived=true;break

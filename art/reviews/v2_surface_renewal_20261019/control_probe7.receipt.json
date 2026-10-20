@@ -1,0 +1,67 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 101.77,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T02:07:52Z",
+  "started_utc": "2026-10-20T02:06:10Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 4,
+  "pass_lines": [
+   "V2 FIRE NOZZLE COUPLING: PASS failures=0",
+   "V2 FIRE FOLD STOCK: PASS failures=0",
+   "V2 FIRE RACK STOCK: PASS failures=0",
+   "V2 FIRE HAND BENCH: PASS failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe7.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe7.log",
+  "stdout_sha256": "0915e471043ac1c603af120c409a7a0f9502e4366b13ec48c79f1bc2f8ba55ab"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2FireNozzleCouplingBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe7",
+ "source": {
+  "dirty_paths": 464,
+  "dirty_sample": [
+   "M  art/blender/v2_batch_workflow.md",
+   "M  art/tools/fix_runtime_texture_imports.py",
+   "A  game/assets/characters/mina_vale/texture_0.png.import",
+   "A  \"game/assets/device/service_teletype/service_teletype_Aged machined brass color.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Aged machined brass normal.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Aged machined brass roughness.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Blued tool steel color.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Blued tool steel normal.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Blued tool steel roughness.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Brown vulcanised grip color.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Brown vulcanised grip normal.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Brown vulcanised grip roughness.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Carbon ink ribbon color.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Carbon ink ribbon normal.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Carbon ink ribbon roughness.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Ceramic guide rollers color.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Ceramic guide rollers normal.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Ceramic guide rollers roughness.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Platen rubber color.png.import\"",
+   "A  \"game/assets/device/service_teletype/service_teletype_Platen rubber normal.png.import\""
+  ],
+  "repository_head": "af78be18ee29319aba753f56719dddba87d94946",
+  "repository_tree": "59c96c074688b2a502ba22687fe8891466a117e4",
+  "runtime_inputs_sha256": "62df330416223a51d17feed913db4f10ed3b2c0a2cc8e9ce059b555e956aac8f",
+  "test_path": "game/tests/v2_fire_nozzle_coupling_bench.gd",
+  "test_sha256": "dd257868f84b46f2ae550ce5a2985fa91b230187d81f85951a58bbb66b82f273"
+ },
+ "windowed": true
+}

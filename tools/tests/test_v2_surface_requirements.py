@@ -67,6 +67,17 @@ class Requirements(unittest.TestCase):
                 'meshes':{'mesh':{'source':'fixture.glb','surfaces':[{'missing_uv':False,'nonfinite_uv':0,'degenerate_uv_triangles':0}]}},
                 'materials':{'material':{'type':'StandardMaterial3D','triplanar':False,'normal_enabled':True,'filter':3,'maps':dict(zip(['albedo_texture','roughness_texture','normal_texture'],['albedo','rough','normal']))}},
                 'textures':{k:{'type':'CompressedTexture2D','mips':True} for k in ['albedo','rough','normal']}}
+    def test_shipped_handheld_maps_and_character_albedo_are_not_2d_defaults(self):
+        paths=set(imports.v2_sidecars())
+        # These loaded physical maps caused 255 surface failures while the
+        # narrower building-only import check incorrectly reported success.
+        device=ROOT/'game/assets/device/service_teletype'
+        images=sorted(device.glob('*.png'))
+        self.assertGreaterEqual(len(images),27)
+        for image in images:
+            self.assertIn(Path(str(image)+'.import'),paths)
+        self.assertIn(ROOT/'game/assets/characters/mina_vale/texture_0.png.import',paths)
+
     def test_transparent_physical_surface_cannot_hide_missing_maps(self):
         data=self.inventory();data['materials']['material'].update(transparency=1,maps={})
         self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])

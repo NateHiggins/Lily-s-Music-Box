@@ -54,10 +54,12 @@ func _run() -> void:
 	# before taking snapshots that are expected to remain supported on restore.
 	for frame in 40:await get_tree().physics_frame
 	# Validate the changed hand/stock family in this same production world
-	# before spending the rest of the run on unrelated surface programmes.
+	# alongside the remaining surface programmes.
 	var fire_review := preload("res://tests/v2_fire_service_review.gd").new()
 	await fire_review.run(world,self)
-	if not fire_review.failures.is_empty() or OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1":
+	# Retain every fire failure, but collect the remaining world surfaces in
+	# this same run. A failed fitting must not suppress the defect inventory.
+	if OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1":
 		world.shutdown_for_tests();world.free()
 		for frame in 4:await RenderingServer.frame_post_draw
 		fire_review.after_teardown(self)

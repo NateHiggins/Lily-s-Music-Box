@@ -38,8 +38,18 @@ func _run() -> void:
 	var env:=WorldEnvironment.new();env.environment=Environment.new();env.environment.background_mode=Environment.BG_COLOR;env.environment.background_color=Color(.12,.12,.12);env.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.environment.ambient_light_color=Color.WHITE;env.environment.ambient_light_energy=.6;add_child(env)
 	var adapter:=FixtureAdapter.new();adapter.root=Node3D.new();add_child(adapter.root)
 	if OS.get_environment("ORISON_NOZZLE_WORLD_POSE")=="1":
-		adapter.root.transform=Transform3D(Basis(Vector3.UP,PI),Vector3(-4.35,-3.2,-7.87))
-		floor.position=Vector3(-13.35,-3.2,-7.87)
+		# Derive the real installed frame; a rounded PI/translation fixture
+		# can hide precision-dependent contacts in these small moving parts.
+		var connection=preload("res://scripts/building/orison_v2_world_connection.gd")
+		var source: Dictionary=connection.read_object("res://data/orison_v2_blockout.json")
+		var resolved: Dictionary=connection.prepare(source,connection.read_object("res://data/orison_v2/exterior/exterior_geometry.json"),preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd").load_default(),connection.read_object(connection.CONFIG_PATH))
+		if not check(not resolved.is_empty(),"production world connection resolves for translated contact bench"):get_tree().quit(1);return
+		var anchor: Dictionary=connection.unique_record(source.anchors,"B1_FIRE_LINE_STAIR")
+		var level: Dictionary=connection.unique_record(source.levels,"B1")
+		var at:=Vector3(anchor.position[0],anchor.position[1]+level.y,anchor.position[2])
+		var installed: Transform3D=resolved.interior_transform*Transform3D(Basis.IDENTITY,at)
+		adapter.root.transform=Transform3D(installed.basis,installed.origin-installed.basis*Vector3(0,1.2,0))
+		floor.position=installed.origin+Vector3(-9.,-1.2,0)
 	var reserve:=MeshInstance3D.new();reserve.name="FIRE_SERVICE_RISER";adapter.root.add_child(reserve)
 	var native:=Native.new()
 	if not check(native.mount(adapter,{"levels":[{"y":0.}]}),"production installer accepts actual physical nozzle coupling"):
@@ -89,16 +99,24 @@ func _run() -> void:
 
 func exercise_nozzle(actor: Node3D,hand: Node) -> void:
 	var joint: Node3D=actor._nozzle_joint
+	var original: Dictionary=actor.mechanism_snapshot()
 	await aim(actor._tag.to_global(Vector3(0,0,.0035)));click();key(KEY_SPACE)
 	if not check(player.inspecting() and player.inspect_owner==actor,"actual grabbed tag opens static service inspection"):return
 	if OS.get_environment("ORISON_NOZZLE_CLOSED_VALVE")=="1":
 		if not check(await inspect_operate(hand,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),0.),"actual input closes nozzle valve before carrying review"):return
+	if OS.get_environment("ORISON_NOZZLE_VALVE_ROUNDTRIP")=="1":
+		check(await inspect_operate(hand,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),-.4),"actual input opens a partial valve before carrying review")
+		check(await inspect_operate(hand,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),0.),"actual input closes the moved valve before carrying review")
+	print("NOZZLE CARRY INITIAL: frame=",actor.global_transform," nozzle=",joint.snapshot()," support=",joint._support.get_ref().get_path() if joint._support!=null and joint._support.get_ref()!=null else "none"," lever=",actor._lever.transform)
 	var eye: Transform3D=player.camera.global_transform
 	# The forged lever now correctly occupies the old barrel pick ray. Grab
 	# the exposed outlet collar, rather than selecting through that lever.
 	var point: Vector3=actor._play_pipe.to_global(Vector3(0,.155,.014))
 	var goal: Vector3=joint.body.position+Vector3(0,.060,.060)
-	check(await carry_part(actor,actor._play_pipe,point,goal,.0001),"actual grab and depth wheel carry the separate original nozzle")
+	# Withdraw the loose spigot from the recessed receiving nut before
+	# lifting across its rim; keep the actual collision and hand path.
+	var clear: Vector3=joint.body.position+joint.receiver.basis.y*.012
+	check(await carry_path(actor,actor._play_pipe,point,[clear,goal+joint.receiver.basis.y*.012,goal],.0001),"actual grab and depth wheel carry the separate original nozzle")
 	check(joint.loose and not actor.nozzle_coupled and player.camera.global_transform.is_equal_approx(eye),"loose carrying leaves repair facts false and inspection camera static")
 	var inlet: Transform3D=joint.seat.global_transform
 	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),1.1),"empty captured nut turns freely through actual mouse input")
@@ -156,5 +174,16 @@ func exercise_nozzle(actor: Node3D,hand: Node) -> void:
 		support.position.y-=.03
 		for frame in range(30):await get_tree().physics_frame
 		check(absf((before-joint.body.position.y)-.03)<.0002 and joint._support!=null and joint._support.get_ref()==support.get_child(0),"moving actual saved support wakes gravity and nozzle lands on displaced floor within200um")
-		support.position=initial;actor.restore_mechanism(resting)
+		support.position=initial
+		# This negative control moves an actual StaticBody. Let its restored
+		# floor reach the physics space before testing a different saved pose.
+		await RenderingServer.frame_post_draw
+		await get_tree().physics_frame;await get_tree().physics_frame
+		actor.restore_mechanism(resting)
+	if OS.get_environment("ORISON_NOZZLE_VALVE_ROUNDTRIP")=="1":
+		actor.restore_mechanism(original)
+		await RenderingServer.frame_post_draw
+		for frame in 3:await get_tree().physics_frame
+		print("ORIGINAL NOZZLE RESTORE: expected=",original.nozzle," actual=",joint.snapshot()," support=",joint._support)
+		check(actor.mechanism_snapshot()==original,"original pre-valve loose pose and all original facts restore after rendered physics")
 	key(KEY_ESCAPE)

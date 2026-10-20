@@ -51,6 +51,20 @@ city owner for Godot queries. Inspect captures from actual clear sightlines;
 a low window can be hidden by the retained construction canopy. Runtime rays
 retain the original 100-micrometre bearing tolerance and remain separate proof.
 
+For imported small fittings, derive the diagnostic frame through the production
+world connection rather than rounding its rotation and translation. Separate
+wheel and screen input can take a different physical path through a recessed
+rim; use small actual input steps and explicit withdrawal before lifting.
+After a negative control moves a StaticBody support, publish its restored pose
+through a rendered frame before testing restoration of another saved mechanism.
+Keep the original contact and exact-pose assertions; do not relax them.
+
+Keep late texture-policy corrections together before the final editor import.
+Restoring line-ending-only import churn between editor imports can trigger a
+broad cache refresh; use the long runner when that refresh exceeds 180 seconds.
+The final loaded audit must include handheld and character physical maps as
+well as the building library. Import settings on disk do not prove loaded mips.
+
 The composed surface harness checks its five street/fabrication fixtures before
 building the world. Other batches can run
 `python tools/preflight_spatial_test_bindings.py --all --fixture game/tests/fixtures/NAME.json`.
