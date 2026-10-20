@@ -2,6 +2,11 @@
 
 Evidence class: **INERT**. Implementation and diagnostic review; no ledger promotion.
 
+Subsequent qualification: **V2_QUALIFICATION_RENEWAL_2026-10-20.md** records the
+current composed surface PASS, 40,122 checks and zero failures. The board and
+qualification debt described below belong to the earlier checkpoint; broader
+route/runtime renewal and integration remain separate.
+
 The ordinary architectural glass shader disabled refraction, attenuated its
 already shallow normal texture by 0.035, and sampled the roughness texture's
 constant white red channel instead of its authored green channel. The nook's

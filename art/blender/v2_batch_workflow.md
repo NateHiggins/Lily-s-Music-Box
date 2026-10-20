@@ -23,6 +23,13 @@ default strength. Reject an invalid ABI before composing a full world. Run
 source/import binding regressions after editor import completes: Windows holds
 sidecars briefly while replacing them, causing transient file-lock errors.
 
+Before changing a composed coverage predicate, follow the actual loader's
+entry script and inheritance chain. A stable wrapper can inherit every native
+method while having a different get_script() identity from its base. Reuse the
+existing family fixture that mounts that entry point; do not spend another
+world startup on a duplicate fixture. Assert explicit owner/part counts so an
+empty legacy array cannot silently pass a loop over retired visuals.
+
 For a new native family, put imported UV metrics, normal/tangent derivatives
 and loaded-map checks in the first small family bench, together with its
 windowed hand controls where practical. A source GLB UV pass does not establish
@@ -310,7 +317,7 @@ the receipt even when that particular route never calls its method. This
 preflight checks source declarations only; runtime receipts still require the
 actual run and independent validation. Never add hashes to a finished receipt.
 
-Use a whole room/shop or approximately 4Ã¢â‚¬â€œ10 related fittings as the work unit.
+Use a whole room/shop or approximately 4â€“10 related fittings as the work unit.
 Extend an existing builder instead of starting a build/test/report cycle for
 each small prop. Keep accepted work unless an observed defect or source change
 invalidates it. Read the Bible, source records and fabrication coverage once
@@ -561,13 +568,13 @@ slender stocks whose UV grain crosses their actual length. It reads native
 construction only and covers two visually checked albedos: timber U and walnut
 V. Unknown maps, broad panels and end grain are excluded. Inspect the renders
 before acting. **fabrication_grain.py** can orient those known maps along a
-stockÃ¢â‚¬â„¢s principal length, including angled rails, without moving geometry.
+stockâ€™s principal length, including angled rails, without moving geometry.
 
 When only UV/tangent data changes, compare expanded indexed physical triangle
 bytes, the exported scene graph, all semantic fixture fields and runtime data.
 A dependent asset with unchanged geometry, maps and behavior need not be
 rebuilt just because a context hash changed. Refresh only explicitly reviewed
-dependency hashes, retain the comparison and keep prior proofsÃ¢â‚¬â„¢ dates/scope.
+dependency hashes, retain the comparison and keep prior proofsâ€™ dates/scope.
 Unexpected source drift still requires investigation. The bounded example is
 **art/renders/orison_v2/wood_grain_20261007/rebind-grain-dependencies.py**.
 

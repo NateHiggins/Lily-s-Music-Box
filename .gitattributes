@@ -1958,6 +1958,9 @@ game/tests/v2_completion_door_settle.gd -text
 # Direct-manipulation runtime inputs: preserve tested LF bytes.
 game/scripts/building/orison_v2_boiler_window.gd -text
 game/scripts/building/orison_v2_household_state.gd -text
+
+# Current qualification and preserved prior/failed capture bytes.
+art/reviews/v2_qualification_20261020/** -text whitespace=cr-at-eol
 game/scripts/building/orison_v2_sink.gd -text
 game/scripts/building/orison_v2_water_valve.gd -text
 game/scripts/building/orison_v2_window_treatment.gd -text

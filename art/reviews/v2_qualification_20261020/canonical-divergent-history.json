@@ -1,0 +1,155 @@
+{
+  "historically_preserved_versions": [
+    {
+      "path": "DOCS.md",
+      "blob": "e97c6a119f2b4f4fe3ce0bdb064a063e227be2e7"
+    },
+    {
+      "path": "art/blender/city_closure_construction.json",
+      "blob": "34064728dc3e1d2b804c478308fcc65c1abdbabf"
+    },
+    {
+      "path": "art/blender/city_elevations_construction.json",
+      "blob": "5b4babe385d35a15063ef7c591a4bed9b903dea4"
+    },
+    {
+      "path": "art/blender/city_ground_apron_construction.json",
+      "blob": "e17792aadebe2772b38fb29520acdc895f17dad0"
+    },
+    {
+      "path": "art/blender/city_horizon_construction.json",
+      "blob": "894bf9e8988f1ab9705c0c1665f1d3c27c70c4ec"
+    },
+    {
+      "path": "art/blender/domestic_objects_construction.json",
+      "blob": "7c164c3df5e978ddab2ebd30a241e2aabeb1358a"
+    },
+    {
+      "path": "art/blender/domestic_storage.blend",
+      "blob": "47c78b63a9fb8766f6463484f3f870d672d9703c"
+    },
+    {
+      "path": "art/blender/domestic_storage_construction.json",
+      "blob": "9863b117cc25ce259cd8aeff0646b57e8914339c"
+    },
+    {
+      "path": "art/blender/house_switchboard_construction.json",
+      "blob": "11ee8a0a389dfab3a10b54b7d841f01b3fcfd544"
+    },
+    {
+      "path": "art/blender/street_paving_details_construction.json",
+      "blob": "8e53375178bad9a8b6fd69f46f598387e5842846"
+    },
+    {
+      "path": "art/data/domestic_storage/source_plan.json",
+      "blob": "520caccb699b3a479653a6f4214eb0ae48cc1957"
+    },
+    {
+      "path": "art/data/runtime_material_sets.json",
+      "blob": "f2a5f591d5ae348dc2c629d50796aa0bc4bfd1d0"
+    },
+    {
+      "path": "art/textures/catalog_mapping.json",
+      "blob": "a113e55291afd0fac4a97597e8f7f16e3ae50969"
+    },
+    {
+      "path": "art/tools/fix_runtime_texture_imports.py",
+      "blob": "c18bc4754e7488fb7f77c8bd32d573532eadc46c"
+    },
+    {
+      "path": "art/tools/fix_v2_mesh_imports.py",
+      "blob": "704ef7f79bb6c8f5ad4449e8ee1d03f36b4f5615"
+    },
+    {
+      "path": "art/tools/generate_runtime_materials.py",
+      "blob": "a52b0380c214cdd09ba304291af51ca827a3b880"
+    },
+    {
+      "path": "design/V2_CONSTRUCTION_NORMALS_2026-10-20.md",
+      "blob": "11146f8e928f06f3d6c97a239e81a0a30796a2d1"
+    },
+    {
+      "path": "game/data/orison_v2/domestic_storage.json",
+      "blob": "2714584b332b319d57fa24f5908db4e0aa9f07f8"
+    },
+    {
+      "path": "game/data/runtime_material_sets.json",
+      "blob": "f2a5f591d5ae348dc2c629d50796aa0bc4bfd1d0"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_runtime_root.gd",
+      "blob": "a3911fc21dec9cfd8303a17fa5b293a32dd88360"
+    },
+    {
+      "path": "game/scripts/generated/material_sets.gd",
+      "blob": "15daeaf156b57a2f0216581f5f8c569c50950931"
+    },
+    {
+      "path": "game/scripts/player/constrained_grab.gd",
+      "blob": "a332f67c431dca8a5fe12e3251b631cb428bda06"
+    },
+    {
+      "path": "game/scripts/player/player_controller.gd",
+      "blob": "299461c01dd0cb9f121d403fa354334de432ce91"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_closure.json",
+      "blob": "34064728dc3e1d2b804c478308fcc65c1abdbabf"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_elevations.json",
+      "blob": "5b4babe385d35a15063ef7c591a4bed9b903dea4"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_ground_apron.json",
+      "blob": "e17792aadebe2772b38fb29520acdc895f17dad0"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_horizon.json",
+      "blob": "894bf9e8988f1ab9705c0c1665f1d3c27c70c4ec"
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_objects.json",
+      "blob": "7c164c3df5e978ddab2ebd30a241e2aabeb1358a"
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_storage.json",
+      "blob": "9863b117cc25ce259cd8aeff0646b57e8914339c"
+    },
+    {
+      "path": "game/tests/fixtures/orison_street_paving_details.json",
+      "blob": "8e53375178bad9a8b6fd69f46f598387e5842846"
+    },
+    {
+      "path": "tools/interaction_implementor_manifest.json",
+      "blob": "d613f651d220284053063bfe04b8cb89989a1b97"
+    },
+    {
+      "path": "tools/orison_spatial_dependency_manifest.json",
+      "blob": "eafc0d25555ebf2a021109c1d1e0b486d4ab1566"
+    },
+    {
+      "path": "tools/renew_additive_material_bindings.py",
+      "blob": "da25be1b2d5aa3688fdb607f20cf701f4a40245b"
+    },
+    {
+      "path": "tools/tests/test_additive_material_bindings.py",
+      "blob": "270a41725f044eb705fe8f10a8b489fc4c44b991"
+    },
+    {
+      "path": "tools/tests/test_interaction_implementors.py",
+      "blob": "d0173397764c922a32fbfa36b11bf3ce5f5feb4e"
+    },
+    {
+      "path": "tools/tests/test_interaction_prompt_carriers.py",
+      "blob": "18db510b3af6da8097bf6449fcaa15fcbe9897f6"
+    }
+  ],
+  "requires_manual_review": [
+    ".gitattributes",
+    "art/blender/v2_batch_workflow.md",
+    "art/renders/insitu/shots.md",
+    "art/renders/orison_v2/surface_requirements_20261011/fire_service_contract.json",
+    "art/renders/orison_v2/surface_requirements_20261011/front-restoration-walk.json"
+  ]
+}
