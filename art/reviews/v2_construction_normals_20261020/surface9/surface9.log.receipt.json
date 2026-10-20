@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 940.14,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T10:25:10Z",
+  "started_utc": "2026-10-20T10:09:30Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 SURFACE QUALIFICATION: FAIL; 40051 checks; 7 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface9.log.stderr",
+  "stderr_sha256": "b2673f849f4e8dd17ee823d703cd593c5a78d00dfc7984f309fe120be3c415dc",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface9.log",
+  "stdout_sha256": "494aa144a724696cb9d14dad5f466cd8369708334fd50b6a8d1be8aca1a42901"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface9",
+ "source": {
+  "dirty_paths": 29,
+  "dirty_sample": [
+   "M DOCS.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_east_roof.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_ground_seam.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_horizon_context.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_north_roof.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_site_back_e_window.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_site_nbr_e_window.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_site_ne1_window.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_street_skyline.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_weather_dry.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_weather_fog.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_weather_storm.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_west_roof.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_restored_entrance.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/omitted_B1_washer_supply.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/runtime_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/suite_run.receipt.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/surface_requirements_20261011/surface-inventory.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/visual_review.json"
+  ],
+  "repository_head": "e388801830452b9fd946e6cefd7c3ee4d76c6817",
+  "repository_tree": "8eef875af62a4b14f06125b0701c8429d22ae7b5",
+  "runtime_inputs_sha256": "db4930d8cecef184c9a76b6864fed4b57b75a7c8621adf663c87838e30e4b79d",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "3365c65385c4af561e0260fb0218fbfa16c0751f7f12b2b3deae38b89e7f8e1c"
+ },
+ "windowed": true
+}

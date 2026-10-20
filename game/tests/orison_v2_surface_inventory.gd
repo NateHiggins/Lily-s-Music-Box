@@ -27,6 +27,9 @@ func _run() -> void:
 	var shared_uv_defaults: Array = []
 	var finish_review := preload("res://tests/v2_control_finish_review.gd").new()
 	finish_review.validate_material_contract(self)
+	if not failures.is_empty():
+		# An invalid material ABI cannot qualify a world. Fail before its costly build.
+		get_tree().quit(1);return
 	for key in ["metal","wood_dark","timber","cast_iron","paper"]:
 		var stock := MatLib.get_mat(key) as StandardMaterial3D
 		shared_uv_defaults.append({"stock":stock,"uv1":stock.uv1_triplanar,"uv2":stock.uv2_triplanar})

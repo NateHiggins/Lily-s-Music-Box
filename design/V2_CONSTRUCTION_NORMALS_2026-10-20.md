@@ -72,3 +72,12 @@ edits a runtime contract. Three tests reject altered old materials, sources and
 meshes and verify preservation/archiving. The seven-entry extension therefore
 requires no unchanged-city Blender rebuild or replay of historical evidence.
 The next composed run still has to establish fresh runtime qualification.
+
+**surface9** completed 40,051 checks with seven failures, all in the older normal
+calibration guard, which expected 0.35 for the seven new metric recipes. Its
+inventory found zero UV/PBR/mip defects across 26,844 draws, 17,517 meshes,
+6,393 materials and 520 textures. The failed contract and original logs remain
+in the packet. The guard now checks metric recipe units, convention and declared
+strength instead of that legacy default. The small family bench calls the same
+ABI preflight, and the composed suite rejects an invalid ABI before world build.
+No previous passing contract is edited or reused as a new pass.

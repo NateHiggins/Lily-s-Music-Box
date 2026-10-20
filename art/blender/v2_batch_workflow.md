@@ -9,6 +9,12 @@ no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not
 proof of the current interaction contract.
 
+Check the shared loaded material ABI in the first small family bench. A new
+metric normal recipe must compare against its declared calibration, not an old
+default strength. Reject an invalid ABI before composing a full world. Run
+source/import binding regressions after editor import completes: Windows holds
+sidecars briefly while replacing them, causing transient file-lock errors.
+
 For a new native family, put imported UV metrics, normal/tangent derivatives
 and loaded-map checks in the first small family bench, together with its
 windowed hand controls where practical. A source GLB UV pass does not establish

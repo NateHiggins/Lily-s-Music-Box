@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Construction-specific normal recipes, expressive cabinet glass and current qualification | `design/V2_CONSTRUCTION_NORMALS_2026-10-20.md` |
 | Loaded handheld/character mip repair and remaining world qualification | `design/V2_SURFACE_MIP_REPAIR_2026-10-19.md` |
 | Fitted native kitchen services, stop controls and installed diagnostics | `design/V2_KITCHEN_PLUMBING_2026-10-19.md` |
 | Retired eye-level wall rail, retained trim and source renewal | `design/V2_EYE_RAIL_REMOVAL_2026-10-19.md` |

@@ -8,6 +8,8 @@ func capture(label: String) -> void:
 	get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))
 
 func _run() -> void:
+	preload("res://tests/v2_control_finish_review.gd").new().validate_material_contract(self)
+	if not failures.is_empty():get_tree().quit(1);return
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-30,-30,0);sun.light_energy=.12;add_child(sun)
 	var floor_body:=StaticBody3D.new();var floor_shape:=CollisionShape3D.new()

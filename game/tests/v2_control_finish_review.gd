@@ -15,6 +15,13 @@ func validate_material_contract(suite: Node) -> void:
 		elif key.begins_with("site_softwood") or key.begins_with("arcade_"):
 			var recipe: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(source_root.path_join("art/textures/procedural/"+key+"/material.json")))
 			expected_normal=float(recipe.normal_strength)
+		elif str(spec.catalog_mapping).begins_with("procedural/"):
+			var recipe: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(source_root.path_join("art/textures/"+str(spec.catalog_mapping)+"/material.json")))
+			if recipe.has("normal_authoring"):
+				var authored: Dictionary=recipe.normal_authoring
+				suite.check(authored.height_units=="metres" and authored.normal_convention=="OpenGL","metric relief units and normal convention: "+key)
+				expected_normal=float(authored.normal_strength)
+				suite.check(is_finite(expected_normal) and expected_normal>0. and is_equal_approx(expected_normal,float(recipe.normal_strength)),"profile and material normal strengths agree: "+key)
 		suite.check(is_equal_approx(stock.normal_scale,expected_normal),"authored normal calibration reaches renderer: "+key)
 	var resin := MatLib.get_mat("bakelite")
 	suite.check(not document.materials.bakelite.visual_lock and document.materials.bakelite.catalog_mapping=="procedural/bakelite","brown phenolic resin retires the legacy visual lock")
