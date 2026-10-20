@@ -157,3 +157,10 @@ Relief and roughness come from authored construction data; generated lighting
 was not converted into height. The twelve profiles are authoring starting
 points, with family-specific UV, imported-map and light-response review still
 required before future installations.
+
+The final static-only verification of **2cb3ab42** confirms all 17 protected
+paths and V2 selector, with surface/import/spatial/native gates passing. It
+still reports 109 readiness/evidence regression lines and the two live-cohort
+smoke failures. Full results and the required management-format disposition are
+in **V2_NORMALS_REPORT_2026-10-20.md**. This checkpoint is committed for review,
+with no merge-ready or whole-V2 completion claim.
