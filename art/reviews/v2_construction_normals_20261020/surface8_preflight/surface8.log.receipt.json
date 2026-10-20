@@ -1,0 +1,66 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 10.06,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T10:04:19Z",
+  "started_utc": "2026-10-20T10:04:08Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "ERROR: Native fixture source preflight failed before world composition: [\"orison_bodega_frontage.json: PASS\\r\\norison_city_closure.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\norison_city_elevations.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\norison_city_ground_apron.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\norison_city_horizon.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\norison_front_pavement_construction.json: PASS\\r\\norison_front_pavement_review.json: PASS\\r\\norison_street_paving_details.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\n0 scripts; 8 fixtures; 5 failed; source preflight only\\r\\n\"]"
+  ],
+  "pass_count": 1,
+  "pass_lines": [
+   "ERROR: Native fixture source preflight failed before world composition: [\"orison_bodega_frontage.json: PASS\\r\\norison_city_closure.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\norison_city_elevations.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\norison_city_ground_apron.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\norison_city_horizon.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\norison_front_pavement_construction.json: PASS\\r\\norison_front_pavement_review.json: PASS\\r\\norison_street_paving_details.json: FAIL\\r\\n  stale fixture dependency: game/data/runtime_material_sets.json\\r\\n0 scripts; 8 fixtures; 5 failed; source preflight only\\r\\n\"]"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface8.log.stderr",
+  "stderr_sha256": "4fff532c892332952f4fb2d7c456e37e2c54f2bc62de30694761b5949019b5a5",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface8.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface8",
+ "source": {
+  "dirty_paths": 27,
+  "dirty_sample": [
+   "M art/renders/orison_v2/surface_requirements_20261011/city_east_roof.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_ground_seam.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_horizon_context.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_north_roof.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_site_back_e_window.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_site_nbr_e_window.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_site_ne1_window.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_street_skyline.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_weather_dry.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_weather_fog.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_weather_storm.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_west_roof.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_restored_entrance.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/omitted_B1_washer_supply.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/runtime_contract.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/suite_run.receipt.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/surface_requirements_20261011/surface-inventory.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/visual_review.json",
+   "?? art/renders/orison_v2/surface_requirements_20261011/clearance_07_1A_wardrobe.png"
+  ],
+  "repository_head": "c6a739e53b61ef03c7c81ce2ffd543d2fe98020b",
+  "repository_tree": "c29971b2ce98a752666742648a58468def3d4a0f",
+  "runtime_inputs_sha256": "db4930d8cecef184c9a76b6864fed4b57b75a7c8621adf663c87838e30e4b79d",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "3365c65385c4af561e0260fb0218fbfa16c0751f7f12b2b3deae38b89e7f8e1c"
+ },
+ "windowed": true
+}

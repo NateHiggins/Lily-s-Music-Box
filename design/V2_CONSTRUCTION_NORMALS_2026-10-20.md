@@ -61,3 +61,14 @@ frosted glass softens it. The fixture has a dark empty background and is not a
 room aesthetic acceptance image. The broad surface packet is stale until its
 next composed run completes; neither earlier full-world result is repinned.
 Whole V2 completion, composed qualification and human appearance remain open.
+
+The first composed attempt, **surface8**, stopped at native preflight in ten
+seconds because five city families still bound the 92-entry material manifest.
+**tools/renew_additive_material_bindings.py** verifies all 92 previous records
+and other manifest fields are identical, validates every other native dependency
+and recorded output digest, archives original construction records, and renews
+only construction source hashes and their metadata dependency chain. It never
+edits a runtime contract. Three tests reject altered old materials, sources and
+meshes and verify preservation/archiving. The seven-entry extension therefore
+requires no unchanged-city Blender rebuild or replay of historical evidence.
+The next composed run still has to establish fresh runtime qualification.
