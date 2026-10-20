@@ -92,3 +92,24 @@ unstaged and staged coverage while preserving ignored local files. Post-import
 static checks pass in both checkouts. This prevents that staging gap from
 reaching another long world build. The complete board's tools tests passed;
 its surface qualification remains pending the fresh composed result.
+
+## Completed surface qualification
+
+**surface11** ran in the canonical checkout and passed **40,065 checks, zero
+failures**, with zero unresolved technical surface findings: 26,844 draws,
+17,517 meshes, 6,393 materials and 520 textures. Its schema-2 test-written
+contract reports production composition, surface requirements and runtime-owned
+teardown PASS. Disk save reconstruction is explicitly NOT_EXECUTED in this
+suite. The wrapper completed in 949.69 seconds with zero script errors; seven
+historical Texture RID exit warnings remain separate lifecycle work.
+
+The published packet is **art/renders/orison_v2/surface_requirements_20261011**.
+Both checkouts qualify it with zero defects. It binds 6,272 current inputs to
+SHA-256 **18615aea240e9b280d700cb7c22fdaa6686c99f3294046599d7382458c914d74**.
+The 23-image technical review contains 21 fresh composed frames and two reused,
+unchanged native handheld/character specimen views, explicitly identified in
+its image records. The predecessors are preserved independently under
+**art/reviews/v2_surface_final_20261020**; the earlier unqualified renewal archive
+is also retained. No old contract was repinned. Native source and corrected
+in-game render checks are complete for this batch. Human appearance acceptance,
+flat book bindings and broader V2 completion remain open.
