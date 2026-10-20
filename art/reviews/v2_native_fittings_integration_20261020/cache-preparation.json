@@ -1,0 +1,35 @@
+{
+  "evidence_class": "INERT",
+  "runs": [
+    {
+      "packet": "cache_import1",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 47.11,
+        "exit_code": 0,
+        "finished_utc": "2026-10-20T22:15:23Z",
+        "started_utc": "2026-10-20T22:14:36Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "stderr_bytes": 418
+    },
+    {
+      "packet": "cache_import2",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 8.09,
+        "exit_code": 0,
+        "finished_utc": "2026-10-20T22:19:45Z",
+        "started_utc": "2026-10-20T22:19:37Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "stderr_bytes": 0
+    }
+  ],
+  "symbol_sha256": "51af083d87c2d9881cedb4027dc99d8552cfd55b3ae13f8a9cb123b8b38b5b93",
+  "symbol_location": "tmp/v2-integration-20261020/native-symbols/orison_hose_math.windows.x86_64.pdb",
+  "tracked_source_changed": false,
+  "new_runtime_proof": false
+}

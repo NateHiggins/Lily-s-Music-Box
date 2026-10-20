@@ -57,6 +57,21 @@ Raw captured log bytes, including intentional trailing spaces, are retained
 because receipt hashes bind them. Source/content whitespace checks pass;
 archival log formatting is not rewritten to satisfy a whitespace cosmetic check.
 
+Canonical editor-cache preparation subsequently completes. The first import
+takes **47.11 seconds**, exits zero with no script/stale-cache errors, but emits
+Windows PDB-copy and Unicode warnings. The local optional symbol file matches
+the DLL's CodeView GUID and age; it is not a stale binary. Retaining that exact
+PDB outside the game asset tree avoids the editor's copy path. Its SHA-256 is
+**51af083d87c2d9881cedb4027dc99d8552cfd55b3ae13f8a9cb123b8b38b5b93**.
+The subsequent import completes in **8.09 seconds**, zero exit, zero script
+errors, no stale-cache signatures and **empty stderr**. Runtime input hashes
+remain identical. The valid symbols stay in the local **tmp/v2-integration-20261020/native-symbols/**
+backup; no tracked production file is changed. Both original wrapper receipts
+and byte-verified compressed logs are retained in this review's **cache_import1**
+and **cache_import2** directories. Imports prepare caches and grant no new runtime
+or visual proof. GitHub records **PR 10** as merged, and integration/publication
+commit **e2589ea8** is pushed to main.
+
 ## Remaining V2 scope
 
 Ledger before/after matches main: **0/25/21/1/38/40** blockers for first slice,
