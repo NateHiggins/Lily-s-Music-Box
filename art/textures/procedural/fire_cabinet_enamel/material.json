@@ -1,0 +1,69 @@
+{
+  "material": "fire_cabinet_enamel",
+  "generator": "art/tools/build_fire_finish_stock.py",
+  "meters_per_tile": 0.128,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "normal_authoring": {
+    "profile": "fired_enamel",
+    "generator": "art/tools/material_relief.py",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "meters_per_tile": 0.128,
+    "resolution": 1024,
+    "seed": 192810200,
+    "height_source": "authored construction; independent of albedo and baked illumination",
+    "bands": [
+      {
+        "structure": "orange peel",
+        "wavelength_m": 0.0007,
+        "rms_height_m": 1.2e-05,
+        "frequency_stretch_uv": [
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "structure": "flow",
+        "wavelength_m": 0.006,
+        "rms_height_m": 4e-06,
+        "frequency_stretch_uv": [
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "unresolved_for_roughness": [],
+    "rms_relief_m": 1.2649071994365587e-05,
+    "maximum_slope": 0.34834502602636896
+  },
+  "metallic": 0.0,
+  "height_encoding_range_m": [
+    -6.632439008634198e-05,
+    6.632439008634198e-05
+  ],
+  "roughness_range": [
+    0.2950092260517978,
+    0.3249909497573721
+  ],
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "status": "CANDIDATE_NOT_INSTALLED",
+  "source_image": "art\\textures\\ai_sources\\fire_enamel_20261020.png",
+  "source_bindings": {
+    "art/tools/build_fire_finish_stock.py": "4f8f0eaf589631ced8e2d8c9761309b45a29380180cf48c7b4b9c25f20734169",
+    "art/tools/material_relief.py": "649090fbd4c5ea37a5aa2acdfbb0976dd4ba646f2837fd841cc331fcedcdb40d",
+    "art/textures/ai_sources/fire_enamel_20261020.png": "fa7b1f75ec4b34e822ca2506ca7a9c00eebe9041e136a4df5b8f435f8ab56435"
+  },
+  "map_sha256": {
+    "albedo": "f6148ad689b2e512323d23d25a50c2414e97e44eeb1d8f9b36b38ba996e7a427",
+    "roughness": "ac3acd6906ef6b9a0eb8b7e41c04061a62dc3305575884c57632cf7e32cde229",
+    "normal": "5b7128e06dc0faaa39362af8bfdabc6f1f611a0ac35231972541fa8e26dd03eb",
+    "height": "d0e1e84e8f9f55e89d6ebc423ecc1797a136e2ecfc44c6f7c1f86ddd3b35f90a"
+  }
+}

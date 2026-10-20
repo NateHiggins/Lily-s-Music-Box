@@ -35,6 +35,36 @@ def file_hash(path):
     if path.suffix in TEXT:raw=raw.replace(b'\r\n',b'\n')
     return hashlib.sha256(raw).hexdigest()
 
+def material_recipe_paths(root):
+    """Bind registered procedural recipes, physical relief helpers and source maps.
+
+    Binding source declarations as well as installed PNGs means editing a normal
+    recipe expires evidence even before its runtime projection is regenerated.
+    """
+    root=Path(root).resolve(); paths=set()
+    mapping=json.loads((root/'art/textures/catalog_mapping.json').read_text(encoding='utf8'))
+    for directory in sorted({v for v in mapping.values() if isinstance(v,str) and v.startswith('procedural/')}):
+        recipe=(root/'art/textures'/directory/'material.json').resolve()
+        if not recipe.is_relative_to(root):raise ValueError('Material recipe escapes repository')
+        if not recipe.is_file():raise ValueError('Missing registered material recipe: '+str(recipe))
+        paths.add(recipe);data=json.loads(recipe.read_text(encoding='utf8'))
+        references=list(data.get('source_bindings',{}))
+        if data.get('generator'):references.append(data['generator'])
+        for reference in references:
+            source=(root/reference).resolve()
+            if not source.is_relative_to(root) or not source.is_file():
+                raise ValueError('Missing or escaping material source: '+reference)
+            paths.add(source)
+        for reference in data.get('maps',{}).values():
+            # Legacy recipes may carry channel settings instead of filenames.
+            if not isinstance(reference,str):continue
+            source=(recipe.parent/reference).resolve()
+            if not source.is_relative_to(recipe.parent) or not source.is_file():
+                raise ValueError('Missing or escaping material map: '+reference)
+            paths.add(source)
+    return paths
+
+
 def inputs(root=ROOT):
     # Imported GLB extracts and ingest caches are derived local state. Track
     # authored inputs, including new nonignored additions, before qualification.
@@ -203,6 +233,7 @@ def inputs(root=ROOT):
             if sidecar.is_file():imports.append(sidecar)
         elif source.suffix=='.import' and source.with_suffix('').suffix in ASSETS:
             imports.append(source)
+    paths.update(material_recipe_paths(root))
     paths.update(test_dependency_paths(root,paths))
     manifest=sorted([p.relative_to(root).as_posix(),file_hash(p)] for p in paths)
     for path in sorted(set(imports)):

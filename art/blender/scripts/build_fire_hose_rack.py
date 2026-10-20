@@ -35,8 +35,8 @@ bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepat
 def b(p):return Vector((p[0],-p[2],p[1]))
 catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
 finishes={
- 'iron':dict(catalog_key='iron_neutral',tint=[.52,.50,.45,1],pigment=1.,normal=.15,roughness=.85,metallic=.8),
- 'brass':dict(catalog_key='radiator_service_brass',tint=[.90,.82,.63,1],pigment=1.,normal=.15,roughness=.8,metallic=.92)}
+ 'iron':dict(catalog_key='fire_hardware_steel',tint=[1,1,1,1],pigment=1.,normal=1.,roughness=1.,metallic=.88),
+ 'brass':dict(catalog_key='radiator_service_brass',tint=[1,1,1,1],pigment=1.,normal=1.,roughness=1.,metallic=.92)}
 mats={key:material(ROOT,key,spec,catalog) for key,spec in finishes.items()}
 native=bpy.data.collections.new('Editable fitted rack');bpy.context.scene.collection.children.link(native)
 exports=bpy.data.collections.new('FireHoseRack');bpy.context.scene.collection.children.link(exports)

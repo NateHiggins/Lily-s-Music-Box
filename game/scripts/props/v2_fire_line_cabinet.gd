@@ -54,7 +54,11 @@ func install_joint_stock(nozzle_socket: Mesh) -> bool:
 		elif id=="F062":
 			draw.position=Vector3(.245,.033,.150)
 			var body:=StaticBody3D.new();body.name="NativeGasketTinCollision";draw.add_child(body)
-			var collider:=CollisionShape3D.new();collider.shape=draw.mesh.create_convex_shape();collider.shape.margin=.00001;body.add_child(collider)
+			# Retain the actual open pressed tray. A convex hull fills its basin
+			# and leaves the washer floating above the visible bottom.
+			var collider:=CollisionShape3D.new();var tin_shape:=ConcavePolygonShape3D.new()
+			tin_shape.set_faces(preload("res://scripts/props/fire_hose_rack.gd").imported_faces(draw.mesh))
+			collider.shape=tin_shape;body.add_child(collider)
 		elif id=="F063":draw.position+=Vector3(.493,-.117,.054)
 	if _joint_nut==null:return false
 	for key: String in ["SwivelTail","HoseRetainer"]:

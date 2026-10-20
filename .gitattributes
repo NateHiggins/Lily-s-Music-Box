@@ -2568,3 +2568,20 @@ game/data/orison_v2/kitchen_plumbing.json -text
 game/tests/fixtures/orison_kitchen_plumbing.json -text
 art/reviews/v2_kitchen_plumbing_20261019/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 art/reviews/v2_washer_release_20261020/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Construction-specific normal recipes and native cabinet provenance.
+art/blender/fire_cabinet_skin.blend -text
+art/blender/fire_cabinet_skin_construction.json -text
+game/assets/props/fire_cabinet_skin.glb -text
+game/assets/props/fire_cabinet_skin.glb.import -text
+game/data/orison_v2/fire_cabinet_skin.json -text
+art/textures/ai_sources/fire_enamel_20261020.png -text
+art/textures/ai_sources/fire_enamel_20261020.json -text
+art/reviews/v2_construction_normals_20261020/** -text
+art/textures/procedural/fire_cabinet_enamel/** -text
+art/textures/procedural/fire_cabinet_lining/** -text
+art/textures/procedural/fire_hardware_steel/** -text
+art/textures/procedural/glass_drawn_expressive/** -text
+art/textures/procedural/glass_reeded/** -text
+art/textures/procedural/glass_cut/** -text
+art/textures/procedural/glass_frosted/** -text

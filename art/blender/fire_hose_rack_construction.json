@@ -2,12 +2,12 @@
   "evidence_class": "INERT",
   "scope": "Native rack candidate; no runtime/human acceptance.",
   "source_bindings": {
-    "art/blender/scripts/build_fire_hose_rack.py": "5e5bd4643f08c1fc82c94dfec95c3506c91ae439bc03f3a931a8923700986276",
+    "art/blender/scripts/build_fire_hose_rack.py": "954e12db2a96dbbf3c8b5ff59542d549b0827d0a7b517c85fd4393852f0a8e9f",
     "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/fire_service.blend": "711be36e6951534f92fe20939ff6847556515d88c1824d55aa908a8fda97103c",
-    "game/data/runtime_material_sets.json": "a3849b873ccbe227199c6040b5a4df7903e0fa73625b738383502e9d8d67b376"
+    "game/data/runtime_material_sets.json": "d6fcacde2bd8570a0cea67029f27078d8d576ae898637b1a4966b0546bebfa34"
   },
   "stocks": {
     "MountBracket": {
@@ -186,13 +186,13 @@
   "bearing_rays": 100,
   "case_mount_bearings": 8,
   "export": {
-    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\rack_native12\\game\\assets\\props\\fire_hose_rack.glb",
+    "asset": "C:\\ov\\v2-fire-verify\\tmp\\fire-rack-finish2-20261020\\game\\assets\\props\\fire_hose_rack.glb",
     "primitives": 5,
     "triangles": 76550,
     "minimum_tangent_agreement": 0.9999942115666456,
     "status": "PASS"
   },
   "glb_sha256": "e261112c861d5122f5e8d94e047270f3cc128895082bde72aa910af63137b919",
-  "blend_sha256": "c94bef1da567b93de248fb9b2fa1cfc25958ad636d5a0ee550721ffdc15006ee",
-  "candidate_blend_sha256": "d7aa4aa1ce15d0af831b1b426556535cf1d3f8f01e6238e371f6774fc23b5546"
+  "blend_sha256": "b827fe27cf93a53068806a029a0b20052f414d7e66ab214adef06ba4dc4989e9",
+  "candidate_blend_sha256": "4d70bb6351d604e88d4189e214f53ff98431f013295bf6abb7fcc58210069435"
 }

@@ -147,6 +147,7 @@ func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance
 			# path out of its rim. Retain longer carrying gestures elsewhere.
 			var step_goal: Vector3=goal
 			if part==actor._play_pipe:step_goal=before+(goal-before).limit_length(.001)
+			elif part==actor._gasket_body:step_goal=before+(goal-before).limit_length(.004)
 			point=part.to_global(player._grab.contact)
 			var delta: Vector3=actor.global_basis*(step_goal-before)
 			var depth: float=delta.dot((point-player.camera.global_position).normalized())
@@ -165,6 +166,7 @@ func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance
 		var at: Variant=player._grab.target.read.call() if player._grab.active() else null
 		var joint: Node3D=actor._nozzle_joint
 		print("CARRY STOP: actor=",actor.name," part=",part.name," at=",at," goals=",goals," contact=",joint._last_contact.get_path() if part==actor._play_pipe and is_instance_valid(joint._last_contact) else "none")
+		if part==actor._gasket_body:print("GASKET CARRY CONTACT: ",part._last_contact.get_path() if is_instance_valid(part._last_contact) else "none")
 		if part==actor._play_pipe and is_instance_valid(joint._last_contact):print("CARRY STOCK: ",joint._last_contact.get_parent().get_meta("native_fire_part","none"))
 	if contact_stop.is_valid():print("GUIDED CARRY RESULT: reached=",reached," body=",player._grab.target.read.call() if player._grab.active() else Vector3.INF," global=",before_release)
 	if player._grab.active():click()

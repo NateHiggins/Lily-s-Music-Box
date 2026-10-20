@@ -3,29 +3,29 @@
   "asset": "res://assets/props/fire_hose_rack.glb",
   "materials": {
     "iron": {
-      "catalog_key": "iron_neutral",
+      "catalog_key": "fire_hardware_steel",
       "tint": [
-        0.52,
-        0.5,
-        0.45,
+        1,
+        1,
+        1,
         1
       ],
       "pigment": 1.0,
-      "normal": 0.15,
-      "roughness": 0.85,
-      "metallic": 0.8
+      "normal": 1.0,
+      "roughness": 1.0,
+      "metallic": 0.88
     },
     "brass": {
       "catalog_key": "radiator_service_brass",
       "tint": [
-        0.9,
-        0.82,
-        0.63,
+        1,
+        1,
+        1,
         1
       ],
       "pigment": 1.0,
-      "normal": 0.15,
-      "roughness": 0.8,
+      "normal": 1.0,
+      "roughness": 1.0,
       "metallic": 0.92
     }
   },

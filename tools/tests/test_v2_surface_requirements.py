@@ -7,6 +7,29 @@ from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    def test_procedural_relief_recipe_and_helpers_are_surface_inputs(self):
+        import v2_surface_evidence as evidence
+        dependencies=evidence.material_recipe_paths(ROOT)
+        for relative in ('art/tools/material_relief.py', 'art/tools/build_fire_finish_stock.py',
+                         'art/textures/procedural/glass_cut/material.json',
+                         'art/textures/procedural/glass_cut/normal.png'):
+            self.assertIn(ROOT/relative,dependencies)
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+        target=ROOT/'art/tools/material_relief.py'
+        with patch.object(evidence,'file_hash',side_effect=lambda path:'changed' if path==target else 'source'):
+            self.assertNotEqual(before,evidence.inputs()['sha256'])
+
+    def test_material_sources_cannot_escape_or_disappear(self):
+        import v2_surface_evidence as evidence
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); textures=root/'art/textures'
+            recipe=textures/'procedural/test/material.json';recipe.parent.mkdir(parents=True)
+            (textures/'catalog_mapping.json').write_text(json.dumps({'test':'procedural/test','unused':None}))
+            for source in ('../../outside.py','missing.py'):
+                recipe.write_text(json.dumps({'source_bindings':{source:'unused'}}))
+                with self.assertRaises(ValueError): evidence.material_recipe_paths(root)
+
     def test_compiled_deformer_and_native_source_changes_expire_surface_proof(self):
         import v2_surface_evidence as evidence
         with patch.object(evidence,'file_hash',return_value='source'):

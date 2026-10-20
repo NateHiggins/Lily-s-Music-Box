@@ -8,6 +8,7 @@ var pipe_parts: Array[MeshInstance3D] = []
 var source_records: Dictionary = {}
 var data: Dictionary
 var _root: Node3D
+var _skin_stock: RefCounted
 
 func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 	data = JSON.parse_string(FileAccess.get_file_as_string(PATH))
@@ -17,6 +18,8 @@ func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 	var packed := load(str(data.asset)) as PackedScene
 	if packed == null: errors.append("native fire stock missing"); return false
 	var model := packed.instantiate()
+	_skin_stock=preload("res://scripts/building/orison_v2_fire_cabinet_skin.gd").new()
+	if not _skin_stock.load_stock():model.free();errors.append("native cabinet skin missing");return false
 	var finishes: Dictionary = {}
 	for spec: Dictionary in data.materials:
 		var mat := MatLib.get_mat(str(spec.catalog)).duplicate() as StandardMaterial3D
@@ -26,6 +29,7 @@ func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 		mat.uv1_triplanar = false; mat.uv1_scale = Vector3.ONE / float(spec.tile)
 		mat.normal_scale = float(spec.normal); mat.roughness = float(spec.roughness); mat.metallic = float(spec.metallic)
 		mat.albedo_color = Color(spec.tint[0],spec.tint[1],spec.tint[2],spec.tint[3])
+		if _skin_stock.aliases.has(str(spec.key)):mat=_skin_stock.aliases[str(spec.key)]
 		finishes[str(spec.key)] = mat
 	for node: Node in model.find_children("*","MeshInstance3D",true,false):
 		var mesh := node.mesh.duplicate() as ArrayMesh
@@ -65,6 +69,9 @@ func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 	if coating_meshes.size()!=4:errors.append("native case coatings missing");return false
 	for identity: String in coating_meshes:meshes[identity]=coating_meshes[identity]
 	if not errors.is_empty(): return false
+	for key: String in _skin_stock.meshes:
+		if key.begins_with("F") and key.length()==4:meshes[key]=_skin_stock.meshes[key]
+	for key: String in _skin_stock.retired_visuals:meshes.erase(key)
 	var nozzle_detail:=preload("res://scripts/props/fire_nozzle_detail_stock.gd").new()
 	if not nozzle_detail.load_stock():errors.append("detailed nozzle stock missing");return false
 	_root = Node3D.new(); _root.name = "NativeFireService"
@@ -101,6 +108,7 @@ func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 				draw.mesh=null;draw.set_meta("native_fire_successor","fire_hose_rack")
 		var rack:=preload("res://scripts/props/fire_hose_rack.gd").new();rack.name="NativeHoseRack";actor.add_child(rack)
 		if not rack.configure(actor):errors.append("fitted native fire rack "+identity);return false
+		if not _skin_stock.fit(actor):errors.append("native cabinet skin fitting "+identity);return false
 		if not actor.install_joint_stock(meshes.NozzleSocket): errors.append("fire swivel stock " + identity); return false
 		var hoses := preload("res://scripts/building/orison_v2_fire_hose_visual.gd").new()
 		hoses.name = "NativeHoseRuns"; actor.add_child(hoses)

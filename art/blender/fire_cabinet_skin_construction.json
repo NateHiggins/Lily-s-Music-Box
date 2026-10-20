@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT",
+  "status": "CANDIDATE_NOT_INSTALLED",
+  "parts": {
+    "F007": {
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.389999985694885,
+        0.00899999961256981
+      ],
+      "material": "fire_cabinet_lining"
+    },
+    "F008": {
+      "parent": "actor",
+      "position": [
+        -0.29899999499321,
+        0.389999985694885,
+        0.109999999403954
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    "F009": {
+      "parent": "actor",
+      "position": [
+        0.29899999499321,
+        0.389999985694885,
+        0.109999999403954
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    "F010": {
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.768999993801117,
+        0.109999999403954
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    "F011": {
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.0109999999403954,
+        0.109999999403954
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    "F016": {
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.774999976158142,
+        0.195999994874001
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    "F017": {
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.00499999988824129,
+        0.195999994874001
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    "F018": {
+      "parent": "actor",
+      "position": [
+        -0.305000007152557,
+        0.389999985694885,
+        0.195999994874001
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    "F019": {
+      "parent": "actor",
+      "position": [
+        0.305000007152557,
+        0.389999985694885,
+        0.195999994874001
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    "F062": {
+      "parent": "actor",
+      "position": [
+        0.245,
+        0.033,
+        0.15
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "F063": {
+      "parent": "actor",
+      "position": [
+        0.245,
+        0.071,
+        0.124
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "F065": {
+      "parent": "door",
+      "position": [
+        0.281000018119812,
+        0.389999985694885,
+        0.206000000238419
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    "F069": {
+      "parent": "door",
+      "position": [
+        0.0,
+        0.444999992847443,
+        0.210999995470047
+      ],
+      "material": "glass_cut"
+    },
+    "GlazingSeal": {
+      "parent": "door",
+      "position": [
+        0,
+        0.445,
+        0.217
+      ],
+      "material": "washer_rubber"
+    },
+    "DoorPull": {
+      "parent": "door",
+      "position": [
+        -0.273,
+        0.39,
+        0.2195
+      ],
+      "material": "radiator_service_brass"
+    },
+    "PullScrew0": {
+      "parent": "door",
+      "position": [
+        -0.273,
+        0.358,
+        0.22175
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "PullScrew1": {
+      "parent": "door",
+      "position": [
+        -0.273,
+        0.42200000000000004,
+        0.22175
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "SafetyWire": {
+      "parent": "door",
+      "position": [
+        0,
+        0.445,
+        0.211
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "HingeFixed0": {
+      "parent": "actor",
+      "position": [
+        0.305,
+        0.2,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "HingeMoving0": {
+      "parent": "door",
+      "position": [
+        0.305,
+        0.2,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "HingePin0": {
+      "parent": "actor",
+      "position": [
+        0.305,
+        0.2,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "HingeFixed1": {
+      "parent": "actor",
+      "position": [
+        0.305,
+        0.6,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "HingeMoving1": {
+      "parent": "door",
+      "position": [
+        0.305,
+        0.6,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "HingePin1": {
+      "parent": "actor",
+      "position": [
+        0.305,
+        0.6,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "CaseFastener0": {
+      "parent": "actor",
+      "position": [
+        -0.285,
+        0.06,
+        0.021
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "CaseFastener1": {
+      "parent": "actor",
+      "position": [
+        0.285,
+        0.06,
+        0.021
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "CaseFastener2": {
+      "parent": "actor",
+      "position": [
+        -0.285,
+        0.72,
+        0.021
+      ],
+      "material": "fire_hardware_steel"
+    },
+    "CaseFastener3": {
+      "parent": "actor",
+      "position": [
+        0.285,
+        0.72,
+        0.021
+      ],
+      "material": "fire_hardware_steel"
+    }
+  },
+  "retired_source_visuals": [
+    "F066",
+    "F067",
+    "F068",
+    "F081",
+    "F070",
+    "F071",
+    "F072",
+    "F073",
+    "F074",
+    "F075",
+    "F076",
+    "F077",
+    "F078",
+    "F079",
+    "F080"
+  ],
+  "source_bindings": {
+    "art/blender/scripts/build_fire_cabinet_skin.py": "2bcd953472a4eab51c356579e3096639f2bbd58ab624773aad895092edb2af25",
+    "art/data/fire_service/source_plan.json": "60c4282ca3b98dfac82373e9f02ccbe76e8b5ff5c1a29ec994fbe08578c93115",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "art/blender/scripts/build_media_battery_supply.py": "8993a40cfebfaf8f9df9e12b22c9dd8bcb413c9e5162a19643d6fa3318700efe",
+    "art/textures/procedural/fire_cabinet_enamel/material.json": "e639cd48879966b4ac5ff68ba6465ddeab47f9347909674369a4d0e47293333a",
+    "art/textures/procedural/fire_cabinet_enamel/albedo.png": "f6148ad689b2e512323d23d25a50c2414e97e44eeb1d8f9b36b38ba996e7a427",
+    "art/textures/procedural/fire_cabinet_enamel/roughness.png": "ac3acd6906ef6b9a0eb8b7e41c04061a62dc3305575884c57632cf7e32cde229",
+    "art/textures/procedural/fire_cabinet_enamel/normal.png": "5b7128e06dc0faaa39362af8bfdabc6f1f611a0ac35231972541fa8e26dd03eb",
+    "art/textures/procedural/fire_cabinet_lining/material.json": "58bfbcff4ad6986cd4feaf4ebf1f2ef7a4df0e95e061e629dc4a642c90f38988",
+    "art/textures/procedural/fire_cabinet_lining/albedo.png": "a840f9a48a8f9d8b4c15458d67defd0eb864d8e2ddb3171796bfca4f1d7c6afc",
+    "art/textures/procedural/fire_cabinet_lining/roughness.png": "ee40262979da6b1ef0c0161584f5ea6556b07fa1dcf05eda16a4d3d38e4033bb",
+    "art/textures/procedural/fire_cabinet_lining/normal.png": "11b47bd70c01b27d68097b94c1149627290f3d38b28ab881c3f4d346a5ebdf67",
+    "art/textures/procedural/glass_cut/material.json": "de3c135730488fe22697d607f5f6070b5c5086ff49bf7b283bcc844ecedbc8e0",
+    "art/textures/procedural/glass_cut/albedo.png": "7e54d28a672cf5e12ac5cd5939df8febf02dfe1acba2f34ee8640f47a9d69cfe",
+    "art/textures/procedural/glass_cut/roughness.png": "85dd66c898ec44a785ce757534a97f9f24cd1d9a1419648d3c7162ddc0819c88",
+    "art/textures/procedural/glass_cut/normal.png": "79a2154c0759a6bf32638fabda00785cbb54d8632635eb238f6946ed451e9ce2",
+    "art/textures/procedural/radiator_service_brass/material.json": "001be699d0b27324a881abf0f0343761bf31f9f937503e49507294825463896f",
+    "art/textures/procedural/radiator_service_brass/albedo.png": "8f268c3d78d27029b03cc8e86a81728e5f6ebbc49aec4baf2bacf1423f43a5cc",
+    "art/textures/procedural/radiator_service_brass/roughness.png": "9f771a878ccb61a995325183b7d261e019d3d444858c916b77b817317af54043",
+    "art/textures/procedural/radiator_service_brass/normal.png": "7825ae9dad6e96961bbe819c91b2688cca7110ba750745fd295f83b72365023c",
+    "art/textures/procedural/washer_rubber/material.json": "712fa8cf973726c6cfc1ad7a4724c88e76f4ae9bd7474bca8db29bf3a73bcd2b",
+    "art/textures/procedural/washer_rubber/albedo.png": "88504fe9a10304b9b456f20f1984f5e66d3d3aa4cc5bf8a771e93e5dab0fc64e",
+    "art/textures/procedural/washer_rubber/roughness.png": "b0414ccc4dc2db5d730250ebc0c1fd701220960a1b838c88caf50c41d6705318",
+    "art/textures/procedural/washer_rubber/normal.png": "6f4914a2c15a04f562129df5435f90e171d6e8544e4238ab69a6ebced7288d55",
+    "art/textures/procedural/fire_hardware_steel/material.json": "6c4313b93727fbf76afdb0542032a555e3c79a944643b003f4ad14e58c993cc4",
+    "art/textures/procedural/fire_hardware_steel/albedo.png": "0da8d156388901044f343f57d64a17c2ebbd04f666202a4921aaa575864aa81d",
+    "art/textures/procedural/fire_hardware_steel/roughness.png": "0a53439c583e5583992a2d48ed0c12c3c5063f7707673c68d943630a2c740890",
+    "art/textures/procedural/fire_hardware_steel/normal.png": "5f54539398706665e2679bc353ba0f202dcebdf61aac36969f696ac19d47e8ab"
+  },
+  "outputs": {
+    "fire_cabinet_skin.blend": "f964921f16250c3965b14d772fc7813821777b81faebc2bfd7a57c1fbb020c74",
+    "fire_cabinet_skin.glb": "769209304f820e34aacc3f2576133851d91693d295e41a889488b6acc96d9a81"
+  },
+  "export": {
+    "asset": "C:\\ov\\v2-fire-verify\\tmp\\fire-cabinet-skin3-20261020\\fire_cabinet_skin.glb",
+    "primitives": 28,
+    "triangles": 38724,
+    "minimum_tangent_agreement": 0.9999879320964363,
+    "status": "PASS"
+  }
+}

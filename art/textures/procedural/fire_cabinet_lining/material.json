@@ -1,0 +1,60 @@
+{
+  "material": "fire_cabinet_lining",
+  "generator": "art/tools/build_fire_finish_stock.py",
+  "meters_per_tile": 0.128,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "normal_authoring": {
+    "profile": "porcelain",
+    "generator": "art/tools/material_relief.py",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "meters_per_tile": 0.128,
+    "resolution": 1024,
+    "seed": 192810201,
+    "height_source": "authored construction; independent of albedo and baked illumination",
+    "bands": [
+      {
+        "structure": "glaze flow",
+        "wavelength_m": 0.005,
+        "rms_height_m": 1.5e-06,
+        "frequency_stretch_uv": [
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "unresolved_for_roughness": [],
+    "rms_relief_m": 1.5e-06,
+    "maximum_slope": 0.00720351740667661
+  },
+  "metallic": 0.0,
+  "height_encoding_range_m": [
+    -7.2477021555832436e-06,
+    7.2477021555832436e-06
+  ],
+  "roughness_range": [
+    0.2350128178433339,
+    0.2849989707515527
+  ],
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "status": "CANDIDATE_NOT_INSTALLED",
+  "source_image": null,
+  "source_bindings": {
+    "art/tools/build_fire_finish_stock.py": "4f8f0eaf589631ced8e2d8c9761309b45a29380180cf48c7b4b9c25f20734169",
+    "art/tools/material_relief.py": "649090fbd4c5ea37a5aa2acdfbb0976dd4ba646f2837fd841cc331fcedcdb40d",
+    "art/textures/ai_sources/fire_enamel_20261020.png": "fa7b1f75ec4b34e822ca2506ca7a9c00eebe9041e136a4df5b8f435f8ab56435"
+  },
+  "map_sha256": {
+    "albedo": "a840f9a48a8f9d8b4c15458d67defd0eb864d8e2ddb3171796bfca4f1d7c6afc",
+    "roughness": "ee40262979da6b1ef0c0161584f5ea6556b07fa1dcf05eda16a4d3d38e4033bb",
+    "normal": "11b47bd70c01b27d68097b94c1149627290f3d38b28ab881c3f4d346a5ebdf67",
+    "height": "87d20713e1d579702db0e6bfeafeb4f4f107f230c3565169cadc57fca8e8de18"
+  }
+}

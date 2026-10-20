@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fire_cabinet_skin.glb",
+  "parts": [
+    {
+      "id": "F007",
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.389999985694885,
+        0.00899999961256981
+      ],
+      "material": "fire_cabinet_lining"
+    },
+    {
+      "id": "F008",
+      "parent": "actor",
+      "position": [
+        -0.29899999499321,
+        0.389999985694885,
+        0.109999999403954
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    {
+      "id": "F009",
+      "parent": "actor",
+      "position": [
+        0.29899999499321,
+        0.389999985694885,
+        0.109999999403954
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    {
+      "id": "F010",
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.768999993801117,
+        0.109999999403954
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    {
+      "id": "F011",
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.0109999999403954,
+        0.109999999403954
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    {
+      "id": "F016",
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.774999976158142,
+        0.195999994874001
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    {
+      "id": "F017",
+      "parent": "actor",
+      "position": [
+        0.0,
+        0.00499999988824129,
+        0.195999994874001
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    {
+      "id": "F018",
+      "parent": "actor",
+      "position": [
+        -0.305000007152557,
+        0.389999985694885,
+        0.195999994874001
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    {
+      "id": "F019",
+      "parent": "actor",
+      "position": [
+        0.305000007152557,
+        0.389999985694885,
+        0.195999994874001
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    {
+      "id": "F062",
+      "parent": "actor",
+      "position": [
+        0.245,
+        0.033,
+        0.15
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "F063",
+      "parent": "actor",
+      "position": [
+        0.245,
+        0.071,
+        0.124
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "F065",
+      "parent": "door",
+      "position": [
+        0.281000018119812,
+        0.389999985694885,
+        0.206000000238419
+      ],
+      "material": "fire_cabinet_enamel"
+    },
+    {
+      "id": "F069",
+      "parent": "door",
+      "position": [
+        0.0,
+        0.444999992847443,
+        0.210999995470047
+      ],
+      "material": "glass_cut"
+    },
+    {
+      "id": "GlazingSeal",
+      "parent": "door",
+      "position": [
+        0,
+        0.445,
+        0.217
+      ],
+      "material": "washer_rubber"
+    },
+    {
+      "id": "DoorPull",
+      "parent": "door",
+      "position": [
+        -0.273,
+        0.39,
+        0.2195
+      ],
+      "material": "radiator_service_brass"
+    },
+    {
+      "id": "PullScrew0",
+      "parent": "door",
+      "position": [
+        -0.273,
+        0.358,
+        0.22175
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "PullScrew1",
+      "parent": "door",
+      "position": [
+        -0.273,
+        0.42200000000000004,
+        0.22175
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "SafetyWire",
+      "parent": "door",
+      "position": [
+        0,
+        0.445,
+        0.211
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "HingeFixed0",
+      "parent": "actor",
+      "position": [
+        0.305,
+        0.2,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "HingeMoving0",
+      "parent": "door",
+      "position": [
+        0.305,
+        0.2,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "HingePin0",
+      "parent": "actor",
+      "position": [
+        0.305,
+        0.2,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "HingeFixed1",
+      "parent": "actor",
+      "position": [
+        0.305,
+        0.6,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "HingeMoving1",
+      "parent": "door",
+      "position": [
+        0.305,
+        0.6,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "HingePin1",
+      "parent": "actor",
+      "position": [
+        0.305,
+        0.6,
+        0.206
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "CaseFastener0",
+      "parent": "actor",
+      "position": [
+        -0.285,
+        0.06,
+        0.021
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "CaseFastener1",
+      "parent": "actor",
+      "position": [
+        0.285,
+        0.06,
+        0.021
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "CaseFastener2",
+      "parent": "actor",
+      "position": [
+        -0.285,
+        0.72,
+        0.021
+      ],
+      "material": "fire_hardware_steel"
+    },
+    {
+      "id": "CaseFastener3",
+      "parent": "actor",
+      "position": [
+        0.285,
+        0.72,
+        0.021
+      ],
+      "material": "fire_hardware_steel"
+    }
+  ],
+  "retired_source_visuals": [
+    "F066",
+    "F067",
+    "F068",
+    "F081",
+    "F070",
+    "F071",
+    "F072",
+    "F073",
+    "F074",
+    "F075",
+    "F076",
+    "F077",
+    "F078",
+    "F079",
+    "F080"
+  ],
+  "materials": [
+    {
+      "catalog_key": "fire_cabinet_enamel",
+      "tile": 0.128,
+      "normal": 1.0
+    },
+    {
+      "catalog_key": "fire_cabinet_lining",
+      "tile": 0.128,
+      "normal": 1.0
+    },
+    {
+      "catalog_key": "fire_hardware_steel",
+      "tile": 0.128,
+      "normal": 1.0
+    },
+    {
+      "catalog_key": "glass_cut",
+      "tile": 0.128,
+      "normal": 1.0
+    },
+    {
+      "catalog_key": "glass_drawn_expressive",
+      "tile": 0.128,
+      "normal": 1.0
+    },
+    {
+      "catalog_key": "glass_frosted",
+      "tile": 0.128,
+      "normal": 1.0
+    },
+    {
+      "catalog_key": "glass_reeded",
+      "tile": 0.128,
+      "normal": 1.0
+    },
+    {
+      "catalog_key": "radiator_service_brass",
+      "tile": 0.04,
+      "normal": 1.0
+    },
+    {
+      "catalog_key": "washer_rubber",
+      "tile": 0.1,
+      "normal": 1.0
+    }
+  ],
+  "station_styles": [
+    {
+      "station_id": "B1_FIRE_LINE_STAIR",
+      "style": "glass_cut"
+    },
+    {
+      "station_id": "F01_FIRE_LINE_STAIR",
+      "style": "glass_drawn_expressive"
+    },
+    {
+      "station_id": "F02_FIRE_LINE_STAIR",
+      "style": "glass_reeded"
+    },
+    {
+      "station_id": "F03_FIRE_LINE_STAIR",
+      "style": "glass_frosted"
+    },
+    {
+      "station_id": "F04_FIRE_LINE_STAIR",
+      "style": "glass_cut"
+    },
+    {
+      "station_id": "F05_FIRE_LINE_STAIR",
+      "style": "glass_drawn_expressive"
+    },
+    {
+      "station_id": "F06_FIRE_LINE_STAIR",
+      "style": "glass_reeded"
+    },
+    {
+      "station_id": "ROOF_FIRE_LINE_STAIR",
+      "style": "glass_frosted"
+    }
+  ]
+}

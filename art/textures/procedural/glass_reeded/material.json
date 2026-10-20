@@ -1,0 +1,65 @@
+{
+  "material": "glass_reeded",
+  "generator": "art/tools/build_fire_finish_stock.py",
+  "meters_per_tile": 0.128,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "normal_authoring": {
+    "profile": "glass_reeded",
+    "generator": "art/tools/material_relief.py",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "meters_per_tile": 0.128,
+    "resolution": 1024,
+    "seed": 192810204,
+    "height_source": "authored construction; independent of albedo and baked illumination",
+    "bands": [
+      {
+        "structure": "casting variation",
+        "wavelength_m": 0.016,
+        "rms_height_m": 1.5e-05,
+        "frequency_stretch_uv": [
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "structure": "rolled flutes",
+        "wavelength_m": 0.0128,
+        "peak_height_m": 0.00065
+      }
+    ],
+    "unresolved_for_roughness": [],
+    "rms_relief_m": 0.0004593879387693662,
+    "maximum_slope": 0.33718075037056944
+  },
+  "metallic": 0.0,
+  "height_encoding_range_m": [
+    -0.0007018467638549485,
+    0.0007018467638549485
+  ],
+  "roughness_range": [
+    0.07178762239517801,
+    0.10815582545171258
+  ],
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "status": "CANDIDATE_NOT_INSTALLED",
+  "source_image": null,
+  "source_bindings": {
+    "art/tools/build_fire_finish_stock.py": "4f8f0eaf589631ced8e2d8c9761309b45a29380180cf48c7b4b9c25f20734169",
+    "art/tools/material_relief.py": "649090fbd4c5ea37a5aa2acdfbb0976dd4ba646f2837fd841cc331fcedcdb40d",
+    "art/textures/ai_sources/fire_enamel_20261020.png": "fa7b1f75ec4b34e822ca2506ca7a9c00eebe9041e136a4df5b8f435f8ab56435"
+  },
+  "map_sha256": {
+    "albedo": "31f1b37ce7a64aa9ddcf44df81e3593ded7e815ddc6a33b16a74e8bc39695417",
+    "roughness": "0ca5675c53f6349b4f28951dde810f2744013e56709f0790c696ef2c8b452c02",
+    "normal": "39beea605cfaf883a90e3481ace3b701a0177abb356116b45053057d65137df4",
+    "height": "ba3079557a36fde2c7f514401c35debbc82c75125fbd0f9c767f3c483c41abc0"
+  }
+}
