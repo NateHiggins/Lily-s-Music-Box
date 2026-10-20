@@ -1,0 +1,19 @@
+{
+  "evidence_class": "INERT",
+  "checked_after_main_metadata_merge": true,
+  "checks": {
+    "execution": true,
+    "failures": true,
+    "runtime": true,
+    "surface": true,
+    "game/tests/V2AcousticVentilationContract.tscn": true,
+    "game/tests/v2_acoustic_ventilation_contract.gd": true,
+    "game/tests/v2_spatial_access_cohort.gd": true,
+    "stdout": true,
+    "stderr": true
+  },
+  "receipt_repository_head": "e1311f7aa4fd131b9d6324532e5623babdafbe27",
+  "checks_executed": 911,
+  "failures": 0,
+  "note": "Original receipt unchanged; metadata merge adds exact already-loaded image import settings. Not a full-building acceptance grant."
+}

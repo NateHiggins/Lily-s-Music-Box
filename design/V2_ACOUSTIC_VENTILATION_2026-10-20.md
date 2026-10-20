@@ -54,4 +54,16 @@ Branch: **codex/v2-acoustic-topology**; original base **e1311f7a**.
 Review packet: **art/reviews/v2_acoustic_ventilation_20261020/**.
 The portable import-settings repair is separately pushed to **main** at
 **69235f4f**; its clean board has 100 PASS and one INCOMPLETE broader ledger.
-This acoustic checkpoint must integrate that main update before final review.
+That main update is integrated at **25a0378a**. Post-merge checks independently
+confirm the original executed contract still matches all current runtime,
+surface and transitive test inputs and both original log hashes; the original
+receipt and its pre-commit repository identity are not rewritten.
+
+The complete branch board is still running at this publication step. Production
+changes intentionally expire earlier global proofs; no old global pass is
+carried forward as current acoustic acceptance. This remains a work-branch
+checkpoint pending broader migration and qualification, not a main cutover.
+
+The installed run also reports an existing Mina imported-resource UID fallback
+to its real texture path. No UID is reassigned here. Full composed overlapping
+worlds remain unproved while legacy position writers still exist.
