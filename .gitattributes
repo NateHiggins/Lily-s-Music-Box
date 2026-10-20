@@ -2540,3 +2540,18 @@ art/reviews/v2_wall_floor_20261019/** -text
 art/textures/procedural/limewash_plaster/** -text
 
 art/reviews/v2_sink_stands_20261019/** -text
+
+art/data/kitchen_prep/** -text
+art/blender/scripts/build_kitchen_prep_stations.py -text
+art/blender/scripts/review_kitchen_prep_stations.py -text
+game/data/orison_v2/kitchen_prep_stations.json -text
+game/tests/fixtures/orison_kitchen_prep_stations.json -text
+game/assets/props/kitchen_prep_stations.glb -text
+game/assets/props/kitchen_prep_stations.glb.import -text
+art/reviews/v2_kitchen_prep_20261019/** -text
+art/blender/kitchen_prep_stations.blend -text
+art/blender/kitchen_prep_stations_construction.json -text
+
+# Preserve original hash-bound diagnostic whitespace.
+art/reviews/v2_kitchen_prep_20261019/** -text whitespace=cr-at-eol
+art/reviews/v2_kitchen_prep_20261019/runs/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol

@@ -1,0 +1,758 @@
+{
+	"checks": [
+		{
+			"label": "existing kitchen clearance stances retained: F02_A_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F02_B_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F04_B_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F03_B_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F03_A_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F04_A_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F05_A_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F05_B_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F05_C_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F06_A_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F06_B_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F06_C_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F02_C_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F04_C_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F01_D_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F01_A_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F03_D_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "existing kitchen clearance stances retained: F04_D_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_2A",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_2A",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_2A",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_2A",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_2A",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_2A",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_2A",
+			"ok": false
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_2A",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_2A",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_2B",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_2B",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_2B",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_2B",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_2B",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_2B",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_2B",
+			"ok": false
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_2B",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_2B",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_4B",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_4B",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_4B",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_4B",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_4B",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_4B",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_4B",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_4B",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_4B",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_3B",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_3B",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_3B",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_3B",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_3B",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_3B",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_3B",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_3B",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_3B",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_3A",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_3A",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_3A",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_3A",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_3A",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_3A",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_3A",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_3A",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_3A",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_4A",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_4A",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_4A",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_4A",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_4A",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_4A",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_4A",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_4A",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_4A",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_5A",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_5A",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_5A",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_5A",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_5A",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_5A",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_5A",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_5A",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_5A",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_5B",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_5B",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_5B",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_5B",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_5B",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_5B",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_5B",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_5B",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_5B",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_5C",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_5C",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_5C",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_5C",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_5C",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_5C",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_5C",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_5C",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_5C",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_6A",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_6A",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_6A",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_6A",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_6A",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_6A",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_6A",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_6A",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_6A",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_6B",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_6B",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_6B",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_6B",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_6B",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_6B",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_6B",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_6B",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_6B",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_6C",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_6C",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_6C",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_6C",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_6C",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_6C",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_6C",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_6C",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_6C",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_2C",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_2C",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_2C",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_2C",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_2C",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_2C",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_2C",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_2C",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_2C",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_4C",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_4C",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_4C",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_4C",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_4C",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_4C",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_4C",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_4C",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_4C",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_1D",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_1D",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_1D",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_1D",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_1D",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_1D",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_1D",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_1D",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_1D",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_1A",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_1A",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_1A",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_1A",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_1A",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_1A",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_1A",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_1A",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_1A",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_3D",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_3D",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_3D",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_3D",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_3D",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_3D",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_3D",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_3D",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_3D",
+			"ok": true
+		},
+		{
+			"label": "installed prep owner: KitchenPrep_4D",
+			"ok": true
+		},
+		{
+			"label": "household save owns prep tools: KitchenPrep_4D",
+			"ok": true
+		},
+		{
+			"label": "installed loose poses valid: KitchenPrep_4D",
+			"ok": true
+		},
+		{
+			"label": "clear player stance at added prep stock: KitchenPrep_4D",
+			"ok": true
+		},
+		{
+			"label": "installed board ray selection: KitchenPrep_4D",
+			"ok": true
+		},
+		{
+			"label": "installed click grabs board: KitchenPrep_4D",
+			"ok": true
+		},
+		{
+			"label": "installed mouse lifts board: KitchenPrep_4D",
+			"ok": true
+		},
+		{
+			"label": "installed click releases board: KitchenPrep_4D",
+			"ok": true
+		},
+		{
+			"label": "installed kitchen image: KitchenPrep_4D",
+			"ok": true
+		},
+		{
+			"label": "all eighteen kitchen preparation programmes installed",
+			"ok": true
+		},
+		{
+			"label": "installed household snapshot validates with new tool owners",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [
+		"installed mouse lifts board: KitchenPrep_2A",
+		"installed mouse lifts board: KitchenPrep_2B"
+	],
+	"pictures": [
+		"KitchenPrep_2A.png",
+		"KitchenPrep_2B.png",
+		"KitchenPrep_4B.png",
+		"KitchenPrep_3B.png",
+		"KitchenPrep_3A.png",
+		"KitchenPrep_4A.png",
+		"KitchenPrep_5A.png",
+		"KitchenPrep_5B.png",
+		"KitchenPrep_5C.png",
+		"KitchenPrep_6A.png",
+		"KitchenPrep_6B.png",
+		"KitchenPrep_6C.png",
+		"KitchenPrep_2C.png",
+		"KitchenPrep_4C.png",
+		"KitchenPrep_1D.png",
+		"KitchenPrep_1A.png",
+		"KitchenPrep_3D.png",
+		"KitchenPrep_4D.png"
+	],
+	"scope": "Installed discovery, local player grab/mouse/release, save-domain membership and posed kitchen views; not whole-building played routes or human acceptance"
+}

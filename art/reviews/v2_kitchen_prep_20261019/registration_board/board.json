@@ -1,0 +1,123 @@
+{
+ "commit": "572b8f1b754a74e28dadc27d41a70ede691499ea",
+ "created_utc": "2026-10-20T00:03:17Z",
+ "dirty_paths": [
+  "M  .gitattributes",
+  "A  art/blender/kitchen_prep_stations.blend",
+  "A  art/blender/kitchen_prep_stations_construction.json",
+  "A  art/blender/scripts/build_kitchen_prep_stations.py",
+  "A  art/blender/scripts/review_kitchen_prep_stations.py",
+  "A  art/data/kitchen_prep/source_plan.json",
+  "M  art/tools/fix_v2_mesh_imports.py",
+  "A  game/assets/props/kitchen_prep_stations.glb",
+  "A  game/assets/props/kitchen_prep_stations.glb.import",
+  "A  game/data/orison_v2/kitchen_prep_stations.json",
+  "A  game/scripts/building/orison_v2_kitchen_prep.gd",
+  "A  game/scripts/building/orison_v2_kitchen_prep.gd.uid",
+  "A  game/scripts/building/orison_v2_kitchen_prep_station.gd",
+  "A  game/scripts/building/orison_v2_kitchen_prep_station.gd.uid",
+  "M  game/scripts/building/orison_v2_runtime_root.gd",
+  "A  game/tests/V2KitchenPrepBench.tscn",
+  "A  game/tests/fixtures/orison_kitchen_prep_stations.json",
+  "M  game/tests/v2_4k_wip_capture.gd",
+  "A  game/tests/v2_4k_wip_capture.gd.uid",
+  "A  game/tests/v2_kitchen_prep_bench.gd",
+  "A  game/tests/v2_kitchen_prep_bench.gd.uid",
+  "A  game/tests/v2_kitchen_prep_installed_review.gd",
+  "A  game/tests/v2_kitchen_prep_survey.gd",
+  "A  game/tests/v2_kitchen_prep_survey.gd.uid"
+ ],
+ "gates": [
+  {
+   "argv": [
+    "tools/audit_orison_spatial_dependencies.py",
+    "--json"
+   ],
+   "counts": {
+    "drift.class_changes": 0,
+    "drift.new_failing": 18,
+    "drift.new_reported": 3,
+    "drift.save_unresolved": 0,
+    "drift.stale_preserved": 0,
+    "drift.target_vanished": 0
+   },
+   "defects": [
+    "new_failing:8733fc818f825640",
+    "new_failing:74d8d36b4d529244",
+    "new_failing:fd41b78f36802ca9",
+    "new_failing:ee7602661aec8821",
+    "new_failing:bf1e9cd14eb9515f",
+    "new_failing:ee3ce6062258218a",
+    "new_failing:e18316534bb72c0c",
+    "new_failing:6e56c19bcd3c15c9",
+    "new_failing:e6c65b3505d688da",
+    "new_failing:1e1c5ddf71b3a7f4",
+    "new_failing:cad6fd149b6c2867",
+    "new_failing:7afd266ca27972d1",
+    "new_failing:c7ab11f9774feef7",
+    "new_failing:3fa277ddeea0aed8",
+    "new_failing:5e3caf3d7dbab15b",
+    "new_failing:d1cd40e1bc9304e8",
+    "new_failing:7c3b7931038e3cc9",
+    "new_failing:c8a3379e67402158",
+    "new_reported:01ca20713ac1a28e",
+    "new_reported:f6142f995aba193b",
+    "new_reported:833f52a8c62b1ee5"
+   ],
+   "elapsed_s": 5.17,
+   "exit": 1,
+   "id": "spatial",
+   "info": {
+    "records": 10323,
+    "result": "fail"
+   },
+   "severity": "FAIL",
+   "states": {},
+   "stderr_tail": [],
+   "stdout_sha256": "a6ecf0f7855b9f43a574634c09379304a07292465cf159fafeb030761821ce5f",
+   "timed_out": false
+  },
+  {
+   "argv": [
+    "tools/tests/test_orison_spatial_dependencies.py"
+   ],
+   "counts": {
+    "failed": 1
+   },
+   "defects": [
+    "test_live_check_is_clean (__main__.ProductionSmokeTests.test_live_check_is_clean)"
+   ],
+   "elapsed_s": 6.16,
+   "exit": 1,
+   "id": "test:test_orison_spatial_dependencies",
+   "info": {
+    "ran": 59
+   },
+   "severity": "FAIL",
+   "states": {},
+   "stderr_tail": [
+    "",
+    "",
+    "----------------------------------------------------------------------",
+    "Ran 59 tests in 6.014s",
+    "",
+    "FAILED (failures=1)"
+   ],
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "timed_out": false
+  }
+ ],
+ "python": "3.12.10",
+ "schema": "orison.gate-board.v1",
+ "status_order": [
+  "ABSENT",
+  "ANCHOR_ONLY",
+  "SHELL_ONLY",
+  "PROGRAMMED",
+  "SPATIALLY_PROVEN",
+  "RUNTIME_PROVEN",
+  "HUMAN_ACCEPTED"
+ ],
+ "tool_version": 2,
+ "tree": "9193ecb135fe5ca379f0768fa2338663c782f9b6"
+}

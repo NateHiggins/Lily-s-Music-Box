@@ -1,0 +1,94 @@
+{
+ "commit": "572b8f1b754a74e28dadc27d41a70ede691499ea",
+ "created_utc": "2026-10-20T00:03:39Z",
+ "dirty_paths": [
+  "M  .gitattributes",
+  "A  art/blender/kitchen_prep_stations.blend",
+  "A  art/blender/kitchen_prep_stations_construction.json",
+  "A  art/blender/scripts/build_kitchen_prep_stations.py",
+  "A  art/blender/scripts/review_kitchen_prep_stations.py",
+  "A  art/data/kitchen_prep/source_plan.json",
+  "M  art/tools/fix_v2_mesh_imports.py",
+  "A  game/assets/props/kitchen_prep_stations.glb",
+  "A  game/assets/props/kitchen_prep_stations.glb.import",
+  "A  game/data/orison_v2/kitchen_prep_stations.json",
+  "A  game/scripts/building/orison_v2_kitchen_prep.gd",
+  "A  game/scripts/building/orison_v2_kitchen_prep.gd.uid",
+  "A  game/scripts/building/orison_v2_kitchen_prep_station.gd",
+  "A  game/scripts/building/orison_v2_kitchen_prep_station.gd.uid",
+  "M  game/scripts/building/orison_v2_runtime_root.gd",
+  "A  game/tests/V2KitchenPrepBench.tscn",
+  "A  game/tests/fixtures/orison_kitchen_prep_stations.json",
+  "M  game/tests/v2_4k_wip_capture.gd",
+  "A  game/tests/v2_4k_wip_capture.gd.uid",
+  "A  game/tests/v2_kitchen_prep_bench.gd",
+  "A  game/tests/v2_kitchen_prep_bench.gd.uid",
+  "A  game/tests/v2_kitchen_prep_installed_review.gd",
+  "A  game/tests/v2_kitchen_prep_survey.gd",
+  "A  game/tests/v2_kitchen_prep_survey.gd.uid",
+  "M  tools/orison_spatial_dependency_manifest.json"
+ ],
+ "gates": [
+  {
+   "argv": [
+    "tools/audit_orison_spatial_dependencies.py",
+    "--json"
+   ],
+   "counts": {
+    "drift.class_changes": 0,
+    "drift.new_failing": 0,
+    "drift.new_reported": 2,
+    "drift.save_unresolved": 0,
+    "drift.stale_preserved": 0,
+    "drift.target_vanished": 0
+   },
+   "defects": [
+    "new_reported:01ca20713ac1a28e",
+    "new_reported:f6142f995aba193b"
+   ],
+   "elapsed_s": 5.36,
+   "exit": 0,
+   "id": "spatial",
+   "info": {
+    "records": 10323,
+    "result": "clean"
+   },
+   "severity": "PASS",
+   "states": {},
+   "stdout_sha256": "6c3aa13a73ef9a2500448f08e85424d6e796acaeae6801bbbeccfdd20d8c838d",
+   "timed_out": false
+  },
+  {
+   "argv": [
+    "tools/tests/test_orison_spatial_dependencies.py"
+   ],
+   "counts": {
+    "failed": 0
+   },
+   "defects": [],
+   "elapsed_s": 6.22,
+   "exit": 0,
+   "id": "test:test_orison_spatial_dependencies",
+   "info": {
+    "ran": 59
+   },
+   "severity": "PASS",
+   "states": {},
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "timed_out": false
+  }
+ ],
+ "python": "3.12.10",
+ "schema": "orison.gate-board.v1",
+ "status_order": [
+  "ABSENT",
+  "ANCHOR_ONLY",
+  "SHELL_ONLY",
+  "PROGRAMMED",
+  "SPATIALLY_PROVEN",
+  "RUNTIME_PROVEN",
+  "HUMAN_ACCEPTED"
+ ],
+ "tool_version": 2,
+ "tree": "9193ecb135fe5ca379f0768fa2338663c782f9b6"
+}

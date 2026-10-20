@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/kitchen_prep_stations.glb", # Preserve the worked-edge metre charts validated by the kitchen prep bench.
     "props/fire_capacity_candidate.glb", # stage22_capacity1: default import stretches small cloth charts21.2% and produces3593 bad tangent derivatives; texture mip policy is unchanged.
     "props/fire_floor_enamel.glb", # stage19_floor_uv1: default compression stretches thin coating edge charts by 0.508%, exceeding metric gate.
     "props/fire_nozzle_joint.glb", # nozzle_joint_stock1: default import stretches all three small thread/seat charts by up to33.6%.

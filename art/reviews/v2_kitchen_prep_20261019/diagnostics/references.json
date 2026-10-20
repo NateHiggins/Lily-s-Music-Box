@@ -1,0 +1,51 @@
+{
+  "evidence_class": "INERT",
+  "request": "Add more food-preparation countertop space and related objects in every V2 kitchen, varied by canonical resident and historical form references. This is the next active implementation task; do not treat research as installation.",
+  "canon_sources": [
+    "design/ORISON_BIBLE.md sections IV and VIII.4 (kitchen1890; no aluminium/stainless; tin/enamel/cast iron/copper/brass)",
+    "game/data/resident_story_details.json",
+    "design/resident_decor_profiles.json (design interpretation, subordinate to Bible)"
+  ],
+  "sources": [
+    {
+      "url": "https://indianamemory.contentdm.oclc.org/digital/collection/p16066coll3/id/418",
+      "title": "Hoosier kitchen cabinets1920, manufacturer pamphlet held by Indiana State Library/Eckhart Public Library",
+      "status": "Primary catalogue metadata located in indexed page. Direct page requires JavaScript; cabinet illustrations still need direct visual inspection before claiming a specific replica."
+    },
+    {
+      "url": "https://patents.google.com/patent/US1496121A/en",
+      "title": "US1496121A, Flour bin for kitchen cabinets, patented1924-06-03",
+      "use": "Primary period construction: cabinet working table, upper storage and sifter/bin relationship. Form reference only, not an exact Queens household claim."
+    },
+    {
+      "url": "https://americanhistory.si.edu/collections/object/nmah_310752",
+      "title": "Smithsonian flour sifter, c.1922",
+      "status": "Museum object metadata indexed; direct tool open failed. Research lead for period utensil form, no downloaded or baked image."
+    },
+    {
+      "url": "https://www.tenement.org/blog/waking-up-at-97-orchard-street/",
+      "title": "Tenement Museum: Waking Up at97 Orchard Street",
+      "use": "Museum household beverage objects and habits support coffee pot/grinder/canister or tea station variety. Family examples span dates; later examples are not direct1928 Queens evidence."
+    }
+  ],
+  "existing_state": {
+    "kitchens": 18,
+    "semantic_ids": "Fxx_[A/B/C/D]_KITCHEN from actual source layout",
+    "existing_prep_cabinet_count": 15,
+    "shared_variant": "PrepCabinet",
+    "existing_bounds_m": [
+      0.83,
+      0.9,
+      0.535
+    ],
+    "problem": "Small shared prep cabinets also host toaster and kettle. More surface must be genuinely usable, not entirely covered by added props. Some kitchens have no prep cabinet.",
+    "owners": [
+      "art/blender/scripts/build_prep_cabinets.py",
+      "art/blender/scripts/prep_cabinets_geometry.py",
+      "art/data/prep_cabinets/source_plan.json",
+      "art/data/orison_v2/household_accessories_source.json",
+      "game/scripts/building/orison_v2_prep_cabinet.gd"
+    ]
+  },
+  "implementation_direction": "Survey actual kitchen wall runs, door swings, service fittings, radiator/window finish clearances and approach paths; add varied freestanding oak worktables, enamel work cabinets and period boards with clear food-prep patches. Use historical form plus resident habits as design interpretation, not inferred ethnicity. Keep plumbing, appliance controls, inventory/save authorities and direct grab/move/release. Prepare related stock as one Blender batch and one composed review."
+}

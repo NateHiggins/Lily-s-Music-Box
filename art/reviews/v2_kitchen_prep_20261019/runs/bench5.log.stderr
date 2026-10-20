@@ -1,0 +1,12 @@
+ERROR: native support ray includes the resting rolling pin
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _run (res://tests/v2_kitchen_prep_bench.gd:58)
+ERROR: board and actually supported pin move together without overlap
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _run (res://tests/v2_kitchen_prep_bench.gd:61)

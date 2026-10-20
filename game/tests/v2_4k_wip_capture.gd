@@ -149,6 +149,15 @@ func _run() -> void:
 	world=preload("res://scenes/building/orison_v2_runtime.tscn").instantiate();add_child(world)
 	await get_tree().physics_frame;await get_tree().physics_frame
 	if world.startup_failed or world.player==null:push_error("4K world startup failed");get_tree().quit(1);return
+	if OS.get_environment("V2_PREP_REVIEW")=="1":
+		var inspector:=preload("res://tests/v2_kitchen_prep_installed_review.gd").new();add_child(inspector)
+		var ok: bool=await inspector.run(world,directory)
+		inspector.free();get_tree().quit(0 if ok else 1);return
+	if OS.get_environment("V2_PREP_SURVEY")=="1":
+		var survey:=preload("res://tests/v2_kitchen_prep_survey.gd").new();add_child(survey)
+		var result: Dictionary=survey.run(world,directory)
+		print("KITCHEN PREP DISCOVERY: rooms=",result.rooms.size())
+		survey.free();get_tree().quit(0 if result.rooms.size()==18 else 1);return
 	if OS.get_environment("V2_FINISH_REVIEW")=="1" and not review_painted_trim():get_tree().quit(1);return
 	if OS.get_environment("V2_WALL_FLOOR_REVIEW")=="1" and not review_wall_floor():get_tree().quit(1);return
 	if OS.get_environment("V2_STORAGE_REVIEW")=="1" and not await review_storage():get_tree().quit(1);return

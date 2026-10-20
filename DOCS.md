@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Period-informed preparation surfaces, loose food tools and all 18 kitchen programmes | `design/V2_KITCHEN_PREPARATION_2026-10-19.md` |
 | Faster native hose warm start, matched physical trajectory and remaining bottlenecks | `design/V2_FIRE_HOSE_WARM_START_2026-10-19.md` |
 | Bounded floor-release bench, numerical regression runner and remaining hose physics | `design/V2_FIRE_HOSE_RELEASE_BENCH_2026-10-19.md` |
 | Native hollow-cloth world contact, swept obstruction checks and remaining physics | `design/V2_FIRE_HOSE_WORLD_CONTACT_REVIEW_2026-10-19.md` |
