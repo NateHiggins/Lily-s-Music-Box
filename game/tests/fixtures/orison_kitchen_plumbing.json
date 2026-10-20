@@ -1,0 +1,5845 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Closed native plumbing stock, open pipe bores and metre UV/tangent export; not installed runtime acceptance.",
+  "asset_sha256": "3366b308f63c70badb19d9353f952d830e9f82ed708069b89428752095bef273",
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\kitchen_plumbing.glb",
+    "primitives": 26,
+    "triangles": 205360,
+    "minimum_tangent_agreement": 0.9999999046623758,
+    "status": "PASS"
+  },
+  "closed_stocks": [
+    {
+      "name": "Compact280_Waste",
+      "assembly": "Compact280",
+      "key": "nickel_plated",
+      "volume_m3": 0.00022012920246556976
+    },
+    {
+      "name": "Compact280_DrainCoupling",
+      "assembly": "Compact280",
+      "key": "nickel_plated",
+      "volume_m3": 2.9231901584620175e-05
+    },
+    {
+      "name": "Compact280_TrapUnion",
+      "assembly": "Compact280",
+      "key": "nickel_plated",
+      "volume_m3": 2.2952289872874585e-05
+    },
+    {
+      "name": "Compact280_WasteWallSeat",
+      "assembly": "Compact280",
+      "key": "nickel_plated",
+      "volume_m3": 5.350589615197018e-05
+    },
+    {
+      "name": "Compact280_Supply0",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 0.00012520113529391246
+    },
+    {
+      "name": "Compact280_SupplyWallSeat0",
+      "assembly": "Compact280",
+      "key": "nickel_plated",
+      "volume_m3": 1.191085526534917e-05
+    },
+    {
+      "name": "Compact280_ValveBody0",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 3.107724996622284e-05
+    },
+    {
+      "name": "Compact280_SupplyUnion(0, 0.316)",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 4.1030533647424485e-06
+    },
+    {
+      "name": "Compact280_SupplyUnion(0, 0.368)",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 4.103053364742443e-06
+    },
+    {
+      "name": "Compact280_Spindle0",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 4.526002931974756e-06
+    },
+    {
+      "name": "Compact280_PackingGland0",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 7.759705253039858e-06
+    },
+    {
+      "name": "Compact280_StemPacking0",
+      "assembly": "Compact280",
+      "key": "rubber_aged",
+      "volume_m3": 4.7482068226420207e-07
+    },
+    {
+      "name": "Compact280_FaucetUnion0",
+      "assembly": "Compact280",
+      "key": "nickel_plated",
+      "volume_m3": 6.215631112576969e-06
+    },
+    {
+      "name": "Compact280_Supply1",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 0.00012520113529391246
+    },
+    {
+      "name": "Compact280_SupplyWallSeat1",
+      "assembly": "Compact280",
+      "key": "nickel_plated",
+      "volume_m3": 1.191085526534917e-05
+    },
+    {
+      "name": "Compact280_ValveBody1",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 3.107724996622284e-05
+    },
+    {
+      "name": "Compact280_SupplyUnion(1, 0.316)",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 4.1030533647424485e-06
+    },
+    {
+      "name": "Compact280_SupplyUnion(1, 0.368)",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 4.103053364742443e-06
+    },
+    {
+      "name": "Compact280_Spindle1",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 4.526002931974756e-06
+    },
+    {
+      "name": "Compact280_PackingGland1",
+      "assembly": "Compact280",
+      "key": "door_brass",
+      "volume_m3": 7.759705253039858e-06
+    },
+    {
+      "name": "Compact280_StemPacking1",
+      "assembly": "Compact280",
+      "key": "rubber_aged",
+      "volume_m3": 4.7482068226420207e-07
+    },
+    {
+      "name": "Compact280_FaucetUnion1",
+      "assembly": "Compact280",
+      "key": "nickel_plated",
+      "volume_m3": 6.215631112576969e-06
+    },
+    {
+      "name": "Standard390_Waste",
+      "assembly": "Standard390",
+      "key": "nickel_plated",
+      "volume_m3": 0.0002591860788116516
+    },
+    {
+      "name": "Standard390_DrainCoupling",
+      "assembly": "Standard390",
+      "key": "nickel_plated",
+      "volume_m3": 2.9231969621018227e-05
+    },
+    {
+      "name": "Standard390_TrapUnion",
+      "assembly": "Standard390",
+      "key": "nickel_plated",
+      "volume_m3": 2.295228987287459e-05
+    },
+    {
+      "name": "Standard390_WasteWallSeat",
+      "assembly": "Standard390",
+      "key": "nickel_plated",
+      "volume_m3": 5.3505701066307095e-05
+    },
+    {
+      "name": "Standard390_Supply0",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 0.0001325378549101419
+    },
+    {
+      "name": "Standard390_SupplyWallSeat0",
+      "assembly": "Standard390",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910795107779185e-05
+    },
+    {
+      "name": "Standard390_ValveBody0",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard390_SupplyUnion(0, 0.316)",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard390_SupplyUnion(0, 0.368)",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard390_Spindle0",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard390_PackingGland0",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard390_StemPacking0",
+      "assembly": "Standard390",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard390_FaucetUnion0",
+      "assembly": "Standard390",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard390_Supply1",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 0.0001325378549101419
+    },
+    {
+      "name": "Standard390_SupplyWallSeat1",
+      "assembly": "Standard390",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910795107779185e-05
+    },
+    {
+      "name": "Standard390_ValveBody1",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard390_SupplyUnion(1, 0.316)",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard390_SupplyUnion(1, 0.368)",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard390_Spindle1",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard390_PackingGland1",
+      "assembly": "Standard390",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard390_StemPacking1",
+      "assembly": "Standard390",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard390_FaucetUnion1",
+      "assembly": "Standard390",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard410_Waste",
+      "assembly": "Standard410",
+      "key": "nickel_plated",
+      "volume_m3": 0.0002662872412742324
+    },
+    {
+      "name": "Standard410_DrainCoupling",
+      "assembly": "Standard410",
+      "key": "nickel_plated",
+      "volume_m3": 2.9231969621018227e-05
+    },
+    {
+      "name": "Standard410_TrapUnion",
+      "assembly": "Standard410",
+      "key": "nickel_plated",
+      "volume_m3": 2.295228987287459e-05
+    },
+    {
+      "name": "Standard410_WasteWallSeat",
+      "assembly": "Standard410",
+      "key": "nickel_plated",
+      "volume_m3": 5.3505879789616265e-05
+    },
+    {
+      "name": "Standard410_Supply0",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 0.00013533291562946098
+    },
+    {
+      "name": "Standard410_SupplyWallSeat0",
+      "assembly": "Standard410",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910795107779185e-05
+    },
+    {
+      "name": "Standard410_ValveBody0",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard410_SupplyUnion(0, 0.316)",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard410_SupplyUnion(0, 0.368)",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard410_Spindle0",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard410_PackingGland0",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard410_StemPacking0",
+      "assembly": "Standard410",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard410_FaucetUnion0",
+      "assembly": "Standard410",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard410_Supply1",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 0.00013533291562946098
+    },
+    {
+      "name": "Standard410_SupplyWallSeat1",
+      "assembly": "Standard410",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910795107779185e-05
+    },
+    {
+      "name": "Standard410_ValveBody1",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard410_SupplyUnion(1, 0.316)",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard410_SupplyUnion(1, 0.368)",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard410_Spindle1",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard410_PackingGland1",
+      "assembly": "Standard410",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard410_StemPacking1",
+      "assembly": "Standard410",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard410_FaucetUnion1",
+      "assembly": "Standard410",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard300_Waste",
+      "assembly": "Standard300",
+      "key": "nickel_plated",
+      "volume_m3": 0.00022723069317248665
+    },
+    {
+      "name": "Standard300_DrainCoupling",
+      "assembly": "Standard300",
+      "key": "nickel_plated",
+      "volume_m3": 2.9231969621018227e-05
+    },
+    {
+      "name": "Standard300_TrapUnion",
+      "assembly": "Standard300",
+      "key": "nickel_plated",
+      "volume_m3": 2.295228987287459e-05
+    },
+    {
+      "name": "Standard300_WasteWallSeat",
+      "assembly": "Standard300",
+      "key": "nickel_plated",
+      "volume_m3": 5.3505879789616265e-05
+    },
+    {
+      "name": "Standard300_Supply0",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 0.00011996026883337332
+    },
+    {
+      "name": "Standard300_SupplyWallSeat0",
+      "assembly": "Standard300",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910855265349164e-05
+    },
+    {
+      "name": "Standard300_ValveBody0",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard300_SupplyUnion(0, 0.316)",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard300_SupplyUnion(0, 0.368)",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard300_Spindle0",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard300_PackingGland0",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard300_StemPacking0",
+      "assembly": "Standard300",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard300_FaucetUnion0",
+      "assembly": "Standard300",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard300_Supply1",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 0.00011996026883337332
+    },
+    {
+      "name": "Standard300_SupplyWallSeat1",
+      "assembly": "Standard300",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910855265349164e-05
+    },
+    {
+      "name": "Standard300_ValveBody1",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard300_SupplyUnion(1, 0.316)",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard300_SupplyUnion(1, 0.368)",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard300_Spindle1",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard300_PackingGland1",
+      "assembly": "Standard300",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard300_StemPacking1",
+      "assembly": "Standard300",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard300_FaucetUnion1",
+      "assembly": "Standard300",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard400_Waste",
+      "assembly": "Standard400",
+      "key": "nickel_plated",
+      "volume_m3": 0.0002627366847762776
+    },
+    {
+      "name": "Standard400_DrainCoupling",
+      "assembly": "Standard400",
+      "key": "nickel_plated",
+      "volume_m3": 2.9231969621018227e-05
+    },
+    {
+      "name": "Standard400_TrapUnion",
+      "assembly": "Standard400",
+      "key": "nickel_plated",
+      "volume_m3": 2.295228987287459e-05
+    },
+    {
+      "name": "Standard400_WasteWallSeat",
+      "assembly": "Standard400",
+      "key": "nickel_plated",
+      "volume_m3": 5.3505879789616265e-05
+    },
+    {
+      "name": "Standard400_Supply0",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 0.00013393538716814375
+    },
+    {
+      "name": "Standard400_SupplyWallSeat0",
+      "assembly": "Standard400",
+      "key": "nickel_plated",
+      "volume_m3": 1.191085526534917e-05
+    },
+    {
+      "name": "Standard400_ValveBody0",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard400_SupplyUnion(0, 0.316)",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard400_SupplyUnion(0, 0.368)",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard400_Spindle0",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard400_PackingGland0",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard400_StemPacking0",
+      "assembly": "Standard400",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard400_FaucetUnion0",
+      "assembly": "Standard400",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard400_Supply1",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 0.00013393538716814375
+    },
+    {
+      "name": "Standard400_SupplyWallSeat1",
+      "assembly": "Standard400",
+      "key": "nickel_plated",
+      "volume_m3": 1.191085526534917e-05
+    },
+    {
+      "name": "Standard400_ValveBody1",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard400_SupplyUnion(1, 0.316)",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard400_SupplyUnion(1, 0.368)",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard400_Spindle1",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard400_PackingGland1",
+      "assembly": "Standard400",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard400_StemPacking1",
+      "assembly": "Standard400",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard400_FaucetUnion1",
+      "assembly": "Standard400",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Compact430Timber_Waste",
+      "assembly": "Compact430Timber",
+      "key": "nickel_plated",
+      "volume_m3": 0.000273388520289193
+    },
+    {
+      "name": "Compact430Timber_DrainCoupling",
+      "assembly": "Compact430Timber",
+      "key": "nickel_plated",
+      "volume_m3": 2.9231901584620175e-05
+    },
+    {
+      "name": "Compact430Timber_TrapUnion",
+      "assembly": "Compact430Timber",
+      "key": "nickel_plated",
+      "volume_m3": 2.2952289872874585e-05
+    },
+    {
+      "name": "Compact430Timber_WasteWallSeat",
+      "assembly": "Compact430Timber",
+      "key": "nickel_plated",
+      "volume_m3": 5.350589615197018e-05
+    },
+    {
+      "name": "Compact430Timber_Supply0",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 0.0001461637636867594
+    },
+    {
+      "name": "Compact430Timber_SupplyWallSeat0",
+      "assembly": "Compact430Timber",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910855265349164e-05
+    },
+    {
+      "name": "Compact430Timber_ValveBody0",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 3.107725260488741e-05
+    },
+    {
+      "name": "Compact430Timber_SupplyUnion(0, 0.316)",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 4.103052758138209e-06
+    },
+    {
+      "name": "Compact430Timber_SupplyUnion(0, 0.368)",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 4.103052758138202e-06
+    },
+    {
+      "name": "Compact430Timber_Spindle0",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 4.526002931974767e-06
+    },
+    {
+      "name": "Compact430Timber_PackingGland0",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 7.75970434970218e-06
+    },
+    {
+      "name": "Compact430Timber_StemPacking0",
+      "assembly": "Compact430Timber",
+      "key": "rubber_aged",
+      "volume_m3": 4.748199664501228e-07
+    },
+    {
+      "name": "Compact430Timber_FaucetUnion0",
+      "assembly": "Compact430Timber",
+      "key": "nickel_plated",
+      "volume_m3": 6.215631112576969e-06
+    },
+    {
+      "name": "Compact430Timber_Supply1",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 0.0001461637636867594
+    },
+    {
+      "name": "Compact430Timber_SupplyWallSeat1",
+      "assembly": "Compact430Timber",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910855265349164e-05
+    },
+    {
+      "name": "Compact430Timber_ValveBody1",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 3.107725260488741e-05
+    },
+    {
+      "name": "Compact430Timber_SupplyUnion(1, 0.316)",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 4.103052758138209e-06
+    },
+    {
+      "name": "Compact430Timber_SupplyUnion(1, 0.368)",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 4.103052758138202e-06
+    },
+    {
+      "name": "Compact430Timber_Spindle1",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 4.526002931974767e-06
+    },
+    {
+      "name": "Compact430Timber_PackingGland1",
+      "assembly": "Compact430Timber",
+      "key": "door_brass",
+      "volume_m3": 7.75970434970218e-06
+    },
+    {
+      "name": "Compact430Timber_StemPacking1",
+      "assembly": "Compact430Timber",
+      "key": "rubber_aged",
+      "volume_m3": 4.748199664501228e-07
+    },
+    {
+      "name": "Compact430Timber_FaucetUnion1",
+      "assembly": "Compact430Timber",
+      "key": "nickel_plated",
+      "volume_m3": 6.215631112576969e-06
+    },
+    {
+      "name": "Standard360_Waste",
+      "assembly": "Standard360",
+      "key": "nickel_plated",
+      "volume_m3": 0.00024853424550069287
+    },
+    {
+      "name": "Standard360_DrainCoupling",
+      "assembly": "Standard360",
+      "key": "nickel_plated",
+      "volume_m3": 2.9231969621018227e-05
+    },
+    {
+      "name": "Standard360_TrapUnion",
+      "assembly": "Standard360",
+      "key": "nickel_plated",
+      "volume_m3": 2.295228987287459e-05
+    },
+    {
+      "name": "Standard360_WasteWallSeat",
+      "assembly": "Standard360",
+      "key": "nickel_plated",
+      "volume_m3": 5.3505879789616265e-05
+    },
+    {
+      "name": "Standard360_Supply0",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 0.00012834527447887068
+    },
+    {
+      "name": "Standard360_SupplyWallSeat0",
+      "assembly": "Standard360",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910855265349164e-05
+    },
+    {
+      "name": "Standard360_ValveBody0",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard360_SupplyUnion(0, 0.316)",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard360_SupplyUnion(0, 0.368)",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard360_Spindle0",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard360_PackingGland0",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard360_StemPacking0",
+      "assembly": "Standard360",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard360_FaucetUnion0",
+      "assembly": "Standard360",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard360_Supply1",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 0.00012834527447887068
+    },
+    {
+      "name": "Standard360_SupplyWallSeat1",
+      "assembly": "Standard360",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910855265349164e-05
+    },
+    {
+      "name": "Standard360_ValveBody1",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard360_SupplyUnion(1, 0.316)",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard360_SupplyUnion(1, 0.368)",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard360_Spindle1",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard360_PackingGland1",
+      "assembly": "Standard360",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard360_StemPacking1",
+      "assembly": "Standard360",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard360_FaucetUnion1",
+      "assembly": "Standard360",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard350_Waste",
+      "assembly": "Standard350",
+      "key": "nickel_plated",
+      "volume_m3": 0.00024498366725414516
+    },
+    {
+      "name": "Standard350_DrainCoupling",
+      "assembly": "Standard350",
+      "key": "nickel_plated",
+      "volume_m3": 2.9231969621018227e-05
+    },
+    {
+      "name": "Standard350_TrapUnion",
+      "assembly": "Standard350",
+      "key": "nickel_plated",
+      "volume_m3": 2.295228987287459e-05
+    },
+    {
+      "name": "Standard350_WasteWallSeat",
+      "assembly": "Standard350",
+      "key": "nickel_plated",
+      "volume_m3": 5.3505879789616265e-05
+    },
+    {
+      "name": "Standard350_Supply0",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 0.00012694774566470308
+    },
+    {
+      "name": "Standard350_SupplyWallSeat0",
+      "assembly": "Standard350",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910795107779185e-05
+    },
+    {
+      "name": "Standard350_ValveBody0",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard350_SupplyUnion(0, 0.316)",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard350_SupplyUnion(0, 0.368)",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard350_Spindle0",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard350_PackingGland0",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard350_StemPacking0",
+      "assembly": "Standard350",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard350_FaucetUnion0",
+      "assembly": "Standard350",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "Standard350_Supply1",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 0.00012694774566470308
+    },
+    {
+      "name": "Standard350_SupplyWallSeat1",
+      "assembly": "Standard350",
+      "key": "nickel_plated",
+      "volume_m3": 1.1910795107779185e-05
+    },
+    {
+      "name": "Standard350_ValveBody1",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 3.1077254771395537e-05
+    },
+    {
+      "name": "Standard350_SupplyUnion(1, 0.316)",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240932e-06
+    },
+    {
+      "name": "Standard350_SupplyUnion(1, 0.368)",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 4.103052415240929e-06
+    },
+    {
+      "name": "Standard350_Spindle1",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 4.5260017691695865e-06
+    },
+    {
+      "name": "Standard350_PackingGland1",
+      "assembly": "Standard350",
+      "key": "door_brass",
+      "volume_m3": 7.759709752411087e-06
+    },
+    {
+      "name": "Standard350_StemPacking1",
+      "assembly": "Standard350",
+      "key": "rubber_aged",
+      "volume_m3": 4.74818770260623e-07
+    },
+    {
+      "name": "Standard350_FaucetUnion1",
+      "assembly": "Standard350",
+      "key": "nickel_plated",
+      "volume_m3": 6.21565266246486e-06
+    },
+    {
+      "name": "StopWheel_Rim",
+      "assembly": "StopWheel",
+      "key": "iron_neutral",
+      "volume_m3": 7.828825341426638e-06
+    },
+    {
+      "name": "StopWheel_Spoke0",
+      "assembly": "StopWheel",
+      "key": "iron_neutral",
+      "volume_m3": 6.360682311329878e-07
+    },
+    {
+      "name": "StopWheel_Spoke1",
+      "assembly": "StopWheel",
+      "key": "iron_neutral",
+      "volume_m3": 6.36073650738628e-07
+    },
+    {
+      "name": "StopWheel_Spoke2",
+      "assembly": "StopWheel",
+      "key": "iron_neutral",
+      "volume_m3": 6.360682311329878e-07
+    },
+    {
+      "name": "StopWheel_Spoke3",
+      "assembly": "StopWheel",
+      "key": "iron_neutral",
+      "volume_m3": 6.36073650738628e-07
+    },
+    {
+      "name": "StopWheel_Hub",
+      "assembly": "StopWheel",
+      "key": "door_brass",
+      "volume_m3": 2.4212865655961074e-06
+    }
+  ],
+  "parts": [
+    {
+      "name": "Compact280__door_brass",
+      "assembly": "Compact280",
+      "cell": "kitchen",
+      "key": "door_brass",
+      "triangles": 11768
+    },
+    {
+      "name": "Compact280__nickel_plated",
+      "assembly": "Compact280",
+      "cell": "kitchen",
+      "key": "nickel_plated",
+      "triangles": 12032
+    },
+    {
+      "name": "Compact280__rubber_aged",
+      "assembly": "Compact280",
+      "cell": "kitchen",
+      "key": "rubber_aged",
+      "triangles": 1536
+    },
+    {
+      "name": "Standard390__door_brass",
+      "assembly": "Standard390",
+      "cell": "kitchen",
+      "key": "door_brass",
+      "triangles": 11768
+    },
+    {
+      "name": "Standard390__nickel_plated",
+      "assembly": "Standard390",
+      "cell": "kitchen",
+      "key": "nickel_plated",
+      "triangles": 12032
+    },
+    {
+      "name": "Standard390__rubber_aged",
+      "assembly": "Standard390",
+      "cell": "kitchen",
+      "key": "rubber_aged",
+      "triangles": 1536
+    },
+    {
+      "name": "Standard410__door_brass",
+      "assembly": "Standard410",
+      "cell": "kitchen",
+      "key": "door_brass",
+      "triangles": 11768
+    },
+    {
+      "name": "Standard410__nickel_plated",
+      "assembly": "Standard410",
+      "cell": "kitchen",
+      "key": "nickel_plated",
+      "triangles": 12032
+    },
+    {
+      "name": "Standard410__rubber_aged",
+      "assembly": "Standard410",
+      "cell": "kitchen",
+      "key": "rubber_aged",
+      "triangles": 1536
+    },
+    {
+      "name": "Standard300__door_brass",
+      "assembly": "Standard300",
+      "cell": "kitchen",
+      "key": "door_brass",
+      "triangles": 11768
+    },
+    {
+      "name": "Standard300__nickel_plated",
+      "assembly": "Standard300",
+      "cell": "kitchen",
+      "key": "nickel_plated",
+      "triangles": 12032
+    },
+    {
+      "name": "Standard300__rubber_aged",
+      "assembly": "Standard300",
+      "cell": "kitchen",
+      "key": "rubber_aged",
+      "triangles": 1536
+    },
+    {
+      "name": "Standard400__door_brass",
+      "assembly": "Standard400",
+      "cell": "kitchen",
+      "key": "door_brass",
+      "triangles": 11768
+    },
+    {
+      "name": "Standard400__nickel_plated",
+      "assembly": "Standard400",
+      "cell": "kitchen",
+      "key": "nickel_plated",
+      "triangles": 12032
+    },
+    {
+      "name": "Standard400__rubber_aged",
+      "assembly": "Standard400",
+      "cell": "kitchen",
+      "key": "rubber_aged",
+      "triangles": 1536
+    },
+    {
+      "name": "Compact430Timber__door_brass",
+      "assembly": "Compact430Timber",
+      "cell": "kitchen",
+      "key": "door_brass",
+      "triangles": 11768
+    },
+    {
+      "name": "Compact430Timber__nickel_plated",
+      "assembly": "Compact430Timber",
+      "cell": "kitchen",
+      "key": "nickel_plated",
+      "triangles": 12032
+    },
+    {
+      "name": "Compact430Timber__rubber_aged",
+      "assembly": "Compact430Timber",
+      "cell": "kitchen",
+      "key": "rubber_aged",
+      "triangles": 1536
+    },
+    {
+      "name": "Standard360__door_brass",
+      "assembly": "Standard360",
+      "cell": "kitchen",
+      "key": "door_brass",
+      "triangles": 11768
+    },
+    {
+      "name": "Standard360__nickel_plated",
+      "assembly": "Standard360",
+      "cell": "kitchen",
+      "key": "nickel_plated",
+      "triangles": 12032
+    },
+    {
+      "name": "Standard360__rubber_aged",
+      "assembly": "Standard360",
+      "cell": "kitchen",
+      "key": "rubber_aged",
+      "triangles": 1536
+    },
+    {
+      "name": "Standard350__door_brass",
+      "assembly": "Standard350",
+      "cell": "kitchen",
+      "key": "door_brass",
+      "triangles": 11768
+    },
+    {
+      "name": "Standard350__nickel_plated",
+      "assembly": "Standard350",
+      "cell": "kitchen",
+      "key": "nickel_plated",
+      "triangles": 12032
+    },
+    {
+      "name": "Standard350__rubber_aged",
+      "assembly": "Standard350",
+      "cell": "kitchen",
+      "key": "rubber_aged",
+      "triangles": 1536
+    },
+    {
+      "name": "StopWheel__door_brass",
+      "assembly": "StopWheel",
+      "cell": "kitchen",
+      "key": "door_brass",
+      "triangles": 768
+    },
+    {
+      "name": "StopWheel__iron_neutral",
+      "assembly": "StopWheel",
+      "cell": "kitchen",
+      "key": "iron_neutral",
+      "triangles": 1904
+    }
+  ],
+  "profiles": [
+    {
+      "template": "Compact280",
+      "kind": "waste",
+      "points": [
+        [
+          0,
+          0.7695,
+          0.01
+        ],
+        [
+          0,
+          0.5725,
+          0.01
+        ],
+        [
+          0,
+          0.5651487144752829,
+          0.010361145499585236
+        ],
+        [
+          0,
+          0.5578682258487904,
+          0.011441103969757727
+        ],
+        [
+          0,
+          0.5507286492059154,
+          0.013229474820084353
+        ],
+        [
+          0,
+          0.5437987425726183,
+          0.015709035061653498
+        ],
+        [
+          0,
+          0.5371452447380501,
+          0.01885590517387338
+        ],
+        [
+          0,
+          0.5308322325235298,
+          0.022639779077309116
+        ],
+        [
+          0,
+          0.5249205036877266,
+          0.027024215997794733
+        ],
+        [
+          0,
+          0.5194669914110089,
+          0.03196699141100894
+        ],
+        [
+          0,
+          0.5145242159977947,
+          0.0374205036877266
+        ],
+        [
+          0,
+          0.5101397790773091,
+          0.043332232523529836
+        ],
+        [
+          0,
+          0.5063559051738734,
+          0.049645244738050175
+        ],
+        [
+          0,
+          0.5032090350616535,
+          0.05629874257261827
+        ],
+        [
+          0,
+          0.5007294748200843,
+          0.06322864920591534
+        ],
+        [
+          0,
+          0.4989411039697577,
+          0.07036822584879038
+        ],
+        [
+          0,
+          0.49786114549958527,
+          0.07764871447528295
+        ],
+        [
+          0,
+          0.4975,
+          0.085
+        ],
+        [
+          0,
+          0.49786114549958527,
+          0.09235128552471705
+        ],
+        [
+          0,
+          0.4989411039697577,
+          0.09963177415120962
+        ],
+        [
+          0,
+          0.5007294748200843,
+          0.10677135079408467
+        ],
+        [
+          0,
+          0.5032090350616535,
+          0.11370125742738174
+        ],
+        [
+          0,
+          0.5063559051738734,
+          0.12035475526194983
+        ],
+        [
+          0,
+          0.5101397790773091,
+          0.12666776747647016
+        ],
+        [
+          0,
+          0.5145242159977947,
+          0.1325794963122734
+        ],
+        [
+          0,
+          0.5194669914110089,
+          0.13803300858899106
+        ],
+        [
+          0,
+          0.5249205036877266,
+          0.1429757840022053
+        ],
+        [
+          0,
+          0.5308322325235298,
+          0.1473602209226909
+        ],
+        [
+          0,
+          0.5371452447380501,
+          0.15114409482612662
+        ],
+        [
+          0,
+          0.5437987425726183,
+          0.15429096493834651
+        ],
+        [
+          0,
+          0.5507286492059154,
+          0.15677052517991566
+        ],
+        [
+          0,
+          0.5578682258487904,
+          0.15855889603024229
+        ],
+        [
+          0,
+          0.5651487144752829,
+          0.15963885450041476
+        ],
+        [
+          0,
+          0.5725,
+          0.16
+        ],
+        [
+          0,
+          0.6174999999999999,
+          0.16
+        ],
+        [
+          0,
+          0.6214206856131823,
+          0.16019261093311213
+        ],
+        [
+          0,
+          0.6253036128806451,
+          0.1607685887838708
+        ],
+        [
+          0,
+          0.6291113870901784,
+          0.16172238657071164
+        ],
+        [
+          0,
+          0.6328073372946035,
+          0.16304481869954854
+        ],
+        [
+          0,
+          0.6363558694730398,
+          0.1647231494260658
+        ],
+        [
+          0,
+          0.6397228093207841,
+          0.1667412155078982
+        ],
+        [
+          0,
+          0.6428757313665457,
+          0.16907958186549052
+        ],
+        [
+          0,
+          0.6457842712474618,
+          0.1717157287525381
+        ],
+        [
+          0,
+          0.6484204181345095,
+          0.1746242686334542
+        ],
+        [
+          0,
+          0.6507587844921018,
+          0.1777771906792159
+        ],
+        [
+          0,
+          0.6527768505739341,
+          0.1811441305269601
+        ],
+        [
+          0,
+          0.6544551813004514,
+          0.18469266270539642
+        ],
+        [
+          0,
+          0.6557776134292883,
+          0.1883886129098215
+        ],
+        [
+          0,
+          0.6567314112161291,
+          0.19219638711935488
+        ],
+        [
+          0,
+          0.6573073890668878,
+          0.19607931438681758
+        ],
+        [
+          0,
+          0.6575,
+          0.2
+        ],
+        [
+          0,
+          0.6575,
+          0.28
+        ]
+      ],
+      "outer": 0.024,
+      "inner": 0.0215
+    },
+    {
+      "template": "Compact280",
+      "kind": "supply",
+      "index": 0,
+      "points": [
+        [
+          -0.095,
+          0.22,
+          0.28
+        ],
+        [
+          -0.095,
+          0.22,
+          0.245
+        ],
+        [
+          -0.095,
+          0.22021387846565474,
+          0.2417368451944987
+        ],
+        [
+          -0.095,
+          0.2208518543427733,
+          0.23852952387243698
+        ],
+        [
+          -0.095,
+          0.22190301168721782,
+          0.23543291419087276
+        ],
+        [
+          -0.095,
+          0.22334936490538904,
+          0.23249999999999998
+        ],
+        [
+          -0.095,
+          0.22516616649271912,
+          0.22978096427478198
+        ],
+        [
+          -0.095,
+          0.22732233047033631,
+          0.22732233047033631
+        ],
+        [
+          -0.095,
+          0.22978096427478198,
+          0.22516616649271912
+        ],
+        [
+          -0.095,
+          0.23249999999999998,
+          0.22334936490538904
+        ],
+        [
+          -0.095,
+          0.23543291419087276,
+          0.22190301168721782
+        ],
+        [
+          -0.095,
+          0.23852952387243698,
+          0.2208518543427733
+        ],
+        [
+          -0.095,
+          0.2417368451944987,
+          0.22021387846565474
+        ],
+        [
+          -0.095,
+          0.245,
+          0.22
+        ],
+        [
+          -0.095,
+          1.0025,
+          0.22
+        ],
+        [
+          -0.095,
+          1.0057631548055013,
+          0.21978612153434526
+        ],
+        [
+          -0.095,
+          1.0089704761275629,
+          0.2191481456572267
+        ],
+        [
+          -0.095,
+          1.0120670858091272,
+          0.21809698831278218
+        ],
+        [
+          -0.095,
+          1.015,
+          0.21665063509461097
+        ],
+        [
+          -0.095,
+          1.017719035725218,
+          0.21483383350728089
+        ],
+        [
+          -0.095,
+          1.0201776695296636,
+          0.2126776695296637
+        ],
+        [
+          -0.095,
+          1.022333833507281,
+          0.21021903572521802
+        ],
+        [
+          -0.095,
+          1.024150635094611,
+          0.20750000000000002
+        ],
+        [
+          -0.095,
+          1.025596988312782,
+          0.20456708580912725
+        ],
+        [
+          -0.095,
+          1.0266481456572267,
+          0.20147047612756303
+        ],
+        [
+          -0.095,
+          1.0272861215343452,
+          0.1982631548055013
+        ],
+        [
+          -0.095,
+          1.0274999999999999,
+          0.195
+        ],
+        [
+          -0.095,
+          1.0275,
+          0.17
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Compact280",
+      "kind": "supply",
+      "index": 1,
+      "points": [
+        [
+          0.095,
+          0.22,
+          0.28
+        ],
+        [
+          0.095,
+          0.22,
+          0.245
+        ],
+        [
+          0.095,
+          0.22021387846565474,
+          0.2417368451944987
+        ],
+        [
+          0.095,
+          0.2208518543427733,
+          0.23852952387243698
+        ],
+        [
+          0.095,
+          0.22190301168721782,
+          0.23543291419087276
+        ],
+        [
+          0.095,
+          0.22334936490538904,
+          0.23249999999999998
+        ],
+        [
+          0.095,
+          0.22516616649271912,
+          0.22978096427478198
+        ],
+        [
+          0.095,
+          0.22732233047033631,
+          0.22732233047033631
+        ],
+        [
+          0.095,
+          0.22978096427478198,
+          0.22516616649271912
+        ],
+        [
+          0.095,
+          0.23249999999999998,
+          0.22334936490538904
+        ],
+        [
+          0.095,
+          0.23543291419087276,
+          0.22190301168721782
+        ],
+        [
+          0.095,
+          0.23852952387243698,
+          0.2208518543427733
+        ],
+        [
+          0.095,
+          0.2417368451944987,
+          0.22021387846565474
+        ],
+        [
+          0.095,
+          0.245,
+          0.22
+        ],
+        [
+          0.095,
+          1.0025,
+          0.22
+        ],
+        [
+          0.095,
+          1.0057631548055013,
+          0.21978612153434526
+        ],
+        [
+          0.095,
+          1.0089704761275629,
+          0.2191481456572267
+        ],
+        [
+          0.095,
+          1.0120670858091272,
+          0.21809698831278218
+        ],
+        [
+          0.095,
+          1.015,
+          0.21665063509461097
+        ],
+        [
+          0.095,
+          1.017719035725218,
+          0.21483383350728089
+        ],
+        [
+          0.095,
+          1.0201776695296636,
+          0.2126776695296637
+        ],
+        [
+          0.095,
+          1.022333833507281,
+          0.21021903572521802
+        ],
+        [
+          0.095,
+          1.024150635094611,
+          0.20750000000000002
+        ],
+        [
+          0.095,
+          1.025596988312782,
+          0.20456708580912725
+        ],
+        [
+          0.095,
+          1.0266481456572267,
+          0.20147047612756303
+        ],
+        [
+          0.095,
+          1.0272861215343452,
+          0.1982631548055013
+        ],
+        [
+          0.095,
+          1.0274999999999999,
+          0.195
+        ],
+        [
+          0.095,
+          1.0275,
+          0.17
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard390",
+      "kind": "waste",
+      "points": [
+        [
+          0,
+          0.752,
+          0.01
+        ],
+        [
+          0,
+          0.555,
+          0.01
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.010361145499585236
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.011441103969757727
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.013229474820084353
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.015709035061653498
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.01885590517387338
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.022639779077309116
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.027024215997794733
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.03196699141100894
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.0374205036877266
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.043332232523529836
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.049645244738050175
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.05629874257261827
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.06322864920591534
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.07036822584879038
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.07764871447528295
+        ],
+        [
+          0,
+          0.48000000000000004,
+          0.085
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.09235128552471705
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.09963177415120962
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.10677135079408467
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.11370125742738174
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.12035475526194983
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.12666776747647016
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.1325794963122734
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.13803300858899106
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.1429757840022053
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.1473602209226909
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.15114409482612662
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.15429096493834651
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.15677052517991566
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.15855889603024229
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.15963885450041476
+        ],
+        [
+          0,
+          0.555,
+          0.16
+        ],
+        [
+          0,
+          0.6,
+          0.16
+        ],
+        [
+          0,
+          0.6039206856131824,
+          0.16019261093311213
+        ],
+        [
+          0,
+          0.6078036128806451,
+          0.1607685887838708
+        ],
+        [
+          0,
+          0.6116113870901785,
+          0.16172238657071164
+        ],
+        [
+          0,
+          0.6153073372946035,
+          0.16304481869954854
+        ],
+        [
+          0,
+          0.6188558694730398,
+          0.1647231494260658
+        ],
+        [
+          0,
+          0.6222228093207841,
+          0.1667412155078982
+        ],
+        [
+          0,
+          0.6253757313665458,
+          0.16907958186549052
+        ],
+        [
+          0,
+          0.6282842712474619,
+          0.1717157287525381
+        ],
+        [
+          0,
+          0.6309204181345095,
+          0.1746242686334542
+        ],
+        [
+          0,
+          0.6332587844921018,
+          0.1777771906792159
+        ],
+        [
+          0,
+          0.6352768505739341,
+          0.1811441305269601
+        ],
+        [
+          0,
+          0.6369551813004515,
+          0.18469266270539642
+        ],
+        [
+          0,
+          0.6382776134292883,
+          0.1883886129098215
+        ],
+        [
+          0,
+          0.6392314112161293,
+          0.19219638711935488
+        ],
+        [
+          0,
+          0.6398073890668878,
+          0.19607931438681758
+        ],
+        [
+          0,
+          0.64,
+          0.2
+        ],
+        [
+          0,
+          0.64,
+          0.39
+        ]
+      ],
+      "outer": 0.024,
+      "inner": 0.0215
+    },
+    {
+      "template": "Standard390",
+      "kind": "supply",
+      "index": 0,
+      "points": [
+        [
+          -0.095,
+          0.22,
+          0.39
+        ],
+        [
+          -0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          -0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          -0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          -0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          -0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          -0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          -0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          -0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          -0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          -0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          -0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          -0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          -0.095,
+          0.245,
+          0.26
+        ],
+        [
+          -0.095,
+          0.985,
+          0.26
+        ],
+        [
+          -0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          -0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          -0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          -0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          -0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          -0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          -0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          -0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          -0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          -0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          -0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          -0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          -0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard390",
+      "kind": "supply",
+      "index": 1,
+      "points": [
+        [
+          0.095,
+          0.22,
+          0.39
+        ],
+        [
+          0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          0.095,
+          0.245,
+          0.26
+        ],
+        [
+          0.095,
+          0.985,
+          0.26
+        ],
+        [
+          0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard410",
+      "kind": "waste",
+      "points": [
+        [
+          0,
+          0.752,
+          0.01
+        ],
+        [
+          0,
+          0.555,
+          0.01
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.010361145499585236
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.011441103969757727
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.013229474820084353
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.015709035061653498
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.01885590517387338
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.022639779077309116
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.027024215997794733
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.03196699141100894
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.0374205036877266
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.043332232523529836
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.049645244738050175
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.05629874257261827
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.06322864920591534
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.07036822584879038
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.07764871447528295
+        ],
+        [
+          0,
+          0.48000000000000004,
+          0.085
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.09235128552471705
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.09963177415120962
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.10677135079408467
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.11370125742738174
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.12035475526194983
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.12666776747647016
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.1325794963122734
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.13803300858899106
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.1429757840022053
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.1473602209226909
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.15114409482612662
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.15429096493834651
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.15677052517991566
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.15855889603024229
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.15963885450041476
+        ],
+        [
+          0,
+          0.555,
+          0.16
+        ],
+        [
+          0,
+          0.6,
+          0.16
+        ],
+        [
+          0,
+          0.6039206856131824,
+          0.16019261093311213
+        ],
+        [
+          0,
+          0.6078036128806451,
+          0.1607685887838708
+        ],
+        [
+          0,
+          0.6116113870901785,
+          0.16172238657071164
+        ],
+        [
+          0,
+          0.6153073372946035,
+          0.16304481869954854
+        ],
+        [
+          0,
+          0.6188558694730398,
+          0.1647231494260658
+        ],
+        [
+          0,
+          0.6222228093207841,
+          0.1667412155078982
+        ],
+        [
+          0,
+          0.6253757313665458,
+          0.16907958186549052
+        ],
+        [
+          0,
+          0.6282842712474619,
+          0.1717157287525381
+        ],
+        [
+          0,
+          0.6309204181345095,
+          0.1746242686334542
+        ],
+        [
+          0,
+          0.6332587844921018,
+          0.1777771906792159
+        ],
+        [
+          0,
+          0.6352768505739341,
+          0.1811441305269601
+        ],
+        [
+          0,
+          0.6369551813004515,
+          0.18469266270539642
+        ],
+        [
+          0,
+          0.6382776134292883,
+          0.1883886129098215
+        ],
+        [
+          0,
+          0.6392314112161293,
+          0.19219638711935488
+        ],
+        [
+          0,
+          0.6398073890668878,
+          0.19607931438681758
+        ],
+        [
+          0,
+          0.64,
+          0.2
+        ],
+        [
+          0,
+          0.64,
+          0.41
+        ]
+      ],
+      "outer": 0.024,
+      "inner": 0.0215
+    },
+    {
+      "template": "Standard410",
+      "kind": "supply",
+      "index": 0,
+      "points": [
+        [
+          -0.095,
+          0.22,
+          0.41
+        ],
+        [
+          -0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          -0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          -0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          -0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          -0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          -0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          -0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          -0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          -0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          -0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          -0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          -0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          -0.095,
+          0.245,
+          0.26
+        ],
+        [
+          -0.095,
+          0.985,
+          0.26
+        ],
+        [
+          -0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          -0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          -0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          -0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          -0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          -0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          -0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          -0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          -0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          -0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          -0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          -0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          -0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard410",
+      "kind": "supply",
+      "index": 1,
+      "points": [
+        [
+          0.095,
+          0.22,
+          0.41
+        ],
+        [
+          0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          0.095,
+          0.245,
+          0.26
+        ],
+        [
+          0.095,
+          0.985,
+          0.26
+        ],
+        [
+          0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard300",
+      "kind": "waste",
+      "points": [
+        [
+          0,
+          0.752,
+          0.01
+        ],
+        [
+          0,
+          0.555,
+          0.01
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.010361145499585236
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.011441103969757727
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.013229474820084353
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.015709035061653498
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.01885590517387338
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.022639779077309116
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.027024215997794733
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.03196699141100894
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.0374205036877266
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.043332232523529836
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.049645244738050175
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.05629874257261827
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.06322864920591534
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.07036822584879038
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.07764871447528295
+        ],
+        [
+          0,
+          0.48000000000000004,
+          0.085
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.09235128552471705
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.09963177415120962
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.10677135079408467
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.11370125742738174
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.12035475526194983
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.12666776747647016
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.1325794963122734
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.13803300858899106
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.1429757840022053
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.1473602209226909
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.15114409482612662
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.15429096493834651
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.15677052517991566
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.15855889603024229
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.15963885450041476
+        ],
+        [
+          0,
+          0.555,
+          0.16
+        ],
+        [
+          0,
+          0.6,
+          0.16
+        ],
+        [
+          0,
+          0.6039206856131824,
+          0.16019261093311213
+        ],
+        [
+          0,
+          0.6078036128806451,
+          0.1607685887838708
+        ],
+        [
+          0,
+          0.6116113870901785,
+          0.16172238657071164
+        ],
+        [
+          0,
+          0.6153073372946035,
+          0.16304481869954854
+        ],
+        [
+          0,
+          0.6188558694730398,
+          0.1647231494260658
+        ],
+        [
+          0,
+          0.6222228093207841,
+          0.1667412155078982
+        ],
+        [
+          0,
+          0.6253757313665458,
+          0.16907958186549052
+        ],
+        [
+          0,
+          0.6282842712474619,
+          0.1717157287525381
+        ],
+        [
+          0,
+          0.6309204181345095,
+          0.1746242686334542
+        ],
+        [
+          0,
+          0.6332587844921018,
+          0.1777771906792159
+        ],
+        [
+          0,
+          0.6352768505739341,
+          0.1811441305269601
+        ],
+        [
+          0,
+          0.6369551813004515,
+          0.18469266270539642
+        ],
+        [
+          0,
+          0.6382776134292883,
+          0.1883886129098215
+        ],
+        [
+          0,
+          0.6392314112161293,
+          0.19219638711935488
+        ],
+        [
+          0,
+          0.6398073890668878,
+          0.19607931438681758
+        ],
+        [
+          0,
+          0.64,
+          0.2
+        ],
+        [
+          0,
+          0.64,
+          0.3
+        ]
+      ],
+      "outer": 0.024,
+      "inner": 0.0215
+    },
+    {
+      "template": "Standard300",
+      "kind": "supply",
+      "index": 0,
+      "points": [
+        [
+          -0.095,
+          0.22,
+          0.3
+        ],
+        [
+          -0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          -0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          -0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          -0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          -0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          -0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          -0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          -0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          -0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          -0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          -0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          -0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          -0.095,
+          0.245,
+          0.26
+        ],
+        [
+          -0.095,
+          0.985,
+          0.26
+        ],
+        [
+          -0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          -0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          -0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          -0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          -0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          -0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          -0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          -0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          -0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          -0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          -0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          -0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          -0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard300",
+      "kind": "supply",
+      "index": 1,
+      "points": [
+        [
+          0.095,
+          0.22,
+          0.3
+        ],
+        [
+          0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          0.095,
+          0.245,
+          0.26
+        ],
+        [
+          0.095,
+          0.985,
+          0.26
+        ],
+        [
+          0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard400",
+      "kind": "waste",
+      "points": [
+        [
+          0,
+          0.752,
+          0.01
+        ],
+        [
+          0,
+          0.555,
+          0.01
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.010361145499585236
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.011441103969757727
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.013229474820084353
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.015709035061653498
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.01885590517387338
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.022639779077309116
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.027024215997794733
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.03196699141100894
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.0374205036877266
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.043332232523529836
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.049645244738050175
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.05629874257261827
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.06322864920591534
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.07036822584879038
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.07764871447528295
+        ],
+        [
+          0,
+          0.48000000000000004,
+          0.085
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.09235128552471705
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.09963177415120962
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.10677135079408467
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.11370125742738174
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.12035475526194983
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.12666776747647016
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.1325794963122734
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.13803300858899106
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.1429757840022053
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.1473602209226909
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.15114409482612662
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.15429096493834651
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.15677052517991566
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.15855889603024229
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.15963885450041476
+        ],
+        [
+          0,
+          0.555,
+          0.16
+        ],
+        [
+          0,
+          0.6,
+          0.16
+        ],
+        [
+          0,
+          0.6039206856131824,
+          0.16019261093311213
+        ],
+        [
+          0,
+          0.6078036128806451,
+          0.1607685887838708
+        ],
+        [
+          0,
+          0.6116113870901785,
+          0.16172238657071164
+        ],
+        [
+          0,
+          0.6153073372946035,
+          0.16304481869954854
+        ],
+        [
+          0,
+          0.6188558694730398,
+          0.1647231494260658
+        ],
+        [
+          0,
+          0.6222228093207841,
+          0.1667412155078982
+        ],
+        [
+          0,
+          0.6253757313665458,
+          0.16907958186549052
+        ],
+        [
+          0,
+          0.6282842712474619,
+          0.1717157287525381
+        ],
+        [
+          0,
+          0.6309204181345095,
+          0.1746242686334542
+        ],
+        [
+          0,
+          0.6332587844921018,
+          0.1777771906792159
+        ],
+        [
+          0,
+          0.6352768505739341,
+          0.1811441305269601
+        ],
+        [
+          0,
+          0.6369551813004515,
+          0.18469266270539642
+        ],
+        [
+          0,
+          0.6382776134292883,
+          0.1883886129098215
+        ],
+        [
+          0,
+          0.6392314112161293,
+          0.19219638711935488
+        ],
+        [
+          0,
+          0.6398073890668878,
+          0.19607931438681758
+        ],
+        [
+          0,
+          0.64,
+          0.2
+        ],
+        [
+          0,
+          0.64,
+          0.4
+        ]
+      ],
+      "outer": 0.024,
+      "inner": 0.0215
+    },
+    {
+      "template": "Standard400",
+      "kind": "supply",
+      "index": 0,
+      "points": [
+        [
+          -0.095,
+          0.22,
+          0.4
+        ],
+        [
+          -0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          -0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          -0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          -0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          -0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          -0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          -0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          -0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          -0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          -0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          -0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          -0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          -0.095,
+          0.245,
+          0.26
+        ],
+        [
+          -0.095,
+          0.985,
+          0.26
+        ],
+        [
+          -0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          -0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          -0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          -0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          -0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          -0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          -0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          -0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          -0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          -0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          -0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          -0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          -0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard400",
+      "kind": "supply",
+      "index": 1,
+      "points": [
+        [
+          0.095,
+          0.22,
+          0.4
+        ],
+        [
+          0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          0.095,
+          0.245,
+          0.26
+        ],
+        [
+          0.095,
+          0.985,
+          0.26
+        ],
+        [
+          0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Compact430Timber",
+      "kind": "waste",
+      "points": [
+        [
+          0,
+          0.7695,
+          0.01
+        ],
+        [
+          0,
+          0.5725,
+          0.01
+        ],
+        [
+          0,
+          0.5651487144752829,
+          0.010361145499585236
+        ],
+        [
+          0,
+          0.5578682258487904,
+          0.011441103969757727
+        ],
+        [
+          0,
+          0.5507286492059154,
+          0.013229474820084353
+        ],
+        [
+          0,
+          0.5437987425726183,
+          0.015709035061653498
+        ],
+        [
+          0,
+          0.5371452447380501,
+          0.01885590517387338
+        ],
+        [
+          0,
+          0.5308322325235298,
+          0.022639779077309116
+        ],
+        [
+          0,
+          0.5249205036877266,
+          0.027024215997794733
+        ],
+        [
+          0,
+          0.5194669914110089,
+          0.03196699141100894
+        ],
+        [
+          0,
+          0.5145242159977947,
+          0.0374205036877266
+        ],
+        [
+          0,
+          0.5101397790773091,
+          0.043332232523529836
+        ],
+        [
+          0,
+          0.5063559051738734,
+          0.049645244738050175
+        ],
+        [
+          0,
+          0.5032090350616535,
+          0.05629874257261827
+        ],
+        [
+          0,
+          0.5007294748200843,
+          0.06322864920591534
+        ],
+        [
+          0,
+          0.4989411039697577,
+          0.07036822584879038
+        ],
+        [
+          0,
+          0.49786114549958527,
+          0.07764871447528295
+        ],
+        [
+          0,
+          0.4975,
+          0.085
+        ],
+        [
+          0,
+          0.49786114549958527,
+          0.09235128552471705
+        ],
+        [
+          0,
+          0.4989411039697577,
+          0.09963177415120962
+        ],
+        [
+          0,
+          0.5007294748200843,
+          0.10677135079408467
+        ],
+        [
+          0,
+          0.5032090350616535,
+          0.11370125742738174
+        ],
+        [
+          0,
+          0.5063559051738734,
+          0.12035475526194983
+        ],
+        [
+          0,
+          0.5101397790773091,
+          0.12666776747647016
+        ],
+        [
+          0,
+          0.5145242159977947,
+          0.1325794963122734
+        ],
+        [
+          0,
+          0.5194669914110089,
+          0.13803300858899106
+        ],
+        [
+          0,
+          0.5249205036877266,
+          0.1429757840022053
+        ],
+        [
+          0,
+          0.5308322325235298,
+          0.1473602209226909
+        ],
+        [
+          0,
+          0.5371452447380501,
+          0.15114409482612662
+        ],
+        [
+          0,
+          0.5437987425726183,
+          0.15429096493834651
+        ],
+        [
+          0,
+          0.5507286492059154,
+          0.15677052517991566
+        ],
+        [
+          0,
+          0.5578682258487904,
+          0.15855889603024229
+        ],
+        [
+          0,
+          0.5651487144752829,
+          0.15963885450041476
+        ],
+        [
+          0,
+          0.5725,
+          0.16
+        ],
+        [
+          0,
+          0.6174999999999999,
+          0.16
+        ],
+        [
+          0,
+          0.6214206856131823,
+          0.16019261093311213
+        ],
+        [
+          0,
+          0.6253036128806451,
+          0.1607685887838708
+        ],
+        [
+          0,
+          0.6291113870901784,
+          0.16172238657071164
+        ],
+        [
+          0,
+          0.6328073372946035,
+          0.16304481869954854
+        ],
+        [
+          0,
+          0.6363558694730398,
+          0.1647231494260658
+        ],
+        [
+          0,
+          0.6397228093207841,
+          0.1667412155078982
+        ],
+        [
+          0,
+          0.6428757313665457,
+          0.16907958186549052
+        ],
+        [
+          0,
+          0.6457842712474618,
+          0.1717157287525381
+        ],
+        [
+          0,
+          0.6484204181345095,
+          0.1746242686334542
+        ],
+        [
+          0,
+          0.6507587844921018,
+          0.1777771906792159
+        ],
+        [
+          0,
+          0.6527768505739341,
+          0.1811441305269601
+        ],
+        [
+          0,
+          0.6544551813004514,
+          0.18469266270539642
+        ],
+        [
+          0,
+          0.6557776134292883,
+          0.1883886129098215
+        ],
+        [
+          0,
+          0.6567314112161291,
+          0.19219638711935488
+        ],
+        [
+          0,
+          0.6573073890668878,
+          0.19607931438681758
+        ],
+        [
+          0,
+          0.6575,
+          0.2
+        ],
+        [
+          0,
+          0.6575,
+          0.43
+        ]
+      ],
+      "outer": 0.024,
+      "inner": 0.0215
+    },
+    {
+      "template": "Compact430Timber",
+      "kind": "supply",
+      "index": 0,
+      "points": [
+        [
+          -0.095,
+          0.22,
+          0.43
+        ],
+        [
+          -0.095,
+          0.22,
+          0.34
+        ],
+        [
+          -0.095,
+          0.22021387846565474,
+          0.33673684519449876
+        ],
+        [
+          -0.095,
+          0.2208518543427733,
+          0.333529523872437
+        ],
+        [
+          -0.095,
+          0.22190301168721782,
+          0.3304329141908728
+        ],
+        [
+          -0.095,
+          0.22334936490538904,
+          0.3275
+        ],
+        [
+          -0.095,
+          0.22516616649271912,
+          0.32478096427478204
+        ],
+        [
+          -0.095,
+          0.22732233047033631,
+          0.3223223304703363
+        ],
+        [
+          -0.095,
+          0.22978096427478198,
+          0.3201661664927191
+        ],
+        [
+          -0.095,
+          0.23249999999999998,
+          0.31834936490538907
+        ],
+        [
+          -0.095,
+          0.23543291419087276,
+          0.31690301168721785
+        ],
+        [
+          -0.095,
+          0.23852952387243698,
+          0.3158518543427733
+        ],
+        [
+          -0.095,
+          0.2417368451944987,
+          0.31521387846565474
+        ],
+        [
+          -0.095,
+          0.245,
+          0.315
+        ],
+        [
+          -0.095,
+          1.0025,
+          0.315
+        ],
+        [
+          -0.095,
+          1.0057631548055013,
+          0.31478612153434526
+        ],
+        [
+          -0.095,
+          1.0089704761275629,
+          0.3141481456572267
+        ],
+        [
+          -0.095,
+          1.0120670858091272,
+          0.31309698831278215
+        ],
+        [
+          -0.095,
+          1.015,
+          0.31165063509461094
+        ],
+        [
+          -0.095,
+          1.017719035725218,
+          0.3098338335072809
+        ],
+        [
+          -0.095,
+          1.0201776695296636,
+          0.3076776695296637
+        ],
+        [
+          -0.095,
+          1.022333833507281,
+          0.305219035725218
+        ],
+        [
+          -0.095,
+          1.024150635094611,
+          0.3025
+        ],
+        [
+          -0.095,
+          1.025596988312782,
+          0.2995670858091272
+        ],
+        [
+          -0.095,
+          1.0266481456572267,
+          0.296470476127563
+        ],
+        [
+          -0.095,
+          1.0272861215343452,
+          0.29326315480550125
+        ],
+        [
+          -0.095,
+          1.0274999999999999,
+          0.29
+        ],
+        [
+          -0.095,
+          1.0275,
+          0.17
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Compact430Timber",
+      "kind": "supply",
+      "index": 1,
+      "points": [
+        [
+          0.095,
+          0.22,
+          0.43
+        ],
+        [
+          0.095,
+          0.22,
+          0.34
+        ],
+        [
+          0.095,
+          0.22021387846565474,
+          0.33673684519449876
+        ],
+        [
+          0.095,
+          0.2208518543427733,
+          0.333529523872437
+        ],
+        [
+          0.095,
+          0.22190301168721782,
+          0.3304329141908728
+        ],
+        [
+          0.095,
+          0.22334936490538904,
+          0.3275
+        ],
+        [
+          0.095,
+          0.22516616649271912,
+          0.32478096427478204
+        ],
+        [
+          0.095,
+          0.22732233047033631,
+          0.3223223304703363
+        ],
+        [
+          0.095,
+          0.22978096427478198,
+          0.3201661664927191
+        ],
+        [
+          0.095,
+          0.23249999999999998,
+          0.31834936490538907
+        ],
+        [
+          0.095,
+          0.23543291419087276,
+          0.31690301168721785
+        ],
+        [
+          0.095,
+          0.23852952387243698,
+          0.3158518543427733
+        ],
+        [
+          0.095,
+          0.2417368451944987,
+          0.31521387846565474
+        ],
+        [
+          0.095,
+          0.245,
+          0.315
+        ],
+        [
+          0.095,
+          1.0025,
+          0.315
+        ],
+        [
+          0.095,
+          1.0057631548055013,
+          0.31478612153434526
+        ],
+        [
+          0.095,
+          1.0089704761275629,
+          0.3141481456572267
+        ],
+        [
+          0.095,
+          1.0120670858091272,
+          0.31309698831278215
+        ],
+        [
+          0.095,
+          1.015,
+          0.31165063509461094
+        ],
+        [
+          0.095,
+          1.017719035725218,
+          0.3098338335072809
+        ],
+        [
+          0.095,
+          1.0201776695296636,
+          0.3076776695296637
+        ],
+        [
+          0.095,
+          1.022333833507281,
+          0.305219035725218
+        ],
+        [
+          0.095,
+          1.024150635094611,
+          0.3025
+        ],
+        [
+          0.095,
+          1.025596988312782,
+          0.2995670858091272
+        ],
+        [
+          0.095,
+          1.0266481456572267,
+          0.296470476127563
+        ],
+        [
+          0.095,
+          1.0272861215343452,
+          0.29326315480550125
+        ],
+        [
+          0.095,
+          1.0274999999999999,
+          0.29
+        ],
+        [
+          0.095,
+          1.0275,
+          0.17
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard360",
+      "kind": "waste",
+      "points": [
+        [
+          0,
+          0.752,
+          0.01
+        ],
+        [
+          0,
+          0.555,
+          0.01
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.010361145499585236
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.011441103969757727
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.013229474820084353
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.015709035061653498
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.01885590517387338
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.022639779077309116
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.027024215997794733
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.03196699141100894
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.0374205036877266
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.043332232523529836
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.049645244738050175
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.05629874257261827
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.06322864920591534
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.07036822584879038
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.07764871447528295
+        ],
+        [
+          0,
+          0.48000000000000004,
+          0.085
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.09235128552471705
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.09963177415120962
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.10677135079408467
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.11370125742738174
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.12035475526194983
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.12666776747647016
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.1325794963122734
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.13803300858899106
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.1429757840022053
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.1473602209226909
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.15114409482612662
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.15429096493834651
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.15677052517991566
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.15855889603024229
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.15963885450041476
+        ],
+        [
+          0,
+          0.555,
+          0.16
+        ],
+        [
+          0,
+          0.6,
+          0.16
+        ],
+        [
+          0,
+          0.6039206856131824,
+          0.16019261093311213
+        ],
+        [
+          0,
+          0.6078036128806451,
+          0.1607685887838708
+        ],
+        [
+          0,
+          0.6116113870901785,
+          0.16172238657071164
+        ],
+        [
+          0,
+          0.6153073372946035,
+          0.16304481869954854
+        ],
+        [
+          0,
+          0.6188558694730398,
+          0.1647231494260658
+        ],
+        [
+          0,
+          0.6222228093207841,
+          0.1667412155078982
+        ],
+        [
+          0,
+          0.6253757313665458,
+          0.16907958186549052
+        ],
+        [
+          0,
+          0.6282842712474619,
+          0.1717157287525381
+        ],
+        [
+          0,
+          0.6309204181345095,
+          0.1746242686334542
+        ],
+        [
+          0,
+          0.6332587844921018,
+          0.1777771906792159
+        ],
+        [
+          0,
+          0.6352768505739341,
+          0.1811441305269601
+        ],
+        [
+          0,
+          0.6369551813004515,
+          0.18469266270539642
+        ],
+        [
+          0,
+          0.6382776134292883,
+          0.1883886129098215
+        ],
+        [
+          0,
+          0.6392314112161293,
+          0.19219638711935488
+        ],
+        [
+          0,
+          0.6398073890668878,
+          0.19607931438681758
+        ],
+        [
+          0,
+          0.64,
+          0.2
+        ],
+        [
+          0,
+          0.64,
+          0.36
+        ]
+      ],
+      "outer": 0.024,
+      "inner": 0.0215
+    },
+    {
+      "template": "Standard360",
+      "kind": "supply",
+      "index": 0,
+      "points": [
+        [
+          -0.095,
+          0.22,
+          0.36
+        ],
+        [
+          -0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          -0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          -0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          -0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          -0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          -0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          -0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          -0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          -0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          -0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          -0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          -0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          -0.095,
+          0.245,
+          0.26
+        ],
+        [
+          -0.095,
+          0.985,
+          0.26
+        ],
+        [
+          -0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          -0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          -0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          -0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          -0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          -0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          -0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          -0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          -0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          -0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          -0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          -0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          -0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard360",
+      "kind": "supply",
+      "index": 1,
+      "points": [
+        [
+          0.095,
+          0.22,
+          0.36
+        ],
+        [
+          0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          0.095,
+          0.245,
+          0.26
+        ],
+        [
+          0.095,
+          0.985,
+          0.26
+        ],
+        [
+          0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard350",
+      "kind": "waste",
+      "points": [
+        [
+          0,
+          0.752,
+          0.01
+        ],
+        [
+          0,
+          0.555,
+          0.01
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.010361145499585236
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.011441103969757727
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.013229474820084353
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.015709035061653498
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.01885590517387338
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.022639779077309116
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.027024215997794733
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.03196699141100894
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.0374205036877266
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.043332232523529836
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.049645244738050175
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.05629874257261827
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.06322864920591534
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.07036822584879038
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.07764871447528295
+        ],
+        [
+          0,
+          0.48000000000000004,
+          0.085
+        ],
+        [
+          0,
+          0.4803611454995853,
+          0.09235128552471705
+        ],
+        [
+          0,
+          0.48144110396975776,
+          0.09963177415120962
+        ],
+        [
+          0,
+          0.4832294748200844,
+          0.10677135079408467
+        ],
+        [
+          0,
+          0.4857090350616535,
+          0.11370125742738174
+        ],
+        [
+          0,
+          0.48885590517387345,
+          0.12035475526194983
+        ],
+        [
+          0,
+          0.49263977907730916,
+          0.12666776747647016
+        ],
+        [
+          0,
+          0.4970242159977948,
+          0.1325794963122734
+        ],
+        [
+          0,
+          0.501966991411009,
+          0.13803300858899106
+        ],
+        [
+          0,
+          0.5074205036877266,
+          0.1429757840022053
+        ],
+        [
+          0,
+          0.5133322325235299,
+          0.1473602209226909
+        ],
+        [
+          0,
+          0.5196452447380502,
+          0.15114409482612662
+        ],
+        [
+          0,
+          0.5262987425726183,
+          0.15429096493834651
+        ],
+        [
+          0,
+          0.5332286492059154,
+          0.15677052517991566
+        ],
+        [
+          0,
+          0.5403682258487904,
+          0.15855889603024229
+        ],
+        [
+          0,
+          0.547648714475283,
+          0.15963885450041476
+        ],
+        [
+          0,
+          0.555,
+          0.16
+        ],
+        [
+          0,
+          0.6,
+          0.16
+        ],
+        [
+          0,
+          0.6039206856131824,
+          0.16019261093311213
+        ],
+        [
+          0,
+          0.6078036128806451,
+          0.1607685887838708
+        ],
+        [
+          0,
+          0.6116113870901785,
+          0.16172238657071164
+        ],
+        [
+          0,
+          0.6153073372946035,
+          0.16304481869954854
+        ],
+        [
+          0,
+          0.6188558694730398,
+          0.1647231494260658
+        ],
+        [
+          0,
+          0.6222228093207841,
+          0.1667412155078982
+        ],
+        [
+          0,
+          0.6253757313665458,
+          0.16907958186549052
+        ],
+        [
+          0,
+          0.6282842712474619,
+          0.1717157287525381
+        ],
+        [
+          0,
+          0.6309204181345095,
+          0.1746242686334542
+        ],
+        [
+          0,
+          0.6332587844921018,
+          0.1777771906792159
+        ],
+        [
+          0,
+          0.6352768505739341,
+          0.1811441305269601
+        ],
+        [
+          0,
+          0.6369551813004515,
+          0.18469266270539642
+        ],
+        [
+          0,
+          0.6382776134292883,
+          0.1883886129098215
+        ],
+        [
+          0,
+          0.6392314112161293,
+          0.19219638711935488
+        ],
+        [
+          0,
+          0.6398073890668878,
+          0.19607931438681758
+        ],
+        [
+          0,
+          0.64,
+          0.2
+        ],
+        [
+          0,
+          0.64,
+          0.35
+        ]
+      ],
+      "outer": 0.024,
+      "inner": 0.0215
+    },
+    {
+      "template": "Standard350",
+      "kind": "supply",
+      "index": 0,
+      "points": [
+        [
+          -0.095,
+          0.22,
+          0.35
+        ],
+        [
+          -0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          -0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          -0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          -0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          -0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          -0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          -0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          -0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          -0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          -0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          -0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          -0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          -0.095,
+          0.245,
+          0.26
+        ],
+        [
+          -0.095,
+          0.985,
+          0.26
+        ],
+        [
+          -0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          -0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          -0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          -0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          -0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          -0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          -0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          -0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          -0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          -0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          -0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          -0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          -0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    },
+    {
+      "template": "Standard350",
+      "kind": "supply",
+      "index": 1,
+      "points": [
+        [
+          0.095,
+          0.22,
+          0.35
+        ],
+        [
+          0.095,
+          0.22,
+          0.28500000000000003
+        ],
+        [
+          0.095,
+          0.22021387846565474,
+          0.28173684519449876
+        ],
+        [
+          0.095,
+          0.2208518543427733,
+          0.278529523872437
+        ],
+        [
+          0.095,
+          0.22190301168721782,
+          0.2754329141908728
+        ],
+        [
+          0.095,
+          0.22334936490538904,
+          0.2725
+        ],
+        [
+          0.095,
+          0.22516616649271912,
+          0.26978096427478204
+        ],
+        [
+          0.095,
+          0.22732233047033631,
+          0.2673223304703363
+        ],
+        [
+          0.095,
+          0.22978096427478198,
+          0.2651661664927192
+        ],
+        [
+          0.095,
+          0.23249999999999998,
+          0.26334936490538907
+        ],
+        [
+          0.095,
+          0.23543291419087276,
+          0.26190301168721786
+        ],
+        [
+          0.095,
+          0.23852952387243698,
+          0.2608518543427733
+        ],
+        [
+          0.095,
+          0.2417368451944987,
+          0.26021387846565475
+        ],
+        [
+          0.095,
+          0.245,
+          0.26
+        ],
+        [
+          0.095,
+          0.985,
+          0.26
+        ],
+        [
+          0.095,
+          0.9882631548055013,
+          0.25978612153434527
+        ],
+        [
+          0.095,
+          0.991470476127563,
+          0.2591481456572267
+        ],
+        [
+          0.095,
+          0.9945670858091272,
+          0.25809698831278216
+        ],
+        [
+          0.095,
+          0.9974999999999999,
+          0.256650635094611
+        ],
+        [
+          0.095,
+          1.000219035725218,
+          0.2548338335072809
+        ],
+        [
+          0.095,
+          1.0026776695296638,
+          0.2526776695296637
+        ],
+        [
+          0.095,
+          1.0048338335072808,
+          0.25021903572521803
+        ],
+        [
+          0.095,
+          1.006650635094611,
+          0.24750000000000003
+        ],
+        [
+          0.095,
+          1.0080969883127822,
+          0.24456708580912725
+        ],
+        [
+          0.095,
+          1.0091481456572267,
+          0.24147047612756303
+        ],
+        [
+          0.095,
+          1.0097861215343453,
+          0.2382631548055013
+        ],
+        [
+          0.095,
+          1.01,
+          0.23500000000000001
+        ],
+        [
+          0.095,
+          1.01,
+          0.21
+        ]
+      ],
+      "outer": 0.009,
+      "inner": 0.006
+    }
+  ],
+  "precision_chart_fallbacks": 0,
+  "source_bindings": {
+    "art/blender/scripts/build_kitchen_plumbing.py": "e2e2ae89026cef131f80a27c76a31b1bb3fe80b0d0cafcdfb66e0850c8833420",
+    "art/blender/scripts/build_domestic_storage.py": "a78cf3a006d9c1624ef894c465a012888f8161010fc916c149f8ad40e3b189a4",
+    "art/data/kitchen_plumbing/source_plan.json": "d204fcac01489fd27acd1b50f8bec36ddaceca07f32d30431c2e20a01a26f923",
+    "game/data/runtime_material_sets.json": "a3849b873ccbe227199c6040b5a4df7903e0fa73625b738383502e9d8d67b376",
+    "game/assets/props/kitchen_basins.glb": "d42365c8226e58e30d00ef3e8a6a1e41f4e66012eb57afb4d8a942258257dba4",
+    "game/assets/props/kitchen_faucet.glb": "fd8cfa0e46bd7bc69e83b014af287591614a3fa4230a2320c2a12d9dde57a7aa",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_door_brass_albedo.png": "35438c523607ba8d7a08a5a508127be993821dc6431d8c233d7fae596c16d5c7",
+    "game/assets/building/textures/T_ai_materials_door_brass_rough.png": "a643985dfe69149fdbd0d4a376b381000a86df598fa669454302dc9a5e88bdc4",
+    "game/assets/building/textures/T_ai_materials_door_brass_normal.png": "70ec93e51de6f8993fb7a435436356869690c136c08cf9c229f9ec1229827e40",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_albedo.png": "98493bc86242ee82fd70bb4a0c9a20e648447269bfaff65a72162f2f596b248d",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_rough.png": "7d299c8f80229f2c968d54181798ffebebd388a012257b6d51d370c961039d1e",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_normal.png": "d129dc84b8c1d3b2a2d935fbe8d1efab9dba4fe48b2da59da4ab363cf2722ac7"
+  }
+}

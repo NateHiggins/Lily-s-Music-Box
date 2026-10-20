@@ -16,6 +16,23 @@ Godot's imported precision. Resolve any measured compression/import changes
 before spending a full composed build on route or save/rebuild qualification.
 Keep that small original failure when a source or import correction is needed.
 
+For fitted small annular stock, include imported physical seat contacts against
+a simple original wall in that first small bench. Very short segment rays can
+fall below the engine's triangle determinant threshold; diagnose with a metre
+ray before changing geometry or the contact tolerance. Verify the original wall
+datum separately, then isolate the new stock for the face-position measurement.
+Actual access rays still use the unfiltered world and must not exclude blockers.
+
+Use the player's actual capsule radius, crouch height and eye constants when
+searching service stances. Preserve obstruction-owner counts if no stance fits;
+do not substitute a smaller capsule or guess repeatedly in full builds. Before
+awaiting long input sequences, collect only the durable mechanism owners being
+tested. A broad find_children snapshot can contain unrelated NPC presentation
+nodes that legitimately disappear while the test is awaiting input.
+Reuse verified player stances for tight-room captures: a fixed sink-local
+camera can start behind a wall. Inspect the complete contact sheet before
+closing the batch, then renew only occluded views with the mechanics retained.
+
 Before adding a partial-travel operation to a shared route, inspect the input
 driver's final-step behavior. A fixed six-centimetre/radian gesture can oscillate
 around an otherwise valid intermediate position; reduce only the final mouse
@@ -265,7 +282,7 @@ the receipt even when that particular route never calls its method. This
 preflight checks source declarations only; runtime receipts still require the
 actual run and independent validation. Never add hashes to a finished receipt.
 
-Use a whole room/shop or approximately 4â€“10 related fittings as the work unit.
+Use a whole room/shop or approximately 4Ã¢â‚¬â€œ10 related fittings as the work unit.
 Extend an existing builder instead of starting a build/test/report cycle for
 each small prop. Keep accepted work unless an observed defect or source change
 invalidates it. Read the Bible, source records and fabrication coverage once
@@ -516,13 +533,13 @@ slender stocks whose UV grain crosses their actual length. It reads native
 construction only and covers two visually checked albedos: timber U and walnut
 V. Unknown maps, broad panels and end grain are excluded. Inspect the renders
 before acting. **fabrication_grain.py** can orient those known maps along a
-stockâ€™s principal length, including angled rails, without moving geometry.
+stockÃ¢â‚¬â„¢s principal length, including angled rails, without moving geometry.
 
 When only UV/tangent data changes, compare expanded indexed physical triangle
 bytes, the exported scene graph, all semantic fixture fields and runtime data.
 A dependent asset with unchanged geometry, maps and behavior need not be
 rebuilt just because a context hash changed. Refresh only explicitly reviewed
-dependency hashes, retain the comparison and keep prior proofsâ€™ dates/scope.
+dependency hashes, retain the comparison and keep prior proofsÃ¢â‚¬â„¢ dates/scope.
 Unexpected source drift still requires investigation. The bounded example is
 **art/renders/orison_v2/wood_grain_20261007/rebind-grain-dependencies.py**.
 

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 8.94,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T00:33:50Z",
+  "started_utc": "2026-10-20T00:33:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-kitchen-plumbing-20261019/import_plumbing2.log.stderr",
+  "stderr_sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-kitchen-plumbing-20261019/import_plumbing2.log",
+  "stdout_sha256": "9499b79b0b04f104328a3ea1367924153769f2c53e28c9ca1aff1fac55872947"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 1974,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/arcade_throat_construction.json",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage.blend",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/front_lighting_finish/export.py",
+   " M art/blender/house_switchboard_construction.json",
+   " M art/blender/scripts/domestic_storage_geometry.py",
+   " M art/blender/scripts/inspect_domestic_storage_context.py",
+   " M art/blender/scripts/render_domestic_storage.py",
+   " M art/blender/street_paving_details_construction.json",
+   " M art/data/domestic_storage/source_plan.json",
+   " M art/data/gen_layout.py",
+   " M art/data/material_catalog.json",
+   " M art/data/orison_v2/front_trim_export_source.json"
+  ],
+  "repository_head": "82887a14d08357a400047624a6ce720351a748e0",
+  "repository_tree": "c3fe9ec4f7e115f36a3346143a5af6c249f42ef0",
+  "runtime_inputs_sha256": "a26b050bcda35e94e4403903097b1516cfbac89a02160421d93da21b85bdd05b",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

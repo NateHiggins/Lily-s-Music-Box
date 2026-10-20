@@ -152,7 +152,7 @@ func _run() -> void:
 	if OS.get_environment("V2_PLUMBING_REVIEW")=="1":
 		var inspector:=preload("res://tests/v2_kitchen_plumbing_review.gd").new();add_child(inspector)
 		var result: Dictionary=await inspector.run(world,directory)
-		inspector.free();get_tree().quit(0 if result.failures.is_empty() and result.sinks.size()==18 else 1);return
+		inspector.free();get_tree().quit(0 if result.get("failures",["Missing inspector result"]).is_empty() and result.get("sinks",[]).size()==18 else 1);return
 	if OS.get_environment("V2_PREP_REVIEW")=="1":
 		var inspector:=preload("res://tests/v2_kitchen_prep_installed_review.gd").new();add_child(inspector)
 		var ok: bool=await inspector.run(world,directory)

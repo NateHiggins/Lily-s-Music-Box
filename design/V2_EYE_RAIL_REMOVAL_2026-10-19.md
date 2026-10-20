@@ -1,4 +1,4 @@
-# V2 eye-level wall rail removal â€” 2026-10-19
+# V2 eye-level wall rail removal — 2026-10-19
 
 Evidence class: **INERT**. Art diagnostic and work report; no ledger promotion,
 runtime-contract, route or human acceptance evidence.

@@ -1,0 +1,1215 @@
+{
+	"baseboards": 1683,
+	"checks": 1101,
+	"evidence_class": "INERT",
+	"eye_rails": 0,
+	"failures": [
+		"imported annular service seat bears on actual wall: 3B(0.04, 0.64, 0.4)",
+		"imported annular service seat bears on actual wall: 3B(-0.076, 0.22, 0.4)",
+		"imported annular service seat bears on actual wall: 3B(0.114, 0.22, 0.4)",
+		"supported crouching stance reaches both actual stop wheels: 3B",
+		"imported annular service seat bears on actual wall: 4B(0.04, 0.6575, 0.43)",
+		"imported annular service seat bears on actual wall: 4B(-0.076, 0.22, 0.43)",
+		"imported annular service seat bears on actual wall: 4B(0.114, 0.22, 0.43)",
+		"actual pointer reaches native fixed waste pipe: 4B",
+		"imported annular service seat bears on actual wall: 2A(0.04, 0.64, 0.41)",
+		"imported annular service seat bears on actual wall: 2A(-0.076, 0.22, 0.41)",
+		"imported annular service seat bears on actual wall: 2A(0.114, 0.22, 0.41)",
+		"actual pointer reaches native fixed waste pipe: 2A",
+		"imported annular service seat bears on actual wall: 2B(0.04, 0.64, 0.39)",
+		"imported annular service seat bears on actual wall: 2B(-0.076, 0.22, 0.39)",
+		"imported annular service seat bears on actual wall: 2B(0.114, 0.22, 0.39)",
+		"actual pointer reaches native fixed waste pipe: 2B",
+		"imported annular service seat bears on actual wall: 3A(0.04, 0.64, 0.41)",
+		"imported annular service seat bears on actual wall: 3A(-0.076, 0.22, 0.41)",
+		"imported annular service seat bears on actual wall: 3A(0.114, 0.22, 0.41)",
+		"actual pointer reaches native fixed waste pipe: 3A",
+		"imported annular service seat bears on actual wall: 4A(0.04, 0.64, 0.39)",
+		"imported annular service seat bears on actual wall: 4A(-0.076, 0.22, 0.39)",
+		"imported annular service seat bears on actual wall: 4A(0.114, 0.22, 0.39)",
+		"actual pointer reaches native fixed waste pipe: 4A",
+		"imported annular service seat bears on actual wall: 5A(0.04, 0.64, 0.36)",
+		"imported annular service seat bears on actual wall: 5A(-0.076, 0.22, 0.36)",
+		"imported annular service seat bears on actual wall: 5A(0.114, 0.22, 0.36)",
+		"actual pointer reaches native fixed waste pipe: 5A",
+		"imported annular service seat bears on actual wall: 5B(0.04, 0.64, 0.35)",
+		"imported annular service seat bears on actual wall: 5B(-0.076, 0.22, 0.35)",
+		"imported annular service seat bears on actual wall: 5B(0.114, 0.22, 0.35)",
+		"supported crouching stance reaches both actual stop wheels: 5B",
+		"imported annular service seat bears on actual wall: 5C(0.04, 0.64, 0.3)",
+		"imported annular service seat bears on actual wall: 5C(-0.076, 0.22, 0.3)",
+		"imported annular service seat bears on actual wall: 5C(0.114, 0.22, 0.3)",
+		"actual pointer reaches native fixed waste pipe: 5C",
+		"imported annular service seat bears on actual wall: 6A(0.04, 0.64, 0.36)",
+		"imported annular service seat bears on actual wall: 6A(-0.076, 0.22, 0.36)",
+		"imported annular service seat bears on actual wall: 6A(0.114, 0.22, 0.36)",
+		"actual pointer reaches native fixed waste pipe: 6A",
+		"imported annular service seat bears on actual wall: 6B(0.04, 0.64, 0.35)",
+		"imported annular service seat bears on actual wall: 6B(-0.076, 0.22, 0.35)",
+		"imported annular service seat bears on actual wall: 6B(0.114, 0.22, 0.35)",
+		"supported crouching stance reaches both actual stop wheels: 6B",
+		"imported annular service seat bears on actual wall: 6C(0.04, 0.64, 0.3)",
+		"imported annular service seat bears on actual wall: 6C(-0.076, 0.22, 0.3)",
+		"imported annular service seat bears on actual wall: 6C(0.114, 0.22, 0.3)",
+		"actual pointer reaches native fixed waste pipe: 6C",
+		"imported annular service seat bears on actual wall: 2C(0.04, 0.64, 0.3)",
+		"imported annular service seat bears on actual wall: 2C(-0.076, 0.22, 0.3)",
+		"imported annular service seat bears on actual wall: 2C(0.114, 0.22, 0.3)",
+		"actual pointer reaches native fixed waste pipe: 2C",
+		"imported annular service seat bears on actual wall: 4C(0.04, 0.64, 0.3)",
+		"imported annular service seat bears on actual wall: 4C(-0.076, 0.22, 0.3)",
+		"imported annular service seat bears on actual wall: 4C(0.114, 0.22, 0.3)",
+		"actual pointer reaches native fixed waste pipe: 4C",
+		"imported annular service seat bears on actual wall: 1D(0.04, 0.64, 0.39)",
+		"imported annular service seat bears on actual wall: 1D(-0.076, 0.22, 0.39)",
+		"imported annular service seat bears on actual wall: 1D(0.114, 0.22, 0.39)",
+		"actual pointer reaches native fixed waste pipe: 1D",
+		"imported annular service seat bears on actual wall: 1A(0.04, 0.6575, 0.28)",
+		"imported annular service seat bears on actual wall: 1A(-0.076, 0.22, 0.28)",
+		"imported annular service seat bears on actual wall: 1A(0.114, 0.22, 0.28)",
+		"imported annular service seat bears on actual wall: 3D(0.04, 0.6575, 0.28)",
+		"imported annular service seat bears on actual wall: 3D(-0.076, 0.22, 0.28)",
+		"imported annular service seat bears on actual wall: 3D(0.114, 0.22, 0.28)",
+		"imported annular service seat bears on actual wall: 4D(0.04, 0.6575, 0.28)",
+		"imported annular service seat bears on actual wall: 4D(-0.076, 0.22, 0.28)",
+		"imported annular service seat bears on actual wall: 4D(0.114, 0.22, 0.28)"
+	],
+	"panel_caps": 360,
+	"scope": "Production sink ports, actual installed stop input, supplied flow, native clearance and household restoration; no continuous route/disk/acceptance proof",
+	"sinks": [
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.399999618530273
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F03_3B_KITCHEN_SINK_01",
+			"unit": "3B"
+		},
+		{
+			"compact": true,
+			"drainboard": false,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.430000305175781
+				}
+			],
+			"rim_y": 0.9175,
+			"sink_name": "F04_4B_KITCHEN_SINK_01",
+			"unit": "4B"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.409999847412109
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F02_2A_KITCHEN_SINK_01",
+			"unit": "2A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F02_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.390000343322754
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F02_2B_KITCHEN_SINK_01",
+			"unit": "2B"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.409999847412109
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F03_3A_KITCHEN_SINK_01",
+			"unit": "3A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F04_A_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_A_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_A_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_A_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_A_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_A_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_A_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_A_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_A_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.390000343322754
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F04_4A_KITCHEN_SINK_01",
+			"unit": "4A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.359999656677246
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F05_5A_KITCHEN_SINK_01",
+			"unit": "5A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.349999904632568
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F05_5B_KITCHEN_SINK_01",
+			"unit": "5B"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F05_5C_KITCHEN_SINK_01",
+			"unit": "5C"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.359999656677246
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F06_6A_KITCHEN_SINK_01",
+			"unit": "6A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.349999904632568
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F06_6B_KITCHEN_SINK_01",
+			"unit": "6B"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F06_6C_KITCHEN_SINK_01",
+			"unit": "6C"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F02_2C_KITCHEN_SINK_01",
+			"unit": "2C"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F04_4C_KITCHEN_SINK_01",
+			"unit": "4C"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.389999389648438
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F01_1D_KITCHEN_SINK_01",
+			"unit": "1D"
+		},
+		{
+			"compact": true,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				}
+			],
+			"rim_y": 0.9175,
+			"sink_name": "F01_1A_KITCHEN_SINK_01",
+			"unit": "1A"
+		},
+		{
+			"compact": true,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				}
+			],
+			"rim_y": 0.9175,
+			"sink_name": "F03_3D_KITCHEN_SINK_01",
+			"unit": "3D"
+		},
+		{
+			"compact": true,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				}
+			],
+			"rim_y": 0.9175,
+			"sink_name": "F04_4D_KITCHEN_SINK_01",
+			"unit": "4D"
+		}
+	]
+}

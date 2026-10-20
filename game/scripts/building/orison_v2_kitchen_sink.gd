@@ -5,6 +5,13 @@ var _casting_mesh: Mesh
 var _plug_pose_closed := false
 var _plug_progress := 1.0
 var _plug_start := Vector3.ZERO
+var supply_stops: Node3D
+
+func _effective_openings() -> Vector2:
+	return _valve_openings*supply_stops.openings if is_instance_valid(supply_stops) else _valve_openings
+
+func inspection_owner_for(part: Node3D) -> Node3D:
+	return supply_stops if is_instance_valid(supply_stops) and supply_stops.is_ancestor_of(part) else self
 
 func kitchen_rim_height() -> float:
 	# The rolled lip bears ON the 905 mm worktop instead of being half buried.

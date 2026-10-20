@@ -1,0 +1,1363 @@
+{
+	"baseboards": 1683,
+	"checks": 1155,
+	"evidence_class": "INERT",
+	"eye_rails": 0,
+	"failures": [
+		"supported crouching stance reaches both actual stop wheels: 3B",
+		"actual pointer reaches native fixed waste pipe: 4B",
+		"installed actual grab/turn/release closes stop: 2A0",
+		"installed actual grab/turn/release closes stop: 2A1",
+		"installed stops isolate retained faucet flow: 2A",
+		"household restore retains exact saved stop fractions and independent upper knobs: 2A(0.980901, 1.0)(1.0, 1.0){ \"hot\": 0.98090136051178, \"cold\": 1.0 }",
+		"installed actual grab/turn/release closes stop: 2B0",
+		"installed actual grab/turn/release closes stop: 2B1",
+		"installed stops isolate retained faucet flow: 2B",
+		"household restore retains exact saved stop fractions and independent upper knobs: 2B(0.980901, 1.0)(1.0, 1.0){ \"hot\": 0.98090136051178, \"cold\": 1.0 }",
+		"installed actual grab/turn/release closes stop: 3A0",
+		"installed handwheel follows cursor: 3A",
+		"installed stops isolate retained faucet flow: 3A",
+		"household restore retains exact saved stop fractions and independent upper knobs: 3A(1.0, 0.0)(1.0, 1.0){ \"hot\": 1.0, \"cold\": 0.0 }",
+		"installed actual grab/turn/release closes stop: 4A0",
+		"installed actual grab/turn/release closes stop: 4A1",
+		"installed stops isolate retained faucet flow: 4A",
+		"household restore retains exact saved stop fractions and independent upper knobs: 4A(0.980901, 1.0)(1.0, 1.0){ \"hot\": 0.98090136051178, \"cold\": 1.0 }",
+		"supported crouching stance reaches both actual stop wheels: 5B",
+		"installed actual grab/turn/release closes stop: 5C0",
+		"installed actual grab/turn/release closes stop: 5C1",
+		"installed stops isolate retained faucet flow: 5C",
+		"household restore retains exact saved stop fractions and independent upper knobs: 5C(0.980901, 1.0)(1.0, 1.0){ \"hot\": 0.98090136051178, \"cold\": 1.0 }",
+		"supported crouching stance reaches both actual stop wheels: 6B",
+		"installed actual grab/turn/release closes stop: 6C0",
+		"installed actual grab/turn/release closes stop: 6C1",
+		"installed stops isolate retained faucet flow: 6C",
+		"household restore retains exact saved stop fractions and independent upper knobs: 6C(0.980901, 1.0)(1.0, 1.0){ \"hot\": 0.98090136051178, \"cold\": 1.0 }",
+		"installed actual grab/turn/release closes stop: 2C0",
+		"installed actual grab/turn/release closes stop: 2C1",
+		"installed stops isolate retained faucet flow: 2C",
+		"household restore retains exact saved stop fractions and independent upper knobs: 2C(0.980901, 1.0)(1.0, 1.0){ \"hot\": 0.98090136051178, \"cold\": 1.0 }",
+		"installed actual grab/turn/release closes stop: 4C0",
+		"installed actual grab/turn/release closes stop: 4C1",
+		"installed stops isolate retained faucet flow: 4C",
+		"household restore retains exact saved stop fractions and independent upper knobs: 4C(0.980901, 1.0)(1.0, 1.0){ \"hot\": 0.98090136051178, \"cold\": 1.0 }",
+		"installed actual grab/turn/release closes stop: 1D0",
+		"installed actual grab/turn/release closes stop: 1D1",
+		"installed stops isolate retained faucet flow: 1D",
+		"household restore retains exact saved stop fractions and independent upper knobs: 1D(0.980901, 1.0)(1.0, 1.0){ \"hot\": 0.98090136051178, \"cold\": 1.0 }",
+		"installed actual grab/turn/release closes stop: 1A0",
+		"installed stops isolate retained faucet flow: 1A",
+		"household restore retains exact saved stop fractions and independent upper knobs: 1A(1.0, 0.0)(1.0, 1.0){ \"hot\": 1.0, \"cold\": 0.0 }"
+	],
+	"panel_caps": 360,
+	"scope": "Production sink ports, actual installed stop input, supplied flow, native clearance and household restoration; no continuous route/disk/acceptance proof",
+	"sinks": [
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.399999618530273
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.399999618530273
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F03_3B_KITCHEN_SINK_01",
+			"unit": "3B"
+		},
+		{
+			"compact": true,
+			"drainboard": false,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.430000305175781
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_B_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.430000305175781
+				}
+			],
+			"rim_y": 0.9175,
+			"sink_name": "F04_4B_KITCHEN_SINK_01",
+			"unit": "4B"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.409999847412109
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F02_2A_KITCHEN_SINK_01",
+			"unit": "2A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F02_B_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_B_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_B_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_B_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_B_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_B_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_B_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_B_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_B_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.390000343322754
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F02_2B_KITCHEN_SINK_01",
+			"unit": "2B"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.409999847412109
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_A_KITCHEN/WallNorth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.409999847412109
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F03_3A_KITCHEN_SINK_01",
+			"unit": "3A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F04_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.390000343322754
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_SERVICE_HALL_SOUTH/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.390000343322754
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F04_4A_KITCHEN_SINK_01",
+			"unit": "4A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.359999656677246
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F05_5A_KITCHEN_SINK_01",
+			"unit": "5A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.349999904632568
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F05_5B_KITCHEN_SINK_01",
+			"unit": "5B"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F05_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F05_5C_KITCHEN_SINK_01",
+			"unit": "5C"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.359999656677246
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_A_BED/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.359999656677246
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F06_6A_KITCHEN_SINK_01",
+			"unit": "6A"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.349999904632568
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_B_KITCHEN/WallEast_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.349999904632568
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F06_6B_KITCHEN_SINK_01",
+			"unit": "6B"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F06_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F06_6C_KITCHEN_SINK_01",
+			"unit": "6C"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F02_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F02_2C_KITCHEN_SINK_01",
+			"unit": "2C"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.300000190734863
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_PUBLIC_CORE/WallNorth_02/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.300000190734863
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F04_4C_KITCHEN_SINK_01",
+			"unit": "4C"
+		},
+		{
+			"compact": false,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.389999389648438
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_D_KITCHEN/WallWest_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.389999389648438
+				}
+			],
+			"rim_y": 0.9,
+			"sink_name": "F01_1D_KITCHEN_SINK_01",
+			"unit": "1D"
+		},
+		{
+			"compact": true,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F01_A_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				}
+			],
+			"rim_y": 0.9175,
+			"sink_name": "F01_1A_KITCHEN_SINK_01",
+			"unit": "1A"
+		},
+		{
+			"compact": true,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F03_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				}
+			],
+			"rim_y": 0.9175,
+			"sink_name": "F03_3D_KITCHEN_SINK_01",
+			"unit": "3D"
+		},
+		{
+			"compact": true,
+			"drainboard": true,
+			"ports": [
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": -0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.0,
+					"y": 1.01,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.22,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 0.64,
+					"z": 0.279999494552612
+				},
+				{
+					"owner": "OrisonV2Blockout/F04_D_KITCHEN/WallSouth_00/Collision",
+					"x": 0.095,
+					"y": 1.01,
+					"z": 0.279999494552612
+				}
+			],
+			"rim_y": 0.9175,
+			"sink_name": "F04_4D_KITCHEN_SINK_01",
+			"unit": "4D"
+		}
+	],
+	"stances": [
+		{
+			"feet": "",
+			"found": false,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/3B_prep_cabinet": 4,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F03_3B_KITCHEN_SINK_01/KitchenStand": 15,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F03_B_KITCHEN/WallWest_00/Collision": 21,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F03_B_KITCHEN/WallWest_02/Collision": 32,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F03_B_SERVICE_DOOR/F03_B_SERVICE_DOOR_Leaf/HingedLeaf": 25,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/KitchenPrep_3B/Worktable": 26,
+				"ray: <null>": 150
+			},
+			"unit": "3B"
+		},
+		{
+			"feet": "(14.42, 9.625, -16.87)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/4B_sink_counter": 17,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F04_B_STOVE_01/FixtureBody": 3,
+				"ray: 4B_sink_counter:<StaticBody3D#2220917604215>": 1
+			},
+			"unit": "4B"
+		},
+		{
+			"feet": "(15.18, 3.225, -16.82)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/2A_sink_support": 9,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F02_2A_KITCHEN_SINK_01/FixtureBody": 2
+			},
+			"unit": "2A"
+		},
+		{
+			"feet": "(-10.51, 3.225, -3.87)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/2B_sink_support": 9,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F02_2B_KITCHEN_SINK_01/FixtureBody": 2
+			},
+			"unit": "2B"
+		},
+		{
+			"feet": "(15.18, 6.425, -16.82)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/3A_sink_support": 9,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F03_3A_KITCHEN_SINK_01/FixtureBody": 2
+			},
+			"unit": "3A"
+		},
+		{
+			"feet": "(-10.51, 9.625, -3.87)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/4A_sink_support": 9,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F04_4A_KITCHEN_SINK_01/FixtureBody": 2
+			},
+			"unit": "4A"
+		},
+		{
+			"feet": "(10.14, 12.825, -2.999999)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/5A_sink_support": 12,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F05_5A_KITCHEN_SINK_01/FixtureBody": 4,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F05_A_KITCHEN/WallSouth_00/Collision": 5
+			},
+			"unit": "5A"
+		},
+		{
+			"feet": "",
+			"found": false,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/5B_prep_cabinet": 11,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/5B_sink_support": 11,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F05_5B_KITCHEN_SINK_01/FixtureBody": 4,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallNorth_00/Collision": 37,
+				"ray: 5B_sink_support:<StaticBody3D#2252643321034>": 14,
+				"ray: <null>": 196
+			},
+			"unit": "5B"
+		},
+		{
+			"feet": "(-5.229999, 12.825, -16.42)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/5C_prep_cabinet": 5,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/5C_sink_support": 4,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F05_5C_KITCHEN_SINK_01/FixtureBody": 2
+			},
+			"unit": "5C"
+		},
+		{
+			"feet": "(10.14, 16.025, -2.999999)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/6A_sink_support": 12,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F06_6A_KITCHEN_SINK_01/FixtureBody": 4,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F06_A_KITCHEN/WallSouth_00/Collision": 5
+			},
+			"unit": "6A"
+		},
+		{
+			"feet": "",
+			"found": false,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/6B_prep_cabinet": 11,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/6B_sink_support": 11,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F06_6B_KITCHEN_SINK_01/FixtureBody": 4,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallNorth_00/Collision": 37,
+				"ray: 6B_sink_support:<StaticBody3D#2260696385095>": 14,
+				"ray: <null>": 196
+			},
+			"unit": "6B"
+		},
+		{
+			"feet": "(-5.229999, 16.025, -16.42)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/6C_prep_cabinet": 5,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/6C_sink_support": 4,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F06_6C_KITCHEN_SINK_01/FixtureBody": 2
+			},
+			"unit": "6C"
+		},
+		{
+			"feet": "(-5.229999, 3.225, -16.42)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/2C_prep_cabinet": 5,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/2C_sink_support": 4,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F02_2C_KITCHEN_SINK_01/FixtureBody": 2
+			},
+			"unit": "2C"
+		},
+		{
+			"feet": "(-5.229999, 9.625, -16.42)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/4C_sink_support": 9,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F04_4C_KITCHEN_SINK_01/FixtureBody": 2
+			},
+			"unit": "4C"
+		},
+		{
+			"feet": "(-10.51, 0.025, -3.87)",
+			"found": true,
+			"obstructions": {
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/1D_sink_support": 9,
+				"body: /root/V2FourKAestheticCapture/OrisonV2Runtime/OrisonV2Blockout/F01_1D_KITCHEN_SINK_01/FixtureBody": 2
+			},
+			"unit": "1D"
+		},
+		{
+			"feet": "(9.75, 0.025, -2.899998)",
+			"found": true,
+			"obstructions": {},
+			"unit": "1A"
+		},
+		{
+			"feet": "(9.75, 6.425, -2.899998)",
+			"found": true,
+			"obstructions": {},
+			"unit": "3D"
+		},
+		{
+			"feet": "(9.75, 9.625, -2.899998)",
+			"found": true,
+			"obstructions": {},
+			"unit": "4D"
+		}
+	]
+}

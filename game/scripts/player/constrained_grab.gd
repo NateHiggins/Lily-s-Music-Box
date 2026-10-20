@@ -147,7 +147,7 @@ func move(relative: Vector2) -> void:
 	if target.kind == "hinge":
 		tangent = axis.cross(point-part.global_position)
 		# A click on the centre of a small knob still has a useful lever arm.
-		if tangent.length() < .025:
+		if tangent.length() < float(target.get("minimum_lever",.025)):
 			tangent = axis.cross(camera.global_basis.x)*.06
 			if tangent.length() < .01: tangent = axis.cross(camera.global_basis.y)*.06
 	if camera.is_position_behind(point):

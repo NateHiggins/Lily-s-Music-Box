@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT",
+  "interpretation": "Period-informed metal traps, exposed brass supplies, packed stop valves and union nuts; not an exact catalogue replica or a plumbing-code assertion.",
+  "references": [
+    "https://patents.google.com/patent/US865312A/en",
+    "https://patents.google.com/patent/US1652702A/en"
+  ],
+  "survey": "art/reviews/v2_eye_rail_removal_20261019/survey2/plumbing_review.json",
+  "survey_sha256": "4c698be316300aca794916a0f2f324de11f4d2752977cdab187f0d4fa4451063",
+  "templates": [
+    {
+      "id": "Compact280",
+      "compact": true,
+      "rim_y": 0.9175,
+      "wall_z": 0.28,
+      "riser_z": 0.22
+    },
+    {
+      "id": "Standard390",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.39,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Standard410",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.41,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Standard300",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.3,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Standard400",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.4,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Compact430Timber",
+      "compact": true,
+      "rim_y": 0.9175,
+      "wall_z": 0.43,
+      "riser_z": 0.315
+    },
+    {
+      "id": "Standard360",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.36,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Standard350",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.35,
+      "riser_z": 0.26
+    }
+  ],
+  "installations": [
+    {
+      "unit": "1A",
+      "template": "Compact280"
+    },
+    {
+      "unit": "1D",
+      "template": "Standard390"
+    },
+    {
+      "unit": "2A",
+      "template": "Standard410"
+    },
+    {
+      "unit": "2B",
+      "template": "Standard390"
+    },
+    {
+      "unit": "2C",
+      "template": "Standard300"
+    },
+    {
+      "unit": "3A",
+      "template": "Standard410"
+    },
+    {
+      "unit": "3B",
+      "template": "Standard400"
+    },
+    {
+      "unit": "3D",
+      "template": "Compact280"
+    },
+    {
+      "unit": "4A",
+      "template": "Standard390"
+    },
+    {
+      "unit": "4B",
+      "template": "Compact430Timber"
+    },
+    {
+      "unit": "4C",
+      "template": "Standard300"
+    },
+    {
+      "unit": "4D",
+      "template": "Compact280"
+    },
+    {
+      "unit": "5A",
+      "template": "Standard360"
+    },
+    {
+      "unit": "5B",
+      "template": "Standard350"
+    },
+    {
+      "unit": "5C",
+      "template": "Standard300"
+    },
+    {
+      "unit": "6A",
+      "template": "Standard360"
+    },
+    {
+      "unit": "6B",
+      "template": "Standard350"
+    },
+    {
+      "unit": "6C",
+      "template": "Standard300"
+    }
+  ]
+}

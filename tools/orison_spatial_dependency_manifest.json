@@ -301301,6 +301301,570 @@
    "rationale": "Reviewed production-shell trim census and selected source-owned sink survey views; test-only identity follows the retained generator and unit owners.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "b8b3b69a4f354409",
+   "kind": "unit_reference",
+   "token": "1A",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[0]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "2576d1a515268ce2",
+   "kind": "unit_reference",
+   "token": "1D",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[1]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "169207e10e74259d",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[2]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "a8dd4990944643a5",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "ec6d0c460f2af307",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "80cbbd5255408867",
+   "kind": "unit_reference",
+   "token": "3A",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "74f5aa24476e29fa",
+   "kind": "unit_reference",
+   "token": "3B",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "3fa721414dc2dfe1",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "df6e5cb98184dd0c",
+   "kind": "unit_reference",
+   "token": "4A",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "e8bd1b3c22d78220",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "aad4dfcb4c9955d2",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "2d700abbe559893a",
+   "kind": "unit_reference",
+   "token": "4D",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "7abe1a681ce4ea73",
+   "kind": "unit_reference",
+   "token": "5A",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "adafebdf88dcebf9",
+   "kind": "unit_reference",
+   "token": "5B",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "6d20174186284cf0",
+   "kind": "unit_reference",
+   "token": "5C",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "d2eb66bf372cfcac",
+   "kind": "unit_reference",
+   "token": "6A",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "777f1a8cc7844ed3",
+   "kind": "unit_reference",
+   "token": "6B",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "5199d6846547dfdb",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/data/orison_v2/kitchen_plumbing.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "37a19719e9e48962",
+   "kind": "generated_name",
+   "token": "install",
+   "file": "game/scripts/building/orison_v2_kitchen_plumbing.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "install"
+   ],
+   "lines": [
+    51
+   ],
+   "count": 1,
+   "context": [
+    "\"KitchenPlumbing_\"+sink.unit;owner.tap=sink;owner.record=template"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "dea8557c1a49b706",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/v2_kitchen_plumbing_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [
+    "var sink:=preload(\"res://scripts/building/orison_v2_kitchen_sink.gd\").new();sink.fixture=\"kitchen_sink\";sink.prop_type=\"sink\";sink.unit=\"2A\";sink.compact_kitche"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fitted service mapping to an existing canonical unit. TapProp and the existing household save domain retain authority; generated KitchenPlumbing_ names are durable identities and future renames require migration.",
+   "resolved_target": "unit",
+   "target_exists": true
   }
  ]
 }
