@@ -3,15 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dukvfh0q8go4l"
-path="res://.godot/imported/texture_0.png-caa436597f018c137c8d040e77afdb2a.ctex"
+path.s3tc="res://.godot/imported/texture_0.png-caa436597f018c137c8d040e77afdb2a.s3tc.ctex"
+path.etc2="res://.godot/imported/texture_0.png-caa436597f018c137c8d040e77afdb2a.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/characters/jonah_price/texture_0.png"
-dest_files=["res://.godot/imported/texture_0.png-caa436597f018c137c8d040e77afdb2a.ctex"]
+dest_files=["res://.godot/imported/texture_0.png-caa436597f018c137c8d040e77afdb2a.s3tc.ctex", "res://.godot/imported/texture_0.png-caa436597f018c137c8d040e77afdb2a.etc2.ctex"]
 
 [params]
 

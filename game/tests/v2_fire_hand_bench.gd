@@ -384,9 +384,30 @@ func exercise_gasket(actor: Node3D,hand: Node) -> void:
 	print("GASKET DIAGNOSTIC: ring=",gasket.position," seat=",actor._coupling.position," target=",seat_target.get("part")," seen=",actor.gasket_seen," sampled_pixels=",visited.size())
 	check(actor.gasket_seen,"actual inspection cursor observes the exposed receiving annulus")
 	var seat: Vector3=gasket.seat_position()
-	var path: Array=[Vector3(gasket.position.x,seat.y+.050,gasket.position.z),seat+Vector3.UP*.050,seat+Vector3.UP*.00007]
+	var settling_probe: bool=OS.get_environment("ORISON_GASKET_SETTLING_PROBE")=="1"
+	var obstruction_probe: bool=OS.get_environment("ORISON_GASKET_OBSTRUCTION_PROBE")=="1"
+	var obstruction: StaticBody3D
+	if obstruction_probe:
+		obstruction=StaticBody3D.new();obstruction.name="WasherSeatObstruction";actor.add_child(obstruction)
+		obstruction.position=seat+Vector3.UP*.0005
+		var barrier:=CollisionShape3D.new();var solid:=BoxShape3D.new();solid.size=Vector3(.060,.0002,.060)
+		barrier.shape=solid;obstruction.add_child(barrier)
+		await RenderingServer.frame_post_draw;await get_tree().physics_frame
+	var release_height: float=.003 if obstruction_probe else (.00018 if settling_probe else .00007)
+	var carry_tolerance: float=.00002 if settling_probe else .00009
+	var path: Array=[Vector3(gasket.position.x,seat.y+.050,gasket.position.z),seat+Vector3.UP*.050,seat+Vector3.UP*release_height]
 	ring_point=await pick_washer(gasket)
-	check(ring_point.is_finite() and await carry_path(actor,gasket,ring_point,path,.00009),"actual continuous grab carries the washer into the receiving seat")
+	check(ring_point.is_finite() and await carry_path(actor,gasket,ring_point,path,carry_tolerance),"actual continuous grab carries the washer into the receiving seat")
+	print("GASKET RELEASE: actor=",actor.name," offset=",gasket.position-seat," seated=",actor.gasket_seated)
+	if settling_probe:check(not actor.gasket_seated and not gasket.seatable(),"above-tolerance release cannot counterfeit immediate fitting")
+	# A real release above the100um fit band settles through actual gravity.
+	# physics_frame fires before body processing; allow two completed ticks.
+	for frame in 3:await get_tree().physics_frame
+	print("GASKET SETTLED: actor=",actor.name," offset=",gasket.position-seat," seated=",actor.gasket_seated)
+	if obstruction_probe:
+		check(not actor.gasket_seated and not actor.coupling_made_up,"a real solid above the seat prevents fitting and tightening")
+		check(gasket._last_contact==obstruction or (gasket._support!=null and gasket._support.get_ref()==obstruction),"blocked washer actually contacts the introduced solid")
+		obstruction.queue_free();key(KEY_ESCAPE);return
 	check(actor.gasket_seated and not actor.coupling_made_up,"releasing the physically fitted washer seats it without tightening the nut")
 	var exclusions: Array[RID]=[]
 	for body: PhysicsBody3D in get_tree().root.find_children("*","PhysicsBody3D",true,false):

@@ -3,15 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3vk1nqemfrhd"
-path="res://.godot/imported/texture_0.png-56b65b32887f567dad30c0c4bbd3f91c.ctex"
+path.s3tc="res://.godot/imported/texture_0.png-56b65b32887f567dad30c0c4bbd3f91c.s3tc.ctex"
+path.etc2="res://.godot/imported/texture_0.png-56b65b32887f567dad30c0c4bbd3f91c.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/characters/noel_price/texture_0.png"
-dest_files=["res://.godot/imported/texture_0.png-56b65b32887f567dad30c0c4bbd3f91c.ctex"]
+dest_files=["res://.godot/imported/texture_0.png-56b65b32887f567dad30c0c4bbd3f91c.s3tc.ctex", "res://.godot/imported/texture_0.png-56b65b32887f567dad30c0c4bbd3f91c.etc2.ctex"]
 
 [params]
 

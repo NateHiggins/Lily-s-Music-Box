@@ -3,15 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyxo7efkdwmfh"
-path="res://.godot/imported/texture_0.png-84ce60a8d90aa08c8ffedbc0d58e5512.ctex"
+path.s3tc="res://.godot/imported/texture_0.png-84ce60a8d90aa08c8ffedbc0d58e5512.s3tc.ctex"
+path.etc2="res://.godot/imported/texture_0.png-84ce60a8d90aa08c8ffedbc0d58e5512.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/characters/sacha_reed/texture_0.png"
-dest_files=["res://.godot/imported/texture_0.png-84ce60a8d90aa08c8ffedbc0d58e5512.ctex"]
+dest_files=["res://.godot/imported/texture_0.png-84ce60a8d90aa08c8ffedbc0d58e5512.s3tc.ctex", "res://.godot/imported/texture_0.png-84ce60a8d90aa08c8ffedbc0d58e5512.etc2.ctex"]
 
 [params]
 

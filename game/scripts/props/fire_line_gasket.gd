@@ -49,7 +49,19 @@ func _physics_process(delta: float) -> void:
 		# using the same20um contact margin as hand movement.
 		_fall_speed-=9.81*delta
 		var before: Vector3=position
-		_carry(position+Vector3.UP*maxf(-.04,_fall_speed*delta))
+		var goal: Vector3=position+Vector3.UP*maxf(-.04,_fall_speed*delta)
+		var seat: Vector3=seat_position()
+		# Do not step over the existing100um fit band during gravity. Sweep
+		# to a point inside it, then let the unchanged seatable() authority
+		# decide from the actual collision-constrained pose. An obstruction
+		# can still stop the washer above the seat or push it out of alignment.
+		if actor.door_open and not actor.coupling_made_up and basis.y.dot(Vector3.UP)>.9999 \
+				and Vector2(position.x-seat.x,position.z-seat.z).length()<.00025 \
+				and position.y>=seat.y+.00005 and goal.y<=seat.y+.00005:
+			goal.y=seat.y+.00005
+		var limited: Dictionary=_limit_gravity(goal)
+		_carry(limited.position)
+		if _last_contact==null and limited.contact!=null and position.distance_to(limited.position)<.000001:_last_contact=limited.contact
 		if position.distance_to(before)<.000001:
 			_fall_speed=0.
 			if is_instance_valid(_last_contact):
@@ -57,6 +69,29 @@ func _physics_process(delta: float) -> void:
 				actor.manipulation_changed.emit()
 		if seatable():_fit()
 	sync()
+func _limit_gravity(goal: Vector3) -> Dictionary:
+	# Supplement the convex sweep for sub-millimetre sheet obstructions. Its
+	# narrow phase can miss them while the1.5mm ring crosses in one tick.
+	# These are real unfiltered body rays through the native bearing annulus;
+	# only this washer is excluded. Retain the same20um contact clearance.
+	var distance: float=maxf(0.,position.y-goal.y)
+	var contact: Node3D
+	if distance>0.:
+		var bounds: AABB=draw.mesh.get_aabb()
+		var radius: float=(absf(bounds.end.x)+float(actor._joint_stock.data.dimensions.bore_radius_m))*.5
+		var direction: Vector3=actor.global_basis*Vector3.DOWN
+		for index in 16:
+			var angle: float=TAU*index/16.
+			var start: Vector3=to_global(Vector3(radius*cos(angle),bounds.position.y,radius*sin(angle)))
+			# Extend below the proposed stop for stable ray precision, accepting
+			# only a hit inside the original movement plus its contact margin.
+			var query:=PhysicsRayQueryParameters3D.create(start,start+direction*maxf(.010,distance+.00002),1,[get_rid()])
+			var hit: Dictionary=get_world_3d().direct_space_state.intersect_ray(query)
+			if hit.is_empty():continue
+			var travel: float=start.distance_to(hit.position)
+			if travel<=distance+.00002:
+				distance=maxf(0.,travel-.00002);contact=hit.collider as Node3D
+	return {"position":Vector3(goal.x,position.y-distance,goal.z),"contact":contact}
 func _adopt_restored_support() -> void:
 	# Reconstruct resting contact from real collision, without re-solving an
 	# already supported saved pose and accumulating micrometre recovery drift.

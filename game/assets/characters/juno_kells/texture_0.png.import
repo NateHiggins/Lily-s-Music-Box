@@ -3,15 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qtofhv1xt0gd"
-path="res://.godot/imported/texture_0.png-36f90857ef508ea61d02646faea3792f.ctex"
+path.s3tc="res://.godot/imported/texture_0.png-36f90857ef508ea61d02646faea3792f.s3tc.ctex"
+path.etc2="res://.godot/imported/texture_0.png-36f90857ef508ea61d02646faea3792f.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/characters/juno_kells/texture_0.png"
-dest_files=["res://.godot/imported/texture_0.png-36f90857ef508ea61d02646faea3792f.ctex"]
+dest_files=["res://.godot/imported/texture_0.png-36f90857ef508ea61d02646faea3792f.s3tc.ctex", "res://.godot/imported/texture_0.png-36f90857ef508ea61d02646faea3792f.etc2.ctex"]
 
 [params]
 
