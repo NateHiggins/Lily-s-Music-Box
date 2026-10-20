@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Three retained native cornice stocks only; export/reimport and strict tangent checks, not runtime acceptance.",
+  "asset_sha256": "37f4506af68dfb58b5d1acc9778ea0731c9762522cd4cff094a45e737458a423",
+  "source_bindings": {
+    "art\\blender\\front_lighting_cornice_candidate.blend": "d1f38460761be4437e62ffa91d1aef3762e382d631968588e650d58ce5621f66"
+  },
+  "tangents": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-kitchen-plumbing-20261019\\trim_export_final\\front_lighting_trim.glb",
+    "primitives": 3,
+    "triangles": 856,
+    "minimum_tangent_agreement": 0.9999999625519119,
+    "status": "PASS"
+  },
+  "parts": {
+    "BoredCornice_0": 344,
+    "BoredCornice_1": 344,
+    "BoredCornice_2": 168
+  },
+  "recipe_sha256_lf": "e983ff20acdc5a37fe94ce0eeb2c7c150cb7d7d3825a499ae116da3fb3548e21",
+  "exporter_hook_sha256_lf": "d54e98237e9cba67c8d050e3c1834f9314e48920a110017e545f08b04f5aea6d"
+}

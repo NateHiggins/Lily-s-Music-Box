@@ -12,7 +12,7 @@ class FrontTrimTests(unittest.TestCase):
     def test_pure_deterministic_complete_owner_projection(self):
         before=copy.deepcopy(self.snapshot);result=self.build()
         self.assertEqual(before,self.snapshot);self.assertEqual(result,self.build())
-        self.assertEqual(sum(r['variant']=='rail' for r in result['fittings']),20)
+        self.assertEqual(sum(r['variant']=='rail' for r in result['fittings']),0)
         self.assertEqual(sum(r['variant']=='cornice' for r in result['fittings']),22)
         anchors={r['id'] for r in self.layout['anchors']};ports={r['id'] for r in self.layout['wall_service_openings']}
         self.assertTrue(all(r['owner'] in anchors|ports for r in result['fittings']))

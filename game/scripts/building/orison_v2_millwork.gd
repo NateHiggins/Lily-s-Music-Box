@@ -3,7 +3,6 @@ extends RefCounted
 ## Geometry/collision ownership remains with the shell. All trim is visual.
 const PROFILE := preload("res://assets/props/millwork_profile.glb")
 const STOCK_SHADER := preload("res://shaders/v2_millwork_stock.gdshader")
-const EYE_RAIL_HEIGHT := 1.65
 static var _meshes: Dictionary = {}
 static var _materials: Dictionary = {}
 
@@ -121,7 +120,6 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 		{"at":.07,"height":.14,"depth":.032,"batch":"HistoricMillwork"},
 		{"at":.153,"height":.026,"depth":.042,"batch":"HistoricMillwork"}]
 	if decorative:
-		profiles.append({"at":EYE_RAIL_HEIGHT,"height":.042,"depth":.042,"batch":"HistoricMillwork"})
 		if not record.get("no_ceiling",false):
 			for band: Vector3 in [Vector3(clear_height-.025,.05,.032),Vector3(clear_height-.075,.05,.046),Vector3(clear_height-.1125,.025,.054)]:
 				profiles.append({"at":band.x,"height":band.y,"depth":band.z,"batch":"HistoricMillwork"})

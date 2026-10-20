@@ -22,7 +22,6 @@ func coverage(shell: Node3D, world: Node3D, suite: Node) -> void:
 		if room==null: continue
 		var rect: Array = record.rect
 		var heights: Array[float] = [.07]
-		if str(record.get("class","")) in ["private","public"] or "PUBLIC_CORE" in str(record.id): heights.append(1.65)
 		if str(record.get("class",""))=="public" or "PUBLIC_CORE" in str(record.id): heights.append(1.34)
 		var floor_y: float = shell.level_y[record.level]
 		for side in 4:
@@ -47,7 +46,7 @@ func coverage(shell: Node3D, world: Node3D, suite: Node) -> void:
 					if not at_casing and not _contains_trim(room,point,height):
 						missing.append({"room":record.id,"height":height,"point":[point.x,point.y,point.z],"wall":str(hit.collider.get_parent().get_path())})
 	suite.check(sampled>10000,"independent wall rays cover all closed V2 rooms")
-	suite.check(missing.is_empty(),"continuous baseboard/eye rail/panel cap at every sampled actual wall face")
+	suite.check(missing.is_empty(),"continuous baseboard/panel cap at every sampled actual wall face")
 	var directory := OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(directory)
 	FileAccess.open(directory.path_join("millwork-coverage.json"),FileAccess.WRITE).store_string(JSON.stringify({"sampled_wall_faces":sampled,"gaps":missing},"\t"))

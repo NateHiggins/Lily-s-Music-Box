@@ -1,5 +1,5 @@
 extends RefCounted
-## Unculled composition reference from de076e78, for differential fitting checks.
+## Unculled fitting reference, with the owner's eye-level rail removal applied.
 ## Shared face/profile operations remain the shipping geometry authority.
 const Trim=preload("res://scripts/building/orison_v2_millwork.gd")
 static func build(room: Node3D, record: Dictionary, floor_y: float,
@@ -19,7 +19,6 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 		{"at":.07,"height":.14,"depth":.032,"batch":"HistoricMillwork"},
 		{"at":.153,"height":.026,"depth":.042,"batch":"HistoricMillwork"}]
 	if decorative:
-		profiles.append({"at":Trim.EYE_RAIL_HEIGHT,"height":.042,"depth":.042,"batch":"HistoricMillwork"})
 		if not record.get("no_ceiling",false):
 			for band: Vector3 in [Vector3(clear_height-.025,.05,.032),Vector3(clear_height-.075,.05,.046),Vector3(clear_height-.1125,.025,.054)]:
 				profiles.append({"at":band.x,"height":band.y,"depth":band.z,"batch":"HistoricMillwork"})
