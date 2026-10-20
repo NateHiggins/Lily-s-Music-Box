@@ -1,0 +1,295 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Actual unchanged shipping triangle radial-presence survey only; not lumen continuity, runtime, listening or visual acceptance.",
+  "source_sha256_lf": "8b247be31487849f65d929d3900ef26b598c7fbd576990eb1087b3ea1a2083c2",
+  "assets": {
+    "game/assets/props/heating_distribution.glb": "8022d0b3368eceed0caece53527514fb8f7965f6c7ae85d567ab7e9e3bf13184",
+    "game/assets/props/boiler_pipework.glb": "a9fd88e45b4a169d05338765337461a4c2003527ec474d0d36ed7ff7e7f28b4e"
+  },
+  "samples": 3504,
+  "checks": [
+    {
+      "start": "V2_HEAT_BASE_H_A",
+      "end": "V2_HEAT_TAP_F01_A_RADIATOR_01",
+      "samples": 2,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F01_A_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F02_A_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F02_A_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F03_A_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F03_A_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F04_A_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F04_A_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F05_A_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F05_A_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F06_A_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_BASE_H_B",
+      "end": "V2_HEAT_TAP_F02_B_RADIATOR_01",
+      "samples": 12,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F02_B_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F03_B_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F03_B_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F04_B_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F04_B_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F05_B_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F05_B_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F06_B_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_BASE_H_C",
+      "end": "V2_HEAT_TAP_F02_C_RADIATOR_01",
+      "samples": 12,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F02_C_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F03_C_RADIATOR_01",
+      "samples": 10,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F03_C_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F04_C_RADIATOR_01",
+      "samples": 12,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F04_C_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F05_C_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F05_C_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F06_C_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_BASE_H_D",
+      "end": "V2_HEAT_TAP_F01_D_RADIATOR_01",
+      "samples": 2,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F01_D_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F02_D_RADIATOR_01",
+      "samples": 10,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F02_D_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F03_D_RADIATOR_01",
+      "samples": 12,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F03_D_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F04_D_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F04_D_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F05_D_RADIATOR_01",
+      "samples": 10,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F05_D_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F06_D_RADIATOR_01",
+      "samples": 11,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F01_A_RADIATOR_01",
+      "end": "V2_HEAT_TAP_F01_LOBBY_RADIATOR_01",
+      "samples": 71,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F01_LOBBY_RADIATOR_01",
+      "end": "F01_A_RADIATOR_01",
+      "samples": 49,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F01_D_RADIATOR_01",
+      "end": "F01_D_RADIATOR_01",
+      "samples": 67,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F02_A_RADIATOR_01",
+      "end": "F02_A_RADIATOR_01",
+      "samples": 166,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F02_B_RADIATOR_01",
+      "end": "F02_B_RADIATOR_01",
+      "samples": 57,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F02_C_RADIATOR_01",
+      "end": "F02_C_RADIATOR_01",
+      "samples": 403,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F03_A_RADIATOR_01",
+      "end": "F03_A_RADIATOR_01",
+      "samples": 122,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F03_B_RADIATOR_01",
+      "end": "F03_B_RADIATOR_01",
+      "samples": 55,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F03_D_RADIATOR_01",
+      "end": "F03_D_RADIATOR_01",
+      "samples": 175,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F04_A_RADIATOR_01",
+      "end": "F04_A_RADIATOR_01",
+      "samples": 57,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F04_D_RADIATOR_01",
+      "end": "F04_D_RADIATOR_01",
+      "samples": 143,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F04_B_RADIATOR_01",
+      "end": "F04_B_RADIATOR_01",
+      "samples": 202,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F04_C_RADIATOR_01",
+      "end": "F04_C_RADIATOR_01",
+      "samples": 172,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F05_A_RADIATOR_01",
+      "end": "F05_A_RADIATOR_01",
+      "samples": 165,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F05_C_RADIATOR_01",
+      "end": "F05_C_RADIATOR_01",
+      "samples": 105,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F05_B_RADIATOR_01",
+      "end": "F05_B_RADIATOR_01",
+      "samples": 210,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F06_A_RADIATOR_01",
+      "end": "F06_A_RADIATOR_01",
+      "samples": 165,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F06_C_RADIATOR_01",
+      "end": "F06_C_RADIATOR_01",
+      "samples": 105,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F06_B_RADIATOR_01",
+      "end": "F06_B_RADIATOR_01",
+      "samples": 210,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F02_D_RADIATOR_01",
+      "end": "F02_D_RADIATOR_01",
+      "samples": 176,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F03_C_RADIATOR_01",
+      "end": "F03_C_RADIATOR_01",
+      "samples": 112,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F05_D_RADIATOR_01",
+      "end": "F05_D_RADIATOR_01",
+      "samples": 109,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F06_D_RADIATOR_01",
+      "end": "F06_D_RADIATOR_01",
+      "samples": 109,
+      "failures": 0
+    },
+    {
+      "start": "V2_HEAT_TAP_F01_LOBBY_RADIATOR_01",
+      "end": "F01_LOBBY_RADIATOR_01",
+      "samples": 33,
+      "failures": 0
+    },
+    {
+      "start": "B1_BOILER_01",
+      "end": "BASEMENT_HEADER_EAST",
+      "samples": 41,
+      "failures": 0
+    }
+  ],
+  "failures": []
+}

@@ -3,6 +3,9 @@ extends Node
 const Graph := preload("res://scripts/audio/acoustic_graph.gd")
 var checks := 0
 var failures := 0
+class MusicWorld:
+	extends Node
+	var player: Node3D
 
 func _check(ok: bool, label: String) -> void:
 	checks+=1
@@ -84,6 +87,31 @@ func _run() -> void:
 	_check(tokens.size()==1 and events==["a"],"signal callback swap cannot retag remaining old-plan events")
 	if not tokens.is_empty():graph.release_topology(tokens[0])
 	_check(graph.nodes==original and graph._topology_scopes.is_empty() and graph._topology_base.is_empty(),"all topology ownership retires")
+	var transit := original.duplicate(true)
+	transit.b.connections=["a","c"];transit.c.connections=["b"]
+	transit.b.transit_only=true
+	a=graph.push_topology(transit)
+	_check(graph.audibility("a").size()==3,"passive junction still carries physical propagation")
+	var targets: Array=graph._reality_plan("a",{"carrier":"network","networks":["ventilation"],"limit":2})
+	_check(targets.size()==2 and targets[0].id=="a" and targets[1].id=="c","passive junction cannot consume narrative target limit")
+	graph.release_topology(a)
+	transit.a.pos=[8,0,0];transit.b.pos=[10,0,0];transit.c.pos=[12,0,0]
+	var shared_lease := AcousticGraphData.push_topology(transit)
+	var arcade := ArcadeRow.new()
+	_check(arcade._nearest_graph_node(Vector3(10.1,0,0))=="c","secondary arcade binding ignores nearer passive pipe junction")
+	arcade.free()
+	var stub := MusicWorld.new();add_child(stub)
+	stub.player=Node3D.new();stub.add_child(stub.player)
+	var ambient := AmbientSoundscape.new();ambient.player=stub.player;ambient._rng.seed=1928
+	var music := OrisonMusicDirector.new();music.world=stub;music._rng.seed=1928
+	var physical_only := true
+	for sample in 80:
+		var ambient_at: Vector3=ambient._architectural_source()
+		music._choose_radio_destination(false)
+		physical_only=physical_only and ambient_at.x!=10. and music._radio_destination.x!=10.
+	_check(physical_only,"ambient and radio directors retain physical sources instead of new pipe junctions")
+	ambient.free();music.free();stub.free()
+	_check(AcousticGraphData.release_topology(shared_lease),"shared fixture releases the real autoload")
 	graph.free()
 	print("V2 ACOUSTIC TOPOLOGY SCOPE: ","PASS" if failures==0 else "FAIL"," checks=",checks," failures=",failures)
 	get_tree().quit(0 if failures==0 else 1)

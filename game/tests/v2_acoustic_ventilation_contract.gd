@@ -23,11 +23,12 @@ func _run() -> void:
 	_check(AcousticGraphData.get_instance_id()==owner_id and is_same(dictionary,AcousticGraphData.nodes),"original propagation owner and dictionary survive installation")
 	_check(AcousticGraphData._topology_base==original and not AcousticGraphData._topology_scopes.is_empty(),"topology lease retains the original graph beneath later physical fits")
 	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(Topology.DATA))
+	var heat: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/acoustic_heating.json"))
 	var current := {}
 	for identity: String in AcousticGraphData.nodes:
 		if AcousticGraphData.nodes[identity].get("network")=="ventilation":current[identity]=true
 	_check(current.size()==49 and data.nodes.size()==49 and data.routes.size()==45,"all installed ventilation nodes and ducts are represented")
-	_check(AcousticGraphData.nodes.size()==original.size()-2,"only two absent internal junctions retire")
+	_check(AcousticGraphData.nodes.size()==original.size()-2+27,"two absent duct junctions retire and 27 physical heating junctions enter")
 	for retired: Dictionary in data.retirements:
 		_check(not AcousticGraphData.nodes.has(str(retired.id)),"uninstalled junction cannot transmit: "+str(retired.id))
 	for row: Dictionary in data.nodes:
@@ -45,7 +46,7 @@ func _run() -> void:
 		if not carriers.has(identity):carriers[identity]=[]
 		carriers[identity].append(node)
 	for identity: String in original:
-		if original[identity].get("network")=="ventilation" or identity in four:continue
+		if original[identity].get("network") in ["ventilation","heating"] or identity in four:continue
 		var actual: Dictionary=AcousticGraphData.nodes[identity].duplicate(true)
 		if actual.pos!=original[identity].pos:
 			var owners: Array=carriers.get(identity,[])
@@ -71,6 +72,33 @@ func _run() -> void:
 	for identity: String in heard:
 		_check(expected_events.has(identity),"no transmission to a different physical stack: "+identity)
 	_check("F04_B_BATH_VENT_REGISTER" in heard and "F02_B_BATH_VENT_REGISTER" not in heard,"actual V2 assignment wins over the old unit-letter shortcut")
+	_check(heat.nodes.size()==53 and heat.routes.size()==52,"all native steam connections represented")
+	var narrative: Array=AcousticGraphData._reality_plan("B1_BOILER_01",{"carrier":"network","networks":["heating"]})
+	for target: Dictionary in narrative:
+		_check(not AcousticGraphData.nodes[target.id].get("transit_only",false),"passive junction cannot consume an actual case target: "+str(target.id))
+	for row: Dictionary in heat.nodes:
+		var identity := str(row.id)
+		var expected_point: Vector3=world.adapter.root.to_global(GameBoot.b2g(row.pos))
+		_check(AcousticGraphData.node_pos(identity).distance_to(expected_point)<.0001,"actual heating frame: "+identity)
+		_check(AcousticGraphData.nodes[identity].connections==row.connections,"source-derived heating connections: "+identity)
+		if original.has(identity):
+			for key: String in ["frequency_band","delay_ms","damping","infection_receptivity"]:
+				_check(AcousticGraphData.nodes[identity][key]==original[identity][key],"retained heating "+key+": "+identity)
+		else:
+			_check(row.delay_ms==0 and row.damping==0 and row.infection_receptivity==0,"passive junction cannot add loss, delay or infection: "+identity)
+	for bridge: Dictionary in heat.external_bridges:
+		_check(bridge.end in AcousticGraphData.nodes[bridge.start].connections,"retained external heating bridge: "+str(bridge.start)+" -> "+str(bridge.end))
+	var heat_heard: Array[String]=[]
+	var heat_listener := func(identity: String,index: int,accent: float,pitch: float,_strength: float):
+		if index==0 and accent==.00271828 and pitch==1. and AcousticGraphData.nodes[identity].network=="heating":heat_heard.append(identity)
+	AcousticGraphData.network_event.connect(heat_listener)
+	AcousticGraphData.propagate("B1_BOILER_01",0,.00271828,1.)
+	await get_tree().create_timer(1.).timeout
+	AcousticGraphData.network_event.disconnect(heat_listener)
+	_check(heat_heard.size()==53,"original autoload delivers boiler events to every physical heating junction and emitter")
+	for row: Dictionary in heat.nodes:
+		_check(str(row.id) in heat_heard,"observed actual heating delivery: "+str(row.id))
+
 	if module!=null:
 		_check(module.release() and AcousticGraphData.nodes==original,"explicit release restores the complete original graph")
 		var rebuilt := Topology.new()
@@ -100,13 +128,14 @@ func _run() -> void:
 	if not directory.is_empty():file=FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE)
 	_check(file!=null,"open executed network contract")
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Installed V2 ventilation topology and event routing only; other acoustic networks, disk save, navigation and human listening remain unproved.",
+		"scope":"Installed V2 ventilation and heating topology and event routing only; other acoustic networks, disk save, navigation and human listening remain unproved.",
 		"execution":{"completed":true,"exit_code":0 if failures==0 else 1,"timed_out":false},
 		"source":{"test_path":"game/tests/v2_acoustic_ventilation_contract.gd","test_sha256":bindings.get("game/tests/v2_acoustic_ventilation_contract.gd",""),
 			"test_dependencies":bindings,"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "",
 			"runtime_inputs_sha256":final_inputs.runtime,"surface_inputs_sha256":final_inputs.surface},
 		"checks":checks,"failures":failures,
-		"contracts":{"ventilation_topology":{"executed":true,"status":"PASS" if failures==0 else "FAIL","nodes":current.size(),"routes":data.routes.size()},
+		"contracts":{"heating_topology":{"executed":true,"status":"PASS" if failures==0 else "FAIL","nodes":heat.nodes.size(),"routes":heat.routes.size(),"observed_nodes":heat_heard},
+			"ventilation_topology":{"executed":true,"status":"PASS" if failures==0 else "FAIL","nodes":current.size(),"routes":data.routes.size()},
 			"propagation":{"executed":true,"status":"PASS" if failures==0 else "FAIL","observed_nodes":heard},
 			"teardown":{"executed":true,"status":"PASS" if failures==0 else "FAIL","retained_nodes":0 if held.get_ref()==null else 1}}}
 	if file!=null:file.store_string(JSON.stringify(receipt,"\t"));file.flush()

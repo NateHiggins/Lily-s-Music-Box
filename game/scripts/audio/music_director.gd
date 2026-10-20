@@ -137,6 +137,7 @@ func _choose_radio_destination(initial: bool) -> void:
 	var here: Vector3 = world.player.global_position
 	var candidates: Array[Vector3] = []
 	for node_id in AcousticGraphData.nodes:
+		if AcousticGraphData.nodes[node_id].get("transit_only", false):continue
 		var at := AcousticGraphData.node_pos(node_id)
 		var horizontal := Vector2(at.x - here.x, at.z - here.z).length()
 		var vertical := absf(at.y - here.y)

@@ -9,6 +9,7 @@ var errors: Array[String] = []
 var _lease := 0
 var _local_nodes := {}
 var _routes: Array = []
+var heating
 
 func _reject(message: String) -> bool:
 	errors.append(message)
@@ -95,12 +96,15 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 		var anchor := adapter.resolve(identity) as Node3D
 		if anchor==null or not merged.has(identity): return _reject("Missing retained parity carrier: "+identity)
 		merged[identity].pos=[anchor.global_position.x,-anchor.global_position.z,anchor.global_position.y]
+	heating=preload("res://scripts/building/orison_v2_acoustic_heating.gd").new()
+	if not heating.merge_into(merged,adapter,layout):return _reject("Heating topology refused: "+str(heating.errors))
 	_lease=AcousticGraphData.push_topology(merged)
 	if _lease==0: return _reject("Propagation owner refused topology")
 	_local_nodes=local_nodes;_routes=data.routes
 	return true
 
 func physical_owners_valid(adapter: OrisonV2AnchorAdapter) -> bool:
+	if heating==null or not heating.physical_owners_valid(adapter):return _reject("Physical heating owners refused: "+str(heating.errors if heating!=null else []))
 	for route: Dictionary in _routes:
 		if not adapter.root.get_node_or_null(NodePath(str(route.owner))) is StaticBody3D: return _reject("Installed duct owner missing: "+str(route.owner))
 	for identity: String in _local_nodes:

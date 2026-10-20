@@ -2648,3 +2648,10 @@ game/tests/v2_acoustic_ventilation_contract.gd -text whitespace=cr-at-eol
 game/tests/v2_acoustic_topology_scope_test.gd -text whitespace=cr-at-eol
 tools/build_v2_acoustic_ventilation.py -text whitespace=cr-at-eol
 art/reviews/v2_acoustic_ventilation_20261020/** -text whitespace=cr-at-eol
+
+# Source-bound heating topology and original inspection/contract archive.
+game/scripts/building/orison_v2_acoustic_heating.gd -text whitespace=cr-at-eol
+game/data/orison_v2/acoustic_heating.json -text whitespace=cr-at-eol
+tools/build_v2_acoustic_heating.py -text whitespace=cr-at-eol
+art/blender/scripts/inspect_acoustic_heating_routes.py -text whitespace=cr-at-eol
+art/reviews/v2_acoustic_heating_20261020/** -text whitespace=cr-at-eol

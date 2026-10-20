@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| V2 parallel heating transmission, passive junctions and native route survey | `design/V2_ACOUSTIC_HEATING_2026-10-20.md` |
 | V2 physical ventilation topology, scoped propagation and partial-network proof | `design/V2_ACOUSTIC_VENTILATION_2026-10-20.md` |
 | Clean-checkout image import settings and retained original surface proof | `design/V2_PORTABLE_IMPORT_SETTINGS_2026-10-20.md` |
 | Qualified native fittings, readable library and glass integration into main | `design/V2_NATIVE_FITTINGS_INTEGRATION_2026-10-20.md` |

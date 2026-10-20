@@ -111,6 +111,7 @@ func _nearest_graph_node(at: Vector3, limit := 14.0) -> String:
 	var best := ""
 	var best_distance := limit
 	for node_id in AcousticGraphData.nodes:
+		if AcousticGraphData.nodes[node_id].get("transit_only", false):continue
 		var distance := AcousticGraphData.node_pos(node_id).distance_to(at)
 		if distance < best_distance:
 			best_distance = distance

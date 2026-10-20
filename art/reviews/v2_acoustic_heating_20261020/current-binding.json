@@ -1,0 +1,17 @@
+{
+  "evidence_class": "INERT",
+  "checks": {
+    "executed": true,
+    "zero_failures": true,
+    "runtime": true,
+    "surface": true,
+    "game/tests/V2AcousticVentilationContract.tscn": true,
+    "game/tests/v2_acoustic_ventilation_contract.gd": true,
+    "game/tests/v2_spatial_access_cohort.gd": true,
+    "stdout": true,
+    "stderr": true
+  },
+  "executed_checks": 1205,
+  "original_repository_head": "af162e70b618fec5071125a75f7006f33467d9ff",
+  "note": "Original executed receipt is unchanged; this independently checks its current source and original raw logs. No global qualification or human acceptance grant."
+}

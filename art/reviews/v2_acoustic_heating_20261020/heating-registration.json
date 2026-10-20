@@ -1,0 +1,2519 @@
+{
+  "evidence_class": "INERT",
+  "added": [
+    {
+      "key": "bc571d38a10189f6",
+      "kind": "floor_reference",
+      "token": "F01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0,
+        0,
+        0
+      ],
+      "count": 3,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "5bdbc6f5dfdd92b0",
+      "kind": "floor_reference",
+      "token": "F02",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "b3b93b6c68700dbd",
+      "kind": "floor_reference",
+      "token": "F03",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "3fc52424fa53793c",
+      "kind": "floor_reference",
+      "token": "F04",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "30004619f1c6699b",
+      "kind": "floor_reference",
+      "token": "F05",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "31c9b3d43eb7b9db",
+      "kind": "floor_reference",
+      "token": "F06",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "26ea5248b443fdf0",
+      "kind": "id_reference",
+      "token": "B1_BOILER_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[1]/connections[*]",
+        "/nodes[*]/id",
+        "/routes[*]/start",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[0]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "c9f9b1cf85d797cd",
+      "kind": "id_reference",
+      "token": "B1_BOILER_ROOM",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[0]/room",
+        "/nodes[1]/room",
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 7,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "7db0f48ace1c252d",
+      "kind": "id_reference",
+      "token": "B1_FLUE_BASE",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[0]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "c2184fe10b75d0aa",
+      "kind": "id_reference",
+      "token": "BASEMENT_HEADER_EAST",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[0]/connections[0]",
+        "/nodes[1]/id",
+        "/nodes[*]/connections[0]",
+        "/nodes[*]/connections[1]",
+        "/routes[0]/end",
+        "/routes[1]/start",
+        "/routes[*]/start",
+        "/routes[*]/end"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 11,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "a736149990855e9b",
+      "kind": "id_reference",
+      "token": "BASEMENT_HEADER_WEST",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[0]/id",
+        "/nodes[1]/connections[0]",
+        "/nodes[*]/connections[0]",
+        "/routes[0]/start",
+        "/routes[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "2fec41d0ddca3ca0",
+      "kind": "id_reference",
+      "token": "F01_1D_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[1]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "0a25d0c8933503f9",
+      "kind": "id_reference",
+      "token": "F01_A_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "fde9ac4d5c7e41e1",
+      "kind": "id_reference",
+      "token": "F01_A_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[1]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "4e78aea59c980ba9",
+      "kind": "id_reference",
+      "token": "F01_D_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "92aa31181e696d55",
+      "kind": "id_reference",
+      "token": "F01_D_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[1]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "1bea720d143ece71",
+      "kind": "id_reference",
+      "token": "F01_LOBBY",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "41b0ad7319823d06",
+      "kind": "id_reference",
+      "token": "F01_LOBBY_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "3c320aa1b0656ae8",
+      "kind": "id_reference",
+      "token": "F02_2A_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[2]/connections[0]",
+        "/external_bridges[2]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "654154d823094263",
+      "kind": "id_reference",
+      "token": "F02_2B_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "d599fa14b0209e55",
+      "kind": "id_reference",
+      "token": "F02_2C_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "ce7cc383934d3a4e",
+      "kind": "id_reference",
+      "token": "F02_A_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[2]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "ef1ecbbf6dfab869",
+      "kind": "id_reference",
+      "token": "F02_A_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[2]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[2]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "f6e7353e7b70c2f4",
+      "kind": "id_reference",
+      "token": "F02_B_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "9ffca3a5e161ae70",
+      "kind": "id_reference",
+      "token": "F02_B_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 6,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "8eec926aaa606c00",
+      "kind": "id_reference",
+      "token": "F02_C_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "06b6a739b4731de6",
+      "kind": "id_reference",
+      "token": "F02_C_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "99b699d17ea48e95",
+      "kind": "id_reference",
+      "token": "F02_D_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "ff90a99fc48e3703",
+      "kind": "id_reference",
+      "token": "F02_D_RESTRICTED",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "f67816b46f730555",
+      "kind": "id_reference",
+      "token": "F02_PORCH_DECK",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[1]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F02/marker+acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "6350f0072f99bba3",
+      "kind": "id_reference",
+      "token": "F03_3B_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "21c138760af1c10c",
+      "kind": "id_reference",
+      "token": "F03_3D_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "13c21abb240d6b74",
+      "kind": "id_reference",
+      "token": "F03_A_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "2c931841d294cdff",
+      "kind": "id_reference",
+      "token": "F03_A_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "9abaf0e655f04c5c",
+      "kind": "id_reference",
+      "token": "F03_B_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "239a25d120f9c992",
+      "kind": "id_reference",
+      "token": "F03_B_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 7,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "c314657561f08d30",
+      "kind": "id_reference",
+      "token": "F03_C_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "69e908eb33e589c8",
+      "kind": "id_reference",
+      "token": "F03_C_RESTRICTED",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "f5a78e03c3d46e16",
+      "kind": "id_reference",
+      "token": "F03_D_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "e06a834e4e0089e6",
+      "kind": "id_reference",
+      "token": "F03_D_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "76deedba09c06973",
+      "kind": "id_reference",
+      "token": "F03_PORCH_DECK",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[1]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/marker+acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "c63384af090253de",
+      "kind": "id_reference",
+      "token": "F03_UTILITY_ANOMALY",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[2]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F03/marker+acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "f73acbc78f0aac7f",
+      "kind": "id_reference",
+      "token": "F04_4A_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "98151bb88bbefaf7",
+      "kind": "id_reference",
+      "token": "F04_4C_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "38ad5ecfa32748fb",
+      "kind": "id_reference",
+      "token": "F04_4D_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "890d2a1bb358e58b",
+      "kind": "id_reference",
+      "token": "F04_A_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "b42b1b642008faa2",
+      "kind": "id_reference",
+      "token": "F04_A_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "205bc2ac35190a27",
+      "kind": "id_reference",
+      "token": "F04_B_CLOCK_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[2]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "adf5ad5000d00b3f",
+      "kind": "id_reference",
+      "token": "F04_B_DOOR_ANOMALY",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[1]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node+runtime_created",
+      "target_exists": true
+    },
+    {
+      "key": "51c14f6c8db53a21",
+      "kind": "id_reference",
+      "token": "F04_B_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "64a6148116967070",
+      "kind": "id_reference",
+      "token": "F04_B_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "7640a3b687a7beb7",
+      "kind": "id_reference",
+      "token": "F04_B_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 8,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "1213582f12efc0d6",
+      "kind": "id_reference",
+      "token": "F04_C_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "e3e4cffbb497f05a",
+      "kind": "id_reference",
+      "token": "F04_C_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "80a614f5e3888181",
+      "kind": "id_reference",
+      "token": "F04_D_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "dd68870245002917",
+      "kind": "id_reference",
+      "token": "F04_D_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "e41cecfdbe002823",
+      "kind": "id_reference",
+      "token": "F04_PORCH_DECK",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[*]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F04/marker+acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "6925f3f76e25ca19",
+      "kind": "id_reference",
+      "token": "F05_5A_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "2921b2f9112ab774",
+      "kind": "id_reference",
+      "token": "F05_5C_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "ab22ded8f7888199",
+      "kind": "id_reference",
+      "token": "F05_A_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "1ac1f51f667f22a3",
+      "kind": "id_reference",
+      "token": "F05_A_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "b766fc844a8d75ae",
+      "kind": "id_reference",
+      "token": "F05_B_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "700be4ceee72fb94",
+      "kind": "id_reference",
+      "token": "F05_B_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "2111d8748ec4dc5a",
+      "kind": "id_reference",
+      "token": "F05_C_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "787020ed4fb8d76d",
+      "kind": "id_reference",
+      "token": "F05_C_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "25ecee76dfdcf2bb",
+      "kind": "id_reference",
+      "token": "F05_D_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[2]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "02e2caafc36d6f2b",
+      "kind": "id_reference",
+      "token": "F05_D_RESTRICTED",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "77cb250f6e3546f7",
+      "kind": "id_reference",
+      "token": "F05_PORCH_DECK",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F05/marker+acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "a5eff23372cb8747",
+      "kind": "id_reference",
+      "token": "F06_6A_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "0df8dbde16bce48a",
+      "kind": "id_reference",
+      "token": "F06_6B_FRIDGE_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[0]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "0d220112742287f0",
+      "kind": "id_reference",
+      "token": "F06_A_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "416ee22f62935b27",
+      "kind": "id_reference",
+      "token": "F06_A_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[1]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 5,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "484f559fae7d49d3",
+      "kind": "id_reference",
+      "token": "F06_B_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "01c12ba07fede3a5",
+      "kind": "id_reference",
+      "token": "F06_B_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[1]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier",
+        "/external_bridges[*]/start"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 6,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "096f1aa911f20391",
+      "kind": "id_reference",
+      "token": "F06_C_MAIN",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "6a1d183633e85294",
+      "kind": "id_reference",
+      "token": "F06_C_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[1]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "e943793624e1e156",
+      "kind": "id_reference",
+      "token": "F06_D_RADIATOR_01",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/id",
+        "/nodes[*]/connections[1]",
+        "/routes[*]/end",
+        "/routes[*]/terminal_carrier"
+      ],
+      "lines": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 4,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "d92395e69df35ba1",
+      "kind": "id_reference",
+      "token": "F06_D_RESTRICTED",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/room"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "68e56cc2df4a08da",
+      "kind": "id_reference",
+      "token": "F06_PORCH_DECK",
+      "file": "game/data/orison_v2/acoustic_heating.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/nodes[*]/connections[1]",
+        "/external_bridges[*]/end"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F06/marker+acoustic_node",
+      "target_exists": true
+    },
+    {
+      "key": "0803c4b9f1c7dfce",
+      "kind": "id_reference",
+      "token": "B1_BOILER_01",
+      "file": "game/tests/v2_acoustic_ventilation_contract.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        76,
+        95
+      ],
+      "count": 2,
+      "context": [
+        "var narrative: Array=AcousticGraphData._reality_plan(\"B1_BOILER_01\",{\"carrier\":\"network\",\"networks\":[\"heating\"]})",
+        "AcousticGraphData.propagate(\"B1_BOILER_01\",0,.00271828,1.)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+      "target_exists": true
+    }
+  ],
+  "retired": []
+}

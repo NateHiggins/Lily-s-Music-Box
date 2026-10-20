@@ -1,0 +1,12 @@
+{
+  "evidence_class": "INERT",
+  "original_source_sha256_lf": "8b247be31487849f65d929d3900ef26b598c7fbd576990eb1087b3ea1a2083c2",
+  "current_source_sha256_lf": "f0664adea5df1356e2ff1a6dee1f41a243ddf84f9f9713916c1009648cb97174",
+  "unchanged_routes": true,
+  "unchanged_node_positions_and_tuning": true,
+  "unchanged_asset_hashes": {
+    "game/assets/props/heating_distribution.glb": "8022d0b3368eceed0caece53527514fb8f7965f6c7ae85d567ab7e9e3bf13184",
+    "game/assets/props/boiler_pipework.glb": "a9fd88e45b4a169d05338765337461a4c2003527ec474d0d36ed7ff7e7f28b4e"
+  },
+  "note": "Reuse unchanged native route survey. Later changes only omit unused authoring metadata and mark new junctions routing-only; no new geometry/native inspection claim."
+}

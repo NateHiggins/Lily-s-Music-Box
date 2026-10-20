@@ -303,6 +303,7 @@ func _nearest_radiator(at: Vector3, radius: float) -> Node3D:
 func _architectural_source() -> Vector3:
 	var candidates: Array[Vector3] = []
 	for node_id in AcousticGraphData.nodes:
+		if AcousticGraphData.nodes[node_id].get("transit_only", false):continue
 		var at := AcousticGraphData.node_pos(node_id)
 		var distance := at.distance_to(player.global_position)
 		if distance > 4.0 and distance < 20.0:

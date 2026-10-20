@@ -910,6 +910,7 @@ func _compose_service_round_props() -> void:
 		return
 	heat_balance = heating.balance
 	var boiler := BoilerProp.new()
+	boiler.graph_node_id = "B1_BOILER_01"
 	boiler.external_pipework = true
 	boiler.prop_type = "boiler"
 	_mount("B1_BOILER_01", boiler)

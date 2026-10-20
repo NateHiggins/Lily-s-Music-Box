@@ -154,7 +154,10 @@ func _deliver_reality(entry: Dictionary, case_id: String, intensity: float,
 ## It never invents geometry: every delivery still follows a reachable graph
 ## node, but selection and ordering express the resident's repeatable rule.
 func _reality_plan(origin: String, grammar: Dictionary) -> Array:
-	var base := _plan_for(origin).duplicate(true)
+	# Passive pipe junctions carry propagation but cannot consume narrative
+	# target limits, event order or repeated manifestation slots.
+	var base: Array = _plan_for(origin).filter(func(entry):
+		return not bool(nodes.get(entry.id, {}).get("transit_only", false))).duplicate(true)
 	if grammar.is_empty():
 		return base
 	var selected: Array = []

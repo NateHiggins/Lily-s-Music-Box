@@ -1,0 +1,60 @@
+{
+  "evidence_class": "INERT",
+  "archives": [
+    {
+      "archive": "heating1/heating1.log.receipt.json.gz",
+      "sha256": "c110a1768a65bbf7ca9a4b2f15a18b38cdabd4c940362605f36f15fff35eb89b",
+      "source": "tmp/v2-acoustics-20261020/heating1.log.receipt.json"
+    },
+    {
+      "archive": "heating1/heating1.log.gz",
+      "sha256": "e20ede6b3c75261cd9bfdec806a68404863d540c55571e0c9c2649874e96478a",
+      "source": "tmp/v2-acoustics-20261020/heating1.log"
+    },
+    {
+      "archive": "heating1/heating1.log.stderr.gz",
+      "sha256": "8e8d0a5c5abc6d3f3a6fd23c8855b15be2fe931481a329582f35ec1aea2abf72",
+      "source": "tmp/v2-acoustics-20261020/heating1.log.stderr"
+    },
+    {
+      "archive": "heating1/runtime_contract.json.gz",
+      "sha256": "b48de719cbea85807a82cf3a7aa0aa1a68be9d62abb8866459c07a17da7fd6f2",
+      "source": "tmp/v2-acoustics-20261020/heating1/runtime_contract.json"
+    },
+    {
+      "archive": "heating-scope2/heating-scope2.log.receipt.json.gz",
+      "sha256": "96e4bf6312b33897344aaacaaf9a8a2bd3eed9b2199fe4e641264931581729df",
+      "source": "tmp/v2-acoustics-20261020/heating-scope2.log.receipt.json"
+    },
+    {
+      "archive": "heating-scope2/heating-scope2.log.gz",
+      "sha256": "f7744c92b68754e2dc28d15014c184eac787db0f930a534088365ce91863e867",
+      "source": "tmp/v2-acoustics-20261020/heating-scope2.log"
+    },
+    {
+      "archive": "heating-scope2/heating-scope2.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "tmp/v2-acoustics-20261020/heating-scope2.log.stderr"
+    },
+    {
+      "archive": "heating2/heating2.log.receipt.json.gz",
+      "sha256": "4bdfa489bf72734cdb7f4b7faebf25c4d86207f405e08192a90e73c7fe90d487",
+      "source": "tmp/v2-acoustics-20261020/heating2.log.receipt.json"
+    },
+    {
+      "archive": "heating2/heating2.log.gz",
+      "sha256": "6b38b87a8ac86811fad3fd0d9efbb53c397bfcddca645847dee09c7e4d10a14e",
+      "source": "tmp/v2-acoustics-20261020/heating2.log"
+    },
+    {
+      "archive": "heating2/heating2.log.stderr.gz",
+      "sha256": "8e8d0a5c5abc6d3f3a6fd23c8855b15be2fe931481a329582f35ec1aea2abf72",
+      "source": "tmp/v2-acoustics-20261020/heating2.log.stderr"
+    },
+    {
+      "archive": "heating2/runtime_contract.json.gz",
+      "sha256": "84bf9bfe58ef0283194ef5ce5f59d40310d2a0047c951d85df24575ea3439519",
+      "source": "tmp/v2-acoustics-20261020/heating2/runtime_contract.json"
+    }
+  ]
+}
