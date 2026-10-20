@@ -1,0 +1,52 @@
+{
+  "evidence_class": "INERT",
+  "initial_worktrees": 5,
+  "final_worktrees": 1,
+  "primary": "C:\\PleaseRemainOnTheLine",
+  "source_head": "6472266beac3a541da701b6b334719afc4883fce",
+  "retired": [
+    {
+      "path": "C:\\ov\\envimpl",
+      "head": "3e957e1d30d2f2d724f694dd63f55a7656a35b58",
+      "recovery_ref": "refs/archive/workspace-cleanup-20261020/envimpl",
+      "local_archive": "C:\\ov\\workspace-archive-20261020\\envimpl\\local-files.zip",
+      "archive_sha256": "90f69d03eca5d5c5d64aa7da52e4a2c13e28ca11221d1600fd54ba262740c051",
+      "preserved_local_files": 1267
+    },
+    {
+      "path": "C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\godot-dev-reference-manual-911b93",
+      "head": "9a83ac02069051ee87f51b080d9f49ebbaee6d9c",
+      "recovery_ref": "refs/archive/workspace-cleanup-20261020/godot-dev-reference-manual-911b93",
+      "local_archive": "C:\\ov\\workspace-archive-20261020\\godot-dev-reference-manual-911b93\\local-files.zip",
+      "archive_sha256": "3dc48bad26a5e4ee848f500d35e04b1fb18704b078a32366cbda1ad325fe6fd0",
+      "preserved_local_files": 4
+    },
+    {
+      "path": "C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\interesting-booth-8088c2",
+      "head": "cd2eb9363bd1908c13a91f60f99bde70dbe06a37",
+      "recovery_ref": "refs/archive/workspace-cleanup-20261020/interesting-booth-8088c2",
+      "local_archive": "C:\\ov\\workspace-archive-20261020\\interesting-booth-8088c2\\local-files.zip",
+      "archive_sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
+      "preserved_local_files": 0
+    },
+    {
+      "path": "C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\orison-v2-environment-design-778e17",
+      "head": "3e957e1d30d2f2d724f694dd63f55a7656a35b58",
+      "recovery_ref": "refs/archive/workspace-cleanup-20261020/orison-v2-environment-design-778e17",
+      "local_archive": "C:\\ov\\workspace-archive-20261020\\orison-v2-environment-design-778e17\\local-files.zip",
+      "archive_sha256": "2cc71018ad3881fbc065501e2710781adf42da5f0acf40b2dd3bb503cdf34102",
+      "preserved_local_files": 122
+    }
+  ],
+  "logical_checkout_bytes_retired": 57541038909,
+  "local_file_zip_bytes": 1008813670,
+  "intact_orphan_archive": "C:\\ov\\workspace-archive-20261020\\godot-dev-reference-manual-911b93\\remaining-checkout",
+  "intact_orphan_reason": "Automatic approval review blocked recursive deletion; folder moved intact to recovery archive as a reversible alternative.",
+  "unmerged_bundle": "C:\\ov\\workspace-archive-20261020\\unmerged-work.bundle",
+  "unmerged_bundle_sha256": "c9c1fcdd8b5e6456677e61902ed13d6e5dee5b7de0c7db2d7d4490bc32c2d853",
+  "original_branch_refs_retained": true,
+  "recovery_refs_verified": true,
+  "applications_stopped": false,
+  "production_files_changed": false,
+  "final_worktree_listing": "worktree C:/PleaseRemainOnTheLine\nHEAD 6472266beac3a541da701b6b334719afc4883fce\nbranch refs/heads/codex/v2-acoustic-topology\n\n"
+}

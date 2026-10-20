@@ -2655,3 +2655,6 @@ game/data/orison_v2/acoustic_heating.json -text whitespace=cr-at-eol
 tools/build_v2_acoustic_heating.py -text whitespace=cr-at-eol
 art/blender/scripts/inspect_acoustic_heating_routes.py -text whitespace=cr-at-eol
 art/reviews/v2_acoustic_heating_20261020/** -text whitespace=cr-at-eol
+
+# Workspace cleanup recovery record preserves original hashes.
+art/reviews/workspace_cleanup_20261020/** -text whitespace=cr-at-eol
