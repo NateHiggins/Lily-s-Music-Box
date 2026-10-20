@@ -81,3 +81,14 @@ in the packet. The guard now checks metric recipe units, convention and declared
 strength instead of that legacy default. The small family bench calls the same
 ABI preflight, and the composed suite rejects an invalid ABI before world build.
 No previous passing contract is edited or reused as a new pass.
+
+The canonical-checkout ABI and hand bench subsequently passed in 34.35 seconds
+with empty stderr. **surface10** was deliberately stopped at 342 seconds after
+the static board found one unreferenced duplicate albedo sidecar with default
+no-mip settings; it produced no completed runtime qualification. The settings
+are repaired. The import preflight now includes nonignored, unstaged images in
+its authored physical folders, and a real temporary-Git regression checks both
+unstaged and staged coverage while preserving ignored local files. Post-import
+static checks pass in both checkouts. This prevents that staging gap from
+reaching another long world build. The complete board's tools tests passed;
+its surface qualification remains pending the fresh composed result.

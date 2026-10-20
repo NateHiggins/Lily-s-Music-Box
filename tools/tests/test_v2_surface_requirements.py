@@ -1,12 +1,28 @@
 """Fail-closed surface/import regressions for RUL-012."""
 from pathlib import Path
-import copy,gzip,hashlib,importlib.util,json,sys,tempfile,unittest
+import copy,gzip,hashlib,importlib.util,json,subprocess,sys,tempfile,unittest
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools'))
 from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    def test_new_unstaged_physical_image_is_covered_before_first_import(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            subprocess.run(['git','-C',str(root),'init','--quiet'],check=True)
+            image=root/'game/assets/building/textures/new_duplicate_albedo.png'
+            image.parent.mkdir(parents=True);image.write_bytes(b'candidate image')
+            ignored=image.parent/'ignored.png';ignored.write_bytes(b'local ignored data')
+            (root/'.gitignore').write_text('ignored.png\n')
+            table=root/'material_sets.gd';table.write_text('const SETS := {}\n')
+            with patch.object(imports,'ROOT',root),patch.object(imports,'TEXTURES',image.parent),patch.object(imports,'GDSCRIPT',table),patch.object(imports,'V2_EXTERNAL_MAPS',()):
+                before=imports.v2_sidecars()
+                self.assertIn(Path(str(image)+'.import'),before)
+                self.assertNotIn(Path(str(ignored)+'.import'),before)
+                subprocess.run(['git','-C',str(root),'add','--',str(image.relative_to(root))],check=True)
+                self.assertEqual(before,imports.v2_sidecars())
+
     def test_procedural_relief_recipe_and_helpers_are_surface_inputs(self):
         import v2_surface_evidence as evidence
         dependencies=evidence.material_recipe_paths(ROOT)

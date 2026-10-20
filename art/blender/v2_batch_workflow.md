@@ -9,6 +9,9 @@ no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not
 proof of the current interaction contract.
 
+After editor import, run the V2 import-policy check before composing a world.
+New nonignored source images must be covered even before Git staging.
+
 Check the shared loaded material ABI in the first small family bench. A new
 metric normal recipe must compare against its declared calibration, not an old
 default strength. Reject an invalid ABI before composing a full world. Run
