@@ -264,6 +264,74 @@ func print_review(stock: RefCounted,shelf: Node3D) -> void:
 		player.camera.fov=40.;player.camera.look_at(point)
 		await capture("spread_"+book.stock_id)
 	proofs.queue_free()
+func carried_stock_review(stock: RefCounted) -> void:
+	# A separate copy keeps the native hand/sash fixtures unchanged. This
+	# corridor is diagnostic, not an authored world location or a save owner.
+	# A visible metric floor makes distant captures legible without changing
+	# the carried lamp. This is a diagnostic plane, not an exported V2 prop.
+	var floor_draw:=MeshInstance3D.new();var floor_mesh:=PlaneMesh.new()
+	floor_mesh.size=Vector2(80,12);floor_draw.mesh=floor_mesh;floor_draw.position.y=.0001
+	var floor_finish: StandardMaterial3D=stock.materials.oak_work_surface.duplicate()
+	floor_finish.uv1_scale*=Vector3(80,12,1)
+	floor_draw.material_override=floor_finish;add_child(floor_draw)
+	var library:=Shelf.new();library.native_stock=stock;library.owner_name="Iris Bell";library.unit="5C";library.case_style="plain"
+	library.position=Vector3(2.4,0,-2.);add_child(library)
+	player.global_position=library.global_position+Vector3(0,.02,1.2)
+	player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0)
+	player.set_mouse_released(false)
+	var book: Node3D=library._books.values()[2]
+	for frame in 4: await get_tree().physics_frame
+	player.camera.look_at(book.to_global(Vector3(-.0025,float(book.construction.height)*.5,0)))
+	click()
+	if not check(player._grab.active() and player._grab.target.part==book,"primary acquires travel binding without entering inspection"): library.free();return
+	if not check(await carry(book.position+Vector3(0,.10,.45)),"mouse extracts travel binding into clear space"):
+		player.cancel_manipulation();library.free();return
+	var start:=player.global_position
+	var relative:=book.global_position-player.global_position
+	Input.action_press("move_right")
+	for frame in 650:
+		await get_tree().physics_frame
+		if player.global_position.x-start.x>=24.: break
+		if not player._grab.active(): break
+	Input.action_release("move_right")
+	check(player.global_position.x-start.x>=24.,"ordinary walking input carries stock 24 metres on a real capsule and floor")
+	check(player._grab.active() and player._grab.target.part==book,"stock remains grabbed beyond the former shelf workspace")
+	check((book.global_position-player.global_position).distance_to(relative)<.01,"holder motion preserves the hand's relative position")
+	check(book.position.length()>20.,"actual carried position exceeds the former save radius")
+	check(book.shelf==library and library._books[book.stock_id]==book,"moving rooms retains the original library owner and identity")
+	print("CARRIED STOCK: walked=",player.global_position.distance_to(start)," local_pose=",book.transform," hand_offset_error=",(book.global_position-player.global_position).distance_to(relative))
+	await capture("carried_book_24m")
+	var changes: Array[Vector3]=[]
+	var observe:=func(where: Vector3,_what: String): changes.append(where)
+	player.world_modified.connect(observe)
+	click()
+	player.world_modified.disconnect(observe)
+	check(changes.size()==1 and changes[0].distance_to(book.global_position)<.001,"world-change signal follows the distant book while retaining its semantic owner")
+	check(library._tap.global_position.distance_to(book.global_position)<.001,"handling sound originates at the distant stock")
+	check(not player._grab.active() and not book.freeze,"primary releases travelling stock to ordinary gravity")
+	for frame in 180:
+		await get_tree().physics_frame
+		if book.sleeping: break
+	check(book.sleeping,"released travelling binding settles on the distant floor")
+	var saved: Dictionary=library.library_snapshot()
+	check(library.valid_library(saved),"original library accepts the real distant physical snapshot")
+	var encoded: Dictionary=JSON.parse_string(JSON.stringify(saved,"",true,true))
+	var bad: Dictionary=encoded.duplicate(true)
+	bad.books[book.stock_id].body.position[0]=1e100
+	check(not library.valid_library(bad),"finite JSON coordinates that overflow native Vector3 are refused")
+	var identity: String=book.stock_id
+	library.free()
+	var restored:=Shelf.new();restored.native_stock=stock;restored.owner_name="Iris Bell";restored.unit="5C";restored.case_style="plain"
+	restored.position=Vector3(2.4,0,-2.);add_child(restored)
+	restored.restore_order(encoded)
+	for frame in 4: await get_tree().physics_frame
+	check(equivalent(restored._books[identity].book_snapshot(),encoded.books[identity]),"new native owner rebuilds the distant binding pose/opening/velocity after JSON round trip")
+	check(restored.valid_library(restored.library_snapshot()),"reconstructed distant stock remains a valid household payload")
+	var rebuilt: Node3D=restored._books[identity]
+	player.camera.look_at(rebuilt.to_global(Vector3(float(rebuilt.construction.width)*.5,float(rebuilt.construction.height)*.5,0)))
+	await capture("rebuilt_book_24m")
+	restored.free();floor_draw.free()
+
 func reading_order_review() -> void:
 	var fixture:=Shelf.new()
 	fixture._case_record={"shelf_tops":[.3,.6,.9]}
@@ -316,7 +384,7 @@ func _run() -> void:
 	environment.ambient_light_color=Color(.44,.48,.55);environment.ambient_light_energy=.35
 	var world:=WorldEnvironment.new();world.environment=environment;add_child(world)
 	var floor_body:=StaticBody3D.new();floor_body.position.y=-.1;add_child(floor_body)
-	var shape:=CollisionShape3D.new();var box:=BoxShape3D.new();box.size=Vector3(12,.2,12);shape.shape=box;floor_body.add_child(shape)
+	var shape:=CollisionShape3D.new();var box:=BoxShape3D.new();box.size=Vector3(80,.2,12);shape.shape=box;floor_body.add_child(shape)
 	var shelves: Array[Node3D]=[]
 	for row: Array in [["Iris Bell","5C","plain"],["Mina Vale","2A","repaired"],["Mae Kessler","6C","sectional"]]:
 		var shelf:=Shelf.new();shelf.native_stock=stock;shelf.owner_name=row[0];shelf.unit=row[1];shelf.case_style=row[2]
@@ -369,6 +437,7 @@ func _run() -> void:
 		await bookend_review(shelves[1])
 	if OS.get_environment("LIBRARY_PRINT_ONLY")!="1": await sash_review(shelves[2])
 	if OS.get_environment("LIBRARY_HAND_ONLY")!="1": await print_review(stock,shelves[0])
+	if OS.get_environment("LIBRARY_PRINT_ONLY")!="1": await carried_stock_review(stock)
 	# Print review uses a separate isolated featured gathering; this is not hand proof.
 	var shelf: Node3D=shelves[0]
 	var book: Node3D=shelf._books.values()[0]

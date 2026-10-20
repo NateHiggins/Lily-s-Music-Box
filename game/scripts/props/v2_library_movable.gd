@@ -67,6 +67,7 @@ func _release() -> void:
 
 func grip() -> Dictionary:
 	return {"owner":shelf,"part":self,"frame":shelf,"kind":"free",
+		"change_origin":func(): return global_position,
 		"read":func(): return position,
 		"write":func(value: Vector3):
 			if _held and _hand_tag=="body": _carry(value),
@@ -76,6 +77,7 @@ func grip() -> Dictionary:
 
 func turn_grip(axis: Vector3) -> Dictionary:
 	return {"owner":shelf,"part":self,"frame":shelf,"kind":"hinge","axis":func(): return _turn_axis,
+		"change_origin":func(): return global_position,
 		"minimum":-TAU,"maximum":TAU,"minimum_lever":.025,
 		"read":func(): return _turn_value,
 		"write":func(value: float):
@@ -103,9 +105,8 @@ func _contact(info: Dictionary, motion: Vector3) -> void:
 
 func _carry(value: Vector3) -> void:
 	if not value.is_finite(): return
-	var bounded: Vector3=shelf.limit_library_position(value)
 	var pose:=global_transform
-	var remaining: Vector3=shelf.global_basis*(bounded-position)
+	var remaining: Vector3=shelf.global_basis*(value-position)
 	var space:=get_world_3d().direct_space_state
 	_last_motion={}
 	for slide in 4:
@@ -200,7 +201,7 @@ static func valid_stock(value: Variant) -> bool:
 		for item: Variant in value[key]:
 			if typeof(item) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(item)): return false
 	var q:=Quaternion(value.rotation[0],value.rotation[1],value.rotation[2],value.rotation[3])
-	return absf(q.length_squared()-1.)<.0001 and Vector3(value.position[0],value.position[1],value.position[2]).length()<20. \
+	return absf(q.length_squared()-1.)<.0001 and Vector3(value.position[0],value.position[1],value.position[2]).is_finite() \
 		and Vector3(value.velocity[0],value.velocity[1],value.velocity[2]).length()<100. \
 		and Vector3(value.spin[0],value.spin[1],value.spin[2]).length()<100.
 

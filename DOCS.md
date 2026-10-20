@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Unbounded physical library carry, distant native reconstruction and physical event origins | `design/V2_LIBRARY_WORLD_CARRY_2026-10-20.md` |
 | Native library contact, inspection and installed-handling diagnostics | `design/V2_LIBRARY_HANDLING_2026-10-20.md` |
 | Original book illustrations, thirty physical spreads and unfinished bookshelf interaction qualification | `design/V2_READABLE_LIBRARY_2026-10-20.md` |
 | Construction-specific normal recipes, expressive cabinet glass and current qualification | `design/V2_CONSTRUCTION_NORMALS_2026-10-20.md` |

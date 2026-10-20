@@ -155,6 +155,7 @@ func _release() -> void:
 func cover_grip() -> Dictionary:
 	return {"owner":shelf,"part":left,"frame":self,"kind":"hinge","axis":Vector3.DOWN,
 		"minimum":0.,"maximum":PI,"minimum_lever":.025,
+		"change_origin":func(): return global_position,
 		"read":func(): return opening,
 		"write":func(value: float):
 			if _held and _hand_tag=="cover": _open(value),

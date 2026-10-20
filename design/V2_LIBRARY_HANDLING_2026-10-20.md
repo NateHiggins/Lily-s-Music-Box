@@ -108,8 +108,10 @@ full structural **110 -> 110**, golden shift **8 -> 8**, cutover **134 -> 134**,
 retirement **136 -> 136**. Requirements changed: none. Main comparison retains
 prior cohort/ledger regressions; no green candidate or merge readiness is claimed.
 
+Later native carry work is recorded in **V2_LIBRARY_WORLD_CARRY_2026-10-20.md**.
+
 Open findings: broader effects of precise world contacts; texture-RID teardown;
-passive book families; the carry workspace bounds; composed surface/source-bound
+passive book families; actual-building delivery routes; composed surface/source-bound
 proof renewal; canonical wardrobe reconciliation; remaining V2 content and human
 appearance acceptance. The diagnostic uses a temporary save, never player data.
 

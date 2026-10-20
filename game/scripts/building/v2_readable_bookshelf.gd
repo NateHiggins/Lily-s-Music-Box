@@ -128,11 +128,6 @@ func _arrange(order: Array) -> void:
 	for body: RigidBody3D in _books.values()+_ends.values(): body.start_at_rest()
 	_restoring_library=restoring_before
 
-func limit_library_position(value: Vector3) -> Vector3:
-	return Vector3(clampf(value.x,-float(_case_record.width)*.5-.16,float(_case_record.width)*.5+.16),
-		clampf(value.y,.001,float(_case_record.height)+.35),
-		clampf(value.z,-float(_case_record.depth)*.5+.015,.85))
-
 func claim_library_hand(part: Node3D, tag: String) -> bool:
 	if is_instance_valid(_hand_node): return false
 	_hand_node=part;_hand_tag=tag;return true
@@ -141,7 +136,9 @@ func release_library_hand(part: Node3D, changed: bool) -> void:
 	if _hand_node!=part: return
 	_hand_node=null;_hand_tag=""
 	if changed:
-		if _tap: _tap.play()
+		if _tap:
+			_tap.global_position=part.global_position
+			_tap.play()
 		library_stock_changed(part)
 
 func library_stock_changed(_part: Node3D) -> void:
