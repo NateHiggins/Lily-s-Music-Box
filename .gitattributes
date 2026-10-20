@@ -2593,3 +2593,18 @@ art/reviews/v2_surface_renewal_20261020/** -text whitespace=cr-at-eol
 # Binding recipes carry source/map hashes.
 art/textures/procedural/book_*/material.json -text
 art/reviews/v2_binding_stock_20261020/** -text whitespace=cr-at-eol
+
+# Readable library native/authoring/font inputs.
+art/blender/readable_library_construction.json -text
+art/blender/scripts/build_readable_library.py -text
+art/blender/scripts/review_readable_library.py -text
+game/data/orison_v2/readable_library.json -text
+game/data/orison_v2/book_spreads.json -text
+game/data/library.json -text
+game/assets/fonts/eb_garamond/** -text
+art/illustrations/book_plates/** -text
+art/tools/design_readable_pages.py -text
+game/assets/book_illustrations/** -text
+
+# Preserve the pinned upstream license bytes, including its intentional space.
+game/assets/fonts/eb_garamond/OFL.txt whitespace=-blank-at-eol

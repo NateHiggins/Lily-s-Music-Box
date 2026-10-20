@@ -1,0 +1,5047 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native stock construction, authored UV/tangents and physical size only. No runtime, save, narrative or human acceptance.",
+  "parts": {
+    "prospectus__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "prospectus__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "prospectus__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "prospectus__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "prospectus__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "prospectus__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "prospectus__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "minutes__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "minutes__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "minutes__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "minutes__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "minutes__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "minutes__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "minutes__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "minutes__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "minutes__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "wiring__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "wiring__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "wiring__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "wiring__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "wiring__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "wiring__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "wiring__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "switchboard__right_board": {
+      "material": "book_teal",
+      "role": "right",
+      "collision": true
+    },
+    "switchboard__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "switchboard__left_board": {
+      "material": "book_teal",
+      "role": "left",
+      "collision": true
+    },
+    "switchboard__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "switchboard__spine": {
+      "material": "book_teal",
+      "role": "fixed",
+      "collision": true
+    },
+    "switchboard__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "switchboard__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "hymns__right_board": {
+      "material": "book_navy",
+      "role": "right",
+      "collision": true
+    },
+    "hymns__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "hymns__left_board": {
+      "material": "book_navy",
+      "role": "left",
+      "collision": true
+    },
+    "hymns__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "hymns__spine": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": true
+    },
+    "hymns__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "hymns__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "cordcircuits__right_board": {
+      "material": "book_teal",
+      "role": "right",
+      "collision": true
+    },
+    "cordcircuits__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "cordcircuits__left_board": {
+      "material": "book_teal",
+      "role": "left",
+      "collision": true
+    },
+    "cordcircuits__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "cordcircuits__spine": {
+      "material": "book_teal",
+      "role": "fixed",
+      "collision": true
+    },
+    "cordcircuits__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "cordcircuits__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "nurse__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "nurse__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "nurse__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "nurse__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "nurse__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "nurse__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "nurse__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "nurse__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "nurse__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "photochem__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "photochem__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "photochem__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "photochem__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "photochem__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "photochem__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "photochem__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "photochem__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "photochem__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "atlas__right_board": {
+      "material": "book_green",
+      "role": "right",
+      "collision": true
+    },
+    "atlas__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "atlas__left_board": {
+      "material": "book_green",
+      "role": "left",
+      "collision": true
+    },
+    "atlas__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "atlas__spine": {
+      "material": "book_green",
+      "role": "fixed",
+      "collision": true
+    },
+    "atlas__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "atlas__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "standards__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "standards__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "standards__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "standards__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "standards__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "standards__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "standards__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "standards__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "standards__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "radio__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "radio__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "radio__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "radio__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "radio__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "radio__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "radio__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "sorting__right_board": {
+      "material": "book_navy",
+      "role": "right",
+      "collision": true
+    },
+    "sorting__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "sorting__left_board": {
+      "material": "book_navy",
+      "role": "left",
+      "collision": true
+    },
+    "sorting__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "sorting__spine": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": true
+    },
+    "sorting__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "sorting__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "glass__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "glass__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "glass__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "glass__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "glass__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "glass__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "glass__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "letters__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "letters__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "letters__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "letters__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "letters__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "letters__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "letters__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "letters__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "letters__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "elevator__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "elevator__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "elevator__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "elevator__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "elevator__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "elevator__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "elevator__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "elevator__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "elevator__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "barsongs__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "barsongs__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "barsongs__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "barsongs__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "barsongs__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "barsongs__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "barsongs__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "barsongs__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "barsongs__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "recipes__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "recipes__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "recipes__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "recipes__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "recipes__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "recipes__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "recipes__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "recipes__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "recipes__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "flowers__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "flowers__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "flowers__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "flowers__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "flowers__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "flowers__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "flowers__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "flowers__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "flowers__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "knots__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "knots__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "knots__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "knots__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "knots__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "knots__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "knots__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "dressmaking__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "dressmaking__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "dressmaking__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "dressmaking__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "dressmaking__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "dressmaking__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "dressmaking__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "dressmaking__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "dressmaking__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "birds__right_board": {
+      "material": "book_green",
+      "role": "right",
+      "collision": true
+    },
+    "birds__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "birds__left_board": {
+      "material": "book_green",
+      "role": "left",
+      "collision": true
+    },
+    "birds__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "birds__spine": {
+      "material": "book_green",
+      "role": "fixed",
+      "collision": true
+    },
+    "birds__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "birds__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "billiards__right_board": {
+      "material": "book_green",
+      "role": "right",
+      "collision": true
+    },
+    "billiards__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "billiards__left_board": {
+      "material": "book_green",
+      "role": "left",
+      "collision": true
+    },
+    "billiards__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "billiards__spine": {
+      "material": "book_green",
+      "role": "fixed",
+      "collision": true
+    },
+    "billiards__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "billiards__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "darts__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "darts__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "darts__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "darts__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "darts__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "darts__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "darts__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "darts__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "darts__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "dreams__right_board": {
+      "material": "book_navy",
+      "role": "right",
+      "collision": true
+    },
+    "dreams__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "dreams__left_board": {
+      "material": "book_navy",
+      "role": "left",
+      "collision": true
+    },
+    "dreams__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "dreams__spine": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": true
+    },
+    "dreams__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "dreams__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "concrete__right_board": {
+      "material": "book_teal",
+      "role": "right",
+      "collision": true
+    },
+    "concrete__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "concrete__left_board": {
+      "material": "book_teal",
+      "role": "left",
+      "collision": true
+    },
+    "concrete__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "concrete__spine": {
+      "material": "book_teal",
+      "role": "fixed",
+      "collision": true
+    },
+    "concrete__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "concrete__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "interborough__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "interborough__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "interborough__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "interborough__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "interborough__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "interborough__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "interborough__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "walls__right_board": {
+      "material": "book_navy",
+      "role": "right",
+      "collision": true
+    },
+    "walls__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "walls__left_board": {
+      "material": "book_navy",
+      "role": "left",
+      "collision": true
+    },
+    "walls__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "walls__spine": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": true
+    },
+    "walls__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "walls__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "missing__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "missing__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "missing__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "missing__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "missing__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "missing__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "missing__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "missing__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "missing__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "deadletter__right_board": {
+      "material": "book_teal",
+      "role": "right",
+      "collision": true
+    },
+    "deadletter__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "deadletter__left_board": {
+      "material": "book_teal",
+      "role": "left",
+      "collision": true
+    },
+    "deadletter__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "deadletter__spine": {
+      "material": "book_teal",
+      "role": "fixed",
+      "collision": true
+    },
+    "deadletter__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "deadletter__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "onefinger__right_board": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "onefinger__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "onefinger__left_board": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "onefinger__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "onefinger__spine": {
+      "material": "paper",
+      "role": "fixed",
+      "collision": true
+    },
+    "onefinger__lace0": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": false
+    },
+    "onefinger__lace1": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": false
+    },
+    "onefinger__lace2": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": false
+    },
+    "onefinger__lace_tail": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": false
+    },
+    "plain__Back": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Side0": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Side1": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Shelf0": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Shelf1": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Shelf2": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Top": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Foot0": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Foot1": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__CapMoulding": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin0": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin1": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin2": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin3": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin4": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin5": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Back": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Side0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Side1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Shelf0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Shelf1": {
+      "material": "site_softwood",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Shelf2": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Top": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Foot0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Foot1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__CapMoulding": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__RepairStrap0": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__RepairStrap1": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin0": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin1": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin2": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin3": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin4": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin5": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Back": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Side0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Side1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Shelf0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Shelf1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Shelf2": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Top": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Foot0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Foot1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__CapMoulding": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Plinth": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin0": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin1": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin2": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin3": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin4": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin5": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__PocketTrack0_0": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash0__Roller0": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional__PocketTrack0_1": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash0__Roller1": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional_sash0__Rail0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Rail1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Stile0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Stile1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Glass": {
+      "material": "glass_drawn_expressive",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Pull": {
+      "material": "brass_dull",
+      "role": "door",
+      "collision": false
+    },
+    "sectional__PocketTrack1_0": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash1__Roller0": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional__PocketTrack1_1": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash1__Roller1": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional_sash1__Rail0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Rail1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Stile0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Stile1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Glass": {
+      "material": "glass_drawn_expressive",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Pull": {
+      "material": "brass_dull",
+      "role": "door",
+      "collision": false
+    },
+    "sectional__PocketTrack2_0": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash2__Roller0": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional__PocketTrack2_1": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash2__Roller1": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional_sash2__Rail0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Rail1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Stile0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Stile1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Glass": {
+      "material": "glass_drawn_expressive",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Pull": {
+      "material": "brass_dull",
+      "role": "door",
+      "collision": false
+    },
+    "bookend_pressed__Foot": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__Upright0": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__Upright1": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__TopFace": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__FoldedLip": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__TopReturn": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__LowerWeb": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__FloorReturn": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__Felt": {
+      "material": "linen",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__Foot": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__Upright0": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__Upright1": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__TopReturn": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__LowerWeb": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__FloorReturn": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__Felt": {
+      "material": "linen",
+      "role": "end",
+      "collision": true
+    },
+    "plate__billiards": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__bird_window": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__circuit_radio": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__circuit_switchboard": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__circuit_wiring": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__contact_frames": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__dartboard": {
+      "material": "soot",
+      "role": "print",
+      "collision": false
+    },
+    "plate__door": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__elevation": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__envelope": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__keyboard": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__knot": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__lift_section": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__onefinger_drawing": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__pattern": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__pressed_flower": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__roof_plan": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__seedling": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__street_plan": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__timetable": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "type__running_rule": {
+      "material": "soot",
+      "role": "print",
+      "collision": false
+    }
+  },
+  "closed_stocks": [
+    {
+      "part": "prospectus__right_board",
+      "volume_m3": 1.5568676562952483e-05,
+      "closed": true
+    },
+    {
+      "part": "prospectus__right_leaves",
+      "volume_m3": 6.0167482864135796e-05,
+      "closed": true
+    },
+    {
+      "part": "prospectus__left_board",
+      "volume_m3": 1.556867656295248e-05,
+      "closed": true
+    },
+    {
+      "part": "prospectus__left_leaves",
+      "volume_m3": 6.0167482864135796e-05,
+      "closed": true
+    },
+    {
+      "part": "prospectus__spine",
+      "volume_m3": 2.088670314847723e-06,
+      "closed": true
+    },
+    {
+      "part": "prospectus__headband0",
+      "volume_m3": 2.395678178259562e-09,
+      "closed": true
+    },
+    {
+      "part": "prospectus__headband1",
+      "volume_m3": 2.395717552972724e-09,
+      "closed": true
+    },
+    {
+      "part": "minutes__right_board",
+      "volume_m3": 6.476427081139473e-05,
+      "closed": true
+    },
+    {
+      "part": "minutes__right_leaves",
+      "volume_m3": 0.00036551924715761037,
+      "closed": true
+    },
+    {
+      "part": "minutes__right_tooling",
+      "volume_m3": 1.200627099377072e-08,
+      "closed": true
+    },
+    {
+      "part": "minutes__right_tooling",
+      "volume_m3": 1.2005909963267886e-08,
+      "closed": true
+    },
+    {
+      "part": "minutes__right_tooling",
+      "volume_m3": 7.825440925030489e-09,
+      "closed": true
+    },
+    {
+      "part": "minutes__right_tooling",
+      "volume_m3": 7.825324651402181e-09,
+      "closed": true
+    },
+    {
+      "part": "minutes__left_board",
+      "volume_m3": 6.476427072942082e-05,
+      "closed": true
+    },
+    {
+      "part": "minutes__left_leaves",
+      "volume_m3": 0.0003655192471724608,
+      "closed": true
+    },
+    {
+      "part": "minutes__left_tooling",
+      "volume_m3": 1.200627099377072e-08,
+      "closed": true
+    },
+    {
+      "part": "minutes__left_tooling",
+      "volume_m3": 1.2005909963267463e-08,
+      "closed": true
+    },
+    {
+      "part": "minutes__left_tooling",
+      "volume_m3": 7.825440925030039e-09,
+      "closed": true
+    },
+    {
+      "part": "minutes__left_tooling",
+      "volume_m3": 7.825324651457609e-09,
+      "closed": true
+    },
+    {
+      "part": "minutes__spine",
+      "volume_m3": 1.1169682966914521e-05,
+      "closed": true
+    },
+    {
+      "part": "minutes__headband0",
+      "volume_m3": 1.3775150521041216e-08,
+      "closed": true
+    },
+    {
+      "part": "minutes__headband1",
+      "volume_m3": 1.3775113026085824e-08,
+      "closed": true
+    },
+    {
+      "part": "wiring__right_board",
+      "volume_m3": 5.228591979297942e-05,
+      "closed": true
+    },
+    {
+      "part": "wiring__right_leaves",
+      "volume_m3": 0.00042897672110220407,
+      "closed": true
+    },
+    {
+      "part": "wiring__left_board",
+      "volume_m3": 5.228591979297942e-05,
+      "closed": true
+    },
+    {
+      "part": "wiring__left_leaves",
+      "volume_m3": 0.00042897672110220407,
+      "closed": true
+    },
+    {
+      "part": "wiring__spine",
+      "volume_m3": 1.2561378546776531e-05,
+      "closed": true
+    },
+    {
+      "part": "wiring__headband0",
+      "volume_m3": 1.9165425426076495e-08,
+      "closed": true
+    },
+    {
+      "part": "wiring__headband1",
+      "volume_m3": 1.9165373259186182e-08,
+      "closed": true
+    },
+    {
+      "part": "switchboard__right_board",
+      "volume_m3": 5.1764084804821444e-05,
+      "closed": true
+    },
+    {
+      "part": "switchboard__right_leaves",
+      "volume_m3": 0.0002897337946825777,
+      "closed": true
+    },
+    {
+      "part": "switchboard__left_board",
+      "volume_m3": 5.176408473170635e-05,
+      "closed": true
+    },
+    {
+      "part": "switchboard__left_leaves",
+      "volume_m3": 0.0002897337946957672,
+      "closed": true
+    },
+    {
+      "part": "switchboard__spine",
+      "volume_m3": 9.749960084669195e-06,
+      "closed": true
+    },
+    {
+      "part": "switchboard__headband0",
+      "volume_m3": 1.3775150521041216e-08,
+      "closed": true
+    },
+    {
+      "part": "switchboard__headband1",
+      "volume_m3": 1.3775113026086936e-08,
+      "closed": true
+    },
+    {
+      "part": "hymns__right_board",
+      "volume_m3": 1.0170723986628089e-05,
+      "closed": true
+    },
+    {
+      "part": "hymns__right_leaves",
+      "volume_m3": 6.5473956974285e-05,
+      "closed": true
+    },
+    {
+      "part": "hymns__left_board",
+      "volume_m3": 1.0170723986628096e-05,
+      "closed": true
+    },
+    {
+      "part": "hymns__left_leaves",
+      "volume_m3": 6.5473956974285e-05,
+      "closed": true
+    },
+    {
+      "part": "hymns__spine",
+      "volume_m3": 1.980515358075714e-06,
+      "closed": true
+    },
+    {
+      "part": "hymns__headband0",
+      "volume_m3": 3.5935172673893397e-09,
+      "closed": true
+    },
+    {
+      "part": "hymns__headband1",
+      "volume_m3": 3.5935074860973033e-09,
+      "closed": true
+    },
+    {
+      "part": "cordcircuits__right_board",
+      "volume_m3": 5.355335946246399e-05,
+      "closed": true
+    },
+    {
+      "part": "cordcircuits__right_leaves",
+      "volume_m3": 0.00028438506451520357,
+      "closed": true
+    },
+    {
+      "part": "cordcircuits__left_board",
+      "volume_m3": 5.3553359462464006e-05,
+      "closed": true
+    },
+    {
+      "part": "cordcircuits__left_leaves",
+      "volume_m3": 0.00028438506451520357,
+      "closed": true
+    },
+    {
+      "part": "cordcircuits__spine",
+      "volume_m3": 1.0112518061114082e-05,
+      "closed": true
+    },
+    {
+      "part": "cordcircuits__headband0",
+      "volume_m3": 1.3176230378847082e-08,
+      "closed": true
+    },
+    {
+      "part": "cordcircuits__headband1",
+      "volume_m3": 1.3176194514109136e-08,
+      "closed": true
+    },
+    {
+      "part": "nurse__right_board",
+      "volume_m3": 4.033850375029983e-05,
+      "closed": true
+    },
+    {
+      "part": "nurse__right_leaves",
+      "volume_m3": 0.00030432138921117954,
+      "closed": true
+    },
+    {
+      "part": "nurse__right_tooling",
+      "volume_m3": 7.075047890428219e-09,
+      "closed": true
+    },
+    {
+      "part": "nurse__right_tooling",
+      "volume_m3": 7.074835150387509e-09,
+      "closed": true
+    },
+    {
+      "part": "nurse__right_tooling",
+      "volume_m3": 7.825453477930018e-09,
+      "closed": true
+    },
+    {
+      "part": "nurse__right_tooling",
+      "volume_m3": 7.825218171957608e-09,
+      "closed": true
+    },
+    {
+      "part": "nurse__left_board",
+      "volume_m3": 4.033850368539576e-05,
+      "closed": true
+    },
+    {
+      "part": "nurse__left_leaves",
+      "volume_m3": 0.00030432138923447915,
+      "closed": true
+    },
+    {
+      "part": "nurse__left_tooling",
+      "volume_m3": 7.075047890428325e-09,
+      "closed": true
+    },
+    {
+      "part": "nurse__left_tooling",
+      "volume_m3": 7.074835150396403e-09,
+      "closed": true
+    },
+    {
+      "part": "nurse__left_tooling",
+      "volume_m3": 7.825453477929277e-09,
+      "closed": true
+    },
+    {
+      "part": "nurse__left_tooling",
+      "volume_m3": 7.825218171964967e-09,
+      "closed": true
+    },
+    {
+      "part": "nurse__spine",
+      "volume_m3": 9.082894915616235e-06,
+      "closed": true
+    },
+    {
+      "part": "nurse__headband0",
+      "volume_m3": 1.796758673536624e-08,
+      "closed": true
+    },
+    {
+      "part": "nurse__headband1",
+      "volume_m3": 1.796753782890592e-08,
+      "closed": true
+    },
+    {
+      "part": "photochem__right_board",
+      "volume_m3": 6.173112024418209e-05,
+      "closed": true
+    },
+    {
+      "part": "photochem__right_leaves",
+      "volume_m3": 0.0005264745984818419,
+      "closed": true
+    },
+    {
+      "part": "photochem__right_tooling",
+      "volume_m3": 1.2542093269202953e-08,
+      "closed": true
+    },
+    {
+      "part": "photochem__right_tooling",
+      "volume_m3": 1.2541716126025807e-08,
+      "closed": true
+    },
+    {
+      "part": "photochem__right_tooling",
+      "volume_m3": 7.0749333152334995e-09,
+      "closed": true
+    },
+    {
+      "part": "photochem__right_tooling",
+      "volume_m3": 7.074774390229943e-09,
+      "closed": true
+    },
+    {
+      "part": "photochem__left_board",
+      "volume_m3": 6.173112032490515e-05,
+      "closed": true
+    },
+    {
+      "part": "photochem__left_leaves",
+      "volume_m3": 0.0005264745984818417,
+      "closed": true
+    },
+    {
+      "part": "photochem__left_tooling",
+      "volume_m3": 1.25420932692029e-08,
+      "closed": true
+    },
+    {
+      "part": "photochem__left_tooling",
+      "volume_m3": 1.2541716126025595e-08,
+      "closed": true
+    },
+    {
+      "part": "photochem__left_tooling",
+      "volume_m3": 7.074933315233923e-09,
+      "closed": true
+    },
+    {
+      "part": "photochem__left_tooling",
+      "volume_m3": 7.074774390135446e-09,
+      "closed": true
+    },
+    {
+      "part": "photochem__spine",
+      "volume_m3": 1.6705634084820197e-05,
+      "closed": true
+    },
+    {
+      "part": "photochem__headband0",
+      "volume_m3": 1.976434556827067e-08,
+      "closed": true
+    },
+    {
+      "part": "photochem__headband1",
+      "volume_m3": 1.9764481090414165e-08,
+      "closed": true
+    },
+    {
+      "part": "atlas__right_board",
+      "volume_m3": 6.864392626049529e-05,
+      "closed": true
+    },
+    {
+      "part": "atlas__right_leaves",
+      "volume_m3": 0.0005076890076389062,
+      "closed": true
+    },
+    {
+      "part": "atlas__left_board",
+      "volume_m3": 6.86439262604953e-05,
+      "closed": true
+    },
+    {
+      "part": "atlas__left_leaves",
+      "volume_m3": 0.0005076890076389062,
+      "closed": true
+    },
+    {
+      "part": "atlas__spine",
+      "volume_m3": 1.55992036106063e-05,
+      "closed": true
+    },
+    {
+      "part": "atlas__headband0",
+      "volume_m3": 1.7368668186850083e-08,
+      "closed": true
+    },
+    {
+      "part": "atlas__headband1",
+      "volume_m3": 1.7368953653544433e-08,
+      "closed": true
+    },
+    {
+      "part": "standards__right_board",
+      "volume_m3": 6.259736342074885e-05,
+      "closed": true
+    },
+    {
+      "part": "standards__right_leaves",
+      "volume_m3": 0.0004246338254236105,
+      "closed": true
+    },
+    {
+      "part": "standards__right_tooling",
+      "volume_m3": 1.3399885618888349e-08,
+      "closed": true
+    },
+    {
+      "part": "standards__right_tooling",
+      "volume_m3": 1.339948268083807e-08,
+      "closed": true
+    },
+    {
+      "part": "standards__right_tooling",
+      "volume_m3": 6.699836490794506e-09,
+      "closed": true
+    },
+    {
+      "part": "standards__right_tooling",
+      "volume_m3": 6.70001746852094e-09,
+      "closed": true
+    },
+    {
+      "part": "standards__left_board",
+      "volume_m3": 6.259736342074884e-05,
+      "closed": true
+    },
+    {
+      "part": "standards__left_leaves",
+      "volume_m3": 0.0004246338254236105,
+      "closed": true
+    },
+    {
+      "part": "standards__left_tooling",
+      "volume_m3": 1.3399882714006909e-08,
+      "closed": true
+    },
+    {
+      "part": "standards__left_tooling",
+      "volume_m3": 1.3399479775809087e-08,
+      "closed": true
+    },
+    {
+      "part": "standards__left_tooling",
+      "volume_m3": 6.6998347526602136e-09,
+      "closed": true
+    },
+    {
+      "part": "standards__left_tooling",
+      "volume_m3": 6.700015731349433e-09,
+      "closed": true
+    },
+    {
+      "part": "standards__spine",
+      "volume_m3": 1.4519609018775987e-05,
+      "closed": true
+    },
+    {
+      "part": "standards__headband0",
+      "volume_m3": 1.6170827902461785e-08,
+      "closed": true
+    },
+    {
+      "part": "standards__headband1",
+      "volume_m3": 1.6171093681779426e-08,
+      "closed": true
+    },
+    {
+      "part": "radio__right_board",
+      "volume_m3": 5.123438448395165e-05,
+      "closed": true
+    },
+    {
+      "part": "radio__right_leaves",
+      "volume_m3": 0.0003455191451365322,
+      "closed": true
+    },
+    {
+      "part": "radio__left_board",
+      "volume_m3": 5.123438448395165e-05,
+      "closed": true
+    },
+    {
+      "part": "radio__left_leaves",
+      "volume_m3": 0.0003455191451365322,
+      "closed": true
+    },
+    {
+      "part": "radio__spine",
+      "volume_m3": 1.1883530762777963e-05,
+      "closed": true
+    },
+    {
+      "part": "radio__headband0",
+      "volume_m3": 1.6170827902461785e-08,
+      "closed": true
+    },
+    {
+      "part": "radio__headband1",
+      "volume_m3": 1.6170783886647408e-08,
+      "closed": true
+    },
+    {
+      "part": "sorting__right_board",
+      "volume_m3": 4.381366394407642e-05,
+      "closed": true
+    },
+    {
+      "part": "sorting__right_leaves",
+      "volume_m3": 0.00028129438390288037,
+      "closed": true
+    },
+    {
+      "part": "sorting__left_board",
+      "volume_m3": 4.381366401118609e-05,
+      "closed": true
+    },
+    {
+      "part": "sorting__left_leaves",
+      "volume_m3": 0.00028129438390288037,
+      "closed": true
+    },
+    {
+      "part": "sorting__spine",
+      "volume_m3": 9.784213052717558e-06,
+      "closed": true
+    },
+    {
+      "part": "sorting__headband0",
+      "volume_m3": 1.5571909353945664e-08,
+      "closed": true
+    },
+    {
+      "part": "sorting__headband1",
+      "volume_m3": 1.5571866968345078e-08,
+      "closed": true
+    },
+    {
+      "part": "glass__right_board",
+      "volume_m3": 4.8680925829586866e-05,
+      "closed": true
+    },
+    {
+      "part": "glass__right_leaves",
+      "volume_m3": 0.0003282267859737858,
+      "closed": true
+    },
+    {
+      "part": "glass__left_board",
+      "volume_m3": 4.868092582958685e-05,
+      "closed": true
+    },
+    {
+      "part": "glass__left_leaves",
+      "volume_m3": 0.0003282267859737858,
+      "closed": true
+    },
+    {
+      "part": "glass__spine",
+      "volume_m3": 9.462642814103411e-06,
+      "closed": true
+    },
+    {
+      "part": "glass__headband0",
+      "volume_m3": 1.6170827902461785e-08,
+      "closed": true
+    },
+    {
+      "part": "glass__headband1",
+      "volume_m3": 1.617078388664873e-08,
+      "closed": true
+    },
+    {
+      "part": "letters__right_board",
+      "volume_m3": 3.960921377171456e-05,
+      "closed": true
+    },
+    {
+      "part": "letters__right_leaves",
+      "volume_m3": 0.0002872694760994104,
+      "closed": true
+    },
+    {
+      "part": "letters__right_tooling",
+      "volume_m3": 7.664640241423674e-09,
+      "closed": true
+    },
+    {
+      "part": "letters__right_tooling",
+      "volume_m3": 7.66440977021035e-09,
+      "closed": true
+    },
+    {
+      "part": "letters__right_tooling",
+      "volume_m3": 7.075035651360824e-09,
+      "closed": true
+    },
+    {
+      "part": "letters__right_tooling",
+      "volume_m3": 7.074715285179044e-09,
+      "closed": true
+    },
+    {
+      "part": "letters__left_board",
+      "volume_m3": 3.9609213771714556e-05,
+      "closed": true
+    },
+    {
+      "part": "letters__left_leaves",
+      "volume_m3": 0.0002872694760994104,
+      "closed": true
+    },
+    {
+      "part": "letters__left_tooling",
+      "volume_m3": 7.664640241423674e-09,
+      "closed": true
+    },
+    {
+      "part": "letters__left_tooling",
+      "volume_m3": 7.66440977021035e-09,
+      "closed": true
+    },
+    {
+      "part": "letters__left_tooling",
+      "volume_m3": 7.075035651359924e-09,
+      "closed": true
+    },
+    {
+      "part": "letters__left_tooling",
+      "volume_m3": 7.074715285139234e-09,
+      "closed": true
+    },
+    {
+      "part": "letters__spine",
+      "volume_m3": 9.414870464732727e-06,
+      "closed": true
+    },
+    {
+      "part": "letters__headband0",
+      "volume_m3": 1.7368668186850083e-08,
+      "closed": true
+    },
+    {
+      "part": "letters__headband1",
+      "volume_m3": 1.736862091060163e-08,
+      "closed": true
+    },
+    {
+      "part": "elevator__right_board",
+      "volume_m3": 6.343678089101282e-05,
+      "closed": true
+    },
+    {
+      "part": "elevator__right_leaves",
+      "volume_m3": 0.0003578078039304821,
+      "closed": true
+    },
+    {
+      "part": "elevator__right_tooling",
+      "volume_m3": 1.173826933851851e-08,
+      "closed": true
+    },
+    {
+      "part": "elevator__right_tooling",
+      "volume_m3": 1.1737916367236357e-08,
+      "closed": true
+    },
+    {
+      "part": "elevator__right_tooling",
+      "volume_m3": 7.825440925030489e-09,
+      "closed": true
+    },
+    {
+      "part": "elevator__right_tooling",
+      "volume_m3": 7.825324651471108e-09,
+      "closed": true
+    },
+    {
+      "part": "elevator__left_board",
+      "volume_m3": 6.343678080996664e-05,
+      "closed": true
+    },
+    {
+      "part": "elevator__left_leaves",
+      "volume_m3": 0.00035780780394515857,
+      "closed": true
+    },
+    {
+      "part": "elevator__left_tooling",
+      "volume_m3": 1.173826933851851e-08,
+      "closed": true
+    },
+    {
+      "part": "elevator__left_tooling",
+      "volume_m3": 1.1737916367236357e-08,
+      "closed": true
+    },
+    {
+      "part": "elevator__left_tooling",
+      "volume_m3": 7.825440925030039e-09,
+      "closed": true
+    },
+    {
+      "part": "elevator__left_tooling",
+      "volume_m3": 7.825324651436327e-09,
+      "closed": true
+    },
+    {
+      "part": "elevator__spine",
+      "volume_m3": 1.0940694998014365e-05,
+      "closed": true
+    },
+    {
+      "part": "elevator__headband0",
+      "volume_m3": 1.3775150521041216e-08,
+      "closed": true
+    },
+    {
+      "part": "elevator__headband1",
+      "volume_m3": 1.3775113026086301e-08,
+      "closed": true
+    },
+    {
+      "part": "barsongs__right_board",
+      "volume_m3": 5.7535245502597876e-05,
+      "closed": true
+    },
+    {
+      "part": "barsongs__right_leaves",
+      "volume_m3": 0.00045710871006194367,
+      "closed": true
+    },
+    {
+      "part": "barsongs__right_tooling",
+      "volume_m3": 1.007665691945455e-08,
+      "closed": true
+    },
+    {
+      "part": "barsongs__right_tooling",
+      "volume_m3": 1.0076353915270134e-08,
+      "closed": true
+    },
+    {
+      "part": "barsongs__right_tooling",
+      "volume_m3": 8.200643561863336e-09,
+      "closed": true
+    },
+    {
+      "part": "barsongs__right_tooling",
+      "volume_m3": 8.20045934078947e-09,
+      "closed": true
+    },
+    {
+      "part": "barsongs__left_board",
+      "volume_m3": 5.753524542575117e-05,
+      "closed": true
+    },
+    {
+      "part": "barsongs__left_leaves",
+      "volume_m3": 0.0004571087100897221,
+      "closed": true
+    },
+    {
+      "part": "barsongs__left_tooling",
+      "volume_m3": 1.007665691945455e-08,
+      "closed": true
+    },
+    {
+      "part": "barsongs__left_tooling",
+      "volume_m3": 1.0076353915270134e-08,
+      "closed": true
+    },
+    {
+      "part": "barsongs__left_tooling",
+      "volume_m3": 8.200643561863866e-09,
+      "closed": true
+    },
+    {
+      "part": "barsongs__left_tooling",
+      "volume_m3": 8.200459340799e-09,
+      "closed": true
+    },
+    {
+      "part": "barsongs__spine",
+      "volume_m3": 1.2847352755216333e-05,
+      "closed": true
+    },
+    {
+      "part": "barsongs__headband0",
+      "volume_m3": 1.8566506877560344e-08,
+      "closed": true
+    },
+    {
+      "part": "barsongs__headband1",
+      "volume_m3": 1.856645634088298e-08,
+      "closed": true
+    },
+    {
+      "part": "recipes__right_board",
+      "volume_m3": 4.4714259795514785e-05,
+      "closed": true
+    },
+    {
+      "part": "recipes__right_leaves",
+      "volume_m3": 0.0002746107033737584,
+      "closed": true
+    },
+    {
+      "part": "recipes__right_tooling",
+      "volume_m3": 8.790250275505018e-09,
+      "closed": true
+    },
+    {
+      "part": "recipes__right_tooling",
+      "volume_m3": 8.789985955703793e-09,
+      "closed": true
+    },
+    {
+      "part": "recipes__right_tooling",
+      "volume_m3": 7.075037486565296e-09,
+      "closed": true
+    },
+    {
+      "part": "recipes__right_tooling",
+      "volume_m3": 7.074932371625685e-09,
+      "closed": true
+    },
+    {
+      "part": "recipes__left_board",
+      "volume_m3": 4.471425986324994e-05,
+      "closed": true
+    },
+    {
+      "part": "recipes__left_leaves",
+      "volume_m3": 0.00027461070337375844,
+      "closed": true
+    },
+    {
+      "part": "recipes__left_tooling",
+      "volume_m3": 8.790252183087643e-09,
+      "closed": true
+    },
+    {
+      "part": "recipes__left_tooling",
+      "volume_m3": 8.789987863382715e-09,
+      "closed": true
+    },
+    {
+      "part": "recipes__left_tooling",
+      "volume_m3": 7.075039321769352e-09,
+      "closed": true
+    },
+    {
+      "part": "recipes__left_tooling",
+      "volume_m3": 7.074934207618064e-09,
+      "closed": true
+    },
+    {
+      "part": "recipes__spine",
+      "volume_m3": 9.15742841867993e-06,
+      "closed": true
+    },
+    {
+      "part": "recipes__headband0",
+      "volume_m3": 1.4972989211751504e-08,
+      "closed": true
+    },
+    {
+      "part": "recipes__headband1",
+      "volume_m3": 1.497294845636598e-08,
+      "closed": true
+    },
+    {
+      "part": "flowers__right_board",
+      "volume_m3": 4.148679525723523e-05,
+      "closed": true
+    },
+    {
+      "part": "flowers__right_leaves",
+      "volume_m3": 0.000301467966806954,
+      "closed": true
+    },
+    {
+      "part": "flowers__right_tooling",
+      "volume_m3": 6.9678352751960384e-09,
+      "closed": true
+    },
+    {
+      "part": "flowers__right_tooling",
+      "volume_m3": 6.9676257579321514e-09,
+      "closed": true
+    },
+    {
+      "part": "flowers__right_tooling",
+      "volume_m3": 8.200643561868172e-09,
+      "closed": true
+    },
+    {
+      "part": "flowers__right_tooling",
+      "volume_m3": 8.200396972223399e-09,
+      "closed": true
+    },
+    {
+      "part": "flowers__left_board",
+      "volume_m3": 4.1486795257235216e-05,
+      "closed": true
+    },
+    {
+      "part": "flowers__left_leaves",
+      "volume_m3": 0.000301467966806954,
+      "closed": true
+    },
+    {
+      "part": "flowers__left_tooling",
+      "volume_m3": 6.967835275196065e-09,
+      "closed": true
+    },
+    {
+      "part": "flowers__left_tooling",
+      "volume_m3": 6.967625757932257e-09,
+      "closed": true
+    },
+    {
+      "part": "flowers__left_tooling",
+      "volume_m3": 8.20064356186669e-09,
+      "closed": true
+    },
+    {
+      "part": "flowers__left_tooling",
+      "volume_m3": 8.200396972228693e-09,
+      "closed": true
+    },
+    {
+      "part": "flowers__spine",
+      "volume_m3": 8.663503157847803e-06,
+      "closed": true
+    },
+    {
+      "part": "flowers__headband0",
+      "volume_m3": 1.7368668186850083e-08,
+      "closed": true
+    },
+    {
+      "part": "flowers__headband1",
+      "volume_m3": 1.73686209106024e-08,
+      "closed": true
+    },
+    {
+      "part": "knots__right_board",
+      "volume_m3": 3.662484547581867e-05,
+      "closed": true
+    },
+    {
+      "part": "knots__right_leaves",
+      "volume_m3": 0.00024380025783192366,
+      "closed": true
+    },
+    {
+      "part": "knots__left_board",
+      "volume_m3": 3.6624845475818724e-05,
+      "closed": true
+    },
+    {
+      "part": "knots__left_leaves",
+      "volume_m3": 0.0002438002578319237,
+      "closed": true
+    },
+    {
+      "part": "knots__spine",
+      "volume_m3": 8.494288473131037e-06,
+      "closed": true
+    },
+    {
+      "part": "knots__headband0",
+      "volume_m3": 1.6170827902461785e-08,
+      "closed": true
+    },
+    {
+      "part": "knots__headband1",
+      "volume_m3": 1.6170783886647064e-08,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__right_board",
+      "volume_m3": 5.516748084811395e-05,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__right_leaves",
+      "volume_m3": 0.0004848744941695649,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__right_tooling",
+      "volume_m3": 1.1094904765783989e-08,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__right_tooling",
+      "volume_m3": 1.1094571141655342e-08,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__right_tooling",
+      "volume_m3": 7.074933315235723e-09,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__right_tooling",
+      "volume_m3": 7.074666764924917e-09,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__left_board",
+      "volume_m3": 5.5167480923826494e-05,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__left_leaves",
+      "volume_m3": 0.00048487449416956485,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__left_tooling",
+      "volume_m3": 1.1094904765783936e-08,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__left_tooling",
+      "volume_m3": 1.1094571141655342e-08,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__left_tooling",
+      "volume_m3": 7.074933315236358e-09,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__left_tooling",
+      "volume_m3": 7.074666764859907e-09,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__spine",
+      "volume_m3": 1.5382898832771022e-05,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__headband0",
+      "volume_m3": 2.036326571046481e-08,
+      "closed": true
+    },
+    {
+      "part": "dressmaking__headband1",
+      "volume_m3": 2.036321028314046e-08,
+      "closed": true
+    },
+    {
+      "part": "birds__right_board",
+      "volume_m3": 4.155399278073499e-05,
+      "closed": true
+    },
+    {
+      "part": "birds__right_leaves",
+      "volume_m3": 0.0002187714246409566,
+      "closed": true
+    },
+    {
+      "part": "birds__left_board",
+      "volume_m3": 4.155399278073505e-05,
+      "closed": true
+    },
+    {
+      "part": "birds__left_leaves",
+      "volume_m3": 0.0002187714246409566,
+      "closed": true
+    },
+    {
+      "part": "birds__spine",
+      "volume_m3": 7.484667883417643e-06,
+      "closed": true
+    },
+    {
+      "part": "birds__headband0",
+      "volume_m3": 1.3176230378847082e-08,
+      "closed": true
+    },
+    {
+      "part": "birds__headband1",
+      "volume_m3": 1.3176194514108898e-08,
+      "closed": true
+    },
+    {
+      "part": "billiards__right_board",
+      "volume_m3": 3.9807511994431396e-05,
+      "closed": true
+    },
+    {
+      "part": "billiards__right_leaves",
+      "volume_m3": 0.00028875536820708355,
+      "closed": true
+    },
+    {
+      "part": "billiards__left_board",
+      "volume_m3": 3.980751199443137e-05,
+      "closed": true
+    },
+    {
+      "part": "billiards__left_leaves",
+      "volume_m3": 0.00028875536820708355,
+      "closed": true
+    },
+    {
+      "part": "billiards__spine",
+      "volume_m3": 8.663503157847803e-06,
+      "closed": true
+    },
+    {
+      "part": "billiards__headband0",
+      "volume_m3": 1.7368668186850083e-08,
+      "closed": true
+    },
+    {
+      "part": "billiards__headband1",
+      "volume_m3": 1.73686209106024e-08,
+      "closed": true
+    },
+    {
+      "part": "darts__right_board",
+      "volume_m3": 3.4769685292665285e-05,
+      "closed": true
+    },
+    {
+      "part": "darts__right_leaves",
+      "volume_m3": 0.00029995253293257993,
+      "closed": true
+    },
+    {
+      "part": "darts__right_tooling",
+      "volume_m3": 6.9677344900109434e-09,
+      "closed": true
+    },
+    {
+      "part": "darts__right_tooling",
+      "volume_m3": 6.967524975918732e-09,
+      "closed": true
+    },
+    {
+      "part": "darts__right_tooling",
+      "volume_m3": 6.699736106714156e-09,
+      "closed": true
+    },
+    {
+      "part": "darts__right_tooling",
+      "volume_m3": 6.6995346517164975e-09,
+      "closed": true
+    },
+    {
+      "part": "darts__left_board",
+      "volume_m3": 3.4769685352538886e-05,
+      "closed": true
+    },
+    {
+      "part": "darts__left_leaves",
+      "volume_m3": 0.00029995253293257993,
+      "closed": true
+    },
+    {
+      "part": "darts__left_tooling",
+      "volume_m3": 6.9677344900109434e-09,
+      "closed": true
+    },
+    {
+      "part": "darts__left_tooling",
+      "volume_m3": 6.9675249759187845e-09,
+      "closed": true
+    },
+    {
+      "part": "darts__left_tooling",
+      "volume_m3": 6.699736106714209e-09,
+      "closed": true
+    },
+    {
+      "part": "darts__left_tooling",
+      "volume_m3": 6.699534651696486e-09,
+      "closed": true
+    },
+    {
+      "part": "darts__spine",
+      "volume_m3": 1.0162491673435756e-05,
+      "closed": true
+    },
+    {
+      "part": "darts__headband0",
+      "volume_m3": 2.036326571046481e-08,
+      "closed": true
+    },
+    {
+      "part": "darts__headband1",
+      "volume_m3": 2.0363210283140194e-08,
+      "closed": true
+    },
+    {
+      "part": "dreams__right_board",
+      "volume_m3": 5.44099009468802e-05,
+      "closed": true
+    },
+    {
+      "part": "dreams__right_leaves",
+      "volume_m3": 0.0004470390073354862,
+      "closed": true
+    },
+    {
+      "part": "dreams__left_board",
+      "volume_m3": 5.440990094688017e-05,
+      "closed": true
+    },
+    {
+      "part": "dreams__left_leaves",
+      "volume_m3": 0.0004470390073354862,
+      "closed": true
+    },
+    {
+      "part": "dreams__spine",
+      "volume_m3": 1.307175866942615e-05,
+      "closed": true
+    },
+    {
+      "part": "dreams__headband0",
+      "volume_m3": 1.9165425426076495e-08,
+      "closed": true
+    },
+    {
+      "part": "dreams__headband1",
+      "volume_m3": 1.9165373259186182e-08,
+      "closed": true
+    },
+    {
+      "part": "concrete__right_board",
+      "volume_m3": 7.469049066386939e-05,
+      "closed": true
+    },
+    {
+      "part": "concrete__right_leaves",
+      "volume_m3": 0.0005762791553372967,
+      "closed": true
+    },
+    {
+      "part": "concrete__left_board",
+      "volume_m3": 7.469049057551831e-05,
+      "closed": true
+    },
+    {
+      "part": "concrete__left_leaves",
+      "volume_m3": 0.0005762791553693889,
+      "closed": true
+    },
+    {
+      "part": "concrete__spine",
+      "volume_m3": 1.6139000942785667e-05,
+      "closed": true
+    },
+    {
+      "part": "concrete__headband0",
+      "volume_m3": 1.796758673536624e-08,
+      "closed": true
+    },
+    {
+      "part": "concrete__headband1",
+      "volume_m3": 1.7967882045721556e-08,
+      "closed": true
+    },
+    {
+      "part": "interborough__right_board",
+      "volume_m3": 4.148681919631952e-05,
+      "closed": true
+    },
+    {
+      "part": "interborough__right_leaves",
+      "volume_m3": 0.0003370749276434379,
+      "closed": true
+    },
+    {
+      "part": "interborough__left_board",
+      "volume_m3": 4.1486819196319546e-05,
+      "closed": true
+    },
+    {
+      "part": "interborough__left_leaves",
+      "volume_m3": 0.0003370749276434379,
+      "closed": true
+    },
+    {
+      "part": "interborough__spine",
+      "volume_m3": 9.562896389099775e-06,
+      "closed": true
+    },
+    {
+      "part": "interborough__headband0",
+      "volume_m3": 1.9165425426076495e-08,
+      "closed": true
+    },
+    {
+      "part": "interborough__headband1",
+      "volume_m3": 1.9165373259185732e-08,
+      "closed": true
+    },
+    {
+      "part": "walls__right_board",
+      "volume_m3": 4.49731787738443e-05,
+      "closed": true
+    },
+    {
+      "part": "walls__right_leaves",
+      "volume_m3": 0.00039224629233535114,
+      "closed": true
+    },
+    {
+      "part": "walls__left_board",
+      "volume_m3": 4.497317884188102e-05,
+      "closed": true
+    },
+    {
+      "part": "walls__left_leaves",
+      "volume_m3": 0.00039224629233535114,
+      "closed": true
+    },
+    {
+      "part": "walls__spine",
+      "volume_m3": 1.3145581630545064e-05,
+      "closed": true
+    },
+    {
+      "part": "walls__headband0",
+      "volume_m3": 2.036326571046481e-08,
+      "closed": true
+    },
+    {
+      "part": "walls__headband1",
+      "volume_m3": 2.036321028314051e-08,
+      "closed": true
+    },
+    {
+      "part": "missing__right_board",
+      "volume_m3": 6.259743592619005e-05,
+      "closed": true
+    },
+    {
+      "part": "missing__right_leaves",
+      "volume_m3": 0.0005698097612857869,
+      "closed": true
+    },
+    {
+      "part": "missing__right_tooling",
+      "volume_m3": 1.339968596713082e-08,
+      "closed": true
+    },
+    {
+      "part": "missing__right_tooling",
+      "volume_m3": 1.3399283034855188e-08,
+      "closed": true
+    },
+    {
+      "part": "missing__right_tooling",
+      "volume_m3": 6.699736106715162e-09,
+      "closed": true
+    },
+    {
+      "part": "missing__right_tooling",
+      "volume_m3": 6.699917080834956e-09,
+      "closed": true
+    },
+    {
+      "part": "missing__left_board",
+      "volume_m3": 6.259743592619005e-05,
+      "closed": true
+    },
+    {
+      "part": "missing__left_leaves",
+      "volume_m3": 0.0005698097613155493,
+      "closed": true
+    },
+    {
+      "part": "missing__left_tooling",
+      "volume_m3": 1.339968596713082e-08,
+      "closed": true
+    },
+    {
+      "part": "missing__left_tooling",
+      "volume_m3": 1.3399283034855188e-08,
+      "closed": true
+    },
+    {
+      "part": "missing__left_tooling",
+      "volume_m3": 6.699736106715956e-09,
+      "closed": true
+    },
+    {
+      "part": "missing__left_tooling",
+      "volume_m3": 6.699917080789799e-09,
+      "closed": true
+    },
+    {
+      "part": "missing__spine",
+      "volume_m3": 1.88379902055823e-05,
+      "closed": true
+    },
+    {
+      "part": "missing__headband0",
+      "volume_m3": 2.096218425898093e-08,
+      "closed": true
+    },
+    {
+      "part": "missing__headband1",
+      "volume_m3": 2.0962528787725403e-08,
+      "closed": true
+    },
+    {
+      "part": "deadletter__right_board",
+      "volume_m3": 5.0074897951434985e-05,
+      "closed": true
+    },
+    {
+      "part": "deadletter__right_leaves",
+      "volume_m3": 0.0003807091818378066,
+      "closed": true
+    },
+    {
+      "part": "deadletter__left_board",
+      "volume_m3": 5.007489787931569e-05,
+      "closed": true
+    },
+    {
+      "part": "deadletter__left_leaves",
+      "volume_m3": 0.000380709181863812,
+      "closed": true
+    },
+    {
+      "part": "deadletter__spine",
+      "volume_m3": 1.2909935522395746e-05,
+      "closed": true
+    },
+    {
+      "part": "deadletter__headband0",
+      "volume_m3": 1.796758673536624e-08,
+      "closed": true
+    },
+    {
+      "part": "deadletter__headband1",
+      "volume_m3": 1.7967537828906185e-08,
+      "closed": true
+    },
+    {
+      "part": "onefinger__right_board",
+      "volume_m3": 9.38364108387627e-06,
+      "closed": true
+    },
+    {
+      "part": "onefinger__right_leaves",
+      "volume_m3": 6.141363662264701e-06,
+      "closed": true
+    },
+    {
+      "part": "onefinger__left_board",
+      "volume_m3": 9.38364108387627e-06,
+      "closed": true
+    },
+    {
+      "part": "onefinger__left_leaves",
+      "volume_m3": 6.141363662264701e-06,
+      "closed": true
+    },
+    {
+      "part": "onefinger__spine",
+      "volume_m3": 4.828857501817347e-07,
+      "closed": true
+    },
+    {
+      "part": "onefinger__lace0",
+      "volume_m3": 1.756998608331462e-08,
+      "closed": true
+    },
+    {
+      "part": "onefinger__lace1",
+      "volume_m3": 1.757003643204425e-08,
+      "closed": true
+    },
+    {
+      "part": "onefinger__lace2",
+      "volume_m3": 1.757003643204433e-08,
+      "closed": true
+    },
+    {
+      "part": "onefinger__lace_tail",
+      "volume_m3": 2.353279525150642e-08,
+      "closed": true
+    },
+    {
+      "part": "plain__Back",
+      "volume_m3": 0.010452668562751573,
+      "closed": true
+    },
+    {
+      "part": "plain__Side0",
+      "volume_m3": 0.012088810406908727,
+      "closed": true
+    },
+    {
+      "part": "plain__Side1",
+      "volume_m3": 0.01208881040690872,
+      "closed": true
+    },
+    {
+      "part": "plain__Shelf0",
+      "volume_m3": 0.005532883151283703,
+      "closed": true
+    },
+    {
+      "part": "plain__Shelf1",
+      "volume_m3": 0.005532884598722755,
+      "closed": true
+    },
+    {
+      "part": "plain__Shelf2",
+      "volume_m3": 0.005532872651080973,
+      "closed": true
+    },
+    {
+      "part": "plain__Top",
+      "volume_m3": 0.006382925606571959,
+      "closed": true
+    },
+    {
+      "part": "plain__Foot0",
+      "volume_m3": 0.0005276885996823908,
+      "closed": true
+    },
+    {
+      "part": "plain__Foot1",
+      "volume_m3": 0.000527688599682391,
+      "closed": true
+    },
+    {
+      "part": "plain__CapMoulding",
+      "volume_m3": 0.000145326780469144,
+      "closed": true
+    },
+    {
+      "part": "plain__ShelfPin0",
+      "volume_m3": 6.196983650231376e-07,
+      "closed": true
+    },
+    {
+      "part": "plain__ShelfPin1",
+      "volume_m3": 6.196949410907362e-07,
+      "closed": true
+    },
+    {
+      "part": "plain__ShelfPin2",
+      "volume_m3": 6.196999604457469e-07,
+      "closed": true
+    },
+    {
+      "part": "plain__ShelfPin3",
+      "volume_m3": 6.196983650231393e-07,
+      "closed": true
+    },
+    {
+      "part": "plain__ShelfPin4",
+      "volume_m3": 6.196949410907303e-07,
+      "closed": true
+    },
+    {
+      "part": "plain__ShelfPin5",
+      "volume_m3": 6.196999604457477e-07,
+      "closed": true
+    },
+    {
+      "part": "repaired__Back",
+      "volume_m3": 0.009322982876766155,
+      "closed": true
+    },
+    {
+      "part": "repaired__Side0",
+      "volume_m3": 0.008031038090266764,
+      "closed": true
+    },
+    {
+      "part": "repaired__Side1",
+      "volume_m3": 0.008031038090266757,
+      "closed": true
+    },
+    {
+      "part": "repaired__Shelf0",
+      "volume_m3": 0.004670031703780015,
+      "closed": true
+    },
+    {
+      "part": "repaired__Shelf1",
+      "volume_m3": 0.004670034184564176,
+      "closed": true
+    },
+    {
+      "part": "repaired__Shelf2",
+      "volume_m3": 0.004670023816874556,
+      "closed": true
+    },
+    {
+      "part": "repaired__Top",
+      "volume_m3": 0.00539899682438013,
+      "closed": true
+    },
+    {
+      "part": "repaired__Foot0",
+      "volume_m3": 0.001063655006736905,
+      "closed": true
+    },
+    {
+      "part": "repaired__Foot1",
+      "volume_m3": 0.0010636550067369052,
+      "closed": true
+    },
+    {
+      "part": "repaired__CapMoulding",
+      "volume_m3": 0.00013833110839810213,
+      "closed": true
+    },
+    {
+      "part": "repaired__RepairStrap0",
+      "volume_m3": 6.316168600961665e-05,
+      "closed": true
+    },
+    {
+      "part": "repaired__RepairStrap1",
+      "volume_m3": 6.31616856778377e-05,
+      "closed": true
+    },
+    {
+      "part": "repaired__ShelfPin0",
+      "volume_m3": 6.196981533280327e-07,
+      "closed": true
+    },
+    {
+      "part": "repaired__ShelfPin1",
+      "volume_m3": 6.196952038929013e-07,
+      "closed": true
+    },
+    {
+      "part": "repaired__ShelfPin2",
+      "volume_m3": 6.19703809718643e-07,
+      "closed": true
+    },
+    {
+      "part": "repaired__ShelfPin3",
+      "volume_m3": 6.196981533280327e-07,
+      "closed": true
+    },
+    {
+      "part": "repaired__ShelfPin4",
+      "volume_m3": 6.196952038928954e-07,
+      "closed": true
+    },
+    {
+      "part": "repaired__ShelfPin5",
+      "volume_m3": 6.197038097186354e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__Back",
+      "volume_m3": 0.011725047629431525,
+      "closed": true
+    },
+    {
+      "part": "sectional__Side0",
+      "volume_m3": 0.013360349723487867,
+      "closed": true
+    },
+    {
+      "part": "sectional__Side1",
+      "volume_m3": 0.013360349723487867,
+      "closed": true
+    },
+    {
+      "part": "sectional__Shelf0",
+      "volume_m3": 0.006414085230928558,
+      "closed": true
+    },
+    {
+      "part": "sectional__Shelf1",
+      "volume_m3": 0.0064140712908818,
+      "closed": true
+    },
+    {
+      "part": "sectional__Shelf2",
+      "volume_m3": 0.006414071113248052,
+      "closed": true
+    },
+    {
+      "part": "sectional__Top",
+      "volume_m3": 0.00737884442214308,
+      "closed": true
+    },
+    {
+      "part": "sectional__Foot0",
+      "volume_m3": 0.002015595345133541,
+      "closed": true
+    },
+    {
+      "part": "sectional__Foot1",
+      "volume_m3": 0.0020155953451335413,
+      "closed": true
+    },
+    {
+      "part": "sectional__CapMoulding",
+      "volume_m3": 0.0001580468504855314,
+      "closed": true
+    },
+    {
+      "part": "sectional__Plinth",
+      "volume_m3": 0.029234814718495573,
+      "closed": true
+    },
+    {
+      "part": "sectional__ShelfPin0",
+      "volume_m3": 6.197006840728479e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__ShelfPin1",
+      "volume_m3": 6.197047277007665e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__ShelfPin2",
+      "volume_m3": 6.197011412273445e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__ShelfPin3",
+      "volume_m3": 6.197006840728445e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__ShelfPin4",
+      "volume_m3": 6.19704727700753e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__ShelfPin5",
+      "volume_m3": 6.197011412273631e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__PocketTrack0_0",
+      "volume_m3": 1.0319729969478114e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash0__Roller0",
+      "volume_m3": 2.7152919642256726e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__PocketTrack0_1",
+      "volume_m3": 1.0319729969478114e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash0__Roller1",
+      "volume_m3": 2.7152919642256387e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash0__Rail0",
+      "volume_m3": 0.0002548495517479253,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash0__Rail1",
+      "volume_m3": 0.000254849311475978,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash0__Stile0",
+      "volume_m3": 9.329956156587461e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash0__Stile1",
+      "volume_m3": 9.32995615658745e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash0__Glass",
+      "volume_m3": 0.0006759191093526247,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash0__Pull",
+      "volume_m3": 5.678395484503972e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__PocketTrack1_0",
+      "volume_m3": 1.0319723795102487e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash1__Roller0",
+      "volume_m3": 2.7152919642265196e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__PocketTrack1_1",
+      "volume_m3": 1.0319723795102541e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash1__Roller1",
+      "volume_m3": 2.7152919642265196e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash1__Rail0",
+      "volume_m3": 0.0002548493271269273,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash1__Rail1",
+      "volume_m3": 0.0002548492097897988,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash1__Stile0",
+      "volume_m3": 9.32995603283166e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash1__Stile1",
+      "volume_m3": 9.32995603283166e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash1__Glass",
+      "volume_m3": 0.000675919107880351,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash1__Pull",
+      "volume_m3": 5.678413009063244e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__PocketTrack2_0",
+      "volume_m3": 1.03197185354987e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash2__Roller0",
+      "volume_m3": 2.7153003439394503e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional__PocketTrack2_1",
+      "volume_m3": 1.0319718535498808e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash2__Roller1",
+      "volume_m3": 2.7153003439394503e-07,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash2__Rail0",
+      "volume_m3": 0.0002548492097897966,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash2__Rail1",
+      "volume_m3": 0.0002548493587716234,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash2__Stile0",
+      "volume_m3": 9.329956127329274e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash2__Stile1",
+      "volume_m3": 9.329956127329276e-05,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash2__Glass",
+      "volume_m3": 0.0006759191222913396,
+      "closed": true
+    },
+    {
+      "part": "sectional_sash2__Pull",
+      "volume_m3": 5.678413009065133e-07,
+      "closed": true
+    },
+    {
+      "part": "bookend_pressed__Foot",
+      "volume_m3": 1.047846434364153e-05,
+      "closed": true
+    },
+    {
+      "part": "bookend_pressed__Upright0",
+      "volume_m3": 3.7193336692257006e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_pressed__Upright1",
+      "volume_m3": 3.7193336692257e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_pressed__TopFace",
+      "volume_m3": 2.1577613998856222e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_pressed__FoldedLip",
+      "volume_m3": 1.6765188052478961e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_pressed__TopReturn",
+      "volume_m3": 1.0749647788614727e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_pressed__LowerWeb",
+      "volume_m3": 5.4127134305354575e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_pressed__FloorReturn",
+      "volume_m3": 4.831704082589553e-07,
+      "closed": true
+    },
+    {
+      "part": "bookend_pressed__Felt",
+      "volume_m3": 5.838339776182544e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_brass__Foot",
+      "volume_m3": 1.047846434364153e-05,
+      "closed": true
+    },
+    {
+      "part": "bookend_brass__Upright0",
+      "volume_m3": 3.7193336692257006e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_brass__Upright1",
+      "volume_m3": 3.7193336692257e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_brass__TopReturn",
+      "volume_m3": 1.3493621469121586e-05,
+      "closed": true
+    },
+    {
+      "part": "bookend_brass__LowerWeb",
+      "volume_m3": 5.4127134305354575e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_brass__FloorReturn",
+      "volume_m3": 1.7302133607721024e-06,
+      "closed": true
+    },
+    {
+      "part": "bookend_brass__Felt",
+      "volume_m3": 5.838339776182544e-06,
+      "closed": true
+    },
+    {
+      "part": "plate__billiards",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__bird_window",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__circuit_radio",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__circuit_switchboard",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__circuit_wiring",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__contact_frames",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994594978369296e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994591058023055e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399460153717515e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399459304917572e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399459304917573e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399460153717515e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994591058023047e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994594978369296e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994594978369296e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994591058023047e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399460153717515e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399459304917572e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399459304917573e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399460153717515e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994591058023055e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994594978369296e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994594978369296e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994591058023055e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399460153717515e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399459304917572e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399459304917573e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399460153717515e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994591058023047e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994594978369296e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994594978369296e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994591058023047e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399460153717515e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399459304917572e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399459304917573e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.399460153717515e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994591058023055e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.3994594978369296e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598742844790118e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598741439547695e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598739439763171e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598738149793365e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598738149793372e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598739439763174e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598741439547695e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598742844790118e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.5987428447901144e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598741439547695e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598739439763174e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598738149793372e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598738149793365e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598739439763174e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598741439547695e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598742844790118e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598742844790118e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598741439547695e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598739439763171e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598738149793365e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598738149793372e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598739439763174e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598741439547695e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598742844790118e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.5987428447901144e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598741439547695e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598739439763174e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598738149793372e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598738149793365e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598739439763174e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598741439547695e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.598742844790118e-12,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359258996111604e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359239373016206e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359236624980939e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359242837261867e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359242837261857e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592366249809494e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592393730161854e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359258996111635e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359258996111625e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592393730161854e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359236624980939e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592428372618464e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592428372618774e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592366249809494e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359239373016206e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592589961116145e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359258996111604e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359239373016206e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359236624980939e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359242837261867e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359242837261857e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592366249809494e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592393730161854e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359258996111635e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359258996111625e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592393730161854e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359236624980939e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592428372618464e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592428372618774e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592366249809494e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.359239373016206e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.3592589961116145e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679188293919009e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791675483057607e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679163234751951e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.67917086658072e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.67917086658072e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679163234751951e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679167548305771e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679188293919009e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791882939190196e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791675483057607e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679163234751951e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.67917086658071e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791708665807304e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679163234751951e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791675483057607e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679188293918999e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679188293919009e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791675483057607e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679163234751951e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.67917086658072e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.67917086658072e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679163234751951e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679167548305771e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679188293919009e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791882939190196e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791675483057607e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679163234751951e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.67917086658071e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791708665807304e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679163234751951e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.6791675483057607e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 3.679188293918999e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758666551998014e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758696401868382e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758711750953495e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758702024092087e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758702024092211e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758711750953495e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758696401868465e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758666551998014e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758666551998014e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.7586964018684236e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758711750953536e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758702024092211e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758702024092087e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758711750953495e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.7586964018684236e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758666551998014e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758666551998014e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758696401868382e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758711750953495e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758702024092087e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758702024092211e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758711750953495e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758696401868465e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758666551998014e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758666551998014e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.7586964018684236e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758711750953536e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758702024092211e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758702024092087e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758711750953495e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.7586964018684236e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 5.758666551998014e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238556087915185e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23858749636038e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23863388761536e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238620268733802e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238620268733885e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238633887615402e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23858749636038e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238556087915185e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238556087915227e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23858749636038e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238633887615402e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238620268733844e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238620268733844e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23863388761536e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23858749636038e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238556087915144e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238556087915185e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23858749636038e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23863388761536e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238620268733802e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238620268733885e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238633887615402e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23858749636038e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238556087915185e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238556087915227e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23858749636038e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238633887615402e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238620268733844e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238620268733844e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23863388761536e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.23858749636038e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 6.238556087915144e-11,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.896803284249618e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8967883773406763e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8967939140335306e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.896788377340674e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8968032842496183e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.896803284249618e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8967883773406763e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8967939140335306e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.896788377340674e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8968032842496183e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.896803284249618e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8967883773406763e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8967939140335306e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.896788377340674e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8968032842496183e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.896803284249618e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8967883773406763e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8967939140335306e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.896788377340674e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__dartboard",
+      "volume_m3": 2.8968032842496183e-10,
+      "closed": true
+    },
+    {
+      "part": "plate__door",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__elevation",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__envelope",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__keyboard",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__knot",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__lift_section",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__onefinger_drawing",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__pattern",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__pressed_flower",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__roof_plan",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__seedling",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__street_plan",
+      "volume_m3": 5.548800057617564e-07,
+      "closed": true
+    },
+    {
+      "part": "plate__timetable",
+      "volume_m3": 4.1615997392294975e-07,
+      "closed": true
+    },
+    {
+      "part": "type__running_rule",
+      "volume_m3": 2.9375999747637626e-10,
+      "closed": true
+    }
+  ],
+  "export": {
+    "asset": "game/assets/props/readable_library.glb",
+    "primitives": 354,
+    "triangles": 67820,
+    "minimum_tangent_agreement": 0.99996519431926,
+    "status": "PASS"
+  },
+  "source_bindings": {
+    "art/blender/scripts/build_readable_library.py": "a085858bcde01677575c315f37b8ee469f3153786c223b00743fbcfc512f7ab3",
+    "game/data/library.json": "d8443a91913c71c02d30ec2803ce50553d25787f81a0254d84f14ef9e7c4675a",
+    "game/data/orison_v2/book_spreads.json": "ba7644297c18ae24e9127c7e7e83d01d81f9839a2afe945e4a4bed37e3273bef",
+    "game/data/runtime_material_sets.json": "c39f2cc923041779e3bca345dc3a9ff8f15c90e733dd851d2d64c39ae4ce688c",
+    "art/illustrations/book_plates/provenance.json": "d51a06811c4beb0f28f0c5aba9ca633781e9828dc7dc14fa01770513f6f3fa62",
+    "game/assets/book_illustrations/roof_plan.png": "28c45dfd17e5a56f48204b79a3add71e28d4333d796425134abea88d6ca4b9e3",
+    "game/assets/book_illustrations/seedling.png": "ca9e115cceee8d6fb9c91ef3fff1b4b1f0041ce36716dfb003da5c41165b371d",
+    "game/assets/book_illustrations/bird_window.png": "8e1333b01d42c7fab58a314217ba9c18ef8b46183563b2fc95c776440f7bb8b9",
+    "game/assets/book_illustrations/pressed_flower.png": "23feb76440f572c7688105d6c6179af94aa5d6614ecb84e266a7388ef79f0500",
+    "game/assets/book_illustrations/circuit_wiring.png": "26ddc5f8379e2c332ee1b8f9f46759df9eeccf1af12cf6de19dda5fc91e12cb2",
+    "game/assets/book_illustrations/circuit_switchboard.png": "dd392ef2d748328f0bddd546085d5018a0425d6d6c61ac7f8fbca2df6c4119c0",
+    "game/assets/book_illustrations/circuit_radio.png": "8f465ff8632d92aade28ca1ba890e9717b70d1c0f23ea67a35595014cb512dd6",
+    "game/assets/book_illustrations/elevation.png": "7216dbe7ec4265f6a9e932f2236dab61d1d78d13b168bda5952882ddb11cbf5d",
+    "game/assets/book_illustrations/lift_section.png": "f0e42b1b301dc7e34df465bf600847a415165b6deff5015f065f5e4901f62e9e",
+    "game/assets/book_illustrations/door.png": "e34791668160d44d279e6625a54f120ea10e03b30a35f6849455656ba6bc5d7a",
+    "game/assets/book_illustrations/keyboard.png": "ffa773743c079abc3f14d9c5ade8fc9b82aad1ca7de10fcb07c81ccbaf1aafb9",
+    "game/assets/book_illustrations/contact_frames.png": "7aa8e4b6b9f0ec05dec9346d9b1c0dbf893de1deef53286ae8ce556cbd5ba3bb",
+    "game/assets/book_illustrations/street_plan.png": "ccf21f10cd5d3d0dee71a186a02c01297cec70787e5b0638fc458ba3a8c2be23",
+    "game/assets/book_illustrations/knot.png": "3268f301df1a01d5ae7d2cc2ebb12f44b6ff16913368a0d23e0518a3e5e17e99",
+    "game/assets/book_illustrations/pattern.png": "b825b1a8b49beba78710c6f73c5d4cf6b704063295d5799be6e41f66e17091f0",
+    "game/assets/book_illustrations/envelope.png": "5a13f9f02b358d46e0e831e7ed30e2760a7e9fc3a268025d48f38090f3727d07",
+    "game/assets/book_illustrations/billiards.png": "10df39ba37337cfa7cd189835677e2520c2793102e7e483217725792455416bc",
+    "game/assets/book_illustrations/timetable.png": "b73e707d383909409e6034401336b4cb131806e1df41769558d39f62ab12abc2",
+    "game/assets/book_illustrations/onefinger_drawing.png": "8970caed66ba5268e84868df4d837818b1baef7388a283144376dc7cf6badf29",
+    "art/illustrations/book_plates/page_designs.json": "d1965d44ae8bfa08de1032ac0bb4ac94cb4b6721685613d6a5e4c4ee6a7e6554",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "game/assets/building/textures/T_ai_materials_book_brown_albedo.png": "4e7f3f39af90cc32b5f607ffb196a56ff50e3c121a4a88517e65e1aeef178967",
+    "game/assets/building/textures/T_ai_materials_book_burgundy_rough.png": "376a060a277c058e7f5be63e0da2f2cf48b635575e5c74ea4b1ce30bbbc1c527",
+    "game/assets/building/textures/T_ai_materials_book_burgundy_normal.png": "39a98fb0d775ffdeb85c955a5c09ae950658cfc25bbdab1d00879aa97404ed9b",
+    "game/assets/building/textures/T_ai_materials_book_burgundy_albedo.png": "e8ec0da57b4f245ceed16076190615db3adc8be1a046e4bcfdb8fa9c683ba06b",
+    "game/assets/building/textures/T_ai_materials_book_green_albedo.png": "126c2be1e37d11e83b92abdd30f4856bb5ae38b7beee1d3520f7cd91f97edebe",
+    "game/assets/building/textures/T_ai_materials_book_green_rough.png": "7bf1844a770e273857943afe617fcb2c5e45a235c0166d2bc14418802c7cd7d0",
+    "game/assets/building/textures/T_ai_materials_book_green_normal.png": "4804629251d88352de1138b07c2f710fc53b1c929c2ade2547d3a6519d8adaf4",
+    "game/assets/building/textures/T_ai_materials_book_navy_albedo.png": "092f6df47c117fd6240640c30a8fbc5eb4c240bb428caa103ca50ba995eff91f",
+    "game/assets/building/textures/T_ai_materials_book_ochre_albedo.png": "1a4152a1863cf27b4b9806fe409c754bc41409852569a93ccb0edf5b7e35dba8",
+    "game/assets/building/textures/T_ai_materials_book_teal_albedo.png": "009fc7d27c183178f4ef3beb31b7bb4154c86dfcc26eb8feec9eabdd737b6e2e",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": "599ccf878c2fb74c6462a8e961addfe12fb5f90e9c85b68b0601edb0921ee547",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": "23e9482180b08d41394fcbf259e5cc69c813da4e1f3c6a0b1b82755e39e2b1ca",
+    "game/assets/building/textures/T_ai_materials_soot_normal.png": "87975ab4abf0d0c6629b3c43078a83ddc9721afabf4a808bdfdfc3112aa33444",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png": "ebf613454bbd3e6a6909cbe3d1aa4fe89b45fd8229516aafb31146761cf63ee5",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png": "8aa1987fad72d117f836ac0d18922e94b71a03a009206401f440768ac6ad91e1",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_site_softwood_albedo.png": "a523edbd6180bd312dfa8431fdcf65c9cd3117f5af4708d27c5a91d4871bd958",
+    "game/assets/building/textures/T_ai_materials_site_softwood_rough.png": "49589a4dfcd39021d8a36749e2290ff629ab992b058a88611003a4236ef97014",
+    "game/assets/building/textures/T_ai_materials_site_softwood_normal.png": "e6a043d49cb847257bd5a5a91641a708557353f2dd61aa6e65087f0781637a61",
+    "game/assets/building/textures/T_ai_materials_fire_hardware_steel_albedo.png": "0da8d156388901044f343f57d64a17c2ebbd04f666202a4921aaa575864aa81d",
+    "game/assets/building/textures/T_ai_materials_fire_hardware_steel_rough.png": "0a53439c583e5583992a2d48ed0c12c3c5063f7707673c68d943630a2c740890",
+    "game/assets/building/textures/T_ai_materials_fire_hardware_steel_normal.png": "5f54539398706665e2679bc353ba0f202dcebdf61aac36969f696ac19d47e8ab",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_washer_rubber_albedo.png": "88504fe9a10304b9b456f20f1984f5e66d3d3aa4cc5bf8a771e93e5dab0fc64e",
+    "game/assets/building/textures/T_ai_materials_washer_rubber_rough.png": "b0414ccc4dc2db5d730250ebc0c1fd701220960a1b838c88caf50c41d6705318",
+    "game/assets/building/textures/T_ai_materials_washer_rubber_normal.png": "6f4914a2c15a04f562129df5435f90e171d6e8544e4238ab69a6ebced7288d55",
+    "game/assets/building/textures/T_ai_materials_glass_drawn_expressive_albedo.png": "31f1b37ce7a64aa9ddcf44df81e3593ded7e815ddc6a33b16a74e8bc39695417",
+    "game/assets/building/textures/T_ai_materials_glass_drawn_expressive_rough.png": "66f9e7873b35fa1827070f2c594203af96677ea93e38eaaff0ffff8a64e9f92d",
+    "game/assets/building/textures/T_ai_materials_glass_drawn_expressive_normal.png": "f75b6038a68d11408cc464d18809185ccc8c5251e50a344054dfd1db2473d657"
+  },
+  "outputs": {
+    "game/assets/props/readable_library.glb": "a0449575a4acdb80956f5e2a03158d795fae8b3392e6889a31698fba5af70086",
+    "art/blender/readable_library.blend": "713f1a13b8b70a6dfbcdc89ad4b1bc2a4d8a0bf7e2b5986a8376ff6437748d4a",
+    "game/data/orison_v2/readable_library.json": "8158595979ffd681a9f42aeacb1366037e2c9ec1efd4988d2862acf464e5cec2"
+  }
+}

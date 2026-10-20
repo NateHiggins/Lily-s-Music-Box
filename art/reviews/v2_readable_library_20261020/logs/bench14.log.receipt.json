@@ -1,0 +1,75 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 25.36,
+  "exit_code": -1,
+  "finished_utc": "2026-10-20T15:55:16Z",
+  "started_utc": "2026-10-20T15:54:50Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 8,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"rule\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://tests/v2_readable_library_bench.gd\" with error \"Compilation failed\".",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.",
+   "SCRIPT ERROR: Invalid access to property or key 'standards' on a base object of type 'Dictionary'."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/bench14.log.stderr",
+  "stderr_sha256": "7add6d48d6755d5b2943581c79bef233ab4d2664c43c58c1816105d8e76f1e99",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/bench14.log",
+  "stdout_sha256": "22399bda2991470528fe5858b404a31f55dfd4d47ab87382ff8e4ed351cb65a1"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2ReadableLibraryBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/game14",
+ "source": {
+  "dirty_paths": 1719,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/tools/fix_runtime_texture_imports.py",
+   " M art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/building/textures/T_ai_materials_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_normal.png.import"
+  ],
+  "repository_head": "295836f2c37651085642bb891a2fe4ea40c99520",
+  "repository_tree": "cec521db52f6639cc49d9f8983e95d82bc1836a0",
+  "runtime_inputs_sha256": "1ac2b536fe5253861fabe1cea9ad1175aad686558ba153a4b41cb9dd65475ab3",
+  "test_path": "game/tests/v2_readable_library_bench.gd",
+  "test_sha256": "1bdd2ec9d1bbe3581c7c77dc6a95a5d20b06b503d62ca882c46c7a545392a168"
+ },
+ "windowed": true
+}

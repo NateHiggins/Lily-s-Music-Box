@@ -1,0 +1,13 @@
+00:01.266  blend            | Read blend: "C:\ov\v2-fire-verify\art\blender\readable_library.blend"
+C:\ov\v2-fire-verify\art\blender\scripts\review_readable_library.py:14: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral library review');scene.world.use_nodes=True
+C:\ov\v2-fire-verify\art\blender\scripts\review_readable_library.py:29: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('Review ground');m.use_nodes=True;m.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.22,.24,.25,1);m.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.8;ground.data.materials.append(m)
+00:07.078  render           | Saved: 'C:\ov\v2-fire-verify\tmp\v2-readable-books-20261020\native\plain_case.png'
+00:12.360  render           | Saved: 'C:\ov\v2-fire-verify\tmp\v2-readable-books-20261020\native\repaired_case.png'
+00:18.828  render           | Saved: 'C:\ov\v2-fire-verify\tmp\v2-readable-books-20261020\native\sectional_case.png'
+00:24.485  render           | Saved: 'C:\ov\v2-fire-verify\tmp\v2-readable-books-20261020\native\open_binding_and_plate.png'
+00:29.938  render           | Saved: 'C:\ov\v2-fire-verify\tmp\v2-readable-books-20261020\native\pressed_bookend.png'
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

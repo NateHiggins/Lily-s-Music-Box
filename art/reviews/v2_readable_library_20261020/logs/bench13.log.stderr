@@ -1,0 +1,6 @@
+ERROR: LIBRARY CHECK: mouse lifts and draws bookend out from under bindings
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/v2_readable_library_bench.gd:9)
+       [1] hand_review (res://tests/v2_readable_library_bench.gd:111)
+       [2] carry (res://tests/v2_readable_library_bench.gd:53)

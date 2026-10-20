@@ -1,6 +1,7 @@
 extends Node
 ## Durable control settings by semantic ID. RealityState alone writes saves.
-## No coordinates, animations, playing audio or transient service panels persist.
+## Physical library stock also keeps its pose and velocity here. No second save
+## owner is introduced; animations, playing audio and service panels do not persist.
 const KEY := "v2_household_controls"
 var errors: Array[String] = []
 var _subjects: Dictionary = {}
@@ -177,8 +178,12 @@ func validate(value: Variant, kinds: Dictionary) -> bool:
 	return errors.is_empty()
 
 func _valid_book_order(identity: String, value: Variant) -> bool:
-	if value is not Array or not _defaults.get("records", {}).has(identity): return false
-	var expected: Array = _defaults.records[identity].value
+	if not _defaults.get("records", {}).has(identity): return false
+	if value is Dictionary:
+		return _subjects[identity].has_method("valid_library") and _subjects[identity].valid_library(value)
+	if value is not Array: return false
+	var original: Variant = _defaults.records[identity].value
+	var expected: Array = original.order if original is Dictionary else original
 	if value.size() != expected.size(): return false
 	var seen := {}
 	for book: Variant in value:
@@ -203,7 +208,7 @@ func snapshot() -> Dictionary:
 			"prep": setting = prop._slide.position.x/prop.TRAVEL
 			"mirror": setting = prop.get("_swing")
 			"blind": setting = prop.call("settings_snapshot")
-			"books": setting = prop.get("sorter").order.duplicate()
+			"books": setting = prop.library_snapshot() if prop.has_method("library_snapshot") else prop.get("sorter").order.duplicate()
 		records[identity] = {"kind":kind, "value":setting}
 	return {"schema_version":1, "records":records}
 

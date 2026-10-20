@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/readable_library.glb", # Thin printed ink, page gatherings and binding bevels retain authored metre charts.
     "props/fire_cabinet_skin.glb", # Retain fine wire, hinge-bore and folded sheet metre charts.
     "props/kitchen_plumbing.glb", # bench1: default import distorts small wheel/union charts and tangent derivatives.
     "props/kitchen_prep_stations.glb", # Preserve the worked-edge metre charts validated by the kitchen prep bench.

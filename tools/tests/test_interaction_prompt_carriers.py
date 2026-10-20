@@ -334,7 +334,8 @@ class ProductionSmokeTests(unittest.TestCase):
         # Keys Cut adds one carrier-free prompt, paired with its own action.
         # The boiler hopper and resident treatments each add a named-control host.
         # Native fire cabinet empty overrides disable inherited legacy input.
-        self.assertEqual(summary["prompt_methods"], 96)
+        # The readable V2 shelf adds the same deliberate empty legacy override.
+        self.assertEqual(summary["prompt_methods"], 97)
         self.assertEqual(summary["legacy_uncovered"], 0)
         self.assertEqual(summary["baseline_stale"], 0)
         self.assertEqual(summary["forbidden"], 0)
