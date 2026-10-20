@@ -679,6 +679,42 @@ household_fridges module applies these checks to every actor while allowing
 only failed views to be recaptured. Reuse unchanged views only after exact
 asset/runtime comparison, and keep failed run receipts with the final packet.
 
+
+### Material-specific normal authoring
+
+For every texture revised in the V2 pass, choose relief from how its substance
+is made, at its actual UV scale. Record a bespoke recipe or a named profile,
+physical dimensions, tangent convention and calibrated strength. A deliberately
+smooth finish needs a stated reason; do not add noise merely to fill a normal
+slot. Colour, staining, shadows and photographed highlights are not height.
+
+| Substance | Appropriate surface response |
+| --- | --- |
+| Cast iron / cast brass | Mould grain and casting skin; machined seats get a separate smoother finish. |
+| Worked metal | Directional draw marks or shallow working marks; keep polish and tarnish chiefly in roughness. |
+| Timber | Pores and grain aligned with each stock; treat cut ends and separate mouldings as separate wood. |
+| Cloth / book cloth | Thread spacing, weave and fibre relief at manufactured scale, aligned to its chart. |
+| Leather | Shallow grain creases and pores; folds and binding silhouettes belong in geometry. |
+| Plaster / masonry | Mineral grain, trowelling and shallow tooling; substantial joints and broken edges need geometry. |
+| Enamel / ceramic | Restrained glaze flow or orange peel; preserve a smooth highlight rather than roughening everything. |
+| Paper | Fine fibre relief when resolved; print and stains remain colour. |
+| Glass | Drawn undulation, rolled reeds, cut facets or etching as appropriate; substantial bevels remain geometry. |
+| Films / highly polished stock | Intentionally subtle or flat normals, with an explicit material reason. |
+
+Resolve a repeating feature with at least four texels before encoding it into
+the normal map. Author the roughness response of excluded finer detail rather
+than simply dropping it or exaggerating its size. Use the smallest map that
+retains the needed physical structure, deduplicate identical maps, and require
+loaded full mip chains and anisotropic filtering. Check tangent orientation,
+UV scale and calibrated strength after import. Review diffuse and grazing
+views with the production offset voxel light before accepting the finish.
+
+Audit each material key's actual uses before replacement: a colour name does
+not establish its substance. Separate paper, painted canvas, leather and cloth
+uses before replacing shared book-colour keys. Rebuild source-owned native
+material projections where required; never renew an old visual receipt to
+claim that a changed finish has been reviewed.
+
 ## Owner building finish review (2026-10-08)
 
 The batch also accepts **owner_building_finish** and **owner_building_routes**.
