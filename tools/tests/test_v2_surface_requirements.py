@@ -78,6 +78,18 @@ class Requirements(unittest.TestCase):
             self.assertIn(Path(str(image)+'.import'),paths)
         self.assertIn(ROOT/'game/assets/characters/mina_vale/texture_0.png.import',paths)
 
+    def test_native_device_import_parameters_expire_qualification(self):
+        import v2_surface_evidence as evidence
+        target=ROOT/'game/assets/device/service_teletype/service_teletype_Aged machined brass normal.png.import'
+        original=Path.read_text
+        def changed(path,*args,**kwargs):
+            value=original(path,*args,**kwargs)
+            return value.replace('process/normal_map_invert_y=false','process/normal_map_invert_y=true') if path==target else value
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+            with patch.object(Path,'read_text',changed):
+                self.assertNotEqual(before,evidence.inputs()['sha256'])
+
     def test_transparent_physical_surface_cannot_hide_missing_maps(self):
         data=self.inventory();data['materials']['material'].update(transparency=1,maps={})
         self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])

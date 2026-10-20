@@ -192,9 +192,20 @@ def inputs(root=ROOT):
     imports.extend(root/'game/assets'/(asset+'.import') for asset in UV_IMPORTS)
     imports.extend(p for p in (root/'game/assets/characters/mina_vale').glob('*.png.import') if p.relative_to(root).as_posix() in versioned)
     imports.extend(p for p in (root/'game/assets/ui/telegram').glob('*.png.import') if p.relative_to(root).as_posix() in versioned)
+    # Every authored rendering asset's import parameters affect its loaded
+    # result, including device textures and meshes outside the building set.
+    # Derived glTF extracts remain excluded unless their sidecar is authored.
+    for name in versioned:
+        if not name.startswith('game/assets/'):continue
+        source=root/name
+        if source.suffix in ASSETS:
+            sidecar=Path(str(source)+'.import')
+            if sidecar.is_file():imports.append(sidecar)
+        elif source.suffix=='.import' and source.with_suffix('').suffix in ASSETS:
+            imports.append(source)
     paths.update(test_dependency_paths(root,paths))
     manifest=sorted([p.relative_to(root).as_posix(),file_hash(p)] for p in paths)
-    for path in sorted(imports):
+    for path in sorted(set(imports)):
         text=path.read_text(encoding='utf-8').replace('\r\n','\n')
         if '[params]' not in text:raise ValueError('import has no parameters: '+str(path))
         manifest.append([path.relative_to(root).as_posix(),hashlib.sha256(text.split('[params]',1)[1].strip().encode()).hexdigest()])
