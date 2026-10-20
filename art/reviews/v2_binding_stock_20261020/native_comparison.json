@@ -1,0 +1,46 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exact float32 oriented triangles grouped by retained assembly owner, source node frames, placement/instance records; no gameplay or visual acceptance.",
+  "families": [
+    {
+      "family": "surface_stock",
+      "exact_oriented_triangles_and_assembly_owners": true,
+      "node_frames_by_assembly": true,
+      "other_runtime_fields": true,
+      "triangles": 824260,
+      "before_sha256": "a19231e086230b9809fc2810ac9a4280b1356e1af92269487a35d00894e31695",
+      "after_sha256": "e56cb6eab5ff580e1032bcd60d38c67f482ebff5698e9f5162423b70ca26f668",
+      "passed": true
+    },
+    {
+      "family": "domestic_storage",
+      "exact_oriented_triangles_and_assembly_owners": true,
+      "node_frames_by_assembly": true,
+      "other_runtime_fields": true,
+      "triangles": 120784,
+      "before_sha256": "2f0dc857269e3e49c492e0e78118033a6d649b83e9fa7635b5eea9c1c9ac9945",
+      "after_sha256": "2f0dc857269e3e49c492e0e78118033a6d649b83e9fa7635b5eea9c1c9ac9945",
+      "passed": true
+    },
+    {
+      "family": "domestic_objects",
+      "exact_oriented_triangles_and_assembly_owners": true,
+      "node_frames_by_assembly": true,
+      "other_runtime_fields": true,
+      "triangles": 611596,
+      "before_sha256": "4d7342ee01e655c651caa6b1e4181898513d256caa48b2eb39cd0b3f6663c1fd",
+      "after_sha256": "d35041ae7f736e7109258320a98039086181b74dc6b93917ee6cca6a99022937",
+      "passed": true
+    },
+    {
+      "family": "reading_nook",
+      "exact_oriented_triangles_and_assembly_owners": true,
+      "node_frames_by_assembly": true,
+      "other_runtime_fields": true,
+      "triangles": 59536,
+      "before_sha256": "a275bb6254fe1ce10fccaaa7ca1c5605ef8f28ab2d96203e784b0288245f3dc1",
+      "after_sha256": "a275bb6254fe1ce10fccaaa7ca1c5605ef8f28ab2d96203e784b0288245f3dc1",
+      "passed": true
+    }
+  ]
+}

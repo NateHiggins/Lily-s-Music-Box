@@ -89,7 +89,12 @@ func release(notify_change := true) -> void:
 		if old.has("owns") and not old.owns.call(): changed=false;return
 		if old.has("end"): old.end.call()
 		if accepted_change and notify_change:
-			player.world_modified.emit(old.owner.global_position, str(old.owner.name))
+			var origin: Vector3=old.owner.global_position
+			var resolve: Variant=old.get("change_origin")
+			if resolve is Callable and resolve.is_valid():
+				var physical: Variant=resolve.call()
+				if physical is Vector3 and physical.is_finite(): origin=physical
+			player.world_modified.emit(origin, str(old.owner.name))
 	changed = false
 
 func _observe_motion() -> void:

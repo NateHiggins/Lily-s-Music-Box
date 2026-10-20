@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 305.71,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T13:11:41Z",
+  "started_utc": "2026-10-20T13:06:03Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-binding-20261020/import.log.stderr",
+  "stderr_sha256": "47873932a73efadae0fb7e65dfeeb45d8ea7b3a129cf113b0169ea105909162a",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-binding-20261020/import.log",
+  "stdout_sha256": "6e33aaedb81a3312704c6253b0c544b12c5147b1d05122ab0221d56ad22f4572"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 1775,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/domestic_objects.blend",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage.blend",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/reading_nook.blend",
+   " M art/blender/reading_nook_construction.json",
+   " M art/blender/scripts/build_domestic_objects.py",
+   " M art/blender/scripts/build_domestic_storage.py",
+   " M art/blender/scripts/build_reading_nook.py",
+   " M art/blender/scripts/build_surface_stock.py",
+   " M art/blender/scripts/surface_stock_geometry.py",
+   " M art/blender/street_paving_details_construction.json",
+   " M art/blender/surface_stock.blend",
+   " M art/blender/surface_stock_construction.json",
+   " M art/data/domestic_objects/source_plan.json"
+  ],
+  "repository_head": "64acefdf53a408fdad91b1b029d3d83d9d6fccb4",
+  "repository_tree": "315db256fa318a6d249ba14bc26b32465bed81fd",
+  "runtime_inputs_sha256": "8907637911e6057fa46e6e8a11698dfe068e224d19eeaae6b5e6a31b78eb9865",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

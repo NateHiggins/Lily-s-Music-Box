@@ -2,10 +2,54 @@
 import copy, hashlib, json, sys, tempfile, unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from renew_additive_material_bindings import additions, renew, FAMILIES, MANIFEST
+from renew_additive_material_bindings import additions, renew, unused_replacements, FAMILIES, MANIFEST
 
 
 class AdditiveBindingsTests(unittest.TestCase):
+    def test_named_switchboard_checks_its_export_before_renewing(self):
+        for changed in [False,True]:
+            with self.subTest(changed=changed),tempfile.TemporaryDirectory() as directory:
+                root=Path(directory);previous,_=self.fixture(root)
+                source=json.loads((root/'art/blender/city_closure_construction.json').read_text())
+                source['export']={'sha256':source.pop('asset_sha256')}
+                path=root/'art/blender/house_switchboard_construction.json'
+                path.write_text(json.dumps(source))
+                asset=root/'game/assets/props/house_switchboard.glb'
+                asset.write_bytes(b'changed' if changed else b'unchanged mesh')
+                if changed:
+                    with self.assertRaises(ValueError):renew(root,previous,root/'archive',families=['house_switchboard'])
+                    self.assertFalse((root/'archive').exists())
+                else:
+                    report=renew(root,previous,root/'archive',families=['house_switchboard'])
+                    self.assertEqual(list(report['renewed_records']),['art/blender/house_switchboard_construction.json'])
+
+    def test_unused_replacement_requires_exact_manifest_delta(self):
+        old={'schema':1,'materials':{'binding':{'normal':1},'stone':{'normal':2}}}
+        new=copy.deepcopy(old);new['materials']['binding']['normal']=3
+        self.assertEqual(unused_replacements(old,new,['binding']),['binding'])
+        for keys in [[],['stone'],['binding','binding']]:
+            with self.subTest(keys=keys),self.assertRaises(ValueError):unused_replacements(old,new,keys)
+        new['materials']['stone']['normal']=5
+        with self.assertRaises(ValueError):unused_replacements(old,new,['binding'])
+
+    def test_unused_replacement_cannot_renew_a_consuming_native_family(self):
+        for consumes in [False,True]:
+            with self.subTest(consumes=consumes),tempfile.TemporaryDirectory() as directory:
+                root=Path(directory);previous,_=self.fixture(root)
+                new=json.loads(previous.read_text());new['materials']['old']['normal']=2
+                (root/MANIFEST).write_text(json.dumps(new))
+                if consumes:
+                    path=root/'art/blender/city_closure_construction.json'
+                    data=json.loads(path.read_text());data['parts'][0]['key']='old'
+                    path.write_text(json.dumps(data))
+                    with self.assertRaises(ValueError):renew(root,previous,root/'archive',['old'])
+                    self.assertFalse((root/'archive').exists())
+                else:
+                    report=renew(root,previous,root/'archive',['old'])
+                    self.assertEqual(report['replaced_unused_keys'],['old'])
+                    self.assertEqual(report['added_keys'],[])
+                    self.assertEqual(report['unchanged_materials'],0)
+
     def test_old_finish_and_manifest_authorities_cannot_change(self):
         old={'schema':1,'materials':{'old':{'files':['normal.png'],'normal_scale':1.}}}
         new=copy.deepcopy(old);new['materials']['new']={'files':['other.png']}

@@ -12,6 +12,20 @@ import audit_data_consumption as audit
 
 
 class DataConsumptionTests(unittest.TestCase):
+    def test_readable_library_identity_maps_do_not_exempt_record_fields(self):
+        for filename, document, expected in [
+            ("orison_v2/book_spreads.json", {"spreads":{"arbitrary_title":{"left":{"body":"x", "unread_probe":1}}}}, "spreads[].left.unread_probe"),
+            ("orison_v2/nook_readable_books.json", {"parts":{"arbitrary_title":{"collision":True,"unread_probe":1}}}, "parts[].unread_probe"),
+            ("orison_v2/nook_readable_books.json", {"books":{"arbitrary_title":{"parts":[], "unread_probe":1}}}, "books[].unread_probe"),
+            ("orison_v2/readable_library.json", {"books":{"arbitrary_title":{"parts":[], "unread_probe":1}}}, "books[].unread_probe"),
+        ]:
+            fields=audit.data_json_fields(document, filename)
+            self.assertIn(expected, fields)
+            self.assertFalse(any("arbitrary_title" in name for name in fields))
+            # An unrelated file cannot borrow this schema's identity declaration.
+            other=audit.data_json_fields(document, "unrelated.json")
+            self.assertTrue(any("arbitrary_title" in name for name in other))
+
     def fixture(self):
         td = tempfile.TemporaryDirectory()
         root = Path(td.name)

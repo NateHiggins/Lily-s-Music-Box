@@ -1,6 +1,9 @@
 extends RefCounted
 ## Original basement nook, fitted to the existing north landing.
 const PATH := "res://data/orison_v2/reading_nook.json"
+const Stock := preload("res://scripts/building/v2_readable_library_stock.gd")
+const COPIES := Stock.PHYSICAL_COPIES
+const LooseLibrary := preload("res://scripts/building/v2_loose_library.gd")
 const SOURCE_FINISHES := ["fabric_green", "glassish", "rug_warm"]
 
 static func mount(adapter: OrisonV2AnchorAdapter) -> bool:
@@ -9,6 +12,16 @@ static func mount(adapter: OrisonV2AnchorAdapter) -> bool:
 	if data.get("local_materials") is not Dictionary or data.local_materials.size() != SOURCE_FINISHES.size(): return false
 	for key: String in SOURCE_FINISHES:
 		if not data.local_materials.has(key): return false
+	var stock:=Stock.new()
+	if not stock.prepare(): return false
+	var copies: Dictionary=stock.load_copy_programme()
+	if copies.is_empty(): return false
+	var assemblies: Dictionary={}
+	for row: Dictionary in data.assemblies:
+		if assemblies.has(str(row.id)): return false
+		assemblies[str(row.id)]=true
+	for record: Dictionary in copies.copies+copies.ends:
+		if not assemblies.has(str(record.get("assembly",""))): return false
 	var root := Node3D.new()
 	root.name = "V2ReadingNook"
 	root.position.y = float(data.floor_y)
@@ -49,6 +62,16 @@ static func mount(adapter: OrisonV2AnchorAdapter) -> bool:
 			collision.shape = draw.mesh.create_trimesh_shape()
 			collision.transform = draw.transform
 			body.add_child(collision)
+		var owned: Array=[]
+		for copy: Dictionary in copies.copies:
+			if str(copy.assembly)==str(row.id): owned.append(copy)
+		var owned_ends: Array=[]
+		for record: Dictionary in copies.ends:
+			if str(record.assembly)==str(row.id): owned_ends.append(record)
+		if not owned.is_empty():
+			var collection:=LooseLibrary.new();collection.name=str(row.id)+"_library"
+			collection.native_stock=stock;collection.copy_records=owned;collection.end_records=owned_ends
+			body.add_child(collection)
 	model.free()
 	return true
 
@@ -68,4 +91,6 @@ static func _source_material(spec: Dictionary) -> StandardMaterial3D:
 	if bool(spec.alpha):
 		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		material.cull_mode = BaseMaterial3D.CULL_DISABLED
+		material.refraction_enabled = true
+		material.refraction_scale = .035
 	return material

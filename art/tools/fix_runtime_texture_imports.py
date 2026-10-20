@@ -108,7 +108,7 @@ def v2_sidecars() -> list[Path]:
     """
     paths = subprocess.check_output(
         ["git", "-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "--", "game/assets/building/textures",
-         "game/assets/device/service_teletype"],
+         "game/assets/device/service_teletype", "game/assets/book_illustrations"],
         text=True, encoding="utf-8").splitlines()
     runtime_names=set(re.findall(r'"([^"]+\.png)"',GDSCRIPT.read_text(encoding="utf-8")))
     return sorted({ROOT / (name + ".import") for name in paths

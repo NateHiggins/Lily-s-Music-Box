@@ -3,6 +3,14 @@
 Evidence class: **EVIDENCE**. Automated played spatial access only.
 Status: **Six source regions and six complete routes reached in one continuous leg.**
 
+Requalified on **2026-10-20** against the current native library, fire fittings
+and repaired glass. The original **exterior1** run completes in **260.96 seconds**
+with the same 52 endpoints, 6,594 observed physics poses and 130 checks, zero
+failures. Checked publication validates the original room and regional claims,
+preserves the previous original packet under
+**art/reviews/v2_roof_access_repair_20261020/previous_exterior_packet**, and publishes
+the unchanged test-written contract, wrapper and byte-verified compressed logs.
+
 The production-selected V2 world completes the six authored exterior routes
 from one declared source street placement. Subsequent travel uses the normal
 standing controller, mask 1, without noclip, smaller capsules or intermediate
@@ -50,14 +58,17 @@ wall-clock movement budget in one physics frame. The new exterior driver uses
 bounded physics steps plus a wall-clock ceiling, retaining the same collision
 checks and arrival tolerances. Both original contracts and matching raw logs
 remain under **art/reviews/v2_region_access_20261019/**. The second original
-passes independently without any runtime or art source changes. Its current
-runtime fingerprint is **8b1ba493e78e83c64f5a19e9298ff28acadaa47f8ce88be6a41d9766e5508b0c**;
-surface fingerprint is **246782ff7adee6f7a7ef51ed359fe887d1afd3b71e617e086ae8ef69714b5709**.
+passes independently without any runtime or art source changes. These are
+historical diagnostics, not the current replay. The current **exterior1**
+runtime fingerprint is **757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83**;
+surface fingerprint is **10c1f1f4e60419c83277b5818f7b29b317dc660af9b41560fb7c2863be96a8b1**.
+The original contract records repository provenance **b2a067f3**; all bound
+production, geometry/surface and test inputs remain fixed throughout the run.
 
 The shops region is witnessed in its authored bodega instance. This does not
 prove the receiving entrance, eleven arcade-shop interiors, cases, inventory,
 resident routines, traffic safety, acoustic correctness, saved reconstruction,
 full regional gameplay or human navigation/appearance acceptance. No
 RUNTIME_PROVEN or HUMAN_ACCEPTED status follows from this spatial checkpoint.
-Previously inspected current surface/city renders remain valid because their
-source inputs are unchanged; no new art or photoreal acceptance is claimed.
+The separately renewed composed surface packet supplies current surface/city
+diagnostics. This movement replay adds no art or photoreal acceptance.

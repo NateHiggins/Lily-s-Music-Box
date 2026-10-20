@@ -66,6 +66,7 @@ var elevator: Node = null
 var startup_failed := false
 var startup_failure_reason := ""
 var startup_ms := 0.0
+var _contact_precision:=preload("res://scripts/building/v2_contact_precision.gd").new()
 var adapter
 var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
@@ -92,6 +93,8 @@ func _read_street_frame() -> Dictionary:
 	return preload("res://scripts/building/orison_v2_street_frame.gd").load_default()
 
 func _ready() -> void:
+	if not _contact_precision.bind(get_world_3d()):
+		startup_failed=true;startup_failure_reason="V2 native contact precision unavailable";return
 	# Refuse the source boundary before creating campaign services, imported
 	# geometry or any actor. Child _ready errors cannot close startup for us.
 	if not preload("res://scripts/building/orison_v2_street_frame.gd").valid_source_header(_read_street_frame()):
@@ -1045,6 +1048,8 @@ func _exit_tree() -> void:
 		_exterior_resolver = null
 	if adapter != null:
 		adapter.restore_all()
+
+	_contact_precision.release()
 
 func room_at_world(world_position: Vector3) -> String:
 	if _blockout==null or layout.is_empty():return ""

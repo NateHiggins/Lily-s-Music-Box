@@ -56,6 +56,11 @@ DYNAMIC_MAP_PATHS_BY_SCHEMA = {
 # These declarations classify record identities only. They grant neither a
 # FILE reader nor a reader for any field in a record value.
 DYNAMIC_MAP_PATHS_BY_FILE = {
+    # Readable library cache resolves authored stock/finish/plate identities;
+    # record values still need ordinary production field readers.
+    "orison_v2/readable_library.json": frozenset({"parts", "books", "cases", "bookends", "finishes", "illustrations", "page_designs"}),
+    "orison_v2/nook_readable_books.json": frozenset({"books", "parts"}),
+    "orison_v2/book_spreads.json": frozenset({"spreads"}),
     # FunctionalProp._ready: _catalog.get(prop_type).
     "prop_catalog.json": frozenset({""}),
     # RealityCaseManager/RealityRuleDirector: definitions.get(case_id).

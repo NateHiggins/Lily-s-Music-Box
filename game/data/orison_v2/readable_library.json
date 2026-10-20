@@ -1,0 +1,3000 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/readable_library.glb",
+  "books": {
+    "prospectus": {
+      "width": 0.16599999999999998,
+      "height": 0.268,
+      "thickness": 0.004,
+      "material": "book_burgundy",
+      "parts": [
+        "prospectus__right_board",
+        "prospectus__right_leaves",
+        "prospectus__left_board",
+        "prospectus__left_leaves",
+        "prospectus__spine",
+        "prospectus__headband0",
+        "prospectus__headband1"
+      ],
+      "binding": "stitched pamphlet",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "minutes": {
+      "width": 0.16599999999999998,
+      "height": 0.244,
+      "thickness": 0.023,
+      "material": "book_burgundy",
+      "parts": [
+        "minutes__right_board",
+        "minutes__right_leaves",
+        "minutes__right_tooling",
+        "minutes__left_board",
+        "minutes__left_leaves",
+        "minutes__left_tooling",
+        "minutes__spine",
+        "minutes__headband0",
+        "minutes__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "wiring": {
+      "width": 0.16599999999999998,
+      "height": 0.197,
+      "thickness": 0.032,
+      "material": "book_ochre",
+      "parts": [
+        "wiring__right_board",
+        "wiring__right_leaves",
+        "wiring__left_board",
+        "wiring__left_leaves",
+        "wiring__spine",
+        "wiring__headband0",
+        "wiring__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "switchboard": {
+      "width": 0.152,
+      "height": 0.213,
+      "thickness": 0.023,
+      "material": "book_teal",
+      "parts": [
+        "switchboard__right_board",
+        "switchboard__right_leaves",
+        "switchboard__left_board",
+        "switchboard__left_leaves",
+        "switchboard__spine",
+        "switchboard__headband0",
+        "switchboard__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "hymns": {
+      "width": 0.173,
+      "height": 0.168,
+      "thickness": 0.006,
+      "material": "book_navy",
+      "parts": [
+        "hymns__right_board",
+        "hymns__right_leaves",
+        "hymns__left_board",
+        "hymns__left_leaves",
+        "hymns__spine",
+        "hymns__headband0",
+        "hymns__headband1"
+      ],
+      "binding": "stitched pamphlet",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "cordcircuits": {
+      "width": 0.145,
+      "height": 0.231,
+      "thickness": 0.022,
+      "material": "book_teal",
+      "parts": [
+        "cordcircuits__right_board",
+        "cordcircuits__right_leaves",
+        "cordcircuits__left_board",
+        "cordcircuits__left_leaves",
+        "cordcircuits__spine",
+        "cordcircuits__headband0",
+        "cordcircuits__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "nurse": {
+      "width": 0.16599999999999998,
+      "height": 0.152,
+      "thickness": 0.03,
+      "material": "book_burgundy",
+      "parts": [
+        "nurse__right_board",
+        "nurse__right_leaves",
+        "nurse__right_tooling",
+        "nurse__left_board",
+        "nurse__left_leaves",
+        "nurse__left_tooling",
+        "nurse__spine",
+        "nurse__headband0",
+        "nurse__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "photochem": {
+      "width": 0.152,
+      "height": 0.254,
+      "thickness": 0.033,
+      "material": "book_burgundy",
+      "parts": [
+        "photochem__right_board",
+        "photochem__right_leaves",
+        "photochem__right_tooling",
+        "photochem__left_board",
+        "photochem__left_leaves",
+        "photochem__left_tooling",
+        "photochem__spine",
+        "photochem__headband0",
+        "photochem__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "atlas": {
+      "width": 0.159,
+      "height": 0.27,
+      "thickness": 0.028999999999999998,
+      "material": "book_green",
+      "parts": [
+        "atlas__right_board",
+        "atlas__right_leaves",
+        "atlas__left_board",
+        "atlas__left_leaves",
+        "atlas__spine",
+        "atlas__headband0",
+        "atlas__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "standards": {
+      "width": 0.145,
+      "height": 0.27,
+      "thickness": 0.027,
+      "material": "book_brown",
+      "parts": [
+        "standards__right_board",
+        "standards__right_leaves",
+        "standards__right_tooling",
+        "standards__left_board",
+        "standards__left_leaves",
+        "standards__left_tooling",
+        "standards__spine",
+        "standards__headband0",
+        "standards__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "radio": {
+      "width": 0.145,
+      "height": 0.221,
+      "thickness": 0.027,
+      "material": "book_ochre",
+      "parts": [
+        "radio__right_board",
+        "radio__right_leaves",
+        "radio__left_board",
+        "radio__left_leaves",
+        "radio__spine",
+        "radio__headband0",
+        "radio__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "sorting": {
+      "width": 0.145,
+      "height": 0.189,
+      "thickness": 0.026,
+      "material": "book_navy",
+      "parts": [
+        "sorting__right_board",
+        "sorting__right_leaves",
+        "sorting__left_board",
+        "sorting__left_leaves",
+        "sorting__spine",
+        "sorting__headband0",
+        "sorting__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "glass": {
+      "width": 0.173,
+      "height": 0.176,
+      "thickness": 0.027,
+      "material": "book_ochre",
+      "parts": [
+        "glass__right_board",
+        "glass__right_leaves",
+        "glass__left_board",
+        "glass__left_leaves",
+        "glass__spine",
+        "glass__headband0",
+        "glass__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "letters": {
+      "width": 0.152,
+      "height": 0.163,
+      "thickness": 0.028999999999999998,
+      "material": "book_burgundy",
+      "parts": [
+        "letters__right_board",
+        "letters__right_leaves",
+        "letters__right_tooling",
+        "letters__left_board",
+        "letters__left_leaves",
+        "letters__left_tooling",
+        "letters__spine",
+        "letters__headband0",
+        "letters__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "elevator": {
+      "width": 0.16599999999999998,
+      "height": 0.239,
+      "thickness": 0.023,
+      "material": "book_burgundy",
+      "parts": [
+        "elevator__right_board",
+        "elevator__right_leaves",
+        "elevator__right_tooling",
+        "elevator__left_board",
+        "elevator__left_leaves",
+        "elevator__left_tooling",
+        "elevator__spine",
+        "elevator__headband0",
+        "elevator__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "barsongs": {
+      "width": 0.173,
+      "height": 0.208,
+      "thickness": 0.031,
+      "material": "book_brown",
+      "parts": [
+        "barsongs__right_board",
+        "barsongs__right_leaves",
+        "barsongs__right_tooling",
+        "barsongs__left_board",
+        "barsongs__left_leaves",
+        "barsongs__left_tooling",
+        "barsongs__spine",
+        "barsongs__headband0",
+        "barsongs__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "recipes": {
+      "width": 0.152,
+      "height": 0.184,
+      "thickness": 0.024999999999999998,
+      "material": "book_burgundy",
+      "parts": [
+        "recipes__right_board",
+        "recipes__right_leaves",
+        "recipes__right_tooling",
+        "recipes__left_board",
+        "recipes__left_leaves",
+        "recipes__left_tooling",
+        "recipes__spine",
+        "recipes__headband0",
+        "recipes__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "flowers": {
+      "width": 0.173,
+      "height": 0.15,
+      "thickness": 0.028999999999999998,
+      "material": "book_brown",
+      "parts": [
+        "flowers__right_board",
+        "flowers__right_leaves",
+        "flowers__right_tooling",
+        "flowers__left_board",
+        "flowers__left_leaves",
+        "flowers__left_tooling",
+        "flowers__spine",
+        "flowers__headband0",
+        "flowers__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "knots": {
+      "width": 0.145,
+      "height": 0.158,
+      "thickness": 0.027,
+      "material": "book_ochre",
+      "parts": [
+        "knots__right_board",
+        "knots__right_leaves",
+        "knots__left_board",
+        "knots__left_leaves",
+        "knots__spine",
+        "knots__headband0",
+        "knots__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "dressmaking": {
+      "width": 0.152,
+      "height": 0.227,
+      "thickness": 0.034,
+      "material": "book_brown",
+      "parts": [
+        "dressmaking__right_board",
+        "dressmaking__right_leaves",
+        "dressmaking__right_tooling",
+        "dressmaking__left_board",
+        "dressmaking__left_leaves",
+        "dressmaking__left_tooling",
+        "dressmaking__spine",
+        "dressmaking__headband0",
+        "dressmaking__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "birds": {
+      "width": 0.152,
+      "height": 0.171,
+      "thickness": 0.022,
+      "material": "book_green",
+      "parts": [
+        "birds__right_board",
+        "birds__right_leaves",
+        "birds__left_board",
+        "birds__left_leaves",
+        "birds__spine",
+        "birds__headband0",
+        "birds__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "billiards": {
+      "width": 0.16599999999999998,
+      "height": 0.15,
+      "thickness": 0.028999999999999998,
+      "material": "book_green",
+      "parts": [
+        "billiards__right_board",
+        "billiards__right_leaves",
+        "billiards__left_board",
+        "billiards__left_leaves",
+        "billiards__spine",
+        "billiards__headband0",
+        "billiards__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "darts": {
+      "width": 0.145,
+      "height": 0.15,
+      "thickness": 0.034,
+      "material": "book_brown",
+      "parts": [
+        "darts__right_board",
+        "darts__right_leaves",
+        "darts__right_tooling",
+        "darts__left_board",
+        "darts__left_leaves",
+        "darts__left_tooling",
+        "darts__spine",
+        "darts__headband0",
+        "darts__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "dreams": {
+      "width": 0.16599999999999998,
+      "height": 0.205,
+      "thickness": 0.032,
+      "material": "book_navy",
+      "parts": [
+        "dreams__right_board",
+        "dreams__right_leaves",
+        "dreams__left_board",
+        "dreams__left_leaves",
+        "dreams__spine",
+        "dreams__headband0",
+        "dreams__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "concrete": {
+      "width": 0.173,
+      "height": 0.27,
+      "thickness": 0.03,
+      "material": "book_teal",
+      "parts": [
+        "concrete__right_board",
+        "concrete__right_leaves",
+        "concrete__left_board",
+        "concrete__left_leaves",
+        "concrete__spine",
+        "concrete__headband0",
+        "concrete__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "interborough": {
+      "width": 0.173,
+      "height": 0.15,
+      "thickness": 0.032,
+      "material": "book_ochre",
+      "parts": [
+        "interborough__right_board",
+        "interborough__right_leaves",
+        "interborough__left_board",
+        "interborough__left_leaves",
+        "interborough__spine",
+        "interborough__headband0",
+        "interborough__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "walls": {
+      "width": 0.145,
+      "height": 0.194,
+      "thickness": 0.034,
+      "material": "book_navy",
+      "parts": [
+        "walls__right_board",
+        "walls__right_leaves",
+        "walls__left_board",
+        "walls__left_leaves",
+        "walls__spine",
+        "walls__headband0",
+        "walls__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "missing": {
+      "width": 0.145,
+      "height": 0.27,
+      "thickness": 0.035,
+      "material": "book_burgundy",
+      "parts": [
+        "missing__right_board",
+        "missing__right_leaves",
+        "missing__right_tooling",
+        "missing__left_board",
+        "missing__left_leaves",
+        "missing__left_tooling",
+        "missing__spine",
+        "missing__headband0",
+        "missing__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "deadletter": {
+      "width": 0.145,
+      "height": 0.216,
+      "thickness": 0.03,
+      "material": "book_teal",
+      "parts": [
+        "deadletter__right_board",
+        "deadletter__right_leaves",
+        "deadletter__left_board",
+        "deadletter__left_leaves",
+        "deadletter__spine",
+        "deadletter__headband0",
+        "deadletter__headband1"
+      ],
+      "binding": "case binding",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    },
+    "onefinger": {
+      "width": 0.173,
+      "height": 0.155,
+      "thickness": 0.0016,
+      "material": "paper",
+      "parts": [
+        "onefinger__right_board",
+        "onefinger__right_leaves",
+        "onefinger__left_board",
+        "onefinger__left_leaves",
+        "onefinger__spine",
+        "onefinger__lace0",
+        "onefinger__lace1",
+        "onefinger__lace2",
+        "onefinger__lace_tail"
+      ],
+      "binding": "lace pamphlet",
+      "right_page_z": -0.00016,
+      "left_page_z": 0.00016
+    }
+  },
+  "cases": {
+    "plain": {
+      "parts": [
+        "plain__Back",
+        "plain__Side0",
+        "plain__Side1",
+        "plain__Shelf0",
+        "plain__Shelf1",
+        "plain__Shelf2",
+        "plain__Top",
+        "plain__Foot0",
+        "plain__Foot1",
+        "plain__CapMoulding",
+        "plain__ShelfPin0",
+        "plain__ShelfPin1",
+        "plain__ShelfPin2",
+        "plain__ShelfPin3",
+        "plain__ShelfPin4",
+        "plain__ShelfPin5"
+      ],
+      "shelf_tops": [
+        0.06,
+        0.465,
+        0.875
+      ],
+      "width": 0.72,
+      "depth": 0.28,
+      "height": 1.3,
+      "doors": []
+    },
+    "repaired": {
+      "parts": [
+        "repaired__Back",
+        "repaired__Side0",
+        "repaired__Side1",
+        "repaired__Shelf0",
+        "repaired__Shelf1",
+        "repaired__Shelf2",
+        "repaired__Top",
+        "repaired__Foot0",
+        "repaired__Foot1",
+        "repaired__CapMoulding",
+        "repaired__RepairStrap0",
+        "repaired__RepairStrap1",
+        "repaired__ShelfPin0",
+        "repaired__ShelfPin1",
+        "repaired__ShelfPin2",
+        "repaired__ShelfPin3",
+        "repaired__ShelfPin4",
+        "repaired__ShelfPin5"
+      ],
+      "shelf_tops": [
+        0.0935,
+        0.4435,
+        0.8335
+      ],
+      "width": 0.68,
+      "depth": 0.25,
+      "height": 1.22,
+      "doors": []
+    },
+    "sectional": {
+      "parts": [
+        "sectional__Back",
+        "sectional__Side0",
+        "sectional__Side1",
+        "sectional__Shelf0",
+        "sectional__Shelf1",
+        "sectional__Shelf2",
+        "sectional__Top",
+        "sectional__Foot0",
+        "sectional__Foot1",
+        "sectional__CapMoulding",
+        "sectional__Plinth",
+        "sectional__ShelfPin0",
+        "sectional__ShelfPin1",
+        "sectional__ShelfPin2",
+        "sectional__ShelfPin3",
+        "sectional__ShelfPin4",
+        "sectional__ShelfPin5",
+        "sectional__PocketTrack0_0",
+        "sectional__PocketTrack0_1",
+        "sectional__PocketTrack1_0",
+        "sectional__PocketTrack1_1",
+        "sectional__PocketTrack2_0",
+        "sectional__PocketTrack2_1"
+      ],
+      "shelf_tops": [
+        0.153,
+        0.543,
+        0.933
+      ],
+      "width": 0.78,
+      "depth": 0.3,
+      "height": 1.34,
+      "doors": [
+        {
+          "parts": [
+            "sectional_sash0__Roller0",
+            "sectional_sash0__Roller1",
+            "sectional_sash0__Rail0",
+            "sectional_sash0__Rail1",
+            "sectional_sash0__Stile0",
+            "sectional_sash0__Stile1",
+            "sectional_sash0__Glass",
+            "sectional_sash0__Pull"
+          ],
+          "pivot": [
+            0,
+            0.483,
+            0.162
+          ],
+          "angle_limit": 1.5707963267948966,
+          "inset_limit": 0.3
+        },
+        {
+          "parts": [
+            "sectional_sash1__Roller0",
+            "sectional_sash1__Roller1",
+            "sectional_sash1__Rail0",
+            "sectional_sash1__Rail1",
+            "sectional_sash1__Stile0",
+            "sectional_sash1__Stile1",
+            "sectional_sash1__Glass",
+            "sectional_sash1__Pull"
+          ],
+          "pivot": [
+            0,
+            0.873,
+            0.162
+          ],
+          "angle_limit": 1.5707963267948966,
+          "inset_limit": 0.3
+        },
+        {
+          "parts": [
+            "sectional_sash2__Roller0",
+            "sectional_sash2__Roller1",
+            "sectional_sash2__Rail0",
+            "sectional_sash2__Rail1",
+            "sectional_sash2__Stile0",
+            "sectional_sash2__Stile1",
+            "sectional_sash2__Glass",
+            "sectional_sash2__Pull"
+          ],
+          "pivot": [
+            0,
+            1.2630000000000001,
+            0.162
+          ],
+          "angle_limit": 1.5707963267948966,
+          "inset_limit": 0.3
+        }
+      ]
+    }
+  },
+  "bookends": {
+    "pressed": {
+      "parts": [
+        "bookend_pressed__Foot",
+        "bookend_pressed__Upright0",
+        "bookend_pressed__Upright1",
+        "bookend_pressed__TopFace",
+        "bookend_pressed__FoldedLip",
+        "bookend_pressed__TopReturn",
+        "bookend_pressed__LowerWeb",
+        "bookend_pressed__FloorReturn",
+        "bookend_pressed__Felt"
+      ],
+      "width": 0.075,
+      "height": 0.12,
+      "depth": 0.1,
+      "support_y": -0.001,
+      "mass_kg": 0.22520129989331872
+    },
+    "brass": {
+      "parts": [
+        "bookend_brass__Foot",
+        "bookend_brass__Upright0",
+        "bookend_brass__Upright1",
+        "bookend_brass__TopReturn",
+        "bookend_brass__LowerWeb",
+        "bookend_brass__FloorReturn",
+        "bookend_brass__Felt"
+      ],
+      "width": 0.075,
+      "height": 0.12,
+      "depth": 0.1,
+      "support_y": -0.001,
+      "mass_kg": 0.3288739474666742
+    }
+  },
+  "illustrations": {
+    "billiards": {
+      "part": "plate__billiards",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/billiards.png"
+    },
+    "bird_window": {
+      "part": "plate__bird_window",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/bird_window.png"
+    },
+    "circuit_radio": {
+      "part": "plate__circuit_radio",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/circuit_radio.png"
+    },
+    "circuit_switchboard": {
+      "part": "plate__circuit_switchboard",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/circuit_switchboard.png"
+    },
+    "circuit_wiring": {
+      "part": "plate__circuit_wiring",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/circuit_wiring.png"
+    },
+    "contact_frames": {
+      "part": "plate__contact_frames",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/contact_frames.png"
+    },
+    "dartboard": {
+      "part": "plate__dartboard",
+      "width": 0.07833836227655411,
+      "height": 0.07833836227655411
+    },
+    "door": {
+      "part": "plate__door",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/door.png"
+    },
+    "elevation": {
+      "part": "plate__elevation",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/elevation.png"
+    },
+    "envelope": {
+      "part": "plate__envelope",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/envelope.png"
+    },
+    "keyboard": {
+      "part": "plate__keyboard",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/keyboard.png"
+    },
+    "knot": {
+      "part": "plate__knot",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/knot.png"
+    },
+    "lift_section": {
+      "part": "plate__lift_section",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/lift_section.png"
+    },
+    "onefinger_drawing": {
+      "part": "plate__onefinger_drawing",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/onefinger_drawing.png"
+    },
+    "pattern": {
+      "part": "plate__pattern",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/pattern.png"
+    },
+    "pressed_flower": {
+      "part": "plate__pressed_flower",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/pressed_flower.png"
+    },
+    "roof_plan": {
+      "part": "plate__roof_plan",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/roof_plan.png"
+    },
+    "seedling": {
+      "part": "plate__seedling",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/seedling.png"
+    },
+    "street_plan": {
+      "part": "plate__street_plan",
+      "width": 0.102,
+      "height": 0.06799999999999999,
+      "image": "res://assets/book_illustrations/street_plan.png"
+    },
+    "timetable": {
+      "part": "plate__timetable",
+      "width": 0.102,
+      "height": 0.051,
+      "image": "res://assets/book_illustrations/timetable.png"
+    }
+  },
+  "parts": {
+    "prospectus__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "prospectus__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "prospectus__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "prospectus__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "prospectus__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "prospectus__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "prospectus__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "minutes__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "minutes__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "minutes__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "minutes__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "minutes__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "minutes__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "minutes__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "minutes__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "minutes__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "wiring__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "wiring__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "wiring__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "wiring__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "wiring__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "wiring__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "wiring__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "switchboard__right_board": {
+      "material": "book_teal",
+      "role": "right",
+      "collision": true
+    },
+    "switchboard__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "switchboard__left_board": {
+      "material": "book_teal",
+      "role": "left",
+      "collision": true
+    },
+    "switchboard__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "switchboard__spine": {
+      "material": "book_teal",
+      "role": "fixed",
+      "collision": true
+    },
+    "switchboard__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "switchboard__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "hymns__right_board": {
+      "material": "book_navy",
+      "role": "right",
+      "collision": true
+    },
+    "hymns__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "hymns__left_board": {
+      "material": "book_navy",
+      "role": "left",
+      "collision": true
+    },
+    "hymns__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "hymns__spine": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": true
+    },
+    "hymns__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "hymns__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "cordcircuits__right_board": {
+      "material": "book_teal",
+      "role": "right",
+      "collision": true
+    },
+    "cordcircuits__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "cordcircuits__left_board": {
+      "material": "book_teal",
+      "role": "left",
+      "collision": true
+    },
+    "cordcircuits__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "cordcircuits__spine": {
+      "material": "book_teal",
+      "role": "fixed",
+      "collision": true
+    },
+    "cordcircuits__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "cordcircuits__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "nurse__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "nurse__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "nurse__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "nurse__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "nurse__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "nurse__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "nurse__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "nurse__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "nurse__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "photochem__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "photochem__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "photochem__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "photochem__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "photochem__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "photochem__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "photochem__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "photochem__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "photochem__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "atlas__right_board": {
+      "material": "book_green",
+      "role": "right",
+      "collision": true
+    },
+    "atlas__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "atlas__left_board": {
+      "material": "book_green",
+      "role": "left",
+      "collision": true
+    },
+    "atlas__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "atlas__spine": {
+      "material": "book_green",
+      "role": "fixed",
+      "collision": true
+    },
+    "atlas__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "atlas__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "standards__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "standards__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "standards__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "standards__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "standards__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "standards__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "standards__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "standards__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "standards__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "radio__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "radio__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "radio__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "radio__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "radio__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "radio__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "radio__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "sorting__right_board": {
+      "material": "book_navy",
+      "role": "right",
+      "collision": true
+    },
+    "sorting__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "sorting__left_board": {
+      "material": "book_navy",
+      "role": "left",
+      "collision": true
+    },
+    "sorting__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "sorting__spine": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": true
+    },
+    "sorting__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "sorting__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "glass__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "glass__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "glass__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "glass__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "glass__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "glass__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "glass__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "letters__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "letters__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "letters__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "letters__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "letters__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "letters__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "letters__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "letters__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "letters__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "elevator__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "elevator__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "elevator__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "elevator__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "elevator__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "elevator__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "elevator__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "elevator__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "elevator__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "barsongs__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "barsongs__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "barsongs__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "barsongs__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "barsongs__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "barsongs__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "barsongs__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "barsongs__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "barsongs__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "recipes__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "recipes__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "recipes__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "recipes__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "recipes__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "recipes__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "recipes__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "recipes__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "recipes__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "flowers__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "flowers__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "flowers__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "flowers__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "flowers__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "flowers__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "flowers__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "flowers__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "flowers__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "knots__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "knots__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "knots__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "knots__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "knots__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "knots__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "knots__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "dressmaking__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "dressmaking__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "dressmaking__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "dressmaking__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "dressmaking__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "dressmaking__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "dressmaking__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "dressmaking__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "dressmaking__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "birds__right_board": {
+      "material": "book_green",
+      "role": "right",
+      "collision": true
+    },
+    "birds__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "birds__left_board": {
+      "material": "book_green",
+      "role": "left",
+      "collision": true
+    },
+    "birds__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "birds__spine": {
+      "material": "book_green",
+      "role": "fixed",
+      "collision": true
+    },
+    "birds__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "birds__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "billiards__right_board": {
+      "material": "book_green",
+      "role": "right",
+      "collision": true
+    },
+    "billiards__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "billiards__left_board": {
+      "material": "book_green",
+      "role": "left",
+      "collision": true
+    },
+    "billiards__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "billiards__spine": {
+      "material": "book_green",
+      "role": "fixed",
+      "collision": true
+    },
+    "billiards__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "billiards__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "darts__right_board": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": true
+    },
+    "darts__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "darts__right_tooling": {
+      "material": "book_brown",
+      "role": "right",
+      "collision": false
+    },
+    "darts__left_board": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": true
+    },
+    "darts__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "darts__left_tooling": {
+      "material": "book_brown",
+      "role": "left",
+      "collision": false
+    },
+    "darts__spine": {
+      "material": "book_brown",
+      "role": "fixed",
+      "collision": true
+    },
+    "darts__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "darts__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "dreams__right_board": {
+      "material": "book_navy",
+      "role": "right",
+      "collision": true
+    },
+    "dreams__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "dreams__left_board": {
+      "material": "book_navy",
+      "role": "left",
+      "collision": true
+    },
+    "dreams__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "dreams__spine": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": true
+    },
+    "dreams__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "dreams__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "concrete__right_board": {
+      "material": "book_teal",
+      "role": "right",
+      "collision": true
+    },
+    "concrete__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "concrete__left_board": {
+      "material": "book_teal",
+      "role": "left",
+      "collision": true
+    },
+    "concrete__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "concrete__spine": {
+      "material": "book_teal",
+      "role": "fixed",
+      "collision": true
+    },
+    "concrete__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "concrete__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "interborough__right_board": {
+      "material": "book_ochre",
+      "role": "right",
+      "collision": true
+    },
+    "interborough__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "interborough__left_board": {
+      "material": "book_ochre",
+      "role": "left",
+      "collision": true
+    },
+    "interborough__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "interborough__spine": {
+      "material": "book_ochre",
+      "role": "fixed",
+      "collision": true
+    },
+    "interborough__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "interborough__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "walls__right_board": {
+      "material": "book_navy",
+      "role": "right",
+      "collision": true
+    },
+    "walls__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "walls__left_board": {
+      "material": "book_navy",
+      "role": "left",
+      "collision": true
+    },
+    "walls__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "walls__spine": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": true
+    },
+    "walls__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "walls__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "missing__right_board": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": true
+    },
+    "missing__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "missing__right_tooling": {
+      "material": "book_burgundy",
+      "role": "right",
+      "collision": false
+    },
+    "missing__left_board": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": true
+    },
+    "missing__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "missing__left_tooling": {
+      "material": "book_burgundy",
+      "role": "left",
+      "collision": false
+    },
+    "missing__spine": {
+      "material": "book_burgundy",
+      "role": "fixed",
+      "collision": true
+    },
+    "missing__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "missing__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "deadletter__right_board": {
+      "material": "book_teal",
+      "role": "right",
+      "collision": true
+    },
+    "deadletter__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "deadletter__left_board": {
+      "material": "book_teal",
+      "role": "left",
+      "collision": true
+    },
+    "deadletter__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "deadletter__spine": {
+      "material": "book_teal",
+      "role": "fixed",
+      "collision": true
+    },
+    "deadletter__headband0": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "deadletter__headband1": {
+      "material": "linen",
+      "role": "fixed",
+      "collision": false
+    },
+    "onefinger__right_board": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "onefinger__right_leaves": {
+      "material": "paper",
+      "role": "right",
+      "collision": true
+    },
+    "onefinger__left_board": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "onefinger__left_leaves": {
+      "material": "paper",
+      "role": "left",
+      "collision": true
+    },
+    "onefinger__spine": {
+      "material": "paper",
+      "role": "fixed",
+      "collision": true
+    },
+    "onefinger__lace0": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": false
+    },
+    "onefinger__lace1": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": false
+    },
+    "onefinger__lace2": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": false
+    },
+    "onefinger__lace_tail": {
+      "material": "book_navy",
+      "role": "fixed",
+      "collision": false
+    },
+    "plain__Back": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Side0": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Side1": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Shelf0": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Shelf1": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Shelf2": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Top": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Foot0": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__Foot1": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__CapMoulding": {
+      "material": "oak_work_surface",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin0": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin1": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin2": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin3": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin4": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "plain__ShelfPin5": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Back": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Side0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Side1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Shelf0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Shelf1": {
+      "material": "site_softwood",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Shelf2": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Top": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Foot0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__Foot1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__CapMoulding": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__RepairStrap0": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__RepairStrap1": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin0": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin1": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin2": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin3": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin4": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "repaired__ShelfPin5": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Back": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Side0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Side1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Shelf0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Shelf1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Shelf2": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Top": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Foot0": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Foot1": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__CapMoulding": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__Plinth": {
+      "material": "wood_dark",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin0": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin1": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin2": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin3": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin4": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__ShelfPin5": {
+      "material": "brass_dull",
+      "role": "case",
+      "collision": true
+    },
+    "sectional__PocketTrack0_0": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash0__Roller0": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional__PocketTrack0_1": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash0__Roller1": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional_sash0__Rail0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Rail1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Stile0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Stile1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Glass": {
+      "material": "glass_drawn_expressive",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash0__Pull": {
+      "material": "brass_dull",
+      "role": "door",
+      "collision": false
+    },
+    "sectional__PocketTrack1_0": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash1__Roller0": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional__PocketTrack1_1": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash1__Roller1": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional_sash1__Rail0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Rail1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Stile0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Stile1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Glass": {
+      "material": "glass_drawn_expressive",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash1__Pull": {
+      "material": "brass_dull",
+      "role": "door",
+      "collision": false
+    },
+    "sectional__PocketTrack2_0": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash2__Roller0": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional__PocketTrack2_1": {
+      "material": "fire_hardware_steel",
+      "role": "case",
+      "collision": true
+    },
+    "sectional_sash2__Roller1": {
+      "material": "fire_hardware_steel",
+      "role": "carriage",
+      "collision": false
+    },
+    "sectional_sash2__Rail0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Rail1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Stile0": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Stile1": {
+      "material": "wood_dark",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Glass": {
+      "material": "glass_drawn_expressive",
+      "role": "door",
+      "collision": true
+    },
+    "sectional_sash2__Pull": {
+      "material": "brass_dull",
+      "role": "door",
+      "collision": false
+    },
+    "bookend_pressed__Foot": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__Upright0": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__Upright1": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__TopFace": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__FoldedLip": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__TopReturn": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__LowerWeb": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__FloorReturn": {
+      "material": "fire_hardware_steel",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_pressed__Felt": {
+      "material": "linen",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__Foot": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__Upright0": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__Upright1": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__TopReturn": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__LowerWeb": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__FloorReturn": {
+      "material": "brass_dull",
+      "role": "end",
+      "collision": true
+    },
+    "bookend_brass__Felt": {
+      "material": "linen",
+      "role": "end",
+      "collision": true
+    },
+    "plate__billiards": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__bird_window": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__circuit_radio": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__circuit_switchboard": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__circuit_wiring": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__contact_frames": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__dartboard": {
+      "material": "soot",
+      "role": "print",
+      "collision": false
+    },
+    "plate__door": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__elevation": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__envelope": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__keyboard": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__knot": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__lift_section": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__onefinger_drawing": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__pattern": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__pressed_flower": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__roof_plan": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__seedling": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__street_plan": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "plate__timetable": {
+      "material": "paper",
+      "role": "print",
+      "collision": false
+    },
+    "type__running_rule": {
+      "material": "soot",
+      "role": "print",
+      "collision": false
+    }
+  },
+  "finishes": {
+    "book_brown": {
+      "catalog_key": "book_brown",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "book_burgundy": {
+      "catalog_key": "book_burgundy",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "book_green": {
+      "catalog_key": "book_green",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "book_navy": {
+      "catalog_key": "book_navy",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "book_ochre": {
+      "catalog_key": "book_ochre",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "book_teal": {
+      "catalog_key": "book_teal",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "paper": {
+      "catalog_key": "paper",
+      "normal": 0.08,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "linen": {
+      "catalog_key": "linen",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "soot": {
+      "catalog_key": "soot",
+      "normal": 0.0,
+      "roughness": 0.95,
+      "pigment": 1.0,
+      "tint": [
+        0.1,
+        0.08,
+        0.055,
+        1.0
+      ]
+    },
+    "oak_work_surface": {
+      "catalog_key": "oak_work_surface",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "wood_dark": {
+      "catalog_key": "wood_dark",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "site_softwood": {
+      "catalog_key": "site_softwood",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "fire_hardware_steel": {
+      "catalog_key": "fire_hardware_steel",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "brass_dull": {
+      "catalog_key": "brass_dull",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "washer_rubber": {
+      "catalog_key": "washer_rubber",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "glass_drawn_expressive": {
+      "catalog_key": "glass_drawn_expressive",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "page_designs": {
+    "prospectus": {
+      "style": "prospectus",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "The proposed garden, as imagined by its illustrator."
+    },
+    "minutes": {
+      "style": "register",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "wiring": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "An ordinary bell, its button disconnected."
+    },
+    "switchboard": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "hymns": {
+      "style": "verse",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "cordcircuits": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "Cord and plug apparatus at an idle position."
+    },
+    "nurse": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "photochem": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "The interrupted exposure was the one retained."
+    },
+    "atlas": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "Streets recorded before the ground was ready."
+    },
+    "standards": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "A place for the second player."
+    },
+    "radio": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "A receiver after the household has retired."
+    },
+    "sorting": {
+      "style": "register",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "glass": {
+      "style": "botanical",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "Plants brought clear of the cold glass."
+    },
+    "letters": {
+      "style": "register",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "elevator": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "The car, its counterweight and the empty landing."
+    },
+    "barsongs": {
+      "style": "verse",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "recipes": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "flowers": {
+      "style": "botanical",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "A specimen kept between the leaves."
+    },
+    "knots": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "A practical fastening for ordinary household use."
+    },
+    "dressmaking": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "Cloth allowed for the life of its wearer."
+    },
+    "birds": {
+      "style": "botanical",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "A window left open; no cage required."
+    },
+    "billiards": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "A position left for the next player."
+    },
+    "darts": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "The familiar figure, observed too quickly."
+    },
+    "dreams": {
+      "style": "literary",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "A familiar door, imperfectly remembered."
+    },
+    "concrete": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "Construction opened to view, and to repair."
+    },
+    "interborough": {
+      "style": "manual",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "The connection worth keeping in mind."
+    },
+    "walls": {
+      "style": "literary",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "missing": {
+      "style": "register",
+      "annotation_heading": "A READER\u2019S MARK"
+    },
+    "deadletter": {
+      "style": "register",
+      "annotation_heading": "A READER\u2019S MARK",
+      "caption": "The cover returned; its contents withheld."
+    },
+    "onefinger": {
+      "style": "pamphlet",
+      "annotation_heading": "ANOTHER HAND",
+      "caption": "There is room for somebody beside you."
+    }
+  },
+  "typography": {
+    "running_rule": "type__running_rule"
+  },
+  "material_intent": {
+    "soot": "Printed ink film: intentionally flat; paper supplies the grain.",
+    "paper": "Restrained fibre normal; lettering and illustrations are independent of relief."
+  }
+}

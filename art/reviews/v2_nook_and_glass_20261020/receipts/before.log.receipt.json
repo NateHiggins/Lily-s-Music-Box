@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 6.04,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T19:25:56Z",
+  "started_utc": "2026-10-20T19:25:50Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-glass-20261020/before.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-glass-20261020/before.log",
+  "stdout_sha256": "dbdc7722b55da2a24aafcd9dd28173fc8fa7789fbbe267fcde52e029332bcad4"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2GlassOpticsBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-glass-20261020/before",
+ "source": {
+  "dirty_paths": 1716,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/reading_nook.blend",
+   " M art/blender/reading_nook_construction.json",
+   " M art/blender/scripts/build_reading_nook.py",
+   " M art/blender/scripts/inspect_reading_nook.py",
+   " M art/blender/scripts/reading_nook_geometry.py",
+   " M art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/building/textures/T_ai_materials_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_normal.png.import"
+  ],
+  "repository_head": "083cb3b5b52b88056ff30117492d8e3fea96f6fe",
+  "repository_tree": "23341ef3e94fbe69bb5adde5f48b7f5507b543cc",
+  "runtime_inputs_sha256": "099a0cd2fef7b5b0139d9227968f9a2a866e17941d6c6ecdfbb235c8a9bfe203",
+  "test_path": "game/tests/v2_glass_optics_bench.gd",
+  "test_sha256": "52cf44f880babd14b7f5c42b0939979f7a6c24f8e6f8f10d336eb9efc18a923d"
+ },
+ "windowed": true
+}

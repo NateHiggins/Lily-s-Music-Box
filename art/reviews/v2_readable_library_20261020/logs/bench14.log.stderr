@@ -1,0 +1,45 @@
+SCRIPT ERROR: Parse Error: Cannot infer the type of "rule" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/props/v2_readable_book.gd:110)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/v2_readable_bookshelf.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/v2_readable_library_bench.gd:0)
+ERROR: Failed to load script "res://tests/v2_readable_library_bench.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: _build_visual (res://scripts/building/v2_readable_bookshelf.gd:41)
+   GDScript backtrace (most recent call first):
+       [0] _build_visual (res://scripts/building/v2_readable_bookshelf.gd:41)
+       [1] _ready (res://scripts/props/functional_prop.gd:38)
+       [2] _run (res://tests/v2_readable_library_bench.gd:227)
+ERROR: LIBRARY CHECK: resident books mount: Iris Bell
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/v2_readable_library_bench.gd:9)
+       [1] _run (res://tests/v2_readable_library_bench.gd:228)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: _build_visual (res://scripts/building/v2_readable_bookshelf.gd:41)
+   GDScript backtrace (most recent call first):
+       [0] _build_visual (res://scripts/building/v2_readable_bookshelf.gd:41)
+       [1] _ready (res://scripts/props/functional_prop.gd:38)
+       [2] _run (res://tests/v2_readable_library_bench.gd:227)
+ERROR: LIBRARY CHECK: resident books mount: Mina Vale
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/v2_readable_library_bench.gd:9)
+       [1] _run (res://tests/v2_readable_library_bench.gd:228)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: _build_visual (res://scripts/building/v2_readable_bookshelf.gd:41)
+   GDScript backtrace (most recent call first):
+       [0] _build_visual (res://scripts/building/v2_readable_bookshelf.gd:41)
+       [1] _ready (res://scripts/props/functional_prop.gd:38)
+       [2] _run (res://tests/v2_readable_library_bench.gd:227)
+ERROR: LIBRARY CHECK: resident books mount: Mae Kessler
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/v2_readable_library_bench.gd:9)
+       [1] _run (res://tests/v2_readable_library_bench.gd:228)
+SCRIPT ERROR: Invalid access to property or key 'standards' on a base object of type 'Dictionary'.
+   at: _run (res://tests/v2_readable_library_bench.gd:246)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/v2_readable_library_bench.gd:246)

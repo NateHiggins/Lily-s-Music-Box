@@ -1,0 +1,96 @@
+{
+  "evidence_class": "INERT",
+  "before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 110,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 134,
+    "V1_RETIREMENT": 136
+  },
+  "after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 98,
+    "FULL_BUILDING_RUNTIME": 41,
+    "PRODUCTION_CUTOVER": 122,
+    "V1_RETIREMENT": 124
+  },
+  "requirements_changed": [
+    {
+      "id": "unit.2A",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.2A.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.2A.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.2A.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.2A.storage",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.2B.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.2B.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.2B.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.2B.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4B.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4B.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4B.storage",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "contract.F04_B_BATH",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "contract.F04_B_CLOSET",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "contract.F04_B_KITCHEN",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "canonical_text_already_preserved_in_branch_history": {
+    "DOCS.md": "4007c42a",
+    "art/blender/city_closure_construction.json": "e3888018",
+    "art/blender/city_elevations_construction.json": "e3888018",
+    "art/blender/city_ground_apron_construction.json": "e3888018",
+    "art/blender/city_horizon_construction.json": "e3888018",
+    "art/blender/domestic_objects_construction.json": "f0cf39c6",
+    "art/blender/domestic_storage_construction.json": "572b8f1b",
+    "art/blender/house_switchboard_construction.json": "72aef0eb",
+    "art/blender/street_paving_details_construction.json": "e3888018",
+    "art/data/domestic_storage/source_plan.json": "572b8f1b",
+    "art/data/runtime_material_sets.json": "c6a739e5",
+    "art/textures/catalog_mapping.json": "c6a739e5",
+    "art/tools/fix_runtime_texture_imports.py": "6d15313e",
+    "art/tools/fix_v2_mesh_imports.py": "c6a739e5",
+    "art/tools/generate_runtime_materials.py": "c6a739e5",
+    "game/data/orison_v2/domestic_storage.json": "572b8f1b",
+    "game/data/runtime_material_sets.json": "c6a739e5",
+    "game/scripts/building/orison_v2_runtime_root.gd": "af78be18",
+    "game/scripts/generated/material_sets.gd": "c6a739e5",
+    "game/scripts/player/constrained_grab.gd": "af78be18",
+    "game/scripts/player/player_controller.gd": "0af32fee",
+    "tools/interaction_implementor_manifest.json": "0af32fee",
+    "tools/orison_spatial_dependency_manifest.json": "72aef0eb",
+    "tools/tests/test_interaction_implementors.py": "0af32fee",
+    "tools/tests/test_interaction_prompt_carriers.py": "0af32fee"
+  },
+  "requires_further_review": [
+    "art/blender/v2_batch_workflow.md"
+  ]
+}

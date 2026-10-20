@@ -35,6 +35,12 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Measured roof-cabinet bypass, world-space lamp checks and checked spatial publication | `design/V2_ROOF_ACCESS_REPAIR_2026-10-20.md` |
+| Current composed surface qualification and remaining source-bound route renewal | `design/V2_QUALIFICATION_RENEWAL_2026-10-20.md` |
+| Glass refraction diagnosis and the retained loose reading-nook collection | `design/V2_NOOK_AND_GLASS_2026-10-20.md` |
+| Unbounded physical library carry, distant native reconstruction and physical event origins | `design/V2_LIBRARY_WORLD_CARRY_2026-10-20.md` |
+| Native library contact, inspection and installed-handling diagnostics | `design/V2_LIBRARY_HANDLING_2026-10-20.md` |
+| Original book illustrations, thirty physical spreads and unfinished bookshelf interaction qualification | `design/V2_READABLE_LIBRARY_2026-10-20.md` |
 | Construction-specific normal recipes, expressive cabinet glass and current qualification | `design/V2_CONSTRUCTION_NORMALS_2026-10-20.md` |
 | Loaded handheld/character mip repair and remaining world qualification | `design/V2_SURFACE_MIP_REPAIR_2026-10-19.md` |
 | Fitted native kitchen services, stop controls and installed diagnostics | `design/V2_KITCHEN_PLUMBING_2026-10-19.md` |

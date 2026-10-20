@@ -321,11 +321,11 @@ class ProductionSmokeTests(unittest.TestCase):
         # The fitted boiler hopper adds one named control through PropControlArea.
         # The native V2 fire cabinet also explicitly disables its two
         # inherited legacy prompt/action entry points with empty overrides.
-        self.assertEqual(summary["discovered"], 95)
+        self.assertEqual(summary["discovered"], 96)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 22, "interact_prompt": 73})
+                         {"control_prompt": 22, "interact_prompt": 74})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 2, "production": 92})
+                         {"adapter": 1, "debug-only": 2, "production": 93})
         actual = {i["file"]: i for i in self.report["implementors"]}
         self.assertEqual(actual["building/orison_v2_window_treatment.gd"]["action_method"], "interact_control")
         self.assertEqual(actual["props/key_copy_counter.gd"]["action_method"], "interact")

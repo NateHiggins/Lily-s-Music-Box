@@ -1520,6 +1520,22 @@
    "protocol": "whole-object",
    "rationale": "Native V2 cabinet explicitly disables inherited legacy prompt/action dispatch; empty prompt and no-op action preserve direct-part manipulation only.",
    "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "building/v2_readable_bookshelf.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/v2_readable_bookshelf.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/v2_readable_bookshelf.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "Readable V2 shelves disable inherited sorting-panel prompts and click actions; only physical book, bookend and sash grabs are operable.",
+   "role": "production"
   }
  ],
  "policy": "drift detector, not an interface; classifications authorize nothing.  Extraction dispositions are defaults for the post-EA boundary review.",

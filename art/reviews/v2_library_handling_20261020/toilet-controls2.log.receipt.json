@@ -1,0 +1,49 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 11.07,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T18:21:33Z",
+  "started_utc": "2026-10-20T18:21:21Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "TOILET INSPECTION: PASS; 39 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/toilet-controls2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/toilet-controls2.log",
+  "stdout_sha256": "7bc5b066a3b07befa0699cea8afdb3bf6b5e8f82aaeb3a2c546e5d04f05c8055"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/ToiletInspectionTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 5,
+  "dirty_sample": [
+   "M game/scripts/building/v2_readable_bookshelf.gd",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/props/v2_library_movable.gd",
+   " M game/scripts/props/v2_readable_book.gd",
+   " M game/tests/v2_readable_library_bench.gd"
+  ],
+  "repository_head": "e28dfa7d3eb46c06f73d670d9ffc4f8239034d5a",
+  "repository_tree": "c2f806e319f7c26b15ad1bc9ad094cefa3b6acec",
+  "runtime_inputs_sha256": "72c0f96c0f5a005a4399704f0c89af145ae66a2d5295c1b007861bdda951829b",
+  "test_path": "game/tests/toilet_inspection_test.gd",
+  "test_sha256": "9eac04be20ee35a322cba654da9770d3d25fa9348497dd54d127637434b679f8"
+ },
+ "windowed": true
+}

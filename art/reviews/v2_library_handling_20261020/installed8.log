@@ -1,0 +1,415 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1486 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2591
+[ORISON V2 RUNTIME] ready startup_ms=100681.322
+[PLAYER] pointer captured (backtick key)
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+[HARUKIYA] CLOSED, 18 fixtures
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (644.0, 206.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (0.006, 0.8766, 0.385) target=Book_glass:<RigidBody3D#3625522966578>
+CARRY MOTION: 0 before=(0.006, 0.8366, 0.085) mouse=(0.005355, -25.0)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(0.006, 0.87648, 0.109119) mouse=(0.110168, -4.991196)
+CARRY MOTION RETURN: 1 contact={  }
+CARRY MOTION: 2 before=(0.006, 0.8766, 0.132903) mouse=(0.116394, -5.174026)
+CARRY MOTION RETURN: 2 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (653.0, 363.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F02_2A_BOOKSHELF_01 start=(-0.0755, 0.83449, 0.044) rear=-0.00599985197186 load_front=0.09554436802864
+CARRY BEGIN: (-0.0755, 0.83649, 0.155544) target=Bookend_left:<RigidBody3D#3628760969453>
+CARRY MOTION: 0 before=(-0.0755, 0.83449, 0.044) mouse=(-4.951233, 24.4906)
+CARRY MOTION RETURN: 0 contact={ "unresolved_native_impact": true, "safe": 0.126953125, "unsafe": 0.1328125, "motion": (0.026372, -0.045152, 0.007566) }
+CARRY MOTION: 1 before=(-0.076862, 0.83682, 0.049869) mouse=(-4.951233, 24.4906)
+CARRY MOTION RETURN: 1 contact={ "unresolved_native_impact": true, "safe": 0.126953125, "unsafe": 0.1328125, "motion": (0.026372, -0.045152, 0.007566) }
+CARRY MOTION: 2 before=(-0.076862, 0.83682, 0.049869) mouse=(-2.86145, 24.14444)
+CARRY MOTION RETURN: 2 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#3622805057201>, "normal": (0.0, 1.0, 0.0), "point": (7.927154, 4.0335, -13.3704) }
+CARRY BEGIN: (-0.0755, 0.846489, 0.155542) target=Bookend_left:<RigidBody3D#3628760969453>
+CARRY MOTION: 0 before=(-0.0755, 0.836489, 0.155542) mouse=(0.044861, -4.370026)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.075449, 0.846741, 0.155988) mouse=(-0.0047, -0.014069)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+[PLAYER] pointer captured (backtick key)
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (639.0, 198.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (-0.001617, 0.91451, 0.400004) target=Book_barsongs:<RigidBody3D#3632586174908>
+CARRY MOTION: 0 before=(-0.001617, 0.87451, 0.100004) mouse=(-0.026614, -24.99999)
+CARRY MOTION RETURN: 0 contact={ "unresolved_native_impact": true, "safe": 0.59375, "unsafe": 0.59765625, "motion": (-0.001151, 0.039516, -0.000013) }
+CARRY MOTION: 1 before=(-0.001574, 0.87451, 0.124037) mouse=(-0.053209, -24.99994)
+CARRY MOTION RETURN: 1 contact={  }
+CARRY MOTION: 2 before=(-0.001613, 0.912998, 0.14802) mouse=(-0.123474, -6.474625)
+CARRY MOTION RETURN: 2 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (640.0, 360.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F02_2C_BOOKSHELF_01 start=(-0.103575, 0.875609, 0.056086) rear=0.00601427257061 load_front=0.10771649330854
+CARRY BEGIN: (-0.103575, 0.877609, 0.167788) target=Bookend_left:<RigidBody3D#3636159722123>
+CARRY MOTION: 0 before=(-0.103575, 0.875609, 0.056086) mouse=(-6.2146, 19.59613)
+CARRY MOTION RETURN: 0 contact={ "collider": Book_wiring:<RigidBody3D#3631512433022>, "normal": (0.009058, -0.999943, -0.005678), "point": (1.948497, 4.076999, -18.3201) }
+CARRY MOTION: 1 before=(-0.111429, 0.875901, 0.097795) mouse=(-0.203186, 10.83786)
+CARRY MOTION RETURN: 1 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3630220587324>, "normal": (0.0, 1.0, 0.0), "point": (2.007253, 4.075, -18.34691) }
+CARRY MOTION: 2 before=(-0.107981, 0.876, 0.129498) mouse=(-0.193176, 3.407593)
+CARRY MOTION RETURN: 2 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3630220587324>, "normal": (0.0, 1.0, 0.0), "point": (2.003664, 4.075, -18.37836) }
+CARRY BEGIN: (-0.103575, 0.887609, 0.167788) target=Bookend_left:<RigidBody3D#3636159722123>
+CARRY MOTION: 0 before=(-0.103575, 0.877609, 0.167788) mouse=(-0.037903, -4.586304)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.103529, 0.887824, 0.168192) mouse=(0.003357, -0.011047)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+[PLAYER] pointer captured (backtick key)
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (646.0, 179.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (0.013334, 0.873611, 0.384126) target=Book_standards:<RigidBody3D#3640320471916>
+CARRY MOTION: 0 before=(0.013334, 0.833611, 0.084126) mouse=(0.132935, -24.9012)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(0.013334, 0.873611, 0.107967) mouse=(0.16333, -5.579834)
+CARRY MOTION RETURN: 1 contact={  }
+CARRY MOTION: 2 before=(0.013334, 0.873611, 0.131391) mouse=(0.171509, -5.863861)
+CARRY MOTION RETURN: 2 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (640.0, 360.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F03_3A_BOOKSHELF_01 start=(-0.102231, 0.837821, 0.043008) rear=-0.00700173154473 load_front=0.10172168165445
+CARRY BEGIN: (-0.102231, 0.839821, 0.161731) target=Bookend_left:<RigidBody3D#3643055158282>
+CARRY MOTION: 0 before=(-0.102231, 0.837821, 0.043008) mouse=(-6.085266, 22.04739)
+CARRY MOTION RETURN: 0 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#3637619339994>, "normal": (0.0, 1.0, 0.0), "point": (7.836264, 7.2335, -13.42189) }
+CARRY MOTION: 1 before=(-0.11051, 0.838082, 0.088521) mouse=(0.079468, 13.06882)
+CARRY MOTION RETURN: 1 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#3637619339994>, "normal": (0.0, 1.0, 0.0), "point": (7.883391, 7.2335, -13.4145) }
+CARRY MOTION: 2 before=(-0.106586, 0.838017, 0.12322) mouse=(1.697144, 5.189636)
+CARRY MOTION RETURN: 2 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#3637619339994>, "normal": (0.0, 1.0, 0.0), "point": (7.917016, 7.2335, -13.41636) }
+CARRY BEGIN: (-0.102231, 0.849821, 0.16173) target=Bookend_left:<RigidBody3D#3643055158282>
+CARRY MOTION: 0 before=(-0.102231, 0.839821, 0.16173) mouse=(-0.03949, -4.372711)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.102183, 0.850061, 0.162156) mouse=(0.003723, -0.012726)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+[PLAYER] pointer captured (backtick key)
+RAW STANCE CONTACT: F04_4A_BOOKSHELF_01 foot=(-12.7841, 9.6, -10.25) with=/root/BookshelvesTest/OrisonV2Runtime/OrisonV2Blockout/F04_A_MAIN/Floor/Collision rest={ "point": (-12.7841, 9.6, -10.25), "normal": (0.0, 1.0, 0.0), "rid": RID(399986009309876), "collider_id": 848826488751, "shape": 0, "linear_velocity": (0.0, 0.0, 0.0) }
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (640.0, 471.0)
+CURSOR DELIVERED: 0
+CURSOR REQUEST: (640.0, 269.0)
+CURSOR DELIVERED: 0
+CURSOR REQUEST: (622.0, 414.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (-0.035152, 0.583111, 0.409978) target=Book_switchboard:<RigidBody3D#3650370024833>
+CARRY MOTION: 0 before=(-0.035152, 0.543111, 0.109978) mouse=(-0.008301, -24.88226)
+CARRY MOTION RETURN: 0 contact={ "collider": Book_missing:<RigidBody3D#3649782822239>, "normal": (-0.01511, -0.092931, 0.995558), "point": (-11.75386, 10.35621, -10.28487) }
+CARRY MOTION: 1 before=(-0.031455, 0.582624, 0.110497) mouse=(-2.30542, -0.178284)
+CARRY MOTION RETURN: 1 contact={ "collider": Book_missing:<RigidBody3D#3649782822239>, "normal": (-0.01511, -0.092931, 0.995558), "point": (-11.75305, 10.39589, -10.28115) }
+CARRY MOTION: 2 before=(-0.031472, 0.582767, 0.114326) mouse=(-0.365173, 0.567535)
+CARRY MOTION RETURN: 2 contact={ "collider": Book_missing:<RigidBody3D#3649782822239>, "normal": (-0.005428, -0.082379, 0.996586), "point": (-11.89639, 10.39711, -10.28524) }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (646.0, 358.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F04_4A_BOOKSHELF_01 start=(-0.132, 0.54399, 0.069) rear=0.01900024339557 load_front=0.11402402818203
+CARRY BEGIN: (-0.132, 0.54599, 0.179) target=Bookend_left:<RigidBody3D#3653691913793>
+CARRY MOTION: 0 before=(-0.132, 0.54399, 0.069) mouse=(-6.171803, 24.2262)
+CARRY MOTION RETURN: 0 contact={ "collider": sectional__Shelf1_Body:<StaticBody3D#3644397335635>, "normal": (0.0, 1.0, 0.0), "point": (-11.89939, 10.143, -10.38125) }
+CARRY MOTION: 1 before=(-0.14002, 0.544069, 0.114393) mouse=(-1.022766, 12.86462)
+CARRY MOTION RETURN: 1 contact={ "collider": sectional__Shelf1_Body:<StaticBody3D#3644397335635>, "normal": (0.0, 1.0, 0.0), "point": (-11.89658, 10.143, -10.38715) }
+CARRY MOTION: 2 before=(-0.136192, 0.54252, 0.153257) mouse=(0.752258, 2.647827)
+CARRY MOTION RETURN: 2 contact={ "collider": sectional__Shelf1_Body:<StaticBody3D#3644397335635>, "normal": (0.0, 1.0, 0.0), "point": (-11.93304, 10.143, -10.31779) }
+CARRY BEGIN: (-0.132, 0.55599, 0.179) target=Bookend_left:<RigidBody3D#3653691913793>
+CARRY MOTION: 0 before=(-0.132, 0.54599, 0.179) mouse=(-0.007874, -3.065643)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.131951, 0.556265, 0.179299) mouse=(0.00061, -0.009491)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+[PLAYER] pointer captured (backtick key)
+RAW STANCE CONTACT: F04_4C_BOOKSHELF_01 foot=(1.900002, 9.6, -19.2701) with=/root/BookshelvesTest/OrisonV2Runtime/OrisonV2Blockout/F04_C_MAIN/Floor/Collision rest={ "point": (1.900002, 9.6, -19.2701), "normal": (0.0, 1.0, 0.0), "rid": RID(454343115408596), "collider_id": 935380149554, "shape": 0, "linear_velocity": (0.0, 0.0, 0.0) }
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (638.0, 205.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (-0.002353, 0.914781, 0.400014) target=Book_recipes:<RigidBody3D#3657450010380>
+CARRY MOTION: 0 before=(-0.002353, 0.874781, 0.100014) mouse=(-0.053335, -24.99994)
+CARRY MOTION RETURN: 0 contact={ "collider": Book_switchboard:<RigidBody3D#3658037212974>, "normal": (0.996444, -0.083957, 0.007055), "point": (1.900535, 10.65822, -18.36182) }
+CARRY MOTION: 1 before=(-0.005547, 0.913697, 0.1241) mouse=(2.089722, -5.78801)
+CARRY MOTION RETURN: 1 contact={ "collider": Book_switchboard:<RigidBody3D#3658037212974>, "normal": (0.999726, -0.022338, 0.007041), "point": (1.902898, 10.68628, -18.3617) }
+CARRY MOTION: 2 before=(-0.005736, 0.914705, 0.147846) mouse=(2.157898, -5.415344)
+CARRY MOTION RETURN: 2 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (643.0, 361.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F04_4C_BOOKSHELF_01 start=(-0.0875, 0.87599, 0.059) rear=0.00900001451373 load_front=0.10357963293791
+CARRY BEGIN: (-0.0875, 0.87799, 0.169) target=Bookend_left:<RigidBody3D#3660755122123>
+CARRY MOTION: 0 before=(-0.0875, 0.87599, 0.059) mouse=(-5.031555, 20.68906)
+CARRY MOTION RETURN: 0 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3655017313928>, "normal": (0.0, 1.0, 0.0), "point": (1.987803, 10.475, -18.32112) }
+CARRY MOTION: 1 before=(-0.095048, 0.874519, 0.095861) mouse=(-0.101501, 11.34555)
+CARRY MOTION RETURN: 1 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3655017313928>, "normal": (0.0, 1.0, 0.0), "point": (1.92486, 10.475, -18.40909) }
+CARRY MOTION: 2 before=(-0.091731, 0.875771, 0.128002) mouse=(-0.111694, 4.15683)
+CARRY MOTION RETURN: 2 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3655017313928>, "normal": (0.0, 1.0, 0.0), "point": (1.989508, 10.475, -18.39573) }
+CARRY BEGIN: (-0.0875, 0.88799, 0.169001) target=Bookend_left:<RigidBody3D#3660755122123>
+CARRY MOTION: 0 before=(-0.0875, 0.87799, 0.169001) mouse=(-0.015381, -4.599426)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.087457, 0.888214, 0.16942) mouse=(0.001282, -0.011383)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+[PLAYER] pointer captured (backtick key)
+RAW STANCE CONTACT: F05_5A_BOOKSHELF_01 foot=(9.600001, 12.8, -9.779898) with=/root/BookshelvesTest/OrisonV2Runtime/OrisonV2Blockout/F05_A_MAIN/Floor/Collision rest={ "point": (9.600001, 12.8, -9.779898), "normal": (0.0, 1.0, 0.0), "rid": RID(410860866503456), "collider_id": 866459343469, "shape": 1, "linear_velocity": (0.0, 0.0, 0.0) }
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (640.0, 192.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (-0.0008, 0.914558, 0.400019) target=Book_dressmaking:<RigidBody3D#3664630659229>
+CARRY MOTION: 0 before=(-0.0008, 0.874558, 0.100019) mouse=(0.0, -25.0)
+CARRY MOTION RETURN: 0 contact={ "unresolved_native_impact": true, "safe": 0.09765625, "unsafe": 0.103515625, "motion": (0.0, 0.039554, 0.0) }
+CARRY MOTION: 1 before=(-0.0008, 0.874558, 0.123982) mouse=(0.0, -25.0)
+CARRY MOTION RETURN: 1 contact={  }
+CARRY MOTION: 2 before=(-0.0008, 0.913054, 0.147893) mouse=(0.0, -6.626465)
+CARRY MOTION RETURN: 2 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (658.0, 358.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F05_5A_BOOKSHELF_01 start=(-0.0905, 0.87599, 0.059) rear=0.00900001451373 load_front=0.00900001451373
+CARRY BEGIN: (-0.0905, 0.87799, 0.169) target=Bookend_left:<RigidBody3D#3667918993755>
+CARRY MOTION: 0 before=(-0.0905, 0.87599, 0.059) mouse=(-6.952033, 24.01394)
+CARRY MOTION RETURN: 0 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3662214739994>, "normal": (0.0, 1.0, 0.0), "point": (9.508965, 13.675, -10.64938) }
+CARRY MOTION: 1 before=(-0.099073, 0.876189, 0.105783) mouse=(0.129089, 14.93753)
+CARRY MOTION RETURN: 1 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3662214739994>, "normal": (0.0, 1.0, 0.0), "point": (9.572206, 13.675, -10.64091) }
+CARRY MOTION: 2 before=(-0.094428, 0.87611, 0.141069) mouse=(0.305908, 6.687958)
+CARRY MOTION RETURN: 2 contact={  }
+CARRY BEGIN: (-0.0905, 0.887989, 0.168999) target=Bookend_left:<RigidBody3D#3667918993755>
+CARRY MOTION: 0 before=(-0.0905, 0.877989, 0.168999) mouse=(0.06488, -4.567566)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.090449, 0.888186, 0.169361) mouse=(-0.005066, -0.008789)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+[PLAYER] pointer captured (backtick key)
+RAW STANCE CONTACT: F05_5C_BOOKSHELF_01 foot=(1.900002, 12.8, -19.2701) with=/root/BookshelvesTest/OrisonV2Runtime/OrisonV2Blockout/F05_C_MAIN/Floor/Collision rest={ "point": (1.900002, 12.8, -19.2701), "normal": (0.0, 1.0, 0.0), "rid": RID(420185240503176), "collider_id": 881256848597, "shape": 0, "linear_velocity": (0.0, 0.0, 0.0) }
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (625.0, 178.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (-0.024774, 0.914968, 0.402083) target=Book_missing:<RigidBody3D#3671811308078>
+CARRY MOTION: 0 before=(-0.024774, 0.874968, 0.102083) mouse=(0.589134, -24.99306)
+CARRY MOTION RETURN: 0 contact={ "collider": Book_elevator:<RigidBody3D#3671190551050>, "normal": (-0.999217, -0.000424, -0.039574), "point": (1.941584, 13.91334, -18.36523) }
+CARRY MOTION: 1 before=(-0.025699, 0.91443, 0.125769) mouse=(1.204712, -6.055023)
+CARRY MOTION RETURN: 1 contact={ "collider": Book_elevator:<RigidBody3D#3671190551050>, "normal": (-0.999217, -0.000424, -0.039574), "point": (1.941584, 13.91334, -18.36523) }
+CARRY MOTION: 2 before=(-0.026619, 0.914967, 0.149027) mouse=(0.763916, -6.007324)
+CARRY MOTION RETURN: 2 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (640.0, 360.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F05_5C_BOOKSHELF_01 start=(-0.079236, 0.878078, 0.081713) rear=0.03318704664707 load_front=0.10422810912132
+CARRY BEGIN: (-0.079236, 0.880077, 0.191713) target=Bookend_left:<RigidBody3D#3675770731283>
+CARRY MOTION: 0 before=(-0.079236, 0.878078, 0.081713) mouse=(-7.767944, 21.46085)
+CARRY MOTION RETURN: 0 contact={ "collider": Book_glass:<RigidBody3D#3670670457324>, "normal": (-0.079046, -0.99687, -0.001617), "point": (2.107222, 13.68368, -18.37117) }
+CARRY MOTION: 1 before=(-0.076373, 0.878566, 0.105631) mouse=(-7.787476, 15.97675)
+CARRY MOTION RETURN: 1 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3669378611626>, "normal": (0.0, 1.0, 0.0), "point": (2.104834, 13.675, -18.39202) }
+CARRY MOTION: 2 before=(-0.076548, 0.878597, 0.132425) mouse=(-5.942871, 12.64746)
+CARRY MOTION RETURN: 2 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3669378611626>, "normal": (0.0, 1.0, 0.0), "point": (1.989146, 13.675, -18.38078) }
+CARRY BEGIN: (-0.079236, 0.890077, 0.19171) target=Bookend_left:<RigidBody3D#3675770731283>
+CARRY MOTION: 0 before=(-0.079236, 0.880077, 0.19171) mouse=(-0.048462, -4.38501)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.079181, 0.890326, 0.192116) mouse=(0.004028, -0.013)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+[PLAYER] pointer captured (backtick key)
+RAW STANCE CONTACT: F06_6A_BOOKSHELF_01 foot=(9.600001, 16.0, -9.794898) with=/root/BookshelvesTest/OrisonV2Runtime/OrisonV2Blockout/F06_A_MAIN/Floor/Collision rest={ "point": (9.600001, 16.0, -9.794898), "normal": (0.0, 1.0, 0.0), "rid": RID(430128089793514), "collider_id": 897161649998, "shape": 1, "linear_velocity": (0.0, 0.0, 0.0) }
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (643.0, 203.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (0.007922, 0.87629, 0.386578) target=Book_sorting:<RigidBody3D#3679864372208>
+CARRY MOTION: 0 before=(0.007922, 0.83629, 0.086578) mouse=(-0.185419, -24.99931)
+CARRY MOTION RETURN: 0 contact={ "collider": Book_cordcircuits:<RigidBody3D#3679344278482>, "normal": (0.994483, -0.066945, -0.080756), "point": (9.602629, 17.05125, -10.70713) }
+CARRY MOTION: 1 before=(0.010941, 0.87549, 0.09125) mouse=(-2.25531, -2.87471)
+CARRY MOTION RETURN: 1 contact={ "collider": Book_cordcircuits:<RigidBody3D#3679344278482>, "normal": (0.997227, -0.024129, 0.070394), "point": (9.60416, 17.05969, -10.69635) }
+CARRY MOTION: 2 before=(0.011662, 0.8762, 0.102517) mouse=(-2.230286, -4.979797)
+CARRY MOTION RETURN: 2 contact={ "collider": Book_cordcircuits:<RigidBody3D#3679344278482>, "normal": (0.997096, 0.029873, 0.070048), "point": (9.64023, 16.88026, -10.77305) }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (640.0, 360.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F06_6A_BOOKSHELF_01 start=(-0.192772, 0.049263, 0.299837) rear=0.26313677430153 load_front=0.26313677430153
+CARRY BEGIN: (-0.192772, 0.051263, 0.409837) target=Bookend_left:<RigidBody3D#3682666167442>
+CARRY MOTION: 0 before=(-0.192772, 0.049263, 0.299837) mouse=(-9.025947, 23.31378)
+CARRY MOTION RETURN: 0 contact={ "collider": Collision:<StaticBody3D#897161649998>, "normal": (0.0, 1.0, 0.0), "point": (9.408907, 16.0, -10.47999) }
+CARRY MOTION: 1 before=(-0.198625, 0.049269, 0.379172) mouse=(-1.078491, 6.439545)
+CARRY MOTION RETURN: 1 contact={ "collider": Collision:<StaticBody3D#897161649998>, "normal": (0.0, 1.0, 0.0), "point": (9.350781, 16.0, -10.49519) }
+CARRY MOTION: 2 before=(-0.194672, 0.049366, 0.403303) mouse=(-0.033325, 1.743378)
+CARRY MOTION RETURN: 2 contact={  }
+CARRY BEGIN: (-0.192772, 0.061264, 0.409838) target=Bookend_left:<RigidBody3D#3682666167442>
+CARRY MOTION: 0 before=(-0.192772, 0.051264, 0.409838) mouse=(-0.062744, -1.519165)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.192734, 0.061501, 0.40997) mouse=(0.002075, -0.005432)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+[PLAYER] pointer captured (backtick key)
+RAW STANCE CONTACT: F06_6B_BOOKSHELF_01 foot=(11.2, 16.0, -13.5201) with=/root/BookshelvesTest/OrisonV2Runtime/OrisonV2Blockout/F06_B_MAIN/Floor/Collision rest={ "point": (11.2, 16.0, -13.5201), "normal": (0.0, 1.0, 0.0), "rid": RID(435681482507297), "collider_id": 905919357100, "shape": 1, "linear_velocity": (0.0, 0.0, 0.0) }
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (635.0, 200.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (-0.014228, 0.915525, 0.397193) target=Book_wiring:<RigidBody3D#3686592036199>
+CARRY MOTION: 0 before=(-0.014228, 0.875525, 0.097193) mouse=(0.521545, -24.80161)
+CARRY MOTION RETURN: 0 contact={ "unresolved_native_impact": true, "safe": 0.37890625, "unsafe": 0.3828125, "motion": (-0.000841, 0.040001, -0.0) }
+CARRY MOTION: 1 before=(-0.015069, 0.875525, 0.106376) mouse=(1.973224, -24.92201)
+CARRY MOTION RETURN: 1 contact={  }
+CARRY MOTION: 2 before=(-0.014296, 0.914669, 0.13018) mouse=(-0.099182, -5.792664)
+CARRY MOTION RETURN: 2 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (654.0, 361.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F06_6B_BOOKSHELF_01 start=(-0.094, 0.87599, 0.059) rear=0.00900001451373 load_front=0.11308886110783
+CARRY BEGIN: (-0.094, 0.87799, 0.173089) target=Bookend_left:<RigidBody3D#3689779707423>
+CARRY MOTION: 0 before=(-0.094, 0.87599, 0.059) mouse=(-7.274726, 23.91816)
+CARRY MOTION RETURN: 0 contact={ "collider": Book_photochem:<RigidBody3D#3686004833605>, "normal": (0.0, -1.0, 0.0), "point": (11.23046, 16.87714, -12.58934) }
+CARRY MOTION: 1 before=(-0.105625, 0.87599, 0.084935) mouse=(-0.030945, 14.9317)
+CARRY MOTION RETURN: 1 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3684125785313>, "normal": (0.0, 1.0, 0.0), "point": (11.23525, 16.875, -12.65908) }
+CARRY MOTION: 2 before=(-0.101189, 0.87599, 0.120437) mouse=(0.193176, 9.786255)
+CARRY MOTION RETURN: 2 contact={ "collider": plain__Shelf2_Body:<StaticBody3D#3684125785313>, "normal": (0.0, 1.0, 0.0), "point": (11.22673, 16.875, -12.65908) }
+CARRY BEGIN: (-0.094, 0.887989, 0.173086) target=Bookend_left:<RigidBody3D#3689779707423>
+CARRY MOTION: 0 before=(-0.094, 0.877989, 0.173086) mouse=(0.041016, -4.618164)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.093941, 0.88822, 0.173516) mouse=(-0.004395, -0.011871)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+[PLAYER] pointer captured (backtick key)
+RAW STANCE CONTACT: F06_6C_BOOKSHELF_01 foot=(1.900002, 16.0, -19.2841) with=/root/BookshelvesTest/OrisonV2Runtime/OrisonV2Blockout/F06_C_MAIN/Floor/Collision rest={ "point": (1.900002, 16.0, -19.2841), "normal": (0.0, 1.0, 0.0), "rid": RID(439916320261202), "collider_id": 912630243788, "shape": 0, "linear_velocity": (0.0, 0.0, 0.0) }
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (640.0, 471.0)
+CURSOR DELIVERED: 0
+CURSOR REQUEST: (640.0, 269.0)
+CURSOR DELIVERED: 0
+CURSOR REQUEST: (603.0, 419.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (-0.057166, 0.582522, 0.437308) target=Book_dreams:<RigidBody3D#3696876470162>
+CARRY MOTION: 0 before=(-0.057166, 0.542522, 0.137308) mouse=(-1.015375, -24.97937)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.057079, 0.580378, 0.162121) mouse=(-1.198792, -0.389221)
+CARRY MOTION RETURN: 1 contact={  }
+CARRY MOTION: 2 before=(-0.057166, 0.582523, 0.187016) mouse=(-1.211487, 1.091431)
+CARRY MOTION RETURN: 2 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+CURSOR REQUEST: (672.0, 362.0)
+CURSOR DELIVERED: 0
+INSTALLED END DRAW: F06_6C_BOOKSHELF_01 start=(-0.149, 0.543989, 0.069) rear=0.01900024339557 load_front=0.16728216409683
+CARRY BEGIN: (-0.149, 0.545989, 0.227282) target=Bookend_left:<RigidBody3D#3700752007282>
+CARRY MOTION: 0 before=(-0.149, 0.543989, 0.069) mouse=(-8.213634, 23.61221)
+CARRY MOTION RETURN: 0 contact={ "collider": Book_elevator:<RigidBody3D#3696289267568>, "normal": (0.0, -1.0, 0.0), "point": (2.006331, 16.54069, -18.44589) }
+CARRY MOTION: 1 before=(-0.158795, 0.543989, 0.112091) mouse=(-6.186588, 24.22243)
+CARRY MOTION RETURN: 1 contact={ "collider": Book_elevator:<RigidBody3D#3696289267568>, "normal": (0.0, -1.0, 0.0), "point": (2.006331, 16.54069, -18.44589) }
+CARRY MOTION: 2 before=(-0.158794, 0.543989, 0.112099) mouse=(-5.052136, 24.4842)
+CARRY MOTION RETURN: 2 contact={ "collider": sectional__Shelf1_Body:<StaticBody3D#3691121884776>, "normal": (0.0, 1.0, 0.0), "point": (1.994691, 16.543, -18.43304) }
+CARRY BEGIN: (-0.149003, 0.55598, 0.227274) target=Bookend_left:<RigidBody3D#3700752007282>
+CARRY MOTION: 0 before=(-0.149003, 0.54598, 0.227274) mouse=(0.118225, -3.04895)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.148885, 0.556408, 0.227736) mouse=(-0.010254, -0.02533)
+CARRY MOTION RETURN: 1 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=BookshelvesTest:<Node3D#734087087606>
+INSTALLED CONTROL-ONLY: second-world reconstruction intentionally not rerun
+V2 INSTALLED READABLE LIBRARY: PASS checks=222 failures=0

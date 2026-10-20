@@ -1,0 +1,319 @@
+{
+  "evidence_class": "INERT",
+  "before": {
+    "requirements": 240,
+    "by_status": {
+      "ABSENT": 4,
+      "HUMAN_ACCEPTED": 1,
+      "PROGRAMMED": 107,
+      "RUNTIME_PROVEN": 27,
+      "SPATIALLY_PROVEN": 101
+    },
+    "blockers_by_scope": {
+      "FIRST_SLICE_TECHNICAL": 7,
+      "GOLDEN_SHIFT_V2": 8,
+      "FULL_BUILDING_STRUCTURAL": 98,
+      "FULL_BUILDING_RUNTIME": 41,
+      "PRODUCTION_CUTOVER": 122,
+      "V1_RETIREMENT": 124
+    },
+    "v1_fallbacks": 2,
+    "heuristic_conclusions": 117,
+    "anchor_only_findings": 0,
+    "stale_checkpoint_ids": 1
+  },
+  "after": {
+    "requirements": 240,
+    "by_status": {
+      "ABSENT": 4,
+      "HUMAN_ACCEPTED": 1,
+      "PROGRAMMED": 53,
+      "RUNTIME_PROVEN": 27,
+      "SPATIALLY_PROVEN": 155
+    },
+    "blockers_by_scope": {
+      "FIRST_SLICE_TECHNICAL": 7,
+      "GOLDEN_SHIFT_V2": 8,
+      "FULL_BUILDING_STRUCTURAL": 44,
+      "FULL_BUILDING_RUNTIME": 32,
+      "PRODUCTION_CUTOVER": 68,
+      "V1_RETIREMENT": 70
+    },
+    "v1_fallbacks": 2,
+    "heuristic_conclusions": 117,
+    "anchor_only_findings": 0,
+    "stale_checkpoint_ids": 1
+  },
+  "requirements_changed": [
+    {
+      "id": "unit.3A",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3A.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3A.entry",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3A.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3A.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3A.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3A.storage",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3B",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3B.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3B.entry",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3B.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3B.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3B.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.3B.storage",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4A",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4A.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4A.entry",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4A.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4A.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4A.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.4A.storage",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5A",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5A.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5A.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5A.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5A.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5A.storage",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5B",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5B.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5B.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5B.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5B.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5B.storage",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5C",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5C.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5C.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.5C.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6A",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6A.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6A.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6A.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6A.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6A.storage",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6B",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6B.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6B.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6B.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6B.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6B.storage",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6C",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6C.cooking",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6C.living",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6C.sanitary",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "unit.6C.sleep",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    }
+  ]
+}

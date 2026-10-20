@@ -1323,9 +1323,11 @@ func begin_inspection() -> bool:
 
 func end_inspection(notify_change := true) -> void:
 	if not _inspection_active: return
+	var previous_owner:=inspect_owner
 	if _grab != null: _grab.release(notify_change)
 	inspect_owner=null
 	_inspection_active=false
 	camera.transform=_inspect_camera_pose
 	camera.fov=_inspect_camera_fov
 	Input.mouse_mode=_inspect_mouse_mode
+	if is_instance_valid(previous_owner) and previous_owner.has_method("inspection_ended"): previous_owner.call("inspection_ended")

@@ -1,0 +1,47 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 150.19,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T20:42:06Z",
+  "started_utc": "2026-10-20T20:39:36Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/roof-probe1.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/roof-probe1.log",
+  "stdout_sha256": "1d55dad531e596335eb4c5801813446722db2793ea2081102a3c6e0924f0bf08"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2RoofClearanceProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/roof-probe1",
+ "source": {
+  "dirty_paths": 5,
+  "dirty_sample": [
+   "M tools/PIPELINE_TOOLS.md",
+   "?? game/tests/V2RoofClearanceProbe.tscn",
+   "?? game/tests/v2_roof_clearance_probe.gd",
+   "?? tools/publish_v2_spatial_packet.py",
+   "?? tools/tests/test_v2_spatial_publication.py"
+  ],
+  "repository_head": "e7c97ae3407a40f13cf306c724fc15d7fb9be8da",
+  "repository_tree": "b4dd270ec195d7f865cb3fd0ce700f07f7cbb460",
+  "runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+  "test_path": "game/tests/v2_roof_clearance_probe.gd",
+  "test_sha256": "a7de52168fda2cb0e46ee4a65d6094a729912517ddc856ae5bbb00d0a24972a0"
+ },
+ "windowed": true
+}

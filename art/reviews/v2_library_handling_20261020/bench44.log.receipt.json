@@ -1,0 +1,49 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 18.48,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T18:06:48Z",
+  "started_utc": "2026-10-20T18:06:29Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 READABLE LIBRARY BENCH: PASS checks=751 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/bench44.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/bench44.log",
+  "stdout_sha256": "12177e6a5752d2e6624e207b532232702af214bd6a550aef3d5100b7c6c5c06e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2ReadableLibraryBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/game44",
+ "source": {
+  "dirty_paths": 5,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/v2_readable_bookshelf.gd",
+   " M game/scripts/props/v2_library_movable.gd",
+   " M game/tests/orison_v2_bookshelves_test.gd",
+   " M game/tests/v2_readable_library_bench.gd"
+  ],
+  "repository_head": "c6e4df20f236d7f310325ebfe564c7c1d09294f1",
+  "repository_tree": "c2e072f3475f6b210ab6e1cea6dc5bd4cda2b087",
+  "runtime_inputs_sha256": "035abbe8d489b2a96cb99774fd1d2008041f22624e29b6bcb44f0c84634f7a26",
+  "test_path": "game/tests/v2_readable_library_bench.gd",
+  "test_sha256": "fc7d428643f5806ba326f1473a884b88994753256af78bc9af021c49b022577a"
+ },
+ "windowed": true
+}

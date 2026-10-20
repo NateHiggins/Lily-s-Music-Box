@@ -1,0 +1,54 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 994.18,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T19:53:08Z",
+  "started_utc": "2026-10-20T19:36:34Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 9,
+  "fail_lines": [
+   "INSPECTION CURSOR DELIVERY FAILED: wanted=(759.0, 399.0) before=(766.0, 309.0) actual=(744.0, 443.0) focused=true initial_focus=true mode=0 initial_mode=0 viewport=[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+   "INSPECTION CURSOR DELIVERY FAILED: wanted=(592.0, 640.0) before=(592.0, 689.0) actual=(588.0, 637.0) focused=true initial_focus=true mode=0 initial_mode=0 viewport=[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+   "INSPECTION CURSOR DELIVERY FAILED: wanted=(789.0, 365.0) before=(807.0, 652.0) actual=(782.0, 373.0) focused=true initial_focus=true mode=0 initial_mode=0 viewport=[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+   "INSPECTION CURSOR DELIVERY FAILED: wanted=(787.0, 372.0) before=(789.0, 371.0) actual=(782.0, 375.0) focused=true initial_focus=true mode=0 initial_mode=0 viewport=[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+   "INSPECTION CURSOR DELIVERY FAILED: wanted=(769.0, 358.0) before=(765.0, 358.0) actual=(769.0, 357.0) focused=true initial_focus=true mode=0 initial_mode=0 viewport=[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+   "INSPECTION CURSOR DELIVERY FAILED: wanted=(789.0, 365.0) before=(584.0, 688.0) actual=(764.0, 376.0) focused=true initial_focus=true mode=0 initial_mode=0 viewport=[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+   "INSPECTION CURSOR DELIVERY FAILED: wanted=(790.0, 366.0) before=(764.0, 376.0) actual=(790.0, 367.0) focused=true initial_focus=true mode=0 initial_mode=0 viewport=[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+   "INSPECTION CURSOR DELIVERY FAILED: wanted=(789.0, 363.0) before=(789.0, 363.0) actual=(790.0, 364.0) focused=true initial_focus=true mode=0 initial_mode=0 viewport=[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+   "V2 SURFACE QUALIFICATION: FAIL; 40088 checks; 1 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/surface1.log.stderr",
+  "stderr_sha256": "5c03687db5866aa3ebed3099469af2bb48bdf9843fd9eb617f9537b10d6862b2",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/surface1.log",
+  "stdout_sha256": "a33db0febc274d2402883e29d1ba43bec2aa3f2b21820c9d7b2352bf87fb121d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/surface1",
+ "source": {
+  "dirty_paths": 2,
+  "dirty_sample": [
+   "M game/tests/orison_v2_surface_inventory.gd",
+   "?? game/tests/OrisonV2AllHomeAccessCohort.tscn"
+  ],
+  "repository_head": "864ecd7d300211abb7aef8d49023d6a9ec3b5094",
+  "repository_tree": "04c69c371ecc005bde7452f80ec9dc1351bf5941",
+  "runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "2a0c86c8a028fcbcb6bd4bbc00135822456260c2622af0e06ec7ed0b1974695b"
+ },
+ "windowed": true
+}

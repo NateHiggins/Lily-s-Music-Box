@@ -117,14 +117,22 @@ func _write_receipt(retained: int) -> void:
 
 func _check_light_rotation(player: PlayerController) -> void:
 	var original: Transform3D = player._hand.transform
-	var target: Basis = player.camera.basis.orthonormalized()
-	if player.carried_device and player.carried_device.get("beam_valid"):
-		target=(player.camera.transform*player.carried_device.beam_xform).basis.orthonormalized()
+	# The offset emitter converges on viewed work, rather than remaining
+	# parallel to the camera. Independently raycast that work in world metres.
+	var eye: Transform3D=player.camera.global_transform
+	var query:=PhysicsRayQueryParameters3D.create(eye.origin,eye.origin-eye.basis.z*1.6,1,[player.get_rid()])
+	var hit: Dictionary=player.get_world_3d().direct_space_state.intersect_ray(query)
+	var distance:=clampf(eye.origin.distance_to(hit.position),.12,1.6) if not hit.is_empty() else 1.6
+	var target: Vector3=eye.origin-eye.basis.z*distance
 	player._hand.basis=Basis(Vector3.UP,.7).scaled(Vector3(1.00012,1.00001,.9999))
 	for frame in 240: player._carry_service_light(1.0/60.0)
-	var actual: Basis=player._hand.basis
+	# Repeated parent turns can leave tiny local-frame scale error; the
+	# physical light and voxel field consume its resolved WORLD transform.
+	var actual: Basis=player._hand.global_basis
 	_check(actual.is_finite() and absf(actual.determinant()-1.0)<.00001,
-		"carried light recovers a finite unit rotation from measured-size scale drift")
-	_check(actual.get_rotation_quaternion().angle_to(target.get_rotation_quaternion())<.001,
-		"drift correction retains the light chasing the intended camera aim")
+		"carried light recovers a finite world-unit rotation from measured-size scale drift")
+	var alignment:=(-actual.z).normalized().dot((target-player._hand.global_position).normalized())
+	_check(acos(clampf(alignment,-1.,1.))<.001,
+		"resolved offset light converges on independently measured viewed work")
+	print("ROOF LIGHT ROTATION: local_det=",player._hand.basis.determinant()," world_det=",actual.determinant()," focus_alignment=",alignment)
 	player._hand.transform=original

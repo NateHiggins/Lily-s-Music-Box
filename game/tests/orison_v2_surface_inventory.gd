@@ -406,18 +406,35 @@ func _input_snapshot(root: String) -> Dictionary:
 	return result if result is Dictionary else {}
 
 func _validate_native_controls(world: Node) -> void:
+	var cases := 0
+	var loose := 0
+	var copies := 0
 	for actor: Node in world.find_children("*","Node3D",true,false):
-		if actor is BookshelfProp and actor.case_style == "sectional":
-			var saved: float = actor._door_open
-			actor._door_open = 1.;actor._apply_doors()
-			for door: MeshInstance3D in actor._doors:
-				check(door.position.is_equal_approx(Vector3(0,.27,-.045)),"bookcase retains lift/pocket motion")
-				check(door.mesh.get_surface_count()==2,"bookcase separates wood and glass stock")
-			actor._door_open = saved;actor._apply_doors()
+		if actor.get_script() == preload("res://scripts/building/orison_v2_bookshelf.gd"):
+			cases += 1
+			check(actor._sashes.size()==actor._case_record.doors.size(),"native case retains every source sash")
+			for sash: Node3D in actor._sashes:
+				check(sash.valid(sash.snapshot()),"native sash has a valid physical lift/pocket pose")
+				check(not sash.shapes.is_empty() and sash.solid is AnimatableBody3D,"moving sash retains native collision stock")
+				var glass := 0
+				for identity: String in sash.record.parts:
+					var material: String = str(actor.native_stock.data.parts[identity].material)
+					if material != "glass_drawn_expressive": continue
+					glass += 1
+					var finish: StandardMaterial3D = actor.native_stock.materials[material]
+					check(finish.refraction_enabled and finish.normal_enabled,"native sash uses mapped refractive glass")
+				check(glass==1,"each native sash has its separate glass stock")
+		if actor.get_script() == preload("res://scripts/building/v2_loose_library.gd"):
+			loose += 1
+			copies += actor._books.size()
+			check(actor.valid_library(actor.library_snapshot()),"loose library retains a valid native physical snapshot")
 		if actor is RadiatorProp:
 			for tag: MeshInstance3D in actor._porter_tag.find_children("*","MeshInstance3D",true,false):
 				var bounds := tag.mesh.get_aabb()
 				check(is_equal_approx(bounds.size.x,.1056) and is_equal_approx(bounds.size.y,.1584),"native paper tag retains physical size")
+	print("NATIVE LIBRARY DISCOVERY: cases=",cases," loose=",loose," copies=",copies)
+	check(cases==10,"composed surface discovery covers all ten native resident cases: "+str(cases))
+	check(loose==3 and copies==61,"composed surface discovery covers all three loose collections and 61 copies: "+str([loose,copies]))
 
 func _mesh(mesh: Mesh) -> Dictionary:
 	var surfaces: Array = []

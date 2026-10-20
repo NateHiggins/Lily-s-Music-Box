@@ -2,6 +2,14 @@
 
 Evidence class: **EVIDENCE**. Played spatial access only; no runtime/case or human acceptance grant.
 
+Requalified on **2026-10-20** against the current native library, glass and fire
+stock: **62 rooms, nine legs, 909 checks, zero failures**, completed in 466.96
+seconds. The source-bound packet below was published with the checked spatial
+publisher; the previous original bytes are preserved in
+**art/reviews/v2_roof_access_repair_20261020/previous_home_packet**. The failed
+larger aggregate grants no proof. Upper-home/roof, first-slice authority and
+other region/circulation renewals remain separate.
+
 One production-selected V2 world runs the two original F02/F04 apartment legs
 and all seven completion-home/staff legs. The schema-2 test-written contract at
 **art/renders/orison_v2/access_home_cohort_20261018/runtime_contract.json** passes

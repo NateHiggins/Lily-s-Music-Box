@@ -28,6 +28,7 @@ EXPECTED_CONSUMERS = {
     "game/scripts/minigames/shelf_sort.gd": "player_readable_period_library",
     "game/scripts/songbook/songbook_store.gd": "local_filename_only",
     "game/scripts/ui/bookshelf_panel.gd": "player_readable_period_library",
+    "game/scripts/props/v2_readable_book.gd": "player_readable_period_library",
 }
 FIXTURE_FIELD = "fixtures.*.provenance"
 

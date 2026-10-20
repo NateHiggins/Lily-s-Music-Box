@@ -8,10 +8,15 @@ const ROSTER := {
 	"6B":["Jonah Price","plain"], "6C":["Mae Kessler","sectional"],
 	"2C":["Juno Kells","plain"], "4C":["Noel Price","plain"]}
 var errors: Array[String] = []
+var library_stock: RefCounted
 
 func mount(adapter: Variant) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	if not validate(source, adapter): return false
+	library_stock=preload("res://scripts/building/v2_readable_library_stock.gd").new()
+	if not library_stock.prepare():
+		errors.append("native readable library stock could not be prepared")
+		return false
 	var acoustic_ids: Array[String] = []
 	for record: Dictionary in source.shelves:
 		if AcousticGraphData.nodes.has(record.id): acoustic_ids.append(str(record.id))
@@ -25,18 +30,10 @@ func mount(adapter: Variant) -> bool:
 		prop.owner_name = record.owner
 		prop.case_style = record.style
 		prop.canonical_book = record.canonical_book
+		prop.native_stock = library_stock
 		if AcousticGraphData.nodes.has(record.id): prop.graph_node_id = record.id
-		var body := StaticBody3D.new()
-		body.name = "InstalledCaseCollision"
-		var shape := CollisionShape3D.new()
-		var box := BoxShape3D.new()
-		var lo := Vector3(record.bounds[0][0],0,record.bounds[0][2])
-		var hi := Vector3(record.bounds[1][0],1.34 if record.style == "sectional" else record.bounds[1][1],record.bounds[1][2])
-		box.size = hi-lo
-		shape.shape = box
-		shape.position = (hi+lo)*.5
-		body.add_child(shape)
-		prop.add_child(body)
+		# Native boards and each sash carry their own solids. A filled case-sized
+		# box would obstruct every book and the otherwise open shelf apertures.
 		if not adapter.mount_consumer(record.id, prop):
 			prop.free()
 			errors.append("bookshelf mount refused: " + str(record.id))

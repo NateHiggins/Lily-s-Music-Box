@@ -1,0 +1,44 @@
+{
+	"checks": 38996,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"surface_requirements": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"status": "FAIL"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 772.668,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": [
+		"fire: F02_FIRE_LINE_STAIR releasing the physically fitted washer seats it without tightening the nut"
+	],
+	"inventory_sha256": "13ae6aa27b00371530751e638928b5aae0ce40a3e708d9f1c77fd9e14cb4cc1d",
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
+	"selector": "v2",
+	"source": {
+		"repository_head": "7e43085cd2681928a07bf10416bb7d64b9b1855c",
+		"runtime_inputs_sha256": "62df330416223a51d17feed913db4f10ed3b2c0a2cc8e9ce059b555e956aac8f",
+		"test_path": "game/tests/orison_v2_surface_inventory.gd",
+		"test_sha256": "3365c65385c4af561e0260fb0218fbfa16c0751f7f12b2b3deae38b89e7f8e1c"
+	},
+	"surface_inputs_sha256": "9f983edabc11571ef399870c51df5124b4abf4cb543a80a549b0912227eaf2bf"
+}
