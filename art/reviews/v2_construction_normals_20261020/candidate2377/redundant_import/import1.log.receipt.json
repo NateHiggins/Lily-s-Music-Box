@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.09,
+  "exit_code": null,
+  "finished_utc": "2026-10-20T11:04:22Z",
+  "started_utc": "2026-10-20T11:01:22Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/2377aa8a9343/godot/import1.log.stderr",
+  "stderr_sha256": "47873932a73efadae0fb7e65dfeeb45d8ea7b3a129cf113b0169ea105909162a",
+  "stdout": "C:/ov/reports/2377aa8a9343/godot/import1.log",
+  "stdout_sha256": "151b7840cf004a35aab36fc8cff91f2375fbacf2c6aadb57a7a3351f760f2a8a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\2377aa8a9343\\godot\\import1_shots",
+ "source": {
+  "dirty_paths": 1537,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_rough.png.import"
+  ],
+  "repository_head": "2377aa8a93433aaf88fab8db1e5416c77d8259ae",
+  "repository_tree": "946d72504aca3ca4ecec3661792c466bb8634156",
+  "runtime_inputs_sha256": "11d7d5f7e86c8c10f8fae1490bea6a77e9f62e544e03ce7e8d824b531c687aaf",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

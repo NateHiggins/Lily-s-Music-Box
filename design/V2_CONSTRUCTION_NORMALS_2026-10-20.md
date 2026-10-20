@@ -113,3 +113,22 @@ its image records. The predecessors are preserved independently under
 is also retained. No old contract was repinned. Native source and corrected
 in-game render checks are complete for this batch. Human appearance acceptance,
 flat book bindings and broader V2 completion remain open.
+
+## Broader branch comparison remains open
+
+The 2377aa8a baseline comparison retained all 17 protected paths and V2 selector,
+but reported 115 regression lines: stale or newly inadmissible cohort receipts,
+two diagnostic-reference registrations, and a switchboard catalogue binding.
+The switchboard GLB and all other source dependencies are unchanged; its record
+now binds the additive catalogue after the same 92-material equivalence check.
+Its five static native tests pass. Both diagnostic references are now recorded;
+the spatial audit is clean with zero new references. The cohort/evidence debt
+still blocks a merge-ready claim and is not waived by a surface pass.
+
+The first candidate command also mistakenly supplied an output name to the
+input-sidecar **--report** option and requested redundant cold imports. Its
+180-second import ceiling produced no suite verdict; the authentic failed
+verification is retained under **candidate2377** in the review packet. Subsequent
+candidate checking uses **--no-godot** with the independently recorded, current
+canonical surface qualification; no runtime result is fabricated by that flag.
+The changed construction binding requires a fresh combined surface receipt.

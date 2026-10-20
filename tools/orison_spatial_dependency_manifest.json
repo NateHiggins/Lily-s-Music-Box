@@ -302162,6 +302162,68 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "3c1b88e740c12f94",
+   "kind": "node_path",
+   "token": "F01_LOBBY/Floor",
+   "file": "game/tests/v2_4k_wip_capture.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "review_wall_floor"
+   ],
+   "lines": [
+    62
+   ],
+   "count": 1,
+   "context": [
+    "var lobby:=world.adapter.root.get_node(\"F01_LOBBY/Floor\") as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "29b789248e33fba4",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_fire_capacity_native_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    62
+   ],
+   "count": 1,
+   "context": [
+    "player.position=Vector3(0,-1.15,1.0);player.camera.look_at(Vector3(0,.38,.1))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
