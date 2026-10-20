@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 45.6,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T01:42:51Z",
+  "started_utc": "2026-10-20T01:42:05Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe3.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe3.log",
+  "stdout_sha256": "1ff9fa3b4e75b3e47367de144b35da5ef09b175663a893dfac18ef95c676204c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2FireNozzleCouplingBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe3",
+ "source": {
+  "dirty_paths": 428,
+  "dirty_sample": [
+   "M game/tests/orison_v2_surface_inventory.gd",
+   " M game/tests/v2_fire_nozzle_coupling_bench.gd",
+   " M game/tests/v2_fire_service_review.gd",
+   "?? game/native/hose_math/hose_math.gdextension.uid",
+   "?? game/scripts/building/WeatherManager.gd.uid",
+   "?? game/scripts/building/orison_v2_arcade_fabric.gd.uid",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_city_horizon.gd.uid",
+   "?? game/scripts/building/orison_v2_coal_delivery.gd.uid"
+  ],
+  "repository_head": "af78be18ee29319aba753f56719dddba87d94946",
+  "repository_tree": "59c96c074688b2a502ba22687fe8891466a117e4",
+  "runtime_inputs_sha256": "62df330416223a51d17feed913db4f10ed3b2c0a2cc8e9ce059b555e956aac8f",
+  "test_path": "game/tests/v2_fire_nozzle_coupling_bench.gd",
+  "test_sha256": "d16bf200a877f7c90a184699cdea692c2c7fd6647c4c920cadc8cb5d43fa0c79"
+ },
+ "windowed": true
+}

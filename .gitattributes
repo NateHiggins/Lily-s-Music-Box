@@ -2462,9 +2462,155 @@ game/tests/V2HouseSwitchboardHandBench.tscn -text
 game/tests/v2_mail_hand_bench.gd -text
 game/tests/V2MailHandBench.tscn -text
 art/reviews/v2_mail_telephone_20261019/** -text
+art/blender/fire_hose_stock.blend -text
+art/blender/fire_hose_stock_construction.json -text
+game/assets/props/fire_hose_stock.glb -text
+game/data/orison_v2/fire_hose_stock.json -text
+art/blender/fire_joint_stock.blend -text
+art/blender/fire_joint_stock_construction.json -text
+game/assets/props/fire_joint_stock.glb -text
+game/data/orison_v2/fire_joint_stock.json -text
+art/blender/fire_nozzle_hose.blend -text
+art/blender/fire_nozzle_hose_construction.json -text
+game/assets/props/fire_nozzle_hose.glb -text
 game/tests/v2_service_mail_operations.gd -text
 game/tests/v2_service_telephone_operations.gd -text
 game/tests/v2_service_mail_disk.gd -text
 game/assets/props/house_switchboard.glb.import -text
 game/tests/v2_house_switchboard_stock_bench.gd -text
 game/tests/V2HouseSwitchboardStockBench.tscn -text
+
+game/tests/v2_fire_hand_bench.gd -text
+
+game/tests/v2_fire_fittings_disk.gd -text
+
+art/reviews/v2_fire_fittings_20261019/** -text
+
+art/blender/fire_hose_rack.blend -text
+
+art/blender/fire_hose_rack_construction.json -text
+
+game/assets/props/fire_hose_rack.glb -text
+
+game/data/orison_v2/fire_hose_rack.json -text
+
+game/tests/v2_fire_rack_bench.gd -text
+
+art/reviews/v2_fire_hose_rack_20261019/** -text
+
+art/blender/fire_fold_stock.blend -text
+
+art/blender/fire_fold_stock_construction.json -text
+
+game/assets/props/fire_fold_stock.glb -text
+
+game/data/orison_v2/fire_fold_stock.json -text
+
+game/tests/v2_fire_fold_bench.gd -text
+
+art/reviews/v2_fire_fold_connection_20261019/** -text
+
+game/scripts/props/fire_fold_stock.gd -text
+
+art/reviews/v2_fire_nozzle_transition_20261019/** -text
+
+art/reviews/v2_carried_light_20261019/** -text
+
+art/blender/fire_nozzle_joint.blend -text
+art/blender/fire_nozzle_joint_construction.json -text
+game/assets/props/fire_nozzle_joint.glb -text
+game/data/orison_v2/fire_nozzle_joint.json -text
+art/blender/fire_nozzle_detail.blend -text
+art/blender/fire_nozzle_detail_construction.json -text
+game/assets/props/fire_nozzle_detail.glb -text
+game/data/orison_v2/fire_nozzle_detail.json -text
+art/reviews/v2_fire_nozzle_detail_20261019/** -text
+
+art/blender/fire_nozzle_collision.blend -text
+art/blender/fire_nozzle_collision_construction.json -text
+game/data/orison_v2/fire_nozzle_collision.json -text
+art/reviews/v2_fire_nozzle_contact_20261019/** -text
+art/reviews/v2_fire_nozzle_pickup_20261019/** -text
+art/blender/fire_floor_enamel.blend -text
+art/blender/fire_floor_enamel_construction.json -text
+game/assets/props/fire_floor_enamel.glb -text
+art/reviews/v2_fire_floor_hand_20261019/** -text
+art/reviews/v2_fire_hand_integration_20261019/** -text
+art/reviews/v2_fire_case_coatings_20261019/** -text
+art/reviews/v2_fire_hose_capacity_20261019/** -text
+game/assets/props/fire_capacity_candidate.glb -text
+art/reviews/v2_fire_capacity_surface_20261019/** -text
+game/tests/fixtures/fire_capacity_rig.json -text
+art/reviews/v2_fire_hose_motion_20261019/** -text
+art/reviews/v2_fire_hose_world_contact_20261019/** -text
+
+art/reviews/v2_fire_hose_bending_20261019/** -text
+
+art/reviews/v2_fire_hose_release_20261019/** -text
+
+art/reviews/v2_fire_hose_mass_20261019/** -text
+
+game/native/hose_math/bin/orison_hose_math.windows.x86_64.dll -text
+
+game/native/hose_math/build_manifest.json -text
+game/tests/fixtures/fire_hose_rank_case.json -text
+game/tests/fixtures/fire_hose_globalization_case.json -text
+art/reviews/v2_fire_hose_joint_20261019/** -text
+art/reviews/v2_fire_hose_release_bench_20261019/** -text
+art/reviews/v2_fire_hose_native_warm_20261019/** -text
+art/reviews/v2_fire_hose_line_search_20261019/** -text
+art/reviews/v2_painted_trim_20261019/** -text
+art/reviews/v2_wall_floor_20261019/** -text
+art/textures/procedural/limewash_plaster/** -text
+
+art/reviews/v2_sink_stands_20261019/** -text
+
+art/data/kitchen_prep/** -text
+art/blender/scripts/build_kitchen_prep_stations.py -text
+art/blender/scripts/review_kitchen_prep_stations.py -text
+game/data/orison_v2/kitchen_prep_stations.json -text
+game/tests/fixtures/orison_kitchen_prep_stations.json -text
+game/assets/props/kitchen_prep_stations.glb -text
+game/assets/props/kitchen_prep_stations.glb.import -text
+art/reviews/v2_kitchen_prep_20261019/** -text
+
+art/blender/kitchen_prep_stations.blend -text
+art/blender/kitchen_prep_stations_construction.json -text
+
+# Preserve original hash-bound diagnostic whitespace.
+art/reviews/v2_kitchen_prep_20261019/** -text whitespace=cr-at-eol
+art/reviews/v2_kitchen_prep_20261019/runs/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+art/reviews/v2_eye_rail_removal_20261019/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+art/data/orison_v2/front_trim_export_source.json -text
+art/data/kitchen_plumbing/** -text
+art/blender/scripts/build_kitchen_plumbing.py -text
+art/blender/scripts/review_kitchen_plumbing.py -text
+art/blender/kitchen_plumbing.blend -text
+art/blender/kitchen_plumbing_construction.json -text
+game/assets/props/kitchen_plumbing.glb -text
+game/assets/props/kitchen_plumbing.glb.import -text
+game/data/orison_v2/kitchen_plumbing.json -text
+game/tests/fixtures/orison_kitchen_plumbing.json -text
+art/reviews/v2_kitchen_plumbing_20261019/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+art/reviews/v2_washer_release_20261020/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Construction-specific normal recipes and native cabinet provenance.
+art/blender/fire_cabinet_skin.blend -text
+art/blender/fire_cabinet_skin_construction.json -text
+game/assets/props/fire_cabinet_skin.glb -text
+game/assets/props/fire_cabinet_skin.glb.import -text
+game/data/orison_v2/fire_cabinet_skin.json -text
+art/textures/ai_sources/fire_enamel_20261020.png -text
+art/textures/ai_sources/fire_enamel_20261020.json -text
+art/reviews/v2_construction_normals_20261020/** -text whitespace=cr-at-eol
+art/textures/procedural/fire_cabinet_enamel/** -text
+art/textures/procedural/fire_cabinet_lining/** -text
+art/textures/procedural/fire_hardware_steel/** -text
+art/textures/procedural/glass_drawn_expressive/** -text
+art/textures/procedural/glass_reeded/** -text
+art/textures/procedural/glass_cut/** -text
+art/textures/procedural/glass_frosted/** -text
+
+art/reviews/v2_surface_final_20261020/** -text whitespace=cr-at-eol
+
+art/reviews/v2_surface_renewal_20261020/** -text whitespace=cr-at-eol

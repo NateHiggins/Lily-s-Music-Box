@@ -1,0 +1,46 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 651.82,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T02:25:32Z",
+  "started_utc": "2026-10-20T02:14:39Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 4,
+  "fail_lines": [
+   "CARRY PICK FAILURE: wanted=PlayPipe:<Node3D#3636746923399> actual=<null> point=(-4.499, -1.951968, -7.996) mouse=(640.0, 360.0) wanted_pixel=(725.5824, 624.6617) target={ \"blocked\": true }",
+   "CARRY PICK FAILURE: wanted=NozzleNut:<MeshInstance3D#3652500729904> actual=<null> point=(-4.322, -1.958323, -7.975992) mouse=(640.0, 360.0) wanted_pixel=(589.2863, 635.6987) target={ \"blocked\": true }",
+   "CARRY PICK FAILURE: wanted=PlayPipe:<Node3D#3636746923399> actual=<null> point=(-4.499, -1.951968, -7.996) mouse=(640.0, 360.0) wanted_pixel=(725.5824, 624.6617) target={ \"blocked\": true }",
+   "V2 SURFACE QUALIFICATION: FAIL; 38547 checks; 6 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface3.log.stderr",
+  "stderr_sha256": "e6b71e6ddd76b91159491fe3f62e296eb576c94bdb866ecf0936caffdbb888f3",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface3.log",
+  "stdout_sha256": "2d5065794e27d2f87c16ae7eb2086723a5aa1d6029f7196ac01043e18f6c5390"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface3",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "a06f3305f0ea25da3771033ef7bbb5308e0aa8c1",
+  "repository_tree": "24ea55792c4c97b79d6e7fbc8fec5ade36421fb5",
+  "runtime_inputs_sha256": "62df330416223a51d17feed913db4f10ed3b2c0a2cc8e9ce059b555e956aac8f",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "3365c65385c4af561e0260fb0218fbfa16c0751f7f12b2b3deae38b89e7f8e1c"
+ },
+ "windowed": true
+}

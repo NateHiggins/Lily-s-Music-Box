@@ -1,0 +1,466 @@
+{
+  "evidence_class": "INERT",
+  "classification": "Period-informed adaptation, resident habits are design interpretations rather than new canonical biography",
+  "references": [
+    "https://indianamemory.contentdm.oclc.org/digital/collection/p16066coll3/id/418",
+    "https://patents.google.com/patent/US1496121A/en",
+    "https://patents.google.com/patent/US1327039A/en",
+    "https://patents.google.com/patent/US964857A/en",
+    "https://www.tenement.org/blog/waking-up-at-97-orchard-street/"
+  ],
+  "templates": [
+    {
+      "id": "Oak120",
+      "width": 1.2,
+      "depth": 0.6,
+      "style": "oak"
+    },
+    {
+      "id": "Patched120",
+      "width": 1.2,
+      "depth": 0.6,
+      "style": "patched"
+    },
+    {
+      "id": "Patched100",
+      "width": 1.0,
+      "depth": 0.55,
+      "style": "patched"
+    },
+    {
+      "id": "Enamel120",
+      "width": 1.2,
+      "depth": 0.6,
+      "style": "enamel"
+    },
+    {
+      "id": "Patched80",
+      "width": 0.8,
+      "depth": 0.5,
+      "style": "patched"
+    }
+  ],
+  "stations": [
+    {
+      "id": "KitchenPrep_2A",
+      "unit": "2A",
+      "space": "F02_A_KITCHEN",
+      "resident": "Mina",
+      "template": "Oak120",
+      "position": [
+        -13.13,
+        3.2,
+        3.53
+      ],
+      "yaw": 3.14159265358979,
+      "approach": [
+        -13.1299991607666,
+        3.22500014305115,
+        4.26000022888184
+      ],
+      "tint": [
+        0.91,
+        0.89,
+        0.81
+      ],
+      "tool_yaw": 0.0,
+      "rolling_pin": true,
+      "bowl": false,
+      "interpretation": "Ordered board and rolling pin; clear indexing-like working margin."
+    },
+    {
+      "id": "KitchenPrep_2B",
+      "unit": "2B",
+      "space": "F02_B_KITCHEN",
+      "resident": "Lena",
+      "template": "Patched120",
+      "position": [
+        11.92,
+        3.2,
+        -4.63
+      ],
+      "yaw": 0.0,
+      "approach": [
+        11.9200000762939,
+        3.22500014305115,
+        -5.3600001335144
+      ],
+      "tint": [
+        0.9,
+        0.85,
+        0.77
+      ],
+      "tool_yaw": 0.12,
+      "rolling_pin": true,
+      "bowl": false,
+      "interpretation": "Repaired timber, visibly fitted iron straps and an offset breadboard."
+    },
+    {
+      "id": "KitchenPrep_4B",
+      "unit": "4B",
+      "space": "F04_B_KITCHEN",
+      "resident": "Player",
+      "template": "Oak120",
+      "position": [
+        -15.22,
+        9.6,
+        4.87
+      ],
+      "yaw": -1.5707963267949,
+      "approach": [
+        -14.4899997711182,
+        9.625,
+        4.86999988555908
+      ],
+      "tint": [
+        0.93,
+        0.9,
+        0.84
+      ],
+      "tool_yaw": -0.08,
+      "rolling_pin": false,
+      "bowl": true,
+      "interpretation": "Plain usable board with a small bowl, leaving the main worktop clear."
+    },
+    {
+      "id": "KitchenPrep_3B",
+      "unit": "3B",
+      "space": "F03_B_KITCHEN",
+      "resident": "Omar",
+      "template": "Patched100",
+      "position": [
+        10.22,
+        6.4,
+        -7.645
+      ],
+      "yaw": 3.14159265358979,
+      "approach": [
+        10.2200002670288,
+        6.42500019073486,
+        -6.94000005722046
+      ],
+      "tint": [
+        0.84,
+        0.8,
+        0.72
+      ],
+      "tool_yaw": -0.08,
+      "rolling_pin": false,
+      "bowl": true,
+      "interpretation": "Practical repaired joinery; food preparation remains separate from electrical repair."
+    },
+    {
+      "id": "KitchenPrep_3A",
+      "unit": "3A",
+      "space": "F03_A_KITCHEN",
+      "resident": "Malcolm",
+      "template": "Oak120",
+      "position": [
+        -13.13,
+        6.4,
+        3.53
+      ],
+      "yaw": 3.14159265358979,
+      "approach": [
+        -13.1299991607666,
+        6.42500019073486,
+        4.26000022888184
+      ],
+      "tint": [
+        0.88,
+        0.86,
+        0.76
+      ],
+      "tool_yaw": -0.08,
+      "rolling_pin": false,
+      "bowl": true,
+      "interpretation": "Scrubbed wood and an enamel mixing bowl near the existing compost routine."
+    },
+    {
+      "id": "KitchenPrep_4A",
+      "unit": "4A",
+      "space": "F04_A_KITCHEN",
+      "resident": "Peter",
+      "template": "Enamel120",
+      "position": [
+        11.92,
+        9.6,
+        -4.63
+      ],
+      "yaw": 0.0,
+      "approach": [
+        11.9200000762939,
+        9.625,
+        -5.3600001335144
+      ],
+      "tint": [
+        0.83,
+        0.88,
+        0.84
+      ],
+      "tool_yaw": 0.0,
+      "rolling_pin": true,
+      "bowl": false,
+      "interpretation": "Neatly squared pale green painted supports, enamel top and aligned tools."
+    },
+    {
+      "id": "KitchenPrep_5A",
+      "unit": "5A",
+      "space": "F05_A_KITCHEN",
+      "resident": "Nadia",
+      "template": "SinkBridge",
+      "tint": [
+        0.93,
+        0.9,
+        0.84
+      ],
+      "tool_yaw": 0.0,
+      "rolling_pin": false,
+      "bowl": false,
+      "interpretation": "Measured compact sink board retains the narrow working aisle."
+    },
+    {
+      "id": "KitchenPrep_5B",
+      "unit": "5B",
+      "space": "F05_B_KITCHEN",
+      "resident": "Cal",
+      "template": "Patched80",
+      "position": [
+        -6.88,
+        12.8,
+        9.87
+      ],
+      "yaw": 1.5707963267949,
+      "approach": [
+        -7.55999994277954,
+        12.8249998092651,
+        9.86999988555908
+      ],
+      "tint": [
+        0.89,
+        0.84,
+        0.75
+      ],
+      "tool_yaw": 0.12,
+      "rolling_pin": true,
+      "bowl": false,
+      "interpretation": "Small repaired table with an imperfectly centred paired board and pin."
+    },
+    {
+      "id": "KitchenPrep_5C",
+      "unit": "5C",
+      "space": "F05_C_KITCHEN",
+      "resident": "Iris",
+      "template": "SinkBridge",
+      "tint": [
+        0.96,
+        0.9,
+        0.78
+      ],
+      "tool_yaw": 0.0,
+      "rolling_pin": false,
+      "bowl": false,
+      "interpretation": "Warm scrubbed food board, kept distinct from paint equipment."
+    },
+    {
+      "id": "KitchenPrep_6A",
+      "unit": "6A",
+      "space": "F06_A_KITCHEN",
+      "resident": "Sacha",
+      "template": "SinkBridge",
+      "tint": [
+        0.84,
+        0.8,
+        0.73
+      ],
+      "tool_yaw": 0.0,
+      "rolling_pin": false,
+      "bowl": false,
+      "interpretation": "A reclaimed food-safe work surface in an already crowded home."
+    },
+    {
+      "id": "KitchenPrep_6B",
+      "unit": "6B",
+      "space": "F06_B_KITCHEN",
+      "resident": "Jonah",
+      "template": "Oak120",
+      "position": [
+        -8.48,
+        16.0,
+        11.22
+      ],
+      "yaw": 0.0,
+      "approach": [
+        -8.48000049591064,
+        16.0249996185303,
+        10.4899997711182
+      ],
+      "tint": [
+        0.81,
+        0.78,
+        0.71
+      ],
+      "tool_yaw": -0.08,
+      "rolling_pin": false,
+      "bowl": true,
+      "interpretation": "A worn worktable with tools left slightly askew, preserving usable space."
+    },
+    {
+      "id": "KitchenPrep_6C",
+      "unit": "6C",
+      "space": "F06_C_KITCHEN",
+      "resident": "Mae",
+      "template": "SinkBridge",
+      "tint": [
+        0.83,
+        0.76,
+        0.65
+      ],
+      "tool_yaw": 0.0,
+      "rolling_pin": false,
+      "bowl": false,
+      "interpretation": "Older breadboard ends and restrained darker timber."
+    },
+    {
+      "id": "KitchenPrep_2C",
+      "unit": "2C",
+      "space": "F02_C_KITCHEN",
+      "resident": "Juno",
+      "template": "SinkBridge",
+      "tint": [
+        0.92,
+        0.87,
+        0.77
+      ],
+      "tool_yaw": 0.0,
+      "rolling_pin": false,
+      "bowl": false,
+      "interpretation": "Offset board placement echoes the apartment\u2019s irregular working rhythm."
+    },
+    {
+      "id": "KitchenPrep_4C",
+      "unit": "4C",
+      "space": "F04_C_KITCHEN",
+      "resident": "Cam and Noel",
+      "template": "SinkBridge",
+      "tint": [
+        0.91,
+        0.86,
+        0.78
+      ],
+      "tool_yaw": 0.0,
+      "rolling_pin": false,
+      "bowl": false,
+      "interpretation": "Shared removable board creates preparation space without occupying their passage."
+    },
+    {
+      "id": "KitchenPrep_1D",
+      "unit": "1D",
+      "space": "F01_D_KITCHEN",
+      "resident": "Teresa",
+      "template": "Enamel120",
+      "position": [
+        11.92,
+        0.0,
+        -4.63
+      ],
+      "yaw": 0.0,
+      "approach": [
+        11.9200000762939,
+        0.025000000372529,
+        -5.3600001335144
+      ],
+      "tint": [
+        0.87,
+        0.87,
+        0.78
+      ],
+      "tool_yaw": -0.08,
+      "rolling_pin": false,
+      "bowl": true,
+      "interpretation": "Easy-clean cream enamel top and sparse breakfast/lunch equipment."
+    },
+    {
+      "id": "KitchenPrep_1A",
+      "unit": "1A",
+      "space": "F01_A_KITCHEN",
+      "resident": "Evelyn",
+      "template": "Enamel120",
+      "position": [
+        -10.87,
+        0.0,
+        -8.73
+      ],
+      "yaw": -1.5707963267949,
+      "approach": [
+        -10.1399993896484,
+        0.025000000372529,
+        -8.72999954223633
+      ],
+      "tint": [
+        0.89,
+        0.85,
+        0.76
+      ],
+      "tool_yaw": 0.0,
+      "rolling_pin": true,
+      "bowl": false,
+      "interpretation": "Balanced cream enamel worktable and orderly breakfast baking tools."
+    },
+    {
+      "id": "KitchenPrep_3D",
+      "unit": "3D",
+      "space": "F03_D_KITCHEN",
+      "resident": "Rhea",
+      "template": "Enamel120",
+      "position": [
+        -10.87,
+        6.4,
+        -8.73
+      ],
+      "yaw": -1.5707963267949,
+      "approach": [
+        -10.1399993896484,
+        6.42500019073486,
+        -8.72999954223633
+      ],
+      "tint": [
+        0.83,
+        0.88,
+        0.83
+      ],
+      "tool_yaw": -0.08,
+      "rolling_pin": false,
+      "bowl": true,
+      "interpretation": "Second-hand pale green table with a contrasting enamel bowl."
+    },
+    {
+      "id": "KitchenPrep_4D",
+      "unit": "4D",
+      "space": "F04_D_KITCHEN",
+      "resident": "Transients",
+      "template": "Patched120",
+      "position": [
+        -10.87,
+        9.6,
+        -8.73
+      ],
+      "yaw": -1.5707963267949,
+      "approach": [
+        -10.1399993896484,
+        9.625,
+        -8.72999954223633
+      ],
+      "tint": [
+        0.86,
+        0.83,
+        0.77
+      ],
+      "tool_yaw": -0.08,
+      "rolling_pin": false,
+      "bowl": true,
+      "interpretation": "An impersonal repaired table with mismatched basic preparation tools."
+    }
+  ],
+  "pending_spaces": []
+}

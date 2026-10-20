@@ -1,0 +1,119 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"rows": [
+		{
+			"energy": 2.39026856422424,
+			"field_pose_error": 0.0,
+			"field_updates": 11,
+			"half_angle": 35.2097015380859,
+			"offset": "installed",
+			"origin": [
+				0.159999996423721,
+				-0.119999997317791,
+				-0.0599999986588955
+			],
+			"origin_blocked": false,
+			"view": "cabinet_close"
+		},
+		{
+			"energy": 0.0,
+			"field_pose_error": 0.0,
+			"field_updates": 12,
+			"half_angle": 35.2097015380859,
+			"offset": "off",
+			"origin": [
+				0.159999996423721,
+				-0.119999997317791,
+				-0.0599999986588955
+			],
+			"origin_blocked": false,
+			"view": "cabinet_close"
+		},
+		{
+			"energy": 2.39026856422424,
+			"field_pose_error": 0.0,
+			"field_updates": 22,
+			"half_angle": 35.2097015380859,
+			"offset": "installed",
+			"origin": [
+				0.159999996423721,
+				-0.119999997317791,
+				-0.0599999986588955
+			],
+			"origin_blocked": false,
+			"view": "cabinet_oblique"
+		},
+		{
+			"energy": 0.0,
+			"field_pose_error": 0.0,
+			"field_updates": 23,
+			"half_angle": 35.2097015380859,
+			"offset": "off",
+			"origin": [
+				0.159999996423721,
+				-0.119999997317791,
+				-0.0599999986588955
+			],
+			"origin_blocked": false,
+			"view": "cabinet_oblique"
+		},
+		{
+			"energy": 2.39026856422424,
+			"field_pose_error": 0.0,
+			"field_updates": 33,
+			"half_angle": 35.2097015380859,
+			"offset": "installed",
+			"origin": [
+				0.159999996423721,
+				-0.119999997317791,
+				-0.0599999986588955
+			],
+			"origin_blocked": false,
+			"view": "home"
+		},
+		{
+			"energy": 0.0,
+			"field_pose_error": 0.0,
+			"field_updates": 34,
+			"half_angle": 35.2097015380859,
+			"offset": "off",
+			"origin": [
+				0.159999996423721,
+				-0.119999997317791,
+				-0.0599999986588955
+			],
+			"origin_blocked": false,
+			"view": "home"
+		},
+		{
+			"energy": 2.39026856422424,
+			"field_pose_error": 0.0,
+			"field_updates": 44,
+			"half_angle": 35.2097015380859,
+			"offset": "installed",
+			"origin": [
+				0.159999996423721,
+				-0.119999997317791,
+				-0.0599999986588955
+			],
+			"origin_blocked": false,
+			"view": "mechanism"
+		},
+		{
+			"energy": 0.0,
+			"field_pose_error": 0.0,
+			"field_updates": 45,
+			"half_angle": 35.2097015380859,
+			"offset": "off",
+			"origin": [
+				0.159999996423721,
+				-0.119999997317791,
+				-0.0599999986588955
+			],
+			"origin_blocked": false,
+			"view": "mechanism"
+		}
+	],
+	"scope": "Frozen composed V2; matched lighting frames, live voxel injection, emitter segment rays. No movement/interaction acceptance; known WIP nozzle physics frozen."
+}

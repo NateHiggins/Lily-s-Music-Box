@@ -1,0 +1,35 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Reviewed WIP painted-trim coating only; no runtime-contract, spatial, human or full-build acceptance. Captured in the shared dirty canonical checkout, not a clean candidate qualification.",
+  "changes": "Registered door_paint replaces exposed-grain trim on semantic casings, 252 millwork batches, 98 window frames and 86 native front splices; original meshes, fitting transforms, wood panel stock and interaction authorities retained. Authored coating scale 0.3 m.",
+  "visual_review": "Kitchen casing and baseboard now read as opaque paint with profile shadows; no broad substrate grain. Lobby cream rails and dark separate wood wainscot remain distinct. Wall crackle, sink stand stock and floor aggregate still need work.",
+  "checks": [
+    {
+      "name": "reader",
+      "command": [
+        "python",
+        "tools/audit_data_consumption.py",
+        "--baseline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "catalogue",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tools.tests.test_material_catalog_persistence"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "source_sha256_lf": {
+    "game/scripts/building/orison_v2_architectural_materials.gd": "355ef1edcc7165232c117f79f28c996ad298549baecb8ab434c594b9f4ebeba3",
+    "game/scripts/building/orison_v2_millwork.gd": "e3d78efeceb1573ae94abec3d62072a670daabcdae3f92c5d99b2ff201ff9abf",
+    "game/scripts/building/orison_v2_front_trim_fittings.gd": "a73b9e0e75e97b97b7496681b4a1a9054ca080fa60f3f0e3245bc4a199215cec",
+    "game/tests/v2_4k_wip_capture.gd": "e17cd2b5db5094012bb7a760c4c34e5fa6d531e7eb3e9490c6c6db37176c2338"
+  },
+  "remaining": "Wall finish and floor batch next. Hose parked. Full-build qualification, historical regressions and human acceptance remain open.",
+  "remaining_warning": "The same seven Texture RID shutdown leaks remain in stderr; these are not cleared by the passing capture."
+}

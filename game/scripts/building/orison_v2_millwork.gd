@@ -3,7 +3,6 @@ extends RefCounted
 ## Geometry/collision ownership remains with the shell. All trim is visual.
 const PROFILE := preload("res://assets/props/millwork_profile.glb")
 const STOCK_SHADER := preload("res://shaders/v2_millwork_stock.gdshader")
-const EYE_RAIL_HEIGHT := 1.65
 static var _meshes: Dictionary = {}
 static var _materials: Dictionary = {}
 
@@ -121,7 +120,6 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 		{"at":.07,"height":.14,"depth":.032,"batch":"HistoricMillwork"},
 		{"at":.153,"height":.026,"depth":.042,"batch":"HistoricMillwork"}]
 	if decorative:
-		profiles.append({"at":EYE_RAIL_HEIGHT,"height":.042,"depth":.042,"batch":"HistoricMillwork"})
 		if not record.get("no_ceiling",false):
 			for band: Vector3 in [Vector3(clear_height-.025,.05,.032),Vector3(clear_height-.075,.05,.046),Vector3(clear_height-.1125,.025,.054)]:
 				profiles.append({"at":band.x,"height":band.y,"depth":band.z,"batch":"HistoricMillwork"})
@@ -200,6 +198,9 @@ static func _profile_sections(extent: Vector2,low: float,high: float,normal_low:
 
 static func _emit(room: Node3D, label: String, transforms: Array, sources: PackedStringArray, key: String) -> void:
 	if transforms.is_empty(): return
+	# Keep the historic trim role, but give its painted wood the registered
+	# opaque coating rather than the legacy exposed-grain library.
+	if key=="trim": key="door_paint"
 	if _meshes.is_empty():
 		var source := PROFILE.instantiate()
 		for pair: Array in [["HistoricMillwork","BeadedTrim"],["PublicWainscotFrames","WainscotFrame"],["PublicWainscotCap","WainscotCap"],["PublicWainscot","WainscotBacking"]]:
@@ -215,7 +216,7 @@ static func _emit(room: Node3D, label: String, transforms: Array, sources: Packe
 		finish.set_shader_parameter("normal_tex",stock.normal_texture)
 		finish.set_shader_parameter("stock_tint",stock.albedo_color)
 		finish.set_shader_parameter("roughness_gain",stock.roughness)
-		finish.set_shader_parameter("normal_gain",.12)
+		finish.set_shader_parameter("normal_gain",1.0 if key=="door_paint" else .12)
 		finish.set_shader_parameter("longitudinal_grain",label!="PublicWainscot")
 		finish.set_shader_parameter("meters_per_tile",float(preload("res://scripts/generated/material_sets.gd").SETS[key][3]))
 		_materials[recipe]=finish

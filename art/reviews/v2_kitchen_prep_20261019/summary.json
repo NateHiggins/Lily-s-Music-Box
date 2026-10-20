@@ -1,0 +1,25 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Kitchen installation checkpoint; no human, continuous route, disk lifecycle or whole-V2 acceptance.",
+  "kitchens": 18,
+  "worktables": 12,
+  "sink_boards": 6,
+  "loose_tools": 30,
+  "native_bench_checks": 140,
+  "native_bench_failures": [],
+  "installed_checks": 308,
+  "installed_failures": [],
+  "complete_loaded_maps": 12,
+  "incremental_static_regressions_after_registration": [],
+  "full_board_initial_exit": 1,
+  "fresh_spatial_exit": 0,
+  "fresh_spatial_tools_tests": 59,
+  "known_unchanged_nonpasses": [
+    "v2_surface_qualification",
+    "ledger",
+    "test:test_orison_v2_completeness",
+    "test:test_v2_front_trim"
+  ],
+  "shutdown_texture_rid_warnings": 7,
+  "remaining_visual_work": "Inherited sawtooth shadows under chair rails/table aprons, older kettle/toaster/crockery and flat blue faucet response need further V2 lighting/material review; current kitchen programme is not photoreal acceptance."
+}

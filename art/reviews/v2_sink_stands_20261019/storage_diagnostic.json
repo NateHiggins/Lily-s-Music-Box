@@ -1,0 +1,170 @@
+{
+	"actors": 52,
+	"checks": 1296,
+	"evidence_class": "INERT",
+	"failures": [],
+	"parts": 116,
+	"scope": "Installed storage ownership, bearing, imported UV/tangent and loaded-map diagnostic; no new hand, spatial or human acceptance",
+	"shared_validator_sha256": "4a3794b2dd4e0d596fb9187a637ac548431b645c44d2d89cb953ab19b19af389",
+	"textures": {
+		"res://assets/building/textures/T_ai_materials_bakelite_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_bakelite_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_bakelite_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_countertop_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_countertop_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_countertop_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_iron_blackened_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_iron_blackened_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_nickel_plated_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_nickel_plated_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_oak_work_surface_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_oak_work_surface_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_oak_work_surface_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_porcelain_fixture_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_porcelain_fixture_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_porcelain_fixture_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_rubber_aged_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_rubber_aged_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_rubber_aged_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_soot_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_glass_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_glass_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_appliances_aged_enamel_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_appliances_galvanized_metal_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_architectural_painted_trim_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_architectural_painted_trim_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_architectural_painted_trim_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_aged_paper_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_aged_paper_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_aged_paper_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_book_brown_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_book_burgundy_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_book_burgundy_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_book_burgundy_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_book_green_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_book_navy_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_book_ochre_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_book_teal_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_linen_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_linen_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_furniture_linen_rough.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_metals_aged_brass_albedo.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_metals_aged_brass_normal.png": {
+			"complete_loaded_mips": true
+		},
+		"res://assets/building/textures/T_library_metals_aged_brass_rough.png": {
+			"complete_loaded_mips": true
+		}
+	},
+	"unique_triangles": 120784,
+	"variants": 15,
+	"views": []
+}

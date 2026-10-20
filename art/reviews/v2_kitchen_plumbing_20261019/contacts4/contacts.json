@@ -1,0 +1,1177 @@
+{
+	"evidence_class": "INERT",
+	"rows": [
+		{
+			"body_rid": "RID(1078036791296)",
+			"cpu_hits": [
+				"(0.04, 0.6575, 0.271)",
+				"(0.04, 0.6575, 0.28)"
+			],
+			"double_sided_hit": "{ \"position\": (0.04, 0.6575, 0.28), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5397, \"collider_id\": 54223963871, \"collider\": @StaticBody3D@7:<StaticBody3D#54223963871>, \"shape\": 1, \"rid\": RID(1078036791296) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.04, 0.6575, 0.28)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.04, 0.6575, 0.28), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5397, \"collider_id\": 54223963871, \"collider\": @StaticBody3D@7:<StaticBody3D#54223963871>, \"shape\": 1, \"rid\": RID(1078036791296) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.162), S: (0.224, 0.8255, 0.118)]",
+					"draw": "Compact280__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371981909391556>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.8505, 0.304)]",
+					"draw": "Compact280__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371981204748472>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.176), S: (0.206, 0.016, 0.004)]",
+					"draw": "Compact280__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371980500105390>"
+				}
+			],
+			"template": "Compact280",
+			"wall_rid": "RID(1176821039106)"
+		},
+		{
+			"body_rid": "RID(1078036791296)",
+			"cpu_hits": [
+				"(-0.076, 0.22, 0.274)",
+				"(-0.076, 0.22, 0.274)",
+				"(-0.076, 0.22, 0.28)",
+				"(-0.076, 0.22, 0.28)"
+			],
+			"double_sided_hit": "{ \"position\": (-0.076, 0.22, 0.28), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6068, \"collider_id\": 54223963871, \"collider\": @StaticBody3D@7:<StaticBody3D#54223963871>, \"shape\": 1, \"rid\": RID(1078036791296) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(-0.076, 0.22, 0.28)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (-0.076, 0.22, 0.28), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6068, \"collider_id\": 54223963871, \"collider\": @StaticBody3D@7:<StaticBody3D#54223963871>, \"shape\": 1, \"rid\": RID(1078036791296) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.162), S: (0.224, 0.8255, 0.118)]",
+					"draw": "Compact280__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371981909391556>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.8505, 0.304)]",
+					"draw": "Compact280__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371981204748472>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.176), S: (0.206, 0.016, 0.004)]",
+					"draw": "Compact280__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371980500105390>"
+				}
+			],
+			"template": "Compact280",
+			"wall_rid": "RID(1176821039106)"
+		},
+		{
+			"body_rid": "RID(1078036791296)",
+			"cpu_hits": [
+				"(0.114, 0.22, 0.274)",
+				"(0.114, 0.22, 0.274)",
+				"(0.114, 0.22, 0.28)",
+				"(0.114, 0.22, 0.28)"
+			],
+			"double_sided_hit": "{ \"position\": (0.114, 0.22, 0.28), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7420, \"collider_id\": 54223963871, \"collider\": @StaticBody3D@7:<StaticBody3D#54223963871>, \"shape\": 1, \"rid\": RID(1078036791296) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.114, 0.22, 0.28)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.114, 0.22, 0.28), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7420, \"collider_id\": 54223963871, \"collider\": @StaticBody3D@7:<StaticBody3D#54223963871>, \"shape\": 1, \"rid\": RID(1078036791296) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.162), S: (0.224, 0.8255, 0.118)]",
+					"draw": "Compact280__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371981909391556>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.8505, 0.304)]",
+					"draw": "Compact280__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371981204748472>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.176), S: (0.206, 0.016, 0.004)]",
+					"draw": "Compact280__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371980500105390>"
+				}
+			],
+			"template": "Compact280",
+			"wall_rid": "RID(1176821039106)"
+		},
+		{
+			"body_rid": "RID(1185410973698)",
+			"cpu_hits": [
+				"(0.04, 0.64, 0.381)",
+				"(0.04, 0.64, 0.381)",
+				"(0.04, 0.64, 0.39)",
+				"(0.04, 0.64, 0.39)"
+			],
+			"double_sided_hit": "{ \"position\": (0.04, 0.64, 0.39), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5420, \"collider_id\": 58720257877, \"collider\": @StaticBody3D@14:<StaticBody3D#58720257877>, \"shape\": 1, \"rid\": RID(1185410973698) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.04, 0.64, 0.39)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.04, 0.64, 0.39), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5420, \"collider_id\": 58720257877, \"collider\": @StaticBody3D@14:<StaticBody3D#58720257877>, \"shape\": 1, \"rid\": RID(1185410973698) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.188)]",
+					"draw": "Standard390__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371978050631877>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.414)]",
+					"draw": "Standard390__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371977966745784>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard390__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371977882859687>"
+				}
+			],
+			"template": "Standard390",
+			"wall_rid": "RID(1232655613952)"
+		},
+		{
+			"body_rid": "RID(1185410973698)",
+			"cpu_hits": [
+				"(-0.076, 0.22, 0.384)",
+				"(-0.076, 0.22, 0.384)",
+				"(-0.076, 0.22, 0.39)",
+				"(-0.076, 0.22, 0.39)"
+			],
+			"double_sided_hit": "{ \"position\": (-0.076, 0.22, 0.39), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6093, \"collider_id\": 58720257877, \"collider\": @StaticBody3D@14:<StaticBody3D#58720257877>, \"shape\": 1, \"rid\": RID(1185410973698) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(-0.076, 0.22, 0.39)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (-0.076, 0.22, 0.39), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6093, \"collider_id\": 58720257877, \"collider\": @StaticBody3D@14:<StaticBody3D#58720257877>, \"shape\": 1, \"rid\": RID(1185410973698) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.188)]",
+					"draw": "Standard390__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371978050631877>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.414)]",
+					"draw": "Standard390__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371977966745784>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard390__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371977882859687>"
+				}
+			],
+			"template": "Standard390",
+			"wall_rid": "RID(1232655613952)"
+		},
+		{
+			"body_rid": "RID(1185410973698)",
+			"cpu_hits": [
+				"(0.114, 0.22, 0.384)",
+				"(0.114, 0.22, 0.384)",
+				"(0.114, 0.22, 0.39)",
+				"(0.114, 0.22, 0.39)"
+			],
+			"double_sided_hit": "{ \"position\": (0.114, 0.22, 0.39), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7451, \"collider_id\": 58720257877, \"collider\": @StaticBody3D@14:<StaticBody3D#58720257877>, \"shape\": 1, \"rid\": RID(1185410973698) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.114, 0.22, 0.39)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.114, 0.22, 0.39), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7451, \"collider_id\": 58720257877, \"collider\": @StaticBody3D@14:<StaticBody3D#58720257877>, \"shape\": 1, \"rid\": RID(1185410973698) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.188)]",
+					"draw": "Standard390__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371978050631877>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.414)]",
+					"draw": "Standard390__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371977966745784>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard390__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371977882859687>"
+				}
+			],
+			"template": "Standard390",
+			"wall_rid": "RID(1232655613952)"
+		},
+		{
+			"body_rid": "RID(1241245548544)",
+			"cpu_hits": [
+				"(0.04, 0.64, 0.401)",
+				"(0.04, 0.64, 0.401)",
+				"(0.04, 0.64, 0.41)",
+				"(0.04, 0.64, 0.41)"
+			],
+			"double_sided_hit": "{ \"position\": (0.04, 0.64, 0.41), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5422, \"collider_id\": 61337503572, \"collider\": @StaticBody3D@21:<StaticBody3D#61337503572>, \"shape\": 1, \"rid\": RID(1241245548544) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.04, 0.64, 0.41)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.04, 0.64, 0.41), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5422, \"collider_id\": 61337503572, \"collider\": @StaticBody3D@21:<StaticBody3D#61337503572>, \"shape\": 1, \"rid\": RID(1241245548544) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.208)]",
+					"draw": "Standard410__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371975433386191>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.434)]",
+					"draw": "Standard410__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371975349500088>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard410__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371975265613922>"
+				}
+			],
+			"template": "Standard410",
+			"wall_rid": "RID(1288490188802)"
+		},
+		{
+			"body_rid": "RID(1241245548544)",
+			"cpu_hits": [
+				"(-0.076, 0.22, 0.404)",
+				"(-0.076, 0.22, 0.404)",
+				"(-0.076, 0.22, 0.41)",
+				"(-0.076, 0.22, 0.41)"
+			],
+			"double_sided_hit": "{ \"position\": (-0.076, 0.22, 0.41), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6094, \"collider_id\": 61337503572, \"collider\": @StaticBody3D@21:<StaticBody3D#61337503572>, \"shape\": 1, \"rid\": RID(1241245548544) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(-0.076, 0.22, 0.41)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (-0.076, 0.22, 0.41), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6094, \"collider_id\": 61337503572, \"collider\": @StaticBody3D@21:<StaticBody3D#61337503572>, \"shape\": 1, \"rid\": RID(1241245548544) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.208)]",
+					"draw": "Standard410__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371975433386191>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.434)]",
+					"draw": "Standard410__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371975349500088>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard410__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371975265613922>"
+				}
+			],
+			"template": "Standard410",
+			"wall_rid": "RID(1288490188802)"
+		},
+		{
+			"body_rid": "RID(1241245548544)",
+			"cpu_hits": [
+				"(0.114, 0.22, 0.404)",
+				"(0.114, 0.22, 0.404)",
+				"(0.114, 0.22, 0.41)",
+				"(0.114, 0.22, 0.41)"
+			],
+			"double_sided_hit": "{ \"position\": (0.114, 0.22, 0.41), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7453, \"collider_id\": 61337503572, \"collider\": @StaticBody3D@21:<StaticBody3D#61337503572>, \"shape\": 1, \"rid\": RID(1241245548544) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.114, 0.22, 0.41)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.114, 0.22, 0.41), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7453, \"collider_id\": 61337503572, \"collider\": @StaticBody3D@21:<StaticBody3D#61337503572>, \"shape\": 1, \"rid\": RID(1241245548544) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.208)]",
+					"draw": "Standard410__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371975433386191>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.434)]",
+					"draw": "Standard410__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371975349500088>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard410__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371975265613922>"
+				}
+			],
+			"template": "Standard410",
+			"wall_rid": "RID(1288490188802)"
+		},
+		{
+			"body_rid": "RID(1297080123394)",
+			"cpu_hits": [
+				"(0.04, 0.64, 0.291)",
+				"(0.04, 0.64, 0.291)",
+				"(0.04, 0.64, 0.3)",
+				"(0.04, 0.64, 0.3)"
+			],
+			"double_sided_hit": "{ \"position\": (0.04, 0.64, 0.3), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5422, \"collider_id\": 61907928991, \"collider\": @StaticBody3D@28:<StaticBody3D#61907928991>, \"shape\": 1, \"rid\": RID(1297080123394) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.04, 0.64, 0.3)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.04, 0.64, 0.3), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5422, \"collider_id\": 61907928991, \"collider\": @StaticBody3D@28:<StaticBody3D#61907928991>, \"shape\": 1, \"rid\": RID(1297080123394) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.098)]",
+					"draw": "Standard300__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371974862960930>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.324)]",
+					"draw": "Standard300__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371974779074744>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard300__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371974695188498>"
+				}
+			],
+			"template": "Standard300",
+			"wall_rid": "RID(1344324763648)"
+		},
+		{
+			"body_rid": "RID(1297080123394)",
+			"cpu_hits": [
+				"(-0.076, 0.22, 0.294)",
+				"(-0.076, 0.22, 0.294)",
+				"(-0.076, 0.22, 0.3)",
+				"(-0.076, 0.22, 0.3)"
+			],
+			"double_sided_hit": "{ \"position\": (-0.076, 0.22, 0.3), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6094, \"collider_id\": 61907928991, \"collider\": @StaticBody3D@28:<StaticBody3D#61907928991>, \"shape\": 1, \"rid\": RID(1297080123394) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(-0.076, 0.22, 0.3)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (-0.076, 0.22, 0.3), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6094, \"collider_id\": 61907928991, \"collider\": @StaticBody3D@28:<StaticBody3D#61907928991>, \"shape\": 1, \"rid\": RID(1297080123394) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.098)]",
+					"draw": "Standard300__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371974862960930>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.324)]",
+					"draw": "Standard300__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371974779074744>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard300__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371974695188498>"
+				}
+			],
+			"template": "Standard300",
+			"wall_rid": "RID(1344324763648)"
+		},
+		{
+			"body_rid": "RID(1297080123394)",
+			"cpu_hits": [
+				"(0.114, 0.22, 0.294)",
+				"(0.114, 0.22, 0.294)",
+				"(0.114, 0.22, 0.3)",
+				"(0.114, 0.22, 0.3)"
+			],
+			"double_sided_hit": "{ \"position\": (0.114, 0.22, 0.3), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7453, \"collider_id\": 61907928991, \"collider\": @StaticBody3D@28:<StaticBody3D#61907928991>, \"shape\": 1, \"rid\": RID(1297080123394) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.114, 0.22, 0.3)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.114, 0.22, 0.3), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7453, \"collider_id\": 61907928991, \"collider\": @StaticBody3D@28:<StaticBody3D#61907928991>, \"shape\": 1, \"rid\": RID(1297080123394) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.098)]",
+					"draw": "Standard300__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371974862960930>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.324)]",
+					"draw": "Standard300__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371974779074744>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard300__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371974695188498>"
+				}
+			],
+			"template": "Standard300",
+			"wall_rid": "RID(1344324763648)"
+		},
+		{
+			"body_rid": "RID(1352914698240)",
+			"cpu_hits": [
+				"(0.04, 0.64, 0.391)",
+				"(0.04, 0.64, 0.391)",
+				"(0.04, 0.64, 0.4)",
+				"(0.04, 0.64, 0.4)"
+			],
+			"double_sided_hit": "{ \"position\": (0.04, 0.64, 0.4), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5421, \"collider_id\": 64525174628, \"collider\": @StaticBody3D@35:<StaticBody3D#64525174628>, \"shape\": 1, \"rid\": RID(1352914698240) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.04, 0.64, 0.4)",
+			"rear_error": 0.0000000298023223876953,
+			"rear_hit": "{ \"position\": (0.04, 0.64, 0.4), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5421, \"collider_id\": 64525174628, \"collider\": @StaticBody3D@35:<StaticBody3D#64525174628>, \"shape\": 1, \"rid\": RID(1352914698240) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.198)]",
+					"draw": "Standard400__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371972245715117>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.424)]",
+					"draw": "Standard400__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371972161829048>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard400__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371972077942807>"
+				}
+			],
+			"template": "Standard400",
+			"wall_rid": "RID(1400159338498)"
+		},
+		{
+			"body_rid": "RID(1352914698240)",
+			"cpu_hits": [
+				"(-0.076, 0.22, 0.394)",
+				"(-0.076, 0.22, 0.394)",
+				"(-0.076, 0.22, 0.4)",
+				"(-0.076, 0.22, 0.4)"
+			],
+			"double_sided_hit": "{ \"position\": (-0.076, 0.22, 0.4), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6091, \"collider_id\": 64525174628, \"collider\": @StaticBody3D@35:<StaticBody3D#64525174628>, \"shape\": 1, \"rid\": RID(1352914698240) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(-0.076, 0.22, 0.4)",
+			"rear_error": 0.0000000298023223876953,
+			"rear_hit": "{ \"position\": (-0.076, 0.22, 0.4), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6091, \"collider_id\": 64525174628, \"collider\": @StaticBody3D@35:<StaticBody3D#64525174628>, \"shape\": 1, \"rid\": RID(1352914698240) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.198)]",
+					"draw": "Standard400__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371972245715117>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.424)]",
+					"draw": "Standard400__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371972161829048>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard400__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371972077942807>"
+				}
+			],
+			"template": "Standard400",
+			"wall_rid": "RID(1400159338498)"
+		},
+		{
+			"body_rid": "RID(1352914698240)",
+			"cpu_hits": [
+				"(0.114, 0.22, 0.394)",
+				"(0.114, 0.22, 0.394)",
+				"(0.114, 0.22, 0.4)",
+				"(0.114, 0.22, 0.4)"
+			],
+			"double_sided_hit": "{ \"position\": (0.114, 0.22, 0.4), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7449, \"collider_id\": 64525174628, \"collider\": @StaticBody3D@35:<StaticBody3D#64525174628>, \"shape\": 1, \"rid\": RID(1352914698240) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.114, 0.22, 0.4)",
+			"rear_error": 0.0000000298023223876953,
+			"rear_hit": "{ \"position\": (0.114, 0.22, 0.4), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7449, \"collider_id\": 64525174628, \"collider\": @StaticBody3D@35:<StaticBody3D#64525174628>, \"shape\": 1, \"rid\": RID(1352914698240) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.198)]",
+					"draw": "Standard400__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371972245715117>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.424)]",
+					"draw": "Standard400__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371972161829048>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard400__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371972077942807>"
+				}
+			],
+			"template": "Standard400",
+			"wall_rid": "RID(1400159338498)"
+		},
+		{
+			"body_rid": "RID(1408749273090)",
+			"cpu_hits": [
+				"(0.04, 0.6575, 0.421)",
+				"(0.04, 0.6575, 0.43)"
+			],
+			"double_sided_hit": "{ \"position\": (0.04, 0.6575, 0.43), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5400, \"collider_id\": 65095600130, \"collider\": @StaticBody3D@42:<StaticBody3D#65095600130>, \"shape\": 1, \"rid\": RID(1408749273090) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.04, 0.6575, 0.43)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.04, 0.6575, 0.43), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5400, \"collider_id\": 65095600130, \"collider\": @StaticBody3D@42:<StaticBody3D#65095600130>, \"shape\": 1, \"rid\": RID(1408749273090) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.17), S: (0.224, 0.8255, 0.26)]",
+					"draw": "Compact430Timber__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971675289768>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.8505, 0.454)]",
+					"draw": "Compact430Timber__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971591403704>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.271), S: (0.206, 0.016, 0.004)]",
+					"draw": "Compact430Timber__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971507517562>"
+				}
+			],
+			"template": "Compact430Timber",
+			"wall_rid": "RID(1455993913344)"
+		},
+		{
+			"body_rid": "RID(1408749273090)",
+			"cpu_hits": [
+				"(-0.076, 0.22, 0.424)",
+				"(-0.076, 0.22, 0.424)",
+				"(-0.076, 0.22, 0.43)",
+				"(-0.076, 0.22, 0.43)"
+			],
+			"double_sided_hit": "{ \"position\": (-0.076, 0.22, 0.43), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6071, \"collider_id\": 65095600130, \"collider\": @StaticBody3D@42:<StaticBody3D#65095600130>, \"shape\": 1, \"rid\": RID(1408749273090) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(-0.076, 0.22, 0.43)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (-0.076, 0.22, 0.43), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6071, \"collider_id\": 65095600130, \"collider\": @StaticBody3D@42:<StaticBody3D#65095600130>, \"shape\": 1, \"rid\": RID(1408749273090) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.17), S: (0.224, 0.8255, 0.26)]",
+					"draw": "Compact430Timber__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971675289768>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.8505, 0.454)]",
+					"draw": "Compact430Timber__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971591403704>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.271), S: (0.206, 0.016, 0.004)]",
+					"draw": "Compact430Timber__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971507517562>"
+				}
+			],
+			"template": "Compact430Timber",
+			"wall_rid": "RID(1455993913344)"
+		},
+		{
+			"body_rid": "RID(1408749273090)",
+			"cpu_hits": [
+				"(0.114, 0.22, 0.424)",
+				"(0.114, 0.22, 0.424)",
+				"(0.114, 0.22, 0.43)",
+				"(0.114, 0.22, 0.43)"
+			],
+			"double_sided_hit": "{ \"position\": (0.114, 0.22, 0.43), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7426, \"collider_id\": 65095600130, \"collider\": @StaticBody3D@42:<StaticBody3D#65095600130>, \"shape\": 1, \"rid\": RID(1408749273090) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.114, 0.22, 0.43)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.114, 0.22, 0.43), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7426, \"collider_id\": 65095600130, \"collider\": @StaticBody3D@42:<StaticBody3D#65095600130>, \"shape\": 1, \"rid\": RID(1408749273090) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.17), S: (0.224, 0.8255, 0.26)]",
+					"draw": "Compact430Timber__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971675289768>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.8505, 0.454)]",
+					"draw": "Compact430Timber__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971591403704>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.271), S: (0.206, 0.016, 0.004)]",
+					"draw": "Compact430Timber__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971507517562>"
+				}
+			],
+			"template": "Compact430Timber",
+			"wall_rid": "RID(1455993913344)"
+		},
+		{
+			"body_rid": "RID(1464583847936)",
+			"cpu_hits": [
+				"(0.04, 0.64, 0.351)",
+				"(0.04, 0.64, 0.351)",
+				"(0.04, 0.64, 0.36)",
+				"(0.04, 0.64, 0.36)"
+			],
+			"double_sided_hit": "{ \"position\": (0.04, 0.64, 0.36), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5425, \"collider_id\": 65666025311, \"collider\": @StaticBody3D@49:<StaticBody3D#65666025311>, \"shape\": 1, \"rid\": RID(1464583847936) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.04, 0.64, 0.36)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.04, 0.64, 0.36), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5425, \"collider_id\": 65666025311, \"collider\": @StaticBody3D@49:<StaticBody3D#65666025311>, \"shape\": 1, \"rid\": RID(1464583847936) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.158)]",
+					"draw": "Standard360__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971104864355>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.384)]",
+					"draw": "Standard360__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971020978360>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard360__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371970937092200>"
+				}
+			],
+			"template": "Standard360",
+			"wall_rid": "RID(1511828488194)"
+		},
+		{
+			"body_rid": "RID(1464583847936)",
+			"cpu_hits": [
+				"(-0.076, 0.22, 0.354)",
+				"(-0.076, 0.22, 0.354)",
+				"(-0.076, 0.22, 0.36)",
+				"(-0.076, 0.22, 0.36)"
+			],
+			"double_sided_hit": "{ \"position\": (-0.076, 0.22, 0.36), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6097, \"collider_id\": 65666025311, \"collider\": @StaticBody3D@49:<StaticBody3D#65666025311>, \"shape\": 1, \"rid\": RID(1464583847936) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(-0.076, 0.22, 0.36)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (-0.076, 0.22, 0.36), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6097, \"collider_id\": 65666025311, \"collider\": @StaticBody3D@49:<StaticBody3D#65666025311>, \"shape\": 1, \"rid\": RID(1464583847936) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.158)]",
+					"draw": "Standard360__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971104864355>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.384)]",
+					"draw": "Standard360__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971020978360>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard360__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371970937092200>"
+				}
+			],
+			"template": "Standard360",
+			"wall_rid": "RID(1511828488194)"
+		},
+		{
+			"body_rid": "RID(1464583847936)",
+			"cpu_hits": [
+				"(0.114, 0.22, 0.354)",
+				"(0.114, 0.22, 0.354)",
+				"(0.114, 0.22, 0.36)",
+				"(0.114, 0.22, 0.36)"
+			],
+			"double_sided_hit": "{ \"position\": (0.114, 0.22, 0.36), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7454, \"collider_id\": 65666025311, \"collider\": @StaticBody3D@49:<StaticBody3D#65666025311>, \"shape\": 1, \"rid\": RID(1464583847936) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.114, 0.22, 0.36)",
+			"rear_error": 0.0,
+			"rear_hit": "{ \"position\": (0.114, 0.22, 0.36), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7454, \"collider_id\": 65666025311, \"collider\": @StaticBody3D@49:<StaticBody3D#65666025311>, \"shape\": 1, \"rid\": RID(1464583847936) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.158)]",
+					"draw": "Standard360__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971104864355>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.384)]",
+					"draw": "Standard360__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371971020978360>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard360__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371970937092200>"
+				}
+			],
+			"template": "Standard360",
+			"wall_rid": "RID(1511828488194)"
+		},
+		{
+			"body_rid": "RID(1520418422786)",
+			"cpu_hits": [
+				"(0.04, 0.64, 0.341)",
+				"(0.04, 0.64, 0.341)",
+				"(0.04, 0.64, 0.35)",
+				"(0.04, 0.64, 0.35)"
+			],
+			"double_sided_hit": "{ \"position\": (0.04, 0.64, 0.35), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5419, \"collider_id\": 68283271062, \"collider\": @StaticBody3D@56:<StaticBody3D#68283271062>, \"shape\": 1, \"rid\": RID(1520418422786) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.04, 0.64, 0.35)",
+			"rear_error": 0.0000000298023223876953,
+			"rear_hit": "{ \"position\": (0.04, 0.64, 0.35), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 5419, \"collider_id\": 68283271062, \"collider\": @StaticBody3D@56:<StaticBody3D#68283271062>, \"shape\": 1, \"rid\": RID(1520418422786) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.148)]",
+					"draw": "Standard350__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371968487618566>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.374)]",
+					"draw": "Standard350__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371968403732664>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard350__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371968319846452>"
+				}
+			],
+			"template": "Standard350",
+			"wall_rid": "RID(1567663063040)"
+		},
+		{
+			"body_rid": "RID(1520418422786)",
+			"cpu_hits": [
+				"(-0.076, 0.22, 0.344)",
+				"(-0.076, 0.22, 0.344)",
+				"(-0.076, 0.22, 0.35)",
+				"(-0.076, 0.22, 0.35)"
+			],
+			"double_sided_hit": "{ \"position\": (-0.076, 0.22, 0.35), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6089, \"collider_id\": 68283271062, \"collider\": @StaticBody3D@56:<StaticBody3D#68283271062>, \"shape\": 1, \"rid\": RID(1520418422786) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(-0.076, 0.22, 0.35)",
+			"rear_error": 0.0000000298023223876953,
+			"rear_hit": "{ \"position\": (-0.076, 0.22, 0.35), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 6089, \"collider_id\": 68283271062, \"collider\": @StaticBody3D@56:<StaticBody3D#68283271062>, \"shape\": 1, \"rid\": RID(1520418422786) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.148)]",
+					"draw": "Standard350__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371968487618566>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.374)]",
+					"draw": "Standard350__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371968403732664>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard350__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371968319846452>"
+				}
+			],
+			"template": "Standard350",
+			"wall_rid": "RID(1567663063040)"
+		},
+		{
+			"body_rid": "RID(1520418422786)",
+			"cpu_hits": [
+				"(0.114, 0.22, 0.344)",
+				"(0.114, 0.22, 0.344)",
+				"(0.114, 0.22, 0.35)",
+				"(0.114, 0.22, 0.35)"
+			],
+			"double_sided_hit": "{ \"position\": (0.114, 0.22, 0.35), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7445, \"collider_id\": 68283271062, \"collider\": @StaticBody3D@56:<StaticBody3D#68283271062>, \"shape\": 1, \"rid\": RID(1520418422786) }",
+			"front_hit": "{  }",
+			"layer": 1,
+			"port": "(0.114, 0.22, 0.35)",
+			"rear_error": 0.0000000298023223876953,
+			"rear_hit": "{ \"position\": (0.114, 0.22, 0.35), \"normal\": (0.0, 0.0, 1.0), \"face_index\": 7445, \"collider_id\": 68283271062, \"collider\": @StaticBody3D@56:<StaticBody3D#68283271062>, \"shape\": 1, \"rid\": RID(1520418422786) }",
+			"shapes": [
+				{
+					"bounds": "[P: (-0.112, 0.211, 0.202), S: (0.224, 0.808, 0.148)]",
+					"draw": "Standard350__door_brass"
+				},
+				{
+					"disabled": false,
+					"faces": 35304,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371968487618566>"
+				},
+				{
+					"bounds": "[P: (-0.122, 0.193, -0.024), S: (0.244, 0.833, 0.374)]",
+					"draw": "Standard350__nickel_plated"
+				},
+				{
+					"disabled": false,
+					"faces": 36096,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371968403732664>"
+				},
+				{
+					"bounds": "[P: (-0.103, 0.337, 0.216), S: (0.206, 0.016, 0.004)]",
+					"draw": "Standard350__rubber_aged"
+				},
+				{
+					"disabled": false,
+					"faces": 4608,
+					"pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+					"shape": "():<ConcavePolygonShape3D#-9223371968319846452>"
+				}
+			],
+			"template": "Standard350",
+			"wall_rid": "RID(1567663063040)"
+		}
+	]
+}

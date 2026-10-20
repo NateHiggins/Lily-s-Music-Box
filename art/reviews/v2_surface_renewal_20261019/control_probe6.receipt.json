@@ -1,0 +1,68 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 99.69,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T02:05:16Z",
+  "started_utc": "2026-10-20T02:03:36Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 FIRE HAND BENCH: FAIL failures=2"
+  ],
+  "pass_count": 3,
+  "pass_lines": [
+   "V2 FIRE NOZZLE COUPLING: PASS failures=0",
+   "V2 FIRE FOLD STOCK: PASS failures=0",
+   "V2 FIRE RACK STOCK: PASS failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe6.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe6.log",
+  "stdout_sha256": "2c3bf8a602588e3e71c7e53d49a018c87258bd93a09fbf0fb1124c114881b703"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2FireNozzleCouplingBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe6",
+ "source": {
+  "dirty_paths": 1696,
+  "dirty_sample": [
+   "M art/blender/v2_batch_workflow.md",
+   " M art/tools/fix_runtime_texture_imports.py",
+   " M game/assets/building/textures/T_ai_materials_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_rough.png.import"
+  ],
+  "repository_head": "af78be18ee29319aba753f56719dddba87d94946",
+  "repository_tree": "59c96c074688b2a502ba22687fe8891466a117e4",
+  "runtime_inputs_sha256": "62df330416223a51d17feed913db4f10ed3b2c0a2cc8e9ce059b555e956aac8f",
+  "test_path": "game/tests/v2_fire_nozzle_coupling_bench.gd",
+  "test_sha256": "dd257868f84b46f2ae550ce5a2985fa91b230187d81f85951a58bbb66b82f273"
+ },
+ "windowed": true
+}

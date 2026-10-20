@@ -1,0 +1,463 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE CAPACITY CHECK: candidate native scene loads = true
+FIRE CAPACITY CHECK: one continuous native cloth surface = true
+FIRE CAPACITY CHECK: registered custom linen samples authored metre UVs with normal mapping = true
+FIRE CAPACITY CHECK: actual loaded linen PBR map has mip chain = true
+FIRE CAPACITY CHECK: actual loaded linen PBR map has mip chain = true
+FIRE CAPACITY CHECK: actual loaded linen PBR map has mip chain = true
+CAP MAPPING: mesh=fire_capacity_candidate_Editable 15_24m hose valid_basis=true max_uv_excess=0.00000022770837 widest=1.000919735504 vertices=902945 derivatives=true bad_derivatives=0 min_determinant=0.00000059116722 worst_dot=0.99999976158142
+FIRE RIG CHECK: native skin and authored centreline rings bind = true
+FIRE CAPACITY CHECK: native moving-cloth programme prepares = true
+FIRE CAPACITY CHECK: production reduced carried voxel lamp mounts = true
+FIRE CAPACITY CHECK: actual voxel field initializes without failure = true
+FIRE CAPACITY CHECK: no patterned projector on carried source = true
+FIRE CAPACITY CHECK: capture destination provided = true
+FIRE CAPACITY CHECK: full native cloth frame saved with production voxel light = true
+FIRE CAPACITY CHECK: close cloth chart seams and relief frame saved = true
+FIRE RIG CHECK: all dense native ring bones retain the full15.24m strand = true
+FIRE RIG CHECK: every actual centreline interval is at most5mm within float precision = true
+FIRE RIG RESOLUTION: rings=3472 maximum_interval_m=0.00500005483627
+FIRE RIG CHECK: native bind points and rendered skeleton agree at rest = true
+FIRE RIG CHECK: in-place edits cannot reuse stale native frames = true
+FIRE RIG CHECK: returned frame arrays cannot corrupt cached native geometry = true
+FIRE RIG CHECK: nonfinite carrying is rejected atomically = true
+FIRE RIG CHECK: a contact-owner veto leaves every cloth point unchanged = true
+FIRE RIG CHECK: stretched saved cloth is rejected without partial restore = true
+FIRE RIG CHECK: boolean schema version cannot masquerade as numeric version = true
+FIRE RIG CHECK: many individually small errors cannot accumulate into extra hose length = true
+FIRE RIG CHECK: overreach stops at actual stock length = true
+FIRE RIG CHECK: fully extended strand retains total and per-segment lengths = true
+FIRE RIG CHECK: all native bones follow the fully extended constraint result = true
+FIRE RIG CHECK: rendered high-index cloth occupies its expected fully extended position = true
+HIGH RING RENDER: pixels=1904 mean_rgb_difference=1.01803018551461
+FIRE RIG CHECK: resting cloth restores after maximum-reach test = true
+HOSE WORLD CHECK: full inner/outer native ring profile binds from imported skin = true
+HOSE WORLD SETUP: ms=519.096 error=
+HOSE WORLD CHECK: all dense native sections retain32outer and32inner points = true
+HOSE WORLD CHECK: invalid contact coordinates are rejected before broad-phase queries = true
+HOSE WORLD CHECK: unobstructed native cloth is clear = true
+HOSE WORLD CHECK: real4mmprobe fits the native hose bore without a false solid-capsule collision = true
+HOSE WORLD CHECK: same real probe intersects the actual canvas wall = true
+HOSE WORLD CHECK: actual flattened native strand selected = true
+HOSE WORLD CHECK: small real probe fits the narrow flattened bore = true
+HOSE WORLD CHECK: native31mmwide cloth edge blocks a probe that a thin centreline proxy would miss = true
+HOSE WORLD CHECK: probe between two cloth poses is clear at both endpoints = true
+HOSE WORLD CHECK: swept native shell blocks tunnelling between otherwise clear poses = true
+HOSE WORLD SWEEP: ms=4.696 broad=111 cells=1
+HOSE WORLD CHECK: per-segment reference query agrees with chunked swept contact = true
+HOSE WORLD CHECK: native wall contact survives composed-world rotation and translation = true
+HOSE WORLD CHECK: native bore remains open at the transformed world pose = true
+HOSE WORLD CHECK: fresh native contact binding at floorheight/orientation [-3.2, 3.14159265358979] = true
+HOSE WORLD CHECK: fresh native contact binding at floorheight/orientation [-3.2, -3.14159265358979] = true
+HOSE WORLD CHECK: fresh native contact binding at floorheight/orientation [9.6, 3.14159265358979] = true
+HOSE WORLD CHECK: fresh native contact binding at floorheight/orientation [9.6, -3.14159265358979] = true
+HOSE WORLD CHECK: fresh native contact binding at floorheight/orientation [19.2, 3.14159265358979] = true
+HOSE WORLD CHECK: fresh native contact binding at floorheight/orientation [19.2, -3.14159265358979] = true
+HOSE WORLD CHECK: world-veto test starts from a valid constrained proposal = true
+HOSE WORLD CHECK: real world contact vetoes the solved full-cloth proposal = true
+HOSE WORLD CHECK: world-blocked carrying leaves every cloth point and saved pose unchanged = true
+HOSE WORLD CHECK: removing real obstruction clears the same sweep = true
+HOSE WORLD CHECK: native cloth yields bounded contact response planes (0.0, 0.0, 0.0) = true
+HOSE RESPONSE PLANE: ring=0 normal=(0.0, 1.0, 0.0) depth=0.00059999728799
+HOSE RESPONSE PLANE: ring=1 normal=(0.0, 1.0, 0.0) depth=0.00060001218915
+HOSE RESPONSE PLANE: ring=1 normal=(0.0, 1.0, 0.0) depth=0.00060001218915
+HOSE RESPONSE PLANE: ring=2 normal=(0.0, 1.0, 0.0) depth=0.00060002709031
+HOSE RESPONSE PLANE: ring=2 normal=(0.0, 1.0, 0.0) depth=0.00060002709031
+HOSE RESPONSE PLANE: ring=3 normal=(0.0, 1.0, 0.0) depth=0.0006000308156
+HOSE RESPONSE PLANE: ring=3 normal=(0.0, 1.0, 0.0) depth=0.0006000308156
+HOSE RESPONSE PLANE: ring=4 normal=(0.0, 1.0, 0.0) depth=0.00060004571676
+HOSE RESPONSE PLANE: ring=4 normal=(0.0, 1.0, 0.0) depth=0.00060004571676
+HOSE RESPONSE PLANE: ring=5 normal=(0.0, 1.0, 0.0) depth=0.00060006061792
+HOSE RESPONSE PLANE: ring=5 normal=(0.0, 1.0, 0.0) depth=0.00060006061792
+HOSE RESPONSE PLANE: ring=6 normal=(0.0, 1.0, 0.0) depth=0.0006000680685
+HOSE RESPONSE PLANE: ring=6 normal=(0.0, 1.0, 0.0) depth=0.0006000680685
+HOSE RESPONSE PLANE: ring=7 normal=(0.0, 1.0, 0.0) depth=0.00060007924438
+HOSE RESPONSE PLANE: ring=7 normal=(0.0, 1.0, 0.0) depth=0.00060007924438
+HOSE RESPONSE PLANE: ring=8 normal=(0.0, 1.0, 0.0) depth=0.00059982592463
+HOSE RESPONSE PLANE: ring=8 normal=(0.0, 1.0, 0.0) depth=0.00059982592463
+HOSE RESPONSE PLANE: ring=9 normal=(0.0, 1.0, 0.0) depth=0.00062292644978
+HOSE RESPONSE PLANE: ring=9 normal=(0.0, 1.0, 0.0) depth=0.00062292644978
+HOSE RESPONSE PLANE: ring=10 normal=(0.0, 1.0, 0.0) depth=0.00069185922146
+HOSE RESPONSE PLANE: ring=10 normal=(0.0, 1.0, 0.0) depth=0.00069185922146
+HOSE RESPONSE PLANE: ring=11 normal=(0.0, 1.0, 0.0) depth=0.00080662796497
+HOSE RESPONSE PLANE: ring=11 normal=(0.0, 1.0, 0.0) depth=0.00080662796497
+HOSE RESPONSE PLANE: ring=12 normal=(0.0, 1.0, 0.0) depth=0.00096569786072
+HOSE RESPONSE PLANE: ring=12 normal=(0.0, 1.0, 0.0) depth=0.00096569786072
+HOSE RESPONSE PLANE: ring=13 normal=(0.0, 1.0, 0.0) depth=0.00116671079993
+HOSE RESPONSE PLANE: ring=13 normal=(0.0, 1.0, 0.0) depth=0.00116671079993
+HOSE RESPONSE PLANE: ring=14 normal=(0.0, 1.0, 0.0) depth=0.00140672566593
+HOSE RESPONSE PLANE: ring=14 normal=(0.0, 1.0, 0.0) depth=0.00140672566593
+HOSE RESPONSE PLANE: ring=15 normal=(0.0, 1.0, 0.0) depth=0.00168249400556
+HOSE RESPONSE PLANE: ring=15 normal=(0.0, 1.0, 0.0) depth=0.00168249400556
+HOSE RESPONSE PLANE: ring=16 normal=(0.0, 1.0, 0.0) depth=0.00199051777124
+HOSE RESPONSE PLANE: ring=16 normal=(0.0, 1.0, 0.0) depth=0.00199051777124
+HOSE RESPONSE PLANE: ring=17 normal=(0.0, 1.0, 0.0) depth=0.0023271219641
+HOSE RESPONSE PLANE: ring=17 normal=(0.0, 1.0, 0.0) depth=0.0023271219641
+HOSE RESPONSE PLANE: ring=18 normal=(0.0, 1.0, 0.0) depth=0.00268855707943
+HOSE RESPONSE PLANE: ring=18 normal=(0.0, 1.0, 0.0) depth=0.00268855707943
+HOSE RESPONSE PLANE: ring=19 normal=(0.0, 1.0, 0.0) depth=0.0030709842056
+HOSE RESPONSE PLANE: ring=19 normal=(0.0, 1.0, 0.0) depth=0.0030709842056
+HOSE RESPONSE PLANE: ring=20 normal=(0.0, 1.0, 0.0) depth=0.00347049365044
+HOSE RESPONSE PLANE: ring=20 normal=(0.0, 1.0, 0.0) depth=0.00347049365044
+HOSE RESPONSE PLANE: ring=21 normal=(0.0, 1.0, 0.0) depth=0.00388319062293
+HOSE RESPONSE PLANE: ring=21 normal=(0.0, 1.0, 0.0) depth=0.00388319062293
+HOSE RESPONSE PLANE: ring=22 normal=(0.0, 1.0, 0.0) depth=0.00430510210097
+HOSE RESPONSE PLANE: ring=22 normal=(0.0, 1.0, 0.0) depth=0.00430510210097
+HOSE RESPONSE PLANE: ring=23 normal=(0.0, 1.0, 0.0) depth=0.00473227182627
+HOSE RESPONSE PLANE: ring=23 normal=(0.0, 1.0, 0.0) depth=0.00473227182627
+HOSE RESPONSE PLANE: ring=24 normal=(0.0, 1.0, 0.0) depth=0.00516071746349
+HOSE RESPONSE PLANE: ring=24 normal=(0.0, 1.0, 0.0) depth=0.00516071746349
+HOSE RESPONSE PLANE: ring=25 normal=(0.0, 1.0, 0.0) depth=0.00558641011119
+HOSE RESPONSE PLANE: ring=25 normal=(0.0, 1.0, 0.0) depth=0.00558641011119
+HOSE RESPONSE PLANE: ring=26 normal=(0.0, 1.0, 0.0) depth=0.00600535998344
+HOSE RESPONSE PLANE: ring=26 normal=(0.0, 1.0, 0.0) depth=0.00600535998344
+HOSE RESPONSE PLANE: ring=27 normal=(0.0, 1.0, 0.0) depth=0.0064135176897
+HOSE RESPONSE PLANE: ring=27 normal=(0.0, 1.0, 0.0) depth=0.0064135176897
+HOSE RESPONSE PLANE: ring=28 normal=(0.0, 1.0, 0.0) depth=0.00680682266355
+HOSE RESPONSE PLANE: ring=28 normal=(0.0, 1.0, 0.0) depth=0.00680682266355
+HOSE RESPONSE PLANE: ring=29 normal=(0.0, 1.0, 0.0) depth=0.00718120502532
+HOSE RESPONSE PLANE: ring=29 normal=(0.0, 1.0, 0.0) depth=0.00718120502532
+HOSE RESPONSE PLANE: ring=30 normal=(0.0, 1.0, 0.0) depth=0.00753253529072
+HOSE RESPONSE PLANE: ring=30 normal=(0.0, 1.0, 0.0) depth=0.00753253529072
+HOSE RESPONSE PLANE: ring=31 normal=(0.0, 1.0, 0.0) depth=0.00785666721165
+HOSE RESPONSE PLANE: ring=31 normal=(0.0, 1.0, 0.0) depth=0.00785666721165
+HOSE RESPONSE PLANE: ring=32 normal=(0.0, 1.0, 0.0) depth=0.00814942473769
+HOSE RESPONSE PLANE: ring=32 normal=(0.0, 1.0, 0.0) depth=0.00814942473769
+HOSE RESPONSE PLANE: ring=33 normal=(0.0, 1.0, 0.0) depth=0.00840656476319
+HOSE RESPONSE PLANE: ring=33 normal=(0.0, 1.0, 0.0) depth=0.00840656476319
+HOSE RESPONSE PLANE: ring=34 normal=(0.0, 1.0, 0.0) depth=0.00862379389107
+HOSE RESPONSE PLANE: ring=34 normal=(0.0, 1.0, 0.0) depth=0.00862379389107
+HOSE RESPONSE PLANE: ring=35 normal=(0.0, 1.0, 0.0) depth=0.00879669392705
+HOSE RESPONSE PLANE: ring=35 normal=(0.0, 1.0, 0.0) depth=0.00879669392705
+HOSE RESPONSE PLANE: ring=36 normal=(0.0, 1.0, 0.0) depth=0.00892086157799
+HOSE RESPONSE PLANE: ring=36 normal=(0.0, 1.0, 0.0) depth=0.00892086157799
+HOSE RESPONSE PLANE: ring=37 normal=(0.0, 1.0, 0.0) depth=0.0089916849345
+HOSE RESPONSE PLANE: ring=37 normal=(0.0, 1.0, 0.0) depth=0.0089916849345
+HOSE RESPONSE PLANE: ring=38 normal=(0.0, 1.0, 0.0) depth=0.0090044906199
+HOSE RESPONSE PLANE: ring=38 normal=(0.0, 1.0, 0.0) depth=0.0090044906199
+HOSE RESPONSE PLANE: ring=39 normal=(0.0, 1.0, 0.0) depth=0.00895442271829
+HOSE RESPONSE PLANE: ring=39 normal=(0.0, 1.0, 0.0) depth=0.00895442271829
+HOSE RESPONSE PLANE: ring=40 normal=(0.0, 1.0, 0.0) depth=0.00883646512628
+HOSE RESPONSE PLANE: ring=40 normal=(0.0, 1.0, 0.0) depth=0.00883646512628
+HOSE RESPONSE PLANE: ring=41 normal=(0.0, 1.0, 0.0) depth=0.008645383811
+HOSE RESPONSE PLANE: ring=41 normal=(0.0, 1.0, 0.0) depth=0.008645383811
+HOSE RESPONSE PLANE: ring=42 normal=(0.0, 1.0, 0.0) depth=0.0083756858319
+HOSE RESPONSE PLANE: ring=42 normal=(0.0, 1.0, 0.0) depth=0.0083756858319
+HOSE RESPONSE PLANE: ring=43 normal=(0.0, 1.0, 0.0) depth=0.0080215914011
+HOSE RESPONSE PLANE: ring=43 normal=(0.0, 1.0, 0.0) depth=0.0080215914011
+HOSE RESPONSE PLANE: ring=44 normal=(0.0, 1.0, 0.0) depth=0.00757697241604
+HOSE RESPONSE PLANE: ring=44 normal=(0.0, 1.0, 0.0) depth=0.00757697241604
+HOSE RESPONSE PLANE: ring=45 normal=(0.0, 1.0, 0.0) depth=0.00703532079458
+HOSE RESPONSE PLANE: ring=45 normal=(0.0, 1.0, 0.0) depth=0.00703532079458
+HOSE RESPONSE PLANE: ring=46 normal=(0.0, 1.0, 0.0) depth=0.00638960318863
+HOSE RESPONSE PLANE: ring=46 normal=(0.0, 1.0, 0.0) depth=0.00638960318863
+HOSE RESPONSE PLANE: ring=47 normal=(0.0, 1.0, 0.0) depth=0.00563230755031
+HOSE RESPONSE PLANE: ring=47 normal=(0.0, 1.0, 0.0) depth=0.00563230755031
+HOSE RESPONSE PLANE: ring=48 normal=(0.0, 1.0, 0.0) depth=0.00475530529618
+HOSE RESPONSE PLANE: ring=48 normal=(0.0, 1.0, 0.0) depth=0.00475530529618
+HOSE RESPONSE PLANE: ring=49 normal=(0.0, 1.0, 0.0) depth=0.00374977493882
+HOSE RESPONSE PLANE: ring=49 normal=(0.0, 1.0, 0.0) depth=0.00374977493882
+HOSE RESPONSE PLANE: ring=50 normal=(0.0, 1.0, 0.0) depth=0.00260625051558
+HOSE RESPONSE PLANE: ring=50 normal=(0.0, 1.0, 0.0) depth=0.00260625051558
+HOSE RESPONSE PLANE: ring=51 normal=(0.0, 1.0, 0.0) depth=0.00131449679136
+HOSE RESPONSE PLANE: ring=51 normal=(0.0, 1.0, 0.0) depth=0.00131449679136
+HOSE RESPONSE PLANE: ring=52 normal=(0.0, 1.0, 0.0) depth=-0.00013645348847
+HOSE WORLD CHECK: response preserves500micrometre intrusion plus100micrometre stand-off = true
+HOSE WORLD CHECK: native shell clears real wall after measured response translation = true
+HOSE WORLD CHECK: bounded contact collection reports truncation explicitly = true
+HOSE WORLD CHECK: native cloth yields bounded contact response planes (-4.35, 9.6, -7.87) = true
+HOSE RESPONSE PLANE: ring=0 normal=(0.0, 1.0, 0.0) depth=0.00060056353211
+HOSE RESPONSE PLANE: ring=1 normal=(0.0, 1.0, 0.0) depth=0.00060057843328
+HOSE RESPONSE PLANE: ring=1 normal=(0.0, 1.0, 0.0) depth=0.00060057843328
+HOSE RESPONSE PLANE: ring=2 normal=(0.0, 1.0, 0.0) depth=0.00060059333444
+HOSE RESPONSE PLANE: ring=2 normal=(0.0, 1.0, 0.0) depth=0.00060059333444
+HOSE RESPONSE PLANE: ring=3 normal=(0.0, 1.0, 0.0) depth=0.00060059705973
+HOSE RESPONSE PLANE: ring=3 normal=(0.0, 1.0, 0.0) depth=0.00060059705973
+HOSE RESPONSE PLANE: ring=4 normal=(0.0, 1.0, 0.0) depth=0.00060061196089
+HOSE RESPONSE PLANE: ring=4 normal=(0.0, 1.0, 0.0) depth=0.00060061196089
+HOSE RESPONSE PLANE: ring=5 normal=(0.0, 1.0, 0.0) depth=0.00060062686205
+HOSE RESPONSE PLANE: ring=5 normal=(0.0, 1.0, 0.0) depth=0.00060062686205
+HOSE RESPONSE PLANE: ring=6 normal=(0.0, 1.0, 0.0) depth=0.00060063431263
+HOSE RESPONSE PLANE: ring=6 normal=(0.0, 1.0, 0.0) depth=0.00060063431263
+HOSE RESPONSE PLANE: ring=7 normal=(0.0, 1.0, 0.0) depth=0.0006006454885
+HOSE RESPONSE PLANE: ring=7 normal=(0.0, 1.0, 0.0) depth=0.0006006454885
+HOSE RESPONSE PLANE: ring=8 normal=(0.0, 1.0, 0.0) depth=0.00060039216876
+HOSE RESPONSE PLANE: ring=8 normal=(0.0, 1.0, 0.0) depth=0.00060039216876
+HOSE RESPONSE PLANE: ring=9 normal=(0.0, 1.0, 0.0) depth=0.0006234926939
+HOSE RESPONSE PLANE: ring=9 normal=(0.0, 1.0, 0.0) depth=0.0006234926939
+HOSE RESPONSE PLANE: ring=10 normal=(0.0, 1.0, 0.0) depth=0.00069242546558
+HOSE RESPONSE PLANE: ring=10 normal=(0.0, 1.0, 0.0) depth=0.00069242546558
+HOSE RESPONSE PLANE: ring=11 normal=(0.0, 1.0, 0.0) depth=0.0008071942091
+HOSE RESPONSE PLANE: ring=11 normal=(0.0, 1.0, 0.0) depth=0.0008071942091
+HOSE RESPONSE PLANE: ring=12 normal=(0.0, 1.0, 0.0) depth=0.00096626410484
+HOSE RESPONSE PLANE: ring=12 normal=(0.0, 1.0, 0.0) depth=0.00096626410484
+HOSE RESPONSE PLANE: ring=13 normal=(0.0, 1.0, 0.0) depth=0.00116727704406
+HOSE RESPONSE PLANE: ring=13 normal=(0.0, 1.0, 0.0) depth=0.00116727704406
+HOSE RESPONSE PLANE: ring=14 normal=(0.0, 1.0, 0.0) depth=0.00140729191005
+HOSE RESPONSE PLANE: ring=14 normal=(0.0, 1.0, 0.0) depth=0.00140729191005
+HOSE RESPONSE PLANE: ring=15 normal=(0.0, 1.0, 0.0) depth=0.00168306024969
+HOSE RESPONSE PLANE: ring=15 normal=(0.0, 1.0, 0.0) depth=0.00168306024969
+HOSE RESPONSE PLANE: ring=16 normal=(0.0, 1.0, 0.0) depth=0.00199108401537
+HOSE RESPONSE PLANE: ring=16 normal=(0.0, 1.0, 0.0) depth=0.00199108401537
+HOSE RESPONSE PLANE: ring=17 normal=(0.0, 1.0, 0.0) depth=0.00232768820822
+HOSE RESPONSE PLANE: ring=17 normal=(0.0, 1.0, 0.0) depth=0.00232768820822
+HOSE RESPONSE PLANE: ring=18 normal=(0.0, 1.0, 0.0) depth=0.00268912332356
+HOSE RESPONSE PLANE: ring=18 normal=(0.0, 1.0, 0.0) depth=0.00268912332356
+HOSE RESPONSE PLANE: ring=19 normal=(0.0, 1.0, 0.0) depth=0.00307155044973
+HOSE RESPONSE PLANE: ring=19 normal=(0.0, 1.0, 0.0) depth=0.00307155044973
+HOSE RESPONSE PLANE: ring=20 normal=(0.0, 1.0, 0.0) depth=0.00347105989456
+HOSE RESPONSE PLANE: ring=20 normal=(0.0, 1.0, 0.0) depth=0.00347105989456
+HOSE RESPONSE PLANE: ring=21 normal=(0.0, 1.0, 0.0) depth=0.00388375686705
+HOSE RESPONSE PLANE: ring=21 normal=(0.0, 1.0, 0.0) depth=0.00388375686705
+HOSE RESPONSE PLANE: ring=22 normal=(0.0, 1.0, 0.0) depth=0.00430566834509
+HOSE RESPONSE PLANE: ring=22 normal=(0.0, 1.0, 0.0) depth=0.00430566834509
+HOSE RESPONSE PLANE: ring=23 normal=(0.0, 1.0, 0.0) depth=0.00473283807039
+HOSE RESPONSE PLANE: ring=23 normal=(0.0, 1.0, 0.0) depth=0.00473283807039
+HOSE RESPONSE PLANE: ring=24 normal=(0.0, 1.0, 0.0) depth=0.00516128370762
+HOSE RESPONSE PLANE: ring=24 normal=(0.0, 1.0, 0.0) depth=0.00516128370762
+HOSE RESPONSE PLANE: ring=25 normal=(0.0, 1.0, 0.0) depth=0.00558697635531
+HOSE RESPONSE PLANE: ring=25 normal=(0.0, 1.0, 0.0) depth=0.00558697635531
+HOSE RESPONSE PLANE: ring=26 normal=(0.0, 1.0, 0.0) depth=0.00600592622757
+HOSE RESPONSE PLANE: ring=26 normal=(0.0, 1.0, 0.0) depth=0.00600592622757
+HOSE RESPONSE PLANE: ring=27 normal=(0.0, 1.0, 0.0) depth=0.00641408393383
+HOSE RESPONSE PLANE: ring=27 normal=(0.0, 1.0, 0.0) depth=0.00641408393383
+HOSE RESPONSE PLANE: ring=28 normal=(0.0, 1.0, 0.0) depth=0.00680738890767
+HOSE RESPONSE PLANE: ring=28 normal=(0.0, 1.0, 0.0) depth=0.00680738890767
+HOSE RESPONSE PLANE: ring=29 normal=(0.0, 1.0, 0.0) depth=0.00718177126944
+HOSE RESPONSE PLANE: ring=29 normal=(0.0, 1.0, 0.0) depth=0.00718177126944
+HOSE RESPONSE PLANE: ring=30 normal=(0.0, 1.0, 0.0) depth=0.00753310153484
+HOSE RESPONSE PLANE: ring=30 normal=(0.0, 1.0, 0.0) depth=0.00753310153484
+HOSE RESPONSE PLANE: ring=31 normal=(0.0, 1.0, 0.0) depth=0.00785723345578
+HOSE RESPONSE PLANE: ring=31 normal=(0.0, 1.0, 0.0) depth=0.00785723345578
+HOSE RESPONSE PLANE: ring=32 normal=(0.0, 1.0, 0.0) depth=0.00814999098182
+HOSE RESPONSE PLANE: ring=32 normal=(0.0, 1.0, 0.0) depth=0.00814999098182
+HOSE RESPONSE PLANE: ring=33 normal=(0.0, 1.0, 0.0) depth=0.00840713100731
+HOSE RESPONSE PLANE: ring=33 normal=(0.0, 1.0, 0.0) depth=0.00840713100731
+HOSE RESPONSE PLANE: ring=34 normal=(0.0, 1.0, 0.0) depth=0.0086243601352
+HOSE RESPONSE PLANE: ring=34 normal=(0.0, 1.0, 0.0) depth=0.0086243601352
+HOSE RESPONSE PLANE: ring=35 normal=(0.0, 1.0, 0.0) depth=0.00879726017118
+HOSE RESPONSE PLANE: ring=35 normal=(0.0, 1.0, 0.0) depth=0.00879726017118
+HOSE RESPONSE PLANE: ring=36 normal=(0.0, 1.0, 0.0) depth=0.00892142782211
+HOSE RESPONSE PLANE: ring=36 normal=(0.0, 1.0, 0.0) depth=0.00892142782211
+HOSE RESPONSE PLANE: ring=37 normal=(0.0, 1.0, 0.0) depth=0.00899225117862
+HOSE RESPONSE PLANE: ring=37 normal=(0.0, 1.0, 0.0) depth=0.00899225117862
+HOSE RESPONSE PLANE: ring=38 normal=(0.0, 1.0, 0.0) depth=0.00900505686402
+HOSE RESPONSE PLANE: ring=38 normal=(0.0, 1.0, 0.0) depth=0.00900505686402
+HOSE RESPONSE PLANE: ring=39 normal=(0.0, 1.0, 0.0) depth=0.00895498896241
+HOSE RESPONSE PLANE: ring=39 normal=(0.0, 1.0, 0.0) depth=0.00895498896241
+HOSE RESPONSE PLANE: ring=40 normal=(0.0, 1.0, 0.0) depth=0.0088370313704
+HOSE RESPONSE PLANE: ring=40 normal=(0.0, 1.0, 0.0) depth=0.0088370313704
+HOSE RESPONSE PLANE: ring=41 normal=(0.0, 1.0, 0.0) depth=0.00864595005512
+HOSE RESPONSE PLANE: ring=41 normal=(0.0, 1.0, 0.0) depth=0.00864595005512
+HOSE RESPONSE PLANE: ring=42 normal=(0.0, 1.0, 0.0) depth=0.00837625207603
+HOSE RESPONSE PLANE: ring=42 normal=(0.0, 1.0, 0.0) depth=0.00837625207603
+HOSE RESPONSE PLANE: ring=43 normal=(0.0, 1.0, 0.0) depth=0.00802215764523
+HOSE RESPONSE PLANE: ring=43 normal=(0.0, 1.0, 0.0) depth=0.00802215764523
+HOSE RESPONSE PLANE: ring=44 normal=(0.0, 1.0, 0.0) depth=0.00757753866017
+HOSE RESPONSE PLANE: ring=44 normal=(0.0, 1.0, 0.0) depth=0.00757753866017
+HOSE RESPONSE PLANE: ring=45 normal=(0.0, 1.0, 0.0) depth=0.00703588703871
+HOSE RESPONSE PLANE: ring=45 normal=(0.0, 1.0, 0.0) depth=0.00703588703871
+HOSE RESPONSE PLANE: ring=46 normal=(0.0, 1.0, 0.0) depth=0.00639016943276
+HOSE RESPONSE PLANE: ring=46 normal=(0.0, 1.0, 0.0) depth=0.00639016943276
+HOSE RESPONSE PLANE: ring=47 normal=(0.0, 1.0, 0.0) depth=0.00563287379444
+HOSE RESPONSE PLANE: ring=47 normal=(0.0, 1.0, 0.0) depth=0.00563287379444
+HOSE RESPONSE PLANE: ring=48 normal=(0.0, 1.0, 0.0) depth=0.00475587154031
+HOSE RESPONSE PLANE: ring=48 normal=(0.0, 1.0, 0.0) depth=0.00475587154031
+HOSE RESPONSE PLANE: ring=49 normal=(0.0, 1.0, 0.0) depth=0.00375034118295
+HOSE RESPONSE PLANE: ring=49 normal=(0.0, 1.0, 0.0) depth=0.00375034118295
+HOSE RESPONSE PLANE: ring=50 normal=(0.0, 1.0, 0.0) depth=0.00260681675971
+HOSE RESPONSE PLANE: ring=50 normal=(0.0, 1.0, 0.0) depth=0.00260681675971
+HOSE RESPONSE PLANE: ring=51 normal=(0.0, 1.0, 0.0) depth=0.00131506303549
+HOSE RESPONSE PLANE: ring=51 normal=(0.0, 1.0, 0.0) depth=0.00131506303549
+HOSE RESPONSE PLANE: ring=52 normal=(0.0, 1.0, 0.0) depth=-0.00013588724434
+HOSE WORLD CHECK: response preserves500micrometre intrusion plus100micrometre stand-off = true
+HOSE WORLD CHECK: native shell clears real wall after measured response translation = true
+HOSE WORLD CHECK: bounded contact collection reports truncation explicitly = true
+HOSE WORLD CHECK: removed wall leaves no cached contact planes = true
+FIRE RIG CHECK: cursor actually targets the native hose-end fitting = true
+FIRE RIG CHECK: actual primary click grabs without moving cloth or completing a duty = true
+FIRE RIG MOVE: ms=3.079 iterations=1
+FIRE RIG CHECK: actual mouse motion moves the constrained native strand = true
+FIRE RIG CHECK: motion retains every segment length and the fixed upper port = true
+FIRE RIG CHECK: all actual skeleton bones follow the moved cloth points = true
+FIRE RIG CHECK: grabbing cloth leaves camera framing unchanged = true
+FIRE RIG CHECK: second click releases without snapping or refolding = true
+FIRE RIG CHECK: original physical strand restores = true
+FIRE RIG CHECK: JSON roundtrip restores exact moved cloth positions = true
+HOSE GRAVITY CHECK: native release solver binds actual length and shell owners = true
+HOSE GRAVITY CHECK: invalid dynamics time leaves cloth unchanged = true
+HOSE GRAVITY FREE: error= mean_drop=0.04700982497366
+HOSE GRAVITY CHECK: released native cloth falls under gravity = true
+HOSE GRAVITY CHECK: fall preserves every length and fixed outlet = true
+HOSE GRAVITY CHECK: release diagnostic restores original native pose = true
+HOSE GRAVITY CHECK: release floor starts5mm below actual native shell = true
+HOSE GRAVITY CHECK: rejected supported step preserves cloth, native skin and velocity atomically = true
+HOSE GRAVITY STOP: step=12 error=infeasible length/support constraints: global length/support projection did not converge
+HOSE GRAVITY LAST CONTACT: { "ring": 0, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843849778, "rid": RID(354377751592963) } center=(-0.020749, 0.054927, 0.11238) oldcenter=(-0.020808, 0.055608, 0.112379)
+HOSE GRAVITY LAST CONTACT: { "ring": 1, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.023874, 0.054927, 0.112339) oldcenter=(-0.023933, 0.055608, 0.112338)
+HOSE GRAVITY LAST CONTACT: { "ring": 1, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.023874, 0.054927, 0.112339) oldcenter=(-0.023933, 0.055608, 0.112338)
+HOSE GRAVITY LAST CONTACT: { "ring": 2, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.026999, 0.054927, 0.112301) oldcenter=(-0.027057, 0.055608, 0.1123)
+HOSE GRAVITY LAST CONTACT: { "ring": 2, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.026999, 0.054927, 0.112301) oldcenter=(-0.027057, 0.055608, 0.1123)
+HOSE GRAVITY LAST CONTACT: { "ring": 3, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844222307, "rid": RID(354377751592963) } center=(-0.030124, 0.054927, 0.112267) oldcenter=(-0.030182, 0.055608, 0.112267)
+HOSE GRAVITY LAST CONTACT: { "ring": 3, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844222307, "rid": RID(354377751592963) } center=(-0.030124, 0.054927, 0.112267) oldcenter=(-0.030182, 0.055608, 0.112267)
+HOSE GRAVITY LAST CONTACT: { "ring": 4, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844222307, "rid": RID(354377751592963) } center=(-0.033249, 0.054927, 0.112237) oldcenter=(-0.033307, 0.055608, 0.112237)
+HOSE GRAVITY LAST CONTACT: { "ring": 4, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844222307, "rid": RID(354377751592963) } center=(-0.033249, 0.054927, 0.112237) oldcenter=(-0.033307, 0.055608, 0.112237)
+HOSE GRAVITY LAST CONTACT: { "ring": 5, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844967365, "rid": RID(354377751592963) } center=(-0.036374, 0.054927, 0.11221) oldcenter=(-0.036432, 0.055608, 0.11221)
+HOSE GRAVITY LAST CONTACT: { "ring": 5, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844967365, "rid": RID(354377751592963) } center=(-0.036374, 0.054927, 0.11221) oldcenter=(-0.036432, 0.055608, 0.11221)
+HOSE GRAVITY LAST CONTACT: { "ring": 6, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844222307, "rid": RID(354377751592963) } center=(-0.039498, 0.054927, 0.112187) oldcenter=(-0.039557, 0.055608, 0.112187)
+HOSE GRAVITY LAST CONTACT: { "ring": 6, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844222307, "rid": RID(354377751592963) } center=(-0.039498, 0.054927, 0.112187) oldcenter=(-0.039557, 0.055608, 0.112187)
+HOSE GRAVITY LAST CONTACT: { "ring": 7, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.042623, 0.054927, 0.112166) oldcenter=(-0.042682, 0.055608, 0.112167)
+HOSE GRAVITY LAST CONTACT: { "ring": 7, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.042623, 0.054927, 0.112166) oldcenter=(-0.042682, 0.055608, 0.112167)
+HOSE GRAVITY LAST CONTACT: { "ring": 8, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.045748, 0.054927, 0.112144) oldcenter=(-0.045807, 0.055608, 0.112144)
+HOSE GRAVITY LAST CONTACT: { "ring": 8, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.045748, 0.054927, 0.112144) oldcenter=(-0.045807, 0.055608, 0.112144)
+HOSE GRAVITY LAST CONTACT: { "ring": 9, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844781101, "rid": RID(354377751592963) } center=(-0.048159, 0.054927, 0.112126) oldcenter=(-0.048217, 0.055608, 0.112129)
+HOSE GRAVITY LAST CONTACT: { "ring": 9, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844781101, "rid": RID(354377751592963) } center=(-0.048159, 0.054927, 0.112126) oldcenter=(-0.048217, 0.055608, 0.112129)
+HOSE GRAVITY LAST CONTACT: { "ring": 10, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084515363, "rid": RID(354377751592963) } center=(-0.0507, 0.054927, 0.112111) oldcenter=(-0.050758, 0.055608, 0.11211)
+HOSE GRAVITY LAST CONTACT: { "ring": 10, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084515363, "rid": RID(354377751592963) } center=(-0.0507, 0.054927, 0.112111) oldcenter=(-0.050758, 0.055608, 0.11211)
+HOSE GRAVITY LAST CONTACT: { "ring": 11, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844408572, "rid": RID(354377751592963) } center=(-0.053367, 0.054927, 0.112096) oldcenter=(-0.053425, 0.055608, 0.112097)
+HOSE GRAVITY LAST CONTACT: { "ring": 11, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844408572, "rid": RID(354377751592963) } center=(-0.053367, 0.054927, 0.112096) oldcenter=(-0.053425, 0.055608, 0.112097)
+HOSE GRAVITY LAST CONTACT: { "ring": 12, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843663514, "rid": RID(354377751592963) } center=(-0.056155, 0.054927, 0.112088) oldcenter=(-0.056213, 0.055608, 0.112089)
+HOSE GRAVITY LAST CONTACT: { "ring": 12, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843663514, "rid": RID(354377751592963) } center=(-0.056155, 0.054927, 0.112088) oldcenter=(-0.056213, 0.055608, 0.112089)
+HOSE GRAVITY LAST CONTACT: { "ring": 13, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.059059, 0.054927, 0.112085) oldcenter=(-0.059117, 0.055608, 0.112086)
+HOSE GRAVITY LAST CONTACT: { "ring": 13, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.059059, 0.054927, 0.112085) oldcenter=(-0.059117, 0.055608, 0.112086)
+HOSE GRAVITY LAST CONTACT: { "ring": 14, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843290985, "rid": RID(354377751592963) } center=(-0.062074, 0.054927, 0.112088) oldcenter=(-0.062132, 0.055608, 0.112089)
+HOSE GRAVITY LAST CONTACT: { "ring": 14, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843290985, "rid": RID(354377751592963) } center=(-0.062074, 0.054927, 0.112088) oldcenter=(-0.062132, 0.055608, 0.112089)
+HOSE GRAVITY LAST CONTACT: { "ring": 15, "normal": (0.0, 1.0, 0.0), "offset": 0.05560842545927, "rid": RID(354377751592963) } center=(-0.065195, 0.054927, 0.112097) oldcenter=(-0.065253, 0.055608, 0.112099)
+HOSE GRAVITY LAST CONTACT: { "ring": 15, "normal": (0.0, 1.0, 0.0), "offset": 0.05560842545927, "rid": RID(354377751592963) } center=(-0.065195, 0.054927, 0.112097) oldcenter=(-0.065253, 0.055608, 0.112099)
+HOSE GRAVITY LAST CONTACT: { "ring": 16, "normal": (0.0, 1.0, 0.0), "offset": 0.05560842732191, "rid": RID(354377751592963) } center=(-0.068415, 0.054927, 0.112113) oldcenter=(-0.068473, 0.055608, 0.112114)
+HOSE GRAVITY LAST CONTACT: { "ring": 16, "normal": (0.0, 1.0, 0.0), "offset": 0.05560842732191, "rid": RID(354377751592963) } center=(-0.068415, 0.054927, 0.112113) oldcenter=(-0.068473, 0.055608, 0.112114)
+HOSE GRAVITY LAST CONTACT: { "ring": 17, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084105581, "rid": RID(354377751592963) } center=(-0.071729, 0.054927, 0.112136) oldcenter=(-0.071787, 0.055608, 0.112138)
+HOSE GRAVITY LAST CONTACT: { "ring": 17, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084105581, "rid": RID(354377751592963) } center=(-0.071729, 0.054927, 0.112136) oldcenter=(-0.071787, 0.055608, 0.112138)
+HOSE GRAVITY LAST CONTACT: { "ring": 18, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084105581, "rid": RID(354377751592963) } center=(-0.075132, 0.054927, 0.112166) oldcenter=(-0.07519, 0.055608, 0.112168)
+HOSE GRAVITY LAST CONTACT: { "ring": 18, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084105581, "rid": RID(354377751592963) } center=(-0.075132, 0.054927, 0.112166) oldcenter=(-0.07519, 0.055608, 0.112168)
+HOSE GRAVITY LAST CONTACT: { "ring": 19, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084105581, "rid": RID(354377751592963) } center=(-0.078618, 0.054927, 0.112203) oldcenter=(-0.078676, 0.055608, 0.112205)
+HOSE GRAVITY LAST CONTACT: { "ring": 19, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084105581, "rid": RID(354377751592963) } center=(-0.078618, 0.054927, 0.112203) oldcenter=(-0.078676, 0.055608, 0.112205)
+HOSE GRAVITY LAST CONTACT: { "ring": 20, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839565694, "rid": RID(354377751592963) } center=(-0.08218, 0.054927, 0.112246) oldcenter=(-0.082239, 0.055608, 0.112249)
+HOSE GRAVITY LAST CONTACT: { "ring": 20, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839565694, "rid": RID(354377751592963) } center=(-0.08218, 0.054927, 0.112246) oldcenter=(-0.082239, 0.055608, 0.112249)
+HOSE GRAVITY LAST CONTACT: { "ring": 21, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839938223, "rid": RID(354377751592963) } center=(-0.085814, 0.054927, 0.112297) oldcenter=(-0.085872, 0.055608, 0.112298)
+HOSE GRAVITY LAST CONTACT: { "ring": 21, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839938223, "rid": RID(354377751592963) } center=(-0.085814, 0.054927, 0.112297) oldcenter=(-0.085872, 0.055608, 0.112298)
+HOSE GRAVITY LAST CONTACT: { "ring": 22, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839006901, "rid": RID(354377751592963) } center=(-0.089513, 0.054927, 0.112352) oldcenter=(-0.089572, 0.055608, 0.112354)
+HOSE GRAVITY LAST CONTACT: { "ring": 22, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839006901, "rid": RID(354377751592963) } center=(-0.089513, 0.054927, 0.112352) oldcenter=(-0.089572, 0.055608, 0.112354)
+HOSE GRAVITY LAST CONTACT: { "ring": 23, "normal": (0.0, 1.0, 0.0), "offset": 0.05560838820636, "rid": RID(354377751592963) } center=(-0.093272, 0.054927, 0.112413) oldcenter=(-0.093331, 0.055608, 0.112415)
+HOSE GRAVITY LAST CONTACT: { "ring": 23, "normal": (0.0, 1.0, 0.0), "offset": 0.05560838820636, "rid": RID(354377751592963) } center=(-0.093272, 0.054927, 0.112413) oldcenter=(-0.093331, 0.055608, 0.112415)
+HOSE GRAVITY LAST CONTACT: { "ring": 24, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839938223, "rid": RID(354377751592963) } center=(-0.097085, 0.054927, 0.112479) oldcenter=(-0.097144, 0.055608, 0.11248)
+HOSE GRAVITY LAST CONTACT: { "ring": 24, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839938223, "rid": RID(354377751592963) } center=(-0.097085, 0.054927, 0.112479) oldcenter=(-0.097144, 0.055608, 0.11248)
+HOSE GRAVITY LAST CONTACT: { "ring": 25, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839193165, "rid": RID(354377751592963) } center=(-0.100947, 0.054927, 0.112548) oldcenter=(-0.101005, 0.055608, 0.112549)
+HOSE GRAVITY LAST CONTACT: { "ring": 25, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839193165, "rid": RID(354377751592963) } center=(-0.100947, 0.054927, 0.112548) oldcenter=(-0.101005, 0.055608, 0.112549)
+HOSE GRAVITY LAST CONTACT: { "ring": 26, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839751959, "rid": RID(354377751592963) } center=(-0.10485, 0.054927, 0.11262) oldcenter=(-0.104908, 0.055608, 0.112621)
+HOSE GRAVITY LAST CONTACT: { "ring": 26, "normal": (0.0, 1.0, 0.0), "offset": 0.05560839751959, "rid": RID(354377751592963) } center=(-0.10485, 0.054927, 0.11262) oldcenter=(-0.104908, 0.055608, 0.112621)
+HOSE GRAVITY LAST CONTACT: { "ring": 27, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084105581, "rid": RID(354377751592963) } center=(-0.108791, 0.054927, 0.112695) oldcenter=(-0.108849, 0.055608, 0.112696)
+HOSE GRAVITY LAST CONTACT: { "ring": 27, "normal": (0.0, 1.0, 0.0), "offset": 0.0556084105581, "rid": RID(354377751592963) } center=(-0.108791, 0.054927, 0.112695) oldcenter=(-0.108849, 0.055608, 0.112696)
+HOSE GRAVITY LAST CONTACT: { "ring": 28, "normal": (0.0, 1.0, 0.0), "offset": 0.05560841428339, "rid": RID(354377751592963) } center=(-0.112762, 0.054927, 0.11277) oldcenter=(-0.112821, 0.055608, 0.112771)
+HOSE GRAVITY LAST CONTACT: { "ring": 28, "normal": (0.0, 1.0, 0.0), "offset": 0.05560841428339, "rid": RID(354377751592963) } center=(-0.112762, 0.054927, 0.11277) oldcenter=(-0.112821, 0.055608, 0.112771)
+HOSE GRAVITY LAST CONTACT: { "ring": 29, "normal": (0.0, 1.0, 0.0), "offset": 0.05560842545927, "rid": RID(354377751592963) } center=(-0.116759, 0.054927, 0.112847) oldcenter=(-0.116818, 0.055608, 0.112847)
+HOSE GRAVITY LAST CONTACT: { "ring": 29, "normal": (0.0, 1.0, 0.0), "offset": 0.05560842545927, "rid": RID(354377751592963) } center=(-0.116759, 0.054927, 0.112847) oldcenter=(-0.116818, 0.055608, 0.112847)
+HOSE GRAVITY LAST CONTACT: { "ring": 30, "normal": (0.0, 1.0, 0.0), "offset": 0.05560842918456, "rid": RID(354377751592963) } center=(-0.120777, 0.054927, 0.112923) oldcenter=(-0.120835, 0.055608, 0.112923)
+HOSE GRAVITY LAST CONTACT: { "ring": 30, "normal": (0.0, 1.0, 0.0), "offset": 0.05560842918456, "rid": RID(354377751592963) } center=(-0.120777, 0.054927, 0.112923) oldcenter=(-0.120835, 0.055608, 0.112923)
+HOSE GRAVITY LAST CONTACT: { "ring": 31, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843290985, "rid": RID(354377751592963) } center=(-0.124808, 0.054927, 0.112998) oldcenter=(-0.124867, 0.055608, 0.112997)
+HOSE GRAVITY LAST CONTACT: { "ring": 31, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843290985, "rid": RID(354377751592963) } center=(-0.124808, 0.054927, 0.112998) oldcenter=(-0.124867, 0.055608, 0.112997)
+HOSE GRAVITY LAST CONTACT: { "ring": 32, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843663514, "rid": RID(354377751592963) } center=(-0.128849, 0.054927, 0.113071) oldcenter=(-0.128908, 0.055608, 0.11307)
+HOSE GRAVITY LAST CONTACT: { "ring": 32, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843663514, "rid": RID(354377751592963) } center=(-0.128849, 0.054927, 0.113071) oldcenter=(-0.128908, 0.055608, 0.11307)
+HOSE GRAVITY LAST CONTACT: { "ring": 33, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844036043, "rid": RID(354377751592963) } center=(-0.132894, 0.054927, 0.113141) oldcenter=(-0.132953, 0.055608, 0.11314)
+HOSE GRAVITY LAST CONTACT: { "ring": 33, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844036043, "rid": RID(354377751592963) } center=(-0.132894, 0.054927, 0.113141) oldcenter=(-0.132953, 0.055608, 0.11314)
+HOSE GRAVITY LAST CONTACT: { "ring": 34, "normal": (0.0, 1.0, 0.0), "offset": 0.05560845526159, "rid": RID(354377751592963) } center=(-0.136938, 0.054927, 0.113207) oldcenter=(-0.136996, 0.055608, 0.113206)
+HOSE GRAVITY LAST CONTACT: { "ring": 34, "normal": (0.0, 1.0, 0.0), "offset": 0.05560845526159, "rid": RID(354377751592963) } center=(-0.136938, 0.054927, 0.113207) oldcenter=(-0.136996, 0.055608, 0.113206)
+HOSE GRAVITY LAST CONTACT: { "ring": 35, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843663514, "rid": RID(354377751592963) } center=(-0.140975, 0.054927, 0.113269) oldcenter=(-0.141033, 0.055608, 0.113267)
+HOSE GRAVITY LAST CONTACT: { "ring": 35, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843663514, "rid": RID(354377751592963) } center=(-0.140975, 0.054927, 0.113269) oldcenter=(-0.141033, 0.055608, 0.113267)
+HOSE GRAVITY LAST CONTACT: { "ring": 36, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844781101, "rid": RID(354377751592963) } center=(-0.145001, 0.054927, 0.113327) oldcenter=(-0.145059, 0.055608, 0.113324)
+HOSE GRAVITY LAST CONTACT: { "ring": 36, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844781101, "rid": RID(354377751592963) } center=(-0.145001, 0.054927, 0.113327) oldcenter=(-0.145059, 0.055608, 0.113324)
+HOSE GRAVITY LAST CONTACT: { "ring": 37, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844408572, "rid": RID(354377751592963) } center=(-0.14901, 0.054927, 0.113377) oldcenter=(-0.149069, 0.055608, 0.113374)
+HOSE GRAVITY LAST CONTACT: { "ring": 37, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844408572, "rid": RID(354377751592963) } center=(-0.14901, 0.054927, 0.113377) oldcenter=(-0.149069, 0.055608, 0.113374)
+HOSE GRAVITY LAST CONTACT: { "ring": 38, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844781101, "rid": RID(354377751592963) } center=(-0.152999, 0.054927, 0.113422) oldcenter=(-0.153057, 0.055608, 0.113418)
+HOSE GRAVITY LAST CONTACT: { "ring": 38, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844781101, "rid": RID(354377751592963) } center=(-0.152999, 0.054927, 0.113422) oldcenter=(-0.153057, 0.055608, 0.113418)
+HOSE GRAVITY LAST CONTACT: { "ring": 39, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844036043, "rid": RID(354377751592963) } center=(-0.156962, 0.054927, 0.11346) oldcenter=(-0.15702, 0.055608, 0.113455)
+HOSE GRAVITY LAST CONTACT: { "ring": 39, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844036043, "rid": RID(354377751592963) } center=(-0.156962, 0.054927, 0.11346) oldcenter=(-0.15702, 0.055608, 0.113455)
+HOSE GRAVITY LAST CONTACT: { "ring": 40, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.160895, 0.054927, 0.11349) oldcenter=(-0.160953, 0.055608, 0.113484)
+HOSE GRAVITY LAST CONTACT: { "ring": 40, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.160895, 0.054927, 0.11349) oldcenter=(-0.160953, 0.055608, 0.113484)
+HOSE GRAVITY LAST CONTACT: { "ring": 41, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844781101, "rid": RID(354377751592963) } center=(-0.164794, 0.054927, 0.113513) oldcenter=(-0.164852, 0.055608, 0.113506)
+HOSE GRAVITY LAST CONTACT: { "ring": 41, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844781101, "rid": RID(354377751592963) } center=(-0.164794, 0.054927, 0.113513) oldcenter=(-0.164852, 0.055608, 0.113506)
+HOSE GRAVITY LAST CONTACT: { "ring": 42, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.168655, 0.054927, 0.113524) oldcenter=(-0.168713, 0.055608, 0.113517)
+HOSE GRAVITY LAST CONTACT: { "ring": 42, "normal": (0.0, 1.0, 0.0), "offset": 0.05560844594836, "rid": RID(354377751592963) } center=(-0.168655, 0.054927, 0.113524) oldcenter=(-0.168713, 0.055608, 0.113517)
+HOSE GRAVITY LAST CONTACT: { "ring": 43, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843290985, "rid": RID(354377751592963) } center=(-0.172475, 0.054927, 0.11353) oldcenter=(-0.172533, 0.055608, 0.113522)
+HOSE GRAVITY LAST CONTACT: { "ring": 43, "normal": (0.0, 1.0, 0.0), "offset": 0.05560843290985, "rid": RID(354377751592963) } center=(-0.172475, 0.054927, 0.11353) oldcenter=(-0.172533, 0.055608, 0.113522)
+HOSE GRAVITY LAST CONTACT: { "ring": 44, "normal": (0.0, 1.0, 0.0), "offset": 0.05560840124488, "rid": RID(354377751592963) } center=(-0.17625, 0.054927, 0.113523) oldcenter=(-0.176308, 0.055608, 0.113513)
+HOSE GRAVITY LAST CONTACT: { "ring": 44, "normal": (0.0, 1.0, 0.0), "offset": 0.05560840124488, "rid": RID(354377751592963) } center=(-0.17625, 0.054927, 0.113523) oldcenter=(-0.176308, 0.055608, 0.113513)
+HOSE GRAVITY LAST CONTACT: { "ring": 45, "normal": (0.0, 1.0, 0.0), "offset": 0.05560836026669, "rid": RID(354377751592963) } center=(-0.179977, 0.054927, 0.113509) oldcenter=(-0.180035, 0.055608, 0.113499)
+HOSE GRAVITY LAST CONTACT: { "ring": 45, "normal": (0.0, 1.0, 0.0), "offset": 0.05560836026669, "rid": RID(354377751592963) } center=(-0.179977, 0.054927, 0.113509) oldcenter=(-0.180035, 0.055608, 0.113499)
+HOSE GRAVITY LAST CONTACT: { "ring": 46, "normal": (0.0, 1.0, 0.0), "offset": 0.05560827272236, "rid": RID(354377751592963) } center=(-0.183654, 0.054927, 0.11348) oldcenter=(-0.183712, 0.055608, 0.113467)
+HOSE GRAVITY LAST CONTACT: { "ring": 46, "normal": (0.0, 1.0, 0.0), "offset": 0.05560827272236, "rid": RID(354377751592963) } center=(-0.183654, 0.054927, 0.11348) oldcenter=(-0.183712, 0.055608, 0.113467)
+HOSE GRAVITY LAST CONTACT: { "ring": 47, "normal": (0.0, 1.0, 0.0), "offset": 0.05560812743604, "rid": RID(354377751592963) } center=(-0.187279, 0.054927, 0.113451) oldcenter=(-0.187337, 0.055608, 0.113429)
+HOSE GRAVITY LAST CONTACT: { "ring": 47, "normal": (0.0, 1.0, 0.0), "offset": 0.05560812743604, "rid": RID(354377751592963) } center=(-0.187279, 0.054927, 0.113451) oldcenter=(-0.187337, 0.055608, 0.113429)
+HOSE GRAVITY LAST CONTACT: { "ring": 48, "normal": (0.0, 1.0, 0.0), "offset": 0.05560777539611, "rid": RID(354377751592963) } center=(-0.19085, 0.054927, 0.113411) oldcenter=(-0.190909, 0.055608, 0.1134)
+HOSE GRAVITY LAST CONTACT: { "ring": 48, "normal": (0.0, 1.0, 0.0), "offset": 0.05560777539611, "rid": RID(354377751592963) } center=(-0.19085, 0.054927, 0.113411) oldcenter=(-0.190909, 0.055608, 0.1134)
+HOSE GRAVITY LAST CONTACT: { "ring": 49, "normal": (0.0, 1.0, 0.0), "offset": 0.05560734698772, "rid": RID(354377751592963) } center=(-0.194366, 0.054926, 0.113331) oldcenter=(-0.194424, 0.055607, 0.113306)
+HOSE GRAVITY LAST CONTACT: { "ring": 49, "normal": (0.0, 1.0, 0.0), "offset": 0.05560734698772, "rid": RID(354377751592963) } center=(-0.194366, 0.054926, 0.113331) oldcenter=(-0.194424, 0.055607, 0.113306)
+HOSE GRAVITY LAST CONTACT: { "ring": 50, "normal": (0.0, 1.0, 0.0), "offset": 0.05560665967166, "rid": RID(354377751592963) } center=(-0.197828, 0.054925, 0.113289) oldcenter=(-0.197886, 0.055607, 0.113271)
+HOSE GRAVITY LAST CONTACT: { "ring": 50, "normal": (0.0, 1.0, 0.0), "offset": 0.05560665967166, "rid": RID(354377751592963) } center=(-0.197828, 0.054925, 0.113289) oldcenter=(-0.197886, 0.055607, 0.113271)
+HOSE GRAVITY LAST CONTACT: { "ring": 51, "normal": (0.0, 1.0, 0.0), "offset": 0.05560513044, "rid": RID(354377751592963) } center=(-0.201234, 0.054924, 0.113198) oldcenter=(-0.201292, 0.055605, 0.113186)
+HOSE GRAVITY LAST CONTACT: { "ring": 51, "normal": (0.0, 1.0, 0.0), "offset": 0.05560513044, "rid": RID(354377751592963) } center=(-0.201234, 0.054924, 0.113198) oldcenter=(-0.201292, 0.055605, 0.113186)
+HOSE GRAVITY LAST CONTACT: { "ring": 52, "normal": (0.0, 1.0, 0.0), "offset": 0.05560385080278, "rid": RID(354377751592963) } center=(-0.204587, 0.054922, 0.113089) oldcenter=(-0.204643, 0.055604, 0.113027)
+HOSE GRAVITY LAST CONTACT: { "ring": 52, "normal": (0.0, 1.0, 0.0), "offset": 0.05560385080278, "rid": RID(354377751592963) } center=(-0.204587, 0.054922, 0.113089) oldcenter=(-0.204643, 0.055604, 0.113027)
+HOSE GRAVITY LAST CONTACT: { "ring": 53, "normal": (0.0, 1.0, 0.0), "offset": 0.05560109408796, "rid": RID(354377751592963) } center=(-0.20789, 0.054919, 0.113027) oldcenter=(-0.207947, 0.055601, 0.11302)
+HOSE GRAVITY LAST CONTACT: { "ring": 53, "normal": (0.0, 1.0, 0.0), "offset": 0.05560109408796, "rid": RID(354377751592963) } center=(-0.20789, 0.054919, 0.113027) oldcenter=(-0.207947, 0.055601, 0.11302)
+HOSE GRAVITY LAST CONTACT: { "ring": 54, "normal": (0.0, 1.0, 0.0), "offset": 0.05559541302025, "rid": RID(354377751592963) } center=(-0.211143, 0.054914, 0.112887) oldcenter=(-0.211197, 0.055596, 0.112822)
+HOSE GRAVITY LAST CONTACT: { "ring": 54, "normal": (0.0, 1.0, 0.0), "offset": 0.05559541302025, "rid": RID(354377751592963) } center=(-0.211143, 0.054914, 0.112887) oldcenter=(-0.211197, 0.055596, 0.112822)
+HOSE GRAVITY LAST CONTACT: { "ring": 55, "normal": (0.0, 1.0, 0.0), "offset": 0.05558998527229, "rid": RID(354377751592963) } center=(-0.214353, 0.054908, 0.112733) oldcenter=(-0.214408, 0.05559, 0.112714)
+HOSE GRAVITY LAST CONTACT: { "ring": 55, "normal": (0.0, 1.0, 0.0), "offset": 0.05558998527229, "rid": RID(354377751592963) } center=(-0.214353, 0.054908, 0.112733) oldcenter=(-0.214408, 0.05559, 0.112714)
+HOSE GRAVITY LAST CONTACT: { "ring": 56, "normal": (0.0, 1.0, 0.0), "offset": 0.05558517592251, "rid": RID(354377751592963) } center=(-0.217525, 0.0549, 0.112593) oldcenter=(-0.21758, 0.055582, 0.112561)
+HOSE GRAVITY LAST CONTACT: { "ring": 56, "normal": (0.0, 1.0, 0.0), "offset": 0.05558517592251, "rid": RID(354377751592963) } center=(-0.217525, 0.0549, 0.112593) oldcenter=(-0.21758, 0.055582, 0.112561)
+HOSE GRAVITY LAST CONTACT: { "ring": 57, "normal": (0.0, 1.0, 0.0), "offset": 0.0555776750505, "rid": RID(354377751592963) } center=(-0.220668, 0.054888, 0.112497) oldcenter=(-0.220715, 0.055573, 0.112316)
+HOSE GRAVITY LAST CONTACT: { "ring": 57, "normal": (0.0, 1.0, 0.0), "offset": 0.0555776750505, "rid": RID(354377751592963) } center=(-0.220668, 0.054888, 0.112497) oldcenter=(-0.220715, 0.055573, 0.112316)
+HOSE GRAVITY LAST CONTACT: { "ring": 58, "normal": (0.0, 1.0, 0.0), "offset": 0.05555435287058, "rid": RID(354377751592963) } center=(-0.223788, 0.054871, 0.112386) oldcenter=(-0.223836, 0.055555, 0.112386)
+HOSE GRAVITY LAST CONTACT: { "ring": 58, "normal": (0.0, 1.0, 0.0), "offset": 0.05555435287058, "rid": RID(354377751592963) } center=(-0.223788, 0.054871, 0.112386) oldcenter=(-0.223836, 0.055555, 0.112386)
+HOSE GRAVITY LAST CONTACT: { "ring": 59, "normal": (0.0, 1.0, 0.0), "offset": 0.05552400106788, "rid": RID(354377751592963) } center=(-0.226887, 0.054852, 0.112143) oldcenter=(-0.226918, 0.05553, 0.11198)
+HOSE GRAVITY LAST CONTACT: { "ring": 59, "normal": (0.0, 1.0, 0.0), "offset": 0.05552400106788, "rid": RID(354377751592963) } center=(-0.226887, 0.054852, 0.112143) oldcenter=(-0.226918, 0.05553, 0.11198)
+HOSE GRAVITY LAST CONTACT: { "ring": 60, "normal": (0.0, 1.0, 0.0), "offset": 0.0555163698107, "rid": RID(354377751592963) } center=(-0.229986, 0.054843, 0.111921) oldcenter=(-0.230021, 0.05551, 0.111812)
+HOSE GRAVITY LAST CONTACT: { "ring": 60, "normal": (0.0, 1.0, 0.0), "offset": 0.0555163698107, "rid": RID(354377751592963) } center=(-0.229986, 0.054843, 0.111921) oldcenter=(-0.230021, 0.05551, 0.111812)
+HOSE GRAVITY LAST CONTACT: { "ring": 61, "normal": (0.0, 1.0, 0.0), "offset": 0.05551215650737, "rid": RID(354377751592963) } center=(-0.233101, 0.054857, 0.111801) oldcenter=(-0.233135, 0.05553, 0.11169)
+HOSE GRAVITY LAST CONTACT: { "ring": 61, "normal": (0.0, 1.0, 0.0), "offset": 0.05551215650737, "rid": RID(354377751592963) } center=(-0.233101, 0.054857, 0.111801) oldcenter=(-0.233135, 0.05553, 0.11169)
+HOSE GRAVITY LAST CONTACT: { "ring": 62, "normal": (0.0, 1.0, 0.0), "offset": 0.055559395051, "rid": RID(354377751592963) } center=(-0.236237, 0.054885, 0.11165) oldcenter=(-0.236267, 0.055568, 0.111478)
+HOSE GRAVITY LAST CONTACT: { "ring": 62, "normal": (0.0, 1.0, 0.0), "offset": 0.055559395051, "rid": RID(354377751592963) } center=(-0.236237, 0.054885, 0.11165) oldcenter=(-0.236267, 0.055568, 0.111478)
+HOSE GRAVITY LAST CONTACT: { "ring": 63, "normal": (0.0, 1.0, 0.0), "offset": 0.05560159327686, "rid": RID(354377751592963) } center=(-0.2394, 0.054907, 0.111351) oldcenter=(-0.239429, 0.055601, 0.111165)
+HOSE GRAVITY LAST CONTACT: { "ring": 63, "normal": (0.0, 1.0, 0.0), "offset": 0.05560159327686, "rid": RID(354377751592963) } center=(-0.2394, 0.054907, 0.111351) oldcenter=(-0.239429, 0.055601, 0.111165)
+HOSE GRAVITY LAST CONTACT: { "ring": 64, "normal": (0.0, 1.0, 0.0), "offset": 0.0556021930486, "rid": RID(354377751592963) } center=(-0.242596, 0.054904, 0.110884) oldcenter=(-0.242636, 0.055605, 0.110779)
+HOSE GRAVITY LAST CONTACT: { "ring": 64, "normal": (0.0, 1.0, 0.0), "offset": 0.0556021930486, "rid": RID(354377751592963) } center=(-0.242596, 0.054904, 0.110884) oldcenter=(-0.242636, 0.055605, 0.110779)
+HOSE GRAVITY LAST CONTACT: { "ring": 65, "normal": (0.0, 1.0, 0.0), "offset": 0.05553757602572, "rid": RID(354377751592963) } center=(-0.245828, 0.054893, 0.110229) oldcenter=(-0.245882, 0.055543, 0.110195)
+HOSE GRAVITY LAST CONTACT: { "ring": 65, "normal": (0.0, 1.0, 0.0), "offset": 0.05553757602572, "rid": RID(354377751592963) } center=(-0.245828, 0.054893, 0.110229) oldcenter=(-0.245882, 0.055543, 0.110195)
+HOSE GRAVITY LAST CONTACT: { "ring": 66, "normal": (0.0, 1.0, 0.0), "offset": 0.05558321828246, "rid": RID(354377751592963) } center=(-0.249096, 0.054888, 0.109353) oldcenter=(-0.24915, 0.055586, 0.109324)
+HOSE GRAVITY LAST CONTACT: { "ring": 66, "normal": (0.0, 1.0, 0.0), "offset": 0.05558321828246, "rid": RID(354377751592963) } center=(-0.249096, 0.054888, 0.109353) oldcenter=(-0.24915, 0.055586, 0.109324)
+HOSE GRAVITY LAST CONTACT: { "ring": 67, "normal": (0.0, 1.0, 0.0), "offset": 0.0555899610579, "rid": RID(354377751592963) } center=(-0.252399, 0.054868, 0.108244) oldcenter=(-0.252438, 0.055571, 0.108172)
+HOSE GRAVITY LAST CONTACT: { "ring": 67, "normal": (0.0, 1.0, 0.0), "offset": 0.0555899610579, "rid": RID(354377751592963) } center=(-0.252399, 0.054868, 0.108244) oldcenter=(-0.252438, 0.055571, 0.108172)
+HOSE GRAVITY LAST CONTACT: { "ring": 68, "normal": (0.0, 1.0, 0.0), "offset": 0.05544139461815, "rid": RID(354377751592963) } center=(-0.255691, 0.054711, 0.106793) oldcenter=(-0.255779, 0.055517, 0.106829)
+HOSE GRAVITY LAST CONTACT: { "ring": 68, "normal": (0.0, 1.0, 0.0), "offset": 0.05544139461815, "rid": RID(354377751592963) } center=(-0.255691, 0.054711, 0.106793) oldcenter=(-0.255779, 0.055517, 0.106829)
+HOSE GRAVITY LAST CONTACT: { "ring": 69, "normal": (0.0, 1.0, 0.0), "offset": 0.05478254908919, "rid": RID(354377751592963) } center=(-0.258783, 0.053988, 0.104829) oldcenter=(-0.259021, 0.055295, 0.104989)
+HOSE GRAVITY LAST CONTACT: { "ring": 69, "normal": (0.0, 1.0, 0.0), "offset": 0.05478254908919, "rid": RID(354377751592963) } center=(-0.258783, 0.053988, 0.104829) oldcenter=(-0.259021, 0.055295, 0.104989)
+HOSE GRAVITY LAST CONTACT: { "ring": 70, "normal": (0.0, 1.0, 0.0), "offset": 0.05559546331167, "rid": RID(354377751592963) } center=(-0.261642, 0.052702, 0.102536) oldcenter=(-0.261303, 0.056595, 0.102128)
+HOSE GRAVITY LAST CONTACT: { "ring": 70, "normal": (0.0, 1.0, 0.0), "offset": 0.05559546331167, "rid": RID(354377751592963) } center=(-0.261642, 0.052702, 0.102536) oldcenter=(-0.261303, 0.056595, 0.102128)
+HOSE GRAVITY LAST CONTACT: { "ring": 71, "normal": (0.0, 1.0, 0.0), "offset": 0.04151912935302, "rid": RID(354377751592963) } center=(-0.265455, 0.053851, 0.101813) oldcenter=(-0.264609, 0.058909, 0.102449)
+HOSE GRAVITY LAST CONTACT: { "ring": 71, "normal": (0.0, 1.0, 0.0), "offset": 0.04151912935302, "rid": RID(354377751592963) } center=(-0.265455, 0.053851, 0.101813) oldcenter=(-0.264609, 0.058909, 0.102449)
+HOSE GRAVITY LAST CONTACT: { "ring": 72, "normal": (0.0, 1.0, 0.0), "offset": 0.05226939933598, "rid": RID(354377751592963) } center=(-0.262106, 0.05137, 0.102519) oldcenter=(-0.260449, 0.058209, 0.102716)
+HOSE GRAVITY LAST CONTACT: { "ring": 72, "normal": (0.0, 1.0, 0.0), "offset": 0.05226939933598, "rid": RID(354377751592963) } center=(-0.262106, 0.05137, 0.102519) oldcenter=(-0.260449, 0.058209, 0.102716)
+HOSE GRAVITY LAST CONTACT: { "ring": 73, "normal": (0.0, 1.0, 0.0), "offset": 0.05462446825802, "rid": RID(354377751592963) } center=(-0.261023, 0.050953, 0.102646) oldcenter=(-0.259538, 0.057506, 0.102912)
+HOSE GRAVITY LAST CONTACT: { "ring": 73, "normal": (0.0, 1.0, 0.0), "offset": 0.05462446825802, "rid": RID(354377751592963) } center=(-0.261023, 0.050953, 0.102646) oldcenter=(-0.259538, 0.057506, 0.102912)
+HOSE GRAVITY LAST CONTACT: { "ring": 74, "normal": (0.0, 1.0, 0.0), "offset": 0.05485845187902, "rid": RID(354377751592963) } center=(-0.259897, 0.050679, 0.102675) oldcenter=(-0.259025, 0.056512, 0.103218)
+HOSE GRAVITY LAST CONTACT: { "ring": 74, "normal": (0.0, 1.0, 0.0), "offset": 0.05485845187902, "rid": RID(354377751592963) } center=(-0.259897, 0.050679, 0.102675) oldcenter=(-0.259025, 0.056512, 0.103218)
+HOSE GRAVITY LAST CONTACT: { "ring": 75, "normal": (0.0, 1.0, 0.0), "offset": 0.04780962521434, "rid": RID(354377751592963) } center=(-0.258779, 0.050406, 0.102619) oldcenter=(-0.25817, 0.057133, 0.10276)
+HOSE GRAVITY LAST CONTACT: { "ring": 75, "normal": (0.0, 1.0, 0.0), "offset": 0.04780962521434, "rid": RID(354377751592963) } center=(-0.258779, 0.050406, 0.102619) oldcenter=(-0.25817, 0.057133, 0.10276)
+HOSE GRAVITY LAST CONTACT: { "ring": 76, "normal": (0.0, 1.0, 0.0), "offset": 0.05147979984283, "rid": RID(354377751592963) } center=(-0.258764, 0.049282, 0.102839) oldcenter=(-0.259087, 0.056481, 0.102972)
+HOSE GRAVITY LAST CONTACT: { "ring": 76, "normal": (0.0, 1.0, 0.0), "offset": 0.05147979984283, "rid": RID(354377751592963) } center=(-0.258764, 0.049282, 0.102839) oldcenter=(-0.259087, 0.056481, 0.102972)
+HOSE GRAVITY LAST CONTACT: { "ring": 77, "normal": (0.0, 1.0, 0.0), "offset": 0.04924166685194, "rid": RID(354377751592963) } center=(-0.259834, 0.04966, 0.102754) oldcenter=(-0.259878, 0.057278, 0.102782)
+HOSE GRAVITY SUPPORTED: ms=3357.844 response_planes=1114
+HOSE GRAVITY CHECK: gravity reaches real floor and resolves native shell contacts = false
+HOSE GRAVITY CHECK: supported cloth remains outside floor without length gain = true
+HOSE GRAVITY ENERGY: initial=60.4376520839717 final=58.8186161563617
+HOSE GRAVITY CHECK: stationary floor response does not inject mechanical energy = true
+HOSE GRAVITY CHECK: supported release diagnostic restores original pose = true
+FIRE RIG CHECK: native gravity and contact response programme = false
+FIRE RIG CHECK: gravity reaches real floor and resolves native shell contacts = false
+FIRE CAPACITY CHECK: actual grabbing moves and restores native cloth without stretching = false
+FIRE CAPACITY CHECK: moved native cloth frame saved = true
+V2 FIRE CAPACITY NATIVE: FAIL failures=1

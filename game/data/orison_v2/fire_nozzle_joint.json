@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fire_nozzle_joint.glb",
+  "dimensions": {
+    "pitch_m": 0.0028,
+    "radial_clearance_m": 0.00025,
+    "bore_radius_m": 0.012,
+    "sealing_plane_y_m": 0.017,
+    "nozzle_base_y_m": 0.03,
+    "withdrawal_m": 0.012
+  },
+  "materials": {
+    "brass": {
+      "catalog_key": "radiator_service_brass",
+      "tint": [
+        0.9,
+        0.82,
+        0.63,
+        1.0
+      ],
+      "pigment": 1.0,
+      "normal": 0.15,
+      "roughness": 0.8,
+      "metallic": 0.92
+    }
+  },
+  "parts": {
+    "HoseSeat": "brass",
+    "NozzleNut": "brass",
+    "NozzleSpigot": "brass"
+  }
+}

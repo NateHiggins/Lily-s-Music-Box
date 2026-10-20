@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 949.69,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T10:52:49Z",
+  "started_utc": "2026-10-20T10:36:59Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 40065 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface11.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface11.log",
+  "stdout_sha256": "839eb891b6db153e362c8684e71aa8d5bef3f5343cf3ec3cba773b050561655c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface11",
+ "source": {
+  "dirty_paths": 2067,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/arcade_throat_construction.json",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage.blend",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/front_lighting_finish/export.py",
+   " M art/blender/house_switchboard_construction.json",
+   " M art/blender/scripts/domestic_storage_geometry.py",
+   " M art/blender/scripts/inspect_domestic_storage_context.py",
+   " M art/blender/scripts/render_domestic_storage.py",
+   " M art/blender/street_paving_details_construction.json",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/domestic_storage/source_plan.json",
+   " M art/data/gen_layout.py",
+   " M art/data/material_catalog.json"
+  ],
+  "repository_head": "82887a14d08357a400047624a6ce720351a748e0",
+  "repository_tree": "c3fe9ec4f7e115f36a3346143a5af6c249f42ef0",
+  "runtime_inputs_sha256": "db4930d8cecef184c9a76b6864fed4b57b75a7c8621adf663c87838e30e4b79d",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "2fd4b2606cbf9cd3fe01c716cab00100ed2afd64f2e74f5a949502b250481650"
+ },
+ "windowed": true
+}

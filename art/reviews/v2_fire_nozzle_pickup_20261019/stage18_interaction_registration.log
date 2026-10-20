@@ -1,0 +1,15 @@
+manifest updated: C:\PleaseRemainOnTheLine\tools\interaction_implementor_manifest.json (95 entries)
+interaction implementor census audit (T10 drift detector)
+- discovered: 95
+- manifest: 95
+- by_family: {'control_prompt': 22, 'interact_prompt': 73}
+- by_role: {'adapter': 1, 'debug-only': 2, 'production': 92}
+- by_protocol: {'composed/interact-area': 1, 'named-control': 22, 'whole-object': 72}
+- by_action_status: {'ACTION_RESOLVED_ADAPTER': 1, 'ACTION_RESOLVED_COMPOSED': 1, 'ACTION_RESOLVED_INHERITED': 2, 'ACTION_RESOLVED_SAME_FILE': 91}
+- unclassified: 0
+- stale: 0
+- changed_classifications: 0
+- required_relationship_failures: 0
+- family_flips: 0
+- totals_agree: True
+-> exit 0

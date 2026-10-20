@@ -27,6 +27,9 @@ func _run() -> void:
 	var shared_uv_defaults: Array = []
 	var finish_review := preload("res://tests/v2_control_finish_review.gd").new()
 	finish_review.validate_material_contract(self)
+	if not failures.is_empty():
+		# An invalid material ABI cannot qualify a world. Fail before its costly build.
+		get_tree().quit(1);return
 	for key in ["metal","wood_dark","timber","cast_iron","paper"]:
 		var stock := MatLib.get_mat(key) as StandardMaterial3D
 		shared_uv_defaults.append({"stock":stock,"uv1":stock.uv1_triplanar,"uv2":stock.uv2_triplanar})
@@ -50,6 +53,21 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	# The world builds synchronously; give passive parts actual physics ticks
+	# before taking snapshots that are expected to remain supported on restore.
+	for frame in 40:await get_tree().physics_frame
+	# Validate the changed hand/stock family in this same production world
+	# alongside the remaining surface programmes.
+	var fire_review := preload("res://tests/v2_fire_service_review.gd").new()
+	await fire_review.run(world,self)
+	# Retain every fire failure, but collect the remaining world surfaces in
+	# this same run. A failed fitting must not suppress the defect inventory.
+	if OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1":
+		world.shutdown_for_tests();world.free()
+		for frame in 4:await RenderingServer.frame_post_draw
+		fire_review.after_teardown(self)
+		print("V2 FIRE PREFLIGHT: ","PASS" if failures.is_empty() else "FAIL"," checks=",batch_checks," failures=",failures.size(),"; fire-only scope, not full surface acceptance")
+		get_tree().quit(0 if failures.is_empty() else 1);return
 	await preload("res://tests/v2_city_elevation_review.gd").new().run(world,self)
 	var furnishing_review := preload("res://tests/v2_furnishing_clearance_review.gd").new()
 	furnishing_review.set_meta("shared_world_validation",true);add_child(furnishing_review)
@@ -149,8 +167,6 @@ func _run() -> void:
 	for failure: String in media_result.failures: failures.append(failure)
 	# Reuse this production world for changed instrument geometry and its
 	# retained service owners, then measure retirement after the same audit.
-	var fire_review := preload("res://tests/v2_fire_service_review.gd").new()
-	await fire_review.run(world,self)
 	var electrical_review := preload("res://tests/v2_electrical_service_review.gd").new()
 	await electrical_review.run(world,self)
 	var connections_review := preload("res://tests/v2_electrical_connections_review.gd").new()

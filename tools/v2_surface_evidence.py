@@ -10,7 +10,7 @@ from audit_v2_surfaces import evaluate
 
 ROOT=Path(__file__).resolve().parents[1]
 PACKET=ROOT/'art/renders/orison_v2/surface_requirements_20261011'
-TEXT={'.gd','.tscn','.tres','.godot','.json','.py','.gdshader','.gdshaderinc','.gltf','.import'}
+TEXT={'.gd','.tscn','.tres','.godot','.json','.py','.gdshader','.gdshaderinc','.gltf','.import','.cpp','.h','.hpp','.gdextension','.txt'}
 ASSETS={'.glb','.gltf','.bin','.rg8','.png','.jpg','.jpeg','.webp','.tres','.tscn'}
 
 def test_dependency_paths(root,seeds):
@@ -35,6 +35,36 @@ def file_hash(path):
     if path.suffix in TEXT:raw=raw.replace(b'\r\n',b'\n')
     return hashlib.sha256(raw).hexdigest()
 
+def material_recipe_paths(root):
+    """Bind registered procedural recipes, physical relief helpers and source maps.
+
+    Binding source declarations as well as installed PNGs means editing a normal
+    recipe expires evidence even before its runtime projection is regenerated.
+    """
+    root=Path(root).resolve(); paths=set()
+    mapping=json.loads((root/'art/textures/catalog_mapping.json').read_text(encoding='utf8'))
+    for directory in sorted({v for v in mapping.values() if isinstance(v,str) and v.startswith('procedural/')}):
+        recipe=(root/'art/textures'/directory/'material.json').resolve()
+        if not recipe.is_relative_to(root):raise ValueError('Material recipe escapes repository')
+        if not recipe.is_file():raise ValueError('Missing registered material recipe: '+str(recipe))
+        paths.add(recipe);data=json.loads(recipe.read_text(encoding='utf8'))
+        references=list(data.get('source_bindings',{}))
+        if data.get('generator'):references.append(data['generator'])
+        for reference in references:
+            source=(root/reference).resolve()
+            if not source.is_relative_to(root) or not source.is_file():
+                raise ValueError('Missing or escaping material source: '+reference)
+            paths.add(source)
+        for reference in data.get('maps',{}).values():
+            # Legacy recipes may carry channel settings instead of filenames.
+            if not isinstance(reference,str):continue
+            source=(recipe.parent/reference).resolve()
+            if not source.is_relative_to(recipe.parent) or not source.is_file():
+                raise ValueError('Missing or escaping material map: '+reference)
+            paths.add(source)
+    return paths
+
+
 def inputs(root=ROOT):
     # Imported GLB extracts and ingest caches are derived local state. Track
     # authored inputs, including new nonignored additions, before qualification.
@@ -42,11 +72,13 @@ def inputs(root=ROOT):
     paths=set()
     for directory,suffixes in [('game/scripts',{'.gd'}),('game/scenes',{'.tscn','.tres'}),
                                ('game/data',{'.json'}),('game/shaders',{'.gdshader','.gdshaderinc'}),
+                               ('game/native',{'.cpp','.h','.hpp','.gdextension','.json','.dll','.so','.dylib'}),
                                ('game/assets',ASSETS),('art/blender/scripts',{'.py'}),
                                ('art/blender/front_lighting_candidate',{'.py'}),
                                ('art/blender/front_lighting_finish',{'.py'}),
                                ('art/textures/ai_materials',{'.json'}),('game/tests/fixtures',{'.json'})]:
         paths.update(p for p in (root/directory).rglob('*') if p.is_file() and p.suffix in suffixes and p.relative_to(root).as_posix() in versioned)
+    paths.update(p for p in (root/'game/native').rglob('CMakeLists.txt') if p.is_file() and p.relative_to(root).as_posix() in versioned)
     paths.update(root/p for p in ['game/project.godot','game/tests/orison_v2_surface_inventory.gd',
                  'game/tests/v2_front_restoration_review.gd',
                  'game/tests/OrisonV2SurfaceInventory.tscn','tools/audit_v2_surfaces.py',
@@ -74,7 +106,25 @@ def inputs(root=ROOT):
         'art/blender/city_horizon_far.blend',
         'art/blender/city_horizon_construction.json',
         'art/blender/house_switchboard.blend',
-        'art/blender/house_switchboard_construction.json'))
+        'art/blender/house_switchboard_construction.json',
+        'art/blender/fire_hose_stock.blend',
+        'art/blender/fire_hose_stock_construction.json',
+        'art/blender/fire_joint_stock.blend',
+        'art/blender/fire_joint_stock_construction.json',
+        'art/blender/fire_nozzle_hose.blend',
+        'art/blender/fire_nozzle_hose_construction.json',
+        'art/blender/fire_nozzle_joint.blend',
+        'art/blender/fire_nozzle_joint_construction.json',
+        'art/blender/fire_nozzle_detail.blend',
+        'art/blender/fire_nozzle_detail_construction.json',
+        'art/blender/fire_nozzle_collision.blend',
+        'art/blender/fire_nozzle_collision_construction.json',
+        'art/blender/fire_floor_enamel.blend',
+        'art/blender/fire_floor_enamel_construction.json',
+        'art/blender/fire_fold_stock.blend',
+            'art/blender/fire_fold_stock_construction.json',
+            'art/blender/fire_hose_rack.blend',
+        'art/blender/fire_hose_rack_construction.json'))
     for name in ('toast_crumb','leather_worn','mineral_scale'):
         paths.add(root/f'art/textures/ai_sources/{name}.png')
     paths.add(root/'art/textures/ai_sources/v2_surface_stock_20261011.json')
@@ -172,9 +222,21 @@ def inputs(root=ROOT):
     imports.extend(root/'game/assets'/(asset+'.import') for asset in UV_IMPORTS)
     imports.extend(p for p in (root/'game/assets/characters/mina_vale').glob('*.png.import') if p.relative_to(root).as_posix() in versioned)
     imports.extend(p for p in (root/'game/assets/ui/telegram').glob('*.png.import') if p.relative_to(root).as_posix() in versioned)
+    # Every authored rendering asset's import parameters affect its loaded
+    # result, including device textures and meshes outside the building set.
+    # Derived glTF extracts remain excluded unless their sidecar is authored.
+    for name in versioned:
+        if not name.startswith('game/assets/'):continue
+        source=root/name
+        if source.suffix in ASSETS:
+            sidecar=Path(str(source)+'.import')
+            if sidecar.is_file():imports.append(sidecar)
+        elif source.suffix=='.import' and source.with_suffix('').suffix in ASSETS:
+            imports.append(source)
+    paths.update(material_recipe_paths(root))
     paths.update(test_dependency_paths(root,paths))
     manifest=sorted([p.relative_to(root).as_posix(),file_hash(p)] for p in paths)
-    for path in sorted(imports):
+    for path in sorted(set(imports)):
         text=path.read_text(encoding='utf-8').replace('\r\n','\n')
         if '[params]' not in text:raise ValueError('import has no parameters: '+str(path))
         manifest.append([path.relative_to(root).as_posix(),hashlib.sha256(text.split('[params]',1)[1].strip().encode()).hexdigest()])

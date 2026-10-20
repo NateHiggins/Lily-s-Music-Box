@@ -1,0 +1,136 @@
+{
+	"checks": 72,
+	"evidence_class": "INERT",
+	"failures": [
+		"Compact280(0.04, 0.6575, 0.28){ \"position\": (0.04, 0.6575, 0.271), \"normal\": (0.0, 0.0, -1.0), \"face_index\": 5303, \"collider_id\": 54223963871, \"collider\": @StaticBody3D@7:<StaticBody3D#54223963871>, \"shape\": 1, \"rid\": RID(1078036791296) }",
+		"Standard390(0.04, 0.64, 0.39){ \"position\": (0.04, 0.64, 0.381), \"normal\": (0.0, 0.0, -1.0), \"face_index\": 5326, \"collider_id\": 56623105877, \"collider\": @StaticBody3D@14:<StaticBody3D#56623105877>, \"shape\": 1, \"rid\": RID(1185410973698) }",
+		"Standard410(0.04, 0.64, 0.41){ \"position\": (0.04, 0.64, 0.401), \"normal\": (0.0, 0.0, -1.0), \"face_index\": 5328, \"collider_id\": 57143199572, \"collider\": @StaticBody3D@21:<StaticBody3D#57143199572>, \"shape\": 1, \"rid\": RID(1241245548544) }",
+		"Standard300(0.04, 0.64, 0.3){ \"position\": (0.04, 0.64, 0.291), \"normal\": (0.0, 0.0, -1.0), \"face_index\": 5328, \"collider_id\": 57663293273, \"collider\": @StaticBody3D@28:<StaticBody3D#57663293273>, \"shape\": 1, \"rid\": RID(1297080123394) }",
+		"Standard400(0.04, 0.64, 0.4){ \"position\": (0.04, 0.64, 0.391), \"normal\": (0.0, 0.0, -1.0), \"face_index\": 5327, \"collider_id\": 60230207324, \"collider\": @StaticBody3D@35:<StaticBody3D#60230207324>, \"shape\": 1, \"rid\": RID(1352914698240) }",
+		"Compact430Timber(0.04, 0.6575, 0.43){ \"position\": (0.04, 0.6575, 0.421), \"normal\": (0.0, 0.0, -1.0), \"face_index\": 5306, \"collider_id\": 60750301023, \"collider\": @StaticBody3D@42:<StaticBody3D#60750301023>, \"shape\": 1, \"rid\": RID(1408749273090) }",
+		"Standard360(0.04, 0.64, 0.36){ \"position\": (0.04, 0.64, 0.351), \"normal\": (0.0, 0.0, -1.0), \"face_index\": 5331, \"collider_id\": 61270394788, \"collider\": @StaticBody3D@49:<StaticBody3D#61270394788>, \"shape\": 1, \"rid\": RID(1464583847936) }",
+		"Standard350(0.04, 0.64, 0.35){ \"position\": (0.04, 0.64, 0.341), \"normal\": (0.0, 0.0, -1.0), \"face_index\": 5325, \"collider_id\": 61790488481, \"collider\": @StaticBody3D@56:<StaticBody3D#61790488481>, \"shape\": 1, \"rid\": RID(1520418422786) }"
+	],
+	"rows": [
+		{
+			"port": "(0.04, 0.6575, 0.28)",
+			"rear_error": 0.0,
+			"template": "Compact280"
+		},
+		{
+			"port": "(-0.076, 0.22, 0.28)",
+			"rear_error": 0.0,
+			"template": "Compact280"
+		},
+		{
+			"port": "(0.114, 0.22, 0.28)",
+			"rear_error": 0.0,
+			"template": "Compact280"
+		},
+		{
+			"port": "(0.04, 0.64, 0.39)",
+			"rear_error": 0.0,
+			"template": "Standard390"
+		},
+		{
+			"port": "(-0.076, 0.22, 0.39)",
+			"rear_error": 0.0,
+			"template": "Standard390"
+		},
+		{
+			"port": "(0.114, 0.22, 0.39)",
+			"rear_error": 0.0,
+			"template": "Standard390"
+		},
+		{
+			"port": "(0.04, 0.64, 0.41)",
+			"rear_error": 0.0,
+			"template": "Standard410"
+		},
+		{
+			"port": "(-0.076, 0.22, 0.41)",
+			"rear_error": 0.0,
+			"template": "Standard410"
+		},
+		{
+			"port": "(0.114, 0.22, 0.41)",
+			"rear_error": 0.0,
+			"template": "Standard410"
+		},
+		{
+			"port": "(0.04, 0.64, 0.3)",
+			"rear_error": 0.0,
+			"template": "Standard300"
+		},
+		{
+			"port": "(-0.076, 0.22, 0.3)",
+			"rear_error": 0.0,
+			"template": "Standard300"
+		},
+		{
+			"port": "(0.114, 0.22, 0.3)",
+			"rear_error": 0.0,
+			"template": "Standard300"
+		},
+		{
+			"port": "(0.04, 0.64, 0.4)",
+			"rear_error": 0.0000000298023223876953,
+			"template": "Standard400"
+		},
+		{
+			"port": "(-0.076, 0.22, 0.4)",
+			"rear_error": 0.0000000298023223876953,
+			"template": "Standard400"
+		},
+		{
+			"port": "(0.114, 0.22, 0.4)",
+			"rear_error": 0.0000000298023223876953,
+			"template": "Standard400"
+		},
+		{
+			"port": "(0.04, 0.6575, 0.43)",
+			"rear_error": 0.0,
+			"template": "Compact430Timber"
+		},
+		{
+			"port": "(-0.076, 0.22, 0.43)",
+			"rear_error": 0.0,
+			"template": "Compact430Timber"
+		},
+		{
+			"port": "(0.114, 0.22, 0.43)",
+			"rear_error": 0.0,
+			"template": "Compact430Timber"
+		},
+		{
+			"port": "(0.04, 0.64, 0.36)",
+			"rear_error": 0.0,
+			"template": "Standard360"
+		},
+		{
+			"port": "(-0.076, 0.22, 0.36)",
+			"rear_error": 0.0,
+			"template": "Standard360"
+		},
+		{
+			"port": "(0.114, 0.22, 0.36)",
+			"rear_error": 0.0,
+			"template": "Standard360"
+		},
+		{
+			"port": "(0.04, 0.64, 0.35)",
+			"rear_error": 0.0000000298023223876953,
+			"template": "Standard350"
+		},
+		{
+			"port": "(-0.076, 0.22, 0.35)",
+			"rear_error": 0.0000000298023223876953,
+			"template": "Standard350"
+		},
+		{
+			"port": "(0.114, 0.22, 0.35)",
+			"rear_error": 0.0000000298023223876953,
+			"template": "Standard350"
+		}
+	]
+}

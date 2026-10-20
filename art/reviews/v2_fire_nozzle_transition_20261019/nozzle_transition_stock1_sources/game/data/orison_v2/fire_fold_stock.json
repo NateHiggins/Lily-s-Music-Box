@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fire_fold_stock.glb",
+  "material": {
+    "catalog_key": "linen",
+    "tint": [
+      0.75,
+      0.71,
+      0.59,
+      1
+    ],
+    "pigment": 1.0,
+    "normal": 0.08,
+    "roughness": 0.9,
+    "metallic": 0.0
+  },
+  "parts": [
+    "FoldPair",
+    "FirstPair",
+    "LastLeg",
+    "Crown",
+    "OutletThroat",
+    "ReturnFlat",
+    "ReturnRise",
+    "ReturnDrop",
+    "NozzleThroat00",
+    "NozzleThroat01",
+    "NozzleThroat10",
+    "NozzleThroat11"
+  ],
+  "outlet_from_crown_m": [
+    0.05,
+    0.045,
+    0
+  ],
+  "nozzle_from_leaf_m": [
+    -0.01,
+    -0.161,
+    0
+  ],
+  "nozzle_mouth_axes": {
+    "00": [
+      -0.02439531870186329,
+      0.975872278213501,
+      -0.21697475016117096
+    ],
+    "01": [
+      -0.046706847846508026,
+      0.974055290222168,
+      -0.2214377075433731
+    ],
+    "10": [
+      -0.021880121901631355,
+      0.9758967757225037,
+      -0.21713322401046753
+    ],
+    "11": [
+      -0.04417485371232033,
+      0.974133312702179,
+      -0.2216140329837799
+    ]
+  }
+}

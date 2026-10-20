@@ -1,0 +1,197 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native rack candidate; no runtime/human acceptance.",
+  "source_bindings": {
+    "art/blender/scripts/build_fire_hose_rack.py": "5e5bd4643f08c1fc82c94dfec95c3506c91ae439bc03f3a931a8923700986276",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/fire_service.blend": "711be36e6951534f92fe20939ff6847556515d88c1824d55aa908a8fda97103c",
+    "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d"
+  },
+  "stocks": {
+    "MountBracket": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 5.0779086224677285e-06,
+      "triangles": 1664,
+      "material": "iron"
+    },
+    "CarrierArm": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9340453549846413e-06,
+      "triangles": 15790,
+      "material": "brass"
+    },
+    "MountScrew": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.2352645336466644e-07,
+      "triangles": 1688,
+      "material": "iron"
+    },
+    "Shaft": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.458222625751792e-06,
+      "triangles": 31872,
+      "material": "iron"
+    },
+    "EndNut": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.139641105906963e-07,
+      "triangles": 25536,
+      "material": "brass"
+    }
+  },
+  "fold_poses": [
+    {
+      "fresh": false,
+      "index": 0,
+      "x_m": -0.255,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": false,
+      "index": 1,
+      "x_m": -0.2255,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": false,
+      "index": 2,
+      "x_m": -0.196,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": false,
+      "index": 3,
+      "x_m": -0.1665,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": false,
+      "index": 4,
+      "x_m": -0.137,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": false,
+      "index": 5,
+      "x_m": -0.10750000000000001,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": false,
+      "index": 6,
+      "x_m": -0.07800000000000001,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": false,
+      "index": 7,
+      "x_m": -0.048500000000000015,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": false,
+      "index": 8,
+      "x_m": -0.019000000000000017,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": false,
+      "index": 9,
+      "x_m": 0.010499999999999954,
+      "angle_rad": 0.0,
+      "drop_m": 0.0
+    },
+    {
+      "fresh": true,
+      "index": 0,
+      "x_m": -0.24025000000000002,
+      "angle_rad": 0.0585046526091417,
+      "drop_m": 0.004
+    },
+    {
+      "fresh": true,
+      "index": 1,
+      "x_m": -0.21075,
+      "angle_rad": 0.23185676328609864,
+      "drop_m": 0.016
+    },
+    {
+      "fresh": true,
+      "index": 2,
+      "x_m": -0.18125000000000002,
+      "angle_rad": 0.0585046526091417,
+      "drop_m": 0.004
+    },
+    {
+      "fresh": true,
+      "index": 3,
+      "x_m": -0.15175,
+      "angle_rad": 0.23185676328609864,
+      "drop_m": 0.016
+    },
+    {
+      "fresh": true,
+      "index": 4,
+      "x_m": -0.12225000000000001,
+      "angle_rad": 0.0585046526091417,
+      "drop_m": 0.004
+    },
+    {
+      "fresh": true,
+      "index": 5,
+      "x_m": -0.09275000000000001,
+      "angle_rad": 0.23185676328609864,
+      "drop_m": 0.016
+    },
+    {
+      "fresh": true,
+      "index": 6,
+      "x_m": -0.06325000000000001,
+      "angle_rad": 0.0585046526091417,
+      "drop_m": 0.004
+    },
+    {
+      "fresh": true,
+      "index": 7,
+      "x_m": -0.033750000000000016,
+      "angle_rad": 0.23185676328609864,
+      "drop_m": 0.016
+    },
+    {
+      "fresh": true,
+      "index": 8,
+      "x_m": -0.004250000000000018,
+      "angle_rad": 0.0585046526091417,
+      "drop_m": 0.004
+    },
+    {
+      "fresh": true,
+      "index": 9,
+      "x_m": 0.025249999999999953,
+      "angle_rad": 0.23185676328609864,
+      "drop_m": 0.016
+    }
+  ],
+  "bearing_rays": 100,
+  "case_mount_bearings": 8,
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\rack_native12\\game\\assets\\props\\fire_hose_rack.glb",
+    "primitives": 5,
+    "triangles": 76550,
+    "minimum_tangent_agreement": 0.9999942115666456,
+    "status": "PASS"
+  },
+  "glb_sha256": "e261112c861d5122f5e8d94e047270f3cc128895082bde72aa910af63137b919",
+  "blend_sha256": "d7aa4aa1ce15d0af831b1b426556535cf1d3f8f01e6238e371f6774fc23b5546"
+}

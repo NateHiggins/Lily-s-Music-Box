@@ -1,6 +1,6 @@
 """All 43 native storage installations against production anchors and neighbours."""
 from pathlib import Path
-import json, math
+import json, math, os
 import bpy
 import numpy as np
 from mathutils import Matrix, Vector
@@ -47,11 +47,12 @@ def moved(mesh,identity):
 bpy.ops.wm.read_factory_settings(use_empty=True)
 native={};contacts={};variants={};owners={}
 for family in ['domestic_storage','domestic_seating','domestic_tables','work_tables']:
- with bpy.data.libraries.load(str(r/f'art/blender/{family}.blend'),link=False) as (src,dst):dst.objects=[n for n in src.objects if '__' in n]
+ source_root=Path(os.environ.get('DOMESTIC_STORAGE_OUT',str(r))) if family=='domestic_storage' else r
+ with bpy.data.libraries.load(str(source_root/f'art/blender/{family}.blend'),link=False) as (src,dst):dst.objects=[n for n in src.objects if '__' in n]
  objects=dst.objects
  for obj in objects:bpy.context.scene.collection.objects.link(obj)
  bpy.context.view_layer.update()
- fixture=json.loads((r/f'game/tests/fixtures/orison_{family}.json').read_text())
+ fixture=json.loads((source_root/f'game/tests/fixtures/orison_{family}.json').read_text())
  for row in fixture['assemblies']:
   identity=row['id'];mesh=merge([native_mesh(o) for o in objects if o.name.startswith(identity+'__')]);assert mesh[0],identity
   native[identity]=mesh
@@ -140,9 +141,19 @@ for row in json.loads((r/'game/data/orison_v2/domestic_surface_props.json').read
  transform=pose(row['support'])@Matrix.Translation(bp(row['position']))@Matrix.Rotation(float(row['yaw']),4,'Z')
  for c in stock['contacts']:
   if c['assembly']!=row['id']:continue
-  point=transform@bp(c['point']);hit,normal,_,distance=world[row['support']]['tree'].ray_cast(point+Vector((0,0,.004)),Vector((0,0,-1)),.008)
-  if hit is None or (hit-point).length>.00004 or normal.z<.99:failures.append([row['id'],row['support'],'missing native support',list(point)])
-  stock_bearings.append({'id':row['id'],'support':row['support'],'point':[point.x,point.z,-point.y]})
+  point=transform@bp(c['point'])
+  floor_stance=abs(float(row['position'][1]))<1e-8
+  if floor_stance:
+   # Match the runtime contract: the pail standing beside a sink bears on
+   # its room's source floor, not on a nonexistent rail one metre away.
+   anchor=anchors[row['support']];floor_y=levels[anchor['level']]
+   floor_spaces=[s['id'] for s in spaces.values() if s['level']==anchor['level'] and s['rect'][0]-.00004<=point.x<=s['rect'][2]+.00004 and s['rect'][1]-.00004<=-point.y<=s['rect'][3]+.00004]
+   if abs(point.z-floor_y)>.00004 or not floor_spaces:failures.append([row['id'],'missing source floor stance',list(point)])
+  else:
+   floor_spaces=[]
+   hit,normal,_,distance=world[row['support']]['tree'].ray_cast(point+Vector((0,0,.004)),Vector((0,0,-1)),.008)
+   if hit is None or (hit-point).length>.00004 or normal.z<.99:failures.append([row['id'],row['support'],'missing native support',list(point)])
+  stock_bearings.append({'id':row['id'],'support':row['support'],'owner':'floor' if floor_stance else 'support','floor_spaces':floor_spaces,'point':[point.x,point.z,-point.y]})
 
 out=r/'tmp/v2-finish-review/domestic-storage-context.json'
 out.write_text(json.dumps({'evidence_class':'INERT','installations':len(variants),'bearings':bearings,'nearby_pairs':clearances,'retained_stock_bearings':stock_bearings,'retained_radio_bearings':radio_bearings,'failures':failures,'scope':'Production storage frames against native seating/tables/work tables and retained furniture meshes. Source floor and wall planes include ordinary doorway/window/opening apertures. Actual runtime bearing rays and lighting remain required.'},indent=2)+'\n')

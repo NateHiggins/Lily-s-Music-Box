@@ -1,16 +1,12 @@
 {
   "schema_version": 1,
   "asset": "res://assets/props/front_lighting_trim.glb",
-  "asset_sha256": "3f6147cf9aa1030a765c6528435a1c8766dd12b96c15cb9c4d015453aae212e5",
+  "asset_sha256": "37f4506af68dfb58b5d1acc9778ea0731c9762522cd4cff094a45e737458a423",
   "profile_asset": "res://assets/props/millwork_profile.glb",
   "profile_asset_sha256": "4133672ef4fa51491c7aefc1ad7487431f69725602f689db5ac4d22412503076",
   "catalog_key": "trim",
   "tile": 1.2,
   "parts": [
-    {
-      "name": "BoredRailBridge",
-      "variant": "rail"
-    },
     {
       "name": "BoredCornice_0",
       "variant": "cornice"
@@ -29,31 +25,7 @@
       "room": "F01_FRONT_EAST_BAY",
       "cuts": [
         {
-          "index": 19,
-          "source": "F01_FRONT_EAST_BAY/WallEast_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            0.938000679016113,
-            0.0,
-            0.0420000553131104,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            5.30900001525879,
-            1.64999997615814,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              0.3187641690729005,
-              0.4680177923718182
-            ]
-          ]
-        },
-        {
-          "index": 20,
+          "index": 17,
           "source": "F01_FRONT_EAST_BAY/WallEast_00",
           "expected": [
             -4.08264781981416e-08,
@@ -81,7 +53,7 @@
           ]
         },
         {
-          "index": 21,
+          "index": 18,
           "source": "F01_FRONT_EAST_BAY/WallEast_00",
           "expected": [
             -4.04767703798825e-08,
@@ -109,7 +81,7 @@
           ]
         },
         {
-          "index": 22,
+          "index": 19,
           "source": "F01_FRONT_EAST_BAY/WallEast_00",
           "expected": [
             -4.14384366820286e-08,
@@ -137,7 +109,7 @@
           ]
         },
         {
-          "index": 23,
+          "index": 20,
           "source": "F01_FRONT_EAST_BAY/WallEast_00",
           "expected": [
             -1.21955316956246e-08,
@@ -161,7 +133,7 @@
           ]
         },
         {
-          "index": 24,
+          "index": 21,
           "source": "F01_FRONT_EAST_BAY/WallEast_00",
           "expected": [
             -1.15835749880944e-08,
@@ -185,7 +157,7 @@
           ]
         },
         {
-          "index": 25,
+          "index": 22,
           "source": "F01_FRONT_EAST_BAY/WallEast_00",
           "expected": [
             -2.23802754106828e-08,
@@ -213,7 +185,7 @@
           ]
         },
         {
-          "index": 26,
+          "index": 23,
           "source": "F01_FRONT_EAST_BAY/WallEast_00",
           "expected": [
             -2.23802754106828e-08,
@@ -241,7 +213,7 @@
           ]
         },
         {
-          "index": 27,
+          "index": 24,
           "source": "F01_FRONT_EAST_BAY/WallEast_00",
           "expected": [
             -3.54067841712435e-09,
@@ -265,7 +237,7 @@
           ]
         },
         {
-          "index": 28,
+          "index": 25,
           "source": "F01_FRONT_EAST_BAY/WallEast_00",
           "expected": [
             -3.54067841712435e-09,
@@ -289,7 +261,7 @@
           ]
         },
         {
-          "index": 29,
+          "index": 26,
           "source": "F01_FRONT_EAST_BAY/WallEast_Head01",
           "expected": [
             -5.24537000501368e-08,
@@ -313,7 +285,7 @@
           ]
         },
         {
-          "index": 30,
+          "index": 27,
           "source": "F01_FRONT_EAST_BAY/WallEast_Head01",
           "expected": [
             -5.24537000501368e-08,
@@ -337,7 +309,7 @@
           ]
         },
         {
-          "index": 31,
+          "index": 28,
           "source": "F01_FRONT_EAST_BAY/WallEast_Head01",
           "expected": [
             -5.24537000501368e-08,
@@ -361,7 +333,7 @@
           ]
         },
         {
-          "index": 32,
+          "index": 29,
           "source": "F01_FRONT_EAST_BAY/WallEast_Head01",
           "expected": [
             -2.10251336341116e-08,
@@ -385,7 +357,7 @@
           ]
         },
         {
-          "index": 33,
+          "index": 30,
           "source": "F01_FRONT_EAST_BAY/WallEast_Head01",
           "expected": [
             -2.10251336341116e-08,
@@ -409,7 +381,7 @@
           ]
         },
         {
-          "index": 34,
+          "index": 31,
           "source": "F01_FRONT_EAST_BAY/WallEast_Head01",
           "expected": [
             -2.97674453975105e-08,
@@ -433,7 +405,7 @@
           ]
         },
         {
-          "index": 35,
+          "index": 32,
           "source": "F01_FRONT_EAST_BAY/WallEast_Head01",
           "expected": [
             -2.97674453975105e-08,
@@ -457,7 +429,7 @@
           ]
         },
         {
-          "index": 45,
+          "index": 40,
           "source": "F01_FRONT_EAST_BAY/WallWestExtension00_00",
           "expected": [
             -2.55275178773218e-08,
@@ -481,7 +453,7 @@
           ]
         },
         {
-          "index": 46,
+          "index": 41,
           "source": "F01_FRONT_EAST_BAY/WallWestExtension00_00",
           "expected": [
             -2.51778100590627e-08,
@@ -505,7 +477,7 @@
           ]
         },
         {
-          "index": 47,
+          "index": 42,
           "source": "F01_FRONT_EAST_BAY/WallWestExtension00_00",
           "expected": [
             -2.6139474584852e-08,
@@ -529,7 +501,7 @@
           ]
         },
         {
-          "index": 48,
+          "index": 43,
           "source": "F01_FRONT_EAST_BAY/WallWestExtension00_00",
           "expected": [
             -1.21955316956246e-08,
@@ -553,7 +525,7 @@
           ]
         },
         {
-          "index": 49,
+          "index": 44,
           "source": "F01_FRONT_EAST_BAY/WallWestExtension00_00",
           "expected": [
             -1.15835749880944e-08,
@@ -577,7 +549,7 @@
           ]
         },
         {
-          "index": 50,
+          "index": 45,
           "source": "F01_FRONT_EAST_BAY/WallWestExtension00_00",
           "expected": [
             -1.22828227588911e-08,
@@ -601,7 +573,7 @@
           ]
         },
         {
-          "index": 51,
+          "index": 46,
           "source": "F01_FRONT_EAST_BAY/WallWestExtension00_00",
           "expected": [
             -1.22828227588911e-08,
@@ -627,92 +599,10 @@
       ]
     },
     {
-      "room": "F01_FRONT_SERVICE_RETURN",
-      "cuts": [
-        {
-          "index": 2,
-          "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            -0.938000679016113,
-            0.0,
-            0.0420000553131104,
-            0.0,
-            0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.39099979400635,
-            1.64999997615814,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              -0.20149346505233157,
-              -0.05223984175341391
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F01_FRONT_STORE_ALCOVE",
-      "cuts": [
-        {
-          "index": 2,
-          "source": "F01_FRONT_STORE_ALCOVE/WallNorth_00",
-          "expected": [
-            -2.76000118255615,
-            0.0,
-            2.41286954860698e-07,
-            0.0,
-            0.0420000553131104,
-            0.0,
-            -3.67175667648212e-09,
-            0.0,
-            -0.0419999994337559,
-            6.84999990463257,
-            1.64999997615814,
-            -3.94099974632263
-          ],
-          "intervals": [
-            [
-              0.44565194844619876,
-              0.4963765643937687
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "room": "F01_FRONT_WEST_BAY",
       "cuts": [
         {
-          "index": 19,
-          "source": "F01_FRONT_WEST_BAY/WallEastExtension00_00",
-          "expected": [
-            -2.57023504701692e-08,
-            0.0,
-            0.588001251220703,
-            0.0,
-            0.0420000553131104,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            -2.49100017547607,
-            1.64999997615814,
-            -11.9440002441406
-          ],
-          "intervals": [
-            [
-              -0.1292510105128876,
-              0.10884372093429373
-            ]
-          ]
-        },
-        {
-          "index": 20,
+          "index": 17,
           "source": "F01_FRONT_WEST_BAY/WallEastExtension00_00",
           "expected": [
             -2.55275178773218e-08,
@@ -736,7 +626,7 @@
           ]
         },
         {
-          "index": 21,
+          "index": 18,
           "source": "F01_FRONT_WEST_BAY/WallEastExtension00_00",
           "expected": [
             -2.51778100590627e-08,
@@ -760,7 +650,7 @@
           ]
         },
         {
-          "index": 22,
+          "index": 19,
           "source": "F01_FRONT_WEST_BAY/WallEastExtension00_00",
           "expected": [
             -2.6139474584852e-08,
@@ -784,7 +674,7 @@
           ]
         },
         {
-          "index": 23,
+          "index": 20,
           "source": "F01_FRONT_WEST_BAY/WallEastExtension00_00",
           "expected": [
             -1.21955316956246e-08,
@@ -808,7 +698,7 @@
           ]
         },
         {
-          "index": 24,
+          "index": 21,
           "source": "F01_FRONT_WEST_BAY/WallEastExtension00_00",
           "expected": [
             -1.15835749880944e-08,
@@ -832,7 +722,7 @@
           ]
         },
         {
-          "index": 25,
+          "index": 22,
           "source": "F01_FRONT_WEST_BAY/WallEastExtension00_00",
           "expected": [
             -1.22828227588911e-08,
@@ -856,7 +746,7 @@
           ]
         },
         {
-          "index": 26,
+          "index": 23,
           "source": "F01_FRONT_WEST_BAY/WallEastExtension00_00",
           "expected": [
             -1.22828227588911e-08,
@@ -885,31 +775,7 @@
       "room": "F01_FRONT_WORKROOM",
       "cuts": [
         {
-          "index": 44,
-          "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            0.938000679016113,
-            0.0,
-            0.0420000553131104,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            1.64999997615814,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              0.0522398417534317,
-              0.20149346505234933
-            ]
-          ]
-        },
-        {
-          "index": 45,
+          "index": 40,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -4.08264781981416e-08,
@@ -941,7 +807,7 @@
           ]
         },
         {
-          "index": 46,
+          "index": 41,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -4.04767703798825e-08,
@@ -973,7 +839,7 @@
           ]
         },
         {
-          "index": 47,
+          "index": 42,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -4.14384366820286e-08,
@@ -1005,7 +871,7 @@
           ]
         },
         {
-          "index": 48,
+          "index": 43,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -1.21955316956246e-08,
@@ -1029,7 +895,7 @@
           ]
         },
         {
-          "index": 49,
+          "index": 44,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -1.15835749880944e-08,
@@ -1053,7 +919,7 @@
           ]
         },
         {
-          "index": 50,
+          "index": 45,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -1.14524292271767e-08,
@@ -1081,7 +947,7 @@
           ]
         },
         {
-          "index": 51,
+          "index": 46,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -1.14524292271767e-08,
@@ -1109,7 +975,7 @@
           ]
         },
         {
-          "index": 52,
+          "index": 47,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -9.26680954194126e-09,
@@ -1137,7 +1003,7 @@
           ]
         },
         {
-          "index": 53,
+          "index": 48,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -9.26680954194126e-09,
@@ -1165,7 +1031,7 @@
           ]
         },
         {
-          "index": 54,
+          "index": 49,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -3.54067841712435e-09,
@@ -1189,7 +1055,7 @@
           ]
         },
         {
-          "index": 55,
+          "index": 50,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_00",
           "expected": [
             -3.54067841712435e-09,
@@ -1213,7 +1079,7 @@
           ]
         },
         {
-          "index": 56,
+          "index": 51,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_Head01",
           "expected": [
             -5.24537000501368e-08,
@@ -1241,7 +1107,7 @@
           ]
         },
         {
-          "index": 57,
+          "index": 52,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_Head01",
           "expected": [
             -5.24537000501368e-08,
@@ -1269,7 +1135,7 @@
           ]
         },
         {
-          "index": 58,
+          "index": 53,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_Head01",
           "expected": [
             -5.24537000501368e-08,
@@ -1297,7 +1163,7 @@
           ]
         },
         {
-          "index": 59,
+          "index": 54,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_Head01",
           "expected": [
             -2.10251336341116e-08,
@@ -1321,7 +1187,7 @@
           ]
         },
         {
-          "index": 60,
+          "index": 55,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_Head01",
           "expected": [
             -2.10251336341116e-08,
@@ -1345,7 +1211,7 @@
           ]
         },
         {
-          "index": 61,
+          "index": 56,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_Head01",
           "expected": [
             -1.91018880713045e-08,
@@ -1373,7 +1239,7 @@
           ]
         },
         {
-          "index": 62,
+          "index": 57,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_Head01",
           "expected": [
             -1.91018880713045e-08,
@@ -1401,7 +1267,7 @@
           ]
         },
         {
-          "index": 63,
+          "index": 58,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_Head01",
           "expected": [
             -9.00451890828435e-09,
@@ -1425,7 +1291,7 @@
           ]
         },
         {
-          "index": 64,
+          "index": 59,
           "source": "F01_FRONT_WORKROOM/WallEastExtension00_Head01",
           "expected": [
             -9.00451890828435e-09,
@@ -1454,7 +1320,7 @@
       "room": "F01_VESTIBULE",
       "cuts": [
         {
-          "index": 33,
+          "index": 28,
           "source": "F01_VESTIBULE/WallWest_00",
           "expected": [
             -9.47663423289669e-08,
@@ -1478,7 +1344,7 @@
           ]
         },
         {
-          "index": 34,
+          "index": 29,
           "source": "F01_VESTIBULE/WallWest_00",
           "expected": [
             -9.40669266924488e-08,
@@ -1502,7 +1368,7 @@
           ]
         },
         {
-          "index": 35,
+          "index": 30,
           "source": "F01_VESTIBULE/WallWest_00",
           "expected": [
             -9.59902521913136e-08,
@@ -1526,7 +1392,7 @@
           ]
         },
         {
-          "index": 36,
+          "index": 31,
           "source": "F01_VESTIBULE/WallWest_00",
           "expected": [
             -3.18656070419365e-08,
@@ -1550,7 +1416,7 @@
           ]
         },
         {
-          "index": 37,
+          "index": 32,
           "source": "F01_VESTIBULE/WallWest_00",
           "expected": [
             -3.12536485580495e-08,
@@ -1574,7 +1440,7 @@
           ]
         },
         {
-          "index": 38,
+          "index": 33,
           "source": "F01_VESTIBULE/WallWest_00",
           "expected": [
             -6.24636129487044e-08,
@@ -1598,7 +1464,7 @@
           ]
         },
         {
-          "index": 39,
+          "index": 34,
           "source": "F01_VESTIBULE/WallWest_00",
           "expected": [
             -6.18516509121037e-08,
@@ -1622,7 +1488,7 @@
           ]
         },
         {
-          "index": 43,
+          "index": 37,
           "source": "F01_VESTIBULE/WallEast_00",
           "expected": [
             -9.47663423289669e-08,
@@ -1646,7 +1512,7 @@
           ]
         },
         {
-          "index": 44,
+          "index": 38,
           "source": "F01_VESTIBULE/WallEast_00",
           "expected": [
             -9.40669266924488e-08,
@@ -1670,7 +1536,7 @@
           ]
         },
         {
-          "index": 45,
+          "index": 39,
           "source": "F01_VESTIBULE/WallEast_00",
           "expected": [
             -9.59902521913136e-08,
@@ -1694,7 +1560,7 @@
           ]
         },
         {
-          "index": 46,
+          "index": 40,
           "source": "F01_VESTIBULE/WallEast_00",
           "expected": [
             -3.18656070419365e-08,
@@ -1718,7 +1584,7 @@
           ]
         },
         {
-          "index": 47,
+          "index": 41,
           "source": "F01_VESTIBULE/WallEast_00",
           "expected": [
             -3.12536485580495e-08,
@@ -1742,7 +1608,7 @@
           ]
         },
         {
-          "index": 48,
+          "index": 42,
           "source": "F01_VESTIBULE/WallEast_00",
           "expected": [
             -6.24636129487044e-08,
@@ -1766,7 +1632,7 @@
           ]
         },
         {
-          "index": 49,
+          "index": 43,
           "source": "F01_VESTIBULE/WallEast_00",
           "expected": [
             -6.18516509121037e-08,
@@ -1795,31 +1661,7 @@
       "room": "F02_FRONT_GALLERY",
       "cuts": [
         {
-          "index": 52,
-          "source": "F02_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            4.84999990463257,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              0.0522398417534317,
-              0.20149346505234933
-            ]
-          ]
-        },
-        {
-          "index": 53,
+          "index": 47,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.08264781981416e-08,
@@ -1843,7 +1685,7 @@
           ]
         },
         {
-          "index": 54,
+          "index": 48,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.04767703798825e-08,
@@ -1867,7 +1709,7 @@
           ]
         },
         {
-          "index": 55,
+          "index": 49,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.14384366820286e-08,
@@ -1891,7 +1733,7 @@
           ]
         },
         {
-          "index": 56,
+          "index": 50,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.53089567081588e-08,
@@ -1915,7 +1757,7 @@
           ]
         },
         {
-          "index": 57,
+          "index": 51,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.46970000006286e-08,
@@ -1939,7 +1781,7 @@
           ]
         },
         {
-          "index": 58,
+          "index": 52,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -1963,7 +1805,7 @@
           ]
         },
         {
-          "index": 59,
+          "index": 53,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -1987,7 +1829,7 @@
           ]
         },
         {
-          "index": 66,
+          "index": 59,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -2011,7 +1853,7 @@
           ]
         },
         {
-          "index": 67,
+          "index": 60,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -2035,7 +1877,7 @@
           ]
         },
         {
-          "index": 68,
+          "index": 61,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -2059,7 +1901,7 @@
           ]
         },
         {
-          "index": 69,
+          "index": 62,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -2083,7 +1925,7 @@
           ]
         },
         {
-          "index": 70,
+          "index": 63,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -2107,7 +1949,7 @@
           ]
         },
         {
-          "index": 71,
+          "index": 64,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -2131,7 +1973,7 @@
           ]
         },
         {
-          "index": 72,
+          "index": 65,
           "source": "F02_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -2151,64 +1993,6 @@
             [
               -0.5,
               -0.4082737874310327
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F02_FRONT_HALL",
-      "cuts": [
-        {
-          "index": 23,
-          "source": "F02_SERVICE_HALL_SOUTH/WallWest_00",
-          "expected": [
-            -1.45908629178848e-07,
-            0.0,
-            3.33800029754639,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            4.84999990463257,
-            -5.63100004196167
-          ],
-          "intervals": [
-            [
-              -0.3711803018689798,
-              -0.32923902340267547
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F02_FRONT_SERVICE_RETURN",
-      "cuts": [
-        {
-          "index": 2,
-          "source": "F02_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            -0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.39099979400635,
-            4.84999990463257,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              -0.20149346505233157,
-              -0.05223984175341391
             ]
           ]
         }
@@ -2218,31 +2002,7 @@
       "room": "F03_FRONT_GALLERY",
       "cuts": [
         {
-          "index": 52,
-          "source": "F03_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            8.05000019073486,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              0.0522398417534317,
-              0.20149346505234933
-            ]
-          ]
-        },
-        {
-          "index": 53,
+          "index": 47,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.08264781981416e-08,
@@ -2266,7 +2026,7 @@
           ]
         },
         {
-          "index": 54,
+          "index": 48,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.04767703798825e-08,
@@ -2290,7 +2050,7 @@
           ]
         },
         {
-          "index": 55,
+          "index": 49,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.14384366820286e-08,
@@ -2314,7 +2074,7 @@
           ]
         },
         {
-          "index": 56,
+          "index": 50,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.53089567081588e-08,
@@ -2338,7 +2098,7 @@
           ]
         },
         {
-          "index": 57,
+          "index": 51,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.46970000006286e-08,
@@ -2362,7 +2122,7 @@
           ]
         },
         {
-          "index": 58,
+          "index": 52,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -2386,7 +2146,7 @@
           ]
         },
         {
-          "index": 59,
+          "index": 53,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -2410,7 +2170,7 @@
           ]
         },
         {
-          "index": 66,
+          "index": 59,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -2434,7 +2194,7 @@
           ]
         },
         {
-          "index": 67,
+          "index": 60,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -2458,7 +2218,7 @@
           ]
         },
         {
-          "index": 68,
+          "index": 61,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -2482,7 +2242,7 @@
           ]
         },
         {
-          "index": 69,
+          "index": 62,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -2506,7 +2266,7 @@
           ]
         },
         {
-          "index": 70,
+          "index": 63,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -2530,7 +2290,7 @@
           ]
         },
         {
-          "index": 71,
+          "index": 64,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -2554,7 +2314,7 @@
           ]
         },
         {
-          "index": 72,
+          "index": 65,
           "source": "F03_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -2574,64 +2334,6 @@
             [
               -0.5,
               -0.4082737874310327
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F03_FRONT_HALL",
-      "cuts": [
-        {
-          "index": 23,
-          "source": "F03_SERVICE_HALL_SOUTH/WallWest_00",
-          "expected": [
-            -1.45908629178848e-07,
-            0.0,
-            3.33800029754639,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            8.05000019073486,
-            -5.63100004196167
-          ],
-          "intervals": [
-            [
-              -0.3711803018689798,
-              -0.32923902340267547
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F03_FRONT_SERVICE_RETURN",
-      "cuts": [
-        {
-          "index": 2,
-          "source": "F03_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            -0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.39099979400635,
-            8.05000019073486,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              -0.20149346505233157,
-              -0.05223984175341391
             ]
           ]
         }
@@ -2641,31 +2343,7 @@
       "room": "F04_FRONT_GALLERY",
       "cuts": [
         {
-          "index": 52,
-          "source": "F04_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            11.25,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              0.0522398417534317,
-              0.20149346505234933
-            ]
-          ]
-        },
-        {
-          "index": 53,
+          "index": 47,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.08264781981416e-08,
@@ -2689,7 +2367,7 @@
           ]
         },
         {
-          "index": 54,
+          "index": 48,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.04767703798825e-08,
@@ -2713,7 +2391,7 @@
           ]
         },
         {
-          "index": 55,
+          "index": 49,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.14384366820286e-08,
@@ -2737,7 +2415,7 @@
           ]
         },
         {
-          "index": 56,
+          "index": 50,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.53089567081588e-08,
@@ -2761,7 +2439,7 @@
           ]
         },
         {
-          "index": 57,
+          "index": 51,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.46970000006286e-08,
@@ -2785,7 +2463,7 @@
           ]
         },
         {
-          "index": 58,
+          "index": 52,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -2809,7 +2487,7 @@
           ]
         },
         {
-          "index": 59,
+          "index": 53,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -2833,7 +2511,7 @@
           ]
         },
         {
-          "index": 66,
+          "index": 59,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -2857,7 +2535,7 @@
           ]
         },
         {
-          "index": 67,
+          "index": 60,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -2881,7 +2559,7 @@
           ]
         },
         {
-          "index": 68,
+          "index": 61,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -2905,7 +2583,7 @@
           ]
         },
         {
-          "index": 69,
+          "index": 62,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -2929,7 +2607,7 @@
           ]
         },
         {
-          "index": 70,
+          "index": 63,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -2953,7 +2631,7 @@
           ]
         },
         {
-          "index": 71,
+          "index": 64,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -2977,7 +2655,7 @@
           ]
         },
         {
-          "index": 72,
+          "index": 65,
           "source": "F04_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -2997,64 +2675,6 @@
             [
               -0.5,
               -0.4082737874310327
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F04_FRONT_HALL",
-      "cuts": [
-        {
-          "index": 23,
-          "source": "F04_SERVICE_HALL_SOUTH/WallWest_00",
-          "expected": [
-            -1.45908629178848e-07,
-            0.0,
-            3.33800029754639,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            11.25,
-            -5.63100004196167
-          ],
-          "intervals": [
-            [
-              -0.3711803018689798,
-              -0.32923902340267547
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F04_FRONT_SERVICE_RETURN",
-      "cuts": [
-        {
-          "index": 2,
-          "source": "F04_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            -0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.39099979400635,
-            11.25,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              -0.20149346505233157,
-              -0.05223984175341391
             ]
           ]
         }
@@ -3064,31 +2684,7 @@
       "room": "F05_FRONT_GALLERY",
       "cuts": [
         {
-          "index": 52,
-          "source": "F05_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            14.4499998092651,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              0.0522398417534317,
-              0.20149346505234933
-            ]
-          ]
-        },
-        {
-          "index": 53,
+          "index": 47,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.08264781981416e-08,
@@ -3112,7 +2708,7 @@
           ]
         },
         {
-          "index": 54,
+          "index": 48,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.04767703798825e-08,
@@ -3136,7 +2732,7 @@
           ]
         },
         {
-          "index": 55,
+          "index": 49,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.14384366820286e-08,
@@ -3160,7 +2756,7 @@
           ]
         },
         {
-          "index": 56,
+          "index": 50,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.53089567081588e-08,
@@ -3184,7 +2780,7 @@
           ]
         },
         {
-          "index": 57,
+          "index": 51,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.46970000006286e-08,
@@ -3208,7 +2804,7 @@
           ]
         },
         {
-          "index": 58,
+          "index": 52,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -3232,7 +2828,7 @@
           ]
         },
         {
-          "index": 59,
+          "index": 53,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -3256,7 +2852,7 @@
           ]
         },
         {
-          "index": 66,
+          "index": 59,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -3280,7 +2876,7 @@
           ]
         },
         {
-          "index": 67,
+          "index": 60,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -3304,7 +2900,7 @@
           ]
         },
         {
-          "index": 68,
+          "index": 61,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -3328,7 +2924,7 @@
           ]
         },
         {
-          "index": 69,
+          "index": 62,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -3352,7 +2948,7 @@
           ]
         },
         {
-          "index": 70,
+          "index": 63,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -3376,7 +2972,7 @@
           ]
         },
         {
-          "index": 71,
+          "index": 64,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -3400,7 +2996,7 @@
           ]
         },
         {
-          "index": 72,
+          "index": 65,
           "source": "F05_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -3420,64 +3016,6 @@
             [
               -0.5,
               -0.4082737874310327
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F05_FRONT_HALL",
-      "cuts": [
-        {
-          "index": 29,
-          "source": "F05_SERVICE_HALL_SOUTH/WallWest_00",
-          "expected": [
-            -1.45908629178848e-07,
-            0.0,
-            3.33800029754639,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            14.4499998092651,
-            -5.63100004196167
-          ],
-          "intervals": [
-            [
-              -0.3711803018689798,
-              -0.32923902340267547
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F05_FRONT_SERVICE_RETURN",
-      "cuts": [
-        {
-          "index": 2,
-          "source": "F05_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            -0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.39099979400635,
-            14.4499998092651,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              -0.20149346505233157,
-              -0.05223984175341391
             ]
           ]
         }
@@ -3487,31 +3025,7 @@
       "room": "F06_FRONT_GALLERY",
       "cuts": [
         {
-          "index": 52,
-          "source": "F06_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            17.6499996185303,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              0.0522398417534317,
-              0.20149346505234933
-            ]
-          ]
-        },
-        {
-          "index": 53,
+          "index": 47,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.08264781981416e-08,
@@ -3535,7 +3049,7 @@
           ]
         },
         {
-          "index": 54,
+          "index": 48,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.04767703798825e-08,
@@ -3559,7 +3073,7 @@
           ]
         },
         {
-          "index": 55,
+          "index": 49,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -4.14384366820286e-08,
@@ -3583,7 +3097,7 @@
           ]
         },
         {
-          "index": 56,
+          "index": 50,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.53089567081588e-08,
@@ -3607,7 +3121,7 @@
           ]
         },
         {
-          "index": 57,
+          "index": 51,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -2.46970000006286e-08,
@@ -3631,7 +3145,7 @@
           ]
         },
         {
-          "index": 58,
+          "index": 52,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -3655,7 +3169,7 @@
           ]
         },
         {
-          "index": 59,
+          "index": 53,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_00",
           "expected": [
             -1.4468525932898e-08,
@@ -3679,7 +3193,7 @@
           ]
         },
         {
-          "index": 66,
+          "index": 59,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -3703,7 +3217,7 @@
           ]
         },
         {
-          "index": 67,
+          "index": 60,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -3727,7 +3241,7 @@
           ]
         },
         {
-          "index": 68,
+          "index": 61,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -4.15258512020955e-08,
@@ -3751,7 +3265,7 @@
           ]
         },
         {
-          "index": 69,
+          "index": 62,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -3775,7 +3289,7 @@
           ]
         },
         {
-          "index": 70,
+          "index": 63,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -1.55612926988624e-08,
@@ -3799,7 +3313,7 @@
           ]
         },
         {
-          "index": 71,
+          "index": 64,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -3823,7 +3337,7 @@
           ]
         },
         {
-          "index": 72,
+          "index": 65,
           "source": "F06_FRONT_GALLERY/WallEastExtension00_02",
           "expected": [
             -2.43035209734899e-08,
@@ -3843,64 +3357,6 @@
             [
               -0.5,
               -0.4082737874310327
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F06_FRONT_HALL",
-      "cuts": [
-        {
-          "index": 29,
-          "source": "F06_SERVICE_HALL_SOUTH/WallWest_00",
-          "expected": [
-            -1.45908629178848e-07,
-            0.0,
-            3.33800029754639,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            -0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.20900058746338,
-            17.6499996185303,
-            -5.63100004196167
-          ],
-          "intervals": [
-            [
-              -0.3711803018689798,
-              -0.32923902340267547
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "room": "F06_FRONT_SERVICE_RETURN",
-      "cuts": [
-        {
-          "index": 2,
-          "source": "F06_FRONT_GALLERY/WallEastExtension00_00",
-          "expected": [
-            -4.1001310790989e-08,
-            0.0,
-            -0.938000679016113,
-            0.0,
-            0.0419998168945313,
-            0.0,
-            0.0419999994337559,
-            0.0,
-            -1.83587833824106e-09,
-            8.39099979400635,
-            17.6499996185303,
-            -11.7690010070801
-          ],
-          "intervals": [
-            [
-              -0.20149346505233157,
-              -0.05223984175341391
             ]
           ]
         }
@@ -3908,386 +3364,6 @@
     }
   ],
   "fittings": [
-    {
-      "owner": "F02_FRONT_GALLERY_SWITCH",
-      "room": "F02_FRONT_GALLERY",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000582261683,
-        4.84999990463257,
-        -11.649999999125747
-      ]
-    },
-    {
-      "owner": "F02_FRONT_HALL_SWITCH",
-      "room": "F02_FRONT_HALL",
-      "variant": "rail",
-      "pose": [
-        -4.3711388907334306e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000638561993,
-        4.84999990463257,
-        -6.799999999125744
-      ]
-    },
-    {
-      "owner": "F02_FRONT_SERVICE_RETURN_SWITCH",
-      "room": "F02_FRONT_SERVICE_RETURN",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        -0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.369999799208047,
-        4.84999990463257,
-        -11.649999999125763
-      ]
-    },
-    {
-      "owner": "F03_FRONT_GALLERY_SWITCH",
-      "room": "F03_FRONT_GALLERY",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000582261683,
-        8.05000019073486,
-        -11.649999999125747
-      ]
-    },
-    {
-      "owner": "F03_FRONT_HALL_SWITCH",
-      "room": "F03_FRONT_HALL",
-      "variant": "rail",
-      "pose": [
-        -4.3711388907334306e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000638561993,
-        8.05000019073486,
-        -6.799999999125744
-      ]
-    },
-    {
-      "owner": "F03_FRONT_SERVICE_RETURN_SWITCH",
-      "room": "F03_FRONT_SERVICE_RETURN",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        -0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.369999799208047,
-        8.05000019073486,
-        -11.649999999125763
-      ]
-    },
-    {
-      "owner": "F04_FRONT_GALLERY_SWITCH",
-      "room": "F04_FRONT_GALLERY",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000582261683,
-        11.25,
-        -11.649999999125747
-      ]
-    },
-    {
-      "owner": "F04_FRONT_HALL_SWITCH",
-      "room": "F04_FRONT_HALL",
-      "variant": "rail",
-      "pose": [
-        -4.3711388907334306e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000638561993,
-        11.25,
-        -6.799999999125744
-      ]
-    },
-    {
-      "owner": "F04_FRONT_SERVICE_RETURN_SWITCH",
-      "room": "F04_FRONT_SERVICE_RETURN",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        -0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.369999799208047,
-        11.25,
-        -11.649999999125763
-      ]
-    },
-    {
-      "owner": "F05_FRONT_GALLERY_SWITCH",
-      "room": "F05_FRONT_GALLERY",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000582261683,
-        14.4499998092651,
-        -11.649999999125747
-      ]
-    },
-    {
-      "owner": "F05_FRONT_HALL_SWITCH",
-      "room": "F05_FRONT_HALL",
-      "variant": "rail",
-      "pose": [
-        -4.3711388907334306e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000638561993,
-        14.4499998092651,
-        -6.799999999125744
-      ]
-    },
-    {
-      "owner": "F05_FRONT_SERVICE_RETURN_SWITCH",
-      "room": "F05_FRONT_SERVICE_RETURN",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        -0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.369999799208047,
-        14.4499998092651,
-        -11.649999999125763
-      ]
-    },
-    {
-      "owner": "F06_FRONT_GALLERY_SWITCH",
-      "room": "F06_FRONT_GALLERY",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000582261683,
-        17.6499996185303,
-        -11.649999999125747
-      ]
-    },
-    {
-      "owner": "F06_FRONT_HALL_SWITCH",
-      "room": "F06_FRONT_HALL",
-      "variant": "rail",
-      "pose": [
-        -4.3711388907334306e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000638561993,
-        17.6499996185303,
-        -6.799999999125744
-      ]
-    },
-    {
-      "owner": "F06_FRONT_SERVICE_RETURN_SWITCH",
-      "room": "F06_FRONT_SERVICE_RETURN",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        -0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.369999799208047,
-        17.6499996185303,
-        -11.649999999125763
-      ]
-    },
-    {
-      "owner": "F01_FRONT_WEST_BAY_SWITCH",
-      "room": "F01_FRONT_WEST_BAY",
-      "variant": "rail",
-      "pose": [
-        -4.3711387376830494e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        -2.4700001752138125,
-        1.64999997615814,
-        -11.94999999912578
-      ]
-    },
-    {
-      "owner": "F01_FRONT_EAST_BAY_SWITCH",
-      "room": "F01_FRONT_EAST_BAY",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        5.329999999129244,
-        1.64999997615814,
-        -11.399999999125772
-      ]
-    },
-    {
-      "owner": "F01_FRONT_WORKROOM_SWITCH",
-      "room": "F01_FRONT_WORKROOM",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        -0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.230000582261683,
-        1.64999997615814,
-        -11.649999999125747
-      ]
-    },
-    {
-      "owner": "F01_FRONT_SERVICE_RETURN_SWITCH",
-      "room": "F01_FRONT_SERVICE_RETURN",
-      "variant": "rail",
-      "pose": [
-        -4.371138711114371e-08,
-        0.0,
-        -0.9999999999999991,
-        0.0,
-        1.0,
-        0.0,
-        0.9999999999999989,
-        0.0,
-        -4.371138959505653e-08,
-        8.369999799208047,
-        1.64999997615814,
-        -11.649999999125763
-      ]
-    },
-    {
-      "owner": "F01_FRONT_STORE_ALCOVE_SWITCH",
-      "room": "F01_FRONT_STORE_ALCOVE",
-      "variant": "rail",
-      "pose": [
-        -0.9999999999999961,
-        0.0,
-        8.742277227476814e-08,
-        0.0,
-        1.0,
-        0.0,
-        -8.742277919011283e-08,
-        0.0,
-        -0.9999999999999962,
-        5.550000001748487,
-        1.64999997615814,
-        -3.9199996326730346
-      ]
-    },
     {
       "owner": "F02_FRONT_GALLERY_FRONT_LIGHT_PORT_22",
       "room": "F02_FRONT_GALLERY",

@@ -3,11 +3,12 @@ extends Node3D
 ## First-person carrier for the no-screen Vantry service set.  The instrument
 ## renders in an isolated held-object pass, while its lamp publishes a camera-
 ## space transform to the real-world light owned by PlayerController.
-## The owner now requests an eye-adjacent emitter for close inspection.
+## The carried emitter sits beside/below the eye; the player fits its final
+## pose against nearby scene geometry and the viewed working distance.
 
 const CARRY_POS := Vector3(0.145, -0.055, -0.330)
 const CARRY_ROT := Vector3(-3.0, -4.0, 2.0)
-const EYE_LIGHT_ORIGIN := Vector3(0.018, -0.018, -0.035)
+const CARRIED_LIGHT_ORIGIN := preload("res://scripts/lamp/carried_lamp_pose.gd").ORIGIN
 var reading := false
 var reading_distance := .305
 const READING_NEAR := .260
@@ -290,7 +291,7 @@ func _process(delta: float) -> void:
 	device.rotation_degrees = rotation
 	device.scale = scale
 
-	beam_xform = Transform3D(Basis.IDENTITY, EYE_LIGHT_ORIGIN)
+	beam_xform = Transform3D(Basis.IDENTITY, CARRIED_LIGHT_ORIGIN)
 	beam_valid = true
 	beam_aim = Vector2.ZERO
 

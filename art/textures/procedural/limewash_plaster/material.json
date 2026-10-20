@@ -1,0 +1,24 @@
+{
+  "material": "limewash_plaster",
+  "generator": "art/tools/build_limewash_plaster.py",
+  "generator_sha256_lf": "63b8c6d0768bdd2b1852dc8ef984d6a18c50b59b6584b11422e79919573cab12",
+  "source": "Author periodic limewashed finish plaster, without baked cracks or lighting.\n\nPigment, trowel relief, mineral tooth and roughness have independent fields.\nThe normal is derived from physical height in metres, not albedo luminance.\n",
+  "seed": 19281019,
+  "meters_per_tile": 1.8,
+  "relief_mm": 0.24000000000000002,
+  "height_encoding": "uint16, physical 0..1 span; no percentile stretch",
+  "normal_convention": "OpenGL +Y, wrapped physical-height derivatives",
+  "normal_rms_degrees": 0.41206359223970324,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "d86e614a73d3cf3683eae6f314cdf86c989329b5359984cef3a9c5956313c7c7",
+    "roughness": "503c932c64a5dbfae827cab96f8f2450b213054c84c7ec07bc9a4ff132bc3114",
+    "height": "5ee9b0a939a42fdcb521ec9f131f5dc9ef9333f4b05cf41bef6687d1ce227bb9",
+    "normal": "dc76ec4d7246ffdc2b311d8d0461a3eac6d9e660aa3a0d4cec2d7a668d7ae7dc"
+  }
+}

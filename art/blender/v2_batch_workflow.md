@@ -9,12 +9,43 @@ no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not
 proof of the current interaction contract.
 
+Run the static gate board early and inspect each new failure before a combined
+world run. Reconcile additive catalogue bindings and new spatial references,
+then freeze rendering inputs. Keep existing cohort-receipt debt explicit; a
+surface pass grants no separate space or gameplay acceptance.
+
+After editor import, run the V2 import-policy check before composing a world.
+New nonignored source images must be covered even before Git staging.
+
+Check the shared loaded material ABI in the first small family bench. A new
+metric normal recipe must compare against its declared calibration, not an old
+default strength. Reject an invalid ABI before composing a full world. Run
+source/import binding regressions after editor import completes: Windows holds
+sidecars briefly while replacing them, causing transient file-lock errors.
+
 For a new native family, put imported UV metrics, normal/tangent derivatives
 and loaded-map checks in the first small family bench, together with its
 windowed hand controls where practical. A source GLB UV pass does not establish
 Godot's imported precision. Resolve any measured compression/import changes
 before spending a full composed build on route or save/rebuild qualification.
 Keep that small original failure when a source or import correction is needed.
+
+For fitted small annular stock, include imported physical seat contacts against
+a simple original wall in that first small bench. Very short segment rays can
+fall below the engine's triangle determinant threshold; diagnose with a metre
+ray before changing geometry or the contact tolerance. Verify the original wall
+datum separately, then isolate the new stock for the face-position measurement.
+Actual access rays still use the unfiltered world and must not exclude blockers.
+
+Use the player's actual capsule radius, crouch height and eye constants when
+searching service stances. Preserve obstruction-owner counts if no stance fits;
+do not substitute a smaller capsule or guess repeatedly in full builds. Before
+awaiting long input sequences, collect only the durable mechanism owners being
+tested. A broad find_children snapshot can contain unrelated NPC presentation
+nodes that legitimately disappear while the test is awaiting input.
+Reuse verified player stances for tight-room captures: a fixed sink-local
+camera can start behind a wall. Inspect the complete contact sheet before
+closing the batch, then renew only occluded views with the mechanics retained.
 
 Before adding a partial-travel operation to a shared route, inspect the input
 driver's final-step behavior. A fixed six-centimetre/radian gesture can oscillate
@@ -33,6 +64,20 @@ Use source Z for native vertical offsets, and convert through the installed
 city owner for Godot queries. Inspect captures from actual clear sightlines;
 a low window can be hidden by the retained construction canopy. Runtime rays
 retain the original 100-micrometre bearing tolerance and remain separate proof.
+
+For imported small fittings, derive the diagnostic frame through the production
+world connection rather than rounding its rotation and translation. Separate
+wheel and screen input can take a different physical path through a recessed
+rim; use small actual input steps and explicit withdrawal before lifting.
+After a negative control moves a StaticBody support, publish its restored pose
+through a rendered frame before testing restoration of another saved mechanism.
+Keep the original contact and exact-pose assertions; do not relax them.
+
+Keep late texture-policy corrections together before the final editor import.
+Restoring line-ending-only import churn between editor imports can trigger a
+broad cache refresh; use the long runner when that refresh exceeds 180 seconds.
+The final loaded audit must include handheld and character physical maps as
+well as the building library. Import settings on disk do not prove loaded mips.
 
 The composed surface harness checks its five street/fabrication fixtures before
 building the world. Other batches can run
@@ -633,6 +678,42 @@ the original closed collision body cannot describe an open door. The
 household_fridges module applies these checks to every actor while allowing
 only failed views to be recaptured. Reuse unchanged views only after exact
 asset/runtime comparison, and keep failed run receipts with the final packet.
+
+
+### Material-specific normal authoring
+
+For every texture revised in the V2 pass, choose relief from how its substance
+is made, at its actual UV scale. Record a bespoke recipe or a named profile,
+physical dimensions, tangent convention and calibrated strength. A deliberately
+smooth finish needs a stated reason; do not add noise merely to fill a normal
+slot. Colour, staining, shadows and photographed highlights are not height.
+
+| Substance | Appropriate surface response |
+| --- | --- |
+| Cast iron / cast brass | Mould grain and casting skin; machined seats get a separate smoother finish. |
+| Worked metal | Directional draw marks or shallow working marks; keep polish and tarnish chiefly in roughness. |
+| Timber | Pores and grain aligned with each stock; treat cut ends and separate mouldings as separate wood. |
+| Cloth / book cloth | Thread spacing, weave and fibre relief at manufactured scale, aligned to its chart. |
+| Leather | Shallow grain creases and pores; folds and binding silhouettes belong in geometry. |
+| Plaster / masonry | Mineral grain, trowelling and shallow tooling; substantial joints and broken edges need geometry. |
+| Enamel / ceramic | Restrained glaze flow or orange peel; preserve a smooth highlight rather than roughening everything. |
+| Paper | Fine fibre relief when resolved; print and stains remain colour. |
+| Glass | Drawn undulation, rolled reeds, cut facets or etching as appropriate; substantial bevels remain geometry. |
+| Films / highly polished stock | Intentionally subtle or flat normals, with an explicit material reason. |
+
+Resolve a repeating feature with at least four texels before encoding it into
+the normal map. Author the roughness response of excluded finer detail rather
+than simply dropping it or exaggerating its size. Use the smallest map that
+retains the needed physical structure, deduplicate identical maps, and require
+loaded full mip chains and anisotropic filtering. Check tangent orientation,
+UV scale and calibrated strength after import. Review diffuse and grazing
+views with the production offset voxel light before accepting the finish.
+
+Audit each material key's actual uses before replacement: a colour name does
+not establish its substance. Separate paper, painted canvas, leather and cloth
+uses before replacing shared book-colour keys. Rebuild source-owned native
+material projections where required; never renew an old visual receipt to
+claim that a changed finish has been reviewed.
 
 ## Owner building finish review (2026-10-08)
 

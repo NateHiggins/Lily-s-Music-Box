@@ -1,0 +1,117 @@
+-- Auto-detected 24 CPU cores available for build parallelism.
+-- If not already cached, setting CMAKE_MSVC_RUNTIME_LIBRARY.
+	For more information please read godot-cpp/cmake/windows.cmake
+-- Using all cores. You can override this at configure time by using -j <n> or --parallel <n> in the build command.
+--   eg. cmake --build . -j 7  ...
+-- Using build profile to trim api file
+-- 	BUILD_PROFILE = 'C:/PleaseRemainOnTheLine/game/native/hose_math/build_profile.json'
+-- 	API_SOURCE = 'gdextension/extension_api.json'
+-- GODOTCPP_GDEXTENSION_API_FILE = 'C:/ov/v2-hose-sdk-28/extension_api.json'
+-- There are 82 Files to generate
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/ov/v2-hose-sdk-28
+-- Auto-detected 24 CPU cores available for build parallelism.
+-- If not already cached, setting CMAKE_MSVC_RUNTIME_LIBRARY.
+	For more information please read godot-cpp/cmake/windows.cmake
+-- Using all cores. You can override this at configure time by using -j <n> or --parallel <n> in the build command.
+--   eg. cmake --build . -j 7  ...
+-- Using build profile to trim api file
+-- 	BUILD_PROFILE = 'C:/PleaseRemainOnTheLine/game/native/hose_math/build_profile.json'
+-- 	API_SOURCE = 'gdextension/extension_api.json'
+-- GODOTCPP_GDEXTENSION_API_FILE = 'C:/ov/v2-hose-sdk-28/extension_api.json'
+-- There are 82 Files to generate
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/ov/v2-hose-sdk-28
+[0/2] Re-checking globbed directories...
+[1/65] Generating bindings
+Built-in type config: float_64
+[2/65] Building CXX object CMakeFiles/godot-cpp.dir/src/classes/editor_plugin_registration.cpp.obj
+[3/65] Building CXX object CMakeFiles/godot-cpp.dir/src/classes/wrapped.cpp.obj
+[4/65] Building CXX object CMakeFiles/godot-cpp.dir/src/classes/low_level.cpp.obj
+[5/65] Building CXX object CMakeFiles/godot-cpp.dir/src/core/error_macros.cpp.obj
+[6/65] Building CXX object CMakeFiles/godot-cpp.dir/src/core/memory.cpp.obj
+[7/65] Building CXX object CMakeFiles/godot-cpp.dir/src/core/class_db.cpp.obj
+[8/65] Building CXX object CMakeFiles/godot-cpp.dir/src/core/method_bind.cpp.obj
+[9/65] Building CXX object CMakeFiles/godot-cpp.dir/src/core/object.cpp.obj
+[10/65] Building CXX object CMakeFiles/godot-cpp.dir/src/core/print_string.cpp.obj
+[11/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/aabb.cpp.obj
+[12/65] Building CXX object CMakeFiles/godot-cpp.dir/src/godot.cpp.obj
+[13/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/basis.cpp.obj
+[14/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/callable_custom.cpp.obj
+[15/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/callable_method_pointer.cpp.obj
+[16/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/char_string.cpp.obj
+C:/ov/hose-godot-cpp/src/variant/char_string.cpp:48:22: warning: implicit conversion from 'const char16_t' to 'const char32_t' may change the meaning of the represented code unit [-Wcharacter-conversion]
+   48 |                 const char32_t l = *l_ptr;
+      |                                ~   ^~~~~~
+C:/ov/hose-godot-cpp/src/variant/char_string.cpp:74:9: note: in instantiation of function template specialization 'godot::is_str_less<char16_t, char16_t>' requested here
+   74 |         return is_str_less(get_data(), p_right.get_data());
+      |                ^
+C:/ov/hose-godot-cpp/src/variant/char_string.cpp:49:22: warning: implicit conversion from 'const char16_t' to 'const char32_t' may change the meaning of the represented code unit [-Wcharacter-conversion]
+   49 |                 const char32_t r = *r_ptr;
+      |                                ~   ^~~~~~
+2 warnings generated.
+[17/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/packed_arrays.cpp.obj
+[18/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/color.cpp.obj
+[19/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/plane.cpp.obj
+[20/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/rect2.cpp.obj
+[21/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/quaternion.cpp.obj
+[22/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/projection.cpp.obj
+[23/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/rect2i.cpp.obj
+[24/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/transform2d.cpp.obj
+[25/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/transform3d.cpp.obj
+[26/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector2i.cpp.obj
+[27/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector2.cpp.obj
+[28/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/variant_internal.cpp.obj
+[29/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector3i.cpp.obj
+[30/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector3.cpp.obj
+[31/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/variant.cpp.obj
+[32/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector4.cpp.obj
+[33/65] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector4i.cpp.obj
+[34/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/node_path.cpp.obj
+[35/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/string.cpp.obj
+[36/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/string_name.cpp.obj
+[37/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/rid.cpp.obj
+[38/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/callable.cpp.obj
+[39/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/signal.cpp.obj
+[40/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/dictionary.cpp.obj
+[41/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/array.cpp.obj
+[42/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_byte_array.cpp.obj
+[43/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_int32_array.cpp.obj
+[44/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_int64_array.cpp.obj
+[45/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_float32_array.cpp.obj
+[46/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_float64_array.cpp.obj
+[47/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_vector2_array.cpp.obj
+[48/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_string_array.cpp.obj
+[49/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_vector3_array.cpp.obj
+[50/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_color_array.cpp.obj
+[51/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_vector4_array.cpp.obj
+[52/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/class_db_singleton.cpp.obj
+[53/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/engine.cpp.obj
+[54/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/file_access.cpp.obj
+[55/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/image.cpp.obj
+[56/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/object.cpp.obj
+[57/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/os.cpp.obj
+[58/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/ref_counted.cpp.obj
+[59/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/resource.cpp.obj
+[60/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/semaphore.cpp.obj
+[61/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/worker_thread_pool.cpp.obj
+[62/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/xml_parser.cpp.obj
+[63/65] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/utility_functions.cpp.obj
+[64/65] Linking CXX static library bin\libgodot-cpp.windows.template_release.x86_64.a
+FAILED: [code=1] bin/libgodot-cpp.windows.template_release.x86_64.a 
+C:\WINDOWS\system32\cmd.exe /C "cd . && "C:\Program Files\CMake\bin\cmake.exe" -E rm -f bin\libgodot-cpp.windows.template_release.x86_64.a && CMAKE_AR-NOTFOUND qc bin\libgodot-cpp.windows.template_release.x86_64.a  CMakeFiles/godot-cpp.dir/src/classes/editor_plugin_registration.cpp.obj CMakeFiles/godot-cpp.dir/src/classes/low_level.cpp.obj CMakeFiles/godot-cpp.dir/src/classes/wrapped.cpp.obj CMakeFiles/godot-cpp.dir/src/core/class_db.cpp.obj CMakeFiles/godot-cpp.dir/src/core/error_macros.cpp.obj CMakeFiles/godot-cpp.dir/src/core/memory.cpp.obj CMakeFiles/godot-cpp.dir/src/core/method_bind.cpp.obj CMakeFiles/godot-cpp.dir/src/core/object.cpp.obj CMakeFiles/godot-cpp.dir/src/core/print_string.cpp.obj CMakeFiles/godot-cpp.dir/src/godot.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/aabb.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/basis.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/callable_custom.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/callable_method_pointer.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/char_string.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/color.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/packed_arrays.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/plane.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/projection.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/quaternion.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/rect2.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/rect2i.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/transform2d.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/transform3d.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/variant.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/variant_internal.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/vector2.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/vector2i.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/vector3.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/vector3i.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/vector4.cpp.obj CMakeFiles/godot-cpp.dir/src/variant/vector4i.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/string.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/string_name.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/node_path.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/rid.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/callable.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/signal.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/dictionary.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_byte_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_int32_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_int64_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_float32_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_float64_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_string_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_vector2_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_vector3_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_color_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/packed_vector4_array.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/class_db_singleton.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/engine.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/file_access.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/image.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/os.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/object.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/ref_counted.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/resource.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/semaphore.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/worker_thread_pool.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/classes/xml_parser.cpp.obj CMakeFiles/godot-cpp.dir/gen/src/variant/utility_functions.cpp.obj && cd ."
+'CMAKE_AR-NOTFOUND' is not recognized as an internal or external command,
+operable program or batch file.
+ninja: build stopped: subcommand failed.
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\tools\build_hose_math.py", line 87, in <module>
+    build(args)
+  File "C:\PleaseRemainOnTheLine\tools\build_hose_math.py", line 62, in build
+    run("cmake", "--build", sdk_build, "--parallel", args.jobs)
+  File "C:\PleaseRemainOnTheLine\tools\build_hose_math.py", line 38, in run
+    subprocess.run([str(a) for a in args], check=True)
+  File "C:\Users\nate_\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['cmake', '--build', 'C:\\ov\\v2-hose-sdk-28', '--parallel', '4']' returned non-zero exit status 1.

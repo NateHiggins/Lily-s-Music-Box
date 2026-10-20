@@ -8,6 +8,13 @@ var calibrated_inputs: Dictionary = {}
 # Existing pigment maps, physical tile sizes and material identities remain.
 # This only quiets the broad architecture; props retain their own finishes.
 const FINISH := {
+	"limewash_plaster": {"coverage":0, "has_detail":false, "parallax_mode":0,
+		"pigment_variation":1.0, "normal_scale":1.0,
+		"mask_amount":Vector4(0.0,0.025,0.0,0.0)},
+	"arcade_terrazzo": {"coverage":0, "has_detail":false, "has_mask_tex":false,
+		"mask_amount":Vector4.ZERO, "parallax_mode":0, "normal_scale":1.0},
+	"door_paint": {"coverage":0, "has_detail":false, "has_mask_tex":false,
+		"mask_amount":Vector4.ZERO, "relief_mul":1.0, "normal_scale":1.0},
 	"bath_wall_tile": {"coverage":0, "has_detail":false, "has_mask_tex":false,
 		"mask_amount":Vector4.ZERO, "relief_mul":1.0, "normal_scale":1.0},
 	"bath_floor_tile": {"coverage":0, "has_detail":false, "has_mask_tex":false,
@@ -40,19 +47,21 @@ func key_for(part: String, room_class: String) -> String:
 	if part.begins_with("ROOF_PARAPET_"): return "brick"
 	if part == "Glazing": return "glass"
 	if part == "Leaf": return "wood_dark"
-	if part.begins_with("Jamb") or part.begins_with("Frame") or part == "Head": return "trim"
+	# Opaque oil paint hides the substrate's grain; the legacy trim library
+	# reads as bare striped timber at window and door inspection distances.
+	if part.begins_with("Jamb") or part.begins_with("Frame") or part == "Head": return "door_paint"
 	if "Guard" in part: return "metal"
 	if "Step" in part or part == "HalfLanding": return "stair"
 	if part == "Floor":
 		if room_class == "wet": return "bath_floor_tile"
-		if room_class in ["public", "core"]: return "terrazzo"
+		if room_class in ["public", "core"]: return "arcade_terrazzo"
 		if room_class in ["service", "unresolved"]: return "concrete"
 		return "floor_oak"
-	if part == "Ceiling": return "trim"
+	if part == "Ceiling": return "limewash_plaster"
 	if part == "ExteriorSoffit": return "concrete"
 	if room_class == "wet": return "bath_wall_tile"
 	if room_class == "service": return "concrete"
-	return "plaster_stained"
+	return "limewash_plaster"
 
 func material_for(part: String, room_class: String) -> Material:
 	var key := key_for(part,room_class)
@@ -67,7 +76,7 @@ func material_for(part: String, room_class: String) -> Material:
 	if part == "Floor": family = "floors"
 	elif part in ["Ceiling", "ExteriorSoffit"]: family = "ceiling"
 	elif key == "stair": family = "stairs"
-	elif key in ["trim", "wood_dark", "metal"]: family = "trim"
+	elif key in ["trim", "door_paint", "wood_dark", "metal"]: family = "trim"
 	var recipe: Dictionary = {}
 	for entry: Dictionary in SurfacePass.CLASSES:
 		if entry.key == family:
@@ -75,7 +84,7 @@ func material_for(part: String, room_class: String) -> Material:
 			break
 	if FINISH.has(key): recipe.merge(FINISH[key],true)
 	var base := MatLib.get_mat(key)
-	if key in ["stair", "concrete", "bath_wall_tile", "bath_floor_tile"]:
+	if key in ["stair", "concrete", "bath_wall_tile", "bath_floor_tile", "door_paint", "limewash_plaster", "arcade_terrazzo"]:
 		# A semantic material needs the same catalogue identity as an imported
 		# catalogue surface, otherwise its authored height map is never bound.
 		# Keep the named copy stable without changing MatLib's shared resource.

@@ -1,0 +1,24 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: native nozzle coupling library loads = true
+CAP MAPPING: mesh=fire_nozzle_joint_HoseSeat valid_basis=true max_uv_excess=0.0000000752043 widest=1.00005408199333 vertices=2991 derivatives=true bad_derivatives=0 min_determinant=0.00000130796907 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fire_nozzle_joint_NozzleNut valid_basis=true max_uv_excess=0.0000000919681 widest=1.00067006480739 vertices=69467 derivatives=true bad_derivatives=0 min_determinant=0.00000012368461 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fire_nozzle_joint_NozzleSpigot valid_basis=true max_uv_excess=0.00000008882489 widest=1.000713880494 vertices=73071 derivatives=true bad_derivatives=0 min_determinant=0.00000012234919 worst_dot=0.99999976158142
+FIRE HAND CHECK: new coupling uses authored UVs and active normal mapping = true
+FIRE HAND CHECK: actual loaded coupling map retains mip chain = true
+FIRE HAND CHECK: actual loaded coupling map retains mip chain = true
+FIRE HAND CHECK: actual loaded coupling map retains mip chain = true
+FIRE HAND CHECK: production installer accepts actual physical nozzle coupling = true
+FIRE HAND CHECK: unthreaded original nozzle falls onto actual cabinet support = true
+[PATROL POINTER] acquisition refused at (0.094939, 1.288698, 0.146) camera=(-0.1, 1.410053, 1.15)
+FIRE HAND CHECK: actual input closes nozzle valve before carrying review = false
+FIRE HAND CHECK: actual grabbed tag opens static service inspection = true
+FIRE HAND CHECK: actual grab and depth wheel carry the separate original nozzle = true
+FIRE HAND CHECK: loose carrying leaves repair facts false and inspection camera static = true
+FIRE HAND CHECK: empty captured nut turns freely through actual mouse input = true
+FIRE HAND CHECK: empty nut rotation neither twists its hose seat nor joins the nozzle = true
+CARRY STOP: actor=B1_FIRE_LINE_STAIR part=PlayPipe at=(-0.006, 0.048085, 0.172) goals=[(-0.0, 0.0685, 0.1126), (-0.01, 0.068, 0.112)] contact=/root/V2FireNozzleCouplingBench/@Node3D@10/B1_FIRE_LINE_STAIR/@MeshInstance3D@22/NativeCaseCollision
+GUIDED CARRY RESULT: reached=false body=(-0.006, 0.048085, 0.172) global=[X: (0.000004, -1.0, 0.0), Y: (1.0, 0.000004, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.006, 1.248085, 0.172)]
+FIRE HAND CHECK: actual mouse inserts spigot into native-certified entry guide; release does not snap or catch = false

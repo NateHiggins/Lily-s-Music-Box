@@ -1,0 +1,62 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+HOSE GRAVITY CHECK: stored joint input loads stage27_mass9 = true
+HOSE JOINT CASE: stage27_mass9 backend=native ms=1.282 iterations=2 qp_iterations=5 error=
+HOSE GRAVITY CHECK: compiled numerical backend actually selected = true
+HOSE GRAVITY CHECK: stored contact/bend case resolves without waived bounds stage27_mass9 = true
+HOSE GRAVITY CHECK: compiled positions agree with GDScript reference stage27_mass9 = true
+HOSE GRAVITY CHECK: compiled velocities agree with GDScript reference stage27_mass9 = true
+HOSE GRAVITY CHECK: compiled velocity projection dissipates kinetic energy stage27_mass9 = true
+HOSE GRAVITY CHECK: native validation control configures = true
+HOSE GRAVITY CHECK: native negative inverse mass rejected = true
+HOSE GRAVITY CHECK: native nonfinite geometry rejected = true
+HOSE GRAVITY CHECK: independent final joint residual check stage27_mass9 = true
+HOSE GRAVITY CHECK: stored joint input loads stage27_mass10 = true
+HOSE JOINT CASE: stage27_mass10 backend=native ms=15.969 iterations=20 qp_iterations=39 error=
+HOSE GRAVITY CHECK: compiled numerical backend actually selected = true
+HOSE GRAVITY CHECK: stored contact/bend case resolves without waived bounds stage27_mass10 = true
+HOSE GRAVITY CHECK: compiled positions agree with GDScript reference stage27_mass10 = true
+HOSE GRAVITY CHECK: compiled velocities agree with GDScript reference stage27_mass10 = true
+HOSE GRAVITY CHECK: compiled velocity projection dissipates kinetic energy stage27_mass10 = true
+HOSE GRAVITY CHECK: native validation control configures = true
+HOSE GRAVITY CHECK: native negative inverse mass rejected = true
+HOSE GRAVITY CHECK: native nonfinite geometry rejected = true
+HOSE GRAVITY CHECK: independent final joint residual check stage27_mass10 = true
+HOSE GRAVITY CHECK: stored joint input loads native_rank = true
+HOSE JOINT CASE: native_rank backend=native ms=39.261 iterations=4 qp_iterations=175 error=
+HOSE GRAVITY CHECK: compiled numerical backend actually selected = true
+HOSE GRAVITY CHECK: stored contact/bend case resolves without waived bounds native_rank = true
+HOSE GRAVITY CHECK: independent final joint residual check native_rank = true
+HOSE GRAVITY CHECK: stored joint input loads native_globalization = true
+HOSE JOINT CASE: native_globalization backend=native ms=342.498 iterations=388 qp_iterations=698 error=
+HOSE GRAVITY CHECK: compiled numerical backend actually selected = true
+HOSE GRAVITY CHECK: stored contact/bend case resolves without waived bounds native_globalization = true
+HOSE GRAVITY CHECK: independent final joint residual check native_globalization = true
+HOSE GRAVITY CHECK: warm fixture loads art/reviews/v2_fire_hose_mass_20261019/cases/stage27_mass9/kernel_case.json = true
+HOSE GRAVITY CHECK: warm material configures = true
+HOSE GRAVITY CHECK: compiled warm backend selected = true
+HOSE WARM PARITY: art/reviews/v2_fire_hose_mass_20261019/cases/stage27_mass9/kernel_case.json native_ms=18.969 reference_ms=739.202 max_difference_m=0.0 iterations=128/128 accepted=false/false
+HOSE GRAVITY CHECK: native warm start preserves reference trajectory within0.1micrometre = true
+HOSE GRAVITY CHECK: warm fixture loads art/reviews/v2_fire_hose_mass_20261019/cases/stage27_mass10/kernel_case.json = true
+HOSE GRAVITY CHECK: warm material configures = true
+HOSE GRAVITY CHECK: compiled warm backend selected = true
+HOSE WARM PARITY: art/reviews/v2_fire_hose_mass_20261019/cases/stage27_mass10/kernel_case.json native_ms=1.306 reference_ms=48.929 max_difference_m=0.0 iterations=8/8 accepted=false/false
+HOSE GRAVITY CHECK: native warm start preserves reference trajectory within0.1micrometre = true
+HOSE GRAVITY CHECK: warm fixture loads game/tests/fixtures/fire_hose_rank_case.json = true
+HOSE GRAVITY CHECK: warm material configures = true
+HOSE GRAVITY CHECK: compiled warm backend selected = true
+HOSE WARM PARITY: game/tests/fixtures/fire_hose_rank_case.json native_ms=1.321 reference_ms=49.229 max_difference_m=0.0 iterations=8/8 accepted=false/false
+HOSE GRAVITY CHECK: native warm start preserves reference trajectory within0.1micrometre = true
+HOSE GRAVITY CHECK: warm fixture loads game/tests/fixtures/fire_hose_globalization_case.json = true
+HOSE GRAVITY CHECK: warm material configures = true
+HOSE GRAVITY CHECK: compiled warm backend selected = true
+HOSE WARM PARITY: game/tests/fixtures/fire_hose_globalization_case.json native_ms=1.302 reference_ms=48.323 max_difference_m=0.0 iterations=8/8 accepted=false/false
+HOSE GRAVITY CHECK: native warm start preserves reference trajectory within0.1micrometre = true
+HOSE GRAVITY CHECK: material validation control configures = true
+HOSE GRAVITY CHECK: material warm start rejects nonfinite points before numerical work = true
+HOSE GRAVITY CHECK: material warm start rejects nonfinite fixed anchor = true
+HOSE GRAVITY CHECK: native warm entry rejects nonfinite geometry = true
+HOSE GRAVITY CHECK: native warm entry rejects wrong hint count = true
+HOSE GRAVITY CHECK: native warm entry rejects nonfinite hint = true
+HOSE PROJECTION REGRESSION: PASS failures=0

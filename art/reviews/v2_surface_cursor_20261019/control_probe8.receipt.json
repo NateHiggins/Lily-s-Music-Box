@@ -1,0 +1,48 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 102.87,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T02:28:11Z",
+  "started_utc": "2026-10-20T02:26:28Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 4,
+  "pass_lines": [
+   "V2 FIRE NOZZLE COUPLING: PASS failures=0",
+   "V2 FIRE FOLD STOCK: PASS failures=0",
+   "V2 FIRE RACK STOCK: PASS failures=0",
+   "V2 FIRE HAND BENCH: PASS failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe8.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe8.log",
+  "stdout_sha256": "cc725e72b509f025bb09df92afd16906dea7b42598d8fc60634151ed94b3eae6"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2FireNozzleCouplingBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/control_probe8",
+ "source": {
+  "dirty_paths": 1,
+  "dirty_sample": [
+   "M game/tests/v2_fire_hand_bench.gd"
+  ],
+  "repository_head": "a06f3305f0ea25da3771033ef7bbb5308e0aa8c1",
+  "repository_tree": "24ea55792c4c97b79d6e7fbc8fec5ade36421fb5",
+  "runtime_inputs_sha256": "62df330416223a51d17feed913db4f10ed3b2c0a2cc8e9ce059b555e956aac8f",
+  "test_path": "game/tests/v2_fire_nozzle_coupling_bench.gd",
+  "test_sha256": "dd257868f84b46f2ae550ce5a2985fa91b230187d81f85951a58bbb66b82f273"
+ },
+ "windowed": true
+}

@@ -110,3 +110,28 @@ switching formats without checking those consumers would corrupt shading.
 The saved packet records the current tested scope and reviewed appearance;
 it does not claim gameplay completion, save reconstruction, or that every
 surface has been inspected from every possible viewpoint.
+
+## Construction-specific normal authoring — owner direction 2026-10-20
+
+Every new or revised texture recipe must choose how its substance produces
+relief. Declare that construction, physical feature size, height in metres,
+normal convention and intended strength in **normal_authoring** metadata, or
+provide equivalent explicit measurements in its bespoke source recipe.
+
+Use fired orange peel and shallow chips for enamel, mould grains for castings,
+working marks for wrought stock, weave and fibres for cloth, pores and grain
+for timber, and trowel/mineral relief for plaster. Drawn, reeded, cut and frosted
+glass have different height and roughness structures. Intentionally polished
+stock can have subtle relief; a flat placeholder normal is not an authored
+finish. Baked illumination, stains and pigment changes do not automatically
+become bumps. Keep silhouette changes, seams, holes, hardware and substantial
+bevels in geometry. The owner's visual direction permits expressive glass and
+stronger visual character over strict historical or physical restraint.
+
+**art/tools/material_relief.py** supplies periodic construction profiles and
+physical OpenGL derivatives. Its unresolved detail is reported for roughness
+treatment rather than aliased into a normal map. Existing bespoke generators
+remain valid when they express the same intent and units. This procedure is
+not automatic acceptance: inspect actual imported tangents, loaded maps,
+complete mips and the moving offset voxel light before accepting a finish.
+Existing families still need this visual review as the broader pass continues.

@@ -1,0 +1,9 @@
+data consumption audit
+  DURABLE_NUMERIC_MONOTONIC_ONLY: 2
+  FIELD_UNREAD: 1105
+  FILE_UNREAD: 10
+  known (in baseline): 1115
+  resolved since baseline: 193
+  NEW: 2
+  - FIELD_UNREAD game/data/orison_v2/fire_nozzle_detail.json:brass (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/fire_nozzle_detail.json:iron (zero production token readers)

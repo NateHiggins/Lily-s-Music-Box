@@ -1,12 +1,64 @@
 """Fail-closed surface/import regressions for RUL-012."""
 from pathlib import Path
-import copy,gzip,hashlib,importlib.util,json,sys,tempfile,unittest
+import copy,gzip,hashlib,importlib.util,json,subprocess,sys,tempfile,unittest
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools'))
 from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    def test_new_unstaged_physical_image_is_covered_before_first_import(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            subprocess.run(['git','-C',str(root),'init','--quiet'],check=True)
+            image=root/'game/assets/building/textures/new_duplicate_albedo.png'
+            image.parent.mkdir(parents=True);image.write_bytes(b'candidate image')
+            ignored=image.parent/'ignored.png';ignored.write_bytes(b'local ignored data')
+            (root/'.gitignore').write_text('ignored.png\n')
+            table=root/'material_sets.gd';table.write_text('const SETS := {}\n')
+            with patch.object(imports,'ROOT',root),patch.object(imports,'TEXTURES',image.parent),patch.object(imports,'GDSCRIPT',table),patch.object(imports,'V2_EXTERNAL_MAPS',()):
+                before=imports.v2_sidecars()
+                self.assertIn(Path(str(image)+'.import'),before)
+                self.assertNotIn(Path(str(ignored)+'.import'),before)
+                subprocess.run(['git','-C',str(root),'add','--',str(image.relative_to(root))],check=True)
+                self.assertEqual(before,imports.v2_sidecars())
+
+    def test_procedural_relief_recipe_and_helpers_are_surface_inputs(self):
+        import v2_surface_evidence as evidence
+        dependencies=evidence.material_recipe_paths(ROOT)
+        for relative in ('art/tools/material_relief.py', 'art/tools/build_fire_finish_stock.py',
+                         'art/textures/procedural/glass_cut/material.json',
+                         'art/textures/procedural/glass_cut/normal.png'):
+            self.assertIn(ROOT/relative,dependencies)
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+        target=ROOT/'art/tools/material_relief.py'
+        with patch.object(evidence,'file_hash',side_effect=lambda path:'changed' if path==target else 'source'):
+            self.assertNotEqual(before,evidence.inputs()['sha256'])
+
+    def test_material_sources_cannot_escape_or_disappear(self):
+        import v2_surface_evidence as evidence
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); textures=root/'art/textures'
+            recipe=textures/'procedural/test/material.json';recipe.parent.mkdir(parents=True)
+            (textures/'catalog_mapping.json').write_text(json.dumps({'test':'procedural/test','unused':None}))
+            for source in ('../../outside.py','missing.py'):
+                recipe.write_text(json.dumps({'source_bindings':{source:'unused'}}))
+                with self.assertRaises(ValueError): evidence.material_recipe_paths(root)
+
+    def test_compiled_deformer_and_native_source_changes_expire_surface_proof(self):
+        import v2_surface_evidence as evidence
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+        for relative in ['game/native/hose_math/src/hose_projection.cpp',
+                         'game/native/hose_math/hose_math.gdextension',
+                         'game/native/hose_math/build_manifest.json',
+                         'game/native/hose_math/bin/orison_hose_math.windows.x86_64.dll']:
+            with self.subTest(relative=relative):
+                target=ROOT/relative
+                with patch.object(evidence,'file_hash',side_effect=lambda path:'changed' if path==target else 'source'):
+                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+
     def test_city_and_grade_native_source_changes_expire_surface_proof(self):
         import v2_surface_evidence as evidence
         with patch.object(evidence,'file_hash',return_value='source'):
@@ -24,6 +76,24 @@ class Requirements(unittest.TestCase):
             'art/blender/city_horizon_construction.json',
             'art/blender/house_switchboard.blend',
             'art/blender/house_switchboard_construction.json',
+            'art/blender/fire_hose_stock.blend',
+            'art/blender/fire_hose_stock_construction.json',
+            'art/blender/fire_joint_stock.blend',
+            'art/blender/fire_joint_stock_construction.json',
+            'art/blender/fire_nozzle_hose.blend',
+            'art/blender/fire_nozzle_hose_construction.json',
+            'art/blender/fire_nozzle_joint.blend',
+            'art/blender/fire_nozzle_joint_construction.json',
+            'art/blender/fire_nozzle_detail.blend',
+            'art/blender/fire_nozzle_detail_construction.json',
+            'art/blender/fire_nozzle_collision.blend',
+            'art/blender/fire_nozzle_collision_construction.json',
+            'art/blender/fire_floor_enamel.blend',
+            'art/blender/fire_floor_enamel_construction.json',
+            'art/blender/fire_fold_stock.blend',
+            'art/blender/fire_fold_stock_construction.json',
+            'art/blender/fire_hose_rack.blend',
+            'art/blender/fire_hose_rack_construction.json',
         ]:
             with self.subTest(relative=relative):
                 target=ROOT/relative
@@ -36,6 +106,29 @@ class Requirements(unittest.TestCase):
                 'meshes':{'mesh':{'source':'fixture.glb','surfaces':[{'missing_uv':False,'nonfinite_uv':0,'degenerate_uv_triangles':0}]}},
                 'materials':{'material':{'type':'StandardMaterial3D','triplanar':False,'normal_enabled':True,'filter':3,'maps':dict(zip(['albedo_texture','roughness_texture','normal_texture'],['albedo','rough','normal']))}},
                 'textures':{k:{'type':'CompressedTexture2D','mips':True} for k in ['albedo','rough','normal']}}
+    def test_shipped_handheld_maps_and_character_albedo_are_not_2d_defaults(self):
+        paths=set(imports.v2_sidecars())
+        # These loaded physical maps caused 255 surface failures while the
+        # narrower building-only import check incorrectly reported success.
+        device=ROOT/'game/assets/device/service_teletype'
+        images=sorted(device.glob('*.png'))
+        self.assertGreaterEqual(len(images),27)
+        for image in images:
+            self.assertIn(Path(str(image)+'.import'),paths)
+        self.assertIn(ROOT/'game/assets/characters/mina_vale/texture_0.png.import',paths)
+
+    def test_native_device_import_parameters_expire_qualification(self):
+        import v2_surface_evidence as evidence
+        target=ROOT/'game/assets/device/service_teletype/service_teletype_Aged machined brass normal.png.import'
+        original=Path.read_text
+        def changed(path,*args,**kwargs):
+            value=original(path,*args,**kwargs)
+            return value.replace('process/normal_map_invert_y=false','process/normal_map_invert_y=true') if path==target else value
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+            with patch.object(Path,'read_text',changed):
+                self.assertNotEqual(before,evidence.inputs()['sha256'])
+
     def test_transparent_physical_surface_cannot_hide_missing_maps(self):
         data=self.inventory();data['materials']['material'].update(transparency=1,maps={})
         self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])

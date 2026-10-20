@@ -18,9 +18,16 @@ func mount(world: Node3D) -> bool:
 	if packed==null:return false
 	var model:=packed.instantiate()
 	var variants: Dictionary={}
-	var material:=MatLib.get_mat(str(data.catalog_key)).duplicate() as StandardMaterial3D
-	material.uv1_triplanar=false;material.uv1_scale=Vector3.ONE/float(data.tile)
-	material.normal_scale=.12;material.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	if not is_equal_approx(float(data.tile),float(MatLib.SETS[str(data.catalog_key)][3])):
+		model.free();errors.append("trim source tile no longer matches its registered stock");return false
+	# These splices continue HistoricMillwork's painted coating. Their native
+	# charts are in metres; select the coating's physical scale, not the old
+	# trim texture's tile size retained in the geometry source record.
+	var finish_key: String="door_paint" if str(data.catalog_key)=="trim" else str(data.catalog_key)
+	var material:=MatLib.get_mat(finish_key).duplicate() as StandardMaterial3D
+	material.uv1_triplanar=false;material.uv1_scale=Vector3.ONE/float(MatLib.SETS[finish_key][3])
+	material.normal_scale=1.0 if finish_key=="door_paint" else .12
+	material.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	for row: Dictionary in data.parts:
 		var node:=model.find_child(str(row.name),true,false) as MeshInstance3D
 		if node==null:model.free();errors.append("missing native trim stock "+str(row.name));return false
@@ -79,7 +86,7 @@ func mount(world: Node3D) -> bool:
 			var draw:=MeshInstance3D.new();draw.name=row.owner+"_"+part.name
 			draw.mesh=part.mesh;row.room.add_child(draw)
 			draw.transform=row.pose*part.pose
-			draw.set_meta("native_front_trim_fit",row.owner);draw.set_meta("material_key",str(data.catalog_key))
+			draw.set_meta("native_front_trim_fit",row.owner);draw.set_meta("material_key",finish_key)
 			installed.append(draw)
 	return true
 

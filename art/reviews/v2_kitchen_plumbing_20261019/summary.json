@@ -1,0 +1,45 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Installed kitchen geometry and input checkpoint, not whole-V2/human/continuous-route/disk acceptance.",
+  "kitchens": 18,
+  "native_templates": 8,
+  "closed_stocks": 182,
+  "native_parts": 26,
+  "native_triangles": 205360,
+  "native_open_bore_segments": 408,
+  "loaded_maps": 12,
+  "bench_checks": 203,
+  "bench_failures": [],
+  "installed_checks": 1179,
+  "installed_failures": [],
+  "contact_and_default_threshold_checks": 74,
+  "contact_failures": [],
+  "physical_contact_tolerance_m": 4e-05,
+  "player_radius_m": 0.33,
+  "saved_stop_controls": 36,
+  "static_gates": 95,
+  "incremental_regressions": [],
+  "final_focused_gates": 6,
+  "known_nonpasses": [
+    "v2_surface_qualification",
+    "ledger",
+    "test:test_orison_v2_completeness"
+  ],
+  "unchanged_texture_rid_shutdown_warnings": 7,
+  "human_accepted": false,
+  "verification_reuse": "Final composed run used the same geometry/materials and normal-range flow branches. Afterwards the shared default hook preserved the pre-existing per-valve closed threshold; two explicit small API checks and six affected static gates were renewed. Whole-building rendering was not repeated for that sub-threshold guard.",
+  "open_work": [
+    "Full current-main candidate qualification, continuous played access and disk/rebuild renewal.",
+    "Human appearance acceptance and the remaining full V2 build.",
+    "Concealed water-network geometry remains with the existing service abstraction; no new case, inventory or service award authority."
+  ],
+  "photo_renewal": {
+    "units": [
+      "2C",
+      "4C",
+      "5C",
+      "6C"
+    ],
+    "scope": "Four overview cameras were occluded by narrow-room walls. Photo-only capture uses already verified crouch stances; original installed5 captures and all 1179 mechanical checks are retained unchanged. Four renewed views appear in the contact sheet; other fourteen views are reused."
+  }
+}

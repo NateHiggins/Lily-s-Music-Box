@@ -1,0 +1,69 @@
+{
+  "material": "fire_hardware_steel",
+  "generator": "art/tools/build_fire_finish_stock.py",
+  "meters_per_tile": 0.128,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "normal_authoring": {
+    "profile": "worked_metal",
+    "generator": "art/tools/material_relief.py",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "meters_per_tile": 0.128,
+    "resolution": 1024,
+    "seed": 192810202,
+    "height_source": "authored construction; independent of albedo and baked illumination",
+    "bands": [
+      {
+        "structure": "draw marks",
+        "wavelength_m": 0.0007,
+        "rms_height_m": 1.8e-06,
+        "frequency_stretch_uv": [
+          0.12,
+          1.0
+        ]
+      },
+      {
+        "structure": "rolling",
+        "wavelength_m": 0.004,
+        "rms_height_m": 2e-06,
+        "frequency_stretch_uv": [
+          0.2,
+          1.0
+        ]
+      }
+    ],
+    "unresolved_for_roughness": [],
+    "rms_relief_m": 2.6915201829672398e-06,
+    "maximum_slope": 0.04906296471486028
+  },
+  "metallic": 0.88,
+  "height_encoding_range_m": [
+    -1.1853715977755368e-05,
+    1.1853715977755368e-05
+  ],
+  "roughness_range": [
+    0.285033368549045,
+    0.35497478622479683
+  ],
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "status": "CANDIDATE_NOT_INSTALLED",
+  "source_image": null,
+  "source_bindings": {
+    "art/tools/build_fire_finish_stock.py": "4f8f0eaf589631ced8e2d8c9761309b45a29380180cf48c7b4b9c25f20734169",
+    "art/tools/material_relief.py": "649090fbd4c5ea37a5aa2acdfbb0976dd4ba646f2837fd841cc331fcedcdb40d",
+    "art/textures/ai_sources/fire_enamel_20261020.png": "fa7b1f75ec4b34e822ca2506ca7a9c00eebe9041e136a4df5b8f435f8ab56435"
+  },
+  "map_sha256": {
+    "albedo": "0da8d156388901044f343f57d64a17c2ebbd04f666202a4921aaa575864aa81d",
+    "roughness": "0a53439c583e5583992a2d48ed0c12c3c5063f7707673c68d943630a2c740890",
+    "normal": "5f54539398706665e2679bc353ba0f202dcebdf61aac36969f696ac19d47e8ab",
+    "height": "c3ae2864ffe36691e9d90c5c688f884b1e7a9d76edfda6a9d18c3b8915710d38"
+  }
+}

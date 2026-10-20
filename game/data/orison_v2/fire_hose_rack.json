@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fire_hose_rack.glb",
+  "materials": {
+    "iron": {
+      "catalog_key": "fire_hardware_steel",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 1.0,
+      "roughness": 1.0,
+      "metallic": 0.88
+    },
+    "brass": {
+      "catalog_key": "radiator_service_brass",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 1.0,
+      "roughness": 1.0,
+      "metallic": 0.92
+    }
+  },
+  "parts": {
+    "MountBracket": "iron",
+    "CarrierArm": "brass",
+    "MountScrew": "iron",
+    "Shaft": "iron",
+    "EndNut": "brass"
+  },
+  "pivot_y_m": 0.397,
+  "pivot_z_m": 0.032,
+  "tip_local_m": [
+    0,
+    0.014,
+    0.068
+  ]
+}

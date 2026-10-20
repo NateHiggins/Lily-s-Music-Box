@@ -939,14 +939,18 @@ func set_running(on: bool) -> void:
 		set_hot(false)
 
 
+func _effective_openings() -> Vector2:
+	return _valve_openings
+
 func get_flow_state() -> Dictionary:
+	var openings := _effective_openings()
 	var mix := 0.0
-	if _hot or _cold:
-		mix = _boiler_temperature*_valve_openings.x / (_valve_openings.x+_valve_openings.y)
-	return {"hot": _hot, "cold": _cold, "stopper": _stopper,
+	if openings.x > .0001 or openings.y > .0001:
+		mix = _boiler_temperature*openings.x / (openings.x+openings.y)
+	return {"hot": openings.x>.0001, "cold": openings.y>.0001, "stopper": _stopper,
 			"temperature": mix, "water_level": _water_level,
-			"hot_opening":_valve_openings.x,"cold_opening":_valve_openings.y,
-			"flow":minf(1.0,_valve_openings.x+_valve_openings.y)}
+			"hot_opening":openings.x,"cold_opening":openings.y,
+			"flow":minf(1.0,openings.x+openings.y)}
 
 
 ## A stable maintenance pose for render/test tools: both independent valves
@@ -958,8 +962,9 @@ func set_service_pose() -> void:
 
 
 func _update_flow() -> void:
-	var flowing := _hot or _cold
-	var amount := minf(1.0,_valve_openings.x+_valve_openings.y)
+	var openings := _effective_openings()
+	var flowing := openings.x > .0001 or openings.y > .0001
+	var amount := minf(1.0,openings.x+openings.y)
 	if _stream:
 		_stream.visible = flowing
 		_stream.scale.x = sqrt(amount)
@@ -989,8 +994,9 @@ func _process(delta: float) -> void:
 			_handles[i].rotation.z = -turn
 		else:
 			_handles[i].rotation.y = turn
-	var flowing := _hot or _cold
-	var inflow := .075*minf(1.0,_valve_openings.x+_valve_openings.y) if flowing else 0.0
+	var openings := _effective_openings()
+	var flowing := openings.x > .0001 or openings.y > .0001
+	var inflow := .075*minf(1.0,openings.x+openings.y) if flowing else 0.0
 	var outflow := 0.0 if _stopper else .12*clampf(drain_capacity,0,1)
 	_water_level = clampf(_water_level+delta*(inflow-outflow),0,1)
 	if _basin_water:

@@ -1,0 +1,14 @@
+00:08.875  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\floor_enamel_native4\floor_enamel_assembled.png'
+00:16.172  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-fire-hand-20261019\floor_enamel_native4\floor_enamel_layer.png'
+Info: Saved as "fire_floor_enamel.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+13:06:04 | INFO: Starting glTF 2.0 export
+13:06:04 | INFO: Extracting primitive: FloorEnamel
+13:06:04 | INFO: Primitives created: 1
+13:06:04 | INFO: Finished glTF 2.0 export in 0.039994001388549805 s
+
+FIRE FLOOR ENAMEL NATIVE PASS {"evidence_class": "INERT", "scope": "Native enamel refit, no runtime or human acceptance. Engineered 50um cosmetic coating on retained structural collision, within100um contact tolerance; no manufacturing standard claim.", "source_bindings": {"art/blender/scripts/build_fire_floor_enamel.py": "102c1100bed6cf63f3bf04f64a608bd9480812b0bd86f34a52500eb9f369a134", "art/blender/fire_service.blend": "711be36e6951534f92fe20939ff6847556515d88c1824d55aa908a8fda97103c", "game/data/orison_v2/fire_service.json": "4ef0d9c6482b18d6dbb40eab4dffd6d96c3d9d13b2f442ee4fb99d1f72a9b356", "game/data/runtime_material_sets.json": "8435ee658c0b5c7f9c4a1b7fa42c3c80ca63dd003863714fe6892af28f27b17d", "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea", "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4", "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2"}, "thickness_m": 5e-05, "nonmanifold_edges": 0, "volume_m3": 5.144429076472794e-06, "bearing_rays": 32, "tin_footprint_clear": true, "export": {"asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\floor_enamel_native4\\game\\assets\\props\\fire_floor_enamel.glb", "primitives": 1, "triangles": 32, "minimum_tangent_agreement": 0.999999999949182, "status": "PASS"}, "outputs": {"game/assets/props/fire_floor_enamel.glb": "ef9181b7b436354e0d374dc2d4ebade2f3062b9f1a34c7408789c1c66e4eb935", "art/blender/fire_floor_enamel.blend": "6de816e929a89b8cd20e87ac6b204995a9bf5394213921ec426b317e39fd3a0f"}}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

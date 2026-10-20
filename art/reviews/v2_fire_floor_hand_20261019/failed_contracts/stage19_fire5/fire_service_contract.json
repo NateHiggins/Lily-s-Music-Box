@@ -1,0 +1,41 @@
+{
+	"checks": 353,
+	"contracts": {
+		"fire_service": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "FAIL"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": [
+		"F01_FIRE_LINE_STAIR five actual rack/cloth bearing rays within100um [true, 1]",
+		"F01_FIRE_LINE_STAIR five actual rack/cloth bearing rays within100um [true, 3]",
+		"F01_FIRE_LINE_STAIR five actual rack/cloth bearing rays within100um [true, 5]",
+		"F01_FIRE_LINE_STAIR five actual rack/cloth bearing rays within100um [true, 7]",
+		"F01_FIRE_LINE_STAIR five actual rack/cloth bearing rays within100um [true, 9]"
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Eight current native stations, actual input for doors/valves/nozzle/washer, measured stock and supported stances, preserved authorities and owned retirement. No refolding/deployment, certification, water-flow, capacity or statutory proof.",
+	"selector": "v2",
+	"source": {
+		"runtime_inputs_sha256": "5faff970d6f5b3b6a5aab0ee260ee559aaa2ea7bea09787243704e68f6c55411",
+		"test_path": "game/tests/v2_fire_service_review.gd",
+		"test_sha256": "38ab8c316abfbb5f5bcf32afef6f4983fe530261930875de35f5fc52b20af074"
+	}
+}

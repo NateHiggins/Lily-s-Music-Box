@@ -1,0 +1,24 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Pre-run source snapshot, no acceptance",
+  "files": {
+    "game/scripts/props/fire_nozzle_coupling.gd": "505a85c7a3920fa788562199e75c8dcd8bca82551f97311f998680a0ef91b8cc",
+    "game/scripts/props/v2_fire_line_cabinet.gd": "f5707151efc1f29665380908c4834e00ae994d6cdf3608e95230ca3e5542ad0e",
+    "game/scripts/building/orison_v2_native_fire_service.gd": "ecd7ebf445f3a7f6d8248ba45ad58bb598a18ea4b3e2577b8bacf3470d494b87",
+    "game/tests/v2_fire_hand_bench.gd": "2a97b298eb5e877f77c6dd8a7a58cda6fee6229e6bc8e904fc44689b1818465c",
+    "game/tests/v2_fire_nozzle_coupling_bench.gd": "b33fdf7354cdd63769b2dd111b681b2f7216c8a4b6fd7c635cf08fd2387ac09e",
+    "game/tests/v2_fire_nozzle_support_probe.gd": "8fc53aef8ebd35f19f71e0be65d5db030c989dc783a7963f9fdb74e2108cd668",
+    "game/tests/v2_fire_service_review.gd": "e9838f045c4a19ee266482cfdc62566f8f0b71884c1e1577ab5491b25bd72e08",
+    "game/tests/v2_fire_rack_bench.gd": "7cd6d692d0a6a385479ebf01029ee2519467260432e7f7c81ebf02c64bb22d15",
+    "game/tests/orison_v2_surface_inventory.gd": "6b97673e669967e0980d63697da967228afb6959b3262d5e377cc65e9d9864b0",
+    "game/tests/fixtures/fire_rack_shared_edge_ray.json": "e71c06217a07614d008514f20285cd81e59fcf8fcefcb47222ebea86dc894c82",
+    "art/blender/scripts/build_fire_floor_enamel.py": "102c1100bed6cf63f3bf04f64a608bd9480812b0bd86f34a52500eb9f369a134",
+    "art/blender/fire_floor_enamel_construction.json": "ea1d101776ad27cdceb888e6421f231314a1e7078cd7b5eeca0380e28d586c2b",
+    "art/blender/fire_floor_enamel.blend": "ab697f3a1f96b556813af6168ea3e6c0a484e8fadc7577ccfb44131ecbbaaa7b",
+    "game/assets/props/fire_floor_enamel.glb": "ef9181b7b436354e0d374dc2d4ebade2f3062b9f1a34c7408789c1c66e4eb935",
+    "game/assets/props/fire_floor_enamel.glb.import": "c42d7452590ac168002df612633a3d44c7a13072b0556de9cc74003a78bc00db",
+    "art/tools/fix_v2_mesh_imports.py": "ecb2b0a0dada2f1f2245b37574f1a2f9e7fbcf641a80df87254794eb7c47ea55",
+    "tools/v2_surface_evidence.py": "4e6ab7e1291d8e29dec46c968120525723cd16d8133131e03fe297f79755e552",
+    "tools/tests/test_v2_surface_requirements.py": "42f3970db05a76f49e44d51a648b1f08795c3a7e22d08dc18554213ce601b3ad"
+  }
+}

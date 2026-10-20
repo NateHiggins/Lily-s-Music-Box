@@ -1,0 +1,50 @@
+{
+	"checks": 40051,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"surface_requirements": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"status": "FAIL"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 926.677,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": [
+		"authored normal calibration reaches renderer: fire_cabinet_enamel",
+		"authored normal calibration reaches renderer: fire_cabinet_lining",
+		"authored normal calibration reaches renderer: fire_hardware_steel",
+		"authored normal calibration reaches renderer: glass_cut",
+		"authored normal calibration reaches renderer: glass_drawn_expressive",
+		"authored normal calibration reaches renderer: glass_frosted",
+		"authored normal calibration reaches renderer: glass_reeded"
+	],
+	"inventory_sha256": "6beeaf1c6a7fc6ae7956f765798de13fddefd2e45fcb5e4825bf563cc167da69",
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
+	"selector": "v2",
+	"source": {
+		"repository_head": "e388801830452b9fd946e6cefd7c3ee4d76c6817",
+		"runtime_inputs_sha256": "db4930d8cecef184c9a76b6864fed4b57b75a7c8621adf663c87838e30e4b79d",
+		"test_path": "game/tests/orison_v2_surface_inventory.gd",
+		"test_sha256": "3365c65385c4af561e0260fb0218fbfa16c0751f7f12b2b3deae38b89e7f8e1c"
+	},
+	"surface_inputs_sha256": "c669b793ecd61b2b9b5af7d1958915922977ec9ca1c396d5749fd2cb44203893"
+}

@@ -1,0 +1,31 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Eye-level rail retirement and plumbing preparation survey, not whole-V2 runtime acceptance.",
+  "eye_rails": 0,
+  "retained_baseboard_sections": 1683,
+  "retained_panel_caps": 360,
+  "retired_rail_fittings": 20,
+  "retained_cornice_fittings": 22,
+  "retained_native_cornice_parts": 3,
+  "native_triangles": 856,
+  "source_shell_checks": 2034,
+  "source_shell_failures": [],
+  "composed_kitchen_survey": 18,
+  "composed_survey_failures": [],
+  "plumbing_implemented": false,
+  "original_failure": "Initial composed survey refused changed MultiMesh source indices. Renewed actual source-shell discovery, native export and owning projection corrected the mismatch without relaxing checks.",
+  "open_work": [
+    "Sink plumbing remains to be modeled and installed; the survey records actual wall ports for all 18 sinks.",
+    "Existing sawtooth shadows on retained trim/furnishings remain visual work.",
+    "Current-main candidate qualification and whole-V2 completion remain open."
+  ],
+  "static_gates": 95,
+  "incremental_regressions": [],
+  "reader_new_fields": 0,
+  "known_nonpasses": [
+    "v2_surface_qualification",
+    "ledger",
+    "test:test_orison_v2_completeness"
+  ],
+  "static_scope": "Full WIP incremental board compared with clean 22087f20; final focused spatial/reader/trim checks renewed after preserving original manifest record formatting. Not current-main candidate verification."
+}

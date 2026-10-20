@@ -10609,6 +10609,7 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    'limewash_plaster': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     # Registered V2 finishes must survive layout/catalogue regeneration.
     'arcade_terrazzo': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'arcade_terrazzo_dark': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
@@ -10616,6 +10617,13 @@ MATERIAL_CATALOG = {
     'arcade_brick_bond': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'arcade_lime_mortar': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'site_softwood': {'base_color': [0.714, 0.678, 0.588, 1.0], 'roughness': 0.79, 'metallic': 0.0},
+    'fire_cabinet_enamel': {'base_color': [0.39, 0.035, 0.022, 1.0], 'roughness': 0.31, 'metallic': 0.0},
+    'fire_cabinet_lining': {'base_color': [0.69, 0.67, 0.59, 1.0], 'roughness': 0.26, 'metallic': 0.0},
+    'fire_hardware_steel': {'base_color': [0.23, 0.25, 0.26, 1.0], 'roughness': 0.32, 'metallic': 0.88},
+    'glass_drawn_expressive': {'base_color': [0.94, 0.98, 0.97, 1.0], 'roughness': 0.09, 'metallic': 0.0},
+    'glass_reeded': {'base_color': [0.94, 0.98, 0.97, 1.0], 'roughness': 0.09, 'metallic': 0.0},
+    'glass_cut': {'base_color': [0.96, 0.985, 0.98, 1.0], 'roughness': 0.065, 'metallic': 0.0},
+    'glass_frosted': {'base_color': [0.96, 0.98, 0.97, 1.0], 'roughness': 0.39, 'metallic': 0.0},
     'site_softwood_endgrain': {'base_color': [0.694, 0.647, 0.545, 1.0], 'roughness': 0.805, 'metallic': 0.0},
     'bath_floor_tile': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0},
     'bath_wall_tile': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0},

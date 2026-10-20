@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 85.52,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T00:12:36Z",
+  "started_utc": "2026-10-20T00:11:10Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-kitchen-plumbing-20261019/survey.log.stderr",
+  "stderr_sha256": "572e2f713a48d9c14a1893ab558aca36a3881ddf5f9f62fc4cd6cdfd76a55da6",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-kitchen-plumbing-20261019/survey.log",
+  "stdout_sha256": "fad7efcdd7081bc23e450b189c9cfb3b124397cf256b02b830743bdb3caa7ffe"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2FourKAestheticCapture.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-kitchen-plumbing-20261019/survey",
+ "source": {
+  "dirty_paths": 1946,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/arcade_throat_construction.json",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage.blend",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/house_switchboard_construction.json",
+   " M art/blender/scripts/domestic_storage_geometry.py",
+   " M art/blender/scripts/inspect_domestic_storage_context.py",
+   " M art/blender/scripts/render_domestic_storage.py",
+   " M art/blender/street_paving_details_construction.json",
+   " M art/data/domestic_storage/source_plan.json",
+   " M art/data/gen_layout.py",
+   " M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json",
+   " M art/renders/insitu/shots.md"
+  ],
+  "repository_head": "82887a14d08357a400047624a6ce720351a748e0",
+  "repository_tree": "c3fe9ec4f7e115f36a3346143a5af6c249f42ef0",
+  "runtime_inputs_sha256": "a7e8b7cb411961ddfb0a03b8e5059e6610db36a8c1b2c3b38cfbd6705c3960ad",
+  "test_path": "game/tests/v2_4k_wip_capture.gd",
+  "test_sha256": "cbf89c0d1e408d09eeb28250cae393ece628fd1690a39aaa3214536f45dfadc3"
+ },
+ "windowed": true
+}

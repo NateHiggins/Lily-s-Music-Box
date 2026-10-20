@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 10.9,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T09:54:42Z",
+  "started_utc": "2026-10-20T09:54:31Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/cabinet-import3-20261020.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/v2-fire-verify/tmp/cabinet-import3-20261020.log",
+  "stdout_sha256": "f8fea59477222d1ed982792f9c2f2f3bd4118fddc9514a18228af8701df7c8b4"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 1796,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/fire_hose_rack.blend",
+   " M art/blender/fire_hose_rack_construction.json",
+   " M art/blender/scripts/build_fire_hose_rack.py",
+   " M art/data/gen_layout.py",
+   " M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_east_roof.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_ground_seam.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_horizon_context.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_north_roof.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_site_back_e_window.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_site_nbr_e_window.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_site_ne1_window.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_street_skyline.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_weather_dry.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_weather_fog.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_weather_storm.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/city_west_roof.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_restored_entrance.png"
+  ],
+  "repository_head": "9c24fada35f222bc8dea965ffc288567bb1e92ea",
+  "repository_tree": "63487f58f0e142681f67470548ea331780ad2b55",
+  "runtime_inputs_sha256": "db4930d8cecef184c9a76b6864fed4b57b75a7c8621adf663c87838e30e4b79d",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

@@ -607,6 +607,12 @@ func _compose_authorities() -> void:
 	safety_net.setup(player)
 	safety_net.anchor = _connection.arrival.position
 	add_child(safety_net)
+	var kitchen_prep:=preload("res://scripts/building/orison_v2_kitchen_prep.gd").new()
+	if not kitchen_prep.mount(self):
+		startup_failed=true;push_error("V2 kitchen preparation refused: %s" % [kitchen_prep.errors]);return
+	var kitchen_plumbing:=preload("res://scripts/building/orison_v2_kitchen_plumbing.gd").new()
+	if not kitchen_plumbing.mount(self):
+		startup_failed=true;push_error("V2 kitchen plumbing refused: %s" % [kitchen_plumbing.errors]);return
 	household_state = HouseholdState.new()
 	household_state.name = "HouseholdState"
 	add_child(household_state)

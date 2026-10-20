@@ -1488,6 +1488,38 @@
    "protocol": "named-control",
    "rationale": "Separate lift, tilt and curtain controls delegate through PropControlArea to the treatment owner; room-side production physics rays and durable settings verified.",
    "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/v2_fire_line_cabinet.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/v2_fire_line_cabinet.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/v2_fire_line_cabinet.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "Native V2 cabinet explicitly disables inherited legacy prompt/action dispatch; empty prompt and no-op action preserve direct-part manipulation only.",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/v2_fire_line_cabinet.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/v2_fire_line_cabinet.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/v2_fire_line_cabinet.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "Native V2 cabinet explicitly disables inherited legacy prompt/action dispatch; empty prompt and no-op action preserve direct-part manipulation only.",
+   "role": "production"
   }
  ],
  "policy": "drift detector, not an interface; classifications authorize nothing.  Extraction dispositions are defaults for the post-EA boundary review.",

@@ -1,0 +1,157 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled original native candidate; no runtime/human acceptance.",
+  "source_bindings": {
+    "art/blender/scripts/build_fire_nozzle_joint.py": "d07fe3a65a188535195aadf3024e182e583d154fe31dd26aa1157b19ffa6cb56",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/fire_service.blend": "711be36e6951534f92fe20939ff6847556515d88c1824d55aa908a8fda97103c",
+    "game/data/runtime_material_sets.json": "a3849b873ccbe227199c6040b5a4df7903e0fa73625b738383502e9d8d67b376"
+  },
+  "dimensions": {
+    "pitch_m": 0.0028,
+    "radial_clearance_m": 0.00025,
+    "bore_radius_m": 0.012,
+    "sealing_plane_y_m": 0.017,
+    "nozzle_base_y_m": 0.03,
+    "withdrawal_m": 0.012
+  },
+  "stocks": {
+    "HoseSeat": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.996312927815392e-05,
+      "triangles": 1920
+    },
+    "NozzleNut": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.8122667357761537e-05,
+      "triangles": 28032
+    },
+    "NozzleSpigot": {
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.3816811683689526e-05,
+      "triangles": 28800
+    }
+  },
+  "thread_motion": [
+    {
+      "withdrawal_m": 0.0,
+      "nut_angle_rad": 0.0,
+      "spigot_origin_y_m": 0.03,
+      "nut_bearing_contacts": 512,
+      "seal_contacts": 224
+    },
+    {
+      "withdrawal_m": 0.0008571428571428572,
+      "nut_angle_rad": 1.923424073626404,
+      "spigot_origin_y_m": 0.030857142857142857,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.0017142857142857144,
+      "nut_angle_rad": 3.846848147252808,
+      "spigot_origin_y_m": 0.031714285714285716,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.0025714285714285717,
+      "nut_angle_rad": 5.770272220879213,
+      "spigot_origin_y_m": 0.03257142857142857,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.003428571428571429,
+      "nut_angle_rad": 7.693696294505616,
+      "spigot_origin_y_m": 0.033428571428571426,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.004285714285714286,
+      "nut_angle_rad": 9.61712036813202,
+      "spigot_origin_y_m": 0.03428571428571429,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.0051428571428571435,
+      "nut_angle_rad": 11.540544441758426,
+      "spigot_origin_y_m": 0.03514285714285714,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.006,
+      "nut_angle_rad": 13.463968515384828,
+      "spigot_origin_y_m": 0.036,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.006857142857142858,
+      "nut_angle_rad": 15.387392589011233,
+      "spigot_origin_y_m": 0.03685714285714286,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.007714285714285714,
+      "nut_angle_rad": 17.310816662637635,
+      "spigot_origin_y_m": 0.037714285714285714,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.008571428571428572,
+      "nut_angle_rad": 19.23424073626404,
+      "spigot_origin_y_m": 0.03857142857142857,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.009428571428571429,
+      "nut_angle_rad": 21.157664809890445,
+      "spigot_origin_y_m": 0.039428571428571424,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.010285714285714287,
+      "nut_angle_rad": 23.081088883516852,
+      "spigot_origin_y_m": 0.040285714285714286,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.011142857142857144,
+      "nut_angle_rad": 25.004512957143252,
+      "spigot_origin_y_m": 0.04114285714285714,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    },
+    {
+      "withdrawal_m": 0.012,
+      "nut_angle_rad": 26.927937030769655,
+      "spigot_origin_y_m": 0.041999999999999996,
+      "nut_bearing_contacts": 768,
+      "seal_contacts": 0
+    }
+  ],
+  "clear_bore_rays": 51,
+  "positive_stock_rays": 3,
+  "original_nozzle_cap_bearings": 16,
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\nozzle_joint_native3\\game\\assets\\props\\fire_nozzle_joint.glb",
+    "primitives": 3,
+    "triangles": 58752,
+    "minimum_tangent_agreement": 0.9999999584294426,
+    "status": "PASS"
+  },
+  "glb_sha256": "c8f921dc575cc605602861de6bd755e4eec6ce9bca98e76dafdccda1f70de0f8",
+  "blend_sha256": "b8d68c004dd50e6b50312abbfd40b674eb5052a12d2228e6970754dd94255991",
+  "candidate_blend_sha256": "61b3f28297fa90ed9f331c2e65ef0330133f5f11c32c755f6d2eba613e8aae4a"
+}

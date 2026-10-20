@@ -558,22 +558,34 @@ def sha256_file(path: Path) -> str:
 RUNTIME_INPUT_GLOBS = (
     "game/scripts/**/*.gd", "game/scenes/**/*.tscn", "game/scenes/**/*.tres",
     "game/data/**/*.json", "game/project.godot",
+    "game/native/**/*.gdextension", "game/native/**/*.cpp", "game/native/**/*.h",
+    "game/native/**/*.hpp", "game/native/**/*.json", "game/native/**/CMakeLists.txt",
+    "game/native/**/*.dll", "game/native/**/*.so", "game/native/**/*.dylib",
+    "tools/build_hose_math.py",
 )
 
 
+def _runtime_file_digest(path: Path) -> str:
+    raw = path.read_bytes()
+    if path.suffix.lower() not in {".dll", ".so", ".dylib"}:
+        raw = raw.replace(b"\r\n", b"\n")
+    return hashlib.sha256(raw).hexdigest()
+
+
 def runtime_inputs_sha256(root: Path) -> str:
-    """Bind runtime proof to text inputs, including file additions/removals.
+    """Bind runtime proof to text and native code, including additions/removals.
 
     Digest UTF-8 canonical JSON: sorted [relative_posix_path, file_sha256]
     pairs with compact separators and no trailing newline. Runtime text
     hashes normalize CRLF to LF so Windows checkouts bind the same source.
+    Native libraries are hashed byte-for-byte, never newline-normalized.
     Texture/asset hashes remain separate visual evidence; this
     digest does not claim to authenticate the appearance of the rendered game.
     """
     paths = {path for pattern in RUNTIME_INPUT_GLOBS
              for path in root.glob(pattern) if path.is_file()}
     manifest = sorted([path.relative_to(root).as_posix(),
-                       hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()]
+                       _runtime_file_digest(path)]
                       for path in paths)
     encoded = json.dumps(manifest, separators=(",", ":"), ensure_ascii=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()

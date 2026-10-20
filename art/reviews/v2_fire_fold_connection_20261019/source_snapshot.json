@@ -1,0 +1,28 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exact scoped fold/transition source snapshot, no runtime contract",
+  "sha256": {
+    "art/blender/scripts/build_fire_fold_stock.py": "f2602b1cda985f3fb25555d0d5826c109e416e0281ad6e4d0dc69453c4351204",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/fire_fold_stock.blend": "5eac3b60f13e4ac3741269915cd56bd6d8e1bd245bd905cf984549c2f625f642",
+    "art/blender/fire_fold_stock_construction.json": "4771072e80ceb486617a2c345fc0d4adbc3723630b0e87e92dc2aafab8628216",
+    "game/assets/props/fire_fold_stock.glb": "751344960dd26e6623a48927c9e3b1903e255f3e01d2790913f589959af0c2e1",
+    "game/assets/props/fire_fold_stock.glb.import": "c49834556b4d90d2e5b645f219fbbec28eee4d6269a948cb1c392967cb1ed019",
+    "game/data/orison_v2/fire_fold_stock.json": "8011ab8307539e2f28bbd0fbfe54b3c689fea3f7806525e33a194502fc0e3dc3",
+    "game/scripts/props/fire_fold_stock.gd": "3a1b124dd213273c09ac891f1c3de6ebefbec181f97c1ae50692afdce1b97b40",
+    "game/scripts/props/v2_fire_line_cabinet.gd": "a1b41890ac6caeaf5ead6e8d7c4f412f5b34cc1c39359620a7fbe86cb83ee20f",
+    "game/scripts/props/fire_hose_rack.gd": "49bd3ec257ccf4ce255c14ed1d9433b21a6199fdcda2bb2e2382a6f8e145c859",
+    "game/scripts/props/native_flexible_hose.gd": "58424192b2c26d4c8990c2d98f7de8e2eb2236b735184961204716a30314a75c",
+    "game/scripts/building/orison_v2_native_fire_service.gd": "0fd2fe34a59791d276d72a6d9604978c2feff9ed89ec5b0a9fb29af265d09aab",
+    "game/scripts/building/orison_v2_fire_hose_visual.gd": "f3bc342073faf0cb478ecb34a3ba0668607f033d80130fb9ea1e5c6bd4745d02",
+    "game/tests/v2_fire_fold_bench.gd": "716405c87b010c80a7ed49cde3d1dc9c15d0bc61499b91a548a2cb9f517d68f1",
+    "game/tests/V2FireFoldBench.tscn": "9c49927b40aa75bc3327b7d945d678d7f10790292227363bc6c62fdac4a803fa",
+    "game/tests/v2_fire_rack_bench.gd": "2e59cfd9da6b3ba0ae77be1c33b71c4ea11317314e73fc3dfbfd1c3d70db1b6c",
+    "game/tests/v2_fire_hand_bench.gd": "090ca2c7721914f64f4a1bd01e3bd77dfe7e688e57379281ee0de828558969c2",
+    "tools/v2_surface_evidence.py": "230cecd6ca0a53ed0d56e3ffce735ef4636e95df94e320061f3e18995c56b76f",
+    "tools/tests/test_v2_surface_requirements.py": "9e517383fe64e43e64ab397d8a4b790d4a0995e30b18d5d3e784f16afd4847b0",
+    "art/tools/fix_v2_mesh_imports.py": "684c4eecbbbc848f3b1e8e8f3a2507f3b8efc9eb8ca8325fee8a5779a2bb8a5e"
+  }
+}

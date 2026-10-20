@@ -1,0 +1,371 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Geometry review candidates from completed surface2 inventory; a primitive is not automatically a defect. Optical effects and hidden draws excluded. No completion promotion.",
+  "inventory_source": "surface2/surface-inventory.json",
+  "families": [
+    {
+      "source": "res://scripts/building/orison_v2_blockout.gd",
+      "visible_physical_primitive_draws": 616,
+      "owners": 1,
+      "kinds": {
+        "BoxMesh": 616
+      },
+      "examples": [
+        "OrisonV2Blockout/F02_SERVICE_HALL_CORE_OPENING/RevealA",
+        "OrisonV2Blockout/F02_SERVICE_HALL_CORE_OPENING/RevealB",
+        "OrisonV2Blockout/F02_SERVICE_HALL_CORE_OPENING/RevealHead",
+        "OrisonV2Blockout/F02_SERVICE_HALL_CORE_OPENING/ServicePractical/Backplate",
+        "OrisonV2Blockout/F02_SERVICE_HALL_CORE_OPENING/ServicePractical/OpalLens",
+        "OrisonV2Blockout/F04_SERVICE_HALL_CORE_OPENING/RevealA",
+        "OrisonV2Blockout/F04_SERVICE_HALL_CORE_OPENING/RevealB",
+        "OrisonV2Blockout/F04_SERVICE_HALL_CORE_OPENING/RevealHead"
+      ]
+    },
+    {
+      "source": "res://scripts/building/orison_v2_fitted_door.gd",
+      "visible_physical_primitive_draws": 169,
+      "owners": 22,
+      "kinds": {
+        "BoxMesh": 75,
+        "CylinderMesh": 92,
+        "TorusMesh": 2
+      },
+      "examples": [
+        "OrisonV2Blockout/F02_DOOR_02/F02_DOOR_02_Leaf/HingedLeaf/UnitNumeralPlate",
+        "OrisonV2Blockout/F02_DOOR_02/F02_DOOR_02_Leaf/HingedLeaf/ChainGuard/SlottedPlate",
+        "OrisonV2Blockout/F02_DOOR_02/F02_DOOR_02_Leaf/HingedLeaf/ChainGuard/AnchorPlate",
+        "OrisonV2Blockout/F02_DOOR_02/F02_DOOR_02_Leaf/HingedLeaf/ChainGuard/Link0",
+        "OrisonV2Blockout/F02_DOOR_02/F02_DOOR_02_Leaf/HingedLeaf/ChainGuard/Link1",
+        "OrisonV2Blockout/F02_DOOR_02/F02_DOOR_02_Leaf/HingedLeaf/ChainGuard/Link2",
+        "OrisonV2Blockout/F02_DOOR_02/F02_DOOR_02_Leaf/HingedLeaf/ChainGuard/Link3",
+        "OrisonV2Blockout/F04_DOOR_03/F04_DOOR_03_Leaf/HingedLeaf/UnitNumeralPlate"
+      ]
+    },
+    {
+      "source": "res://scripts/device/service_set_prop.gd",
+      "visible_physical_primitive_draws": 136,
+      "owners": 1,
+      "kinds": {
+        "BoxMesh": 65,
+        "CylinderMesh": 53,
+        "SphereMesh": 8,
+        "TorusMesh": 10
+      },
+      "examples": [
+        "Player/@Camera3D@20808/ServiceSetCarrier/ServiceSetPass/VantryServiceSet/HistoricalChassis/@MeshInstance3D@27026",
+        "Player/@Camera3D@20808/ServiceSetCarrier/ServiceSetPass/VantryServiceSet/HistoricalChassis/InstrumentPlate",
+        "Player/@Camera3D@20808/ServiceSetCarrier/ServiceSetPass/VantryServiceSet/HistoricalChassis/ControlPlate",
+        "Player/@Camera3D@20808/ServiceSetCarrier/ServiceSetPass/VantryServiceSet/HistoricalChassis/BatteryServicePlate",
+        "Player/@Camera3D@20808/ServiceSetCarrier/ServiceSetPass/VantryServiceSet/HistoricalChassis/@MeshInstance3D@27030",
+        "Player/@Camera3D@20808/ServiceSetCarrier/ServiceSetPass/VantryServiceSet/HistoricalChassis/@MeshInstance3D@27031",
+        "Player/@Camera3D@20808/ServiceSetCarrier/ServiceSetPass/VantryServiceSet/HistoricalChassis/@MeshInstance3D@27032",
+        "Player/@Camera3D@20808/ServiceSetCarrier/ServiceSetPass/VantryServiceSet/HistoricalChassis/@MeshInstance3D@27033"
+      ]
+    },
+    {
+      "source": "res://scripts/arcade/swc_entity.gd",
+      "visible_physical_primitive_draws": 96,
+      "owners": 96,
+      "kinds": {
+        "BoxMesh": 96
+      },
+      "examples": [
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/World/floor_001/PresentationAnchor/@MeshInstance3D@38353",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/World/ceiling_001/PresentationAnchor/@MeshInstance3D@38329",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/World/floor_002/PresentationAnchor/@MeshInstance3D@38354",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/World/ceiling_002/PresentationAnchor/@MeshInstance3D@38330",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/World/floor_003/PresentationAnchor/@MeshInstance3D@38355",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/World/ceiling_003/PresentationAnchor/@MeshInstance3D@38331",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/World/floor_004/PresentationAnchor/@MeshInstance3D@38356",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/World/ceiling_004/PresentationAnchor/@MeshInstance3D@38332"
+      ]
+    },
+    {
+      "source": "res://scripts/building/orison_v2_stove.gd",
+      "visible_physical_primitive_draws": 72,
+      "owners": 18,
+      "kinds": {
+        "CylinderMesh": 72
+      },
+      "examples": [
+        "OrisonV2Blockout/F03_3B_STOVE_01/Grease1",
+        "OrisonV2Blockout/F03_3B_STOVE_01/Grease2",
+        "OrisonV2Blockout/F03_3B_STOVE_01/Grease3",
+        "OrisonV2Blockout/F03_3B_STOVE_01/Grease4",
+        "OrisonV2Blockout/F04_B_STOVE_01/Grease1",
+        "OrisonV2Blockout/F04_B_STOVE_01/Grease2",
+        "OrisonV2Blockout/F04_B_STOVE_01/Grease3",
+        "OrisonV2Blockout/F04_B_STOVE_01/Grease4"
+      ]
+    },
+    {
+      "source": "res://scripts/building/elevator.gd",
+      "visible_physical_primitive_draws": 36,
+      "owners": 1,
+      "kinds": {
+        "BoxMesh": 36
+      },
+      "examples": [
+        "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@36795/@MeshInstance3D@36797",
+        "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@36795/@MeshInstance3D@36799",
+        "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@36795/@MeshInstance3D@36801",
+        "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@36795/@MeshInstance3D@36803",
+        "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@36795/@MeshInstance3D@36805",
+        "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@36795/@MeshInstance3D@36806",
+        "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@36795/@MeshInstance3D@36807",
+        "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@36795/@MeshInstance3D@36812"
+      ]
+    },
+    {
+      "source": "res://scripts/props/orison_v2_marquee_dress.gd",
+      "visible_physical_primitive_draws": 34,
+      "owners": 1,
+      "kinds": {
+        "CylinderMesh": 8,
+        "BoxMesh": 24,
+        "SphereMesh": 2
+      },
+      "examples": [
+        "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@MeshInstance3D@26606",
+        "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@MeshInstance3D@26607",
+        "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@MeshInstance3D@26608",
+        "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@MeshInstance3D@26609",
+        "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@MeshInstance3D@26610",
+        "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@MeshInstance3D@26611",
+        "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@MeshInstance3D@26612",
+        "OrisonV2Blockout/FrontFacade/EntranceMarqueeDress/@MeshInstance3D@26613"
+      ]
+    },
+    {
+      "source": "res://scripts/props/harukiya_signage_prop.gd",
+      "visible_physical_primitive_draws": 32,
+      "owners": 1,
+      "kinds": {
+        "BoxMesh": 23,
+        "SphereMesh": 9
+      },
+      "examples": [
+        "Harukiya/BarActors/F01_BAR_SIGNAGE/@MeshInstance3D@25454",
+        "Harukiya/BarActors/F01_BAR_SIGNAGE/@MeshInstance3D@25455",
+        "Harukiya/BarActors/F01_BAR_SIGNAGE/@MeshInstance3D@25456",
+        "Harukiya/BarActors/F01_BAR_SIGNAGE/@MeshInstance3D@25457",
+        "Harukiya/BarActors/F01_BAR_SIGNAGE/@MeshInstance3D@25458",
+        "Harukiya/BarActors/F01_BAR_SIGNAGE/@MeshInstance3D@25459",
+        "Harukiya/BarActors/F01_BAR_SIGNAGE/@MeshInstance3D@25460",
+        "Harukiya/BarActors/F01_BAR_SIGNAGE/@MeshInstance3D@25461"
+      ]
+    },
+    {
+      "source": "res://scripts/props/arcade_cabinet_prop.gd",
+      "visible_physical_primitive_draws": 21,
+      "owners": 2,
+      "kinds": {
+        "BoxMesh": 16,
+        "CylinderMesh": 5
+      },
+      "examples": [
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/@MeshInstance3D@25648",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/@MeshInstance3D@25652",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/@MeshInstance3D@25653",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/@MeshInstance3D@25654",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/@MeshInstance3D@25655",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/@MeshInstance3D@25656",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/@MeshInstance3D@25657",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/@MeshInstance3D@25658"
+      ]
+    },
+    {
+      "source": "res://scripts/props/tap_prop.gd",
+      "visible_physical_primitive_draws": 18,
+      "owners": 18,
+      "kinds": {
+        "CylinderMesh": 18
+      },
+      "examples": [
+        "OrisonV2Blockout/F04_4B_SHOWER_01/Stopper/@MeshInstance3D@8650",
+        "OrisonV2Blockout/F03_3B_SHOWER_01/Stopper/@MeshInstance3D@9122",
+        "OrisonV2Blockout/F02_2A_SHOWER_01/Stopper/@MeshInstance3D@9565",
+        "OrisonV2Blockout/F02_2B_SHOWER_01/Stopper/@MeshInstance3D@9588",
+        "OrisonV2Blockout/F03_3A_SHOWER_01/Stopper/@MeshInstance3D@10239",
+        "OrisonV2Blockout/F04_4A_SHOWER_01/Stopper/@MeshInstance3D@10506",
+        "OrisonV2Blockout/F05_5A_SHOWER_01/Stopper/@MeshInstance3D@10830",
+        "OrisonV2Blockout/F05_5B_SHOWER_01/Stopper/@MeshInstance3D@11200"
+      ]
+    },
+    {
+      "source": "res://scripts/building/orison_v2_stove_visual_motion.gd",
+      "visible_physical_primitive_draws": 18,
+      "owners": 18,
+      "kinds": {
+        "CylinderMesh": 18
+      },
+      "examples": [
+        "OrisonV2Blockout/F03_3B_STOVE_01/BurnerCap4/NativeServiceStock/BlockedJet",
+        "OrisonV2Blockout/F04_B_STOVE_01/BurnerCap1/NativeServiceStock/BlockedJet",
+        "OrisonV2Blockout/F02_2A_STOVE_01/BurnerCap1/NativeServiceStock/BlockedJet",
+        "OrisonV2Blockout/F02_2B_STOVE_01/BurnerCap3/NativeServiceStock/BlockedJet",
+        "OrisonV2Blockout/F03_3A_STOVE_01/BurnerCap2/NativeServiceStock/BlockedJet",
+        "OrisonV2Blockout/F04_4A_STOVE_01/BurnerCap3/NativeServiceStock/BlockedJet",
+        "OrisonV2Blockout/F05_5A_STOVE_01/BurnerCap4/NativeServiceStock/BlockedJet",
+        "OrisonV2Blockout/F05_5B_STOVE_01/BurnerCap2/NativeServiceStock/BlockedJet"
+      ]
+    },
+    {
+      "source": "res://scripts/cases/case_interactable.gd",
+      "visible_physical_primitive_draws": 14,
+      "owners": 5,
+      "kinds": {
+        "BoxMesh": 13,
+        "CylinderMesh": 1
+      },
+      "examples": [
+        "MinaCaseGameplay/Caption_Cards/CaseOwnedObject/@MeshInstance3D@27243",
+        "MinaCaseGameplay/Caption_Cards/CaseOwnedObject/@MeshInstance3D@27244",
+        "MinaCaseGameplay/Caption_Cards/CaseOwnedObject/@MeshInstance3D@27245",
+        "MinaCaseGameplay/Caption_Cards/CaseOwnedObject/@MeshInstance3D@27246",
+        "MinaCaseGameplay/Caption_Cards/CaseOwnedObject/@MeshInstance3D@27247",
+        "MinaCaseGameplay/Caption_Cards/CaseOwnedObject/@MeshInstance3D@27248",
+        "MinaCaseGameplay/Personal_Style_Guide/CaseOwnedObject/@MeshInstance3D@27249",
+        "MinaCaseGameplay/Personal_Style_Guide/CaseOwnedObject/@MeshInstance3D@27250"
+      ]
+    },
+    {
+      "source": "res://scripts/arcade/swc_player.gd",
+      "visible_physical_primitive_draws": 6,
+      "owners": 2,
+      "kinds": {
+        "BoxMesh": 4,
+        "SphereMesh": 1,
+        "CylinderMesh": 1
+      },
+      "examples": [
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/SwcPlayer/Camera/WeaponViewmodel/@MeshInstance3D@38377",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/SwcPlayer/Camera/WeaponViewmodel/@MeshInstance3D@38378",
+        "Harukiya/BarActors/Arcade_retail_bar_cab01/Machine/SwcPlayer/Camera/WeaponViewmodel/@MeshInstance3D@38379",
+        "Harukiya/BarActors/Arcade_retail_bar_cab02/Machine/SwcPlayer/Camera/WeaponViewmodel/@MeshInstance3D@38630",
+        "Harukiya/BarActors/Arcade_retail_bar_cab02/Machine/SwcPlayer/Camera/WeaponViewmodel/@MeshInstance3D@38631",
+        "Harukiya/BarActors/Arcade_retail_bar_cab02/Machine/SwcPlayer/Camera/WeaponViewmodel/@MeshInstance3D@38632"
+      ]
+    },
+    {
+      "source": "res://scripts/props/boiler_prop.gd",
+      "visible_physical_primitive_draws": 5,
+      "owners": 1,
+      "kinds": {
+        "CylinderMesh": 2,
+        "BoxMesh": 3
+      },
+      "examples": [
+        "OrisonV2Blockout/B1_BOILER_01/@Node3D@7112/@MeshInstance3D@7113",
+        "OrisonV2Blockout/B1_BOILER_01/@Node3D@7115/@MeshInstance3D@7116",
+        "OrisonV2Blockout/B1_BOILER_01/GaugeWaterLevel",
+        "OrisonV2Blockout/B1_BOILER_01/@Node3D@7119/@MeshInstance3D@7120",
+        "OrisonV2Blockout/B1_BOILER_01/WaterWitnessMarker"
+      ]
+    },
+    {
+      "source": "res://scripts/props/building_entry_sign.gd",
+      "visible_physical_primitive_draws": 5,
+      "owners": 1,
+      "kinds": {
+        "BoxMesh": 1,
+        "CylinderMesh": 4
+      },
+      "examples": [
+        "OrisonV2Blockout/FrontFacade/FrontDoorExteriorSign/@MeshInstance3D@26651",
+        "OrisonV2Blockout/FrontFacade/FrontDoorExteriorSign/@MeshInstance3D@26652",
+        "OrisonV2Blockout/FrontFacade/FrontDoorExteriorSign/@MeshInstance3D@26653",
+        "OrisonV2Blockout/FrontFacade/FrontDoorExteriorSign/@MeshInstance3D@26654",
+        "OrisonV2Blockout/FrontFacade/FrontDoorExteriorSign/@MeshInstance3D@26655"
+      ]
+    },
+    {
+      "source": "res://scripts/building/orison_v2_native_signal_terminal.gd",
+      "visible_physical_primitive_draws": 4,
+      "owners": 1,
+      "kinds": {
+        "CylinderMesh": 2,
+        "BoxMesh": 2
+      },
+      "examples": [
+        "OrisonV2Blockout/F04_B_MONITOR_01/SignalScope",
+        "OrisonV2Blockout/F04_B_MONITOR_01/MeterNeedle/@MeshInstance3D@20799",
+        "OrisonV2Blockout/F04_B_MONITOR_01/@Node3D@20800/@MeshInstance3D@20801",
+        "OrisonV2Blockout/F04_B_MONITOR_01/LineAnnunciator"
+      ]
+    },
+    {
+      "source": "res://scripts/props/bodega_signage_prop.gd",
+      "visible_physical_primitive_draws": 2,
+      "owners": 1,
+      "kinds": {
+        "BoxMesh": 2
+      },
+      "examples": [
+        "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/ExteriorFunctionalProp/@MeshInstance3D@21070",
+        "StreetAndBodega/ExteriorInstances/SHOP_BODEGA/ExteriorFunctionalProp/@MeshInstance3D@21072"
+      ]
+    },
+    {
+      "source": "res://scripts/building/exterior_detail_pass.gd",
+      "visible_physical_primitive_draws": 2,
+      "owners": 1,
+      "kinds": {
+        "SphereMesh": 1,
+        "BoxMesh": 1
+      },
+      "examples": [
+        "StreetBoundaries/RetainedStreetEnds/StreetEndWorkBeacons",
+        "StreetBoundaries/RetainedStreetEnds/@MultiMeshInstance3D@24272"
+      ]
+    },
+    {
+      "source": "res://scripts/building/passage_finish_pass.gd",
+      "visible_physical_primitive_draws": 2,
+      "owners": 1,
+      "kinds": {
+        "BoxMesh": 2
+      },
+      "examples": [
+        "VantryArcade/PassageActors/PassageFinishPass/PassageThresholdNosings",
+        "VantryArcade/PassageActors/PassageFinishPass/PassageEdgeDrains"
+      ]
+    },
+    {
+      "source": "res://scripts/building/passage_hours_director.gd",
+      "visible_physical_primitive_draws": 2,
+      "owners": 1,
+      "kinds": {
+        "BoxMesh": 2
+      },
+      "examples": [
+        "VantryArcade/PassageActors/PassageFinishPass/PassageHoursDirector/PassageFoldedShopGrilles",
+        "VantryArcade/PassageActors/PassageFinishPass/PassageHoursDirector/PassageNightServiceGrille"
+      ]
+    },
+    {
+      "source": "res://scripts/props/point_ball_prop.gd",
+      "visible_physical_primitive_draws": 2,
+      "owners": 1,
+      "kinds": {
+        "BoxMesh": 2
+      },
+      "examples": [
+        "Harukiya/BarActors/F01_BAR_POOL/@MeshInstance3D@25321",
+        "Harukiya/BarActors/F01_BAR_POOL/@MeshInstance3D@25322"
+      ]
+    },
+    {
+      "source": "res://scripts/props/vantry_point_prop.gd",
+      "visible_physical_primitive_draws": 1,
+      "owners": 1,
+      "kinds": {
+        "CylinderMesh": 1
+      },
+      "examples": [
+        "OrisonV2Blockout/@Node3D@3170/@MeshInstance3D@3195"
+      ]
+    }
+  ],
+  "next_review": "Door chain guards and number plates are visible close-up primitive hardware. The existing native leaves/knobs/hinges/keyways stay authoritative; inspect guard motion and source attachment datums before any Blender replacement. Historical handheld chassis is another candidate; native teletype is already separate. Architecture/simple bearing blocks can remain appropriate stock."
+}

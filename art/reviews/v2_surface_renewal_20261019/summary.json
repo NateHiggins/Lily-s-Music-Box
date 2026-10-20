@@ -1,0 +1,32 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Mip import repair and actual hand diagnostics; full current-world surface qualification pending",
+  "inventory": {
+    "draws": 26844,
+    "materials": 6389,
+    "textures": 500,
+    "failing_surfaces_before": 255,
+    "missing_mip_incidences_before": 762
+  },
+  "map_repair": {
+    "maps": 28,
+    "checks": 89,
+    "failures": 0,
+    "loaded_bytes": 10836032,
+    "canonical_checks": 89,
+    "canonical_failures": 0,
+    "policy_maps": 1305
+  },
+  "static_gates": 95,
+  "comparison": {
+    "changes": [],
+    "comparable": true,
+    "from_commit": "def92301a1be7ee463b99c718344c2a2ee7af3a2",
+    "improvements": [],
+    "regressions": [],
+    "requirements_changed": [],
+    "to_commit": "af78be18ee29319aba753f56719dddba87d94946"
+  },
+  "whole_world_accepted": false,
+  "human_accepted": false
+}

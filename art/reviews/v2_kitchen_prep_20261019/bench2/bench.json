@@ -1,0 +1,9 @@
+{
+	"checks": 128,
+	"evidence_class": "INERT",
+	"failures": [
+		"loose pose restores: MixingBowl",
+		"loose pose restores: SinkBridge"
+	],
+	"scope": "Isolated imported native surfaces, actual player mouse input and loose pose restore; no installed spatial acceptance"
+}

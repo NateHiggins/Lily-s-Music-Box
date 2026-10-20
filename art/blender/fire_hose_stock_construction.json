@@ -1,0 +1,54 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native stock/preview only, no runtime or human acceptance.",
+  "parts": {
+    "OutletStock": {
+      "length_m": 0.3,
+      "outer_radius_m": 0.021,
+      "inner_radius_m": 0.01905,
+      "segments": 192,
+      "sides": 64,
+      "nonmanifold_edges": 0,
+      "volume_m3": 7.348698341321804e-05,
+      "maximum_metric_error": 5.739690672967868e-06,
+      "triangles": 49408,
+      "clear_bore_rays": 17,
+      "end_bearing_rays": 16,
+      "exported_vertices": 25778
+    },
+    "NozzleStock": {
+      "length_m": 0.42,
+      "outer_radius_m": 0.021,
+      "inner_radius_m": 0.01905,
+      "segments": 192,
+      "sides": 64,
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00010288176947835493,
+      "maximum_metric_error": 5.739690672967868e-06,
+      "triangles": 49408,
+      "clear_bore_rays": 17,
+      "end_bearing_rays": 16,
+      "exported_vertices": 25680
+    }
+  },
+  "source_bindings": {
+    "art/blender/scripts/build_fire_hose_stock.py": "80e1a51c23fe9d631b21556869e1e579b8e94ad6e11c62ab1d3bbe14a3902f69",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "game/data/runtime_material_sets.json": "a3849b873ccbe227199c6040b5a4df7903e0fa73625b738383502e9d8d67b376"
+  },
+  "blend_sha256": "3b897565361ffe3724bf87eaab67d8f66ce562667d8fbf46d9a148f03e406ca7",
+  "export": {
+    "sha256": "4538bd72c695f3d01fb9d1850bca955c73aabeec7e9e61286a8cc291fd29c7a2",
+    "bytes": 3065236,
+    "images": 0,
+    "tangents": {
+      "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-fire-hand-20261019\\hose_native3\\fire_hose_stock.glb",
+      "primitives": 2,
+      "triangles": 98816,
+      "minimum_tangent_agreement": 0.9999999806870821,
+      "status": "PASS"
+    }
+  },
+  "candidate_blend_sha256": "61a2babb0ac968ea889414226e7c3450c6f660c7840608e7f025de1bf97c677c"
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "orison.hose-math-build.v1",
+  "sdk_commit": "27d9dd23c83871e0619fca5dc2cddfbfd69e926a",
+  "zig_version": "0.16.0",
+  "sdk_library_sha256": "714c5116a92b6d512412bcd388df54cb623f153ed9c0b9c9bba8ac44ef5b499c",
+  "sources": {
+    "tools/build_hose_math.py": "3f7b4e87603da4e88139a0ac54c1b5740341a1a42eef17bad9836d2312d7c6f2",
+    "game/native/hose_math/CMakeLists.txt": "c3266e8a97af05953a784765b61785a7480e55bcffd772da2c6aa934cd0ddad0",
+    "game/native/hose_math/build_profile.json": "af90c850e43cc773d47241de0077923dcae94a0697415a6d2d3eff78f404f919",
+    "game/native/hose_math/src/hose_projection.cpp": "042653da91d94cb87e6399bdc1b38a0cde434ec8e666eddbd9d434dbc1274831"
+  },
+  "binary_sha256": "92097845d03d4b853306be501b3650439528a7c4ab1c15bc2e589792e1410750",
+  "scope": "Numerical build binding only; not runtime or appearance acceptance."
+}

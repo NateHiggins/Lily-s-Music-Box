@@ -1,0 +1,265 @@
+{
+	"date": "1928-11-10 15:30 frozen",
+	"evidence_class": "INERT",
+	"notes": "Wall frame times include CPU and GPU synchronization; not GPU-only timings. Fullscreen does not imply a native4K monitor; actual window/screen/render/image pixels recorded separately. Existing production lighting/materials retained; player lamp/HUD hidden for aesthetic capture.",
+	"profiles": [
+		{
+			"draw_calls": 88652.0,
+			"frames": 24,
+			"label": "1080p_windowed_same_entrance",
+			"median_frame_ms": 85.82,
+			"mode": 0,
+			"p95_frame_ms": 90.28,
+			"render_pixels": [
+				1920,
+				1080
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"video_memory_bytes": 5645625856.0,
+			"window_pixels": [
+				1920,
+				1080
+			]
+		},
+		{
+			"draw_calls": 88275.0,
+			"frames": 24,
+			"label": "1440p_windowed_same_entrance",
+			"median_frame_ms": 85.951,
+			"mode": 0,
+			"p95_frame_ms": 90.963,
+			"render_pixels": [
+				2560,
+				1440
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"video_memory_bytes": 6129840160.0,
+			"window_pixels": [
+				1920,
+				1080
+			]
+		},
+		{
+			"draw_calls": 91568.0,
+			"frames": 24,
+			"label": "4k_windowed_same_entrance",
+			"median_frame_ms": 85.247,
+			"mode": 0,
+			"p95_frame_ms": 89.273,
+			"render_pixels": [
+				3840,
+				2160
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"video_memory_bytes": 7471649824.0,
+			"window_pixels": [
+				1920,
+				1080
+			]
+		},
+		{
+			"draw_calls": 88276.0,
+			"frames": 24,
+			"label": "4k_borderless_fullscreen_same_entrance",
+			"median_frame_ms": 85.784,
+			"mode": 3,
+			"p95_frame_ms": 90.728,
+			"render_pixels": [
+				3840,
+				2160
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"video_memory_bytes": 7471649824.0,
+			"window_pixels": [
+				3440,
+				1440
+			]
+		},
+		{
+			"draw_calls": 84206.0,
+			"frames": 24,
+			"label": "4k_fullscreen_lobby",
+			"median_frame_ms": 79.754,
+			"mode": 3,
+			"p95_frame_ms": 94.302,
+			"render_pixels": [
+				3840,
+				2160
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"video_memory_bytes": 8017876128.0,
+			"window_pixels": [
+				3440,
+				1440
+			]
+		},
+		{
+			"draw_calls": 34858.0,
+			"frames": 24,
+			"label": "4k_fullscreen_kitchen",
+			"median_frame_ms": 36.448,
+			"mode": 3,
+			"p95_frame_ms": 43.411,
+			"render_pixels": [
+				3840,
+				2160
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"video_memory_bytes": 8019317920.0,
+			"window_pixels": [
+				3440,
+				1440
+			]
+		},
+		{
+			"draw_calls": 33060.0,
+			"frames": 24,
+			"label": "4k_fullscreen_roof",
+			"median_frame_ms": 42.745,
+			"mode": 3,
+			"p95_frame_ms": 45.876,
+			"render_pixels": [
+				3840,
+				2160
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"video_memory_bytes": 8019317920.0,
+			"window_pixels": [
+				3440,
+				1440
+			]
+		}
+	],
+	"scope": "Posed aesthetic WIP only; no spatial/runtime/human acceptance.",
+	"shots": [
+		{
+			"camera_world": "[X: (1.0, 0.0, 0.0), Y: (-0.0, 0.97639, 0.216016), Z: (-0.0, -0.216016, 0.97639), O: (-0.000001, 1.65, 6.35)]",
+			"file": "01_orison_entrance_4k_windowed.png",
+			"fov": 57.0,
+			"image_pixels": [
+				3840,
+				2160
+			],
+			"label": "01_orison_entrance_4k_windowed",
+			"mode": 0,
+			"readback_png_ms": 2179.455,
+			"render_pixels": [
+				3840,
+				2160
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"window_pixels": [
+				1920,
+				1080
+			]
+		},
+		{
+			"camera_world": "[X: (0.400142, 0.0, -0.916453), Y: (0.011828, 0.999917, 0.005165), Z: (0.916377, -0.012907, 0.400108), O: (4.3, 1.6, -3.4)]",
+			"file": "02_lobby_4k_fullscreen.png",
+			"fov": 68.0,
+			"image_pixels": [
+				3840,
+				2160
+			],
+			"label": "02_lobby_4k_fullscreen",
+			"mode": 3,
+			"readback_png_ms": 1330.287,
+			"render_pixels": [
+				3840,
+				2160
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"window_pixels": [
+				3440,
+				1440
+			]
+		},
+		{
+			"camera_world": "[X: (0.945946, 0.0, 0.324325), Y: (0.125314, 0.922338, -0.365499), Z: (-0.299137, 0.386385, 0.872482), O: (14.1, 4.7, -15.97)]",
+			"file": "03_kitchen_4k_fullscreen.png",
+			"fov": 55.0,
+			"image_pixels": [
+				3840,
+				2160
+			],
+			"label": "03_kitchen_4k_fullscreen",
+			"mode": 3,
+			"readback_png_ms": 1129.089,
+			"render_pixels": [
+				3840,
+				2160
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"window_pixels": [
+				3440,
+				1440
+			]
+		},
+		{
+			"camera_world": "[X: (-0.768221, 0.0, 0.640184), Y: (0.09722, 0.988402, 0.116664), Z: (-0.632759, 0.151862, -0.759311), O: (3.600001, 22.8, -11.95)]",
+			"file": "04_rooftop_city_4k_fullscreen.png",
+			"fov": 58.0,
+			"image_pixels": [
+				3840,
+				2160
+			],
+			"label": "04_rooftop_city_4k_fullscreen",
+			"mode": 3,
+			"readback_png_ms": 1122.3,
+			"render_pixels": [
+				3840,
+				2160
+			],
+			"scale_3d": 1.0,
+			"screen_pixels": [
+				3440,
+				1440
+			],
+			"window_pixels": [
+				3440,
+				1440
+			]
+		}
+	],
+	"world_build_ms": 108251
+}

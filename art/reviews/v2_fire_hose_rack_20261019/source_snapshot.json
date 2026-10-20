@@ -1,0 +1,24 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exact raw source snapshot for scoped rack review, not runtime acceptance",
+  "sha256": {
+    "art/blender/scripts/build_fire_hose_rack.py": "5e5bd4643f08c1fc82c94dfec95c3506c91ae439bc03f3a931a8923700986276",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/fire_hose_rack.blend": "c94bef1da567b93de248fb9b2fa1cfc25958ad636d5a0ee550721ffdc15006ee",
+    "art/blender/fire_hose_rack_construction.json": "23a063ea296f0ac8d53f365952b089ec8cdcc232f34adeb75df8e581b81b79e9",
+    "game/assets/props/fire_hose_rack.glb": "e261112c861d5122f5e8d94e047270f3cc128895082bde72aa910af63137b919",
+    "game/assets/props/fire_hose_rack.glb.import": "7f430490c21671523611956d4e91a3993e712201f37e13cfd5608e9e466adffd",
+    "game/data/orison_v2/fire_hose_rack.json": "abd085858ce1fcc5348eff7081455f4827f5454d7693d90fce3467e015074db8",
+    "game/scripts/props/fire_hose_rack.gd": "49bd3ec257ccf4ce255c14ed1d9433b21a6199fdcda2bb2e2382a6f8e145c859",
+    "game/scripts/building/orison_v2_native_fire_service.gd": "8052bf362554b7faea3f743a2a6b5ddfa31d29301881cf5276bebd62f4b9ebca",
+    "game/scripts/props/v2_fire_line_cabinet.gd": "5b461e54baece5b98eaf710a918c2ac29a6d790f20278b8c019b9e51546e7a89",
+    "game/tests/v2_fire_rack_bench.gd": "2e59cfd9da6b3ba0ae77be1c33b71c4ea11317314e73fc3dfbfd1c3d70db1b6c",
+    "game/tests/V2FireRackBench.tscn": "c168a7b8ef2f91af58ac48ee64d47300b0e3018e8adaa0fb9f2b62bfb40035c6",
+    "game/tests/v2_fire_hand_bench.gd": "090ca2c7721914f64f4a1bd01e3bd77dfe7e688e57379281ee0de828558969c2",
+    "tools/v2_surface_evidence.py": "76a7d1dff9e8a3b29a759a6ff6ee486e0e582c1496bcfffb61c6a1ffb9c90fda",
+    "tools/tests/test_v2_surface_requirements.py": "09b9f118bd8d87b95bb640b104d4e5232c3012ca6b8067b533c0f748dc1a591f",
+    "art/tools/fix_v2_mesh_imports.py": "863d663235d156d29702317afc7d4c2f2e1dbf7f524a6b81ceb6f75e06037f1d"
+  }
+}

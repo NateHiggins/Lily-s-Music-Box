@@ -1,0 +1,9 @@
+{
+	"checks": 131,
+	"evidence_class": "INERT",
+	"failures": [
+		"native support ray includes the resting rolling pin",
+		"board and actually supported pin move together without overlap"
+	],
+	"scope": "Isolated imported native surfaces, actual player mouse input and loose pose restore; no installed spatial acceptance"
+}

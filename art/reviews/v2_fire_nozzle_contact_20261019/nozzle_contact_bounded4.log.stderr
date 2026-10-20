@@ -1,0 +1,24 @@
+SCRIPT ERROR: Parse Error: Cannot find member "ZERO" in base "Basis".
+   at: GDScript::reload (res://scripts/props/fire_nozzle_coupling.gd:60)
+SCRIPT ERROR: Parse Error: Cannot find member "ZERO" in base "Basis".
+   at: GDScript::reload (res://scripts/props/fire_nozzle_coupling.gd:60)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/props/v2_fire_line_cabinet.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/orison_v2_native_fire_service.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/v2_fire_hand_bench.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/v2_fire_nozzle_support_probe.gd:0)
+ERROR: Failed to load script "res://tests/v2_fire_nozzle_support_probe.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: install_nozzle_joint (res://scripts/props/v2_fire_line_cabinet.gd:34)
+   GDScript backtrace (most recent call first):
+       [0] install_nozzle_joint (res://scripts/props/v2_fire_line_cabinet.gd:34)
+       [1] mount (res://scripts/building/orison_v2_native_fire_service.gd:91)
+       [2] _run (res://tests/v2_fire_nozzle_support_probe.gd:11)
+ERROR: ["physical nozzle joint B1_FIRE_LINE_STAIR"]
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/v2_fire_nozzle_support_probe.gd:11)

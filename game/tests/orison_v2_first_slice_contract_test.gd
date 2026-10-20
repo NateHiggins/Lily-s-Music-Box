@@ -23,7 +23,7 @@ class PatrolHand extends Node3D:
 			var tangent: Vector3=axis
 			if target.kind=="hinge":
 				tangent=axis.cross(point-target.part.global_position)
-				if tangent.length()<.025: tangent=axis.cross(player.camera.global_basis.x)*.06
+				if tangent.length()<float(target.get("minimum_lever",.025)): tangent=axis.cross(player.camera.global_basis.x)*.06
 				if tangent.length()<.01:tangent=axis.cross(player.camera.global_basis.y)*.06
 			var screen: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
 			var depth_gesture := screen.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5
@@ -55,7 +55,7 @@ class PatrolHand extends Node3D:
 		var moved: bool=await move_to(target)
 		if not moved:
 			print("[PATROL POINTER] motion incomplete part=",part_name," wanted=",target," actual=",picked.read.call()," active=",player._grab.active()," captured=",Input.mouse_mode," call_locked=",player.call_locked," mouse_released=",player.mouse_released)
-		click()
+		if player._grab.active(): click()
 		return moved and not player._grab.active()
 
 

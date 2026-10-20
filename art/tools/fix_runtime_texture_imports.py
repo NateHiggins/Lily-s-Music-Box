@@ -91,6 +91,7 @@ V2_WANT = {
 # Physical maps reached by the composed V2 world outside the building library.
 # Sky projections and UI-only images retain their own sampling authority.
 V2_EXTERNAL_MAPS = (
+    "game/assets/characters/mina_vale/texture_0.png",
     "game/assets/characters/mina_vale/texture_0_metallic-texture_0_roughness.png",
     "game/assets/characters/mina_vale/texture_0_normal.png",
     "game/assets/ui/telegram/telegram_paper_stock_v1.png",
@@ -99,14 +100,15 @@ V2_EXTERNAL_MAPS = (
 
 
 def v2_sidecars() -> list[Path]:
-    """All shipped building images, including height, masks and wall finishes.
+    """Shipped building and native handheld images, plus named external maps.
 
-    Git source paths prevent generated glTF image extracts and local review
-    inputs becoming accidental shipping authority. Sky is an environment
-    projection, governed by its separate half-dome import recipe.
+    Include new nonignored images before staging. Restrict candidates to the
+    authored physical folders; generated glTF extracts and local review folders
+    remain outside this authority. Sky uses its separate half-dome recipe.
     """
     paths = subprocess.check_output(
-        ["git", "-C", str(ROOT), "ls-files", "game/assets/building/textures"],
+        ["git", "-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "--", "game/assets/building/textures",
+         "game/assets/device/service_teletype"],
         text=True, encoding="utf-8").splitlines()
     runtime_names=set(re.findall(r'"([^"]+\.png)"',GDSCRIPT.read_text(encoding="utf-8")))
     return sorted({ROOT / (name + ".import") for name in paths

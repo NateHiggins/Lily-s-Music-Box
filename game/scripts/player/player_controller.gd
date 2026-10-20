@@ -38,6 +38,7 @@ const STAGGER_ROLL := 0.085
 
 var camera: Camera3D
 var flashlight: SpotLight3D
+var _carried_light_pose := preload("res://scripts/lamp/carried_lamp_pose.gd").new()
 var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
@@ -501,8 +502,8 @@ func _carry_service_light(delta: float) -> void:
 	if _hand == null:
 		return
 	_sway_clock += delta * (2.6 if velocity.length() > 0.5 else 1.0)
-	# Owner-requested close-work origin: the carrier publishes an eye-adjacent
-	# optical pose so a wall near the camera cannot swallow the torch emitter.
+	# The carrier publishes a held-light origin. Close-work convergence and a
+	# swept aperture keep this offset source out of nearby walls and fittings.
 	# The same real light remains authoritative for shadows and voxel injection.
 	var hold: Transform3D
 	if carried_device and carried_device.get("beam_valid"):
@@ -516,7 +517,7 @@ func _carry_service_light(delta: float) -> void:
 				sin(_sway_clock * 1.7) * 0.008,
 				sin(_sway_clock * 3.1) * 0.006, 0.0)
 		hold = camera.transform \
-				* Transform3D(Basis(), Vector3(0.16, -0.19, -0.06) + sway)
+				* Transform3D(Basis(), _carried_light_pose.ORIGIN + sway)
 	# Less lag than before: the carried object trails the eye on its own
 	# hand-lag, and stacking a second one on the light doubled it.
 	_update_throw(delta)
@@ -524,7 +525,8 @@ func _carry_service_light(delta: float) -> void:
 	# Repeated interpolation can accumulate scale drift; slerp needs rotations.
 	_hand.transform = Transform3D(
 			_hand.transform.basis.orthonormalized().slerp(hold.basis.orthonormalized(), chase),
-			_hand.transform.origin.lerp(hold.origin, chase))
+			hold.origin)
+	_hand.global_transform = _carried_light_pose.resolve(self,_hand.global_transform)
 	# The beam's own drift lives in the mask shader now, where it can be
 	# scaled by walking speed; nudging the Control here as well would
 	# double it.

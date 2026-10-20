@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.20)
+project(orison_hose_math LANGUAGES CXX)
+set(GODOT_CPP_SOURCE "" CACHE PATH "Pinned godot-cpp source checkout")
+set(GODOT_CPP_BUILD "" CACHE PATH "Matching compiled godot-cpp SDK")
+if(NOT EXISTS "${GODOT_CPP_BUILD}/bin/libgodot-cpp.windows.template_release.x86_64.a")
+  message(FATAL_ERROR "Build the pinned Windows release SDK first")
+endif()
+add_library(orison_hose_math SHARED src/hose_projection.cpp)
+target_compile_features(orison_hose_math PRIVATE cxx_std_17)
+target_include_directories(orison_hose_math PRIVATE
+  "${GODOT_CPP_SOURCE}/include" "${GODOT_CPP_SOURCE}/gdextension" "${GODOT_CPP_BUILD}/gen/include")
+target_link_libraries(orison_hose_math PRIVATE "${GODOT_CPP_BUILD}/bin/libgodot-cpp.windows.template_release.x86_64.a")
+target_link_options(orison_hose_math PRIVATE -static-libgcc -static-libstdc++)
+set_target_properties(orison_hose_math PROPERTIES PREFIX "" OUTPUT_NAME "orison_hose_math.windows.x86_64"
+  RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")

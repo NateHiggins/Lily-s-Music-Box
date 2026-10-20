@@ -1,0 +1,23 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Source/import-parameter equality and17 protected paths vsorigin/main; not a fresh-import, runtime-contract, merge or human acceptance claim.",
+  "canonical": {
+    "runtime_inputs_sha256": "391d97bca13f060ba39a042b7704870d11ca3ed7ae556cff6a08ea896ffe4fbc",
+    "surfaces": {
+      "algorithm": "sha256/LF-normalized-text-and-import-parameters/v1",
+      "files": 5270,
+      "sha256": "d8b14ccde2097050de584af4a30f23e29b7bf7d02fc732279234ccb6f3f7d91f"
+    }
+  },
+  "candidate": {
+    "runtime_inputs_sha256": "391d97bca13f060ba39a042b7704870d11ca3ed7ae556cff6a08ea896ffe4fbc",
+    "surfaces": {
+      "algorithm": "sha256/LF-normalized-text-and-import-parameters/v1",
+      "files": 5270,
+      "sha256": "d8b14ccde2097050de584af4a30f23e29b7bf7d02fc732279234ccb6f3f7d91f"
+    }
+  },
+  "protected_paths_equal": 17,
+  "historical_receipt_unchanged": true,
+  "native_source_bindings": "PASS"
+}

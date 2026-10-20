@@ -17,7 +17,7 @@ func _run() -> void:
 	var mounted: bool=fitter.mount(self)
 	check(mounted,"production fitting adapter mounts without stale-source errors: "+str(fitter.errors))
 	if not mounted:get_tree().quit(1);return
-	check(fitter.changed_batches.size()==21 and fitter.installed.size()==86,"twenty rail and twenty-two three-piece cornice fittings installed")
+	check(fitter.changed_batches.size()==9 and fitter.installed.size()==66,"twenty-two three-piece cornice fittings installed; retired rail fittings absent")
 	for row: Dictionary in fitter.changed_batches:
 		var batch: MultiMeshInstance3D=row.batch.get_ref()
 		check(batch.get_meta("wall_sources").size()==batch.multimesh.instance_count,"wall ownership retained on every split strip")
@@ -38,7 +38,7 @@ func _run() -> void:
 		for texture: Texture2D in [material.albedo_texture,material.roughness_texture,material.normal_texture]:
 			var image:=texture.get_image()
 			check(image!=null and image.has_mipmaps() and image.get_mipmap_count()==int(floor(log(maxi(image.get_width(),image.get_height()))/log(2.0))),"loaded wood map has a complete real mip chain")
-	check(validator.failures.is_empty(),"all four imported stocks pass unchanged strict UV/tangent validator")
+	check(validator.failures.is_empty(),"all three retained cornice stocks pass unchanged strict UV/tangent validator")
 	checks+=validator.batch_checks;validator.free()
 	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/front_lighting_trim.json"))
 	for fitting: Dictionary in data.fittings:
@@ -93,7 +93,7 @@ func _capture(shell: Node3D,fitter: RefCounted) -> void:
 	check(cornice_frame!=Transform3D.IDENTITY,"gallery cornice camera resolves an installed fitting")
 	var target:=cornice_frame.origin
 	var eye:=target+cornice_frame.basis.z*.55+cornice_frame.basis.x*.22+Vector3.DOWN*.16
-	for view: Array in [["rail",Vector3(4.9,1.82,-4.35),Vector3(5.55,1.65,-3.94)],["cornice",eye,target]]:
+	for view: Array in [["removed_rail",Vector3(4.9,1.82,-4.35),Vector3(5.55,1.65,-3.94)],["cornice",eye,target]]:
 		camera.position=view[1];camera.look_at(view[2])
 		await get_tree().create_timer(.4).timeout;await RenderingServer.frame_post_draw
 		check(get_viewport().get_texture().get_image().save_png(directory.path_join(str(view[0])+".png"))==OK,"source-shell fitting capture saved")

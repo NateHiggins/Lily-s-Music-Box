@@ -1,0 +1,107 @@
+-- Auto-detected 24 CPU cores available for build parallelism.
+-- If not already cached, setting CMAKE_MSVC_RUNTIME_LIBRARY.
+	For more information please read godot-cpp/cmake/windows.cmake
+-- Using all cores. You can override this at configure time by using -j <n> or --parallel <n> in the build command.
+--   eg. cmake --build . -j 7  ...
+-- Using build profile to trim api file
+-- 	BUILD_PROFILE = 'C:/PleaseRemainOnTheLine/game/native/hose_math/build_profile.json'
+-- 	API_SOURCE = 'gdextension/extension_api.json'
+-- GODOTCPP_GDEXTENSION_API_FILE = 'C:/ov/v2-hose-sdk-28/extension_api.json'
+-- There are 82 Files to generate
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/ov/v2-hose-sdk-28
+-- Auto-detected 24 CPU cores available for build parallelism.
+-- If not already cached, setting CMAKE_MSVC_RUNTIME_LIBRARY.
+	For more information please read godot-cpp/cmake/windows.cmake
+-- Using all cores. You can override this at configure time by using -j <n> or --parallel <n> in the build command.
+--   eg. cmake --build . -j 7  ...
+-- Using build profile to trim api file
+-- 	BUILD_PROFILE = 'C:/PleaseRemainOnTheLine/game/native/hose_math/build_profile.json'
+-- 	API_SOURCE = 'gdextension/extension_api.json'
+-- GODOTCPP_GDEXTENSION_API_FILE = 'C:/ov/v2-hose-sdk-28/extension_api.json'
+-- There are 82 Files to generate
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/ov/v2-hose-sdk-28
+[0/2] Re-checking globbed directories...
+[1/64] Generating bindings
+Built-in type config: float_64
+[2/64] Building CXX object CMakeFiles/godot-cpp.dir/src/classes/editor_plugin_registration.cpp.obj
+[3/64] Building CXX object CMakeFiles/godot-cpp.dir/src/classes/wrapped.cpp.obj
+[4/64] Building CXX object CMakeFiles/godot-cpp.dir/src/classes/low_level.cpp.obj
+[5/64] Building CXX object CMakeFiles/godot-cpp.dir/src/core/error_macros.cpp.obj
+[6/64] Building CXX object CMakeFiles/godot-cpp.dir/src/core/class_db.cpp.obj
+[7/64] Building CXX object CMakeFiles/godot-cpp.dir/src/core/method_bind.cpp.obj
+[8/64] Building CXX object CMakeFiles/godot-cpp.dir/src/core/print_string.cpp.obj
+[9/64] Building CXX object CMakeFiles/godot-cpp.dir/src/core/object.cpp.obj
+[10/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/aabb.cpp.obj
+[11/64] Building CXX object CMakeFiles/godot-cpp.dir/src/godot.cpp.obj
+[12/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/basis.cpp.obj
+[13/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/callable_custom.cpp.obj
+[14/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/packed_arrays.cpp.obj
+[15/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/callable_method_pointer.cpp.obj
+[16/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/char_string.cpp.obj
+C:/ov/hose-godot-cpp/src/variant/char_string.cpp:48:22: warning: implicit conversion from 'const char16_t' to 'const char32_t' may change the meaning of the represented code unit [-Wcharacter-conversion]
+   48 |                 const char32_t l = *l_ptr;
+      |                                ~   ^~~~~~
+C:/ov/hose-godot-cpp/src/variant/char_string.cpp:74:9: note: in instantiation of function template specialization 'godot::is_str_less<char16_t, char16_t>' requested here
+   74 |         return is_str_less(get_data(), p_right.get_data());
+      |                ^
+C:/ov/hose-godot-cpp/src/variant/char_string.cpp:49:22: warning: implicit conversion from 'const char16_t' to 'const char32_t' may change the meaning of the represented code unit [-Wcharacter-conversion]
+   49 |                 const char32_t r = *r_ptr;
+      |                                ~   ^~~~~~
+2 warnings generated.
+[17/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/color.cpp.obj
+[18/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/quaternion.cpp.obj
+[19/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/plane.cpp.obj
+[20/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/rect2.cpp.obj
+[21/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/projection.cpp.obj
+[22/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/rect2i.cpp.obj
+[23/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/transform2d.cpp.obj
+[24/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/transform3d.cpp.obj
+[25/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector2.cpp.obj
+[26/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector2i.cpp.obj
+[27/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/variant_internal.cpp.obj
+[28/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/variant.cpp.obj
+[29/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector3i.cpp.obj
+[30/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector3.cpp.obj
+[31/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector4.cpp.obj
+[32/64] Building CXX object CMakeFiles/godot-cpp.dir/src/variant/vector4i.cpp.obj
+[33/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/node_path.cpp.obj
+[34/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/string.cpp.obj
+[35/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/string_name.cpp.obj
+[36/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/rid.cpp.obj
+[37/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/callable.cpp.obj
+[38/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/signal.cpp.obj
+[39/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/dictionary.cpp.obj
+[40/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/array.cpp.obj
+[41/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_byte_array.cpp.obj
+[42/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_int32_array.cpp.obj
+[43/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_int64_array.cpp.obj
+[44/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_float32_array.cpp.obj
+[45/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_float64_array.cpp.obj
+[46/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_vector2_array.cpp.obj
+[47/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_string_array.cpp.obj
+[48/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_vector3_array.cpp.obj
+[49/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_color_array.cpp.obj
+[50/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/packed_vector4_array.cpp.obj
+[51/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/class_db_singleton.cpp.obj
+[52/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/engine.cpp.obj
+[53/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/file_access.cpp.obj
+[54/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/image.cpp.obj
+[55/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/object.cpp.obj
+[56/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/os.cpp.obj
+[57/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/ref_counted.cpp.obj
+[58/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/resource.cpp.obj
+[59/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/semaphore.cpp.obj
+[60/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/worker_thread_pool.cpp.obj
+[61/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/classes/xml_parser.cpp.obj
+[62/64] Building CXX object CMakeFiles/godot-cpp.dir/gen/src/variant/utility_functions.cpp.obj
+[63/64] Linking CXX static library bin\libgodot-cpp.windows.template_release.x86_64.a
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/ov/v2-hose-native-28
+[1/2] Building CXX object CMakeFiles/orison_hose_math.dir/src/hose_projection.cpp.obj
+[2/2] Linking CXX shared library C:\PleaseRemainOnTheLine\game\native\hose_math\bin\orison_hose_math.windows.x86_64.dll
+Native hose source/binary binding: PASS

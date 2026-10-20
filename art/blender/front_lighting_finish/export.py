@@ -1,14 +1,13 @@
-"""Export only the four proven bored wood stocks, never their review context."""
+"""Export retained bored cornice stock; the eye-level rail is retired."""
 from pathlib import Path
-import ast,hashlib,json,sys
+import ast,hashlib,json,sys,os
 import bpy
 import numpy as np
 
-ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'tmp/v2-front-trim-20261017'
+ROOT=Path(__file__).resolve().parents[3];OUT=Path(os.environ.get('FRONT_TRIM_EXPORT_OUT',str(ROOT/'tmp/v2-front-trim-20261019')));OUT.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 draws=[];bindings={}
-for file,names in [('front_lighting_finish_candidate.blend',['BoredRailBridge']),
-                   ('front_lighting_cornice_candidate.blend',['BoredCornice_0','BoredCornice_1','BoredCornice_2'])]:
+for file,names in [('front_lighting_cornice_candidate.blend',['BoredCornice_0','BoredCornice_1','BoredCornice_2'])]:
     path=ROOT/'art/blender'/file;bindings[str(path.relative_to(ROOT))]=hashlib.sha256(path.read_bytes()).hexdigest()
     with bpy.data.libraries.load(str(path),link=False) as (available,loaded):loaded.objects=names
     for obj in loaded.objects:
@@ -50,7 +49,7 @@ for obj in list(bpy.data.objects):bpy.data.objects.remove(obj,do_unlink=True)
 bpy.ops.import_scene.gltf(filepath=str(asset))
 actual={o.name:len(o.data.polygons) for o in bpy.context.scene.objects if o.type=='MESH'}
 assert expected==actual,(expected,actual)
-report=dict(evidence_class='INERT',scope='Four native bored stocks only; export/reimport and strict tangent checks, not runtime acceptance.',
+report=dict(evidence_class='INERT',scope='Three retained native cornice stocks only; export/reimport and strict tangent checks, not runtime acceptance.',
     asset_sha256=hashlib.sha256(asset.read_bytes()).hexdigest(),source_bindings=bindings,tangents=result,parts=actual,
     recipe_sha256_lf=hashlib.sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest(),
     exporter_hook_sha256_lf=hashlib.sha256(helper.read_bytes().replace(b'\r\n',b'\n')).hexdigest())

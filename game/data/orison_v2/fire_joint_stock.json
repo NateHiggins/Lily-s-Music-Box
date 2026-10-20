@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fire_joint_stock.glb",
+  "dimensions": {
+    "pitch_m": 0.0028,
+    "radial_clearance_m": 0.00025,
+    "bore_radius_m": 0.01905,
+    "male_origin_y_m": 0.556,
+    "empty_union_origin_y_m": 0.513,
+    "gasket_thickness_m": 0.0015
+  },
+  "materials": {
+    "brass": {
+      "catalog_key": "radiator_service_brass",
+      "tint": [
+        0.9,
+        0.82,
+        0.63,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.15,
+      "roughness": 0.8,
+      "metallic": 0.92
+    },
+    "linen": {
+      "catalog_key": "linen",
+      "tint": [
+        0.75,
+        0.71,
+        0.59,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.08,
+      "roughness": 0.9,
+      "metallic": 0.0
+    },
+    "rubber": {
+      "catalog_key": "washer_rubber",
+      "tint": [
+        0.5,
+        0.4,
+        0.34,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.15,
+      "roughness": 0.9,
+      "metallic": 0.0
+    }
+  },
+  "parts": {
+    "MaleOutlet": "brass",
+    "FemaleUnion": "brass",
+    "SwivelTail": "brass",
+    "HoseNeck": "linen",
+    "HoseRetainer": "brass",
+    "UnionGasket": "rubber"
+  }
+}

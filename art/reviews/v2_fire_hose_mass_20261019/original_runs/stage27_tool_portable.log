@@ -1,0 +1,46 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Float32 geometry replay; not Godot collision, energy or runtime acceptance.",
+  "case": "art\\reviews\\v2_fire_hose_mass_20261019\\cases\\stage27_mass9\\kernel_case.json",
+  "before": {
+    "maximum_interval_error_m": 9.877840056969883e-07,
+    "accumulated_length_error_m": 3.566616214925643e-06,
+    "bend_violation_m": 2.006096069546038e-05,
+    "plane_violation_m": 0.0,
+    "geometric_bounds_only": false
+  },
+  "sweeps": [
+    {
+      "sweep": 1,
+      "maximum_interval_error_m": 1.0890886187553623e-05,
+      "accumulated_length_error_m": 1.3008015230411884e-05,
+      "bend_violation_m": 4.714129612194955e-06,
+      "plane_violation_m": 0.0,
+      "geometric_bounds_only": true
+    },
+    {
+      "sweep": 2,
+      "maximum_interval_error_m": 1.0939547792077281e-05,
+      "accumulated_length_error_m": 1.6979873180503246e-05,
+      "bend_violation_m": 2.8731377128238082e-06,
+      "plane_violation_m": 0.0,
+      "geometric_bounds_only": true
+    },
+    {
+      "sweep": 3,
+      "maximum_interval_error_m": 1.1252122931182601e-05,
+      "accumulated_length_error_m": 1.9515166059250232e-05,
+      "bend_violation_m": 1.5762710276717544e-06,
+      "plane_violation_m": 0.0,
+      "geometric_bounds_only": true
+    },
+    {
+      "sweep": 4,
+      "maximum_interval_error_m": 1.1603697203099944e-05,
+      "accumulated_length_error_m": 2.1349056623989936e-05,
+      "bend_violation_m": 9.446014914388061e-07,
+      "plane_violation_m": 0.0,
+      "geometric_bounds_only": false
+    }
+  ]
+}

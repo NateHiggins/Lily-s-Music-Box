@@ -25,7 +25,7 @@ def merge(intervals):
     return result
 
 def plan(layout,snapshot,asset_hash,profile_hash):
-    rooms={r['id']:r for r in layout['spaces']};levels={r['id']:r['y'] for r in layout['levels']}
+    rooms={r['id']:r for r in layout['spaces']}
     records=collections.defaultdict(list)
     seen=set()
     for row in snapshot['records']:
@@ -42,24 +42,8 @@ def plan(layout,snapshot,asset_hash,profile_hash):
         key=(row['room'],row['index'])
         if key not in cuts:cuts[key]=dict(index=row['index'],source=row['source'],expected=pose(row),intervals=[])
         cuts[key]['intervals'].append([lo,hi]);return True
-    for anchor in layout['anchors']:
-        if '_FRONT_' not in anchor['id'] or not anchor['id'].endswith('_SWITCH'):continue
-        yaw=anchor['yaw'];p=anchor['position'];level=levels[anchor['level']]
-        normal=[-math.sin(yaw),0,-math.cos(yaw)]
-        center=[p[0]+math.sin(yaw)*.012,level+1.65,p[2]+math.cos(yaw)*.012]
-        face=sub(center,mul(normal,.020));matches=[]
-        for row in records[anchor['space']]:
-            b=row['basis'];z=unit(b[2]);depth=math.sqrt(dot(b[2],b[2]))
-            if abs(row['position'][1]-center[1])>1e-4 or abs(math.sqrt(dot(b[1],b[1]))-.042)>1e-4 or dot(z,normal)<.9999:continue
-            if abs(dot(sub(sub(row['position'],mul(z,depth/2)),face),z))>1e-4:continue
-            length=math.sqrt(dot(b[0],b[0]));x=dot(sub(center,row['position']),b[0])/(length*length)
-            if abs(x)+WIDTH/2/length>.50001:continue
-            matches.append((row,x))
-        if len(matches)!=1:raise ValueError(f"{anchor['id']}: expected one full rail seat, found {len(matches)}")
-        row,x=matches[0];b=[unit(v) for v in row['basis']]
-        origin=sub(add(row['position'],mul(row['basis'][0],x)),mul(b[2],.021))
-        cut(row,center)
-        fittings.append(dict(owner=anchor['id'],room=anchor['space'],variant='rail',pose=[v for c in b for v in c]+origin))
+    # Eye-level switch rail retired by the owner. Only retained cornice stock
+    # needs bored fittings; switches keep their original wall service owners.
     for port in layout.get('wall_service_openings',[]):
         if '_FRONT_LIGHT_PORT_' not in port['id']:continue
         room=rooms[port['space']]
@@ -77,10 +61,9 @@ def plan(layout,snapshot,asset_hash,profile_hash):
         fittings.append(dict(owner=port['id'],room=port['space'],variant='cornice',pose=[v for c in b for v in c]+face))
     groups=collections.defaultdict(list)
     for (room,index),row in sorted(cuts.items()):row['intervals']=merge(row['intervals']);groups[room].append(row)
-    if sum(r['variant']=='rail' for r in fittings)!=20:raise ValueError('Expected all twenty switch rail fittings')
     return dict(schema_version=1,asset='res://assets/props/front_lighting_trim.glb',asset_sha256=asset_hash,
         profile_asset='res://assets/props/millwork_profile.glb',profile_asset_sha256=profile_hash,catalog_key='trim',tile=1.2,
-        parts=[dict(name=name,variant='rail' if name=='BoredRailBridge' else 'cornice') for name in ['BoredRailBridge','BoredCornice_0','BoredCornice_1','BoredCornice_2']],
+        parts=[dict(name=name,variant='cornice') for name in ['BoredCornice_0','BoredCornice_1','BoredCornice_2']],
         rooms=[dict(room=room,cuts=rows) for room,rows in sorted(groups.items())],fittings=fittings)
 
 def main():

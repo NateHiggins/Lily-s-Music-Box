@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/kitchen_plumbing.glb",
+  "asset_sha256": "3366b308f63c70badb19d9353f952d830e9f82ed708069b89428752095bef273",
+  "templates": [
+    {
+      "id": "Compact280",
+      "compact": true,
+      "rim_y": 0.9175,
+      "wall_z": 0.28,
+      "riser_z": 0.22
+    },
+    {
+      "id": "Standard390",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.39,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Standard410",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.41,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Standard300",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.3,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Standard400",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.4,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Compact430Timber",
+      "compact": true,
+      "rim_y": 0.9175,
+      "wall_z": 0.43,
+      "riser_z": 0.315
+    },
+    {
+      "id": "Standard360",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.36,
+      "riser_z": 0.26
+    },
+    {
+      "id": "Standard350",
+      "compact": false,
+      "rim_y": 0.9,
+      "wall_z": 0.35,
+      "riser_z": 0.26
+    }
+  ],
+  "installations": [
+    {
+      "unit": "1A",
+      "template": "Compact280"
+    },
+    {
+      "unit": "1D",
+      "template": "Standard390"
+    },
+    {
+      "unit": "2A",
+      "template": "Standard410"
+    },
+    {
+      "unit": "2B",
+      "template": "Standard390"
+    },
+    {
+      "unit": "2C",
+      "template": "Standard300"
+    },
+    {
+      "unit": "3A",
+      "template": "Standard410"
+    },
+    {
+      "unit": "3B",
+      "template": "Standard400"
+    },
+    {
+      "unit": "3D",
+      "template": "Compact280"
+    },
+    {
+      "unit": "4A",
+      "template": "Standard390"
+    },
+    {
+      "unit": "4B",
+      "template": "Compact430Timber"
+    },
+    {
+      "unit": "4C",
+      "template": "Standard300"
+    },
+    {
+      "unit": "4D",
+      "template": "Compact280"
+    },
+    {
+      "unit": "5A",
+      "template": "Standard360"
+    },
+    {
+      "unit": "5B",
+      "template": "Standard350"
+    },
+    {
+      "unit": "5C",
+      "template": "Standard300"
+    },
+    {
+      "unit": "6A",
+      "template": "Standard360"
+    },
+    {
+      "unit": "6B",
+      "template": "Standard350"
+    },
+    {
+      "unit": "6C",
+      "template": "Standard300"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Compact280__door_brass",
+      "assembly": "Compact280",
+      "key": "door_brass"
+    },
+    {
+      "name": "Compact280__nickel_plated",
+      "assembly": "Compact280",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "Compact280__rubber_aged",
+      "assembly": "Compact280",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "Standard390__door_brass",
+      "assembly": "Standard390",
+      "key": "door_brass"
+    },
+    {
+      "name": "Standard390__nickel_plated",
+      "assembly": "Standard390",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "Standard390__rubber_aged",
+      "assembly": "Standard390",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "Standard410__door_brass",
+      "assembly": "Standard410",
+      "key": "door_brass"
+    },
+    {
+      "name": "Standard410__nickel_plated",
+      "assembly": "Standard410",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "Standard410__rubber_aged",
+      "assembly": "Standard410",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "Standard300__door_brass",
+      "assembly": "Standard300",
+      "key": "door_brass"
+    },
+    {
+      "name": "Standard300__nickel_plated",
+      "assembly": "Standard300",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "Standard300__rubber_aged",
+      "assembly": "Standard300",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "Standard400__door_brass",
+      "assembly": "Standard400",
+      "key": "door_brass"
+    },
+    {
+      "name": "Standard400__nickel_plated",
+      "assembly": "Standard400",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "Standard400__rubber_aged",
+      "assembly": "Standard400",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "Compact430Timber__door_brass",
+      "assembly": "Compact430Timber",
+      "key": "door_brass"
+    },
+    {
+      "name": "Compact430Timber__nickel_plated",
+      "assembly": "Compact430Timber",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "Compact430Timber__rubber_aged",
+      "assembly": "Compact430Timber",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "Standard360__door_brass",
+      "assembly": "Standard360",
+      "key": "door_brass"
+    },
+    {
+      "name": "Standard360__nickel_plated",
+      "assembly": "Standard360",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "Standard360__rubber_aged",
+      "assembly": "Standard360",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "Standard350__door_brass",
+      "assembly": "Standard350",
+      "key": "door_brass"
+    },
+    {
+      "name": "Standard350__nickel_plated",
+      "assembly": "Standard350",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "Standard350__rubber_aged",
+      "assembly": "Standard350",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "StopWheel__door_brass",
+      "assembly": "StopWheel",
+      "key": "door_brass"
+    },
+    {
+      "name": "StopWheel__iron_neutral",
+      "assembly": "StopWheel",
+      "key": "iron_neutral"
+    }
+  ]
+}

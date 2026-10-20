@@ -1,0 +1,27 @@
+{
+  "evidence_class": "INERT",
+  "status": "REVIEWED_WITH_OPEN_FINDINGS",
+  "scope": "Two rendered diagnostic views; no surface qualification or human acceptance",
+  "images": [
+    {
+      "file": "city_street_skyline.png",
+      "sha256": "a70ef2538074c82553310071426753eb562c5613dd5042078461e1927b7e30fd",
+      "observation": "Rectangular neighbouring masses and recessed window stock are visible. Near brick normals respond to grazing illumination; the roofline is no longer stepped into ziggurats. This view does not establish city-wide appearance acceptance."
+    },
+    {
+      "file": "front_restored_entrance.png",
+      "sha256": "4a97a96af986328b4e09e1ee671c84733fe9cdcf253ac478d9d02dc7fd252931",
+      "observation": "The entrance occupies a continuous central facade with an inset timber door, glazed marquee, brackets, stone surround and independently set blinds. Brick texture repetition and the broadly even door illumination still limit photographic realism at this distance."
+    },
+    {
+      "file": "loaded_mips_handheld.png",
+      "sha256": "19baada7e035535309545081742b300ab77c2133fef9418dd21a016cdad493ce",
+      "observation": "The actual native teletype retains separate nickel, brass, japanned steel, rubber and blank paper surfaces. Machined edges remain distinct under the specimen light. No obvious block-compression artifacts at this view; the coarse paper grain remains an appearance concern for closer review."
+    },
+    {
+      "file": "loaded_mips_mina.png",
+      "sha256": "1389cd2eb8605dd34382689c9edecbd2b5b8ec74bea5a83ddf402888fa1b9e99",
+      "observation": "The actual Mina model retains visible facial features, cloth grain, hat and footwear after compressed complete-mip import. This fixed specimen view shows no obvious blocking; it does not establish animation, NPC interaction or human appearance acceptance."
+    }
+  ]
+}

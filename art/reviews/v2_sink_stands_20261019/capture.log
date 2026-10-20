@@ -1,0 +1,86 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1486 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2635
+[ORISON V2 RUNTIME] ready startup_ms=98055.482
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+[HARUKIYA] CLOSED, 18 fixtures
+PAINTED TRIM DIAGNOSTIC: {"batches":252,"evidence_class":"INERT","failures":[],"scope":"Installed coating diagnostic, not gameplay or human acceptance","splices":86,"textures":{"res://assets/building/textures/T_ai_materials_door_paint_albedo.png":{"complete_loaded_mips":true},"res://assets/building/textures/T_ai_materials_door_paint_normal.png":{"complete_loaded_mips":true},"res://assets/building/textures/T_ai_materials_door_paint_rough.png":{"complete_loaded_mips":true}},"windows":98}
+WALL FLOOR DIAGNOSTIC: {"evidence_class":"INERT","failures":[],"scope":"Installed wall/floor maps, UV sampling and mip diagnostic; no gameplay, spatial or human acceptance","surfaces":{"arcade_terrazzo":37,"limewash_plaster":1598},"textures":{"res://assets/building/textures/T_ai_materials_arcade_terrazzo_albedo.png":{"complete_loaded_mips":true},"res://assets/building/textures/T_ai_materials_arcade_terrazzo_normal.png":{"complete_loaded_mips":true},"res://assets/building/textures/T_ai_materials_arcade_terrazzo_rough.png":{"complete_loaded_mips":true},"res://assets/building/textures/T_ai_materials_limewash_plaster_albedo.png":{"complete_loaded_mips":true},"res://assets/building/textures/T_ai_materials_limewash_plaster_normal.png":{"complete_loaded_mips":true},"res://assets/building/textures/T_ai_materials_limewash_plaster_rough.png":{"complete_loaded_mips":true}}}
+CAP MAPPING: mesh=domestic_storage_Shelf13__floor_oak valid_basis=true max_uv_excess=0.00000011920929 widest=1.00017990557466 vertices=9957 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf13__metal valid_basis=true max_uv_excess=0.00000351294875 widest=1.00072583966102 vertices=13360 derivatives=true bad_derivatives=0 min_determinant=0.00000001040124 worst_dot=0.99999976158142
+CAP MAPPING: mesh=domestic_storage_Shelf13__paper valid_basis=true max_uv_excess=0.00000008504139 widest=1.00067486864057 vertices=5066 derivatives=true bad_derivatives=0 min_determinant=0.00000001040124 worst_dot=0.99999976158142
+CAP MAPPING: mesh=domestic_storage_Shelf13__trim valid_basis=true max_uv_excess=0.00000009329233 widest=1.00071572571946 vertices=6132 derivatives=true bad_derivatives=0 min_determinant=0.00000001039558 worst_dot=0.99999958276749
+CAP MAPPING: mesh=domestic_storage_Shelf13__wood_dark valid_basis=true max_uv_excess=0.00000007354538 widest=1.0001677058523 vertices=3535 derivatives=true bad_derivatives=0 min_determinant=0.00000016652083 worst_dot=0.99999988079071
+CAP MAPPING: mesh=domestic_storage_Shelf11__floor_oak valid_basis=true max_uv_excess=0.00000011920929 widest=1.00017990557466 vertices=9957 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf12__floor_oak valid_basis=true max_uv_excess=0.00000011920929 widest=1.00017990557466 vertices=9957 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf12__knit_burgundy valid_basis=true max_uv_excess=0.00000005960464 widest=1.00000768945482 vertices=1678 derivatives=true bad_derivatives=0 min_determinant=0.00000558261257 worst_dot=0.99999988079071
+CAP MAPPING: mesh=domestic_storage_Shelf12__paper valid_basis=true max_uv_excess=0.00000006193295 widest=1.00003589601725 vertices=5389 derivatives=true bad_derivatives=0 min_determinant=0.00000032147127 worst_dot=0.99999988079071
+CAP MAPPING: mesh=domestic_storage_Shelf12__voile valid_basis=true max_uv_excess=0.00000005587935 widest=1.00000768945482 vertices=1662 derivatives=true bad_derivatives=0 min_determinant=0.00000558261257 worst_dot=0.99999988079071
+CAP MAPPING: mesh=domestic_storage_Shelf12__wool_suiting valid_basis=true max_uv_excess=0.00000005215406 widest=1.00000754705912 vertices=1657 derivatives=true bad_derivatives=0 min_determinant=0.0000055829367 worst_dot=0.99999988079071
+CAP MAPPING: mesh=domestic_storage_Shelf14__floor_oak valid_basis=true max_uv_excess=0.00000011920929 widest=1.00017990557466 vertices=9957 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf14__kraft valid_basis=true max_uv_excess=0.00000008475035 widest=1.00008840236616 vertices=2981 derivatives=true bad_derivatives=0 min_determinant=0.00000046258892 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf14__metal valid_basis=true max_uv_excess=0.00000007508788 widest=1.00068495873754 vertices=6129 derivatives=true bad_derivatives=0 min_determinant=0.00000001040124 worst_dot=0.99999976158142
+CAP MAPPING: mesh=domestic_storage_Shelf14__trim valid_basis=true max_uv_excess=0.00000009329233 widest=1.00071572571946 vertices=6132 derivatives=true bad_derivatives=0 min_determinant=0.00000001039558 worst_dot=0.99999958276749
+CAP MAPPING: mesh=domestic_storage_Shelf02__book_brown valid_basis=true max_uv_excess=0.00000005960464 widest=1.00059307754446 vertices=12554 derivatives=true bad_derivatives=0 min_determinant=0.00000000374707 worst_dot=0.99999952316284
+CAP MAPPING: mesh=domestic_storage_Shelf02__book_burgundy valid_basis=true max_uv_excess=0.00000005516631 widest=1.00059307754446 vertices=14028 derivatives=true bad_derivatives=0 min_determinant=0.00000000374315 worst_dot=0.99999952316284
+CAP MAPPING: mesh=domestic_storage_Shelf02__book_green valid_basis=true max_uv_excess=0.00000004470348 widest=1.00044179220266 vertices=7830 derivatives=true bad_derivatives=0 min_determinant=0.00000000374707 worst_dot=0.99999952316284
+CAP MAPPING: mesh=domestic_storage_Shelf02__book_navy valid_basis=true max_uv_excess=0.00000004495087 widest=1.0004812316914 vertices=12540 derivatives=true bad_derivatives=0 min_determinant=0.00000000374707 worst_dot=0.99999964237213
+CAP MAPPING: mesh=domestic_storage_Shelf02__book_ochre valid_basis=true max_uv_excess=0.00000005960464 widest=1.0006238445675 vertices=7841 derivatives=true bad_derivatives=0 min_determinant=0.00000000374707 worst_dot=0.99999952316284
+CAP MAPPING: mesh=domestic_storage_Shelf02__book_teal valid_basis=true max_uv_excess=0.00000004698086 widest=1.00054154319902 vertices=12468 derivatives=true bad_derivatives=0 min_determinant=0.00000000374707 worst_dot=0.99999952316284
+CAP MAPPING: mesh=domestic_storage_Shelf02__floor_oak valid_basis=true max_uv_excess=0.00000011920929 widest=1.00023198979149 vertices=9990 derivatives=true bad_derivatives=0 min_determinant=0.00000011562012 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf02__paper valid_basis=true max_uv_excess=0.00000008477946 widest=1.00104517805785 vertices=22182 derivatives=true bad_derivatives=0 min_determinant=0.00000000462132 worst_dot=0.99999952316284
+CAP MAPPING: mesh=domestic_storage_Counter03__countertop valid_basis=true max_uv_excess=0.00000011920929 widest=1.00069427763932 vertices=1113 derivatives=true bad_derivatives=0 min_determinant=0.00000002052913 worst_dot=0.99999976158142
+CAP MAPPING: mesh=domestic_storage_Counter03__wood_dark valid_basis=true max_uv_excess=0.00000008865027 widest=1.00013569653413 vertices=4135 derivatives=true bad_derivatives=0 min_determinant=0.00000026018989 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf04__floor_oak valid_basis=true max_uv_excess=0.00000011920929 widest=1.00017990557466 vertices=9944 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf04__metal valid_basis=true max_uv_excess=0.00000007844937 widest=1.00071572571946 vertices=6078 derivatives=true bad_derivatives=0 min_determinant=0.00000001040124 worst_dot=0.99999976158142
+CAP MAPPING: mesh=domestic_storage_Shelf04__trim valid_basis=true max_uv_excess=0.00000008793722 widest=1.00071316894603 vertices=6126 derivatives=true bad_derivatives=0 min_determinant=0.00000001039558 worst_dot=0.99999970197678
+CAP MAPPING: mesh=domestic_storage_Counter05__sink_iron valid_basis=true max_uv_excess=0.00000008940697 widest=1.00064574710677 vertices=11854 derivatives=true bad_derivatives=0 min_determinant=0.00000001040124 worst_dot=0.99999976158142
+CAP MAPPING: mesh=domestic_storage_CounterCompact__sink_iron valid_basis=true max_uv_excess=0.00000007328345 widest=1.00036607556336 vertices=6665 derivatives=true bad_derivatives=0 min_determinant=0.00000001040336 worst_dot=0.99999976158142
+CAP MAPPING: mesh=domestic_storage_Cupboard06__soot valid_basis=true max_uv_excess=0.00000006044866 widest=1.0002983965805 vertices=1053 derivatives=true bad_derivatives=0 min_determinant=0.00000001850648 worst_dot=0.99999988079071
+CAP MAPPING: mesh=domestic_storage_Cupboard06__trim valid_basis=true max_uv_excess=0.0000001246226 widest=1.00044118894964 vertices=13727 derivatives=true bad_derivatives=0 min_determinant=0.00000002889958 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Cupboard08__soot valid_basis=true max_uv_excess=0.00000006044866 widest=1.0002983965805 vertices=1053 derivatives=true bad_derivatives=0 min_determinant=0.00000001850648 worst_dot=0.99999988079071
+CAP MAPPING: mesh=domestic_storage_Cupboard08__trim valid_basis=true max_uv_excess=0.0000001246226 widest=1.00044118894964 vertices=12745 derivatives=true bad_derivatives=0 min_determinant=0.00000002889958 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf07__floor_oak valid_basis=true max_uv_excess=0.00000008579809 widest=1.00021462838588 vertices=9884 derivatives=true bad_derivatives=0 min_determinant=0.00000011562955 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf07__metal valid_basis=true max_uv_excess=0.00000007393828 widest=1.0006578410202 vertices=6162 derivatives=true bad_derivatives=0 min_determinant=0.00000001040124 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf07__trim valid_basis=true max_uv_excess=0.00000007545168 widest=1.0006578410202 vertices=6128 derivatives=true bad_derivatives=0 min_determinant=0.00000001040124 worst_dot=0.99999964237213
+CAP MAPPING: mesh=domestic_storage_Shelf01__floor_oak valid_basis=true max_uv_excess=0.00000011920929 widest=1.00017990557466 vertices=9957 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf01__metal valid_basis=true max_uv_excess=0.00000007508788 widest=1.00068495873754 vertices=6129 derivatives=true bad_derivatives=0 min_determinant=0.00000001040124 worst_dot=0.99999976158142
+CAP MAPPING: mesh=domestic_storage_Shelf01__trim valid_basis=true max_uv_excess=0.00000009329233 widest=1.00071572571946 vertices=6132 derivatives=true bad_derivatives=0 min_determinant=0.00000001039558 worst_dot=0.99999958276749
+CAP MAPPING: mesh=domestic_storage_Shelf09__floor_oak valid_basis=true max_uv_excess=0.00000011920929 widest=1.0001569603556 vertices=5330 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999982118607
+CAP MAPPING: mesh=domestic_storage_Shelf10__floor_oak valid_basis=true max_uv_excess=0.00000011920929 widest=1.00017990557466 vertices=5315 derivatives=true bad_derivatives=0 min_determinant=0.00000011562012 worst_dot=0.99999982118607
+STORAGE DIAGNOSTIC: actors=52 variants=15 failures=0
+4K WORLD READY ms=108251
+4K PROFILE: {"draw_calls":88652.0,"frames":24,"label":"1080p_windowed_same_entrance","median_frame_ms":85.82,"mode":0,"p95_frame_ms":90.28,"render_pixels":[1920,1080],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":5645625856.0,"window_pixels":[1920,1080]}
+4K PROFILE: {"draw_calls":88275.0,"frames":24,"label":"1440p_windowed_same_entrance","median_frame_ms":85.951,"mode":0,"p95_frame_ms":90.963,"render_pixels":[2560,1440],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":6129840160.0,"window_pixels":[1920,1080]}
+4K PROFILE: {"draw_calls":91568.0,"frames":24,"label":"4k_windowed_same_entrance","median_frame_ms":85.247,"mode":0,"p95_frame_ms":89.273,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":7471649824.0,"window_pixels":[1920,1080]}
+4K SHOT: {"camera_world":"[X: (1.0, 0.0, 0.0), Y: (-0.0, 0.97639, 0.216016), Z: (-0.0, -0.216016, 0.97639), O: (-0.000001, 1.65, 6.35)]","file":"01_orison_entrance_4k_windowed.png","fov":57.0,"image_pixels":[3840,2160],"label":"01_orison_entrance_4k_windowed","mode":0,"readback_png_ms":2179.455,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"window_pixels":[1920,1080]}
+4K PROFILE: {"draw_calls":88276.0,"frames":24,"label":"4k_borderless_fullscreen_same_entrance","median_frame_ms":85.784,"mode":3,"p95_frame_ms":90.728,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":7471649824.0,"window_pixels":[3440,1440]}
+4K PROFILE: {"draw_calls":84206.0,"frames":24,"label":"4k_fullscreen_lobby","median_frame_ms":79.754,"mode":3,"p95_frame_ms":94.302,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":8017876128.0,"window_pixels":[3440,1440]}
+4K SHOT: {"camera_world":"[X: (0.400142, 0.0, -0.916453), Y: (0.011828, 0.999917, 0.005165), Z: (0.916377, -0.012907, 0.400108), O: (4.3, 1.6, -3.4)]","file":"02_lobby_4k_fullscreen.png","fov":68.0,"image_pixels":[3840,2160],"label":"02_lobby_4k_fullscreen","mode":3,"readback_png_ms":1330.287,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"window_pixels":[3440,1440]}
+4K PROFILE: {"draw_calls":34858.0,"frames":24,"label":"4k_fullscreen_kitchen","median_frame_ms":36.448,"mode":3,"p95_frame_ms":43.411,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":8019317920.0,"window_pixels":[3440,1440]}
+4K SHOT: {"camera_world":"[X: (0.945946, 0.0, 0.324325), Y: (0.125314, 0.922338, -0.365499), Z: (-0.299137, 0.386385, 0.872482), O: (14.1, 4.7, -15.97)]","file":"03_kitchen_4k_fullscreen.png","fov":55.0,"image_pixels":[3840,2160],"label":"03_kitchen_4k_fullscreen","mode":3,"readback_png_ms":1129.089,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"window_pixels":[3440,1440]}
+4K PROFILE: {"draw_calls":33060.0,"frames":24,"label":"4k_fullscreen_roof","median_frame_ms":42.745,"mode":3,"p95_frame_ms":45.876,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"video_memory_bytes":8019317920.0,"window_pixels":[3440,1440]}
+4K SHOT: {"camera_world":"[X: (-0.768221, 0.0, 0.640184), Y: (0.09722, 0.988402, 0.116664), Z: (-0.632759, 0.151862, -0.759311), O: (3.600001, 22.8, -11.95)]","file":"04_rooftop_city_4k_fullscreen.png","fov":58.0,"image_pixels":[3840,2160],"label":"04_rooftop_city_4k_fullscreen","mode":3,"readback_png_ms":1122.3,"render_pixels":[3840,2160],"scale_3d":1.0,"screen_pixels":[3440,1440],"window_pixels":[3440,1440]}
+V2 4K WIP CAPTURE: PASS shots=4
