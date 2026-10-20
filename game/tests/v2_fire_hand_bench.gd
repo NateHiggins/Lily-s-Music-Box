@@ -45,6 +45,49 @@ func cursor_to(pixel: Vector2) -> bool:
 			return true
 	print("INSPECTION CURSOR DELIVERY FAILED: wanted=",pixel," before=",before," actual=",get_viewport().get_mouse_position()," focused=",DisplayServer.window_is_focused(window_id)," initial_focus=",initial_focus," mode=",Input.mouse_mode," initial_mode=",initial_mode," viewport=",get_viewport().get_visible_rect())
 	return false
+func acquire_surface(part: Node3D, preferred: Vector3=Vector3.INF) -> bool:
+	# Track the part's own coordinates while native cursor delivery awaits a
+	# frame. A newly loose union can fall between projection and acquisition.
+	if preferred.is_finite():
+		var local: Vector3=part.to_local(preferred)
+		for attempt in 4:
+			await cursor_to(player.camera.unproject_position(part.to_global(local)))
+			if player._grab.find_target().get("part")==part:return true
+	if part is MeshInstance3D and part.mesh!=null:
+		var faces: PackedVector3Array=part.mesh.get_faces()
+		var candidates: Array[Dictionary]=[]
+		for index in range(0,faces.size(),3):
+			var a: Vector3=part.to_global(faces[index]);var b: Vector3=part.to_global(faces[index+1]);var c: Vector3=part.to_global(faces[index+2])
+			if player.camera.is_position_behind(a) or player.camera.is_position_behind(b) or player.camera.is_position_behind(c):continue
+			var pa: Vector2=player.camera.unproject_position(a);var pb: Vector2=player.camera.unproject_position(b);var pc: Vector2=player.camera.unproject_position(c)
+			var area: float=absf((pb-pa).cross(pc-pa))
+			if area<2.:continue
+			candidates.append({"point":(faces[index]+faces[index+1]+faces[index+2])/3.,"area":area})
+		candidates.sort_custom(func(a: Dictionary,b: Dictionary):return float(a.area)>float(b.area))
+		var visited: Dictionary={}
+		for candidate: Dictionary in candidates:
+			var pixel: Vector2=player.camera.unproject_position(part.to_global(candidate.point)).round()
+			if not get_viewport().get_visible_rect().has_point(pixel) or visited.has(pixel):continue
+			visited[pixel]=true
+			await cursor_to(pixel)
+			if player._grab.find_target().get("part")==part:
+				print("ACTUAL SURFACE PICK: part=",part.name," samples=",visited.size())
+				return true
+			if visited.size()>=64:break
+	var pixel: Vector2=get_viewport().get_mouse_position();var origin: Vector3=player.camera.project_ray_origin(pixel)
+	var ray:=PhysicsRayQueryParameters3D.create(origin,origin+player.camera.project_ray_normal(pixel)*2.1);ray.collide_with_areas=true;ray.exclude=[player.get_rid()]
+	var hit: Dictionary=get_world_3d().direct_space_state.intersect_ray(ray)
+	print("SURFACE ACQUISITION BLOCKED: part=",part.name," collider=",hit.collider.get_path() if not hit.is_empty() else "none"," target=",player._grab.find_target())
+	return false
+func surface_pick_controls(part: Node3D) -> void:
+	check(await acquire_surface(part),"actual native triangles supply a visible cursor patch without a guessed point")
+	var wall:=StaticBody3D.new();add_child(wall);wall.name="PickObstructionControl"
+	wall.global_transform=player.camera.global_transform*Transform3D(Basis.IDENTITY,Vector3(0,0,-.12))
+	var shape:=CollisionShape3D.new();var box:=BoxShape3D.new();box.size=Vector3(2.,2.,.01);shape.shape=box;wall.add_child(shape)
+	await RenderingServer.frame_post_draw;await get_tree().physics_frame;await get_tree().physics_frame
+	check(not await acquire_surface(part),"opaque physical obstruction prevents all sampled part acquisitions")
+	wall.free();await RenderingServer.frame_post_draw;await get_tree().physics_frame;await get_tree().physics_frame
+	check(await acquire_surface(part),"removing the obstruction restores actual surface acquisition")
 func stock_ray(draw: MeshInstance3D, origin: Vector3, direction: Vector3) -> float:
 	var local: Vector3=draw.to_local(origin)*1000.
 	var axis: Vector3=draw.global_basis.inverse()*direction
@@ -55,8 +98,7 @@ func stock_ray(draw: MeshInstance3D, origin: Vector3, direction: Vector3) -> flo
 		if hit is Vector3:distance=minf(distance,origin.distance_to(draw.to_global(hit/1000.)))
 	return distance
 func inspect_operate(hand: Node, part: Node3D, point: Vector3, goal: float) -> bool:
-	await cursor_to(player.camera.unproject_position(point))
-	if player._grab.find_target().get("part")!=part:
+	if not await acquire_surface(part,point):
 		print("CARRY PICK FAILURE: wanted=",part," actual=",player._grab.find_target().get("part")," point=",point," mouse=",get_viewport().get_mouse_position()," wanted_pixel=",player.camera.unproject_position(point)," target=",player._grab.find_target())
 		return false
 	click()
@@ -86,8 +128,7 @@ func carry_union(actor: Node3D,goal: Vector3) -> bool:
 func carry_part(actor: Node3D,part: Node3D,point: Vector3,goal: Vector3,tolerance: float) -> bool:
 	return await carry_path(actor,part,point,[goal],tolerance)
 func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance: float,contact_stop: Callable=Callable()) -> bool:
-	await cursor_to(player.camera.unproject_position(point))
-	if player._grab.find_target().get("part")!=part:
+	if not await acquire_surface(part,point):
 		print("CARRY PICK FAILURE: wanted=",part," actual=",player._grab.find_target().get("part")," point=",point," mouse=",get_viewport().get_mouse_position()," wanted_pixel=",player.camera.unproject_position(point)," target=",player._grab.find_target())
 		return false
 	click()

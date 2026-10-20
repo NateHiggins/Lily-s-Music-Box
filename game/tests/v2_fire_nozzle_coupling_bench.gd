@@ -102,6 +102,7 @@ func exercise_nozzle(actor: Node3D,hand: Node) -> void:
 	var original: Dictionary=actor.mechanism_snapshot()
 	await aim(actor._tag.to_global(Vector3(0,0,.0035)));click();key(KEY_SPACE)
 	if not check(player.inspecting() and player.inspect_owner==actor,"actual grabbed tag opens static service inspection"):return
+	if OS.get_environment("ORISON_VISIBLE_UNION_PROBE")=="1":await surface_pick_controls(actor._joint_nut)
 	if OS.get_environment("ORISON_NOZZLE_CLOSED_VALVE")=="1":
 		if not check(await inspect_operate(hand,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),0.),"actual input closes nozzle valve before carrying review"):return
 	if OS.get_environment("ORISON_NOZZLE_VALVE_ROUNDTRIP")=="1":

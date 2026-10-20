@@ -1,0 +1,44 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 343.78,
+  "exit_code": -1,
+  "finished_utc": "2026-10-20T02:37:27Z",
+  "started_utc": "2026-10-20T02:31:43Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 2,
+  "fail_lines": [
+   "CARRY PICK FAILURE: wanted=@MeshInstance3D@29577:<MeshInstance3D#3635136310566> actual=<null> point=(-4.52, -1.507, -8.0) mouse=(766.0, 309.0) wanted_pixel=(766.21, 308.6568) target={ \"blocked\": true }",
+   "CARRY PICK FAILURE: wanted=@MeshInstance3D@29577:<MeshInstance3D#3635136310566> actual=<null> point=(-4.52, -1.507, -8.0) mouse=(766.0, 309.0) wanted_pixel=(766.21, 308.6568) target={ \"blocked\": true }"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface4.log.stderr",
+  "stderr_sha256": "98021f410dc4f2c4cdd91c5b529dc9150109a0e67903270d6227464ad459a052",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface4.log",
+  "stdout_sha256": "367372a27af683c15af68080ff84ad3edec46166089b0c0e5ab3a1115b5f67d1"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-next-audit-20261019/surface4",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "3478d51d41dac97294f96b65a477ca296b6fc06a",
+  "repository_tree": "2c339fb575097fee434552ff0220f2aae7be71bb",
+  "runtime_inputs_sha256": "62df330416223a51d17feed913db4f10ed3b2c0a2cc8e9ce059b555e956aac8f",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "3365c65385c4af561e0260fb0218fbfa16c0751f7f12b2b3deae38b89e7f8e1c"
+ },
+ "windowed": true
+}
