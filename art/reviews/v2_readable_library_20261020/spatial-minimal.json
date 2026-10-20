@@ -1,0 +1,142 @@
+{
+ "mode": "check",
+ "summary": {
+  "records": 10337,
+  "by_tier": {
+   "data": 6340,
+   "production": 1145,
+   "scene": 5,
+   "test": 2847
+  },
+  "by_kind": {
+   "asset_path": 373,
+   "floor_reference": 432,
+   "generated_name": 136,
+   "id_candidate": 276,
+   "id_reference": 7060,
+   "layout_load": 36,
+   "manual_contract": 13,
+   "node_path": 304,
+   "plan_coordinate": 73,
+   "runtime_id": 326,
+   "unit_reference": 1022,
+   "vector3_coordinate": 286
+  },
+  "by_authority": {
+   "DATA_FOREIGN_KEY": 6340,
+   "DEBUG_ONLY": 12,
+   "GENERATED_IDENTITY": 463,
+   "RUNTIME_LOOKUP": 960,
+   "SAVE_CONTRACT": 16,
+   "SCENE_NODE_PATH": 304,
+   "TEST_CONTRACT": 2847
+  },
+  "by_spatial": {
+   "ASSET_PATH": 373,
+   "CAMERA_STATION": 313,
+   "CONTAINMENT_ASSUMPTION": 10,
+   "DERIVED_LAYOUT_LOOKUP": 36,
+   "DISTANCE_THRESHOLD": 11,
+   "FLOOR_MEMBERSHIP": 443,
+   "RAW_GODOT_COORDINATE": 287,
+   "RAW_PLAN_COORDINATE": 76,
+   "ROOM_MEMBERSHIP": 785,
+   "SEMANTIC_ANCHOR": 5851,
+   "UNKNOWN_DYNAMIC": 277
+  },
+  "by_disposition": {
+   "MUST_PRESERVE_ID": 132,
+   "OWNER_DECISION": 1,
+   "PRESERVE_OR_ALIAS": 6986,
+   "REGENERATE_CONSUMER": 175,
+   "REPLACE_WITH_NAMED_ANCHOR": 53,
+   "SAFE_TO_CHANGE": 5,
+   "UNRESOLVED": 276,
+   "UPDATE_TEST_FIXTURE": 2709
+  },
+  "by_confidence": {
+   "HIGH": 458,
+   "LOW": 276,
+   "MEDIUM": 9603
+  }
+ },
+ "stats": {
+  "files_scanned": 1765,
+  "vector3_total": 5560,
+  "vector3_stats_only": 4237,
+  "b2g_derived": 336,
+  "gd_strings_seen": 112905
+ },
+ "drift": {
+  "new_failing": [],
+  "new_reported": [],
+  "stale_preserved": [],
+  "cleanup_opportunities": [
+   {
+    "key": "1ceb03402eae395f",
+    "kind": "generated_name",
+    "token": "_make_lift_door",
+    "file": "game/scripts/building/orison_v2_bookshelf.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+     "_make_lift_door"
+    ],
+    "lines": [
+     24
+    ],
+    "count": 1,
+    "context": [
+     "\"LiftDoor%d\" % _doors.size()"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "bdd63ad84996a819",
+    "kind": "vector3_coordinate",
+    "token": "_run",
+    "file": "game/tests/v2_fire_nozzle_coupling_bench.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     42
+    ],
+    "count": 1,
+    "context": [
+     "floor.position=Vector3(-13.35,-3.2,-7.87)"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   }
+  ],
+  "class_changes": [],
+  "target_vanished": [],
+  "save_unresolved": []
+ },
+ "result": "clean"
+}

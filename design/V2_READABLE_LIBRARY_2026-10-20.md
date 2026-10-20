@@ -86,6 +86,16 @@ These are isolated print diagnostics, not room-placement screenshots.
   The new empty legacy interaction override is explicitly classified; census and
   prompt carrier tests include it.
 
+The full board completes with **99 gates: 96 PASS, 2 FAIL, 1 INCOMPLETE**.
+Failures are stale composed surface qualification and the two pre-existing live
+completeness smoke assertions; the ledger is incomplete. Physical import retention,
+spatial, systemic, period, reader and the other tools suites pass. Comparison with
+canonical main still reports the private branch's existing expired-cohort/ledger
+regressions (main blocker counts 0/25/21/1/38/40 versus current 7/42/110/8/134/136).
+The bookshelf checkpoint does not clear or rebaseline those regressions. The raw
+board and comparison are retained; it is not a merge-ready result. A final focused
+source/spatial run after minimizing the reviewed manifest diff passes 62 tests.
+
 Wrapper receipts are **suite_run**, not schema-2 **runtime_contract** evidence.
 No capture, subtitle or report admits a space or promotes a requirement.
 
