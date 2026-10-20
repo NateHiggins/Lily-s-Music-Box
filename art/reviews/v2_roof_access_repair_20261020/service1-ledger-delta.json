@@ -1,0 +1,99 @@
+{
+  "evidence_class": "INERT",
+  "before": {
+    "requirements": 240,
+    "by_status": {
+      "ABSENT": 4,
+      "HUMAN_ACCEPTED": 1,
+      "PROGRAMMED": 45,
+      "RUNTIME_PROVEN": 34,
+      "SPATIALLY_PROVEN": 156
+    },
+    "blockers_by_scope": {
+      "FIRST_SLICE_TECHNICAL": 0,
+      "GOLDEN_SHIFT_V2": 1,
+      "FULL_BUILDING_STRUCTURAL": 37,
+      "FULL_BUILDING_RUNTIME": 25,
+      "PRODUCTION_CUTOVER": 54,
+      "V1_RETIREMENT": 56
+    },
+    "v1_fallbacks": 2,
+    "heuristic_conclusions": 117,
+    "anchor_only_findings": 0,
+    "stale_checkpoint_ids": 1
+  },
+  "after": {
+    "requirements": 240,
+    "by_status": {
+      "ABSENT": 4,
+      "HUMAN_ACCEPTED": 1,
+      "PROGRAMMED": 35,
+      "RUNTIME_PROVEN": 34,
+      "SPATIALLY_PROVEN": 166
+    },
+    "blockers_by_scope": {
+      "FIRST_SLICE_TECHNICAL": 0,
+      "GOLDEN_SHIFT_V2": 1,
+      "FULL_BUILDING_STRUCTURAL": 27,
+      "FULL_BUILDING_RUNTIME": 25,
+      "PRODUCTION_CUTOVER": 44,
+      "V1_RETIREMENT": 46
+    },
+    "v1_fallbacks": 2,
+    "heuristic_conclusions": 117,
+    "anchor_only_findings": 0,
+    "stale_checkpoint_ids": 1
+  },
+  "requirements_changed": [
+    {
+      "id": "circ.F02.service_core",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "circ.F02.service_route",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "circ.F03.service_core",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "circ.F03.service_route",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "circ.F04.service_core",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "circ.F04.service_route",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "circ.F05.service_core",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "circ.F05.service_route",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "circ.F06.service_core",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "circ.F06.service_route",
+      "before": "PROGRAMMED",
+      "after": "SPATIALLY_PROVEN"
+    }
+  ]
+}

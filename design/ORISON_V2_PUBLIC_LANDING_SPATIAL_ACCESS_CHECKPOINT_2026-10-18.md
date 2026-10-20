@@ -3,6 +3,12 @@
 Evidence class: **EVIDENCE**. Automated spatial-access checkpoint only.
 Status: **Six supported public landing programmes reached; broader qualification and human acceptance remain separate.**
 
+Requalified on **2026-10-20** against the current native library, fire fittings
+and repaired glass. The completed original **public1** run takes **377.28 seconds**.
+The checked spatial publisher preserves the previous original packet under
+**art/reviews/v2_roof_access_repair_20261020/previous_public_packet** and publishes
+the unchanged test-written contract, wrapper and byte-verified compressed logs.
+
 The production-selected V2 world completes one collision-bearing walk through
 both halves of all six occupied public landings and the primary stair between
 them. There is one initial placement on F01 and no per-floor repositioning.
@@ -36,11 +42,11 @@ landing IDs, including three newly satisfied public-core circulation rows. No
 additional core-space identity, private room, lift/service mechanism, case
 completion, disk save, full-building runtime, photoreal or human acceptance
 is granted by this spatial checkpoint. The current packet is the original
-final_landing1 run, renewed after the service approach and native masonry repair,
-with the same measured 748 waypoints, 41 checks and zero failures. Its runtime
-input digest is **19bab8cdb37bbd1bc6695d8b3314b8c26ef1001ff797b77dfe7aa8abe0838fda**
+public1 replay, with 748 measured waypoints, 41 checks and zero failures. Its runtime
+input digest is **757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83**
 and surface input digest is
-**65ee917e07628f2db5540afd100c67a53b6a76860e73e0514fbfa775cc61ab9c**.
-All six original circulation/surface/service/home/upper/landing jobs pass.
+**10c1f1f4e60419c83277b5818f7b29b317dc660af9b41560fb7c2863be96a8b1**.
+The current surface, home, upper/roof, first-slice authority and public-access
+checks pass. Service and exterior access renewals remain separate.
 The separate service checkpoint grants only its explicitly played service rooms
 and thresholds. This renewal adds no new public-landing or public-core claims.

@@ -88,6 +88,37 @@ completeness tests now pass without changing their assertions; the exact output
 is **completeness-renewed.txt**. Public, service and exterior proof renewals
 are still pending.
 
+The following **public1** replay passes **six landings, 748 actual waypoints
+and 41 checks**, zero failures, in **377.28 seconds**. One initial placement
+precedes the ordinary-controller walk through both halves of all six landings
+and their stairs. Three tracked root/route/manager objects retire. The checked
+publisher validates current inputs and the complete test closure, preserves
+the previous original packet under **previous_public_packet**, and publishes
+the unchanged contract, wrapper and byte-verified compressed logs. Its renewed
+checkpoint restores seven spatial requirements; the exact changes are in
+**public1-ledger-delta.json**. Service and exterior renewals remain pending.
+
+The following **service1** replay passes **27 rooms, six direct thresholds,
+439 controller waypoints and 90 checks**, zero failures, in **344.02 seconds**.
+One initial basement placement precedes the entire roof-and-return route;
+actual hand input operates the two controlled leaves. Two tracked objects
+retire. Checked publication independently validates the room and typed-connection
+claims and preserves the previous original packet under **previous_service_packet**.
+The renewed packet includes seven inspected standing captures. Its checkpoint
+restores ten spatial requirements, recorded in **service1-ledger-delta.json**.
+Exterior renewal and the candidate comparison remain pending.
+
+The final **exterior1** replay passes all **six regions and six routes**, with
+**52 endpoints, 6,594 consecutive observed physics poses and 130 checks**, zero
+failures, in **260.96 seconds**. Three tracked root/driver/observer objects retire.
+The checked publisher independently validates room and regional claims, preserves
+the preceding original packet under **previous_exterior_packet**, and publishes
+the unchanged test-written contract, wrapper and byte-verified compressed logs.
+Its checkpoint restores the remaining six regional requirements, recorded in
+**exterior1-ledger-delta.json**. All six bounded jobs in the source-frozen batch
+complete successfully; no failed partial aggregate was used as proof. The lane
+is free. The static candidate comparison and integration remain pending.
+
 All 32 captures were visually reviewed, including the final three machinery
 views separately. They remain diagnostic views, not human appearance acceptance.
 Sparse household dressing, clipped carried-light highlights and the dim
@@ -122,13 +153,13 @@ warnings remain outside this bounded diagnostic's retirement claim.
 
 REPORT - V2-ROOF-ACCESS-REPAIR - 2026-10-20
 
-Branch/source parent: **codex/v2-fire-fitting-checkpoint / e7c97ae3**.
+Branch/source parent: **codex/v2-fire-fitting-checkpoint / b2a067f3**.
 Origin/main and merge-base: **82887a14**. Shared main is preserved and not yet
 integrated. Protected 17/17 are outside this change; selector remains V2 with
 explicit V1 rollback. Checkpoint paths are named; the active lane batch is a
 verification job, not an asserted pass.
-Ledger before -> home2 -> upper2 -> first-slice1:
-**7/42/110/8/134/136 -> 7/41/98/8/122/124 -> 7/32/44/8/68/70 -> 0/25/44/1/61/63**.
+Ledger before -> home2 -> upper2 -> first-slice1 -> public1 -> service1 -> exterior1:
+**7/42/110/8/134/136 -> 7/41/98/8/122/124 -> 7/32/44/8/68/70 -> 0/25/44/1/61/63 -> 0/25/37/1/54/56 -> 0/25/27/1/44/46 -> 0/25/21/1/38/40**.
 The renewed executed home proof changes 15 requirement statuses; upper2 restores
 54 more. Their exact before/after lists are retained in **home2-ledger-delta.json**
 and **upper2-ledger-delta.json**; the subsequent seven authority restorations
@@ -136,9 +167,9 @@ are **first-slice1-ledger-delta.json**. This inert report does not itself grant
 those changes. Main baseline remains **0/25/21/1/38/40**.
 
 No fresh green-board or merge-ready claim is made. Current surface qualification
-passes; route/runtime renewal, candidate comparison, remaining V2 content and
+and all six bounded route/runtime renewals pass; candidate comparison, remaining V2 content and
 human appearance acceptance remain open. Changes are limited to route/test
 expectations, an isolated diagnostic, evidence publication, retained diagnostics
 and workflow documentation. No additional owner decision is needed.
 
-BLOCKED for integration pending completed route/runtime proof and candidate verification.
+BLOCKED for integration pending candidate verification; required bounded route/runtime proofs are renewed.

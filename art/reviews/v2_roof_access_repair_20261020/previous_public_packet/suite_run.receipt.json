@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 344.81,
+  "exit_code": 0,
+  "finished_utc": "2026-10-19T08:54:31Z",
+  "started_utc": "2026-10-19T08:48:46Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 PUBLIC LANDING ACCESS CONTRACT: PASS rooms=6 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-service-programmes-20261019/final_landing2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-service-programmes-20261019/final_landing2.log",
+  "stdout_sha256": "b8e0064f65a6969321896eb357f0ce7350a0c374a455cb2def4e66f01eb7e78c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2PublicLandingAccessContract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-service-programmes-20261019/final_landing2",
+ "source": {
+  "dirty_paths": 1697,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/access_home_cohort_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_home_cohort_20261018/verification.json",
+   " M art/renders/orison_v2/access_service_circulation_20261018/F01_SERVICE_CORE_DOOR_closed.png",
+   " M art/renders/orison_v2/access_service_circulation_20261018/F01_SERVICE_CORE_DOOR_open.png",
+   " M art/renders/orison_v2/access_service_circulation_20261018/F01_riser_bypass.png",
+   " M art/renders/orison_v2/access_service_circulation_20261018/F02_retained_pipe_port.png",
+   " M art/renders/orison_v2/access_service_circulation_20261018/F02_riser_bypass.png",
+   " M art/renders/orison_v2/access_service_circulation_20261018/F03_SERVICE_CORE_DOOR_closed.png",
+   " M art/renders/orison_v2/access_service_circulation_20261018/F03_SERVICE_CORE_DOOR_open.png",
+   " M art/renders/orison_v2/access_service_circulation_20261018/rendered_review.json",
+   " M art/renders/orison_v2/access_service_circulation_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_service_circulation_20261018/verification.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.stdout.log.gz"
+  ],
+  "repository_head": "b0cf00244b39c40e5ddc5cd75656deff1fd74c71",
+  "repository_tree": "e2477c58d08cbf778880931346d13f00b9aeddfb",
+  "runtime_inputs_sha256": "0f6dbe6c3813cd10cc58c3fe3349aaff48ad1eb49d3919a2b8c76e31fcb694d7",
+  "test_path": "game/tests/v2_public_landing_access_contract.gd",
+  "test_sha256": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7"
+ },
+ "windowed": true
+}
