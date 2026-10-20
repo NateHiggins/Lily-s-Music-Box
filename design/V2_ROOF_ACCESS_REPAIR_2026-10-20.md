@@ -119,6 +119,24 @@ Its checkpoint restores the remaining six regional requirements, recorded in
 complete successfully; no failed partial aggregate was used as proof. The lane
 is free. The static candidate comparison and integration remain pending.
 
+The first static candidate comparison, **6080ccfa**, runs all **101 gates**:
+**100 PASS and one intentionally INCOMPLETE ledger**. Protected paths remain
+**17/17** unchanged, selector **V2**, design lint zero errors, and ledger
+requirements match main. Its comparison nevertheless correctly blocks on three
+newly reported spatial test-coordinate records: the glass bench camera, roof
+clearance diagnostic and measured roof bypass. The wrapper's four regression
+lines count one increased total and those three named records.
+
+Only those three actual records are added to the dependency manifest, retaining
+their original **UPDATE_TEST_FIXTURE** classification and all prior records.
+No production reference is waived or reclassified. The independent spatial
+audit then reports zero new, failing, stale, vanished or changed-class records;
+existing cleanup opportunities remain disclosed. The original blocked candidate
+and before/after diagnostics are retained under **failed_candidate_6080ccfa**.
+This metadata correction changes neither production/rendering inputs nor test
+sources, so the completed Godot proofs remain source-bound without another run.
+The candidate comparison must pass again before integration.
+
 All 32 captures were visually reviewed, including the final three machinery
 views separately. They remain diagnostic views, not human appearance acceptance.
 Sparse household dressing, clipped carried-light highlights and the dim

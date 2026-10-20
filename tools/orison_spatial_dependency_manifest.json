@@ -302803,6 +302803,112 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "fa46c90fd46f5fe6",
+   "kind": "vector3_coordinate",
+   "token": "_walk",
+   "file": "game/tests/orison_v2_roof_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_walk"
+   ],
+   "lines": [
+    19,
+    26
+   ],
+   "count": 2,
+   "context": [
+    "if target.is_equal_approx(Vector3(5,19.2,-3.4)):",
+    "if target.is_equal_approx(Vector3(5,19.2,2.5)):target.x=4.9"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6085fe5b593f9802",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_glass_optics_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    20,
+    20,
+    21
+   ],
+   "count": 3,
+   "context": [
+    "player.position=Vector3(0,0,2.8);player.camera.global_position=Vector3(0,1.35,2.8)",
+    "player.camera.look_at(Vector3(0,1.35,0));player.camera.make_current();player.set_lamp_enabled(true)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "079a2dbb8f11053a",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/v2_roof_clearance_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    13,
+    13,
+    13,
+    56,
+    56,
+    56,
+    67
+   ],
+   "count": 7,
+   "context": [
+    "for point: Vector3 in [Vector3(1.925,17.6,1.3),Vector3(3.975,17.6,1.3),Vector3(3.975,19.2,-3.4)]:",
+    "for point: Vector3 in [Vector3(5,19.2,-3.4),Vector3(5,19.2,2.5),Vector3(5,19.2,-3.4)]:",
+    "camera.global_position=world.adapter.root.to_global(Vector3(4.5,21.65,-3.1))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
