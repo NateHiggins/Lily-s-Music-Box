@@ -1,0 +1,44 @@
+{
+  "evidence_class": "INERT",
+  "method": "Independent current source binding; no new engine execution",
+  "runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+  "surface_inputs_sha256": "10c1f1f4e60419c83277b5818f7b29b317dc660af9b41560fb7c2863be96a8b1",
+  "proof_packets": [
+    {
+      "packet": "access_home_cohort_20261018",
+      "problems": []
+    },
+    {
+      "packet": "access_upper_cohort_20261018",
+      "problems": []
+    },
+    {
+      "packet": "access_public_landings_20261018",
+      "problems": []
+    },
+    {
+      "packet": "access_service_circulation_20261018",
+      "problems": []
+    },
+    {
+      "packet": "access_exterior_regions_20261019",
+      "problems": []
+    },
+    {
+      "packet": "first_slice_contract_20261011",
+      "problems": []
+    }
+  ],
+  "surface_qualification": {
+    "result": "PASS",
+    "counts": {
+      "defects": 0
+    },
+    "defects": [],
+    "coverage": {
+      "draws": 28222,
+      "materials": 6370,
+      "textures": 524
+    }
+  }
+}

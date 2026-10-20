@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Qualified native fittings, readable library and glass integration into main | `design/V2_NATIVE_FITTINGS_INTEGRATION_2026-10-20.md` |
 | Measured roof-cabinet bypass, world-space lamp checks and checked spatial publication | `design/V2_ROOF_ACCESS_REPAIR_2026-10-20.md` |
 | Current composed surface qualification and remaining source-bound route renewal | `design/V2_QUALIFICATION_RENEWAL_2026-10-20.md` |
 | Glass refraction diagnosis and the retained loose reading-nook collection | `design/V2_NOOK_AND_GLASS_2026-10-20.md` |

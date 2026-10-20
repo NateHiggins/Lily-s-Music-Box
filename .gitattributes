@@ -1959,6 +1959,9 @@ game/tests/v2_completion_door_settle.gd -text
 game/scripts/building/orison_v2_boiler_window.gd -text
 game/scripts/building/orison_v2_household_state.gd -text
 
+# Preserve original static verification and integration record bytes.
+art/reviews/v2_native_fittings_integration_20261020/** -text whitespace=cr-at-eol
+
 # Current qualification and preserved prior/failed capture bytes.
 art/reviews/v2_qualification_20261020/** -text whitespace=cr-at-eol
 art/reviews/v2_roof_access_repair_20261020/** -text whitespace=cr-at-eol
