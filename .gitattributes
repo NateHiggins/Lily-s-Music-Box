@@ -1961,6 +1961,10 @@ game/scripts/building/orison_v2_household_state.gd -text
 
 # Current qualification and preserved prior/failed capture bytes.
 art/reviews/v2_qualification_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_roof_access_repair_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_roof_access_repair_20261020/roof-report-lint.txt whitespace=-blank-at-eol,cr-at-eol
+game/tests/v2_roof_clearance_probe.gd -text
+game/tests/V2RoofClearanceProbe.tscn -text
 game/scripts/building/orison_v2_sink.gd -text
 game/scripts/building/orison_v2_water_valve.gd -text
 game/scripts/building/orison_v2_window_treatment.gd -text

@@ -1,0 +1,50 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 147.87,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T20:48:30Z",
+  "started_utc": "2026-10-20T20:46:02Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/roof-probe2.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/roof-probe2.log",
+  "stdout_sha256": "8ac7868ffcbe33e847fea8b4a2fd72b05294cc1d0abc4419890573c1ea439a5b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2RoofClearanceProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/roof-probe2",
+ "source": {
+  "dirty_paths": 8,
+  "dirty_sample": [
+   "M game/tests/orison_v2_roof_program_contract_test.gd",
+   " M game/tests/orison_v2_roof_route_test.gd",
+   " M tools/PIPELINE_TOOLS.md",
+   "?? art/reviews/v2_roof_access_repair_20261020/",
+   "?? game/tests/V2RoofClearanceProbe.tscn",
+   "?? game/tests/v2_roof_clearance_probe.gd",
+   "?? tools/publish_v2_spatial_packet.py",
+   "?? tools/tests/test_v2_spatial_publication.py"
+  ],
+  "repository_head": "e7c97ae3407a40f13cf306c724fc15d7fb9be8da",
+  "repository_tree": "b4dd270ec195d7f865cb3fd0ce700f07f7cbb460",
+  "runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+  "test_path": "game/tests/v2_roof_clearance_probe.gd",
+  "test_sha256": "90e679069d9503b9e78aa9554daa16edfa7d42a72e77271158699c8c07e137df"
+ },
+ "windowed": true
+}

@@ -16,6 +16,25 @@ for work restricted to the canonical checkout.
 | `lanes.py` | Where does every worktree and branch stand against main? | 6 s |
 | `check_rulings.py` | Is every RUL-nnn citation real, sourced and current? | 1 s |
 | `preflight_spatial_test_bindings.py` | Are every spatial receipt's inherited test dependencies declared before Godot starts? | <1 s |
+| `publish_v2_spatial_packet.py` | Publish already executed played-room proof with checked sources/logs and a preserved previous packet? | source-size dependent |
+
+## Played-room packet publication
+
+After a completed windowed spatial run, use **publish_v2_spatial_packet.py** with
+**--packet**, **--receipt**, **--destination** and **--archive**. The destination
+must be a named packet under **art/renders/orison_v2**; the fresh archive belongs
+under **art/reviews**. The tool validates source-bound room witnesses, additional
+typed connection/region claims, matching wrapper provenance and original raw-log
+hashes before publication. It copies the original contract and wrapper bytes,
+compresses unchanged log bytes and installs the contract last. It cannot create
+or repin a runtime receipt. Failed runs and changed sources are refused.
+
+An archive is tied to one incoming contract. Retrying the same publication is
+safe; a subsequent new run needs a fresh archive. Optional **--images** accepts
+plain PNG/JPEG/WebP filenames from that capture directory. These remain capture
+records, not human appearance or gameplay acceptance. First-slice authority
+contracts use their separate authority validator; this publisher covers played
+room, connection and regional access only.
 
 ## Gate board
 

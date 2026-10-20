@@ -1,0 +1,47 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 1281.24,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T20:32:01Z",
+  "started_utc": "2026-10-20T20:10:39Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 SPATIAL ACCESS COHORT: FAIL; 123 rooms; 19 legs; 1704 checks; 12 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/all-home1.log.stderr",
+  "stderr_sha256": "01ae46aefb89d625014a5326030f1c60e843bd4de9bf2bdd25fc9140e2021b24",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/all-home1.log",
+  "stdout_sha256": "3d8642fcc354a0c35ee798ce71b5fc4fe18cc5f38e02434426c568303b8113da"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2AllHomeAccessCohort.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/all-home1",
+ "source": {
+  "dirty_paths": 3,
+  "dirty_sample": [
+   "M tools/PIPELINE_TOOLS.md",
+   "?? tools/publish_v2_spatial_packet.py",
+   "?? tools/tests/test_v2_spatial_publication.py"
+  ],
+  "repository_head": "e7c97ae3407a40f13cf306c724fc15d7fb9be8da",
+  "repository_tree": "b4dd270ec195d7f865cb3fd0ce700f07f7cbb460",
+  "runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+  "test_path": "game/tests/v2_spatial_access_cohort.gd",
+  "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+ },
+ "windowed": true
+}

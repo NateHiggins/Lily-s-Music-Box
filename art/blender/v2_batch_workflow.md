@@ -30,6 +30,13 @@ existing family fixture that mounts that entry point; do not spend another
 world startup on a duplicate fixture. Assert explicit owner/part counts so an
 empty legacy array cannot silently pass a loop over retired visuals.
 
+Use measured run times when combining played route families. Saving one startup
+is not useful if it leaves too little room under the lane's 1,500-second ceiling
+for final hashing and teardown, or discards a long completed family after a late
+failure. Keep the existing bounded cohorts when their combined margin is small.
+A failed aggregate cannot promote its successful legs from logs or captures;
+only separately scoped, test-written executed contracts can do that.
+
 For a new native family, put imported UV metrics, normal/tangent derivatives
 and loaded-map checks in the first small family bench, together with its
 windowed hand controls where practical. A source GLB UV pass does not establish

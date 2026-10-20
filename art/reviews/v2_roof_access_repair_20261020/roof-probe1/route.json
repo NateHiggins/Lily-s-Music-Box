@@ -1,0 +1,51 @@
+{
+  "failures": [],
+  "trace": [
+    {
+      "actual": [
+        1.92500019073486,
+        17.6008567810059,
+        1.20408535003662
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        17.6000003814697,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984156608582,
+        17.6009426116943,
+        1.27155876159668
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        17.6000003814697,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/RoofClearanceProbe/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F06_ROOF/StairGuards": "(-3.87984, 18.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.97172999382019,
+        19.2003593444824,
+        -3.23922920227051
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        19.2000007629395,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/RoofClearanceProbe/OrisonV2Runtime/OrisonV2Blockout/ROOF_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision": "(-4.045199, 20.4002, -8.0879)"
+      }
+    }
+  ]
+}

@@ -2,6 +2,11 @@
 
 Evidence class: **INERT**. Technical report, not a room or gameplay checkpoint.
 
+Follow-up: **V2_ROOF_ACCESS_REPAIR_2026-10-20.md** records the combined route
+failure, measured roof bypass and corrected lamp test. The all-home aggregate
+scene below is historical and retired; the existing bounded cohorts are being
+replayed. Surface qualification remains current and independently passes.
+
 The current production-composed V2 surface packet passes **40,122 checks with
 zero failures**, in 1,001.11 seconds. Independent qualification reports **PASS,
 zero defects** across **28,222 draws, 18,141 meshes, 6,370 materials and 524

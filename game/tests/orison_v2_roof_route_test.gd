@@ -13,6 +13,20 @@ func _prepare_player_start() -> void:
 	player.velocity = Vector3.ZERO
 
 func _walk(target: Vector3) -> bool:
+	# The formed fire case and riser occupy the former nominal corner. Follow
+	# the measured standing corridor across the existing solid landing instead
+	# of pressing through the cabinet or against the east bulkhead wall.
+	if target.is_equal_approx(Vector3(5,19.2,-3.4)):
+		var from: Vector3=world.adapter.root.to_local(player.global_position)
+		var detour: Array[Vector3]=[Vector3(3.975,19.2,-3.0),Vector3(4.9,19.2,-3.0)]
+		if from.z>-2.:detour.reverse()
+		for point: Vector3 in detour:
+			if not await _walk_fitted_floor(point):return false
+		return true
+	if target.is_equal_approx(Vector3(5,19.2,2.5)):target.x=4.9
+	return await _walk_fitted_floor(target)
+
+func _walk_fitted_floor(target: Vector3) -> bool:
 	if target.y>19.15 and target.y<19.25:
 		var root: Node3D=world.adapter.root
 		var query:=PhysicsRayQueryParameters3D.create(root.to_global(Vector3(target.x,19.7,target.z)),root.to_global(Vector3(target.x,19.,target.z)),1,[player.get_rid()])

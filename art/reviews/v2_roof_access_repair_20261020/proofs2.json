@@ -1,0 +1,50 @@
+[
+  {
+    "runner": "long",
+    "timeout": 1500,
+    "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/home2",
+    "windowed": true,
+    "scene": "res://tests/OrisonV2HomeAccessCohort.tscn",
+    "log": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/home2.log"
+  },
+  {
+    "runner": "long",
+    "timeout": 1500,
+    "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/upper2",
+    "windowed": true,
+    "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
+    "log": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/upper2.log"
+  },
+  {
+    "runner": "long",
+    "timeout": 1500,
+    "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/first-slice1",
+    "windowed": true,
+    "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
+    "log": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/first-slice1.log"
+  },
+  {
+    "runner": "long",
+    "timeout": 1500,
+    "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/public1",
+    "windowed": true,
+    "scene": "res://tests/V2PublicLandingAccessContract.tscn",
+    "log": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/public1.log"
+  },
+  {
+    "runner": "long",
+    "timeout": 1500,
+    "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/service1",
+    "windowed": true,
+    "scene": "res://tests/V2ServiceCirculationContract.tscn",
+    "log": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/service1.log"
+  },
+  {
+    "runner": "long",
+    "timeout": 1500,
+    "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/exterior1",
+    "windowed": true,
+    "scene": "res://tests/V2RegionAccessContract.tscn",
+    "log": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/exterior1.log"
+  }
+]
