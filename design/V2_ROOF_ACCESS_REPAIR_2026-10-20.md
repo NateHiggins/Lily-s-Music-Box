@@ -62,6 +62,25 @@ is preserved under **previous_home_packet**. The existing home checkpoint is
 renewed for only its actual room witnesses. Upper/roof and the later authority,
 public, service and exterior proof results remain pending.
 
+The subsequent bounded **upper2** replay also passes: **69 rooms, eleven legs,
+993 checks and zero failures**, completed in **1,148.69 seconds**. All 16
+transitive test dependencies and both production input fingerprints remain
+fixed. All 13 tracked root/route/check nodes retire. The checked publisher
+installs the unchanged test-written contract, matching wrapper, byte-verified
+compressed logs and 32 fresh captures in **access_upper_cohort_20261018**;
+the previous packet is preserved under **previous_upper_packet**. The current
+remaining-home and roof cohort checkpoints are renewed only for these played
+witnesses. The earlier pending statement records the preceding checkpoint.
+First-slice authority, public, service and exterior renewals remain separate.
+
+All 32 captures were visually reviewed, including the final three machinery
+views separately. They remain diagnostic views, not human appearance acceptance.
+Sparse household dressing, clipped carried-light highlights and the dim
+counterweight view remain visual follow-ups. Seven original uncommitted player
+captures (**shot_024.png** through **shot_030.png**) and their camera notes were
+copied from the shared checkout after matching the preservation manifest;
+their original bytes are retained without changing the shared checkout.
+
 ## Checked publication
 
 **tools/publish_v2_spatial_packet.py** validates current source-bound played-room
@@ -93,10 +112,12 @@ Origin/main and merge-base: **82887a14**. Shared main is preserved and not yet
 integrated. Protected 17/17 are outside this change; selector remains V2 with
 explicit V1 rollback. Checkpoint paths are named; the active lane batch is a
 verification job, not an asserted pass.
-Ledger before -> after: **7/42/110/8/134/136 -> 7/41/98/8/122/124**.
-The renewed executed home proof changes 15 requirement statuses; its exact
-before/after list is retained in **home2-ledger-delta.json**. This inert report
-does not itself grant those changes. Main baseline remains **0/25/21/1/38/40**.
+Ledger before -> home2 -> upper2:
+**7/42/110/8/134/136 -> 7/41/98/8/122/124 -> 7/32/44/8/68/70**.
+The renewed executed home proof changes 15 requirement statuses; upper2 restores
+54 more. Their exact before/after lists are retained in **home2-ledger-delta.json**
+and **upper2-ledger-delta.json**. This inert report does not itself grant those
+changes. Main baseline remains **0/25/21/1/38/40**.
 
 No fresh green-board or merge-ready claim is made. Current surface qualification
 passes; route/runtime renewal, candidate comparison, remaining V2 content and

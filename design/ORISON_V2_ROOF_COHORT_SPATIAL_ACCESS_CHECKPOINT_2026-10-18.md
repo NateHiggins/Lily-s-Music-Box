@@ -2,10 +2,17 @@
 
 Evidence class: **EVIDENCE**. Played spatial access only; no runtime/case or human acceptance grant.
 
-Renewed after the street finish repair through one complete upper-home/roof
-production-selected V2 cohort. The schema-2 test-written contract at
+Requalified on **2026-10-20** against the current native library, glass and fire
+stock through one complete upper-home/roof production-selected V2 cohort. The
+run completes in **1,148.69 seconds** with **993 checks and zero failures**. The
+roof route uses the measured full-size capsule bypass around the service cabinet;
+world-space carried-light rotation and independently raycast convergence checks
+retain their numerical tolerances. Production geometry and collision remain
+unchanged. The checked spatial publisher preserves the original previous packet
+under **art/reviews/v2_roof_access_repair_20261020/previous_upper_packet**. The
+failed larger aggregate grants no proof. The schema-2 test-written contract at
 **art/renders/orison_v2/access_upper_cohort_20261018/runtime_contract.json** passes
-**69 rooms, eleven collision-bearing legs and 989 checks**, zero failures.
+**69 rooms, eleven collision-bearing legs and 993 checks**, zero failures.
 The matching completed **suite_run.receipt.json** and unchanged compressed raw
 channels corroborate execution. The full receipt is retained unchanged; it is
 not split into separately manufactured home and roof passes. Independent

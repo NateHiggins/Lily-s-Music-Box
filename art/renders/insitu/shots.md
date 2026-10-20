@@ -136,3 +136,45 @@ pos (5.12, -0.86, 33.53)  yaw 146.8  pitch -19.1
 looking at: OrisonRoot/F01/F01_retail_bar_stairwell_teal/StaticBody3D  @ world (4.22, -1.43, 34.90)  1.73 m away
 stand: @5.12_-0.86_33.53:146.8|-19.1
 note:
+
+## shot_024.png
+pos (14.59, 1.42, 46.77)  yaw 166.6  pitch -9.4
+looking at: ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_limestone/StaticBody3D  @ world (12.73, 0.10, 54.57)  8.12 m away
+stand: @14.59_1.42_46.77:166.6|-9.4
+note:
+
+## shot_025.png
+pos (14.59, 1.42, 46.77)  yaw 170.8  pitch -8.2
+looking at: ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_limestone/StaticBody3D  @ world (13.32, 0.28, 54.61)  8.03 m away
+stand: @14.59_1.42_46.77:170.8|-8.2
+note:
+
+## shot_026.png
+pos (14.59, 1.42, 46.77)  yaw -68.6  pitch -19.4
+looking at: ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D  @ world (16.74, 0.61, 45.92)  2.45 m away
+stand: @14.59_1.42_46.77:-68.6|-19.4
+note:
+
+## shot_027.png
+pos (14.02, 1.42, 43.92)  yaw -22.1  pitch -22.8
+looking at: ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D  @ world (15.28, 0.01, 40.80)  3.64 m away
+stand: @14.02_1.42_43.92:-22.1|-22.8
+note:
+
+## shot_028.png
+pos (-11.55, 4.61, -5.47)  yaw -150.5  pitch -33.7
+looking at: OrisonV2Blockout/F02_B_KITCHEN/Floor/Collision  @ world (-10.51, 3.20, -3.63)  2.54 m away
+stand: @-11.55_4.61_-5.47:-150.5|-33.7
+note:
+
+## shot_029.png
+pos (0.09, 1.41, 1.31)  yaw 4.2  pitch -14.8
+looking at: OrisonV2Blockout/F01_DOOR_06/F01_DOOR_06_Leaf/CenturyOakLeaf  @ world (0.02, 1.16, 0.35)  1.00 m away
+stand: @0.09_1.41_1.31:4.2|-14.8
+note:
+
+## shot_030.png
+pos (-0.22, 1.41, 0.68)  yaw 22.7  pitch -26.6
+looking at: OrisonV2Blockout/F01_DOOR_06/F01_DOOR_06_Leaf/CenturyOakLeaf  @ world (-0.35, 1.23, 0.35)  0.40 m away
+stand: @-0.22_1.41_0.68:22.7|-26.6
+note:
