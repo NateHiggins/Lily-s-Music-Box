@@ -25,20 +25,26 @@ func key(code: Key) -> void:
 func aim(point: Vector3) -> void:
 	player.camera.look_at(point);await get_tree().physics_frame;await get_tree().physics_frame;player.camera.look_at(point)
 func cursor_to(pixel: Vector2) -> bool:
-	# OS warping truncates fractional coordinates. A hit reprojected at
-	# 362.9998 must return to row363, not move one pixel off a thin washer.
+	# Input-mode changes and the inspection's initial centering can still be
+	# queued at the native window. Publish a rendered frame before requesting
+	# the pick position, and retry only until its real viewport delivery.
 	pixel=pixel.round()
-	Input.warp_mouse(pixel)
-	await get_tree().physics_frame;await get_tree().physics_frame
+	var window_id: int=get_window().get_window_id()
+	var initial_focus: bool=DisplayServer.window_is_focused(window_id)
+	var initial_mode: int=Input.mouse_mode
 	var before: Vector2=get_viewport().get_mouse_position()
-	var frames: int=0
-	# Multiple physics ticks can share one rendered frame and OS event poll.
-	# Wait for actual cursor delivery; never select a part by bypassing its ray.
-	while get_viewport().get_mouse_position().distance_to(pixel)>.5 and frames<8:
+	for frame in 8:
+		if not DisplayServer.window_is_focused(window_id):
+			DisplayServer.window_move_to_foreground(window_id)
+		await RenderingServer.frame_post_draw
+		Input.warp_mouse(pixel)
 		await get_tree().process_frame
-		frames+=1
-	if frames>0:print("INSPECTION CURSOR DELIVERY: frames=",frames," wanted=",pixel," before=",before," actual=",get_viewport().get_mouse_position())
-	return get_viewport().get_mouse_position().distance_to(pixel)<=.5
+		if get_viewport().get_mouse_position().distance_to(pixel)<=.5:
+			if frame>0 or not initial_focus:
+				print("INSPECTION CURSOR READY: frames=",frame+1," focused=",DisplayServer.window_is_focused(window_id)," initial_focus=",initial_focus," mode=",Input.mouse_mode," initial_mode=",initial_mode)
+			return true
+	print("INSPECTION CURSOR DELIVERY FAILED: wanted=",pixel," before=",before," actual=",get_viewport().get_mouse_position()," focused=",DisplayServer.window_is_focused(window_id)," initial_focus=",initial_focus," mode=",Input.mouse_mode," initial_mode=",initial_mode," viewport=",get_viewport().get_visible_rect())
+	return false
 func stock_ray(draw: MeshInstance3D, origin: Vector3, direction: Vector3) -> float:
 	var local: Vector3=draw.to_local(origin)*1000.
 	var axis: Vector3=draw.global_basis.inverse()*direction
