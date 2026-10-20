@@ -52,7 +52,7 @@ class ReadableLibraryTests(unittest.TestCase):
     def test_committed_review_logs_keep_the_captured_bytes(self):
         # Receipts contain absolute original capture locations, but the review
         # packet carries portable sibling copies. Check those bytes on any clone.
-        for folder in ("v2_readable_library_20261020", "v2_library_handling_20261020"):
+        for folder in ("v2_readable_library_20261020", "v2_library_handling_20261020", "v2_nook_and_glass_20261020"):
             packets=list((ROOT/"art/reviews"/folder).rglob("*.receipt.json"))
             self.assertTrue(packets,folder)
             for packet in packets:

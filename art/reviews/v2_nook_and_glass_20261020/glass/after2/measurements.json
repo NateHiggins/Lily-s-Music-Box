@@ -1,0 +1,43 @@
+{
+	"architectural": {
+		"mapped_bare_mean_rgb_difference": 0.0295439313245548,
+		"mapped_flat_mean_rgb_difference": 0.0154413012122991,
+		"shader": "res://shaders/lamp_glass_surface.gdshader"
+	},
+	"cut": {
+		"mapped_bare_mean_rgb_difference": 0.0987142520311107,
+		"mapped_flat_mean_rgb_difference": 0.0330765094404402,
+		"normal": true,
+		"normal_strength": 1.0,
+		"refraction": true
+	},
+	"drawn": {
+		"mapped_bare_mean_rgb_difference": 0.0720166467134481,
+		"mapped_flat_mean_rgb_difference": 0.00178682404560614,
+		"normal": true,
+		"normal_strength": 1.0,
+		"refraction": true
+	},
+	"frosted": {
+		"mapped_bare_mean_rgb_difference": 0.173210850634893,
+		"mapped_flat_mean_rgb_difference": 0.00160607908389423,
+		"normal": true,
+		"normal_strength": 1.0,
+		"refraction": true
+	},
+	"nook": {
+		"mapped_bare_mean_rgb_difference": 0.149662440693073,
+		"mapped_flat_mean_rgb_difference": 0.00148666808211955,
+		"normal": true,
+		"normal_strength": 0.550000011920929,
+		"refraction": true
+	},
+	"reeded": {
+		"mapped_bare_mean_rgb_difference": 0.0882554688373411,
+		"mapped_flat_mean_rgb_difference": 0.0413813689739509,
+		"normal": true,
+		"normal_strength": 1.0,
+		"refraction": true
+	},
+	"renderer": "forward_plus"
+}

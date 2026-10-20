@@ -4,6 +4,7 @@ const SERIF := preload("res://assets/fonts/eb_garamond/EBGaramond[wght].ttf")
 const ITALIC := preload("res://assets/fonts/eb_garamond/EBGaramond-Italic[wght].ttf")
 const HAND := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
 var stock: RefCounted
+var title_id := "" # Physical stock_id may identify a distinct copy of this title.
 var entry: Dictionary
 var spread: Dictionary
 var construction: Dictionary
@@ -19,8 +20,9 @@ var _heading_font: FontVariation
 func _ready() -> void:
 	super._ready()
 	set_meta("library_stock_id",stock_id)
+	if title_id.is_empty(): title_id=stock_id
 	construction=stock.data.books[stock_id]
-	spread=stock.spreads[stock_id]
+	spread=stock.spreads[title_id]
 	mass=maxf(.025,float(construction.width)*float(construction.height)*float(construction.thickness)*650.)
 	left=Node3D.new()
 	left.name="OpeningGathering"
@@ -103,7 +105,7 @@ func _print_pages() -> void:
 	var width:=float(construction.width)
 	var height:=float(construction.height)
 	var ink:=Color(.008,.007,.006)
-	var design: Dictionary=stock.data.page_designs[stock_id]
+	var design: Dictionary=stock.data.page_designs[title_id]
 	var style:=str(design.style)
 	var facing_plate: bool=spread.right.has("illustration")
 	for side: String in ["left","right"]:

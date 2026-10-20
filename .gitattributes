@@ -2612,3 +2612,20 @@ game/assets/fonts/eb_garamond/OFL.txt whitespace=-blank-at-eol
 # Library review receipts hash the captured bytes, including CRLF.
 art/reviews/v2_readable_library_20261020/** -text whitespace=cr-at-eol
 art/reviews/v2_library_handling_20261020/** -text whitespace=cr-at-eol
+
+# Separate native physical copies retain source and output byte hashes.
+art/blender/scripts/build_nook_readable_books.py -text
+art/blender/nook_readable_books_construction.json -text
+game/data/orison_v2/nook_readable_books.json -text
+
+art/data/reading_nook/book_programme.json -text
+art/blender/scripts/review_nook_readable_books.py -text
+
+# Retain diagnostic log bytes bound by wrapper receipts.
+art/reviews/v2_nook_and_glass_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_nook_and_glass_20261020/receipts/*.log whitespace=-blank-at-eol,cr-at-eol
+# Native nook provenance binds these runtime source bytes.
+game/scripts/building/v2_loose_library.gd -text
+game/scripts/building/v2_readable_library_stock.gd -text
+game/scripts/props/v2_readable_book.gd -text
+game/scripts/building/orison_v2_household_state.gd -text

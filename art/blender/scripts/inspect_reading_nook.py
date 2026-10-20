@@ -36,6 +36,9 @@ for a in f['assemblies']:
  for i,left in enumerate(stocks):
   for right in stocks[i+1:]:
    if trees[left].overlap(trees[right]):adj[left].add(right);adj[right].add(left);edges.append([left,right])
+ if not stocks:
+  assert a['id']=='nook_pile','only the entirely loose book pile may have no fixed stock'
+  joins.append({'assembly':a['id'],'connected_components':0,'surface_contact_edges':[],'loose_collection':True});continue
  seen={stocks[0]};pending=list(seen)
  while pending:
   for neighbour in adj[pending.pop()]-seen:seen.add(neighbour);pending.append(neighbour)

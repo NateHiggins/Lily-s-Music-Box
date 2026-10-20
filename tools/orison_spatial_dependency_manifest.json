@@ -302630,6 +302630,179 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "f2415c567c9f26d1",
+   "kind": "id_reference",
+   "token": "nook_books",
+   "file": "game/data/orison_v2/nook_readable_books.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/copies[0]/assembly",
+    "/copies[1]/assembly",
+    "/copies[2]/assembly",
+    "/copies[*]/assembly",
+    "/ends[0]/assembly",
+    "/ends[1]/assembly",
+    "/ends[2]/assembly",
+    "/ends[*]/assembly"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 63,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "B1/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "346531397184cd2e",
+   "kind": "id_reference",
+   "token": "nook_cush1",
+   "file": "game/data/orison_v2/nook_readable_books.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/copies[*]/assembly"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "B1/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0fe7ce4c1fc0f01a",
+   "kind": "id_reference",
+   "token": "nook_pile",
+   "file": "game/data/orison_v2/nook_readable_books.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/copies[*]/assembly"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "B1/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2efa1c499171b38b",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_reading_nook.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "str(row.id)+\"_library\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "81af6bba6659ee36",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_nook_library_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    71
+   ],
+   "count": 1,
+   "context": [
+    "var proofs:=Node3D.new();proofs.position=Vector3(0,10,50);proofs.hide();add_child(proofs)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

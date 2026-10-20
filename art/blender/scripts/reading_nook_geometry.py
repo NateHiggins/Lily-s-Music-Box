@@ -28,17 +28,8 @@ def lwire(label,row,points,radius,key):return move_local(curved_wire(row['id']+'
 def bearing(row,owner,point,direction,label):support(row['id'],owner,local(row,point),Vector(direction),label)
 
 def book(row,label,key,low,high,flat,source):
- # Distinct covers/spine and recessed page block; no letters or texture titles.
- x0,y0,z0=low;x1,y1,z1=high;thick=.0014
- if flat:
-  lbox(label+'_LowerCover',row,(x0,y0,z0),(x1,y1,z0+thick),key,.0004)
-  lbox(label+'_UpperCover',row,(x0,y0,z1-thick),(x1,y1,z1),key,.0004)
-  lbox(label+'_Pages',row,(x0+.0015,y0+.002,z0+thick-.0001),(x1-.0015,y1-.0015,z1-thick+.0001),'paper',.0002)
- else:
-  lbox(label+'_LeftCover',row,(x0,y0,z0),(x0+thick,y1,z1),key,.0004)
-  lbox(label+'_RightCover',row,(x1-thick,y0,z0),(x1,y1,z1),key,.0004)
-  lbox(label+'_Pages',row,(x0+thick-.0001,y0+.002,z0+.0015),(x1-thick+.0001,y1-.0015,z1-.0015),'paper',.0002)
- lbox(label+'_Spine',row,(x0,y1-.002,z0),(x1,y1,z1),key,.0005)
+ # Native operable copies are manufactured by build_nook_readable_books.py.
+ # Keep the original physical lineage, dimensions and placement programme.
  book_stock.append({'assembly':row['id'],'label':label,'source':source,'bounds':[list(low),list(high)]})
 
 for assembly in assemblies:
@@ -67,18 +58,7 @@ for assembly in assemblies:
     for j in range(9):a=start+j*math.pi/16;points.append((cx+.018*math.cos(a),cy+.018*math.sin(a),z0+.023))
    points.append(points[0])
    curved_wire(identity+'_Welt',points,.0016,identity,key)
-  if identity=='nook_cush1':
-   # Dossier slice 73 (B1_PUBLIC_CORE-001): a book left open face down on the cushion, covers tented over the
-   # spine, sunk 3 mm into the padding. Sheared boxes: pages, then cover, rising 22 mm to the ridge.
-   cx,by0,by1,seat=-.84,.85,1.05,z1-.003
-   def tent(obj):
-    for vertex in obj.data.vertices:
-     p=vertex.co+obj.location;vertex.co.z+=.022*max(0.,1-abs(p.x-cx)/.13)
-   for side in [-1,1]:
-    outer=cx+side*.13
-    tent(box(identity+'_ReaderPages'+str(side),(min(outer-side*.004,cx),by0+.004,seat),(max(outer-side*.004,cx),by1-.004,seat+.007),identity,'paper',.0008))
-    tent(box(identity+'_ReaderCover'+str(side),(min(outer,cx),by0,seat+.006),(max(outer,cx),by1,seat+.0095),identity,'book_green',.0008))
-   box(identity+'_ReaderSpine',(cx-.007,by0,seat+.018),(cx+.007,by1,seat+.034),identity,'book_green',.002)
+  # The face-down cushion reader is a separate operable native binding.
  elif kind=='coffee':
   for index,(bottom,top,width) in enumerate([((-.30,-.10),(.18,.13),.30),((.28,-.07),(-.14,.15),.26)]):
    verts=[(center[0]+dx,center[1]+dy,z) for center,z in [(bottom,.008),(top,.346)] for dy in [-width/2,width/2] for dx in [-.0225,.0225]]

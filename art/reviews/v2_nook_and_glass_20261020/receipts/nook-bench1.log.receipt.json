@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 21.86,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T19:07:20Z",
+  "started_utc": "2026-10-20T19:06:58Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 NOOK LIBRARY BENCH: FAIL checks=2242 failures=1"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/nook-bench1.log.stderr",
+  "stderr_sha256": "716d39300f2e1c35b0c5ba77c203168f1781810db96e869df2b7a44d54594f61",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/nook-bench1.log",
+  "stdout_sha256": "45d2e09a3d1999978013bdc6ff81b4b108d6ee4254e6960b8a4e305b5097cfa0"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2NookLibraryBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/nook-game1",
+ "source": {
+  "dirty_paths": 1709,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/reading_nook.blend",
+   " M art/blender/reading_nook_construction.json",
+   " M art/blender/scripts/build_reading_nook.py",
+   " M art/blender/scripts/inspect_reading_nook.py",
+   " M art/blender/scripts/reading_nook_geometry.py",
+   " M art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/building/textures/T_ai_materials_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_normal.png.import"
+  ],
+  "repository_head": "083cb3b5b52b88056ff30117492d8e3fea96f6fe",
+  "repository_tree": "23341ef3e94fbe69bb5adde5f48b7f5507b543cc",
+  "runtime_inputs_sha256": "6ec9a85af73148409966b7a23147570686d473c5999e67a652a6f079888ba54f",
+  "test_path": "game/tests/v2_nook_library_bench.gd",
+  "test_sha256": "cfedc2abcdf94d21382c05e3f5a5be297f3c3f679fc83dbe1ef0005e35f31b17"
+ },
+ "windowed": true
+}

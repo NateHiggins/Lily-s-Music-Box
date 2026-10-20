@@ -15,6 +15,8 @@ class DataConsumptionTests(unittest.TestCase):
     def test_readable_library_identity_maps_do_not_exempt_record_fields(self):
         for filename, document, expected in [
             ("orison_v2/book_spreads.json", {"spreads":{"arbitrary_title":{"left":{"body":"x", "unread_probe":1}}}}, "spreads[].left.unread_probe"),
+            ("orison_v2/nook_readable_books.json", {"parts":{"arbitrary_title":{"collision":True,"unread_probe":1}}}, "parts[].unread_probe"),
+            ("orison_v2/nook_readable_books.json", {"books":{"arbitrary_title":{"parts":[], "unread_probe":1}}}, "books[].unread_probe"),
             ("orison_v2/readable_library.json", {"books":{"arbitrary_title":{"parts":[], "unread_probe":1}}}, "books[].unread_probe"),
         ]:
             fields=audit.data_json_fields(document, filename)

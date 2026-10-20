@@ -125,22 +125,10 @@
       "id": "nook_cush1",
       "parts": [
         {
-          "name": "nook_cush1__book_green",
-          "key": "book_green",
-          "tile": 0.32,
-          "catalog_key": "book_green"
-        },
-        {
           "name": "nook_cush1__fabric_warm",
           "key": "fabric_warm",
           "tile": 0.7,
           "catalog_key": "fabric_warm"
-        },
-        {
-          "name": "nook_cush1__paper",
-          "key": "paper",
-          "tile": 0.5,
-          "catalog_key": "paper"
         }
       ],
       "position": [
@@ -187,42 +175,6 @@
       "id": "nook_books",
       "parts": [
         {
-          "name": "nook_books__book_brown",
-          "key": "book_brown",
-          "tile": 0.32,
-          "catalog_key": "book_brown"
-        },
-        {
-          "name": "nook_books__book_burgundy",
-          "key": "book_burgundy",
-          "tile": 0.32,
-          "catalog_key": "book_burgundy"
-        },
-        {
-          "name": "nook_books__book_green",
-          "key": "book_green",
-          "tile": 0.32,
-          "catalog_key": "book_green"
-        },
-        {
-          "name": "nook_books__book_navy",
-          "key": "book_navy",
-          "tile": 0.32,
-          "catalog_key": "book_navy"
-        },
-        {
-          "name": "nook_books__book_ochre",
-          "key": "book_ochre",
-          "tile": 0.32,
-          "catalog_key": "book_ochre"
-        },
-        {
-          "name": "nook_books__book_teal",
-          "key": "book_teal",
-          "tile": 0.32,
-          "catalog_key": "book_teal"
-        },
-        {
           "name": "nook_books__floor_oak",
           "key": "floor_oak",
           "tile": 2.7,
@@ -233,12 +185,6 @@
           "key": "metal",
           "tile": 0.9,
           "catalog_key": "metal"
-        },
-        {
-          "name": "nook_books__paper",
-          "key": "paper",
-          "tile": 0.5,
-          "catalog_key": "paper"
         }
       ],
       "position": [
@@ -295,32 +241,7 @@
     },
     {
       "id": "nook_pile",
-      "parts": [
-        {
-          "name": "nook_pile__book_navy",
-          "key": "book_navy",
-          "tile": 0.32,
-          "catalog_key": "book_navy"
-        },
-        {
-          "name": "nook_pile__book_ochre",
-          "key": "book_ochre",
-          "tile": 0.32,
-          "catalog_key": "book_ochre"
-        },
-        {
-          "name": "nook_pile__book_teal",
-          "key": "book_teal",
-          "tile": 0.32,
-          "catalog_key": "book_teal"
-        },
-        {
-          "name": "nook_pile__paper",
-          "key": "paper",
-          "tile": 0.5,
-          "catalog_key": "paper"
-        }
-      ],
+      "parts": [],
       "position": [
         -0.2799999999999999,
         0,

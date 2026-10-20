@@ -147,6 +147,13 @@ func installed_round() -> void:
 		await capture("installed_"+str(record.unit)+"_bookend")
 		await space()
 	check(find_children("*","BookshelfPanel",true,false).is_empty(),"no legacy sorting minigame")
+	var loose_ids: Array[String]=[];var loose_books:=0;var loose_ends:=0
+	for collection: Node in get_tree().get_nodes_in_group("v2_library_collections"):
+		if not world.is_ancestor_of(collection): continue
+		loose_ids.append(str(collection.name));loose_books+=collection._books.size();loose_ends+=collection._ends.size()
+		check(world.household_state._subjects.get(str(collection.name))==collection,"same household owner registers loose collection: "+str(collection.name))
+		check(collection.valid_library(collection.library_snapshot()),"loose collection physical payload validates: "+str(collection.name))
+	check(loose_ids.size()==3 and loose_books==61 and loose_ends==6,"all nook copies and ends join the existing household save domain")
 	var wanted: Dictionary=world.household_state.snapshot()
 	check(RealityState.save_game(),"actual disk save succeeds")
 	var owner_ref: WeakRef=weakref(world.household_state)
@@ -163,6 +170,8 @@ func installed_round() -> void:
 		var restored: Dictionary=world.household_state.snapshot()
 		for record: Dictionary in source.shelves:
 			check(equivalent(restored.records[record.id],wanted.records[record.id]),"pose/opening/end/sash state rebuilds: "+str(record.id))
+		for identity: String in loose_ids:
+			check(equivalent(restored.records[identity],wanted.records[identity]),"nook copy/title/pose/opening/end state rebuilds on fresh physical owners: "+identity)
 		# Legacy order-only saves remain valid and adopt native construction.
 		var legacy: Dictionary=JSON.parse_string(JSON.stringify(wanted))
 		for record: Dictionary in source.shelves: legacy.records[record.id].value=legacy.records[record.id].value.order

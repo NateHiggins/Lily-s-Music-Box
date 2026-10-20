@@ -50,6 +50,8 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 		_kinds[str(record.id)] = "radiator"
 	var shelves: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/bookshelves.json"))
 	for record: Dictionary in shelves.shelves: _kinds[str(record.id)] = "books"
+	for collection: Node in get_tree().get_nodes_in_group("v2_library_collections"):
+		if adapter.root.is_ancestor_of(collection): _kinds[str(collection.name)]="books"
 	for window: Node in get_tree().get_nodes_in_group("v2_window_treatments"):
 		if adapter.root.is_ancestor_of(window):_kinds[str(window.get_meta("semantic_window"))]="blind"
 	_kinds.merge(SERVICE_KINDS)

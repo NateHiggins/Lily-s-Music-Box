@@ -246,7 +246,7 @@ func valid_library(value: Variant) -> bool:
 		or value.get("books") is not Dictionary or value.get("bookends") is not Dictionary or value.get("doors") is not Array \
 		or typeof(value.get("moves")) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(value.moves)) \
 		or float(value.moves)<0. or float(value.moves)!=floorf(float(value.moves)): return false
-	if not _valid_order(value.order) or value.books.size()!=_books.size() or value.bookends.size()!=2 or value.doors.size()!=_sashes.size(): return false
+	if not _valid_order(value.order) or value.books.size()!=_books.size() or value.bookends.size()!=_ends.size() or value.doors.size()!=_sashes.size(): return false
 	for identity: String in _library_ids:
 		if not value.books.has(identity) or not Book.valid_book(value.books[identity]): return false
 	for side: String in _ends:
