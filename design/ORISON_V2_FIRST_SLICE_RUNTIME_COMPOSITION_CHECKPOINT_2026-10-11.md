@@ -2,12 +2,21 @@
 
 Evidence class: **CHECKPOINT**. Executed runtime authority proof.
 
-Requalified after the street finish repair on 2026-10-18: current test-written authority
+Requalified against the current native library, fire fittings and repaired glass
+on **2026-10-20**, completed in **427.75 seconds**: current test-written authority
 contract prints 360 passing checks, including finite workshop-part delivery,
 save/load reconstruction and both-world teardown. The receipt serializes 359 because its final output-flush
 check follows serialization. Completed wrapper:
 **art/renders/orison_v2/first_slice_contract_20261011/suite_run.receipt.json**.
 Status: **TECHNICAL PASS**, scoped to the seven authorities below.
+
+The original test-written receipt and wrapper bytes are published unchanged,
+with byte-verified compressed stdout/stderr. The earlier original packet is
+preserved under
+**art/reviews/v2_roof_access_repair_20261020/previous_first_slice_packet**.
+Publication independently checks the runtime authority contract, current physical
+and production fingerprints, wrapper completion and raw-log hashes. It does not
+manufacture or repin a receipt.
 
 The disk comparison preserves the complete serialized job record and checks
 timestamp precision separately. A focused diagnostic reproduced one-ULP JSON
@@ -68,9 +77,9 @@ The 84 exact shared radiator shape IDs are separately measured and do not grow
 on reconstruction. Imported/shared caches remain outside runtime-owned resource
 retirement. The seven known Texture RID shutdown warnings remain disclosed.
 
-This renewal follows the street metric-UV, tile/limestone stock and fascia
-emission repair. The native exports and physical fingerprint remain unchanged;
-production authorities and protected selector logic are unchanged. The current
+This renewal follows the native library and fire-fitting work and glass optical
+repair. Production, physical and root-test fingerprints stay fixed throughout
+the actual run; production authorities and protected selector logic are unchanged. The current
 composed surface review is qualified separately. This checkpoint
 does not grant human acceptance, continuous patrol-route proof, whole-building service
 continuity, acoustics acceptance, performance acceptance or V1 retirement.

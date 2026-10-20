@@ -73,6 +73,21 @@ remaining-home and roof cohort checkpoints are renewed only for these played
 witnesses. The earlier pending statement records the preceding checkpoint.
 First-slice authority, public, service and exterior renewals remain separate.
 
+The following **first-slice1** authority replay subsequently completes in
+**427.75 seconds**, with **360 printed checks and zero failures**. Its unchanged
+test-written receipt contains 359 checks because the final output-flush check
+follows serialization. Actual station gestures, finite workshop-part delivery,
+threaded radiator repair, sustained heat, resident return, original disk save,
+fresh-world reconstruction and both-world runtime-owned teardown pass. Current
+production, physical and test fingerprints stay fixed. The original contract,
+wrapper and byte-verified compressed logs are published unchanged in
+**first_slice_contract_20261011** after independent authority validation;
+**previous_first_slice_packet** preserves the previous original packet. The
+renewed authority checkpoint restores seven runtime requirements. All **109**
+completeness tests now pass without changing their assertions; the exact output
+is **completeness-renewed.txt**. Public, service and exterior proof renewals
+are still pending.
+
 All 32 captures were visually reviewed, including the final three machinery
 views separately. They remain diagnostic views, not human appearance acceptance.
 Sparse household dressing, clipped carried-light highlights and the dim
@@ -112,12 +127,13 @@ Origin/main and merge-base: **82887a14**. Shared main is preserved and not yet
 integrated. Protected 17/17 are outside this change; selector remains V2 with
 explicit V1 rollback. Checkpoint paths are named; the active lane batch is a
 verification job, not an asserted pass.
-Ledger before -> home2 -> upper2:
-**7/42/110/8/134/136 -> 7/41/98/8/122/124 -> 7/32/44/8/68/70**.
+Ledger before -> home2 -> upper2 -> first-slice1:
+**7/42/110/8/134/136 -> 7/41/98/8/122/124 -> 7/32/44/8/68/70 -> 0/25/44/1/61/63**.
 The renewed executed home proof changes 15 requirement statuses; upper2 restores
 54 more. Their exact before/after lists are retained in **home2-ledger-delta.json**
-and **upper2-ledger-delta.json**. This inert report does not itself grant those
-changes. Main baseline remains **0/25/21/1/38/40**.
+and **upper2-ledger-delta.json**; the subsequent seven authority restorations
+are **first-slice1-ledger-delta.json**. This inert report does not itself grant
+those changes. Main baseline remains **0/25/21/1/38/40**.
 
 No fresh green-board or merge-ready claim is made. Current surface qualification
 passes; route/runtime renewal, candidate comparison, remaining V2 content and

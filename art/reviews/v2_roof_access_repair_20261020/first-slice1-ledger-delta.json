@@ -1,0 +1,84 @@
+{
+  "evidence_class": "INERT",
+  "before": {
+    "requirements": 240,
+    "by_status": {
+      "ABSENT": 4,
+      "HUMAN_ACCEPTED": 1,
+      "PROGRAMMED": 53,
+      "RUNTIME_PROVEN": 27,
+      "SPATIALLY_PROVEN": 155
+    },
+    "blockers_by_scope": {
+      "FIRST_SLICE_TECHNICAL": 7,
+      "GOLDEN_SHIFT_V2": 8,
+      "FULL_BUILDING_STRUCTURAL": 44,
+      "FULL_BUILDING_RUNTIME": 32,
+      "PRODUCTION_CUTOVER": 68,
+      "V1_RETIREMENT": 70
+    },
+    "v1_fallbacks": 2,
+    "heuristic_conclusions": 117,
+    "anchor_only_findings": 0,
+    "stale_checkpoint_ids": 1
+  },
+  "after": {
+    "requirements": 240,
+    "by_status": {
+      "ABSENT": 4,
+      "HUMAN_ACCEPTED": 1,
+      "PROGRAMMED": 52,
+      "RUNTIME_PROVEN": 34,
+      "SPATIALLY_PROVEN": 149
+    },
+    "blockers_by_scope": {
+      "FIRST_SLICE_TECHNICAL": 0,
+      "GOLDEN_SHIFT_V2": 1,
+      "FULL_BUILDING_STRUCTURAL": 44,
+      "FULL_BUILDING_RUNTIME": 25,
+      "PRODUCTION_CUTOVER": 61,
+      "V1_RETIREMENT": 63
+    },
+    "v1_fallbacks": 2,
+    "heuristic_conclusions": 117,
+    "anchor_only_findings": 0,
+    "stale_checkpoint_ids": 1
+  },
+  "requirements_changed": [
+    {
+      "id": "ritual.F01_WATCHMAN_DETECTOR",
+      "before": "SPATIALLY_PROVEN",
+      "after": "RUNTIME_PROVEN"
+    },
+    {
+      "id": "ritual.F01_NIGHT_REGISTER",
+      "before": "SPATIALLY_PROVEN",
+      "after": "RUNTIME_PROVEN"
+    },
+    {
+      "id": "ritual.F01_SIGNAL_REGISTER",
+      "before": "SPATIALLY_PROVEN",
+      "after": "RUNTIME_PROVEN"
+    },
+    {
+      "id": "ritual.F01_TOUR_KEY_GUARD",
+      "before": "SPATIALLY_PROVEN",
+      "after": "RUNTIME_PROVEN"
+    },
+    {
+      "id": "contract.B1_BOILER_01",
+      "before": "SPATIALLY_PROVEN",
+      "after": "RUNTIME_PROVEN"
+    },
+    {
+      "id": "contract.F02_B_RADIATOR_01",
+      "before": "SPATIALLY_PROVEN",
+      "after": "RUNTIME_PROVEN"
+    },
+    {
+      "id": "job.lena_radiator_round_2b",
+      "before": "PROGRAMMED",
+      "after": "RUNTIME_PROVEN"
+    }
+  ]
+}
