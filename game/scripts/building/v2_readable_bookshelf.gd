@@ -146,18 +146,38 @@ func release_library_hand(part: Node3D, changed: bool) -> void:
 
 func library_stock_changed(_part: Node3D) -> void:
 	if _restoring_library or not is_inside_tree() or is_queued_for_deletion(): return
-	var order:=sorter.order.duplicate()
-	order.sort_custom(_reading_before)
+	var order:=_physical_reading_order()
 	if order!=sorter.order: sorter.moves+=1;sorter.order=order
 	order_changed.emit()
 
-func _reading_before(first: Variant, second: Variant) -> bool:
-	var a: Node3D=_books[str(first)];var b: Node3D=_books[str(second)]
-	var row_a:=_nearest_row(a.position.y);var row_b:=_nearest_row(b.position.y)
-	if row_a!=row_b: return row_a>row_b
-	if absf(a.basis.y.dot(Vector3.UP))<.3 and absf(b.basis.y.dot(Vector3.UP))<.3 and absf(a.position.x-b.position.x)<.05:
-		return a.position.y>b.position.y
-	return a.position.x<b.position.x
+func _physical_reading_order() -> Array:
+	# A pairwise "within 5 cm" comparator is nontransitive: three overlapping
+	# flat books can form A<B<C<A. Form connected piles first, then sort fixed
+	# lexicographic keys. Input/save order cannot change the result.
+	var entries: Array=[]
+	for identity: String in sorter.order:
+		var book: Node3D=_books[identity]
+		entries.append([identity,_nearest_row(book.position.y),book.position.x,
+			book.position.y,absf(book.basis.y.dot(Vector3.UP))<.3,book.position.z])
+	entries.sort_custom(func(a: Array,b: Array):
+		return a[2]<b[2] if a[2]!=b[2] else str(a[0])<str(b[0]))
+	var keys: Dictionary={}
+	for row in _case_record.shelf_tops.size():
+		var anchor:=0.;var last:=0.;var has_pile:=false
+		for entry: Array in entries:
+			if entry[1]!=row: continue
+			var x: float=entry[2]
+			if entry[4]:
+				if not has_pile or x-last>.05: anchor=x
+				has_pile=true;last=x
+			keys[entry[0]]=[-row,anchor if entry[4] else x,-float(entry[3]) if entry[4] else 0.,x,-float(entry[3]),entry[5],entry[0]]
+	var order:=sorter.order.duplicate()
+	order.sort_custom(func(a: Variant,b: Variant):
+		var ka: Array=keys[a];var kb: Array=keys[b]
+		for index in ka.size():
+			if ka[index]!=kb[index]: return ka[index]<kb[index]
+		return false)
+	return order
 
 func _nearest_row(y: float) -> int:
 	var closest:=0;var distance:=INF
@@ -191,10 +211,11 @@ func inspection_view_for(part: Node3D) -> Dictionary:
 			return {"from":from,"at":point,"fov":40.}
 		if cursor in _ends.values():
 			_pending_inspection_stock=cursor
-			var style: String="brass" if unit in ["6C","4A"] else "pressed"
-			var bounds: AABB=native_stock._bounds(native_stock.data.bookends[style].parts)
-			var point:=cursor.to_global(bounds.get_center())
-			return {"from":point+global_basis.z*.6+Vector3.UP*.09,"at":point,"fov":55.}
+			# The current view has just acquired this loose stock through the
+			# unfiltered cursor ray. Preserve that approach: a canned front view
+			# can put books/glazing between the camera and an exposed side grip.
+			var camera:=get_viewport().get_camera_3d()
+			return {"from":camera.global_position,"at":camera.global_position-camera.global_basis.z,"fov":camera.fov}
 		cursor=cursor.get_parent() as Node3D
 	return inspection_view()
 

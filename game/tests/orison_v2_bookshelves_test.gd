@@ -103,15 +103,41 @@ func installed_round() -> void:
 			if end.sleeping or (end.linear_velocity.length()<.005 and end.angular_velocity.length()<.005): break
 			await get_tree().physics_frame
 		if check(await grab_visible_stock(end),"primary grabs an exposed part of installed bookend in its actual position: "+str(record.id)):
+			var visible_approach:=player.camera.global_transform
 			await space()
+			check(player.camera.global_transform.is_equal_approx(visible_approach),"end inspection retains the acquired visible approach: "+str(record.id))
 			if check(player.inspecting() and end.freeze,"Space focuses and supports installed bookend: "+str(record.id)):
 				var end_camera:=player.camera.global_transform
 				if check(await grab_visible_stock(end),"cursor grabs exposed native surface of focused bookend: "+str(record.id)):
-					var style: String="brass" if record.unit in ["6C","4A"] else "pressed"
-					var distance: float=float(shelf.native_stock.data.bookends[style].depth)+.01
 					var start: Vector3=end.position
-					check(await carry(start+Vector3(0,0,distance)),"mouse draws the complete bookend foot out from under its load: "+str(record.id))
-					check(await carry(start+Vector3(0,.01,distance)),"mouse lifts the freed installed bookend: "+str(record.id));click()
+					var foot:=AABB()
+					var first_vertex:=true
+					for solid: CollisionShape3D in end._solids:
+						if "__Foot_" not in str(solid.name): continue
+						for vertex: Vector3 in solid.shape.points:
+							var point: Vector3=end.transform*solid.transform*vertex
+							if first_vertex: foot=AABB(point,Vector3.ZERO);first_vertex=false
+							else: foot=foot.expand(point)
+					check(not first_vertex,"native foot supplies load bounds: "+str(record.id))
+					var rear:=foot.position.z
+					var front:=rear
+					for loaded: Node3D in shelf._books.values():
+						var bounds:=AABB();var first:=true
+						for solid: CollisionShape3D in loaded._solids:
+							for vertex: Vector3 in solid.shape.points:
+								var point: Vector3=loaded.transform*solid.transform*vertex
+								if first: bounds=AABB(point,Vector3.ZERO);first=false
+								else: bounds=bounds.expand(point)
+						if bounds.position.x<foot.end.x and bounds.end.x>foot.position.x \
+								and bounds.position.z<foot.end.z and bounds.end.z>foot.position.z \
+								and bounds.position.y<foot.end.y+.005 and bounds.end.y>foot.end.y-.005:
+							front=maxf(front,bounds.end.z)
+					# Clear the actual load, not just one foot length. Slight upward
+					# intent permits the real support to guide the outgoing draw.
+					var distance:=maxf(.11,front-rear+.01)
+					print("INSTALLED END DRAW: ",record.id," start=",start," rear=",rear," load_front=",front)
+					check(await carry(start+Vector3(0,.002,distance)),"mouse draws the complete bookend foot out from under its load: "+str(record.id))
+					check(await carry(end.position+Vector3(0,.01,0)),"mouse lifts the freed installed bookend: "+str(record.id));click()
 				if player._grab.active(): player._grab.release()
 				check(player.camera.global_transform.is_equal_approx(end_camera),"installed loose-stock inspection camera stays fixed: "+str(record.id))
 		if player._grab.active(): player._grab.release()
@@ -129,6 +155,9 @@ func installed_round() -> void:
 	check(is_equal_approx(PhysicsServer3D.space_get_param(get_world_3d().space,PhysicsServer3D.SPACE_PARAM_CONTACT_MAX_ALLOWED_PENETRATION),allowance),"V2 teardown restores prior contact setting")
 	RealityState.reset_campaign_for_tests();RealityState.load_game()
 	check(RealityState.data.get(State.KEY)==JSON.parse_string(JSON.stringify(wanted,"",true,true)),"same durable household payload reloads from disk")
+	if OS.get_environment("LIBRARY_INSTALLED_CONTROLS_ONLY")=="1":
+		print("INSTALLED CONTROL-ONLY: second-world reconstruction intentionally not rerun")
+		_round_complete=true;return
 	world=Runtime.instantiate() as OrisonV2RuntimeRoot;add_child(world)
 	if check(not world.startup_failed,"disk state reconstructs on fresh physical owners: "+world.startup_failure_reason):
 		var restored: Dictionary=world.household_state.snapshot()

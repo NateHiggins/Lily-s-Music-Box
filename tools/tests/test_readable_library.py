@@ -49,6 +49,21 @@ class ReadableLibraryTests(unittest.TestCase):
         for path,digest in report["outputs"].items():
             self.assertEqual(hashlib.sha256((ROOT/path).read_bytes()).hexdigest(),digest,path)
 
+    def test_committed_review_logs_keep_the_captured_bytes(self):
+        # Receipts contain absolute original capture locations, but the review
+        # packet carries portable sibling copies. Check those bytes on any clone.
+        for folder in ("v2_readable_library_20261020", "v2_library_handling_20261020"):
+            packets=list((ROOT/"art/reviews"/folder).rglob("*.receipt.json"))
+            self.assertTrue(packets,folder)
+            for packet in packets:
+                receipt=json.loads(packet.read_text(encoding="utf-8"))
+                for stream in ("stdout", "stderr"):
+                    name=Path(receipt["log"][stream]).name
+                    captured=packet.parent/name
+                    self.assertTrue(captured.is_file(),str(captured))
+                    self.assertEqual(hashlib.sha256(captured.read_bytes()).hexdigest(),
+                                     receipt["log"][stream+"_sha256"],str(captured))
+
     def test_typeface_is_pinned_and_keeps_its_license(self):
         folder=ROOT/"game/assets/fonts/eb_garamond"
         provenance=json.loads((folder/"provenance.json").read_text())

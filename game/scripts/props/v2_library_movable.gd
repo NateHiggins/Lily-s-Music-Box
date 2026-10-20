@@ -132,11 +132,19 @@ func _carry(value: Vector3) -> void:
 		# Keep the original native-piece frame for geometric refinement: the
 		# engine's fraction can be coarse relative to a 1mm felt sole.
 		var from:=contact_query.transform
-		var probe_fraction:=.00005/maxf(remaining.length(),.000001)
-		contact_query.transform.origin+=remaining*minf(1.,unsafe+probe_fraction)
 		contact_query.motion=Vector3.ZERO
-		var hit:=space.get_rest_info(contact_query)
-		if hit.is_empty(): break
+		var hit: Dictionary={}
+		# A microscopic unsafe probe can round onto the surface at upper-storey
+		# coordinates. Search only for a normal; none of this probe travel is
+		# accepted. Native vertices still refine the original conservative cast.
+		for depth: float in [.00005,.0002,.0005,.001]:
+			contact_query.transform=from
+			contact_query.transform.origin+=remaining*(unsafe+depth/maxf(remaining.length(),.000001))
+			hit=space.get_rest_info(contact_query)
+			if not hit.is_empty(): break
+		if hit.is_empty():
+			_last_motion={"unresolved_native_impact":true,"safe":safe,"unsafe":unsafe,"motion":remaining}
+			break
 		var normal: Vector3=hit.normal
 		var approach: float=-remaining.dot(normal)
 		if approach>.0000001:

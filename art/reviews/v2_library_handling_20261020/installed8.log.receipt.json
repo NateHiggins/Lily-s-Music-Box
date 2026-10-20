@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 198.73,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T18:10:17Z",
+  "started_utc": "2026-10-20T18:06:58Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 INSTALLED READABLE LIBRARY: PASS checks=222 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/installed8.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/installed8.log",
+  "stdout_sha256": "e60c81438519b91659e6ce868275d3edf1622f80747347c9cc4e67537fc34531"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2BookshelvesTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/installed8",
+ "source": {
+  "dirty_paths": 27,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/reviews/v2_library_handling_20261020/bench41.log",
+   "M  art/reviews/v2_library_handling_20261020/controls-compile12.log",
+   "M  art/reviews/v2_library_handling_20261020/installed5.log",
+   "M  art/reviews/v2_library_handling_20261020/installed5.log.stderr",
+   "M  art/reviews/v2_library_handling_20261020/shared-controls.log",
+   "M  art/reviews/v2_library_handling_20261020/toilet-controls.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/bench13.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/bench13.log.stderr",
+   "M  art/reviews/v2_readable_library_20261020/logs/bench14.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/bench14.log.stderr",
+   "M  art/reviews/v2_readable_library_20261020/logs/bench15.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/bench15.log.stderr",
+   "M  art/reviews/v2_readable_library_20261020/logs/import4.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/import5.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/native-build8.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/native-review4.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/print16.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/print17.log",
+   "M  art/reviews/v2_readable_library_20261020/logs/print18.log"
+  ],
+  "repository_head": "c6e4df20f236d7f310325ebfe564c7c1d09294f1",
+  "repository_tree": "c2e072f3475f6b210ab6e1cea6dc5bd4cda2b087",
+  "runtime_inputs_sha256": "035abbe8d489b2a96cb99774fd1d2008041f22624e29b6bcb44f0c84634f7a26",
+  "test_path": "game/tests/orison_v2_bookshelves_test.gd",
+  "test_sha256": "12b4acb28391f49866ba0ad150aa23a5132f9e97f986912a952e36a0e64d65c2"
+ },
+ "windowed": true
+}

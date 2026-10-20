@@ -1,0 +1,19 @@
+{
+  "evidence_class": "INERT",
+  "native_hand_mode": {
+    "receipt": "bench44.log.receipt.json",
+    "checks": 751,
+    "failures": 0,
+    "print_gallery_rerun": false
+  },
+  "installed_control_mode": {
+    "receipt": "installed8.log.receipt.json",
+    "checks": 222,
+    "failures": 0,
+    "second_world_reconstruction_rerun": false
+  },
+  "reused_reconstruction": "installed6.log.receipt.json: complete two-world reconstruction and legacy migration passed; full suite failed two hand checks",
+  "unchanged_art": "354 parts; 67820 triangles; print19 all30spreads1480checks; no native source/assets changed",
+  "runtime_contract": false,
+  "human_acceptance": false
+}

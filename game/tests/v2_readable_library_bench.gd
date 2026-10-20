@@ -264,7 +264,26 @@ func print_review(stock: RefCounted,shelf: Node3D) -> void:
 		player.camera.fov=40.;player.camera.look_at(point)
 		await capture("spread_"+book.stock_id)
 	proofs.queue_free()
+func reading_order_review() -> void:
+	var fixture:=Shelf.new()
+	fixture._case_record={"shelf_tops":[.3,.6,.9]}
+	for index in 3:
+		var book:=Node3D.new();fixture.add_child(book)
+		book.position=Vector3(index*.04,.89+index*.01,0)
+		book.basis=Basis(Vector3.FORWARD,PI*.5)
+		fixture._books[str(index)]=book
+	fixture.sorter.order=["0","1","2"]
+	check(fixture._physical_reading_order()==["2","1","0"],"connected flat pile reads top down without comparator cycle")
+	for permutation: Array in [["2","0","1"],["1","2","0"],["2","1","0"],["1","0","2"],["0","2","1"]]:
+		fixture.sorter.order=permutation
+		check(fixture._physical_reading_order()==["2","1","0"],"physical order independent of previous array order")
+	fixture._books["1"].position=fixture._books["0"].position
+	fixture._books["2"].position=fixture._books["0"].position
+	check(fixture._physical_reading_order()==["0","1","2"],"coincident books have stable identity tie break")
+	fixture.free()
+
 func _run() -> void:
+	reading_order_review()
 	print("LIBRARY ENGINE: ",ProjectSettings.get_setting_with_override("physics/3d/physics_engine")," contact allowance=",PhysicsServer3D.space_get_param(get_world_3d().space,PhysicsServer3D.SPACE_PARAM_CONTACT_MAX_ALLOWED_PENETRATION))
 	check(contact_precision.bind(get_world_3d()),"production native contact precision binds")
 	preload("res://tests/v2_control_finish_review.gd").new().validate_material_contract(self)

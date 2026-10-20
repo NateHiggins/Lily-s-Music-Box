@@ -2608,3 +2608,7 @@ game/assets/book_illustrations/** -text
 
 # Preserve the pinned upstream license bytes, including its intentional space.
 game/assets/fonts/eb_garamond/OFL.txt whitespace=-blank-at-eol
+
+# Library review receipts hash the captured bytes, including CRLF.
+art/reviews/v2_readable_library_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_library_handling_20261020/** -text whitespace=cr-at-eol
