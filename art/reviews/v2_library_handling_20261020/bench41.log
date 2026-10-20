@@ -1,0 +1,476 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+LIBRARY ENGINE: DEFAULT contact allowance=0.00999999977648
+CAP MAPPING: mesh=readable_library_prospectus__right_board valid_basis=true max_uv_excess=0.00000005960464 widest=1.00002000614113 vertices=540 derivatives=true bad_derivatives=0 min_determinant=0.00000000056545 worst_dot=0.99999821186066
+CAP MAPPING: mesh=readable_library_prospectus__right_leaves valid_basis=true max_uv_excess=0.0000000613436 widest=1.00091919227475 vertices=529 derivatives=true bad_derivatives=0 min_determinant=0.00000000166245 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_prospectus__left_board valid_basis=true max_uv_excess=0.00000006175469 widest=1.00004479728375 vertices=546 derivatives=true bad_derivatives=0 min_determinant=0.00000000056571 worst_dot=0.99999856948853
+CAP MAPPING: mesh=readable_library_prospectus__left_leaves valid_basis=true max_uv_excess=0.00000008143616 widest=1.00136802550682 vertices=531 derivatives=true bad_derivatives=0 min_determinant=0.00000000166301 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_prospectus__spine valid_basis=true max_uv_excess=0.00000006356277 widest=1.00036805358591 vertices=533 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_prospectus__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_prospectus__headband1_001 valid_basis=true max_uv_excess=0.00000003961031 widest=1.00009409787825 vertices=60 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_minutes__right_board valid_basis=true max_uv_excess=0.00000006071059 widest=1.00048739434838 vertices=531 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_minutes__right_leaves valid_basis=true max_uv_excess=0.00000006931441 widest=1.00080745885003 vertices=534 derivatives=true bad_derivatives=0 min_determinant=0.00000000166512 worst_dot=0.99999862909317
+CAP MAPPING: mesh=readable_library_minutes__right_tooling valid_basis=true max_uv_excess=0.00000006637947 widest=1.00067960449634 vertices=2069 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996733665466
+CAP MAPPING: mesh=readable_library_minutes__left_board valid_basis=true max_uv_excess=0.00000006071059 widest=1.00047030896979 vertices=531 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_minutes__left_leaves valid_basis=true max_uv_excess=0.00000006376649 widest=1.00098971209226 vertices=533 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999868869781
+CAP MAPPING: mesh=readable_library_minutes__left_tooling valid_basis=true max_uv_excess=0.00000006505252 widest=1.00014536996657 vertices=2086 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996757507324
+CAP MAPPING: mesh=readable_library_minutes__spine valid_basis=true max_uv_excess=0.00000005749462 widest=1.00025761471206 vertices=513 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_minutes__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_minutes__headband1_001 valid_basis=true max_uv_excess=0.00000003390596 widest=1.00008054558607 vertices=56 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_wiring__right_board valid_basis=true max_uv_excess=0.0000000621003 widest=1.00053103040555 vertices=516 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_wiring__right_leaves valid_basis=true max_uv_excess=0.00000006898699 widest=1.00092041752382 vertices=513 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_wiring__left_board valid_basis=true max_uv_excess=0.00000006292248 widest=1.00053806481951 vertices=517 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_wiring__left_leaves valid_basis=true max_uv_excess=0.00000006549089 widest=1.00091515652213 vertices=515 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.9999994635582
+CAP MAPPING: mesh=readable_library_wiring__spine valid_basis=true max_uv_excess=0.00000005475886 widest=1.00024289028288 vertices=510 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_wiring__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_wiring__headband1_001 valid_basis=true max_uv_excess=0.00000003888272 widest=1.00009236924912 vertices=60 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_switchboard__right_board valid_basis=true max_uv_excess=0.00000006276241 widest=1.00053669527984 vertices=537 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_switchboard__right_leaves valid_basis=true max_uv_excess=0.00000005960464 widest=1.00090977866647 vertices=525 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999958276749
+CAP MAPPING: mesh=readable_library_switchboard__left_board valid_basis=true max_uv_excess=0.00000005325273 widest=1.00045537592779 vertices=532 derivatives=true bad_derivatives=0 min_determinant=0.00000001183616 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_switchboard__left_leaves valid_basis=true max_uv_excess=0.00000005960464 widest=1.00098971209226 vertices=518 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.9999988079071
+CAP MAPPING: mesh=readable_library_switchboard__spine valid_basis=true max_uv_excess=0.00000005749462 widest=1.00025761471206 vertices=528 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_switchboard__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_switchboard__headband1_001 valid_basis=true max_uv_excess=0.00000003897003 widest=1.0000925766843 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_hymns__right_board valid_basis=true max_uv_excess=0.00000007450581 widest=1.00002000619578 vertices=538 derivatives=true bad_derivatives=0 min_determinant=0.00000000056545 worst_dot=0.99999850988388
+CAP MAPPING: mesh=readable_library_hymns__right_leaves valid_basis=true max_uv_excess=0.00000006546907 widest=1.00096116752391 vertices=508 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999868869781
+CAP MAPPING: mesh=readable_library_hymns__left_board valid_basis=true max_uv_excess=0.00000007450581 widest=1.00004479740612 vertices=536 derivatives=true bad_derivatives=0 min_determinant=0.00000000056571 worst_dot=0.99999868869781
+CAP MAPPING: mesh=readable_library_hymns__left_leaves valid_basis=true max_uv_excess=0.00000005765105 widest=1.00096868619635 vertices=505 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999874830246
+CAP MAPPING: mesh=readable_library_hymns__spine valid_basis=true max_uv_excess=0.00000005525362 widest=1.00023988108411 vertices=530 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_hymns__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_hymns__headband1_001 valid_basis=true max_uv_excess=0.00000003390596 widest=1.00008054558607 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_cordcircuits__right_board valid_basis=true max_uv_excess=0.00000006084156 widest=1.00043314264149 vertices=513 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_cordcircuits__right_leaves valid_basis=true max_uv_excess=0.00000005812035 widest=1.00097657378233 vertices=520 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999892711639
+CAP MAPPING: mesh=readable_library_cordcircuits__left_board valid_basis=true max_uv_excess=0.00000006055052 widest=1.0004907166697 vertices=528 derivatives=true bad_derivatives=0 min_determinant=0.00000001183671 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_cordcircuits__left_leaves valid_basis=true max_uv_excess=0.0000000591499 widest=1.00099387287975 vertices=520 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999874830246
+CAP MAPPING: mesh=readable_library_cordcircuits__spine valid_basis=true max_uv_excess=0.00000005500624 widest=1.00023988108411 vertices=498 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_cordcircuits__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_cordcircuits__headband1_001 valid_basis=true max_uv_excess=0.00000003897003 widest=1.0000925766843 vertices=50 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_nurse__right_board valid_basis=true max_uv_excess=0.00000005902257 widest=1.00048739434838 vertices=533 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_nurse__right_leaves valid_basis=true max_uv_excess=0.00000005979746 widest=1.00100476451668 vertices=528 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_nurse__right_tooling valid_basis=true max_uv_excess=0.00000006637947 widest=1.00058205862494 vertices=2100 derivatives=true bad_derivatives=0 min_determinant=0.00000000004618 worst_dot=0.99996441602707
+CAP MAPPING: mesh=readable_library_nurse__left_board valid_basis=true max_uv_excess=0.00000006024493 widest=1.00043612954379 vertices=529 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_nurse__left_leaves valid_basis=true max_uv_excess=0.00000006549089 widest=1.00098703733351 vertices=524 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_nurse__left_tooling valid_basis=true max_uv_excess=0.0000000624741 widest=1.0000754345452 vertices=2108 derivatives=true bad_derivatives=0 min_determinant=0.00000000004617 worst_dot=0.9999652504921
+CAP MAPPING: mesh=readable_library_nurse__spine valid_basis=true max_uv_excess=0.00000005750917 widest=1.00025767993127 vertices=505 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_nurse__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_nurse__headband1_001 valid_basis=true max_uv_excess=0.00000002150773 widest=1.00005109347998 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_photochem__right_board valid_basis=true max_uv_excess=0.00000005717447 widest=1.00048888824461 vertices=528 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_photochem__right_leaves valid_basis=true max_uv_excess=0.00000006283517 widest=1.00097253573748 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000000166245 worst_dot=0.9999994635582
+CAP MAPPING: mesh=readable_library_photochem__right_tooling valid_basis=true max_uv_excess=0.00000006256505 widest=1.00008018891751 vertices=2087 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996674060822
+CAP MAPPING: mesh=readable_library_photochem__left_board valid_basis=true max_uv_excess=0.00000005176116 widest=1.00043463645672 vertices=528 derivatives=true bad_derivatives=0 min_determinant=0.00000001183616 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_photochem__left_leaves valid_basis=true max_uv_excess=0.00000006283517 widest=1.00095963787195 vertices=526 derivatives=true bad_derivatives=0 min_determinant=0.00000000166301 worst_dot=0.9999994635582
+CAP MAPPING: mesh=readable_library_photochem__left_tooling valid_basis=true max_uv_excess=0.00000006049777 widest=1.00008018891751 vertices=2092 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996638298035
+CAP MAPPING: mesh=readable_library_photochem__spine valid_basis=true max_uv_excess=0.00000006052142 widest=1.00036805358591 vertices=508 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_photochem__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_photochem__headband1_001 valid_basis=true max_uv_excess=0.00000003897003 widest=1.0000925766843 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_atlas__right_board valid_basis=true max_uv_excess=0.00000008205825 widest=1.00057258462097 vertices=528 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_atlas__right_leaves valid_basis=true max_uv_excess=0.00000006183836 widest=1.00079064384152 vertices=506 derivatives=true bad_derivatives=0 min_determinant=0.00000000166245 worst_dot=0.99999964237213
+CAP MAPPING: mesh=readable_library_atlas__left_board valid_basis=true max_uv_excess=0.00000008348434 widest=1.00051838757632 vertices=528 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_atlas__left_leaves valid_basis=true max_uv_excess=0.000000062857 widest=1.00091515652213 vertices=501 derivatives=true bad_derivatives=0 min_determinant=0.00000000166301 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_atlas__spine valid_basis=true max_uv_excess=0.00000005477341 widest=1.00023634087344 vertices=505 derivatives=true bad_derivatives=0 min_determinant=0.00000002340822 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_atlas__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_atlas__headband1_001 valid_basis=true max_uv_excess=0.00000006280607 widest=1.00014919637908 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_standards__right_board valid_basis=true max_uv_excess=0.00000007658673 widest=1.00048254786741 vertices=533 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_standards__right_leaves valid_basis=true max_uv_excess=0.00000006283517 widest=1.00097657378233 vertices=499 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999958276749
+CAP MAPPING: mesh=readable_library_standards__right_tooling valid_basis=true max_uv_excess=0.0000000624741 widest=1.00014823268885 vertices=2060 derivatives=true bad_derivatives=0 min_determinant=0.00000000004618 worst_dot=0.99996918439865
+CAP MAPPING: mesh=readable_library_standards__left_board valid_basis=true max_uv_excess=0.00000008325151 widest=1.00050336199356 vertices=532 derivatives=true bad_derivatives=0 min_determinant=0.00000001183503 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_standards__left_leaves valid_basis=true max_uv_excess=0.0000000591499 widest=1.00099387287975 vertices=507 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.9999994635582
+CAP MAPPING: mesh=readable_library_standards__left_tooling valid_basis=true max_uv_excess=0.00000006432219 widest=1.00061700369038 vertices=2062 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996900558472
+CAP MAPPING: mesh=readable_library_standards__spine valid_basis=true max_uv_excess=0.00000007802737 widest=1.00026420490738 vertices=518 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_standards__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_standards__headband1_001 valid_basis=true max_uv_excess=0.00000006280607 widest=1.00014919637908 vertices=56 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_radio__right_board valid_basis=true max_uv_excess=0.00000007046037 widest=1.0006024934044 vertices=528 derivatives=true bad_derivatives=0 min_determinant=0.00000001184181 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_radio__right_leaves valid_basis=true max_uv_excess=0.00000006283517 widest=1.00100476451668 vertices=514 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999892711639
+CAP MAPPING: mesh=readable_library_radio__left_board valid_basis=true max_uv_excess=0.00000005737093 widest=1.00049059217182 vertices=532 derivatives=true bad_derivatives=0 min_determinant=0.000000011842 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_radio__left_leaves valid_basis=true max_uv_excess=0.00000006549089 widest=1.00099387287975 vertices=518 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999892711639
+CAP MAPPING: mesh=readable_library_radio__spine valid_basis=true max_uv_excess=0.00000005477341 widest=1.00023988108411 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_radio__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_radio__headband1_001 valid_basis=true max_uv_excess=0.00000003897003 widest=1.0000925766843 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_sorting__right_board valid_basis=true max_uv_excess=0.00000006276241 widest=1.00053669527984 vertices=512 derivatives=true bad_derivatives=0 min_determinant=0.00000001183671 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sorting__right_leaves valid_basis=true max_uv_excess=0.00000007473136 widest=1.00098722077851 vertices=504 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_sorting__left_board valid_basis=true max_uv_excess=0.00000005723268 widest=1.00048922269712 vertices=525 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sorting__left_leaves valid_basis=true max_uv_excess=0.00000006549089 widest=1.00099387287975 vertices=506 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_sorting__spine valid_basis=true max_uv_excess=0.00000005750917 widest=1.00025767993127 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sorting__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_sorting__headband1_001 valid_basis=true max_uv_excess=0.00000002150773 widest=1.00005109347998 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_glass__right_board valid_basis=true max_uv_excess=0.00000005960464 widest=1.00047700434057 vertices=527 derivatives=true bad_derivatives=0 min_determinant=0.00000001184124 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_glass__right_leaves valid_basis=true max_uv_excess=0.0000000628097 widest=1.00091246758708 vertices=504 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999868869781
+CAP MAPPING: mesh=readable_library_glass__left_board valid_basis=true max_uv_excess=0.00000005960464 widest=1.00043637851375 vertices=524 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_glass__left_leaves valid_basis=true max_uv_excess=0.00000005700713 widest=1.00091515652213 vertices=515 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.9999988079071
+CAP MAPPING: mesh=readable_library_glass__spine valid_basis=true max_uv_excess=0.00000005477341 widest=1.00023563283432 vertices=513 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_glass__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_glass__headband1_001 valid_basis=true max_uv_excess=0.00000003897003 widest=1.0000925766843 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_letters__right_board valid_basis=true max_uv_excess=0.00000005758193 widest=1.00043332936815 vertices=513 derivatives=true bad_derivatives=0 min_determinant=0.000000011842 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_letters__right_leaves valid_basis=true max_uv_excess=0.00000006183836 widest=1.00091246758708 vertices=524 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_letters__right_tooling valid_basis=true max_uv_excess=0.00000007383642 widest=1.00007188377521 vertices=2054 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996721744537
+CAP MAPPING: mesh=readable_library_letters__left_board valid_basis=true max_uv_excess=0.00000006294431 widest=1.00053825157521 vertices=517 derivatives=true bad_derivatives=0 min_determinant=0.000000011842 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_letters__left_leaves valid_basis=true max_uv_excess=0.00000005700713 widest=1.00091515652213 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.9999994635582
+CAP MAPPING: mesh=readable_library_letters__left_tooling valid_basis=true max_uv_excess=0.00000007091967 widest=1.00010730151314 vertices=2077 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996727705002
+CAP MAPPING: mesh=readable_library_letters__spine valid_basis=true max_uv_excess=0.00000005477341 widest=1.00023890752368 vertices=523 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_letters__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_letters__headband1_001 valid_basis=true max_uv_excess=0.00000002150773 widest=1.00005109347998 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_elevator__right_board valid_basis=true max_uv_excess=0.00000005699985 widest=1.00048739434838 vertices=529 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_elevator__right_leaves valid_basis=true max_uv_excess=0.00000006931441 widest=1.00079041023424 vertices=527 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999862909317
+CAP MAPPING: mesh=readable_library_elevator__right_tooling valid_basis=true max_uv_excess=0.00000006637947 widest=1.00064843923139 vertices=2034 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996697902679
+CAP MAPPING: mesh=readable_library_elevator__left_board valid_basis=true max_uv_excess=0.00000005721085 widest=1.00048922269712 vertices=526 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_elevator__left_leaves valid_basis=true max_uv_excess=0.00000006376649 widest=1.00098971209226 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999868869781
+CAP MAPPING: mesh=readable_library_elevator__left_tooling valid_basis=true max_uv_excess=0.00000006637947 widest=1.00014536996657 vertices=2049 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996721744537
+CAP MAPPING: mesh=readable_library_elevator__spine valid_basis=true max_uv_excess=0.00000005749462 widest=1.00025761471206 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_elevator__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_elevator__headband1_001 valid_basis=true max_uv_excess=0.00000003897003 widest=1.0000925766843 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_barsongs__right_board valid_basis=true max_uv_excess=0.00000006084156 widest=1.00039695346306 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_barsongs__right_leaves valid_basis=true max_uv_excess=0.00000007736526 widest=1.00092041752382 vertices=518 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999868869781
+CAP MAPPING: mesh=readable_library_barsongs__right_tooling valid_basis=true max_uv_excess=0.00000006451864 widest=1.00068707084569 vertices=2061 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996566772461
+CAP MAPPING: mesh=readable_library_barsongs__left_board valid_basis=true max_uv_excess=0.00000005960464 widest=1.00043401365513 vertices=532 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_barsongs__left_leaves valid_basis=true max_uv_excess=0.00000006073242 widest=1.00091515652213 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.9999988079071
+CAP MAPPING: mesh=readable_library_barsongs__left_tooling valid_basis=true max_uv_excess=0.00000006049777 widest=1.00068707084569 vertices=2080 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996453523636
+CAP MAPPING: mesh=readable_library_barsongs__spine valid_basis=true max_uv_excess=0.00000005474431 widest=1.00030792427187 vertices=517 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_barsongs__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_barsongs__headband1_001 valid_basis=true max_uv_excess=0.00000002150773 widest=1.00005109347998 vertices=56 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_recipes__right_board valid_basis=true max_uv_excess=0.00000005723268 widest=1.00048888824461 vertices=537 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_recipes__right_leaves valid_basis=true max_uv_excess=0.0000000633845 widest=1.00100476451668 vertices=519 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999934434891
+CAP MAPPING: mesh=readable_library_recipes__right_tooling valid_basis=true max_uv_excess=0.00000006502978 widest=1.00061700369038 vertices=2074 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996799230576
+CAP MAPPING: mesh=readable_library_recipes__left_board valid_basis=true max_uv_excess=0.00000005723268 widest=1.00043631627125 vertices=529 derivatives=true bad_derivatives=0 min_determinant=0.00000001183616 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_recipes__left_leaves valid_basis=true max_uv_excess=0.00000006912887 widest=1.00098722071816 vertices=516 derivatives=true bad_derivatives=0 min_determinant=0.0000000016651 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_recipes__left_tooling valid_basis=true max_uv_excess=0.00000006637947 widest=1.00014536996657 vertices=2090 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996680021286
+CAP MAPPING: mesh=readable_library_recipes__spine valid_basis=true max_uv_excess=0.00000005736365 widest=1.00025702773957 vertices=509 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_recipes__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_recipes__headband1_001 valid_basis=true max_uv_excess=0.00000003888272 widest=1.00009236924912 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_flowers__right_board valid_basis=true max_uv_excess=0.00000005960464 widest=1.0004463146839 vertices=529 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_flowers__right_leaves valid_basis=true max_uv_excess=0.00000006546907 widest=1.00086539352161 vertices=503 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999868869781
+CAP MAPPING: mesh=readable_library_flowers__right_tooling valid_basis=true max_uv_excess=0.00000006637947 widest=1.00007465416034 vertices=2066 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.9999692440033
+CAP MAPPING: mesh=readable_library_flowers__left_board valid_basis=true max_uv_excess=0.00000007140625 widest=1.00043170481701 vertices=533 derivatives=true bad_derivatives=0 min_determinant=0.00000001183671 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_flowers__left_leaves valid_basis=true max_uv_excess=0.00000006546907 widest=1.00091515652213 vertices=500 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999874830246
+CAP MAPPING: mesh=readable_library_flowers__left_tooling valid_basis=true max_uv_excess=0.0000000624741 widest=1.00007465416034 vertices=2090 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99997007846832
+CAP MAPPING: mesh=readable_library_flowers__spine valid_basis=true max_uv_excess=0.00000005736365 widest=1.00025702773957 vertices=525 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_flowers__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_flowers__headband1_001 valid_basis=true max_uv_excess=0.00000002150773 widest=1.00005109347998 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_knots__right_board valid_basis=true max_uv_excess=0.00000007046037 widest=1.0006024934044 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_knots__right_leaves valid_basis=true max_uv_excess=0.00000006546907 widest=1.00097253573748 vertices=496 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999892711639
+CAP MAPPING: mesh=readable_library_knots__left_board valid_basis=true max_uv_excess=0.0000000703003 widest=1.00060112384402 vertices=519 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_knots__left_leaves valid_basis=true max_uv_excess=0.00000006549089 widest=1.00095963787195 vertices=509 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999886751175
+CAP MAPPING: mesh=readable_library_knots__spine valid_basis=true max_uv_excess=0.00000005480251 widest=1.00023988108411 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_knots__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_knots__headband1_001 valid_basis=true max_uv_excess=0.00000003897003 widest=1.0000925766843 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_dressmaking__right_board valid_basis=true max_uv_excess=0.00000005699985 widest=1.0004332048837 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_dressmaking__right_leaves valid_basis=true max_uv_excess=0.00000007736526 widest=1.00091298426246 vertices=523 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_dressmaking__right_tooling valid_basis=true max_uv_excess=0.0000000643613 widest=1.00011120470032 vertices=2081 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996733665466
+CAP MAPPING: mesh=readable_library_dressmaking__left_board valid_basis=true max_uv_excess=0.00000005737093 widest=1.00049059217182 vertices=524 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_dressmaking__left_leaves valid_basis=true max_uv_excess=0.00000006343907 widest=1.00091515652213 vertices=529 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.9999994635582
+CAP MAPPING: mesh=readable_library_dressmaking__left_tooling valid_basis=true max_uv_excess=0.00000006524988 widest=1.00010903936321 vertices=2081 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996674060822
+CAP MAPPING: mesh=readable_library_dressmaking__spine valid_basis=true max_uv_excess=0.0000000573782 widest=1.0002570929587 vertices=517 derivatives=true bad_derivatives=0 min_determinant=0.00000002341829 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_dressmaking__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_dressmaking__headband1_001 valid_basis=true max_uv_excess=0.00000003390596 widest=1.00008054558607 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_birds__right_board valid_basis=true max_uv_excess=0.00000005870243 widest=1.00042824873767 vertices=528 derivatives=true bad_derivatives=0 min_determinant=0.000000011842 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_birds__right_leaves valid_basis=true max_uv_excess=0.00000005407492 widest=1.00086808232298 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_birds__left_board valid_basis=true max_uv_excess=0.00000005122274 widest=1.00043388917062 vertices=524 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_birds__left_leaves valid_basis=true max_uv_excess=0.00000005700713 widest=1.00091515652213 vertices=524 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999886751175
+CAP MAPPING: mesh=readable_library_birds__spine valid_basis=true max_uv_excess=0.00000005736365 widest=1.00025702773957 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_birds__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_birds__headband1_001 valid_basis=true max_uv_excess=0.00000002150773 widest=1.00005109347998 vertices=50 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_billiards__right_board valid_basis=true max_uv_excess=0.00000005756738 widest=1.00048244089959 vertices=523 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_billiards__right_leaves valid_basis=true max_uv_excess=0.00000006546907 widest=1.00086282163817 vertices=509 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_billiards__left_board valid_basis=true max_uv_excess=0.00000005250331 widest=1.00043301815709 vertices=525 derivatives=true bad_derivatives=0 min_determinant=0.000000011842 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_billiards__left_leaves valid_basis=true max_uv_excess=0.00000005700713 widest=1.00091515652213 vertices=511 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_billiards__spine valid_basis=true max_uv_excess=0.00000005736365 widest=1.00025702773957 vertices=525 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_billiards__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_billiards__headband1_001 valid_basis=true max_uv_excess=0.00000002150773 widest=1.00005109347998 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_darts__right_board valid_basis=true max_uv_excess=0.00000005699985 widest=1.00048173003234 vertices=512 derivatives=true bad_derivatives=0 min_determinant=0.000000011842 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_darts__right_leaves valid_basis=true max_uv_excess=0.00000005812035 widest=1.00097657378233 vertices=492 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.9999994635582
+CAP MAPPING: mesh=readable_library_darts__right_tooling valid_basis=true max_uv_excess=0.00000006432219 widest=1.00007550551439 vertices=2044 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996638298035
+CAP MAPPING: mesh=readable_library_darts__left_board valid_basis=true max_uv_excess=0.00000005721085 widest=1.00048922269712 vertices=519 derivatives=true bad_derivatives=0 min_determinant=0.00000001183625 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_darts__left_leaves valid_basis=true max_uv_excess=0.0000000591499 widest=1.00099387287975 vertices=498 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_darts__left_tooling valid_basis=true max_uv_excess=0.00000006115624 widest=1.0000781066867 vertices=2045 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996638298035
+CAP MAPPING: mesh=readable_library_darts__spine valid_basis=true max_uv_excess=0.0000000573782 widest=1.0002570929587 vertices=526 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_darts__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_darts__headband1_001 valid_basis=true max_uv_excess=0.00000002150773 widest=1.00005109347998 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_dreams__right_board valid_basis=true max_uv_excess=0.00000006292248 widest=1.00053806481951 vertices=513 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_dreams__right_leaves valid_basis=true max_uv_excess=0.00000006546907 widest=1.00092041752382 vertices=514 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_dreams__left_board valid_basis=true max_uv_excess=0.00000006292248 widest=1.00053806481951 vertices=511 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_dreams__left_leaves valid_basis=true max_uv_excess=0.00000005700713 widest=1.00091515652213 vertices=514 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.9999994635582
+CAP MAPPING: mesh=readable_library_dreams__spine valid_basis=true max_uv_excess=0.0000000570144 widest=1.00024289028288 vertices=520 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_dreams__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_dreams__headband1_001 valid_basis=true max_uv_excess=0.00000003390596 widest=1.00008054558607 vertices=56 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_concrete__right_board valid_basis=true max_uv_excess=0.00000007114431 widest=1.00048895049039 vertices=536 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_concrete__right_leaves valid_basis=true max_uv_excess=0.0000000628097 widest=1.00091275782138 vertices=520 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.99999868869781
+CAP MAPPING: mesh=readable_library_concrete__left_board valid_basis=true max_uv_excess=0.00000007114431 widest=1.00060112384402 vertices=537 derivatives=true bad_derivatives=0 min_determinant=0.00000001183503 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_concrete__left_leaves valid_basis=true max_uv_excess=0.00000005756738 widest=1.00091515652213 vertices=524 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.9999988079071
+CAP MAPPING: mesh=readable_library_concrete__spine valid_basis=true max_uv_excess=0.00000007561175 widest=1.00036805358591 vertices=515 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_concrete__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_concrete__headband1_001 valid_basis=true max_uv_excess=0.00000006280607 widest=1.00014919637908 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_interborough__right_board valid_basis=true max_uv_excess=0.00000005960464 widest=1.00048244089959 vertices=526 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_interborough__right_leaves valid_basis=true max_uv_excess=0.00000006283517 widest=1.00098036554835 vertices=506 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999868869781
+CAP MAPPING: mesh=readable_library_interborough__left_board valid_basis=true max_uv_excess=0.00000005960464 widest=1.00042824873767 vertices=531 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_interborough__left_leaves valid_basis=true max_uv_excess=0.00000005700713 widest=1.00091515652213 vertices=501 derivatives=true bad_derivatives=0 min_determinant=0.00000000166506 worst_dot=0.9999988079071
+CAP MAPPING: mesh=readable_library_interborough__spine valid_basis=true max_uv_excess=0.00000005477341 widest=1.00023634087344 vertices=526 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_interborough__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_interborough__headband1_001 valid_basis=true max_uv_excess=0.00000002150773 widest=1.00005109347998 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_walls__right_board valid_basis=true max_uv_excess=0.00000006055052 widest=1.00042955588376 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.000000011842 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_walls__right_leaves valid_basis=true max_uv_excess=0.00000005812035 widest=1.00097657378233 vertices=500 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.9999994635582
+CAP MAPPING: mesh=readable_library_walls__left_board valid_basis=true max_uv_excess=0.00000006055052 widest=1.00049059217182 vertices=526 derivatives=true bad_derivatives=0 min_determinant=0.000000011842 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_walls__left_leaves valid_basis=true max_uv_excess=0.00000005981565 widest=1.00099387287975 vertices=502 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_walls__spine valid_basis=true max_uv_excess=0.00000005475886 widest=1.00023961556744 vertices=515 derivatives=true bad_derivatives=0 min_determinant=0.00000002341829 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_walls__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_walls__headband1_001 valid_basis=true max_uv_excess=0.00000003897003 widest=1.0000925766843 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_missing__right_board valid_basis=true max_uv_excess=0.00000005518086 widest=1.00047140232829 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_missing__right_leaves valid_basis=true max_uv_excess=0.00000006546907 widest=1.00097657378233 vertices=513 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_missing__right_tooling valid_basis=true max_uv_excess=0.00000006524988 widest=1.00060535506403 vertices=2058 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996846914291
+CAP MAPPING: mesh=readable_library_missing__left_board valid_basis=true max_uv_excess=0.00000008029747 widest=1.00050592787383 vertices=517 derivatives=true bad_derivatives=0 min_determinant=0.00000001183578 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_missing__left_leaves valid_basis=true max_uv_excess=0.0000000591499 widest=1.00099387287975 vertices=509 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_missing__left_tooling valid_basis=true max_uv_excess=0.00000006256505 widest=1.00014752354168 vertices=2053 derivatives=true bad_derivatives=0 min_determinant=0.00000000004594 worst_dot=0.99996864795685
+CAP MAPPING: mesh=readable_library_missing__spine valid_basis=true max_uv_excess=0.00000007756171 widest=1.00034751820493 vertices=508 derivatives=true bad_derivatives=0 min_determinant=0.00000002340703 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_missing__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_missing__headband1_001 valid_basis=true max_uv_excess=0.00000006280607 widest=1.00014919637908 vertices=60 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_deadletter__right_board valid_basis=true max_uv_excess=0.00000006055052 widest=1.00048726985723 vertices=533 derivatives=true bad_derivatives=0 min_determinant=0.000000011842 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_deadletter__right_leaves valid_basis=true max_uv_excess=0.00000005812035 widest=1.00097657378233 vertices=512 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_deadletter__left_board valid_basis=true max_uv_excess=0.00000006292248 widest=1.00043388917062 vertices=530 derivatives=true bad_derivatives=0 min_determinant=0.00000001184275 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_deadletter__left_leaves valid_basis=true max_uv_excess=0.00000005981565 widest=1.00099387287975 vertices=512 derivatives=true bad_derivatives=0 min_determinant=0.00000000166336 worst_dot=0.99999934434891
+CAP MAPPING: mesh=readable_library_deadletter__spine valid_basis=true max_uv_excess=0.00000005750917 widest=1.00025767993127 vertices=515 derivatives=true bad_derivatives=0 min_determinant=0.00000002341683 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_deadletter__headband0_001 valid_basis=true max_uv_excess=0.00000003594323 widest=1.00008538564826 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000012526299 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_deadletter__headband1_001 valid_basis=true max_uv_excess=0.00000003888272 widest=1.00009236924912 vertices=56 derivatives=true bad_derivatives=0 min_determinant=0.00000012530935 worst_dot=0.99999994039536
+CAP MAPPING: mesh=readable_library_onefinger__right_board valid_basis=true max_uv_excess=0.00000005616675 widest=1.00002260086524 vertices=518 derivatives=true bad_derivatives=0 min_determinant=0.00000000056545 worst_dot=0.99999850988388
+CAP MAPPING: mesh=readable_library_onefinger__right_leaves valid_basis=true max_uv_excess=0.00000004927097 widest=1.00024047040522 vertices=541 derivatives=true bad_derivatives=0 min_determinant=0.00000000023428 worst_dot=0.9999965429306
+CAP MAPPING: mesh=readable_library_onefinger__left_board valid_basis=true max_uv_excess=0.00000005616675 widest=1.00004479730823 vertices=524 derivatives=true bad_derivatives=0 min_determinant=0.00000000056545 worst_dot=0.99999862909317
+CAP MAPPING: mesh=readable_library_onefinger__left_leaves valid_basis=true max_uv_excess=0.00000005991387 widest=1.00024047040522 vertices=545 derivatives=true bad_derivatives=0 min_determinant=0.0000000002335 worst_dot=0.99999684095383
+CAP MAPPING: mesh=readable_library_onefinger__spine valid_basis=true max_uv_excess=0.00000007364724 widest=1.00039783536808 vertices=497 derivatives=true bad_derivatives=0 min_determinant=0.0000000095923 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_onefinger__lace0_001 valid_basis=true max_uv_excess=0.00000007962808 widest=1.0001353726357 vertices=214 derivatives=true bad_derivatives=0 min_determinant=0.00000017500216 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_onefinger__lace1_001 valid_basis=true max_uv_excess=0.0000000782311 widest=1.00013619113185 vertices=218 derivatives=true bad_derivatives=0 min_determinant=0.0000001750022 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_onefinger__lace2_001 valid_basis=true max_uv_excess=0.0000000782311 widest=1.00013619113185 vertices=218 derivatives=true bad_derivatives=0 min_determinant=0.0000001750022 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_onefinger__lace_tail_001 valid_basis=true max_uv_excess=0.00000006239861 widest=1.00008775218222 vertices=132 derivatives=true bad_derivatives=0 min_determinant=0.00000017500214 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__Back valid_basis=true max_uv_excess=0.00000045797788 widest=1.0008859909383 vertices=529 derivatives=true bad_derivatives=0 min_determinant=0.00000011563606 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_plain__Side0 valid_basis=true max_uv_excess=0.00000023492612 widest=1.00045449488232 vertices=512 derivatives=true bad_derivatives=0 min_determinant=0.00000011567963 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__Side1 valid_basis=true max_uv_excess=0.0000002066954 widest=1.00041676608531 vertices=505 derivatives=true bad_derivatives=0 min_determinant=0.00000011560417 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__Shelf0 valid_basis=true max_uv_excess=0.00000021967571 widest=1.00044293617154 vertices=504 derivatives=true bad_derivatives=0 min_determinant=0.0000001156172 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__Shelf1 valid_basis=true max_uv_excess=0.00000035762787 widest=1.00050479058115 vertices=502 derivatives=true bad_derivatives=0 min_determinant=0.00000011563606 worst_dot=0.99999958276749
+CAP MAPPING: mesh=readable_library_plain__Shelf2 valid_basis=true max_uv_excess=0.00000041723251 widest=1.0004700514991 vertices=496 derivatives=true bad_derivatives=0 min_determinant=0.0000001156172 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_plain__Top valid_basis=true max_uv_excess=0.0000002195593 widest=1.00042475315446 vertices=504 derivatives=true bad_derivatives=0 min_determinant=0.00000011563606 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_plain__Foot0 valid_basis=true max_uv_excess=0.00000026338967 widest=1.00041066055554 vertices=518 derivatives=true bad_derivatives=0 min_determinant=0.00000011560417 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__Foot1 valid_basis=true max_uv_excess=0.00000020308653 widest=1.00040948099311 vertices=516 derivatives=true bad_derivatives=0 min_determinant=0.00000011563606 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_plain__CapMoulding valid_basis=true max_uv_excess=0.00000022386666 widest=1.00021654788439 vertices=502 derivatives=true bad_derivatives=0 min_determinant=0.00000046264304 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__ShelfPin0 valid_basis=true max_uv_excess=0.000000065309 widest=1.00016333467123 vertices=497 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__ShelfPin1 valid_basis=true max_uv_excess=0.00000007200288 widest=1.0001857935395 vertices=499 derivatives=true bad_derivatives=0 min_determinant=0.00000011565784 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__ShelfPin2 valid_basis=true max_uv_excess=0.00000005646143 widest=1.0001104567678 vertices=508 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__ShelfPin3 valid_basis=true max_uv_excess=0.000000065309 widest=1.00017854526226 vertices=497 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_plain__ShelfPin4 valid_basis=true max_uv_excess=0.00000007107155 widest=1.0001857935395 vertices=496 derivatives=true bad_derivatives=0 min_determinant=0.00000011564841 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plain__ShelfPin5 valid_basis=true max_uv_excess=0.00000006047776 widest=1.00010876317212 vertices=507 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_repaired__Back valid_basis=true max_uv_excess=0.0000002636225 widest=1.00045144576921 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000011559834 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_repaired__Side0 valid_basis=true max_uv_excess=0.00000025838381 widest=1.00048028716251 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.0000001157232 worst_dot=0.99999958276749
+CAP MAPPING: mesh=readable_library_repaired__Side1 valid_basis=true max_uv_excess=0.00000020011794 widest=1.00040350057286 vertices=513 derivatives=true bad_derivatives=0 min_determinant=0.00000011560417 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_repaired__Shelf0 valid_basis=true max_uv_excess=0.00000019575236 widest=1.00039469259925 vertices=495 derivatives=true bad_derivatives=0 min_determinant=0.00000011567963 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_repaired__Shelf1 valid_basis=true max_uv_excess=0.00000021234155 widest=1.00041078416535 vertices=506 derivatives=true bad_derivatives=0 min_determinant=0.00000011563606 worst_dot=0.99999964237213
+CAP MAPPING: mesh=readable_library_repaired__Shelf2 valid_basis=true max_uv_excess=0.00000018521678 widest=1.00038459011367 vertices=514 derivatives=true bad_derivatives=0 min_determinant=0.0000001156419 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_repaired__Top valid_basis=true max_uv_excess=0.00000026269117 widest=1.00049950647915 vertices=498 derivatives=true bad_derivatives=0 min_determinant=0.00000011554891 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_repaired__Foot0 valid_basis=true max_uv_excess=0.00000022992026 widest=1.00045302569524 vertices=516 derivatives=true bad_derivatives=0 min_determinant=0.00000011554891 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_repaired__Foot1 valid_basis=true max_uv_excess=0.00000022328459 widest=1.00043196310792 vertices=524 derivatives=true bad_derivatives=0 min_determinant=0.00000011565784 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_repaired__CapMoulding valid_basis=true max_uv_excess=0.00000027345959 widest=1.0002493511971 vertices=516 derivatives=true bad_derivatives=0 min_determinant=0.00000046256758 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_repaired__RepairStrap0 valid_basis=true max_uv_excess=0.00000007316703 widest=1.0001569603556 vertices=495 derivatives=true bad_derivatives=0 min_determinant=0.00000011565313 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_repaired__RepairStrap1 valid_basis=true max_uv_excess=0.00000007843482 widest=1.00021462838588 vertices=503 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_repaired__ShelfPin0 valid_basis=true max_uv_excess=0.00000006542541 widest=1.00017854526226 vertices=498 derivatives=true bad_derivatives=0 min_determinant=0.00000011564841 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_repaired__ShelfPin1 valid_basis=true max_uv_excess=0.00000007200288 widest=1.0001857935395 vertices=494 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_repaired__ShelfPin2 valid_basis=true max_uv_excess=0.0000000623404 widest=1.0001104567678 vertices=498 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_repaired__ShelfPin3 valid_basis=true max_uv_excess=0.00000006542541 widest=1.00017854526226 vertices=501 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_repaired__ShelfPin4 valid_basis=true max_uv_excess=0.00000007107155 widest=1.0001857935395 vertices=500 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_repaired__ShelfPin5 valid_basis=true max_uv_excess=0.0000000584987 widest=1.00011268531689 vertices=499 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional__Back valid_basis=true max_uv_excess=0.00000047683716 widest=1.00062232685399 vertices=525 derivatives=true bad_derivatives=0 min_determinant=0.00000011547354 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_sectional__Side0 valid_basis=true max_uv_excess=0.00000032177195 widest=1.00062232685399 vertices=541 derivatives=true bad_derivatives=0 min_determinant=0.0000001157232 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_sectional__Side1 valid_basis=true max_uv_excess=0.00000020372681 widest=1.00041077796887 vertices=530 derivatives=true bad_derivatives=0 min_determinant=0.0000001156419 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional__Shelf0 valid_basis=true max_uv_excess=0.00000010035001 widest=1.00019413426254 vertices=496 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__Shelf1 valid_basis=true max_uv_excess=0.00000012048986 widest=1.0002126168027 vertices=508 derivatives=true bad_derivatives=0 min_determinant=0.00000011567963 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__Shelf2 valid_basis=true max_uv_excess=0.00000045797788 widest=1.0008859909383 vertices=512 derivatives=true bad_derivatives=0 min_determinant=0.00000011554891 worst_dot=0.99999964237213
+CAP MAPPING: mesh=readable_library_sectional__Top valid_basis=true max_uv_excess=0.00000017881393 widest=1.00020821359193 vertices=518 derivatives=true bad_derivatives=0 min_determinant=0.00000011567963 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_sectional__Foot0 valid_basis=true max_uv_excess=0.00000022456516 widest=1.00049000756474 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000011554891 worst_dot=0.99999952316284
+CAP MAPPING: mesh=readable_library_sectional__Foot1 valid_basis=true max_uv_excess=0.00000022730092 widest=1.00043973645541 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000011559834 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__CapMoulding valid_basis=true max_uv_excess=0.00000027613714 widest=1.00022463707732 vertices=501 derivatives=true bad_derivatives=0 min_determinant=0.00000046256758 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__Plinth valid_basis=true max_uv_excess=0.00000021787127 widest=1.00029807336937 vertices=508 derivatives=true bad_derivatives=0 min_determinant=0.00000046264304 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__ShelfPin0 valid_basis=true max_uv_excess=0.00000006519258 widest=1.00015680108584 vertices=510 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional__ShelfPin1 valid_basis=true max_uv_excess=0.00000007200288 widest=1.00014518157379 vertices=511 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__ShelfPin2 valid_basis=true max_uv_excess=0.00000004947651 widest=1.00010202110905 vertices=503 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__ShelfPin3 valid_basis=true max_uv_excess=0.00000006920891 widest=1.0001569603556 vertices=508 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional__ShelfPin4 valid_basis=true max_uv_excess=0.0000000706641 widest=1.00014248215892 vertices=508 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional__ShelfPin5 valid_basis=true max_uv_excess=0.00000005005859 widest=1.0001104567678 vertices=509 derivatives=true bad_derivatives=0 min_determinant=0.00000011563898 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__PocketTrack0_0 valid_basis=true max_uv_excess=0.00000006861228 widest=1.0003318458335 vertices=487 derivatives=true bad_derivatives=0 min_determinant=0.00000001849588 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional_sash0__Roller0_001 valid_basis=true max_uv_excess=0.00000005308539 widest=1.00001733977968 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000662748909 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_sectional__PocketTrack0_1 valid_basis=true max_uv_excess=0.00000006861228 widest=1.0003318458335 vertices=487 derivatives=true bad_derivatives=0 min_determinant=0.00000001850153 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash0__Roller1_001 valid_basis=true max_uv_excess=0.00000005308539 widest=1.00001733977968 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000662748909 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_sectional_sash0__Rail0 valid_basis=true max_uv_excess=0.00000019115396 widest=1.00038542949745 vertices=509 derivatives=true bad_derivatives=0 min_determinant=0.00000011562663 worst_dot=0.99999970197678
+CAP MAPPING: mesh=readable_library_sectional_sash0__Rail1 valid_basis=true max_uv_excess=0.00000018591527 widest=1.00035546413412 vertices=508 derivatives=true bad_derivatives=0 min_determinant=0.0000001156419 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional_sash0__Stile0 valid_basis=true max_uv_excess=0.00000022054883 widest=1.00042666828821 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.0000001156172 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash0__Stile1 valid_basis=true max_uv_excess=0.0000001998269 widest=1.00038659095805 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000011563606 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional_sash0__Glass valid_basis=true max_uv_excess=0.00000006391201 widest=1.00049265081641 vertices=511 derivatives=true bad_derivatives=0 min_determinant=0.00000001040124 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash0__Pull_001 valid_basis=true max_uv_excess=0.00000005960464 widest=1.00002654214623 vertices=164 derivatives=true bad_derivatives=0 min_determinant=0.00000165687227 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__PocketTrack1_0 valid_basis=true max_uv_excess=0.00000007075141 widest=1.00040408874107 vertices=515 derivatives=true bad_derivatives=0 min_determinant=0.0000000185027 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional_sash1__Roller0_001 valid_basis=true max_uv_excess=0.00000002980232 widest=1.00000600813045 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000662748909 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_sectional__PocketTrack1_1 valid_basis=true max_uv_excess=0.00000005960464 widest=1.00040548215052 vertices=510 derivatives=true bad_derivatives=0 min_determinant=0.0000000185027 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional_sash1__Roller1_001 valid_basis=true max_uv_excess=0.00000002980232 widest=1.00000600813045 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000662748909 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_sectional_sash1__Rail0 valid_basis=true max_uv_excess=0.00000023841858 widest=1.0004700514991 vertices=512 derivatives=true bad_derivatives=0 min_determinant=0.00000011551123 worst_dot=0.99999940395355
+CAP MAPPING: mesh=readable_library_sectional_sash1__Rail1 valid_basis=true max_uv_excess=0.00000021292362 widest=1.00041733988543 vertices=507 derivatives=true bad_derivatives=0 min_determinant=0.0000001156172 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash1__Stile0 valid_basis=true max_uv_excess=0.0000001808512 widest=1.00028741996047 vertices=500 derivatives=true bad_derivatives=0 min_determinant=0.00000011563606 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional_sash1__Stile1 valid_basis=true max_uv_excess=0.00000023184111 widest=1.0004674682364 vertices=510 derivatives=true bad_derivatives=0 min_determinant=0.00000011551123 worst_dot=0.99999922513962
+CAP MAPPING: mesh=readable_library_sectional_sash1__Glass valid_basis=true max_uv_excess=0.00000008372444 widest=1.00076388909634 vertices=518 derivatives=true bad_derivatives=0 min_determinant=0.00000001040336 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_sectional_sash1__Pull_001 valid_basis=true max_uv_excess=0.00000006367918 widest=1.00004159969458 vertices=167 derivatives=true bad_derivatives=0 min_determinant=0.00000165670368 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional__PocketTrack2_0 valid_basis=true max_uv_excess=0.00000007572817 widest=1.00032521160401 vertices=514 derivatives=true bad_derivatives=0 min_determinant=0.00000001849588 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash2__Roller0_001 valid_basis=true max_uv_excess=0.00000003911555 widest=1.00001277687021 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00000662681474 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_sectional__PocketTrack2_1 valid_basis=true max_uv_excess=0.00000007014023 widest=1.00032844129948 vertices=504 derivatives=true bad_derivatives=0 min_determinant=0.00000001850153 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_sectional_sash2__Roller1_001 valid_basis=true max_uv_excess=0.00000003911555 widest=1.00001277687021 vertices=48 derivatives=true bad_derivatives=0 min_determinant=0.00000662681474 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_sectional_sash2__Rail0 valid_basis=true max_uv_excess=0.00000022212043 widest=1.00042475315446 vertices=505 derivatives=true bad_derivatives=0 min_determinant=0.0000001156172 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash2__Rail1 valid_basis=true max_uv_excess=0.00000031403033 widest=1.00060734499053 vertices=525 derivatives=true bad_derivatives=0 min_determinant=0.00000011563606 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash2__Stile0 valid_basis=true max_uv_excess=0.0000002196175 widest=1.00042486576134 vertices=531 derivatives=true bad_derivatives=0 min_determinant=0.00000011560417 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash2__Stile1 valid_basis=true max_uv_excess=0.0000002195593 widest=1.00043232532014 vertices=526 derivatives=true bad_derivatives=0 min_determinant=0.00000011563606 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash2__Glass valid_basis=true max_uv_excess=0.00000005478796 widest=1.00035176031043 vertices=522 derivatives=true bad_derivatives=0 min_determinant=0.00000001040336 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_sectional_sash2__Pull_001 valid_basis=true max_uv_excess=0.00000007939525 widest=1.00005186822186 vertices=167 derivatives=true bad_derivatives=0 min_determinant=0.00000165670368 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_bookend_pressed__Foot valid_basis=true max_uv_excess=0.00000005215406 widest=1.00027536457774 vertices=496 derivatives=true bad_derivatives=0 min_determinant=0.00000001416562 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_bookend_pressed__Upright0 valid_basis=true max_uv_excess=0.00000006519258 widest=1.00014787888116 vertices=541 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_bookend_pressed__Upright1 valid_basis=true max_uv_excess=0.00000006519258 widest=1.00014787888116 vertices=542 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_bookend_pressed__TopFace valid_basis=true max_uv_excess=0.00000005753827 widest=1.00038672165665 vertices=517 derivatives=true bad_derivatives=0 min_determinant=0.00000001040777 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_bookend_pressed__FoldedLip valid_basis=true max_uv_excess=0.00000005531183 widest=1.00040626209015 vertices=501 derivatives=true bad_derivatives=0 min_determinant=0.00000001040777 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_bookend_pressed__TopReturn valid_basis=true max_uv_excess=0.00000006353366 widest=1.00040796936287 vertices=507 derivatives=true bad_derivatives=0 min_determinant=0.00000001040777 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_bookend_pressed__LowerWeb valid_basis=true max_uv_excess=0.00000004805042 widest=1.00022051534971 vertices=530 derivatives=true bad_derivatives=0 min_determinant=0.00000002891047 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_bookend_pressed__FloorReturn valid_basis=true max_uv_excess=0.00000006705523 widest=1.0004321540677 vertices=499 derivatives=true bad_derivatives=0 min_determinant=0.00000001040777 worst_dot=0.99999976158142
+CAP MAPPING: mesh=readable_library_bookend_pressed__Felt valid_basis=true max_uv_excess=0.00000007794006 widest=1.00049786254769 vertices=504 derivatives=true bad_derivatives=0 min_determinant=0.00000000722666 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_bookend_brass__Foot valid_basis=true max_uv_excess=0.00000005215406 widest=1.00027536457774 vertices=496 derivatives=true bad_derivatives=0 min_determinant=0.00000001416562 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_bookend_brass__Upright0 valid_basis=true max_uv_excess=0.00000006519258 widest=1.00014787888116 vertices=541 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_bookend_brass__Upright1 valid_basis=true max_uv_excess=0.00000006519258 widest=1.00014787888116 vertices=542 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_bookend_brass__TopReturn valid_basis=true max_uv_excess=0.00000006053597 widest=1.00004142962486 vertices=503 derivatives=true bad_derivatives=0 min_determinant=0.00000046267606 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_bookend_brass__LowerWeb valid_basis=true max_uv_excess=0.00000004805042 widest=1.00022051534971 vertices=530 derivatives=true bad_derivatives=0 min_determinant=0.00000002891047 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_bookend_brass__FloorReturn valid_basis=true max_uv_excess=0.00000005503534 widest=1.00021294361611 vertices=518 derivatives=true bad_derivatives=0 min_determinant=0.00000002891696 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_bookend_brass__Felt valid_basis=true max_uv_excess=0.00000007794006 widest=1.00049786254769 vertices=504 derivatives=true bad_derivatives=0 min_determinant=0.00000000722666 worst_dot=0.99999982118607
+CAP MAPPING: mesh=readable_library_plate__billiards valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__bird_window valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__circuit_radio valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__circuit_switchboard valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__circuit_wiring valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__contact_frames valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__dartboard valid_basis=true max_uv_excess=0.00000008672941 widest=1.00019293878991 vertices=5228 derivatives=true bad_derivatives=0 min_determinant=0.00000000706279 worst_dot=0.99999988079071
+CAP MAPPING: mesh=readable_library_plate__door valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__elevation valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__envelope valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__keyboard valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__knot valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__lift_section valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__onefinger_drawing valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__pattern valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__pressed_flower valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__roof_plan valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__seedling valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__street_plan valid_basis=true max_uv_excess=0.00000004903995 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000544333607 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_plate__timetable valid_basis=true max_uv_excess=0.00000005960464 widest=1.00061299944448 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.00000408250563 worst_dot=1.0
+CAP MAPPING: mesh=readable_library_type__running_rule valid_basis=true max_uv_excess=0.000000020671 widest=1.0 vertices=24 derivatives=true bad_derivatives=0 min_determinant=0.0000000028821 worst_dot=1.0
+INITIAL POSE: 5C glass [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (-0.077, 0.8781, 0.1)]
+INITIAL POSE: 5C elevator [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (-0.049, 0.8781, 0.1)]
+INITIAL POSE: 5C missing [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (-0.017, 0.8781, 0.1)]
+INITIAL POSE: 5C cordcircuits [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.0145, 0.87535, 0.1)]
+INITIAL POSE: 5C radio [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.042, 0.8781, 0.1)]
+INITIAL POSE: 5C flowers [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.073, 0.8781, 0.1)]
+INITIAL POSE: 5C sorting [X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.0645, 0.13505, 0.1)]
+INITIAL POSE: 5C dressmaking [X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.0835, 0.1047, 0.1)]
+INITIAL POSE: 5C standards [X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.105, 0.07385, 0.1)]
+INITIAL POSE: 2A sorting [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (-0.0515, 0.8366, 0.085)]
+INITIAL POSE: 2A recipes [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (-0.023, 0.8366, 0.085)]
+INITIAL POSE: 2A glass [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.006, 0.8366, 0.085)]
+INITIAL POSE: 2A prospectus [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.0245, 0.8366, 0.085)]
+INITIAL POSE: 2A dreams [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.0455, 0.8366, 0.085)]
+INITIAL POSE: 2A interborough [X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.045, 0.16255, 0.085)]
+INITIAL POSE: 2A deadletter [X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.078, 0.1312, 0.085)]
+INITIAL POSE: 2A cordcircuits [X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.0855, 0.10485, 0.085)]
+INITIAL POSE: 6C walls [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (-0.121, 0.5461, 0.11)]
+INITIAL POSE: 6C elevator [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (-0.0895, 0.5461, 0.11)]
+INITIAL POSE: 6C dreams [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (-0.059, 0.54335, 0.11)]
+INITIAL POSE: 6C missing [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (-0.0225, 0.54335, 0.11)]
+INITIAL POSE: 6C glass [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.0115, 0.54335, 0.11)]
+INITIAL POSE: 6C dressmaking [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.045, 0.54335, 0.11)]
+INITIAL POSE: 6C photochem [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.0815, 0.5461, 0.11)]
+INITIAL POSE: 6C standards [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.1145, 0.5461, 0.11)]
+INITIAL POSE: 6C prospectus [X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (0.133, 0.5461, 0.11)]
+FLAT STEP: 0 pose=[X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.105, 0.07385, 0.1)] speed=(0.0, 0.0, 0.0) spin=(0.0, 0.0, 0.0)
+FLAT STEP: 1 pose=[X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.105, 0.07385, 0.1)] speed=(0.0, 0.0, 0.0) spin=(0.0, 0.0, 0.0)
+FLAT STEP: 2 pose=[X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.105, 0.07385, 0.1)] speed=(0.0, 0.0, 0.0) spin=(0.0, 0.0, 0.0)
+FLAT STEP: 5 pose=[X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.105, 0.07385, 0.1)] speed=(0.0, 0.0, 0.0) spin=(0.0, 0.0, 0.0)
+FLAT STEP: 10 pose=[X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.105, 0.07385, 0.1)] speed=(0.0, 0.0, 0.0) spin=(0.0, 0.0, 0.0)
+FLAT STEP: 30 pose=[X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.105, 0.07385, 0.1)] speed=(0.0, 0.0, 0.0) spin=(0.0, 0.0, 0.0)
+FLAT STEP: 60 pose=[X: (0.0, -0.0, -1.0), Y: (-1.0, -0.0, 0.0), Z: (-0.0, 1.0, -0.0), O: (0.105, 0.07385, 0.1)] speed=(0.0, 0.0, 0.0) spin=(0.0, 0.0, 0.0)
+[PLAYER] pointer captured (backtick key)
+INITIAL BINDING PICK: { "owner": @Node3D@10:<Node3D#824130424244>, "part": Book_missing:<RigidBody3D#827536199501>, "frame": @Node3D@10:<Node3D#824130424244>, "kind": "free", "read": <anonymous lambda>(self lambda), "write": <anonymous lambda>(self lambda), "begin": <anonymous lambda>(self lambda), "owns": <anonymous lambda>(self lambda), "end": RigidBody3D(v2_readable_book.gd)::_release, "hit_position": (-1.217008, 0.993769, 0.102) } selected=missing
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=V2ReadableLibraryBench:<Node3D#731167852022>
+CURSOR REQUEST: (640.0, 360.0)
+CURSOR DELIVERED: 0
+CURSOR TARGET: { "owner": @Node3D@10:<Node3D#824130424244>, "part": Book_missing:<RigidBody3D#827536199501>, "frame": @Node3D@10:<Node3D#824130424244>, "kind": "free", "read": <anonymous lambda>(self lambda), "write": <anonymous lambda>(self lambda), "begin": <anonymous lambda>(self lambda), "owns": <anonymous lambda>(self lambda), "end": RigidBody3D(v2_readable_book.gd)::_release, "hit_position": (-1.217, 1.0131, 0.102) }
+CARRY BEGIN: (-0.017, 0.9031, 0.45) target=Book_missing:<RigidBody3D#827536199501>
+CARRY MOTION: 0 before=(-0.017, 0.8781, 0.1) mouse=(0.0, -25.0)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.017, 0.900657, 0.10558) mouse=(0.0, -3.506439)
+CARRY MOTION RETURN: 1 contact={  }
+CARRY MOTION: 2 before=(-0.017, 0.9031, 0.130572) mouse=(0.0, -0.845642)
+CARRY MOTION RETURN: 2 contact={  }
+CURSOR REQUEST: (683.0, 158.0)
+CURSOR DELIVERED: 0
+CURSOR REQUEST: (815.0, 313.0)
+CURSOR DELIVERED: 0
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=V2ReadableLibraryBench:<Node3D#731167852022>
+[PLAYER] pointer captured (backtick key)
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=V2ReadableLibraryBench:<Node3D#731167852022>
+CURSOR REQUEST: (599.0, 377.0)
+CURSOR DELIVERED: 0
+CARRY BEGIN: (-0.1755, 0.84285, 0.044) target=Bookend_left:<RigidBody3D#839162810835>
+CARRY MOTION: 0 before=(-0.0755, 0.83485, 0.044) mouse=(-24.92818, -1.893616)
+CARRY MOTION RETURN: 0 contact={ "collider": Book_recipes:<RigidBody3D#835387937017>, "normal": (0.0, -1.0, 0.0), "point": (-0.012454, 0.8366, 0.0855) }
+CARRY MOTION: 1 before=(-0.130101, 0.83452, 0.041385) mouse=(-24.66627, -4.071293)
+CARRY MOTION RETURN: 1 contact={ "collider": Book_sorting:<RigidBody3D#834867843291>, "normal": (0.0, 0.0, 1.0), "point": (-0.062861, 0.836989, 0.087) }
+CARRY MOTION: 2 before=(-0.130559, 0.83452, 0.038471) mouse=(-24.66586, -4.073709)
+CARRY MOTION RETURN: 2 contact={  }
+CARRY BEGIN: (-0.1755, 0.78284, 0.043936) target=Bookend_left:<RigidBody3D#839162810835>
+CARRY MOTION: 0 before=(-0.1755, 0.84284, 0.043936) mouse=(0.900544, 24.98378)
+CARRY MOTION RETURN: 0 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#833341116557>, "normal": (0.0, 1.0, 0.0), "point": (-0.177123, 0.8335, 0.078897) }
+CARRY MOTION: 1 before=(-0.176889, 0.83452, 0.038098) mouse=(0.959146, 24.98159)
+CARRY MOTION RETURN: 1 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#833341116557>, "normal": (0.0, 1.0, 0.0), "point": (-0.177271, 0.8335, 0.078252) }
+CARRY MOTION: 2 before=(-0.176714, 0.83452, 0.03858) mouse=(0.931655, 24.98263)
+CARRY MOTION RETURN: 2 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#833341116557>, "normal": (0.0, 1.0, 0.0), "point": (-0.177213, 0.8335, 0.078246) }
+CARRY STOP: { "collider": repaired__Shelf2_Body:<StaticBody3D#833341116557>, "normal": (0.0, 1.0, 0.0), "point": (-0.177122, 0.8335, 0.078224) } at=(-0.176624, 0.83452, 0.038552) goal=(-0.1755, 0.78284, 0.043936)
+CARRY BEGIN: (-0.176624, 0.84652, 0.288552) target=Bookend_left:<RigidBody3D#839162810835>
+CARRY MOTION: 0 before=(-0.176624, 0.83452, 0.038552) mouse=(-5.429608, 24.40326)
+CARRY MOTION RETURN: 0 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#833341116557>, "normal": (0.0, 1.0, 0.0), "point": (-0.1723, 0.8335, 0.106373) }
+CARRY MOTION: 1 before=(-0.175177, 0.83452, 0.065384) mouse=(-7.953766, 23.701)
+CARRY MOTION RETURN: 1 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#833341116557>, "normal": (0.0, 1.0, 0.0), "point": (-0.172053, 0.8335, 0.064683) }
+CARRY MOTION: 2 before=(-0.175218, 0.83302, 0.091916) mouse=(-10.29095, 22.78368)
+CARRY MOTION RETURN: 2 contact={ "collider": repaired__Shelf2_Body:<StaticBody3D#833341116557>, "normal": (0.0, 1.0, 0.0), "point": (-0.172507, 0.8335, 0.091033) }
+CARRY BEGIN: (-0.216624, 0.846507, 0.288462) target=Bookend_left:<RigidBody3D#839162810835>
+CARRY MOTION: 0 before=(-0.176624, 0.846507, 0.288462) mouse=(-24.96943, -1.235871)
+CARRY MOTION RETURN: 0 contact={ "collider": DiagnosticBookendWall:<StaticBody3D#974286509532>, "normal": (1.0, 0.0, 0.0), "point": (-0.190124, 0.844006, 0.324407) }
+CARRY MOTION: 1 before=(-0.186604, 0.843344, 0.274712) mouse=(-24.98754, -0.789258)
+CARRY MOTION RETURN: 1 contact={ "collider": DiagnosticBookendWall:<StaticBody3D#974286509532>, "normal": (1.0, 0.0, 0.0), "point": (-0.190124, 0.844694, 0.325378) }
+CARRY MOTION: 2 before=(-0.186604, 0.844003, 0.275686) mouse=(-24.99551, -0.473753)
+CARRY MOTION RETURN: 2 contact={ "collider": DiagnosticBookendWall:<StaticBody3D#974286509532>, "normal": (1.0, 0.0, 0.0), "point": (-0.190124, 0.845304, 0.325379) }
+CARRY STOP: { "collider": DiagnosticBookendWall:<StaticBody3D#974286509532>, "normal": (1.0, 0.0, 0.0), "point": (-0.190124, 0.845626, 0.325267) } at=(-0.186565, 0.844578, 0.275629) goal=(-0.216624, 0.846507, 0.288462)
+CARRY BEGIN: (-0.216624, 0.846507, 0.288462) target=Bookend_left:<RigidBody3D#839162810835>
+CARRY MOTION: 0 before=(-0.186565, 0.844578, 0.275629) mouse=(-25.0, -0.002974)
+CARRY MOTION RETURN: 0 contact={  }
+CARRY MOTION: 1 before=(-0.19867, 0.844579, 0.275629) mouse=(-24.99414, 0.541233)
+CARRY MOTION RETURN: 1 contact={  }
+CARRY MOTION: 2 before=(-0.2089, 0.845298, 0.279276) mouse=(-20.84006, 1.391113)
+CARRY MOTION RETURN: 2 contact={  }
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=V2ReadableLibraryBench:<Node3D#731167852022>
+[PLAYER] pointer captured (backtick key)
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=V2ReadableLibraryBench:<Node3D#731167852022>
+CURSOR REQUEST: (640.0, 471.0)
+CURSOR DELIVERED: 0
+SASH LOWER PICK: { "owner": @Node3D@122:<Node3D#839884231166>, "part": LiftLeaf:<Node3D#843692659382>, "frame": @Node3D@122:<Node3D#839884231166>, "kind": "hinge", "axis": (-1.0, 0.0, 0.0), "minimum": 0.0, "maximum": 1.5707963267949, "read": <anonymous lambda>(self lambda), "write": <anonymous lambda>(self lambda), "begin": <anonymous lambda>(self lambda), "owns": <anonymous lambda>(self lambda), "end": <anonymous lambda>(self lambda), "hit_position": (1.2, 0.569642, 0.168) }
+CURSOR REQUEST: (640.0, 269.0)
+CURSOR DELIVERED: 0
+SASH UPPER PICK: { "owner": @Node3D@122:<Node3D#839884231166>, "part": PocketCarriage1:<Node3D#843675882165>, "frame": @Node3D@122:<Node3D#839884231166>, "kind": "slider", "axis": (0.0, 0.0, -1.0), "minimum": 0.0, "maximum": 0.3, "read": <anonymous lambda>(self lambda), "write": <anonymous lambda>(self lambda), "begin": <anonymous lambda>(self lambda), "owns": <anonymous lambda>(self lambda), "end": <anonymous lambda>(self lambda), "hit_position": (1.2, 0.870339, 0.192) }
+CURSOR REQUEST: (640.0, 221.0)
+CURSOR DELIVERED: 0
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=V2ReadableLibraryBench:<Node3D#731167852022>
+V2 READABLE LIBRARY BENCH: PASS checks=744 failures=0

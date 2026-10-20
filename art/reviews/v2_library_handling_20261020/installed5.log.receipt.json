@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 346.08,
+  "exit_code": 1,
+  "finished_utc": "2026-10-20T17:50:23Z",
+  "started_utc": "2026-10-20T17:44:37Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 INSTALLED READABLE LIBRARY: FAIL checks=224 failures=3"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/installed5.log.stderr",
+  "stderr_sha256": "8513eaa47e27559e490e9bfa5eb8ffa145981eb022de98f619985fe031859eea",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/installed5.log",
+  "stdout_sha256": "b5855c2a6f8d02ddc7181deda03be2be282201973d03b88c6c5d157de2f8f6d9"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2BookshelvesTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-readable-books-20261020/installed5",
+ "source": {
+  "dirty_paths": 1270,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_c_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_appliance_worn_appliance_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_art_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_asphalt_rough.png.import"
+  ],
+  "repository_head": "4640bd43abba06db55277f47017d6773ee51c152",
+  "repository_tree": "639a174679af16988856828f23d732b6a9006d6f",
+  "runtime_inputs_sha256": "007104f4cdac9bf2ab1318e594b072c8b6c41fe64a92c4f3169aefc285a866b4",
+  "test_path": "game/tests/orison_v2_bookshelves_test.gd",
+  "test_sha256": "cb0962b32a0ac81c27d8febb9b2449049322d58512848a2bd236d9d94227cd80"
+ },
+ "windowed": true
+}

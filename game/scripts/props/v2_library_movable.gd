@@ -11,8 +11,30 @@ var _turn_axis := Vector3.UP
 var _turn_value := 0.0
 var _solids: Array[CollisionShape3D] = []
 var _last_motion: Dictionary = {}
+var _contact_ids: Dictionary = {}
 var _push_frame := -1
 var _pushed: Dictionary = {}
+
+var _rest_until := -1
+var _rest_pose := Transform3D.IDENTITY
+var _rest_velocity := Vector3.ZERO
+var _rest_spin := Vector3.ZERO
+
+func start_at_rest() -> void:
+	# Shape/mass synchronization can wake newly placed bodies after sleeping
+	# is requested. Adopt the construction/save pose once during that first
+	# synchronization, never in response to a later collision or hand motion.
+	_rest_pose=transform;_rest_velocity=linear_velocity;_rest_spin=angular_velocity
+	_rest_until=Engine.get_physics_frames()+2
+	sleeping=true
+
+func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	var deadline:=_rest_until
+	_rest_until=-1
+	if deadline<Engine.get_physics_frames() or _held: return
+	state.transform=get_parent().global_transform*_rest_pose
+	state.linear_velocity=_rest_velocity;state.angular_velocity=_rest_spin
+	state.sleeping=true
 
 func _ready() -> void:
 	collision_layer=1;collision_mask=1
@@ -29,6 +51,8 @@ func manipulation_target(_hit: Dictionary) -> Dictionary: return grip()
 
 func _claim(tag: String) -> bool:
 	if _held or not shelf.claim_library_hand(self,tag): return false
+	_rest_until=-1
+	_contact_ids.clear()
 	_before=transform
 	_held=true;_hand_tag=tag
 	freeze=true
@@ -38,7 +62,7 @@ func _claim(tag: String) -> bool:
 func _release() -> void:
 	var changed:=not transform.is_equal_approx(_before)
 	_held=false;_hand_tag=""
-	freeze=false;sleeping=false
+	freeze=shelf.has_method("supports_inspected_stock") and shelf.supports_inspected_stock(self);sleeping=false
 	shelf.release_library_hand(self,changed)
 
 func grip() -> Dictionary:
@@ -51,74 +75,87 @@ func grip() -> Dictionary:
 		"end":_release}
 
 func turn_grip(axis: Vector3) -> Dictionary:
-	return {"owner":shelf,"part":self,"frame":shelf,"kind":"hinge","axis":axis,
+	return {"owner":shelf,"part":self,"frame":shelf,"kind":"hinge","axis":func(): return _turn_axis,
 		"minimum":-TAU,"maximum":TAU,"minimum_lever":.025,
 		"read":func(): return _turn_value,
 		"write":func(value: float):
 			if _held and _hand_tag=="turn": _turn(value),
 		"begin":func():
 			if not _claim("turn"): return false
-			_turn_origin=basis;_turn_axis=axis;_turn_value=0.;return true,
+			_turn_origin=basis;_turn_axis=basis*axis;_turn_value=0.;return true,
 		"owns":func(): return _held and _hand_tag=="turn",
 		"end":_release}
+
+func _shape_query(solid: CollisionShape3D, pose: Transform3D) -> PhysicsShapeQueryParameters3D:
+	var query:=PhysicsShapeQueryParameters3D.new()
+	query.shape=solid.shape;query.transform=pose*solid.transform
+	query.exclude=[get_rid()];query.margin=.00002;query.collision_mask=collision_mask
+	return query
+
+func _contact(info: Dictionary, motion: Vector3) -> void:
+	var other:=instance_from_id(int(info.collider_id)) as CollisionObject3D
+	if other==null: return
+	_contact_ids[other.get_instance_id()]=true
+	var normal: Vector3=info.normal
+	_last_motion={"collider":other,"normal":normal,"point":info.point}
+	if other is RigidBody3D and not other.freeze and motion.dot(-normal)>.0000001:
+		_push_stock(other,-normal,info.point)
 
 func _carry(value: Vector3) -> void:
 	if not value.is_finite(): return
 	var bounded: Vector3=shelf.limit_library_position(value)
 	var pose:=global_transform
 	var remaining: Vector3=shelf.global_basis*(bounded-position)
+	var space:=get_world_3d().direct_space_state
 	_last_motion={}
 	for slide in 4:
 		if remaining.length_squared()<1e-12: break
-		var query:=PhysicsTestMotionParameters3D.new()
-		query.from=pose;query.motion=remaining;query.margin=.00002
-		var result:=PhysicsTestMotionResult3D.new()
-		if not _sweep_world(query,result): pose.origin+=remaining;break
-		_last_motion={"collider":result.get_collider(),"normal":result.get_collision_normal(),"travel":result.get_travel(),"remainder":result.get_remainder(),"depth":result.get_collision_depth()}
-		var other:=result.get_collider() as RigidBody3D
-		var incident: Vector3=-result.get_collision_normal()
-		if other!=null and not other.freeze and (remaining.dot(incident)>.0000001 or result.get_collision_depth()>.00002):
-			var frame:=Engine.get_physics_frames()
-			if frame!=_push_frame: _push_frame=frame;_pushed.clear()
-			if not _pushed.has(other.get_instance_id()):
-				other.sleeping=false
-				other.apply_impulse(incident*minf(.12,other.mass*.25),result.get_collision_point()-other.global_position)
-				_pushed[other.get_instance_id()]=true
-		pose.origin+=result.get_travel()
-		remaining=result.get_remainder().slide(result.get_collision_normal())
+		# Casts deliberately ignore existing overlap. First constrain movement
+		# into resting contacts; separating/tangential input remains available.
+		for solid: CollisionShape3D in _solids:
+			var rest:=space.get_rest_info(_shape_query(solid,pose))
+			if not rest.is_empty() and remaining.dot(rest.normal)<-.0000001:
+				_contact(rest,remaining)
+				remaining=remaining.slide(rest.normal)
+		if remaining.length_squared()<1e-12: break
+		var safe:=1.
+		var unsafe:=1.
+		var contact_query: PhysicsShapeQueryParameters3D
+		for solid: CollisionShape3D in _solids:
+			var query:=_shape_query(solid,pose);query.motion=remaining
+			var fractions:=space.cast_motion(query)
+			if fractions[0]<safe:
+				safe=fractions[0];unsafe=fractions[1];contact_query=query
+		if contact_query==null:
+			pose.origin+=remaining;break
+		# Recover the first impact normal just inside its unsafe fraction.
+		# Keep the original native-piece frame for geometric refinement: the
+		# engine's fraction can be coarse relative to a 1mm felt sole.
+		var from:=contact_query.transform
+		var probe_fraction:=.00005/maxf(remaining.length(),.000001)
+		contact_query.transform.origin+=remaining*minf(1.,unsafe+probe_fraction)
+		contact_query.motion=Vector3.ZERO
+		var hit:=space.get_rest_info(contact_query)
+		if hit.is_empty(): break
+		var normal: Vector3=hit.normal
+		var approach: float=-remaining.dot(normal)
+		if approach>.0000001:
+			var edge: float=INF
+			for vertex: Vector3 in contact_query.shape.points: edge=minf(edge,(from*vertex).dot(normal))
+			var clearance: float=edge-hit.point.dot(normal)-.00002
+			safe=minf(safe,maxf(0.,clearance/approach))
+		pose.origin+=remaining*safe
+		_contact(hit,remaining)
+		remaining=(remaining*(1.-safe)).slide(normal)
 	global_transform=pose
 
-func _separating_support(collider: Object, pose: Transform3D, motion: Vector3) -> bool:
-	# A native stock entirely above a support's highest vertex throughout its
-	# sweep cannot strike it. This removes only a proved backend recovery-skin
-	# contact; each other case board retains its own solid and collision query.
-	if not collider is StaticBody3D: return false
-	var ceiling: float=-INF
-	for child: Node in collider.get_children():
-		if not child is CollisionShape3D or child.disabled: continue
-		if child.shape is ConvexPolygonShape3D:
-			for point: Vector3 in child.shape.points: ceiling=maxf(ceiling,(child.global_transform*point).y+float(child.shape.margin))
-		elif child.shape is BoxShape3D:
-			var box:=AABB(-child.shape.size*.5,child.shape.size)
-			for corner in 8: ceiling=maxf(ceiling,(child.global_transform*box.get_endpoint(corner)).y+float(child.shape.margin))
-		else: return false
-	if not is_finite(ceiling): return false
-	for shape: CollisionShape3D in _solids:
-		if shape.disabled: continue
-		if not shape.shape is ConvexPolygonShape3D: return false
-		for point: Vector3 in shape.shape.points:
-			if (pose*shape.transform*point).y+minf(0.,motion.y)-float(shape.shape.margin)<ceiling: return false
-	return true
-
-func _sweep_world(query: PhysicsTestMotionParameters3D, result: PhysicsTestMotionResult3D) -> bool:
-	for attempt in 8:
-		if not PhysicsServer3D.body_test_motion(get_rid(),query,result): return false
-		var collider: Object=result.get_collider()
-		if not _separating_support(collider,query.from,query.motion): return true
-		var exclusions: Array[RID]=query.exclude_bodies
-		if exclusions.has(collider.get_rid()): return true
-		exclusions.append(collider.get_rid());query.exclude_bodies=exclusions
-	return true
+func _push_stock(other: RigidBody3D, direction: Vector3, point: Vector3) -> void:
+	var frame:=Engine.get_physics_frames()
+	if frame!=_push_frame: _push_frame=frame;_pushed.clear()
+	if _pushed.has(other.get_instance_id()): return
+	other.sleeping=false
+	other.apply_impulse(direction*minf(.12,other.mass*.25),point-other.global_position)
+	_pushed[other.get_instance_id()]=true
 
 func _clear_pose(pose: Transform3D, selected: Array[CollisionShape3D]=[]) -> bool:
 	var solids: Array[CollisionShape3D]=_solids if selected.is_empty() else selected
@@ -160,6 +197,7 @@ static func valid_stock(value: Variant) -> bool:
 		and Vector3(value.spin[0],value.spin[1],value.spin[2]).length()<100.
 
 func restore_stock(value: Dictionary) -> void:
+	_rest_until=-1
 	_held=false;_hand_tag=""
 	freeze=true
 	position=Vector3(value.position[0],value.position[1],value.position[2])
@@ -167,3 +205,4 @@ func restore_stock(value: Dictionary) -> void:
 	linear_velocity=Vector3(value.velocity[0],value.velocity[1],value.velocity[2])
 	angular_velocity=Vector3(value.spin[0],value.spin[1],value.spin[2])
 	freeze=false;sleeping=bool(value.sleeping)
+	if sleeping: start_at_rest()

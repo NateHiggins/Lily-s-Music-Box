@@ -12,6 +12,8 @@ var _hand_tag := ""
 var _sashes: Array[Node3D] = []
 var _case_record: Dictionary
 var _restoring_library := false
+var _inspection_stock: Node3D
+var _pending_inspection_stock: Node3D
 
 func _build_visual() -> void:
 	_derive()
@@ -64,29 +66,51 @@ func _make_end(side: String) -> void:
 		var draw: MeshInstance3D=native_stock.draw(body,identity)
 		var shape: CollisionShape3D=native_stock.collision(body,identity,Transform3D.IDENTITY)
 		if shape!=null: body._solids.append(shape)
-		if identity.ends_with("TopReturn"):
-			preload("res://scripts/props/manipulation_area.gd").install(draw,func(): return body.turn_grip(Vector3.UP))
 	body.set_meta("library_stock_id",body.stock_id)
 	body.settled.connect(library_stock_changed.bind(body));_ends[side]=body
 
 func _arrange(order: Array) -> void:
+	var restoring_before:=_restoring_library
+	_restoring_library=true
 	var tops: Array=_case_record.shelf_tops
 	var row:=2 if case_style!="sectional" else 1
 	var upright:=order.size() if unit in ["6C","4A"] else maxi(4,order.size()-3)
 	var width:=0.0
+
 	for index in upright: width+=float(native_stock.data.books[str(order[index])].thickness)+.003
 	var start: float=-width*.5
 	var cursor:=start
 	var front:=float(_case_record.depth)*.5-.040
+	var style: String="brass" if unit in ["6C","4A"] else "pressed"
+	var end_spec: Dictionary=native_stock.data.bookends[style]
+	var end_y:=float(tops[row])-float(end_spec.support_y)+.00035
+	for side: String in _ends:
+		var end: Node3D=_ends[side]
+		end.freeze=true;end.linear_velocity=Vector3.ZERO;end.angular_velocity=Vector3.ZERO
+		# The return on the hand grip projects 8.3 mm into the L. Keep that
+		# folded stock clear of the first binding. The broad foot carries
+		# adjacent bindings; their authored bearings below include its height.
+		end.position=Vector3(start-.011 if side=="left" else start+width+.008,end_y,front-.041 if side=="left" else front-.133)
+		end.rotation=Vector3(0,0 if side=="left" else PI,0)
+		# Author placed stock at rest. Real hand movement wakes the body.
+		end.freeze=false;end.sleeping=true
+
 	for index in upright:
 		var identity:=str(order[index]);var book: Node3D=_books[identity]
 		var thickness:=float(native_stock.data.books[identity].thickness)
 		book.freeze=true;book.linear_velocity=Vector3.ZERO;book.angular_velocity=Vector3.ZERO
 		book.basis=Basis(Vector3.UP,PI*.5)
-		book.position=Vector3(cursor+thickness*.5,float(tops[row])+.007,front)
-		book._apply_opening(0.);book.freeze=false;book.sleeping=false
+		book.position=Vector3(cursor+thickness*.5,0,front)
+		var bounds: AABB=book.transform*native_stock._bounds(native_stock.data.books[identity].parts)
+		var bearing: float=tops[row]
+		for end: Node3D in _ends.values():
+			var foot: AABB=end.transform*native_stock._bounds(["bookend_"+style+"__Foot"])
+			if minf(bounds.end.x,foot.end.x)-maxf(bounds.position.x,foot.position.x)>.002 and minf(bounds.end.z,foot.end.z)-maxf(bounds.position.z,foot.position.z)>.02:
+				bearing=maxf(bearing,foot.end.y)
+		book.position.y=bearing-bounds.position.y+.00035
+		book._apply_opening(0.);book.freeze=false;book.sleeping=true
 		cursor+=thickness+.003
-	var height:=float(tops[0])+.001
+	var height:=float(tops[0])+.00035
 	for index in range(order.size()-1,upright-1,-1):
 		var identity:=str(order[index]);var book: Node3D=_books[identity]
 		var dimensions: Dictionary=native_stock.data.books[identity]
@@ -94,21 +118,15 @@ func _arrange(order: Array) -> void:
 		book.freeze=true;book.linear_velocity=Vector3.ZERO;book.angular_velocity=Vector3.ZERO
 		book.basis=Basis(Vector3.BACK,PI*.5)*Basis(Vector3.UP,PI*.5)
 		book.position=Vector3(float(dimensions.height)*.5-.03,height+thickness*.5,front)
-		book._apply_opening(0.);book.freeze=false;book.sleeping=false
-		height+=thickness+.0005
-	var style: String="brass" if unit in ["6C","4A"] else "pressed"
-	var end_spec: Dictionary=native_stock.data.bookends[style]
-	var end_y:=float(tops[row])-float(end_spec.support_y)+.0002
-	for side: String in _ends:
-		var end: Node3D=_ends[side]
-		end.freeze=true;end.linear_velocity=Vector3.ZERO;end.angular_velocity=Vector3.ZERO
-		var extra: float=.003 if side=="right" and width<.15 else 0.
-		# The return on the hand grip projects 8.3 mm into the L. Keep that
-		# folded stock clear of the first binding; place the raised foot edge
-		# outside the book's footprint, rather than propping its middle on it.
-		end.position=Vector3(start-.011 if side=="left" else cursor+.008,end_y+extra,front-.041 if side=="left" else front-.133)
-		end.rotation=Vector3(0,0 if side=="left" else PI,0)
-		end.freeze=false;end.sleeping=false
+		book._apply_opening(0.);book.freeze=false;book.sleeping=true
+		height+=thickness+.00035
+
+	# Moving later neighbours can wake an earlier placed body. Publish the
+	# completed arrangement at rest only after every stock has its final pose.
+	for body: RigidBody3D in _books.values()+_ends.values():
+		body.force_update_transform()
+	for body: RigidBody3D in _books.values()+_ends.values(): body.start_at_rest()
+	_restoring_library=restoring_before
 
 func limit_library_position(value: Vector3) -> Vector3:
 	return Vector3(clampf(value.x,-float(_case_record.width)*.5-.16,float(_case_record.width)*.5+.16),
@@ -158,6 +176,7 @@ func _case_grip() -> Dictionary:
 func manipulation_target(_hit: Dictionary) -> Dictionary: return _case_grip()
 
 func inspection_view_for(part: Node3D) -> Dictionary:
+	_pending_inspection_stock=null
 	var cursor:=part
 	while cursor!=null and cursor!=self:
 		var identity:=str(cursor.get_meta("library_stock_id",""))
@@ -165,18 +184,37 @@ func inspection_view_for(part: Node3D) -> Dictionary:
 			var book: Node3D=_books[identity]
 			var spec: Dictionary=native_stock.data.books[identity]
 			var point:=book.to_global(Vector3(0,float(spec.height)*.5,0))
-			var aspect:=get_viewport().get_visible_rect().size.aspect()
-			var distance:=maxf(float(spec.height)*.5,float(spec.width)/aspect)/tan(deg_to_rad(20.))/.88
-			var from:=point+book.global_basis.z*distance
-			var local:=to_local(from)
-			local.z=maxf(local.z,float(_case_record.depth)*.5+.20)
-			return {"from":to_global(local),"at":point,"fov":40.}
+			_pending_inspection_stock=book
+			# Retain room in front of the case for extraction, rotation and an
+			# opened spread. The player can pull the held book nearer to read it.
+			var from:=point+global_basis.z*.9
+			return {"from":from,"at":point,"fov":40.}
+		if cursor in _ends.values():
+			_pending_inspection_stock=cursor
+			var style: String="brass" if unit in ["6C","4A"] else "pressed"
+			var bounds: AABB=native_stock._bounds(native_stock.data.bookends[style].parts)
+			var point:=cursor.to_global(bounds.get_center())
+			return {"from":point+global_basis.z*.6+Vector3.UP*.09,"at":point,"fov":55.}
 		cursor=cursor.get_parent() as Node3D
 	return inspection_view()
 
 func inspection_view() -> Dictionary:
 	return {"from":to_global(Vector3(0,float(_case_record.height)*.55,1.02)),
 		"at":to_global(Vector3(0,float(_case_record.height)*.55,0)),"fov":65.}
+
+func inspection_started() -> void:
+	_inspection_stock=_pending_inspection_stock;_pending_inspection_stock=null
+	if is_instance_valid(_inspection_stock):
+		_inspection_stock.freeze=true
+		_inspection_stock.linear_velocity=Vector3.ZERO;_inspection_stock.angular_velocity=Vector3.ZERO
+
+func inspection_ended() -> void:
+	if is_instance_valid(_inspection_stock):
+		_inspection_stock.freeze=false;_inspection_stock.sleeping=false
+	_inspection_stock=null;_pending_inspection_stock=null
+
+func supports_inspected_stock(body: Node3D) -> bool:
+	return is_instance_valid(_inspection_stock) and _inspection_stock==body
 
 func library_snapshot() -> Dictionary:
 	var books: Dictionary={};var ends: Dictionary={};var doors: Array=[]
