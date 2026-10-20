@@ -319,12 +319,13 @@ def spectacles(source):
  group('Spectacles',start)
 def pencil(source):
  start=len(stock_checks)
- stock('Shaft',(-.085,-.0035,0),(.085,.0035,.007),'book_burgundy',.0008)
+ stock('Shaft',(-.085,-.0035,0),(.085,.0035,.007),'paint_red',.0008)
  stock('Point',(.084,-.0025,.001),(.1,.0025,.006),'timber',.0006)
  for x in [-.07,.07]:bearing('pencil '+str(x),(x,0,0))
  group('Pencil',start)
 def booklet(source):
  start=len(stock_checks);key=source.get('mat','book_teal')
+ if identity in ['4C_condition_card','3A_seed_catalogue']:key='card_teal'
  stock('LowerCover',(-.075,-.05,0),(.075,.05,.0013),key,.0003)
  stock('Pages',(-.072,-.047,.0012),(.072,.047,.0108),'paper',.0002)
  stock('UpperCover',(-.075,-.05,.0107),(.075,.05,.012),key,.0003)
@@ -348,7 +349,7 @@ def foldrule(source):
 def case(source):
  start=len(stock_checks)
  stock('Body',(-.06,-.04,0),(.06,.04,.045),'book_brown',.003)
- stock('Lining',(-.055,-.035,.044),(.055,.035,.046),'book_burgundy',.0005)
+ stock('Lining',(-.055,-.035,.044),(.055,.035,.046),'wool_burgundy',.0005)
  stock('Lid',(-.06,.036,.044),(.06,.04,.11),'book_brown',.0015)
  for x in [-.05,.05]:
   for y in [-.03,.03]:bearing('case '+str((x,y)),(x,y,0))
@@ -391,7 +392,7 @@ def foldedcloth(source):
  group('FoldedCloth',start)
 # Dossier slice 20: a row of labelled box files.
 def fileboxes(source):
- keys=['book_navy','book_green','book_burgundy','book_navy','book_brown','book_green','book_navy']
+ keys=['file_navy','file_green','file_burgundy','file_navy','file_brown','file_green','file_navy']
  for i,key in enumerate(keys):
   start=len(stock_checks);x=-.345+i*.115
   stock('Box'+str(i),(x-.054,-.125,0),(x+.054,.125,.26),key,.002)

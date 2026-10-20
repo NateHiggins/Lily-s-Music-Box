@@ -2589,3 +2589,7 @@ art/textures/procedural/glass_frosted/** -text
 art/reviews/v2_surface_final_20261020/** -text whitespace=cr-at-eol
 
 art/reviews/v2_surface_renewal_20261020/** -text whitespace=cr-at-eol
+
+# Binding recipes carry source/map hashes.
+art/textures/procedural/book_*/material.json -text
+art/reviews/v2_binding_stock_20261020/** -text whitespace=cr-at-eol

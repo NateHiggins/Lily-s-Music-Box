@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Unused replacement construction renewal; no runtime acceptance",
+  "previous_manifest_sha256": "d6fcacde2bd8570a0cea67029f27078d8d576ae898637b1a4966b0546bebfa34",
+  "current_manifest_sha256": "c39f2cc923041779e3bca345dc3a9ff8f15c90e733dd851d2d64c39ae4ce688c",
+  "unchanged_materials": 93,
+  "added_keys": [],
+  "replaced_unused_keys": [
+    "book_brown",
+    "book_burgundy",
+    "book_green",
+    "book_navy",
+    "book_ochre",
+    "book_teal"
+  ],
+  "unchanged_output_hashes": {
+    "game/assets/props/house_switchboard.glb": "2108bbd57309b3b0759780ac21f1127e302cbd85706617ff26a6266f6794a4df"
+  },
+  "renewed_records": {
+    "art/blender/house_switchboard_construction.json": "f1e31b0e664f14a2e7bf05de360355878168fc19094130d32da4cb1057b43a96"
+  }
+}

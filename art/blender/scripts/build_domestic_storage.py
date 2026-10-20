@@ -53,6 +53,10 @@ for key in plan['runtime_keys']:
  if not definition.is_file(): definition=definition.with_name('asset.json')
  assert definition.is_file(),definition
  material_definitions.append(definition)
+ recipe=json.loads(definition.read_text(encoding='utf-8')) if definition.suffix=='.json' else {}
+ if isinstance(recipe.get('normal_authoring'),dict):
+  assert recipe['normal_authoring']['height_units']=='metres' and recipe['normal_convention']=='OpenGL'
+  sets[key]['normal_scale']=float(recipe['normal_strength'])
  sets[key].update(plan.get('finish_parameters',{}).get(key,{}))
 
 def digest(path):

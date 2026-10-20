@@ -2,6 +2,10 @@
 
 Evidence class: **INERT**. Reviewed implementation checkpoint; no ledger promotion.
 
+Subsequent change: **V2_BINDING_STOCK_2026-10-20.md** records six replaced
+binding finishes. The earlier surface12 result below remains historical; the
+private checkpoint needs fresh composed qualification after the book/shelf batch.
+
 Current result: **surface12 PASS, 40,065 checks and zero failures**, after the
 switchboard-binding correction. Both checkouts qualify the published packet.
 Broader branch cohort evidence and human appearance acceptance remain open.

@@ -1,0 +1,50 @@
+{
+  "material": "book_burgundy",
+  "generator": "art/tools/build_binding_stock.py",
+  "meters_per_tile": 0.32,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "normal_authoring": {
+    "profile": "binding_leather",
+    "generator": "art/tools/build_binding_stock.py",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "meters_per_tile": 0.32,
+    "resolution": 2048,
+    "seed": 19281021,
+    "height_source": "authored construction; independent of albedo and baked illumination",
+    "bands": [
+      {
+        "structure": "shallow leather grain valleys",
+        "cell_spacing_m": 0.0032,
+        "valley_width_m": 0.00065,
+        "valley_depth_m": 2.2e-05
+      }
+    ],
+    "unresolved_for_roughness": [],
+    "rms_relief_m": 7.659171911114226e-06,
+    "maximum_slope": 0.045513485043011406
+  },
+  "metallic": 0.0,
+  "roughness_range": [
+    0.33284695075317566,
+    0.4694295673461213
+  ],
+  "subpixel_finish": "Coating and fine fibre/pores contribute to the roughness lobe; no oversized pore noise.",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "status": "NATIVE_REVIEWED_RUNTIME_PENDING",
+  "source_bindings": {
+    "art/tools/build_binding_stock.py": "b903fa29e6a3f6cf8710816edeba2937c9eb99e1ea5d3d0e30be47affb95f16e",
+    "art/tools/material_relief.py": "649090fbd4c5ea37a5aa2acdfbb0976dd4ba646f2837fd841cc331fcedcdb40d"
+  },
+  "map_sha256": {
+    "albedo": "e8ec0da57b4f245ceed16076190615db3adc8be1a046e4bcfdb8fa9c683ba06b",
+    "roughness": "376a060a277c058e7f5be63e0da2f2cf48b635575e5c74ea4b1ce30bbbc1c527",
+    "normal": "39a98fb0d775ffdeb85c955a5c09ae950658cfc25bbdab1d00879aa97404ed9b"
+  }
+}

@@ -573,25 +573,41 @@
           "name": "3B_manuals__book_brown",
           "key": "book_brown",
           "tile": 0.32,
-          "catalog_key": "book_brown"
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "3B_manuals__book_navy",
           "key": "book_navy",
           "tile": 0.32,
-          "catalog_key": "book_navy"
+          "catalog_key": "book_navy",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "3B_manuals__book_ochre",
           "key": "book_ochre",
           "tile": 0.32,
-          "catalog_key": "book_ochre"
+          "catalog_key": "book_ochre",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "3B_manuals__book_teal",
           "key": "book_teal",
           "tile": 0.32,
-          "catalog_key": "book_teal"
+          "catalog_key": "book_teal",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "3B_manuals__paper",
@@ -1511,37 +1527,61 @@
           "name": "6B_story_references__book_brown",
           "key": "book_brown",
           "tile": 0.32,
-          "catalog_key": "book_brown"
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6B_story_references__book_burgundy",
           "key": "book_burgundy",
           "tile": 0.32,
-          "catalog_key": "book_burgundy"
+          "catalog_key": "book_burgundy",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6B_story_references__book_green",
           "key": "book_green",
           "tile": 0.32,
-          "catalog_key": "book_green"
+          "catalog_key": "book_green",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6B_story_references__book_navy",
           "key": "book_navy",
           "tile": 0.32,
-          "catalog_key": "book_navy"
+          "catalog_key": "book_navy",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6B_story_references__book_ochre",
           "key": "book_ochre",
           "tile": 0.32,
-          "catalog_key": "book_ochre"
+          "catalog_key": "book_ochre",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6B_story_references__book_teal",
           "key": "book_teal",
           "tile": 0.32,
-          "catalog_key": "book_teal"
+          "catalog_key": "book_teal",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6B_story_references__paper",
@@ -1637,31 +1677,51 @@
           "name": "6C_story_catalogues__book_brown",
           "key": "book_brown",
           "tile": 0.32,
-          "catalog_key": "book_brown"
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6C_story_catalogues__book_green",
           "key": "book_green",
           "tile": 0.32,
-          "catalog_key": "book_green"
+          "catalog_key": "book_green",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6C_story_catalogues__book_navy",
           "key": "book_navy",
           "tile": 0.32,
-          "catalog_key": "book_navy"
+          "catalog_key": "book_navy",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6C_story_catalogues__book_ochre",
           "key": "book_ochre",
           "tile": 0.32,
-          "catalog_key": "book_ochre"
+          "catalog_key": "book_ochre",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6C_story_catalogues__book_teal",
           "key": "book_teal",
           "tile": 0.32,
-          "catalog_key": "book_teal"
+          "catalog_key": "book_teal",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6C_story_catalogues__paper",
@@ -3562,13 +3622,21 @@
           "name": "5A_ledger__book_burgundy",
           "key": "book_burgundy",
           "tile": 0.32,
-          "catalog_key": "book_burgundy"
+          "catalog_key": "book_burgundy",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "5A_ledger__book_navy",
           "key": "book_navy",
           "tile": 0.32,
-          "catalog_key": "book_navy"
+          "catalog_key": "book_navy",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "5A_ledger__paper",
@@ -4236,10 +4304,20 @@
       "id": "1A_red_pencil",
       "parts": [
         {
-          "name": "1A_red_pencil__book_burgundy",
-          "key": "book_burgundy",
-          "tile": 0.32,
-          "catalog_key": "book_burgundy"
+          "name": "1A_red_pencil__paint_red",
+          "key": "paint_red",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "tint": [
+            0.45,
+            0.06,
+            0.04,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.5
+          }
         },
         {
           "name": "1A_red_pencil__timber",
@@ -4259,10 +4337,16 @@
       "id": "3A_seed_catalogue",
       "parts": [
         {
-          "name": "3A_seed_catalogue__book_teal",
-          "key": "book_teal",
-          "tile": 0.32,
-          "catalog_key": "book_teal"
+          "name": "3A_seed_catalogue__card_teal",
+          "key": "card_teal",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.13,
+            0.31,
+            0.31,
+            1.0
+          ]
         },
         {
           "name": "3A_seed_catalogue__paper",
@@ -4285,7 +4369,11 @@
           "name": "4A_pocketbook__book_brown",
           "key": "book_brown",
           "tile": 0.32,
-          "catalog_key": "book_brown"
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "4A_pocketbook__paper",
@@ -4335,7 +4423,11 @@
           "name": "5A_notebook__book_teal",
           "key": "book_teal",
           "tile": 0.32,
-          "catalog_key": "book_teal"
+          "catalog_key": "book_teal",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "5A_notebook__paper",
@@ -4358,13 +4450,27 @@
           "name": "6A_empty_case__book_brown",
           "key": "book_brown",
           "tile": 0.32,
-          "catalog_key": "book_brown"
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
-          "name": "6A_empty_case__book_burgundy",
-          "key": "book_burgundy",
-          "tile": 0.32,
-          "catalog_key": "book_burgundy"
+          "name": "6A_empty_case__wool_burgundy",
+          "key": "wool_burgundy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.3,
+            0.05,
+            0.07,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
         }
       ],
       "position": [
@@ -4381,7 +4487,11 @@
           "name": "4C_gloves__book_brown",
           "key": "book_brown",
           "tile": 0.32,
-          "catalog_key": "book_brown"
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         }
       ],
       "position": [
@@ -4395,10 +4505,16 @@
       "id": "4C_condition_card",
       "parts": [
         {
-          "name": "4C_condition_card__book_teal",
-          "key": "book_teal",
-          "tile": 0.32,
-          "catalog_key": "book_teal"
+          "name": "4C_condition_card__card_teal",
+          "key": "card_teal",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.13,
+            0.31,
+            0.31,
+            1.0
+          ]
         },
         {
           "name": "4C_condition_card__paper",
@@ -4778,30 +4894,6 @@
       "id": "2A_files_0a",
       "parts": [
         {
-          "name": "2A_files_0a__book_brown",
-          "key": "book_brown",
-          "tile": 0.32,
-          "catalog_key": "book_brown"
-        },
-        {
-          "name": "2A_files_0a__book_burgundy",
-          "key": "book_burgundy",
-          "tile": 0.32,
-          "catalog_key": "book_burgundy"
-        },
-        {
-          "name": "2A_files_0a__book_green",
-          "key": "book_green",
-          "tile": 0.32,
-          "catalog_key": "book_green"
-        },
-        {
-          "name": "2A_files_0a__book_navy",
-          "key": "book_navy",
-          "tile": 0.32,
-          "catalog_key": "book_navy"
-        },
-        {
           "name": "2A_files_0a__brass",
           "key": "brass",
           "tile": 0.5,
@@ -4810,6 +4902,54 @@
             "normal_scale": 0.03,
             "roughness": 0.45
           }
+        },
+        {
+          "name": "2A_files_0a__file_brown",
+          "key": "file_brown",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.28,
+            0.17,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_0a__file_burgundy",
+          "key": "file_burgundy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.34,
+            0.1,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_0a__file_green",
+          "key": "file_green",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.24,
+            0.16,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_0a__file_navy",
+          "key": "file_navy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.1,
+            0.15,
+            0.25,
+            1.0
+          ]
         },
         {
           "name": "2A_files_0a__paper",
@@ -4829,30 +4969,6 @@
       "id": "2A_files_0b",
       "parts": [
         {
-          "name": "2A_files_0b__book_brown",
-          "key": "book_brown",
-          "tile": 0.32,
-          "catalog_key": "book_brown"
-        },
-        {
-          "name": "2A_files_0b__book_burgundy",
-          "key": "book_burgundy",
-          "tile": 0.32,
-          "catalog_key": "book_burgundy"
-        },
-        {
-          "name": "2A_files_0b__book_green",
-          "key": "book_green",
-          "tile": 0.32,
-          "catalog_key": "book_green"
-        },
-        {
-          "name": "2A_files_0b__book_navy",
-          "key": "book_navy",
-          "tile": 0.32,
-          "catalog_key": "book_navy"
-        },
-        {
           "name": "2A_files_0b__brass",
           "key": "brass",
           "tile": 0.5,
@@ -4861,6 +4977,54 @@
             "normal_scale": 0.03,
             "roughness": 0.45
           }
+        },
+        {
+          "name": "2A_files_0b__file_brown",
+          "key": "file_brown",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.28,
+            0.17,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_0b__file_burgundy",
+          "key": "file_burgundy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.34,
+            0.1,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_0b__file_green",
+          "key": "file_green",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.24,
+            0.16,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_0b__file_navy",
+          "key": "file_navy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.1,
+            0.15,
+            0.25,
+            1.0
+          ]
         },
         {
           "name": "2A_files_0b__paper",
@@ -4880,30 +5044,6 @@
       "id": "2A_files_1b",
       "parts": [
         {
-          "name": "2A_files_1b__book_brown",
-          "key": "book_brown",
-          "tile": 0.32,
-          "catalog_key": "book_brown"
-        },
-        {
-          "name": "2A_files_1b__book_burgundy",
-          "key": "book_burgundy",
-          "tile": 0.32,
-          "catalog_key": "book_burgundy"
-        },
-        {
-          "name": "2A_files_1b__book_green",
-          "key": "book_green",
-          "tile": 0.32,
-          "catalog_key": "book_green"
-        },
-        {
-          "name": "2A_files_1b__book_navy",
-          "key": "book_navy",
-          "tile": 0.32,
-          "catalog_key": "book_navy"
-        },
-        {
           "name": "2A_files_1b__brass",
           "key": "brass",
           "tile": 0.5,
@@ -4912,6 +5052,54 @@
             "normal_scale": 0.03,
             "roughness": 0.45
           }
+        },
+        {
+          "name": "2A_files_1b__file_brown",
+          "key": "file_brown",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.28,
+            0.17,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_1b__file_burgundy",
+          "key": "file_burgundy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.34,
+            0.1,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_1b__file_green",
+          "key": "file_green",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.24,
+            0.16,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_1b__file_navy",
+          "key": "file_navy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.1,
+            0.15,
+            0.25,
+            1.0
+          ]
         },
         {
           "name": "2A_files_1b__paper",
@@ -4931,30 +5119,6 @@
       "id": "2A_files_2a",
       "parts": [
         {
-          "name": "2A_files_2a__book_brown",
-          "key": "book_brown",
-          "tile": 0.32,
-          "catalog_key": "book_brown"
-        },
-        {
-          "name": "2A_files_2a__book_burgundy",
-          "key": "book_burgundy",
-          "tile": 0.32,
-          "catalog_key": "book_burgundy"
-        },
-        {
-          "name": "2A_files_2a__book_green",
-          "key": "book_green",
-          "tile": 0.32,
-          "catalog_key": "book_green"
-        },
-        {
-          "name": "2A_files_2a__book_navy",
-          "key": "book_navy",
-          "tile": 0.32,
-          "catalog_key": "book_navy"
-        },
-        {
           "name": "2A_files_2a__brass",
           "key": "brass",
           "tile": 0.5,
@@ -4963,6 +5127,54 @@
             "normal_scale": 0.03,
             "roughness": 0.45
           }
+        },
+        {
+          "name": "2A_files_2a__file_brown",
+          "key": "file_brown",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.28,
+            0.17,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_2a__file_burgundy",
+          "key": "file_burgundy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.34,
+            0.1,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_2a__file_green",
+          "key": "file_green",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.24,
+            0.16,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_2a__file_navy",
+          "key": "file_navy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.1,
+            0.15,
+            0.25,
+            1.0
+          ]
         },
         {
           "name": "2A_files_2a__paper",
@@ -4982,30 +5194,6 @@
       "id": "2A_files_2b",
       "parts": [
         {
-          "name": "2A_files_2b__book_brown",
-          "key": "book_brown",
-          "tile": 0.32,
-          "catalog_key": "book_brown"
-        },
-        {
-          "name": "2A_files_2b__book_burgundy",
-          "key": "book_burgundy",
-          "tile": 0.32,
-          "catalog_key": "book_burgundy"
-        },
-        {
-          "name": "2A_files_2b__book_green",
-          "key": "book_green",
-          "tile": 0.32,
-          "catalog_key": "book_green"
-        },
-        {
-          "name": "2A_files_2b__book_navy",
-          "key": "book_navy",
-          "tile": 0.32,
-          "catalog_key": "book_navy"
-        },
-        {
           "name": "2A_files_2b__brass",
           "key": "brass",
           "tile": 0.5,
@@ -5014,6 +5202,54 @@
             "normal_scale": 0.03,
             "roughness": 0.45
           }
+        },
+        {
+          "name": "2A_files_2b__file_brown",
+          "key": "file_brown",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.28,
+            0.17,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_2b__file_burgundy",
+          "key": "file_burgundy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.34,
+            0.1,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_2b__file_green",
+          "key": "file_green",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.24,
+            0.16,
+            1.0
+          ]
+        },
+        {
+          "name": "2A_files_2b__file_navy",
+          "key": "file_navy",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.1,
+            0.15,
+            0.25,
+            1.0
+          ]
         },
         {
           "name": "2A_files_2b__paper",
@@ -5514,7 +5750,11 @@
           "name": "4B_old_cap__book_navy",
           "key": "book_navy",
           "tile": 0.32,
-          "catalog_key": "book_navy"
+          "catalog_key": "book_navy",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         }
       ],
       "position": [
@@ -5661,7 +5901,11 @@
           "name": "6C_ledger__book_brown",
           "key": "book_brown",
           "tile": 0.32,
-          "catalog_key": "book_brown"
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "6C_ledger__paper",
@@ -6216,7 +6460,11 @@
           "name": "5A_code_books__book_green",
           "key": "book_green",
           "tile": 0.32,
-          "catalog_key": "book_green"
+          "catalog_key": "book_green",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "5A_code_books__metal",
@@ -6643,7 +6891,11 @@
           "name": "4D_open_case__book_brown",
           "key": "book_brown",
           "tile": 0.32,
-          "catalog_key": "book_brown"
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
         },
         {
           "name": "4D_open_case__brass",

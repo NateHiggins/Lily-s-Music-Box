@@ -524,8 +524,8 @@
           "tile": 0.32,
           "catalog_key": "book_brown",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -535,8 +535,8 @@
           "tile": 0.32,
           "catalog_key": "book_burgundy",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -546,8 +546,8 @@
           "tile": 0.32,
           "catalog_key": "book_green",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -557,8 +557,8 @@
           "tile": 0.32,
           "catalog_key": "book_navy",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -568,8 +568,8 @@
           "tile": 0.32,
           "catalog_key": "book_ochre",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -579,8 +579,8 @@
           "tile": 0.32,
           "catalog_key": "book_teal",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -1144,17 +1144,6 @@
       "id": "DomesticObject19",
       "parts": [
         {
-          "name": "DomesticObject19__Body_ON_book_ochre",
-          "component": "Body",
-          "key": "book_ochre",
-          "tile": 0.32,
-          "catalog_key": "book_ochre",
-          "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
-          }
-        },
-        {
           "name": "DomesticObject19__Body_ON_linen",
           "component": "Body",
           "key": "linen",
@@ -1174,6 +1163,23 @@
           "finish": {
             "normal_scale": 0.018,
             "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject19__Body_ON_paint_ochre",
+          "component": "Body",
+          "key": "paint_ochre",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.55,
+            0.42,
+            0.16,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.85
           }
         },
         {
@@ -1244,17 +1250,6 @@
       "id": "DomesticObject20",
       "parts": [
         {
-          "name": "DomesticObject20__Body_ON_book_teal",
-          "component": "Body",
-          "key": "book_teal",
-          "tile": 0.32,
-          "catalog_key": "book_teal",
-          "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
-          }
-        },
-        {
           "name": "DomesticObject20__Body_ON_linen",
           "component": "Body",
           "key": "linen",
@@ -1274,6 +1269,23 @@
           "finish": {
             "normal_scale": 0.018,
             "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject20__Body_ON_paint_teal",
+          "component": "Body",
+          "key": "paint_teal",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.16,
+            0.32,
+            0.33,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.85
           }
         },
         {
@@ -1813,17 +1825,6 @@
       "id": "DomesticObject27",
       "parts": [
         {
-          "name": "DomesticObject27__Body_ON_book_brown",
-          "component": "Body",
-          "key": "book_brown",
-          "tile": 0.32,
-          "catalog_key": "book_brown",
-          "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
-          }
-        },
-        {
           "name": "DomesticObject27__Body_ON_linen",
           "component": "Body",
           "key": "linen",
@@ -1843,6 +1844,23 @@
           "finish": {
             "normal_scale": 0.12,
             "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject27__Body_ON_sepia",
+          "component": "Body",
+          "key": "sepia",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.5,
+            0.36,
+            0.22,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.06,
+            "roughness": 0.85
           }
         },
         {
@@ -1941,8 +1959,8 @@
           "tile": 0.32,
           "catalog_key": "book_brown",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -3527,8 +3545,8 @@
           "tile": 0.32,
           "catalog_key": "book_brown",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -8759,8 +8777,8 @@
           "tile": 0.32,
           "catalog_key": "book_brown",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {
@@ -8770,8 +8788,8 @@
           "tile": 0.32,
           "catalog_key": "book_navy",
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.8
+            "normal_scale": 1.0,
+            "roughness": 1.0
           }
         },
         {

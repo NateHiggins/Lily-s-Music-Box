@@ -5324,37 +5324,61 @@
             "name": "Shelf02__book_brown",
             "key": "book_brown",
             "tile": 0.32,
-            "catalog_key": "book_brown"
+            "catalog_key": "book_brown",
+            "finish": {
+              "normal_scale": 1.0,
+              "roughness": 1.0
+            }
           },
           {
             "name": "Shelf02__book_burgundy",
             "key": "book_burgundy",
             "tile": 0.32,
-            "catalog_key": "book_burgundy"
+            "catalog_key": "book_burgundy",
+            "finish": {
+              "normal_scale": 1.0,
+              "roughness": 1.0
+            }
           },
           {
             "name": "Shelf02__book_green",
             "key": "book_green",
             "tile": 0.32,
-            "catalog_key": "book_green"
+            "catalog_key": "book_green",
+            "finish": {
+              "normal_scale": 1.0,
+              "roughness": 1.0
+            }
           },
           {
             "name": "Shelf02__book_navy",
             "key": "book_navy",
             "tile": 0.32,
-            "catalog_key": "book_navy"
+            "catalog_key": "book_navy",
+            "finish": {
+              "normal_scale": 1.0,
+              "roughness": 1.0
+            }
           },
           {
             "name": "Shelf02__book_ochre",
             "key": "book_ochre",
             "tile": 0.32,
-            "catalog_key": "book_ochre"
+            "catalog_key": "book_ochre",
+            "finish": {
+              "normal_scale": 1.0,
+              "roughness": 1.0
+            }
           },
           {
             "name": "Shelf02__book_teal",
             "key": "book_teal",
             "tile": 0.32,
-            "catalog_key": "book_teal"
+            "catalog_key": "book_teal",
+            "finish": {
+              "normal_scale": 1.0,
+              "roughness": 1.0
+            }
           },
           {
             "name": "Shelf02__floor_oak",
@@ -6052,15 +6076,15 @@
   },
   "asset_sha256": "2f0dc857269e3e49c492e0e78118033a6d649b83e9fa7635b5eea9c1c9ac9945",
   "source_bindings": {
-    "art/data/domestic_storage/source_plan.json": "9f455250299f8d7a5a96ce61c45b10b888bcfbf19f22c5cd05d1bf94e57ad162",
+    "art/data/domestic_storage/source_plan.json": "f1d7d05ddba18c46a721ea477d9e9843775b4f12a917ef14e53380c2b7de7e07",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_storage.py": "a78cf3a006d9c1624ef894c465a012888f8161010fc916c149f8ad40e3b189a4",
+    "art/blender/scripts/build_domestic_storage.py": "d41233924ae60808b1df3330fbc646d1581f470ed3652ad00a6b8c5cf174df1c",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
-    "game/data/runtime_material_sets.json": "a3849b873ccbe227199c6040b5a4df7903e0fa73625b738383502e9d8d67b376",
-    "game/scripts/generated/material_sets.gd": "db1fea3826f1c331b94b8092ce529c515e587527beb51b67d0a6ac7d284096f2",
+    "game/data/runtime_material_sets.json": "c39f2cc923041779e3bca345dc3a9ff8f15c90e733dd851d2d64c39ae4ce688c",
+    "game/scripts/generated/material_sets.gd": "408742e10ff09569317792afe4972c4701555ec1206d51453087ea5014313010",
     "game/assets/props/domestic_storage.glb.import": "858b2eb9341a8177e486fab40b094a50b84fa6c25c9138d93de61ca853a3b8ae",
     "art/textures/ai_materials/metal/material.json": "068d94125da30962359281c99868ebf22999f50e10397310a878e70af43fbc13",
     "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
@@ -6068,12 +6092,12 @@
     "art/textures/ai_materials/soot/material.json": "9815f25071c75361fb2b6bcd4c1dce3582c99494e34ec03051940c77eeeb4051",
     "art/textures/ai_materials/countertop/material.json": "e7dd2b2c3ef5cec58cbdec8ecff588adfdb49bd24214babe40361e7dbe7699ab",
     "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
-    "art/textures/library/furniture/book_navy/asset.json": "11f094b4e664f707aec80674a03e39e29ac5d44fcc4fb8eff87f5999d70ad0d8",
-    "art/textures/library/furniture/book_ochre/asset.json": "e1c80801e311182515fe74344fc36c335e82da86f6694dd517c10a2d6afe0cfd",
-    "art/textures/library/furniture/book_teal/asset.json": "78667524c82a3549885a89db5d81ab73c1f4f7d002282417d4c3f34bf97d1be3",
-    "art/textures/library/furniture/book_brown/asset.json": "79a749706b6867089cebcdca24c8c1cf127ef7e58f796e71cf99b70bfe6162ff",
-    "art/textures/library/furniture/book_burgundy/asset.json": "024b83b9c4020e4aa5ed30e0bb261e98c107f9b6d44cf80995f146401a70d6d7",
-    "art/textures/library/furniture/book_green/asset.json": "7681fe779cc7f45eb81685383f78f4131d7719e900c9dd8bcc6dc6fd02c17bbe",
+    "art/textures/procedural/book_navy/material.json": "3cb2a7b03ff42b7bc843be02984720e86e9088ca77b440f23c2717f3455dd666",
+    "art/textures/procedural/book_ochre/material.json": "d54d77183eabd14a4affc8dcfbbaa49bfafb4b0e3777c5f4b61f9745c328ca5f",
+    "art/textures/procedural/book_teal/material.json": "0096909c023a2d5dabba9ef17e4d5a20afeb68c08cd56f7c816578cc7fdb7a00",
+    "art/textures/procedural/book_brown/material.json": "8518c104a33de5853adf76e9901da386fee8295ec579219aa68a3cfc1a013eb3",
+    "art/textures/procedural/book_burgundy/material.json": "620ec0642b4eebc92fac26bdf394a311c7575939833c4615ad1f0016f78d3047",
+    "art/textures/procedural/book_green/material.json": "7b2c5debcfd6575fb46bc51fab3879b8cb2c2c797e0f8fbd77bc855f57e5c7ca",
     "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
     "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
     "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png": "e239eaae1e43e714c9a768c7300ef5027f0995f42c673ba2f2b3d142e82b4eaa",
@@ -6094,24 +6118,26 @@
     "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
     "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
     "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
-    "game/assets/building/textures/T_library_furniture_book_navy_albedo.png": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1",
-    "game/assets/building/textures/T_library_furniture_book_burgundy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_burgundy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
-    "game/assets/building/textures/T_library_furniture_book_ochre_albedo.png": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983",
-    "game/assets/building/textures/T_library_furniture_book_teal_albedo.png": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef",
-    "game/assets/building/textures/T_library_furniture_book_brown_albedo.png": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e",
-    "game/assets/building/textures/T_library_furniture_book_burgundy_albedo.png": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9",
-    "game/assets/building/textures/T_library_furniture_book_green_albedo.png": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f",
+    "game/assets/building/textures/T_ai_materials_book_navy_albedo.png": "092f6df47c117fd6240640c30a8fbc5eb4c240bb428caa103ca50ba995eff91f",
+    "game/assets/building/textures/T_ai_materials_book_green_rough.png": "7bf1844a770e273857943afe617fcb2c5e45a235c0166d2bc14418802c7cd7d0",
+    "game/assets/building/textures/T_ai_materials_book_green_normal.png": "4804629251d88352de1138b07c2f710fc53b1c929c2ade2547d3a6519d8adaf4",
+    "game/assets/building/textures/T_ai_materials_book_ochre_albedo.png": "1a4152a1863cf27b4b9806fe409c754bc41409852569a93ccb0edf5b7e35dba8",
+    "game/assets/building/textures/T_ai_materials_book_teal_albedo.png": "009fc7d27c183178f4ef3beb31b7bb4154c86dfcc26eb8feec9eabdd737b6e2e",
+    "game/assets/building/textures/T_ai_materials_book_brown_albedo.png": "4e7f3f39af90cc32b5f607ffb196a56ff50e3c121a4a88517e65e1aeef178967",
+    "game/assets/building/textures/T_ai_materials_book_burgundy_rough.png": "376a060a277c058e7f5be63e0da2f2cf48b635575e5c74ea4b1ce30bbbc1c527",
+    "game/assets/building/textures/T_ai_materials_book_burgundy_normal.png": "39a98fb0d775ffdeb85c955a5c09ae950658cfc25bbdab1d00879aa97404ed9b",
+    "game/assets/building/textures/T_ai_materials_book_burgundy_albedo.png": "e8ec0da57b4f245ceed16076190615db3adc8be1a046e4bcfdb8fa9c683ba06b",
+    "game/assets/building/textures/T_ai_materials_book_green_albedo.png": "126c2be1e37d11e83b92abdd30f4856bb5ae38b7beee1d3520f7cd91f97edebe",
     "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
     "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
     "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
     "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
     "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
     "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
-    "art/tools/fix_runtime_texture_imports.py": "b8cbde25553ddfdce14d28f3fa0793a9c36cde7c6ee047ffad3e8da6f98491f2",
-    "art/data/material_catalog.json": "e43a07b9618d3e9f5b0d13c329e26e3d22f6b9c7563a9da48cb0696a1379af65",
-    "art/textures/catalog_mapping.json": "62285fcb98e330f33820fcd6e12f7d2064baf46ec2c8d09f5aa5dc5d0eb56996",
-    "art/tools/generate_runtime_materials.py": "d2cb4a28cc78f580c52401efdd63ecd8e3462a941a5f3a5ca63db3569ad2a0b1",
+    "art/tools/fix_runtime_texture_imports.py": "876259e2b0c5a395dc7f0e409c67cbfc458335384cdd0f5c16f43647cb98bcf0",
+    "art/data/material_catalog.json": "7c35e1d0c34bf5abb1faebc9543f96bb2188fb9281fd762b5df7d2a834b86e34",
+    "art/textures/catalog_mapping.json": "440cdfbd299b3fadbf20994038fbbd955a52ca49ea6b160e933a62d1fa37b3fa",
+    "art/tools/generate_runtime_materials.py": "65ae9aa8f723a34ea56aa0cb5ea88237434a560957c3584bf899290ff7c6df3f",
     "art/blender/scripts/inspect_domestic_storage.py": "6983b0b46d292cc2fcdf8bb05fa764fd8b3b8c3a973a15e5e148afab9b29d36d",
     "art/blender/scripts/render_domestic_storage.py": "2f623d0b0bf7eec716c12540281e7fcaa2baa85e748f7b81a68bb2405ebe53a1",
     "art/blender/scripts/domestic_storage_geometry.py": "99c58b00ee461696c4946c4f2536f71ef6fa63aadeba1ff1c97a1a2e9e7445b1",
@@ -6126,7 +6152,7 @@
     "game/data/orison_v2_blockout.json": "beb6f53f9eab4d873b89b4436d0fecaab87f976a72f4ffed9ef00a2605fd0e7e",
     "art/blender/work_tables.blend": "ffc309d94421baa1307cffe02ba2b375b80329c1f98849e4ee4902c9bdd660c6",
     "game/data/orison_v2/domestic_surface_props.json": "20ec7e5a42f4db8d81db0eb63707b59aaa1eeafa053e8881d38d30800552acae",
-    "game/tests/fixtures/orison_surface_stock.json": "35f319fd27dfb1ba45b0b8e1fa38a0cf7ed3699e3cc1939745d76f0ce917fee7"
+    "game/tests/fixtures/orison_surface_stock.json": "548ebed052bd04d8f09bfdda8334148ebece73eb85b4e1c3946b6a6c59265369"
   },
   "retained_stock": [
     {

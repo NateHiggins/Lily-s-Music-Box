@@ -342,7 +342,12 @@
     "tapecloth",
     "pincushion",
     "oilcloth",
-    "paint_red"
+    "paint_red",
+    "card_teal",
+    "file_navy",
+    "file_green",
+    "file_burgundy",
+    "file_brown"
   ],
   "catalog_variants": {
     "bakelite": "bakelite",
@@ -378,7 +383,12 @@
     "tapecloth": "paper",
     "pincushion": "linen",
     "oilcloth": "linen",
-    "paint_red": "trim"
+    "paint_red": "trim",
+    "card_teal": "paper",
+    "file_navy": "paper",
+    "file_green": "paper",
+    "file_burgundy": "paper",
+    "file_brown": "paper"
   },
   "material_aliases": {},
   "material_tints": {
@@ -453,6 +463,36 @@
       0.06,
       0.04,
       1
+    ],
+    "card_teal": [
+      0.13,
+      0.31,
+      0.31,
+      1.0
+    ],
+    "file_navy": [
+      0.1,
+      0.15,
+      0.25,
+      1.0
+    ],
+    "file_green": [
+      0.12,
+      0.24,
+      0.16,
+      1.0
+    ],
+    "file_burgundy": [
+      0.34,
+      0.1,
+      0.1,
+      1.0
+    ],
+    "file_brown": [
+      0.28,
+      0.17,
+      0.1,
+      1.0
     ]
   },
   "placement": {
@@ -575,6 +615,30 @@
     "paint_red": {
       "normal_scale": 0.03,
       "roughness": 0.5
+    },
+    "book_brown": {
+      "normal_scale": 1.0,
+      "roughness": 1.0
+    },
+    "book_burgundy": {
+      "normal_scale": 1.0,
+      "roughness": 1.0
+    },
+    "book_green": {
+      "normal_scale": 1.0,
+      "roughness": 1.0
+    },
+    "book_navy": {
+      "normal_scale": 1.0,
+      "roughness": 1.0
+    },
+    "book_ochre": {
+      "normal_scale": 1.0,
+      "roughness": 1.0
+    },
+    "book_teal": {
+      "normal_scale": 1.0,
+      "roughness": 1.0
     }
   },
   "optics": {

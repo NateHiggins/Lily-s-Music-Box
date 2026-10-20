@@ -1,0 +1,38 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Unused replacement construction renewal; no runtime acceptance",
+  "previous_manifest_sha256": "d6fcacde2bd8570a0cea67029f27078d8d576ae898637b1a4966b0546bebfa34",
+  "current_manifest_sha256": "c39f2cc923041779e3bca345dc3a9ff8f15c90e733dd851d2d64c39ae4ce688c",
+  "unchanged_materials": 93,
+  "added_keys": [],
+  "replaced_unused_keys": [
+    "book_brown",
+    "book_burgundy",
+    "book_green",
+    "book_navy",
+    "book_ochre",
+    "book_teal"
+  ],
+  "unchanged_output_hashes": {
+    "game/assets/props/city_shells.glb": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e",
+    "game/assets/props/city_elevations.glb": "92421bf9920cde9c8c43573b24b35326a7ad0940477fbcc42783d3f0e9aa440a",
+    "game/assets/props/city_ground_apron.glb": "897b30a1e841ed83babd8701fabbd02158826f0a3d6594bec93affc2240e55d0",
+    "game/assets/props/city_horizon_near.glb": "88215b8981fb617be489642e62cfed0a7d274c401931520626a286fb56a953f0",
+    "art/blender/city_horizon_near.blend": "de0585af548832e43d28a55bc1e622f0261887b47534b5027ecc7f8138c7e724",
+    "game/assets/props/city_horizon_far.glb": "14bf89f23519d6877d32aa07ec125254ac16623a7d1ba37de7ed6cbd0dc8edc4",
+    "art/blender/city_horizon_far.blend": "d4bb007e10e1bc6003098f1a178a3dd1cd9e549f32b279e4db688f95f59f8fb9",
+    "game/assets/props/street_paving_details.glb": "99e4bddfb8fe67d827884f554e8f3545740b1781570a78365bceb27ea40b14fd"
+  },
+  "renewed_records": {
+    "art/blender/city_closure_construction.json": "ab40a6ebf43408e7cba7cca09f3eb0bef4f8909809781d8804a971711162dceb",
+    "game/tests/fixtures/orison_city_closure.json": "ab40a6ebf43408e7cba7cca09f3eb0bef4f8909809781d8804a971711162dceb",
+    "art/blender/city_elevations_construction.json": "fe41a01fa42e37f989843f242bd21a1cb2c94acf68556a34af11ff395707800c",
+    "game/tests/fixtures/orison_city_elevations.json": "fe41a01fa42e37f989843f242bd21a1cb2c94acf68556a34af11ff395707800c",
+    "art/blender/city_ground_apron_construction.json": "0a61d01f227f872e4d43b664c5d91764cbdb0061f1fc98144a7b1212e024f8ea",
+    "game/tests/fixtures/orison_city_ground_apron.json": "0a61d01f227f872e4d43b664c5d91764cbdb0061f1fc98144a7b1212e024f8ea",
+    "art/blender/city_horizon_construction.json": "b9c6f862e6a006ddfff5fc671e3d1560bb2a705032f3e36ddb0e905d71c5fbe7",
+    "game/tests/fixtures/orison_city_horizon.json": "b9c6f862e6a006ddfff5fc671e3d1560bb2a705032f3e36ddb0e905d71c5fbe7",
+    "art/blender/street_paving_details_construction.json": "a53680afd775dadb71a10aaa8ab3d2fa081c3a2d1d98c1d44d36e8426ad4b354",
+    "game/tests/fixtures/orison_street_paving_details.json": "a53680afd775dadb71a10aaa8ab3d2fa081c3a2d1d98c1d44d36e8426ad4b354"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "material": "book_ochre",
+  "generator": "art/tools/build_binding_stock.py",
+  "meters_per_tile": 0.32,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "normal_authoring": {
+    "profile": "cloth",
+    "generator": "art/tools/material_relief.py",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "meters_per_tile": 0.32,
+    "resolution": 2048,
+    "seed": 19281021,
+    "height_source": "authored construction; independent of albedo and baked illumination",
+    "bands": [
+      {
+        "structure": "fibres",
+        "wavelength_m": 0.0007,
+        "rms_height_m": 8e-06,
+        "frequency_stretch_uv": [
+          1.0,
+          0.15
+        ]
+      },
+      {
+        "structure": "thread unevenness",
+        "wavelength_m": 0.004,
+        "rms_height_m": 1.2e-05,
+        "frequency_stretch_uv": [
+          0.2,
+          1.0
+        ]
+      },
+      {
+        "structure": "crossed weave",
+        "spacing_m": 0.001,
+        "peak_height_m": 3.6e-05
+      }
+    ],
+    "unresolved_for_roughness": [],
+    "rms_relief_m": 2.3054376160412097e-05,
+    "maximum_slope": 0.29500031859301584
+  },
+  "metallic": 0.0,
+  "roughness_range": [
+    0.5050074661867824,
+    0.6149910038392401
+  ],
+  "subpixel_finish": "Coating and fine fibre/pores contribute to the roughness lobe; no oversized pore noise.",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "status": "NATIVE_REVIEWED_RUNTIME_PENDING",
+  "source_bindings": {
+    "art/tools/build_binding_stock.py": "b903fa29e6a3f6cf8710816edeba2937c9eb99e1ea5d3d0e30be47affb95f16e",
+    "art/tools/material_relief.py": "649090fbd4c5ea37a5aa2acdfbb0976dd4ba646f2837fd841cc331fcedcdb40d"
+  },
+  "map_sha256": {
+    "albedo": "1a4152a1863cf27b4b9806fe409c754bc41409852569a93ccb0edf5b7e35dba8",
+    "roughness": "7bf1844a770e273857943afe617fcb2c5e45a235c0166d2bc14418802c7cd7d0",
+    "normal": "4804629251d88352de1138b07c2f710fc53b1c929c2ade2547d3a6519d8adaf4"
+  }
+}
