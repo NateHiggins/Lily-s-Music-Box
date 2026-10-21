@@ -9,7 +9,7 @@ func _run() -> void:
 	var stage:=Node3D.new();add_child(stage)
 	var stock: Node3D=Stock.build();stage.add_child(stock)
 	var draws:=stock.find_children("*","MeshInstance3D",true,false)
-	_check(draws.size()==4,"all 6130 closed source stocks import as four physical material batches")
+	_check(draws.size()==4,"native closed source stocks import as four physical material batches")
 	var metrics: Node=Metrics.new();var textures: Dictionary={};var triangles:=0
 	var catalog: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/runtime_material_sets.json")).materials
 	for draw: MeshInstance3D in draws:
@@ -32,6 +32,10 @@ func _run() -> void:
 	for label: String in metrics.failures:_check(false,label)
 	_check(metrics.failures.is_empty(),"all four imported batches meet unchanged metric UV/normal/tangent/handedness tolerances")
 	metrics.free();_check(textures.size()==12,"four complete custom PBR sets exercised")
+	var installed_inspector:=preload("res://tests/v2_c_stove_surface_inspector.gd").new()
+	var installed_report: Dictionary=installed_inspector.inspect(stock)
+	_check(installed_inspector.failures==0 and int(installed_report.metric_checks)>0,"installed-world surface inspector ABI and actual stock checks pass")
+	installed_inspector.free()
 	var environment:=WorldEnvironment.new();environment.environment=Environment.new()
 	environment.environment.background_mode=Environment.BG_COLOR;environment.environment.background_color=Color(.035,.04,.05)
 	environment.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;environment.environment.ambient_light_energy=.35;stage.add_child(environment)
@@ -50,7 +54,7 @@ func _run() -> void:
 	var control:=PhysicsRayQueryParameters3D.create(Vector3(6.9,4.64,10.30),Vector3(7.60,4.64,10.30),1,[player.get_rid()])
 	_check(not physical.intersect_ray(control).is_empty(),"positive retained masonry beside the round mouth")
 	var directory: String=OS.get_environment("SHOT_DIR");_check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"explicit imported-stock output")
-	for view: Array in [["port",Vector3(6.2,4.9,9.4),Vector3(7.25,4.64,10.05)],["crown",Vector3(6.8,22.3,9.2),Vector3(7.74,21.23,10.05)]]:
+	for view: Array in [["port",Vector3(6.2,4.9,9.4),Vector3(7.25,4.64,10.05)],["crown",Vector3(6.8,22.3,9.2),Vector3(7.74,21.23,10.05)],["brick_face",Vector3(8.8,1.6,11.1),Vector3(7.74,1.4,10.4)]]:
 		player.global_position=view[1]-Vector3.UP*PlayerController.STANDING_EYE;player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0);player.camera.look_at(view[2])
 		for frame in 12:await get_tree().process_frame
 		await RenderingServer.frame_post_draw

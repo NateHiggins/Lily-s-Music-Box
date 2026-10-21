@@ -26,6 +26,8 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # its authored roughness map by this value; selected finishes deliberately cap
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
+    'stove_clinker': {"normal_scale": 1.0},
+    'stove_lime': {"normal_scale": 1.0},
     'fire_cabinet_enamel': {"normal_scale": 1.0},
     'fire_cabinet_lining': {"normal_scale": 1.0},
     'fire_hardware_steel': {"normal_scale": 1.0},

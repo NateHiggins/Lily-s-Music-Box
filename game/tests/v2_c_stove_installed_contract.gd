@@ -13,6 +13,15 @@ func _additional_checks(world: OrisonV2RuntimeRoot) -> void:
 	var plan: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(ProjectSettings.globalize_path("res://..").path_join("art/data/c_stove_stack/source_plan.json")))
 	var stock:=root.get_node_or_null("CStoveStack") as Node3D
 	_check(stock!=null and stock.find_children("*","MeshInstance3D",true,false).size()==4,"qualified native four-material stack is installed")
+	if stock==null:return
+	var surfaces:=preload("res://tests/v2_c_stove_surface_inspector.gd").new()
+	var surface_report: Dictionary=surfaces.inspect(stock)
+	_check(surfaces.failures==0,"all actual installed C-stack UV, tangent, PBR, normal and loaded-mip checks pass")
+	var surface_file:=FileAccess.open(OS.get_environment("SHOT_DIR").path_join("stove_surface_fragment.json"),FileAccess.WRITE)
+	_check(surface_file!=null,"open actual installed C-stack surface fragment")
+	if surface_file!=null:surface_file.store_string(JSON.stringify(surface_report,"\t"));surface_file.flush()
+	additional_contracts.c_stove_surfaces={"executed":true,"status":"PENDING","parts":surface_report.parts,"triangles":surface_report.triangles,"textures":surface_report.textures,"metric_checks":surface_report.metric_checks,"checks":surface_report.checks}
+	surfaces.free()
 	var proxy:=root.get_node("C_STOVE_FLUE") as Node3D
 	_check(not proxy.visible,"rectangular reservation render retired")
 	for body: CollisionObject3D in proxy.find_children("*","CollisionObject3D",true,false):_check(body.collision_layer==0,"native bore replaces generic reservation collision")

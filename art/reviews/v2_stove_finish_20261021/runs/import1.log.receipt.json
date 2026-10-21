@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 36.34,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T04:41:24Z",
+  "started_utc": "2026-10-21T04:40:48Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-stove-finish-20261021/import1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-stove-finish-20261021/import1.log",
+  "stdout_sha256": "56121205a6d95fa3627ea01ed94de70573504495b7c459a8ed4e873b2c86ee7a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 1012,
+  "dirty_sample": [
+   "M art/blender/c_stove_stack/c_stove_stack.blend",
+   " M art/blender/c_stove_stack/c_stove_stack.glb",
+   " M art/blender/c_stove_stack/native_review.json",
+   " M art/blender/c_stove_stack/open_crown.png",
+   " M art/blender/c_stove_stack/room_port.png",
+   " M art/blender/c_stove_stack/whole_stack.png",
+   " M art/blender/scripts/build_c_stove_stack.py",
+   " M art/data/c_stove_stack/source_plan.json",
+   " M art/data/gen_layout.py",
+   " M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json",
+   " M art/textures/catalog_mapping.json",
+   " M art/tools/generate_runtime_materials.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import"
+  ],
+  "repository_head": "d4f79495a22f2bcefb551fa25af7ce40171a8dbf",
+  "repository_tree": "c38c986004bb3a58ca928aefe5f21dac6b40fe50",
+  "runtime_inputs_sha256": "ae327c9c399d4f1cb40dd3402e848c1df79f83a03ee4b9ec21b278df044e1a0c",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

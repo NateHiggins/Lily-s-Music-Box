@@ -1,0 +1,21 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Source/export byte comparison only; no runtime grant.",
+  "assets": [
+    {
+      "asset": "game/assets/props/orison_ground.glb",
+      "geometry_export_byte_identical": true,
+      "sha256": "a0407841d1b759de086b388082c59e0edc69fc7bbfe68cde09a7674909d45c0d"
+    },
+    {
+      "asset": "game/assets/props/city_foundations.glb",
+      "geometry_export_byte_identical": true,
+      "sha256": "62b02a0194a4a5d332c2a39ae91f9f7f0defd601028806a17f6d33640f5d2ec9"
+    },
+    {
+      "asset": "game/assets/props/city_ground_apron.glb",
+      "geometry_export_byte_identical": true,
+      "sha256": "7ba6bfbc8badeb4b3c85c84e6dba8525f2e047be2d0f6dc96b0f57c50e319d3e"
+    }
+  ]
+}

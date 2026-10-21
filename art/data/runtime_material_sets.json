@@ -1162,6 +1162,34 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "stove_clinker": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.25,
+      "catalog_mapping": "procedural/stove_clinker",
+      "files": [
+        "T_ai_materials_stove_clinker_albedo.png",
+        "T_ai_materials_stove_clinker_rough.png",
+        "T_ai_materials_stove_clinker_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.25,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "stove_lime": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.25,
+      "catalog_mapping": "procedural/stove_lime",
+      "files": [
+        "T_ai_materials_stove_lime_albedo.png",
+        "T_ai_materials_stove_lime_rough.png",
+        "T_ai_materials_stove_lime_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.25,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "subway_tile": {
       "alpha": false,
       "canonical_meters_per_tile": 0.67,

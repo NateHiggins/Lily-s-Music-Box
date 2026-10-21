@@ -1,0 +1,52 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exported source only. Not Godot imported precision, loaded mipmaps, installation or runtime acceptance.",
+  "asset_sha256": "f216bf105a5e49e074d7fc9c7dc0ede676f903ca90fa7d23bb579795e62a35d9",
+  "surfaces": [
+    {
+      "material_key": "concrete",
+      "triangles": 220,
+      "exact_zero_triangles": 0,
+      "uv_noncollapsed": true,
+      "metric_max_excess_m": 1.6689300530448037e-07,
+      "metric_widest_ratio": 1.0000555617087614,
+      "minimum_tangent_dot": 0.9999903723516375,
+      "positive_handedness": true,
+      "pass": true
+    },
+    {
+      "material_key": "limewash_plaster",
+      "triangles": 1360,
+      "exact_zero_triangles": 0,
+      "uv_noncollapsed": true,
+      "metric_max_excess_m": 1.4269998735612355e-07,
+      "metric_widest_ratio": 1.0000103864975136,
+      "minimum_tangent_dot": 0.9999502312760213,
+      "positive_handedness": true,
+      "pass": true
+    },
+    {
+      "material_key": "stove_clinker",
+      "triangles": 139444,
+      "exact_zero_triangles": 0,
+      "uv_noncollapsed": true,
+      "metric_max_excess_m": 2.9801938916662607e-08,
+      "metric_widest_ratio": 1.0000956112494432,
+      "minimum_tangent_dot": 0.9999330149444732,
+      "positive_handedness": true,
+      "pass": true
+    },
+    {
+      "material_key": "stove_lime",
+      "triangles": 36980,
+      "exact_zero_triangles": 0,
+      "uv_noncollapsed": true,
+      "metric_max_excess_m": 1.563697003348699e-08,
+      "metric_widest_ratio": 1.0000269750151543,
+      "minimum_tangent_dot": 1.0,
+      "positive_handedness": true,
+      "pass": true
+    }
+  ],
+  "failures": 0
+}

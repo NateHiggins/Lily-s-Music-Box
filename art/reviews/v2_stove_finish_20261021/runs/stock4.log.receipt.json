@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 25.81,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T05:03:00Z",
+  "started_utc": "2026-10-21T05:02:34Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "C STOVE STOCK BENCH: PASS checks=81 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-stove-finish-20261021/stock4.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-stove-finish-20261021/stock4.log",
+  "stdout_sha256": "815e46395c2c857a06b84d098afbebfa5e76894faa840830ed770d043c199b9b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/v2_c_stove_stock_bench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_stove_finish_20261021/stock4",
+ "source": {
+  "dirty_paths": 1054,
+  "dirty_sample": [
+   "M art/blender/c_stove_stack/c_stove_stack.blend",
+   " M art/blender/c_stove_stack/c_stove_stack.glb",
+   " M art/blender/c_stove_stack/native_review.json",
+   " M art/blender/c_stove_stack/open_crown.png",
+   " M art/blender/c_stove_stack/room_port.png",
+   " M art/blender/c_stove_stack/whole_stack.png",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_foundations.blend",
+   " M art/blender/city_foundations_construction.json",
+   " M art/blender/city_ground_apron.blend",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/house_switchboard_construction.json",
+   " M art/blender/nook_readable_books_construction.json",
+   " M art/blender/orison_ground.blend",
+   " M art/blender/orison_ground_construction.json",
+   " M art/blender/readable_library_construction.json"
+  ],
+  "repository_head": "d4f79495a22f2bcefb551fa25af7ce40171a8dbf",
+  "repository_tree": "c38c986004bb3a58ca928aefe5f21dac6b40fe50",
+  "runtime_inputs_sha256": "7ea9f2b902fdaf0f3557e7ec25bf60f2fb2b4b0fb7d5a03d380f24c753ebb351",
+  "test_path": "game/tests/v2_c_stove_stock_bench.gd",
+  "test_sha256": "9363822958acfee9ce2f273b354cb0a6ba54231f708428224fd983230a2f3d45"
+ },
+ "windowed": true
+}

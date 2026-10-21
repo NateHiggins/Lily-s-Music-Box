@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Fired-clay stove masonry, recessed joints and loaded surface qualification | `design/V2_STOVE_MASONRY_FINISH_2026-10-21.md` |
 | Installed five-room stove stack, physical flue transmission and remaining appearance work | `design/V2_C_STOVE_INSTALLATION_2026-10-21.md` |
 | C-room stove-stack candidate, rejected bays and actual-world construction discovery | `design/V2_C_STOVE_STACK_STUDY_2026-10-20.md` |
 | Native sealed stove fitting, hand inspection and remaining C-stack installation | `design/V2_FLUE_BREAST_FITTING_2026-10-20.md` |

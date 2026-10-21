@@ -1,7 +1,7 @@
 extends RefCounted
 ## Native stock construction only. Caller owns layout, apertures and placement.
 const ASSET=preload("res://assets/props/c_stove_stack.glb")
-const STRENGTHS={"arcade_brick_face":1.0,"arcade_lime_mortar":1.0,"limewash_plaster":1.0,"concrete":.12}
+const STRENGTHS={"stove_clinker":1.0,"stove_lime":1.0,"limewash_plaster":1.0,"concrete":.12}
 
 static func build() -> Node3D:
 	var stock: Node3D=ASSET.instantiate()

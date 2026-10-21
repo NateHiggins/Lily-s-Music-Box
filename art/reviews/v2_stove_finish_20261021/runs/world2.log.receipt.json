@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 247.58,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T05:07:08Z",
+  "started_utc": "2026-10-21T05:03:00Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 ACOUSTIC VENTILATION: PASS checks=1537 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-stove-finish-20261021/world2.log.stderr",
+  "stderr_sha256": "bce65521d9caeb611da58e3f61aad8ed09e97348faa4f47e6880e9bf88783be0",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-stove-finish-20261021/world2.log",
+  "stdout_sha256": "b812414ecfb319989fde2799a033eb041b8088a3a81839fc5ce730ed2b5c001c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/v2_soil_renewal_contract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_stove_finish_20261021/world2",
+ "source": {
+  "dirty_paths": 1055,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/c_stove_stack/c_stove_stack.blend",
+   " M art/blender/c_stove_stack/c_stove_stack.glb",
+   " M art/blender/c_stove_stack/native_review.json",
+   " M art/blender/c_stove_stack/open_crown.png",
+   " M art/blender/c_stove_stack/room_port.png",
+   " M art/blender/c_stove_stack/whole_stack.png",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_foundations.blend",
+   " M art/blender/city_foundations_construction.json",
+   " M art/blender/city_ground_apron.blend",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/house_switchboard_construction.json",
+   " M art/blender/nook_readable_books_construction.json",
+   " M art/blender/orison_ground.blend",
+   " M art/blender/orison_ground_construction.json"
+  ],
+  "repository_head": "d4f79495a22f2bcefb551fa25af7ce40171a8dbf",
+  "repository_tree": "c38c986004bb3a58ca928aefe5f21dac6b40fe50",
+  "runtime_inputs_sha256": "7ea9f2b902fdaf0f3557e7ec25bf60f2fb2b4b0fb7d5a03d380f24c753ebb351",
+  "test_path": "game/tests/v2_soil_renewal_contract.gd",
+  "test_sha256": "7b0b85d51c45c29107cb46cbe77277e5dac3aae70a4bf3ff18e2cb648085fefa"
+ },
+ "windowed": true
+}

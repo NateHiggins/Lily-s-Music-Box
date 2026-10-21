@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 22.79,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T04:46:39Z",
+  "started_utc": "2026-10-21T04:46:16Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "C STOVE STOCK BENCH: PASS checks=80 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-stove-finish-20261021/stock2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-stove-finish-20261021/stock2.log",
+  "stdout_sha256": "399890d8a217ebb0e07065202ee85c6b073c8f2b0ef2dca33e0cd8285e3c7762"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/v2_c_stove_stock_bench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_stove_finish_20261021/stock2",
+ "source": {
+  "dirty_paths": 1014,
+  "dirty_sample": [
+   "M art/blender/c_stove_stack/c_stove_stack.blend",
+   " M art/blender/c_stove_stack/c_stove_stack.glb",
+   " M art/blender/c_stove_stack/native_review.json",
+   " M art/blender/c_stove_stack/open_crown.png",
+   " M art/blender/c_stove_stack/room_port.png",
+   " M art/blender/c_stove_stack/whole_stack.png",
+   " M art/blender/scripts/build_c_stove_stack.py",
+   " M art/data/c_stove_stack/source_plan.json",
+   " M art/data/gen_layout.py",
+   " M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json",
+   " M art/textures/catalog_mapping.json",
+   " M art/tools/generate_runtime_materials.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import"
+  ],
+  "repository_head": "d4f79495a22f2bcefb551fa25af7ce40171a8dbf",
+  "repository_tree": "c38c986004bb3a58ca928aefe5f21dac6b40fe50",
+  "runtime_inputs_sha256": "7ea9f2b902fdaf0f3557e7ec25bf60f2fb2b4b0fb7d5a03d380f24c753ebb351",
+  "test_path": "game/tests/v2_c_stove_stock_bench.gd",
+  "test_sha256": "56ef55c959638e242484cca8e72c3c17479818971e601dce23792d194d073ae3"
+ },
+ "windowed": true
+}

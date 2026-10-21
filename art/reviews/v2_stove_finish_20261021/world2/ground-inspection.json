@@ -1,0 +1,788 @@
+{
+	"checks": 28939,
+	"embedded_stations": 2,
+	"evidence_class": "INERT",
+	"failures": [],
+	"note": "Installed bounded ground only. Drainage, air-well, broader city and weather closure remain open.",
+	"original_reproduced": 45,
+	"parts": 2141,
+	"render_observations": [
+		{
+			"hidden": {
+				"draw_calls": 584,
+				"primitives": 607920
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 620,
+				"primitives": 608730
+			},
+			"view": "west_grade"
+		},
+		{
+			"hidden": {
+				"draw_calls": 2614,
+				"primitives": 4525527
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 2822,
+				"primitives": 4529133
+			},
+			"view": "north_grade"
+		},
+		{
+			"hidden": {
+				"draw_calls": 97,
+				"primitives": 430671
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 114,
+				"primitives": 431007
+			},
+			"view": "east_grade"
+		},
+		{
+			"hidden": {
+				"draw_calls": 2571,
+				"primitives": 3787735
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 3057,
+				"primitives": 3790863
+			},
+			"view": "boiler_air_reserved_below_alley"
+		},
+		{
+			"hidden": {
+				"draw_calls": 5134,
+				"primitives": 9493587
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 5908,
+				"primitives": 9497191
+			},
+			"view": "east_maint_route"
+		},
+		{
+			"hidden": {
+				"draw_calls": 1070,
+				"primitives": 1122819
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 1122,
+				"primitives": 1125991
+			},
+			"view": "courtyard_city_plinth"
+		},
+		{
+			"hidden": {
+				"draw_calls": 1837,
+				"primitives": 3891613
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 2256,
+				"primitives": 3894993
+			},
+			"view": "nw_row_clearance"
+		},
+		{
+			"hidden": {
+				"draw_calls": 14,
+				"primitives": 29296
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 19,
+				"primitives": 29338
+			},
+			"view": "rear_city_bedding"
+		},
+		{
+			"hidden": {
+				"draw_calls": 34,
+				"primitives": 28428
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 42,
+				"primitives": 28468
+			},
+			"view": "west_city_bedding"
+		},
+		{
+			"hidden": {
+				"draw_calls": 2398,
+				"primitives": 4100586
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 3165,
+				"primitives": 4104776
+			},
+			"view": "west_front_seam"
+		},
+		{
+			"hidden": {
+				"draw_calls": 4174,
+				"primitives": 7468111
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 4611,
+				"primitives": 7471957
+			},
+			"view": "front_east_recess"
+		},
+		{
+			"hidden": {
+				"draw_calls": 3847,
+				"primitives": 7042225
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 4270,
+				"primitives": 7045687
+			},
+			"view": "front_west_recess"
+		}
+	],
+	"results": [
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N5_P1/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-16.205,
+				0.0,
+				6.3
+			],
+			"post": "WestSouth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P1/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-15.305,
+				0.0,
+				6.3
+			],
+			"post": "WestSouth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "",
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				5.85
+			],
+			"post": "WestSouth",
+			"retained_components": [
+				"F01_Corner_ConstructionBound.011"
+			],
+			"source_qualified_revision": false,
+			"terrain_y": null
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P1/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				6.75
+			],
+			"post": "WestSouth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N5_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-16.205,
+				0.0,
+				9.1
+			],
+			"post": "WestMiddle",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-15.305,
+				0.0,
+				9.1
+			],
+			"post": "WestMiddle",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				8.65
+			],
+			"post": "WestMiddle",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				9.55
+			],
+			"post": "WestMiddle",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N5_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-16.205,
+				0.0,
+				11.755
+			],
+			"post": "WestNorth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-15.305,
+				0.0,
+				11.755
+			],
+			"post": "WestNorth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				11.305
+			],
+			"post": "WestNorth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P3/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				12.205
+			],
+			"post": "WestNorth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-13.4,
+				0.0,
+				9.1
+			],
+			"post": "BedroomMiddle",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-12.5,
+				0.0,
+				9.1
+			],
+			"post": "BedroomMiddle",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-12.95,
+				0.0,
+				8.65
+			],
+			"post": "BedroomMiddle",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N4_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-12.95,
+				0.0,
+				9.55
+			],
+			"post": "BedroomMiddle",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N3_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-10.595,
+				0.0,
+				11.755
+			],
+			"post": "EastNorth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N3_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-9.695,
+				0.0,
+				11.755
+			],
+			"post": "EastNorth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N3_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-10.145,
+				0.0,
+				11.305
+			],
+			"post": "EastNorth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N3_P3/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-10.145,
+				0.0,
+				12.205
+			],
+			"post": "EastNorth",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N2_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-6.155,
+				0.0,
+				11.755
+			],
+			"post": "North0",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N2_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-5.255,
+				0.0,
+				11.755
+			],
+			"post": "North0",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N2_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-5.705,
+				0.0,
+				11.305
+			],
+			"post": "North0",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N2_P3/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-5.705,
+				0.0,
+				12.205
+			],
+			"post": "North0",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-2.755,
+				0.0,
+				11.755
+			],
+			"post": "North1",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-1.855,
+				0.0,
+				11.755
+			],
+			"post": "North1",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-2.305,
+				0.0,
+				11.305
+			],
+			"post": "North1",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_N1_P3/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				-2.305,
+				0.0,
+				12.205
+			],
+			"post": "North1",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P0_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				0.475,
+				0.0,
+				11.755
+			],
+			"post": "North2",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P0_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				1.375,
+				0.0,
+				11.755
+			],
+			"post": "North2",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P0_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				0.925,
+				0.0,
+				11.305
+			],
+			"post": "North2",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0200000032782555
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P0_P3/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				0.925,
+				0.0,
+				12.205
+			],
+			"post": "North2",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"current_owner": "OrisonV2Blockout/CeilingTopClosures/B1_STORAGE_NORTH_BAY_Top_00_00_00Collision",
+			"original_reproduced": false,
+			"point": [
+				3.625,
+				0.0,
+				11.755
+			],
+			"post": "North3",
+			"retained_components": [],
+			"source_qualified_revision": true,
+			"terrain_y": 0.0
+		},
+		{
+			"current_owner": "OrisonV2Blockout/CeilingTopClosures/B1_STORAGE_NORTH_BAY_Top_00_00_00Collision",
+			"original_reproduced": false,
+			"point": [
+				4.525,
+				0.0,
+				11.755
+			],
+			"post": "North3",
+			"retained_components": [],
+			"source_qualified_revision": true,
+			"terrain_y": 0.0
+		},
+		{
+			"current_owner": "OrisonV2Blockout/CeilingTopClosures/B1_STORAGE_NORTH_BAY_Top_00_00_00Collision",
+			"original_reproduced": false,
+			"point": [
+				4.075,
+				0.0,
+				11.305
+			],
+			"post": "North3",
+			"retained_components": [],
+			"source_qualified_revision": true,
+			"terrain_y": 0.0
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P3/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				4.075,
+				0.0,
+				12.205
+			],
+			"post": "North3",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				6.755,
+				0.0,
+				11.755
+			],
+			"post": "North4",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_soil_P1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				7.655,
+				0.0,
+				11.755
+			],
+			"post": "North4",
+			"retained_components": [
+				"BoundaryMasonry.002_1"
+			],
+			"source_qualified_revision": false,
+			"terrain_y": -0.299999952316284
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				11.305
+			],
+			"post": "North4",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P3/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				12.205
+			],
+			"post": "North4",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P1/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				6.755,
+				0.0,
+				6.3
+			],
+			"post": "EastMiddleLow",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999883770943
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P1/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				7.655,
+				0.0,
+				6.3
+			],
+			"post": "EastMiddleLow",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P1/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				5.85
+			],
+			"post": "EastMiddleLow",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0200000032782555
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P1/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				6.75
+			],
+			"post": "EastMiddleLow",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0200000032782555
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				6.755,
+				0.0,
+				9.1
+			],
+			"post": "EastMiddleHigh",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				7.655,
+				0.0,
+				9.1
+			],
+			"post": "EastMiddleHigh",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				8.65
+			],
+			"post": "EastMiddleHigh",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"current_owner": "OrisonV2Blockout/Ground/orison_ground/Court_asphalt_P1_P2/GroundCollision",
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				9.55
+			],
+			"post": "EastMiddleHigh",
+			"retained_components": [],
+			"source_qualified_revision": false,
+			"terrain_y": -0.0199999958276749
+		}
+	],
+	"source_qualified_revisions": 3,
+	"terrain_contacts": 43,
+	"triangles": 9676
+}

@@ -16,7 +16,7 @@ layout_path=ROOT/'game/data/orison_v2_blockout.json';layout=json.loads(layout_pa
 assert hashlib.sha256(layout_path.read_bytes().replace(b'\r\n',b'\n')).hexdigest()==plan['source_bindings']['game/data/orison_v2_blockout.json']
 catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_bytes())['materials']
 cv=lambda p:Vector((p[0],-p[2],p[1]));bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
-keys=['arcade_brick_face','arcade_lime_mortar','limewash_plaster','concrete'];materials={};strengths=dict(zip(keys,[1.,1.,1.,.12]))
+keys=['stove_clinker','stove_lime','limewash_plaster','concrete'];materials={};strengths=dict(zip(keys,[1.,1.,1.,.12]))
 for key in keys:
     spec=catalog[key];material=bpy.data.materials.new(key);material.use_nodes=True;nodes=material.node_tree.nodes;links=material.node_tree.links;bsdf=nodes.get('Principled BSDF');bsdf.inputs['Metallic'].default_value=spec['metallic']
     for index,socket in enumerate(['Base Color','Roughness','Normal']):
@@ -42,6 +42,15 @@ def boring(obj,center_y,depth):
 
 def box(name,a,b,key,bevel=0.,ports=False):
     global bricks
+    rng=random.Random(name)
+    if key=='stove_lime':
+        # Recess only the exposed outer mortar faces; keep the closed native
+        # bed/head volumes and the exact inner airway datum.
+        a=list(a);b=list(b)
+        for axis,first,last in [(0,x0,x1),(2,z0,z1)]:
+            if abs(a[axis]-first)<1e-7:a[axis]+=.002
+            if abs(b[axis]-last)<1e-7:b[axis]-=.002
+    if name.startswith('Brick_'):bevel=rng.uniform(.0013,.0021)
     assert all(b[i]>a[i]+1e-7 for i in range(3)),(name,a,b)
     # Thousands of bpy.ops cube/transform/bevel calls repeatedly evaluate the
     # growing scene. Construct repeated stock directly; only real bores need
@@ -79,18 +88,25 @@ def box(name,a,b,key,bevel=0.,ports=False):
         for loop in face.loop_indices:
             p=mesh.vertices[mesh.loops[loop].vertex_index].co-first;uv.data[loop].uv=(origin[0]+p.dot(u)/tile,origin[1]+p.dot(v)/tile)
     assert repair_mesh(obj)==0,'Authored metric charts must not need an uncalibrated fallback: '+name
-    rng=random.Random(name);tone=rng.uniform(.83,1.05) if key=='arcade_brick_face' else 1.
+    tone=rng.uniform(.70,1.10) if key=='stove_clinker' else 1.
+    if key=='stove_clinker' and rng.random()<.12:tone*=rng.uniform(.50,.72)
     color=mesh.color_attributes.new(name='KilnVariation',type='FLOAT_COLOR',domain='POINT');mesh.color_attributes.active_color=color
-    for point in color.data:point.color=(tone,tone*.99,tone*.96,1.)
+    for index,point in enumerate(color.data):
+        p=mesh.vertices[index].co
+        soot=max(0.,min(1.,(p.z-(top-1.8))/1.8))**2
+        damp=.12*math.exp(-max(0.,p.z)*1.2)
+        streak=(.5+.5*math.sin(p.x*17.-p.y*11.))*.06
+        weather=1.-soot*.36-damp-streak if key in ['stove_clinker','stove_lime'] else 1.
+        point.color=(tone*weather,tone*weather*.98,tone*weather*.94,1.)
     mesh.materials.clear();mesh.materials.append(materials[key]);obj['material_key']=key
     bm=bmesh.new();bm.from_mesh(mesh);bad=sum(not e.is_manifold for e in bm.edges);volume=bm.calc_volume(signed=True);bm.free();mesh.calc_loop_triangles();coords=mesh.uv_layers.active.data
     collapsed=sum(abs((coords[t.loops[1]].uv-coords[t.loops[0]].uv).cross(coords[t.loops[2]].uv-coords[t.loops[0]].uv))<1e-12 for t in mesh.loop_triangles)
     zero=sum((mesh.vertices[t.vertices[1]].co-mesh.vertices[t.vertices[0]].co).cross(mesh.vertices[t.vertices[2]].co-mesh.vertices[t.vertices[0]].co).length_squared==0 for t in mesh.loop_triangles)
     assert bad==0 and volume>0 and collapsed==0 and zero==0,(name,bad,volume,collapsed,zero)
     checks.append({'id':name,'material_key':key,'volume_m3':volume,'nonmanifold_edges':bad,'collapsed_uv_triangles':collapsed,'zero_area_triangles':zero});parts.append(obj)
-    if key=='arcade_brick_face':bricks+=1
+    if key=='stove_clinker':bricks+=1
 
-course=0;y=low;joint=.003
+course=0;y=low;joint=.009
 while y<top-1e-7:
     end=min(top,y+.08);bed_end=min(end,y+joint)
     # Alternating full ends/full cheeks bond the corners without duplicate
@@ -99,24 +115,24 @@ while y<top-1e-7:
     else:runs=[(x0,z0,x1,z0+wall,0),(x0,z1-wall,x1,z1,0),(x0,z0+wall,x0+wall,z1-wall,2),(x1-wall,z0+wall,x1,z1-wall,2)]
     for run,(a,c,b,d,axis) in enumerate(runs):
         west=b<=x0+wall+.00001
-        box(f'Bed_{course:03d}_{run}',(a,y,c),(b,bed_end,d),'arcade_lime_mortar',ports=west)
+        box(f'Bed_{course:03d}_{run}',(a,y,c),(b,bed_end,d),'stove_lime',ports=west)
         length=(b-a) if axis==0 else (d-c);count=max(1,round(length/.23))
         for index in range(count):
             start=length*index/count;finish=length*(index+1)/count;head=joint if index<count-1 else 0.
             p=(a+start,bed_end,c) if axis==0 else (a,bed_end,c+start)
             q=(a+finish-head,end,d) if axis==0 else (b,end,c+finish-head)
-            box(f'Brick_{course:03d}_{run}_{index}',p,q,'arcade_brick_face',.0007,west)
+            box(f'Brick_{course:03d}_{run}_{index}',p,q,'stove_clinker',.0007,west)
             if head:
                 p=(a+finish-head,bed_end,c) if axis==0 else (a,bed_end,c+finish-head)
                 q=(a+finish,end,d) if axis==0 else (b,end,c+finish)
-                box(f'Head_{course:03d}_{run}_{index}',p,q,'arcade_lime_mortar',ports=west)
+                box(f'Head_{course:03d}_{run}_{index}',p,q,'stove_lime',ports=west)
     y=end;course+=1
     if course%40==0:print('C STACK:',course,'courses;',len(parts),'closed stocks',flush=True)
 
 for port in plan['ports']:
     a,b=port['plaster_patch_bounds'][:3],port['plaster_patch_bounds'][3:]
     box(port['id']+'_PlasterCollar',a,b,'limewash_plaster',ports=True)
-    box(port['id']+'_OuterLeafCollar',(b[0],a[1],a[2]),(x0,b[1],b[2]),'arcade_brick_face',ports=True)
+    box(port['id']+'_OuterLeafCollar',(b[0],a[1],a[2]),(x0,b[1],b[2]),'stove_clinker',ports=True)
 pad=.06
 box('ContinuousStackFooting',(x0-pad,plan['native_footing_bottom_y'],z0-pad),(x1+pad,low,z1+pad),'concrete',.002)
 for name,a,b in [('West',(x0-.05,top,z0-.05),(x0+wall,top+.12,z1+.05)),('East',(x1-wall,top,z0-.05),(x1+.05,top+.12,z1+.05)),('South',(x0+wall,top,z0-.05),(x1-wall,top+.12,z0+wall)),('North',(x0+wall,top,z1-wall),(x1-wall,top+.12,z1+.05))]:box('OpenCoping_'+name,a,b,'concrete',.003)

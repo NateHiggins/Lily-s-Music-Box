@@ -1,0 +1,28 @@
+{
+  "material": "stove_lime",
+  "status": "QUALIFICATION_PENDING",
+  "meters_per_tile": 0.25,
+  "generator": "art/tools/build_stove_masonry.py",
+  "generator_sha256_lf": "f597eb7c324a3bdec20ede6b2fa86c7229dfc0eceef8eedb157d996da871b41d",
+  "height_model": "periodic_independent_lime_aggregate_v1",
+  "height_storage_bits": 16,
+  "normal_strength": 1.0,
+  "relief_mm": 0.8041831912433287,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "6a271237d5877b76338bb9a6d747eb47c3064869ff7ab54741958bb09e5865e5",
+    "roughness": "9fa20a6c99f131c8a9da5dc26db3352a21f78e60d1d448a6e9dd81d0adabcc64",
+    "normal": "6a0c9961f77e673df898d8cbdfa826860f897b8d18563a5489d89b3eade7cdca",
+    "height": "77f595ebafe9bd751cc86b37f223c315c5718af7409de31a62756ec9e7e83e51"
+  },
+  "measurements": {
+    "normal_slope_rms": 0.1213786588099616,
+    "roughness_min": 0.8759481950308569,
+    "roughness_max": 0.9636170404032949
+  }
+}

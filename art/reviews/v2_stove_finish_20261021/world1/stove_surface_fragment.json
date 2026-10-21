@@ -1,0 +1,247 @@
+{
+	"checks": [
+		{
+			"label": "installed native finish: concrete",
+			"ok": true
+		},
+		{
+			"label": "authored calibrated texture chart: concrete",
+			"ok": true
+		},
+		{
+			"label": "actual normal and exposure-colour recipe: concrete",
+			"ok": true
+		},
+		{
+			"label": "actual anisotropic mip filtering: concrete",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: concrete",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_concrete_albedo.png",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: concrete",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_concrete_rough.png",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: concrete",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_concrete_normal.png",
+			"ok": true
+		},
+		{
+			"label": "installed native finish: limewash_plaster",
+			"ok": true
+		},
+		{
+			"label": "authored calibrated texture chart: limewash_plaster",
+			"ok": true
+		},
+		{
+			"label": "actual normal and exposure-colour recipe: limewash_plaster",
+			"ok": true
+		},
+		{
+			"label": "actual anisotropic mip filtering: limewash_plaster",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: limewash_plaster",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_limewash_plaster_albedo.png",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: limewash_plaster",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_limewash_plaster_rough.png",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: limewash_plaster",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_limewash_plaster_normal.png",
+			"ok": true
+		},
+		{
+			"label": "installed native finish: stove_clinker",
+			"ok": true
+		},
+		{
+			"label": "authored calibrated texture chart: stove_clinker",
+			"ok": true
+		},
+		{
+			"label": "actual normal and exposure-colour recipe: stove_clinker",
+			"ok": true
+		},
+		{
+			"label": "actual anisotropic mip filtering: stove_clinker",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: stove_clinker",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_stove_clinker_albedo.png",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: stove_clinker",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_stove_clinker_rough.png",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: stove_clinker",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_stove_clinker_normal.png",
+			"ok": true
+		},
+		{
+			"label": "installed native finish: stove_lime",
+			"ok": true
+		},
+		{
+			"label": "authored calibrated texture chart: stove_lime",
+			"ok": true
+		},
+		{
+			"label": "actual normal and exposure-colour recipe: stove_lime",
+			"ok": true
+		},
+		{
+			"label": "actual anisotropic mip filtering: stove_lime",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: stove_lime",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_stove_lime_albedo.png",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: stove_lime",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_stove_lime_rough.png",
+			"ok": true
+		},
+		{
+			"label": "custom physical map loaded: stove_lime",
+			"ok": true
+		},
+		{
+			"label": "actual complete loaded mip chain: res://assets/building/textures/T_ai_materials_stove_lime_normal.png",
+			"ok": true
+		},
+		{
+			"label": "four installed native batches and twelve loaded physical maps",
+			"ok": true
+		}
+	],
+	"failures": 0,
+	"metric_checks": 20,
+	"parts": 4,
+	"scope": "Actual installed C-stack surfaces only; no global or human appearance acceptance.",
+	"textures": {
+		"res://assets/building/textures/T_ai_materials_concrete_albedo.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_concrete_normal.png": {
+			"height": 512,
+			"levels": 9,
+			"mips": true,
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_concrete_rough.png": {
+			"height": 512,
+			"levels": 9,
+			"mips": true,
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_limewash_plaster_albedo.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_limewash_plaster_normal.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_limewash_plaster_rough.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_stove_clinker_albedo.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_stove_clinker_normal.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_stove_clinker_rough.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_stove_lime_albedo.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_stove_lime_normal.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_stove_lime_rough.png": {
+			"height": 1024,
+			"levels": 10,
+			"mips": true,
+			"width": 1024
+		}
+	},
+	"triangles": 178004
+}

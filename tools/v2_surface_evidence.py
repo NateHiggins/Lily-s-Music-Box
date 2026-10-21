@@ -95,6 +95,14 @@ def inputs(root=ROOT):
     # A changed native city/grade source must expire the old qualification,
     # even before its builder refreshes the installed export and fixture.
     paths.update(root/p for p in (
+        'art/data/c_stove_stack/source_plan.json',
+        'art/blender/c_stove_stack/c_stove_stack.blend',
+        'art/blender/c_stove_stack/native_review.json',
+        'art/blender/flue_breast_fitting/flue_breast_fitting.blend',
+        'art/blender/flue_breast_fitting/native_review.json',
+        'art/blender/flue_wall_thimble/flue_wall_thimble.blend',
+        'art/blender/flue_wall_thimble/native_review.json'))
+    paths.update(root/p for p in (
         'art/data/city_elevations/source_plan.json',
         'art/data/city_ground_apron/source_plan.json',
         'art/blender/city_elevations.blend',

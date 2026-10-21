@@ -40,6 +40,10 @@ surface pass grants no separate space or gameplay acceptance.
 
 After editor import, run the V2 import-policy check before composing a world.
 New nonignored source images must be covered even before Git staging.
+Use **python art/tools/fix_runtime_texture_imports.py --v2** for additions,
+then reimport and check **--v2 --check**. The generic mode fixes mip generation
+but does not apply V2's high-quality compression and RGB-normal policy; a loaded
+mip pass alone does not establish compliance with those import requirements.
 
 Check the shared loaded material ABI in the first small family bench. A new
 metric normal recipe must compare against its declared calibration, not an old

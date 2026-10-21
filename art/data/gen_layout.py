@@ -10613,6 +10613,8 @@ MATERIAL_CATALOG = {
     # Registered V2 finishes must survive layout/catalogue regeneration.
     'arcade_terrazzo': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'arcade_terrazzo_dark': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'stove_clinker': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'stove_lime': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'arcade_brick_face': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'arcade_brick_bond': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'arcade_lime_mortar': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},

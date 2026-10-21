@@ -2711,3 +2711,10 @@ art/reviews/v2_c_stove_stack_20261020/runs/*.stderr binary
 art/reviews/v2_c_stove_install_20261020/** -text whitespace=cr-at-eol
 art/reviews/v2_c_stove_install_20261020/runs/*.log binary
 art/reviews/v2_c_stove_install_20261020/runs/*.stderr binary
+
+# Source-bound stove masonry finish and retained rejected visual candidate.
+art/textures/procedural/stove_clinker/** -text
+art/textures/procedural/stove_lime/** -text
+art/reviews/v2_stove_finish_20261021/** -text whitespace=cr-at-eol
+art/reviews/v2_stove_finish_20261021/runs/*.log binary
+art/reviews/v2_stove_finish_20261021/runs/*.stderr binary

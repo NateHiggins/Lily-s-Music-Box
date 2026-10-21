@@ -1,0 +1,28 @@
+{
+  "material": "stove_clinker",
+  "status": "QUALIFICATION_PENDING",
+  "meters_per_tile": 0.25,
+  "generator": "art/tools/build_stove_masonry.py",
+  "generator_sha256_lf": "f597eb7c324a3bdec20ede6b2fa86c7229dfc0eceef8eedb157d996da871b41d",
+  "height_model": "periodic_independent_pressed_clay_v1",
+  "height_storage_bits": 16,
+  "normal_strength": 1.0,
+  "relief_mm": 1.0301048765621101,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "e95a1f1e8ea52e86ff10462b0b8bc3747ae4624fe0dc726a145774158d1b7a2a",
+    "roughness": "06c0744ddd621265e0bca0f3f1f93792d1becc99d2ae5370e8679de52a7731b7",
+    "normal": "ae77cff4ba1952e043bb9cafe6cf487931f315887f36b5e07373c9a63b7648ea",
+    "height": "9c0726c3a7e7fad07d71319100a04c508a84ff6bfd25f452395a5be2b45fa33a"
+  },
+  "measurements": {
+    "normal_slope_rms": 0.08844441507939181,
+    "roughness_min": 0.7647473667600743,
+    "roughness_max": 0.9631053621069705
+  }
+}
