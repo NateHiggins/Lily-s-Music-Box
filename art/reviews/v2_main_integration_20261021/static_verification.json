@@ -1,0 +1,182 @@
+{
+  "candidate": "09d8c07454741d54691321f541041db3db5398f6",
+  "base": "69235f4fbfed8e8c6c1d1816c2957dfae1945ef1",
+  "protected": {
+    "status": "PASS",
+    "matched": 17,
+    "authorized_selector_changes": 0,
+    "expected": 17,
+    "recorded_baseline_matches": 7,
+    "files": [
+      {
+        "path": "art/data/building_layout.json",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/data/building_layout.json",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/scripts/building/building_root_selector.gd",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_01.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_01.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_02.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_02.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_03.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_03.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_04.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_04.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_05.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_05.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_06.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_06.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_b1.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_b1.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      }
+    ]
+  },
+  "selector": {
+    "value": "v2",
+    "status": "PASS"
+  },
+  "doc_lint": [
+    {
+      "path": "design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
+      "level": "INFO",
+      "rule": "evidence-impact",
+      "message": "this document changes 7 requirement status(es): contract.B1_BOILER_01 SPATIALLY_PROVEN->RUNTIME_PROVEN, contract.F02_B_RADIATOR_01 SPATIALLY_PROVEN->RUNTIME_PROVEN, job.lena_radiator_round_2b PROGRAMMED->RUNTIME_PROVEN, ritual.F01_NIGHT_REGISTER SPATIALLY_PROVEN->RUNTIME_PROVEN, ritual.F01_SIGNAL_REGISTER SPATIALLY_PROVEN->RUNTIME_PROVEN, ritual.F01_TOUR_KEY_GUARD SPATIALLY_PROVEN->RUNTIME_PROVEN, ritual.F01_WATCHMAN_DETECTOR SPATIALLY_PROVEN->RUNTIME_PROVEN"
+    }
+  ],
+  "gate_changes": [
+    {
+      "status": "M",
+      "path": "tools/orison_spatial_dependency_manifest.json"
+    },
+    {
+      "status": "M",
+      "path": "tools/tests/test_additive_material_rebind.py"
+    },
+    {
+      "status": "A",
+      "path": "tools/tests/test_grade_source_snapshot.py"
+    },
+    {
+      "status": "A",
+      "path": "tools/tests/test_v2_acoustic_flue.py"
+    },
+    {
+      "status": "A",
+      "path": "tools/tests/test_v2_acoustic_heating.py"
+    },
+    {
+      "status": "M",
+      "path": "tools/tests/test_v2_acoustic_ventilation.py"
+    },
+    {
+      "status": "A",
+      "path": "tools/tests/test_v2_c_stove_stack_plan.py"
+    },
+    {
+      "status": "A",
+      "path": "tools/tests/test_v2_flue_airway_plan.py"
+    },
+    {
+      "status": "A",
+      "path": "tools/tests/test_v2_flue_native_evidence.py"
+    },
+    {
+      "status": "A",
+      "path": "tools/tests/test_v2_ground_probe_updates.py"
+    },
+    {
+      "status": "M",
+      "path": "tools/tests/test_v2_recipe_projections.py"
+    },
+    {
+      "status": "A",
+      "path": "tools/tests/test_v2_retained_grade_plan.py"
+    },
+    {
+      "status": "A",
+      "path": "tools/tests/test_v2_test_dependency_literals.py"
+    }
+  ],
+  "limitation": "Preserved unrelated untracked files prevent clean-checkout verifier qualification; direct checks do not claim MERGE-CANDIDATE."
+}
