@@ -21,10 +21,7 @@ func _route() -> void:
 	if not _require(world.mina_gameplay.dialogue.visible and player.call_locked,
 			"physical Mina opens the authored protected complaint dialogue"): return
 	await get_tree().create_timer(.4).timeout
-	var directory := OS.get_environment("SHOT_DIR")
-	if not directory.is_empty():
-		await RenderingServer.frame_post_draw
-		get_viewport().get_texture().get_image().save_png(directory.path_join("mina_complaint_open.png"))
+	await _capture_interaction("mina_complaint_open")
 	for i in 30:
 		if not world.mina_gameplay.dialogue.visible: break
 		world.mina_gameplay.dialogue.choose(0)

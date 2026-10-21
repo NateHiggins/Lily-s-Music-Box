@@ -1,5 +1,7 @@
 # Engine knowledge ledger
 
+Evidence class: **INERT**. Living observations, not acceptance.
+
 Status: living evidence record. This is not a claim that Orison is already a
 general-purpose engine. It records what this production has taught us, which
 parts appear reusable, and what must be separated or stabilized before reuse,
@@ -652,3 +654,15 @@ inputs separately—not package `GameBoot` as a service.
 - `design/ENGINE_DECISION_RECORD_TEMPLATE.md` now governs new systemic
   authority/contract/schema/save/proof decisions and requires an evidence-level
   ceiling, falsification condition and explicit ledger update on acceptance.
+
+## Diagnostic capture work in played profiles — 2026-10-21 (L1)
+
+A played route's synchronous GPU image readback and PNG encoding can dominate
+its apparent interaction spike. Measure those calls separately and disable
+photographs in the default timing run, retaining an explicit capture control.
+The counter control measured 18–24 ms readback and 252–259 ms PNG encoding;
+capture-free counter frame windows peaked at 68–81 ms. This corrects attribution,
+not production performance. Keep original samples and settings/cache limitations.
+Evidence: **design/V2_COUNTER_CAPTURE_DIAGNOSIS_2026-10-21.md** and
+**art/reviews/v2_counter_hitch_20261021/comparison.json**. This is an Orison-local
+Godot observation, not a reusable profiler or input-to-photon measurement.
