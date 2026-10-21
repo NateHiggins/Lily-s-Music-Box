@@ -1475,7 +1475,7 @@
 			"shared_cache_count": 84,
 			"status": "PASS",
 			"tracked_borrowed_shapes": 168,
-			"tracked_nodes": 155896,
+			"tracked_nodes": 155920,
 			"tracked_playbacks": 172,
 			"tracked_resources": 234
 		}
@@ -1483,7 +1483,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 414.781,
+		"elapsed_s": 419.96,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -3684,9 +3684,9 @@
 		}
 	],
 	"source": {
-		"physical_inputs_sha256": "4080213ef598948d04ced109e31b3a3ef53e2309d527e96190e4fac9f3b10fc2",
-		"repository_head": "f4f412589e8c8e279e6eeedc87a35ce0437e2c91",
-		"runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+		"physical_inputs_sha256": "75b37aad403e5879714228fe1cbb6a9609952a07ca514a91bb22e0d7ceda4e8a",
+		"repository_head": "7f88c9237e8525db0ed3433d0ee86e7f89c58350",
+		"runtime_inputs_sha256": "f0464f9e465bc50a69712f0d37edbd7ed68e526e664644be8cf7f6036b65b7ec",
 		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
 		"test_sha256": "884c1b94e63ed438bed885173aae490cee06f3aa71ad1d901007f32ba053a971"
 	}

@@ -56,6 +56,33 @@ read-only controls motivate further collision-query work before renewal; 60 FPS 
 unqualified. The old listening-head interaction remains migration debt even
 though the played-route assertions pass.
 
+## Source-bound renewal update — 2026-10-21 21:03 UTC
+
+Source checkpoint **7f88c923** is pushed. The frozen full surface run passes
+**40,140 checks**, zero failures and zero script errors, with **28,343 draws /
+18,210 meshes / 6,440 materials / 530 textures**. Twenty fresh representative
+surface views and the same-frozen-input installed 2A view were reviewed; small
+saturated lamp glints remain. The original 242 suite captures remain local.
+The independent packet validator passes, and publication preserves its preceding
+packet. This technical review grants no human appearance acceptance.
+
+The first-slice test passes **360 printed checks / 359 receipt checks** with
+actual disk save and CampaignShell rebuild. The upper/roof cohort passes
+**69 rooms / 11 collision-bearing legs / 993 checks / zero failures**.
+Both original packets independently verify and are published. Home, service,
+public-landing and region renewals remain pending; no final gate comparison or
+clean candidate certificate is claimed. Read-only checks match **17/17 protected
+paths** to the merge-base and retain **V2** selection; the reader gate has
+**zero NEW** unread fields.
+
+The exact-triangle collision partition is rejected: its played A/B/A does not
+establish a frame-time gain. Original failures, including one final metadata-write
+SCRIPT ERROR after restored shapes and completed walking, remain explicit in
+**design/V2_STAIR_TRIANGLE_DIAGNOSIS_2026-10-21.md**. A separate test-only
+step-contact diagnostic is queued behind qualification; production movement is
+unchanged. Its later installed inspection segment will measure Space entry,
+free-cursor targeting, constrained motion, release and exit in the playable world.
+
 ## Management checkpoint
 
 REPORT - V2-CASE-CALIBRATOR - 2026-10-21

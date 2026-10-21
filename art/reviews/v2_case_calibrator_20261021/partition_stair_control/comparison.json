@@ -1,0 +1,48 @@
+{
+  "evidence_class": "INERT",
+  "decision": "REJECTED: paired played route does not establish benefit; production triangles unchanged",
+  "route_waypoints": 27,
+  "failures": [],
+  "settings": "1280x720 Forward+ RTX4080 VSync off uncapped; ordered A/B/A; no cache reset",
+  "cycles": [
+    {
+      "cycle": "original_a_",
+      "frames": 462,
+      "p50_ms": 41.888,
+      "p95_ms": 162.243,
+      "p99_ms": 220.34,
+      "max_ms": 246.856,
+      "over100": 28,
+      "slow_physics_records": 549,
+      "max_step_ms": 82.882,
+      "max_slide_ms": 27.495
+    },
+    {
+      "cycle": "partition_b_",
+      "frames": 462,
+      "p50_ms": 40.997,
+      "p95_ms": 101.608,
+      "p99_ms": 223.959,
+      "max_ms": 246.362,
+      "over100": 25,
+      "slow_physics_records": 548,
+      "max_step_ms": 40.636,
+      "max_slide_ms": 27.604
+    },
+    {
+      "cycle": "restored_a_",
+      "frames": 511,
+      "p50_ms": 42.969,
+      "p95_ms": 98.135,
+      "p99_ms": 222.249,
+      "max_ms": 246.779,
+      "over100": 25,
+      "slow_physics_records": 548,
+      "max_step_ms": 82.199,
+      "max_slide_ms": 27.964
+    }
+  ],
+  "limitation": "partitions.json missing because prototype did not create output directory before write; raw frames and executed test source retained. No runtime qualification.",
+  "script_error_count": 1,
+  "run_verdict": "FAILED diagnostic metadata write; completed raw walking windows used only to reject candidate, never as runtime proof"
+}
