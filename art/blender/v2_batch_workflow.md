@@ -9,6 +9,23 @@ no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not
 proof of the current interaction contract.
 
+Before modeling a new continuous stack, compare its footprint against every
+storey's occupied rooms and retained structural stock. The service hall on one
+floor may be narrower than the others. Survey actual full-size standing
+capsules and wall datums with nearby furnishing owners present. A no-floor
+stair bulkhead cannot carry an assumed roof-slab connection. Roof weather
+envelopes may share the original floor's collision body; inspect its actual
+structural BoxShape3D children and continuous segment intervals separately.
+Retain failed authoring surveys; they do not become partial runtime acceptance.
+
+Construct large repeated stock with mesh/BMesh APIs rather than one scene-wide
+operator sequence per brick. Keep individual closed pieces in the editable
+file, then batch the export by material. Check exported float32 positions as
+well as native UVs: a boolean sliver can collapse when its placement is baked.
+Clean each stock at its eventual export coordinates before UV review; never
+repair the generated glTF by hand. Use Blender's --python-exit-code option so
+script errors cannot masquerade as a successful native build.
+
 Run the static gate board early and inspect each new failure before a combined
 world run. Reconcile additive catalogue bindings and new spatial references,
 then freeze rendering inputs. Keep existing cohort-receipt debt explicit; a

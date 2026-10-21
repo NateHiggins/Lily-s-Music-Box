@@ -1,0 +1,210 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ACCESS COHORT CHECK: bind current production inputs = true
+ACCESS COHORT CHECK: bind current geometry/surface inputs = true
+ACCESS COHORT CHECK: actual entry scene is source-bound = true
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1486 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2591
+[ORISON V2 RUNTIME] ready startup_ms=104088.460
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+ACCESS COHORT CHECK: current V2 starts before source design is projected = true
+ACCESS COHORT CHECK: explicit authoring discovery destination = true
+ACCESS COHORT CHECK: actual original room-side wall datum: F02_FLUE_BREAST = false
+ACCESS COHORT CHECK: real standing capsule fits candidate service stance: F02_FLUE_BREAST ["OrisonV2Blockout/F02_C_BED2/WallSouth_02/Collision", "OrisonV2Blockout/F02_C_BED2_SWITCH"] = false
+ACCESS COHORT CHECK: actual furnished-room cursor reaches candidate closure: F02_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room hand gesture completes: F02_FLUE_BREAST = true
+[HARUKIYA] OPEN, 18 fixtures
+ACCESS COHORT CHECK: candidate reseats in actual room: F02_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room candidate frame: F02_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual original room-side wall datum: F03_FLUE_BREAST = true
+ACCESS COHORT CHECK: real standing capsule fits candidate service stance: F03_FLUE_BREAST [] = true
+ACCESS COHORT CHECK: actual furnished-room cursor reaches candidate closure: F03_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room hand gesture completes: F03_FLUE_BREAST = true
+ACCESS COHORT CHECK: candidate reseats in actual room: F03_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room candidate frame: F03_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual original room-side wall datum: F04_FLUE_BREAST = true
+ACCESS COHORT CHECK: real standing capsule fits candidate service stance: F04_FLUE_BREAST ["OrisonV2Blockout/F04_C_BED2_SWITCH", "OrisonV2Blockout/F04_C_BED2/WallSouth_02/Collision"] = false
+ACCESS COHORT CHECK: actual furnished-room cursor reaches candidate closure: F04_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room hand gesture completes: F04_FLUE_BREAST = true
+ACCESS COHORT CHECK: candidate reseats in actual room: F04_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room candidate frame: F04_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual original room-side wall datum: F05_FLUE_BREAST = true
+ACCESS COHORT CHECK: real standing capsule fits candidate service stance: F05_FLUE_BREAST ["OrisonV2Blockout/F05_C_BED2_SWITCH", "OrisonV2Blockout/F05_C_BED2/WallSouth_02/Collision"] = false
+ACCESS COHORT CHECK: actual furnished-room cursor reaches candidate closure: F05_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room hand gesture completes: F05_FLUE_BREAST = true
+ACCESS COHORT CHECK: candidate reseats in actual room: F05_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room candidate frame: F05_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual original room-side wall datum: F06_FLUE_BREAST = true
+ACCESS COHORT CHECK: real standing capsule fits candidate service stance: F06_FLUE_BREAST ["OrisonV2Blockout/F06_C_BED2_SWITCH", "OrisonV2Blockout/F06_C_BED2/WallSouth_02/Collision"] = false
+ACCESS COHORT CHECK: actual furnished-room cursor reaches candidate closure: F06_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room hand gesture completes: F06_FLUE_BREAST = true
+ACCESS COHORT CHECK: candidate reseats in actual room: F06_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual furnished-room candidate frame: F06_FLUE_BREAST = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/0 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [7.22000026702881, 19.2810516357422, 8.20000076293945], "segment": 0, "step": 0 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/1 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [7.31974697113037, 19.2800540924072, 8.20000076293945], "segment": 0, "step": 1 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/2 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [7.41949367523193, 19.2790565490723, 8.20000076293945], "segment": 0, "step": 2 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/3 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [7.5192403793335, 19.2780590057373, 8.20000076293945], "segment": 0, "step": 3 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/4 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [7.61898708343506, 19.2770614624023, 8.20000076293945], "segment": 0, "step": 4 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/5 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [7.71873426437378, 19.2760639190674, 8.20000076293945], "segment": 0, "step": 5 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/6 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [7.81848096847534, 19.2750663757324, 8.20000076293945], "segment": 0, "step": 6 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/7 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [7.9182276725769, 19.2740688323975, 8.20000076293945], "segment": 0, "step": 7 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/8 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.01797485351563, 19.2730712890625, 8.20000076293945], "segment": 0, "step": 8 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/9 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.11772155761719, 19.2720737457275, 8.20000076293945], "segment": 0, "step": 9 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/10 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.21746826171875, 19.2710762023926, 8.20000076293945], "segment": 0, "step": 10 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/11 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.31721496582031, 19.2700786590576, 8.20000076293945], "segment": 0, "step": 11 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/12 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.41696166992188, 19.2690811157227, 8.20000076293945], "segment": 0, "step": 12 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/13 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.51670837402344, 19.2680835723877, 8.20000076293945], "segment": 0, "step": 13 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/14 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.616455078125, 19.2670860290527, 8.20000076293945], "segment": 0, "step": 14 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/15 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.7162036895752, 19.2660884857178, 8.20000076293945], "segment": 0, "step": 15 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/16 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.81595039367676, 19.2650909423828, 8.20000076293945], "segment": 0, "step": 16 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/17 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [8.91569709777832, 19.2640933990479, 8.20000076293945], "segment": 0, "step": 17 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/18 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [9.01544380187988, 19.2630958557129, 8.20000076293945], "segment": 0, "step": 18 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/19 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [9.11519050598145, 19.2620983123779, 8.20000076293945], "segment": 0, "step": 19 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/20 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [9.21493721008301, 19.261100769043, 8.20000076293945], "segment": 0, "step": 20 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/21 { "owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision", "position": [9.31468391418457, 19.260103225708, 8.20000076293945], "segment": 0, "step": 21 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/22 { "owner": "OrisonV2Blockout/RoofBaseFlashings/RoofBase_09_01_galvanized_roofCollision", "position": [9.41443061828613, 19.2603073120117, 8.20000076293945], "segment": 0, "step": 22 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/23 { "owner": "OrisonV2Blockout/F06_SERVICE_CORE/WallWest_02/Collision", "position": [9.5141773223877, 19.2000007629395, 8.20000076293945], "segment": 0, "step": 23 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/24 { "owner": "none", "segment": 0, "step": 24 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/25 { "owner": "none", "segment": 0, "step": 25 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/26 { "owner": "none", "segment": 0, "step": 26 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/27 { "owner": "none", "segment": 0, "step": 27 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/28 { "owner": "none", "segment": 0, "step": 28 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/29 { "owner": "none", "segment": 0, "step": 29 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/30 { "owner": "none", "segment": 0, "step": 30 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/31 { "owner": "none", "segment": 0, "step": 31 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/32 { "owner": "none", "segment": 0, "step": 32 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/33 { "owner": "none", "segment": 0, "step": 33 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/34 { "owner": "none", "segment": 0, "step": 34 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/35 { "owner": "none", "segment": 0, "step": 35 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/36 { "owner": "none", "segment": 0, "step": 36 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/37 { "owner": "none", "segment": 0, "step": 37 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/38 { "owner": "none", "segment": 0, "step": 38 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/39 { "owner": "none", "segment": 0, "step": 39 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/40 { "owner": "none", "segment": 0, "step": 40 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/41 { "owner": "none", "segment": 0, "step": 41 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/42 { "owner": "none", "segment": 0, "step": 42 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/43 { "owner": "none", "segment": 0, "step": 43 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/44 { "owner": "none", "segment": 0, "step": 44 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/45 { "owner": "none", "segment": 0, "step": 45 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/46 { "owner": "none", "segment": 0, "step": 46 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/47 { "owner": "none", "segment": 0, "step": 47 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/48 { "owner": "none", "segment": 0, "step": 48 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/49 { "owner": "none", "segment": 0, "step": 49 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/50 { "owner": "none", "segment": 0, "step": 50 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/51 { "owner": "none", "segment": 0, "step": 51 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/52 { "owner": "none", "segment": 0, "step": 52 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/53 { "owner": "none", "segment": 0, "step": 53 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/54 { "owner": "none", "segment": 0, "step": 54 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/55 { "owner": "none", "segment": 0, "step": 55 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/56 { "owner": "none", "segment": 0, "step": 56 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/57 { "owner": "none", "segment": 0, "step": 57 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/58 { "owner": "none", "segment": 0, "step": 58 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/59 { "owner": "none", "segment": 0, "step": 59 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/60 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [13.2048101425171, 19.2000007629395, 8.19999885559082], "segment": 0, "step": 60 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/61 { "owner": "OrisonV2Blockout/RoofBaseFlashings/RoofBase_06_02_galvanized_roofCollision", "position": [13.304557800293, 19.2674961090088, 8.19999885559082], "segment": 0, "step": 61 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/62 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [13.4043045043945, 19.2672939300537, 8.19999694824219], "segment": 0, "step": 62 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/63 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [13.5040512084961, 19.2682914733887, 8.19999694824219], "segment": 0, "step": 63 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/64 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [13.6037979125977, 19.2692890167236, 8.19999694824219], "segment": 0, "step": 64 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/65 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [13.7035446166992, 19.2702865600586, 8.19999694824219], "segment": 0, "step": 65 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/66 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [13.8032913208008, 19.2712841033936, 8.19999694824219], "segment": 0, "step": 66 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/67 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [13.9030380249023, 19.2722816467285, 8.19999694824219], "segment": 0, "step": 67 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/68 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.0027847290039, 19.2732791900635, 8.19999694824219], "segment": 0, "step": 68 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/69 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.1025314331055, 19.2742767333984, 8.19999694824219], "segment": 0, "step": 69 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/70 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.2022790908813, 19.2752742767334, 8.19999694824219], "segment": 0, "step": 70 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/71 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.3020248413086, 19.2762718200684, 8.19999694824219], "segment": 0, "step": 71 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/72 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.4017724990845, 19.2772693634033, 8.19999694824219], "segment": 0, "step": 72 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/73 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.501519203186, 19.2782669067383, 8.19999694824219], "segment": 0, "step": 73 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/74 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.6012668609619, 19.2792625427246, 8.19999694824219], "segment": 0, "step": 74 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/75 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.7010135650635, 19.2802600860596, 8.19999694824219], "segment": 0, "step": 75 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/76 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.800760269165, 19.2812595367432, 8.19999694824219], "segment": 0, "step": 76 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/77 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [14.9005069732666, 19.2822551727295, 8.19999694824219], "segment": 0, "step": 77 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/78 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.0002536773682, 19.2832546234131, 8.19999694824219], "segment": 0, "step": 78 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 0/79 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2842502593994, 8.19999694824219], "segment": 0, "step": 79 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/0 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2842502593994, 8.19999694824219], "segment": 1, "step": 0 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/1 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2852420806885, 8.1008186340332], "segment": 1, "step": 1 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/2 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2862339019775, 8.00163650512695], "segment": 1, "step": 2 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/3 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2872257232666, 7.90245819091797], "segment": 1, "step": 3 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/4 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2882175445557, 7.80327796936035], "segment": 1, "step": 4 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/5 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2892093658447, 7.70409774780273], "segment": 1, "step": 5 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/6 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2000007629395, 7.60491752624512], "segment": 1, "step": 6 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/7 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2000007629395, 7.5057373046875], "segment": 1, "step": 7 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/8 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2000007629395, 7.40655708312988], "segment": 1, "step": 8 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/9 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2000007629395, 7.30737686157227], "segment": 1, "step": 9 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/10 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2000007629395, 7.20819664001465], "segment": 1, "step": 10 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/11 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2000007629395, 7.10901641845703], "segment": 1, "step": 11 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/12 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2893486022949, 7.00983619689941], "segment": 1, "step": 12 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/13 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2883567810059, 6.9106559753418], "segment": 1, "step": 13 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/14 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2873649597168, 6.81147384643555], "segment": 1, "step": 14 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/15 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2863750457764, 6.71229553222656], "segment": 1, "step": 15 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/16 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2853813171387, 6.61311340332031], "segment": 1, "step": 16 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/17 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2843894958496, 6.5139331817627], "segment": 1, "step": 17 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/18 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2833976745605, 6.41475296020508], "segment": 1, "step": 18 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/19 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2824058532715, 6.31557273864746], "segment": 1, "step": 19 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/20 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2814140319824, 6.21639251708984], "segment": 1, "step": 20 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/21 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.280424118042, 6.11721229553223], "segment": 1, "step": 21 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/22 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2794322967529, 6.01803207397461], "segment": 1, "step": 22 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/23 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2784385681152, 5.91885185241699], "segment": 1, "step": 23 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/24 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2774467468262, 5.81967163085938], "segment": 1, "step": 24 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/25 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2764568328857, 5.72049140930176], "segment": 1, "step": 25 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/26 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2754650115967, 5.62131118774414], "segment": 1, "step": 26 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/27 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.274471282959, 5.52213096618652], "segment": 1, "step": 27 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/28 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000022888184, 19.2734813690186, 5.42295074462891], "segment": 1, "step": 28 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/29 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000022888184, 19.2724895477295, 5.32377052307129], "segment": 1, "step": 29 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/30 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000022888184, 19.2714977264404, 5.22459030151367], "segment": 1, "step": 30 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/31 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000022888184, 19.2705059051514, 5.12541007995605], "segment": 1, "step": 31 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/32 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000022888184, 19.2695140838623, 5.02622985839844], "segment": 1, "step": 32 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/33 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000022888184, 19.2685222625732, 4.92704772949219], "segment": 1, "step": 33 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/34 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000022888184, 19.2675285339355, 4.8278694152832], "segment": 1, "step": 34 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/35 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000022888184, 19.2665367126465, 4.72868728637695], "segment": 1, "step": 35 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/36 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2655448913574, 4.62950706481934], "segment": 1, "step": 36 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/37 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2645530700684, 4.53032684326172], "segment": 1, "step": 37 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/38 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2635612487793, 4.4311466217041], "segment": 1, "step": 38 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/39 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2625713348389, 4.3319673538208], "segment": 1, "step": 39 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/40 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2615795135498, 4.23278713226318], "segment": 1, "step": 40 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/41 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2605857849121, 4.13360691070557], "segment": 1, "step": 41 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/42 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2595958709717, 4.03442668914795], "segment": 1, "step": 42 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/43 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2586040496826, 3.93524646759033], "segment": 1, "step": 43 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/44 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2576122283936, 3.83606624603271], "segment": 1, "step": 44 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/45 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2566204071045, 3.7368860244751], "segment": 1, "step": 45 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/46 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2556285858154, 3.63770580291748], "segment": 1, "step": 46 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/47 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2546367645264, 3.53852558135986], "segment": 1, "step": 47 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/48 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2536430358887, 3.43934535980225], "segment": 1, "step": 48 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/49 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2526512145996, 3.34016513824463], "segment": 1, "step": 49 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/50 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2516593933105, 3.24098491668701], "segment": 1, "step": 50 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/51 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2506694793701, 3.14180469512939], "segment": 1, "step": 51 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/52 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2496776580811, 3.04262447357178], "segment": 1, "step": 52 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/53 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.248685836792, 2.94344425201416], "segment": 1, "step": 53 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/54 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2476940155029, 2.84426212310791], "segment": 1, "step": 54 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/55 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2467002868652, 2.74508190155029], "segment": 1, "step": 55 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/56 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2457084655762, 2.64590167999268], "segment": 1, "step": 56 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/57 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.1000003814697, 19.2447185516357, 2.54672145843506], "segment": 1, "step": 57 } = false
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/58 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.0999994277954, 19.2000007629395, 2.44754219055176], "segment": 1, "step": 58 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/59 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.0999994277954, 19.2000007629395, 2.34836196899414], "segment": 1, "step": 59 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/60 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.0999994277954, 19.2000007629395, 2.24918174743652], "segment": 1, "step": 60 } = true
+ACCESS COHORT CHECK: actual retained structural roof contact: 1/61 { "owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision", "position": [15.0999994277954, 19.2000007629395, 2.15000152587891], "segment": 1, "step": 61 } = true
+ACCESS COHORT CHECK: bind current production inputs = true
+ACCESS COHORT CHECK: bind current geometry/surface inputs = true
+ACCESS COHORT CHECK: actual entry scene is source-bound = true
+ACCESS COHORT CHECK: survey source and actual rendering inputs remain fixed = true
+C STOVE STACK SURVEY: FAIL rooms=5 roof_samples=142 failures=135

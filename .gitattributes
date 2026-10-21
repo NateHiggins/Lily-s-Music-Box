@@ -2693,3 +2693,16 @@ game/tests/v2_flue_breast_bench.tscn -text
 art/reviews/v2_flue_breast_20261020/** -text whitespace=cr-at-eol
 art/reviews/v2_flue_breast_20261020/runs/*.log binary
 art/reviews/v2_flue_breast_20261020/runs/*.stderr binary
+
+# Candidate stove-stack source and retained authoring observations.
+art/data/c_stove_stack/** -text whitespace=cr-at-eol
+art/blender/c_stove_stack/** -text
+game/assets/props/c_stove_stack.glb -text
+game/assets/props/c_stove_stack.glb.import -text
+game/tests/v2_c_stove_stack_survey.gd -text
+game/tests/v2_c_stove_stack_survey.tscn -text
+game/tests/v2_c_stove_stock_bench.gd -text
+game/tests/v2_c_stove_stock_bench.tscn -text
+art/reviews/v2_c_stove_stack_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_c_stove_stack_20261020/runs/*.log binary
+art/reviews/v2_c_stove_stack_20261020/runs/*.stderr binary

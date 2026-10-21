@@ -1,0 +1,48 @@
+{
+  "evidence_class": "INERT",
+  "assets": [
+    {
+      "path": "art/blender/c_stove_stack/c_stove_stack.glb",
+      "surfaces": [
+        {
+          "mesh": "Brick_000_0_0",
+          "surface": 0,
+          "missing_uv": false,
+          "nonfinite_uv": 0,
+          "collapsed_uv_triangles": 0,
+          "triangles": 139720,
+          "degenerate_geometry_triangles": 0
+        },
+        {
+          "mesh": "Bed_000_0",
+          "surface": 0,
+          "missing_uv": false,
+          "nonfinite_uv": 0,
+          "collapsed_uv_triangles": 8,
+          "triangles": 36908,
+          "degenerate_geometry_triangles": 0
+        },
+        {
+          "mesh": "ContinuousStackFooting",
+          "surface": 0,
+          "missing_uv": false,
+          "nonfinite_uv": 0,
+          "collapsed_uv_triangles": 0,
+          "triangles": 220,
+          "degenerate_geometry_triangles": 0
+        },
+        {
+          "mesh": "F02_FLUE_BREAST_PlasterCollar",
+          "surface": 0,
+          "missing_uv": false,
+          "nonfinite_uv": 0,
+          "collapsed_uv_triangles": 0,
+          "triangles": 1360,
+          "degenerate_geometry_triangles": 0
+        }
+      ],
+      "failures": 1
+    }
+  ],
+  "failures": 1
+}

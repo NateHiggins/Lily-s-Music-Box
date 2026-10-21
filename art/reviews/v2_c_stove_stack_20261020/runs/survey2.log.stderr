@@ -1,0 +1,10 @@
+WARNING: 'res://assets/characters/mina_vale/mina_vale.gltf': In external resource #0, invalid UID: 'uid://kdyj8wrgb6be' - using text path instead: 'res://assets/characters/mina_vale/texture_0.png'.
+   at: open (core/io/resource_format_binary.cpp:1025)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/characters/animated_resident.gd:39)
+       [1] setup (res://scripts/characters/orison_v2_mina_routine.gd:83)
+       [2] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:590)
+       [3] _ready (res://scripts/building/orison_v2_runtime_root.gd:183)
+       [4] _run (res://tests/v2_c_stove_stack_survey.gd:14)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

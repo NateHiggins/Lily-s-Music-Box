@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT",
+  "scope": "Authored physical candidate. Native, actual-room contact, masonry connection and source renewal required before acceptance.",
+  "riser": {
+    "id": "C_STOVE_FLUE",
+    "rect": [
+      7.449999999999999,
+      9.700000000000001,
+      8.03,
+      10.4
+    ],
+    "from_y": -3.2,
+    "to_y": 19.2,
+    "class": "service"
+  },
+  "native_top_y": 21.36,
+  "native_footing_bottom_y": -3.6,
+  "wall_m": 0.1,
+  "ports": [
+    {
+      "id": "F02_FLUE_BREAST",
+      "level": "F02",
+      "space": "F02_C_BED2",
+      "unit": "2C",
+      "position": [
+        7.028,
+        0,
+        10.05
+      ],
+      "center_y": 4.640000000000001,
+      "yaw": 1.5707963267948966,
+      "plaster_patch_bounds": [
+        7.029999999999999,
+        4.49,
+        9.9,
+        7.17,
+        4.790000000000001,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F03_FLUE_BREAST",
+      "level": "F03",
+      "space": "F03_C_RESTRICTED",
+      "unit": "3C",
+      "position": [
+        7.028,
+        0,
+        10.05
+      ],
+      "center_y": 7.84,
+      "yaw": 1.5707963267948966,
+      "plaster_patch_bounds": [
+        7.029999999999999,
+        7.6899999999999995,
+        9.9,
+        7.17,
+        7.99,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F04_FLUE_BREAST",
+      "level": "F04",
+      "space": "F04_C_BED2",
+      "unit": "4C",
+      "position": [
+        7.028,
+        0,
+        10.05
+      ],
+      "center_y": 11.04,
+      "yaw": 1.5707963267948966,
+      "plaster_patch_bounds": [
+        7.029999999999999,
+        10.889999999999999,
+        9.9,
+        7.17,
+        11.19,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F05_FLUE_BREAST",
+      "level": "F05",
+      "space": "F05_C_BED2",
+      "unit": "5C",
+      "position": [
+        7.028,
+        0,
+        10.05
+      ],
+      "center_y": 14.24,
+      "yaw": 1.5707963267948966,
+      "plaster_patch_bounds": [
+        7.029999999999999,
+        14.09,
+        9.9,
+        7.17,
+        14.39,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F06_FLUE_BREAST",
+      "level": "F06",
+      "space": "F06_C_BED2",
+      "unit": "6C",
+      "position": [
+        7.028,
+        0,
+        10.05
+      ],
+      "center_y": 17.44,
+      "yaw": 1.5707963267948966,
+      "plaster_patch_bounds": [
+        7.029999999999999,
+        17.290000000000003,
+        9.9,
+        7.17,
+        17.59,
+        10.200000000000001
+      ]
+    }
+  ],
+  "wall_service_openings": [
+    {
+      "id": "F02_FLUE_BREAST_WALL_PORT",
+      "space": "F02_C_BED2",
+      "side": "east",
+      "bounds": [
+        7.029999999999999,
+        4.49,
+        9.9,
+        7.17,
+        4.790000000000001,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F03_FLUE_BREAST_WALL_PORT",
+      "space": "F03_C_RESTRICTED",
+      "side": "east",
+      "bounds": [
+        7.029999999999999,
+        7.6899999999999995,
+        9.9,
+        7.17,
+        7.99,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F04_FLUE_BREAST_WALL_PORT",
+      "space": "F04_C_BED2",
+      "side": "east",
+      "bounds": [
+        7.029999999999999,
+        10.889999999999999,
+        9.9,
+        7.17,
+        11.19,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F05_FLUE_BREAST_WALL_PORT",
+      "space": "F05_C_BED2",
+      "side": "east",
+      "bounds": [
+        7.029999999999999,
+        14.09,
+        9.9,
+        7.17,
+        14.39,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F06_FLUE_BREAST_WALL_PORT",
+      "space": "F06_C_BED2",
+      "side": "east",
+      "bounds": [
+        7.029999999999999,
+        17.290000000000003,
+        9.9,
+        7.17,
+        17.59,
+        10.200000000000001
+      ]
+    }
+  ],
+  "riser_openings": [
+    {
+      "id": "C_STOVE_FLUE_AIRWAY",
+      "riser": "C_STOVE_FLUE",
+      "bounds": [
+        7.549999999999999,
+        -3.1,
+        9.8,
+        7.93,
+        19.2,
+        10.3
+      ]
+    },
+    {
+      "id": "F02_FLUE_BREAST_STACK_PORT",
+      "riser": "C_STOVE_FLUE",
+      "bounds": [
+        7.449999999999999,
+        4.500000000000001,
+        9.91,
+        7.550999999999999,
+        4.78,
+        10.190000000000001
+      ]
+    },
+    {
+      "id": "F03_FLUE_BREAST_STACK_PORT",
+      "riser": "C_STOVE_FLUE",
+      "bounds": [
+        7.449999999999999,
+        7.7,
+        9.91,
+        7.550999999999999,
+        7.9799999999999995,
+        10.190000000000001
+      ]
+    },
+    {
+      "id": "F04_FLUE_BREAST_STACK_PORT",
+      "riser": "C_STOVE_FLUE",
+      "bounds": [
+        7.449999999999999,
+        10.899999999999999,
+        9.91,
+        7.550999999999999,
+        11.18,
+        10.190000000000001
+      ]
+    },
+    {
+      "id": "F05_FLUE_BREAST_STACK_PORT",
+      "riser": "C_STOVE_FLUE",
+      "bounds": [
+        7.449999999999999,
+        14.1,
+        9.91,
+        7.550999999999999,
+        14.38,
+        10.190000000000001
+      ]
+    },
+    {
+      "id": "F06_FLUE_BREAST_STACK_PORT",
+      "riser": "C_STOVE_FLUE",
+      "bounds": [
+        7.449999999999999,
+        17.3,
+        9.91,
+        7.550999999999999,
+        17.580000000000002,
+        10.190000000000001
+      ]
+    }
+  ],
+  "masonry_service_openings": [
+    {
+      "id": "F02_FLUE_BREAST_OUTER_LEAF_PORT",
+      "owner": "ExteriorMasonry",
+      "bounds": [
+        7.17,
+        4.49,
+        9.9,
+        7.449999999999999,
+        4.790000000000001,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F03_FLUE_BREAST_OUTER_LEAF_PORT",
+      "owner": "ExteriorMasonry",
+      "bounds": [
+        7.17,
+        7.6899999999999995,
+        9.9,
+        7.449999999999999,
+        7.99,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F04_FLUE_BREAST_OUTER_LEAF_PORT",
+      "owner": "ExteriorMasonry",
+      "bounds": [
+        7.17,
+        10.889999999999999,
+        9.9,
+        7.449999999999999,
+        11.19,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F05_FLUE_BREAST_OUTER_LEAF_PORT",
+      "owner": "ExteriorMasonry",
+      "bounds": [
+        7.17,
+        14.09,
+        9.9,
+        7.449999999999999,
+        14.39,
+        10.200000000000001
+      ]
+    },
+    {
+      "id": "F06_FLUE_BREAST_OUTER_LEAF_PORT",
+      "owner": "ExteriorMasonry",
+      "bounds": [
+        7.17,
+        17.290000000000003,
+        9.9,
+        7.449999999999999,
+        17.59,
+        10.200000000000001
+      ]
+    }
+  ],
+  "slab_openings": [
+    {
+      "id": "C_STOVE_FLUE_ROOF_PORT",
+      "space": "ROOF_DECK_NORTH",
+      "surface": "Floor",
+      "rect": [
+        7.549999999999999,
+        9.8,
+        7.93,
+        10.3
+      ]
+    },
+    {
+      "id": "C_STOVE_FLUE_APRON_PORT",
+      "space": "F01_REAR_APRON",
+      "surface": "Floor",
+      "rect": [
+        7.8,
+        9.8,
+        7.93,
+        10.3
+      ]
+    }
+  ],
+  "furniture_moves": [
+    {
+      "id": "2C_blanket_b",
+      "z": 10.95
+    },
+    {
+      "id": "5C_pigment_table",
+      "z": 10.95
+    },
+    {
+      "id": "5C_pigment_table_STANCE",
+      "z": 10.95
+    },
+    {
+      "id": "6C_archive_shelf_02",
+      "z": 11.0
+    },
+    {
+      "id": "6C_archive_shelf_02_STANCE",
+      "z": 11.0
+    }
+  ],
+  "masonry_coupling": {
+    "kind": "roof slab vibration; independent sealed stove and live boiler airways",
+    "points_local_godot": [
+      [
+        7.499999999999999,
+        19.11,
+        10.05
+      ],
+      [
+        7.499999999999999,
+        19.11,
+        10.75
+      ],
+      [
+        15.1,
+        19.11,
+        10.75
+      ],
+      [
+        15.1,
+        19.11,
+        2.15
+      ]
+    ],
+    "owners": [
+      "ROOF_DECK_NORTH/Floor",
+      "ROOF_DECK_NORTHEAST/Floor",
+      "ROOF_DECK_EAST/Floor"
+    ],
+    "probe_spacing_m": 0.1
+  },
+  "source_bindings": {
+    "game/data/orison_v2_blockout.json": "9033cc680036c4452ee3c336fed5b841364c0a2d90d29dfaa9ecd60929998de4"
+  }
+}

@@ -1,0 +1,2 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_c_stove_stack.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  spec=catalog[key];material=bpy.data.materials.new(key);material.use_nodes=True;nodes=material.node_tree.nodes;links=material.node_tree.links;bsdf=nodes.get('Principled BSDF');bsdf.inputs['Metallic'].default_value=spec['metallic']

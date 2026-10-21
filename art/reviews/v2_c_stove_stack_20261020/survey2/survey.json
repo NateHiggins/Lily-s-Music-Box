@@ -1,0 +1,3070 @@
+{
+	"checks": [
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "current V2 starts before source design is projected",
+			"ok": true
+		},
+		{
+			"label": "candidate furnishing has a unique existing owner: 2C_blanket_b",
+			"ok": true
+		},
+		{
+			"label": "candidate furnishing has a unique existing owner: 5C_pigment_table",
+			"ok": true
+		},
+		{
+			"label": "candidate furnishing has a unique existing owner: 5C_pigment_table_STANCE",
+			"ok": true
+		},
+		{
+			"label": "candidate furnishing has a unique existing owner: 6C_archive_shelf_02",
+			"ok": true
+		},
+		{
+			"label": "candidate furnishing has a unique existing owner: 6C_archive_shelf_02_STANCE",
+			"ok": true
+		},
+		{
+			"label": "explicit authoring discovery destination",
+			"ok": true
+		},
+		{
+			"label": "actual original room-side wall datum: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "real standing capsule fits candidate service stance: F02_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room cursor reaches candidate closure: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room hand gesture completes: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "candidate reseats in actual room: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room candidate frame: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual original room-side wall datum: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "real standing capsule fits candidate service stance: F03_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room cursor reaches candidate closure: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room hand gesture completes: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "candidate reseats in actual room: F03_FLUE_BREAST",
+			"ok": false
+		},
+		{
+			"label": "actual furnished-room candidate frame: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual original room-side wall datum: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "real standing capsule fits candidate service stance: F04_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room cursor reaches candidate closure: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room hand gesture completes: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "candidate reseats in actual room: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room candidate frame: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual original room-side wall datum: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "real standing capsule fits candidate service stance: F05_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room cursor reaches candidate closure: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room hand gesture completes: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "candidate reseats in actual room: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room candidate frame: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual original room-side wall datum: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "real standing capsule fits candidate service stance: F06_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room cursor reaches candidate closure: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room hand gesture completes: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "candidate reseats in actual room: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual furnished-room candidate frame: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "structural route has an actual existing floor owner: ROOF_DECK_NORTH/Floor",
+			"ok": true
+		},
+		{
+			"label": "structural route has an actual existing floor owner: ROOF_DECK_NORTHEAST/Floor",
+			"ok": true
+		},
+		{
+			"label": "structural route has an actual existing floor owner: ROOF_DECK_EAST/Floor",
+			"ok": true
+		},
+		{
+			"label": "entire proposed vibration segment lies in actual retained structural boxes, with no stairwell shortcut: 0",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 0/0",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 0/1",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 0/2",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 0/3",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 0/4",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 0/5",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 0/6",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 0/7",
+			"ok": true
+		},
+		{
+			"label": "entire proposed vibration segment lies in actual retained structural boxes, with no stairwell shortcut: 1",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/0",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/1",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/2",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/3",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/4",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/5",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/6",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/7",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/8",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/9",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/10",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/11",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/12",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/13",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/14",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/15",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/16",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/17",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/18",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/19",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/20",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/21",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/22",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/23",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/24",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/25",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/26",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/27",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/28",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/29",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/30",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/31",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/32",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/33",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/34",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/35",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/36",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/37",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/38",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/39",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/40",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/41",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/42",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/43",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/44",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/45",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/46",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/47",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/48",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/49",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/50",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/51",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/52",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/53",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/54",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/55",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/56",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/57",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/58",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/59",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/60",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/61",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/62",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/63",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/64",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/65",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/66",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/67",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/68",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/69",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/70",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/71",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/72",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/73",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/74",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/75",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/76",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 1/77",
+			"ok": true
+		},
+		{
+			"label": "entire proposed vibration segment lies in actual retained structural boxes, with no stairwell shortcut: 2",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/0",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/1",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/2",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/3",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/4",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/5",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/6",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/7",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/8",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/9",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/10",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/11",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/12",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/13",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/14",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/15",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/16",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/17",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/18",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/19",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/20",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/21",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/22",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/23",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/24",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/25",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/26",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/27",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/28",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/29",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/30",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/31",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/32",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/33",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/34",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/35",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/36",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/37",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/38",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/39",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/40",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/41",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/42",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/43",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/44",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/45",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/46",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/47",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/48",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/49",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/50",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/51",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/52",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/53",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/54",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/55",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/56",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/57",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/58",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/59",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/60",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/61",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/62",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/63",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/64",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/65",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/66",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/67",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/68",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/69",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/70",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/71",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/72",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/73",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/74",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/75",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/76",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/77",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/78",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/79",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/80",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/81",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/82",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/83",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/84",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/85",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/86",
+			"ok": true
+		},
+		{
+			"label": "actual solid structural roof membership below the separate weather falls: 2/87",
+			"ok": true
+		},
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "survey source and actual rendering inputs remain fixed",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"existing_stack_core_obstructions": [
+		{
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.0,
+				10.0500011444092
+			]
+		},
+		{
+			"owner": "OrisonV2Blockout/ServiceAlley/service_alley/BrickCollision",
+			"position": [
+				7.73999977111816,
+				-0.300000429153442,
+				10.0500011444092
+			]
+		},
+		{
+			"owner": "OrisonV2Blockout/ServiceAlley/Groundworks/Groundworks_concrete_1_-3/GroundworksCollision",
+			"position": [
+				7.98000001907349,
+				-0.300000101327896,
+				10.0500011444092
+			]
+		}
+	],
+	"failures": 1,
+	"furniture_moves": [
+		{
+			"from_local": [
+				7.01000022888184,
+				3.54999995231628,
+				10.0000019073486
+			],
+			"id": "2C_blanket_b",
+			"to_local": [
+				7.01000022888184,
+				3.54999995231628,
+				10.9499998092651
+			]
+		},
+		{
+			"from_local": [
+				6.57590007781982,
+				12.8000001907349,
+				10.0000019073486
+			],
+			"id": "5C_pigment_table",
+			"to_local": [
+				6.57590007781982,
+				12.8000001907349,
+				10.9499998092651
+			]
+		},
+		{
+			"from_local": [
+				5.59590005874634,
+				12.8000001907349,
+				10.0000019073486
+			],
+			"id": "5C_pigment_table_STANCE",
+			"to_local": [
+				5.59590005874634,
+				12.8000001907349,
+				10.9499998092651
+			]
+		},
+		{
+			"from_local": [
+				6.82590007781982,
+				16.0,
+				10.1000003814697
+			],
+			"id": "6C_archive_shelf_02",
+			"to_local": [
+				6.82590007781982,
+				16.0,
+				11.0
+			]
+		},
+		{
+			"from_local": [
+				5.99590015411377,
+				16.0,
+				10.1000003814697
+			],
+			"id": "6C_archive_shelf_02_STANCE",
+			"to_local": [
+				5.99590015411377,
+				16.0,
+				11.0
+			]
+		}
+	],
+	"roof_slab_samples": [
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.2597503662109,
+				10.0500011444092
+			],
+			"segment": 0,
+			"step": 0
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.2587509155273,
+				10.1500015258789
+			],
+			"segment": 0,
+			"step": 1
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.2577514648438,
+				10.2500019073486
+			],
+			"segment": 0,
+			"step": 2
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.2567501068115,
+				10.3500003814697
+			],
+			"segment": 0,
+			"step": 3
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.2557506561279,
+				10.4500007629395
+			],
+			"segment": 0,
+			"step": 4
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.2547512054443,
+				10.5500011444092
+			],
+			"segment": 0,
+			"step": 5
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.2537517547607,
+				10.6499996185303
+			],
+			"segment": 0,
+			"step": 6
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.2527503967285,
+				10.7500019073486
+			],
+			"segment": 0,
+			"step": 7
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.5,
+				19.2527503967285,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 0
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.59870147705078,
+				19.2517642974854,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 1
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.69740200042725,
+				19.2507762908936,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 2
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.79610347747803,
+				19.2497901916504,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 3
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.89480495452881,
+				19.2488021850586,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 4
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				7.99350643157959,
+				19.2478160858154,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 5
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.09220790863037,
+				19.2468280792236,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 6
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.19090938568115,
+				19.2458419799805,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 7
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.28961086273193,
+				19.2448539733887,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 8
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.3883113861084,
+				19.2438678741455,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 9
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.48701286315918,
+				19.2428798675537,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 10
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.58571434020996,
+				19.2418937683105,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 11
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.68441581726074,
+				19.2409076690674,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 12
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.78311729431152,
+				19.2399196624756,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 13
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.8818187713623,
+				19.2389335632324,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 14
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				8.98051929473877,
+				19.2379455566406,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 15
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				9.07922077178955,
+				19.2369594573975,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 16
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				9.17792224884033,
+				19.2359714508057,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 17
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				9.27662372589111,
+				19.2349853515625,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 18
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				9.37532424926758,
+				19.2339973449707,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 19
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision",
+			"position": [
+				9.47402572631836,
+				19.2330112457275,
+				10.7500019073486
+			],
+			"segment": 1,
+			"step": 20
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				9.57272720336914,
+				19.2320232391357,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 21
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				9.67142868041992,
+				19.2310352325439,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 22
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				9.7701301574707,
+				19.2300491333008,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 23
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				9.86883163452148,
+				19.229061126709,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 24
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				9.96753311157227,
+				19.2280750274658,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 25
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.0662336349487,
+				19.227087020874,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 26
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.1649351119995,
+				19.2261009216309,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 27
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.2636365890503,
+				19.2251129150391,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 28
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.3623371124268,
+				19.2241268157959,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 29
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.4610385894775,
+				19.2231388092041,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 30
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.5597400665283,
+				19.2221527099609,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 31
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.6584415435791,
+				19.2211647033691,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 32
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.7571430206299,
+				19.220178604126,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 33
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.8558444976807,
+				19.2191905975342,
+				10.7500038146973
+			],
+			"segment": 1,
+			"step": 34
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				10.9545459747314,
+				19.218204498291,
+				10.75
+			],
+			"segment": 1,
+			"step": 35
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.0532464981079,
+				19.218282699585,
+				10.75
+			],
+			"segment": 1,
+			"step": 36
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.1519479751587,
+				19.2192687988281,
+				10.75
+			],
+			"segment": 1,
+			"step": 37
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.2506494522095,
+				19.2202568054199,
+				10.75
+			],
+			"segment": 1,
+			"step": 38
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.3493509292603,
+				19.2212429046631,
+				10.75
+			],
+			"segment": 1,
+			"step": 39
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.448052406311,
+				19.2222309112549,
+				10.75
+			],
+			"segment": 1,
+			"step": 40
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.5467529296875,
+				19.223217010498,
+				10.75
+			],
+			"segment": 1,
+			"step": 41
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.6454544067383,
+				19.2242050170898,
+				10.75
+			],
+			"segment": 1,
+			"step": 42
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.7441558837891,
+				19.225191116333,
+				10.75
+			],
+			"segment": 1,
+			"step": 43
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.8428573608398,
+				19.2261791229248,
+				10.75
+			],
+			"segment": 1,
+			"step": 44
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				11.9415588378906,
+				19.227165222168,
+				10.75
+			],
+			"segment": 1,
+			"step": 45
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.0402603149414,
+				19.2281532287598,
+				10.75
+			],
+			"segment": 1,
+			"step": 46
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.1389617919922,
+				19.2291393280029,
+				10.75
+			],
+			"segment": 1,
+			"step": 47
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.2376623153687,
+				19.2301273345947,
+				10.75
+			],
+			"segment": 1,
+			"step": 48
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.3363637924194,
+				19.2311134338379,
+				10.75
+			],
+			"segment": 1,
+			"step": 49
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.4350652694702,
+				19.2320995330811,
+				10.75
+			],
+			"segment": 1,
+			"step": 50
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.5337657928467,
+				19.2330875396729,
+				10.75
+			],
+			"segment": 1,
+			"step": 51
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.6324672698975,
+				19.234073638916,
+				10.75
+			],
+			"segment": 1,
+			"step": 52
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.7311687469482,
+				19.2350616455078,
+				10.75
+			],
+			"segment": 1,
+			"step": 53
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.829870223999,
+				19.236047744751,
+				10.75
+			],
+			"segment": 1,
+			"step": 54
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				12.9285717010498,
+				19.2370357513428,
+				10.75
+			],
+			"segment": 1,
+			"step": 55
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				13.0272731781006,
+				19.2380218505859,
+				10.75
+			],
+			"segment": 1,
+			"step": 56
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision",
+			"position": [
+				13.1259746551514,
+				19.2390098571777,
+				10.75
+			],
+			"segment": 1,
+			"step": 57
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				13.2246751785278,
+				19.2399978637695,
+				10.75
+			],
+			"segment": 1,
+			"step": 58
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				13.3233766555786,
+				19.2409839630127,
+				10.75
+			],
+			"segment": 1,
+			"step": 59
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				13.4220781326294,
+				19.2419719696045,
+				10.75
+			],
+			"segment": 1,
+			"step": 60
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				13.5207796096802,
+				19.2429580688477,
+				10.75
+			],
+			"segment": 1,
+			"step": 61
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				13.6194801330566,
+				19.2439460754395,
+				10.75
+			],
+			"segment": 1,
+			"step": 62
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				13.7181816101074,
+				19.2449321746826,
+				10.75
+			],
+			"segment": 1,
+			"step": 63
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				13.8168830871582,
+				19.2459201812744,
+				10.75
+			],
+			"segment": 1,
+			"step": 64
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				13.915584564209,
+				19.2469062805176,
+				10.75
+			],
+			"segment": 1,
+			"step": 65
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.0142860412598,
+				19.2478923797607,
+				10.75
+			],
+			"segment": 1,
+			"step": 66
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.1129875183105,
+				19.2488803863525,
+				10.75
+			],
+			"segment": 1,
+			"step": 67
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.2116889953613,
+				19.2498683929443,
+				10.75
+			],
+			"segment": 1,
+			"step": 68
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.3103904724121,
+				19.2508544921875,
+				10.75
+			],
+			"segment": 1,
+			"step": 69
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.4090919494629,
+				19.2518405914307,
+				10.75
+			],
+			"segment": 1,
+			"step": 70
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.5077924728394,
+				19.2528285980225,
+				10.75
+			],
+			"segment": 1,
+			"step": 71
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.6064929962158,
+				19.2538166046143,
+				10.75
+			],
+			"segment": 1,
+			"step": 72
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.7051944732666,
+				19.2548027038574,
+				10.75
+			],
+			"segment": 1,
+			"step": 73
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.8038959503174,
+				19.2557888031006,
+				10.75
+			],
+			"segment": 1,
+			"step": 74
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				14.9025974273682,
+				19.2567768096924,
+				10.75
+			],
+			"segment": 1,
+			"step": 75
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.0012989044189,
+				19.2577629089355,
+				10.75
+			],
+			"segment": 1,
+			"step": 76
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2587509155273,
+				10.75
+			],
+			"segment": 1,
+			"step": 77
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2587509155273,
+				10.75
+			],
+			"segment": 2,
+			"step": 0
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2597389221191,
+				10.6511497497559
+			],
+			"segment": 2,
+			"step": 1
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2607288360596,
+				10.5522956848145
+			],
+			"segment": 2,
+			"step": 2
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2617168426514,
+				10.4534454345703
+			],
+			"segment": 2,
+			"step": 3
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2627048492432,
+				10.3545951843262
+			],
+			"segment": 2,
+			"step": 4
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2636947631836,
+				10.255744934082
+			],
+			"segment": 2,
+			"step": 5
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2646827697754,
+				10.1568946838379
+			],
+			"segment": 2,
+			"step": 6
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2656707763672,
+				10.0580444335938
+			],
+			"segment": 2,
+			"step": 7
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.266658782959,
+				9.95919418334961
+			],
+			"segment": 2,
+			"step": 8
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2676467895508,
+				9.86034393310547
+			],
+			"segment": 2,
+			"step": 9
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2686347961426,
+				9.76149368286133
+			],
+			"segment": 2,
+			"step": 10
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.269624710083,
+				9.66264343261719
+			],
+			"segment": 2,
+			"step": 11
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2706127166748,
+				9.56379318237305
+			],
+			"segment": 2,
+			"step": 12
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2716026306152,
+				9.46494293212891
+			],
+			"segment": 2,
+			"step": 13
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.272590637207,
+				9.3660888671875
+			],
+			"segment": 2,
+			"step": 14
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2735786437988,
+				9.26723861694336
+			],
+			"segment": 2,
+			"step": 15
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2745666503906,
+				9.16838836669922
+			],
+			"segment": 2,
+			"step": 16
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2755546569824,
+				9.06953811645508
+			],
+			"segment": 2,
+			"step": 17
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2765426635742,
+				8.97068786621094
+			],
+			"segment": 2,
+			"step": 18
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2775325775146,
+				8.8718376159668
+			],
+			"segment": 2,
+			"step": 19
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2785205841064,
+				8.77298736572266
+			],
+			"segment": 2,
+			"step": 20
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2795104980469,
+				8.67413711547852
+			],
+			"segment": 2,
+			"step": 21
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2804985046387,
+				8.57528686523438
+			],
+			"segment": 2,
+			"step": 22
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2814865112305,
+				8.47643661499023
+			],
+			"segment": 2,
+			"step": 23
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2824745178223,
+				8.37758636474609
+			],
+			"segment": 2,
+			"step": 24
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2834644317627,
+				8.27873611450195
+			],
+			"segment": 2,
+			"step": 25
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2844524383545,
+				8.17988204956055
+			],
+			"segment": 2,
+			"step": 26
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2854404449463,
+				8.08103179931641
+			],
+			"segment": 2,
+			"step": 27
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2864284515381,
+				7.9821834564209
+			],
+			"segment": 2,
+			"step": 28
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2874183654785,
+				7.88333320617676
+			],
+			"segment": 2,
+			"step": 29
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2884063720703,
+				7.78448104858398
+			],
+			"segment": 2,
+			"step": 30
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2893943786621,
+				7.68563079833984
+			],
+			"segment": 2,
+			"step": 31
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2000007629395,
+				7.5867805480957
+			],
+			"segment": 2,
+			"step": 32
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2000007629395,
+				7.48793029785156
+			],
+			"segment": 2,
+			"step": 33
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2000007629395,
+				7.38908004760742
+			],
+			"segment": 2,
+			"step": 34
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2000007629395,
+				7.29022979736328
+			],
+			"segment": 2,
+			"step": 35
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2000007629395,
+				7.19137954711914
+			],
+			"segment": 2,
+			"step": 36
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2000007629395,
+				7.09252738952637
+			],
+			"segment": 2,
+			"step": 37
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2891883850098,
+				6.99367713928223
+			],
+			"segment": 2,
+			"step": 38
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2881984710693,
+				6.89482688903809
+			],
+			"segment": 2,
+			"step": 39
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2872104644775,
+				6.79597663879395
+			],
+			"segment": 2,
+			"step": 40
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2862224578857,
+				6.6971263885498
+			],
+			"segment": 2,
+			"step": 41
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2852344512939,
+				6.59827423095703
+			],
+			"segment": 2,
+			"step": 42
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2842445373535,
+				6.49942398071289
+			],
+			"segment": 2,
+			"step": 43
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2832565307617,
+				6.40057373046875
+			],
+			"segment": 2,
+			"step": 44
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2822666168213,
+				6.30172348022461
+			],
+			"segment": 2,
+			"step": 45
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2812786102295,
+				6.20287322998047
+			],
+			"segment": 2,
+			"step": 46
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2802906036377,
+				6.10402297973633
+			],
+			"segment": 2,
+			"step": 47
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2793025970459,
+				6.00517272949219
+			],
+			"segment": 2,
+			"step": 48
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2783126831055,
+				5.90632057189941
+			],
+			"segment": 2,
+			"step": 49
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2773246765137,
+				5.80747032165527
+			],
+			"segment": 2,
+			"step": 50
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2763366699219,
+				5.70862007141113
+			],
+			"segment": 2,
+			"step": 51
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2753486633301,
+				5.60976982116699
+			],
+			"segment": 2,
+			"step": 52
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2743587493896,
+				5.51091766357422
+			],
+			"segment": 2,
+			"step": 53
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000022888184,
+				19.2733726501465,
+				5.41206741333008
+			],
+			"segment": 2,
+			"step": 54
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000022888184,
+				19.2723827362061,
+				5.31321716308594
+			],
+			"segment": 2,
+			"step": 55
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000022888184,
+				19.2713947296143,
+				5.2143669128418
+			],
+			"segment": 2,
+			"step": 56
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000022888184,
+				19.2704067230225,
+				5.11551666259766
+			],
+			"segment": 2,
+			"step": 57
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000022888184,
+				19.2694187164307,
+				5.01666641235352
+			],
+			"segment": 2,
+			"step": 58
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000022888184,
+				19.2684288024902,
+				4.91781616210938
+			],
+			"segment": 2,
+			"step": 59
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000022888184,
+				19.2674407958984,
+				4.8189640045166
+			],
+			"segment": 2,
+			"step": 60
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000022888184,
+				19.266450881958,
+				4.72011375427246
+			],
+			"segment": 2,
+			"step": 61
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2654628753662,
+				4.62126350402832
+			],
+			"segment": 2,
+			"step": 62
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2644748687744,
+				4.52241325378418
+			],
+			"segment": 2,
+			"step": 63
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2634868621826,
+				4.42356300354004
+			],
+			"segment": 2,
+			"step": 64
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2624988555908,
+				4.32471370697021
+			],
+			"segment": 2,
+			"step": 65
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2615089416504,
+				4.22586345672607
+			],
+			"segment": 2,
+			"step": 66
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2605209350586,
+				4.1270112991333
+			],
+			"segment": 2,
+			"step": 67
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2595329284668,
+				4.02816104888916
+			],
+			"segment": 2,
+			"step": 68
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2585430145264,
+				3.92931079864502
+			],
+			"segment": 2,
+			"step": 69
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2575550079346,
+				3.83046054840088
+			],
+			"segment": 2,
+			"step": 70
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2565670013428,
+				3.73161029815674
+			],
+			"segment": 2,
+			"step": 71
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.255578994751,
+				3.63275814056396
+			],
+			"segment": 2,
+			"step": 72
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2545890808105,
+				3.53390789031982
+			],
+			"segment": 2,
+			"step": 73
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2536010742188,
+				3.43505764007568
+			],
+			"segment": 2,
+			"step": 74
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.252613067627,
+				3.33620738983154
+			],
+			"segment": 2,
+			"step": 75
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2516231536865,
+				3.2373571395874
+			],
+			"segment": 2,
+			"step": 76
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2506351470947,
+				3.13850688934326
+			],
+			"segment": 2,
+			"step": 77
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2496471405029,
+				3.03965473175049
+			],
+			"segment": 2,
+			"step": 78
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2486591339111,
+				2.94080448150635
+			],
+			"segment": 2,
+			"step": 79
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2476692199707,
+				2.84195423126221
+			],
+			"segment": 2,
+			"step": 80
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2466812133789,
+				2.74310398101807
+			],
+			"segment": 2,
+			"step": 81
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2456932067871,
+				2.64425373077393
+			],
+			"segment": 2,
+			"step": 82
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.1000003814697,
+				19.2447052001953,
+				2.54540157318115
+			],
+			"segment": 2,
+			"step": 83
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.0999994277954,
+				19.2000007629395,
+				2.44655227661133
+			],
+			"segment": 2,
+			"step": 84
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.0999994277954,
+				19.2000007629395,
+				2.34770202636719
+			],
+			"segment": 2,
+			"step": 85
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.0999994277954,
+				19.2000007629395,
+				2.24885177612305
+			],
+			"segment": 2,
+			"step": 86
+		},
+		{
+			"expected_roof_contact": true,
+			"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision",
+			"position": [
+				15.0999994277954,
+				19.2000007629395,
+				2.15000152587891
+			],
+			"segment": 2,
+			"step": 87
+		}
+	],
+	"rooms": [
+		{
+			"actual_hand_completed": true,
+			"feet_local": [
+				6.2480001449585,
+				3.20300006866455,
+				9.93000030517578
+			],
+			"id": "F02_FLUE_BREAST",
+			"original_wall": {
+				"owner": "OrisonV2Blockout/F02_C_BED2/WallEast_00/Collision",
+				"position": [
+					7.02999973297119,
+					4.6399998664856,
+					10.0500011444092
+				]
+			},
+			"space": "F02_C_BED2",
+			"standing_obstructions": []
+		},
+		{
+			"actual_hand_completed": true,
+			"feet_local": [
+				6.2480001449585,
+				6.40299987792969,
+				9.93000030517578
+			],
+			"id": "F03_FLUE_BREAST",
+			"original_wall": {
+				"owner": "OrisonV2Blockout/F03_C_RESTRICTED/WallEast_00/Collision",
+				"position": [
+					7.03000020980835,
+					7.84000015258789,
+					10.0500011444092
+				]
+			},
+			"space": "F03_C_RESTRICTED",
+			"standing_obstructions": []
+		},
+		{
+			"actual_hand_completed": true,
+			"feet_local": [
+				6.2480001449585,
+				9.60299968719482,
+				9.93000030517578
+			],
+			"id": "F04_FLUE_BREAST",
+			"original_wall": {
+				"owner": "OrisonV2Blockout/F04_C_BED2/WallEast_00/Collision",
+				"position": [
+					7.02999973297119,
+					11.039999961853,
+					10.0500011444092
+				]
+			},
+			"space": "F04_C_BED2",
+			"standing_obstructions": []
+		},
+		{
+			"actual_hand_completed": true,
+			"feet_local": [
+				6.2480001449585,
+				12.8030004501343,
+				9.93000030517578
+			],
+			"id": "F05_FLUE_BREAST",
+			"original_wall": {
+				"owner": "OrisonV2Blockout/F05_C_BED2/WallEast_00/Collision",
+				"position": [
+					7.02999973297119,
+					14.2399997711182,
+					10.0500011444092
+				]
+			},
+			"space": "F05_C_BED2",
+			"standing_obstructions": []
+		},
+		{
+			"actual_hand_completed": true,
+			"feet_local": [
+				6.2480001449585,
+				16.0030002593994,
+				9.93000030517578
+			],
+			"id": "F06_FLUE_BREAST",
+			"original_wall": {
+				"owner": "OrisonV2Blockout/F06_C_BED2/WallEast_00/Collision",
+				"position": [
+					7.02999973297119,
+					17.4400005340576,
+					10.0500011444092
+				]
+			},
+			"space": "F06_C_BED2",
+			"standing_obstructions": []
+		}
+	],
+	"scope": "Actual existing wall datums, full standing capsule placements, three temporarily relocated furnishings, temporary thimble hand/captures and actual structural-box segment coverage. Proposed stove stack and all new apertures NOT installed; no walked route, network, soil/foundation or human acceptance.",
+	"source": {
+		"plan_sha256": "5ef0998c8350ecf818c6483e6ca9c1c3d9ac47df410ad250ec953dc1981158aa",
+		"production": {
+			"runtime": "b65a2c50a6c72029c2ad4f1bdb363ae1e2b4c22d509c1dabfaa66a1e4d253f14",
+			"surface": "a1ba013c2602ef259e2e0d16d88b8a164c8138ea30a639685c85d22348fbe972"
+		},
+		"test_dependencies": {
+			"game/tests/orison_v2_first_slice_contract_test.gd": "884c1b94e63ed438bed885173aae490cee06f3aa71ad1d901007f32ba053a971",
+			"game/tests/v2_c_stove_stack_survey.gd": "7bb3ac9e8848c3fd75d68793dd6fdac3e1870394b05d8887343e6ab3327ce4bd",
+			"game/tests/v2_c_stove_stack_survey.tscn": "38a09e3b296b95aca52a6f54c16414b73dafa31b8eb9dc0025660b6acd02caa1",
+			"game/tests/v2_spatial_access_cohort.gd": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9"
+		}
+	},
+	"structural_segments": [
+		{
+			"continuous": true,
+			"covered_to": 1.0,
+			"pieces": [
+				{
+					"end": 1.0,
+					"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision/@CollisionShape3D@1665",
+					"start": 0.0
+				}
+			],
+			"segment": 0
+		},
+		{
+			"continuous": true,
+			"covered_to": 1.0,
+			"pieces": [
+				{
+					"end": 0.263157850157193,
+					"owner": "OrisonV2Blockout/ROOF_DECK_NORTH/Floor/Collision/@CollisionShape3D@1665",
+					"start": 0.0
+				},
+				{
+					"end": 0.750000015685432,
+					"owner": "OrisonV2Blockout/ROOF_DECK_NORTHEAST/Floor/Collision/@CollisionShape3D@1675",
+					"start": 0.263157928584353
+				},
+				{
+					"end": 1.0,
+					"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision/@CollisionShape3D@1670",
+					"start": 0.749999874516544
+				}
+			],
+			"segment": 1
+		},
+		{
+			"continuous": true,
+			"covered_to": 1.0,
+			"pieces": [
+				{
+					"end": 1.0,
+					"owner": "OrisonV2Blockout/ROOF_DECK_EAST/Floor/Collision/@CollisionShape3D@1670",
+					"start": 0.0
+				}
+			],
+			"segment": 2
+		}
+	]
+}

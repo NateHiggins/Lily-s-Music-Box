@@ -1,0 +1,6 @@
+SCRIPT ERROR: Parse Error: Function "get_world_3d()" not found in base self.
+   at: GDScript::reload (res://tests/v2_c_stove_stock_bench.gd:42)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "physical" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/v2_c_stove_stock_bench.gd:42)
+ERROR: Failed to load script "res://tests/v2_c_stove_stock_bench.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

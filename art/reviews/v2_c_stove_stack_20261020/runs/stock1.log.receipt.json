@@ -1,0 +1,66 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 60.12,
+  "exit_code": null,
+  "finished_utc": "2026-10-21T03:30:26Z",
+  "started_utc": "2026-10-21T03:29:25Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 3,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Function \"get_world_3d()\" not found in base self.",
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"physical\" variable because the value doesn't have a set type.",
+   "ERROR: Failed to load script \"res://tests/v2_c_stove_stock_bench.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-stack-20261020/stock1.log.stderr",
+  "stderr_sha256": "c14608757a22f724c1f57ed153d5fded99b53d6275b5c2f7614700d278ec7184",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-stack-20261020/stock1.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/v2_c_stove_stock_bench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_c_stove_stack_20261020/stock1",
+ "source": {
+  "dirty_paths": 959,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import"
+  ],
+  "repository_head": "7c33f7bfb770e5220fdc96012b7f64d0309a4fae",
+  "repository_tree": "1ffeb09446f551386dd5044731990d8db4a21e40",
+  "runtime_inputs_sha256": "772707b82cbb90b7bc20fe32bb622ae6bc30254e9c0e109f814a0ee8947a8df0",
+  "test_path": "game/tests/v2_c_stove_stock_bench.gd",
+  "test_sha256": "d31ce5320644d9bd9fb6b5153cb6980431f0a6d25ff20d6273700dc3e27e5caa"
+ },
+ "windowed": true
+}

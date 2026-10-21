@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| C-room stove-stack candidate, rejected bays and actual-world construction discovery | `design/V2_C_STOVE_STACK_STUDY_2026-10-20.md` |
 | Native sealed stove fitting, hand inspection and remaining C-stack installation | `design/V2_FLUE_BREAST_FITTING_2026-10-20.md` |
 | Fresh terrain/footing sources, texture phase and fixed current roof ownership | `design/V2_GRADE_SOURCE_RENEWAL_2026-10-20.md` |
 | Boiler chimney/roof airway, native sleeve and remaining apartment flue migration | `design/V2_FLUE_AIRWAY_2026-10-20.md` |

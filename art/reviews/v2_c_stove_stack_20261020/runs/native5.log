@@ -1,0 +1,30 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_c_stove_stack.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  spec=catalog[key];material=bpy.data.materials.new(key);material.use_nodes=True;nodes=material.node_tree.nodes;links=material.node_tree.links;bsdf=nodes.get('Principled BSDF');bsdf.inputs['Metallic'].default_value=spec['metallic']
+C STACK: 40 courses; 800 closed stocks
+C STACK: 80 courses; 1600 closed stocks
+C STACK: 120 courses; 2399 closed stocks
+C STACK: 160 courses; 3198 closed stocks
+C STACK: 200 courses; 3997 closed stocks
+C STACK: 240 courses; 4796 closed stocks
+C STACK: 280 courses; 5595 closed stocks
+Info: Saved as "c_stove_stack.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+23:16:04 | INFO: Starting glTF 2.0 export
+23:16:04 | INFO: Extracting primitive: Brick_000_0_0
+23:16:04 | INFO: Primitives created: 1
+23:16:04 | INFO: Extracting primitive: Bed_000_0
+23:16:04 | INFO: Primitives created: 1
+23:16:04 | INFO: Extracting primitive: ContinuousStackFooting
+23:16:04 | INFO: Primitives created: 1
+23:16:04 | INFO: Extracting primitive: F02_FLUE_BREAST_PlasterCollar
+23:16:04 | INFO: Primitives created: 1
+23:16:04 | INFO: Finished glTF 2.0 export in 0.39933347702026367 s
+01:13.875  render           | Saved: 'C:\PleaseRemainOnTheLine\art\blender\c_stove_stack\whole_stack.png'
+01:23.484  render           | Saved: 'C:\PleaseRemainOnTheLine\art\blender\c_stove_stack\room_port.png'
+01:31.828  render           | Saved: 'C:\PleaseRemainOnTheLine\art\blender\c_stove_stack\open_crown.png'
+
+C STOVE STACK NATIVE: 6130 closed stocks; 3065 bricks; 25 round port and 3 vertical native rays clear
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

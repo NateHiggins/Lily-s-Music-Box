@@ -1,0 +1,52 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exported source only. Not Godot imported precision, loaded mipmaps, installation or runtime acceptance.",
+  "asset_sha256": "cf6f966c6101785b486ecd6a8e2ac79d8e163ab8afcbf8fcc78a874e2304b769",
+  "surfaces": [
+    {
+      "material_key": "arcade_brick_face",
+      "triangles": 139720,
+      "exact_zero_triangles": 0,
+      "uv_noncollapsed": true,
+      "metric_max_excess_m": 1.7006168096488083e-06,
+      "metric_widest_ratio": 1.0065910205595296,
+      "minimum_tangent_dot": 0.9999302960764124,
+      "positive_handedness": true,
+      "pass": false
+    },
+    {
+      "material_key": "arcade_lime_mortar",
+      "triangles": 36908,
+      "exact_zero_triangles": 0,
+      "uv_noncollapsed": true,
+      "metric_max_excess_m": 9.115523763518311e-07,
+      "metric_widest_ratio": 1.0007173548146475,
+      "minimum_tangent_dot": 0.0,
+      "positive_handedness": false,
+      "pass": false
+    },
+    {
+      "material_key": "concrete",
+      "triangles": 220,
+      "exact_zero_triangles": 0,
+      "uv_noncollapsed": true,
+      "metric_max_excess_m": 1.2035077868594035e-06,
+      "metric_widest_ratio": 1.00028366752101,
+      "minimum_tangent_dot": 0.9999903723516375,
+      "positive_handedness": true,
+      "pass": true
+    },
+    {
+      "material_key": "limewash_plaster",
+      "triangles": 1360,
+      "exact_zero_triangles": 0,
+      "uv_noncollapsed": true,
+      "metric_max_excess_m": 0.647499763965614,
+      "metric_widest_ratio": 5.624986972159642,
+      "minimum_tangent_dot": 0.9999396612873019,
+      "positive_handedness": true,
+      "pass": false
+    }
+  ],
+  "failures": 3
+}

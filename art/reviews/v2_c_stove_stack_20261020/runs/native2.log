@@ -1,0 +1,18 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_c_stove_stack.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  spec=catalog[key];material=bpy.data.materials.new(key);material.use_nodes=True;nodes=material.node_tree.nodes;links=material.node_tree.links;bsdf=nodes.get('Principled BSDF');bsdf.inputs['Metallic'].default_value=spec['metallic']
+C STACK: 40 courses; 800 closed stocks
+C STACK: 80 courses; 1600 closed stocks
+C STACK: 120 courses; 2399 closed stocks
+C STACK: 160 courses; 3198 closed stocks
+C STACK: 200 courses; 3997 closed stocks
+C STACK: 240 courses; 4796 closed stocks
+C STACK: 280 courses; 5595 closed stocks
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_c_stove_stack.py", line 113, in <module>
+    bpy.ops.object.select_all(action='DESELECT');group=[obj for obj in parts if obj.get('material_key')==key]
+                                                                                ^^^^^^^
+ReferenceError: StructRNA of type Object has been removed
+Info: Saved as "c_stove_stack.blend"
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

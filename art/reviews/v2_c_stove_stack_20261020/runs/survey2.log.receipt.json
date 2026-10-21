@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 150.07,
+  "exit_code": 1,
+  "finished_utc": "2026-10-21T02:55:53Z",
+  "started_utc": "2026-10-21T02:53:23Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "C STOVE STACK SURVEY: FAIL rooms=5 roof_samples=174 failures=1"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-stack-20261020/survey2.log.stderr",
+  "stderr_sha256": "b8403c0bde69b1bb2e12567156843bf535287b4947048355eee6854ef85a8791",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-stack-20261020/survey2.log",
+  "stdout_sha256": "0a5ab076d9eef1070d03f6539cbdeea8533f7b32d4c0bfd7a241577c3c699c29"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/v2_c_stove_stack_survey.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_c_stove_stack_20261020/survey2",
+ "source": {
+  "dirty_paths": 666,
+  "dirty_sample": [
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/data/c_stove_stack/",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png",
+   "?? art/reviews/v2_arcade_clock_install_20261018/bench3/",
+   "?? art/reviews/v2_arcade_clock_install_20261018/native06/",
+   "?? art/reviews/v2_arcade_clock_install_20261018/native07/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench_diagnostic/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench_fitted/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench_partitioned/"
+  ],
+  "repository_head": "7c33f7bfb770e5220fdc96012b7f64d0309a4fae",
+  "repository_tree": "1ffeb09446f551386dd5044731990d8db4a21e40",
+  "runtime_inputs_sha256": "b65a2c50a6c72029c2ad4f1bdb363ae1e2b4c22d509c1dabfaa66a1e4d253f14",
+  "test_path": "game/tests/v2_c_stove_stack_survey.gd",
+  "test_sha256": "7bb3ac9e8848c3fd75d68793dd6fdac3e1870394b05d8887343e6ab3327ce4bd"
+ },
+ "windowed": true
+}

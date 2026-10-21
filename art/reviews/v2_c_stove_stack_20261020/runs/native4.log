@@ -1,0 +1,17 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_c_stove_stack.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  spec=catalog[key];material=bpy.data.materials.new(key);material.use_nodes=True;nodes=material.node_tree.nodes;links=material.node_tree.links;bsdf=nodes.get('Principled BSDF');bsdf.inputs['Metallic'].default_value=spec['metallic']
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_c_stove_stack.py", line 92, in <module>
+    box(f'Bed_{course:03d}_{run}',(a,y,c),(b,bed_end,d),'arcade_lime_mortar',ports=west)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_c_stove_stack.py", line 78, in box
+    zero=sum((mesh.vertices[t.vertices[1]].co-mesh.vertices[t.vertices[0]].co).cross(mesh.vertices[t.vertices[2]].co-mesh.vertices[t.vertices[0]].co).length_squared()==0 for t in mesh.loop_triangles)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_c_stove_stack.py", line 78, in <genexpr>
+    zero=sum((mesh.vertices[t.vertices[1]].co-mesh.vertices[t.vertices[0]].co).cross(mesh.vertices[t.vertices[2]].co-mesh.vertices[t.vertices[0]].co).length_squared()==0 for t in mesh.loop_triangles)
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'float' object is not callable
+
+Error: script failed, file: 'art/blender/scripts/build_c_stove_stack.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
