@@ -49,6 +49,18 @@
     {
       "log": "final_residency_v3.log",
       "reason": "All native canopy and actual door operations pass. The inherited stationary five-second vestibule readiness deadline expires during bounded cooperative fitting. This diagnostic deadline is explicitly replaced by readiness before actual controller arrival at the protected gateway (14.596 s approach in v4). All 13 cells must be resident before crossing; no loading-barrier bypass or production frame-budget increase. All identity/material/resource-release predicates retained. Original five-second failure and fixture source remain. This trades stationary reload throughput for lower input stalls and tests the ordinary-play deadline; it does not establish a five-second loading guarantee."
+    },
+    {
+      "log": "depth_light_layers.log",
+      "reason": "Diagnostic compared Godot float32 light_energy to a double literal. Captured original engine property instead and retained exact unchanged-property comparison. Corrected 10 checks pass in depth_light_layers_v2."
+    },
+    {
+      "log": "depth_light_production.log",
+      "reason": "New diagnostic root could not infer restored Variant expression type. No world ran. Explicit bool annotation fixes fixture. Owned Godot process99656 manually stopped after verified scene+workspace command to release lane before700s ceiling. Original script/log/receipt retained; no passing result claimed."
+    },
+    {
+      "log": "surface_final_v5.log",
+      "reason": "All40140 technicalchecks pass, but independent publication rejects raw CRLF root-test SHA against normalized LF source. Exact executed source and original schema2receipt/logs retained. Working source restored to committed LF bytes without semantic or normalized-input changes. Fresh full execution required; no receipt repinning."
     }
   ],
   "clean_replacements": [

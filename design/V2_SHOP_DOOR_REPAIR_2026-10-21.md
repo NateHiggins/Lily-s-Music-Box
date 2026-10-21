@@ -151,3 +151,44 @@ preserves the physical loading barrier and the 3 ms inter-operation budget;
 individual operations remain atomic and can exceed that budget. It establishes
 readiness for that actual approach, **not a five-second reload guarantee**.
 All identity, material, acquisition and resource-release predicates are retained.
+
+Checkpoint **f4f41258** commits and pushes the measured physics/fitting, caption
+and glare repairs. Source preflight subsequently caught the bodega fixture's
+old DoorProp binding before composing a world. Re-running its original Blender
+recipe produces a **byte-identical export**; only source-binding metadata changes.
+Previous native/export/fixture files and the failed preflight remain preserved.
+
+A further V2-only depth-view repair excludes unnecessary lighting/shadow work
+from the unshaded lamp camera. The existing receiver binding temporarily places
+ordinary fixed lights on render layer 17, retaining explicit light domains and
+the carried lamp's independently owned layer 19. Presentation and room-reflection
+cameras still include those lights. Shared/Dream defaults remain unchanged.
+The owner restores its layers on retirement; a layer-one presentation camera
+releases the optimization, and reserved-layer geometry restores full depth.
+These fallbacks preserve the camera and geometry owners rather than editing them.
+
+The new guard/lifecycle fixture passes **11 checks** and the shared Dream material
+fixture passes **50**. Four actual native stations produce **16 byte-identical**
+near/mid radiance/optics comparisons. Repeated reference/candidate/reference
+controls reduce the depth view's CPU/GPU work and save about **0.4-0.9 ms indoors**
+and **2.7-3.3 ms at the roof station** in the first diagnostic. These are frozen
+view controls, not a live-route FPS claim. Paired lobby and Mina PBR renders were
+inspected; isolated-view differences remain below restored-control variation.
+The actual world also passes late-geometry and independent-camera fallbacks.
+The float-literal and root type-inference fixture failures remain, explicitly
+rejected. Fresh full source-bound qualification is still in progress.
+
+The first renewed surface execution reports **40,140 technical checks / zero
+failures**, but independent publication rejects its raw CRLF root-script hash.
+It is **not qualified runtime evidence**. Its original contract, logs, exact
+executed source, inventory and 242 renders remain preserved. The working source
+now has its committed LF bytes; normalized dependencies and semantics are
+unchanged. A fresh full execution, rather than a receipt edit, is in progress.
+All nine queued producer scripts now pass the LF/explicit **-text** preflight.
+
+The fresh first-slice packet independently verifies **359 serialized / 360
+printed checks**, including actual disk save and CampaignShell reconstruction.
+The fresh upper cohort independently verifies **69 rooms / 11 collision-bearing
+legs / 993 checks**, including its roof scope. Both original packets are now
+published through their separate validators with their predecessors preserved.
+These retain their stated fixture and human-acceptance limitations.

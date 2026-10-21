@@ -1,0 +1,61 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "method": "All queued root script bytes are LF and explicitly -text; no semantic changes or receipt edits.",
+  "checks": [
+    {
+      "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+      "test_path": "game/tests/orison_v2_surface_inventory.gd",
+      "raw_equals_lf": true,
+      "sha256": "7e4bd4fa4ffbdd13aeabac781db71c4e6fed4c35236e59bce9ffad38114975f2"
+    },
+    {
+      "scene": "res://tests/OrisonV2HomeAccessCohort.tscn",
+      "test_path": "game/tests/v2_spatial_access_cohort.gd",
+      "raw_equals_lf": true,
+      "sha256": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9"
+    },
+    {
+      "scene": "res://tests/V2ServiceCirculationContract.tscn",
+      "test_path": "game/tests/v2_service_circulation_contract.gd",
+      "raw_equals_lf": true,
+      "sha256": "b25a23c9e339469906df0a73b84804375f920bbeccc15effdb8a16151a827e14"
+    },
+    {
+      "scene": "res://tests/V2PublicLandingAccessContract.tscn",
+      "test_path": "game/tests/v2_public_landing_access_contract.gd",
+      "raw_equals_lf": true,
+      "sha256": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7"
+    },
+    {
+      "scene": "res://tests/V2RegionAccessContract.tscn",
+      "test_path": "game/tests/v2_region_access_contract.gd",
+      "raw_equals_lf": true,
+      "sha256": "40b8fa96d0a11623d6db2121f7696fb2626ce81f4331370473e2cfa54cd91adf"
+    },
+    {
+      "scene": "res://tests/V2AlcoveReview.tscn",
+      "test_path": "game/tests/v2_alcove_review.gd",
+      "raw_equals_lf": true,
+      "sha256": "98af43140aeb32c01ecddbdf9f95065f85f76ed527fbce2285acee27b6e6a825"
+    },
+    {
+      "scene": "res://tests/V2AreaSurvey.tscn",
+      "test_path": "game/tests/v2_area_survey.gd",
+      "raw_equals_lf": true,
+      "sha256": "3837a5e3c6b9f7e52addba8780ee4081c6673999648333fabc6df8cd8f95a934"
+    },
+    {
+      "scene": "res://tests/V2GoldenRepairProfile.tscn",
+      "test_path": "game/tests/v2_golden_repair_profile.gd",
+      "raw_equals_lf": true,
+      "sha256": "bcf3133098e36e45c563c425bb1f56d3f2160606dce278b189ae81670577cb57"
+    },
+    {
+      "scene": "res://tests/OrisonV2ResponsivenessProfile.tscn",
+      "test_path": "game/tests/orison_v2_responsiveness_profile.gd",
+      "raw_equals_lf": true,
+      "sha256": "f412b9770357ee6eefae3c48f6eac5407674141b74bb8a2f48afd3a1f3edcc63"
+    }
+  ]
+}

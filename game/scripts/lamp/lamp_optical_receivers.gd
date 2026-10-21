@@ -3,6 +3,10 @@ extends RefCounted
 ## only by the carried lamp. Native surfaces retain their own PBR materials.
 ## Layer 20 belongs to mirrors, Dream portals and the zoo's inspection lights.
 const LAYER := 1 << 17
+## V2 ordinary lights remain visible to presentation/reflection cameras, while
+## the unshaded depth camera excludes their unnecessary lighting/shadow work.
+const DEPTH_LIGHT_LAYER := 1 << 16
+const DEPTH_CAMERA_EXCLUSIONS := DEPTH_LIGHT_LAYER | (1 << 18)
 const RECEIVER_META := &"lamp_optical_receiver"
 var root: Node
 var lamp: Light3D
@@ -14,11 +18,14 @@ var surfaces: Dictionary = {}
 var surface_materials: Dictionary = {}
 const DREAM_SURFACES := ["res://shaders/dream_fauna.gdshader", "res://shaders/dream_lineage_gold.gdshader", "res://shaders/dream_klimt.gdshader", "res://shaders/dream_tessellate_translucent.gdshader"]
 var disposed := false
+var isolate_depth_lights := false
+var depth_geometry_clear := true
 
-func setup(owner_root: Node, owner_lamp: Light3D, owner_field: RefCounted) -> void:
+func setup(owner_root: Node, owner_lamp: Light3D, owner_field: RefCounted, depth_light_isolation := false) -> void:
 	root = owner_root
 	lamp = owner_lamp
 	field = owner_field
+	isolate_depth_lights = depth_light_isolation
 	root.get_tree().node_added.connect(_node_added)
 	_scan(root)
 
@@ -42,10 +49,19 @@ func _consider_weak(reference: WeakRef) -> void:
 func _consider(node: Node) -> void:
 	if disposed or not is_instance_valid(node) or not is_instance_valid(root): return
 	if node != root and not root.is_ancestor_of(node): return
+	if isolate_depth_lights and node is GeometryInstance3D and node.layers & DEPTH_CAMERA_EXCLUSIONS:
+		# Conservative fallback if a future physical surface uses a light layer.
+		depth_geometry_clear = false
 	if node is Light3D:
 		var id := node.get_instance_id()
 		if not lights.has(id):
-			lights[id] = [weakref(node),node.light_cull_mask]
+			var original_layers: Variant = null
+			# Preserve explicitly isolated light domains and the active lamp's
+			# independently owned transient layer. Default behavior is unchanged.
+			if isolate_depth_lights and node != lamp and node.layers == 1:
+				original_layers = node.layers
+				node.layers = DEPTH_LIGHT_LAYER
+			lights[id] = [weakref(node),node.light_cull_mask,original_layers]
 			node.tree_exiting.connect(_release_light.bind(id),CONNECT_ONE_SHOT)
 			node.light_cull_mask = (node.light_cull_mask | LAYER) if node == lamp else (node.light_cull_mask & ~LAYER)
 	if node is MeshInstance3D and node.has_meta(RECEIVER_META):
@@ -86,6 +102,16 @@ func hide_all() -> void:
 		var mesh: MeshInstance3D = record[0].get_ref()
 		if is_instance_valid(mesh): mesh.visible = false
 
+func restore_depth_light_layers() -> void:
+	# An independently authored presentation camera may only see layer one.
+	# Release this optimization rather than changing that camera's authority.
+	isolate_depth_lights = false
+	for record: Array in lights.values():
+		var light: Light3D = record[0].get_ref()
+		if is_instance_valid(light) and record[2] != null and light.layers == DEPTH_LIGHT_LAYER:
+			light.layers = int(record[2])
+		record[2] = null
+
 func _release_surface(id: int) -> void:
 	if not surfaces.has(id): return
 	var material: ShaderMaterial = surfaces[id][1]
@@ -108,6 +134,8 @@ func _release_light(id: int) -> void:
 	if is_instance_valid(light):
 		# Restore only the bit we own, preserving other owners' mask changes.
 		light.light_cull_mask = (light.light_cull_mask & ~LAYER) | (int(lights[id][1]) & LAYER)
+		if lights[id][2] != null and light.layers == DEPTH_LIGHT_LAYER:
+			light.layers = int(lights[id][2])
 	lights.erase(id)
 
 func dispose() -> void:

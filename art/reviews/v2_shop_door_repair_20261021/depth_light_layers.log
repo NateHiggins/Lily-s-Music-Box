@@ -1,0 +1,15 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+DEPTH LIGHT LAYERS: default shared binding preserves every light domain = true
+DEPTH LIGHT LAYERS: V2 ordinary fixture has its exclusive depth-cull layer = true
+DEPTH LIGHT LAYERS: active lamp and explicit render domains remain owned by their authors = true
+DEPTH LIGHT LAYERS: actual light output and shadow authority are unchanged = false
+DEPTH LIGHT LAYERS: late fixture uses the existing node-added binding = true
+DEPTH LIGHT LAYERS: camera fallback restores only owned layers and preserves another owner change = true
+DEPTH LIGHT LAYERS: disposal cannot reclaim released layer ownership = true
+DEPTH LIGHT LAYERS: fresh owner can bind restored fixtures = true
+DEPTH LIGHT LAYERS: physical geometry on a reserved layer requires conservative full-depth fallback = true
+DEPTH LIGHT LAYERS: world retirement restores original ordinary fixtures without changing explicit domains = true
+V2 DEPTH LIGHT LAYERS: 10 checks; 1 failures

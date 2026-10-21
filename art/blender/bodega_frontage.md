@@ -16,10 +16,10 @@ casts previously crossed empty bands above the display panes and central
 transom. The existing 950 by 2,100 mm inward leaf also had no lower render infill,
 despite its existing full physical box.
 
-The saved **bodega_frontage.blend** contains **68 closed positive pieces**:
-67 fixed frame, bead and upper-light stocks plus one raised leaf panel. The
-installed export contains **three draws / 1,280 triangles**. Exact planar
-subdivision omits **1,590** paired or buried contact cells, including partial
+The saved **bodega_frontage.blend** contains **71 closed positive pieces**:
+70 fixed frame, bead and upper-light stocks plus one raised leaf panel. The
+installed export contains **three draws / 1,612 triangles**. Exact planar
+subdivision omits **1,742** paired or buried contact cells, including partial
 contacts with the original panes, piers, head, plinths and sill. Individually
 closed native counterparts remain editable. Bounds are rounded in the authoring
 source before grid construction, preventing floating-point sliver faces.
@@ -93,3 +93,5 @@ Open findings: shop-shell composition and broader material review, coordinated
 main-roof falls/outlets, downstream drainage, court/street-main closure, remaining
 independent shop service routes and broader city fabrication. Decision needed
 from owner: none for this bounded fitting. The verifier determines publication.
+
+Binding renewal on 2026-10-21 reruns the original recipe and produces a byte-identical installed export. Only the dependency binding to the unchanged storefront geometry in DoorProp is renewed after its motion-query refactor. Previous native/export/fixture bytes are preserved in the V2 repair review packet.
