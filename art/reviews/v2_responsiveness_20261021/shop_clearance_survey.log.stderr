@@ -1,0 +1,5 @@
+SCRIPT ERROR: Attempt to call function 'dispose' in base 'null instance' on a null instance.
+   at: _notification (res://scripts/building/orison_v2_fitting_collision_cache.gd:9)
+   GDScript backtrace (most recent call first):
+       [0] _notification (res://scripts/building/orison_v2_fitting_collision_cache.gd:9)
+       [1] _run (res://tests/orison_v2_vertical_route_test.gd:41)

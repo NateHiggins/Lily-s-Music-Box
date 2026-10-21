@@ -1,14 +1,6 @@
 {
   "evidence_class": "INERT",
   "result": "PASS",
-  "errors": [],
-  "packet": "first_slice_contract_20261011",
-  "source": {
-    "physical_inputs_sha256": "b515155935b8dbf7775c0ec5ec1de475ec17976fe0108c9cedbcabe28b6740bc",
-    "repository_head": "b0cf00244b39c40e5ddc5cd75656deff1fd74c71",
-    "runtime_inputs_sha256": "0f6dbe6c3813cd10cc58c3fe3349aaff48ad1eb49d3919a2b8c76e31fcb694d7",
-    "test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
-    "test_sha256": "59f0f5275b8215cd449afea46904fabf8485acfc6485172bfd82a5ac594d8c28"
-  },
-  "scope": "Independent current-source validation of original unmodified test-written proof. No new grant."
+  "checks": 359,
+  "scope": "Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Call/dialogue and the closed prior-job gate are fixtures; board, boiler and radiator outcomes come from physical input. Service travel and workshop insert delivery use the collision-bearing controller. Patrol stance placement and whole-world visual acceptance remain separate."
 }

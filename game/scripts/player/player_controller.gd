@@ -42,7 +42,7 @@ var _carried_light_pose := preload("res://scripts/lamp/carried_lamp_pose.gd").ne
 var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
-var _target_dot: ColorRect
+var _target_dot: Control
 var inspect_owner: Node3D
 var _inspection_active := false
 var _inspection_jump_consumed := false
@@ -243,12 +243,9 @@ func _build_hud() -> void:
 	layer.layer = 7
 	_interaction_hud=layer
 	add_child(layer)
-	var dot := ColorRect.new()
+	var dot := preload("res://scripts/player/target_reticle.gd").new()
 	_target_dot = dot
 	_grab = preload("res://scripts/player/constrained_grab.gd").new(self)
-	dot.size = Vector2(4, 4)
-	dot.position = Vector2(638, 358)
-	dot.color = Color(0.9, 0.92, 0.95, 0.55)
 	dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(dot)
 	_prompt_panel = PanelContainer.new()
@@ -294,13 +291,14 @@ func _update_prompt() -> void:
 	_prompt_panel.visible = false
 	if _grab != null:
 		_grab.validate()
-		var aimed: Dictionary = _grab.find_target()
+		# A latched hand retains its part; hovering must not scan another object.
+		var can_aim := not call_locked and not mouse_released and (inspecting() or touch_input or Input.mouse_mode==Input.MOUSE_MODE_CAPTURED)
+		var aimed: Dictionary = {} if _grab.active() or not can_aim else _grab.find_target()
 		var available: bool = not call_locked and not mouse_released and aimed.get("part") is Node3D
-		_target_dot.set_anchors_preset(Control.PRESET_CENTER)
-		var radius := 5.0 if _grab.active() else 3.0 if available else 2.0
-		_target_dot.position = (get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5)-Vector2.ONE*radius
-		_target_dot.size = Vector2.ONE*radius*2
-		_target_dot.color = Color(1,.85,.58,.95) if _grab.active() else Color(1,.96,.82,.95) if available else Color(.9,.92,.95,.45)
+		var feedback: Dictionary = _grab.feedback(aimed)
+		if call_locked or mouse_released or (not inspecting() and not touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED): feedback.state="hidden"
+		_target_dot.present(feedback.state,feedback.inspectable,
+			get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5)
 		if _grab.active() or available or aimed.get("blocked",false): return
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact_prompt"):
@@ -311,12 +309,8 @@ func _update_prompt() -> void:
 	if call_locked or (not touch_input
 			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED):
 		return
-	var from := camera.global_position
-	var to := from + camera.global_transform.basis * Vector3(0, 0, -2.1)
-	var params := PhysicsRayQueryParameters3D.create(from, to)
-	params.collide_with_areas = true
-	params.exclude = [get_rid()]
-	var hit := get_world_3d().direct_space_state.intersect_ray(params)
+	# The same ray supplies legacy semantic prompts. Do not rescan the world.
+	var hit: Dictionary = _grab.last_hit if _grab != null else {}
 	if hit.is_empty():
 		return
 	if hit.collider is Area3D:
@@ -386,7 +380,6 @@ func _process(_delta: float) -> void:
 			end_inspection()
 		else:
 			camera.global_transform = _inspect_anchor
-	_update_prompt()
 	_advance_lamp(_delta)
 	_carry_service_light(_delta)
 	if not call_locked and not inspecting():
@@ -410,6 +403,7 @@ func _process(_delta: float) -> void:
 			and carried_device and carried_device.has_method("toggle_radio_power"):
 		carried_device.toggle_radio_power()
 	if call_locked:
+		_update_prompt()
 		return
 	# POLLED, not event-driven. An on-screen button presses an action
 	# through Input.action_press(), which sets the action's state but never
@@ -427,6 +421,9 @@ func _process(_delta: float) -> void:
 			_clear_stagger()
 	if Input.is_action_just_pressed("crouch") and not inspecting():
 		_set_crouched(not crouched)
+	# Resolve after controller look, interaction and eye-height changes so the
+	# drawn target describes the camera and hand actually rendered this frame.
+	_update_prompt()
 
 
 func _unhandled_input(event: InputEvent) -> void:

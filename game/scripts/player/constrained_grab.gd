@@ -6,6 +6,20 @@ var contact := Vector3.ZERO
 var changed := false
 var _motion_origin: Variant
 var _holder_pose := Transform3D.IDENTITY
+var last_hit: Dictionary = {}
+var motion_feedback := "grabbed"
+var _feedback_pending := false
+var _feedback_requested: Variant
+var _feedback_frame := 0
+var _feedback_limit := false
+var _feedback_until := 0
+var profiling := false
+var profile_records: Array[Dictionary] = []
+
+func _record_cost(stage: String, owner_name: String, started: int) -> void:
+	if not profiling: return
+	profile_records.append({"stage":stage,"owner":owner_name,"ms":float(Time.get_ticks_usec()-started)/1000.0})
+	if profile_records.size()>256: profile_records.pop_front()
 
 func _init(holder: Node3D) -> void:
 	player = holder
@@ -18,6 +32,7 @@ func find_target() -> Dictionary:
 	query.collide_with_areas = true
 	query.exclude = [player.get_rid()]
 	var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
+	last_hit = hit
 	if hit.is_empty(): return {}
 	var node: Node = hit.collider
 	while node != null:
@@ -53,10 +68,15 @@ func active() -> bool:
 func acquire(candidate: Dictionary) -> bool:
 	if active() or candidate.is_empty() or candidate.get("blocked",false): return false
 	if not is_instance_valid(candidate.get("part")) or not is_instance_valid(candidate.get("owner")): return false
+	var started := Time.get_ticks_usec() if profiling else 0
 	if candidate.has("begin") and not candidate.begin.call(): return false
+	_record_cost("begin",str(candidate.owner.name),started)
 	target = candidate
 	contact = target.part.to_local(candidate.hit_position)
 	changed = false
+	motion_feedback = "grabbed"
+	_feedback_pending = false
+	_feedback_until = 0
 	_motion_origin=target.read.call()
 	_holder_pose=player.global_transform
 	return true
@@ -84,17 +104,23 @@ func release(notify_change := true) -> void:
 	var old := target
 	var accepted_change:=changed
 	target = {}
+	_feedback_pending = false
 	changed=false
 	if is_instance_valid(old.get("owner")):
+		var started := Time.get_ticks_usec() if profiling else 0
+		var owner_name := str(old.owner.name)
 		if old.has("owns") and not old.owns.call(): changed=false;return
 		if old.has("end"): old.end.call()
+		_record_cost("end",owner_name,started)
 		if accepted_change and notify_change:
 			var origin: Vector3=old.owner.global_position
 			var resolve: Variant=old.get("change_origin")
 			if resolve is Callable and resolve.is_valid():
 				var physical: Variant=resolve.call()
 				if physical is Vector3 and physical.is_finite(): origin=physical
+			started=Time.get_ticks_usec() if profiling else 0
 			player.world_modified.emit(origin, str(old.owner.name))
+			_record_cost("world_modified",owner_name,started)
 	changed = false
 
 func _observe_motion() -> void:
@@ -106,6 +132,28 @@ func _observe_motion() -> void:
 		changed=changed or not current.is_equal_approx(_motion_origin)
 	elif typeof(current) in [TYPE_FLOAT,TYPE_INT] and typeof(_motion_origin) in [TYPE_FLOAT,TYPE_INT]:
 		changed=changed or not is_equal_approx(float(current),float(_motion_origin))
+	# Read back the owner's accepted value after physics publishes moving bodies.
+	# No extra sweep or collision query belongs to the indicator.
+	if _feedback_pending and Engine.get_physics_frames() > _feedback_frame:
+		var accepted: bool = current.is_equal_approx(_feedback_requested) if current is Vector3 else absf(float(current)-float(_feedback_requested)) < .0001
+		motion_feedback = ("limit" if _feedback_limit else "grabbed") if accepted else "blocked"
+		_feedback_pending = false
+		_feedback_until = Time.get_ticks_msec()+250
+	elif not _feedback_pending and Time.get_ticks_msec() > _feedback_until:
+		motion_feedback = "grabbed"
+
+func _expect_motion(requested: Variant, at_limit := false) -> void:
+	_feedback_requested = requested
+	_feedback_limit = at_limit
+	_feedback_frame = Engine.get_physics_frames()
+	_feedback_pending = true
+	motion_feedback = "limit" if at_limit else "grabbed"
+
+func feedback(aimed: Dictionary) -> Dictionary:
+	var descriptor := target if active() else aimed
+	var owner := _context_owner(descriptor, true)
+	return {"state":motion_feedback if active() else "available" if descriptor.get("part") is Node3D else "blocked" if descriptor.get("blocked",false) else "idle",
+		"inspectable":is_instance_valid(owner) and owner.has_method("inspection_view")}
 
 func validate() -> void:
 	if not active(): return
@@ -142,7 +190,10 @@ func move(relative: Vector2) -> void:
 		var displacement: Vector3=camera.project_position(screen+relative,depth)-point
 		displacement=displacement.limit_length(.08)
 		var before: Vector3=target.read.call()
+		var started := Time.get_ticks_usec() if profiling else 0
 		target.write.call(before+frame.global_basis.inverse()*displacement)
+		_record_cost("free_motion",str(target.owner.name),started)
+		_expect_motion(before+frame.global_basis.inverse()*displacement)
 		if not before.is_equal_approx(target.read.call()): changed=true
 		return
 	var local_axis: Vector3 = target.axis.call() if target.axis is Callable else target.axis
@@ -172,8 +223,12 @@ func move(relative: Vector2) -> void:
 	step = clampf(step,-limit,limit)
 	var before: float = target.read.call()
 	var value := clampf(before+step,float(target.minimum),float(target.maximum))
+	if is_zero_approx(step): return
+	_expect_motion(value, not is_equal_approx(value,before+step))
 	if is_equal_approx(value,before): return
+	var started := Time.get_ticks_usec() if profiling else 0
 	target.write.call(value)
+	_record_cost("constrained_motion",str(target.owner.name),started)
 	if not is_equal_approx(float(target.read.call()),before): changed = true
 
 func move_depth(distance: float) -> bool:
@@ -183,5 +238,6 @@ func move_depth(distance: float) -> bool:
 	var axis: Vector3=(point-player.camera.global_position).normalized()
 	var before: Vector3=target.read.call()
 	target.write.call(before+target.frame.global_basis.inverse()*axis*clampf(distance,-.08,.08))
+	_expect_motion(before+target.frame.global_basis.inverse()*axis*clampf(distance,-.08,.08))
 	if not before.is_equal_approx(target.read.call()): changed=true
 	return true

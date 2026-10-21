@@ -33,7 +33,11 @@ func shot(label: String) -> void:
 func move_hinge(part_name: String,at: Vector3,goal: float) -> void:
 	aim(at,Vector3(.35,1.2,-.8))
 	await get_tree().physics_frame
+	player._update_prompt()
+	check(player._target_dot.state=="available",part_name+" hover indicates actual movable part")
 	click()
+	player._update_prompt()
+	check(player._target_dot.state=="grabbed",part_name+" latched hand indicator")
 	check(player._grab.active() and player._grab.target.part==wc.parts[part_name],part_name+" visible part acquires")
 	if not player._grab.active(): return
 	var grip: Dictionary=player._grab.target
@@ -49,6 +53,18 @@ func move_hinge(part_name: String,at: Vector3,goal: float) -> void:
 		drag(gesture*signf(goal-before)*minf(.06,absf(goal-before)))
 		await get_tree().physics_frame
 	check(absf(float(grip.read.call())-goal)<.002,part_name+" mouse reaches physical stop")
+	if absf(goal-float(grip.minimum))<.001 or absf(goal-float(grip.maximum))<.001:
+		var point: Vector3=grip.part.to_global(player._grab.contact)
+		var axis: Vector3=grip.frame.global_basis*grip.axis
+		var tangent:=axis.cross(point-grip.part.global_position)
+		var gesture: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
+		if gesture.length()<24 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5:
+			gesture=Vector2(0,tangent.dot(player.camera.global_basis.z)*180)
+		drag(gesture*(-.08 if absf(goal-float(grip.minimum))<.001 else .08))
+		await get_tree().physics_frame
+		await get_tree().process_frame
+		player._update_prompt()
+		check(player._target_dot.state=="limit" and absf(float(grip.read.call())-goal)<.002,part_name+" travel limit feedback retains physical stop")
 	click()
 
 func _run() -> void:
@@ -76,6 +92,8 @@ func _run() -> void:
 	aim(Vector3(.31,.64,.098),Vector3(.62,.68,-.08))
 	click()
 	check(player._grab.active(),"actual handle ray grabs")
+	player._update_prompt()
+	check(player._target_dot.inspectable,"inspection capability comes from selected mechanism")
 	if player._grab.active():
 		check(player._grab.target.part==wc.parts.CisternHandle,"handle selection is precise")
 		check(is_zero_approx(wc._lever.rotation.z),"grab alone does not flush")
@@ -141,6 +159,21 @@ func _run() -> void:
 	check(wc.mechanism_snapshot()==state,"snapshot roundtrip retains mechanisms")
 	var invalid:=state.duplicate(true);invalid.water=NAN
 	check(not wc.valid_mechanism(invalid),"nonfinite water snapshot rejected")
+	# A real locked leaf accepts the hand but rejects physical motion.
+	var locked:=DoorProp.new();locked.leaf_state="locked";locked.position=Vector3(2,0,0)
+	add_child(locked)
+	player.position=Vector3(2.4,0,-1)
+	aim(Vector3(2.4,1.1,0),Vector3(2.4,1.3,-1))
+	await get_tree().physics_frame
+	click()
+	check(player._grab.active() and player._grab.target.owner==locked,"locked physical leaf can be gripped")
+	drag(Vector2(0,30))
+	await get_tree().physics_frame
+	await get_tree().process_frame
+	player._update_prompt()
+	check(player._target_dot.state=="blocked" and is_zero_approx(locked._body.rotation.y),"rejected owner motion shows blocked without bypassing lock")
+	await shot("locked_reticle")
+	click();locked.free()
 	var carrier:=ServiceSetCarrier.new()
 	carrier.setup(player,player.camera,null)
 	player.carried_device=carrier

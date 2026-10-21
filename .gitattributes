@@ -2730,3 +2730,19 @@ game/tests/V2LibraryShadowProbe.tscn -text
 game/tests/orison_v2_golden_repair_route_test.gd -text
 game/tests/v2_passage_door_sweep_probe.gd -text
 game/tests/V2PassageDoorSweepProbe.tscn -text
+
+# V2 responsiveness diagnostics and source-bound local input/collision checks.
+art/reviews/v2_responsiveness_20261021/** -text whitespace=cr-at-eol
+art/reviews/v2_responsiveness_20261021/*.log binary
+art/reviews/v2_responsiveness_20261021/*.stderr binary
+game/scripts/building/orison_v2_shop_seating.gd -text
+game/scripts/building/orison_v2_fitting_collision_cache.gd -text
+game/scripts/building/orison_v2_structural_occlusion.gd -text
+game/scripts/player/target_reticle.gd -text
+game/tests/orison_v2_responsiveness_profile.gd -text
+game/tests/v2_triangle_fitter_bench.gd -text
+game/tests/fixtures/v2_triangle_fitter_reference.gd -text
+game/tests/v2_native_fitting_profile.gd -text
+game/tests/v2_shop_door_clearance_survey.gd -text
+game/tests/v2_fitting_collision_cache_test.gd -text
+game/tests/v2_structural_occlusion_review.gd -text

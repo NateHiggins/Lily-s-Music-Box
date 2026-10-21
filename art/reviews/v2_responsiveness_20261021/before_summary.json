@@ -1,0 +1,906 @@
+{
+  "source": "art\\reviews\\v2_responsiveness_20261021\\before\\frames.json",
+  "kind": "performance_diagnostic",
+  "evidence_class": "INERT",
+  "settings": {
+    "resolution": "(1280.0, 720.0)",
+    "vsync": false
+  },
+  "startup_ms": 115104.555,
+  "failures": [],
+  "phases": {
+    "lobby_turn_0": {
+      "wall_ms": {
+        "p50_ms": 78.216,
+        "p90_ms": 85.258,
+        "p95_ms": 87.821,
+        "p99_ms": 91.635,
+        "max_ms": 95.208,
+        "frames": 120,
+        "over_33ms": 120,
+        "over_50ms": 120,
+        "over_100ms": 0
+      },
+      "process_ms": {
+        "p50_ms": 72.244,
+        "p90_ms": 79.803,
+        "p95_ms": 79.803,
+        "p99_ms": 79.803,
+        "max_ms": 79.803,
+        "frames": 120,
+        "over_33ms": 120,
+        "over_50ms": 120,
+        "over_100ms": 0
+      },
+      "physics_ms": {
+        "p50_ms": 4.378,
+        "p90_ms": 4.95,
+        "p95_ms": 4.95,
+        "p99_ms": 5.087,
+        "max_ms": 5.087,
+        "frames": 120,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 18.503,
+        "p90_ms": 20.7,
+        "p95_ms": 21.171,
+        "p99_ms": 21.485,
+        "max_ms": 21.916,
+        "frames": 120,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 13.971,
+        "p90_ms": 15.45,
+        "p95_ms": 16.018,
+        "p99_ms": 16.918,
+        "max_ms": 16.944,
+        "frames": 120,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "walk_and_grab_0": {
+      "wall_ms": {
+        "p50_ms": 72.293,
+        "p90_ms": 458.03,
+        "p95_ms": 620.383,
+        "p99_ms": 908.088,
+        "max_ms": 908.088,
+        "frames": 52,
+        "over_33ms": 52,
+        "over_50ms": 49,
+        "over_100ms": 12
+      },
+      "process_ms": {
+        "p50_ms": 85.174,
+        "p90_ms": 600.695,
+        "p95_ms": 891.277,
+        "p99_ms": 891.277,
+        "max_ms": 891.277,
+        "frames": 52,
+        "over_33ms": 52,
+        "over_50ms": 52,
+        "over_100ms": 22
+      },
+      "physics_ms": {
+        "p50_ms": 4.376,
+        "p90_ms": 7.724,
+        "p95_ms": 23.654,
+        "p99_ms": 23.654,
+        "max_ms": 23.654,
+        "frames": 52,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 17.915,
+        "p90_ms": 25.995,
+        "p95_ms": 29.305,
+        "p99_ms": 48.127,
+        "max_ms": 48.127,
+        "frames": 52,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 14.013,
+        "p90_ms": 21.344,
+        "p95_ms": 56.105,
+        "p99_ms": 56.853,
+        "max_ms": 56.853,
+        "frames": 52,
+        "over_33ms": 3,
+        "over_50ms": 3,
+        "over_100ms": 0
+      }
+    },
+    "street_turn_0": {
+      "wall_ms": {
+        "p50_ms": 59.643,
+        "p90_ms": 70.893,
+        "p95_ms": 75.29,
+        "p99_ms": 547.389,
+        "max_ms": 1093.229,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 108,
+        "over_100ms": 5
+      },
+      "process_ms": {
+        "p50_ms": 61.521,
+        "p90_ms": 141.634,
+        "p95_ms": 141.634,
+        "p99_ms": 600.695,
+        "max_ms": 1075.912,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 22
+      },
+      "physics_ms": {
+        "p50_ms": 4.598,
+        "p90_ms": 4.816,
+        "p95_ms": 4.816,
+        "p99_ms": 4.816,
+        "max_ms": 4.816,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 16.679,
+        "p90_ms": 19.186,
+        "p95_ms": 19.8,
+        "p99_ms": 20.103,
+        "max_ms": 34.709,
+        "frames": 119,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 13.054,
+        "p90_ms": 15.759,
+        "p95_ms": 17.064,
+        "p99_ms": 113.225,
+        "max_ms": 143.097,
+        "frames": 119,
+        "over_33ms": 5,
+        "over_50ms": 5,
+        "over_100ms": 2
+      }
+    },
+    "return_and_stream_0": {
+      "wall_ms": {
+        "p50_ms": 80.406,
+        "p90_ms": 99.043,
+        "p95_ms": 101.902,
+        "p99_ms": 134.507,
+        "max_ms": 134.507,
+        "frames": 52,
+        "over_33ms": 52,
+        "over_50ms": 46,
+        "over_100ms": 5
+      },
+      "process_ms": {
+        "p50_ms": 86.438,
+        "p90_ms": 119.791,
+        "p95_ms": 119.791,
+        "p99_ms": 119.791,
+        "max_ms": 119.791,
+        "frames": 52,
+        "over_33ms": 52,
+        "over_50ms": 52,
+        "over_100ms": 11
+      },
+      "physics_ms": {
+        "p50_ms": 5.868,
+        "p90_ms": 16.771,
+        "p95_ms": 16.771,
+        "p99_ms": 16.771,
+        "max_ms": 16.771,
+        "frames": 52,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 24.953,
+        "p90_ms": 32.241,
+        "p95_ms": 33.53,
+        "p99_ms": 49.115,
+        "max_ms": 49.115,
+        "frames": 52,
+        "over_33ms": 3,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 19.316,
+        "p90_ms": 23.733,
+        "p95_ms": 24.233,
+        "p99_ms": 30.92,
+        "max_ms": 30.92,
+        "frames": 52,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "lobby_turn_1": {
+      "wall_ms": {
+        "p50_ms": 76.51,
+        "p90_ms": 86.514,
+        "p95_ms": 88.229,
+        "p99_ms": 123.336,
+        "max_ms": 150.512,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 2
+      },
+      "process_ms": {
+        "p50_ms": 76.305,
+        "p90_ms": 134.822,
+        "p95_ms": 134.822,
+        "p99_ms": 134.822,
+        "max_ms": 134.822,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 13
+      },
+      "physics_ms": {
+        "p50_ms": 4.284,
+        "p90_ms": 4.608,
+        "p95_ms": 4.608,
+        "p99_ms": 4.608,
+        "max_ms": 4.608,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 17.876,
+        "p90_ms": 20.058,
+        "p95_ms": 20.571,
+        "p99_ms": 21.059,
+        "max_ms": 21.271,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 13.535,
+        "p90_ms": 15.606,
+        "p95_ms": 16.124,
+        "p99_ms": 16.847,
+        "max_ms": 17.178,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "walk_and_grab_1": {
+      "wall_ms": {
+        "p50_ms": 62.007,
+        "p90_ms": 365.556,
+        "p95_ms": 473.084,
+        "p99_ms": 896.737,
+        "max_ms": 896.737,
+        "frames": 50,
+        "over_33ms": 50,
+        "over_50ms": 47,
+        "over_100ms": 8
+      },
+      "process_ms": {
+        "p50_ms": 73.898,
+        "p90_ms": 372.893,
+        "p95_ms": 641.629,
+        "p99_ms": 881.285,
+        "max_ms": 881.285,
+        "frames": 50,
+        "over_33ms": 50,
+        "over_50ms": 50,
+        "over_100ms": 22
+      },
+      "physics_ms": {
+        "p50_ms": 4.221,
+        "p90_ms": 4.533,
+        "p95_ms": 17.031,
+        "p99_ms": 17.545,
+        "max_ms": 17.545,
+        "frames": 50,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 17.787,
+        "p90_ms": 22.138,
+        "p95_ms": 24.69,
+        "p99_ms": 34.627,
+        "max_ms": 34.627,
+        "frames": 50,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 13.973,
+        "p90_ms": 17.342,
+        "p95_ms": 20.916,
+        "p99_ms": 57.051,
+        "max_ms": 57.051,
+        "frames": 50,
+        "over_33ms": 1,
+        "over_50ms": 1,
+        "over_100ms": 0
+      }
+    },
+    "street_turn_1": {
+      "wall_ms": {
+        "p50_ms": 62.717,
+        "p90_ms": 74.677,
+        "p95_ms": 150.577,
+        "p99_ms": 594.385,
+        "max_ms": 1062.972,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 111,
+        "over_100ms": 6
+      },
+      "process_ms": {
+        "p50_ms": 64.676,
+        "p90_ms": 134.888,
+        "p95_ms": 1045.181,
+        "p99_ms": 1045.181,
+        "max_ms": 1045.181,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 29
+      },
+      "physics_ms": {
+        "p50_ms": 4.66,
+        "p90_ms": 5.021,
+        "p95_ms": 5.021,
+        "p99_ms": 5.021,
+        "max_ms": 5.021,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 17.333,
+        "p90_ms": 19.331,
+        "p95_ms": 20.662,
+        "p99_ms": 23.561,
+        "max_ms": 32.022,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 14.779,
+        "p90_ms": 18.515,
+        "p95_ms": 55.201,
+        "p99_ms": 113.878,
+        "max_ms": 134.563,
+        "frames": 119,
+        "over_33ms": 8,
+        "over_50ms": 8,
+        "over_100ms": 2
+      }
+    },
+    "return_and_stream_1": {
+      "wall_ms": {
+        "p50_ms": 83.385,
+        "p90_ms": 102.378,
+        "p95_ms": 112.781,
+        "p99_ms": 131.297,
+        "max_ms": 131.297,
+        "frames": 51,
+        "over_33ms": 51,
+        "over_50ms": 45,
+        "over_100ms": 7
+      },
+      "process_ms": {
+        "p50_ms": 83.609,
+        "p90_ms": 116.178,
+        "p95_ms": 116.178,
+        "p99_ms": 116.178,
+        "max_ms": 116.178,
+        "frames": 51,
+        "over_33ms": 51,
+        "over_50ms": 51,
+        "over_100ms": 21
+      },
+      "physics_ms": {
+        "p50_ms": 4.66,
+        "p90_ms": 18.721,
+        "p95_ms": 18.721,
+        "p99_ms": 18.721,
+        "max_ms": 18.721,
+        "frames": 51,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 25.672,
+        "p90_ms": 32.387,
+        "p95_ms": 33.84,
+        "p99_ms": 48.15,
+        "max_ms": 48.15,
+        "frames": 51,
+        "over_33ms": 3,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 18.601,
+        "p90_ms": 25.503,
+        "p95_ms": 30.596,
+        "p99_ms": 38.348,
+        "max_ms": 38.348,
+        "frames": 51,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "idle": {
+      "wall_ms": {
+        "p50_ms": 70.969,
+        "p90_ms": 81.605,
+        "p95_ms": 84.542,
+        "p99_ms": 112.272,
+        "max_ms": 130.654,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 2
+      },
+      "process_ms": {
+        "p50_ms": 69.132,
+        "p90_ms": 116.894,
+        "p95_ms": 116.894,
+        "p99_ms": 116.894,
+        "max_ms": 116.894,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 14
+      },
+      "physics_ms": {
+        "p50_ms": 4.379,
+        "p90_ms": 4.836,
+        "p95_ms": 4.836,
+        "p99_ms": 4.836,
+        "max_ms": 4.836,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 20.55,
+        "p90_ms": 24.219,
+        "p95_ms": 24.972,
+        "p99_ms": 27.234,
+        "max_ms": 27.37,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 16.412,
+        "p90_ms": 18.114,
+        "p95_ms": 18.54,
+        "p99_ms": 22.879,
+        "max_ms": 22.914,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    }
+  },
+  "worst_frames": [
+    [
+      "street_turn_0",
+      1093.229,
+      1075.912,
+      3.714,
+      13.3839998245239,
+      50.2029991149902,
+      38699.0,
+      113955263.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_1",
+      1062.972,
+      574.951,
+      3.72,
+      12.5050001144409,
+      55.5480003356934,
+      36707.0,
+      107760609.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_0",
+      908.088,
+      57.652,
+      23.654,
+      16.0149993896484,
+      10.3319997787476,
+      39947.0,
+      128011344.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_1",
+      896.737,
+      881.285,
+      17.545,
+      15.2770004272461,
+      11.4029998779297,
+      38468.0,
+      121989117.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_0",
+      684.268,
+      666.569,
+      23.124,
+      15.1660003662109,
+      21.2679996490479,
+      46579.0,
+      151145841.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_1",
+      657.74,
+      641.629,
+      3.493,
+      15.3000001907349,
+      19.6529998779297,
+      38272.0,
+      117156235.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_0",
+      620.383,
+      478.84,
+      4.519,
+      14.2239999771118,
+      56.1049995422363,
+      39217.0,
+      120086418.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_1",
+      594.385,
+      452.013,
+      4.603,
+      12.3430004119873,
+      51.8889999389648,
+      36692.0,
+      107587444.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_0",
+      547.389,
+      529.993,
+      3.607,
+      12.6510000228882,
+      113.224998474121,
+      41768.0,
+      124793814.0,
+      "RESIDENT"
+    ],
+    [
+      "street_turn_1",
+      527.406,
+      1045.181,
+      3.726,
+      14.5570001602173,
+      113.877998352051,
+      42911.0,
+      131014871.0,
+      "RESIDENT"
+    ],
+    [
+      "walk_and_grab_0",
+      495.171,
+      478.84,
+      4.519,
+      16.871000289917,
+      56.8530006408691,
+      38476.0,
+      117991903.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_0",
+      481.127,
+      666.569,
+      23.124,
+      16.9610004425049,
+      26.128999710083,
+      43715.0,
+      138843602.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_1",
+      473.084,
+      452.013,
+      4.603,
+      13.173999786377,
+      57.0509986877441,
+      38203.0,
+      114458821.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_1",
+      470.032,
+      641.629,
+      3.493,
+      13.1499996185303,
+      21.9769992828369,
+      39012.0,
+      119250748.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_0",
+      458.03,
+      891.277,
+      3.938,
+      12.8190002441406,
+      14.2309999465942,
+      48007.0,
+      155555079.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_0",
+      429.713,
+      600.695,
+      3.446,
+      14.5430002212524,
+      56.5540008544922,
+      38193.0,
+      114452413.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_1",
+      424.146,
+      574.951,
+      3.72,
+      12.8549995422363,
+      52.5579986572266,
+      38706.0,
+      113960917.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_1",
+      404.261,
+      881.285,
+      17.545,
+      12.7720003128052,
+      13.6020002365112,
+      40851.0,
+      125651493.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_0",
+      373.415,
+      891.277,
+      3.938,
+      17.9150009155273,
+      22.0060005187988,
+      44958.0,
+      143995546.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_1",
+      365.556,
+      372.893,
+      17.031,
+      18.0240001678467,
+      20.9160003662109,
+      41960.0,
+      132899806.0,
+      "LOADING"
+    ]
+  ],
+  "streaming": {
+    "cell_count": 1,
+    "load_cycles": 2,
+    "peak_activation_ms": 16.659,
+    "peak_stage_ms": 1024.366,
+    "pending_requests": 0,
+    "physical_actors_retained": true,
+    "retired_geometry_roots_alive": 0,
+    "retired_mesh_resources_alive": 0,
+    "stage_records": [
+      {
+        "cell": "passage",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 1.165,
+        "surface_ms": 846.308
+      },
+      {
+        "cell": "shop_model_laundry",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.679,
+        "surface_ms": 345.442
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.448,
+        "surface_ms": 263.395
+      },
+      {
+        "cell": "shop_keys_cut",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.772,
+        "surface_ms": 290.754
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.816,
+        "surface_ms": 619.314
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.57,
+        "surface_ms": 412.355
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "fetch_ms": 0.008,
+        "instantiate_ms": 0.704,
+        "surface_ms": 434.906
+      },
+      {
+        "cell": "shop_radio_service",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.469,
+        "surface_ms": 478.767
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.56,
+        "surface_ms": 354.361
+      },
+      {
+        "cell": "shop_news_cigars",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.368,
+        "surface_ms": 241.853
+      },
+      {
+        "cell": "shop_otis_son",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.748,
+        "surface_ms": 1023.612
+      },
+      {
+        "cell": "shop_luncheonette",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.49,
+        "surface_ms": 422.896
+      },
+      {
+        "cell": "passage",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 1.162,
+        "surface_ms": 841.375
+      },
+      {
+        "cell": "shop_model_laundry",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.721,
+        "surface_ms": 330.567
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.418,
+        "surface_ms": 264.811
+      },
+      {
+        "cell": "shop_keys_cut",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.779,
+        "surface_ms": 308.102
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.898,
+        "surface_ms": 599.596
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.551,
+        "surface_ms": 403.492
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.511,
+        "surface_ms": 410.171
+      },
+      {
+        "cell": "shop_radio_service",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.467,
+        "surface_ms": 459.527
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "fetch_ms": 0.005,
+        "instantiate_ms": 0.607,
+        "surface_ms": 349.493
+      },
+      {
+        "cell": "shop_news_cigars",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.362,
+        "surface_ms": 248.569
+      },
+      {
+        "cell": "shop_otis_son",
+        "fetch_ms": 0.005,
+        "instantiate_ms": 0.739,
+        "surface_ms": 989.578
+      },
+      {
+        "cell": "shop_luncheonette",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.593,
+        "surface_ms": 402.685
+      }
+    ],
+    "state": "DORMANT",
+    "unload_cycles": 3
+  }
+}

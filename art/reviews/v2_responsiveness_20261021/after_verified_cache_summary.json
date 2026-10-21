@@ -1,0 +1,1551 @@
+{
+  "source": "art\\reviews\\v2_responsiveness_20261021\\after_verified_cache\\frames.json",
+  "kind": "performance_diagnostic",
+  "evidence_class": "INERT",
+  "settings": {
+    "resolution": "(1280.0, 720.0)",
+    "vsync": false
+  },
+  "startup_ms": 110236.503,
+  "failures": [],
+  "phases": {
+    "lobby_turn_0": {
+      "wall_ms": {
+        "p50_ms": 81.227,
+        "p90_ms": 89.667,
+        "p95_ms": 93.222,
+        "p99_ms": 97.322,
+        "max_ms": 97.48,
+        "frames": 120,
+        "over_33ms": 120,
+        "over_50ms": 120,
+        "over_100ms": 0
+      },
+      "process_ms": {
+        "p50_ms": 76.785,
+        "p90_ms": 84.965,
+        "p95_ms": 86.114,
+        "p99_ms": 86.114,
+        "max_ms": 86.114,
+        "frames": 120,
+        "over_33ms": 120,
+        "over_50ms": 120,
+        "over_100ms": 0
+      },
+      "physics_ms": {
+        "p50_ms": 4.415,
+        "p90_ms": 4.9,
+        "p95_ms": 4.959,
+        "p99_ms": 4.959,
+        "max_ms": 4.959,
+        "frames": 120,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 19.075,
+        "p90_ms": 21.303,
+        "p95_ms": 22.513,
+        "p99_ms": 23.163,
+        "max_ms": 23.368,
+        "frames": 120,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 14.382,
+        "p90_ms": 16.334,
+        "p95_ms": 16.704,
+        "p99_ms": 17.939,
+        "max_ms": 18.458,
+        "frames": 120,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "walk_and_grab_0": {
+      "wall_ms": {
+        "p50_ms": 63.141,
+        "p90_ms": 105.689,
+        "p95_ms": 149.231,
+        "p99_ms": 961.933,
+        "max_ms": 961.933,
+        "frames": 60,
+        "over_33ms": 60,
+        "over_50ms": 58,
+        "over_100ms": 7
+      },
+      "process_ms": {
+        "p50_ms": 104.886,
+        "p90_ms": 225.696,
+        "p95_ms": 495.9,
+        "p99_ms": 495.9,
+        "max_ms": 495.9,
+        "frames": 60,
+        "over_33ms": 60,
+        "over_50ms": 60,
+        "over_100ms": 32
+      },
+      "physics_ms": {
+        "p50_ms": 4.959,
+        "p90_ms": 22.433,
+        "p95_ms": 22.433,
+        "p99_ms": 914.74,
+        "max_ms": 914.74,
+        "frames": 60,
+        "over_33ms": 3,
+        "over_50ms": 3,
+        "over_100ms": 3
+      },
+      "render_cpu_ms": {
+        "p50_ms": 17.115,
+        "p90_ms": 22.42,
+        "p95_ms": 25.114,
+        "p99_ms": 49.54,
+        "max_ms": 49.54,
+        "frames": 60,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 12.577,
+        "p90_ms": 16.065,
+        "p95_ms": 18.817,
+        "p99_ms": 21.727,
+        "max_ms": 21.727,
+        "frames": 60,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "street_turn_0": {
+      "wall_ms": {
+        "p50_ms": 69.008,
+        "p90_ms": 132.097,
+        "p95_ms": 153.681,
+        "p99_ms": 210.989,
+        "max_ms": 276.108,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 115,
+        "over_100ms": 16
+      },
+      "process_ms": {
+        "p50_ms": 158.461,
+        "p90_ms": 259.244,
+        "p95_ms": 495.9,
+        "p99_ms": 495.9,
+        "max_ms": 495.9,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 119
+      },
+      "physics_ms": {
+        "p50_ms": 4.6,
+        "p90_ms": 4.807,
+        "p95_ms": 22.433,
+        "p99_ms": 22.433,
+        "max_ms": 22.433,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 14.375,
+        "p90_ms": 16.892,
+        "p95_ms": 17.913,
+        "p99_ms": 18.612,
+        "max_ms": 20.5,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 16.571,
+        "p90_ms": 18.732,
+        "p95_ms": 19.271,
+        "p99_ms": 19.782,
+        "max_ms": 19.901,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "return_and_stream_0": {
+      "wall_ms": {
+        "p50_ms": 87.283,
+        "p90_ms": 105.172,
+        "p95_ms": 105.904,
+        "p99_ms": 147.245,
+        "max_ms": 147.245,
+        "frames": 49,
+        "over_33ms": 49,
+        "over_50ms": 47,
+        "over_100ms": 8
+      },
+      "process_ms": {
+        "p50_ms": 91.436,
+        "p90_ms": 129.585,
+        "p95_ms": 259.244,
+        "p99_ms": 259.244,
+        "max_ms": 259.244,
+        "frames": 49,
+        "over_33ms": 49,
+        "over_50ms": 49,
+        "over_100ms": 13
+      },
+      "physics_ms": {
+        "p50_ms": 4.513,
+        "p90_ms": 18.124,
+        "p95_ms": 18.124,
+        "p99_ms": 18.124,
+        "max_ms": 18.124,
+        "frames": 49,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 26.567,
+        "p90_ms": 32.386,
+        "p95_ms": 33.969,
+        "p99_ms": 47.569,
+        "max_ms": 47.569,
+        "frames": 49,
+        "over_33ms": 3,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 19.86,
+        "p90_ms": 24.231,
+        "p95_ms": 26.284,
+        "p99_ms": 39.508,
+        "max_ms": 39.508,
+        "frames": 49,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "lobby_turn_1": {
+      "wall_ms": {
+        "p50_ms": 80.748,
+        "p90_ms": 87.874,
+        "p95_ms": 93.765,
+        "p99_ms": 109.152,
+        "max_ms": 141.486,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 2
+      },
+      "process_ms": {
+        "p50_ms": 76.167,
+        "p90_ms": 94.983,
+        "p95_ms": 125.517,
+        "p99_ms": 125.517,
+        "max_ms": 125.517,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 11
+      },
+      "physics_ms": {
+        "p50_ms": 4.343,
+        "p90_ms": 4.592,
+        "p95_ms": 4.592,
+        "p99_ms": 4.592,
+        "max_ms": 4.592,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 19.38,
+        "p90_ms": 21.655,
+        "p95_ms": 22.23,
+        "p99_ms": 24.181,
+        "max_ms": 25.264,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 14.259,
+        "p90_ms": 15.806,
+        "p95_ms": 18.371,
+        "p99_ms": 21.205,
+        "max_ms": 21.319,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "walk_and_grab_1": {
+      "wall_ms": {
+        "p50_ms": 64.896,
+        "p90_ms": 95.937,
+        "p95_ms": 173.818,
+        "p99_ms": 923.088,
+        "max_ms": 923.088,
+        "frames": 55,
+        "over_33ms": 55,
+        "over_50ms": 48,
+        "over_100ms": 5
+      },
+      "process_ms": {
+        "p50_ms": 84.924,
+        "p90_ms": 495.566,
+        "p95_ms": 495.566,
+        "p99_ms": 495.566,
+        "max_ms": 495.566,
+        "frames": 55,
+        "over_33ms": 55,
+        "over_50ms": 55,
+        "over_100ms": 18
+      },
+      "physics_ms": {
+        "p50_ms": 4.334,
+        "p90_ms": 18.238,
+        "p95_ms": 872.213,
+        "p99_ms": 872.213,
+        "max_ms": 872.213,
+        "frames": 55,
+        "over_33ms": 5,
+        "over_50ms": 5,
+        "over_100ms": 5
+      },
+      "render_cpu_ms": {
+        "p50_ms": 17.071,
+        "p90_ms": 22.936,
+        "p95_ms": 24.137,
+        "p99_ms": 36.092,
+        "max_ms": 36.092,
+        "frames": 55,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 13.681,
+        "p90_ms": 16.011,
+        "p95_ms": 17.528,
+        "p99_ms": 21.407,
+        "max_ms": 21.407,
+        "frames": 55,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "street_turn_1": {
+      "wall_ms": {
+        "p50_ms": 67.944,
+        "p90_ms": 129.128,
+        "p95_ms": 155.034,
+        "p99_ms": 213.526,
+        "max_ms": 276.538,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 112,
+        "over_100ms": 19
+      },
+      "process_ms": {
+        "p50_ms": 135.361,
+        "p90_ms": 258.391,
+        "p95_ms": 258.391,
+        "p99_ms": 495.566,
+        "max_ms": 495.566,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 119
+      },
+      "physics_ms": {
+        "p50_ms": 4.574,
+        "p90_ms": 4.732,
+        "p95_ms": 4.732,
+        "p99_ms": 18.238,
+        "max_ms": 18.238,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 14.304,
+        "p90_ms": 16.418,
+        "p95_ms": 17.146,
+        "p99_ms": 18.488,
+        "max_ms": 19.149,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 16.631,
+        "p90_ms": 19.321,
+        "p95_ms": 19.696,
+        "p99_ms": 20.351,
+        "max_ms": 21.272,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "return_and_stream_1": {
+      "wall_ms": {
+        "p50_ms": 84.732,
+        "p90_ms": 118.231,
+        "p95_ms": 153.752,
+        "p99_ms": 171.503,
+        "max_ms": 171.503,
+        "frames": 47,
+        "over_33ms": 47,
+        "over_50ms": 46,
+        "over_100ms": 13
+      },
+      "process_ms": {
+        "p50_ms": 137.315,
+        "p90_ms": 152.295,
+        "p95_ms": 152.295,
+        "p99_ms": 152.295,
+        "max_ms": 152.295,
+        "frames": 47,
+        "over_33ms": 47,
+        "over_50ms": 47,
+        "over_100ms": 43
+      },
+      "physics_ms": {
+        "p50_ms": 4.721,
+        "p90_ms": 18.497,
+        "p95_ms": 18.497,
+        "p99_ms": 18.497,
+        "max_ms": 18.497,
+        "frames": 47,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 24.455,
+        "p90_ms": 37.651,
+        "p95_ms": 38.977,
+        "p99_ms": 49.323,
+        "max_ms": 49.323,
+        "frames": 47,
+        "over_33ms": 12,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 18.779,
+        "p90_ms": 25.166,
+        "p95_ms": 26.993,
+        "p99_ms": 33.398,
+        "max_ms": 33.398,
+        "frames": 47,
+        "over_33ms": 1,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "idle": {
+      "wall_ms": {
+        "p50_ms": 73.787,
+        "p90_ms": 85.168,
+        "p95_ms": 86.613,
+        "p99_ms": 89.248,
+        "max_ms": 122.7,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 1
+      },
+      "process_ms": {
+        "p50_ms": 74.196,
+        "p90_ms": 110.478,
+        "p95_ms": 110.478,
+        "p99_ms": 110.478,
+        "max_ms": 110.478,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 14
+      },
+      "physics_ms": {
+        "p50_ms": 4.544,
+        "p90_ms": 4.712,
+        "p95_ms": 4.712,
+        "p99_ms": 4.712,
+        "max_ms": 4.712,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_cpu_ms": {
+        "p50_ms": 21.436,
+        "p90_ms": 25.116,
+        "p95_ms": 25.555,
+        "p99_ms": 26.485,
+        "max_ms": 26.788,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "render_gpu_ms": {
+        "p50_ms": 16.172,
+        "p90_ms": 18.328,
+        "p95_ms": 19.277,
+        "p99_ms": 20.648,
+        "max_ms": 20.707,
+        "frames": 119,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    }
+  },
+  "worst_frames": [
+    [
+      "walk_and_grab_0",
+      961.933,
+      57.043,
+      21.519,
+      14.3319997787476,
+      9.625,
+      42177.0,
+      135800526.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_1",
+      923.088,
+      118.544,
+      18.223,
+      14.2659997940063,
+      8.79500007629395,
+      44904.0,
+      146809918.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_0",
+      533.633,
+      85.077,
+      18.934,
+      15.3070001602173,
+      14.6029996871948,
+      44958.0,
+      143960049.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_1",
+      511.127,
+      67.644,
+      872.213,
+      12.4359998703003,
+      12.1260004043579,
+      39129.0,
+      120452558.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_1",
+      276.538,
+      118.633,
+      4.559,
+      15.2390003204346,
+      16.6860008239746,
+      57919.0,
+      161777059.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_0",
+      276.108,
+      117.01,
+      4.549,
+      16.621000289917,
+      17.5189990997314,
+      48437.0,
+      138559147.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_0",
+      242.285,
+      104.886,
+      4.587,
+      19.0659999847412,
+      12.1459999084473,
+      77390.0,
+      267486483.0,
+      "DORMANT"
+    ],
+    [
+      "street_turn_1",
+      213.526,
+      156.198,
+      4.565,
+      11.8249998092651,
+      13.8900003433228,
+      42166.0,
+      132655244.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_0",
+      210.989,
+      176.623,
+      4.564,
+      12.9209995269775,
+      15.7329998016357,
+      41080.0,
+      123934823.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_1",
+      197.952,
+      156.198,
+      4.565,
+      12.2729997634888,
+      14.3339996337891,
+      42100.0,
+      129913908.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_0",
+      195.354,
+      158.461,
+      4.6,
+      12.8109998703003,
+      15.3140001296997,
+      39528.0,
+      119651574.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_0",
+      175.893,
+      495.9,
+      22.433,
+      12.3610000610352,
+      12.6350002288818,
+      40156.0,
+      120229347.0,
+      "LOADING"
+    ],
+    [
+      "walk_and_grab_1",
+      173.818,
+      495.566,
+      18.238,
+      10.7829999923706,
+      13.8739995956421,
+      38172.0,
+      117512505.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_1",
+      172.529,
+      153.076,
+      4.574,
+      10.7259998321533,
+      13.9519996643066,
+      38894.0,
+      114460469.0,
+      "LOADING"
+    ],
+    [
+      "return_and_stream_1",
+      171.503,
+      144.893,
+      4.538,
+      49.3230018615723,
+      33.3979988098145,
+      117163.0,
+      353772117.0,
+      "RESIDENT"
+    ],
+    [
+      "street_turn_1",
+      161.305,
+      258.391,
+      4.656,
+      17.6310005187988,
+      19.6240005493164,
+      48897.0,
+      129296737.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_1",
+      155.034,
+      153.076,
+      4.574,
+      11.9079999923706,
+      14.7229995727539,
+      41922.0,
+      127611047.0,
+      "LOADING"
+    ],
+    [
+      "street_turn_0",
+      154.131,
+      121.206,
+      4.585,
+      14.1820001602173,
+      16.6599998474121,
+      53537.0,
+      165577440.0,
+      "LOADING"
+    ],
+    [
+      "return_and_stream_1",
+      154.041,
+      152.295,
+      16.573,
+      33.689998626709,
+      23.5690002441406,
+      96446.0,
+      298285004.0,
+      "RESIDENT"
+    ],
+    [
+      "return_and_stream_1",
+      153.752,
+      152.295,
+      16.573,
+      30.7479991912842,
+      24.0610008239746,
+      104475.0,
+      321903761.0,
+      "RESIDENT"
+    ]
+  ],
+  "streaming": {
+    "cell_count": 1,
+    "collision_cache_bytes": 88864486,
+    "collision_cache_parts": 1269,
+    "collision_cache_seed_ms": 1694.784,
+    "fit_records": [
+      {
+        "cell": "shop_otis_son",
+        "ms": 8.523,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 4.276,
+        "operation": "standard wall millwork reload refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 29.198,
+        "operation": "native seating reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 16.646,
+        "operation": "native borrowed-light reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 16.692,
+        "operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 21.511,
+        "operation": "native Diner counter reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 18.501,
+        "operation": "native Diner register/display reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 13.543,
+        "operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 16.446,
+        "operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 22.637,
+        "operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 11.864,
+        "operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 6.411,
+        "operation": "native Diner receiving pair reload refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 4.901,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 4.087,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "passage",
+        "ms": 17.785,
+        "operation": "standard wall millwork reload refused: passage"
+      },
+      {
+        "cell": "passage",
+        "ms": 454.383,
+        "operation": "source-fitted arcade fabric reload refused: passage"
+      },
+      {
+        "cell": "passage",
+        "ms": 1.757,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "passage",
+        "ms": 3.406,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_model_laundry",
+        "ms": 4.332,
+        "operation": "standard wall millwork reload refused: shop_model_laundry"
+      },
+      {
+        "cell": "shop_model_laundry",
+        "ms": 110.708,
+        "operation": "native laundry reload fit refused: shop_model_laundry"
+      },
+      {
+        "cell": "shop_model_laundry",
+        "ms": 36.127,
+        "operation": "native laundry apparatus reload fit refused: shop_model_laundry"
+      },
+      {
+        "cell": "shop_model_laundry",
+        "ms": 28.519,
+        "operation": "native laundry trade furniture reload fit refused: shop_model_laundry"
+      },
+      {
+        "cell": "shop_model_laundry",
+        "ms": 17.326,
+        "operation": "native borrowed-light reload fit refused: shop_model_laundry"
+      },
+      {
+        "cell": "shop_model_laundry",
+        "ms": 15.641,
+        "operation": "native closed shop joinery reload fit refused: shop_model_laundry"
+      },
+      {
+        "cell": "shop_model_laundry",
+        "ms": 4.499,
+        "operation": "native Laundry receiving chassis reload refused: shop_model_laundry"
+      },
+      {
+        "cell": "shop_model_laundry",
+        "ms": 5.596,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_model_laundry",
+        "ms": 4.038,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "ms": 4.339,
+        "operation": "standard wall millwork reload refused: shop_shoe_rebuilding"
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "ms": 12.816,
+        "operation": "native borrowed-light reload fit refused: shop_shoe_rebuilding"
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "ms": 16.571,
+        "operation": "native closed shop joinery reload fit refused: shop_shoe_rebuilding"
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "ms": 112.935,
+        "operation": "native cobbler reload fit refused: shop_shoe_rebuilding"
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "ms": 3.038,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "ms": 3.886,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_keys_cut",
+        "ms": 4.43,
+        "operation": "standard wall millwork reload refused: shop_keys_cut"
+      },
+      {
+        "cell": "shop_keys_cut",
+        "ms": 16.239,
+        "operation": "native borrowed-light reload fit refused: shop_keys_cut"
+      },
+      {
+        "cell": "shop_keys_cut",
+        "ms": 17.77,
+        "operation": "native closed shop joinery reload fit refused: shop_keys_cut"
+      },
+      {
+        "cell": "shop_keys_cut",
+        "ms": 89.238,
+        "operation": "native locksmith reload fit refused: shop_keys_cut"
+      },
+      {
+        "cell": "shop_keys_cut",
+        "ms": 3.488,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_keys_cut",
+        "ms": 6.139,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "ms": 4.056,
+        "operation": "standard wall millwork reload refused: shop_hardware_paint"
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "ms": 14.16,
+        "operation": "native borrowed-light reload fit refused: shop_hardware_paint"
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "ms": 17.899,
+        "operation": "native closed shop joinery reload fit refused: shop_hardware_paint"
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "ms": 128.531,
+        "operation": "native hardware drawer reload fit refused: shop_hardware_paint"
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "ms": 16.132,
+        "operation": "native hardware apparatus reload fit refused: shop_hardware_paint"
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "ms": 152.394,
+        "operation": "native hardware stock reload fit refused: shop_hardware_paint"
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "ms": 23.615,
+        "operation": "native hardware tools reload fit refused: shop_hardware_paint"
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "ms": 5.61,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "ms": 4.058,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "ms": 4.501,
+        "operation": "standard wall millwork reload refused: shop_funeral_parlour"
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "ms": 36.962,
+        "operation": "native seating reload fit refused: shop_funeral_parlour"
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "ms": 15.783,
+        "operation": "native borrowed-light reload fit refused: shop_funeral_parlour"
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "ms": 22.581,
+        "operation": "native closed shop joinery reload fit refused: shop_funeral_parlour"
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "ms": 12.324,
+        "operation": "native funeral furniture reload refused: shop_funeral_parlour"
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "ms": 40.126,
+        "operation": "native funeral drapery reload refused: shop_funeral_parlour"
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "ms": 89.549,
+        "operation": "native funeral foliage reload refused: shop_funeral_parlour"
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "ms": 3.944,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "ms": 3.061,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 4.455,
+        "operation": "standard wall millwork reload refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 17.726,
+        "operation": "native borrowed-light reload fit refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 19.93,
+        "operation": "native closed shop joinery reload fit refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 14.695,
+        "operation": "native Photo/Radio reload fit refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 18.854,
+        "operation": "native photography display reload fit refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 14.241,
+        "operation": "native photography counter reload fit refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 59.86,
+        "operation": "native photography supply shelving reload fit refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 14.818,
+        "operation": "native photography enlarger reload fit refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 36.849,
+        "operation": "native photography process reload fit refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 66.973,
+        "operation": "native unclaimed portrait reload fit refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 7.382,
+        "operation": "native fixed photographic glazing reload refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 4.789,
+        "operation": "native Photo Supplies receiving chassis reload refused: shop_photo_supplies"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 6.436,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "ms": 4.989,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 4.295,
+        "operation": "standard wall millwork reload refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 17.649,
+        "operation": "native borrowed-light reload fit refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 20.485,
+        "operation": "native closed shop joinery reload fit refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 16.73,
+        "operation": "native Photo/Radio reload fit refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 14.813,
+        "operation": "native radio bench reload refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 43.198,
+        "operation": "native radio apparatus reload refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 59.124,
+        "operation": "native radio valve stock reload refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 21.416,
+        "operation": "native radio charging display reload refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 34.601,
+        "operation": "native passive wire/ring stock reload refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 15.425,
+        "operation": "native fitted counter/display reload refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 4.49,
+        "operation": "native period receiving chassis reload refused: shop_radio_service"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 5.648,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_radio_service",
+        "ms": 4.9,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "ms": 4.353,
+        "operation": "standard wall millwork reload refused: shop_pawnbroker"
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "ms": 19.497,
+        "operation": "native borrowed-light reload fit refused: shop_pawnbroker"
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "ms": 19.607,
+        "operation": "native closed shop joinery reload fit refused: shop_pawnbroker"
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "ms": 5.622,
+        "operation": "native Pawn Shop receiving chassis reload refused: shop_pawnbroker"
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "ms": 33.827,
+        "operation": "native Pawn Shop display reload refused: shop_pawnbroker"
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "ms": 48.419,
+        "operation": "native Pawn Shop clocks reload refused: shop_pawnbroker"
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "ms": 52.109,
+        "operation": "native Pawn Shop fittings reload refused: shop_pawnbroker"
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "ms": 5.67,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "ms": 3.873,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_news_cigars",
+        "ms": 4.156,
+        "operation": "standard wall millwork reload refused: shop_news_cigars"
+      },
+      {
+        "cell": "shop_news_cigars",
+        "ms": 15.296,
+        "operation": "native borrowed-light reload fit refused: shop_news_cigars"
+      },
+      {
+        "cell": "shop_news_cigars",
+        "ms": 19.182,
+        "operation": "native closed shop joinery reload fit refused: shop_news_cigars"
+      },
+      {
+        "cell": "shop_news_cigars",
+        "ms": 1.505,
+        "operation": "native locksmith reload fit refused: shop_news_cigars"
+      },
+      {
+        "cell": "shop_news_cigars",
+        "ms": 64.004,
+        "operation": "native news reload fit refused: shop_news_cigars"
+      },
+      {
+        "cell": "shop_news_cigars",
+        "ms": 3.756,
+        "operation": "native News Cigars receiving chassis reload refused: shop_news_cigars"
+      },
+      {
+        "cell": "shop_news_cigars",
+        "ms": 3.466,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_news_cigars",
+        "ms": 3.29,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 4.421,
+        "operation": "standard wall millwork reload refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 22.345,
+        "operation": "native seating reload fit refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 18.681,
+        "operation": "native borrowed-light reload fit refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 21.116,
+        "operation": "native closed shop joinery reload fit refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 204.63,
+        "operation": "native druggist drawer/counter reload fit refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 13.93,
+        "operation": "native druggist counter objects reload refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 8.187,
+        "operation": "native druggist marble objects reload refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 82.416,
+        "operation": "native composed dispensary reload refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 31.324,
+        "operation": "native druggist cupboard reload refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 87.997,
+        "operation": "native druggist display carboys reload refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 21.637,
+        "operation": "native unused druggist fountain reload refused: shop_otis_son"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 6.37,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 1.079,
+        "operation": "material stock"
+      },
+      {
+        "cell": "shop_otis_son",
+        "ms": 5.099,
+        "operation": "surface binding"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 4.214,
+        "operation": "standard wall millwork reload refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 36.766,
+        "operation": "native seating reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 17.67,
+        "operation": "native borrowed-light reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 17.069,
+        "operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 17.101,
+        "operation": "native Diner counter reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 18.031,
+        "operation": "native Diner register/display reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 11.119,
+        "operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 16.805,
+        "operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 22.407,
+        "operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 10.069,
+        "operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 6.179,
+        "operation": "native Diner receiving pair reload refused: shop_luncheonette"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 5.367,
+        "operation": "owner finishes"
+      },
+      {
+        "cell": "shop_luncheonette",
+        "ms": 3.822,
+        "operation": "surface binding"
+      }
+    ],
+    "load_cycles": 2,
+    "peak_activation_ms": 18.218,
+    "peak_stage_ms": 455.025,
+    "pending_requests": 0,
+    "physical_actors_retained": true,
+    "retired_geometry_roots_alive": 0,
+    "retired_mesh_resources_alive": 0,
+    "stage_records": [
+      {
+        "cell": "passage",
+        "fetch_ms": 0.002,
+        "instantiate_ms": 1.11,
+        "surface_ms": 487.42
+      },
+      {
+        "cell": "shop_model_laundry",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.643,
+        "surface_ms": 228.141
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.45,
+        "surface_ms": 164.818
+      },
+      {
+        "cell": "shop_keys_cut",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.721,
+        "surface_ms": 139.519
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.903,
+        "surface_ms": 382.279
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.551,
+        "surface_ms": 236.163
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.469,
+        "surface_ms": 296.185
+      },
+      {
+        "cell": "shop_radio_service",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.461,
+        "surface_ms": 269.565
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.49,
+        "surface_ms": 213.586
+      },
+      {
+        "cell": "shop_news_cigars",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.378,
+        "surface_ms": 117.364
+      },
+      {
+        "cell": "shop_otis_son",
+        "fetch_ms": 0.005,
+        "instantiate_ms": 0.707,
+        "surface_ms": 523.943
+      },
+      {
+        "cell": "shop_luncheonette",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.499,
+        "surface_ms": 195.202
+      },
+      {
+        "cell": "passage",
+        "fetch_ms": 0.001,
+        "instantiate_ms": 1.111,
+        "surface_ms": 488.44
+      },
+      {
+        "cell": "shop_model_laundry",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.663,
+        "surface_ms": 235.703
+      },
+      {
+        "cell": "shop_shoe_rebuilding",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.442,
+        "surface_ms": 162.945
+      },
+      {
+        "cell": "shop_keys_cut",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.724,
+        "surface_ms": 146.626
+      },
+      {
+        "cell": "shop_hardware_paint",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.827,
+        "surface_ms": 374.775
+      },
+      {
+        "cell": "shop_funeral_parlour",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.511,
+        "surface_ms": 237.92
+      },
+      {
+        "cell": "shop_photo_supplies",
+        "fetch_ms": 0.005,
+        "instantiate_ms": 0.484,
+        "surface_ms": 300.511
+      },
+      {
+        "cell": "shop_radio_service",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.424,
+        "surface_ms": 272.655
+      },
+      {
+        "cell": "shop_pawnbroker",
+        "fetch_ms": 0.007,
+        "instantiate_ms": 0.519,
+        "surface_ms": 203.532
+      },
+      {
+        "cell": "shop_news_cigars",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.403,
+        "surface_ms": 123.738
+      },
+      {
+        "cell": "shop_otis_son",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.748,
+        "surface_ms": 537.333999999999
+      },
+      {
+        "cell": "shop_luncheonette",
+        "fetch_ms": 0.006,
+        "instantiate_ms": 0.49,
+        "surface_ms": 195.337
+      }
+    ],
+    "state": "DORMANT",
+    "unload_cycles": 3
+  }
+}

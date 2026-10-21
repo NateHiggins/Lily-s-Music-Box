@@ -151,7 +151,76 @@ static func mount_bar_pool(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_bar_stage(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/bar_stage.json","BarStage","F01_retail_bar_stage_","bar_stage_part","shop_bar")
 
+# Immutable native scenes may be prefetched by the world. Instances duplicate
+# selected meshes before assigning materials; no mesh/scene cache survives here.
+const FITTING_DATA := [
+	"res://data/orison_v2/arcade_canopy.json",
+	"res://data/orison_v2/arcade_throat.json",
+	"res://data/orison_v2/arcade_lantern.json",
+	"res://data/orison_v2/arcade_clock.json",
+	"res://data/orison_v2/shop_seating.json",
+	"res://data/orison_v2/laundry_fittings.json",
+	"res://data/orison_v2/laundry_apparatus.json",
+	"res://data/orison_v2/shop_clerestories.json",
+	"res://data/orison_v2/shop_joinery.json",
+	"res://data/orison_v2/photo_radio_fittings.json",
+	"res://data/orison_v2/laundry_trade.json",
+	"res://data/orison_v2/locksmith_fittings.json",
+	"res://data/orison_v2/cobbler_fittings.json",
+	"res://data/orison_v2/news_fittings.json",
+	"res://data/orison_v2/hardware_drawers.json",
+	"res://data/orison_v2/hardware_apparatus.json",
+	"res://data/orison_v2/hardware_stock.json",
+	"res://data/orison_v2/hardware_tools.json",
+	"res://data/orison_v2/photo_cameras.json",
+	"res://data/orison_v2/diner_counter.json",
+	"res://data/orison_v2/diner_till.json",
+	"res://data/orison_v2/diner_backbar.json",
+	"res://data/orison_v2/diner_urns.json",
+	"res://data/orison_v2/diner_apparatus.json",
+	"res://data/orison_v2/diner_overhead.json",
+	"res://data/orison_v2/pawn_fittings.json",
+	"res://data/orison_v2/pawn_display.json",
+	"res://data/orison_v2/pawn_clocks.json",
+	"res://data/orison_v2/photo_counter.json",
+	"res://data/orison_v2/photo_stock.json",
+	"res://data/orison_v2/photo_enlargers.json",
+	"res://data/orison_v2/photo_process.json",
+	"res://data/orison_v2/photo_portraits.json",
+	"res://data/orison_v2/photo_glazing.json",
+	"res://data/orison_v2/druggist_drawers.json",
+	"res://data/orison_v2/druggist_counter.json",
+	"res://data/orison_v2/druggist_mortar.json",
+	"res://data/orison_v2/druggist_dispensary.json",
+	"res://data/orison_v2/druggist_cupboard.json",
+	"res://data/orison_v2/radio_display.json",
+	"res://data/orison_v2/radio_wire.json",
+	"res://data/orison_v2/radio_battery.json",
+	"res://data/orison_v2/radio_stock.json",
+	"res://data/orison_v2/radio_apparatus.json",
+	"res://data/orison_v2/radio_bench.json",
+	"res://data/orison_v2/funeral_foliage.json",
+	"res://data/orison_v2/funeral_drapes.json",
+	"res://data/orison_v2/funeral_fittings.json",
+	"res://data/orison_v2/druggist_fountain.json",
+	"res://data/orison_v2/druggist_carboys.json",
+	"res://data/orison_v2/bar_pool.json",
+	"res://data/orison_v2/bar_stage.json",
+]
+
+static func fitting_assets(cell_ids: Array = []) -> Array[String]:
+	var assets: Array[String] = []
+	for path: String in FITTING_DATA:
+		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+		if data is not Dictionary or data.get("asset") is not String: return []
+		var used := cell_ids.is_empty()
+		for record: Dictionary in data.cells:
+			if str(record.id) in cell_ids: used=true
+		if used and not assets.has(str(data.asset)): assets.append(str(data.asset))
+	return assets
+
 static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String, cell_identity: String = "", borrowed_materials: Dictionary = {}) -> bool:
+	var profile_start := Time.get_ticks_usec()
 	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(data_path))
 	if data is not Dictionary or int(data.get("schema_version",0))!=1:return false
 	var matches: Array=[]
@@ -209,10 +278,14 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 	for box: Dictionary in record.replace:
 		if counts[str(box.id)]!=int(box.expected_triangles):
 			push_error("Shop seating boundary mismatch: "+str(box.id)+" count="+str(counts[str(box.id)]));return false
-	# No PackedScene or mesh cache is retained across the Passage's retirement.
-	var packed:=ResourceLoader.load(str(data.asset),"PackedScene",ResourceLoader.CACHE_MODE_IGNORE_DEEP) as PackedScene
+	var profile_cut := Time.get_ticks_usec()
+	# The loader cache is weak. The residency owner releases its prefetched
+	# scenes on activation/cancellation; this fitter retains no scene cache.
+	var packed:=ResourceLoader.load(str(data.asset),"PackedScene",ResourceLoader.CACHE_MODE_REUSE) as PackedScene
 	if packed==null:return false
+	var profile_load := Time.get_ticks_usec()
 	var model:=packed.instantiate() as Node3D
+	var profile_instance := Time.get_ticks_usec()
 	if model==null:return false
 	model.name=model_name
 	var parts: Dictionary={}
@@ -226,6 +299,11 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 			if float(part.tint[3])!=1.:model.free();return false
 		if part.has("plain_alpha") and (part.plain_alpha is not bool or str(part.key)!="glassish" or part.has("catalog_key")):model.free();return false
 		parts[str(part.name)]=part
+	var profile_duplicate_us := 0
+	var profile_collision_us := 0
+	var profile_mesh_hash_us := 0
+	var profile_face_hash_us := 0
+	var profile_attach_us := 0
 	var mounted: Dictionary={};var local_materials: Dictionary={}
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		if not parts.has(str(draw.name)):draw.free();continue
@@ -245,12 +323,46 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 			if part.get("plain_alpha",false):mat.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
 			mat.uv1_triplanar=false;mat.uv1_scale=Vector3.ONE/float(part.tile)
 			local_materials[material_slot]=mat
+		# Imported mesh buffers remain immutable even when the PackedScene was
+		# shared with another cell or prefetch. Only this instance owns the slot.
+		var profile_step := Time.get_ticks_usec()
+		draw.mesh = draw.mesh.duplicate() as Mesh
+		profile_duplicate_us += Time.get_ticks_usec()-profile_step
 		draw.mesh.surface_set_material(0,local_materials[material_slot])
 		# Name retains SurfacePass's retail class and therefore its state owner.
 		draw.set_meta(part_meta,str(draw.name));draw.set_meta("material_key",key)
 		draw.name=draw_prefix+str(draw.name)
-		draw.create_trimesh_collision();mounted[str(part.name)]=true
+		profile_step = Time.get_ticks_usec()
+		var collision_key := str(data.asset)+"::"+str(part.name)
+		draw.set_meta("native_collision_key",collision_key)
+		var collision_paths: Dictionary=cell.get_meta("native_collision_paths",{})
+		if collision_paths.is_empty():
+			draw.create_trimesh_collision()
+		else:
+			if not collision_paths.has(collision_key): model.free(); return false
+			var entry: Dictionary=collision_paths[collision_key]
+			var shape: ConcavePolygonShape3D = (cell.get_meta("native_collision_shapes",{}) as Dictionary).get(collision_key) as ConcavePolygonShape3D
+			# Reusing acceleration data never substitutes a proxy or relaxes fit.
+			# Mesh.get_faces itself builds a TriangleMesh BVH. Compare the exact
+			# serialized geometry and original face hashes without rebuilding it.
+			var cache := preload("res://scripts/building/orison_v2_fitting_collision_cache.gd")
+			if shape==null: model.free(); return false
+			var checkpoint:=Time.get_ticks_usec()
+			var mesh_hash: String=cache.mesh_signature(draw.mesh)
+			profile_mesh_hash_us+=Time.get_ticks_usec()-checkpoint
+			checkpoint=Time.get_ticks_usec()
+			var face_hash: String=str(entry.face_hash) if int(entry.get("shape_rid",0))==shape.get_rid().get_id() else cache.face_signature(shape)
+			profile_face_hash_us+=Time.get_ticks_usec()-checkpoint
+			if mesh_hash!=str(entry.mesh_hash) or face_hash!=str(entry.face_hash): model.free(); return false
+			checkpoint=Time.get_ticks_usec()
+			var body:=StaticBody3D.new();body.name="StaticBody3D"
+			var collision:=CollisionShape3D.new();collision.name="CollisionShape3D";collision.shape=shape
+			body.add_child(collision);draw.add_child(body)
+			profile_attach_us+=Time.get_ticks_usec()-checkpoint
+		profile_collision_us += Time.get_ticks_usec()-profile_step
+		mounted[str(part.name)]=true
 	if mounted.size()!=parts.size():model.free();return false
+	var profile_models := Time.get_ticks_usec()
 	# Validate collision ownership before altering any imported draw.
 	for draw: MeshInstance3D in replacements:
 		var collisions:=draw.find_children("*","CollisionShape3D",true,false)
@@ -287,10 +399,41 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 		words.rotation.y=float(label.yaw)
 		model.add_child(words)
 	cell.add_child(model)
+	if OS.get_environment("ORISON_PROFILE_NATIVE")=="1":
+		print("NATIVE_FIT_DETAIL ",JSON.stringify({"cell":str(cell.name),"data":data_path,
+			"cut_ms":(profile_cut-profile_start)/1000.0,"duplicate_ms":profile_duplicate_us/1000.0,"collision_ms":profile_collision_us/1000.0,"mesh_hash_ms":profile_mesh_hash_us/1000.0,"face_hash_ms":profile_face_hash_us/1000.0,"attach_ms":profile_attach_us/1000.0,"load_ms":(profile_load-profile_cut)/1000.0,
+			"instantiate_ms":(profile_instance-profile_load)/1000.0,"model_and_collision_ms":(profile_models-profile_instance)/1000.0,
+			"publish_ms":(Time.get_ticks_usec()-profile_models)/1000.0}))
 	return true
 
 static func _without_boxes(draw: MeshInstance3D, boxes: Array[Dictionary], tolerance: float, counts: Dictionary, require_boundary := true) -> ArrayMesh:
 	var result:=ArrayMesh.new()
+	# These transforms and source bounds are invariant for the entire mesh.
+	# Avoid inverting the same basis for every triangle corner on each reload.
+	var normal_basis := draw.basis.inverse().transposed()
+	var lows: Array[Vector3] = []
+	var highs: Array[Vector3] = []
+	for box: Dictionary in boxes:
+		lows.append(_v(box.low)); highs.append(_v(box.high))
+	# A source triangle contained by a replacement box has its centroid in
+	# that box. Index candidate boxes by metre cell, preserving source order.
+	# The exact original containment/boundary predicates still decide removal.
+	var candidates := {}
+	var indexed := boxes.size()>8
+	var bucket_count := 0
+	if indexed:
+		for i in boxes.size():
+			var low := Vector3i((lows[i]-Vector3.ONE*(tolerance+.00001)).floor())
+			var high := Vector3i((highs[i]+Vector3.ONE*(tolerance+.00001)).floor())
+			bucket_count += (high.x-low.x+1)*(high.y-low.y+1)*(high.z-low.z+1)
+			if bucket_count>100000:
+				indexed=false; candidates.clear(); break
+			for x in range(low.x,high.x+1):
+				for y in range(low.y,high.y+1):
+					for z in range(low.z,high.z+1):
+						var key := Vector3i(x,y,z)
+						if not candidates.has(key): candidates[key]=[]
+						candidates[key].append(i)
 	var source_surfaces: Array=draw.mesh.get("_surfaces")
 	var selected_surfaces: Array=[]
 	for surface in draw.mesh.get_surface_count():
@@ -305,14 +448,16 @@ static func _without_boxes(draw: MeshInstance3D, boxes: Array[Dictionary], toler
 		for start in range(0,indices.size(),3):
 			var p: Array[Vector3]=[];var n:=Vector3.ZERO
 			for offset in 3:
-				var index:=indices[start+offset];p.append(draw.transform*vertices[index]);n+=draw.basis.inverse().transposed()*normals[index]
+				var index:=indices[start+offset];p.append(draw.transform*vertices[index]);n+=normal_basis*normals[index]
 			if n.length_squared()<.5:return null
 			n=n.normalized();var match_id:=""
-			for box: Dictionary in boxes:
-				var low:=_v(box.low);var high:=_v(box.high);var within:=true
-				for point: Vector3 in p:
-					for axis in 3:
-						if point[axis]<low[axis]-tolerance or point[axis]>high[axis]+tolerance:within=false
+			var triangle_low := p[0].min(p[1]).min(p[2])
+			var triangle_high := p[0].max(p[1]).max(p[2])
+			var selected: Variant = candidates.get(Vector3i(((p[0]+p[1]+p[2])/3.0).floor()),[]) if indexed else range(boxes.size())
+			for box_index: int in selected:
+				var box: Dictionary = boxes[box_index]
+				var low := lows[box_index]; var high := highs[box_index]
+				var within := triangle_low.x>=low.x-tolerance and triangle_low.y>=low.y-tolerance and triangle_low.z>=low.z-tolerance and triangle_high.x<=high.x+tolerance and triangle_high.y<=high.y+tolerance and triangle_high.z<=high.z+tolerance
 				if not within:continue
 				if not require_boundary:
 					match_id=str(box.id);break

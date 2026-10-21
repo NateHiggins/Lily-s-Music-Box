@@ -1,0 +1,20 @@
+[
+  {
+    "scene": "res://tests/V2FittingCollisionCacheTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_responsiveness_20261021/collision_safety.log",
+    "timeout": 180
+  },
+  {
+    "scene": "res://tests/V2NativeFittingProfile.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_responsiveness_20261021/native_attribution_detail.log",
+    "timeout": 180
+  },
+  {
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_responsiveness_20261021/shop_clearance_survey.log",
+    "timeout": 1500,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_responsiveness_20261021/shop_clearance_survey",
+    "runner": "long",
+    "windowed": true,
+    "scene": "res://tests/V2ShopDoorClearanceSurvey.tscn"
+  }
+]

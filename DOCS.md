@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Measured V2 stutter diagnosis, restrained part targeting and remaining repair coverage | `design/V2_RESPONSIVENESS_REPAIR_2026-10-21.md` |
 | Current main integration comparison, retained passing checks and explicit blockers | `design/V2_MAIN_INTEGRATION_REVIEW_2026-10-21.md` |
 |---|---|
 | Renewed upper-room and roof access, library shadow diagnosis and remaining full-shift work | `design/V2_UPPER_ACCESS_AND_LIBRARY_SHADOW_2026-10-21.md` |

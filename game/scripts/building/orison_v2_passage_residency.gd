@@ -26,6 +26,19 @@ var _material_statistics: Dictionary = {}
 var _height_paths: Dictionary = {}
 var _height_pending: Dictionary = {}
 var _height_resources: Array[Resource] = []
+var _native_paths: Array[String] = []
+var _native_pending: Dictionary = {}
+var _native_resources: Array[Resource] = []
+var _collision_shapes: Dictionary = {}
+var _collision_cache := preload("res://scripts/building/orison_v2_fitting_collision_cache.gd").new()
+# Bound main-thread fitting between frames; individual native operations remain atomic.
+const FIT_BUDGET_USEC := 3000
+var _fit_operations: Array = []
+var _fit_identity := ""
+var _fit_fetch_ms := 0.0
+var _fit_instantiate_ms := 0.0
+var _fit_work_ms := 0.0
+var fit_records: Array[Dictionary] = []
 
 func configure(owner_region: Node3D, owner_player: PlayerController,
 		owner_frame: Node3D, layout: Dictionary) -> bool:
@@ -57,7 +70,9 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 				var height_texture := layered.get_shader_parameter("height_tex") as Texture2D
 				if height_texture != null and not height_texture.resource_path.is_empty():
 					_height_paths[height_texture.resource_path] = true
-	return player != null and frame != null and region.get_parent() is Node3D
+	_native_paths = preload("res://scripts/building/orison_v2_shop_seating.gd").fitting_assets(region.CELLS)
+	if not _collision_cache.seed(region.cell_nodes): _collision_cache.dispose()
+	return not _native_paths.is_empty() and player != null and frame != null and region.get_parent() is Node3D
 
 func _ready() -> void:
 	name = "PassageResidency"
@@ -129,6 +144,13 @@ func _begin_load() -> void:
 	_staged_cells.clear()
 	_staged_surface = region.Surface.new()
 	_staged_surface.texture_statistics = _material_statistics
+	_collision_shapes=_collision_cache.shapes.duplicate()
+
+	for path: String in _native_paths:
+		if ResourceLoader.load_threaded_request(path, "PackedScene") != OK:
+			_fail("threaded native fitting request failed: " + path)
+			return
+		_native_pending[path] = true
 	for path: String in _height_paths:
 		if ResourceLoader.load_threaded_request(path, "Texture2D") != OK:
 			_fail("threaded material dependency request failed: " + path)
@@ -144,6 +166,9 @@ func _begin_load() -> void:
 	state = "LOADING"
 
 func _stage_one() -> void:
+	if not _fit_operations.is_empty():
+		_advance_fit()
+		return
 	# SurfacePass adds calibrated height maps after glTF import. Prefetch
 	# those dependencies too, so material setup cannot synchronously read them.
 	for path: String in _height_pending.keys():
@@ -158,7 +183,19 @@ func _stage_one() -> void:
 				return
 			_height_resources.append(resource)
 			_height_pending.erase(path)
-	if not _height_pending.is_empty(): return
+	for path: String in _native_pending.keys():
+		var status := ResourceLoader.load_threaded_get_status(path)
+		if status == ResourceLoader.THREAD_LOAD_FAILED or status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+			_fail("threaded native fitting failed: " + path)
+			return
+		if status == ResourceLoader.THREAD_LOAD_LOADED:
+			var resource := ResourceLoader.load_threaded_get(path) as Resource
+			if resource == null:
+				_fail("empty native fitting: " + path)
+				return
+			_native_resources.append(resource)
+			_native_pending.erase(path)
+	if not _height_pending.is_empty() or not _native_pending.is_empty(): return
 	for identity: String in _pending.keys():
 		var path: String = _pending[identity]
 		var status := ResourceLoader.load_threaded_get_status(path)
@@ -179,178 +216,74 @@ func _stage_one() -> void:
 			_fail("threaded cell is not spatial: " + identity)
 			return
 		cell.name = identity
+		cell.set_meta("native_collision_paths",_collision_cache.paths)
+		cell.set_meta("native_collision_shapes",_collision_shapes)
 		_staging.add_child(cell)
 		_staged_cells[identity] = cell
-		if not preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_cell(cell,region.source_layout):
-			_fail("standard wall millwork reload refused: "+identity); return
-		if not region.Seating.mount_cell(cell,region.source_layout):
-			_fail("native seating reload fit refused: "+identity)
-			return
-		if not region.Laundry.mount_cell(cell,region.source_layout):
-			_fail("native laundry reload fit refused: "+identity)
-			return
-		if not region.LaundryApparatus.mount_cell(cell,region.source_layout):
-			_fail("native laundry apparatus reload fit refused: "+identity)
-			return
-		if not region.LaundryTrade.mount_cell(cell,region.source_layout):
-			_fail("native laundry trade furniture reload fit refused: "+identity)
-			return
-		if not region.ShopClerestories.mount_cell(cell,region.source_layout):
-			_fail("native borrowed-light reload fit refused: "+identity)
-			return
-		if not region.ShopJoinery.mount_cell(cell,region.source_layout):
-			_fail("native closed shop joinery reload fit refused: "+identity)
-			return
-		if not region.PhotoRadioFittings.mount_cell(cell,region.source_layout):
-			_fail("native Photo/Radio reload fit refused: "+identity)
-			return
-		if not region.LocksmithFittings.mount_cell(cell,region.source_layout):
-			_fail("native locksmith reload fit refused: "+identity)
-			return
-		if not region.CobblerFittings.mount_cell(cell,region.source_layout):
-			_fail("native cobbler reload fit refused: "+identity)
-			return
-		if not region.NewsFittings.mount_cell(cell,region.source_layout):
-			_fail("native news reload fit refused: "+identity)
-			return
-		if not region.HardwareDrawers.mount_cell(cell,region.source_layout):
-			_fail("native hardware drawer reload fit refused: "+identity)
-			return
-		if not region.HardwareApparatus.mount_cell(cell,region.source_layout):
-			_fail("native hardware apparatus reload fit refused: "+identity)
-			return
-		if not region.HardwareStock.mount_cell(cell,region.source_layout):
-			_fail("native hardware stock reload fit refused: "+identity)
-			return
-		if not region.HardwareTools.mount_cell(cell,region.source_layout):
-			_fail("native hardware tools reload fit refused: "+identity)
-			return
-		if not region.PhotoCameras.mount_cell(cell,region.source_layout):
-			_fail("native photography display reload fit refused: "+identity)
-			return
-		if not region.DinerCounter.mount_cell(cell,region.source_layout):
-			_fail("native Diner counter reload fit refused: "+identity)
-			return
-		if not region.DinerTill.mount_cell(cell,region.source_layout):
-			_fail("native Diner register/display reload fit refused: "+identity)
-			return
-		if not region.DinerBackbar.mount_cell(cell,region.source_layout):
-			_fail("native Diner rear bench/shelves reload fit refused: "+identity)
-			return
-		if not region.DinerUrns.mount_cell(cell,region.source_layout):
-			_fail("native Diner urns/pie display reload fit refused: "+identity)
-			return
-		if not region.DinerApparatus.mount_cell(cell,region.source_layout):
-			_fail("native Diner apparatus/pie display reload fit refused: "+identity)
-			return
-		if not region.DinerOverhead.mount_cell(cell,region.source_layout):
-			_fail("native Diner overhead/pie display reload fit refused: "+identity)
-			return
-		if not region.PhotoCounter.mount_cell(cell,region.source_layout):
-			_fail("native photography counter reload fit refused: "+identity)
-			return
-		if not region.PhotoStock.mount_cell(cell,region.source_layout):
-			_fail("native photography supply shelving reload fit refused: "+identity)
-			return
-		if not region.PhotoEnlargers.mount_cell(cell,region.source_layout):
-			_fail("native photography enlarger reload fit refused: "+identity)
-			return
-		if not region.PhotoProcess.mount_cell(cell,region.source_layout):
-			_fail("native photography process reload fit refused: "+identity)
-			return
-		if not region.PhotoPortraits.mount_cell(cell,region.source_layout):
-			_fail("native unclaimed portrait reload fit refused: "+identity)
-			return
-		if not region.PhotoGlazing.mount_cell(cell,region.source_layout):
-			_fail("native fixed photographic glazing reload refused: "+identity)
-			return
-		if not region.DruggistDrawers.mount_cell(cell,region.source_layout):
-			_fail("native druggist drawer/counter reload fit refused: "+identity)
-			return
-		if not region.DruggistCounter.mount_cell(cell,region.source_layout):
-			_fail("native druggist counter objects reload refused: "+identity)
-			return
-		if not region.DruggistMortar.mount_cell(cell,region.source_layout):
-			_fail("native druggist marble objects reload refused: "+identity)
-			return
-		if not region.DruggistDispensary.mount_cell(cell,region.source_layout):
-			_fail("native composed dispensary reload refused: "+identity)
-			return
-		if not region.DruggistCupboard.mount_cell(cell,region.source_layout):
-			_fail("native druggist cupboard reload refused: "+identity)
-			return
-		if not region.DruggistCarboys.mount_cell(cell,region.source_layout):
-			_fail("native druggist display carboys reload refused: "+identity)
-			return
-		if not region.DruggistFountain.mount_cell(cell,region.source_layout):
-			_fail("native unused druggist fountain reload refused: "+identity)
-			return
-		if not region.FuneralFittings.mount_cell(cell,region.source_layout):
-			_fail("native funeral furniture reload refused: "+identity)
-			return
-		if not region.FuneralDrapes.mount_cell(cell,region.source_layout):
-			_fail("native funeral drapery reload refused: "+identity)
-			return
-		if not region.FuneralFoliage.mount_cell(cell,region.source_layout):
-			_fail("native funeral foliage reload refused: "+identity)
-			return
-		if not region.RadioBench.mount_cell(cell,region.source_layout):
-			_fail("native radio bench reload refused: "+identity)
-			return
-		if not region.RadioApparatus.mount_cell(cell,region.source_layout):
-			_fail("native radio apparatus reload refused: "+identity)
-			return
-		if not region.RadioStock.mount_cell(cell,region.source_layout):
-			_fail("native radio valve stock reload refused: "+identity)
-			return
-		if not region.RadioBattery.mount_cell(cell,region.source_layout):
-			_fail("native radio charging display reload refused: "+identity)
-			return
-		if not region.RadioWire.mount_cell(cell,region.source_layout):
-			_fail("native passive wire/ring stock reload refused: "+identity)
-			return
-		if not region.RadioDisplay.mount_cell(cell,region.source_layout):
-			_fail("native fitted counter/display reload refused: "+identity)
-			return
-		if not region.RadioReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
-			_fail("native period receiving chassis reload refused: "+identity)
-			return
-		if not region.LaundryReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
-			_fail("native Laundry receiving chassis reload refused: "+identity)
-			return
-		if not region.PhotoReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
-			_fail("native Photo Supplies receiving chassis reload refused: "+identity)
-			return
-		if not region.NewsReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
-			_fail("native News Cigars receiving chassis reload refused: "+identity)
-			return
-		if not region.PawnReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
-			_fail("native Pawn Shop receiving chassis reload refused: "+identity)
-			return
-		if not region.PawnDisplay.mount_cell(cell,region.source_layout):
-			_fail("native Pawn Shop display reload refused: "+identity)
-			return
-		if not region.PawnClocks.mount_cell(cell,region.source_layout):
-			_fail("native Pawn Shop clocks reload refused: "+identity)
-			return
-		if not region.PawnFittings.mount_cell(cell,region.source_layout):
-			_fail("native Pawn Shop fittings reload refused: "+identity)
-			return
-		if not region.DinerReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
-			_fail("native Diner receiving pair reload refused: "+identity)
-			return
-		if not region.ArcadeFabric.mount_cell(cell, region.source_layout):
-			_fail("source-fitted arcade fabric reload refused: " + identity); return
-		preload("res://scripts/building/orison_v2_owner_finishes.gd").new().apply_shop_cell(cell)
-		preload("res://scripts/building/v2_legacy_material_stock.gd").apply(cell)
-		_staged_surface.apply({identity: cell})
-		var finished := Time.get_ticks_usec()
-		peak_stage_ms = maxf(peak_stage_ms, float(finished-started)/1000.0)
-		stage_records.append({"cell": identity, "fetch_ms": float(fetched-started)/1000.0,
-			"instantiate_ms": float(instantiated-fetched)/1000.0,
-			"surface_ms": float(finished-instantiated)/1000.0})
-		if stage_records.size() > 36: stage_records.pop_front()
-		break
+		_fit_identity = identity
+		_fit_fetch_ms = float(fetched-started)/1000.0
+		_fit_instantiate_ms = float(instantiated-fetched)/1000.0
+		_fit_work_ms = 0.0
+		_fit_operations = [
+			["standard wall millwork reload refused: "+identity, func(): return preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_cell(cell,region.source_layout)],
+			["native seating reload fit refused: "+identity, func(): return region.Seating.mount_cell(cell,region.source_layout)],
+			["native laundry reload fit refused: "+identity, func(): return region.Laundry.mount_cell(cell,region.source_layout)],
+			["native laundry apparatus reload fit refused: "+identity, func(): return region.LaundryApparatus.mount_cell(cell,region.source_layout)],
+			["native laundry trade furniture reload fit refused: "+identity, func(): return region.LaundryTrade.mount_cell(cell,region.source_layout)],
+			["native borrowed-light reload fit refused: "+identity, func(): return region.ShopClerestories.mount_cell(cell,region.source_layout)],
+			["native closed shop joinery reload fit refused: "+identity, func(): return region.ShopJoinery.mount_cell(cell,region.source_layout)],
+			["native Photo/Radio reload fit refused: "+identity, func(): return region.PhotoRadioFittings.mount_cell(cell,region.source_layout)],
+			["native locksmith reload fit refused: "+identity, func(): return region.LocksmithFittings.mount_cell(cell,region.source_layout)],
+			["native cobbler reload fit refused: "+identity, func(): return region.CobblerFittings.mount_cell(cell,region.source_layout)],
+			["native news reload fit refused: "+identity, func(): return region.NewsFittings.mount_cell(cell,region.source_layout)],
+			["native hardware drawer reload fit refused: "+identity, func(): return region.HardwareDrawers.mount_cell(cell,region.source_layout)],
+			["native hardware apparatus reload fit refused: "+identity, func(): return region.HardwareApparatus.mount_cell(cell,region.source_layout)],
+			["native hardware stock reload fit refused: "+identity, func(): return region.HardwareStock.mount_cell(cell,region.source_layout)],
+			["native hardware tools reload fit refused: "+identity, func(): return region.HardwareTools.mount_cell(cell,region.source_layout)],
+			["native photography display reload fit refused: "+identity, func(): return region.PhotoCameras.mount_cell(cell,region.source_layout)],
+			["native Diner counter reload fit refused: "+identity, func(): return region.DinerCounter.mount_cell(cell,region.source_layout)],
+			["native Diner register/display reload fit refused: "+identity, func(): return region.DinerTill.mount_cell(cell,region.source_layout)],
+			["native Diner rear bench/shelves reload fit refused: "+identity, func(): return region.DinerBackbar.mount_cell(cell,region.source_layout)],
+			["native Diner urns/pie display reload fit refused: "+identity, func(): return region.DinerUrns.mount_cell(cell,region.source_layout)],
+			["native Diner apparatus/pie display reload fit refused: "+identity, func(): return region.DinerApparatus.mount_cell(cell,region.source_layout)],
+			["native Diner overhead/pie display reload fit refused: "+identity, func(): return region.DinerOverhead.mount_cell(cell,region.source_layout)],
+			["native photography counter reload fit refused: "+identity, func(): return region.PhotoCounter.mount_cell(cell,region.source_layout)],
+			["native photography supply shelving reload fit refused: "+identity, func(): return region.PhotoStock.mount_cell(cell,region.source_layout)],
+			["native photography enlarger reload fit refused: "+identity, func(): return region.PhotoEnlargers.mount_cell(cell,region.source_layout)],
+			["native photography process reload fit refused: "+identity, func(): return region.PhotoProcess.mount_cell(cell,region.source_layout)],
+			["native unclaimed portrait reload fit refused: "+identity, func(): return region.PhotoPortraits.mount_cell(cell,region.source_layout)],
+			["native fixed photographic glazing reload refused: "+identity, func(): return region.PhotoGlazing.mount_cell(cell,region.source_layout)],
+			["native druggist drawer/counter reload fit refused: "+identity, func(): return region.DruggistDrawers.mount_cell(cell,region.source_layout)],
+			["native druggist counter objects reload refused: "+identity, func(): return region.DruggistCounter.mount_cell(cell,region.source_layout)],
+			["native druggist marble objects reload refused: "+identity, func(): return region.DruggistMortar.mount_cell(cell,region.source_layout)],
+			["native composed dispensary reload refused: "+identity, func(): return region.DruggistDispensary.mount_cell(cell,region.source_layout)],
+			["native druggist cupboard reload refused: "+identity, func(): return region.DruggistCupboard.mount_cell(cell,region.source_layout)],
+			["native druggist display carboys reload refused: "+identity, func(): return region.DruggistCarboys.mount_cell(cell,region.source_layout)],
+			["native unused druggist fountain reload refused: "+identity, func(): return region.DruggistFountain.mount_cell(cell,region.source_layout)],
+			["native funeral furniture reload refused: "+identity, func(): return region.FuneralFittings.mount_cell(cell,region.source_layout)],
+			["native funeral drapery reload refused: "+identity, func(): return region.FuneralDrapes.mount_cell(cell,region.source_layout)],
+			["native funeral foliage reload refused: "+identity, func(): return region.FuneralFoliage.mount_cell(cell,region.source_layout)],
+			["native radio bench reload refused: "+identity, func(): return region.RadioBench.mount_cell(cell,region.source_layout)],
+			["native radio apparatus reload refused: "+identity, func(): return region.RadioApparatus.mount_cell(cell,region.source_layout)],
+			["native radio valve stock reload refused: "+identity, func(): return region.RadioStock.mount_cell(cell,region.source_layout)],
+			["native radio charging display reload refused: "+identity, func(): return region.RadioBattery.mount_cell(cell,region.source_layout)],
+			["native passive wire/ring stock reload refused: "+identity, func(): return region.RadioWire.mount_cell(cell,region.source_layout)],
+			["native fitted counter/display reload refused: "+identity, func(): return region.RadioDisplay.mount_cell(cell,region.source_layout)],
+			["native period receiving chassis reload refused: "+identity, func(): return region.RadioReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled)],
+			["native Laundry receiving chassis reload refused: "+identity, func(): return region.LaundryReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled)],
+			["native Photo Supplies receiving chassis reload refused: "+identity, func(): return region.PhotoReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled)],
+			["native News Cigars receiving chassis reload refused: "+identity, func(): return region.NewsReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled)],
+			["native Pawn Shop receiving chassis reload refused: "+identity, func(): return region.PawnReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled)],
+			["native Pawn Shop display reload refused: "+identity, func(): return region.PawnDisplay.mount_cell(cell,region.source_layout)],
+			["native Pawn Shop clocks reload refused: "+identity, func(): return region.PawnClocks.mount_cell(cell,region.source_layout)],
+			["native Pawn Shop fittings reload refused: "+identity, func(): return region.PawnFittings.mount_cell(cell,region.source_layout)],
+			["native Diner receiving pair reload refused: "+identity, func(): return region.DinerReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled)],
+			["source-fitted arcade fabric reload refused: " + identity, func(): return region.ArcadeFabric.mount_cell(cell, region.source_layout)],
+			["owner finishes", func(): preload("res://scripts/building/orison_v2_owner_finishes.gd").new().apply_shop_cell(cell); return true],
+			["material stock", func(): preload("res://scripts/building/v2_legacy_material_stock.gd").apply(cell); return true],
+			["surface binding", func(): _staged_surface.apply({identity: cell}); return true],
+		]
+		return
 	if not _pending.is_empty(): return
 	if not _wanted:
 		_staging.free()
@@ -358,6 +291,8 @@ func _stage_one() -> void:
 		_staged_cells.clear()
 		_staged_surface = null
 		_height_resources.clear()
+		_native_resources.clear()
+		_collision_shapes.clear()
 		state = "DORMANT"
 		return
 	var activation_start := Time.get_ticks_usec()
@@ -367,6 +302,8 @@ func _stage_one() -> void:
 	_staged_cells = {}
 	_staged_surface = null
 	_height_resources.clear()
+	_native_resources.clear()
+	_collision_shapes.clear()
 	if region.startup_failed:
 		state = "FAILED"
 		_gate(true)
@@ -375,6 +312,29 @@ func _stage_one() -> void:
 	state = "RESIDENT"
 	_gate(false)
 
+func _advance_fit() -> void:
+	var started := Time.get_ticks_usec()
+	while not _fit_operations.is_empty():
+		var operation: Array = _fit_operations.pop_front()
+		var before := Time.get_ticks_usec()
+		var ok: bool = operation[1].call()
+		var elapsed := float(Time.get_ticks_usec()-before)/1000.0
+		_fit_work_ms += elapsed
+		if elapsed >= 1.0:
+			fit_records.append({"cell":_fit_identity,"operation":operation[0],"ms":elapsed})
+			if fit_records.size()>128: fit_records.pop_front()
+		if not ok:
+			_fit_operations.clear()
+			_fail(str(operation[0]))
+			return
+		if Time.get_ticks_usec()-started >= FIT_BUDGET_USEC: break
+	peak_stage_ms = maxf(peak_stage_ms,float(Time.get_ticks_usec()-started)/1000.0)
+	if _fit_operations.is_empty():
+		(_staged_cells[_fit_identity] as Node).remove_meta("native_collision_shapes")
+		stage_records.append({"cell":_fit_identity,"fetch_ms":_fit_fetch_ms,
+			"instantiate_ms":_fit_instantiate_ms,"surface_ms":_fit_work_ms})
+		if stage_records.size()>36: stage_records.pop_front()
+
 func snapshot() -> Dictionary:
 	var retained_roots := 0
 	var retained_meshes := 0
@@ -382,24 +342,32 @@ func snapshot() -> Dictionary:
 		if reference.get_ref() != null: retained_roots += 1
 	for reference: WeakRef in _retired_meshes:
 		if reference.get_ref() != null: retained_meshes += 1
-	return {"state": state, "pending_requests": _pending.size()+_height_pending.size(), "load_cycles": load_cycles,
+	return {"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
 		"unload_cycles": unload_cycles, "retired_geometry_roots_alive": retained_roots,
 		"retired_mesh_resources_alive": retained_meshes, "peak_stage_ms": peak_stage_ms,
-		"peak_activation_ms": peak_activation_ms, "stage_records": stage_records.duplicate(true),
-		"physical_actors_retained": true, "cell_count": region.cell_nodes.size()}
+		"peak_activation_ms": peak_activation_ms, "stage_records": stage_records.duplicate(true), "fit_records":fit_records.duplicate(true),
+		"collision_cache_parts":_collision_cache.paths.size(),"collision_cache_bytes":_collision_cache.cache_bytes,"collision_cache_seed_ms":_collision_cache.seed_ms,"physical_actors_retained": true, "cell_count": region.cell_nodes.size()}
 
 func shutdown() -> void:
 	if _stopped: return
 	_stopped = true
+	_fit_operations.clear()
 	# Godot has no cancellation API for these requests. Drain each issued
 	# result on teardown so an abandoned world cannot retain a load handle.
 	for path: String in _pending.values():
 		ResourceLoader.load_threaded_get(path)
 	for path: String in _height_pending:
 		ResourceLoader.load_threaded_get(path)
+	for path: String in _native_pending:
+		ResourceLoader.load_threaded_get(path)
+	_native_pending.clear()
+	_native_paths.clear()
 	_pending.clear()
 	_height_pending.clear()
 	_height_resources.clear()
+	_native_resources.clear()
+	_collision_shapes.clear()
+	_collision_cache.dispose()
 	_height_paths.clear()
 	if is_instance_valid(_staging): _staging.free()
 	_staging = null

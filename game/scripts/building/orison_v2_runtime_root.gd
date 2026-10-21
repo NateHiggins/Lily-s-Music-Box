@@ -260,6 +260,10 @@ func _ready() -> void:
 		startup_failed=true
 		push_error("V2 room reflection layout could not be composed")
 		return
+	var structural_occlusion := preload("res://scripts/building/orison_v2_structural_occlusion.gd").new()
+	structural_occlusion.name="V2StructuralOcclusion"
+	add_child(structural_occlusion)
+	structural_occlusion.setup(_blockout)
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
 
