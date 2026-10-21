@@ -1,0 +1,241 @@
+{
+  "evidence_class": "INERT",
+  "source_frames_sha256": "415cfcef2cb084aa62737d45ceb4d73e40835d7c594b6a98688ebfe534616b61",
+  "quantile_method": "sorted[min(N-1,floor(N*q))], same convention throughout these diagnostic comparisons",
+  "rows": [
+    {
+      "cycle": "original_a_",
+      "scope": "movement",
+      "n": 313,
+      "p50_ms": 48.14,
+      "p95_ms": 58.308,
+      "p99_ms": 71.749,
+      "max_ms": 87.825,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "original_a_",
+      "scope": "near_turn",
+      "n": 240,
+      "p50_ms": 69.369,
+      "p95_ms": 80.49,
+      "p99_ms": 83.307,
+      "max_ms": 87.306,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "no_collision_b_",
+      "scope": "movement",
+      "n": 209,
+      "p50_ms": 42.38,
+      "p95_ms": 58.777,
+      "p99_ms": 62.78,
+      "max_ms": 65.709,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "no_collision_b_",
+      "scope": "near_turn",
+      "n": 240,
+      "p50_ms": 57.394,
+      "p95_ms": 64.713,
+      "p99_ms": 66.331,
+      "max_ms": 69.327,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_a_",
+      "scope": "movement",
+      "n": 307,
+      "p50_ms": 48.703,
+      "p95_ms": 60.72,
+      "p99_ms": 67.224,
+      "max_ms": 120.163,
+      "over100": 1,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_a_",
+      "scope": "near_turn",
+      "n": 240,
+      "p50_ms": 75.898,
+      "p95_ms": 83.795,
+      "p99_ms": 85.866,
+      "max_ms": 88.996,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "no_render_c_",
+      "scope": "movement",
+      "n": 326,
+      "p50_ms": 46.608,
+      "p95_ms": 56.533,
+      "p99_ms": 62.92,
+      "max_ms": 105.05,
+      "over100": 1,
+      "over250": 0
+    },
+    {
+      "cycle": "no_render_c_",
+      "scope": "near_turn",
+      "n": 240,
+      "p50_ms": 68.859,
+      "p95_ms": 76.989,
+      "p99_ms": 78.678,
+      "max_ms": 83.411,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_c_",
+      "scope": "movement",
+      "n": 279,
+      "p50_ms": 53.445,
+      "p95_ms": 66.987,
+      "p99_ms": 78.058,
+      "max_ms": 120.763,
+      "over100": 1,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_c_",
+      "scope": "near_turn",
+      "n": 240,
+      "p50_ms": 78.79,
+      "p95_ms": 85.83,
+      "p99_ms": 89.56,
+      "max_ms": 94.285,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "no_scripts_d_",
+      "scope": "movement",
+      "n": 318,
+      "p50_ms": 48.237,
+      "p95_ms": 61.268,
+      "p99_ms": 64.41,
+      "max_ms": 113.964,
+      "over100": 1,
+      "over250": 0
+    },
+    {
+      "cycle": "no_scripts_d_",
+      "scope": "near_turn",
+      "n": 240,
+      "p50_ms": 71.784,
+      "p95_ms": 80.285,
+      "p99_ms": 84.308,
+      "max_ms": 88.617,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_d_",
+      "scope": "movement",
+      "n": 305,
+      "p50_ms": 49.892,
+      "p95_ms": 62.372,
+      "p99_ms": 67.172,
+      "max_ms": 122.991,
+      "over100": 1,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_d_",
+      "scope": "near_turn",
+      "n": 240,
+      "p50_ms": 76.209,
+      "p95_ms": 83.984,
+      "p99_ms": 89.151,
+      "max_ms": 104.747,
+      "over100": 1,
+      "over250": 0
+    }
+  ],
+  "failures": [],
+  "limitations": [
+    "No hardware input-to-display latency measurement.",
+    "RenderingServer getters are delayed; Performance process/physics values are rolling monitors, not same-frame attribution.",
+    "Different route programmes are not interchangeable baselines.",
+    "No runtime-contract, ledger grant or human acceptance.",
+    "The original6000-row controller ring buffer truncated early records and invalidates cycle attribution from this run player_physics array. Wall frame samples and prompt measurements are retained; do not infer missing physics cost is zero."
+  ],
+  "authoritative_prompt_ms": [
+    {
+      "cycle": "original_a_",
+      "n": 240,
+      "p50_ms": 0.092,
+      "p95_ms": 0.109,
+      "p99_ms": 0.143,
+      "max_ms": 0.218,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "no_collision_b_",
+      "n": 240,
+      "p50_ms": 0.062,
+      "p95_ms": 0.073,
+      "p99_ms": 0.097,
+      "max_ms": 0.117,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_a_",
+      "n": 240,
+      "p50_ms": 0.092,
+      "p95_ms": 0.109,
+      "p99_ms": 0.125,
+      "max_ms": 0.134,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "no_render_c_",
+      "n": 240,
+      "p50_ms": 0.092,
+      "p95_ms": 0.105,
+      "p99_ms": 0.146,
+      "max_ms": 0.168,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_c_",
+      "n": 240,
+      "p50_ms": 0.092,
+      "p95_ms": 0.105,
+      "p99_ms": 0.129,
+      "max_ms": 0.171,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "no_scripts_d_",
+      "n": 240,
+      "p50_ms": 0.093,
+      "p95_ms": 0.108,
+      "p99_ms": 0.128,
+      "max_ms": 0.221,
+      "over100": 0,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_d_",
+      "n": 240,
+      "p50_ms": 0.093,
+      "p95_ms": 0.124,
+      "p99_ms": 0.143,
+      "max_ms": 0.168,
+      "over100": 0,
+      "over250": 0
+    }
+  ]
+}

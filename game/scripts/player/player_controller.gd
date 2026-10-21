@@ -54,6 +54,10 @@ var _profile_disable_step_guard:=false
 var step_guard_rejections:=0
 var profile_physics:=false
 var physics_profile_records: Array=[]
+var _low_step_probe_enabled:=false
+var _step_cap: CharacterBody3D
+var _step_cap_shape: SphereShape3D
+var _step_cap_exceptions: Array=[]
 var _grab: RefCounted
 var telegram_hud: TelegramHud
 var _interaction_hud: CanvasLayer
@@ -1221,6 +1225,37 @@ func _reality_gravity() -> Vector3:
 ## foot level but clear 0.30 m up, lift the capsule; floor snap settles it
 ## onto the tread. This is what makes risers, thresholds and ramp lips
 ## walkable without jumping.
+func enable_low_step_probe() -> void:
+	# V2 opts in after _ready. The lower hemisphere is exactly the capsule
+	# surface throughout the legal300mm step band (current radius330mm).
+	# Keep this query body physically inert between synchronous test calls.
+	if _capsule==null:return
+	if _step_cap==null:
+		_step_cap=CharacterBody3D.new();_step_cap.name="StepCapQuery"
+		_step_cap.top_level=true;_step_cap.collision_layer=0;_step_cap.collision_mask=0
+		_step_cap_shape=SphereShape3D.new();_step_cap_shape.radius=_capsule.radius
+		var shape:=CollisionShape3D.new();shape.shape=_step_cap_shape;_step_cap.add_child(shape)
+		add_child(_step_cap);_step_cap.global_transform=Transform3D.IDENTITY
+		_step_cap.add_collision_exception_with(self)
+	_low_step_probe_enabled=true
+
+func _step_path_blocked(probe: Vector3) -> bool:
+	if not _low_step_probe_enabled or _step_cap==null or _capsule.radius<.30 or _shape.basis!=Basis.IDENTITY:
+		return test_move(global_transform,probe)
+	if _step_cap_shape.radius!=_capsule.radius:_step_cap_shape.radius=_capsule.radius
+	var exceptions: Array=get_collision_exceptions()
+	if exceptions!=_step_cap_exceptions:
+		for previous: Variant in _step_cap_exceptions:
+			if is_instance_valid(previous) and previous!=self:_step_cap.remove_collision_exception_with(previous)
+		for body: PhysicsBody3D in exceptions:
+			if body!=_step_cap:_step_cap.add_collision_exception_with(body)
+		_step_cap_exceptions=exceptions.duplicate()
+	var centre: Vector3=_shape.position-Vector3.UP*(_capsule.height*.5-_capsule.radius)
+	_step_cap.collision_mask=collision_mask
+	var blocked:=_step_cap.test_move(global_transform*Transform3D(Basis.IDENTITY,centre),probe)
+	_step_cap.collision_mask=0
+	return blocked
+
 func _try_step_up(delta: float) -> void:
 	if not is_on_floor():
 		return
@@ -1235,7 +1270,7 @@ func _try_step_up(delta: float) -> void:
 		if profile_physics:step_guard_rejections+=1
 		return
 	var probe := motion.normalized() * maxf(motion.length(), 0.06)
-	if not test_move(global_transform, probe):
+	if not _step_path_blocked(probe):
 		return  # path clear at ground level
 	var lift := Vector3.UP * 0.30
 	if test_move(global_transform, lift):

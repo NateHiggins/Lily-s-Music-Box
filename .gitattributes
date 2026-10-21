@@ -2816,3 +2816,14 @@ art/reviews/v2_case_calibrator_20261021/world_v1/executed_sources/case_one_place
 
 # Original executed lane batch configuration; retain its CRLF bytes.
 art/reviews/v2_case_calibrator_20261021/renewal/runs.json binary
+
+# Source-bound hose density and V2 step-query repair.
+art/blender/scripts/build_fire_hose_stock.py -text
+art/blender/scripts/build_fire_fold_stock.py -text
+game/scripts/player/player_controller.gd -text
+game/scripts/building/orison_v2_runtime_root.gd -text
+game/tests/v2_low_step_probe_bench.gd -text
+game/tests/V2LowStepProbeBench.tscn -text
+game/tests/v2_low_step_profile_controller.gd -text
+game/tests/v2_low_step_stair_profile.gd -text
+game/tests/V2LowStepStairProfile.tscn -text

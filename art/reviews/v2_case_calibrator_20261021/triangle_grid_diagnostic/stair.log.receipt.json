@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 196.34,
+  "exit_code": 1,
+  "finished_utc": "2026-10-21T21:29:44Z",
+  "started_utc": "2026-10-21T21:26:27Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair.log.stderr",
+  "stderr_sha256": "53e01ba58ccac9bce0b9c9c0a8723bfb77a30a84e681c35ed140eb705a1a4466",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair.log",
+  "stdout_sha256": "77b40e3e735a4d6e12cb0b08a4082ced80a86da2bf2c107993ef64e152e442f5"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2TriangleGridStairProfile.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair",
+ "source": {
+  "dirty_paths": 1536,
+  "dirty_sample": [
+   "M art/renders/orison_v2/access_home_cohort_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_service_circulation_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.stdout.log.gz",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import"
+  ],
+  "repository_head": "0c596a199afa7d5a0b90cb601e21b19cfba26696",
+  "repository_tree": "5ca214e3679bea48e78567187c8be3f45b7e6aee",
+  "runtime_inputs_sha256": "f0464f9e465bc50a69712f0d37edbd7ed68e526e664644be8cf7f6036b65b7ec",
+  "test_path": "game/tests/v2_triangle_grid_stair_profile.gd",
+  "test_sha256": "12d77a8a6f8b6d357daa44af40a0f127c65e33a717872dcd4113d38a0c4ec486"
+ },
+ "windowed": true
+}

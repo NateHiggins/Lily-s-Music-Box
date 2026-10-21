@@ -1,0 +1,64 @@
+[
+  {
+    "scene": "",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/import1.log",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--editor",
+      "--import",
+      "--quit"
+    ]
+  },
+  {
+    "scene": "",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/import2.log",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--editor",
+      "--import",
+      "--quit"
+    ]
+  },
+  {
+    "scene": "res://tests/V2LowStepProbeBench.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/step.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/step"
+  },
+  {
+    "scene": "res://tests/V2FireHoseStockBench.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/stock.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/stock"
+  },
+  {
+    "scene": "res://tests/V2FireFoldBench.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold"
+  },
+  {
+    "scene": "res://tests/V2FireRackBench.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack"
+  },
+  {
+    "scene": "res://tests/ToiletInspectionTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/reticle.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/reticle"
+  }
+]

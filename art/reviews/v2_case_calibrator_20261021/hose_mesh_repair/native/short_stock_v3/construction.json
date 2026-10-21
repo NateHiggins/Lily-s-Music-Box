@@ -1,0 +1,61 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native stock/preview only, no runtime or human acceptance.",
+  "parts": {
+    "OutletStock": {
+      "length_m": 0.3,
+      "outer_radius_m": 0.021411414322374686,
+      "nominal_outer_radius_m": 0.021,
+      "connection_outer_radius_m": 0.021,
+      "inner_radius_m": 0.01905,
+      "segments": 192,
+      "sides": 16,
+      "port_sides": 64,
+      "port_rows": 3,
+      "nonmanifold_edges": 0,
+      "volume_m3": 7.453965398196129e-05,
+      "maximum_metric_error": 5.739690672967868e-06,
+      "triangles": 13504,
+      "clear_bore_rays": 129,
+      "end_bearing_rays": 16,
+      "exported_vertices": 12261
+    },
+    "NozzleStock": {
+      "length_m": 0.42,
+      "outer_radius_m": 0.021411414322374686,
+      "nominal_outer_radius_m": 0.021,
+      "connection_outer_radius_m": 0.021,
+      "inner_radius_m": 0.01905,
+      "segments": 192,
+      "sides": 16,
+      "port_sides": 64,
+      "port_rows": 3,
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00010435550828231257,
+      "maximum_metric_error": 5.739690672967868e-06,
+      "triangles": 13504,
+      "clear_bore_rays": 129,
+      "end_bearing_rays": 16,
+      "exported_vertices": 12090
+    }
+  },
+  "source_bindings": {
+    "art/blender/scripts/build_fire_hose_stock.py": "0b341cf870ce97ca2d66829f3b40e2dcf34e23eadffc79f74edb0783437cf2b4",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "game/data/runtime_material_sets.json": "6f4c72832a6671c3c36e557560ff147a9e31abbfd0fb1db6504acb7567298e59"
+  },
+  "blend_sha256": "c2da7010fa5eee822b78469b3f2ca77940e45b4a2db71cb6703566054c32fda1",
+  "export": {
+    "sha256": "bf89c19327f51856ec17ac88b180d674b3df334b8bb5bf1fc3882a29f40199b8",
+    "bytes": 1333240,
+    "images": 0,
+    "tangents": {
+      "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-hose-repair-20261021\\short_stock_v3\\fire_hose_stock.glb",
+      "primitives": 2,
+      "triangles": 27008,
+      "minimum_tangent_agreement": 0.9999999492502141,
+      "status": "PASS"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 60.82,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T22:54:36Z",
+  "started_utc": "2026-10-21T22:53:35Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/step.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/step.log",
+  "stdout_sha256": "58a20a0e396179b7e67d7d5cc2a4aba7dea52f68cfebd4e0c0b6e0b762470b9b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2LowStepProbeBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/step",
+ "source": {
+  "dirty_paths": 1560,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/fire_fold_stock.blend",
+   " M art/blender/fire_fold_stock_construction.json",
+   " M art/blender/fire_hose_stock.blend",
+   " M art/blender/fire_hose_stock_construction.json",
+   " M art/blender/scripts/build_fire_fold_stock.py",
+   " M art/blender/scripts/build_fire_hose_stock.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import"
+  ],
+  "repository_head": "5e031fb4eb39cef999f0c1bcc620dce55defba04",
+  "repository_tree": "7c1b7011347c6a5a735a344f2e6c10f73bb1949b",
+  "runtime_inputs_sha256": "445ff38f44a9f2cd804579ee9a5023f4dc9255435396c54f006a6ddf5505e78a",
+  "test_path": "game/tests/v2_low_step_probe_bench.gd",
+  "test_sha256": "4ffc512270fb6996a96f2921d88f5a67f87e11410a197baa81f88f8c84de00c1"
+ },
+ "windowed": true
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "scene": "res://tests/FireStepSphereBench.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/step.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/step"
+  },
+  {
+    "scene": "res://tests/V2FireBodyMergeProfile.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/world.log",
+    "runner": "long",
+    "timeout": 1000,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/world"
+  }
+]

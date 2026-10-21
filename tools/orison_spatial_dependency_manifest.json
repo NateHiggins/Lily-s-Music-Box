@@ -310796,6 +310796,299 @@
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
+  },
+  {
+   "key": "55ba7665d262f0db",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/calibrator_hand_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    74,
+    147
+   ],
+   "count": 2,
+   "context": [
+    "player=PlayerController.new();add_child(player);player.position=Vector3(0,0,1);player.set_physics_process(false);player.set_beam_mask_enabled(false);player.set_",
+    "aim();await frames(2);click();await move_to(.002);player.camera.global_position+=Vector3(0,0,3);player._grab.validate()"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4ce8c14a6b33160e",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/v2_calibrator_world_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    12,
+    12,
+    12
+   ],
+   "count": 3,
+   "context": [
+    "for point in [Vector3(-10.5,3.2,1.4),Vector3(-11.2,3.2,1.4),Vector3(-12.0,3.2,1.15)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4f8a1f3790c448be",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/v2_library_shadow_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    44
+   ],
+   "count": 1,
+   "context": [
+    "var shelf:=Shelf.new();shelf.native_stock=stock;shelf.owner_name=\"Mina Vale\";shelf.unit=\"2A\";shelf.case_style=\"repaired\";add_child(shelf)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "e7ba27144314e877",
+   "kind": "id_reference",
+   "token": "F02_FIRE_LINE_STAIR",
+   "file": "game/tests/v2_low_step_stair_profile.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inspection_route"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "var actor: Node3D=native.stations[\"F02_FIRE_LINE_STAIR\"].get_ref()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1cd2d86de29ef6dd",
+   "kind": "vector3_coordinate",
+   "token": "_inspection_route",
+   "file": "game/tests/v2_low_step_stair_profile.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inspection_route"
+   ],
+   "lines": [
+    55,
+    55,
+    55,
+    55,
+    62
+   ],
+   "count": 5,
+   "context": [
+    "for target: Vector3 in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),Vector3(3.975,3.2,-3.4)]:",
+    "if not await _walk(Vector3(3.65,3.2,-3.4)):return false"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "8204e17532f51a4e",
+   "kind": "vector3_coordinate",
+   "token": "_play_route",
+   "file": "game/tests/v2_low_step_stair_profile.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_play_route"
+   ],
+   "lines": [
+    34,
+    34,
+    34,
+    34,
+    34,
+    40,
+    40,
+    40,
+    40,
+    46,
+    46,
+    46
+   ],
+   "count": 12,
+   "context": [
+    "for target: Vector3 in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),Vector3(3.975,3.2,-3.4),Vector3(1.925,3.2,-3.4)]:",
+    "for target: Vector3 in [Vector3(3.975,3.2,-3.4),Vector3(3.975,1.6,1.3),Vector3(1.925,1.6,1.3),Vector3(1.925,0,-3.5)]:",
+    "for target: Vector3 in [Vector3(3.975,1.6,1.3),Vector3(1.925,1.6,1.3),Vector3(1.925,0,-3.5)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "9ffc595425c6bdaf",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+   "file": "game/tests/v2_passage_door_sweep_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "var hardware: DoorProp=region.doors.get(\"SITE_SHOP_DOOR_HARDWARE_PAINT\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "fadb8f7670fecae4",
+   "kind": "id_reference",
+   "token": "F01_restroom_mop_bucket",
+   "file": "game/tests/v2_played_profile_and_bucket_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_mop_contact"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "var actor:=root.find_child(\"F01_restroom_mop_bucket\",true,false) as StaticBody3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fff28670844585a2",
+   "kind": "node_path",
+   "token": "F01_restroom_mop_bucket",
+   "file": "game/tests/v2_played_profile_and_bucket_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_mop_contact"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "var actor:=root.find_child(\"F01_restroom_mop_bucket\",true,false) as StaticBody3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": null
   }
  ]
 }

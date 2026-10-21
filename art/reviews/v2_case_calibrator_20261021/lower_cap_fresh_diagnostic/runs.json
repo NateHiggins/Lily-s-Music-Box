@@ -1,0 +1,18 @@
+[
+  {
+    "scene": "res://tests/LowerCapHistoryControl.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/history.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/history"
+  },
+  {
+    "scene": "res://tests/LowerCapFreshEquivalence.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/fresh.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/fresh"
+  }
+]

@@ -1,0 +1,191 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Explicit owned untracked diagnostic sources only, byte-exact archived before removal. Original failures retained. Production sources at0c596a19 recover the unchanged parent implementations used by these experiments.",
+  "files": [
+    {
+      "path": "game/tests/native_component_triangles.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_component_triangles.gd",
+      "sha256": "b2154f8706ae62abf87c03c789082dd6bccc312a89d8d40497bacd9b88c3b603"
+    },
+    {
+      "path": "game/tests/native_triangle_component_bench.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_triangle_component_bench.gd",
+      "sha256": "6fc78cd8746e61f5b0e792269b4f66a4983b659775e8c001f9c106b07299d9a9"
+    },
+    {
+      "path": "game/tests/NativeTriangleComponentBench.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/NativeTriangleComponentBench.tscn",
+      "sha256": "338308c27d44234c7626bd6b3daa9c6ea305dfea110fc27c38e44aa690a95d99"
+    },
+    {
+      "path": "game/tests/native_triangle_equivalence_bench.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_triangle_equivalence_bench.gd",
+      "sha256": "90e2678df861dc8c3c868f5c29a9d2abe20e267520b6d520b0b72ed1910c5f95"
+    },
+    {
+      "path": "game/tests/NativeTriangleEquivalenceBench.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/NativeTriangleEquivalenceBench.tscn",
+      "sha256": "6468323403b4333fd65b3392b5c2381bbe03b20066de1b324ca55d336e9b83b8"
+    },
+    {
+      "path": "game/tests/v2_triangle_partition_stair_profile.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_triangle_partition_stair_profile.gd",
+      "sha256": "6f7a8bf20e51ba0f337aa43e74d7463fdf073b0a198e016d8dac3b2dbf5af667"
+    },
+    {
+      "path": "game/tests/V2TrianglePartitionStairProfile.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2TrianglePartitionStairProfile.tscn",
+      "sha256": "a85c744a42281ceb83a31b9b5223e151c483bce5123028ec703d9d081035a2f9"
+    },
+    {
+      "path": "game/tests/native_triangle_grid.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_triangle_grid.gd",
+      "sha256": "e3c1d59b0599fa4ae6b20ba1d477e3614fac018da049958a3d7320302ef78f4b"
+    },
+    {
+      "path": "game/tests/native_triangle_grid_bench.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_triangle_grid_bench.gd",
+      "sha256": "795d6ba1799f7fc3a8af69c5f7a51c67732d6bd32af4b80673d162bc82b4bc0a"
+    },
+    {
+      "path": "game/tests/NativeTriangleGridBench.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/NativeTriangleGridBench.tscn",
+      "sha256": "1ef0b66d36c123b0b87618756be6843830cd935483bbc8e66799494a9170057a"
+    },
+    {
+      "path": "game/tests/v2_triangle_grid_stair_profile.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_triangle_grid_stair_profile.gd",
+      "sha256": "8243c9a7ce77f094be013d6d62327e3b3191105aa2b06f5bdc7fb01c3ed536c4"
+    },
+    {
+      "path": "game/tests/V2TriangleGridStairProfile.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2TriangleGridStairProfile.tscn",
+      "sha256": "efb436c45901bc7f38a76bfd1e66e184448a401702183e49573a6d471f162bd3"
+    },
+    {
+      "path": "game/tests/v2_triangle_grid_stair_profile_v3.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_triangle_grid_stair_profile_v3.gd",
+      "sha256": "13e15e8cb7863b3395cc89e48423c700c4e0845f7decab8d8f0641a086337888"
+    },
+    {
+      "path": "game/tests/V2TriangleGridStairProfileV3.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2TriangleGridStairProfileV3.tscn",
+      "sha256": "10c1a7b5c367e684023004355d856180bc04af6a2bea2b46231a5030a1bb602f"
+    },
+    {
+      "path": "game/tests/step_after_contact_control.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/step_after_contact_control.gd",
+      "sha256": "a8e7537fd0baee24795ad1f559b539eccfbae45ec4ed30a505c5859868fbae4b"
+    },
+    {
+      "path": "game/tests/step_after_contact_bench.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/step_after_contact_bench.gd",
+      "sha256": "01eff478d5ee755a1e85c5579b481bc83f917b27d9d71fc980b46949cb3c2c0f"
+    },
+    {
+      "path": "game/tests/StepAfterContactBench.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/StepAfterContactBench.tscn",
+      "sha256": "541c51de54812c0ae27be00bec875153859aec1a0258aed1d838a2a758ad8255"
+    },
+    {
+      "path": "game/tests/v2_contact_step_stair_profile.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_contact_step_stair_profile.gd",
+      "sha256": "e90e50671adfeaeec04c83d1dff9ebcc1a8d38046afe95cf29ebab34044f864f"
+    },
+    {
+      "path": "game/tests/V2ContactStepStairProfile.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2ContactStepStairProfile.tscn",
+      "sha256": "f45df22b9bb72cde2a8b480bf6cd7954666d93fa33db289c691583e21b55c8b5"
+    },
+    {
+      "path": "game/tests/v2_wall_sampling_control.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_wall_sampling_control.gd",
+      "sha256": "45cbb54aa202f4056b5121a741cd09330455b0f9d76a61544a05cc9a6aa15cd3"
+    },
+    {
+      "path": "game/tests/V2WallSamplingControl.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2WallSamplingControl.tscn",
+      "sha256": "ac670ee17d5a42bccfcfa2dc6f839b0a87d31ab52d47890072713da641ae8b55"
+    },
+    {
+      "path": "game/tests/fire_cabinet_cost_controller.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/fire_cabinet_cost_controller.gd",
+      "sha256": "da28a73e58616c446e0ce0bad0998a87d0036e8562e1bc20a5330d638fa09bef"
+    },
+    {
+      "path": "game/tests/v2_fire_cabinet_cost_profile.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_fire_cabinet_cost_profile.gd",
+      "sha256": "bdf7fe67f25df21e3b0633b8456f50dc3ad935fb06b89d7b64ed83f05991d851"
+    },
+    {
+      "path": "game/tests/V2FireCabinetCostProfile.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2FireCabinetCostProfile.tscn",
+      "sha256": "59c3238ee1920dc0e62419b44389a68073cf1db4508b2fab58909588de546793"
+    },
+    {
+      "path": "game/tests/fire_step_sphere_control.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/fire_step_sphere_control.gd",
+      "sha256": "4618191f5c0315558f50ec9d414299f1d9be14ae82c56f3ea4cdd5ebfe51e049"
+    },
+    {
+      "path": "game/tests/fire_step_sphere_bench.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/fire_step_sphere_bench.gd",
+      "sha256": "ce4604991cec4f049298f1b2d76d2f38d081882804720105f2511cfa880f8806"
+    },
+    {
+      "path": "game/tests/FireStepSphereBench.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/FireStepSphereBench.tscn",
+      "sha256": "9a5ada6c57eb7f957116df6ad1b5bccc51b2993c8840369a0250895d0b242bd7"
+    },
+    {
+      "path": "game/tests/v2_fire_body_merge_profile.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_fire_body_merge_profile.gd",
+      "sha256": "dc39fc9a0a4da2ca61d5ba73b3af678de213851dfe0f776d199c17ad6118ce9b"
+    },
+    {
+      "path": "game/tests/V2FireBodyMergeProfile.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2FireBodyMergeProfile.tscn",
+      "sha256": "3b2cf95147dc98a9ea5d7c5cbbad999c0538700f7b19483374749d8b2442dfde"
+    },
+    {
+      "path": "game/tests/v2_lower_cap_stair_profile.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_lower_cap_stair_profile.gd",
+      "sha256": "07f8b9ed2c7ab123aeb2ee8c8e6d80b1bbd0cd63d263dc9cd44af9278cd58415"
+    },
+    {
+      "path": "game/tests/V2LowerCapStairProfile.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2LowerCapStairProfile.tscn",
+      "sha256": "b1134f0acec906c89537f0d40efe48cdf5607c36d18c85f64a91a6de6c523753"
+    },
+    {
+      "path": "game/tests/lower_cap_equivalence_bench.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/lower_cap_equivalence_bench.gd",
+      "sha256": "3450c4066511e0c8560a616c08a6b49681d792c736448c1fefa8c2b7dcc2e907"
+    },
+    {
+      "path": "game/tests/LowerCapEquivalenceBench.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/LowerCapEquivalenceBench.tscn",
+      "sha256": "4c9d27c71e3ecfd685d5047a19b1e02e2b1d40bdc3e1a31e048c342d2f66e648"
+    },
+    {
+      "path": "game/tests/lower_cap_history_control.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/lower_cap_history_control.gd",
+      "sha256": "3f8199c66f3246f5ec02be3ee472f06b0171f5345cbb0dc5e88974e21f640ae0"
+    },
+    {
+      "path": "game/tests/LowerCapHistoryControl.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/LowerCapHistoryControl.tscn",
+      "sha256": "652f84e133d7b7459eecaf7da726c08043f60f6c74025d34e38ae1d63f367793"
+    },
+    {
+      "path": "game/tests/lower_cap_fresh_equivalence.gd",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/lower_cap_fresh_equivalence.gd",
+      "sha256": "b529d034c5b38523e66bf6e4e18aaa017044b799edeb1ee86f377ae3002699d7"
+    },
+    {
+      "path": "game/tests/LowerCapFreshEquivalence.tscn",
+      "archive": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/LowerCapFreshEquivalence.tscn",
+      "sha256": "5e8e5854ebb5ac2f50c6bf38e828728c3e1b3f46b5d5dca2cfd7986fcf0617d8"
+    }
+  ]
+}

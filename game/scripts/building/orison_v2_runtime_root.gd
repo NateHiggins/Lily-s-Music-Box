@@ -422,6 +422,7 @@ func _compose_authorities() -> void:
 	player.name = "Player"
 	player.position = _connection.arrival.position
 	add_child(player)
+	player.enable_low_step_probe()
 	if not _compose_exterior():
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: exterior composition failed")

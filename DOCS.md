@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Fire-cabinet step-query repair, reduced hose density, paired frame distributions and remaining deployment work | `design/V2_HOSE_RESPONSIVENESS_2026-10-21.md` |
 | Rejected exact-triangle stair acceleration, paired frame distributions and retained failures | `design/V2_STAIR_TRIANGLE_DIAGNOSIS_2026-10-21.md` |
 | V2 physical caption-calibrator construction, exact spring return and current renewal status | `design/V2_CASE_CALIBRATOR_2026-10-21.md` |
 | Corrected played profiling: diagnostic capture overhead at the hardware counter | `design/V2_COUNTER_CAPTURE_DIAGNOSIS_2026-10-21.md` |
