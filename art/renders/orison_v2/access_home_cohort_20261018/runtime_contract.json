@@ -4159,7 +4159,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 449.273,
+		"elapsed_s": 447.23,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -7689,10 +7689,10 @@
 	"scope": "Played room access in one shared production world. Complete route families retain their declared initial placements; roof circuits share one F06 arrival. Subsequent travel uses the normal collision-bearing controller. Physical input replaces inherited E-key toggles. The lift travel request remains a declared stimulus. No inter-floor connection, case completion, disk save, whole-building runtime or human acceptance grant.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "1762e9fd4d00ee0b3368a9a8adb0a0c8008c6187",
-		"runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+		"repository_head": "0c596a199afa7d5a0b90cb601e21b19cfba26696",
+		"runtime_inputs_sha256": "f0464f9e465bc50a69712f0d37edbd7ed68e526e664644be8cf7f6036b65b7ec",
 		"scene_path": "res://tests/OrisonV2HomeAccessCohort.tscn",
-		"surface_inputs_sha256": "09a56bdb883265b8caa86502e26e95c27842a3ae1038c03c8a20b09fb1b61ea6",
+		"surface_inputs_sha256": "417c290f6bd6d1390a5aec1938aae84aab38291c2dd414deab8137eb8c87ea82",
 		"test_dependencies": {
 			"game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
 			"game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",
@@ -7703,7 +7703,7 @@
 			"game/tests/orison_v2_apartment_door_route_test.gd": "e2d8fe48ac080e55d43bda8d0514d52f4cf6e57cec14c5849b89181d55cfa9ac",
 			"game/tests/orison_v2_completion_access_contract_test.gd": "d2bbf278c10712fea959a312ff06e8b3272d0fc92b4d3b007f544fc727ce80cd",
 			"game/tests/orison_v2_completion_interiors_test.gd": "bde71f1b87bb0759f98dd222d3c94fa750621641e1738316492d08f570b59405",
-			"game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+			"game/tests/orison_v2_connected_exterior_route_test.gd": "ddcdb8faa1c4a8826cb15ecb467adbfb17ca695d8b98b614adc92f170e7ebe34",
 			"game/tests/orison_v2_roof_route_test.gd": "55d9eb0d060077b3570e8b4a2db2f202eedbd8027a7c7268ac5c06cc0ca393e9",
 			"game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
 			"game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",

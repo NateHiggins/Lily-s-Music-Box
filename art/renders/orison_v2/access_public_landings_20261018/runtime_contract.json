@@ -238,7 +238,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 342.508,
+		"elapsed_s": 345.72,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -10849,10 +10849,10 @@
 	"scope": "Played room access in one shared production world. Complete route families retain their declared initial placements; roof circuits share one F06 arrival. Subsequent travel uses the normal collision-bearing controller. Physical input replaces inherited E-key toggles. The lift travel request remains a declared stimulus. No inter-floor connection, case completion, disk save, whole-building runtime or human acceptance grant.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "1e8b332fdfefc76a73bd50ad5e1df7beaf8fcaee",
-		"runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+		"repository_head": "0c596a199afa7d5a0b90cb601e21b19cfba26696",
+		"runtime_inputs_sha256": "f0464f9e465bc50a69712f0d37edbd7ed68e526e664644be8cf7f6036b65b7ec",
 		"scene_path": "res://tests/V2PublicLandingAccessContract.tscn",
-		"surface_inputs_sha256": "09a56bdb883265b8caa86502e26e95c27842a3ae1038c03c8a20b09fb1b61ea6",
+		"surface_inputs_sha256": "417c290f6bd6d1390a5aec1938aae84aab38291c2dd414deab8137eb8c87ea82",
 		"test_dependencies": {
 			"game/tests/V2PublicLandingAccessContract.tscn": "fb5e200529c4c5ec2496a91820b3080023a6fab4b10e615728e89690374061eb",
 			"game/tests/orison_v2_public_landing_walk.gd": "f963fee464a3bf962b06296b02b70a16adbf7b7b7c29e4b49dcf98a0803c095f",

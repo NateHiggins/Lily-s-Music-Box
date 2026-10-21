@@ -1,7 +1,8 @@
 # V2 caption-calibrator physical control
 
 Evidence class: **INERT**. Scoped construction and diagnostic issue log; no
-whole-V2, eleven-beat or human acceptance. Broad source-bound renewal is pending.
+whole-V2, eleven-beat or human acceptance. The source-bound renewal result below
+applies to the calibrator source checkpoint, before subsequent hose repairs.
 
 The existing caption calibrator now has a separately targeted four-millimetre
 plunger. Clicking acquires it without action; mouse motion operates the native
@@ -129,4 +130,30 @@ minor clipping and seven existing shutdown warnings. Mina's black bookshelf
 silhouette remains the diagnosed cast shadow.
 
 Decision needed from owner: **none**; autonomous diagnosis and renewal continue.
-BLOCKED - merge-candidate qualification renewal pending; this is a source checkpoint.
+BLOCKED - broader V2 and merge-candidate acceptance remain open.
+
+## Completed renewal at source checkpoint 0c596a19
+
+All seven original test-written schema-2 packets completed and were independently
+verified and published without repinning source hashes. The source at execution
+is the committed calibrator implementation. Surface passes 40,140 checks;
+first slice passes its 359 receipt checks and real disk/world reconstruction;
+upper passes 69 rooms/993 checks; home passes 62 rooms/909 checks; service
+passes 27 rooms/six connections; public passes six rooms; exterior passes
+six regions/six played routes. Original receipts, logs, prior packets and
+publication records remain in the renewal directory. The small source-specific
+agent visual review is separate from the original surface runtime contract.
+
+The complete **final_board/board.json** records 109 PASS gates and one existing
+INCOMPLETE ledger, all 98 tools suites passing, reader zero NEW, and restored
+ledger blocker counts **0/25/21/1/38/40**. Its baseline comparison is nevertheless
+**REGRESSED**: temporary diagnostic tests add 15 incidental spatial references,
+increasing new_reported from two to17 and producing16 comparison regressions.
+This original result is retained. Archive/remove finished temporary experiments
+and recheck spatial drift before a clean candidate claim; do not change the
+baseline or audit predicate. No protected source or selector logic changed.
+
+The subsequent hose work was explicitly requested by the owner: reduce the
+installed excessive hose density while preserving full **15.24 m (50 ft)**
+deployment and physical use. Any new production input expires these original
+packets normally; this checkpoint does not qualify future hose changes.

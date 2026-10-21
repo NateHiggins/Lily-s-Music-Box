@@ -893,7 +893,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 337.451,
+		"elapsed_s": 335.535,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -7117,10 +7117,10 @@
 	"scope": "One declared basement placement, all seven service stairs up to the roof and back, both ends of each occupied service hall and six actual direct hall/core thresholds. Only live controller movement after placement; real grab/motion/release on controlled leaves. Room access and recorded edge traversal only; no lift operation, case, save, acoustic, photoreal or human acceptance.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "1e8b332fdfefc76a73bd50ad5e1df7beaf8fcaee",
-		"runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+		"repository_head": "0c596a199afa7d5a0b90cb601e21b19cfba26696",
+		"runtime_inputs_sha256": "f0464f9e465bc50a69712f0d37edbd7ed68e526e664644be8cf7f6036b65b7ec",
 		"scene_path": "res://tests/V2ServiceCirculationContract.tscn",
-		"surface_inputs_sha256": "09a56bdb883265b8caa86502e26e95c27842a3ae1038c03c8a20b09fb1b61ea6",
+		"surface_inputs_sha256": "417c290f6bd6d1390a5aec1938aae84aab38291c2dd414deab8137eb8c87ea82",
 		"test_dependencies": {
 			"game/tests/V2ServiceCirculationContract.tscn": "e7ed5d0e65b98f3ff993ec6e1bf038a2db56964c911a419c52ff343df8f6ba73",
 			"game/tests/orison_v2_first_slice_contract_test.gd": "884c1b94e63ed438bed885173aae490cee06f3aa71ad1d901007f32ba053a971",

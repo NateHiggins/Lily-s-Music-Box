@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 356.0,
+  "elapsed_s": 359.09,
   "exit_code": 0,
-  "finished_utc": "2026-10-21T17:01:59Z",
-  "started_utc": "2026-10-21T16:56:02Z",
+  "finished_utc": "2026-10-21T21:22:00Z",
+  "started_utc": "2026-10-21T21:16:00Z",
   "timed_out": false
  },
  "log": {
@@ -19,25 +19,26 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/landings_final.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/renewal/public.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/landings_final.log",
-  "stdout_sha256": "245f1d5e56c0b00220c5af09465f7f3dffc7f28482178230cf5e4c5995cb285a"
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/renewal/public.log",
+  "stdout_sha256": "8d48620371be33a088ebe76647db35be370e8c0bbaf7406b4e483555a3842c68"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/V2PublicLandingAccessContract.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/landings_final",
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/renewal/public",
  "source": {
-  "dirty_paths": 1087,
+  "dirty_paths": 1528,
   "dirty_sample": [
-   "M art/renders/orison_v2/access_service_circulation_20261018/runtime_contract.json",
+   "M art/renders/orison_v2/access_home_cohort_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_home_cohort_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_service_circulation_20261018/runtime_contract.json",
    " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.receipt.json",
    " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.stdout.log.gz",
-   " M art/reviews/v2_shop_door_repair_20261021/CONTINUATION.txt",
-   " M design/V2_SHOP_DOOR_REPAIR_2026-10-21.md",
    " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
    " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
    " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
@@ -51,12 +52,11 @@
    " M game/assets/audio/music/covers/glorious_stain.webp.import",
    " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
    " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
-   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
-   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import"
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import"
   ],
-  "repository_head": "1e8b332fdfefc76a73bd50ad5e1df7beaf8fcaee",
-  "repository_tree": "4f6c6b2fd0c1142a68daa25298d5c6f3798d1543",
-  "runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+  "repository_head": "0c596a199afa7d5a0b90cb601e21b19cfba26696",
+  "repository_tree": "5ca214e3679bea48e78567187c8be3f45b7e6aee",
+  "runtime_inputs_sha256": "f0464f9e465bc50a69712f0d37edbd7ed68e526e664644be8cf7f6036b65b7ec",
   "test_path": "game/tests/v2_public_landing_access_contract.gd",
   "test_sha256": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7"
  },

@@ -1,0 +1,7136 @@
+{
+	"checks": [
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "valid campaign fixture",
+			"ok": true
+		},
+		{
+			"label": "production-selected V2 composition starts",
+			"ok": true
+		},
+		{
+			"label": "authored service core: B1",
+			"ok": true
+		},
+		{
+			"label": "actual service stair: B1",
+			"ok": true
+		},
+		{
+			"label": "authored service core: F01",
+			"ok": true
+		},
+		{
+			"label": "actual direct hall/core threshold: F01",
+			"ok": true
+		},
+		{
+			"label": "actual controlled service leaf: F01_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "service leaf settles before acquiring it",
+			"ok": true
+		},
+		{
+			"label": "supported latch-side stance outside service leaf arc: F01_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "write actual service door capture: F01_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "grab, motion and release opens actual service leaf: F01_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "standing capture destination: F01_riser_bypass",
+			"ok": true
+		},
+		{
+			"label": "write standing passage capture: F01_riser_bypass",
+			"ok": true
+		},
+		{
+			"label": "actual controlled service leaf: F01_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "service leaf settles before acquiring it",
+			"ok": true
+		},
+		{
+			"label": "supported latch-side stance outside service leaf arc: F01_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "write actual service door capture: F01_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "grab, motion and release closes actual service leaf: F01_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual service stair: F01",
+			"ok": true
+		},
+		{
+			"label": "authored service core: F02",
+			"ok": true
+		},
+		{
+			"label": "actual direct hall/core threshold: F02",
+			"ok": true
+		},
+		{
+			"label": "standing capture destination: F02_riser_bypass",
+			"ok": true
+		},
+		{
+			"label": "write standing passage capture: F02_riser_bypass",
+			"ok": true
+		},
+		{
+			"label": "standing capture destination: F02_retained_pipe_port",
+			"ok": true
+		},
+		{
+			"label": "write standing passage capture: F02_retained_pipe_port",
+			"ok": true
+		},
+		{
+			"label": "actual service stair: F02",
+			"ok": true
+		},
+		{
+			"label": "authored service core: F03",
+			"ok": true
+		},
+		{
+			"label": "actual direct hall/core threshold: F03",
+			"ok": true
+		},
+		{
+			"label": "actual controlled service leaf: F03_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "service leaf settles before acquiring it",
+			"ok": true
+		},
+		{
+			"label": "supported latch-side stance outside service leaf arc: F03_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "write actual service door capture: F03_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "grab, motion and release opens actual service leaf: F03_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual controlled service leaf: F03_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "service leaf settles before acquiring it",
+			"ok": true
+		},
+		{
+			"label": "supported latch-side stance outside service leaf arc: F03_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "write actual service door capture: F03_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "grab, motion and release closes actual service leaf: F03_SERVICE_CORE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual service stair: F03",
+			"ok": true
+		},
+		{
+			"label": "authored service core: F04",
+			"ok": true
+		},
+		{
+			"label": "actual direct hall/core threshold: F04",
+			"ok": true
+		},
+		{
+			"label": "actual service stair: F04",
+			"ok": true
+		},
+		{
+			"label": "authored service core: F05",
+			"ok": true
+		},
+		{
+			"label": "actual direct hall/core threshold: F05",
+			"ok": true
+		},
+		{
+			"label": "actual service stair: F05",
+			"ok": true
+		},
+		{
+			"label": "authored service core: F06",
+			"ok": true
+		},
+		{
+			"label": "actual direct hall/core threshold: F06",
+			"ok": true
+		},
+		{
+			"label": "actual service stair: F06",
+			"ok": true
+		},
+		{
+			"label": "authored service core: ROOF",
+			"ok": true
+		},
+		{
+			"label": "complete basement-to-roof-and-back collision-bearing leg",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F01_CORE_TO_SERVICE",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F01_SERVICE_HALL",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F01_SERVICE_CORE",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F02_SERVICE_CROSSING",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F02_SERVICE_HALL",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F02_SERVICE_HALL_SOUTH",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F02_SERVICE_CORE",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F03_SERVICE_CORE",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F04_SERVICE_HALL",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F04_SERVICE_CORE",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F03_SERVICE_CROSSING",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F03_SERVICE_HALL",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F03_SERVICE_HALL_SOUTH",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F04_SERVICE_CROSSING",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F04_SERVICE_HALL_SOUTH",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F05_SERVICE_CORE",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F05_SERVICE_HALL",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F05_SERVICE_CROSSING",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F05_SERVICE_HALL_SOUTH",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F06_SERVICE_CORE",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F06_SERVICE_HALL",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F06_SERVICE_CROSSING",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F06_SERVICE_HALL_SOUTH",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: ROOF_SERVICE_CORE",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: B1_SERVICE_CORE",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F01_SERVICE_RISER_BYPASS",
+			"ok": true
+		},
+		{
+			"label": "ordinary movement reaches authored service room: F02_SERVICE_RISER_BYPASS",
+			"ok": true
+		},
+		{
+			"label": "six actual direct hall/core crossings",
+			"ok": true
+		},
+		{
+			"label": "root and service driver retire",
+			"ok": true
+		},
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "production and physical inputs stay fixed",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "entry scene and all inherited movement/hand sources stay fixed",
+			"ok": true
+		},
+		{
+			"label": "record repository provenance",
+			"ok": true
+		},
+		{
+			"label": "explicit writable receipt destination",
+			"ok": true
+		},
+		{
+			"label": "open original service circulation contract",
+			"ok": true
+		}
+	],
+	"completed_groups": [
+		"service_circulation"
+	],
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"room_access": {
+			"executed": true,
+			"rooms": {
+				"B1_SERVICE_CORE": {
+					"actual": [
+						11.0769519805908,
+						-3.19918465614319,
+						4.39884376525879
+					],
+					"leg": "service_circulation"
+				},
+				"F01_CORE_TO_SERVICE": {
+					"actual": [
+						7.89119291305542,
+						0.000943032267969102,
+						0.310482025146484
+					],
+					"leg": "service_circulation"
+				},
+				"F01_SERVICE_CORE": {
+					"actual": [
+						12.4181718826294,
+						0.000798963767010719,
+						5.55222320556641
+					],
+					"leg": "service_circulation"
+				},
+				"F01_SERVICE_HALL": {
+					"actual": [
+						8.96736335754395,
+						0.000943032267969102,
+						5.45969009399414
+					],
+					"leg": "service_circulation"
+				},
+				"F01_SERVICE_RISER_BYPASS": {
+					"actual": [
+						7.80702543258667,
+						0.000943032267969102,
+						1.45450496673584
+					],
+					"leg": "service_circulation"
+				},
+				"F02_SERVICE_CORE": {
+					"actual": [
+						12.4232110977173,
+						3.20079874992371,
+						5.55387496948242
+					],
+					"leg": "service_circulation"
+				},
+				"F02_SERVICE_CROSSING": {
+					"actual": [
+						8.89616584777832,
+						3.20078039169312,
+						-3.15506458282471
+					],
+					"leg": "service_circulation"
+				},
+				"F02_SERVICE_HALL": {
+					"actual": [
+						8.91533088684082,
+						3.20078039169312,
+						3.11024188995361
+					],
+					"leg": "service_circulation"
+				},
+				"F02_SERVICE_HALL_SOUTH": {
+					"actual": [
+						8.89995098114014,
+						3.20078039169312,
+						-8.20158958435059
+					],
+					"leg": "service_circulation"
+				},
+				"F02_SERVICE_RISER_BYPASS": {
+					"actual": [
+						7.7047381401062,
+						3.20078039169312,
+						1.45447540283203
+					],
+					"leg": "service_circulation"
+				},
+				"F03_SERVICE_CORE": {
+					"actual": [
+						12.4232110977173,
+						6.40082836151123,
+						5.55387496948242
+					],
+					"leg": "service_circulation"
+				},
+				"F03_SERVICE_CROSSING": {
+					"actual": [
+						8.86671257019043,
+						6.40094327926636,
+						-3.15995025634766
+					],
+					"leg": "service_circulation"
+				},
+				"F03_SERVICE_HALL": {
+					"actual": [
+						8.86614418029785,
+						6.40094327926636,
+						5.46101570129395
+					],
+					"leg": "service_circulation"
+				},
+				"F03_SERVICE_HALL_SOUTH": {
+					"actual": [
+						8.89958000183105,
+						6.40094327926636,
+						-8.20175647735596
+					],
+					"leg": "service_circulation"
+				},
+				"F04_SERVICE_CORE": {
+					"actual": [
+						12.4232110977173,
+						9.60081577301025,
+						5.55387496948242
+					],
+					"leg": "service_circulation"
+				},
+				"F04_SERVICE_CROSSING": {
+					"actual": [
+						8.8917407989502,
+						9.60094165802002,
+						-3.15510082244873
+					],
+					"leg": "service_circulation"
+				},
+				"F04_SERVICE_HALL": {
+					"actual": [
+						8.89683628082275,
+						9.60094165802002,
+						3.11574745178223
+					],
+					"leg": "service_circulation"
+				},
+				"F04_SERVICE_HALL_SOUTH": {
+					"actual": [
+						8.89989376068115,
+						9.60094165802002,
+						-8.20158290863037
+					],
+					"leg": "service_circulation"
+				},
+				"F05_SERVICE_CORE": {
+					"actual": [
+						12.4232110977173,
+						12.8008327484131,
+						5.55387496948242
+					],
+					"leg": "service_circulation"
+				},
+				"F05_SERVICE_CROSSING": {
+					"actual": [
+						8.89173984527588,
+						12.8009424209595,
+						-3.1550989151001
+					],
+					"leg": "service_circulation"
+				},
+				"F05_SERVICE_HALL": {
+					"actual": [
+						8.89683628082275,
+						12.8009424209595,
+						3.11574649810791
+					],
+					"leg": "service_circulation"
+				},
+				"F05_SERVICE_HALL_SOUTH": {
+					"actual": [
+						8.89989376068115,
+						12.8009424209595,
+						-8.20157814025879
+					],
+					"leg": "service_circulation"
+				},
+				"F06_SERVICE_CORE": {
+					"actual": [
+						12.4232110977173,
+						16.0008316040039,
+						5.55387496948242
+					],
+					"leg": "service_circulation"
+				},
+				"F06_SERVICE_CROSSING": {
+					"actual": [
+						8.89173984527588,
+						16.0009422302246,
+						-3.15509700775146
+					],
+					"leg": "service_circulation"
+				},
+				"F06_SERVICE_HALL": {
+					"actual": [
+						8.89683532714844,
+						16.0009422302246,
+						3.11574649810791
+					],
+					"leg": "service_circulation"
+				},
+				"F06_SERVICE_HALL_SOUTH": {
+					"actual": [
+						8.89989376068115,
+						16.0009422302246,
+						-8.20157623291016
+					],
+					"leg": "service_circulation"
+				},
+				"ROOF_SERVICE_CORE": {
+					"actual": [
+						12.4260969161987,
+						19.2004299163818,
+						5.55099868774414
+					],
+					"leg": "service_circulation"
+				}
+			},
+			"status": "PASS"
+		},
+		"room_connections": {
+			"connections": {
+				"F01_SERVICE_CORE_DOOR": {
+					"after": [
+						9.04127979278564,
+						0.000938374607358128,
+						5.53310203552246
+					],
+					"after_index": 23,
+					"before": [
+						10.0199060440063,
+						0.000938374607358128,
+						5.59065246582031
+					],
+					"before_index": 20,
+					"door_input": {
+						"actual_angle": 1.57079637050629,
+						"follows_cursor": true,
+						"kind": "grab_mouse_release",
+						"owner": "F01_SERVICE_CORE_DOOR",
+						"ready_for_passage": true,
+						"released": true,
+						"stop_angle": 1.5707963267949
+					},
+					"from": "F01_SERVICE_CORE",
+					"id": "F01_SERVICE_CORE_DOOR",
+					"leg": "service_circulation",
+					"level": "F01",
+					"to": "F01_SERVICE_HALL"
+				},
+				"F02_SERVICE_HALL_CORE_OPENING": {
+					"after": [
+						8.99601268768311,
+						3.20078039169312,
+						3.1530122756958
+					],
+					"after_index": 92,
+					"before": [
+						10.1455078125,
+						3.19964265823364,
+						3.18906307220459
+					],
+					"before_index": 89,
+					"door_input": {},
+					"from": "F02_SERVICE_CORE",
+					"id": "F02_SERVICE_HALL_CORE_OPENING",
+					"leg": "service_circulation",
+					"level": "F02",
+					"to": "F02_SERVICE_HALL"
+				},
+				"F03_SERVICE_CORE_DOOR": {
+					"after": [
+						8.99657821655273,
+						6.40072870254517,
+						5.54221534729004
+					],
+					"after_index": 157,
+					"before": [
+						10.100118637085,
+						6.40072870254517,
+						5.4532299041748
+					],
+					"before_index": 154,
+					"door_input": {
+						"actual_angle": -1.57079637050629,
+						"follows_cursor": true,
+						"kind": "grab_mouse_release",
+						"owner": "F03_SERVICE_CORE_DOOR",
+						"ready_for_passage": true,
+						"released": true,
+						"stop_angle": -1.5707963267949
+					},
+					"from": "F03_SERVICE_CORE",
+					"id": "F03_SERVICE_CORE_DOOR",
+					"leg": "service_circulation",
+					"level": "F03",
+					"to": "F03_SERVICE_HALL"
+				},
+				"F04_SERVICE_HALL_CORE_OPENING": {
+					"after": [
+						8.996018409729,
+						9.60041999816895,
+						3.1530122756958
+					],
+					"after_index": 222,
+					"before": [
+						10.1455097198486,
+						9.60041999816895,
+						3.18906307220459
+					],
+					"before_index": 219,
+					"door_input": {},
+					"from": "F04_SERVICE_CORE",
+					"id": "F04_SERVICE_HALL_CORE_OPENING",
+					"leg": "service_circulation",
+					"level": "F04",
+					"to": "F04_SERVICE_HALL"
+				},
+				"F05_SERVICE_HALL_CORE_OPENING": {
+					"after": [
+						8.99602222442627,
+						12.800422668457,
+						3.1530122756958
+					],
+					"after_index": 284,
+					"before": [
+						10.1455106735229,
+						12.800422668457,
+						3.18906402587891
+					],
+					"before_index": 281,
+					"door_input": {},
+					"from": "F05_SERVICE_CORE",
+					"id": "F05_SERVICE_HALL_CORE_OPENING",
+					"leg": "service_circulation",
+					"level": "F05",
+					"to": "F05_SERVICE_HALL"
+				},
+				"F06_SERVICE_HALL_CORE_OPENING": {
+					"after": [
+						8.9960241317749,
+						16.0004215240479,
+						3.15301322937012
+					],
+					"after_index": 346,
+					"before": [
+						10.1455116271973,
+						16.0004215240479,
+						3.18906402587891
+					],
+					"before_index": 343,
+					"door_input": {},
+					"from": "F06_SERVICE_CORE",
+					"id": "F06_SERVICE_HALL_CORE_OPENING",
+					"leg": "service_circulation",
+					"level": "F06",
+					"to": "F06_SERVICE_HALL"
+				}
+			},
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "production root and service route driver only",
+			"retained_nodes": 0,
+			"status": "PASS",
+			"tracked_nodes": 2
+		}
+	},
+	"diagnostics": {
+		"scope": "INERT remote threshold physics queries; these do not replace played movement or grant acceptance",
+		"threshold_stances": [
+			{
+				"id": "F01_SERVICE_CORE_DOOR",
+				"level": "F01",
+				"obstructions": {},
+				"position": [
+					8.94999980926514,
+					0.0,
+					5.5
+				],
+				"side": "hall",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F01_SERVICE_CORE_DOOR",
+				"level": "F01",
+				"obstructions": {},
+				"position": [
+					10.0500001907349,
+					0.0,
+					5.5
+				],
+				"side": "core",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F02_SERVICE_HALL_CORE_OPENING",
+				"level": "F02",
+				"obstructions": {},
+				"position": [
+					8.94999980926514,
+					3.2,
+					3.20000004768372
+				],
+				"side": "hall",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F02_SERVICE_HALL_CORE_OPENING",
+				"level": "F02",
+				"obstructions": {},
+				"position": [
+					10.0500001907349,
+					3.2,
+					3.20000004768372
+				],
+				"side": "core",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F03_SERVICE_CORE_DOOR",
+				"level": "F03",
+				"obstructions": {},
+				"position": [
+					8.94999980926514,
+					6.4,
+					5.5
+				],
+				"side": "hall",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F03_SERVICE_CORE_DOOR",
+				"level": "F03",
+				"obstructions": {},
+				"position": [
+					10.0500001907349,
+					6.4,
+					5.5
+				],
+				"side": "core",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F04_SERVICE_HALL_CORE_OPENING",
+				"level": "F04",
+				"obstructions": {},
+				"position": [
+					8.94999980926514,
+					9.6,
+					3.20000004768372
+				],
+				"side": "hall",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F04_SERVICE_HALL_CORE_OPENING",
+				"level": "F04",
+				"obstructions": {},
+				"position": [
+					10.0500001907349,
+					9.6,
+					3.20000004768372
+				],
+				"side": "core",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F05_SERVICE_HALL_CORE_OPENING",
+				"level": "F05",
+				"obstructions": {},
+				"position": [
+					8.94999980926514,
+					12.8,
+					3.20000004768372
+				],
+				"side": "hall",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F05_SERVICE_HALL_CORE_OPENING",
+				"level": "F05",
+				"obstructions": {},
+				"position": [
+					10.0500001907349,
+					12.8,
+					3.20000004768372
+				],
+				"side": "core",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F06_SERVICE_HALL_CORE_OPENING",
+				"level": "F06",
+				"obstructions": {},
+				"position": [
+					8.94999980926514,
+					16.0,
+					3.20000004768372
+				],
+				"side": "hall",
+				"supported_clear_capsule": true
+			},
+			{
+				"id": "F06_SERVICE_HALL_CORE_OPENING",
+				"level": "F06",
+				"obstructions": {},
+				"position": [
+					10.0500001907349,
+					16.0,
+					3.20000004768372
+				],
+				"side": "core",
+				"supported_clear_capsule": true
+			}
+		]
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 337.451,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": 0,
+	"groups": [
+		"service_circulation"
+	],
+	"legs": [
+		{
+			"failures": [],
+			"group": "service_circulation",
+			"initial_placement_only": true,
+			"name": "service_circulation",
+			"trace": [
+				{
+					"actual": [
+						11.0749998092651,
+						-3.20007419586182,
+						4.35293579101563
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						-3.20000028610229,
+						4.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0749998092651,
+						-3.20007419586182,
+						4.35293579101563
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0750007629395,
+						-1.59944820404053,
+						9.05135536193848
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3297634124756,
+						-1.59905672073364,
+						9.12155914306641
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						-1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_B1_F01/StairGuards": "(-12.32976, -0.715, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						12.4223928451538,
+						0.000926416367292404,
+						5.74532508850098
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						0.0,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						0.000926416367292404,
+						4.39598274230957
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						0.0,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						0.000926416367292404,
+						4.39598274230957
+					],
+					"ok": true,
+					"target": [
+						12.3999996185303,
+						-0.00000000745058059692383,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.2993059158325,
+						0.000926416367292404,
+						4.35372352600098
+					],
+					"ok": true,
+					"target": [
+						11.2000007629395,
+						-0.00000000745058059692383,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.2431306838989,
+						0.000926416367292404,
+						4.46475410461426
+					],
+					"ok": true,
+					"target": [
+						11.2000007629395,
+						-0.00000000745058059692383,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.4956922531128,
+						0.000926416367292404,
+						4.54032707214355
+					],
+					"ok": true,
+					"target": [
+						10.3999996185303,
+						-0.00000000745058059692383,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.4404077529907,
+						0.000926416367292404,
+						4.66146469116211
+					],
+					"ok": true,
+					"target": [
+						10.3999996185303,
+						-0.00000000745058059692383,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.2901268005371,
+						0.000926416367292404,
+						4.7168140411377
+					],
+					"ok": true,
+					"target": [
+						10.2000007629395,
+						-0.00000000745058059692383,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.2043981552124,
+						0.000938374607358128,
+						5.4538402557373
+					],
+					"ok": true,
+					"target": [
+						10.2000007629395,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F01_F02/StairGuards": "(-10.5525, 1.044854, -16.7875)"
+					}
+				},
+				{
+					"actual": [
+						10.0873575210571,
+						0.000938374607358128,
+						5.5089054107666
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0873575210571,
+						0.000938374607358128,
+						5.5089054107666
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						0.0,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0873575210571,
+						0.000938374607358128,
+						5.5089054107666
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0099182128906,
+						0.000938374607358128,
+						6.2545051574707
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						6.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0137557983398,
+						0.000938374607358128,
+						6.28771018981934
+					],
+					"ok": true,
+					"target": [
+						10.0249996185303,
+						0.0,
+						6.38500022888184
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0137557983398,
+						0.000938374607358128,
+						6.28771018981934
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						6.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0017766952515,
+						0.000938374607358128,
+						5.64526176452637
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0199060440063,
+						0.000938374607358128,
+						5.59065246582031
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						0.0,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0199060440063,
+						0.000938374607358128,
+						5.59065246582031
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						9.09872722625732,
+						0.000938374607358128,
+						5.55393409729004
+					],
+					"ok": true,
+					"target": [
+						9.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						9.04127979278564,
+						0.000938374607358128,
+						5.53310203552246
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						0.0,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						9.04127979278564,
+						0.000938374607358128,
+						5.53310203552246
+					],
+					"ok": true,
+					"target": [
+						9.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						9.00144195556641,
+						0.000938374607358128,
+						8.2516040802002
+					],
+					"ok": true,
+					"target": [
+						9.0,
+						-0.00000000745058059692383,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.88648796081543,
+						0.000938374607358128,
+						8.30775451660156
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.88648796081543,
+						0.000938374607358128,
+						8.30775451660156
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						0.0,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.88648796081543,
+						0.000938374607358128,
+						8.30775451660156
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.80128479003906,
+						0.000938374607358128,
+						1.84737491607666
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						1.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.68655681610107,
+						0.000938374607358128,
+						1.79187393188477
+					],
+					"ok": true,
+					"target": [
+						8.60000038146973,
+						-0.00000000745058059692383,
+						1.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.6323938369751,
+						0.000938374607358128,
+						1.64051818847656
+					],
+					"ok": true,
+					"target": [
+						8.60000038146973,
+						-0.00000000745058059692383,
+						1.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.69526290893555,
+						0.000943032267969102,
+						1.55675506591797
+					],
+					"ok": true,
+					"target": [
+						7.60000038146973,
+						-0.00000000745058059692383,
+						1.55000019073486
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/F01_SERVICE_RISER_BYPASS/WallNorth_00/Collision": "(-8.299999, 1.194943, -13.58)"
+					}
+				},
+				{
+					"actual": [
+						7.69526290893555,
+						0.000943032267969102,
+						1.55675506591797
+					],
+					"ok": true,
+					"target": [
+						7.69999980926514,
+						0.0,
+						1.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.69526290893555,
+						0.000943032267969102,
+						1.55675506591797
+					],
+					"ok": true,
+					"target": [
+						7.60000038146973,
+						-0.00000000745058059692383,
+						1.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.60513401031494,
+						0.000943032267969102,
+						-0.152647018432617
+					],
+					"ok": true,
+					"target": [
+						7.60000038146973,
+						-0.00000000745058059692383,
+						-0.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.70400333404541,
+						0.000943032267969102,
+						-0.242178916931152
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						-0.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.79688930511475,
+						0.000943032267969102,
+						-3.15254878997803
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.82958984375,
+						0.000943032267969102,
+						-3.18345546722412
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						0.0,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.82958984375,
+						0.000943032267969102,
+						-3.18345546722412
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.80057430267334,
+						0.000943032267969102,
+						-8.15166091918945
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.84577083587646,
+						0.000943032267969102,
+						-8.21909332275391
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						0.0,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.84577083587646,
+						0.000943032267969102,
+						-8.21909332275391
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.80055236816406,
+						0.000943032267969102,
+						-0.148643493652344
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.09645462036133,
+						0.000943032267969102,
+						-0.061884880065918
+					],
+					"ok": true,
+					"target": [
+						8.0,
+						-0.00000000745058059692383,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.02258968353271,
+						0.000943032267969102,
+						0.253539085388184
+					],
+					"ok": true,
+					"target": [
+						8.0,
+						-0.00000000745058059692383,
+						0.350000381469727
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.89119291305542,
+						0.000943032267969102,
+						0.310482025146484
+					],
+					"ok": true,
+					"target": [
+						7.80000019073486,
+						-0.00000000745058059692383,
+						0.350000381469727
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.80702543258667,
+						0.000943032267969102,
+						1.45450496673584
+					],
+					"ok": true,
+					"target": [
+						7.80000019073486,
+						-0.00000000745058059692383,
+						1.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.5043888092041,
+						0.000943032267969102,
+						1.53848552703857
+					],
+					"ok": true,
+					"target": [
+						8.60000038146973,
+						-0.00000000745058059692383,
+						1.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.55979633331299,
+						0.000943032267969102,
+						1.66106128692627
+					],
+					"ok": true,
+					"target": [
+						8.60000038146973,
+						-0.00000000745058059692383,
+						1.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.70994091033936,
+						0.000943032267969102,
+						1.71665477752686
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						1.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.79764747619629,
+						0.000943032267969102,
+						5.25506591796875
+					],
+					"ok": true,
+					"target": [
+						8.80000019073486,
+						-0.00000000745058059692383,
+						5.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.9129638671875,
+						0.000943032267969102,
+						5.30916404724121
+					],
+					"ok": true,
+					"target": [
+						9.0,
+						-0.00000000745058059692383,
+						5.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.96736335754395,
+						0.000943032267969102,
+						5.45969009399414
+					],
+					"ok": true,
+					"target": [
+						9.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.96736335754395,
+						0.000943032267969102,
+						5.45969009399414
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						0.0,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.96736335754395,
+						0.000943032267969102,
+						5.45969009399414
+					],
+					"ok": true,
+					"target": [
+						9.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						9.90520286560059,
+						0.000943032267969102,
+						5.54171180725098
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						9.95891666412354,
+						0.000943032267969102,
+						5.52623748779297
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						0.0,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						9.95891666412354,
+						0.000943032267969102,
+						5.52623748779297
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						9.99505615234375,
+						0.000943032267969102,
+						6.2508487701416
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						6.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0042552947998,
+						0.000943032267969102,
+						6.29206085205078
+					],
+					"ok": true,
+					"target": [
+						10.0249996185303,
+						0.0,
+						6.38500022888184
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0042552947998,
+						0.000943032267969102,
+						6.29206085205078
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						6.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.000358581543,
+						0.000943032267969102,
+						5.24567794799805
+					],
+					"ok": true,
+					"target": [
+						10.0,
+						-0.00000000745058059692383,
+						5.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1136312484741,
+						0.000943032267969102,
+						5.19139099121094
+					],
+					"ok": true,
+					"target": [
+						10.2000007629395,
+						-0.00000000745058059692383,
+						5.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1814889907837,
+						0.000943032267969102,
+						4.84461212158203
+					],
+					"ok": true,
+					"target": [
+						10.2000007629395,
+						-0.00000000745058059692383,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.309494972229,
+						0.000943032267969102,
+						4.78918838500977
+					],
+					"ok": true,
+					"target": [
+						10.3999996185303,
+						-0.00000000745058059692383,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3660335540771,
+						0.000943032267969102,
+						4.6397705078125
+					],
+					"ok": true,
+					"target": [
+						10.3999996185303,
+						-0.00000000745058059692383,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7062063217163,
+						0.000943032267969102,
+						4.56940460205078
+					],
+					"ok": true,
+					"target": [
+						10.8000001907349,
+						-0.00000000745058059692383,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7611989974976,
+						0.000943032267969102,
+						4.44076538085938
+					],
+					"ok": true,
+					"target": [
+						10.8000001907349,
+						-0.00000000745058059692383,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9103183746338,
+						0.000943032267969102,
+						4.38408470153809
+					],
+					"ok": true,
+					"target": [
+						11.0,
+						-0.00000000745058059692383,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9868316650391,
+						0.000943032267969102,
+						4.34502029418945
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						0.0,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0731935501099,
+						1.5998340845108,
+						9.05138397216797
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3295431137085,
+						1.60094344615936,
+						9.1215648651123
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F01_F02/StairGuards": "(-12.32954, 2.485, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						12.4223871231079,
+						3.19964265823364,
+						5.74530982971191
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						3.20000004768372,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						3.19964265823364,
+						4.39598274230957
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						3.20000004768372,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						3.19964265823364,
+						4.39598274230957
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						3.19999980926514,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3993053436279,
+						3.19964265823364,
+						4.35405731201172
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						3.19999980926514,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3423252105713,
+						3.19964265823364,
+						4.23697090148926
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						3.19999980926514,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1905641555786,
+						3.19964265823364,
+						4.18250370025635
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						3.19999980926514,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1345195770264,
+						3.19964265823364,
+						4.03862380981445
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						3.19999980926514,
+						3.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7938756942749,
+						3.19964265823364,
+						3.96914672851563
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						3.19999980926514,
+						3.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7388553619385,
+						3.19964265823364,
+						3.8407039642334
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						3.19999980926514,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.5896949768066,
+						3.19964265823364,
+						3.78406143188477
+					],
+					"ok": true,
+					"target": [
+						10.5,
+						3.19999980926514,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.519383430481,
+						3.19964265823364,
+						3.44380474090576
+					],
+					"ok": true,
+					"target": [
+						10.5,
+						3.19999980926514,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3907585144043,
+						3.19964265823364,
+						3.38880634307861
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						3.19999980926514,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3340854644775,
+						3.19964265823364,
+						3.23968315124512
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1889657974243,
+						3.19964265823364,
+						3.18408584594727
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455078125,
+						3.19964265823364,
+						3.18906307220459
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						3.20000004768372,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455078125,
+						3.19964265823364,
+						3.18906307220459
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455078125,
+						3.19964265823364,
+						3.18906307220459
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						3.20000004768372,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455078125,
+						3.19964265823364,
+						3.18906307220459
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.99601268768311,
+						3.20078039169312,
+						3.1530122756958
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.99601268768311,
+						3.20078039169312,
+						3.1530122756958
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						3.20000004768372,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.99601268768311,
+						3.20078039169312,
+						3.1530122756958
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						3.20078039169312,
+						8.2537784576416
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						3.20078039169312,
+						8.2537784576416
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.20000004768372,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						3.20078039169312,
+						8.2537784576416
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90002632141113,
+						3.20078039169312,
+						1.84687614440918
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						1.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.78633213043213,
+						3.20078039169312,
+						1.79181289672852
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						3.19999980926514,
+						1.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.73232078552246,
+						3.20078039169312,
+						1.64052581787109
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						3.19999980926514,
+						1.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.99466371536255,
+						3.20078039169312,
+						1.56029510498047
+					],
+					"ok": true,
+					"target": [
+						7.90000009536743,
+						3.19999980926514,
+						1.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.93995952606201,
+						3.20078039169312,
+						1.43877029418945
+					],
+					"ok": true,
+					"target": [
+						7.90000009536743,
+						3.19999980926514,
+						1.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.79003238677979,
+						3.20078039169312,
+						1.3833065032959
+					],
+					"ok": true,
+					"target": [
+						7.69999980926514,
+						3.19999980926514,
+						1.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.77904415130615,
+						3.20078039169312,
+						1.39144611358643
+					],
+					"ok": true,
+					"target": [
+						7.69999980926514,
+						3.20000004768372,
+						1.45000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.77904415130615,
+						3.20078039169312,
+						1.39144611358643
+					],
+					"ok": true,
+					"target": [
+						7.69999980926514,
+						3.19999980926514,
+						1.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.70337438583374,
+						3.20078039169312,
+						-0.754304885864258
+					],
+					"ok": true,
+					"target": [
+						7.69999980926514,
+						3.20000004768372,
+						-0.84999942779541
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.60387420654297,
+						3.20078039169312,
+						-0.840770721435547
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						3.19999980926514,
+						-0.84999942779541
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.65938377380371,
+						3.20078039169312,
+						-0.961596488952637
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						3.19999980926514,
+						-1.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.80982875823975,
+						3.20078039169312,
+						-1.01687145233154
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						-1.05000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89616584777832,
+						3.20078039169312,
+						-3.15506458282471
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89616584777832,
+						3.20078039169312,
+						-3.15506458282471
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.20000004768372,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89616584777832,
+						3.20078039169312,
+						-3.15506458282471
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89992713928223,
+						3.20078039169312,
+						-8.15403652191162
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89995098114014,
+						3.20078039169312,
+						-8.20158958435059
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.20000004768372,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89995098114014,
+						3.20078039169312,
+						-8.20158958435059
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89999675750732,
+						3.20078039169312,
+						-0.746636390686035
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						-0.649999618530273
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.99651384353638,
+						3.20078039169312,
+						-0.65932559967041
+					],
+					"ok": true,
+					"target": [
+						7.90000009536743,
+						3.20000004768372,
+						-0.649999618530273
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.92267084121704,
+						3.20078039169312,
+						-0.346150398254395
+					],
+					"ok": true,
+					"target": [
+						7.90000009536743,
+						3.20000004768372,
+						-0.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.79123735427856,
+						3.20078039169312,
+						-0.289396286010742
+					],
+					"ok": true,
+					"target": [
+						7.69999980926514,
+						3.20000004768372,
+						-0.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.7047381401062,
+						3.20078039169312,
+						1.45447540283203
+					],
+					"ok": true,
+					"target": [
+						7.69999980926514,
+						3.19999980926514,
+						1.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.60402870178223,
+						3.20078039169312,
+						1.54078769683838
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						3.19999980926514,
+						1.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.65944194793701,
+						3.20078039169312,
+						1.66158485412598
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						3.19999980926514,
+						1.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.80984020233154,
+						3.20078039169312,
+						1.71686267852783
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						1.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89402770996094,
+						3.20078039169312,
+						3.05508327484131
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.91533088684082,
+						3.20078039169312,
+						3.11024188995361
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						3.20000004768372,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.91533088684082,
+						3.20078039169312,
+						3.11024188995361
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0050077438354,
+						3.20078039169312,
+						3.14681243896484
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0050077438354,
+						3.20078039169312,
+						3.14681243896484
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						3.20000004768372,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0050077438354,
+						3.20078039169312,
+						3.14681243896484
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						3.19999980926514,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0592279434204,
+						3.20078039169312,
+						3.26278686523438
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						3.19999980926514,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.2097139358521,
+						3.20078039169312,
+						3.31729602813721
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						3.19999980926514,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.2804574966431,
+						3.20078039169312,
+						3.65634346008301
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						3.19999980926514,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6025400161743,
+						3.20078039169312,
+						3.72824287414551
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						3.19999980926514,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.678653717041,
+						3.20078039169312,
+						4.05762481689453
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						3.19999980926514,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.007529258728,
+						3.20078039169312,
+						4.12972736358643
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						3.19999980926514,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0617723464966,
+						3.20078039169312,
+						4.25893878936768
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						3.19999980926514,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0617723464966,
+						3.20078039169312,
+						4.25893878936768
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						3.20000004768372,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0747346878052,
+						4.80060243606567,
+						9.05146026611328
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						4.80000019073486,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3297243118286,
+						4.80094003677368,
+						9.1215705871582
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						4.80000019073486,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F02_F03/StairGuards": "(-12.32667, 5.685, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						12.4223918914795,
+						6.39924430847168,
+						5.74530410766602
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						6.40000009536743,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						6.39924430847168,
+						4.39598655700684
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						6.40000009536743,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						6.39924430847168,
+						4.39598655700684
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						6.40000009536743,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3993072509766,
+						6.39924430847168,
+						4.35405540466309
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						6.40000009536743,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3431673049927,
+						6.39924430847168,
+						4.46482849121094
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						6.40000009536743,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3957929611206,
+						6.39924430847168,
+						4.54217910766602
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						6.40000009536743,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3406248092651,
+						6.39924430847168,
+						4.66186714172363
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						6.40000009536743,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1901941299438,
+						6.39924430847168,
+						4.71696472167969
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.110258102417,
+						6.40072870254517,
+						5.45526504516602
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.110258102417,
+						6.40072870254517,
+						5.45526504516602
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						6.40000009536743,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.110258102417,
+						6.40072870254517,
+						5.45526504516602
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1010999679565,
+						6.40072870254517,
+						4.64703369140625
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1010999679565,
+						6.40072870254517,
+						4.64703369140625
+					],
+					"ok": true,
+					"target": [
+						10.0249996185303,
+						6.40000009536743,
+						4.61499977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1010999679565,
+						6.40072870254517,
+						4.64703369140625
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.100118637085,
+						6.40072870254517,
+						5.4532299041748
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.100118637085,
+						6.40072870254517,
+						5.4532299041748
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						6.40000009536743,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.100118637085,
+						6.40072870254517,
+						5.4532299041748
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.99657821655273,
+						6.40072870254517,
+						5.54221534729004
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.99657821655273,
+						6.40072870254517,
+						5.54221534729004
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						6.40000009536743,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.99657821655273,
+						6.40072870254517,
+						5.54221534729004
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90335178375244,
+						6.40072870254517,
+						8.25253677368164
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90335178375244,
+						6.40072870254517,
+						8.25253677368164
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.40000009536743,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90335178375244,
+						6.40072870254517,
+						8.25253677368164
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90004539489746,
+						6.40072870254517,
+						1.24675369262695
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						1.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.19640159606934,
+						6.40072870254517,
+						1.16166019439697
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						6.39999961853027,
+						1.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.1006555557251,
+						6.40094327926636,
+						-1.95356750488281
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						6.39999961853027,
+						-2.04999971389771
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection1/Collision": "(-8.449999, 7.594944, -12.4)"
+					}
+				},
+				{
+					"actual": [
+						8.40505886077881,
+						6.40094327926636,
+						-2.02707386016846
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						6.39999961853027,
+						-2.04999971389771
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.46107482910156,
+						6.40094327926636,
+						-2.15860462188721
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						6.39999961853027,
+						-2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.6103458404541,
+						6.40094327926636,
+						-2.21570491790771
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						6.39999961853027,
+						-2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.6898078918457,
+						6.40094327926636,
+						-2.95514583587646
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						6.39999961853027,
+						-3.04999971389771
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.81126880645752,
+						6.40094327926636,
+						-3.0099573135376
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						-3.04999971389771
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.86671257019043,
+						6.40094327926636,
+						-3.15995025634766
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.86671257019043,
+						6.40094327926636,
+						-3.15995025634766
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.40000009536743,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.86671257019043,
+						6.40094327926636,
+						-3.15995025634766
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89937591552734,
+						6.40094327926636,
+						-8.15448188781738
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89958000183105,
+						6.40094327926636,
+						-8.20175647735596
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.40000009536743,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89958000183105,
+						6.40094327926636,
+						-8.20175647735596
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89999389648438,
+						6.40094327926636,
+						-0.546669960021973
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						-0.449999809265137
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.59501457214355,
+						6.40094327926636,
+						-0.472962379455566
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						6.39999961853027,
+						-0.449999809265137
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.52079391479492,
+						6.40094327926636,
+						-0.142563819885254
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						6.39999961853027,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.19763851165771,
+						6.40094327926636,
+						-0.0714778900146484
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						6.39999961853027,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.10041427612305,
+						6.40094327926636,
+						4.65196228027344
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						6.39999961853027,
+						4.75
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection1/Collision": "(-8.449999, 7.594944, -11.95)"
+					}
+				},
+				{
+					"actual": [
+						8.2138843536377,
+						6.40094327926636,
+						4.70770072937012
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						6.39999961853027,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.26779174804688,
+						6.40094327926636,
+						4.859375
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						6.39999961853027,
+						4.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.41143131256104,
+						6.40094327926636,
+						4.91543579101563
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						6.39999961853027,
+						4.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.46634387969971,
+						6.40094327926636,
+						5.06086349487305
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						6.39999961853027,
+						5.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.61106395721436,
+						6.40094327926636,
+						5.1160717010498
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						6.39999961853027,
+						5.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.66616439819336,
+						6.40094327926636,
+						5.26099967956543
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						6.39999961853027,
+						5.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.81102275848389,
+						6.40094327926636,
+						5.31613159179688
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						5.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.86614418029785,
+						6.40094327926636,
+						5.46101570129395
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.86614418029785,
+						6.40094327926636,
+						5.46101570129395
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						6.40000009536743,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.86614418029785,
+						6.40094327926636,
+						5.46101570129395
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						6.39999961853027,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0050363540649,
+						6.40094327926636,
+						5.54315567016602
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0050363540649,
+						6.40094327926636,
+						5.54315567016602
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						6.40000009536743,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0050363540649,
+						6.40094327926636,
+						5.54315567016602
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0908422470093,
+						6.40094327926636,
+						4.64577674865723
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0908422470093,
+						6.40094327926636,
+						4.64577674865723
+					],
+					"ok": true,
+					"target": [
+						10.0249996185303,
+						6.40000009536743,
+						4.61499977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0908422470093,
+						6.40094327926636,
+						4.64577674865723
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						6.40000009536743,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.8025493621826,
+						6.40094327926636,
+						4.5615348815918
+					],
+					"ok": true,
+					"target": [
+						10.8999996185303,
+						6.40000009536743,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.8591051101685,
+						6.40094327926636,
+						4.43877410888672
+					],
+					"ok": true,
+					"target": [
+						10.8999996185303,
+						6.40000009536743,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0098104476929,
+						6.40094327926636,
+						4.38323593139648
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						6.40000009536743,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0137434005737,
+						6.40094327926636,
+						4.37821388244629
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						6.40000009536743,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0737791061401,
+						8.00044345855713,
+						9.0546932220459
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						8.0,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3296308517456,
+						8.00094127655029,
+						9.12152481079102
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						8.0,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F03_F04/StairGuards": "(-12.32675, 8.885, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						12.4223890304565,
+						9.60041999816895,
+						5.74530601501465
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						9.60000038146973,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						9.60041999816895,
+						4.39598846435547
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						9.60000038146973,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						9.60041999816895,
+						4.39598846435547
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						9.60000038146973,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3993110656738,
+						9.60041999816895,
+						4.35405540466309
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						9.60000038146973,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3423280715942,
+						9.60041999816895,
+						4.23697090148926
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						9.60000038146973,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1905660629272,
+						9.60041999816895,
+						4.18250465393066
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						9.60000038146973,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.134521484375,
+						9.60041999816895,
+						4.03862571716309
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						9.60000038146973,
+						3.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7938785552979,
+						9.60041999816895,
+						3.96914768218994
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						9.60000038146973,
+						3.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7388572692871,
+						9.60041999816895,
+						3.84070491790771
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						9.60000038146973,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.5896978378296,
+						9.60041999816895,
+						3.78406143188477
+					],
+					"ok": true,
+					"target": [
+						10.5,
+						9.60000038146973,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.5193843841553,
+						9.60041999816895,
+						3.44380760192871
+					],
+					"ok": true,
+					"target": [
+						10.5,
+						9.60000038146973,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3907613754272,
+						9.60041999816895,
+						3.38880825042725
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						9.60000038146973,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3340864181519,
+						9.60041999816895,
+						3.23968505859375
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1889677047729,
+						9.60041999816895,
+						3.18408584594727
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455097198486,
+						9.60041999816895,
+						3.18906307220459
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						9.60000038146973,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455097198486,
+						9.60041999816895,
+						3.18906307220459
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455097198486,
+						9.60041999816895,
+						3.18906307220459
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						9.60000038146973,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455097198486,
+						9.60041999816895,
+						3.18906307220459
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.996018409729,
+						9.60041999816895,
+						3.1530122756958
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.996018409729,
+						9.60041999816895,
+						3.1530122756958
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						9.60000038146973,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.996018409729,
+						9.60041999816895,
+						3.1530122756958
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						9.60041999816895,
+						8.25375747680664
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						9.60041999816895,
+						8.25375747680664
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						9.60041999816895,
+						8.25375747680664
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.9000244140625,
+						9.60041999816895,
+						1.24690914154053
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						1.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.19640159606934,
+						9.60041999816895,
+						1.16167831420898
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						9.60000038146973,
+						1.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.1006555557251,
+						9.60094165802002,
+						-1.95355796813965
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						9.60000038146973,
+						-2.04999971389771
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection4/Collision": "(-8.449999, 10.79494, -12.4)"
+					}
+				},
+				{
+					"actual": [
+						8.6039924621582,
+						9.60094165802002,
+						-2.03455257415771
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						9.60000038146973,
+						-2.04999971389771
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.66001129150391,
+						9.60094165802002,
+						-2.1602611541748
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						9.60000038146973,
+						-2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.81003379821777,
+						9.60094165802002,
+						-2.21636009216309
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						-2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.8917407989502,
+						9.60094165802002,
+						-3.15510082244873
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.8917407989502,
+						9.60094165802002,
+						-3.15510082244873
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.8917407989502,
+						9.60094165802002,
+						-3.15510082244873
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.8998441696167,
+						9.60094165802002,
+						-8.15402030944824
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89989376068115,
+						9.60094165802002,
+						-8.20158290863037
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89989376068115,
+						9.60094165802002,
+						-8.20158290863037
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89999675750732,
+						9.60094165802002,
+						-0.546671867370605
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						-0.449999809265137
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.59501647949219,
+						9.60094165802002,
+						-0.472963333129883
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						9.60000038146973,
+						-0.449999809265137
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.52079296112061,
+						9.60094165802002,
+						-0.142565727233887
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						9.60000038146973,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.19763946533203,
+						9.60094165802002,
+						-0.0714788436889648
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						9.60000038146973,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.10084247589111,
+						9.60094165802002,
+						2.45242691040039
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						9.60000038146973,
+						2.55000019073486
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection4/Collision": "(-8.449999, 10.79494, -11.95)"
+					}
+				},
+				{
+					"actual": [
+						8.21392822265625,
+						9.60094165802002,
+						2.50783157348633
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						9.60000038146973,
+						2.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.26779747009277,
+						9.60094165802002,
+						2.65939331054688
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						9.60000038146973,
+						2.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.4114294052124,
+						9.60094165802002,
+						2.71543884277344
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						9.60000038146973,
+						2.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.46634197235107,
+						9.60094165802002,
+						2.86086273193359
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						9.60000038146973,
+						2.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.80621814727783,
+						9.60094165802002,
+						2.9307222366333
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						2.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.86119174957275,
+						9.60094165802002,
+						3.05925846099854
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89683628082275,
+						9.60094165802002,
+						3.11574745178223
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						9.60000038146973,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89683628082275,
+						9.60094165802002,
+						3.11574745178223
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0031852722168,
+						9.60094165802002,
+						3.14724445343018
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0031852722168,
+						9.60094165802002,
+						3.14724445343018
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						9.60000038146973,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0031852722168,
+						9.60094165802002,
+						3.14724445343018
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						9.60000038146973,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0584869384766,
+						9.60094165802002,
+						3.2630615234375
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						9.60000038146973,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.209566116333,
+						9.60094165802002,
+						3.3174467086792
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						9.60000038146973,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.2804222106934,
+						9.60094165802002,
+						3.65635871887207
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						9.60000038146973,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6025333404541,
+						9.60094165802002,
+						3.72824668884277
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						9.60000038146973,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6786508560181,
+						9.60094165802002,
+						4.05762195587158
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						9.60000038146973,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0075273513794,
+						9.60094165802002,
+						4.12972736358643
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						9.60000038146973,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0617723464966,
+						9.60094165802002,
+						4.25893688201904
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						9.60000038146973,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0617723464966,
+						9.60094165802002,
+						4.25893688201904
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						9.60000038146973,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0747346878052,
+						11.2007856369019,
+						9.05146789550781
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						11.1999998092651,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3297157287598,
+						11.2009429931641,
+						9.12158393859863
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						11.1999998092651,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F04_F05/StairGuards": "(-12.32971, 12.085, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						12.4223899841309,
+						12.800422668457,
+						5.74530601501465
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						12.8000001907349,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						12.800422668457,
+						4.39599418640137
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						12.8000001907349,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						12.800422668457,
+						4.39599418640137
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						12.8000001907349,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3993129730225,
+						12.800422668457,
+						4.35405731201172
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						12.8000001907349,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3423280715942,
+						12.800422668457,
+						4.23697376251221
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						12.8000001907349,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1905670166016,
+						12.800422668457,
+						4.18250560760498
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						12.8000001907349,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1345224380493,
+						12.800422668457,
+						4.03862571716309
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						12.8000001907349,
+						3.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7938804626465,
+						12.800422668457,
+						3.96914768218994
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						12.8000001907349,
+						3.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7388572692871,
+						12.800422668457,
+						3.84070587158203
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						12.8000001907349,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.5896997451782,
+						12.800422668457,
+						3.7840633392334
+					],
+					"ok": true,
+					"target": [
+						10.5,
+						12.8000001907349,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.5193862915039,
+						12.800422668457,
+						3.44381046295166
+					],
+					"ok": true,
+					"target": [
+						10.5,
+						12.8000001907349,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3907623291016,
+						12.800422668457,
+						3.3888111114502
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						12.8000001907349,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3340864181519,
+						12.800422668457,
+						3.23968696594238
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						12.8000001907349,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1889686584473,
+						12.800422668457,
+						3.1840877532959
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						12.8000001907349,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455106735229,
+						12.800422668457,
+						3.18906402587891
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						12.8000001907349,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455106735229,
+						12.800422668457,
+						3.18906402587891
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						12.8000001907349,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455106735229,
+						12.800422668457,
+						3.18906402587891
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						12.8000001907349,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455106735229,
+						12.800422668457,
+						3.18906402587891
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						12.8000001907349,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.99602222442627,
+						12.800422668457,
+						3.1530122756958
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.99602222442627,
+						12.800422668457,
+						3.1530122756958
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						12.8000001907349,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.99602222442627,
+						12.800422668457,
+						3.1530122756958
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						12.800422668457,
+						8.25375366210938
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						12.800422668457,
+						8.25375366210938
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000001907349,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						12.800422668457,
+						8.25375366210938
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.9000244140625,
+						12.800422668457,
+						1.24693202972412
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						1.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.19640445709229,
+						12.800422668457,
+						1.16168022155762
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						12.8000011444092,
+						1.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.1006555557251,
+						12.8009424209595,
+						-1.95355701446533
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						12.8000011444092,
+						-2.04999971389771
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection5/Collision": "(-8.449999, 13.99494, -12.4)"
+					}
+				},
+				{
+					"actual": [
+						8.60399150848389,
+						12.8009424209595,
+						-2.0345516204834
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						12.8000011444092,
+						-2.04999971389771
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.66001129150391,
+						12.8009424209595,
+						-2.16025924682617
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						12.8000011444092,
+						-2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.81003284454346,
+						12.8009424209595,
+						-2.21635913848877
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						-2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89173984527588,
+						12.8009424209595,
+						-3.1550989151001
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89173984527588,
+						12.8009424209595,
+						-3.1550989151001
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000001907349,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89173984527588,
+						12.8009424209595,
+						-3.1550989151001
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.8998441696167,
+						12.8009424209595,
+						-8.15400981903076
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89989376068115,
+						12.8009424209595,
+						-8.20157814025879
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000001907349,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89989376068115,
+						12.8009424209595,
+						-8.20157814025879
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89999675750732,
+						12.8009424209595,
+						-0.546689033508301
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						-0.449999809265137
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.59501838684082,
+						12.8009424209595,
+						-0.472968101501465
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						12.8000011444092,
+						-0.449999809265137
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.52079486846924,
+						12.8009424209595,
+						-0.142566680908203
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						12.8000011444092,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.19764232635498,
+						12.8009424209595,
+						-0.0714788436889648
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						12.8000011444092,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.1008415222168,
+						12.8009424209595,
+						2.45237064361572
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						12.8000011444092,
+						2.55000019073486
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection5/Collision": "(-8.449999, 13.99494, -11.95)"
+					}
+				},
+				{
+					"actual": [
+						8.21393489837646,
+						12.8009424209595,
+						2.50780963897705
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						12.8000011444092,
+						2.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.26780033111572,
+						12.8009424209595,
+						2.65938758850098
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						12.8000011444092,
+						2.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.41143035888672,
+						12.8009424209595,
+						2.71543598175049
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						12.8000011444092,
+						2.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.46634197235107,
+						12.8009424209595,
+						2.86086082458496
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						12.8000011444092,
+						2.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.8062162399292,
+						12.8009424209595,
+						2.93072128295898
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						2.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.86118984222412,
+						12.8009424209595,
+						3.0592565536499
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89683628082275,
+						12.8009424209595,
+						3.11574649810791
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						12.8000001907349,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89683628082275,
+						12.8009424209595,
+						3.11574649810791
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						12.8000011444092,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0031814575195,
+						12.8009424209595,
+						3.14724445343018
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						12.8000001907349,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0031814575195,
+						12.8009424209595,
+						3.14724445343018
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						12.8000001907349,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0031814575195,
+						12.8009424209595,
+						3.14724445343018
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						12.8000001907349,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0584850311279,
+						12.8009424209595,
+						3.2630615234375
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						12.8000001907349,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.2095651626587,
+						12.8009424209595,
+						3.31744575500488
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						12.8000001907349,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.280421257019,
+						12.8009424209595,
+						3.65635681152344
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						12.8000001907349,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6025304794312,
+						12.8009424209595,
+						3.72824668884277
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						12.8000001907349,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6786508560181,
+						12.8009424209595,
+						4.05762195587158
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						12.8000001907349,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0075263977051,
+						12.8009424209595,
+						4.12972736358643
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						12.8000001907349,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0617713928223,
+						12.8009424209595,
+						4.25893688201904
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						12.8000001907349,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0617713928223,
+						12.8009424209595,
+						4.25893688201904
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						12.8000001907349,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0747346878052,
+						14.4008474349976,
+						9.05147361755371
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						14.3999996185303,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3297109603882,
+						14.4009428024292,
+						9.12158966064453
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						14.3999996185303,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F05_F06/StairGuards": "(-12.32971, 15.285, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						12.4223899841309,
+						16.0004215240479,
+						5.74530982971191
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						16.0,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						16.0004215240479,
+						4.39599609375
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						16.0,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						16.0004215240479,
+						4.39599609375
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						16.0,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3993167877197,
+						16.0004215240479,
+						4.35405731201172
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						16.0,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3423309326172,
+						16.0004215240479,
+						4.23697376251221
+					],
+					"ok": true,
+					"target": [
+						11.3000001907349,
+						16.0,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1905679702759,
+						16.0004215240479,
+						4.18250560760498
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						16.0,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1345233917236,
+						16.0004215240479,
+						4.0386266708374
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						16.0,
+						3.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7938814163208,
+						16.0004215240479,
+						3.96914863586426
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						16.0,
+						3.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.7388582229614,
+						16.0004215240479,
+						3.84070682525635
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						16.0,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.5896997451782,
+						16.0004215240479,
+						3.78406429290771
+					],
+					"ok": true,
+					"target": [
+						10.5,
+						16.0,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.5193872451782,
+						16.0004215240479,
+						3.44381046295166
+					],
+					"ok": true,
+					"target": [
+						10.5,
+						16.0,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3907632827759,
+						16.0004215240479,
+						3.3888111114502
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						16.0,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.3340873718262,
+						16.0004215240479,
+						3.23968696594238
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1889696121216,
+						16.0004215240479,
+						3.1840877532959
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455116271973,
+						16.0004215240479,
+						3.18906402587891
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						16.0,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455116271973,
+						16.0004215240479,
+						3.18906402587891
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455116271973,
+						16.0004215240479,
+						3.18906402587891
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						16.0,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.1455116271973,
+						16.0004215240479,
+						3.18906402587891
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.9960241317749,
+						16.0004215240479,
+						3.15301322937012
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.9960241317749,
+						16.0004215240479,
+						3.15301322937012
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						16.0,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.9960241317749,
+						16.0004215240479,
+						3.15301322937012
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						16.0004215240479,
+						8.25375175476074
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						16.0004215240479,
+						8.25375175476074
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.90177726745605,
+						16.0004215240479,
+						8.25375175476074
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						8.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.9000244140625,
+						16.0004215240479,
+						1.24693298339844
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						1.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.19640636444092,
+						16.0004215240479,
+						1.16168117523193
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						16.0,
+						1.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.1006555557251,
+						16.0009422302246,
+						-1.95354557037354
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						16.0,
+						-2.04999971389771
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection6/Collision": "(-8.449999, 17.19494, -12.4)"
+					}
+				},
+				{
+					"actual": [
+						8.60399150848389,
+						16.0009422302246,
+						-2.03454875946045
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						16.0,
+						-2.04999971389771
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.66001129150391,
+						16.0009422302246,
+						-2.16025829315186
+					],
+					"ok": true,
+					"target": [
+						8.69999980926514,
+						16.0,
+						-2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.81003284454346,
+						16.0009422302246,
+						-2.21635818481445
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						-2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89173984527588,
+						16.0009422302246,
+						-3.15509700775146
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89173984527588,
+						16.0009422302246,
+						-3.15509700775146
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89173984527588,
+						16.0009422302246,
+						-3.15509700775146
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.8998441696167,
+						16.0009422302246,
+						-8.15400505065918
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89989376068115,
+						16.0009422302246,
+						-8.20157623291016
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89989376068115,
+						16.0009422302246,
+						-8.20157623291016
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						-8.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89999675750732,
+						16.0009422302246,
+						-0.546700477600098
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						-0.449999809265137
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.59501838684082,
+						16.0009422302246,
+						-0.472970008850098
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						16.0,
+						-0.449999809265137
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.52079486846924,
+						16.0009422302246,
+						-0.142568588256836
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						16.0,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.1976432800293,
+						16.0009422302246,
+						-0.0714807510375977
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						16.0,
+						-0.0500001907348633
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.10083770751953,
+						16.0009422302246,
+						2.45236492156982
+					],
+					"ok": true,
+					"target": [
+						8.10000038146973,
+						16.0,
+						2.55000019073486
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/HEAT_STACK/RevealSection6/Collision": "(-8.449999, 17.19494, -11.95)"
+					}
+				},
+				{
+					"actual": [
+						8.21393394470215,
+						16.0009422302246,
+						2.50780773162842
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						16.0,
+						2.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.26779937744141,
+						16.0009422302246,
+						2.65938758850098
+					],
+					"ok": true,
+					"target": [
+						8.30000019073486,
+						16.0,
+						2.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.4114294052124,
+						16.0009422302246,
+						2.71543598175049
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						16.0,
+						2.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.46634101867676,
+						16.0009422302246,
+						2.86085987091064
+					],
+					"ok": true,
+					"target": [
+						8.5,
+						16.0,
+						2.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.80621528625488,
+						16.0009422302246,
+						2.93072128295898
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						2.94999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.8611888885498,
+						16.0009422302246,
+						3.0592565536499
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89683532714844,
+						16.0009422302246,
+						3.11574649810791
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						16.0,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.89683532714844,
+						16.0009422302246,
+						3.11574649810791
+					],
+					"ok": true,
+					"target": [
+						8.89999961853027,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0031785964966,
+						16.0009422302246,
+						3.14724445343018
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0031785964966,
+						16.0009422302246,
+						3.14724445343018
+					],
+					"ok": true,
+					"target": [
+						10.0500001907349,
+						16.0,
+						3.20000004768372
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0031785964966,
+						16.0009422302246,
+						3.14724445343018
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						16.0,
+						3.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.0584840774536,
+						16.0009422302246,
+						3.2630615234375
+					],
+					"ok": true,
+					"target": [
+						10.1000003814697,
+						16.0,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.2095642089844,
+						16.0009422302246,
+						3.31744575500488
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						16.0,
+						3.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.280421257019,
+						16.0009422302246,
+						3.65635681152344
+					],
+					"ok": true,
+					"target": [
+						10.3000001907349,
+						16.0,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6025295257568,
+						16.0009422302246,
+						3.72824668884277
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						16.0,
+						3.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6786499023438,
+						16.0009422302246,
+						4.05762100219727
+					],
+					"ok": true,
+					"target": [
+						10.6999998092651,
+						16.0,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0075244903564,
+						16.0009422302246,
+						4.12972736358643
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						16.0,
+						4.15000057220459
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0617694854736,
+						16.0009422302246,
+						4.25893688201904
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						16.0,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0617694854736,
+						16.0009422302246,
+						4.25893688201904
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						16.0,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0747346878052,
+						17.5997142791748,
+						9.05147743225098
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						17.6000003814697,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3297080993652,
+						17.6009426116943,
+						9.1215934753418
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						17.6000003814697,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/StairGuards": "(-12.32971, 18.485, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						12.4223899841309,
+						19.2004299163818,
+						5.74530601501465
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						19.2000007629395,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248275756836,
+						19.2004299163818,
+						4.39599418640137
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						19.2000007629395,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.43909740448,
+						19.2004299163818,
+						4.37777328491211
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						19.2000007629395,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.43909740448,
+						19.2004299163818,
+						4.37777328491211
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						19.2000007629395,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4260969161987,
+						19.2004299163818,
+						5.55099868774414
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						19.2000007629395,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.425030708313,
+						17.6529293060303,
+						9.05114936828613
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						17.6000003814697,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1701536178589,
+						17.6009407043457,
+						9.1215934753418
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						17.6000003814697,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/FlightB_Step00/Collision": "(-12.21892, 17.76, -20.45)",
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/StairGuards": "(-11.17015, 18.485, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						16.0008316040039,
+						4.3987922668457
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						16.0,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						16.0008316040039,
+						4.3987922668457
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						16.0,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008674621582,
+						16.0008316040039,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						16.0,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008674621582,
+						16.0008316040039,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						16.0,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4232110977173,
+						16.0008316040039,
+						5.55387496948242
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						16.0,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4249486923218,
+						14.4533166885376,
+						9.05124092102051
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						14.3999996185303,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.17014503479,
+						14.4009418487549,
+						9.12159538269043
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						14.3999996185303,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F05_F06/FlightB_Step00/Collision": "(-12.21913, 14.56, -20.45)",
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F05_F06/StairGuards": "(-11.17014, 15.285, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						12.8008327484131,
+						4.39881324768066
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						12.8000001907349,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						12.8008327484131,
+						4.39881324768066
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						12.8000001907349,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008674621582,
+						12.8008327484131,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						12.8000001907349,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008674621582,
+						12.8008327484131,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						12.8000001907349,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4232110977173,
+						12.8008327484131,
+						5.55387496948242
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						12.8000001907349,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4249486923218,
+						11.2533464431763,
+						9.05122375488281
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						11.1999998092651,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1701459884644,
+						11.2009439468384,
+						9.1215934753418
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						11.1999998092651,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F04_F05/FlightB_Step00/Collision": "(-12.21884, 11.36, -20.45)",
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F04_F05/StairGuards": "(-11.17316, 12.085, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						9.60081577301025,
+						4.3988151550293
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						9.60000038146973,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						9.60081577301025,
+						4.3988151550293
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						9.60000038146973,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008674621582,
+						9.60081577301025,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						9.60000038146973,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008674621582,
+						9.60081577301025,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						9.60000038146973,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4232110977173,
+						9.60081577301025,
+						5.55387496948242
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						9.60000038146973,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4249486923218,
+						8.05333042144775,
+						9.05122947692871
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						8.0,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1701469421387,
+						8.00094032287598,
+						9.12159729003906
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						8.0,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F03_F04/FlightB_Step00/Collision": "(-12.21913, 8.16, -20.45)",
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F03_F04/StairGuards": "(-11.17311, 8.885, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						6.40082836151123,
+						4.3988151550293
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						6.40000009536743,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						6.40082836151123,
+						4.3988151550293
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						6.40000009536743,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008665084839,
+						6.40082836151123,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						6.40000009536743,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008665084839,
+						6.40082836151123,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						6.40000009536743,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4232110977173,
+						6.40082836151123,
+						5.55387496948242
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						6.40000009536743,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4249486923218,
+						4.8532772064209,
+						9.05125427246094
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						4.80000019073486,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1701469421387,
+						4.80094242095947,
+						9.1215991973877
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						4.80000019073486,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F02_F03/FlightB_Step00/Collision": "(-12.21913, 4.96, -20.45)",
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F02_F03/StairGuards": "(-11.17015, 5.685, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						3.20079874992371,
+						4.39880561828613
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						3.20000004768372,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						3.20079874992371,
+						4.39880561828613
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						3.19999980926514,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008655548096,
+						3.20079874992371,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						3.19999980926514,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4008655548096,
+						3.20079874992371,
+						4.35339736938477
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						3.20000004768372,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4232110977173,
+						3.20079874992371,
+						5.55387496948242
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						3.20000004768372,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4249486923218,
+						1.65334475040436,
+						9.05121994018555
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1701498031616,
+						1.60094213485718,
+						9.12160110473633
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F01_F02/FlightB_Step00/Collision": "(-12.21884, 1.76, -20.45)",
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F01_F02/StairGuards": "(-11.17015, 2.485, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						0.000798963767010719,
+						4.39880752563477
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						0.0,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0769491195679,
+						0.000798963767010719,
+						4.39880752563477
+					],
+					"ok": true,
+					"target": [
+						11.0,
+						-0.00000000745058059692383,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3008670806885,
+						0.000798963767010719,
+						4.35365676879883
+					],
+					"ok": true,
+					"target": [
+						12.3999996185303,
+						-0.00000000745058059692383,
+						4.35000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.3334817886353,
+						0.000798963767010719,
+						4.33955955505371
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						0.0,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4181718826294,
+						0.000798963767010719,
+						5.55222320556641
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						0.0,
+						5.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4248123168945,
+						-1.54718732833862,
+						9.05120277404785
+					],
+					"ok": true,
+					"target": [
+						12.4250001907349,
+						-1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1701326370239,
+						-1.59905707836151,
+						9.12160110473633
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-1.60000002384186,
+						9.14999961853027
+					],
+					"wall_contacts": {
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_B1_F01/FlightB_Step00/Collision": "(-12.219, -1.44, -20.45)",
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_B1_F01/StairGuards": "(-11.17013, -0.715, -21.1025)"
+					}
+				},
+				{
+					"actual": [
+						11.0769519805908,
+						-3.19918465614319,
+						4.39884376525879
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						4.30000019073486
+					],
+					"wall_contacts": {}
+				}
+			]
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "One declared basement placement, all seven service stairs up to the roof and back, both ends of each occupied service hall and six actual direct hall/core thresholds. Only live controller movement after placement; real grab/motion/release on controlled leaves. Room access and recorded edge traversal only; no lift operation, case, save, acoustic, photoreal or human acceptance.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "1e8b332fdfefc76a73bd50ad5e1df7beaf8fcaee",
+		"runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+		"scene_path": "res://tests/V2ServiceCirculationContract.tscn",
+		"surface_inputs_sha256": "09a56bdb883265b8caa86502e26e95c27842a3ae1038c03c8a20b09fb1b61ea6",
+		"test_dependencies": {
+			"game/tests/V2ServiceCirculationContract.tscn": "e7ed5d0e65b98f3ff993ec6e1bf038a2db56964c911a419c52ff343df8f6ba73",
+			"game/tests/orison_v2_first_slice_contract_test.gd": "884c1b94e63ed438bed885173aae490cee06f3aa71ad1d901007f32ba053a971",
+			"game/tests/orison_v2_public_landing_walk.gd": "f963fee464a3bf962b06296b02b70a16adbf7b7b7c29e4b49dcf98a0803c095f",
+			"game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+			"game/tests/v2_service_circulation_contract.gd": "b25a23c9e339469906df0a73b84804375f920bbeccc15effdb8a16151a827e14",
+			"game/tests/v2_service_circulation_driver.gd": "737b2939b38a33f3d6d9ea7b8d60ba6c9f538ebaf3fca352d34d54ea0953d588",
+			"game/tests/v2_spatial_access_cohort.gd": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9"
+		},
+		"test_path": "game/tests/v2_service_circulation_contract.gd",
+		"test_sha256": "b25a23c9e339469906df0a73b84804375f920bbeccc15effdb8a16151a827e14"
+	}
+}
