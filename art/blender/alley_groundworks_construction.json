@@ -99,7 +99,7 @@
     {
       "id": "Groundworks_concrete_3_-1",
       "material": "concrete",
-      "triangles": 1249
+      "triangles": 1309
     },
     {
       "id": "Groundworks_concrete_3_0",
@@ -341,7 +341,7 @@
     {
       "id": "PavingFoundation.001",
       "nonmanifold_edges": 0,
-      "volume_m3": 11.57216376886131
+      "volume_m3": 11.488046381950573
     },
     {
       "id": "PavingSlab.022",
@@ -396,7 +396,7 @@
     {
       "id": "PavingSlab.032",
       "nonmanifold_edges": 0,
-      "volume_m3": 0.0517537779662677
+      "volume_m3": 0.03915375804947134
     },
     {
       "id": "PavingSlab.033",
@@ -1579,6 +1579,14 @@
       "retained_source": "PavingSlab.052"
     },
     {
+      "cut": "BoilerChimney",
+      "retained_source": "PavingFoundation.001"
+    },
+    {
+      "cut": "BoilerChimney",
+      "retained_source": "PavingSlab.032"
+    },
+    {
       "cut": "Catch_0",
       "retained_source": "PavingFoundation"
     },
@@ -1678,13 +1686,13 @@
     },
     {
       "source": "PavingFoundation.001",
-      "area_m2": 1.1292286217212677e-08,
-      "altitude_m": 5.943296342647528e-09
+      "area_m2": 0.0,
+      "altitude_m": 0.0
     },
     {
       "source": "PavingFoundation.001",
-      "area_m2": 0.0,
-      "altitude_m": 0.0
+      "area_m2": 1.1292286217212677e-08,
+      "altitude_m": 5.943296342647528e-09
     },
     {
       "source": "PavingFoundation.001",
@@ -1954,11 +1962,11 @@
   "grade_recipe": "east V crossfall .005 and nearest catch longitudinal .002 with -.001 datum; blend to rear .0008 crossfall from Z7.8 to9.32",
   "bindings": {
     "art/blender/service_alley.blend": "7955e33c84dd4c587e25febf92d3f252f37b7b283946b97855a1492e7d748688",
-    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "game/data/orison_v2_blockout.json": "9033cc680036c4452ee3c336fed5b841364c0a2d90d29dfaa9ecd60929998de4",
     "art/blender/roof_drainage_reservations.json": "b8925c91e6a8c60e76c282d5bc23a185f55a4af7245b5b17a0381f963f4ef051",
-    "art/blender/scripts/build_alley_groundworks.py": "844ebedda44ad73ce56ff8122f0426c4cbc590374589f9ddc6b1ca741c646f82"
+    "art/blender/scripts/build_alley_groundworks.py": "6bdf3fd7e578d3e6290f652766eaedb9c61e7ab85de1b993bf7e015031922bff"
   },
-  "asset_sha256": "4186dff05f604e3a574b77b4044578ee331369626a3ffcf6cc8e21bd192d7e38",
+  "asset_sha256": "4608d256643685cf35cad8d158bb4db33c7029fc468041847dcd17f4837e5e45",
   "open": [
     "Downstream street-main connection at the bolted property blank",
     "Boiler air-window operating geometry",

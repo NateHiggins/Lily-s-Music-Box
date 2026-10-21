@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 1.93,
+  "exit_code": 1,
+  "finished_utc": "2026-10-21T00:26:49Z",
+  "started_utc": "2026-10-21T00:26:46Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-flue-airway-20261020/trim.log.stderr",
+  "stderr_sha256": "da458d26597793407bb2be43f9a67c8b7e2b1de4b8182a884e5285da9d9f54a5",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-flue-airway-20261020/trim.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/FrontTrimLayoutProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-flue-airway-20261020/trim",
+ "source": {
+  "dirty_paths": 966,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "A  art/blender/flue_wall_thimble/flue_wall_thimble.blend",
+   "A  art/blender/flue_wall_thimble/native_review.json",
+   "M  art/blender/roof_drainage_falls.blend",
+   "M  art/blender/roof_drainage_falls_construction.json",
+   "M  art/blender/roof_membrane.blend",
+   "M  art/blender/roof_membrane_construction.json",
+   "A  art/blender/scripts/build_flue_wall_thimble.py",
+   "M  art/blender/scripts/build_roof_drainage_falls.py",
+   "M  art/blender/scripts/build_roof_membrane.py",
+   "M  art/blender/scripts/inspect_roof_drainage_falls.py",
+   "M  art/blender/scripts/inspect_roof_drainage_rolls.py",
+   "M  art/blender/scripts/prepare_roof_drainage_grade.py",
+   "M  art/data/orison_roof_drainage/roof_grade.json",
+   "M  art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import"
+  ],
+  "repository_head": "f40ca340795289ee8b1c051042248740294bbe35",
+  "repository_tree": "cd48b9bece45fad779b3f23cc56cc024169b9514",
+  "runtime_inputs_sha256": "b791013c742d8dcc5243c3b02f630f3dacc1118bddc6544cfc81141192c1f254",
+  "test_path": "game/tests/front_trim_layout_probe.gd",
+  "test_sha256": "2ade2ffe59c5eb023ddda12e7242e60d639b2ef783caefd5cbdcb379510c77bf"
+ },
+ "windowed": true
+}

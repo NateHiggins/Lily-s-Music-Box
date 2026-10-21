@@ -1,9 +1,19 @@
 extends "res://tests/v2_spatial_access_cohort.gd"
 ## Executed partial-network proof; no full-graph, save or listening grant.
 const Topology := preload("res://scripts/building/orison_v2_acoustic_topology.gd")
+var additional_contracts := {}
+
+func _additional_checks(_world: OrisonV2RuntimeRoot) -> void:
+	pass
+
+func _additional_scope() -> String:
+	return ""
 
 func _run() -> void:
 	initial_inputs=_inputs();bindings=_dependencies()
+	if failures>0:
+		push_error("Network contract input binding failed before world composition")
+		get_tree().quit(1);return
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -38,6 +48,7 @@ func _run() -> void:
 		for key: String in ["frequency_band","delay_ms","damping","infection_receptivity"]:
 			_check(AcousticGraphData.nodes[identity][key]==original[identity][key],"authored "+key+": "+identity)
 	_check(module.physical_owners_valid(world.adapter),"installed fan/register and native duct owners agree")
+	await _additional_checks(world)
 	var four: Array=Topology.PARITY
 	var carriers := {}
 	for node: Node in world.find_children("*","FunctionalProp",true,false):
@@ -127,10 +138,11 @@ func _run() -> void:
 	var file: FileAccess
 	if not directory.is_empty():file=FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE)
 	_check(file!=null,"open executed network contract")
+	var test_path: String = "game/"+get_script().resource_path.trim_prefix("res://")
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Installed V2 ventilation and heating topology and event routing only; other acoustic networks, disk save, navigation and human listening remain unproved.",
+		"scope":"Installed V2 ventilation and heating topology and event routing only; other acoustic networks, disk save, navigation and human listening remain unproved. "+_additional_scope(),
 		"execution":{"completed":true,"exit_code":0 if failures==0 else 1,"timed_out":false},
-		"source":{"test_path":"game/tests/v2_acoustic_ventilation_contract.gd","test_sha256":bindings.get("game/tests/v2_acoustic_ventilation_contract.gd",""),
+		"source":{"test_path":test_path,"test_sha256":bindings.get(test_path,""),
 			"test_dependencies":bindings,"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "",
 			"runtime_inputs_sha256":final_inputs.runtime,"surface_inputs_sha256":final_inputs.surface},
 		"checks":checks,"failures":failures,
@@ -138,6 +150,9 @@ func _run() -> void:
 			"ventilation_topology":{"executed":true,"status":"PASS" if failures==0 else "FAIL","nodes":current.size(),"routes":data.routes.size()},
 			"propagation":{"executed":true,"status":"PASS" if failures==0 else "FAIL","observed_nodes":heard},
 			"teardown":{"executed":true,"status":"PASS" if failures==0 else "FAIL","retained_nodes":0 if held.get_ref()==null else 1}}}
+	for key: String in additional_contracts:
+		additional_contracts[key].status="PASS" if failures==0 else "FAIL"
+		receipt.contracts[key]=additional_contracts[key]
 	if file!=null:file.store_string(JSON.stringify(receipt,"\t"));file.flush()
 	print("V2 ACOUSTIC VENTILATION: ","PASS" if failures==0 else "FAIL"," checks=",checks.size()," failures=",failures)
 	get_tree().quit(0 if failures==0 else 1)

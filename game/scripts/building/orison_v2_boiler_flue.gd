@@ -45,6 +45,20 @@ func mount(boiler: BoilerProp, layout: Dictionary) -> bool:
 	# Preserve the public route endpoint: the first elbow's mouth is exactly
 	# the installed collar, while its straight leg starts above the bend.
 	sections[0]["from"]=start
+	var thimble := (preload("res://assets/props/flue_wall_thimble.glb") as PackedScene).instantiate() as Node3D
+	thimble.name="FittedWallThimble"
+	thimble.position=inlet-Vector3(.002,0,0)
+	thimble.rotation.y=PI*.5
+	add_child(thimble)
+	var iron := MatLib.get_mat("iron_neutral").duplicate() as StandardMaterial3D
+	iron.uv1_triplanar=false;iron.uv1_scale=Vector3.ONE;iron.normal_scale=.25
+	iron.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	for draw: MeshInstance3D in thimble.find_children("*","MeshInstance3D",true,false):
+		draw.material_override=iron;draw.set_meta("v2_material_key","iron_neutral")
+		var body := StaticBody3D.new();body.name=str(draw.name)+"Collision"
+		body.transform=thimble.global_transform.affine_inverse()*draw.global_transform
+		var shape := CollisionShape3D.new();shape.shape=draw.mesh.create_trimesh_shape()
+		body.add_child(shape);thimble.add_child(body)
 	var center := Vector3((float(rect[0])+float(rect[2]))*.5,float(shaft.to_y),inlet.z)
 	chimney_base = center
 	chimney_top = center+Vector3.UP*2.1

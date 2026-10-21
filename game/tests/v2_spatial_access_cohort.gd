@@ -118,7 +118,10 @@ func _dependencies() -> Dictionary:
 	if not scene_file_path.is_empty():pending.append(scene_file_path)
 	var result := {}
 	var references := RegEx.new()
-	references.compile("res://tests/[A-Za-z0-9_/.-]+")
+	# Only complete literal file paths are dependencies. A concatenated prefix
+	# such as fixtures/orison_ is not a missing file; its actual use remains
+	# covered by the executing test's declared inputs.
+	references.compile("res://tests/[A-Za-z0-9_/.-]+\\.[A-Za-z0-9]+(?=[\"'])")
 	while not pending.is_empty():
 		var path: String=pending.pop_back()
 		var relative := "game/"+path.trim_prefix("res://")

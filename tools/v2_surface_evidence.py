@@ -23,7 +23,7 @@ def test_dependency_paths(root,seeds):
         if path in seen:continue
         seen.add(path)
         if not path.is_file() or path.suffix not in TEXT:continue
-        for reference in re.findall(r'res://tests/[A-Za-z0-9_/.-]+',path.read_text(encoding='utf-8')):
+        for reference in re.findall(r'''res://tests/[A-Za-z0-9_/.-]+\.[A-Za-z0-9]+(?=["'])''',path.read_text(encoding='utf-8')):
             dependency=(root/'game'/reference.removeprefix('res://')).resolve()
             if not dependency.is_relative_to(root):raise ValueError('Test dependency escapes repository: '+reference)
             if dependency.is_file() and dependency not in result:

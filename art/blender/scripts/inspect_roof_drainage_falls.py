@@ -4,11 +4,14 @@ Retained production geometry is read-only gray diagnostic context. This does
 not accept ports, weather joints, fixtures, drainage capacity or gameplay.
 """
 from pathlib import Path
-import json,hashlib,math,os
+import json,hashlib,math,os,argparse,sys
 import bpy,bmesh,numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file());O=R/'art/blender';out=R/'tmp/roof-drainage-review/falls';out.mkdir(parents=True,exist_ok=True)
+R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file())
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--work-dir',type=Path)
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []);work=args.work_dir.resolve() if args.work_dir else None
+O=work/'native' if work else R/'art/blender';out=work/'review/falls' if work else R/'tmp/roof-drainage-review/falls';out.mkdir(parents=True,exist_ok=True)
 report=json.loads((O/'roof_drainage_falls_construction.json').read_bytes());native=O/'roof_drainage_falls.blend'
 assert hashlib.sha256(native.read_bytes()).hexdigest()==report['native_sha256']
 bpy.ops.wm.open_mainfile(filepath=str(native))

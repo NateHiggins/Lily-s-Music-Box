@@ -4,11 +4,14 @@ Retained gameplay authorities remain; geometry and material validation are
 independent of this source recipe. No drainage capacity acceptance.
 """
 from pathlib import Path
-import json,math,hashlib,collections
+import json,math,hashlib,collections,argparse,sys
 import bpy,bmesh,numpy as np
 from mathutils import Vector
-R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file());O=R/'art/blender';O.mkdir(parents=True,exist_ok=True)
-field_path=R/'art/blender/roof_drainage_falls_construction.json';field=json.loads(field_path.read_bytes());plan_path=R/'art/data/roof_membrane/source_plan.json';plan=json.loads(plan_path.read_bytes())
+R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file())
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--work-dir',type=Path)
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []);work=args.work_dir.resolve() if args.work_dir else None
+O=work/'native' if work else R/'art/blender';O.mkdir(parents=True,exist_ok=True)
+field_path=O/'roof_drainage_falls_construction.json';field=json.loads(field_path.read_bytes());plan_path=R/'art/data/roof_membrane/source_plan.json';plan=json.loads(plan_path.read_bytes())
 points=np.array(field['points']);skin=plan['thickness'];width=plan['roll_width'];length=plan['sheet_length'];bond=plan['bond_width']
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 closed=bpy.data.collections.new('ClosedRollStocks');bpy.context.scene.collection.children.link(closed);closed.hide_render=True
@@ -109,7 +112,10 @@ class ExportUVHandedness:
  def gather_attribute_change(self,attribute,data,normalized,export_settings):
   if attribute=='TANGENT':data['data'][:,3]*=-1
 import io_scene_gltf2;io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
-asset=R/'game/assets/props/roof_membrane.glb';bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_materials='PLACEHOLDER')
+asset=work/'assets/roof_membrane.glb' if work else R/'game/assets/props/roof_membrane.glb';asset.parent.mkdir(parents=True,exist_ok=True)
+bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_materials='PLACEHOLDER')
 report={'evidence_class':'INERT','classification':'ADAPTATION','status':'SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED','closed_stocks':stocks,'stations':stations,'parts':parts,'triangles':triangles,'exact_retained_field_area_m2':expected_area,'partitioned_stock_area_m2':measured_area,'native_volume_m3':total_volume,'expected_vertical_skin_volume_m3':expected_area*skin,'recipe':plan,'field_sha256':hashlib.sha256(field_path.read_bytes()).hexdigest(),'native_sha256':hashlib.sha256(native.read_bytes()).hexdigest(),'asset_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),'source_bindings':{str(p.relative_to(R)).replace('\\','/'):hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [plan_path,field_path,Path(__file__)]},'open_work':['saved native stock and height/contact inspection','imported metre charts/colour/tangents','composed material and roof walking','fan/tank/door weather interfaces','ground receivers and production integration']}
-(O/'roof_membrane_construction.json').write_text(json.dumps(report,indent=2)+'\n',newline='\n');(R/'game/tests/fixtures/orison_roof_membrane.json').write_text(json.dumps(report,indent=2)+'\n',newline='\n')
+(O/'roof_membrane_construction.json').write_text(json.dumps(report,indent=2)+'\n',newline='\n')
+fixture=work/'fixtures/orison_roof_membrane.json' if work else R/'game/tests/fixtures/orison_roof_membrane.json';fixture.parent.mkdir(parents=True,exist_ok=True)
+fixture.write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('SCRATCH ROLLED ROOF',len(stocks),'closed stocks;',len(parts),'bounded parts;',triangles,'top triangles; area error',measured_area-expected_area,'volume error',total_volume-expected_area*skin)

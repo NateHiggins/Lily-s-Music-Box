@@ -1,13 +1,16 @@
 """Reopen actual roll stocks and compare their upper faces to the retained field."""
 from pathlib import Path
-import json,hashlib,math
+import json,hashlib,math,argparse,sys
 import bpy,bmesh
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file());O=R/'art/blender';out=R/'tmp/roof-drainage-review/rolls';out.mkdir(parents=True,exist_ok=True)
+R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file())
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--work-dir',type=Path)
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []);work=args.work_dir.resolve() if args.work_dir else None
+O=work/'native' if work else R/'art/blender';out=work/'review/rolls' if work else R/'tmp/roof-drainage-review/rolls';out.mkdir(parents=True,exist_ok=True)
 report=json.loads((O/'roof_membrane_construction.json').read_bytes());native=O/'roof_membrane.blend';assert hashlib.sha256(native.read_bytes()).hexdigest()==report['native_sha256'];bpy.ops.wm.open_mainfile(filepath=str(native))
 context=bpy.data.collections.new('ReadOnlyField');bpy.context.scene.collection.children.link(context)
-with bpy.data.libraries.load(str(R/'art/blender/roof_drainage_falls.blend'),link=False) as (available,target):target.objects=[name for name in available.objects if name.endswith('__Membrane')]
+with bpy.data.libraries.load(str(O/'roof_drainage_falls.blend'),link=False) as (available,target):target.objects=[name for name in available.objects if name.endswith('__Membrane')]
 for obj in target.objects:
  if obj is not None:context.objects.link(obj);bpy.context.view_layer.update();obj.hide_render=True
 trees={o.name.split('__')[0]:BVHTree.FromPolygons([v.co for v in o.data.vertices],[tuple(p.vertices) for p in o.data.polygons if p.normal.z>.999],all_triangles=False) for o in target.objects};origins={o.name.split('__')[0]:tuple(o.location) for o in target.objects}
@@ -37,7 +40,7 @@ scene.world=bpy.data.worlds.new('DiagnosticWorld');scene.world.use_nodes=True;sc
 sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);bpy.context.view_layer.update();sun.rotation_euler=(.4,-.3,.4)
 camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);bpy.context.view_layer.update();scene.camera=camera;camera_data.lens=35;camera_data.clip_start=.01
 renders=[]
-for name,eye,at in [('west_field',(-12.,1.,21.),(-10.,0.,19.35)),('bond_close',(-10.2,-.1,19.9),(-10.,-1.,19.35)),('north_divide',(4.2,-6.5,20.7),(6.,-8.5,19.4))]:
+for name,eye,at in [('west_field',(-12.,1.,21.),(-10.,0.,19.35)),('bond_close',(-10.2,-.1,19.9),(-10.,-1.,19.35)),('north_divide',(4.2,-6.5,20.7),(6.,-8.5,19.4)),('chimney_penetration',(16.,-3.3,20.4),(15.275,-2.15,19.24))]:
  camera.location=eye;camera.rotation_euler=(Vector(at)-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=str(out/(name+'.png'));bpy.ops.render.render(write_still=True);renders.append(name+'.png')
 (out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','native_sha256':report['native_sha256'],'closed_stocks':closed,'actual_retained_field_contacts':contacts,'native_gradient_range':[min(slopes),max(slopes)],'bounded_parts_and_tints':colours,'renders':renders,'open_work':'Game colour import, full composed roof walking and remaining weather/drainage interfaces.'},indent=2)+'\n',newline='\n')
 print('REOPENED ROLLED ROOF',len(closed),'closed stocks;',len(contacts),'retained field comparisons; slope',min(slopes),max(slopes),'maximum error',max(r['error_m'] for r in contacts))

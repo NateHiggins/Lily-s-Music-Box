@@ -2658,3 +2658,11 @@ art/reviews/v2_acoustic_heating_20261020/** -text whitespace=cr-at-eol
 
 # Workspace cleanup recovery record preserves original hashes.
 art/reviews/workspace_cleanup_20261020/** -text whitespace=cr-at-eol
+
+# Flue fabrication and executed contract retain hash-bound bytes.
+game/tests/v2_flue_airway_contract.gd -text whitespace=cr-at-eol
+art/blender/scripts/build_flue_wall_thimble.py -text whitespace=cr-at-eol
+tools/plan_v2_flue_airway.py -text whitespace=cr-at-eol
+art/reviews/v2_flue_airway_20261020/** -text whitespace=cr-at-eol
+# Original receipt-bound stdout contains significant raw bytes, including spaces.
+art/reviews/v2_flue_airway_20261020/runs/*.log binary

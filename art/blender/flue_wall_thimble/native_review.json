@@ -1,0 +1,98 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Closed native candidate and catalogue PBR review only. Not imported mip/UV proof or runtime acceptance.",
+  "native_sha256": "cee42b86bbea71ceff2642d554f03b4183a972bee91c708a7151f61ba4e938ce",
+  "asset_sha256": "3b5a0a3a896318e92510f65d601ef075af80e80f01846590766e01dc0ca69e2c",
+  "checks": [
+    {
+      "part": "CastPlate",
+      "nonmanifold_edges": 0,
+      "signed_volume": 0.0028325424938916615,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "BearingWasher",
+      "nonmanifold_edges": 0,
+      "signed_volume": 3.853132570147718e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "HexBoltHead",
+      "nonmanifold_edges": 0,
+      "signed_volume": 3.3622679023549464e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "AnchorShank",
+      "nonmanifold_edges": 0,
+      "signed_volume": 9.811392386620154e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "BearingWasher.001",
+      "nonmanifold_edges": 0,
+      "signed_volume": 3.8531325701477156e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "HexBoltHead.001",
+      "nonmanifold_edges": 0,
+      "signed_volume": 3.3622679023549464e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "AnchorShank.001",
+      "nonmanifold_edges": 0,
+      "signed_volume": 9.811392386620154e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "BearingWasher.002",
+      "nonmanifold_edges": 0,
+      "signed_volume": 3.853132570147718e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "HexBoltHead.002",
+      "nonmanifold_edges": 0,
+      "signed_volume": 3.3622679023549464e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "AnchorShank.002",
+      "nonmanifold_edges": 0,
+      "signed_volume": 9.811392386620154e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "BearingWasher.003",
+      "nonmanifold_edges": 0,
+      "signed_volume": 3.853132570147717e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "HexBoltHead.003",
+      "nonmanifold_edges": 0,
+      "signed_volume": 3.3622679023549464e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "AnchorShank.003",
+      "nonmanifold_edges": 0,
+      "signed_volume": 9.811392386620154e-06,
+      "collapsed_uv_triangles": 0
+    }
+  ],
+  "failures": [],
+  "plate_width_m": 0.48,
+  "bore_radius_m": 0.1715,
+  "anchor_centers_m": 0.205,
+  "wall_port_half_m": 0.18,
+  "generator_sha256_lf": "09d61697350ffe47a0fae90e19f651c18cfabe6c27e443c8ced86e99f9ffeb9b",
+  "source_bindings": {
+    "game/data/runtime_material_sets.json": "c39f2cc923041779e3bca345dc3a9ff8f15c90e733dd851d2d64c39ae4ce688c",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_albedo.png": "98493bc86242ee82fd70bb4a0c9a20e648447269bfaff65a72162f2f596b248d",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_rough.png": "7d299c8f80229f2c968d54181798ffebebd388a012257b6d51d370c961039d1e",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_normal.png": "d129dc84b8c1d3b2a2d935fbe8d1efab9dba4fe48b2da59da4ab363cf2722ac7"
+  }
+}

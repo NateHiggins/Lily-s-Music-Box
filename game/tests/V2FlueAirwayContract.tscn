@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/v2_flue_airway_contract.gd" id="1"]
+[node name="V2FlueAirwayContract" type="Node"]
+script = ExtResource("1")

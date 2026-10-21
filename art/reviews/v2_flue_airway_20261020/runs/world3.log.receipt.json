@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 162.45,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T00:41:35Z",
+  "started_utc": "2026-10-21T00:38:52Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 ACOUSTIC VENTILATION: PASS checks=1263 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-flue-airway-20261020/world3.log.stderr",
+  "stderr_sha256": "bce65521d9caeb611da58e3f61aad8ed09e97348faa4f47e6880e9bf88783be0",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-flue-airway-20261020/world3.log",
+  "stdout_sha256": "f028fab0e33b6fef0f325d1c8684e8b2f14880d0449a8cefd5f33ed319dc9578"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2FlueAirwayContract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-flue-airway-20261020/world3",
+ "source": {
+  "dirty_paths": 977,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/blender/alley_groundworks.blend",
+   "M  art/blender/alley_groundworks_construction.json",
+   "A  art/blender/flue_wall_thimble/flue_wall_thimble.blend",
+   "A  art/blender/flue_wall_thimble/native_review.json",
+   "M  art/blender/roof_drainage_falls.blend",
+   "M  art/blender/roof_drainage_falls_construction.json",
+   "M  art/blender/roof_membrane.blend",
+   "M  art/blender/roof_membrane_construction.json",
+   "M  art/blender/scripts/build_alley_groundworks.py",
+   "A  art/blender/scripts/build_flue_wall_thimble.py",
+   "M  art/blender/scripts/build_roof_drainage_falls.py",
+   "M  art/blender/scripts/build_roof_membrane.py",
+   "A  art/blender/scripts/inspect_flue_grade_airway.py",
+   "M  art/blender/scripts/inspect_roof_drainage_falls.py",
+   "M  art/blender/scripts/inspect_roof_drainage_rolls.py",
+   "M  art/blender/scripts/prepare_roof_drainage_grade.py",
+   "M  art/data/orison_roof_drainage/roof_grade.json",
+   "M  art/data/orison_v2/front_trim_layout_source.json",
+   "M  art/tools/fix_v2_mesh_imports.py"
+  ],
+  "repository_head": "f40ca340795289ee8b1c051042248740294bbe35",
+  "repository_tree": "cd48b9bece45fad779b3f23cc56cc024169b9514",
+  "runtime_inputs_sha256": "f131e67dd1f79fdc4bbda3393ad00e996635061ab2454bb59c2d171d824f8471",
+  "test_path": "game/tests/v2_flue_airway_contract.gd",
+  "test_sha256": "3d9b6866fcf13a1122006b309522de032b74de6d53da4b22b0e46274e2040441"
+ },
+ "windowed": true
+}

@@ -4,21 +4,32 @@ The retained 200 mm structural slab is never thinned. This studies tapered
 overburden, stepped door curbs and eight edge outlets; it installs nothing.
 """
 from pathlib import Path
-import heapq,json,hashlib,math,os
+import heapq,json,hashlib,math,os,argparse
 import numpy as np
 from PIL import Image,ImageDraw
 
-R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file());out=R/'art/data/orison_roof_drainage';out.mkdir(parents=True,exist_ok=True)
-layout=json.loads((R/'game/data/orison_v2_blockout.json').read_bytes())
+R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file())
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--work-dir',type=Path)
+args=parser.parse_args();work=args.work_dir.resolve() if args.work_dir else None
+out=work/'grade' if work else R/'art/data/orison_roof_drainage';out.mkdir(parents=True,exist_ok=True)
+layout_path=work/'layout.json' if work else R/'game/data/orison_v2_blockout.json'
+layout=json.loads(layout_path.read_bytes())
 source=json.loads((R/'art/data/orison_v2/roof_source.json').read_bytes())['records']
 decks=[r for r in source['spaces'] if r['id'].startswith('ROOF_DECK_')]
 cores=[r for r in source['spaces'] if r['id'].endswith('_CORE')]
 datum=source['levels'][0]['y'];thickness=layout['dimensions']['slab_thickness']
 holes=[r for r in layout['slab_openings'] if r['surface']=='Floor' and r['space'] in {d['id'] for d in decks}]
-outlets=json.loads((out/'source_plan.json').read_bytes())['outlets']
+source_plan=R/'art/data/orison_roof_drainage/source_plan.json'
+outlets=json.loads(source_plan.read_bytes())['outlets']
 xs=sorted({round(v,6) for v in [-15.65,15.65]+[i*.5 for i in range(-31,32)]+[v for d in decks for v in [d['rect'][0],d['rect'][2]]]+[s['point'][0] for s in outlets]+[v for h in holes for v in [h['rect'][0],h['rect'][2]]]+[-2.27,5.47,9.43,13.27]})
 zs=sorted({round(v,6) for v in [-12.35,11.65]+[i*.5 for i in range(-24,24)]+[v for d in decks for v in [d['rect'][1],d['rect'][3]]]+[s['point'][1] for s in outlets]+[v for h in holes for v in [h['rect'][1],h['rect'][3]]]+[-3.92,3.92,.23,10.27]})
 blocked=[[-2.27,-3.92,5.47,3.92],[9.43,.23,13.27,10.27]]+[h['rect'] for h in holes]
+# The chimney's masonry footprint is an obstacle, not a hidden drainage field.
+# Keep the slab penetration smaller so the existing masonry still bears on it.
+chimneys=[r['rect'] for r in layout['risers'] if r['id']=='B1_BOILER_FLUE']
+blocked+=chimneys
+xs=sorted(set(xs)|{round(v,6) for r in chimneys for v in [r[0],r[2]]})
+zs=sorted(set(zs)|{round(v,6) for r in chimneys for v in [r[1],r[3]]})
 curb_rects={}
 if True:
  for door in source['doors']:
@@ -87,10 +98,13 @@ for row in source['doors']:
  doors.append({'id':row['id'],'source_record':row,'candidate_curb_top':curb,'candidate_mount_offset':curb-datum,'curb_rect':curb_rects.get(row['id']),'field_samples':samples,'nearest_routing_point':at,'interior_step':curb-datum,'clear_height_preserved':row['height']})
 fan_rows=[]
 for h in holes:
+ if not h['id'].startswith('ROOF_FAN_'):continue
  a,b,c,d=h['rect'];y,at=sample((a+c)/2,(b+d)/2)
  fan_rows.append({'id':h['id'],'field_top':y,'retained_curb_top':datum+.16,'residual_curb_height':datum+.16-y,'routing_point':at})
 data={'evidence_class':'INERT','classification':'ADAPTATION','status':'SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED','datum':datum,'retained_structural_thickness':thickness,'overburden_toe':toe,'membrane_thickness':membrane,'fall':fall,'outlets':outlets,'roof_field_bounds':field_bounds,'blocked_routing_rectangles':blocked,'grid_x':xs,'grid_z':zs,'valid_nodes':int(valid.sum()),'maximum_added_height':float(height[valid].max()-datum),'downhill_edges':paths,'doors':doors,'fan_curbs':fan_rows,'source_bindings':{p:hashlib.sha256((R/p).read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in ['game/data/orison_v2_blockout.json','art/data/orison_v2/roof_source.json']},'open_work':['native geometry and closed volume','fitted raised door curbs and full moving-leaf clearance','actual parapet ports and weather linings','retained slab and support contacts','sealed fan/tank/plant interfaces','downstream leaders and property connection','production walking and source-bound candidate checks']}
-data['source_bindings'].update({p.relative_to(R).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [out/'source_plan.json',Path(__file__)]})
+data['source_bindings'].update({p.relative_to(R).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [source_plan,Path(__file__)]})
+data['source_bindings'].pop('game/data/orison_v2_blockout.json')
+data['source_bindings'][layout_path.relative_to(R).as_posix()]=hashlib.sha256(layout_path.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
 data['plant_interface_reservations']=plant_reservations
 (out/'roof_grade.json').write_text(json.dumps(data,indent=2)+'\n',newline='\n')
 print('SOURCE ROOF GRADE',data['valid_nodes'],'nodes;',len(outlets),'outlets')

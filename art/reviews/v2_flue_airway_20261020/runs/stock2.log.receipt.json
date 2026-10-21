@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 8.48,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T00:26:46Z",
+  "started_utc": "2026-10-21T00:26:37Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 FLUE STOCK: PASS failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-flue-airway-20261020/stock2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-flue-airway-20261020/stock2.log",
+  "stdout_sha256": "8e116775442997d7ea03ccbc02dd9784548cec606be49e785c0a5db7ea64f8f7"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2FlueStockBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-flue-airway-20261020/stock2",
+ "source": {
+  "dirty_paths": 966,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "A  art/blender/flue_wall_thimble/flue_wall_thimble.blend",
+   "A  art/blender/flue_wall_thimble/native_review.json",
+   "M  art/blender/roof_drainage_falls.blend",
+   "M  art/blender/roof_drainage_falls_construction.json",
+   "M  art/blender/roof_membrane.blend",
+   "M  art/blender/roof_membrane_construction.json",
+   "A  art/blender/scripts/build_flue_wall_thimble.py",
+   "M  art/blender/scripts/build_roof_drainage_falls.py",
+   "M  art/blender/scripts/build_roof_membrane.py",
+   "M  art/blender/scripts/inspect_roof_drainage_falls.py",
+   "M  art/blender/scripts/inspect_roof_drainage_rolls.py",
+   "M  art/blender/scripts/prepare_roof_drainage_grade.py",
+   "M  art/data/orison_roof_drainage/roof_grade.json",
+   "M  art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import"
+  ],
+  "repository_head": "f40ca340795289ee8b1c051042248740294bbe35",
+  "repository_tree": "cd48b9bece45fad779b3f23cc56cc024169b9514",
+  "runtime_inputs_sha256": "b791013c742d8dcc5243c3b02f630f3dacc1118bddc6544cfc81141192c1f254",
+  "test_path": "game/tests/v2_flue_stock_bench.gd",
+  "test_sha256": "9723c64754f190659858babb8f6a6c71c32726b097636437e94ddef0aae7dd70"
+ },
+ "windowed": true
+}

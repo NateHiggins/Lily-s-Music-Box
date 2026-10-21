@@ -87,6 +87,11 @@ for obj in paving:
     original_bounds[obj.name]=[min(p.x for p in ps),min(p.z for p in ps),-max(p.y for p in ps),
                                max(p.x for p in ps),max(p.z for p in ps),-min(p.y for p in ps)]
 cuts=[('BoilerWell',[inner_x,-.5,z0-.14,outer,.10,z1+.14])]
+# The inherited paving foundation overlaps the chimney at grade. Masonry
+# bears here; paving cannot silently seal the shaft below its roof aperture.
+chimney=next(r for r in layout['risers'] if r['id']=='B1_BOILER_FLUE')
+cx0,cz0,cx1,cz1=chimney['rect']
+cuts.append(('BoilerChimney',[cx0,-.5,cz0,cx1,.10,cz1]))
 cuts += [('Catch_%d'%i,[drain_x-.151,-.5,z-.258,drain_x+.151,.10,z+.258]) for i,z in enumerate(drain_z)]
 receiver=json.loads((root/'art/blender/roof_drainage_reservations.json').read_bytes())
 for row in receiver['grade_ports']:

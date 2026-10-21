@@ -1,0 +1,17 @@
+{
+  "evidence_class": "INERT",
+  "reports": [
+    {
+      "scope": "falls",
+      "raw_sha256": "31cbd24227070d98148cc04bb48cf5801f2ed598336384febbf00092e2cd95d8",
+      "gzip_sha256": "2032ed635ea64e2cd8b5c5e82c3aeee35819f06e0a916ece0e29e479299aaa50",
+      "path": "native/falls/inspection.json.gz"
+    },
+    {
+      "scope": "rolls",
+      "raw_sha256": "c618ff3c355f2dcfb5ee31a8c4dc0879d538e4addb882248dec2de9a94dbffaa",
+      "gzip_sha256": "1403ae97fdbc9969cbb6a29270ec070f9fdd0532af92353d7ac8743f357d40c1",
+      "path": "native/rolls/inspection.json.gz"
+    }
+  ]
+}

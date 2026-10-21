@@ -1,0 +1,10 @@
+ERROR: ORISON V2: riser opening exceeds its owner: BOILER_FLUE_BREECHING_PORT
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:39)
+       [1] _ready (res://tests/front_trim_layout_probe.gd:12)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in res://data/orison_v2_blockout.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:40)
+       [1] _ready (res://tests/front_trim_layout_probe.gd:12)

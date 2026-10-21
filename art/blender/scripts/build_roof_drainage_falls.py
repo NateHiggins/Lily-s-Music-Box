@@ -4,12 +4,15 @@ Retained gameplay authorities remain; geometry and material validation are
 independent of this source recipe. No drainage capacity acceptance.
 """
 from pathlib import Path
-import json, math, hashlib, collections, os
+import json, math, hashlib, collections, os, argparse, sys
 import bpy, bmesh, numpy as np
 from mathutils import Vector
 
-R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file());O=R/'art/blender';O.mkdir(parents=True,exist_ok=True)
-S=R/'art/data/orison_roof_drainage/roof_grade.json';study=json.loads(S.read_bytes())
+R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file())
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--work-dir',type=Path)
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []);work=args.work_dir.resolve() if args.work_dir else None
+O=work/'native' if work else R/'art/blender';O.mkdir(parents=True,exist_ok=True)
+S=work/'grade/roof_grade.json' if work else R/'art/data/orison_roof_drainage/roof_grade.json';study=json.loads(S.read_bytes())
 roof=json.loads((R/'art/data/orison_v2/roof_source.json').read_bytes())['records']
 decks=[d for d in roof['spaces'] if d['id'].startswith('ROOF_DECK_')]
 xs=study['grid_x'];zs=study['grid_z'];base=study['datum'];skin=study['membrane_thickness']
@@ -195,7 +198,7 @@ class ExportUVHandedness:
   if attribute=='TANGENT':data['data'][:,3]*=-1
 import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
-glb=R/'game/assets/props/roof_drainage_falls.glb'
+glb=work/'assets/roof_drainage_falls.glb' if work else R/'game/assets/props/roof_drainage_falls.glb';glb.parent.mkdir(parents=True,exist_ok=True)
 bpy.ops.export_scene.gltf(filepath=str(glb),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_materials='PLACEHOLDER')
 report={'evidence_class':'INERT','status':'SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED','classification':'ADAPTATION','study_sha256':hashlib.sha256(S.read_bytes()).hexdigest(),'native_sha256':hashlib.sha256(native.read_bytes()).hexdigest(),'asset_sha256':hashlib.sha256(glb.read_bytes()).hexdigest(),'closed_stocks':stocks,'parts':parts,'vertices':len(points),'triangles':len(triangles),'physical_gradient_range': [min(gradients),max(gradients)],'minimum_retained_structural_thickness':.2,'points':points,'triangles_by_vertex':triangles,'triangle_owners':owners,'door_fittings':door_fittings,'open_work':['actual membrane roll/seam stocks','fitted door curbs and moving leaf clearance','coordinated wall flashing and old leader toes','fan, tank and roof support weather interfaces','source-owned parapet ports and downstream supports','production walking and exact candidate verification']}
 report['source_bindings']={**study['source_bindings'],S.relative_to(R).as_posix():hashlib.sha256(S.read_bytes()).hexdigest(),Path(__file__).relative_to(R).as_posix():hashlib.sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest()}
@@ -204,4 +207,5 @@ report['exact_affine_crease_cells']=crease_cells
 (O/'roof_drainage_falls_construction.json').write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('SOURCE ROOF FALLS',len(stocks),'closed stocks;',len(triangles),'top triangles; gradient',report['physical_gradient_range'])
 
-(R/'game/tests/fixtures/orison_roof_drainage_falls.json').write_bytes((O/'roof_drainage_falls_construction.json').read_bytes())
+fixture=work/'fixtures/orison_roof_drainage_falls.json' if work else R/'game/tests/fixtures/orison_roof_drainage_falls.json';fixture.parent.mkdir(parents=True,exist_ok=True)
+fixture.write_bytes((O/'roof_drainage_falls_construction.json').read_bytes())
