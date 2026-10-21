@@ -2787,3 +2787,29 @@ game/tests/V2WorldInspectionProfile.tscn -text
 art/reviews/v2_counter_hitch_20261021/** -text
 game/tests/orison_v2_connected_exterior_route_test.gd -text
 game/tests/orison_v2_golden_repair_route_test.gd -text
+
+# Native caption-calibrator source and runtime input bindings.
+art/blender/scripts/build_case_calibrator.py -text
+game/scripts/cases/case_interactable.gd -text
+game/scripts/cases/orison_v2_calibrator_plunger.gd -text
+game/scripts/building/orison_v2_case_one_placement.gd -text
+game/data/orison_v2/case_calibrator.json -text
+art/blender/case_calibrator_construction.json -text
+game/tests/calibrator_hand_bench.gd -text
+game/tests/CalibratorHandBench.tscn -text
+game/tests/v2_calibrator_world_review.gd -text
+game/tests/V2CalibratorWorldReview.tscn -text
+art/blender/case_calibrator.blend -text
+art/reviews/v2_case_calibrator_20261021/** -text
+game/data/orison_v2/case_one_placement.json -text
+game/tests/v2_played_profile_and_bucket_review.gd -text
+game/tests/V2PlayedProfileAndBucketReview.tscn -text
+game/tests/v2_attributed_played_profile.gd -text
+game/tests/V2AttributedPlayedProfile.tscn -text
+
+# Byte-exact CRLF archive evidence; preserve originals, suppress text whitespace diff.
+art/reviews/v2_case_calibrator_20261021/early_board.txt binary
+art/reviews/v2_case_calibrator_20261021/preflight.txt binary
+art/reviews/v2_case_calibrator_20261021/reader.txt binary
+art/reviews/v2_case_calibrator_20261021/reader_v2.txt binary
+art/reviews/v2_case_calibrator_20261021/world_v1/executed_sources/case_one_placement.json binary

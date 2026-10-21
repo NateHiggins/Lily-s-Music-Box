@@ -152,6 +152,8 @@ func _expect_motion(requested: Variant, at_limit := false) -> void:
 func feedback(aimed: Dictionary) -> Dictionary:
 	var descriptor := target if active() else aimed
 	var owner := _context_owner(descriptor, true)
+	if not active() and descriptor.get("blocked",false) and descriptor.get("fixed_stock",false):
+		return {"state":"idle","inspectable":false}
 	return {"state":motion_feedback if active() else "available" if descriptor.get("part") is Node3D else "blocked" if descriptor.get("blocked",false) else "idle",
 		"inspectable":is_instance_valid(owner) and owner.has_method("inspection_view")}
 

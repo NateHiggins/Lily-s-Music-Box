@@ -1,0 +1,489 @@
+{
+  "evidence_class": "INERT",
+  "source": "attribution/frames.json and attribution_timeline.json",
+  "scope": "Original ordered controller records of calls over 1ms, not complete per-tick sampling. All1082 retained; no truncation. Render signals measure submission interval, not GPU/display completion. Phase is sampled, not an isolated transaction.",
+  "physics_records": 1082,
+  "truncated": false,
+  "step_guard_rejections": 920,
+  "worst_wall_windows": [
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 268.291,
+      "physics_ticks": 8,
+      "process_frame": 1044,
+      "downstream_tree_ms": 4.545,
+      "render_signal_ms": 42.636
+    },
+    {
+      "phase": "walk_(0.0, 0.0, -10.2)",
+      "wall_ms": 226.743,
+      "physics_ticks": 8,
+      "process_frame": 33,
+      "downstream_tree_ms": 6.002,
+      "render_signal_ms": 36.383
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 222.658,
+      "physics_ticks": 8,
+      "process_frame": 1058,
+      "downstream_tree_ms": 5.368,
+      "render_signal_ms": 37.42
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 215.301,
+      "physics_ticks": 8,
+      "process_frame": 1046,
+      "downstream_tree_ms": 5.937,
+      "render_signal_ms": 38.763
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 211.728,
+      "physics_ticks": 8,
+      "process_frame": 1060,
+      "downstream_tree_ms": 6.239,
+      "render_signal_ms": 36.167
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 211.006,
+      "physics_ticks": 8,
+      "process_frame": 1049,
+      "downstream_tree_ms": 6.811,
+      "render_signal_ms": 36.971
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 208.517,
+      "physics_ticks": 8,
+      "process_frame": 1045,
+      "downstream_tree_ms": 11.922,
+      "render_signal_ms": 41.981
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 205.944,
+      "physics_ticks": 8,
+      "process_frame": 1050,
+      "downstream_tree_ms": 4.763,
+      "render_signal_ms": 39.001
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 205.813,
+      "physics_ticks": 8,
+      "process_frame": 1047,
+      "downstream_tree_ms": 4.199,
+      "render_signal_ms": 39.103
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 205.188,
+      "physics_ticks": 8,
+      "process_frame": 1057,
+      "downstream_tree_ms": 22.188,
+      "render_signal_ms": 37.703
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 205.111,
+      "physics_ticks": 8,
+      "process_frame": 1048,
+      "downstream_tree_ms": 11.981,
+      "render_signal_ms": 38.233
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 205.047,
+      "physics_ticks": 8,
+      "process_frame": 1051,
+      "downstream_tree_ms": 4.436,
+      "render_signal_ms": 38.67
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 204.635,
+      "physics_ticks": 8,
+      "process_frame": 1053,
+      "downstream_tree_ms": 4.119,
+      "render_signal_ms": 38.307
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 204.406,
+      "physics_ticks": 8,
+      "process_frame": 1059,
+      "downstream_tree_ms": 12.329,
+      "render_signal_ms": 38.646
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 204.354,
+      "physics_ticks": 8,
+      "process_frame": 1052,
+      "downstream_tree_ms": 4.593,
+      "render_signal_ms": 38.569
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 204.303,
+      "physics_ticks": 8,
+      "process_frame": 1061,
+      "downstream_tree_ms": 5.488,
+      "render_signal_ms": 36.177
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 203.736,
+      "physics_ticks": 8,
+      "process_frame": 1056,
+      "downstream_tree_ms": 4.322,
+      "render_signal_ms": 39.745
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 202.927,
+      "physics_ticks": 8,
+      "process_frame": 1055,
+      "downstream_tree_ms": 4.171,
+      "render_signal_ms": 38.503
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 202.57,
+      "physics_ticks": 8,
+      "process_frame": 1054,
+      "downstream_tree_ms": 4.32,
+      "render_signal_ms": 38.301
+    },
+    {
+      "phase": "walk_(3.975, 3.2, -3.4)",
+      "wall_ms": 170.107,
+      "physics_ticks": 7,
+      "process_frame": 1043,
+      "downstream_tree_ms": 12.656,
+      "render_signal_ms": 42.67
+    }
+  ],
+  "physics_stage_maxima": {
+    "gravity_ms": [
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+        ],
+        "follow_and_contact_ms": 0.021,
+        "gravity_ms": 0.007,
+        "position": [
+          -3.84619998931885,
+          3.20094323158264,
+          -8.35417461395264
+        ],
+        "slide_ms": 18.362,
+        "step_guard_disabled": false,
+        "step_ms": 0.005
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_concrete/StaticBody3D"
+        ],
+        "follow_and_contact_ms": 0.017,
+        "gravity_ms": 0.005,
+        "position": [
+          9.8507022857666,
+          0.0107129588723183,
+          48.5353546142578
+        ],
+        "slide_ms": 2.005,
+        "step_guard_disabled": false,
+        "step_ms": 0.002
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+        ],
+        "follow_and_contact_ms": 0.018,
+        "gravity_ms": 0.005,
+        "position": [
+          -3.97459816932678,
+          3.20024800300598,
+          -8.42392635345459
+        ],
+        "slide_ms": 4.168,
+        "step_guard_disabled": false,
+        "step_ms": 0.011
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+        ],
+        "follow_and_contact_ms": 0.012,
+        "gravity_ms": 0.005,
+        "position": [
+          -3.97459816932678,
+          3.20024800300598,
+          -8.42392635345459
+        ],
+        "slide_ms": 3.693,
+        "step_guard_disabled": false,
+        "step_ms": 0.006
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+        ],
+        "follow_and_contact_ms": 0.013,
+        "gravity_ms": 0.004,
+        "position": [
+          3.15319848060608,
+          0.000933474628254771,
+          -10.142520904541
+        ],
+        "slide_ms": 1.005,
+        "step_guard_disabled": false,
+        "step_ms": 0.002
+      }
+    ],
+    "step_ms": [
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31565/NativeCaseCollision",
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.037,
+        "gravity_ms": 0.002,
+        "position": [
+          -3.75822639465332,
+          3.20080709457397,
+          -8.25348663330078
+        ],
+        "slide_ms": 4.058,
+        "step_guard_disabled": false,
+        "step_ms": 61.029
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.034,
+        "gravity_ms": 0.002,
+        "position": [
+          -3.97459816932678,
+          3.20024800300598,
+          -8.42392635345459
+        ],
+        "slide_ms": 0.23,
+        "step_guard_disabled": false,
+        "step_ms": 46.714
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.034,
+        "gravity_ms": 0.003,
+        "position": [
+          -3.97459745407104,
+          3.20022201538086,
+          -8.42389965057373
+        ],
+        "slide_ms": 0.2,
+        "step_guard_disabled": false,
+        "step_ms": 45.722
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+        ],
+        "follow_and_contact_ms": 0.03,
+        "gravity_ms": 0.003,
+        "position": [
+          -3.97459816932678,
+          3.20024800300598,
+          -8.42392635345459
+        ],
+        "slide_ms": 4.019,
+        "step_guard_disabled": false,
+        "step_ms": 25.825
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+        ],
+        "follow_and_contact_ms": 0.028,
+        "gravity_ms": 0.002,
+        "position": [
+          -3.97459745407104,
+          3.20022201538086,
+          -8.42389965057373
+        ],
+        "slide_ms": 3.876,
+        "step_guard_disabled": false,
+        "step_ms": 23.604
+      }
+    ],
+    "slide_ms": [
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.028,
+        "gravity_ms": 0.003,
+        "position": [
+          -3.84263753890991,
+          3.20094323158264,
+          -8.35144329071045
+        ],
+        "slide_ms": 26.889,
+        "step_guard_disabled": false,
+        "step_ms": 0.005
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.019,
+        "gravity_ms": 0.002,
+        "position": [
+          -3.84619998931885,
+          3.20094323158264,
+          -8.35417461395264
+        ],
+        "slide_ms": 26.807,
+        "step_guard_disabled": false,
+        "step_ms": 0.004
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.03,
+        "gravity_ms": 0.002,
+        "position": [
+          -3.83889627456665,
+          3.20094323158264,
+          -8.34848880767822
+        ],
+        "slide_ms": 26.703,
+        "step_guard_disabled": false,
+        "step_ms": 0.004
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.033,
+        "gravity_ms": 0.002,
+        "position": [
+          -3.83496403694153,
+          3.20094323158264,
+          -8.34528636932373
+        ],
+        "slide_ms": 26.463,
+        "step_guard_disabled": false,
+        "step_ms": 0.004
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.034,
+        "gravity_ms": 0.003,
+        "position": [
+          -3.83083510398865,
+          3.20094323158264,
+          -8.34181118011475
+        ],
+        "slide_ms": 26.146,
+        "step_guard_disabled": false,
+        "step_ms": 0.005
+      }
+    ],
+    "follow_and_contact_ms": [
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+        ],
+        "follow_and_contact_ms": 0.056,
+        "gravity_ms": 0.002,
+        "position": [
+          -3.97459745407104,
+          3.20022201538086,
+          -8.42389965057373
+        ],
+        "slide_ms": 3.962,
+        "step_guard_disabled": false,
+        "step_ms": 0.005
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+        ],
+        "follow_and_contact_ms": 0.043,
+        "gravity_ms": 0.003,
+        "position": [
+          -3.84619998931885,
+          3.20094323158264,
+          -8.35417461395264
+        ],
+        "slide_ms": 18.405,
+        "step_guard_disabled": false,
+        "step_ms": 0.003
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31565/NativeCaseCollision",
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.037,
+        "gravity_ms": 0.002,
+        "position": [
+          -3.75822639465332,
+          3.20080709457397,
+          -8.25348663330078
+        ],
+        "slide_ms": 4.058,
+        "step_guard_disabled": false,
+        "step_ms": 61.029
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.037,
+        "gravity_ms": 0.003,
+        "position": [
+          -3.82648468017578,
+          3.20094323158264,
+          -8.33802795410156
+        ],
+        "slide_ms": 22.267,
+        "step_guard_disabled": false,
+        "step_ms": 0.005
+      },
+      {
+        "contacts": [
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+          "/root/V2AttributedPlayedProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+        ],
+        "follow_and_contact_ms": 0.036,
+        "gravity_ms": 0.003,
+        "position": [
+          -3.81718301773071,
+          3.20094323158264,
+          -8.32944679260254
+        ],
+        "slide_ms": 20.931,
+        "step_guard_disabled": false,
+        "step_ms": 0.004
+      }
+    ]
+  }
+}

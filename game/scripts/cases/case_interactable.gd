@@ -12,6 +12,9 @@ var _response_sound: AudioStreamPlayer3D
 var _response_tween: Tween
 var _visual_home := Vector3.ZERO
 var _visual_rotation_home := Vector3.ZERO
+## Optional V2 mechanism. Case callbacks remain owned by the case; older
+## compositions retain their existing semantic interaction.
+var physical_control: Node3D
 
 
 func setup(title: String, prompt: String, callback: Callable,
@@ -64,9 +67,12 @@ func setup(title: String, prompt: String, callback: Callable,
 
 func set_enabled(on: bool) -> void:
 	enabled = on
-	visible = on
-	collision_layer = 1 if on else 0
-	collision_mask = 1 if on else 0
+	# A case can guard the control without removing its installed cabinet.
+	var keeps_housing := is_instance_valid(physical_control)
+	visible = on or keeps_housing
+	collision_layer = 1 if on or keeps_housing else 0
+	collision_mask = 1 if on or keeps_housing else 0
+	if is_instance_valid(physical_control): physical_control.set_available(on)
 
 
 func set_title(title: String) -> void:
@@ -75,15 +81,22 @@ func set_title(title: String) -> void:
 
 
 func interact_prompt() -> String:
+	if is_instance_valid(physical_control): return ""
 	return prompt_text if enabled else ""
 
 
 func interact(_player: Node) -> Dictionary:
+	if is_instance_valid(physical_control): return {}
 	if not enabled or not action.is_valid():
 		return {}
 	_acknowledge_hand()
 	var result: Variant = action.call()
 	return (result as Dictionary).duplicate(true) if result is Dictionary else {}
+
+
+func manipulation_target(_hit: Dictionary) -> Dictionary:
+	# Fixed stock has no hand target, prompt or semantic activation.
+	return {"blocked":true,"fixed_stock":true} if is_instance_valid(physical_control) else {"legacy":true}
 
 
 func _acknowledge_hand() -> void:

@@ -1,0 +1,17 @@
+[
+  {
+    "scene": "res://tests/ToiletInspectionTest.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_case_calibrator_20261021\\reticle_regression.log",
+    "timeout": 120,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_case_calibrator_20261021\\reticle_regression"
+  },
+  {
+    "scene": "res://tests/V2CalibratorWorldReview.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_case_calibrator_20261021\\world_frozen.log",
+    "runner": "long",
+    "timeout": 450,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_case_calibrator_20261021\\world_frozen"
+  }
+]

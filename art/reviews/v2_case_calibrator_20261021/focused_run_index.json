@@ -1,0 +1,459 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native calibrator stock, actual input and explicit case fixtures; no whole-V2 or eleven-beat acceptance.",
+  "runs": {
+    "bench_v1": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/bench_v1.log.receipt.json",
+      "execution": {
+        "completed": false,
+        "elapsed_s": 120.14,
+        "exit_code": null,
+        "finished_utc": "2026-10-21T18:51:23Z",
+        "started_utc": "2026-10-21T18:49:23Z",
+        "timed_out": true
+      },
+      "script_error_count": 3
+    },
+    "bench_v2": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/bench_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 5.61,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T18:52:42Z",
+        "started_utc": "2026-10-21T18:52:36Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "9a3ea3821664cc24b45c6287969474876629b48697a5d3b368871a4aee69953c",
+        "checks": 54,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "bench_v3": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/bench_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 5.69,
+        "exit_code": 1,
+        "finished_utc": "2026-10-21T18:54:46Z",
+        "started_utc": "2026-10-21T18:54:40Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "2639c0f7d5bf858375c6e76eb68d72584ef4e6f50dbf01cbe01401f6e288090e",
+        "checks": 56,
+        "failures": [
+          "bearing probes hit original imported stop and moving shoulder",
+          "bearing probes hit original imported stop and moving shoulder"
+        ],
+        "native_event_count": 0
+      }
+    },
+    "bench_v4": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/bench_v4.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 5.72,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T18:55:13Z",
+        "started_utc": "2026-10-21T18:55:07Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "174f713853082bd83090bba409b0984dbd6ff060c72d77fe395e43a7726b1598",
+        "checks": 58,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "bench_final": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/bench_final.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 5.73,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T18:58:06Z",
+        "started_utc": "2026-10-21T18:58:00Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "8d09bba8915672c09aa4a372200532df2674403b3c34954b02cba35ec8e7a921",
+        "checks": 59,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "bench_collision_v1": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/bench_collision_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 6.53,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:01:42Z",
+        "started_utc": "2026-10-21T19:01:35Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "9f6f5804e8679b8b16dac8ebba0d5ba3f1a6d70c08f4085c8eed54d35598b059",
+        "checks": 63,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "bench_collision_final": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/bench_collision_final.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 6.39,
+        "exit_code": 1,
+        "finished_utc": "2026-10-21T19:08:57Z",
+        "started_utc": "2026-10-21T19:08:50Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "f5a1f19fd577e154cb90b425278b8e73253d187801f092248514108a370ade84",
+        "checks": 63,
+        "failures": [
+          "shared accepted-motion feedback reports physical obstruction"
+        ],
+        "native_event_count": 0
+      }
+    },
+    "obstruction_repeat_1": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 6.35,
+        "exit_code": 1,
+        "finished_utc": "2026-10-21T19:10:22Z",
+        "started_utc": "2026-10-21T19:10:15Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "4e29706b6a43989816ab0742d1641f492de3c7bd58d7f8323f0a939ac4bbe8c7",
+        "checks": 63,
+        "failures": [
+          "half stroke stays partial and cannot invoke case callback",
+          "shared accepted-motion feedback reports physical obstruction"
+        ],
+        "native_event_count": 0
+      }
+    },
+    "obstruction_repeat_2": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 6.4,
+        "exit_code": 1,
+        "finished_utc": "2026-10-21T19:10:29Z",
+        "started_utc": "2026-10-21T19:10:22Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "b3cc758a670392f1dba6a729e55620a8ffe0c747f9c205c777fb1dabf6a782e6",
+        "checks": 64,
+        "failures": [
+          "motion requires actual acquired plunger"
+        ],
+        "native_event_count": 0
+      }
+    },
+    "obstruction_repeat_3": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 6.42,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:10:36Z",
+        "started_utc": "2026-10-21T19:10:29Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "9f6f5804e8679b8b16dac8ebba0d5ba3f1a6d70c08f4085c8eed54d35598b059",
+        "checks": 63,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "bench_event_diagnostic": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/bench_event_diagnostic.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 6.33,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:11:42Z",
+        "started_utc": "2026-10-21T19:11:35Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "c1452b1d773f4344982b6f7a367cbad942dda5d58eb760a9892ebff2cc3cdaf1",
+        "checks": 63,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "event_repeat_1": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/event_repeat_1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 6.28,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:12:09Z",
+        "started_utc": "2026-10-21T19:12:02Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "c1452b1d773f4344982b6f7a367cbad942dda5d58eb760a9892ebff2cc3cdaf1",
+        "checks": 63,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "event_repeat_2": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/event_repeat_2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 6.35,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:12:16Z",
+        "started_utc": "2026-10-21T19:12:09Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "c1452b1d773f4344982b6f7a367cbad942dda5d58eb760a9892ebff2cc3cdaf1",
+        "checks": 63,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "bench_spring_fix": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/bench_spring_fix.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 7.5,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:13:35Z",
+        "started_utc": "2026-10-21T19:13:27Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "984b220fcd7bbada14ec0b7f8cb925946dc12dd2bf2d433d4c854aa2e3fed01f",
+        "checks": 67,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "spring_original_control": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/spring_original_control.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 7.02,
+        "exit_code": 1,
+        "finished_utc": "2026-10-21T19:14:08Z",
+        "started_utc": "2026-10-21T19:14:01Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "b01e5e7606f2e98a160f122cec794f8dd217181a226ec3443a04bba65de8ca20",
+        "checks": 82,
+        "failures": [
+          "micrometre residual settles and rearms after actual partial stroke 0.000561",
+          "motion requires actual acquired plunger",
+          "micrometre residual settles and rearms after actual partial stroke 0.001116",
+          "motion requires actual acquired plunger",
+          "micrometre residual settles and rearms after actual partial stroke 0.001672",
+          "motion requires actual acquired plunger",
+          "micrometre residual settles and rearms after actual partial stroke 0.002228",
+          "motion requires actual acquired plunger",
+          "actual full mouse stroke dispatches callback once",
+          "native shoulder gap matches physical stroke within forty micrometres",
+          "motion requires actual acquired plunger",
+          "physical stop cannot overtravel or repeat outcome",
+          "accepted stop supplies shared reticle limit feedback",
+          "motion requires actual acquired plunger",
+          "motion requires actual acquired plunger",
+          "same latched grab cannot duplicate activation by pumping",
+          "release returns without another outcome",
+          "motion requires actual acquired plunger",
+          "new deliberate full press can activate once again",
+          "motion requires actual acquired plunger",
+          "foreign physical plate blocks cap before activation",
+          "spring withdraws from obstruction without another callback",
+          "motion requires actual acquired plunger",
+          "removing physical obstruction restores the original full stroke",
+          "legacy direct call cannot bypass installed physical control",
+          "disabled case control is neither selectable nor actionable",
+          "save authority refuses physical acquisition",
+          "motion requires actual acquired plunger",
+          "lost reach releases partial control without case action",
+          "motion requires actual acquired plunger",
+          "motion requires actual acquired plunger",
+          "motion requires actual acquired plunger",
+          "full physical press delegates permitted stabilization to case authority",
+          "motion requires actual acquired plunger"
+        ],
+        "native_event_count": 0
+      }
+    },
+    "spring_fixed_repeat_1": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/spring_fixed_repeat_1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 7.51,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:14:53Z",
+        "started_utc": "2026-10-21T19:14:45Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "984b220fcd7bbada14ec0b7f8cb925946dc12dd2bf2d433d4c854aa2e3fed01f",
+        "checks": 67,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "spring_fixed_repeat_2": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/spring_fixed_repeat_2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 7.53,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:15:01Z",
+        "started_utc": "2026-10-21T19:14:53Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "984b220fcd7bbada14ec0b7f8cb925946dc12dd2bf2d433d4c854aa2e3fed01f",
+        "checks": 67,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "spring_fixed_repeat_3": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/spring_fixed_repeat_3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 7.51,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:15:09Z",
+        "started_utc": "2026-10-21T19:15:01Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "984b220fcd7bbada14ec0b7f8cb925946dc12dd2bf2d433d4c854aa2e3fed01f",
+        "checks": 67,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "fixed_stock_bench": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/fixed_stock_bench.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 7.57,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:27:01Z",
+        "started_utc": "2026-10-21T19:26:53Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "diagnostic.json": {
+        "sha256": "ab2366a365161f3e9c1f30f7e8e72d310325ba448fee146ff187431af888ed49",
+        "checks": 69,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "world_v1": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/world_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 173.97,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:05:20Z",
+        "started_utc": "2026-10-21T19:02:25Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "control_diagnostic.json": {
+        "sha256": "aa404acc3e857c1fdf17cfb124f1106fa809f7405d09442bd340becfbccc3580",
+        "checks": 28,
+        "failures": [],
+        "native_event_count": 0
+      },
+      "route.json": {
+        "sha256": "3c07c7e7a3699d58464fa325ae8129e78e58105bab0a922b9c72d14483008637",
+        "checks": null,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "world_final": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/world_final.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 175.78,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:18:05Z",
+        "started_utc": "2026-10-21T19:15:09Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "control_diagnostic.json": {
+        "sha256": "aa404acc3e857c1fdf17cfb124f1106fa809f7405d09442bd340becfbccc3580",
+        "checks": 28,
+        "failures": [],
+        "native_event_count": 0
+      },
+      "route.json": {
+        "sha256": "3c07c7e7a3699d58464fa325ae8129e78e58105bab0a922b9c72d14483008637",
+        "checks": null,
+        "failures": [],
+        "native_event_count": 0
+      }
+    },
+    "performance_after": {
+      "receipt": "art/reviews/v2_case_calibrator_20261021/performance_after.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 262.88,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T19:23:37Z",
+        "started_utc": "2026-10-21T19:19:14Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "frames.json": {
+        "sha256": "e8535463d871f50a17c2092bce8fd012a822f98d81b938df84656869afc48544",
+        "checks": null,
+        "failures": [],
+        "native_event_count": 0
+      },
+      "route.json": {
+        "sha256": "7ed8f7c91b70ca76b1b87d3d70e8fc8583ede82be2cc958e313a6a542bf32a74",
+        "checks": null,
+        "failures": [],
+        "native_event_count": 0
+      }
+    }
+  }
+}

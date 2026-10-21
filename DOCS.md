@@ -34,6 +34,8 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| V2 physical caption-calibrator construction, exact spring return and current renewal status | `design/V2_CASE_CALIBRATOR_2026-10-21.md` |
+| Corrected played profiling: diagnostic capture overhead at the hardware counter | `design/V2_COUNTER_CAPTURE_DIAGNOSIS_2026-10-21.md` |
 | Final V2 performance distributions, part targeting, native leaf repairs and renewed qualifications | `design/V2_SHOP_DOOR_REPAIR_2026-10-21.md` |
 | Measured V2 stutter diagnosis, restrained part targeting and remaining repair coverage | `design/V2_RESPONSIVENESS_REPAIR_2026-10-21.md` |
 | Current main integration comparison, retained passing checks and explicit blockers | `design/V2_MAIN_INTEGRATION_REVIEW_2026-10-21.md` |

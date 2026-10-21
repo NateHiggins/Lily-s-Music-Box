@@ -666,3 +666,15 @@ not production performance. Keep original samples and settings/cache limitations
 Evidence: **design/V2_COUNTER_CAPTURE_DIAGNOSIS_2026-10-21.md** and
 **art/reviews/v2_counter_hitch_20261021/comparison.json**. This is an Orison-local
 Godot observation, not a reusable profiler or input-to-photon measurement.
+
+## Small physical return datums — 2026-10-21 (L1)
+
+A four-millimetre momentary control could remain unarmed after release because
+general approximate equality skipped a residual of a few micrometres. Clamp
+and reach the actual rest datum, guard the spring tick against held/inactive
+state, and test re-acquisition after partial strokes near tick boundaries.
+The original controller fails the first regression; the corrected version
+passes the same actual-input sequence and repeated runs. This is a local
+Godot-coordinate observation, not a global epsilon change or a new save owner.
+Evidence: **design/V2_CASE_CALIBRATOR_2026-10-21.md** and original/fixed runs in
+**art/reviews/v2_case_calibrator_20261021/**. Case outcomes remain game-specific.
