@@ -1,0 +1,38 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+  "surface_inputs_sha256": "09a56bdb883265b8caa86502e26e95c27842a3ae1038c03c8a20b09fb1b61ea6",
+  "packets": [
+    {
+      "packet": "access_upper_cohort_20261018",
+      "result": "PASS",
+      "contract_sha256": "6134b0c3478e76ecf5fc8ee8fa327e5cbd7902a6d154404d6ce5bb6e019e2063",
+      "rooms": 69
+    },
+    {
+      "packet": "access_home_cohort_20261018",
+      "result": "PASS",
+      "contract_sha256": "e47ed8affeb6f7f3c7db9cd022d329a98e054a0cae0c7e9b05dac8fac4c63402",
+      "rooms": 62
+    },
+    {
+      "packet": "access_service_circulation_20261018",
+      "result": "PASS",
+      "contract_sha256": "312005df6f4c39d2b68cf1985f831a6fa1ab771eee58feec9d91339e89b4aa56",
+      "rooms": 27
+    },
+    {
+      "packet": "access_public_landings_20261018",
+      "result": "PASS",
+      "contract_sha256": "dcc047ae3716b04063bd5456804a74fe8b5380c52dc51fe6b9ff90d4e6e3d5ea",
+      "rooms": 6
+    },
+    {
+      "packet": "access_exterior_regions_20261019",
+      "result": "PASS",
+      "contract_sha256": "aa34ee98b3750804fecb98ddf1e0ba3d1a5ef12fe166dc80fd60d33f58632863",
+      "rooms": 1
+    }
+  ]
+}
