@@ -1,0 +1,21 @@
+{
+  "failures": [
+    "F01_DOOR_06 did not reach its requested stop through player input: 0.89000004529953 / 1.74532925199433"
+  ],
+  "trace": [
+    {
+      "actual": [
+        -0.000000131134157754786,
+        0.0399999991059303,
+        -13.1499996185303
+      ],
+      "ok": true,
+      "target": [
+        0.0,
+        0.0,
+        -13.1499996185303
+      ],
+      "wall_contacts": {}
+    }
+  ]
+}

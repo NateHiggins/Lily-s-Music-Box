@@ -84,14 +84,22 @@
     }
   ],
   "open_appearance_work": [
-    "Human acceptance outstanding.",
-    "Sparse shelf dressing and raised dark edge in 2A upper book cluster require close review.",
-    "Clipped local-light hotspot, condition variation and broader visual polish remain."
+    "Human acceptance remains outstanding.",
+    "Sparse shelf dressing and harsh cast silhouettes remain art-direction polish.",
+    "Clipped local-light specular hotspot and broader condition/mood polish remain open."
   ],
   "limitations": [
     "Seven existing Texture RID shutdown warnings remain; runtime-owned teardown is measured, global GPU retirement is not proved.",
     "Screen-space glazing excludes transparent and off-screen scenery.",
     "The city_ground_seam, omitted_B1_laundry_stepladder, omitted_F01_restroom_mop_bucket and dumbwaiter diagnostic cameras miss or obscure their intended subjects; these are not appearance proof for those objects.",
     "No played-route, disk-save, maintenance-case, human appearance or V1-retirement acceptance is granted by this packet."
+  ],
+  "diagnostic_followups": [
+    {
+      "finding": "Raised dark shape above 2A upper book cluster",
+      "conclusion": "Cast shadow, not projecting book geometry: disappears with book casting disabled and returns with the same native stock poses restored.",
+      "evidence": "art/reviews/v2_upper_access_20261021/library_shadow/shadow_diagnosis.json",
+      "scope": "Isolated original native Mina stock and production carried-light comparison; no production shadow or geometry change."
+    }
   ]
 }

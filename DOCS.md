@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Renewed upper-room and roof access, library shadow diagnosis and remaining full-shift work | `design/V2_UPPER_ACCESS_AND_LIBRARY_SHADOW_2026-10-21.md` |
 | Renewed composed UV/PBR/mip qualification, native provenance and remaining visual work | `design/V2_SURFACE_RENEWAL_2026-10-21.md` |
 | Fired-clay stove masonry, recessed joints and loaded surface qualification | `design/V2_STOVE_MASONRY_FINISH_2026-10-21.md` |
 | Installed five-room stove stack, physical flue transmission and remaining appearance work | `design/V2_C_STOVE_INSTALLATION_2026-10-21.md` |

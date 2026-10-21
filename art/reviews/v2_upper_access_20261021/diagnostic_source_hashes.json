@@ -1,0 +1,27 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original root-source hash verification; failed diagnostics grant no acceptance.",
+  "comparisons": [
+    {
+      "source": "game/tests/v2_library_shadow_probe.gd",
+      "original_wrapper": "tmp/v2-library-shadow-20261021/run1.log.receipt.json",
+      "sha256_lf": "e0869698be628832453c9165be7957e6c45f8cf8f6fe3e2e766374abc2bccc2d",
+      "matches": true,
+      "executed_exit_code": 0
+    },
+    {
+      "source": "game/tests/v2_passage_door_sweep_probe.gd",
+      "original_wrapper": "tmp/v2-full-shift-migration-20261021/shop_sweep1.log.receipt.json",
+      "sha256_lf": "98973e2af5b8980d77f7d9770d0011c5b6dbc689a937ef607de62b33b675ce07",
+      "matches": true,
+      "executed_exit_code": 0
+    },
+    {
+      "source": "game/tests/orison_v2_golden_repair_route_test.gd",
+      "original_wrapper": "tmp/v2-full-shift-migration-20261021/golden_route3.log.receipt.json",
+      "sha256_lf": "b712b6ff94bd79597a9829ee39e0555bb9528ce672201a60fd51029b9470e4b8",
+      "matches": true,
+      "executed_exit_code": 1
+    }
+  ]
+}

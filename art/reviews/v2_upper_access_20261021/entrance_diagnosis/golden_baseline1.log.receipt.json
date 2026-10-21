@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 144.39,
+  "exit_code": 1,
+  "finished_utc": "2026-10-21T06:22:19Z",
+  "started_utc": "2026-10-21T06:19:54Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-full-shift-migration-20261021/golden_baseline1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-full-shift-migration-20261021/golden_baseline1.log",
+  "stdout_sha256": "5ece7760e3e4d730141fdbb3555f37dc038b9fabb3d736a30cd72b3e578b54ab"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2GoldenRepairRouteTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-full-shift-migration-20261021/golden_baseline1",
+ "source": {
+  "dirty_paths": 761,
+  "dirty_sample": [
+   "M art/renders/orison_v2/access_upper_cohort_20261018/3A_F03_A_MAIN.png",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/3B_F03_B_MAIN.png",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/4A_F04_A_MAIN.png",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/5B_F05_B_MAIN.png",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/6C_F06_C_MAIN.png",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/chimney_termination.png",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/guarded_lift_drive.png",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/tank_and_bulkhead.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/visual_review.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json"
+  ],
+  "repository_head": "399acefacd37dd209d1684da3fd902b53009e66b",
+  "repository_tree": "55ed0943fd08b823dc7956d8170354332a1f43db",
+  "runtime_inputs_sha256": "7ea9f2b902fdaf0f3557e7ec25bf60f2fb2b4b0fb7d5a03d380f24c753ebb351",
+  "test_path": "game/tests/orison_v2_golden_repair_route_test.gd",
+  "test_sha256": "c6ea5180feba82bae359107dba77c4bd6dd01f516f9929d30caae38b3da9aecf"
+ },
+ "windowed": true
+}

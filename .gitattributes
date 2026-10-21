@@ -2722,3 +2722,11 @@ art/reviews/v2_stove_finish_20261021/runs/*.stderr binary
 # Original surface-renewal contracts, archived packets and diagnostic bytes.
 art/reviews/v2_surface_renewal_20261021/** -text whitespace=cr-at-eol
 art/tools/build_stove_masonry.py -text
+
+# Original upper-room proof and fixed-pose optical diagnostics.
+art/reviews/v2_upper_access_20261021/** -text whitespace=cr-at-eol
+game/tests/v2_library_shadow_probe.gd -text
+game/tests/V2LibraryShadowProbe.tscn -text
+game/tests/orison_v2_golden_repair_route_test.gd -text
+game/tests/v2_passage_door_sweep_probe.gd -text
+game/tests/V2PassageDoorSweepProbe.tscn -text

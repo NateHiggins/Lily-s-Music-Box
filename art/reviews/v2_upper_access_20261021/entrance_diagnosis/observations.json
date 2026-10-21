@@ -1,0 +1,53 @@
+{
+  "evidence_class": "INERT",
+  "origin": "Derived from hash-retained entrance_probe1 stdout, not a test-written runtime contract.",
+  "diagnostic_result": "Original stance sweep intersects player capsule at0.915radians; ordinary controller retreat allows unchanged leaf to1.745329rad. Original failure and output-directory Script Error remain; no partial acceptance.",
+  "trials": [
+    {
+      "angle": 0.89000004529953,
+      "label": "original_stance",
+      "player": "(-0.0, 0.000177, -13.15)",
+      "queries": [
+        {
+          "angle": 0.89000004529953,
+          "hits": []
+        },
+        {
+          "angle": 0.91500004529953,
+          "hits": [
+            {
+              "class": "CharacterBody3D",
+              "owner": "/root/V2EntranceHandProbe/OrisonV2Runtime/Player",
+              "shape": 0
+            }
+          ]
+        },
+        {
+          "angle": 1.74532925199433,
+          "hits": []
+        }
+      ],
+      "reached_requested_stop": false
+    },
+    {
+      "angle": 1.74532926082611,
+      "label": "stepped_back_through_controller",
+      "player": "(-0.0, 0.000177, -13.45358)",
+      "queries": [
+        {
+          "angle": 1.74532926082611,
+          "hits": []
+        },
+        {
+          "angle": 1.74532925199433,
+          "hits": []
+        },
+        {
+          "angle": 1.74532925199433,
+          "hits": []
+        }
+      ],
+      "reached_requested_stop": true
+    }
+  ]
+}

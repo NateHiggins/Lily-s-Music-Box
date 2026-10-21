@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 5.15,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T06:18:05Z",
+  "started_utc": "2026-10-21T06:18:00Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-library-shadow-20261021/run1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-library-shadow-20261021/run1.log",
+  "stdout_sha256": "0b7e03fa7f83d8ff5ca8e16c6e19a347d27c98164186371f4b61e82421356dbb"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2LibraryShadowProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-library-shadow-20261021/run1",
+ "source": {
+  "dirty_paths": 748,
+  "dirty_sample": [
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png",
+   "?? art/reviews/v2_arcade_clock_install_20261018/bench3/",
+   "?? art/reviews/v2_arcade_clock_install_20261018/native06/",
+   "?? art/reviews/v2_arcade_clock_install_20261018/native07/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench_diagnostic/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench_fitted/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench_partitioned/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_uv_diagnostic/"
+  ],
+  "repository_head": "399acefacd37dd209d1684da3fd902b53009e66b",
+  "repository_tree": "55ed0943fd08b823dc7956d8170354332a1f43db",
+  "runtime_inputs_sha256": "7ea9f2b902fdaf0f3557e7ec25bf60f2fb2b4b0fb7d5a03d380f24c753ebb351",
+  "test_path": "game/tests/v2_library_shadow_probe.gd",
+  "test_sha256": "e0869698be628832453c9165be7957e6c45f8cf8f6fe3e2e766374abc2bccc2d"
+ },
+ "windowed": true
+}

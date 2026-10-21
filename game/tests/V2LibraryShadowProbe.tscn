@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/v2_library_shadow_probe.gd" id="1"]
+[node name="V2LibraryShadowProbe" type="Node3D"]
+script = ExtResource("1")

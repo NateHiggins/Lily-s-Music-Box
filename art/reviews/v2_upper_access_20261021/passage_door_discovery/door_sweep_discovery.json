@@ -1,0 +1,613 @@
+{
+	"doors": [
+		{
+			"body_transform": "[X: (-0.173648, 0.0, -0.984808), Y: (0.0, 1.0, 0.0), Z: (0.984808, 0.0, -0.173648), O: (0.0, 0.0, -0.026)]",
+			"id": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+			"leaf_state": "open",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (-0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, -0.0), O: (11.34, 0.0, 33.555)]"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, -0.026)]",
+			"id": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+			"leaf_state": "closed",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (-0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, -0.0), O: (11.34, 0.0, 39.155)]"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, -0.026)]",
+			"id": "SITE_SHOP_DOOR_KEYS_CUT",
+			"leaf_state": "closed",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (-0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, -0.0), O: (11.34, 0.0, 42.755)]"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, -0.026)]",
+			"id": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+			"leaf_state": "closed",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (-0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, -0.0), O: (11.34, 0.0, 48.155)]"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, -0.026)]",
+			"id": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+			"leaf_state": "closed",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (-0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, -0.0), O: (11.34, 0.0, 52.755)]"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, -0.025999)]",
+			"id": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+			"leaf_state": "closed",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, 0.0), O: (16.66, 0.0, 53.655)]"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, -0.025999)]",
+			"id": "SITE_SHOP_DOOR_RADIO_SERVICE",
+			"leaf_state": "closed",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, 0.0), O: (16.66, 0.0, 47.255)]"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, -0.025999)]",
+			"id": "SITE_SHOP_DOOR_PAWNBROKER",
+			"leaf_state": "closed",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, 0.0), O: (16.66, 0.0, 42.655)]"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, -0.025999)]",
+			"id": "SITE_SHOP_DOOR_NEWS_CIGARS",
+			"leaf_state": "closed",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, 0.0), O: (16.66, 0.0, 40.655)]"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, -0.025999)]",
+			"id": "SITE_SHOP_DOOR_OTIS___SON",
+			"leaf_state": "closed",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, 0.0), O: (16.66, 0.0, 36.055)]"
+		},
+		{
+			"body_transform": "[X: (-0.173648, 0.0, -0.984808), Y: (0.0, 1.0, 0.0), Z: (0.984808, 0.0, -0.173648), O: (0.0, 0.0, -0.025999)]",
+			"id": "SITE_SHOP_DOOR_LUNCHEONETTE",
+			"leaf_state": "open",
+			"samples": [
+				{
+					"angle": 0.0,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": -0.025,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						}
+					]
+				},
+				{
+					"angle": 1.74532925199433,
+					"hits": [
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D",
+							"shape": 0
+						},
+						{
+							"class": "StaticBody3D",
+							"owner": "/root/V2PassageDoorSweepProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+							"shape": 0
+						}
+					]
+				}
+			],
+			"shape_bounds": "(0.93, 2.08, 0.044)",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.475, 1.05, 0.026)]",
+			"transform": "[X: (0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, 0.0), O: (16.66, 0.0, 34.055)]"
+		}
+	],
+	"evidence_class": "INERT",
+	"player": "(12.4, 0.010312, 48.63)",
+	"resident_cells": 13,
+	"scope": "Actual original resident passage actors and their current collision shapes sampled at declared angles. One diagnostic player placement; no door movement, continuous sweep, navigation, manipulation or geometry acceptance."
+}

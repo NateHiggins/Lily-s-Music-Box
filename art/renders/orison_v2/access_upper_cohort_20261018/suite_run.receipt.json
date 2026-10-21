@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 1148.69,
+  "elapsed_s": 1186.23,
   "exit_code": 0,
-  "finished_utc": "2026-10-20T21:18:04Z",
-  "started_utc": "2026-10-20T20:58:55Z",
+  "finished_utc": "2026-10-21T06:17:59Z",
+  "started_utc": "2026-10-21T05:58:13Z",
   "timed_out": false
  },
  "log": {
@@ -19,34 +19,46 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/upper2.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-surface-renewal-20261021/upper1.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/upper2.log",
-  "stdout_sha256": "a8efcc025fee3715d9479c223cc9348e627e84277ac010b29107e335a0e77ad4"
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-surface-renewal-20261021/upper1.log",
+  "stdout_sha256": "0a238062ecea5ea83a0c232f359feefad576e0aa756c0d689aa35d027433fc79"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/upper2",
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-surface-renewal-20261021/upper1",
  "source": {
-  "dirty_paths": 8,
+  "dirty_paths": 748,
   "dirty_sample": [
-   "M art/renders/insitu/shots.md",
-   "?? art/renders/insitu/shot_024.png",
-   "?? art/renders/insitu/shot_025.png",
-   "?? art/renders/insitu/shot_026.png",
-   "?? art/renders/insitu/shot_027.png",
-   "?? art/renders/insitu/shot_028.png",
-   "?? art/renders/insitu/shot_029.png",
-   "?? art/renders/insitu/shot_030.png"
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png",
+   "?? art/reviews/v2_arcade_clock_install_20261018/bench3/",
+   "?? art/reviews/v2_arcade_clock_install_20261018/native06/",
+   "?? art/reviews/v2_arcade_clock_install_20261018/native07/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench_diagnostic/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench_fitted/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench_partitioned/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_uv_diagnostic/"
   ],
-  "repository_head": "9cb1a0e5342833a3b950c30f27f8bfc904acf8e9",
-  "repository_tree": "e05380279005ee43924b4cec12eda7dcca04d796",
-  "runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+  "repository_head": "399acefacd37dd209d1684da3fd902b53009e66b",
+  "repository_tree": "55ed0943fd08b823dc7956d8170354332a1f43db",
+  "runtime_inputs_sha256": "7ea9f2b902fdaf0f3557e7ec25bf60f2fb2b4b0fb7d5a03d380f24c753ebb351",
   "test_path": "game/tests/v2_spatial_access_cohort.gd",
-  "test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+  "test_sha256": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9"
  },
  "windowed": true
 }

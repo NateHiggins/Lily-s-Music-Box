@@ -73,8 +73,8 @@ func _open_first_shift() -> bool:
 		if not await _walk(point): return false
 	var detector := world.adapter.resolve("F01_WATCHMAN_DETECTOR") as WatchmanClockProp
 	if not _require(detector != null, "arrival watchman detector is mounted"): return false
-	var detector_reach := detector.get_node("DetectorReach") as Area3D
-	if not await _use(detector_reach, detector.to_global(Vector3(0,.20,.12)), "first_shift_clock_in"): return false
+	if not await _hand_move(detector,detector.to_global(Vector3(.145,.20,.225)),1.65,"open_detector_cover"):return false
+	if not await _hand_move(detector,detector._station_key.global_position+detector.global_basis*Vector3(.014,0,.016),1.18,"first_shift_clock_in"):return false
 	if not _require(world.first_shift_director.ritual_phase() == FirstShiftDirector.PHASE_CLOCKED_IN
 			and world.work_orders.job_stage(ChirpHunt.JOB_ID) == "issued",
 			"physical detector offers the opening work order"): return false
@@ -82,8 +82,7 @@ func _open_first_shift() -> bool:
 		if not await _walk(point): return false
 	var register := world.adapter.resolve("F01_NIGHT_REGISTER") as NightRegisterProp
 	if not _require(register != null and register.slip_available(), "physical report is on the spindle"): return false
-	var slip := register.get_node("Reach_slip") as Area3D
-	if not await _use(slip, register.to_global(Vector3(-.185,.255,.055)), "first_shift_take_report"): return false
+	if not await _hand_move(register,register._slip.global_position+register.global_basis*Vector3(.006,0,.008),.065,"first_shift_take_report"):return false
 	if not _require(world.first_shift_director.ritual_phase() == FirstShiftDirector.PHASE_REPORT_ACCEPTED
 			and world.work_orders.job_stage(ChirpHunt.JOB_ID) == "acknowledged",
 			"taking the physical paper activates the existing first case"): return false
@@ -94,6 +93,33 @@ func _open_first_shift() -> bool:
 
 func _begin_first_shift() -> bool:
 	return world.first_shift_director.begin_first_shift()
+
+func _hand_move(owner_node: Node3D,point: Vector3,goal: float,label: String) -> bool:
+	# Reuse only the source-bound physical input driver, not its campaign fixture.
+	var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand);hand.player=player
+	player.set_mouse_released(false)
+	var moved: bool=await hand.operate(point,goal,owner_node)
+	var follows: bool=hand.follows_cursor
+	hand.free()
+	return _require(moved and follows,"actual grab, mouse motion and release: "+label)
+
+func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
+	if owner_node is DoorProp:
+		var door:=owner_node as DoorProp
+		return await _hand_move(door,target,0.0 if door.open else door.motion_target_angle(true),label)
+	# Conversation and authored semantic actions keep their existing owners.
+	return await super._use(owner_node,target,label)
+
+func _enter_front_entrance() -> bool:
+	# At the inherited -13.15 stance the outward leaf hits this player's
+	# capsule at 51 degrees. Walk clear of its sweep, retaining normal reach,
+	# collision and the same grab/mouse/release operation at the actual leaf.
+	if not await _walk(Vector3(0,0,-13.55)):return false
+	if not await _open_front_entrance():return false
+	if not await _walk(Vector3(0,0,-10.2)):return false
+	if not await _open_front_entrance("F01_INNER_DOOR"):return false
+	return await _walk(Vector3(0,0,-8.5))
 
 func _prepare_procurement() -> bool:
 	var job: Dictionary = world.work_orders.job_state(ChirpHunt.JOB_ID)
