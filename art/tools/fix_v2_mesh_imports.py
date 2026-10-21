@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/flue_breast_fitting.glb", # Same small annular anchor, slotted head and thin casting charts as the measured flue-wall family.
     "props/flue_wall_thimble.glb", # stock1: small anchor charts stretch 1.15% and 228 tangent derivatives fail under default compression.
     "props/nook_readable_books.glb", # Same thin binding charts and tangent precision as the readable native library.
     "props/readable_library.glb", # Thin printed ink, page gatherings and binding bevels retain authored metre charts.

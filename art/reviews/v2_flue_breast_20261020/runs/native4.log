@@ -1,0 +1,42 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_flue_breast_fitting.py:15: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  spec=catalog[key];mat=bpy.data.materials.new(key);mat.use_nodes=True;n=mat.node_tree.nodes;links=mat.node_tree.links;bsdf=n.get('Principled BSDF');bsdf.inputs['Metallic'].default_value=spec['metallic']
+Info: Saved as "flue_breast_fitting.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+22:28:36 | INFO: Starting glTF 2.0 export
+22:28:36 | INFO: Extracting primitive: Cylinder.001
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: Cylinder.003
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: Cylinder.005
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: Cylinder.007
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: Cylinder.008
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: FixedFingerBridge
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: Cylinder
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: Cylinder.002
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: Cylinder.004
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: Cylinder.006
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: SootHalo
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: SteppedReducer
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Extracting primitive: WallSleeve
+22:28:36 | INFO: Primitives created: 1
+22:28:36 | INFO: Finished glTF 2.0 export in 0.059235334396362305 s
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_flue_breast_fitting.py:100: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  for material in materials.values():material.use_nodes=True
+00:15.234  render           | Saved: 'C:\PleaseRemainOnTheLine\art\blender\flue_breast_fitting\seated.png'
+00:27.922  render           | Saved: 'C:\PleaseRemainOnTheLine\art\blender\flue_breast_fitting\rocked.png'
+
+FLUE BREAST NATIVE: 13 closed stocks; zero UV collapses
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

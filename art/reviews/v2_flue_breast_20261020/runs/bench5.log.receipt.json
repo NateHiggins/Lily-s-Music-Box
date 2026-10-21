@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 22.52,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T02:33:16Z",
+  "started_utc": "2026-10-21T02:32:53Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 FLUE BREAST BENCH: PASS checks=109 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-flue-breast-20261020/bench5.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-flue-breast-20261020/bench5.log",
+  "stdout_sha256": "21a0547f1df983347cd83a53d8b9e5bbe1181a30182a6a3826784ecfe9e1501c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/v2_flue_breast_bench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_flue_breast_20261020/bench5",
+ "source": {
+  "dirty_paths": 949,
+  "dirty_sample": [
+   "M  .gitattributes",
+   " M DOCS.md",
+   "A  art/blender/flue_breast_fitting/flue_breast_fitting.blend",
+   "A  art/blender/flue_breast_fitting/flue_breast_fitting.glb",
+   "A  art/blender/flue_breast_fitting/native_review.json",
+   "A  art/blender/flue_breast_fitting/rocked.png",
+   "A  art/blender/flue_breast_fitting/seated.png",
+   "A  art/blender/scripts/build_flue_breast_fitting.py",
+   "M  art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import"
+  ],
+  "repository_head": "46b4b9a8b9d5e7afed846aeb41991e3f066ef553",
+  "repository_tree": "667840a01d3b44dfe8f31c88fc3d48b177175a76",
+  "runtime_inputs_sha256": "b65a2c50a6c72029c2ad4f1bdb363ae1e2b4c22d509c1dabfaa66a1e4d253f14",
+  "test_path": "game/tests/v2_flue_breast_bench.gd",
+  "test_sha256": "7a0dce6a19a374388b189733b112b10780ec2efce0e529d100900f668758f164"
+ },
+ "windowed": true
+}

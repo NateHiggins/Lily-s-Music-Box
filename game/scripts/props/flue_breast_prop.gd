@@ -20,6 +20,8 @@ var _knock: AudioStreamPlayer3D
 var _draft: AudioStreamPlayer3D
 var _settle: Tween
 var _inspection_tap: AudioStreamPlayer3D
+var _held := false
+var _pose_amount := 0.0
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -33,65 +35,33 @@ func warehouse_rotation_y() -> float:
 
 
 func _build_visual() -> void:
-	var fixed := Node3D.new()
-	fixed.name = "FixedThimble"
+	var fixed: Node3D=preload("res://assets/props/flue_breast_fitting.glb").instantiate()
+	fixed.name="FixedThimble"
 	add_child(fixed)
-
-	# A 310 mm face is large enough for the old stove pipe and its reducing
-	# rings without becoming fireplace furniture.  The circular soot bloom is
-	# the former rectangular placeholder corrected into a heat-shaped deposit.
-	var halo := make_cyl(0.205, 0.205, 0.002,
-			Vector3(0, CENTRE_Y + 0.018, -0.002), SOOT, 0.90, 0.0, fixed)
-	# Fourteen sides are useful on bolts; on a deposit they advertise the
-	# primitive.  The soot edge should be irregular from texture, not polygonal.
-	(halo.mesh as CylinderMesh).radial_segments = 32
-	halo.rotation_degrees.x = 90
-	halo.material_override = smat("soot", _soot_tint())
-
-	# Hairline failures start at the hot iron and spend themselves in plaster.
-	# They are separate geometry only until the soot batch is merged below.
-	for entry in [
-			[Vector2(-0.158, 0.112), 0.086, -31.0],
-			[Vector2(0.161, 0.071), 0.074, 24.0],
-			[Vector2(-0.139, -0.128), 0.063, 38.0],
-			[Vector2(0.144, -0.119), 0.078, -34.0],
-	]:
-		var crack := _box_part(fixed, Vector3(float(entry[1]), 0.004, 0.002),
-				Vector3(entry[0].x, CENTRE_Y + entry[0].y, -0.004), SOOT)
-		crack.rotation_degrees.z = float(entry[2])
-		crack.material_override = smat("soot", _soot_tint())
-
-	# The dark tube sits behind three nested iron rings.  Buckley's 1911
-	# fitting used rings that could be removed for different pipe diameters;
-	# all remain here because the 1928 reopening closed the penetration.
-	var throat := make_cyl(0.133, 0.133, 0.036,
-			Vector3(0, CENTRE_Y, -0.038), IRON, 0.62, 0.35, fixed)
-	throat.rotation_degrees.x = 90
-	throat.material_override = smat("cast_iron", _iron_tint())
-	for ring_spec in [[0.145, 0.010, -0.061], [0.108, 0.010, -0.068],
-			[0.078, 0.008, -0.075]]:
-		var ring := make_ring(float(ring_spec[0]), float(ring_spec[1]),
-				Vector3(0, CENTRE_Y, float(ring_spec[2])), IRON,
-				0.62, 0.35, fixed)
-		ring.rotation_degrees.x = 90
-		ring.material_override = smat("cast_iron", _iron_tint())
-
-	# The closure is the only moving piece.  Keep it outside the static merge:
-	# once merged, a plate cannot betray a knock with its shadow edge.
-	_cap = Node3D.new()
-	_cap.name = "ClosurePlate"
-	_cap.position = Vector3(0, CENTRE_Y, -0.083)
-	add_child(_cap)
-	var closure := make_cyl(0.072, 0.072, 0.012, Vector3.ZERO,
-			IRON, 0.62, 0.35, _cap)
-	closure.rotation_degrees.x = 90
-	closure.material_override = smat("cast_iron", _iron_tint())
-	var pull := _box_part(_cap, Vector3(0.052, 0.018, 0.014),
-			Vector3(0, -0.010, -0.013), IRON)
-	pull.material_override = smat("cast_iron", _iron_tint())
-
-	merge_static(fixed)
-	merge_static(_cap)
+	_cap=fixed.get_node("ClosurePlate")
+	_cap.reparent(self,true)
+	for draw: MeshInstance3D in find_children("*","MeshInstance3D",true,false):
+		var key: String="soot" if draw.name=="SootHalo" else "iron_neutral"
+		var material:=smat(key,_soot_tint() if key=="soot" else _iron_tint()).duplicate() as StandardMaterial3D
+		material.uv1_triplanar=false
+		material.uv2_triplanar=false
+		material.uv1_scale=Vector3.ONE
+		material.normal_enabled=true
+		material.normal_scale=.15 if key=="soot" else .25
+		material.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		material.set_meta("v2_surface_stock",key)
+		if key=="soot":
+			material.vertex_color_use_as_albedo=true
+			material.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+			draw.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		else:
+			var body:=StaticBody3D.new()
+			body.name="NativeContact"
+			var shape:=CollisionShape3D.new()
+			shape.shape=draw.mesh.create_trimesh_shape()
+			body.add_child(shape)
+			draw.add_child(body)
+		draw.material_override=material
 	_knock = make_emitter("knock", -12.0)
 	_knock.pitch_scale = 0.62  # muffled through a full masonry stack
 	_draft = make_emitter("hum_loop", -60.0, true)
@@ -101,27 +71,45 @@ func _build_visual() -> void:
 	_inspection_tap.pitch_scale = 0.58
 
 
-## One shallow target covers the removable iron thimble only.  The surrounding
-## chimney breast remains masonry and never acquires a false opening verb.
+## The cursor follows the loose closure, not the fixed masonry or halo.
 func _build_primary_interaction() -> void:
-	var area := Area3D.new()
-	area.name = "ThimbleInspection"
-	area.collision_layer = 1
-	area.collision_mask = 0
-	area.monitoring = false
-	area.monitorable = true
-	area.add_to_group("functional_interaction_areas")
-	var collision := CollisionShape3D.new()
-	var shape := BoxShape3D.new()
-	shape.size = Vector3(0.44, 0.44, 0.18)
-	collision.shape = shape
-	collision.position = Vector3(0.0, CENTRE_Y, -0.14)
-	area.add_child(collision)
-	add_child(area)
+	preload("res://scripts/props/manipulation_area.gd").install(_cap,closure_grip)
 
 
 func interact_prompt() -> String:
-	return "[E]  Inspect sealed chimney thimble"
+	return ""
+
+
+func closure_grip() -> Dictionary:
+	# This loose plate slips axially while rocking; it is not pinned to a
+	# hinge. Project the hand along its measured centre travel, then retain
+	# the original coupled translation/rotation in set_knock_pose().
+	var travel:=Vector3(.002,-.001,-.003)
+	return {"owner":self,"part":_cap,"frame":self,"kind":"slide",
+		"axis":travel.normalized(),"minimum":0.0,"maximum":travel.length(),
+		"read":func():return _pose_amount*travel.length(),
+		"begin":func():
+			if _held or RealityState.save_write_blocked:return false
+			if _settle and _settle.is_valid():_settle.kill()
+			_held=true
+			return true,
+		"owns":func():return _held,
+		"write":func(value: float):
+			if _held:set_knock_pose(value/travel.length()),
+		"end":func():
+			_held=false
+			if not is_inside_tree():return
+			if _settle and _settle.is_valid():_settle.kill()
+			_settle=create_tween()
+			_settle.tween_method(set_knock_pose,_pose_amount,0.0,.24).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)}
+
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(.14,1.52,-.55)),"at":to_global(Vector3(0,CENTRE_Y,-.085)),"fov":50.0}
+
+
+func inspection_started() -> void:
+	_inspection_tap.play()
 
 
 func interact(_player: Node) -> Dictionary:
@@ -165,6 +153,8 @@ func _perform_synced_event(_index: int, accent: float, pitch: float) -> void:
 	_knock.volume_db = -12.0 + linear_to_db(clampf(accent, 0.2, 1.0))
 	_knock.pitch_scale = clampf(0.62 * pow(2.0, pitch * 0.1 / 12.0), 0.5, 0.8)
 	_knock.play()
+	# The conductor keeps sounding, but never takes the plate out of a hand.
+	if _held:return
 	if _settle and _settle.is_valid():
 		_settle.kill()
 	_settle = create_tween()
@@ -183,6 +173,7 @@ func set_knock_pose(amount: float) -> void:
 	if not _cap:
 		return
 	var a := clampf(amount, 0.0, 1.0)
+	_pose_amount=a
 	# A loose bayonet closure also slips within its ring.  Two millimetres of
 	# lateral error leaves the final concentric circles subtly wrong after the
 	# sound, which reads more reliably than axial travel alone.
@@ -211,13 +202,3 @@ func _soot_tint() -> Color:
 		"3C": return Color(0.78, 0.72, 0.66)
 		"6C": return Color(0.62, 0.58, 0.54)
 		_: return Color(0.70, 0.65, 0.60)
-
-
-func _box_part(parent: Node3D, size: Vector3, at: Vector3,
-		color: Color) -> MeshInstance3D:
-	var part := make_box(size, at, color)
-	# These coordinates are authored in the requested parent's space.  The
-	# default keep_global_transform stranded the finger piece at prop origin
-	# when its moving parent already had a 1.44 m / 83 mm transform.
-	part.reparent(parent, false)
-	return part

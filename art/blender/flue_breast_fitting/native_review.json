@@ -1,0 +1,103 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Saved native fitting and catalogue review only; not imported UV/mip, hand-input or installed-world proof.",
+  "native_sha256": "937f49ee93ebbbd829f1a7e9f13503602ff9c69ecc521a94567e795ae5f5cd4a",
+  "asset_sha256": "b8dc079348ff5f87a8db15afb415bd67d8871d46c6c8d4af1f498a8327371a20",
+  "checks": [
+    {
+      "part": "SteppedReducer",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00286536120179802,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "WallSleeve",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0002882824028221101,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "SootHalo",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0002014179692993628,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "SlottedHead_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.652631396557538e-07,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "AnchorShank_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.7698593889135926e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "SlottedHead_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.652631396557538e-07,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "AnchorShank_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.7698593889135926e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "SlottedHead_2",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.652631396557538e-07,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "AnchorShank_2",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.7698593889135926e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "SlottedHead_3",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.652631396557538e-07,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "AnchorShank_3",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.7698593889135926e-06,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "ClosureCasting",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00010706383502590763,
+      "collapsed_uv_triangles": 0
+    },
+    {
+      "part": "FixedFingerBridge",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.110077984334095e-06,
+      "collapsed_uv_triangles": 0
+    }
+  ],
+  "parts": 13,
+  "center_y_m": 1.44,
+  "closure_pose": [
+    0,
+    1.44,
+    -0.083
+  ],
+  "generator_sha256_lf": "bc66d110dfdc06fca717bf1866210758dd062572a27db4e68943322509688314",
+  "source_bindings": {
+    "game/data/runtime_material_sets.json": "c39f2cc923041779e3bca345dc3a9ff8f15c90e733dd851d2d64c39ae4ce688c",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_albedo.png": "98493bc86242ee82fd70bb4a0c9a20e648447269bfaff65a72162f2f596b248d",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_rough.png": "7d299c8f80229f2c968d54181798ffebebd388a012257b6d51d370c961039d1e",
+    "game/assets/building/textures/T_ai_materials_iron_neutral_normal.png": "d129dc84b8c1d3b2a2d935fbe8d1efab9dba4fe48b2da59da4ab363cf2722ac7",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": "599ccf878c2fb74c6462a8e961addfe12fb5f90e9c85b68b0601edb0921ee547",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": "23e9482180b08d41394fcbf259e5cc69c813da4e1f3c6a0b1b82755e39e2b1ca",
+    "game/assets/building/textures/T_ai_materials_soot_normal.png": "87975ab4abf0d0c6629b3c43078a83ddc9721afabf4a808bdfdfc3112aa33444"
+  }
+}

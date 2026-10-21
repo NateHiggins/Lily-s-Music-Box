@@ -2683,3 +2683,13 @@ tools/build_v2_ground_probe_updates.py -text whitespace=cr-at-eol
 game/tests/fixtures/orison_ground_probe_ownership.json -text whitespace=cr-at-eol
 art/reviews/v2_grade_source_renewal_20261020/** -text whitespace=cr-at-eol
 art/reviews/v2_grade_source_renewal_20261020/runs/*.log binary
+
+# Native sealed C-stack closure and executed small hand fixture.
+art/blender/flue_breast_fitting/** -text
+game/assets/props/flue_breast_fitting.glb -text
+game/assets/props/flue_breast_fitting.glb.import -text
+game/tests/v2_flue_breast_bench.gd -text
+game/tests/v2_flue_breast_bench.tscn -text
+art/reviews/v2_flue_breast_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_flue_breast_20261020/runs/*.log binary
+art/reviews/v2_flue_breast_20261020/runs/*.stderr binary
