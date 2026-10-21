@@ -1,0 +1,25 @@
+{
+  "failures": [
+    "target (3.9, 0.0, -3.5) actual (3.722666, 0.000943, -3.448973)"
+  ],
+  "trace": [
+    {
+      "actual": [
+        3.72266602516174,
+        0.000942958518862724,
+        -3.44897270202637
+      ],
+      "ok": false,
+      "target": [
+        3.90000009536743,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {
+        "/root/V2AlcoveReview/OrisonV2Runtime/OrisonV2Blockout/F01_FIRE_LINE_STAIR/@MeshInstance3D@30929/NativeCaseCollision": "(-4.039999, 1.2, -8.08)",
+        "/root/V2AlcoveReview/OrisonV2Runtime/OrisonV2Blockout/F01_LOBBY/WallNorth_04/Collision": "(-3.726312, 1.194943, -7.87)",
+        "/root/V2AlcoveReview/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_CORE/WallSouth_02/Collision": "(-3.726312, 1.194943, -7.87)"
+      }
+    }
+  ]
+}

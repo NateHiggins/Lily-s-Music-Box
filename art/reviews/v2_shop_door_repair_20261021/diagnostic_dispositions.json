@@ -61,6 +61,18 @@
     {
       "log": "surface_final_v5.log",
       "reason": "All40140 technicalchecks pass, but independent publication rejects raw CRLF root-test SHA against normalized LF source. Exact executed source and original schema2receipt/logs retained. Working source restored to committed LF bytes without semantic or normalized-input changes. Fresh full execution required; no receipt repinning."
+    },
+    {
+      "log": "alcove_final.log",
+      "reason": "Root script parse error before route: untyped dynamic adapter to_global result. Exact executed source preserved. Owned Godot PID130884 manually stopped only after command-line workspace/scene verification; original wrapper records exit -1, no pass claimed. Explicit Vector3 annotation; fresh alcove_final_v2 required."
+    },
+    {
+      "log": "inspection_final.log",
+      "reason": "All27 actual Space/free-cursor/lever/escape checks pass, but static gate-board background work overlaps timing. Functional diagnostic only; use inspection_quiet_v2 for frame timing after all static work finishes."
+    },
+    {
+      "log": "alcove_final_v2.log",
+      "reason": "Actual route fails at root x3.7227,z-3.449 against native fire cabinet and retained lobby/core wall. Source anchor has x4.025..4.675,z-3.85..-3.52 stock. Revised path uses actual lobby/core opening x0.5..3.7, moves south to z-5.25, then around stock to west alcove opening. Player/collision/tolerance remain unchanged. Original route/source/log retained."
     }
   ],
   "clean_replacements": [

@@ -1,0 +1,43 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 377.28,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T21:31:30Z",
+  "started_utc": "2026-10-20T21:25:12Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 PUBLIC LANDING ACCESS CONTRACT: PASS rooms=6 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/public1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/public1.log",
+  "stdout_sha256": "d14949f833bb1ac8c137d3e146121d9a587dc70568c2ad571e9c6bea849b020f"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2PublicLandingAccessContract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/public1",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "b2a067f3a6442c868c9bdf2dca624f6aae7f185d",
+  "repository_tree": "fb7e385dceb81c43553ac1d74c5f8b2b46b35e4e",
+  "runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+  "test_path": "game/tests/v2_public_landing_access_contract.gd",
+  "test_sha256": "5b02630eeaf0c68d4947866333006ef269bbba00ec0f62e5eb8a1543cd0dcff7"
+ },
+ "windowed": true
+}

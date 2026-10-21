@@ -455,7 +455,7 @@
 				"F03_SERVICE_CORE": {
 					"actual": [
 						12.4232110977173,
-						6.40083169937134,
+						6.40082836151123,
 						5.55387496948242
 					],
 					"leg": "service_circulation"
@@ -624,7 +624,7 @@
 				"F02_SERVICE_HALL_CORE_OPENING": {
 					"after": [
 						8.99601268768311,
-						3.19964265823364,
+						3.20078039169312,
 						3.1530122756958
 					],
 					"after_index": 92,
@@ -893,7 +893,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 330.924,
+		"elapsed_s": 337.451,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -2193,7 +2193,7 @@
 				{
 					"actual": [
 						8.99601268768311,
-						3.19964265823364,
+						3.20078039169312,
 						3.1530122756958
 					],
 					"ok": true,
@@ -2207,7 +2207,7 @@
 				{
 					"actual": [
 						8.99601268768311,
-						3.19964265823364,
+						3.20078039169312,
 						3.1530122756958
 					],
 					"ok": true,
@@ -2221,7 +2221,7 @@
 				{
 					"actual": [
 						8.99601268768311,
-						3.19964265823364,
+						3.20078039169312,
 						3.1530122756958
 					],
 					"ok": true,
@@ -2235,7 +2235,7 @@
 				{
 					"actual": [
 						8.90177726745605,
-						3.19964265823364,
+						3.20078039169312,
 						8.2537784576416
 					],
 					"ok": true,
@@ -2249,7 +2249,7 @@
 				{
 					"actual": [
 						8.90177726745605,
-						3.19964265823364,
+						3.20078039169312,
 						8.2537784576416
 					],
 					"ok": true,
@@ -2263,7 +2263,7 @@
 				{
 					"actual": [
 						8.90177726745605,
-						3.19964265823364,
+						3.20078039169312,
 						8.2537784576416
 					],
 					"ok": true,
@@ -2277,7 +2277,7 @@
 				{
 					"actual": [
 						8.90002632141113,
-						3.19964265823364,
+						3.20078039169312,
 						1.84687614440918
 					],
 					"ok": true,
@@ -2291,7 +2291,7 @@
 				{
 					"actual": [
 						8.78633213043213,
-						3.19964265823364,
+						3.20078039169312,
 						1.79181289672852
 					],
 					"ok": true,
@@ -2305,7 +2305,7 @@
 				{
 					"actual": [
 						8.73232078552246,
-						3.19964265823364,
+						3.20078039169312,
 						1.64052581787109
 					],
 					"ok": true,
@@ -5501,7 +5501,7 @@
 				{
 					"actual": [
 						12.3297109603882,
-						14.4009437561035,
+						14.4009428024292,
 						9.12158966064453
 					],
 					"ok": true,
@@ -6486,7 +6486,7 @@
 					],
 					"wall_contacts": {
 						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/FlightB_Step00/Collision": "(-12.21892, 17.76, -20.45)",
-						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/StairGuards": "(-11.17317, 18.485, -21.1025)"
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F06_ROOF/StairGuards": "(-11.17015, 18.485, -21.1025)"
 					}
 				},
 				{
@@ -6778,7 +6778,7 @@
 				{
 					"actual": [
 						11.1701469421387,
-						8.00094318389893,
+						8.00094032287598,
 						9.12159729003906
 					],
 					"ok": true,
@@ -6789,14 +6789,14 @@
 					],
 					"wall_contacts": {
 						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F03_F04/FlightB_Step00/Collision": "(-12.21913, 8.16, -20.45)",
-						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F03_F04/StairGuards": "(-11.17015, 8.885, -21.1025)"
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F03_F04/StairGuards": "(-11.17311, 8.885, -21.1025)"
 					}
 				},
 				{
 					"actual": [
-						11.0769510269165,
-						6.40083169937134,
-						4.39884185791016
+						11.0769491195679,
+						6.40082836151123,
+						4.3988151550293
 					],
 					"ok": true,
 					"target": [
@@ -6808,9 +6808,9 @@
 				},
 				{
 					"actual": [
-						11.0769510269165,
-						6.40083169937134,
-						4.39884185791016
+						11.0769491195679,
+						6.40082836151123,
+						4.3988151550293
 					],
 					"ok": true,
 					"target": [
@@ -6822,9 +6822,9 @@
 				},
 				{
 					"actual": [
-						12.4008674621582,
-						6.40083169937134,
-						4.35340309143066
+						12.4008665084839,
+						6.40082836151123,
+						4.35339736938477
 					],
 					"ok": true,
 					"target": [
@@ -6836,9 +6836,9 @@
 				},
 				{
 					"actual": [
-						12.4008674621582,
-						6.40083169937134,
-						4.35340309143066
+						12.4008665084839,
+						6.40082836151123,
+						4.35339736938477
 					],
 					"ok": true,
 					"target": [
@@ -6851,7 +6851,7 @@
 				{
 					"actual": [
 						12.4232110977173,
-						6.40083169937134,
+						6.40082836151123,
 						5.55387496948242
 					],
 					"ok": true,
@@ -6865,8 +6865,8 @@
 				{
 					"actual": [
 						12.4249486923218,
-						4.85334873199463,
-						9.05121994018555
+						4.8532772064209,
+						9.05125427246094
 					],
 					"ok": true,
 					"target": [
@@ -6878,7 +6878,7 @@
 				},
 				{
 					"actual": [
-						11.170147895813,
+						11.1701469421387,
 						4.80094242095947,
 						9.1215991973877
 					],
@@ -6889,7 +6889,7 @@
 						9.14999961853027
 					],
 					"wall_contacts": {
-						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F02_F03/FlightB_Step00/Collision": "(-12.21884, 4.96, -20.45)",
+						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F02_F03/FlightB_Step00/Collision": "(-12.21913, 4.96, -20.45)",
 						"/root/V2ServiceCirculationContract/OrisonV2Runtime/OrisonV2Blockout/SERVICE_F02_F03/StairGuards": "(-11.17015, 5.685, -21.1025)"
 					}
 				},
@@ -6897,7 +6897,7 @@
 					"actual": [
 						11.0769491195679,
 						3.20079874992371,
-						4.39880752563477
+						4.39880561828613
 					],
 					"ok": true,
 					"target": [
@@ -6911,7 +6911,7 @@
 					"actual": [
 						11.0769491195679,
 						3.20079874992371,
-						4.39880752563477
+						4.39880561828613
 					],
 					"ok": true,
 					"target": [
@@ -7117,10 +7117,10 @@
 	"scope": "One declared basement placement, all seven service stairs up to the roof and back, both ends of each occupied service hall and six actual direct hall/core thresholds. Only live controller movement after placement; real grab/motion/release on controlled leaves. Room access and recorded edge traversal only; no lift operation, case, save, acoustic, photoreal or human acceptance.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "b2a067f3a6442c868c9bdf2dca624f6aae7f185d",
-		"runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+		"repository_head": "1e8b332fdfefc76a73bd50ad5e1df7beaf8fcaee",
+		"runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
 		"scene_path": "res://tests/V2ServiceCirculationContract.tscn",
-		"surface_inputs_sha256": "10c1f1f4e60419c83277b5818f7b29b317dc660af9b41560fb7c2863be96a8b1",
+		"surface_inputs_sha256": "09a56bdb883265b8caa86502e26e95c27842a3ae1038c03c8a20b09fb1b61ea6",
 		"test_dependencies": {
 			"game/tests/V2ServiceCirculationContract.tscn": "e7ed5d0e65b98f3ff993ec6e1bf038a2db56964c911a419c52ff343df8f6ba73",
 			"game/tests/orison_v2_first_slice_contract_test.gd": "884c1b94e63ed438bed885173aae490cee06f3aa71ad1d901007f32ba053a971",
@@ -7128,7 +7128,7 @@
 			"game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
 			"game/tests/v2_service_circulation_contract.gd": "b25a23c9e339469906df0a73b84804375f920bbeccc15effdb8a16151a827e14",
 			"game/tests/v2_service_circulation_driver.gd": "737b2939b38a33f3d6d9ea7b8d60ba6c9f538ebaf3fca352d34d54ea0953d588",
-			"game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+			"game/tests/v2_spatial_access_cohort.gd": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9"
 		},
 		"test_path": "game/tests/v2_service_circulation_contract.gd",
 		"test_sha256": "b25a23c9e339469906df0a73b84804375f920bbeccc15effdb8a16151a827e14"

@@ -4,11 +4,11 @@ func _route() -> void:
  var directory:=OS.get_environment("SHOT_DIR")
  DirAccess.make_dir_recursive_absolute(directory)
  player.set_lamp_enabled(true);player.carried_device.set_capture_hidden(true)
- for point: Vector3 in [Vector3(3.9,0,-3.5),Vector3(4.85,0,-4.22)]:
+ for point: Vector3 in [Vector3(1.925,0,-5.25),Vector3(4.85,0,-5.25),Vector3(4.85,0,-4.22)]:
   if not await _walk(point):return
  var records: Array=[]
  for height: float in [.45,1.15,2.2]:
-  var at:=world.adapter.root.to_global(Vector3(6.85,height,-4.225))
+  var at: Vector3=world.adapter.root.to_global(Vector3(6.85,height,-4.225))
   player.face_world_point(at)
   for frame in 60:await RenderingServer.frame_post_draw
   var query:=PhysicsRayQueryParameters3D.create(player.camera.global_position,at,1,[player.get_rid()])
