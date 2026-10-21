@@ -19,6 +19,8 @@ func _run() -> void:
 	check(asphalt.albedo_texture!=null and asphalt.roughness_texture!=null and asphalt.normal_texture!=null,"catalogued asphalt has all three original maps")
 	check(asphalt.uv1_scale.is_equal_approx(Vector3.ONE/2.5),"catalogue owns the 2.5 metre asphalt scale")
 	var construction: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(CONSTRUCTION))
+	var apron: Node3D=_validate_ground_apron(root,owner)
+	var apron_data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_apron.json"))
 	var source: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(SOURCE))
 	var parts:=0;var triangles:=0;var native:=PackedVector3Array()
 	var new_bodies: Array[RID]=[]
@@ -27,12 +29,12 @@ func _run() -> void:
 		_check_planar_mapping(draw.mesh,true)
 		var pose:=root.global_transform.affine_inverse()*draw.global_transform
 		var bounds: AABB=pose*draw.mesh.get_aabb()
-		check(maxf(bounds.size.x,maxf(bounds.size.y,bounds.size.z))<=4.00001,"ground has bounded material parts")
+		if apron==null or not apron.is_ancestor_of(draw):check(maxf(bounds.size.x,maxf(bounds.size.y,bounds.size.z))<=4.00001,"ground has bounded material parts")
 		native.append_array(pose*draw.mesh.get_faces())
 		var material:=draw.material_override as StandardMaterial3D
 		check(material!=null and not material.uv1_triplanar,"installed ground uses the verified metre UV channel")
 		new_bodies.append(draw.get_node("GroundCollision").get_rid())
-	check(parts==construction.parts.size() and triangles==construction.native_faces*2,"production imports the complete bound native ground export")
+	check(parts==construction.parts.size()+apron_data.boxes.size() and triangles==construction.native_faces*2+int(apron_data.export_check.triangles),"production imports the complete ground and separately bounded apron exports")
 	check(FileAccess.get_sha256("res://assets/props/orison_ground.glb")==construction.source_native_sha256,"installed ground binds its exact native export")
 	await get_tree().physics_frame;await get_tree().physics_frame
 	var old_exclude: Array[RID]=[world.player.get_rid()]
@@ -42,7 +44,8 @@ func _run() -> void:
 	var stations: Dictionary=source.stations
 	var discovery: Dictionary={"records":source.prior_records}
 	var plan: Dictionary=construction.source_plan
-	var results: Array=[];var contacts:=0;var embedded:=0;var reproduced:=0
+	var results: Array=[];var contacts:=0;var embedded:=0;var reproduced:=0;var qualified_revisions:=0
+	var ownership_updates: Dictionary=_ground_probe_updates()
 	for record_index in stations.records.size():
 		var post: Dictionary=stations.records[record_index]
 		for point_index in post.points.size():
@@ -55,7 +58,12 @@ func _run() -> void:
 			var query:=PhysicsRayQueryParameters3D.create(root.to_global(at+Vector3.UP*.05),root.to_global(at-Vector3.UP*4),1,old_exclude)
 			var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
 			var distance:=_mesh_distance(native,at+Vector3.UP*.05,Vector3.DOWN)
-			if containing.is_empty():
+			var revision: Dictionary=_ground_probe_revision(ownership_updates,record_index,point_index)
+			var revision_valid:=false
+			if not revision.is_empty():
+				revision_valid=_verify_ground_probe_revision(world,root,revision,at,hit,distance)
+				if revision_valid:qualified_revisions+=1
+			elif containing.is_empty():
 				check(not hit.is_empty() and new_bodies.has(hit.collider.get_rid()) and absf(root.to_local(hit.position).y+.02)<.00003,"unchanged exterior station meets the actual new native terrain")
 				check(is_finite(distance) and absf(distance-.07)<.00003,"native mesh and collision agree at the exterior station")
 				contacts+=1
@@ -66,10 +74,11 @@ func _run() -> void:
 			var old_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
 			var prior: Dictionary=discovery.records[record_index].samples[point_index]
 			var same:=old_hit.is_empty() if str(prior.first_owner).is_empty() else not old_hit.is_empty() and str(world.get_path_to(old_hit.collider))==str(prior.first_owner) and absf(root.to_local(old_hit.position).y-float(prior.first_y))<.00003
-			check(same,"excluding only the ground reproduces the original unshifted discovery")
+			if revision.is_empty():check(same,"excluding only the ground reproduces the original unshifted discovery")
+			else:check(old_hit.get("collider")==world.get_node(str(revision.collider)),"source-qualified roof retains ownership when ground is excluded")
 			if same:reproduced+=1
-			results.append({"post":post.post,"point":p,"retained_components":containing,"terrain_y":root.to_local(hit.position).y if not hit.is_empty() else null,"original_reproduced":same})
-	check(contacts==46 and embedded==2 and reproduced==48,"all 48 original stations have explicit terrain or retained-volume ownership")
+			results.append({"post":post.post,"point":p,"retained_components":containing,"terrain_y":root.to_local(hit.position).y if not hit.is_empty() else null,"original_reproduced":same,"source_qualified_revision":revision_valid,"current_owner":str(world.get_path_to(hit.collider)) if not hit.is_empty() else ""})
+	check(contacts==43 and embedded==2 and reproduced==45 and qualified_revisions==3,"all 48 unchanged stations have 43 native terrain contacts, two retained masonry owners and three source-qualified current roof owners")
 	var air_ray:=PhysicsRayQueryParameters3D.create(root.to_global(Vector3(16.6,-1.3,3.2)),root.to_global(Vector3(15.5,-1.3,3.2)),1,[world.player.get_rid()])
 	var air_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(air_ray)
 	print("POST PAVEMENT AIR THROAT: owner=",str(world.get_path_to(air_hit.collider)) if not air_hit.is_empty() else "empty")
@@ -101,7 +110,7 @@ func _run() -> void:
 		owner.show();await _settled_optics()
 		observations.append({"view":view[0],"shown":shown,"hidden":hidden,"note":"Matched stationary native ground visibility; collision stays enabled. No timing verdict."})
 	var file:=FileAccess.open(OS.get_environment("SHOT_DIR").path_join("ground-inspection.json"),FileAccess.WRITE)
-	file.store_string(JSON.stringify({"evidence_class":"INERT","parts":parts,"triangles":triangles,"terrain_contacts":contacts,"embedded_stations":embedded,"original_reproduced":reproduced,"results":results,"render_observations":observations,"checks":checks,"failures":failures,"note":"Installed bounded ground only. Drainage, air-well, city plinth and weather closure remain open."},"\t")+"\n");file.close()
+	file.store_string(JSON.stringify({"evidence_class":"INERT","parts":parts,"triangles":triangles,"terrain_contacts":contacts,"embedded_stations":embedded,"original_reproduced":reproduced,"source_qualified_revisions":qualified_revisions,"results":results,"render_observations":observations,"checks":checks,"failures":failures,"note":"Installed bounded ground only. Drainage, air-well, city plinth and weather closure remain open."},"\t")+"\n");file.close()
 	print("INERT V2 GROUND: parts=%d triangles=%d contacts=%d embedded=%d reproduced=%d checks=%d failures=%d" % [parts,triangles,contacts,embedded,reproduced,checks,failures.size()])
 	for failure: String in failures:print("COURTYARD TRIAL FAIL: ",failure)
 	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)

@@ -4,7 +4,7 @@ The closed city masses remain intentional distant
 closures. Contact geometry is not a soil, reinforcement or load-capacity finding.
 """
 from pathlib import Path
-import json, math, hashlib, collections
+import json, math, hashlib, collections, sys
 import bpy, bmesh
 import numpy as np
 from mathutils import Vector, Matrix
@@ -82,6 +82,9 @@ for row in profiles:
 # existing 160 mm course and fit the new course beneath it; never double it.
 retained_path=root/'art/data/orison_ground/retained_grade_source.json'
 retained=json.loads(retained_path.read_text(encoding='utf-8'))
+sys.path.insert(0,str(root/'tools'))
+from grade_source_snapshot import validate as validate_grade_snapshot
+validate_grade_snapshot(retained,root)
 for relative,expected in retained['bindings'].items():
     path=root/relative
     raw=path.read_bytes() if path.suffix in ['.blend','.glb'] else path.read_text(encoding='utf-8').replace('\r\n','\n').encode()

@@ -2,6 +2,54 @@
 
 Evidence class: **INERT**
 
+## Current source renewal (2026-10-20)
+
+The October 20 source map supersedes the historical counts below. Current native
+and runtime discovery yields 1,057 classified retained records. Exact union
+containment removes 269 redundant runtime boxes already inside occupied/shaft
+reservations. No rotated box or complex native AABB becomes an exact solid.
+The current ground has 2,137 local partitions; 23 city footings have 1,036 parts.
+The four separately prescribed distant-apron boxes retain their own extent checks.
+
+For future reconstruction, reuse the saved discovery only while its bound runtime
+inputs and capture-test dependencies remain unchanged. Both soil and city-footing
+builders call **tools/grade_source_snapshot.py** before generation. A stale source
+requires a new survey, not replacement hashes. All discovery artifacts are inert;
+only an executed production test can establish its declared runtime contracts.
+
+1. Run **V2ConstructionBoxPrecisionTest.tscn** for the actual shell. When runtime
+   inputs changed, run **V2GradeOwnerSurvey.tscn** windowed through the lane with
+   a writable SHOT_DIR; retain **grade_owners.json** and its original run receipt.
+2. Run Blender **export_retained_grade_sources.py** with **--survey** and **--out**.
+   It reads current editable masonry, construction components, registered receiving
+   geometry and each actual front-paving cell. It does not install soil.
+3. Run **tools/plan_v2_retained_grade.py** with **--native**, **--survey**, **--out**
+   and **--report**. Review the candidate, then install it as
+   **art/data/orison_ground/retained_grade_source.json**. Portable discovery copies
+   and all their source bindings live under **art/data/orison_ground/discovery/**.
+4. Rebuild **build_city_foundations.py**, run
+   **art/tools/export_bar_ground_reservations.py**, then rebuild
+   **build_orison_ground.py** and **build_city_ground_apron.py**, in that order.
+   The apron derives its inner edges from the actual exported terrain. Its top
+   UVs share the retained ground's registered 2.5-metre texture phase.
+5. Independently reopen with **inspect_city_foundations.py** and
+   **inspect_orison_ground.py**. The latter's ignored cell NPZ is reproduced by
+   the ground builder. Keep the original volume/contact tolerances.
+6. After approved import, run **V2GradeStockBench.tscn** before composing the
+   world. **V2SoilRenewalContract.tscn** then reuses one production world for the
+   original fixed terrain/city checks, actual loaded materials and the earlier
+   chimney/heating/ventilation checks. It grants no broader case/save/access proof.
+
+The original 48 discovery positions and historical results stay byte-unchanged.
+Three now lie on the existing **B1_STORAGE_NORTH_BAY** roof. The separate
+**orison_ground_probe_ownership.json** fixture admits only those three named
+source-owned revisions, checked against actual collision bounds and visible
+native triangles. Forty-five historical results still reproduce; three current
+roof contacts are reported separately. No point moves to obtain a pass.
+Read **design/V2_GRADE_SOURCE_RENEWAL_2026-10-20.md** for current evidence and limits.
+
+## Historical construction record
+
 This construction report grants no runtime-contract or completeness promotion.
 Raw architecture, full infrastructure and final material polish remain open.
 Heating-distribution cutouts remain parked until shell readiness is established.

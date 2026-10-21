@@ -1,0 +1,111 @@
+{
+	"checks": 22254,
+	"failures": [],
+	"families": [
+		{
+			"asset_sha256": "88267d6ff00951b17c7c468f99552089bcdbbd2dd4a496e54f8e43119319a4f7",
+			"family": "ground",
+			"parts": 2137,
+			"phase_valid": true,
+			"triangles": 9550
+		},
+		{
+			"asset_sha256": "62b02a0194a4a5d332c2a39ae91f9f7f0defd601028806a17f6d33640f5d2ec9",
+			"family": "foundations",
+			"parts": 1036,
+			"phase_valid": true,
+			"triangles": 21010
+		},
+		{
+			"asset_sha256": "7ba6bfbc8badeb4b3c85c84e6dba8525f2e047be2d0f6dc96b0f57c50e319d3e",
+			"family": "apron",
+			"parts": 4,
+			"phase_valid": true,
+			"triangles": 48
+		}
+	],
+	"scope": "Three installed ground/foundation/apron assets only; no global qualification",
+	"textures": {
+		"res://assets/building/textures/T_ai_materials_asphalt_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_asphalt_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_asphalt_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_concrete_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_concrete_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_concrete_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_soil_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_soil_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_soil_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		}
+	}
+}

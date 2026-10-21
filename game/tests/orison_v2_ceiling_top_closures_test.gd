@@ -101,6 +101,70 @@ func _run() -> void:
 	for failure: String in failures:print("CEILING TOP CLOSURE FAIL: ",failure)
 	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
 
+func _ground_probe_updates() -> Dictionary:
+	var path: String="res://tests/fixtures/orison_ground_probe_ownership.json"
+	check(FileAccess.file_exists(path),"explicit current ground ownership overlay exists")
+	if not FileAccess.file_exists(path):return {"records":[]}
+	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(path))
+	check(str(data.get("schema",""))=="orison.ground-probe-ownership.v1" and data.get("records",[]).size()==3,"only three fixed storage-roof ownership revisions are admitted")
+	if not data.has("records") or not data.has("bindings"):return {"records":[]}
+	var root: String=ProjectSettings.globalize_path("res://..").simplify_path()
+	for relative: String in data.bindings:
+		var file: String=root.path_join(relative)
+		check(FileAccess.file_exists(file),"probe ownership source exists: "+relative)
+		var digest: String=FileAccess.get_sha256(file) if relative.get_extension() in ["glb","bin","blend"] else FileAccess.get_file_as_string(file).replace("\r\n","\n").sha256_text()
+		check(digest==str(data.bindings[relative]),"current probe ownership source binding: "+relative)
+	return data
+
+func _ground_probe_revision(data: Dictionary,record_index: int,point_index: int) -> Dictionary:
+	for row: Dictionary in data.records:
+		if int(row.record_index)==record_index and int(row.point_index)==point_index:return row
+	return {}
+
+func _verify_ground_probe_revision(world: Node,root: Node3D,row: Dictionary,at: Vector3,hit: Dictionary,terrain_distance: float) -> bool:
+	var before: int=failures.size()
+	var p: Array=row.point
+	check(at.distance_to(Vector3(p[0],p[1],p[2]))<.000001,"source-owned probe keeps its original coordinates")
+	var body:=world.get_node_or_null(str(row.collider)) as StaticBody3D
+	check(body!=null,"exact current roof collision owner exists")
+	if body==null:return false
+	check(hit.get("collider")==body and absf(root.to_local(hit.position).y-float(row.expected_y))<.00003,"actual current roof owns the unfiltered fixed probe")
+	var shape:=body.get_child(0) as CollisionShape3D
+	check(shape!=null and shape.shape is BoxShape3D,"current roof retains its measured source-depth collider")
+	if shape==null or not shape.shape is BoxShape3D:return false
+	var bounds: AABB=(root.global_transform.affine_inverse()*shape.global_transform)*AABB(-shape.shape.size*.5,shape.shape.size)
+	var b: Array=row.bounds
+	check(bounds.position.distance_to(Vector3(b[0],b[1],b[2]))<.00003 and bounds.end.distance_to(Vector3(b[3],b[4],b[5]))<.00003,"actual roof box matches its source-qualified bounds")
+	var draws: Array[Node]=body.get_parent().find_children(str(row.visual_name),"MeshInstance3D",true,false)
+	check(draws.size()==1,"current roof has one corresponding visible native part")
+	if draws.size()!=1:return false
+	var draw: MeshInstance3D=draws[0]
+	var faces: PackedVector3Array=(root.global_transform.affine_inverse()*draw.global_transform)*draw.mesh.get_faces()
+	var distance: float=_mesh_distance(faces,at+Vector3.UP*.05,Vector3.DOWN)
+	check(is_finite(distance) and absf(distance-.05)<.00003,"visible native roof and physical contact meet the same fixed probe")
+	check(not is_finite(terrain_distance) or absf(terrain_distance-.07)>.0001,"soil does not duplicate the current storage roof")
+	return failures.size()==before
+
+func _validate_ground_apron(root: Node3D,owner: Node3D) -> Node3D:
+	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_apron.json"))
+	var apron: Node3D=owner.get_child(0).get_node_or_null("DistantApron")
+	check(apron!=null,"retained distant apron is installed")
+	if apron==null:return null
+	var draws: Array[Node]=apron.find_children("*","MeshInstance3D",true,false)
+	check(draws.size()==data.boxes.size() and draws.size()==4,"four prescribed distant apron stocks are present")
+	check(FileAccess.get_sha256("res://assets/props/city_ground_apron.glb")==str(data.asset_sha256),"actual distant apron export is source-bound")
+	check(FileAccess.get_sha256("res://assets/props/orison_ground.glb")==str(data.retained_ground_sha256),"distant apron binds current retained grade")
+	for draw: MeshInstance3D in draws:
+		var matches: Array=[]
+		for row: Dictionary in data.boxes:
+			if str(draw.name).ends_with("_"+str(row.id)):matches.append(row)
+		check(matches.size()==1,"native apron stock has one prescribed extent")
+		if matches.size()!=1:continue
+		var b: Array=matches[0].bounds
+		var actual: AABB=(root.global_transform.affine_inverse()*draw.global_transform)*draw.mesh.get_aabb()
+		check(actual.position.distance_to(Vector3(b[0],b[1],b[2]))<.0001 and actual.end.distance_to(Vector3(b[3],b[4],b[5]))<.0001,"actual imported distant apron matches its prescribed bounds")
+	return apron
+
 func _check_planar_mapping(mesh: Mesh, check_derivatives: bool=false) -> void:
 	for surface in mesh.get_surface_count():
 		var arrays:=mesh.surface_get_arrays(surface)

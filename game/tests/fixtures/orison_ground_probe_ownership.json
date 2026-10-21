@@ -1,0 +1,78 @@
+{
+  "evidence_class": "INERT",
+  "schema": "orison.ground-probe-ownership.v1",
+  "records": [
+    {
+      "record_index": 8,
+      "point_index": 0,
+      "point": [
+        3.625,
+        0,
+        11.755
+      ],
+      "source_room": "B1_STORAGE_NORTH_BAY",
+      "collider": "OrisonV2Blockout/CeilingTopClosures/B1_STORAGE_NORTH_BAY_Top_00_00_00Collision",
+      "visual_name": "B1_STORAGE_NORTH_BAY_Top_00_00_00",
+      "bounds": [
+        3.45000028610229,
+        -0.200000002980232,
+        9.50000095367432,
+        5.40000009536743,
+        0.0,
+        11.850001335144
+      ],
+      "expected_y": 0.0
+    },
+    {
+      "record_index": 8,
+      "point_index": 1,
+      "point": [
+        4.525,
+        0,
+        11.755
+      ],
+      "source_room": "B1_STORAGE_NORTH_BAY",
+      "collider": "OrisonV2Blockout/CeilingTopClosures/B1_STORAGE_NORTH_BAY_Top_00_00_00Collision",
+      "visual_name": "B1_STORAGE_NORTH_BAY_Top_00_00_00",
+      "bounds": [
+        3.45000028610229,
+        -0.200000002980232,
+        9.50000095367432,
+        5.40000009536743,
+        0.0,
+        11.850001335144
+      ],
+      "expected_y": 0.0
+    },
+    {
+      "record_index": 8,
+      "point_index": 2,
+      "point": [
+        4.075,
+        0,
+        11.305000000000001
+      ],
+      "source_room": "B1_STORAGE_NORTH_BAY",
+      "collider": "OrisonV2Blockout/CeilingTopClosures/B1_STORAGE_NORTH_BAY_Top_00_00_00Collision",
+      "visual_name": "B1_STORAGE_NORTH_BAY_Top_00_00_00",
+      "bounds": [
+        3.45000028610229,
+        -0.200000002980232,
+        9.50000095367432,
+        5.40000009536743,
+        0.0,
+        11.850001335144
+      ],
+      "expected_y": 0.0
+    }
+  ],
+  "scope": "Three source-qualified current roof contacts; original station coordinates and historical results remain unchanged. Not human or whole-building acceptance.",
+  "bindings": {
+    "game/data/orison_v2_blockout.json": "9033cc680036c4452ee3c336fed5b841364c0a2d90d29dfaa9ecd60929998de4",
+    "game/tests/fixtures/orison_ground_source.json": "a0951553c142575ca4cd9de36bb46ac757c4885418dc65c5018fcda0095b59d3",
+    "art/data/orison_ground/discovery/runtime_survey.json": "b649ef5220691853f85d28108ebebfd2ecd42be5653ba6cfea176fe681f92eb4",
+    "game/scripts/building/orison_v2_ceiling_top_closures.gd": "3faf9c35441462b9d23f50952fcbc34906c79ba593811c5e91ab8276e407f09d",
+    "game/assets/props/ceiling_top_closures.glb": "03817028c8e4f85c0636624e77e09682390f943d5b550fc7caa6104cc1ae997a",
+    "tools/build_v2_ground_probe_updates.py": "0501572c066d036f7249d7e4367b6ff625615f7795701cbf37854704a9f8c77c"
+  }
+}

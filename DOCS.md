@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Fresh terrain/footing sources, texture phase and fixed current roof ownership | `design/V2_GRADE_SOURCE_RENEWAL_2026-10-20.md` |
 | Boiler chimney/roof airway, native sleeve and remaining apartment flue migration | `design/V2_FLUE_AIRWAY_2026-10-20.md` |
 | Current single workspace and recovery of retired October worktrees | `design/WORKSPACE_CLEANUP_2026-10-20.md` |
 | V2 parallel heating transmission, passive junctions and native route survey | `design/V2_ACOUSTIC_HEATING_2026-10-20.md` |

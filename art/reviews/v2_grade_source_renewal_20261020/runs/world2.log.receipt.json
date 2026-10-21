@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 226.1,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T01:47:09Z",
+  "started_utc": "2026-10-21T01:43:22Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 ACOUSTIC VENTILATION: PASS checks=1267 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-soil-renewal-20261020/world2.log.stderr",
+  "stderr_sha256": "80693b73bac9c07914ffb8ea9cee545421b0635dbcd4ead32af5aee94e129df3",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-soil-renewal-20261020/world2.log",
+  "stdout_sha256": "e3a3fdd56fe470493d2fc2438482ceacb2ec3dfccd94ea5433174206d4ba15dd"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2SoilRenewalContract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-soil-renewal-20261020/world2",
+ "source": {
+  "dirty_paths": 982,
+  "dirty_sample": [
+   "MM .gitattributes",
+   "M  art/blender/alley_groundworks_reservations.json",
+   "M  art/blender/city_foundations.blend",
+   "M  art/blender/city_foundations_construction.json",
+   "MM art/blender/city_ground_apron.blend",
+   "MM art/blender/city_ground_apron_construction.json",
+   "M  art/blender/orison_ground.blend",
+   "M  art/blender/orison_ground_construction.json",
+   "M  art/blender/scripts/build_city_foundations.py",
+   " M art/blender/scripts/build_city_ground_apron.py",
+   "M  art/blender/scripts/build_orison_ground.py",
+   "A  art/blender/scripts/export_retained_grade_sources.py",
+   "A  art/blender/scripts/inspect_city_foundations.py",
+   "M  art/blender/scripts/inspect_orison_ground.py",
+   "M  art/data/orison_ground/bar_reservations.json",
+   "A  art/data/orison_ground/discovery/native_sources.json",
+   "A  art/data/orison_ground/discovery/runtime_survey.json",
+   "M  art/data/orison_ground/retained_grade_source.json",
+   " M art/data/orison_v2/front_trim_layout_source.json",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import"
+  ],
+  "repository_head": "35c06ee4a85fa7063cee037e61fd138e8964b1ff",
+  "repository_tree": "ae6f07d22827c671bee87c960c12b7862952db03",
+  "runtime_inputs_sha256": "d349304c6a3f71a0503512dbd4b3326846410b9ca24ab465694225aa1f6986c7",
+  "test_path": "game/tests/v2_soil_renewal_contract.gd",
+  "test_sha256": "bce5896c540fabd4f7721e938b3200a3d63d674a5f9a30461673ba8d341b7e0c"
+ },
+ "windowed": true
+}

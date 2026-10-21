@@ -38,7 +38,17 @@ for row in boxes:
     mesh=bpy.data.meshes.new(row['id']);mesh.from_pydata([Vector(v)-origin for v in vertices],[],faces);mesh.update()
     bm=bmesh.new();bm.from_mesh(mesh);assert all(len(e.link_faces)==2 for e in bm.edges);bm.free()
     stock=bpy.data.objects.new(row['id'],mesh)
-    partition(collection,'Horizon_asphalt_'+row['id'],[stock],finish,mat,Matrix.Translation(origin),catalog)
+    part=partition(collection,'Horizon_asphalt_'+row['id'],[stock],finish,mat,Matrix.Translation(origin),catalog)
+    # The finite ground uses registered metre axes. Keep the distant stock's
+    # top in that same phase, instead of restarting the texture at each apron
+    # box's local centre. The glTF export flips V, hence the authored +1.
+    tile=float(catalog[plan['catalog_key']]['meters_per_tile'])
+    for face in part.data.polygons:
+        if face.normal.z<.999:continue
+        for loop in face.loop_indices:
+            p=part.data.vertices[part.data.loops[loop].vertex_index].co
+            part.data.uv_layers.active.data[loop].uv=(p.x+origin.x%tile,1+p.y+origin.y%tile)
+            part.data.attributes['_tangent_guide'].data[loop].vector=(1,0,0)
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
 proof=export(ROOT,'city_ground_apron',collection)
 actual=exported_bounds((ROOT/'game/assets/props/city_ground_apron.glb').read_bytes())
@@ -51,6 +61,7 @@ def sha(path):
     raw=path.read_bytes()
     return hashlib.sha256(raw if path.suffix in ['.glb','.blend','.png'] else raw.replace(b'\r\n',b'\n')).hexdigest()
 report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],retained_ground_bounds=bounds,outer_bounds=actual,
+    surface_phase='Registered metre axes, with each local origin reduced by whole asphalt tiles; matches retained ground.',
     boxes=boxes,retained_ground_sha256=sha(retained_path),asset_sha256=sha(ROOT/'game/assets/props/city_ground_apron.glb'),
     source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in paths},export_check=proof)
 for relative in ['art/blender/city_ground_apron_construction.json','game/tests/fixtures/orison_city_ground_apron.json']:

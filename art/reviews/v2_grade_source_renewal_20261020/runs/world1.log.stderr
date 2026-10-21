@@ -1,0 +1,68 @@
+WARNING: 'res://assets/characters/mina_vale/mina_vale.gltf': In external resource #0, invalid UID: 'uid://kdyj8wrgb6be' - using text path instead: 'res://assets/characters/mina_vale/texture_0.png'.
+   at: open (core/io/resource_format_binary.cpp:1025)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/characters/animated_resident.gd:39)
+       [1] setup (res://scripts/characters/orison_v2_mina_routine.gd:83)
+       [2] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:590)
+       [3] _ready (res://scripts/building/orison_v2_runtime_root.gd:183)
+       [4] _run (res://tests/v2_acoustic_ventilation_contract.gd:25)
+ERROR: unchanged exterior station meets the actual new native terrain
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:138)
+ERROR: native mesh and collision agree at the exterior station
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:139)
+ERROR: excluding only the ground reproduces the original unshifted discovery
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:148)
+ERROR: unchanged exterior station meets the actual new native terrain
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:138)
+ERROR: native mesh and collision agree at the exterior station
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:139)
+ERROR: excluding only the ground reproduces the original unshifted discovery
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:148)
+ERROR: unchanged exterior station meets the actual new native terrain
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:138)
+ERROR: native mesh and collision agree at the exterior station
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:139)
+ERROR: excluding only the ground reproduces the original unshifted discovery
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:148)
+ERROR: all 48 original stations have explicit terrain or retained-volume ownership
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_world (res://tests/orison_v2_city_foundations_test.gd:151)

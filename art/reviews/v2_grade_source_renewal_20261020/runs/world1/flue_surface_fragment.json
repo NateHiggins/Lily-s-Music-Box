@@ -1,0 +1,33 @@
+{
+	"parts": 13,
+	"scope": "New wall thimble only, not global surface qualification",
+	"textures": {
+		"res://assets/building/textures/T_ai_materials_iron_neutral_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1254,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1254
+		},
+		"res://assets/building/textures/T_ai_materials_iron_neutral_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_iron_neutral_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		}
+	}
+}

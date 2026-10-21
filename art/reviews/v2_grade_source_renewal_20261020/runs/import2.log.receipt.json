@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 8.43,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T01:22:34Z",
+  "started_utc": "2026-10-21T01:22:25Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-soil-renewal-20261020/import2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-soil-renewal-20261020/import2.log",
+  "stdout_sha256": "0175e4e402fb37cb4c501a183abd1e2bc4b8bd2e88ac6a3f4eee6df0b9d4709b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 970,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/blender/alley_groundworks_reservations.json",
+   "M  art/blender/city_foundations.blend",
+   "M  art/blender/city_foundations_construction.json",
+   "MM art/blender/city_ground_apron.blend",
+   "MM art/blender/city_ground_apron_construction.json",
+   "M  art/blender/orison_ground.blend",
+   "M  art/blender/orison_ground_construction.json",
+   "M  art/blender/scripts/build_city_foundations.py",
+   " M art/blender/scripts/build_city_ground_apron.py",
+   "M  art/blender/scripts/build_orison_ground.py",
+   "A  art/blender/scripts/export_retained_grade_sources.py",
+   "A  art/blender/scripts/inspect_city_foundations.py",
+   "M  art/blender/scripts/inspect_orison_ground.py",
+   "M  art/data/orison_ground/bar_reservations.json",
+   "A  art/data/orison_ground/discovery/native_sources.json",
+   "A  art/data/orison_ground/discovery/runtime_survey.json",
+   "M  art/data/orison_ground/retained_grade_source.json",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import"
+  ],
+  "repository_head": "35c06ee4a85fa7063cee037e61fd138e8964b1ff",
+  "repository_tree": "ae6f07d22827c671bee87c960c12b7862952db03",
+  "runtime_inputs_sha256": "d349304c6a3f71a0503512dbd4b3326846410b9ca24ab465694225aa1f6986c7",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

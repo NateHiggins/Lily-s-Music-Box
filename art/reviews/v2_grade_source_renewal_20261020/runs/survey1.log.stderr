@@ -1,0 +1,16 @@
+WARNING: 'res://assets/characters/mina_vale/mina_vale.gltf': In external resource #0, invalid UID: 'uid://kdyj8wrgb6be' - using text path instead: 'res://assets/characters/mina_vale/texture_0.png'.
+   at: open (core/io/resource_format_binary.cpp:1025)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/characters/animated_resident.gd:39)
+       [1] setup (res://scripts/characters/orison_v2_mina_routine.gd:83)
+       [2] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:590)
+       [3] _ready (res://scripts/building/orison_v2_runtime_root.gd:183)
+       [4] _run (res://tests/v2_grade_owner_survey.gd:10)
+ERROR: Node not found: "BodegaReceiving/bodega_receiving" (relative to "/root/V2GradeOwnerSurvey/OrisonV2Runtime/OrisonV2Blockout").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/v2_grade_owner_survey.gd:30)
+SCRIPT ERROR: Invalid access to property or key 'global_transform' on a base object of type 'null instance'.
+   at: _run (res://tests/v2_grade_owner_survey.gd:31)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/v2_grade_owner_survey.gd:31)

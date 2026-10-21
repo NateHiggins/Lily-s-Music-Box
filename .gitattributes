@@ -2666,3 +2666,20 @@ tools/plan_v2_flue_airway.py -text whitespace=cr-at-eol
 art/reviews/v2_flue_airway_20261020/** -text whitespace=cr-at-eol
 # Original receipt-bound stdout contains significant raw bytes, including spaces.
 art/reviews/v2_flue_airway_20261020/runs/*.log binary
+
+# Portable grade discovery and independently executed construction checks.
+art/data/orison_ground/discovery/** -text whitespace=cr-at-eol
+art/blender/scripts/export_retained_grade_sources.py -text whitespace=cr-at-eol
+art/blender/scripts/inspect_city_foundations.py -text whitespace=cr-at-eol
+tools/plan_v2_retained_grade.py -text whitespace=cr-at-eol
+tools/grade_source_snapshot.py -text whitespace=cr-at-eol
+game/tests/v2_grade_owner_survey.gd -text whitespace=cr-at-eol
+game/tests/v2_construction_box_precision_test.gd -text whitespace=cr-at-eol
+game/tests/v2_grade_stock_inspector.gd -text whitespace=cr-at-eol
+game/tests/v2_grade_stock_bench.gd -text whitespace=cr-at-eol
+game/tests/v2_soil_renewal_contract.gd -text whitespace=cr-at-eol
+game/tests/v2_ground_probe_owner_bench.gd -text whitespace=cr-at-eol
+tools/build_v2_ground_probe_updates.py -text whitespace=cr-at-eol
+game/tests/fixtures/orison_ground_probe_ownership.json -text whitespace=cr-at-eol
+art/reviews/v2_grade_source_renewal_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_grade_source_renewal_20261020/runs/*.log binary

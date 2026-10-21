@@ -1,6 +1,6 @@
 """Read the saved native trial, compare its closed volume and render its parts."""
 from pathlib import Path
-import json
+import json,hashlib
 import bpy
 import bmesh
 import numpy as np
@@ -92,7 +92,9 @@ for family, names, tile in [
         if index: texture.image.colorspace_settings.name = 'Non-Color'
         links.new(scale.outputs['Vector'], texture.inputs['Vector']); maps.append(texture)
     links.new(maps[0].outputs['Color'], shader.inputs['Base Color'])
-    links.new(maps[1].outputs['Color'], shader.inputs['Roughness'])
+    channels=nodes.new('ShaderNodeSeparateColor')
+    links.new(maps[1].outputs['Color'],channels.inputs['Color'])
+    links.new(channels.outputs['Green'], shader.inputs['Roughness'])
     normal = nodes.new('ShaderNodeNormalMap'); normal.inputs['Strength'].default_value = .35
     links.new(maps[2].outputs['Color'], normal.inputs['Color'])
     links.new(normal.outputs['Normal'], shader.inputs['Normal'])
@@ -114,7 +116,10 @@ camera.location = (-150, 145, 140)
 camera.rotation_euler = (Vector((0, 20, -.4)) - camera.location).to_track_quat('-Z', 'Y').to_euler()
 scene.render.filepath = str(base / 'city-ground-native-overview.png')
 bpy.ops.render.render(write_still=True)
-result = {'evidence_class': 'INERT', 'closed_source_non_manifold_edges': non_manifold,
+result = {'evidence_class': 'INERT',
+          'native_sha256':hashlib.sha256((root/'art/blender/orison_ground.blend').read_bytes()).hexdigest(),
+          'asset_sha256':hashlib.sha256((root/'game/assets/props/orison_ground.glb').read_bytes()).hexdigest(),
+          'closed_source_non_manifold_edges': non_manifold,
           'native_closed_volume_m3': native_volume, 'grid_volume_m3': expected,
           'blender_accumulated_volume_m3':bmesh_volume,'volume_method':'Float64 signed tetrahedral integration of actual saved vertices about their local midpoint; unchanged 0.001 m3 absolute bound.',
           'absolute_volume_difference_m3': abs(native_volume - expected),

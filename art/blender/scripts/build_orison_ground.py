@@ -10,6 +10,7 @@ import collections
 import hashlib
 import os
 import subprocess
+import sys
 import bpy
 import bmesh
 import numpy as np
@@ -19,6 +20,9 @@ root = next(path for path in Path(__file__).resolve().parents if (path/'game/pro
 base = root / 'art/blender'
 work = root/'tmp/orison-ground'; work.mkdir(parents=True,exist_ok=True)
 plan = json.loads((root/'art/data/orison_ground/retained_grade_source.json').read_text(encoding='utf-8'))
+sys.path.insert(0,str(root/'tools'))
+from grade_source_snapshot import validate as validate_grade_snapshot
+validate_grade_snapshot(plan,root)
 sets_path=root/'game/data/runtime_material_sets.json'
 sets=json.loads(sets_path.read_text(encoding='utf-8'))['materials']
 plan['bindings']['game/data/runtime_material_sets.json']=hashlib.sha256(sets_path.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()

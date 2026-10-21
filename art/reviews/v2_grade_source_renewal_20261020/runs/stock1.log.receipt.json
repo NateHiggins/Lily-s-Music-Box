@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 14.46,
+  "exit_code": 1,
+  "finished_utc": "2026-10-21T01:21:20Z",
+  "started_utc": "2026-10-21T01:21:05Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 GRADE STOCK: FAIL checks=22254 failures=1"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-soil-renewal-20261020/stock1.log.stderr",
+  "stderr_sha256": "0af8f2396ec511852e7e02f9c459e600c63f6682be5c19d7202b493dc94d77f5",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-soil-renewal-20261020/stock1.log",
+  "stdout_sha256": "0701d3b741da170524e2afaa305fbc734ea28481720aa35e2530cdbecbc53df6"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2GradeStockBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-soil-renewal-20261020/stock1",
+ "source": {
+  "dirty_paths": 968,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/blender/alley_groundworks_reservations.json",
+   "M  art/blender/city_foundations.blend",
+   "M  art/blender/city_foundations_construction.json",
+   "M  art/blender/city_ground_apron.blend",
+   "M  art/blender/city_ground_apron_construction.json",
+   "M  art/blender/orison_ground.blend",
+   "M  art/blender/orison_ground_construction.json",
+   "M  art/blender/scripts/build_city_foundations.py",
+   "M  art/blender/scripts/build_orison_ground.py",
+   "A  art/blender/scripts/export_retained_grade_sources.py",
+   "A  art/blender/scripts/inspect_city_foundations.py",
+   "M  art/blender/scripts/inspect_orison_ground.py",
+   "M  art/data/orison_ground/bar_reservations.json",
+   "A  art/data/orison_ground/discovery/native_sources.json",
+   "A  art/data/orison_ground/discovery/runtime_survey.json",
+   "M  art/data/orison_ground/retained_grade_source.json",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import"
+  ],
+  "repository_head": "35c06ee4a85fa7063cee037e61fd138e8964b1ff",
+  "repository_tree": "ae6f07d22827c671bee87c960c12b7862952db03",
+  "runtime_inputs_sha256": "d349304c6a3f71a0503512dbd4b3326846410b9ca24ab465694225aa1f6986c7",
+  "test_path": "game/tests/v2_grade_stock_bench.gd",
+  "test_sha256": "91be0bbe8d693a23dbcaffbcccf0648f56eee978304eddcbd80bd5ff09edddcd"
+ },
+ "windowed": true
+}

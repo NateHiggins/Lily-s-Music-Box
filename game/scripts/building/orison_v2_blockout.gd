@@ -1233,6 +1233,8 @@ func window_reveal_span(window: Dictionary) -> Vector2:
 	return span
 
 static func _subtract_box(box: AABB,cut: AABB) -> Array[AABB]:
+	const CONSTRUCTION_EPS := .00001
+	if minf(box.size.x,minf(box.size.y,box.size.z))<=CONSTRUCTION_EPS:return []
 	if not box.intersects(cut): return [box]
 	var overlap := box.intersection(cut)
 	var result: Array[AABB]=[]
@@ -1241,7 +1243,6 @@ static func _subtract_box(box: AABB,cut: AABB) -> Array[AABB]:
 	# can otherwise leave sub-micrometre closing plates across a real opening.
 	# Ten micrometres is below any authored construction detail; never emit
 	# these numerical slivers as either visible boxes or collision shapes.
-	const CONSTRUCTION_EPS := .00001
 	for axis in 3:
 		if overlap.position[axis]-middle.position[axis]>CONSTRUCTION_EPS:
 			var low := middle
@@ -1254,7 +1255,12 @@ static func _subtract_box(box: AABB,cut: AABB) -> Array[AABB]:
 			result.append(high)
 		middle.position[axis]=overlap.position[axis]
 		middle.size[axis]=overlap.size[axis]
-	return result
+	# A tiny overlap on one axis becomes the middle for later axes. Testing
+	# only the current split distance still emitted zero-width reveal pieces.
+	var valid: Array[AABB]=[]
+	for piece: AABB in result:
+		if minf(piece.size.x,minf(piece.size.y,piece.size.z))>CONSTRUCTION_EPS:valid.append(piece)
+	return valid
 
 func _build_anchors() -> void:
 	for anchor: Dictionary in layout.anchors:
