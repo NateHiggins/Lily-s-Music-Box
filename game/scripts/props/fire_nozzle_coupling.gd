@@ -62,6 +62,7 @@ var _bounds_stamp:=Transform3D.IDENTITY
 var _bounds_ready:=false
 var _world_box:=BoxShape3D.new()
 var receiver_queries:=0
+var _submitted_poses: Dictionary={}
 func configure(owner_actor: Node3D) -> bool:
 	actor=owner_actor;stock=preload("res://scripts/props/fire_nozzle_joint_stock.gd").new()
 	if not stock.load_stock():return false
@@ -121,16 +122,33 @@ func thread_pose(value: float,phase: float=NAN) -> Transform3D:
 	if is_nan(phase):phase=clocking
 	return receiver*Transform3D(Basis(Vector3.UP,phase),Vector3(0,stock.body_y(value),0))
 func _apply_visuals() -> void:
-	actor._play_pipe.global_transform=body.global_transform
-	seat.global_transform=actor.global_transform*receiver
-	nut.transform=receiver*Transform3D(Basis(Vector3.UP,angle+spin),Vector3.ZERO)
-	for row: Dictionary in _lever_rows:row.shape.global_transform=row.draw.global_transform
+	_submit_global_pose(actor._play_pipe,body.global_transform)
+	_submit_global_pose(seat,actor.global_transform*receiver)
+	_submit_local_pose(nut,receiver*Transform3D(Basis(Vector3.UP,angle+spin),Vector3.ZERO))
+	for row: Dictionary in _lever_rows:_submit_global_pose(row.shape,row.draw.global_transform)
+func _submit_global_pose(node: Node3D,pose: Transform3D) -> void:
+	# Compare exact matrices. Parent movement must still submit even if the
+	# inherited node transform already looks correct: physics can publish later.
+	if _pose_was_submitted(node,pose):return
+	node.global_transform=pose
+	_submitted_poses[node]=[pose,node.transform,node.get_parent_node_3d().global_transform]
+func _submit_local_pose(node: Node3D,pose: Transform3D) -> void:
+	var world_pose: Transform3D=node.get_parent_node_3d().global_transform*pose
+	if _pose_was_submitted(node,world_pose) and node.transform==pose:return
+	node.transform=pose
+	_submitted_poses[node]=[world_pose,node.transform,node.get_parent_node_3d().global_transform]
+func _pose_was_submitted(node: Node3D,world_pose: Transform3D) -> bool:
+	if not _submitted_poses.has(node):return false
+	var previous: Array=_submitted_poses[node]
+	# Capture the accepted local pose: a global-to-local round trip need not
+	# reproduce the requested world matrix bit-for-bit at translated frames.
+	return previous[0]==world_pose and previous[1]==node.transform and previous[2]==node.get_parent_node_3d().global_transform
 func sync() -> void:
 	if body==null:return
 	if actor.nozzle_coupled!=_observed:
 		clocking=fposmod(spin,TAU);spin=clocking
 		angle=0. if actor.nozzle_coupled else stock.maximum_angle();loose=not actor.nozzle_coupled;body.transform=thread_pose(angle);_support=null;_speed=0.
-	if not loose:body.transform=thread_pose(angle)
+	if not loose:_submit_local_pose(body,thread_pose(angle))
 	_observed=not loose and absf(angle)<.0001;actor.nozzle_coupled=_observed
 	_apply_visuals()
 func _grip(kind: String,part: Node3D) -> Dictionary:

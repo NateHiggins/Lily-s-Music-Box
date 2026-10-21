@@ -1,0 +1,13 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+RADIATOR OWNER CHECK: missing owner safely returns no authority = true
+RADIATOR OWNER CHECK: late installed existing authority is discovered = true
+RADIATOR OWNER CHECK: stable lookup keeps original owner identity = true
+RADIATOR OWNER CHECK: detached authority is not reused = true
+RADIATOR OWNER CHECK: replacement authority is discovered = true
+RADIATOR OWNER CHECK: retired old authority cannot replace current one = true
+RADIATOR OWNER CHECK: queued authority cannot receive repair proof = true
+RADIATOR OWNER CHECK: post-retirement owner is discovered = true
+RADIATOR OWNER CHECK: renamed former owner does not hide its replacement = true
+V2 RADIATOR AUTHORITY LOOKUP: 9 checks; 0 failures

@@ -4,6 +4,7 @@ var phase := "startup"
 var samples: Array = []
 var sampling := false
 var last_usec := 0
+var extra_monitors: Dictionary = {}
 
 func _init() -> void:
 	route_label = "V2 RESPONSIVENESS DIAGNOSTIC"
@@ -19,10 +20,13 @@ func _process(_delta: float) -> void:
 			RenderingServer.viewport_get_measured_render_time_gpu(rid),
 			Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
 			Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME),
-			world.passage_region.residency.state])
+			world.passage_region.residency.state, _monitor_values()])
 	last_usec = now
 
 func _route() -> void:
+	for monitor: String in ClassDB.class_get_integer_constant_list("Performance"):
+		if monitor.begins_with("PIPELINE_COMPILATIONS_") or monitor in ["RENDER_VIDEO_MEM_USED","RENDER_TEXTURE_MEM_USED","RENDER_BUFFER_MEM_USED"]:
+			extra_monitors[monitor]=ClassDB.class_get_integer_constant("Performance",monitor)
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	Engine.max_fps = 0
 	player._grab.profiling=true
@@ -54,14 +58,21 @@ func _route() -> void:
 	DirAccess.make_dir_recursive_absolute(directory)
 	var file := FileAccess.open(directory.path_join("frames.json"), FileAccess.WRITE)
 	file.store_string(JSON.stringify({"evidence_class":"INERT", "kind":"performance_diagnostic",
-		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","draw_calls","primitives","residency"],
+		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","draw_calls","primitives","residency","engine_monitors"],
 		"resolution":str(get_viewport().get_visible_rect().size), "vsync":false,
 		"startup_ms":world.startup_ms,"samples":samples,"failures":failures,
 		"streaming":world.passage_region.residency.snapshot(),"interaction_costs":player._grab.profile_records}, "\t"))
 	file.close()
 	print("RESPONSIVENESS samples=", samples.size(), " failures=", failures)
+	if OS.get_environment("ORISON_LAMP_GLARE")=="1" or FileAccess.file_exists(directory.path_join("run_glare_controls.request")):
+		await preload("res://tests/v2_lamp_glare_probe.gd").new().run(world,directory.path_join("glare_controls"))
 	if OS.get_environment("ORISON_PERF_ATTRIBUTION") == "1":
 		await _attribution(directory)
+
+func _monitor_values() -> Dictionary:
+	var result: Dictionary={}
+	for name: String in extra_monitors:result[name]=Performance.get_monitor(extra_monitors[name])
+	return result
 
 func _attribution(directory: String) -> void:
 	# Stationary in-run controls separate world ticking from rendering costs.

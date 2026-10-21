@@ -96,7 +96,10 @@ func _create(identity: String) -> void:
 	probe.size=bounds.size;probe.max_distance=bounds.size.length()
 	# Keep outdoor sky available through real openings, including daylight.
 	probe.box_projection=true;probe.interior=false;probe.enable_shadows=true
-	probe.ambient_mode=ReflectionProbe.AMBIENT_ENVIRONMENT
+	# The world environment, actual fixtures and SSIL own diffuse light.
+	# Reusing captured room radiance as diffuse ambient bleached compact rooms
+	# even after their lights were off. Keep only the probe's specular context.
+	probe.ambient_mode=ReflectionProbe.AMBIENT_DISABLED
 	probe.blend_distance=.10;probe.reflection_mask=CAPTURE_MASK
 	probe.mesh_lod_threshold=4.;probe.cull_mask=CAPTURE_MASK
 	probe.update_mode=ReflectionProbe.UPDATE_ONCE

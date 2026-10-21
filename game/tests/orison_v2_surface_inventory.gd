@@ -16,7 +16,7 @@ func _run() -> void:
 		return
 	var root := ProjectSettings.globalize_path("res://..").simplify_path()
 	var binding_args: Array[String]=[root.path_join("tools/preflight_spatial_test_bindings.py"),"--root",root]
-	for fixture: String in ["orison_bodega_frontage.json","orison_city_closure.json","orison_city_elevations.json","orison_city_ground_apron.json","orison_city_horizon.json","orison_front_pavement_construction.json","orison_front_pavement_review.json","orison_street_paving_details.json"]:
+	for fixture: String in ["orison_bodega_frontage.json","orison_city_closure.json","orison_city_elevations.json","orison_city_ground_apron.json","orison_city_horizon.json","orison_front_pavement_construction.json","orison_front_pavement_review.json","orison_street_paving_details.json","passage_shop_leaves.json"]:
 		binding_args.append_array(["--fixture","game/tests/fixtures/"+fixture])
 	var binding_output: Array=[]
 	if OS.execute("python",binding_args,binding_output)!=0:
@@ -281,6 +281,23 @@ func _run() -> void:
 			world.player.camera.make_current()
 			world.player.face_world_point(world.adapter.root.to_global(Vector3((r[0]+r[2])*.5,y+1.0,(r[1]+r[3])*.5)))
 			await shot(room_id)
+	# Recheck the two measured clipping defects using clear physical stances.
+	var room_survey:=preload("res://tests/v2_area_survey.gd").new()
+	for identity: String in ["F03_B_BATH","F06_B_KITCHEN"]:
+		for record: Dictionary in world.layout.spaces:
+			if str(record.id)!=identity:continue
+			var stance: Dictionary=room_survey._stance(world,world.adapter.root,record.rect,world.adapter.root.level_y[record.level])
+			check(not stance.is_empty(),"glare review retains an actual capsule-clear stance: "+identity)
+			if stance.is_empty():continue
+			world.player.global_position=Vector3(stance.feet[0],stance.feet[1],stance.feet[2])
+			world.player.global_rotation=Vector3(0,world.adapter.root.global_rotation.y,0);world.player.camera.rotation=Vector3(-.08,0,0)
+			for frame in 90:await RenderingServer.frame_post_draw
+			var reflection_owner: Node=world.get_node("V2RoomReflections")
+			check(reflection_owner.probes.has(identity),"glare review uses the actual bounded room probe: "+identity)
+			if reflection_owner.probes.has(identity):
+				check(reflection_owner.probes[identity].ambient_mode==ReflectionProbe.AMBIENT_DISABLED,"room probe does not duplicate diffuse radiance: "+identity)
+			await shot(identity+"_reflection_repair")
+	room_survey.free()
 	# A fixed review camera avoids controller, head-motion and lens framing.
 	var review_camera := Camera3D.new()
 	review_camera.fov = world.player.camera.fov

@@ -1,0 +1,27 @@
+[
+  {
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/caption_retirement.log",
+    "timeout": 45,
+    "scene": "res://tests/V2CaptionRetirementTest.tscn",
+    "extra_args": [
+      "--quit-after",
+      "120"
+    ]
+  },
+  {
+    "runner": "long",
+    "windowed": true,
+    "timeout": 700,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/door_final",
+    "scene": "res://tests/V2PassageShopDoorRepair.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/door_final.log"
+  },
+  {
+    "runner": "long",
+    "windowed": true,
+    "timeout": 1500,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/golden_profile_v2",
+    "scene": "res://tests/V2GoldenRepairProfile.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/golden_profile_v2.log"
+  }
+]

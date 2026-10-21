@@ -107,6 +107,10 @@ func _hand_move(owner_node: Node3D,point: Vector3,goal: float,label: String) -> 
 func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
 	if owner_node is DoorProp:
 		var door:=owner_node as DoorProp
+		if str(door.name).begins_with("SITE_SHOP_DOOR_"):
+			# The open leaf's centre lies beyond reach from the inner aisle.
+			# Its original hinge stile stays exposed and physically reachable.
+			target=door._body.to_global(Vector3(.065,1.35,door._hinge_offset+.0275))
 		return await _hand_move(door,target,0.0 if door.open else door.motion_target_angle(true),label)
 	# Conversation and authored semantic actions keep their existing owners.
 	return await super._use(owner_node,target,label)

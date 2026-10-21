@@ -1,0 +1,32 @@
+[
+  {
+    "timeout": 60,
+    "scene": "res://tests/V2ChangedCompileCheck.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/physics_compile.log"
+  },
+  {
+    "timeout": 90,
+    "scene": "res://tests/V2FittingCollisionCacheTest.tscn",
+    "extra_args": [
+      "--quit-after",
+      "1200"
+    ],
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_slot_cache.log"
+  },
+  {
+    "timeout": 900,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/floor_physics_attribution.log",
+    "runner": "long",
+    "scene": "res://tests/V2FloorTransitionProfile.tscn",
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/floor_physics_attribution"
+  },
+  {
+    "timeout": 1500,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_slot_profile.log",
+    "runner": "long",
+    "scene": "res://tests/OrisonV2ResponsivenessProfile.tscn",
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_slot_profile"
+  }
+]

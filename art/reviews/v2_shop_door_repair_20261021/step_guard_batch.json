@@ -1,0 +1,29 @@
+[
+  {
+    "timeout": 60,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/step_guard_compile.log",
+    "scene": "res://tests/V2ChangedCompileCheck.tscn"
+  },
+  {
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/step_contacts.log",
+    "timeout": 180,
+    "windowed": true,
+    "scene": "res://tests/V2StepContactTest.tscn"
+  },
+  {
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/step_guard_paired",
+    "runner": "long",
+    "windowed": true,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/step_guard_paired.log",
+    "scene": "res://tests/V2FloorTransitionProfile.tscn",
+    "timeout": 900
+  },
+  {
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/glare_source_controls",
+    "runner": "long",
+    "windowed": true,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/glare_source_controls.log",
+    "scene": "res://tests/OrisonV2ResponsivenessProfile.tscn",
+    "timeout": 1500
+  }
+]

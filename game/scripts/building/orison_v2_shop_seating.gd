@@ -299,6 +299,8 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 			if float(part.tint[3])!=1.:model.free();return false
 		if part.has("plain_alpha") and (part.plain_alpha is not bool or str(part.key)!="glassish" or part.has("catalog_key")):model.free();return false
 		parts[str(part.name)]=part
+	var profile_material_us := 0
+	var profile_assign_us := 0
 	var profile_duplicate_us := 0
 	var profile_collision_us := 0
 	var profile_mesh_hash_us := 0
@@ -307,6 +309,7 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 	var mounted: Dictionary={};var local_materials: Dictionary={}
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		if not parts.has(str(draw.name)):draw.free();continue
+		var material_started:=Time.get_ticks_usec()
 		var part: Dictionary=parts[str(draw.name)];var key:=str(part.key)
 		var material_slot:=key+"|"+str(part.get("catalog_key",""))+"|"+str(part.tile)+"|"+JSON.stringify(part.get("tint",[]))+"|"+str(part.get("plain_alpha",false))
 		if not local_materials.has(material_slot):
@@ -323,12 +326,23 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 			if part.get("plain_alpha",false):mat.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
 			mat.uv1_triplanar=false;mat.uv1_scale=Vector3.ONE/float(part.tile)
 			local_materials[material_slot]=mat
+		profile_material_us+=Time.get_ticks_usec()-material_started
 		# Imported mesh buffers remain immutable even when the PackedScene was
 		# shared with another cell or prefetch. Only this instance owns the slot.
 		var profile_step := Time.get_ticks_usec()
-		draw.mesh = draw.mesh.duplicate() as Mesh
+		var native_mesh_source: Mesh=draw.mesh
+		var native_surface_buffers: Array=[]
+		if native_mesh_source is ArrayMesh and native_mesh_source.get_blend_shape_count()==0 and native_mesh_source.get_script()==null:
+			# One renderer-buffer read supplies both the local copy and the exact
+			# collision signature. Resource.duplicate followed by another mesh read
+			# was a large measured cost for the 164-part druggist fitting.
+			native_surface_buffers=native_mesh_source.get("_surfaces")
+			draw.mesh=_copy_native_mesh(native_mesh_source,native_surface_buffers)
+		else:draw.mesh=native_mesh_source.duplicate() as Mesh
 		profile_duplicate_us += Time.get_ticks_usec()-profile_step
+		var assign_started:=Time.get_ticks_usec()
 		draw.mesh.surface_set_material(0,local_materials[material_slot])
+		profile_assign_us+=Time.get_ticks_usec()-assign_started
 		# Name retains SurfacePass's retail class and therefore its state owner.
 		draw.set_meta(part_meta,str(draw.name));draw.set_meta("material_key",key)
 		draw.name=draw_prefix+str(draw.name)
@@ -348,7 +362,7 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 			var cache := preload("res://scripts/building/orison_v2_fitting_collision_cache.gd")
 			if shape==null: model.free(); return false
 			var checkpoint:=Time.get_ticks_usec()
-			var mesh_hash: String=cache.mesh_signature(draw.mesh)
+			var mesh_hash: String=cache.surfaces_signature(native_surface_buffers) if not native_surface_buffers.is_empty() else cache.mesh_signature(draw.mesh)
 			profile_mesh_hash_us+=Time.get_ticks_usec()-checkpoint
 			checkpoint=Time.get_ticks_usec()
 			var face_hash: String=str(entry.face_hash) if int(entry.get("shape_rid",0))==shape.get_rid().get_id() else cache.face_signature(shape)
@@ -399,9 +413,9 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 		words.rotation.y=float(label.yaw)
 		model.add_child(words)
 	cell.add_child(model)
-	if OS.get_environment("ORISON_PROFILE_NATIVE")=="1":
+	if OS.get_environment("ORISON_PROFILE_NATIVE")=="1" or OS.get_environment("ORISON_PROFILE_RESIDENCY")=="1":
 		print("NATIVE_FIT_DETAIL ",JSON.stringify({"cell":str(cell.name),"data":data_path,
-			"cut_ms":(profile_cut-profile_start)/1000.0,"duplicate_ms":profile_duplicate_us/1000.0,"collision_ms":profile_collision_us/1000.0,"mesh_hash_ms":profile_mesh_hash_us/1000.0,"face_hash_ms":profile_face_hash_us/1000.0,"attach_ms":profile_attach_us/1000.0,"load_ms":(profile_load-profile_cut)/1000.0,
+			"material_ms":profile_material_us/1000.0,"slot_assignment_ms":profile_assign_us/1000.0,"cut_ms":(profile_cut-profile_start)/1000.0,"duplicate_ms":profile_duplicate_us/1000.0,"collision_ms":profile_collision_us/1000.0,"mesh_hash_ms":profile_mesh_hash_us/1000.0,"face_hash_ms":profile_face_hash_us/1000.0,"attach_ms":profile_attach_us/1000.0,"load_ms":(profile_load-profile_cut)/1000.0,
 			"instantiate_ms":(profile_instance-profile_load)/1000.0,"model_and_collision_ms":(profile_models-profile_instance)/1000.0,
 			"publish_ms":(Time.get_ticks_usec()-profile_models)/1000.0}))
 	return true
@@ -492,3 +506,15 @@ static func _without_boxes(draw: MeshInstance3D, boxes: Array[Dictionary], toler
 	return result
 
 static func _v(a: Array) -> Vector3:return Vector3(a[0],a[1],a[2])
+
+static func _copy_native_mesh(source: ArrayMesh,surfaces: Array) -> ArrayMesh:
+	var native_mesh_copy:=ArrayMesh.new()
+	native_mesh_copy.blend_shape_mode=source.blend_shape_mode
+	native_mesh_copy.custom_aabb=source.custom_aabb
+	native_mesh_copy.lightmap_size_hint=source.lightmap_size_hint
+	native_mesh_copy.shadow_mesh=source.shadow_mesh
+	native_mesh_copy.resource_name=source.resource_name
+	native_mesh_copy.resource_local_to_scene=source.resource_local_to_scene
+	for metadata_key: StringName in source.get_meta_list():native_mesh_copy.set_meta(metadata_key,source.get_meta(metadata_key))
+	native_mesh_copy.set("_surfaces",surfaces)
+	return native_mesh_copy

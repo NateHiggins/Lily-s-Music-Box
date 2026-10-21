@@ -1,0 +1,5 @@
+{
+  "evidence_class": "INERT",
+  "result": "REJECTED_DIAGNOSTIC",
+  "reason": "Disabling the architectural branch also removed CollisionObjects from physics. The live player fell and SafetyNet changed the camera station, so branch timings are not comparable. No production optimization follows from these numbers."
+}

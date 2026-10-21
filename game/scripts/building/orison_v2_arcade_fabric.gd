@@ -5,6 +5,18 @@ const ArchitecturalMaterials := preload("res://scripts/building/orison_v2_archit
 const CANOPY := "res://data/orison_v2/arcade_canopy.json"
 
 static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_canopy(cell,layout) and mount_throat(cell,layout) and mount_lantern(cell,layout) and mount_clock(cell,layout) and mount_retained_finishes(cell,layout)
+
+static func mount_throat(cell: Node3D,layout: Dictionary) -> bool:
+	return str(cell.name)!="passage" or Seating.mount_arcade_throat(cell,layout) or _refuse("throat source boundary/native fitting")
+
+static func mount_lantern(cell: Node3D,layout: Dictionary) -> bool:
+	return str(cell.name)!="passage" or Seating.mount_arcade_lantern(cell,layout) or _refuse("lantern source boundary/native fitting")
+
+static func mount_clock(cell: Node3D,layout: Dictionary) -> bool:
+	return str(cell.name)!="passage" or preload("res://scripts/building/orison_v2_arcade_clock.gd").mount_cell(cell,layout) or _refuse("clock source boundary/native fitting")
+
+static func mount_canopy(cell: Node3D, layout: Dictionary) -> bool:
 	if str(cell.name) != "passage": return true
 	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(CANOPY))
 	if data is not Dictionary: return false
@@ -42,9 +54,14 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 	model.set_meta("optical_material", glass)
 	model.set_meta("retired_ornament_draws", ornaments.size())
 	for draw: MeshInstance3D in ornaments: draw.free()
-	if not Seating.mount_arcade_throat(cell, layout): return _refuse("throat source boundary/native fitting")
-	if not Seating.mount_arcade_lantern(cell, layout): return _refuse("lantern source boundary/native fitting")
-	if not preload("res://scripts/building/orison_v2_arcade_clock.gd").mount_cell(cell,layout):return _refuse("clock source boundary/native fitting")
+	return true
+
+static func mount_retained_finishes(cell: Node3D, layout: Dictionary) -> bool:
+	if str(cell.name)!="passage":return true
+	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(CANOPY))
+	if data is not Dictionary:return false
+	var model:=cell.get_node("ArcadeCanopy") as Node3D
+	if model==null:return false
 	# The retained source charts are already baked in their original metre
 	# scale. Convert those charts rather than applying a second generic scale.
 	var converted := {"terrazzo": 0, "terrazzo_dark": 0, "common_brick": 0}

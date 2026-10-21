@@ -6,12 +6,17 @@ var camera: Camera3D
 var effect: CompositorEffect
 var field: RefCounted
 var lamp: SpotLight3D
-func setup(owner_field: RefCounted, owner_lamp: SpotLight3D) -> void:
+func setup(owner_field: RefCounted, owner_lamp: SpotLight3D, use_scene_occlusion := false) -> void:
 	field = owner_field
 	lamp = owner_lamp
 	viewport = SubViewport.new()
 	viewport.size = Vector2i(128,128)
 	viewport.world_3d = get_world_3d()
+	# This unshaded camera supplies scene depth, not a second lit presentation.
+	# Keep original opaque geometry/deformation without rendering every light's
+	# shadow atlas again. Paired near/mid injection remains byte-identical.
+	viewport.positional_shadow_atlas_size = 0
+	viewport.use_occlusion_culling = use_scene_occlusion
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	viewport.debug_draw = Viewport.DEBUG_DRAW_UNSHADED
 	add_child(viewport)

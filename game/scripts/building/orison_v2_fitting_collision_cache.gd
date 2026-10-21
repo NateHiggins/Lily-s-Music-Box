@@ -16,12 +16,21 @@ static func _invalidate(reference: WeakRef, key: String) -> void:
 
 static func mesh_signature(mesh: Mesh) -> String:
 	if mesh is not ArrayMesh or mesh.get_blend_shape_count()!=0: return ""
+	return surfaces_signature(mesh.get("_surfaces"))
+
+static func surfaces_signature(surfaces: Array) -> String:
 	var digest:=HashingContext.new();digest.start(HashingContext.HASH_SHA256)
-	for surface: Dictionary in mesh.get("_surfaces"):
+	for surface: Dictionary in surfaces:
 		for key: String in ["format","primitive","vertex_count","index_count","aabb"]:
 			digest.update(var_to_bytes(surface.get(key)))
 		for key: String in ["vertex_data","attribute_data","skin_data","index_data","blend_shape_data"]:
-			digest.update(var_to_bytes(surface.get(key)))
+			var bytes: Variant=surface.get(key)
+			# Hash the same complete buffers without serializing/copying tens of
+			# megabytes into a temporary Variant encoding on every reconstruction.
+			if bytes is PackedByteArray:
+				digest.update(var_to_bytes([key,bytes.size()]))
+				digest.update(bytes)
+			else:digest.update(var_to_bytes([key,bytes]))
 	return digest.finish().hex_encode()
 
 static func face_signature(shape: ConcavePolygonShape3D) -> String:

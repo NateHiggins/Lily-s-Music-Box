@@ -310171,6 +310171,36 @@
    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "f9978b8f36dce3a8",
+   "kind": "generated_name",
+   "token": "_build_storefront",
+   "file": "game/scripts/building/orison_v2_passage_shop_door.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_storefront"
+   ],
+   "lines": [
+    31
+   ],
+   "count": 1,
+   "context": [
+    "identity+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -28,7 +28,7 @@ func _route() -> void:
 	var door: DoorProp = passage.doors.get("SITE_SHOP_DOOR_HARDWARE_PAINT")
 	if not _require(door != null, "authored hardware shop door exists"): return
 	var door_center := door.to_global(Vector3(door.width*0.5, 0, 0))
-	for point in [Vector3(14, 0, door_center.z), Vector3(12.4, 0, door_center.z)]:
+	for point in [Vector3(14, 0, door_center.z), Vector3(12.8, 0, door_center.z)]:
 		if not await _walk_world(point): return
 	if not await _use(door, door.to_global(Vector3(door.width*0.5, 1.15, 0)), "hardware_door"): return
 	await get_tree().create_timer(0.6).timeout
@@ -61,7 +61,7 @@ func _route() -> void:
 		if not await _walk_world(point): return
 	if not await _use(door, door._body.to_global(Vector3(door.width*0.5, 1.15, 0)), "hardware_door_exit"): return
 	await get_tree().create_timer(0.6).timeout
-	for point in [Vector3(10.8, 0, door_center.z), Vector3(12.4, 0, door_center.z), Vector3(14, 0, door_center.z)]:
+	for point in [Vector3(10.8, 0, door_center.z), Vector3(12.8, 0, door_center.z), Vector3(14, 0, door_center.z)]:
 		if not await _walk_world(point): return
 	outward.reverse()
 	for point: Vector3 in outward:
@@ -85,3 +85,16 @@ func _prepare_procurement() -> bool:
 	return _require(orders.issue_job(job, "reported") and orders.acknowledge_job(job)
 			and orders.diagnose_job(job) and orders.mark_job_awaiting_part(job),
 			"maintenance job awaits authored capsule")
+
+func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
+	if owner_node is DoorProp:
+		var door:=owner_node as DoorProp
+		# Use the exposed original hinge stile from both sides of the native leaf.
+		target=door._body.to_global(Vector3(.065,1.35,door._hinge_offset+.0275))
+		var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+		add_child(hand);hand.player=player;player.set_mouse_released(false)
+		var moved: bool=await hand.operate(target,0.0 if door.open else door.motion_target_angle(true),door)
+		var follows: bool=hand.follows_cursor
+		hand.free()
+		return _require(moved and follows,"actual grab, mouse motion and release: "+label)
+	return await super._use(owner_node,target,label)

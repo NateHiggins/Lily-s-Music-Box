@@ -1,0 +1,84 @@
+{
+  "evidence_class": "INERT",
+  "kind": "diagnostic_review",
+  "rejected_or_failed_runs": [
+    {
+      "log": "tick_cost.log",
+      "reason": "Player fell after whole-branch process-mode change removed collision; camera isolation invalid. Replaced by callback-only tick_cost_v2."
+    },
+    {
+      "log": "nozzle_guard.log",
+      "reason": "Duplicate local variable parse error; runner reached ceiling; no result."
+    },
+    {
+      "log": "nozzle_guard_v2.log",
+      "reason": "Standalone programme left physical nozzle valve open; carry-path check failed. Same check also failed with original production source in nozzle_baseline_same_fixture.log. No production obstruction bypass."
+    },
+    {
+      "log": "nozzle_closed_valve.log",
+      "reason": "Pre-inspection direct stance did not acquire the valve; failure retained."
+    },
+    {
+      "log": "nozzle_inspection_closed.log",
+      "reason": "Actual nozzle programme passed but unrelated streaming dependency parse errors polluted run; rejected as clean qualification."
+    },
+    {
+      "log": "buffer_cache.log",
+      "reason": "Duplicate regression-test local variable; timed out180seconds, no result."
+    },
+    {
+      "log": "golden_profile.log",
+      "reason": "62 waypoints, hardware leaf stops against the actual player capsule at about58degrees; original approach and caption-teardown Script Error retained. Stance/contact bench proves the player blocker; actual walking approach and typed freed-label cleanup repaired, continuous rerun pending."
+    },
+    {
+      "log": "retirement_unit.log",
+      "reason": "WeakRef inference warning treated as parse error; --quit-after caused wrapper0 without a test result. Corrected original regression subsequently passed in retirement_unit_corrected.log."
+    },
+    {
+      "log": "retirement_candidate.log",
+      "reason": "Functionally drained15132 detached nodes with zero retained geometry/meshes and5.909ms peak step, but no material worst-frame benefit (268.308->263.058ms). Incremental-retirement production changes rejected and archived; do not attribute a performance gain."
+    },
+    {
+      "log": "final_residency.log",
+      "reason": "Inherited fixture required a retired E-key prompt for direct-manipulation shop door. Original failure retained. Route migrated to existing physical PatrolHand actual grab/mouse/release driver, with original owner and travel predicate retained."
+    },
+    {
+      "log": "final_residency_v2.log",
+      "reason": "All physical shop-door grab/mouse/release operations pass. Only inherited assertion requiring three retired floating ceiling ornaments fails. Current native arcade fabric intentionally replaces those draws. Original fixture retained; new assertions require zero legacy ornaments, all four uniquely identified native batches, 34 exact replacement boundaries, all three retirements, and original glass shader. No production geometry/gate waiver."
+    },
+    {
+      "log": "final_residency_v3.log",
+      "reason": "All native canopy and actual door operations pass. The inherited stationary five-second vestibule readiness deadline expires during bounded cooperative fitting. This diagnostic deadline is explicitly replaced by readiness before actual controller arrival at the protected gateway (14.596 s approach in v4). All 13 cells must be resident before crossing; no loading-barrier bypass or production frame-budget increase. All identity/material/resource-release predicates retained. Original five-second failure and fixture source remain. This trades stationary reload throughput for lower input stalls and tests the ordinary-play deadline; it does not establish a five-second loading guarantee."
+    }
+  ],
+  "clean_replacements": [
+    {
+      "log": "nozzle_clean_compile.log",
+      "scope": "Standalone installed-world pose, original physical nozzle input programme, valve closure during supported inspection and ancestor-to-physics transform controls. Zero failures and zero Script Errors."
+    },
+    {
+      "log": "buffer_cache_v2.log",
+      "scope": "73 checks: complete raw surfaces and resource properties, original material isolation, all native buffer mutation refusals, exact collision, bounded cache and retirement."
+    },
+    {
+      "log": "buffer_triangle_v2.log",
+      "scope": "279 imported source draws exactly match frozen fitter buffers/counts."
+    },
+    {
+      "log": "door_final.log",
+      "scope": "Final native export:161 physical/surface/authority/disk-rebuild checks0failures, noScriptErrors; original route capsule proved actual59degree obstruction."
+    },
+    {
+      "log": "golden_profile_v2.log",
+      "scope": "94 continuous opening/Mina/inspection/shop procurement/repair waypoints0failures; noScriptErrors, existing7TextureRIDwarnings. Diagnostic only, no schema2runtime grant."
+    },
+    {
+      "log": "retirement_unit_corrected.log",
+      "scope": "Corrected detached-node lifetime/budget/interruption checks pass. Candidate not retained because actual route did not improve."
+    },
+    {
+      "log": "final_slot_cache.log",
+      "scope": "75 complete-buffer/property/material-isolation/mutation/cache checks; noScriptErrors."
+    }
+  ]
+}

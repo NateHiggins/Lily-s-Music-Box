@@ -1,0 +1,40 @@
+[
+  {
+    "extra_args": [
+      "--import"
+    ],
+    "timeout": 90,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/buffer_import.log"
+  },
+  {
+    "scene": "res://tests/V2FittingCollisionCacheTest.tscn",
+    "extra_args": [
+      "--quit-after",
+      "1200"
+    ],
+    "timeout": 90,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/buffer_cache_v2.log"
+  },
+  {
+    "scene": "res://tests/V2TriangleFitterBench.tscn",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/buffer_triangle_v2",
+    "timeout": 180,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/buffer_triangle_v2.log"
+  },
+  {
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/nozzle_clean_compile.log",
+    "scene": "res://tests/V2FireNozzleCouplingBench.tscn",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/nozzle_clean_compile",
+    "timeout": 400,
+    "windowed": true,
+    "runner": "long"
+  },
+  {
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/performance_buffers_v2.log",
+    "scene": "res://tests/OrisonV2ResponsivenessProfile.tscn",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/performance_buffers_v2",
+    "timeout": 1500,
+    "windowed": true,
+    "runner": "long"
+  }
+]

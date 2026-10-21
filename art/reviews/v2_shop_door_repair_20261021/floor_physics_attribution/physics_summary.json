@@ -1,0 +1,493 @@
+{
+  "evidence_class": "INERT",
+  "samples": 576,
+  "stages": {
+    "gravity_ms": {
+      "p50_ms": 0.003,
+      "p90_ms": 0.003,
+      "p95_ms": 0.003,
+      "p99_ms": 0.004,
+      "max_ms": 0.02,
+      "frames": 576,
+      "over_33ms": 0,
+      "over_50ms": 0,
+      "over_100ms": 0
+    },
+    "step_ms": {
+      "p50_ms": 24.114,
+      "p90_ms": 37.873,
+      "p95_ms": 338.176,
+      "p99_ms": 371.748,
+      "max_ms": 375.978,
+      "frames": 576,
+      "over_33ms": 60,
+      "over_50ms": 54,
+      "over_100ms": 51
+    },
+    "slide_ms": {
+      "p50_ms": 3.859,
+      "p90_ms": 5.883,
+      "p95_ms": 20.407,
+      "p99_ms": 27.503,
+      "max_ms": 27.813,
+      "frames": 576,
+      "over_33ms": 0,
+      "over_50ms": 0,
+      "over_100ms": 0
+    },
+    "follow_and_contact_ms": {
+      "p50_ms": 0.026,
+      "p90_ms": 0.034,
+      "p95_ms": 0.036,
+      "p99_ms": 0.04,
+      "max_ms": 0.078,
+      "frames": 576,
+      "over_33ms": 0,
+      "over_50ms": 0,
+      "over_100ms": 0
+    }
+  },
+  "worst": [
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.037,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83812689781189,
+        3.20094060897827,
+        -8.35616207122803
+      ],
+      "slide_ms": 27.813,
+      "step_ms": 375.938
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.036,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83810687065125,
+        3.20094180107117,
+        -8.3561315536499
+      ],
+      "slide_ms": 27.765,
+      "step_ms": 375.978
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.04,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83819222450256,
+        3.20094203948975,
+        -8.35613441467285
+      ],
+      "slide_ms": 27.323,
+      "step_ms": 373.976
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+      ],
+      "follow_and_contact_ms": 0.033,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83810687065125,
+        3.20094180107117,
+        -8.3561315536499
+      ],
+      "slide_ms": 19.89,
+      "step_ms": 373.025
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+      ],
+      "follow_and_contact_ms": 0.035,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83810687065125,
+        3.20094180107117,
+        -8.3561315536499
+      ],
+      "slide_ms": 20.1,
+      "step_ms": 371.917
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+      ],
+      "follow_and_contact_ms": 0.034,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83812689781189,
+        3.20094060897827,
+        -8.35616207122803
+      ],
+      "slide_ms": 19.743,
+      "step_ms": 371.692
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+      ],
+      "follow_and_contact_ms": 0.034,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.83810687065125,
+        3.20094180107117,
+        -8.3561315536499
+      ],
+      "slide_ms": 19.766,
+      "step_ms": 371.581
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+      ],
+      "follow_and_contact_ms": 0.036,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.83812689781189,
+        3.20094060897827,
+        -8.35616207122803
+      ],
+      "slide_ms": 19.991,
+      "step_ms": 371.171
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+      ],
+      "follow_and_contact_ms": 0.034,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.83819222450256,
+        3.20094203948975,
+        -8.35613441467285
+      ],
+      "slide_ms": 19.367,
+      "step_ms": 371.748
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+      ],
+      "follow_and_contact_ms": 0.032,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83812689781189,
+        3.20094060897827,
+        -8.35616207122803
+      ],
+      "slide_ms": 19.702,
+      "step_ms": 371.356
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+      ],
+      "follow_and_contact_ms": 0.038,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83819222450256,
+        3.20094203948975,
+        -8.35613441467285
+      ],
+      "slide_ms": 19.523,
+      "step_ms": 371.392
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision"
+      ],
+      "follow_and_contact_ms": 0.033,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.83819222450256,
+        3.20094203948975,
+        -8.35613441467285
+      ],
+      "slide_ms": 19.345,
+      "step_ms": 369.498
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.039,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.8341646194458,
+        3.20094060897827,
+        -8.35305023193359
+      ],
+      "slide_ms": 27.615,
+      "step_ms": 354.752
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.036,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.8299732208252,
+        3.20094180107117,
+        -8.34963798522949
+      ],
+      "slide_ms": 27.717,
+      "step_ms": 353.569
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.035,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.82999801635742,
+        3.20094060897827,
+        -8.3496732711792
+      ],
+      "slide_ms": 27.753,
+      "step_ms": 353.472
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.034,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83414340019226,
+        3.20094180107117,
+        -8.35301780700684
+      ],
+      "slide_ms": 27.503,
+      "step_ms": 353.299
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.035,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.8300633430481,
+        3.20094203948975,
+        -8.34964847564697
+      ],
+      "slide_ms": 26.955,
+      "step_ms": 351.458
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.036,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.83422994613647,
+        3.20094203948975,
+        -8.35302448272705
+      ],
+      "slide_ms": 27.09,
+      "step_ms": 351.004
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.035,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.82562041282654,
+        3.20094060897827,
+        -8.34600353240967
+      ],
+      "slide_ms": 25.385,
+      "step_ms": 351.425
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.034,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.82559418678284,
+        3.20094180107117,
+        -8.34596633911133
+      ],
+      "slide_ms": 25.576,
+      "step_ms": 351.105
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.035,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.8256893157959,
+        3.20094203948975,
+        -8.34598255157471
+      ],
+      "slide_ms": 25.541,
+      "step_ms": 349.058
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.035,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.82099556922913,
+        3.20094180107117,
+        -8.3419713973999
+      ],
+      "slide_ms": 22.191,
+      "step_ms": 351.028
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.036,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.82099866867065,
+        3.20094060897827,
+        -8.34200000762939
+      ],
+      "slide_ms": 22.359,
+      "step_ms": 350.304
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.035,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.82109594345093,
+        3.20094203948975,
+        -8.34199333190918
+      ],
+      "slide_ms": 22.504,
+      "step_ms": 347.353
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.037,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.81613898277283,
+        3.20094060897827,
+        -8.33763217926025
+      ],
+      "slide_ms": 21.467,
+      "step_ms": 345.561
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.036,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.81627440452576,
+        3.20094203948975,
+        -8.33764743804932
+      ],
+      "slide_ms": 21.242,
+      "step_ms": 344.967
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.038,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.8161723613739,
+        3.20094180107117,
+        -8.33762073516846
+      ],
+      "slide_ms": 21.285,
+      "step_ms": 344.082
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.035,
+      "gravity_ms": 0.002,
+      "position": [
+        -3.811119556427,
+        3.20094180107117,
+        -8.33287620544434
+      ],
+      "slide_ms": 20.892,
+      "step_ms": 339.596
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.036,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.81107950210571,
+        3.20094060897827,
+        -8.33288288116455
+      ],
+      "slide_ms": 21.31,
+      "step_ms": 338.176
+    },
+    {
+      "contacts": [
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+      ],
+      "follow_and_contact_ms": 0.036,
+      "gravity_ms": 0.003,
+      "position": [
+        -3.81119227409363,
+        3.20094203948975,
+        -8.33289337158203
+      ],
+      "slide_ms": 20.747,
+      "step_ms": 335.4
+    }
+  ]
+}

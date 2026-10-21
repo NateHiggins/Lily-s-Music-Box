@@ -1,0 +1,89 @@
+{
+  "evidence_class": "INERT",
+  "step_guard_rejections": 575,
+  "phases": {
+    "original_control0": {
+      "p50_ms": 43.406,
+      "p90_ms": 75.881,
+      "p95_ms": 279.345,
+      "p99_ms": 293.11,
+      "max_ms": 3120.604,
+      "frames": 348,
+      "over_33ms": 285,
+      "over_50ms": 114,
+      "over_100ms": 30
+    },
+    "guard_candidate": {
+      "p50_ms": 47.047,
+      "p90_ms": 71.916,
+      "p95_ms": 212.937,
+      "p99_ms": 226.215,
+      "max_ms": 241.863,
+      "frames": 448,
+      "over_33ms": 365,
+      "over_50ms": 192,
+      "over_100ms": 27
+    },
+    "original_control2": {
+      "p50_ms": 41.351,
+      "p90_ms": 65.175,
+      "p95_ms": 279.387,
+      "p99_ms": 291.832,
+      "max_ms": 2755.988,
+      "frames": 372,
+      "over_33ms": 261,
+      "over_50ms": 108,
+      "over_100ms": 26
+    }
+  },
+  "slow_physics": {
+    "False": {
+      "step_ms": {
+        "p50_ms": 0.004,
+        "p90_ms": 0.005,
+        "p95_ms": 0.006,
+        "p99_ms": 5.843,
+        "max_ms": 40.709,
+        "frames": 552,
+        "over_33ms": 2,
+        "over_50ms": 0,
+        "over_100ms": 0
+      },
+      "slide_ms": {
+        "p50_ms": 3.754,
+        "p90_ms": 19.756,
+        "p95_ms": 19.897,
+        "p99_ms": 21.445,
+        "max_ms": 27.624,
+        "frames": 552,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    },
+    "True": {
+      "step_ms": {
+        "p50_ms": 23.966,
+        "p90_ms": 37.955,
+        "p95_ms": 335.169,
+        "p99_ms": 368.811,
+        "max_ms": 370.496,
+        "frames": 385,
+        "over_33ms": 40,
+        "over_50ms": 36,
+        "over_100ms": 34
+      },
+      "slide_ms": {
+        "p50_ms": 3.772,
+        "p90_ms": 5.955,
+        "p95_ms": 20.315,
+        "p99_ms": 27.961,
+        "max_ms": 28.152,
+        "frames": 385,
+        "over_33ms": 0,
+        "over_50ms": 0,
+        "over_100ms": 0
+      }
+    }
+  }
+}

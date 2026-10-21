@@ -1,0 +1,19 @@
+[
+  {
+    "scene": "res://tests/V2GeometryRetirementTest.tscn",
+    "timeout": 60,
+    "extra_args": [
+      "--quit-after",
+      "180"
+    ],
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/retirement_unit.log"
+  },
+  {
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/retirement_candidate.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/retirement_candidate",
+    "windowed": true,
+    "timeout": 1500,
+    "runner": "long",
+    "scene": "res://tests/OrisonV2ResponsivenessProfile.tscn"
+  }
+]

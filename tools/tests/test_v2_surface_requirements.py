@@ -321,7 +321,8 @@ class Requirements(unittest.TestCase):
                      'front_lighting_source.json','front_lighting_supply_export.json',
                      'prepare_v2_front_lighting.py','export.py',
                      'front_lighting_finish_candidate.blend','front_lighting_cornice_candidate.blend',
-                     'millwork_profile.blend','front_trim_layout_source.json','front_trim_export_source.json',
+                     'millwork_profile.blend','passage_shop_leaves.blend',
+                     'front_trim_layout_source.json','front_trim_export_source.json',
                      'plan_v2_front_trim.py'):
             with self.subTest(name=name):
                 with patch.object(evidence,'file_hash',side_effect=lambda path:

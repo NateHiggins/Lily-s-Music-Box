@@ -73,7 +73,7 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	receivers.setup(get_parent(),player.flashlight,field)
 	scene_shadow = preload("res://scripts/lamp/lamp_scene_shadow.gd").new()
 	add_child(scene_shadow)
-	scene_shadow.setup(field,player.flashlight)
+	scene_shadow.setup(field,player.flashlight,true)
 	process_priority = 100
 	_update_volume(0)
 	return true

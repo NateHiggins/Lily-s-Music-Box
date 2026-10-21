@@ -17,6 +17,32 @@ func _run() -> void:
 	var source := "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf"
 	var original: Node3D=load(source).instantiate();original.name="shop_shoe_rebuilding"
 	check(Fitter.mount_cobbler(original,layout),"original authored fitting passes its own predicates")
+	var sample: ArrayMesh
+	for draw: MeshInstance3D in original.find_children("*","MeshInstance3D",true,false):
+		if draw.has_meta("native_collision_key"):sample=draw.mesh.duplicate();break
+	check(sample!=null,"native buffer-copy regression has real imported stock")
+	if sample==null:get_tree().quit(1);return
+	sample.resource_name="CopyRegression";sample.resource_local_to_scene=true
+	sample.custom_aabb=AABB(Vector3(-2,-3,-4),Vector3(5,6,7));sample.lightmap_size_hint=Vector2i(32,64)
+	sample.set_meta("copy_regression",{"original":true})
+	var surfaces: Array=sample.get("_surfaces")
+	sample.shadow_mesh=ArrayMesh.new();sample.shadow_mesh.set("_surfaces",surfaces)
+	var duplicate_reference: ArrayMesh=sample.duplicate()
+	var copied: ArrayMesh=Fitter._copy_native_mesh(sample,surfaces)
+	check(copied!=sample and copied.get("_surfaces")==duplicate_reference.get("_surfaces"),"every raw native surface buffer and LOD matches Resource.duplicate")
+	for property: String in ["blend_shape_mode","custom_aabb","lightmap_size_hint","shadow_mesh","resource_name","resource_local_to_scene"]:
+		check(copied.get(property)==duplicate_reference.get(property),"copy retains native resource property: "+property)
+	check(copied.get_meta("copy_regression")==duplicate_reference.get_meta("copy_regression"),"copy retains native metadata")
+	var signature: String=Cache.mesh_signature(sample)
+	check(Cache.mesh_signature(copied)==signature and Cache.surfaces_signature(surfaces)==signature,"captured and installed raw buffers share the full signature")
+	copied.surface_set_material(0,StandardMaterial3D.new())
+	check(sample.surface_get_material(0)==duplicate_reference.surface_get_material(0) and copied.surface_get_material(0)!=sample.surface_get_material(0),"local material replacement preserves the original imported slot")
+	for field: String in ["vertex_data","attribute_data","skin_data","index_data","blend_shape_data"]:
+		var changed: Array=surfaces.duplicate(true)
+		var bytes: PackedByteArray=changed[0].get(field,PackedByteArray())
+		bytes.append(1);changed[0][field]=bytes
+		check(Cache.surfaces_signature(changed)!=signature,"signature refuses mutation in complete native buffer: "+field)
+	check(Cache.mesh_signature(sample)==signature,"copy and mutation controls leave original geometry unchanged")
 	var cache := Cache.new()
 	check(cache.seed({"shop_shoe_rebuilding":original}),"validated native collisions enter bounded world cache")
 	var original_meshes: Array[WeakRef]=[]
