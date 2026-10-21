@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 9.97,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T04:19:41Z",
+  "started_utc": "2026-10-21T04:19:30Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "C STOVE FABRICATION BENCH: PASS parts=273 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-install-20261020/fabrication3.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-install-20261020/fabrication3.log",
+  "stdout_sha256": "198e4da1f566d6fd9a3a6b40102a5b8b10fca0395a4cc5159b5d2bef7a8b771b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/v2_c_stove_fabrication_bench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_c_stove_install_20261020/fabrication3",
+ "source": {
+  "dirty_paths": 1027,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/alley_groundworks.blend",
+   " M art/blender/alley_groundworks_construction.json",
+   " M art/blender/alley_groundworks_reservations.json",
+   " M art/blender/city_foundations.blend",
+   " M art/blender/city_foundations_construction.json",
+   " M art/blender/city_ground_apron.blend",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/exterior_masonry.blend",
+   " M art/blender/exterior_masonry_slab_fit.json",
+   " M art/blender/orison_ground.blend",
+   " M art/blender/orison_ground_construction.json",
+   " M art/blender/roof_base_flashings.blend",
+   " M art/blender/roof_base_flashings_construction.json",
+   " M art/blender/roof_drainage_falls.blend",
+   " M art/blender/roof_drainage_falls_construction.json",
+   " M art/blender/roof_membrane.blend",
+   " M art/blender/roof_membrane_construction.json",
+   " M art/blender/roof_public_weathering.blend",
+   " M art/blender/roof_public_weathering_construction.json"
+  ],
+  "repository_head": "486f632d0e0e8ddd6ce24c0bcfd16769f24aa28b",
+  "repository_tree": "60084c9501788c23d3782bad59b728df1b96f664",
+  "runtime_inputs_sha256": "7c49d8e726474c24a518a3b252bfe676a93ab8e39ccf640abd444dce6192b8e9",
+  "test_path": "game/tests/v2_c_stove_fabrication_bench.gd",
+  "test_sha256": "633d7932576a41c31788eb6e708fdd5541c14231209328bacbb6525231d618bb"
+ },
+ "windowed": true
+}

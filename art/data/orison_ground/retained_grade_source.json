@@ -7138,9 +7138,9 @@
     },
     {
       "owner": "ServiceAlley",
-      "id": "PavingFoundation.003",
+      "id": "PavingFoundation.003_0",
       "bounds": [
-        7.799999713897705,
+        8.03,
         -0.30000001192092896,
         9.25,
         9.429999351501465,
@@ -7151,12 +7151,38 @@
     },
     {
       "owner": "ServiceAlley",
-      "id": "PavingFoundation.002",
+      "id": "PavingFoundation.003_1",
       "bounds": [
         7.799999713897705,
         -0.30000001192092896,
+        9.25,
+        8.03,
+        -0.040000006556510925,
+        9.700000000000001
+      ],
+      "kind": "retained_continuous_paving_substrate"
+    },
+    {
+      "owner": "ServiceAlley",
+      "id": "PavingFoundation.002_0",
+      "bounds": [
+        8.03,
+        -0.30000001192092896,
         10.270000457763672,
         18.0,
+        -0.040000006556510925,
+        14.5
+      ],
+      "kind": "retained_continuous_paving_substrate"
+    },
+    {
+      "owner": "ServiceAlley",
+      "id": "PavingFoundation.002_1",
+      "bounds": [
+        7.799999713897705,
+        -0.30000001192092896,
+        10.4,
+        8.03,
         -0.040000006556510925,
         14.5
       ],
@@ -7190,16 +7216,29 @@
     },
     {
       "owner": "ServiceAlley",
-      "id": "BoundaryMasonry.002",
+      "id": "BoundaryMasonry.002_0",
       "bounds": [
         7.559999942779541,
         -0.30000007152557373,
         9.25,
         7.799999713897705,
         2.3499999046325684,
+        9.700000000000001
+      ],
+      "kind": "authored_fitted_box_component"
+    },
+    {
+      "owner": "ServiceAlley",
+      "id": "BoundaryMasonry.002_1",
+      "bounds": [
+        7.559999942779541,
+        -0.30000007152557373,
+        10.4,
+        7.799999713897705,
+        2.3499999046325684,
         14.5
       ],
-      "kind": "authored_original_box"
+      "kind": "authored_fitted_box_component"
     },
     {
       "owner": "ServiceAlley",
@@ -7460,6 +7499,19 @@
         -11.34999942779541
       ],
       "kind": "worked_arris_clearance_bounds"
+    },
+    {
+      "owner": "CStoveStack",
+      "id": "ContinuousStackFooting",
+      "bounds": [
+        7.389999866485596,
+        -3.6000001430511475,
+        9.640000343322754,
+        8.09000015258789,
+        -3.200000047683716,
+        10.460000038146973
+      ],
+      "kind": "worked_arris_footing_clearance_bounds"
     },
     {
       "owner": "BodegaReceiving",
@@ -13261,7 +13313,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_ELECTRICAL/WallSouth_00/Collision",
-      "id": "@CollisionShape3D@2143",
+      "id": "@CollisionShape3D@2166",
       "bounds": [
         5.4,
         -3.2,
@@ -13274,7 +13326,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_ELECTRICAL/WallNorth_00/Collision",
-      "id": "@CollisionShape3D@2144",
+      "id": "@CollisionShape3D@2167",
       "bounds": [
         5.4,
         -3.2,
@@ -13287,7 +13339,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_ELECTRICAL/WallNorth_02/Collision",
-      "id": "@CollisionShape3D@2150",
+      "id": "@CollisionShape3D@2173",
       "bounds": [
         7.955,
         -3.2,
@@ -13300,7 +13352,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_ELECTRICAL/WallWest_00/Collision",
-      "id": "@CollisionShape3D@2153",
+      "id": "@CollisionShape3D@2176",
       "bounds": [
         5.33,
         -3.2,
@@ -13313,7 +13365,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_MAINTENANCE_SHOP/WallNorth_00/Collision",
-      "id": "@CollisionShape3D@2158",
+      "id": "@CollisionShape3D@2181",
       "bounds": [
         5.4,
         -3.2,
@@ -13326,7 +13378,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_COAL_ROOM/WallSouth_00/Collision",
-      "id": "@CollisionShape3D@2161",
+      "id": "@CollisionShape3D@2184",
       "bounds": [
         9.5,
         -3.2,
@@ -13339,7 +13391,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_COAL_ROOM/WallSouth_Sill01/Collision",
-      "id": "@CollisionShape3D@2162",
+      "id": "@CollisionShape3D@2185",
       "bounds": [
         13.85,
         -3.2,
@@ -13352,7 +13404,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_COAL_ROOM/WallSouth_Head02/Collision",
-      "id": "@CollisionShape3D@2163",
+      "id": "@CollisionShape3D@2186",
       "bounds": [
         13.85,
         -0.45,
@@ -13365,7 +13417,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_COAL_ROOM/WallSouth_03/Collision",
-      "id": "@CollisionShape3D@2164",
+      "id": "@CollisionShape3D@2187",
       "bounds": [
         14.55,
         -3.2,
@@ -13378,7 +13430,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_COAL_ROOM/WallWest_00/Collision",
-      "id": "@CollisionShape3D@2165",
+      "id": "@CollisionShape3D@2188",
       "bounds": [
         9.43,
         -3.2,
@@ -13391,7 +13443,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_COAL_ROOM/WallEast_00/Collision",
-      "id": "@CollisionShape3D@2166",
+      "id": "@CollisionShape3D@2189",
       "bounds": [
         15.58,
         -3.2,
@@ -13404,7 +13456,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_RESIDENT_STORAGE/WallNorth_00/Collision",
-      "id": "@CollisionShape3D@2168",
+      "id": "@CollisionShape3D@2191",
       "bounds": [
         -10.0,
         -3.2,
@@ -13417,7 +13469,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_RESIDENT_STORAGE/WallWest_00/Collision",
-      "id": "@CollisionShape3D@2171",
+      "id": "@CollisionShape3D@2194",
       "bounds": [
         -10.07,
         -3.2,
@@ -13430,7 +13482,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_RESIDENT_STORAGE/WallEast_00/Collision",
-      "id": "@CollisionShape3D@2172",
+      "id": "@CollisionShape3D@2195",
       "bounds": [
         5.33,
         -3.2,
@@ -13443,7 +13495,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_SERVICE_CORE/WallNorth_00/Collision",
-      "id": "@CollisionShape3D@2174",
+      "id": "@CollisionShape3D@2197",
       "bounds": [
         9.5,
         -3.2,
@@ -13456,7 +13508,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_SERVICE_CORE/WallWest_02/Collision",
-      "id": "@CollisionShape3D@2177",
+      "id": "@CollisionShape3D@2200",
       "bounds": [
         9.43,
         -3.2,
@@ -13469,7 +13521,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_SERVICE_CORE/WallEast_00/Collision",
-      "id": "@CollisionShape3D@2178",
+      "id": "@CollisionShape3D@2201",
       "bounds": [
         13.13,
         -3.2,
@@ -13482,7 +13534,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_ELECTRICAL_RECESS/WallWest_00/Collision",
-      "id": "@CollisionShape3D@2180",
+      "id": "@CollisionShape3D@2203",
       "bounds": [
         6.43,
         -3.2,
@@ -13495,7 +13547,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_ELECTRICAL_RECESS/WallEast_00/Collision",
-      "id": "@CollisionShape3D@2181",
+      "id": "@CollisionShape3D@2204",
       "bounds": [
         8.23,
         -3.2,
@@ -13534,7 +13586,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21215",
+      "id": "@CollisionShape3D@21351",
       "bounds": [
         -20.8,
         -0.16,
@@ -13547,7 +13599,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21254",
+      "id": "@CollisionShape3D@21390",
       "bounds": [
         0.045,
         -0.16,
@@ -13560,7 +13612,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21256",
+      "id": "@CollisionShape3D@21392",
       "bounds": [
         -22.0,
         -0.16,
@@ -13573,7 +13625,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21258",
+      "id": "@CollisionShape3D@21394",
       "bounds": [
         -4.095,
         -0.16,
@@ -13586,7 +13638,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21260",
+      "id": "@CollisionShape3D@21396",
       "bounds": [
         -4.095,
         -0.16,
@@ -13599,7 +13651,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21262",
+      "id": "@CollisionShape3D@21398",
       "bounds": [
         -20.8,
         -0.16,
@@ -13612,7 +13664,7 @@
     },
     {
       "owner": "StreetBoundaries/ShedTurnFloor",
-      "id": "@CollisionShape3D@24534",
+      "id": "@CollisionShape3D@24695",
       "bounds": [
         -25.5,
         -0.16,
@@ -13625,7 +13677,7 @@
     },
     {
       "owner": "Harukiya/BarActors/F01_BAR_WC_DOOR/HingedLeaf",
-      "id": "@CollisionShape3D@25609",
+      "id": "@CollisionShape3D@25770",
       "bounds": [
         10.16,
         -2.79,
@@ -13638,7 +13690,7 @@
     },
     {
       "owner": "Harukiya/BarActors/F01_BAR_RED_DOOR/HingedLeaf",
-      "id": "@CollisionShape3D@25659",
+      "id": "@CollisionShape3D@25820",
       "bounds": [
         -4.172,
         -2.79,
@@ -13651,7 +13703,7 @@
     },
     {
       "owner": "Harukiya/BarActors/BAR_PIC_0",
-      "id": "@CollisionShape3D@25891",
+      "id": "@CollisionShape3D@26052",
       "bounds": [
         8.0715,
         -1.528,
@@ -13664,7 +13716,7 @@
     },
     {
       "owner": "Harukiya/BarActors/BAR_PIC_1",
-      "id": "@CollisionShape3D@25892",
+      "id": "@CollisionShape3D@26053",
       "bounds": [
         -2.08743,
         -1.136,
@@ -13677,7 +13729,7 @@
     },
     {
       "owner": "Harukiya/BarActors/BAR_PIC_2",
-      "id": "@CollisionShape3D@25893",
+      "id": "@CollisionShape3D@26054",
       "bounds": [
         8.1885,
         -0.736,
@@ -13690,7 +13742,7 @@
     },
     {
       "owner": "Harukiya/BarActors/BAR_BARREL_3",
-      "id": "@CollisionShape3D@25894",
+      "id": "@CollisionShape3D@26055",
       "bounds": [
         2.45,
         -1.12,
@@ -13703,7 +13755,7 @@
     },
     {
       "owner": "Harukiya/BarActors/BAR_BARREL_4",
-      "id": "@CollisionShape3D@25895",
+      "id": "@CollisionShape3D@26056",
       "bounds": [
         0.25,
         -1.12,
@@ -13716,7 +13768,7 @@
     },
     {
       "owner": "Harukiya/BarActors/BAR_SEAT_0",
-      "id": "@CollisionShape3D@25897",
+      "id": "@CollisionShape3D@26058",
       "bounds": [
         -3.65,
         -2.2,
@@ -13729,7 +13781,7 @@
     },
     {
       "owner": "Harukiya/BarActors/BAR_SEAT_1",
-      "id": "@CollisionShape3D@25898",
+      "id": "@CollisionShape3D@26059",
       "bounds": [
         -3.65,
         -2.2,
@@ -13742,7 +13794,7 @@
     },
     {
       "owner": "Harukiya/BarActors/BAR_SEAT_2",
-      "id": "@CollisionShape3D@25899",
+      "id": "@CollisionShape3D@26060",
       "bounds": [
         -3.65,
         -2.2,
@@ -14344,6 +14396,18 @@
       "kind": "retained_service_or_shaft_reservation"
     },
     {
+      "owner": "C_STOVE_FLUE",
+      "bounds": [
+        7.449999999999999,
+        -3.2,
+        9.700000000000001,
+        8.03,
+        0,
+        10.4
+      ],
+      "kind": "retained_service_or_shaft_reservation"
+    },
+    {
       "owner": "B1_BOILER_AIR_E/RetainedReveal",
       "bounds": [
         15.58,
@@ -14357,9 +14421,9 @@
       "note": "Exact generated masonry reveal, not an enlarged window."
     },
     {
-      "owner": "ServiceAlley/PavingFoundation.003",
+      "owner": "ServiceAlley/PavingFoundation.003_0",
       "bounds": [
-        7.799999713897705,
+        8.03,
         -0.30000001192092896,
         9.25,
         9.429999351501465,
@@ -14369,12 +14433,36 @@
       "kind": "retained_paving_volume_and_joints"
     },
     {
-      "owner": "ServiceAlley/PavingFoundation.002",
+      "owner": "ServiceAlley/PavingFoundation.003_1",
       "bounds": [
         7.799999713897705,
         -0.30000001192092896,
+        9.25,
+        8.03,
+        0.05,
+        9.700000000000001
+      ],
+      "kind": "retained_paving_volume_and_joints"
+    },
+    {
+      "owner": "ServiceAlley/PavingFoundation.002_0",
+      "bounds": [
+        8.03,
+        -0.30000001192092896,
         10.270000457763672,
         18.0,
+        0.05,
+        14.5
+      ],
+      "kind": "retained_paving_volume_and_joints"
+    },
+    {
+      "owner": "ServiceAlley/PavingFoundation.002_1",
+      "bounds": [
+        7.799999713897705,
+        -0.30000001192092896,
+        10.4,
+        8.03,
         0.05,
         14.5
       ],
@@ -14900,9 +14988,9 @@
     },
     {
       "owner": "ServiceAlley",
-      "id": "PavingFoundation.003",
+      "id": "PavingFoundation.003_0",
       "bounds": [
-        7.799999713897705,
+        8.03,
         -4.0,
         9.25,
         9.429999351501465,
@@ -14913,12 +15001,38 @@
     },
     {
       "owner": "ServiceAlley",
-      "id": "PavingFoundation.002",
+      "id": "PavingFoundation.003_1",
       "bounds": [
         7.799999713897705,
         -4.0,
+        9.25,
+        8.03,
+        0.05,
+        9.700000000000001
+      ],
+      "kind": "retained_paving_envelope"
+    },
+    {
+      "owner": "ServiceAlley",
+      "id": "PavingFoundation.002_0",
+      "bounds": [
+        8.03,
+        -4.0,
         10.270000457763672,
         18.0,
+        0.05,
+        14.5
+      ],
+      "kind": "retained_paving_envelope"
+    },
+    {
+      "owner": "ServiceAlley",
+      "id": "PavingFoundation.002_1",
+      "bounds": [
+        7.799999713897705,
+        -4.0,
+        10.4,
+        8.03,
         0.05,
         14.5
       ],
@@ -20204,16 +20318,29 @@
     },
     {
       "owner": "ServiceAlley",
-      "id": "BoundaryMasonry.002",
+      "id": "BoundaryMasonry.002_0",
       "bounds": [
         7.559999942779541,
         -0.30000007152557373,
         9.25,
         7.799999713897705,
         2.3499999046325684,
+        9.700000000000001
+      ],
+      "kind": "authored_fitted_box_component"
+    },
+    {
+      "owner": "ServiceAlley",
+      "id": "BoundaryMasonry.002_1",
+      "bounds": [
+        7.559999942779541,
+        -0.30000007152557373,
+        10.4,
+        7.799999713897705,
+        2.3499999046325684,
         14.5
       ],
-      "kind": "authored_original_box"
+      "kind": "authored_fitted_box_component"
     },
     {
       "owner": "ServiceAlley",
@@ -26093,7 +26220,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_SERVICE_CORE/WallNorth_00/Collision",
-      "id": "@CollisionShape3D@2174",
+      "id": "@CollisionShape3D@2197",
       "bounds": [
         9.5,
         -3.2,
@@ -26106,7 +26233,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_SERVICE_CORE/WallWest_02/Collision",
-      "id": "@CollisionShape3D@2177",
+      "id": "@CollisionShape3D@2200",
       "bounds": [
         9.43,
         -3.2,
@@ -26119,7 +26246,7 @@
     },
     {
       "owner": "OrisonV2Blockout/B1_SERVICE_CORE/WallEast_00/Collision",
-      "id": "@CollisionShape3D@2178",
+      "id": "@CollisionShape3D@2201",
       "bounds": [
         13.13,
         -3.2,
@@ -26145,7 +26272,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21215",
+      "id": "@CollisionShape3D@21351",
       "bounds": [
         -20.8,
         -0.16,
@@ -26158,7 +26285,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21254",
+      "id": "@CollisionShape3D@21390",
       "bounds": [
         0.045,
         -0.16,
@@ -26171,7 +26298,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21256",
+      "id": "@CollisionShape3D@21392",
       "bounds": [
         -22.0,
         -0.16,
@@ -26184,7 +26311,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21258",
+      "id": "@CollisionShape3D@21394",
       "bounds": [
         -4.095,
         -0.16,
@@ -26197,7 +26324,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21260",
+      "id": "@CollisionShape3D@21396",
       "bounds": [
         -4.095,
         -0.16,
@@ -26210,7 +26337,7 @@
     },
     {
       "owner": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/Collision",
-      "id": "@CollisionShape3D@21262",
+      "id": "@CollisionShape3D@21398",
       "bounds": [
         -20.8,
         -0.16,
@@ -26223,7 +26350,7 @@
     },
     {
       "owner": "StreetBoundaries/ShedTurnFloor",
-      "id": "@CollisionShape3D@24534",
+      "id": "@CollisionShape3D@24695",
       "bounds": [
         -25.5,
         -0.16,
@@ -26236,7 +26363,7 @@
     }
   ],
   "bindings": {
-    "art/blender/exterior_masonry.blend": "d476ac33b804e78200de4355a2303387183f0a8295b250367b62dca8a5d37cb3",
+    "art/blender/exterior_masonry.blend": "c81d7ee8293b0165846f6afb5120be469e31db7c0b2d61a0bb6775ded916eeb7",
     "art/blender/ground_core_transfer_construction.json": "4f0035a60f5eb3520ef166d8e8b5da40d0de06b2c2ea14cf76a7758fa5718de7",
     "art/blender/ground_core_transfer.blend": "b1bb8e825bccc7e19344065e333edb06722c55d8f7a12e5b17704182faed187b",
     "game/assets/props/ground_core_transfer.glb": "6df58ea13bbd268ddb52347a9ee07bff0fbb72b116f601ebf17bcbaaa9897a33",
@@ -26249,17 +26376,19 @@
     "art/blender/orison_foundations_construction.json": "171e8739ce3ef3e7573d5187f45ebd960a50f95ff591c7cb0c85bd31e61bf8df",
     "art/blender/orison_foundations.blend": "74a93b233087123f37448ed41a67f4e17181b9a282c492c4fcb78c55ccc6a99a",
     "game/assets/props/orison_foundations.glb": "505a57bd2b02eaf3c870ab138ba024016a47c97f7c488af6ebfee391ebfc8c3e",
-    "art/blender/service_alley.blend": "7955e33c84dd4c587e25febf92d3f252f37b7b283946b97855a1492e7d748688",
+    "art/blender/service_alley.blend": "41a9e43801e7c536ff079ffa20ac2b2bef513e0273a0e346f68801f950e2c39b",
+    "art/blender/c_stove_stack/c_stove_stack.blend": "d6bb35783c3e7f320e2b89d2147aee31fcea1fa509cf95e50b194b2e8a1a025c",
+    "game/assets/props/c_stove_stack.glb": "1031166cfd6e54431cbb69b5ab0f3eafd3ef66f5aaa6035e3168e6283df1e38e",
     "art/blender/bodega_receiving.blend": "4aa88f3747a48767252508afbbb4d61ca847c525603226aefc31b93e27453401",
     "art/blender/front_pavement.blend": "9842ccc0548ed51c04394525097de8a4f6370f6530fc7fc9b2128e29dbfedf85",
     "art/blender/front_pavement_construction.json": "972330109a121f7a365a1128aac1963b2048c894ba0d5850fdf4509e0b942b94",
-    "game/assets/props/exterior_masonry.glb": "071a65fecf7588ab54ba5c06f961947361c5f019ea09c2de6096ace9dfec4d38",
-    "game/assets/props/service_alley.glb": "b3dff947da47729aa31213acee5eb7cd5245f2b1759d0d2135376e5e142ee5f9",
+    "game/assets/props/exterior_masonry.glb": "c9a3ec8d82db4645ca9138248053b680f41c55dfc81f46c6f834074073f33ab3",
+    "game/assets/props/service_alley.glb": "f4c4b22a1866c98602a2e4677e8c885504a6b2837b13433398736b42ec8700de",
     "game/assets/props/bodega_receiving.glb": "810f3ec42ab5aeacb2e3b11617eff5903cc483077f65d2901a830a936b9a741e",
     "game/assets/props/front_pavement.glb": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
     "game/scripts/generated/v2_exterior_masonry.gd": "54f8bffb04b425e9838fc9431768894e64a4abb671dcffff302c06b41a1d8f40",
-    "art/blender/scripts/export_retained_grade_sources.py": "ffde133f316395fa7bf014828e3e42d21ddf7bab19ce58e3dc8271bce1cb238b",
-    "game/data/orison_v2_blockout.json": "9033cc680036c4452ee3c336fed5b841364c0a2d90d29dfaa9ecd60929998de4",
+    "art/blender/scripts/export_retained_grade_sources.py": "a8d4a8c0d34b03e00878b0ecd4c02b00b3151d8158a882581dc28cfa89b2538a",
+    "game/data/orison_v2_blockout.json": "6f9d033f2f1a0dd849d6afb50f9c5799a3dc2c93587d23db826006e2547d0955",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
@@ -26269,12 +26398,12 @@
     "game/scripts/building/orison_v2_bodega_receiving.gd": "d39b3c954ff14e71571672f6cfc5f64b6f15b20949803d16a97507c597173171",
     "game/scripts/building/orison_v2_street_boundaries.gd": "826369ffd35dad9f47aa45ea206ce428abaee91eed8f28c60ef449921eb86abe",
     "art/blender/city_shells.blend": "bc56f8acfe85363368ffb8920e1588c7fa03d121c73500462356d2afcd32bd16",
-    "art/data/orison_ground/discovery/runtime_survey.json": "b649ef5220691853f85d28108ebebfd2ecd42be5653ba6cfea176fe681f92eb4",
-    "art/data/orison_ground/discovery/native_sources.json": "8ce224e1d9b0aaf8925839620f4b210ae3520582b6a9c224f6e93fdec470f84e",
-    "game/tests/V2GradeOwnerSurvey.tscn": "fe51e750ce2bc5e2a5d45ac0e34f679b99fc57fd9026eb2f8e2cba845e5f3f71",
+    "art/data/orison_ground/discovery/runtime_survey.json": "0da55feb961f71426c3f5ada7f5aa538506c774f809b1baeefc6b42bd36038e2",
+    "art/data/orison_ground/discovery/native_sources.json": "feea25464ea1a225a7abb22f7892f26de0bf2231d3b4e1b2768a841088fbef32",
     "game/tests/v2_grade_owner_survey.gd": "f825e6e7e15cd6a2ee4f98c783e10f6a5ee840e3fb75816f8335d10df2e882ca",
+    "game/tests/v2_grade_owner_survey.tscn": "b09000323498ab322e8bafc256e9fdbc32c99085fa585e8af60e9557594ea7b4",
     "game/tests/v2_spatial_access_cohort.gd": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9",
-    "tools/plan_v2_retained_grade.py": "17bce922d0b5436f112c5ab91d77cfe16d2f85eab5809c7f88eb813f42de4904",
+    "tools/plan_v2_retained_grade.py": "325314c7b6e80ce7c2eeba6bd9f21dd2d719cb4138e82675580353fb2e92edbb",
     "tools/grade_source_snapshot.py": "17a1b9cdd341bcd0ae54e3dce4cb949926a58385d212cc9809a587cd8f90211a",
     "tools/run_receipt.py": "e03812b149b1161cec2e5b9803842b60682b1aaee60a6b55f5b01c89a7e061f9",
     "tools/audit_orison_v2_completeness.py": "f3e9d857b8e4b7a9e75020d890eb6338f3ae91793ec28978e42705f701070bd9"

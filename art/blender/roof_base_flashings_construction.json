@@ -1,9 +1,9 @@
 {
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
-  "parts": 57,
-  "triangles": 5972,
-  "closed_native_pieces": 470,
+  "parts": 61,
+  "triangles": 6116,
+  "closed_native_pieces": 482,
   "sheet_thickness": 0.0012,
   "roof_datum": 19.2,
   "stations": [
@@ -316,7 +316,7 @@
       "side": "North",
       "wall_point": [
         10.390000343322754,
-        19.32865113639832,
+        19.328651136398317,
         10.270000457763672
       ],
       "normal": [
@@ -407,6 +407,82 @@
       ]
     },
     {
+      "owner": "C_STOVE_FLUE",
+      "side": "South",
+      "wall_point": [
+        7.739999771118164,
+        19.36085114860535,
+        9.699999809265137
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "foot_point": [
+        7.739999771118164,
+        19.26245048904419,
+        9.65999984741211
+      ]
+    },
+    {
+      "owner": "C_STOVE_FLUE",
+      "side": "East",
+      "wall_point": [
+        8.029999732971191,
+        19.35445114517212,
+        10.050000190734863
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "foot_point": [
+        8.069999694824219,
+        19.255250486373903,
+        10.050000190734863
+      ]
+    },
+    {
+      "owner": "C_STOVE_FLUE",
+      "side": "North",
+      "wall_point": [
+        7.739999771118164,
+        19.353851150512696,
+        10.399999618530273
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "foot_point": [
+        7.739999771118164,
+        19.25465049171448,
+        10.4399995803833
+      ]
+    },
+    {
+      "owner": "C_STOVE_FLUE",
+      "side": "West",
+      "wall_point": [
+        7.449999809265137,
+        19.36025114440918,
+        10.050000190734863
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "foot_point": [
+        7.409999847412109,
+        19.261850484848026,
+        10.050000190734863
+      ]
+    },
+    {
       "owner": "ROOF_PARAPET",
       "side": "South",
       "wall_point": [
@@ -449,7 +525,7 @@
       "side": "South",
       "wall_point": [
         -8.521834373474121,
-        19.325219484329228,
+        19.325219484329224,
         -12.225000381469727
       ],
       "normal": [
@@ -459,7 +535,7 @@
       ],
       "foot_point": [
         -8.521834373474121,
-        19.22681882476807,
+        19.226818824768067,
         -12.1850004196167
       ]
     },
@@ -639,7 +715,7 @@
       "side": "East",
       "wall_point": [
         15.524999618530273,
-        19.32810714626313,
+        19.328107146263125,
         -5.6894001960754395
       ],
       "normal": [
@@ -1057,7 +1133,7 @@
       "side": "West",
       "wall_point": [
         -15.524999618530273,
-        19.362991641998292,
+        19.362991641998295,
         9.799049377441406
       ],
       "normal": [
@@ -1382,22 +1458,22 @@
       ],
       [
         9.428800582885742,
-        19.27945047938824,
+        19.279450479388235,
         0.2287999987602234
       ],
       [
         9.428800582885742,
-        19.457051339983945,
+        19.457051339983938,
         0.2287999987602234
       ],
       [
         9.41200065612793,
-        19.4570513393879,
+        19.457051339387892,
         0.2120000123977661
       ],
       [
         9.41200065612793,
-        19.458251061677938,
+        19.45825106167793,
         0.2120000123977661
       ],
       [
@@ -1520,22 +1596,22 @@
     [
       [
         9.369999885559082,
-        19.23825075531006,
+        19.238250755310066,
         10.330000877380371
       ],
       [
         9.369999885559082,
-        19.239450477600098,
+        19.239450477600105,
         10.330000877380371
       ],
       [
         9.428800582885742,
-        19.239450477600098,
+        19.239450477600105,
         10.271200180053711
       ],
       [
         9.428800582885742,
-        19.4170513381958,
+        19.417051338195808,
         10.271200180053711
       ],
       [
@@ -1604,22 +1680,22 @@
       ],
       [
         9.428800582885742,
-        19.27945047938824,
+        19.279450479388235,
         0.2287999987602234
       ],
       [
         9.428800582885742,
-        19.457051339983945,
+        19.457051339983938,
         0.2287999987602234
       ],
       [
         9.41200065612793,
-        19.4570513393879,
+        19.457051339387892,
         0.2120000123977661
       ],
       [
         9.41200065612793,
-        19.458251061677938,
+        19.45825106167793,
         0.2120000123977661
       ],
       [
@@ -1663,6 +1739,302 @@
         9.430000305175781,
         19.41825107002258,
         10.269999504089355
+      ]
+    ],
+    [
+      [
+        7.389999866485596,
+        19.26495077037811,
+        9.639999389648438
+      ],
+      [
+        7.389999866485596,
+        19.26615049266815,
+        9.639999389648438
+      ],
+      [
+        7.4487996101379395,
+        19.264974488258364,
+        9.698800086975098
+      ],
+      [
+        7.4487996101379395,
+        19.442575348854067,
+        9.698800086975098
+      ],
+      [
+        7.431999683380127,
+        19.442911347389224,
+        9.682000160217285
+      ],
+      [
+        7.431999683380127,
+        19.444111069679263,
+        9.682000160217285
+      ],
+      [
+        7.449999809265137,
+        19.443751071929935,
+        9.699999809265137
+      ]
+    ],
+    [
+      [
+        8.09000015258789,
+        19.25795076751709,
+        9.639999389648438
+      ],
+      [
+        8.09000015258789,
+        19.25915048980713,
+        9.639999389648438
+      ],
+      [
+        8.03119945526123,
+        19.25915048980713,
+        9.698800086975098
+      ],
+      [
+        8.03119945526123,
+        19.436751350402833,
+        9.698800086975098
+      ],
+      [
+        8.047999382019043,
+        19.436751350402833,
+        9.682000160217285
+      ],
+      [
+        8.047999382019043,
+        19.437951072692872,
+        9.682000160217285
+      ],
+      [
+        8.029999732971191,
+        19.437951072692872,
+        9.699999809265137
+      ]
+    ],
+    [
+      [
+        8.09000015258789,
+        19.25795076751709,
+        9.639999389648438
+      ],
+      [
+        8.09000015258789,
+        19.25915048980713,
+        9.639999389648438
+      ],
+      [
+        8.03119945526123,
+        19.25915048980713,
+        9.698800086975098
+      ],
+      [
+        8.03119945526123,
+        19.436751350402833,
+        9.698800086975098
+      ],
+      [
+        8.047999382019043,
+        19.436751350402833,
+        9.682000160217285
+      ],
+      [
+        8.047999382019043,
+        19.437951072692872,
+        9.682000160217285
+      ],
+      [
+        8.029999732971191,
+        19.437951072692872,
+        9.699999809265137
+      ]
+    ],
+    [
+      [
+        8.09000015258789,
+        19.249750761032107,
+        10.460000038146973
+      ],
+      [
+        8.09000015258789,
+        19.250950483322146,
+        10.460000038146973
+      ],
+      [
+        8.03119945526123,
+        19.25212649726868,
+        10.401199340820312
+      ],
+      [
+        8.03119945526123,
+        19.429727357864383,
+        10.401199340820312
+      ],
+      [
+        8.047999382019043,
+        19.429391349792485,
+        10.418000221252441
+      ],
+      [
+        8.047999382019043,
+        19.430591072082525,
+        10.418000221252441
+      ],
+      [
+        8.029999732971191,
+        19.43095107460022,
+        10.399999618530273
+      ]
+    ],
+    [
+      [
+        7.389999866485596,
+        19.256750763893127,
+        10.460000038146973
+      ],
+      [
+        7.389999866485596,
+        19.257950486183166,
+        10.460000038146973
+      ],
+      [
+        7.4487996101379395,
+        19.257950495719914,
+        10.401199340820312
+      ],
+      [
+        7.4487996101379395,
+        19.435551356315617,
+        10.401199340820312
+      ],
+      [
+        7.431999683380127,
+        19.435551356315617,
+        10.417999267578125
+      ],
+      [
+        7.431999683380127,
+        19.436751078605656,
+        10.417999267578125
+      ],
+      [
+        7.449999809265137,
+        19.436751073837282,
+        10.399999618530273
+      ]
+    ],
+    [
+      [
+        8.09000015258789,
+        19.249750761032107,
+        10.460000038146973
+      ],
+      [
+        8.09000015258789,
+        19.250950483322146,
+        10.460000038146973
+      ],
+      [
+        8.03119945526123,
+        19.25212649726868,
+        10.401199340820312
+      ],
+      [
+        8.03119945526123,
+        19.429727357864383,
+        10.401199340820312
+      ],
+      [
+        8.047999382019043,
+        19.429391359329227,
+        10.417999267578125
+      ],
+      [
+        8.047999382019043,
+        19.430591081619266,
+        10.417999267578125
+      ],
+      [
+        8.029999732971191,
+        19.43095107460022,
+        10.399999618530273
+      ]
+    ],
+    [
+      [
+        7.389999866485596,
+        19.26495077037811,
+        9.639999389648438
+      ],
+      [
+        7.389999866485596,
+        19.26615049266815,
+        9.639999389648438
+      ],
+      [
+        7.4487996101379395,
+        19.264974488258364,
+        9.698800086975098
+      ],
+      [
+        7.4487996101379395,
+        19.442575348854067,
+        9.698800086975098
+      ],
+      [
+        7.431999683380127,
+        19.442911347389224,
+        9.682000160217285
+      ],
+      [
+        7.431999683380127,
+        19.444111069679263,
+        9.682000160217285
+      ],
+      [
+        7.449999809265137,
+        19.443751071929935,
+        9.699999809265137
+      ]
+    ],
+    [
+      [
+        7.389999866485596,
+        19.256750763893127,
+        10.460000038146973
+      ],
+      [
+        7.389999866485596,
+        19.257950486183166,
+        10.460000038146973
+      ],
+      [
+        7.4487996101379395,
+        19.257950495719914,
+        10.401199340820312
+      ],
+      [
+        7.4487996101379395,
+        19.435551356315617,
+        10.401199340820312
+      ],
+      [
+        7.431999683380127,
+        19.43555134677887,
+        10.418000221252441
+      ],
+      [
+        7.431999683380127,
+        19.436751069068908,
+        10.418000221252441
+      ],
+      [
+        7.449999809265137,
+        19.436751073837282,
+        10.399999618530273
       ]
     ],
     [
@@ -1965,8 +2337,8 @@
   "door_clearance": 0.04,
   "source_bindings": {
     "art/data/roof_base_flashings/source_plan.json": "7502d54a5b8273c64538e85ccee99f4cfb2a75eac239aef134555c5109534f75",
-    "art/data/orison_v2/roof_source.json": "e1cbfa59244c0c3eb9ee5323db15282ee7618eafc55782003713440005b414d9",
-    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab"
+    "art/data/orison_v2/roof_source.json": "efebb701407e4c70e5cca50e71e41406b3e2f5b9b2685e8ebe00562db6c6c174",
+    "game/data/orison_v2_blockout.json": "6f9d033f2f1a0dd849d6afb50f9c5799a3dc2c93587d23db826006e2547d0955"
   },
   "open_work": "Main-roof field, falls, outlets and downstream drains; joint sealing and final material acceptance. These fittings do not establish whole-roof weather closure.",
   "status": "SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED",
@@ -2064,31 +2436,7 @@
       "material": "galvanized_roof"
     },
     {
-      "name": "RoofBase_10_01_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_10_02_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
       "name": "RoofBase_11_00_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_11_01_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_11_02_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_11_03_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_11_04_galvanized_roof",
       "material": "galvanized_roof"
     },
     {
@@ -2096,15 +2444,7 @@
       "material": "galvanized_roof"
     },
     {
-      "name": "RoofBase_12_01_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
       "name": "RoofBase_13_00_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_13_01_galvanized_roof",
       "material": "galvanized_roof"
     },
     {
@@ -2113,6 +2453,10 @@
     },
     {
       "name": "RoofBase_14_01_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_14_02_galvanized_roof",
       "material": "galvanized_roof"
     },
     {
@@ -2132,31 +2476,15 @@
       "material": "galvanized_roof"
     },
     {
+      "name": "RoofBase_15_04_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
       "name": "RoofBase_16_00_galvanized_roof",
       "material": "galvanized_roof"
     },
     {
       "name": "RoofBase_16_01_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_16_02_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_16_03_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_16_04_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_16_05_galvanized_roof",
-      "material": "galvanized_roof"
-    },
-    {
-      "name": "RoofBase_16_06_galvanized_roof",
       "material": "galvanized_roof"
     },
     {
@@ -2188,7 +2516,35 @@
       "material": "galvanized_roof"
     },
     {
+      "name": "RoofBase_19_03_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
       "name": "RoofBase_20_00_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_20_01_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_20_02_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_20_03_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_20_04_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_20_05_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_20_06_galvanized_roof",
       "material": "galvanized_roof"
     },
     {
@@ -2198,9 +2554,41 @@
     {
       "name": "RoofBase_21_01_galvanized_roof",
       "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_22_00_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_22_01_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_23_00_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_23_01_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_23_02_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_24_00_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_25_00_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "RoofBase_25_01_galvanized_roof",
+      "material": "galvanized_roof"
     }
   ],
-  "field_sha256": "2277f4e439ec075d0f6d64d7308db3cd39b71bc87259d883c54c42498a56f536",
+  "field_sha256": "4ecbb749eab6c9fc787ab07356a2ec6804eee4c255ee6e022eb95c1fd7c14553",
   "closed_stocks": [
     {
       "name": "FoldedStrip_00_00",
@@ -3009,567 +3397,127 @@
     },
     {
       "name": "FoldedStrip_10_00",
-      "volume_m3": 0.000856526892930189,
+      "volume_m3": 0.00018282045908374345,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_10_00_0",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_00_0",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_00_1",
       "volume_m3": 2.880060705040962e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Screw_10_00_1",
-      "volume_m3": 2.45036894018248e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_00_2",
-      "volume_m3": 2.8800607050409623e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_00_2",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_00_3",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_00_3",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_10_01",
-      "volume_m3": 0.0008590085429320332,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_01_0",
-      "volume_m3": 2.880059960031693e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_01_0",
+      "name": "Screw_10_00_0",
       "volume_m3": 2.450034061364859e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_10_01_1",
-      "volume_m3": 2.8798307770512693e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_01_1",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_01_2",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_01_2",
-      "volume_m3": 2.450034495990112e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_01_3",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_01_3",
-      "volume_m3": 2.450034930615367e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_10_02",
-      "volume_m3": 0.0008590087936331536,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_02_0",
-      "volume_m3": 2.8802894410868746e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_02_0",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_02_1",
-      "volume_m3": 2.879831298516312e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_02_1",
-      "volume_m3": 2.450369048853597e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_02_2",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_02_2",
-      "volume_m3": 2.45003471330274e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_10_02_3",
-      "volume_m3": 2.8798315592488335e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_10_02_3",
-      "volume_m3": 2.4500346589745836e-07,
-      "nonmanifold_edges": 0
-    },
-    {
       "name": "FoldedStrip_11_00",
-      "volume_m3": 0.0010890740503764597,
+      "volume_m3": 0.00021961841965362542,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_11_00_0",
-      "volume_m3": 2.880060518788645e-07,
+      "volume_m3": 2.8800604070372543e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_11_00_0",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_00_1",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_00_1",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_00_2",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_00_2",
-      "volume_m3": 2.450034821959053e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_00_3",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_00_3",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_11_01",
-      "volume_m3": 0.0010890738684083542,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_01_0",
-      "volume_m3": 2.8800605560391086e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_01_0",
-      "volume_m3": 2.450034713302739e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_01_1",
-      "volume_m3": 2.8800602580354006e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_01_1",
-      "volume_m3": 2.450034061364858e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_01_2",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_01_2",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_01_3",
-      "volume_m3": 2.8800601090335474e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_01_3",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_11_02",
-      "volume_m3": 0.001089073953414259,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_02_0",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_02_0",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_02_1",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_02_1",
-      "volume_m3": 2.4500347133027416e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_02_2",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_02_2",
-      "volume_m3": 2.4500347133027416e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_02_3",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_02_3",
-      "volume_m3": 2.450034278677485e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_11_03",
-      "volume_m3": 0.0010890741045722695,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_03_0",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_03_0",
-      "volume_m3": 2.450035147927994e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_03_1",
-      "volume_m3": 2.88028959010057e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_03_1",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_03_2",
-      "volume_m3": 2.880289739114265e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_03_2",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_03_3",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_03_3",
       "volume_m3": 2.45003471330274e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_11_04",
-      "volume_m3": 0.0010890738902374713,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_04_0",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_04_0",
-      "volume_m3": 2.450034713302739e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_04_1",
-      "volume_m3": 2.8798314475063243e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_04_1",
-      "volume_m3": 2.4500346046464256e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_04_2",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_04_2",
-      "volume_m3": 2.45003471330274e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_11_04_3",
-      "volume_m3": 2.880289403833451e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_11_04_3",
-      "volume_m3": 2.450034767630897e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_12_00",
-      "volume_m3": 0.0006752134307142512,
+      "volume_m3": 0.00018282042746379373,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_12_00_0",
-      "volume_m3": 2.8798314847538274e-07,
+      "volume_m3": 2.8800605560391086e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_12_00_0",
-      "volume_m3": 2.450034930615367e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_12_00_1",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_12_00_1",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_12_00_2",
-      "volume_m3": 2.8802895155937217e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_12_00_2",
-      "volume_m3": 2.4500348219590534e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_12_01",
-      "volume_m3": 0.0006727314050149402,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_12_01_0",
-      "volume_m3": 2.880289366580027e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_12_01_0",
       "volume_m3": 2.450034713302739e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_12_01_1",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_12_01_1",
-      "volume_m3": 2.450034713302739e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_12_01_2",
-      "volume_m3": 2.879831373011318e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_12_01_2",
-      "volume_m3": 2.45003471330274e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_13_00",
-      "volume_m3": 0.0007033963894722027,
+      "volume_m3": 0.00021967768381060855,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_13_00_0",
-      "volume_m3": 2.880060258035401e-07,
+      "volume_m3": 2.880060854042816e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_13_00_0",
-      "volume_m3": 2.450034713302739e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_13_00_1",
-      "volume_m3": 2.8800605560391086e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_13_00_1",
-      "volume_m3": 2.450034930615367e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_13_00_2",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_13_00_2",
-      "volume_m3": 2.450034713302739e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_13_01",
-      "volume_m3": 0.0007058780570067397,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_13_01_0",
-      "volume_m3": 2.8800607050409623e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_13_01_0",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_13_01_1",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_13_01_1",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_13_01_2",
-      "volume_m3": 2.880060518788645e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_13_01_2",
-      "volume_m3": 2.450034658974583e-07,
+      "volume_m3": 2.450035365240622e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_14_00",
-      "volume_m3": 0.0010361092329328712,
+      "volume_m3": 0.000856526892930189,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_14_00_0",
-      "volume_m3": 2.880060518788645e-07,
+      "volume_m3": 2.880060407037255e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_14_00_0",
-      "volume_m3": 2.4500345503182697e-07,
+      "volume_m3": 2.4500347133027406e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_14_00_1",
-      "volume_m3": 2.880060407037255e-07,
+      "volume_m3": 2.880060705040962e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_14_00_1",
-      "volume_m3": 2.4500347133027395e-07,
+      "volume_m3": 2.45036894018248e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_14_00_2",
-      "volume_m3": 2.879945890021326e-07,
+      "volume_m3": 2.8800607050409623e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_14_00_2",
-      "volume_m3": 2.45003471330274e-07,
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_14_00_3",
-      "volume_m3": 2.8800605560391086e-07,
+      "volume_m3": 2.880060407037255e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_14_00_3",
-      "volume_m3": 2.450034713302739e-07,
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_14_01",
-      "volume_m3": 0.0010361095251625817,
+      "volume_m3": 0.0008590085429320332,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_14_01_0",
-      "volume_m3": 2.880060407037255e-07,
+      "volume_m3": 2.880059960031693e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_14_01_0",
-      "volume_m3": 2.450034713302739e-07,
+      "volume_m3": 2.450034061364859e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_14_01_1",
-      "volume_m3": 2.880060407037255e-07,
+      "volume_m3": 2.8798307770512693e-07,
       "nonmanifold_edges": 0
     },
     {
@@ -3579,37 +3527,82 @@
     },
     {
       "name": "Washer_14_01_2",
-      "volume_m3": 2.880060407037255e-07,
+      "volume_m3": 2.8802892920731793e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_14_01_2",
-      "volume_m3": 2.4500346046464266e-07,
+      "volume_m3": 2.450034495990112e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_14_01_3",
-      "volume_m3": 2.880060518788645e-07,
+      "volume_m3": 2.8798315220013304e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_14_01_3",
-      "volume_m3": 2.450368668504688e-07,
+      "volume_m3": 2.450034930615367e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_14_02",
+      "volume_m3": 0.0008590087936331536,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_14_02_0",
+      "volume_m3": 2.8802894410868746e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_14_02_0",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_14_02_1",
+      "volume_m3": 2.879831298516312e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_14_02_1",
+      "volume_m3": 2.450369048853597e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_14_02_2",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_14_02_2",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_14_02_3",
+      "volume_m3": 2.8798315592488335e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_14_02_3",
+      "volume_m3": 2.4500346589745836e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_15_00",
-      "volume_m3": 0.0009125753584980998,
+      "volume_m3": 0.0010890740503764597,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_15_00_0",
-      "volume_m3": 2.8800602952858645e-07,
+      "volume_m3": 2.880060518788645e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_15_00_0",
-      "volume_m3": 2.4500344959901127e-07,
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
@@ -3624,27 +3617,27 @@
     },
     {
       "name": "Washer_15_00_2",
-      "volume_m3": 2.8800604815381817e-07,
+      "volume_m3": 2.880060407037255e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_15_00_2",
-      "volume_m3": 2.4500350392716807e-07,
+      "volume_m3": 2.450034821959053e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_15_00_3",
-      "volume_m3": 2.8800604815381817e-07,
+      "volume_m3": 2.8798315220013304e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_15_00_3",
-      "volume_m3": 2.450034713302739e-07,
+      "volume_m3": 2.4500347133027406e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_15_01",
-      "volume_m3": 0.0009125752378918253,
+      "volume_m3": 0.0010890738684083542,
       "nonmanifold_edges": 0
     },
     {
@@ -3659,42 +3652,42 @@
     },
     {
       "name": "Washer_15_01_1",
-      "volume_m3": 2.880060258035401e-07,
+      "volume_m3": 2.8800602580354006e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_15_01_1",
-      "volume_m3": 2.450034495990112e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_15_01_2",
-      "volume_m3": 2.8802888450320935e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_15_01_2",
       "volume_m3": 2.450034061364858e-07,
       "nonmanifold_edges": 0
     },
     {
+      "name": "Washer_15_01_2",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_15_01_2",
+      "volume_m3": 2.4500347133027406e-07,
+      "nonmanifold_edges": 0
+    },
+    {
       "name": "Washer_15_01_3",
-      "volume_m3": 2.8798321179613793e-07,
+      "volume_m3": 2.8800601090335474e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_15_01_3",
-      "volume_m3": 2.450702297693285e-07,
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_15_02",
-      "volume_m3": 0.0009125754890187934,
+      "volume_m3": 0.001089073953414259,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_15_02_0",
-      "volume_m3": 2.88028959010057e-07,
+      "volume_m3": 2.8802892920731793e-07,
       "nonmanifold_edges": 0
     },
     {
@@ -3709,7 +3702,7 @@
     },
     {
       "name": "Screw_15_02_1",
-      "volume_m3": 2.4500347133027395e-07,
+      "volume_m3": 2.4500347133027416e-07,
       "nonmanifold_edges": 0
     },
     {
@@ -3719,7 +3712,7 @@
     },
     {
       "name": "Screw_15_02_2",
-      "volume_m3": 2.4500347133027384e-07,
+      "volume_m3": 2.4500347133027416e-07,
       "nonmanifold_edges": 0
     },
     {
@@ -3729,37 +3722,37 @@
     },
     {
       "name": "Screw_15_02_3",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_15_03",
-      "volume_m3": 0.000910093784637207,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_15_03_0",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_15_03_0",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_15_03_1",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_15_03_1",
       "volume_m3": 2.450034278677485e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_15_03_2",
+      "name": "FoldedStrip_15_03",
+      "volume_m3": 0.0010890741045722695,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_15_03_0",
       "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_15_03_0",
+      "volume_m3": 2.450035147927994e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_15_03_1",
+      "volume_m3": 2.88028959010057e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_15_03_1",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_15_03_2",
+      "volume_m3": 2.880289739114265e-07,
       "nonmanifold_edges": 0
     },
     {
@@ -3769,447 +3762,177 @@
     },
     {
       "name": "Washer_15_03_3",
-      "volume_m3": 2.880288994045789e-07,
+      "volume_m3": 2.8798315220013304e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_15_03_3",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_16_00",
-      "volume_m3": 0.0011541937052121061,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_00_0",
-      "volume_m3": 2.8800601090335474e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_00_0",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_00_1",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_00_1",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_00_2",
-      "volume_m3": 2.879831224021306e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_00_2",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_00_3",
-      "volume_m3": 2.8800607050409623e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_00_3",
-      "volume_m3": 2.450034278677487e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_00_4",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_00_4",
-      "volume_m3": 2.450035147927994e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_16_01",
-      "volume_m3": 0.001156674616393438,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_01_0",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_01_0",
-      "volume_m3": 2.4500338440522303e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_01_1",
-      "volume_m3": 2.880059215022426e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_01_1",
-      "volume_m3": 2.4500347133027384e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_01_2",
-      "volume_m3": 2.8798309260412815e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_01_2",
-      "volume_m3": 2.4500338440522313e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_01_3",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_01_3",
-      "volume_m3": 2.4500338440522313e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_01_4",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_01_4",
-      "volume_m3": 2.4500347133027384e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_16_02",
-      "volume_m3": 0.0011566753468844125,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_02_0",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_02_0",
-      "volume_m3": 2.4500355825532477e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_02_1",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_02_1",
-      "volume_m3": 2.450035582553249e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_02_2",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_02_2",
-      "volume_m3": 2.450033844052231e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_02_3",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_02_3",
-      "volume_m3": 2.450033844052233e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_02_4",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_02_4",
-      "volume_m3": 2.450033844052229e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_16_03",
-      "volume_m3": 0.0011566751221526997,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_03_0",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_03_0",
-      "volume_m3": 2.4500355825532477e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_03_1",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_03_1",
-      "volume_m3": 2.4500338440522313e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_03_2",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_03_2",
-      "volume_m3": 2.4500338440522313e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_03_3",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_03_3",
-      "volume_m3": 2.45003558255325e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_03_4",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_03_4",
       "volume_m3": 2.45003471330274e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "FoldedStrip_16_04",
-      "volume_m3": 0.0011566754702721713,
+      "name": "FoldedStrip_15_04",
+      "volume_m3": 0.0010890738902374713,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_16_04_0",
-      "volume_m3": 2.880059215022425e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_04_0",
-      "volume_m3": 2.4500347133027384e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_04_1",
+      "name": "Washer_15_04_0",
       "volume_m3": 2.8798315220013304e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Screw_16_04_1",
-      "volume_m3": 2.4507022976932873e-07,
+      "name": "Screw_15_04_0",
+      "volume_m3": 2.450034713302739e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_16_04_2",
-      "volume_m3": 2.8798315220013304e-07,
+      "name": "Washer_15_04_1",
+      "volume_m3": 2.8798314475063243e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Screw_16_04_2",
-      "volume_m3": 2.4500347133027384e-07,
+      "name": "Screw_15_04_1",
+      "volume_m3": 2.4500346046464256e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_16_04_3",
+      "name": "Washer_15_04_2",
       "volume_m3": 2.8802892920731793e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Screw_16_04_3",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_04_4",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_04_4",
-      "volume_m3": 2.4500347133027406e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_16_05",
-      "volume_m3": 0.0011566749570375333,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_05_0",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_05_0",
-      "volume_m3": 2.4500347133027384e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_05_1",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_05_1",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_05_2",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_05_2",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_05_3",
-      "volume_m3": 2.8798307770512693e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_05_3",
-      "volume_m3": 2.450035365240622e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_05_4",
-      "volume_m3": 2.880289143059484e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_05_4",
+      "name": "Screw_15_04_2",
       "volume_m3": 2.45003471330274e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "FoldedStrip_16_06",
-      "volume_m3": 0.0011566748579751327,
+      "name": "Washer_15_04_3",
+      "volume_m3": 2.880289403833451e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_16_06_0",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_06_0",
-      "volume_m3": 2.450034713302739e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_06_1",
-      "volume_m3": 2.8802892920731793e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_06_1",
-      "volume_m3": 2.450034713302739e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_06_2",
-      "volume_m3": 2.879831298516312e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_06_2",
-      "volume_m3": 2.4500350392716807e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_06_3",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_06_3",
-      "volume_m3": 2.4500348219590534e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_16_06_4",
-      "volume_m3": 2.8798314847538274e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_16_06_4",
+      "name": "Screw_15_04_3",
       "volume_m3": 2.450034767630897e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "FoldedStrip_17_00",
-      "volume_m3": 0.0006752132633784057,
+      "name": "FoldedStrip_16_00",
+      "volume_m3": 0.0006752134307142512,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_17_00_0",
+      "name": "Washer_16_00_0",
       "volume_m3": 2.8798314847538274e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Screw_17_00_0",
-      "volume_m3": 2.4500348219590534e-07,
+      "name": "Screw_16_00_0",
+      "volume_m3": 2.450034930615367e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_17_00_1",
+      "name": "Washer_16_00_1",
       "volume_m3": 2.8802892920731793e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Screw_17_00_1",
+      "name": "Screw_16_00_1",
       "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_17_00_2",
-      "volume_m3": 2.880289515593722e-07,
+      "name": "Washer_16_00_2",
+      "volume_m3": 2.8802895155937217e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Screw_17_00_2",
+      "name": "Screw_16_00_2",
       "volume_m3": 2.4500348219590534e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "FoldedStrip_17_01",
-      "volume_m3": 0.0006727313948002426,
+      "name": "FoldedStrip_16_01",
+      "volume_m3": 0.0006727314050149402,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_17_01_0",
+      "name": "Washer_16_01_0",
+      "volume_m3": 2.880289366580027e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_16_01_0",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_16_01_1",
       "volume_m3": 2.8802892920731793e-07,
       "nonmanifold_edges": 0
     },
     {
+      "name": "Screw_16_01_1",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_16_01_2",
+      "volume_m3": 2.879831373011318e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_16_01_2",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_17_00",
+      "volume_m3": 0.0007033963894722027,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_17_00_0",
+      "volume_m3": 2.880060258035401e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_17_00_0",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_17_00_1",
+      "volume_m3": 2.8800605560391086e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_17_00_1",
+      "volume_m3": 2.450034930615367e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_17_00_2",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_17_00_2",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_17_01",
+      "volume_m3": 0.0007058780570067397,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_17_01_0",
+      "volume_m3": 2.8800607050409623e-07,
+      "nonmanifold_edges": 0
+    },
+    {
       "name": "Screw_17_01_0",
-      "volume_m3": 2.450034495990112e-07,
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
@@ -4219,207 +3942,302 @@
     },
     {
       "name": "Screw_17_01_1",
-      "volume_m3": 2.450034713302739e-07,
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_17_01_2",
-      "volume_m3": 2.8798315220013304e-07,
+      "volume_m3": 2.880060518788645e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_17_01_2",
-      "volume_m3": 2.450034713302739e-07,
+      "volume_m3": 2.450034658974583e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_18_00",
-      "volume_m3": 0.0007033963507196922,
+      "volume_m3": 0.0010361092329328712,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_18_00_0",
-      "volume_m3": 2.880060258035401e-07,
+      "volume_m3": 2.880060518788645e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_18_00_0",
-      "volume_m3": 2.450034713302739e-07,
+      "volume_m3": 2.4500345503182697e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_18_00_1",
-      "volume_m3": 2.8800605560391086e-07,
+      "volume_m3": 2.880060407037255e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_18_00_1",
-      "volume_m3": 2.450034930615367e-07,
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_18_00_2",
-      "volume_m3": 2.8798315220013304e-07,
+      "volume_m3": 2.879945890021326e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_18_00_2",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_18_00_3",
+      "volume_m3": 2.8800605560391086e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_18_00_3",
       "volume_m3": 2.450034713302739e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_18_01",
-      "volume_m3": 0.0007058780570067401,
+      "volume_m3": 0.0010361095251625817,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_18_01_0",
-      "volume_m3": 2.8800607050409623e-07,
+      "volume_m3": 2.880060407037255e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_18_01_0",
-      "volume_m3": 2.4500347133027395e-07,
+      "volume_m3": 2.450034713302739e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_18_01_1",
-      "volume_m3": 2.8802892920731793e-07,
+      "volume_m3": 2.880060407037255e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_18_01_1",
-      "volume_m3": 2.4500347133027395e-07,
+      "volume_m3": 2.4500347133027406e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_18_01_2",
-      "volume_m3": 2.880060518788645e-07,
+      "volume_m3": 2.880060407037255e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_18_01_2",
-      "volume_m3": 2.450034658974583e-07,
+      "volume_m3": 2.4500346046464266e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_18_01_3",
+      "volume_m3": 2.880060518788645e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_18_01_3",
+      "volume_m3": 2.450368668504688e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_19_00",
-      "volume_m3": 0.000792956031857168,
+      "volume_m3": 0.0009125753584980998,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_19_00_0",
-      "volume_m3": 2.880060407037255e-07,
+      "volume_m3": 2.8800602952858645e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_19_00_0",
-      "volume_m3": 2.4500348219590534e-07,
+      "volume_m3": 2.4500344959901127e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_19_00_1",
-      "volume_m3": 2.879945890021326e-07,
+      "volume_m3": 2.880060407037255e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_19_00_1",
-      "volume_m3": 2.45003471330274e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_19_00_2",
-      "volume_m3": 2.880060332536328e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_19_00_2",
-      "volume_m3": 2.450034604646426e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_19_01",
-      "volume_m3": 0.0007929560085391399,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_19_01_0",
-      "volume_m3": 2.880060407037255e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_19_01_0",
-      "volume_m3": 2.45003471330274e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_19_01_1",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_19_01_1",
       "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Washer_19_01_2",
+      "name": "Washer_19_00_2",
+      "volume_m3": 2.8800604815381817e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_00_2",
+      "volume_m3": 2.4500350392716807e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_00_3",
+      "volume_m3": 2.8800604815381817e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_00_3",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_19_01",
+      "volume_m3": 0.0009125752378918253,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_01_0",
+      "volume_m3": 2.8800605560391086e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_01_0",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_01_1",
       "volume_m3": 2.880060258035401e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Screw_19_01_2",
-      "volume_m3": 2.45003471330274e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "FoldedStrip_19_02",
-      "volume_m3": 0.0007929561742269489,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_19_02_0",
-      "volume_m3": 2.8800607050409623e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_19_02_0",
+      "name": "Screw_19_01_1",
       "volume_m3": 2.450034495990112e-07,
       "nonmanifold_edges": 0
     },
     {
+      "name": "Washer_19_01_2",
+      "volume_m3": 2.8802888450320935e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_01_2",
+      "volume_m3": 2.450034061364858e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_01_3",
+      "volume_m3": 2.8798321179613793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_01_3",
+      "volume_m3": 2.450702297693285e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_19_02",
+      "volume_m3": 0.0009125755964457618,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_02_0",
+      "volume_m3": 2.88028959010057e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_02_0",
+      "volume_m3": 2.4500347133027406e-07,
+      "nonmanifold_edges": 0
+    },
+    {
       "name": "Washer_19_02_1",
-      "volume_m3": 2.880060407037255e-07,
+      "volume_m3": 2.8802892920731793e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_19_02_1",
-      "volume_m3": 2.4500348219590534e-07,
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_19_02_2",
-      "volume_m3": 2.880060407037255e-07,
+      "volume_m3": 2.8798315220013304e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_19_02_2",
-      "volume_m3": 2.450034658974583e-07,
+      "volume_m3": 2.4500347133027384e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_02_3",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_02_3",
+      "volume_m3": 2.4500347133027406e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_19_03",
+      "volume_m3": 0.000910093784637207,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_03_0",
+      "volume_m3": 2.8802892920731793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_03_0",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_03_1",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_03_1",
+      "volume_m3": 2.450034278677485e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_03_2",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_03_2",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_19_03_3",
+      "volume_m3": 2.880288994045789e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_19_03_3",
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_20_00",
-      "volume_m3": 0.0011522684189272402,
+      "volume_m3": 0.0011541937052121061,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_20_00_0",
-      "volume_m3": 2.880060407037255e-07,
+      "volume_m3": 2.8800601090335474e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_20_00_0",
-      "volume_m3": 2.450034604646426e-07,
+      "volume_m3": 2.4500347133027406e-07,
       "nonmanifold_edges": 0
     },
     {
@@ -4429,42 +4247,372 @@
     },
     {
       "name": "Screw_20_00_1",
-      "volume_m3": 2.450034604646426e-07,
+      "volume_m3": 2.4500347133027406e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_20_00_2",
-      "volume_m3": 2.879831745486349e-07,
+      "volume_m3": 2.879831224021306e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_20_00_2",
-      "volume_m3": 2.45003471330274e-07,
+      "volume_m3": 2.4500347133027406e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_20_00_3",
-      "volume_m3": 2.880060407037255e-07,
+      "volume_m3": 2.8800607050409623e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_20_00_3",
-      "volume_m3": 2.4500348219590534e-07,
+      "volume_m3": 2.450034278677487e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_20_00_4",
-      "volume_m3": 2.880289329326603e-07,
+      "volume_m3": 2.880060407037255e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_20_00_4",
-      "volume_m3": 2.450034658974583e-07,
+      "volume_m3": 2.450035147927994e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_20_01",
+      "volume_m3": 0.001156674616393438,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_01_0",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_01_0",
+      "volume_m3": 2.4500338440522303e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_01_1",
+      "volume_m3": 2.880059215022426e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_01_1",
+      "volume_m3": 2.4500347133027384e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_01_2",
+      "volume_m3": 2.8798309260412815e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_01_2",
+      "volume_m3": 2.4500338440522313e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_01_3",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_01_3",
+      "volume_m3": 2.4500338440522313e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_01_4",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_01_4",
+      "volume_m3": 2.4500347133027384e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_20_02",
+      "volume_m3": 0.0011566753468844125,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_02_0",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_02_0",
+      "volume_m3": 2.4500355825532477e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_02_1",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_02_1",
+      "volume_m3": 2.450035582553249e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_02_2",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_02_2",
+      "volume_m3": 2.450033844052231e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_02_3",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_02_3",
+      "volume_m3": 2.450033844052233e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_02_4",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_02_4",
+      "volume_m3": 2.450033844052229e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_20_03",
+      "volume_m3": 0.0011566751221526997,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_03_0",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_03_0",
+      "volume_m3": 2.4500355825532477e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_03_1",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_03_1",
+      "volume_m3": 2.4500338440522313e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_03_2",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_03_2",
+      "volume_m3": 2.4500338440522313e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_03_3",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_03_3",
+      "volume_m3": 2.45003558255325e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_03_4",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_03_4",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_20_04",
+      "volume_m3": 0.0011566754702721713,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_04_0",
+      "volume_m3": 2.880059215022425e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_04_0",
+      "volume_m3": 2.4500347133027384e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_04_1",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_04_1",
+      "volume_m3": 2.4507022976932873e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_04_2",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_04_2",
+      "volume_m3": 2.4500347133027384e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_04_3",
+      "volume_m3": 2.8802892920731793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_04_3",
+      "volume_m3": 2.4500347133027406e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_04_4",
+      "volume_m3": 2.8802892920731793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_04_4",
+      "volume_m3": 2.4500347133027406e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_20_05",
+      "volume_m3": 0.0011566749570375333,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_05_0",
+      "volume_m3": 2.8802892920731793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_05_0",
+      "volume_m3": 2.4500347133027384e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_05_1",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_05_1",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_05_2",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_05_2",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_05_3",
+      "volume_m3": 2.8798307770512693e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_05_3",
+      "volume_m3": 2.450035365240622e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_05_4",
+      "volume_m3": 2.880289143059484e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_05_4",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_20_06",
+      "volume_m3": 0.0011566748579751327,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_06_0",
+      "volume_m3": 2.8802892920731793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_06_0",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_06_1",
+      "volume_m3": 2.8802892920731793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_06_1",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_06_2",
+      "volume_m3": 2.879831298516312e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_06_2",
+      "volume_m3": 2.4500350392716807e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_06_3",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_06_3",
+      "volume_m3": 2.4500348219590534e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_20_06_4",
+      "volume_m3": 2.8798314847538274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_20_06_4",
+      "volume_m3": 2.450034767630897e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_21_00",
-      "volume_m3": 0.0010585251117905497,
+      "volume_m3": 0.0006752132633784057,
       "nonmanifold_edges": 0
     },
     {
@@ -4474,7 +4622,7 @@
     },
     {
       "name": "Screw_21_00_0",
-      "volume_m3": 2.4500346046464266e-07,
+      "volume_m3": 2.4500348219590534e-07,
       "nonmanifold_edges": 0
     },
     {
@@ -4484,32 +4632,22 @@
     },
     {
       "name": "Screw_21_00_1",
-      "volume_m3": 2.45003471330274e-07,
+      "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_21_00_2",
-      "volume_m3": 2.879831298516312e-07,
+      "volume_m3": 2.880289515593722e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_21_00_2",
-      "volume_m3": 2.4500350392716807e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_21_00_3",
-      "volume_m3": 2.8798315220013304e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_21_00_3",
-      "volume_m3": 2.450034713302739e-07,
+      "volume_m3": 2.4500348219590534e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "FoldedStrip_21_01",
-      "volume_m3": 0.001056044084765929,
+      "volume_m3": 0.0006727313948002426,
       "nonmanifold_edges": 0
     },
     {
@@ -4519,36 +4657,346 @@
     },
     {
       "name": "Screw_21_01_0",
-      "volume_m3": 2.450034930615366e-07,
+      "volume_m3": 2.450034495990112e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_21_01_1",
-      "volume_m3": 2.8798315220013304e-07,
+      "volume_m3": 2.8802892920731793e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Screw_21_01_1",
-      "volume_m3": 2.4500347133027395e-07,
+      "volume_m3": 2.450034713302739e-07,
       "nonmanifold_edges": 0
     },
     {
       "name": "Washer_21_01_2",
-      "volume_m3": 2.880289143059484e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Screw_21_01_2",
-      "volume_m3": 2.4500347133027395e-07,
-      "nonmanifold_edges": 0
-    },
-    {
-      "name": "Washer_21_01_3",
       "volume_m3": 2.8798315220013304e-07,
       "nonmanifold_edges": 0
     },
     {
-      "name": "Screw_21_01_3",
+      "name": "Screw_21_01_2",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_22_00",
+      "volume_m3": 0.0007033963507196922,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_22_00_0",
+      "volume_m3": 2.880060258035401e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_22_00_0",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_22_00_1",
+      "volume_m3": 2.8800605560391086e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_22_00_1",
+      "volume_m3": 2.450034930615367e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_22_00_2",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_22_00_2",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_22_01",
+      "volume_m3": 0.0007058780570067401,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_22_01_0",
+      "volume_m3": 2.8800607050409623e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_22_01_0",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_22_01_1",
+      "volume_m3": 2.8802892920731793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_22_01_1",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_22_01_2",
+      "volume_m3": 2.880060518788645e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_22_01_2",
+      "volume_m3": 2.450034658974583e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_23_00",
+      "volume_m3": 0.000792956031857168,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_23_00_0",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_23_00_0",
+      "volume_m3": 2.4500348219590534e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_23_00_1",
+      "volume_m3": 2.879945890021326e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_23_00_1",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_23_00_2",
+      "volume_m3": 2.880060332536328e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_23_00_2",
+      "volume_m3": 2.450034604646426e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_23_01",
+      "volume_m3": 0.0007929560085391399,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_23_01_0",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_23_01_0",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_23_01_1",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_23_01_1",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_23_01_2",
+      "volume_m3": 2.880060258035401e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_23_01_2",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_23_02",
+      "volume_m3": 0.0007929561742269489,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_23_02_0",
+      "volume_m3": 2.8800607050409623e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_23_02_0",
+      "volume_m3": 2.450034495990112e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_23_02_1",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_23_02_1",
+      "volume_m3": 2.4500348219590534e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_23_02_2",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_23_02_2",
+      "volume_m3": 2.450034658974583e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_24_00",
+      "volume_m3": 0.0011522684189272402,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_24_00_0",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_24_00_0",
+      "volume_m3": 2.450034604646426e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_24_00_1",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_24_00_1",
+      "volume_m3": 2.450034604646426e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_24_00_2",
+      "volume_m3": 2.879831745486349e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_24_00_2",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_24_00_3",
+      "volume_m3": 2.880060407037255e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_24_00_3",
+      "volume_m3": 2.4500348219590534e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_24_00_4",
+      "volume_m3": 2.880289329326603e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_24_00_4",
+      "volume_m3": 2.450034658974583e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_25_00",
+      "volume_m3": 0.0010585251117905497,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_25_00_0",
+      "volume_m3": 2.8798314847538274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_25_00_0",
+      "volume_m3": 2.4500346046464266e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_25_00_1",
+      "volume_m3": 2.8802892920731793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_25_00_1",
+      "volume_m3": 2.45003471330274e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_25_00_2",
+      "volume_m3": 2.879831298516312e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_25_00_2",
+      "volume_m3": 2.4500350392716807e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_25_00_3",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_25_00_3",
+      "volume_m3": 2.450034713302739e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "FoldedStrip_25_01",
+      "volume_m3": 0.001056044084765929,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_25_01_0",
+      "volume_m3": 2.8802892920731793e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_25_01_0",
+      "volume_m3": 2.450034930615366e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_25_01_1",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_25_01_1",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_25_01_2",
+      "volume_m3": 2.880289143059484e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_25_01_2",
+      "volume_m3": 2.4500347133027395e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Washer_25_01_3",
+      "volume_m3": 2.8798315220013304e-07,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Screw_25_01_3",
       "volume_m3": 2.4500347133027395e-07,
       "nonmanifold_edges": 0
     }
@@ -4718,103 +5166,15 @@
     "FoldedStrip_10_00",
     "Washer_10_00_0",
     "Screw_10_00_0",
-    "Washer_10_00_1",
-    "Screw_10_00_1",
-    "Washer_10_00_2",
-    "Screw_10_00_2",
-    "Washer_10_00_3",
-    "Screw_10_00_3",
-    "FoldedStrip_10_01",
-    "Washer_10_01_0",
-    "Screw_10_01_0",
-    "Washer_10_01_1",
-    "Screw_10_01_1",
-    "Washer_10_01_2",
-    "Screw_10_01_2",
-    "Washer_10_01_3",
-    "Screw_10_01_3",
-    "FoldedStrip_10_02",
-    "Washer_10_02_0",
-    "Screw_10_02_0",
-    "Washer_10_02_1",
-    "Screw_10_02_1",
-    "Washer_10_02_2",
-    "Screw_10_02_2",
-    "Washer_10_02_3",
-    "Screw_10_02_3",
     "FoldedStrip_11_00",
     "Washer_11_00_0",
     "Screw_11_00_0",
-    "Washer_11_00_1",
-    "Screw_11_00_1",
-    "Washer_11_00_2",
-    "Screw_11_00_2",
-    "Washer_11_00_3",
-    "Screw_11_00_3",
-    "FoldedStrip_11_01",
-    "Washer_11_01_0",
-    "Screw_11_01_0",
-    "Washer_11_01_1",
-    "Screw_11_01_1",
-    "Washer_11_01_2",
-    "Screw_11_01_2",
-    "Washer_11_01_3",
-    "Screw_11_01_3",
-    "FoldedStrip_11_02",
-    "Washer_11_02_0",
-    "Screw_11_02_0",
-    "Washer_11_02_1",
-    "Screw_11_02_1",
-    "Washer_11_02_2",
-    "Screw_11_02_2",
-    "Washer_11_02_3",
-    "Screw_11_02_3",
-    "FoldedStrip_11_03",
-    "Washer_11_03_0",
-    "Screw_11_03_0",
-    "Washer_11_03_1",
-    "Screw_11_03_1",
-    "Washer_11_03_2",
-    "Screw_11_03_2",
-    "Washer_11_03_3",
-    "Screw_11_03_3",
-    "FoldedStrip_11_04",
-    "Washer_11_04_0",
-    "Screw_11_04_0",
-    "Washer_11_04_1",
-    "Screw_11_04_1",
-    "Washer_11_04_2",
-    "Screw_11_04_2",
-    "Washer_11_04_3",
-    "Screw_11_04_3",
     "FoldedStrip_12_00",
     "Washer_12_00_0",
     "Screw_12_00_0",
-    "Washer_12_00_1",
-    "Screw_12_00_1",
-    "Washer_12_00_2",
-    "Screw_12_00_2",
-    "FoldedStrip_12_01",
-    "Washer_12_01_0",
-    "Screw_12_01_0",
-    "Washer_12_01_1",
-    "Screw_12_01_1",
-    "Washer_12_01_2",
-    "Screw_12_01_2",
     "FoldedStrip_13_00",
     "Washer_13_00_0",
     "Screw_13_00_0",
-    "Washer_13_00_1",
-    "Screw_13_00_1",
-    "Washer_13_00_2",
-    "Screw_13_00_2",
-    "FoldedStrip_13_01",
-    "Washer_13_01_0",
-    "Screw_13_01_0",
-    "Washer_13_01_1",
-    "Screw_13_01_1",
-    "Washer_13_01_2",
-    "Screw_13_01_2",
     "FoldedStrip_14_00",
     "Washer_14_00_0",
     "Screw_14_00_0",
@@ -4833,6 +5193,15 @@
     "Screw_14_01_2",
     "Washer_14_01_3",
     "Screw_14_01_3",
+    "FoldedStrip_14_02",
+    "Washer_14_02_0",
+    "Screw_14_02_0",
+    "Washer_14_02_1",
+    "Screw_14_02_1",
+    "Washer_14_02_2",
+    "Screw_14_02_2",
+    "Washer_14_02_3",
+    "Screw_14_02_3",
     "FoldedStrip_15_00",
     "Washer_15_00_0",
     "Screw_15_00_0",
@@ -4869,6 +5238,15 @@
     "Screw_15_03_2",
     "Washer_15_03_3",
     "Screw_15_03_3",
+    "FoldedStrip_15_04",
+    "Washer_15_04_0",
+    "Screw_15_04_0",
+    "Washer_15_04_1",
+    "Screw_15_04_1",
+    "Washer_15_04_2",
+    "Screw_15_04_2",
+    "Washer_15_04_3",
+    "Screw_15_04_3",
     "FoldedStrip_16_00",
     "Washer_16_00_0",
     "Screw_16_00_0",
@@ -4876,10 +5254,6 @@
     "Screw_16_00_1",
     "Washer_16_00_2",
     "Screw_16_00_2",
-    "Washer_16_00_3",
-    "Screw_16_00_3",
-    "Washer_16_00_4",
-    "Screw_16_00_4",
     "FoldedStrip_16_01",
     "Washer_16_01_0",
     "Screw_16_01_0",
@@ -4887,65 +5261,6 @@
     "Screw_16_01_1",
     "Washer_16_01_2",
     "Screw_16_01_2",
-    "Washer_16_01_3",
-    "Screw_16_01_3",
-    "Washer_16_01_4",
-    "Screw_16_01_4",
-    "FoldedStrip_16_02",
-    "Washer_16_02_0",
-    "Screw_16_02_0",
-    "Washer_16_02_1",
-    "Screw_16_02_1",
-    "Washer_16_02_2",
-    "Screw_16_02_2",
-    "Washer_16_02_3",
-    "Screw_16_02_3",
-    "Washer_16_02_4",
-    "Screw_16_02_4",
-    "FoldedStrip_16_03",
-    "Washer_16_03_0",
-    "Screw_16_03_0",
-    "Washer_16_03_1",
-    "Screw_16_03_1",
-    "Washer_16_03_2",
-    "Screw_16_03_2",
-    "Washer_16_03_3",
-    "Screw_16_03_3",
-    "Washer_16_03_4",
-    "Screw_16_03_4",
-    "FoldedStrip_16_04",
-    "Washer_16_04_0",
-    "Screw_16_04_0",
-    "Washer_16_04_1",
-    "Screw_16_04_1",
-    "Washer_16_04_2",
-    "Screw_16_04_2",
-    "Washer_16_04_3",
-    "Screw_16_04_3",
-    "Washer_16_04_4",
-    "Screw_16_04_4",
-    "FoldedStrip_16_05",
-    "Washer_16_05_0",
-    "Screw_16_05_0",
-    "Washer_16_05_1",
-    "Screw_16_05_1",
-    "Washer_16_05_2",
-    "Screw_16_05_2",
-    "Washer_16_05_3",
-    "Screw_16_05_3",
-    "Washer_16_05_4",
-    "Screw_16_05_4",
-    "FoldedStrip_16_06",
-    "Washer_16_06_0",
-    "Screw_16_06_0",
-    "Washer_16_06_1",
-    "Screw_16_06_1",
-    "Washer_16_06_2",
-    "Screw_16_06_2",
-    "Washer_16_06_3",
-    "Screw_16_06_3",
-    "Washer_16_06_4",
-    "Screw_16_06_4",
     "FoldedStrip_17_00",
     "Washer_17_00_0",
     "Screw_17_00_0",
@@ -4967,6 +5282,8 @@
     "Screw_18_00_1",
     "Washer_18_00_2",
     "Screw_18_00_2",
+    "Washer_18_00_3",
+    "Screw_18_00_3",
     "FoldedStrip_18_01",
     "Washer_18_01_0",
     "Screw_18_01_0",
@@ -4974,6 +5291,8 @@
     "Screw_18_01_1",
     "Washer_18_01_2",
     "Screw_18_01_2",
+    "Washer_18_01_3",
+    "Screw_18_01_3",
     "FoldedStrip_19_00",
     "Washer_19_00_0",
     "Screw_19_00_0",
@@ -4981,6 +5300,8 @@
     "Screw_19_00_1",
     "Washer_19_00_2",
     "Screw_19_00_2",
+    "Washer_19_00_3",
+    "Screw_19_00_3",
     "FoldedStrip_19_01",
     "Washer_19_01_0",
     "Screw_19_01_0",
@@ -4988,6 +5309,8 @@
     "Screw_19_01_1",
     "Washer_19_01_2",
     "Screw_19_01_2",
+    "Washer_19_01_3",
+    "Screw_19_01_3",
     "FoldedStrip_19_02",
     "Washer_19_02_0",
     "Screw_19_02_0",
@@ -4995,6 +5318,17 @@
     "Screw_19_02_1",
     "Washer_19_02_2",
     "Screw_19_02_2",
+    "Washer_19_02_3",
+    "Screw_19_02_3",
+    "FoldedStrip_19_03",
+    "Washer_19_03_0",
+    "Screw_19_03_0",
+    "Washer_19_03_1",
+    "Screw_19_03_1",
+    "Washer_19_03_2",
+    "Screw_19_03_2",
+    "Washer_19_03_3",
+    "Screw_19_03_3",
     "FoldedStrip_20_00",
     "Washer_20_00_0",
     "Screw_20_00_0",
@@ -5006,6 +5340,72 @@
     "Screw_20_00_3",
     "Washer_20_00_4",
     "Screw_20_00_4",
+    "FoldedStrip_20_01",
+    "Washer_20_01_0",
+    "Screw_20_01_0",
+    "Washer_20_01_1",
+    "Screw_20_01_1",
+    "Washer_20_01_2",
+    "Screw_20_01_2",
+    "Washer_20_01_3",
+    "Screw_20_01_3",
+    "Washer_20_01_4",
+    "Screw_20_01_4",
+    "FoldedStrip_20_02",
+    "Washer_20_02_0",
+    "Screw_20_02_0",
+    "Washer_20_02_1",
+    "Screw_20_02_1",
+    "Washer_20_02_2",
+    "Screw_20_02_2",
+    "Washer_20_02_3",
+    "Screw_20_02_3",
+    "Washer_20_02_4",
+    "Screw_20_02_4",
+    "FoldedStrip_20_03",
+    "Washer_20_03_0",
+    "Screw_20_03_0",
+    "Washer_20_03_1",
+    "Screw_20_03_1",
+    "Washer_20_03_2",
+    "Screw_20_03_2",
+    "Washer_20_03_3",
+    "Screw_20_03_3",
+    "Washer_20_03_4",
+    "Screw_20_03_4",
+    "FoldedStrip_20_04",
+    "Washer_20_04_0",
+    "Screw_20_04_0",
+    "Washer_20_04_1",
+    "Screw_20_04_1",
+    "Washer_20_04_2",
+    "Screw_20_04_2",
+    "Washer_20_04_3",
+    "Screw_20_04_3",
+    "Washer_20_04_4",
+    "Screw_20_04_4",
+    "FoldedStrip_20_05",
+    "Washer_20_05_0",
+    "Screw_20_05_0",
+    "Washer_20_05_1",
+    "Screw_20_05_1",
+    "Washer_20_05_2",
+    "Screw_20_05_2",
+    "Washer_20_05_3",
+    "Screw_20_05_3",
+    "Washer_20_05_4",
+    "Screw_20_05_4",
+    "FoldedStrip_20_06",
+    "Washer_20_06_0",
+    "Screw_20_06_0",
+    "Washer_20_06_1",
+    "Screw_20_06_1",
+    "Washer_20_06_2",
+    "Screw_20_06_2",
+    "Washer_20_06_3",
+    "Screw_20_06_3",
+    "Washer_20_06_4",
+    "Screw_20_06_4",
     "FoldedStrip_21_00",
     "Washer_21_00_0",
     "Screw_21_00_0",
@@ -5013,8 +5413,6 @@
     "Screw_21_00_1",
     "Washer_21_00_2",
     "Screw_21_00_2",
-    "Washer_21_00_3",
-    "Screw_21_00_3",
     "FoldedStrip_21_01",
     "Washer_21_01_0",
     "Screw_21_01_0",
@@ -5022,9 +5420,71 @@
     "Screw_21_01_1",
     "Washer_21_01_2",
     "Screw_21_01_2",
-    "Washer_21_01_3",
-    "Screw_21_01_3"
+    "FoldedStrip_22_00",
+    "Washer_22_00_0",
+    "Screw_22_00_0",
+    "Washer_22_00_1",
+    "Screw_22_00_1",
+    "Washer_22_00_2",
+    "Screw_22_00_2",
+    "FoldedStrip_22_01",
+    "Washer_22_01_0",
+    "Screw_22_01_0",
+    "Washer_22_01_1",
+    "Screw_22_01_1",
+    "Washer_22_01_2",
+    "Screw_22_01_2",
+    "FoldedStrip_23_00",
+    "Washer_23_00_0",
+    "Screw_23_00_0",
+    "Washer_23_00_1",
+    "Screw_23_00_1",
+    "Washer_23_00_2",
+    "Screw_23_00_2",
+    "FoldedStrip_23_01",
+    "Washer_23_01_0",
+    "Screw_23_01_0",
+    "Washer_23_01_1",
+    "Screw_23_01_1",
+    "Washer_23_01_2",
+    "Screw_23_01_2",
+    "FoldedStrip_23_02",
+    "Washer_23_02_0",
+    "Screw_23_02_0",
+    "Washer_23_02_1",
+    "Screw_23_02_1",
+    "Washer_23_02_2",
+    "Screw_23_02_2",
+    "FoldedStrip_24_00",
+    "Washer_24_00_0",
+    "Screw_24_00_0",
+    "Washer_24_00_1",
+    "Screw_24_00_1",
+    "Washer_24_00_2",
+    "Screw_24_00_2",
+    "Washer_24_00_3",
+    "Screw_24_00_3",
+    "Washer_24_00_4",
+    "Screw_24_00_4",
+    "FoldedStrip_25_00",
+    "Washer_25_00_0",
+    "Screw_25_00_0",
+    "Washer_25_00_1",
+    "Screw_25_00_1",
+    "Washer_25_00_2",
+    "Screw_25_00_2",
+    "Washer_25_00_3",
+    "Screw_25_00_3",
+    "FoldedStrip_25_01",
+    "Washer_25_01_0",
+    "Screw_25_01_0",
+    "Washer_25_01_1",
+    "Screw_25_01_1",
+    "Washer_25_01_2",
+    "Screw_25_01_2",
+    "Washer_25_01_3",
+    "Screw_25_01_3"
   ],
-  "native_sha256": "cb09296742fd97751585a9b05230b45bb567b0e4117c7e60f6e550abf4eefe0a",
-  "asset_sha256": "e4999b5e17cc05ddd1fcbfb468dfa734852c3d7e679b723c4ecea3217a14f456"
+  "native_sha256": "9881d2f561bba5dfa44293491fd5e3d68796e138036a876ed84b4407a6c56fd3",
+  "asset_sha256": "e1f155e61c25e16a74ed3955c8e0bc9458e5194676c6dd43f271f1ed3e547558"
 }

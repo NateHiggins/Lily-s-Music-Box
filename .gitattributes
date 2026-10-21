@@ -2706,3 +2706,8 @@ game/tests/v2_c_stove_stock_bench.tscn -text
 art/reviews/v2_c_stove_stack_20261020/** -text whitespace=cr-at-eol
 art/reviews/v2_c_stove_stack_20261020/runs/*.log binary
 art/reviews/v2_c_stove_stack_20261020/runs/*.stderr binary
+
+# Installed C-stack construction, source-bound contracts and original failures.
+art/reviews/v2_c_stove_install_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_c_stove_install_20261020/runs/*.log binary
+art/reviews/v2_c_stove_install_20261020/runs/*.stderr binary

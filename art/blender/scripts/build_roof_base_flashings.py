@@ -145,6 +145,9 @@ for identity in ['ROOF_PUBLIC_CORE','ROOF_SERVICE_CORE']:
     assert room in layout['spaces']
     r=room['rect']; door=next(d for d in roof['doors'] if d['connects'][0]==identity)
     perimeter(identity,[r[0]-half,r[1]-half,r[2]+half,r[3]+half],door=door)
+
+for shaft in layout['risers']:
+    if shaft['id']=='C_STOVE_FLUE':perimeter(shaft['id'],shaft['rect'])
 decks=[r['rect'] for r in roof['spaces'] if r['id'].startswith('ROOF_DECK_')]
 parapet=next(f for f in roof['fixtures'] if f['id']=='ROOF_PARAPET_WEST')['size'][0]/2
 perimeter('ROOF_PARAPET',[min(r[0] for r in decks)+parapet,min(r[1] for r in decks)+parapet,

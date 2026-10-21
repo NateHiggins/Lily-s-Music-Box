@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/service_alley.glb", # Rebuilt bored boundary and worked coping now use authored metric charts, including millimetre arrises.
     "props/c_stove_stack.glb", # Same thin mortar, bored collar and worked arris charts as the fitted flue family; source precision preflight retained.
     "props/flue_breast_fitting.glb", # Same small annular anchor, slotted head and thin casting charts as the measured flue-wall family.
     "props/flue_wall_thimble.glb", # stock1: small anchor charts stretch 1.15% and 228 tangent derivatives fail under default compression.

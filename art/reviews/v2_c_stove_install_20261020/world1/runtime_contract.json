@@ -1,0 +1,6437 @@
+{
+	"checks": [
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "production-selected V2 world starts",
+			"ok": true
+		},
+		{
+			"label": "physical source bindings accepted",
+			"ok": true
+		},
+		{
+			"label": "original propagation owner and dictionary survive installation",
+			"ok": true
+		},
+		{
+			"label": "topology lease retains the original graph beneath later physical fits",
+			"ok": true
+		},
+		{
+			"label": "all installed ventilation nodes and ducts are represented",
+			"ok": true
+		},
+		{
+			"label": "two absent duct junctions retire; 27 heating and eleven flue carriers enter",
+			"ok": true
+		},
+		{
+			"label": "uninstalled junction cannot transmit: F01_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "uninstalled junction cannot transmit: F01_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F01_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F01_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F01_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F01_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F01_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F01_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F01_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F01_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F01_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F01_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F01_RESTROOM_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F01_RESTROOM_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F01_RESTROOM_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F01_RESTROOM_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F01_RESTROOM_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F01_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F01_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F01_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F01_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F01_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F01_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F01_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F01_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F01_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F01_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F02_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F02_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F02_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F02_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F02_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F02_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F02_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F02_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F02_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F02_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F02_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F02_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F02_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F02_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F02_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F02_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F02_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F02_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F02_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F02_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F02_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F02_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F02_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F02_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F02_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F02_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F02_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F02_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F02_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F02_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F02_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F02_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F02_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F02_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F02_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F02_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F02_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F02_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F02_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F02_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F03_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F03_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F03_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F03_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F03_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F03_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F03_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F03_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F03_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F03_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F03_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F03_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F03_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F03_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F03_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F03_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F03_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F03_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F03_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F03_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F03_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F03_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F03_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F03_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F03_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F03_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F03_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F03_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F03_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F03_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F03_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F03_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F03_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F03_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F03_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F03_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F03_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F03_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F03_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F03_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F04_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F04_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F04_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F04_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F04_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F04_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F04_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F04_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F04_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F04_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F04_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F04_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F04_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F04_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F04_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F04_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F04_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F04_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F04_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F04_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F04_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F04_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F04_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F04_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F04_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F04_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F04_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F04_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F04_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F04_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F04_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F04_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F04_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F04_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F04_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F04_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F04_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F04_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F04_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F04_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F05_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F05_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F05_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F05_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F05_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F05_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F05_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F05_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F05_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F05_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F05_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F05_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F05_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F05_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F05_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F05_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F05_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F05_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F05_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F05_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F05_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F05_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F05_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F05_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F05_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F05_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F05_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F05_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F05_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F05_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F05_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F05_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F05_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F05_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F05_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F05_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F05_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F05_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F05_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F05_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F06_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F06_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F06_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F06_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F06_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F06_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F06_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F06_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F06_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F06_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F06_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F06_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F06_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F06_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F06_C_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F06_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F06_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F06_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F06_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F06_D_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F06_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F06_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F06_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F06_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F06_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F06_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F06_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F06_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F06_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F06_V_B_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F06_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F06_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F06_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F06_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F06_V_C_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: F06_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: F06_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: F06_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored damping: F06_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: F06_V_D_RISER",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: ROOF_VENT_FAN_A",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: ROOF_VENT_FAN_A",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: ROOF_VENT_FAN_A",
+			"ok": true
+		},
+		{
+			"label": "authored damping: ROOF_VENT_FAN_A",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: ROOF_VENT_FAN_A",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: ROOF_VENT_FAN_B",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: ROOF_VENT_FAN_B",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: ROOF_VENT_FAN_B",
+			"ok": true
+		},
+		{
+			"label": "authored damping: ROOF_VENT_FAN_B",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: ROOF_VENT_FAN_B",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: ROOF_VENT_FAN_C",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: ROOF_VENT_FAN_C",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: ROOF_VENT_FAN_C",
+			"ok": true
+		},
+		{
+			"label": "authored damping: ROOF_VENT_FAN_C",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: ROOF_VENT_FAN_C",
+			"ok": true
+		},
+		{
+			"label": "actual registered frame: ROOF_VENT_FAN_D",
+			"ok": true
+		},
+		{
+			"label": "authored frequency_band: ROOF_VENT_FAN_D",
+			"ok": true
+		},
+		{
+			"label": "authored delay_ms: ROOF_VENT_FAN_D",
+			"ok": true
+		},
+		{
+			"label": "authored damping: ROOF_VENT_FAN_D",
+			"ok": true
+		},
+		{
+			"label": "authored infection_receptivity: ROOF_VENT_FAN_D",
+			"ok": true
+		},
+		{
+			"label": "installed fan/register and native duct owners agree",
+			"ok": true
+		},
+		{
+			"label": "new native wall thimble is actually installed",
+			"ok": true
+		},
+		{
+			"label": "continuous actual chimney and roof airway (-0.04, -0.08): clear at none",
+			"ok": true
+		},
+		{
+			"label": "continuous actual chimney and roof airway (-0.04, 0.0): clear at none",
+			"ok": true
+		},
+		{
+			"label": "continuous actual chimney and roof airway (-0.04, 0.08): clear at none",
+			"ok": true
+		},
+		{
+			"label": "continuous actual chimney and roof airway (0.0, -0.08): clear at none",
+			"ok": true
+		},
+		{
+			"label": "continuous actual chimney and roof airway (0.0, 0.0): clear at none",
+			"ok": true
+		},
+		{
+			"label": "continuous actual chimney and roof airway (0.0, 0.08): clear at none",
+			"ok": true
+		},
+		{
+			"label": "continuous actual chimney and roof airway (0.04, -0.08): clear at none",
+			"ok": true
+		},
+		{
+			"label": "continuous actual chimney and roof airway (0.04, 0.0): clear at none",
+			"ok": true
+		},
+		{
+			"label": "continuous actual chimney and roof airway (0.04, 0.08): clear at none",
+			"ok": true
+		},
+		{
+			"label": "breeching crosses the actual chimney wall instead of ending at a solid face",
+			"ok": true
+		},
+		{
+			"label": "cast sleeve and four complete anchor assemblies retained",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: AnchorShank",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: AnchorShank",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: AnchorShank",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: AnchorShank_001",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: AnchorShank_001",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: AnchorShank_001",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: AnchorShank_002",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: AnchorShank_002",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: AnchorShank_002",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: AnchorShank_003",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: AnchorShank_003",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: AnchorShank_003",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: BearingWasher",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: BearingWasher",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: BearingWasher",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: BearingWasher_001",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: BearingWasher_001",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: BearingWasher_001",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: BearingWasher_002",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: BearingWasher_002",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: BearingWasher_002",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: BearingWasher_003",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: BearingWasher_003",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: BearingWasher_003",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: CastPlate",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: CastPlate",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: CastPlate",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: HexBoltHead",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: HexBoltHead",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: HexBoltHead",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: HexBoltHead_001",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: HexBoltHead_001",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: HexBoltHead_001",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: HexBoltHead_002",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: HexBoltHead_002",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: HexBoltHead_002",
+			"ok": true
+		},
+		{
+			"label": "actual imported fitting mesh: HexBoltHead_003",
+			"ok": true
+		},
+		{
+			"label": "valid loaded UVs: HexBoltHead_003",
+			"ok": true
+		},
+		{
+			"label": "custom mapped normal surface: HexBoltHead_003",
+			"ok": true
+		},
+		{
+			"label": "complete actually loaded mip chain: res://assets/building/textures/T_ai_materials_iron_neutral_albedo.png",
+			"ok": true
+		},
+		{
+			"label": "complete actually loaded mip chain: res://assets/building/textures/T_ai_materials_iron_neutral_rough.png",
+			"ok": true
+		},
+		{
+			"label": "complete actually loaded mip chain: res://assets/building/textures/T_ai_materials_iron_neutral_normal.png",
+			"ok": true
+		},
+		{
+			"label": "create actual fitting review destination",
+			"ok": true
+		},
+		{
+			"label": "open fitting surface fragment",
+			"ok": true
+		},
+		{
+			"label": "review uses the existing carried light without the old projector",
+			"ok": true
+		},
+		{
+			"label": "save actual installed fitting render",
+			"ok": true
+		},
+		{
+			"label": "qualified native four-material stack is installed",
+			"ok": true
+		},
+		{
+			"label": "rectangular reservation render retired",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "native bore replaces generic reservation collision",
+			"ok": true
+		},
+		{
+			"label": "real original-authority native closure: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "full actual standing service capsule: F02_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F02_FLUE_BREAST(0.0, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F02_FLUE_BREAST(0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F02_FLUE_BREAST(-0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F02_FLUE_BREAST(0.0, 0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F02_FLUE_BREAST(0.0, -0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "furnished-room cursor reaches installed closure: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual click, constrained mouse travel and release: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "release reseats except for a recorded later conductor delivery: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "reacquire for actual inspection: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "Space opens static cursor inspection: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "inspection camera stays static: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "visible inspection cursor acquires actual plate: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual constrained manipulation inside inspection: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F02_FLUE_BREAST_inspection",
+			"ok": true
+		},
+		{
+			"label": "Space restores service eye: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "real original-authority native closure: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "full actual standing service capsule: F03_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F03_FLUE_BREAST(0.0, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F03_FLUE_BREAST(0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F03_FLUE_BREAST(-0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F03_FLUE_BREAST(0.0, 0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F03_FLUE_BREAST(0.0, -0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "furnished-room cursor reaches installed closure: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual click, constrained mouse travel and release: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "release reseats except for a recorded later conductor delivery: F03_FLUE_BREAST",
+			"ok": false
+		},
+		{
+			"label": "reacquire for actual inspection: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "Space opens static cursor inspection: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "inspection camera stays static: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "visible inspection cursor acquires actual plate: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual constrained manipulation inside inspection: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F03_FLUE_BREAST_inspection",
+			"ok": true
+		},
+		{
+			"label": "Space restores service eye: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "real original-authority native closure: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "full actual standing service capsule: F04_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F04_FLUE_BREAST(0.0, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F04_FLUE_BREAST(0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F04_FLUE_BREAST(-0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F04_FLUE_BREAST(0.0, 0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F04_FLUE_BREAST(0.0, -0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "furnished-room cursor reaches installed closure: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual click, constrained mouse travel and release: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "release reseats except for a recorded later conductor delivery: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "reacquire for actual inspection: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "Space opens static cursor inspection: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "inspection camera stays static: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "visible inspection cursor acquires actual plate: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual constrained manipulation inside inspection: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F04_FLUE_BREAST_inspection",
+			"ok": true
+		},
+		{
+			"label": "Space restores service eye: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "real original-authority native closure: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "full actual standing service capsule: F05_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F05_FLUE_BREAST(0.0, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F05_FLUE_BREAST(0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F05_FLUE_BREAST(-0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F05_FLUE_BREAST(0.0, 0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F05_FLUE_BREAST(0.0, -0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "furnished-room cursor reaches installed closure: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual click, constrained mouse travel and release: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "release reseats except for a recorded later conductor delivery: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "reacquire for actual inspection: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "Space opens static cursor inspection: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "inspection camera stays static: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "visible inspection cursor acquires actual plate: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual constrained manipulation inside inspection: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F05_FLUE_BREAST_inspection",
+			"ok": true
+		},
+		{
+			"label": "Space restores service eye: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "real original-authority native closure: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "full actual standing service capsule: F06_FLUE_BREAST []",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F06_FLUE_BREAST(0.0, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F06_FLUE_BREAST(0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F06_FLUE_BREAST(-0.06, 0.0) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F06_FLUE_BREAST(0.0, 0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "actual partition, outer leaf and native round sleeve bore: F06_FLUE_BREAST(0.0, -0.06) clear",
+			"ok": true
+		},
+		{
+			"label": "furnished-room cursor reaches installed closure: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual click, constrained mouse travel and release: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "release reseats except for a recorded later conductor delivery: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "reacquire for actual inspection: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "Space opens static cursor inspection: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "inspection camera stays static: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "visible inspection cursor acquires actual plate: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual constrained manipulation inside inspection: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F06_FLUE_BREAST_inspection",
+			"ok": true
+		},
+		{
+			"label": "Space restores service eye: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "all five installed furnished-room programmes executed",
+			"ok": true
+		},
+		{
+			"label": "continuous installed shaft through ground, six levels and roof: (7.6, 9.85) clear none",
+			"ok": true
+		},
+		{
+			"label": "continuous installed shaft through ground, six levels and roof: (7.6, 10.05) clear none",
+			"ok": true
+		},
+		{
+			"label": "continuous installed shaft through ground, six levels and roof: (7.6, 10.25) clear none",
+			"ok": true
+		},
+		{
+			"label": "continuous installed shaft through ground, six levels and roof: (7.74, 9.85) clear none",
+			"ok": true
+		},
+		{
+			"label": "continuous installed shaft through ground, six levels and roof: (7.74, 10.05) clear none",
+			"ok": true
+		},
+		{
+			"label": "continuous installed shaft through ground, six levels and roof: (7.74, 10.25) clear none",
+			"ok": true
+		},
+		{
+			"label": "continuous installed shaft through ground, six levels and roof: (7.88, 9.85) clear none",
+			"ok": true
+		},
+		{
+			"label": "continuous installed shaft through ground, six levels and roof: (7.88, 10.05) clear none",
+			"ok": true
+		},
+		{
+			"label": "continuous installed shaft through ground, six levels and roof: (7.88, 10.25) clear none",
+			"ok": true
+		},
+		{
+			"label": "positive control hits actual native masonry beside airway",
+			"ok": true
+		},
+		{
+			"label": "real retained roof slab owner: ROOF_DECK_NORTH/Floor",
+			"ok": true
+		},
+		{
+			"label": "real retained roof slab owner: ROOF_DECK_NORTHEAST/Floor",
+			"ok": true
+		},
+		{
+			"label": "real retained roof slab owner: ROOF_DECK_EAST/Floor",
+			"ok": true
+		},
+		{
+			"label": "entire vibration route is structural concrete, without stairwell shortcut: 0",
+			"ok": true
+		},
+		{
+			"label": "entire vibration route is structural concrete, without stairwell shortcut: 1",
+			"ok": true
+		},
+		{
+			"label": "entire vibration route is structural concrete, without stairwell shortcut: 2",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: stack_alley",
+			"ok": true
+		},
+		{
+			"label": "installed voxel-light diagnostic: stack_roof",
+			"ok": true
+		},
+		{
+			"label": "all installed grade stock UV/normal/mip/phase checks pass: []",
+			"ok": true
+		},
+		{
+			"label": "open actual installed grade surface fragment",
+			"ok": true
+		},
+		{
+			"label": "original fixed terrain/underside checks pass: [\"unchanged exterior station meets the actual new native terrain\", \"native mesh and collision agree at the exterior station\", \"all 48 unchanged stations have 43 native terrain contacts, two retained masonry owners and three source-qualified current roof owners\"]",
+			"ok": false
+		},
+		{
+			"label": "all 48 original probe positions retain explicit current ownership; 45 historical results and three verified storage-roof contacts",
+			"ok": false
+		},
+		{
+			"label": "other network authored fields preserved: B1_WATER_MAIN",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_LAUNDRY_JOIST",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: B1_WASHER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_WASHER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: B1_WASHER_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_WASHER_02",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: B1_LAUNDRY_AIRER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_LAUNDRY_AIRER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_CORRIDOR_DOME_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_CORRIDOR_DOME_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_CORRIDOR_DOME_03",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_CORRIDOR_DOME_04",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_CORRIDOR_DOME_05",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_CORRIDOR_DOME_06",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_CORRIDOR_DOME_07",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_CORRIDOR_DOME_08",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_STORAGE_CAGES_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_LAUNDRY_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_BOILER_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_ELECTRICAL_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_HALL_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_UTILITY_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_COAL_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: B1_NOOK_LAMP",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_NOOK_LAMP",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_ATRIUM_FRUIT_1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_LOBBY_CLOCK_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_NEON_BLADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_NEON_BLADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_NEON_TENANT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_MARQUEE_LT_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_MARQUEE_LT_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01WC_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 1A_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_1A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_1A_KETTLE_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_1A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_1A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 1D_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_1D_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_1D_KETTLE_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_1D_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_1D_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_CORRIDOR_DOME_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_CORRIDOR_DOME_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_CORRIDOR_DOME_03",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_CORRIDOR_DOME_04",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_CORRIDOR_DOME_05",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_CORRIDOR_DOME_06",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_CORRIDOR_DOME_07",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_CORRIDOR_DOME_08",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_LOBBY_LT_CHANDELIER",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_COMMON_B_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_STORAGE_C_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_HALL_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_UTILITY_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_OFFICE_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_PACKAGE_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_A_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_A_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_D_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_D_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_D_OFFICE_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_ATRIUM_FRUIT_1",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_PORTAL_LT_W",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_PORTAL_LT_W",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_PORTAL_LT_E",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_PORTAL_LT_E",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_AISLE_LT_00",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_AISLE_LT_00",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_AISLE_LT_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_AISLE_LT_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_AISLE_LT_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_AISLE_LT_02",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_AISLE_LT_03",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_AISLE_LT_03",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_AISLE_LT_04",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_AISLE_LT_04",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_AISLE_LT_05",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_AISLE_LT_05",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_AISLE_LT_06",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_AISLE_LT_06",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: PASSAGE_AISLE_LT_07",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PASSAGE_AISLE_LT_07",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BODEGA_LT_0",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BODEGA_LT_1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BODEGA_LT_2",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BODEGA_RADIO",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_KARAOKE_SPK_0",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_KARAOKE_SPK_0",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_KARAOKE_SPK_1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_KARAOKE_SPK_1",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_STAGE_SIGN",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_STAGE_SIGN",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_DARTS",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_DARTS",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_WELL",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_WELL",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_STAIR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_STAIR",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_CAN0",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_CAN0",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_CAN1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_CAN1",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_POOL",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_POOL",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_TAB0",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_TAB0",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_TAB1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_TAB1",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_TAB2",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_TAB2",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_STAGE0",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_STAGE0",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_STAGE1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_STAGE1",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_DECK0",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_DECK0",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_DECK1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_DECK1",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_DECK2",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_DECK2",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_WEST0",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_WEST0",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_WEST1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_WEST1",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F01_BAR_LT_WC",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_BAR_LT_WC",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_MODEL_LAUNDRY",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_MODEL_LAUNDRY",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_MODEL_LAUNDRY",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_MODEL_LAUNDRY",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_MODEL_LAUNDRY",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_MODEL_LAUNDRY",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN2_MODEL_LAUNDRY",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN2_MODEL_LAUNDRY",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_SHOE_REBUILDING",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_SHOE_REBUILDING",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_SHOE_REBUILDING",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_SHOE_REBUILDING",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_SHOE_REBUILDING",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_SHOE_REBUILDING",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_KEYS_CUT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_KEYS_CUT",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_KEYS_CUT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_KEYS_CUT",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_KEYS_CUT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_KEYS_CUT",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_HARDWARE_PAINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_HARDWARE_PAINT",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_HARDWARE_PAINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_HARDWARE_PAINT",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_HARDWARE_PAINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_HARDWARE_PAINT",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN2_HARDWARE_PAINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN2_HARDWARE_PAINT",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_FUNERAL_PARLOUR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_FUNERAL_PARLOUR",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_FUNERAL_PARLOUR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_FUNERAL_PARLOUR",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_FUNERAL_PARLOUR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_FUNERAL_PARLOUR",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN2_FUNERAL_PARLOUR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN2_FUNERAL_PARLOUR",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_PHOTO_SUPPLIES",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_PHOTO_SUPPLIES",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_PHOTO_SUPPLIES",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_PHOTO_SUPPLIES",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_PHOTO_SUPPLIES",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_PHOTO_SUPPLIES",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_RADIO_SERVICE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_RADIO_SERVICE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_RADIO_SERVICE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_RADIO_SERVICE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_RADIO_SERVICE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_RADIO_SERVICE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_PAWNBROKER",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_PAWNBROKER",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_PAWNBROKER",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_PAWNBROKER",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_PAWNBROKER",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_PAWNBROKER",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_NEWS_CIGARS",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_NEWS_CIGARS",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_NEWS_CIGARS",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_NEWS_CIGARS",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_NEWS_CIGARS",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_NEWS_CIGARS",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_OTIS___SON",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_OTIS___SON",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_OTIS___SON",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_OTIS___SON",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_OTIS___SON",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_OTIS___SON",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN2_OTIS___SON",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN2_OTIS___SON",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_LT_LUNCHEONETTE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_LT_LUNCHEONETTE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN0_LUNCHEONETTE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN0_LUNCHEONETTE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN1_LUNCHEONETTE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN1_LUNCHEONETTE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_IN2_LUNCHEONETTE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_IN2_LUNCHEONETTE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 2A_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F02_2A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_2A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F02_2A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_2A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F02_A_LAMP_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_A_LAMP_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 2B_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F02_2B_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_2B_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F02_2B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_2B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 2C_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F02_2C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_2C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_SPEAKER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_SPEAKER_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_MONITOR_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_BOXFAN_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 2D_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRLIGHT_S",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRLIGHT_N",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRIDOR_DOME_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRIDOR_DOME_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRIDOR_DOME_03",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRIDOR_DOME_04",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRIDOR_DOME_05",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRIDOR_DOME_06",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRIDOR_DOME_07",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRIDOR_DOME_08",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_A_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_A_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_B_ALCOVE_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_B_KITCHEN_LT_KITCHEN_LINEAR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_B_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_BED1_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_BED2_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_WSTOR_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_HALL_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_UTILITY_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_ATRIUM_FRUIT_1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 3A_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F03_3A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_3A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F03_3A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_3A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 3B_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F03_3B_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_3B_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F03_3B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_3B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F03_B_LAMP_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_B_LAMP_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 3C_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 3D_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_3D_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_3D_KETTLE_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F03_3D_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_3D_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_D_SPEAKER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_D_SPEAKER_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRLIGHT_S",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRLIGHT_N",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRIDOR_DOME_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRIDOR_DOME_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRIDOR_DOME_03",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRIDOR_DOME_04",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRIDOR_DOME_05",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRIDOR_DOME_06",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRIDOR_DOME_07",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRIDOR_DOME_08",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_A_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_A_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_B_ALCOVE_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_B_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_C_BED1_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_C_BED2_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_C_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_D_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_D_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_D_OFFICE_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_WSTOR_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_HALL_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_UTILITY_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_UTILITY_ANOMALY",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_ATRIUM_FRUIT_1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 4A_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F04_4A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_4A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F04_4A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_4A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 4B_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F04_B_LAMP_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_LAMP_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F04_B_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F04_B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_BOXFAN_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_DOOR_ANOMALY",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_KETTLE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_CLOCK_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_CEILLIGHT_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 4C_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_4C_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_4C_KETTLE_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F04_4C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_4C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 4D_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F04_4D_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_4D_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRLIGHT_S",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRLIGHT_N",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRIDOR_DOME_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRIDOR_DOME_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRIDOR_DOME_03",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRIDOR_DOME_04",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRIDOR_DOME_05",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRIDOR_DOME_06",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRIDOR_DOME_07",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRIDOR_DOME_08",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_A_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_A_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_KITCHEN_LT_KITCHEN_LINEAR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_ALCOVE_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_C_BED1_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_C_BED2_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_C_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_D_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_D_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_D_OFFICE_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_WSTOR_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_HALL_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_UTILITY_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_ATRIUM_FRUIT_1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 5A_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F05_5A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_5A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F05_5A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_5A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F05_A_LAMP_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_A_LAMP_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 5B_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F05_5B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_5B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 5C_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F05_5C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_5C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_C_BOXFAN_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 5D_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRLIGHT_S",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRLIGHT_N",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRIDOR_DOME_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRIDOR_DOME_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRIDOR_DOME_03",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRIDOR_DOME_04",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRIDOR_DOME_05",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRIDOR_DOME_06",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRIDOR_DOME_07",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRIDOR_DOME_08",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_A_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_A_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_B_ALCOVE_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_B_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_C_BED1_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_C_BED2_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_C_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_WSTOR_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_HALL_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_UTILITY_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_ATRIUM_FRUIT_1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 6A_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F06_6A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_6A_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F06_6A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_6A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_A_MONITOR_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_A_MONITOR_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_A_MONITOR_03",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_A_BOXFAN_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 6B_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F06_6B_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_6B_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F06_6B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_6B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 6C_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F06_6C_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_6C_TOASTER_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_6C_KETTLE_01",
+			"ok": true
+		},
+		{
+			"label": "existing position update has one actual physical carrier: F06_6C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_6C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: 6D_LT_SCONCE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRLIGHT_S",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRLIGHT_N",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRIDOR_DOME_01",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRIDOR_DOME_02",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRIDOR_DOME_03",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRIDOR_DOME_04",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRIDOR_DOME_05",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRIDOR_DOME_06",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRIDOR_DOME_07",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRIDOR_DOME_08",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_A_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_A_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_B_ALCOVE_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_B_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_C_BED1_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_C_BED2_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_C_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_D_BED_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_D_MAIN_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_D_OFFICE_LT_PENDANT_SHADE",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_WSTOR_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_HALL_LT_FLUSH_DOME",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_UTILITY_LT_CAGE_BULB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_ATRIUM_FRUIT_1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: ROOF_LT_DECK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: ROOF_LT_GARDEN",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: ROOF_ATRIUM_FRUIT_1",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_ELECTRICAL_HUB",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: ROOF_ELECTRICAL_RISER",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_VANTRY_TRUNK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_VANTRY_TRUNK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_VANTRY_TRUNK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_VANTRY_TRUNK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_VANTRY_TRUNK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_VANTRY_TRUNK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_VANTRY_TRUNK",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_STORAGE_CAGES_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_LAUNDRY_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_BOILER_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_ELECTRICAL_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_HALL_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_UTILITY_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: B1_COAL_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_LOBBY_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_COMMON_B_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_STORAGE_C_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_HALL_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_UTILITY_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_OFFICE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_PACKAGE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_RESTROOM_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_A_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_A_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_A_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_D_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_D_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_D_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F01_D_OFFICE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_A_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_A_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_B_ALCOVE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_B_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_B_KITCHEN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_B_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_BED1_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_BED2_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_C_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_D_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_D_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_D_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_D_OFFICE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_WSTOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_CORRIDOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_HALL_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F02_UTILITY_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_A_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_A_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_A_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_B_ALCOVE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_B_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_B_KITCHEN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_B_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_C_BED1_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_C_BED2_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_C_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_C_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_D_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_D_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_D_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_D_OFFICE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_WSTOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_CORRIDOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_HALL_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F03_UTILITY_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_A_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_A_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_A_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_VESTIBULE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_CLOSET_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_KITCHEN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_B_ALCOVE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_C_BED1_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_C_BED2_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_C_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_C_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_D_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_D_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_D_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_D_OFFICE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_WSTOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_CORRIDOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_HALL_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F04_UTILITY_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_A_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_A_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_A_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_B_ALCOVE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_B_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_B_KITCHEN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_B_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_C_BED1_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_C_BED2_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_C_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_C_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_D_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_D_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_D_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_D_OFFICE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_WSTOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_CORRIDOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_HALL_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F05_UTILITY_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_A_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_A_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_A_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_B_ALCOVE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_B_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_B_KITCHEN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_B_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_C_BED1_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_C_BED2_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_C_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_C_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_D_BED_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_D_BATH_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_D_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_D_OFFICE_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_WSTOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_CORRIDOR_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_HALL_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: F06_UTILITY_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "other network authored fields preserved: PORCH_BASE",
+			"ok": true
+		},
+		{
+			"label": "retained parity carrier: F02_A_MAIN_VANTRY_POINT",
+			"ok": true
+		},
+		{
+			"label": "retained parity carrier: F02_A_MONITOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained parity carrier: F04_B_MONITOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained parity carrier: F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "fan reaches only its physically installed duct stack",
+			"ok": true
+		},
+		{
+			"label": "real autoload emits the complete source-derived propagation",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: ROOF_VENT_FAN_A",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F06_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F05_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F06_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F04_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F05_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F03_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F04_B_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F02_V_A_RISER",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F03_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "no transmission to a different physical stack: F02_A_BATH_VENT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "actual V2 assignment wins over the old unit-letter shortcut",
+			"ok": true
+		},
+		{
+			"label": "all native steam connections represented",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: BASEMENT_HEADER_EAST",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: BASEMENT_HEADER_WEST",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot consume an actual case target: F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: BASEMENT_HEADER_WEST",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: BASEMENT_HEADER_WEST",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: BASEMENT_HEADER_WEST",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: BASEMENT_HEADER_WEST",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: BASEMENT_HEADER_WEST",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: BASEMENT_HEADER_WEST",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: BASEMENT_HEADER_EAST",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: BASEMENT_HEADER_EAST",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: BASEMENT_HEADER_EAST",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: BASEMENT_HEADER_EAST",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: BASEMENT_HEADER_EAST",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: BASEMENT_HEADER_EAST",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_BASE_H_A",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_BASE_H_A",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_BASE_H_A",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_BASE_H_B",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_BASE_H_B",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_BASE_H_B",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_BASE_H_C",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_BASE_H_C",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_BASE_H_C",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_BASE_H_D",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_BASE_H_D",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_BASE_H_D",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: V2_HEAT_TAP_F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: V2_HEAT_TAP_F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "passive junction cannot add loss, delay or infection: V2_HEAT_TAP_F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "actual heating frame: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "source-derived heating connections: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating frequency_band: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating delay_ms: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating damping: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "retained heating infection_receptivity: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: B1_BOILER_01 -> B1_FLUE_BASE",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F01_D_RADIATOR_01 -> F01_1D_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F02_A_RADIATOR_01 -> F02_2A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F02_B_RADIATOR_01 -> F02_2B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F02_B_RADIATOR_01 -> F02_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F02_C_RADIATOR_01 -> F02_2C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F03_B_RADIATOR_01 -> F03_3B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F03_B_RADIATOR_01 -> F03_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F03_B_RADIATOR_01 -> F03_UTILITY_ANOMALY",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F03_D_RADIATOR_01 -> F03_3D_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F04_A_RADIATOR_01 -> F04_4A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F04_B_RADIATOR_01 -> F04_B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F04_B_RADIATOR_01 -> F04_B_DOOR_ANOMALY",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F04_B_RADIATOR_01 -> F04_B_CLOCK_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F04_B_RADIATOR_01 -> F04_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F04_C_RADIATOR_01 -> F04_4C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F04_D_RADIATOR_01 -> F04_4D_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F05_A_RADIATOR_01 -> F05_5A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F05_B_RADIATOR_01 -> F05_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F05_C_RADIATOR_01 -> F05_5C_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F06_A_RADIATOR_01 -> F06_6A_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F06_B_RADIATOR_01 -> F06_6B_FRIDGE_01",
+			"ok": true
+		},
+		{
+			"label": "retained external heating bridge: F06_B_RADIATOR_01 -> F06_PORCH_DECK",
+			"ok": true
+		},
+		{
+			"label": "original autoload delivers boiler events to every physical heating junction and emitter",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: BASEMENT_HEADER_WEST",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: BASEMENT_HEADER_EAST",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F01_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F01_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F02_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F02_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F03_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F03_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F03_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F04_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F04_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F04_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F04_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F05_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F05_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F05_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F06_A_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F06_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F06_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F02_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F03_C_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F05_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F06_D_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_BASE_H_A",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_BASE_H_B",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_BASE_H_C",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_BASE_H_D",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: V2_HEAT_TAP_F01_LOBBY_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "observed actual heating delivery: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "all thirteen retained and eleven passive flue carriers represented",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: B1_FLUE_BASE",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: B1_FLUE_BASE",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: B1_FLUE_BASE",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: B1_FLUE_BASE",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: B1_FLUE_BASE",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: B1_FLUE_BASE",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: ROOF_FLUE_TOP",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: ROOF_FLUE_TOP",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: ROOF_FLUE_TOP",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: ROOF_FLUE_TOP",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: ROOF_FLUE_TOP",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: ROOF_FLUE_TOP",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F01_FLUE",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F01_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F01_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F01_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F01_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F01_FLUE",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F02_FLUE",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F02_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F02_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F02_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F02_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F02_FLUE",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F03_FLUE",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F03_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F03_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F03_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F03_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F03_FLUE",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F04_FLUE",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F04_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F04_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F04_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F04_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F04_FLUE",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F05_FLUE",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F05_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F05_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F05_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F05_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F05_FLUE",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F06_FLUE",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F06_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F06_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F06_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F06_FLUE",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F06_FLUE",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_C_F02",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_C_F02",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_C_F02",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_C_F03",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_C_F03",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_C_F03",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_C_F04",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_C_F04",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_C_F04",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_C_F05",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_C_F05",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_C_F05",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue frequency_band: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue delay_ms: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue damping: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "retained flue infection_receptivity: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_C_F06",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_C_F06",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_C_F06",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_C_ROOF_CORE",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_C_ROOF_CORE",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_C_ROOF_CORE",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_C_ROOF_WALL",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_C_ROOF_WALL",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_C_ROOF_WALL",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_NORTH_SLAB",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_NORTH_SLAB",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_NORTH_SLAB",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_EAST_SLAB",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_EAST_SLAB",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_EAST_SLAB",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_BOILER_SLAB",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_BOILER_SLAB",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_BOILER_SLAB",
+			"ok": true
+		},
+		{
+			"label": "actual flue frame: V2_FLUE_BOILER_ROOF_WALL",
+			"ok": true
+		},
+		{
+			"label": "source-derived physical flue connections: V2_FLUE_BOILER_ROOF_WALL",
+			"ok": true
+		},
+		{
+			"label": "flue transit cannot invent a case target, loss or delay: V2_FLUE_BOILER_ROOF_WALL",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: B1_FLUE_BASE",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F01_FLUE",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F02_FLUE",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F03_FLUE",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F04_FLUE",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F05_FLUE",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F06_FLUE",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: ROOF_FLUE_TOP",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "passive flue carrier excluded from case targets: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "original autoload delivers every installed flue carrier",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: B1_FLUE_BASE",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: ROOF_FLUE_TOP",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F01_FLUE",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F02_FLUE",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F03_FLUE",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F04_FLUE",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F05_FLUE",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F06_FLUE",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F02_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_C_F02",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F03_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_C_F03",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F04_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_C_F04",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F05_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_C_F05",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: F06_FLUE_BREAST",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_C_F06",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_C_ROOF_CORE",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_C_ROOF_WALL",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_NORTH_SLAB",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_EAST_SLAB",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_BOILER_SLAB",
+			"ok": true
+		},
+		{
+			"label": "observed actual flue delivery: V2_FLUE_BOILER_ROOF_WALL",
+			"ok": true
+		},
+		{
+			"label": "explicit release restores the complete original graph",
+			"ok": true
+		},
+		{
+			"label": "fresh scope reconstructs from unchanged physical sources",
+			"ok": true
+		},
+		{
+			"label": "production root retires",
+			"ok": true
+		},
+		{
+			"label": "teardown restores every legacy node and releases topology ownership",
+			"ok": true
+		},
+		{
+			"label": "propagation authority identity remains unchanged after teardown",
+			"ok": true
+		},
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "production/geometry and complete test inputs stay fixed",
+			"ok": true
+		},
+		{
+			"label": "record actual repository provenance",
+			"ok": true
+		},
+		{
+			"label": "explicit proof output directory",
+			"ok": true
+		},
+		{
+			"label": "open executed network contract",
+			"ok": true
+		}
+	],
+	"contracts": {
+		"c_stove_installation": {
+			"bore_rays": 25,
+			"executed": true,
+			"furnished_room_hands": 5,
+			"status": "FAIL",
+			"structural_segments": 3,
+			"vertical_airway_rays": 9,
+			"walked_approach": false
+		},
+		"flue_airway": {
+			"apartment_thimbles_proved": false,
+			"executed": true,
+			"new_native_parts": 13,
+			"status": "FAIL",
+			"vertical_physics_rays": 9,
+			"wall_port_rays": 1
+		},
+		"flue_topology": {
+			"executed": true,
+			"nodes": 24,
+			"observed_nodes": [
+				"B1_FLUE_BASE",
+				"F01_FLUE",
+				"F02_FLUE",
+				"F03_FLUE",
+				"F04_FLUE",
+				"F05_FLUE",
+				"F06_FLUE",
+				"ROOF_FLUE_TOP",
+				"V2_FLUE_BOILER_ROOF_WALL",
+				"V2_FLUE_BOILER_SLAB",
+				"V2_FLUE_EAST_SLAB",
+				"V2_FLUE_NORTH_SLAB",
+				"V2_FLUE_C_ROOF_WALL",
+				"V2_FLUE_C_ROOF_CORE",
+				"V2_FLUE_C_F06",
+				"F06_FLUE_BREAST",
+				"V2_FLUE_C_F05",
+				"F05_FLUE_BREAST",
+				"V2_FLUE_C_F04",
+				"F04_FLUE_BREAST",
+				"V2_FLUE_C_F03",
+				"F03_FLUE_BREAST",
+				"V2_FLUE_C_F02",
+				"F02_FLUE_BREAST"
+			],
+			"routes": 23,
+			"status": "FAIL"
+		},
+		"heating_topology": {
+			"executed": true,
+			"nodes": 53,
+			"observed_nodes": [
+				"B1_BOILER_01",
+				"BASEMENT_HEADER_EAST",
+				"BASEMENT_HEADER_WEST",
+				"V2_HEAT_BASE_H_A",
+				"V2_HEAT_BASE_H_B",
+				"V2_HEAT_BASE_H_D",
+				"V2_HEAT_TAP_F01_A_RADIATOR_01",
+				"V2_HEAT_TAP_F02_B_RADIATOR_01",
+				"V2_HEAT_TAP_F01_D_RADIATOR_01",
+				"V2_HEAT_TAP_F02_A_RADIATOR_01",
+				"V2_HEAT_TAP_F01_LOBBY_RADIATOR_01",
+				"V2_HEAT_TAP_F03_B_RADIATOR_01",
+				"F02_B_RADIATOR_01",
+				"V2_HEAT_TAP_F02_D_RADIATOR_01",
+				"F01_D_RADIATOR_01",
+				"V2_HEAT_TAP_F03_A_RADIATOR_01",
+				"F02_A_RADIATOR_01",
+				"F01_A_RADIATOR_01",
+				"F01_LOBBY_RADIATOR_01",
+				"V2_HEAT_TAP_F04_B_RADIATOR_01",
+				"F03_B_RADIATOR_01",
+				"V2_HEAT_TAP_F03_D_RADIATOR_01",
+				"F02_D_RADIATOR_01",
+				"V2_HEAT_TAP_F04_A_RADIATOR_01",
+				"F03_A_RADIATOR_01",
+				"V2_HEAT_TAP_F05_B_RADIATOR_01",
+				"F04_B_RADIATOR_01",
+				"V2_HEAT_TAP_F04_D_RADIATOR_01",
+				"F03_D_RADIATOR_01",
+				"V2_HEAT_TAP_F05_A_RADIATOR_01",
+				"F04_A_RADIATOR_01",
+				"V2_HEAT_TAP_F06_B_RADIATOR_01",
+				"F05_B_RADIATOR_01",
+				"V2_HEAT_TAP_F05_D_RADIATOR_01",
+				"F04_D_RADIATOR_01",
+				"V2_HEAT_TAP_F06_A_RADIATOR_01",
+				"F05_A_RADIATOR_01",
+				"F06_B_RADIATOR_01",
+				"V2_HEAT_TAP_F06_D_RADIATOR_01",
+				"F05_D_RADIATOR_01",
+				"F06_A_RADIATOR_01",
+				"F06_D_RADIATOR_01",
+				"V2_HEAT_BASE_H_C",
+				"V2_HEAT_TAP_F02_C_RADIATOR_01",
+				"V2_HEAT_TAP_F03_C_RADIATOR_01",
+				"F02_C_RADIATOR_01",
+				"V2_HEAT_TAP_F04_C_RADIATOR_01",
+				"F03_C_RADIATOR_01",
+				"V2_HEAT_TAP_F05_C_RADIATOR_01",
+				"F04_C_RADIATOR_01",
+				"V2_HEAT_TAP_F06_C_RADIATOR_01",
+				"F05_C_RADIATOR_01",
+				"F06_C_RADIATOR_01"
+			],
+			"routes": 52,
+			"status": "FAIL"
+		},
+		"propagation": {
+			"executed": true,
+			"observed_nodes": [
+				"ROOF_VENT_FAN_A",
+				"F06_V_A_RISER",
+				"F05_V_A_RISER",
+				"F06_B_BATH_VENT_REGISTER",
+				"F04_V_A_RISER",
+				"F05_B_BATH_VENT_REGISTER",
+				"F03_V_A_RISER",
+				"F04_B_BATH_VENT_REGISTER",
+				"F02_V_A_RISER",
+				"F03_A_BATH_VENT_REGISTER",
+				"F02_A_BATH_VENT_REGISTER"
+			],
+			"status": "FAIL"
+		},
+		"soil_foundations": {
+			"city_underside_profiles": 23,
+			"embedded_stations": 1.0,
+			"executed": true,
+			"families": [
+				{
+					"asset_sha256": "a0407841d1b759de086b388082c59e0edc69fc7bbfe68cde09a7674909d45c0d",
+					"family": "ground",
+					"parts": 2137,
+					"phase_valid": true,
+					"triangles": 9628
+				},
+				{
+					"asset_sha256": "62b02a0194a4a5d332c2a39ae91f9f7f0defd601028806a17f6d33640f5d2ec9",
+					"family": "foundations",
+					"parts": 1036,
+					"phase_valid": true,
+					"triangles": 21010
+				},
+				{
+					"asset_sha256": "7ba6bfbc8badeb4b3c85c84e6dba8525f2e047be2d0f6dc96b0f57c50e319d3e",
+					"family": "apron",
+					"parts": 4,
+					"phase_valid": true,
+					"triangles": 48
+				}
+			],
+			"fixed_stations": 48,
+			"human_acceptance": false,
+			"original_discovery_reproduced": 45.0,
+			"original_world_checks": 28940,
+			"source_qualified_roof_contacts": 3.0,
+			"status": "FAIL",
+			"stock_checks": 22254,
+			"terrain_contacts": 44.0
+		},
+		"teardown": {
+			"executed": true,
+			"retained_nodes": 0,
+			"status": "FAIL"
+		},
+		"ventilation_topology": {
+			"executed": true,
+			"nodes": 49,
+			"routes": 45,
+			"status": "FAIL"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": 3,
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Installed V2 ventilation, heating and flue topology and event routing only; other acoustic networks, disk save, navigation and human listening remain unproved. Also verifies installed C-stack airway, five furnished-room closures, standing service capsules, actual grab/motion/release and static cursor inspection, and retained structural roof coupling. Camera placements are diagnostics, not walked approaches or human acceptance. Also verifies current native ground/foundation/apron surfaces, original fixed terrain probes and city underside contacts. No soil capacity, drainage, waterproofing, walked access or whole-building acceptance.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "486f632d0e0e8ddd6ce24c0bcfd16769f24aa28b",
+		"runtime_inputs_sha256": "7c49d8e726474c24a518a3b252bfe676a93ab8e39ccf640abd444dce6192b8e9",
+		"surface_inputs_sha256": "b73e2a5837befcaa6f8330d8325a6ebfabcd47722eb16d073a366f913635390f",
+		"test_dependencies": {
+			"game/tests/arcade_clock_bench.gd": "ec58c70d04a718fac406cb90395f1953eaf8343c1287d909c6e2de65fd51d7ea",
+			"game/tests/arcade_fabric_bench.gd": "a05544b34b5ec98b8ce1c7c42bb98a193ce1c0beef64e583d8850b8346ca2d78",
+			"game/tests/data/v2_authoring_proof.json": "f04282b49304d786c2c9a9675e06835f3aedd648a16efe6805abd7f1edebe801",
+			"game/tests/fixtures/fire_rack_shared_edge_ray.json": "e71c06217a07614d008514f20285cd81e59fcf8fcefcb47222ebea86dc894c82",
+			"game/tests/fixtures/orison_bar_fixture_mounts.json": "fe92a369d47bd76a1d831f7953ed286150dce350e875ed3bc1e6a91aca50476f",
+			"game/tests/fixtures/orison_bedding.json": "9fedbecac19e074b2a46c666247167f8c623602337b735890effe8829f489d29",
+			"game/tests/fixtures/orison_bodega_frontage.json": "623b81662447fc00753c706362b629b5ec4664eb03fb5182ed0ef18b0281e1b8",
+			"game/tests/fixtures/orison_city_elevations.json": "fe41a01fa42e37f989843f242bd21a1cb2c94acf68556a34af11ff395707800c",
+			"game/tests/fixtures/orison_city_foundations_construction.json": "b36bad05693f0ae86812b9ebee0467db87e194578fde4868f25aaaa0abc9c288",
+			"game/tests/fixtures/orison_city_ground_apron.json": "df8255bb7805df8e0e7cf9a5330f016b99d9ce9d382ddbef32aeebd853b567e5",
+			"game/tests/fixtures/orison_city_horizon.json": "b9c6f862e6a006ddfff5fc671e3d1560bb2a705032f3e36ddb0e905d71c5fbe7",
+			"game/tests/fixtures/orison_city_registration_review.json": "ea18610fb2fdfb164adae1c4b8427ab9fb51d9ae3af4c8ae515938e7aef5717d",
+			"game/tests/fixtures/orison_fixed_lighting.json": "69143aff811b347973549881f169402fe7a1cedafa9fe1bbaf965a8fd0d6e410",
+			"game/tests/fixtures/orison_front_facade.json": "95f4fcedfc35cd5596a0cf3ad9540cb0d718033de452cead563d55e33485a65c",
+			"game/tests/fixtures/orison_front_pavement_construction.json": "972330109a121f7a365a1128aac1963b2048c894ba0d5850fdf4509e0b942b94",
+			"game/tests/fixtures/orison_front_pavement_review.json": "35d72ea7feb495ca1d0a672064db50fedc8cd6979d88189f1c98dd48b8d02f79",
+			"game/tests/fixtures/orison_ground_construction.json": "964b89e4e6655670c83fb561b1cb2a121e41ec9a9e96c3064d1c2d45dd72480c",
+			"game/tests/fixtures/orison_ground_probe_ownership.json": "f39bec8b50ff9cc6a749f3e47f1e53348a808a597860febac939e1714e054382",
+			"game/tests/fixtures/orison_ground_source.json": "a0951553c142575ca4cd9de36bb46ac757c4885418dc65c5018fcda0095b59d3",
+			"game/tests/fixtures/orison_owner_service_finish.json": "3f8d1fe9eb75420792abd1134a7cad3d62147c220427a116647a18111623b03a",
+			"game/tests/fixtures/orison_roof_base_flashings.json": "2a6c0737d917bf36c91dda8c0822c4b268fc91c1331c29157796e8a27c78434f",
+			"game/tests/fixtures/orison_roof_membrane.json": "4cd1779dbd0ba8b361c3dbcddcd6a7b54a6b3b7ef25b79ce12825af2b156f2a3",
+			"game/tests/fixtures/orison_service_instruments.json": "8f289dca224816267761baa74d56f689e07692e00d09ceb4bf6aeb580553d366",
+			"game/tests/fixtures/orison_signage.json": "4ebe9f200e98bb267966641af75098db1c88f39ed84202af7394c2d6db1ff43a",
+			"game/tests/fixtures/orison_street_paving_details.json": "a53680afd775dadb71a10aaa8ab3d2fa081c3a2d1d98c1d44d36e8426ad4b354",
+			"game/tests/fixtures/orison_surface_stock.json": "548ebed052bd04d8f09bfdda8334148ebece73eb85b4e1c3946b6a6c59265369",
+			"game/tests/fixtures/radiator_native_poses.json": "37738ea990eddbda3a59882ba12e3bfd9eecc4d7f1978c6656fc70625dc00862",
+			"game/tests/millwork_unculled_reference.gd": "f5a03ffbed8fa82b0c82d5920e0d543def5af2e5792942dbe13ced4ce5677463",
+			"game/tests/orison_v2_apartment_batch_test.gd": "7338c367edfa4b03e236c6d32de19104ccf0a9b6372740cf6d9550326e4be17a",
+			"game/tests/orison_v2_bedding_test.gd": "6259ce5ab314d506c1b22a024119dfc1d7b8a152dc99056213624783d2241577",
+			"game/tests/orison_v2_bodega_frontage_test.gd": "ad390cb0f55c394cbb01b65c826cda5d312b85ecacde2245f12473d0e251caf4",
+			"game/tests/orison_v2_breeching_test.gd": "07bd3e6a42ff8f4175e50e2345bca0ebf9432b9c40db922108f90831fcc1545d",
+			"game/tests/orison_v2_ceiling_top_closures_test.gd": "c470b951c1a0401d1b5d4160310fb592f06a36aa7bdf9244c3fdbec43eba5369",
+			"game/tests/orison_v2_city_foundations_test.gd": "e12a69d62b3cc39c0df2f70930bd30006c4fc7b688f5ec661b61a6a9f84cede3",
+			"game/tests/orison_v2_city_sweep.gd": "c6c770a11f84529059a9359f0f6cf57fa5dde21466bf3a00298be54f71563a60",
+			"game/tests/orison_v2_domestic_native_test.gd": "4a3794b2dd4e0d596fb9187a637ac548431b645c44d2d89cb953ab19b19af389",
+			"game/tests/orison_v2_domestic_objects_test.gd": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"game/tests/orison_v2_domestic_seating_test.gd": "b075531e93b4cbd387afc38fd9f538a4c1c76b004cbea419fc914d1a1b3829f1",
+			"game/tests/orison_v2_domestic_storage_test.gd": "a85a8676f999707509246faefe9178fda39e4d9cbd57b27239cc08dccd1f2675",
+			"game/tests/orison_v2_first_slice_contract_test.gd": "884c1b94e63ed438bed885173aae490cee06f3aa71ad1d901007f32ba053a971",
+			"game/tests/orison_v2_fixed_lighting_test.gd": "92aee037abd4d38411a2c4dccacf10a16a8a6e03ab179e8a57c028e0fc33862e",
+			"game/tests/orison_v2_floor_surface_test.gd": "dc0a993f67bdd197ceba0c7a65e5f5917935ad11f1e32c8f6ac8089307afdb8f",
+			"game/tests/orison_v2_front_facade_test.gd": "01e1200ab35561a98c547f3c8f03ced0ad095cddfce099688ed9cc08d49bc05d",
+			"game/tests/orison_v2_front_pavement_test.gd": "04b72b918e84213f14c413c691596a5784c82f89789fb3594cbdfa16a499e13b",
+			"game/tests/orison_v2_lift_joinery_test.gd": "2fc171ef6d5f3ddbb57244e43586a3aadbd8678327633a9e4cbd6f0f67efdc18",
+			"game/tests/orison_v2_owner_service_finish_test.gd": "72538e9dea0e14a3cfe52b91e1d3e5312b24107dfc8bd91399c2a5cb55c9766c",
+			"game/tests/orison_v2_patrol_stations_test.gd": "5fbc3ab4b32afd1f00ad1f97f603ebb0dcc5c027ecc9e6a2d57959cb46e02b54",
+			"game/tests/orison_v2_roof_base_flashings_test.gd": "59e37d5eb14e3bfd440339e51beaa72fc5719f1ee998bac5986b4ecc4252434b",
+			"game/tests/orison_v2_roof_bulkhead_caps_test.gd": "df91af1f0975ebd3aa9ba4de2e8a67185d50fb6fcc160ec35121e27156ab3b5d",
+			"game/tests/orison_v2_roof_membrane_test.gd": "b807628fb68e4bc164dfd88a8f828dd44907af91b4f6c0fd68e38209f413bbb4",
+			"game/tests/orison_v2_service_instruments_test.gd": "2ccd4c749baa9af33c0fcf9d6c5577e5a9a1560b39cacadeb1f75cf208be03fb",
+			"game/tests/orison_v2_signage_test.gd": "b884a5e7e4c0df76702b087c6e2fd45c1ce82b21fd21e284b77209b66a2307b0",
+			"game/tests/orison_v2_street_crossing_test.gd": "6bed8d9ba5f244e8a2d86d581e77255561835a0bbbec2c2af1120aed36cdfafa",
+			"game/tests/orison_v2_street_paving_details_test.gd": "9ac8e0a5f2520cc4e3cf6d2efc539fdf1f5d89f7a45590d07180e59f5134d863",
+			"game/tests/orison_v2_surface_inventory.gd": "41f3c9253a3880f39243f3bb95f530d8cb8486f76f8eb44c5a12290cdddeac8a",
+			"game/tests/orison_v2_ventilation_fabric_test.gd": "502fb6c7ea70e6539c1f1d14fcdb91e3d6aeb2d1587e12b6c7e880461ee8919f",
+			"game/tests/orison_v2_ventilation_throat_test.gd": "4da155d045c9dfe1b7e605dfbe2a82217de1387c2a70af8ae955d7f00fa18b70",
+			"game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+			"game/tests/public_region_walk_probe.gd": "358e40e47d278e7313b1b7a317796e41c77bfeb408df43be9f5cd34b0692073e",
+			"game/tests/radiator_joint_review.gd": "5f1fde4c39d77406325252781a0cd8a58036fe5892becd9a62ed7e60529ac516",
+			"game/tests/radiator_native_review.gd": "89a413629a3eb22136585bd99e09c8544a6cce2f3a39001d5551d8b9cc6e7c2c",
+			"game/tests/v2_acoustic_ventilation_contract.gd": "799d266dda04ed22e8baee11c700401ae4c1b1e32e585c807003fa362a9ba00f",
+			"game/tests/v2_active_media_review.gd": "e810b5e22383041cc4d8eacad766df3bd8a97a991038667fd272524351356cb1",
+			"game/tests/v2_arcade_fabric_review.gd": "0e756eb688a755fdcc46314251d3b8c02c2b16bb1c78f43de4aee99e260317b4",
+			"game/tests/v2_bathroom_tile_review.gd": "bb111240a5b71c29356aa0fa112f6a491d5ae37b3ef1275ded7a7565882a87de",
+			"game/tests/v2_c_stove_installed_contract.gd": "36204e7aa4d13a262be1b2f1d728a0ae87eda3559d30b4fcb23c18f5cfe437a7",
+			"game/tests/v2_c_stove_stack_survey.gd": "06d5d1b16c76c546928c8e154a179b40f620dc774fda3c45421bdfd740b68412",
+			"game/tests/v2_city_context_review.gd": "137a4c5fbd5eae47aaddb67f323b6288f17d071c2448df896ea41d3cf225c146",
+			"game/tests/v2_city_elevation_review.gd": "e7fb960efaf9dfba4aad84826309b1b444420dcb9926d2d05af5e9825b487c2c",
+			"game/tests/v2_city_horizon_review.gd": "ef1b024c7d4f0857cc9975dff3f2de22da9b03905a1c7cb7fb7331d0fdcb6f01",
+			"game/tests/v2_construction_shed_review.gd": "b246f5caf051ab40f8d6aea33a3965a371568f90385f37eaca76de6ae6db85e4",
+			"game/tests/v2_control_finish_review.gd": "dff7c686dfdf068dd62cd4fcd974accbe92a4304af8bc3913839c750f0accf31",
+			"game/tests/v2_electrical_connections_review.gd": "c1aa7536ee9d806b2b58b1acc6f942a9f44b968648e0789ae704db92a2454677",
+			"game/tests/v2_electrical_service_review.gd": "5ee35cefe596d597691ac010f66a2f3d1863bf989234cde1fc3b26d3d4ceedd6",
+			"game/tests/v2_fire_fold_bench.gd": "7a1813cc448f322facd89530024e66beca9e5b237dbeedbce553ca2fd1e783ea",
+			"game/tests/v2_fire_hand_bench.gd": "6bcd764eb0c1f9b54e2ed69e03f08f697d528372a0fa75144df47df779adc190",
+			"game/tests/v2_fire_nozzle_coupling_bench.gd": "d99cf7763f53a2cc09eee3c6a4b5464f86aa57f1b34093a39ed4cae54f6856cb",
+			"game/tests/v2_fire_rack_bench.gd": "7cd6d692d0a6a385479ebf01029ee2519467260432e7f7c81ebf02c64bb22d15",
+			"game/tests/v2_fire_service_review.gd": "e9838f045c4a19ee266482cfdc62566f8f0b71884c1e1577ab5491b25bd72e08",
+			"game/tests/v2_flue_airway_contract.gd": "3d9b6866fcf13a1122006b309522de032b74de6d53da4b22b0e46274e2040441",
+			"game/tests/v2_front_restoration_review.gd": "1b74a50469917627b0008b28103f6b5a85e32c450e3542c330fca50462fcfb43",
+			"game/tests/v2_furnishing_clearance_review.gd": "c905affabdfc9449195134ece781dda9344ff18a8c3fb8e7cf8439dc17429ff2",
+			"game/tests/v2_glazing_optical_probe.gd": "956396d8342ea233d404bd8328982bf9173083c76c25763a82edf350789aeb6d",
+			"game/tests/v2_grade_stock_inspector.gd": "f8a031bbd552707f8e8652fac191808d0f92b89891b0098878c8177a80f99782",
+			"game/tests/v2_kitchen_sink_review.gd": "113e9fa099a16bebaa62ec50cdf58cc3d865bb647ae701e036e8fb2f53efa606",
+			"game/tests/v2_mail_bank_review.gd": "72e823ce363179beaf073ded03b7acad2d89a35e09151a7bd83d4382e0b517c8",
+			"game/tests/v2_millwork_culling_review.gd": "6a1d84ec0d4115413611ecf87fbd338ada24e32b7af15e5a49b7942e7def4c0a",
+			"game/tests/v2_millwork_weather_review.gd": "df15ff8e483414536a0f6a18054cacb994e3ee4d983bb9a7a2ed484299581432",
+			"game/tests/v2_soil_renewal_contract.gd": "7b0b85d51c45c29107cb46cbe77277e5dac3aae70a4bf3ff18e2cb648085fefa",
+			"game/tests/v2_soil_renewal_contract.tscn": "43599fd2fb0f4314246529406d116949e449243a954635de2ddfae6ebea0f6a9",
+			"game/tests/v2_spatial_access_cohort.gd": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9",
+			"game/tests/v2_street_optics_probe.gd": "f20d3b882dcabfde0761385ae0d2d2d9cea6d59204afee6934895233a4ed80c4",
+			"game/tests/v2_street_uv_bench.gd": "41b0a76d0332d67ecbca6e00adc8b606a375c20127ab21c96b07c2fd53239301",
+			"game/tests/v2_tween_completion.gd": "6c38c1d7b9b267c38079ffacd04e5b1431d2be21c6461c355db263299aa5cd03",
+			"game/tests/v2_watch_stations_review.gd": "f927ef309a05e92283ef18531af7d880fbb498cefc7550eaf179ecbd555a13ab",
+			"game/tests/v2_window_treatments_review.gd": "1e9bc1d7fbb6421d54c0251ee3a25e7d9dc4f624986b91d53dd33f4d20100b93",
+			"game/tests/watch_station_hand_test.gd": "c7550103724b10bd420a419940a0768c6806bcc4b127ae3eedb52913ab127e99"
+		},
+		"test_path": "game/tests/v2_soil_renewal_contract.gd",
+		"test_sha256": "7b0b85d51c45c29107cb46cbe77277e5dac3aae70a4bf3ff18e2cb648085fefa"
+	}
+}

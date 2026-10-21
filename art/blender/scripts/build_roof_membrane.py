@@ -110,7 +110,17 @@ bpy.ops.object.select_all(action='DESELECT')
 for obj in visible:obj.select_set(True)
 class ExportUVHandedness:
  def gather_attribute_change(self,attribute,data,normalized,export_settings):
-  if attribute=='TANGENT':data['data'][:,3]*=-1
+  if attribute=='NORMAL':self.normals=np.array(data['data'],dtype=np.float64).reshape(-1,3)
+  elif attribute=='TANGENT':
+   # Exposed sheets all use absolute X/-Y charts. Mikk's averaged tangent can
+   # choose a transverse edge at a shared roll intersection; derive the exact
+   # chart's X differential from its exported normal instead.
+   result=np.zeros((len(self.normals),4),dtype=np.float32)
+   for i,normal in enumerate(self.normals):
+    assert abs(np.linalg.norm(normal)-1)<.001,'Invalid exposed membrane normal'
+    tangent=np.array((1,0,0),dtype=np.float64);tangent-=normal*np.dot(tangent,normal);tangent/=np.linalg.norm(tangent)
+    result[i,:3]=tangent;result[i,3]=1
+   data['data']=result
 import io_scene_gltf2;io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=work/'assets/roof_membrane.glb' if work else R/'game/assets/props/roof_membrane.glb';asset.parent.mkdir(parents=True,exist_ok=True)
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_materials='PLACEHOLDER')

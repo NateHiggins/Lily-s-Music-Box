@@ -10,8 +10,9 @@ func _surface(role: String) -> StandardMaterial3D:
 	var mat := MatLib.get_mat(str(recipe.catalog_key)).duplicate() as StandardMaterial3D
 	var tint: Array = recipe.tint
 	mat.albedo_color = Color(tint[0],tint[1],tint[2],tint[3])
-	# Boundary source UVs predate the metric groundwork charts.
-	mat.uv1_triplanar = role in ["Brick","Coping"]
+	# The rebuilt boundary stock now carries real metric UVs, including cuts.
+	mat.uv1_triplanar = false
+	mat.uv2_triplanar = false
 	mat.normal_scale = float(recipe.normal)
 	mat.roughness = float(recipe.roughness)
 	mat.metallic = float(recipe.metallic)

@@ -39,7 +39,12 @@ def plan(layout,native,survey,previous,span):
         surfaces.append(dict(owner=room['id'],bounds=[a,low,b,c,.05,d],kind='retained_room_floor_or_basement_roof'))
     for shaft in layout['risers']:
         if shaft['from_y']>=0:raise ValueError('Review a riser without ground-level continuity: '+shaft['id'])
-        a,b,c,d=shaft['rect'];occupation.append(dict(owner=shaft['id'],bounds=[a,low,b,c,0,d],kind='retained_service_or_shaft_reservation'))
+        a,b,c,d=shaft['rect']
+        # This external masonry stack has its own native footing below the
+        # shaft. Do not excavate soil beneath that footing down to the generic
+        # legacy reservation bottom; the fresh native pad supplies its mask.
+        bottom=max(low,float(shaft['from_y'])) if shaft['id']=='C_STOVE_FLUE' else low
+        occupation.append(dict(owner=shaft['id'],bounds=[a,bottom,b,c,0,d],kind='retained_service_or_shaft_reservation'))
     window=next(r for r in layout['windows'] if r['id']=='B1_BOILER_AIR_E')
     half=window['width']/2;y=levels[window['level']]+window['sill']
     air=dict(owner=window['id']+'/RetainedReveal',bounds=[span[0],y,window['center'][1]-half,span[1],y+window['height'],window['center'][1]+half],kind='retained_window_throat_reservation',note='Exact generated masonry reveal, not an enlarged window.')

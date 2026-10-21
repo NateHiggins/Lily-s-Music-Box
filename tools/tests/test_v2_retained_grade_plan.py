@@ -43,5 +43,15 @@ class RetainedGradePlan(unittest.TestCase):
     def test_invalid_reveal_is_not_silently_widened(self):
         self.span=[2,1]
         with self.assertRaisesRegex(ValueError,'Invalid reveal'):self.build()
+    def test_external_stove_pad_retains_soil_bearing_below_its_base(self):
+        shaft=next(r for r in self.layout['risers'] if r['id']=='C_STOVE_FLUE')
+        result,_=self.build()
+        reservation=next(r for r in result['occupation_reservations'] if r['owner']==shaft['id'])
+        self.assertEqual(reservation['bounds'][1],shaft['from_y'])
+        self.assertGreater(reservation['bounds'][1],-3.6)
+        # Other legacy reservations still reach their original soil datum.
+        for row in result['occupation_reservations']:
+            if row['kind']=='retained_service_or_shaft_reservation' and row['owner']!=shaft['id']:
+                self.assertEqual(row['bounds'][1],self.previous['soil_bottom'])
 
 if __name__=='__main__':unittest.main()

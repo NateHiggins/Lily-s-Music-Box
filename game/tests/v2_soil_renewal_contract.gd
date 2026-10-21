@@ -1,4 +1,4 @@
-extends "res://tests/v2_flue_airway_contract.gd"
+extends "res://tests/v2_c_stove_installed_contract.gd"
 const GradeInspector=preload("res://tests/v2_grade_stock_inspector.gd")
 const GradeWorld=preload("res://tests/orison_v2_city_foundations_test.gd")
 

@@ -9,6 +9,13 @@ no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not
 proof of the current interaction contract.
 
+Exception: a full-world source survey must run windowed when production trim
+fittings validate renderer-provided MultiMesh transforms. The headless backend
+returns identity instance transforms and the production guard correctly refuses
+them. Finish source-bound trim discovery before freezing such a survey: even an
+unchanged runtime trim projection has a new rendering-source binding. Never edit
+any rendering input while the survey is running.
+
 Before modeling a new continuous stack, compare its footprint against every
 storey's occupied rooms and retained structural stock. The service hall on one
 floor may be narrower than the others. Survey actual full-size standing

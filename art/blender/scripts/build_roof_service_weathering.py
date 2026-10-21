@@ -88,9 +88,14 @@ def mesh_object(name,vertices,faces,key,hidden=False,recalculate=True):
         # sloping roof skins and narrow folded returns, without dominant-axis shrink.
         seed=Vector((0,1,0)) if abs(normal.y)<.85 else Vector((1,0,0))
         u=(seed-normal*seed.dot(normal)).normalized();v=normal.cross(u).normalized()
+        first=mesh.vertices[mesh.loops[face.loop_indices[0]].vertex_index].co
+        # Small folded facets need local subtraction before float32 UV storage.
+        # Rebase by this catalogue finish's whole period, retaining its phase.
+        period=float(json.loads((ROOT/'game/data/runtime_material_sets.json').read_bytes())['materials'][key]['meters_per_tile'])
+        phase=[math.fsum(float(first[i])*float(axis[i]) for i in range(3))%period for axis in [u,v]]
         for loop in face.loop_indices:
-            p=mesh.vertices[mesh.loops[loop].vertex_index].co
-            uv.data[loop].uv=(p.dot(u),p.dot(v))
+            p=mesh.vertices[mesh.loops[loop].vertex_index].co-first
+            uv.data[loop].uv=(phase[0]+p.dot(u),phase[1]+p.dot(v))
     if hidden:
         obj.hide_render=True;obj.hide_set(True);closed.append(obj)
     else:parts.append(obj)

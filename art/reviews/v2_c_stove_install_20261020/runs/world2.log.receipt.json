@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 230.27,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T04:28:37Z",
+  "started_utc": "2026-10-21T04:24:46Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 ACOUSTIC VENTILATION: PASS checks=1535 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-install-20261020/world2.log.stderr",
+  "stderr_sha256": "bce65521d9caeb611da58e3f61aad8ed09e97348faa4f47e6880e9bf88783be0",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-install-20261020/world2.log",
+  "stdout_sha256": "06bc7064f62fb5ff16a2c46b96775a2b1ec36b2048426c6724f779306a3d4f2a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/v2_soil_renewal_contract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_c_stove_install_20261020/world2",
+ "source": {
+  "dirty_paths": 1028,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/alley_groundworks.blend",
+   " M art/blender/alley_groundworks_construction.json",
+   " M art/blender/alley_groundworks_reservations.json",
+   " M art/blender/city_foundations.blend",
+   " M art/blender/city_foundations_construction.json",
+   " M art/blender/city_ground_apron.blend",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/exterior_masonry.blend",
+   " M art/blender/exterior_masonry_slab_fit.json",
+   " M art/blender/orison_ground.blend",
+   " M art/blender/orison_ground_construction.json",
+   " M art/blender/roof_base_flashings.blend",
+   " M art/blender/roof_base_flashings_construction.json",
+   " M art/blender/roof_drainage_falls.blend",
+   " M art/blender/roof_drainage_falls_construction.json",
+   " M art/blender/roof_membrane.blend",
+   " M art/blender/roof_membrane_construction.json",
+   " M art/blender/roof_public_weathering.blend",
+   " M art/blender/roof_public_weathering_construction.json"
+  ],
+  "repository_head": "486f632d0e0e8ddd6ce24c0bcfd16769f24aa28b",
+  "repository_tree": "60084c9501788c23d3782bad59b728df1b96f664",
+  "runtime_inputs_sha256": "7c49d8e726474c24a518a3b252bfe676a93ab8e39ccf640abd444dce6192b8e9",
+  "test_path": "game/tests/v2_soil_renewal_contract.gd",
+  "test_sha256": "7b0b85d51c45c29107cb46cbe77277e5dac3aae70a4bf3ff18e2cb648085fefa"
+ },
+ "windowed": true
+}

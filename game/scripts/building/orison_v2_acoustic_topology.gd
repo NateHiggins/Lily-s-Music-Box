@@ -10,6 +10,7 @@ var _lease := 0
 var _local_nodes := {}
 var _routes: Array = []
 var heating
+var flue
 
 func _reject(message: String) -> bool:
 	errors.append(message)
@@ -98,12 +99,15 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 		merged[identity].pos=[anchor.global_position.x,-anchor.global_position.z,anchor.global_position.y]
 	heating=preload("res://scripts/building/orison_v2_acoustic_heating.gd").new()
 	if not heating.merge_into(merged,adapter,layout):return _reject("Heating topology refused: "+str(heating.errors))
+	flue=preload("res://scripts/building/orison_v2_acoustic_flue.gd").new()
+	if not flue.merge_into(merged,adapter,layout):return _reject("Flue topology refused: "+str(flue.errors))
 	_lease=AcousticGraphData.push_topology(merged)
 	if _lease==0: return _reject("Propagation owner refused topology")
 	_local_nodes=local_nodes;_routes=data.routes
 	return true
 
 func physical_owners_valid(adapter: OrisonV2AnchorAdapter) -> bool:
+	if flue==null or not flue.physical_owners_valid(adapter):return _reject("Physical flue owners refused: "+str(flue.errors if flue!=null else []))
 	if heating==null or not heating.physical_owners_valid(adapter):return _reject("Physical heating owners refused: "+str(heating.errors if heating!=null else []))
 	for route: Dictionary in _routes:
 		if not adapter.root.get_node_or_null(NodePath(str(route.owner))) is StaticBody3D: return _reject("Installed duct owner missing: "+str(route.owner))

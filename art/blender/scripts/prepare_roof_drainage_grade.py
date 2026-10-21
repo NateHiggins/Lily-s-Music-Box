@@ -26,7 +26,7 @@ zs=sorted({round(v,6) for v in [-12.35,11.65]+[i*.5 for i in range(-24,24)]+[v f
 blocked=[[-2.27,-3.92,5.47,3.92],[9.43,.23,13.27,10.27]]+[h['rect'] for h in holes]
 # The chimney's masonry footprint is an obstacle, not a hidden drainage field.
 # Keep the slab penetration smaller so the existing masonry still bears on it.
-chimneys=[r['rect'] for r in layout['risers'] if r['id']=='B1_BOILER_FLUE']
+chimneys=[r['rect'] for r in layout['risers'] if r['id'] in ['B1_BOILER_FLUE','C_STOVE_FLUE']]
 blocked+=chimneys
 xs=sorted(set(xs)|{round(v,6) for r in chimneys for v in [r[0],r[2]]})
 zs=sorted(set(zs)|{round(v,6) for r in chimneys for v in [r[1],r[3]]})

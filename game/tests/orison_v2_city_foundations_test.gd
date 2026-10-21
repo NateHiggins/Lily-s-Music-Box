@@ -129,7 +129,7 @@ func validate_world(world: OrisonV2RuntimeRoot) -> void:
 			var p: Array=post.points[point_index];var at:=Vector3(p[0],p[1],p[2])
 			var containing: Array=[]
 			for component: Dictionary in plan.retained_solids:
-				if component.kind not in ["authored_original_box","authored_union_component","actual_axis_aligned_box","retained_continuous_paving_substrate"]:continue
+				if component.kind not in ["authored_original_box","authored_union_component","authored_fitted_box_component","actual_axis_aligned_box","retained_continuous_paving_substrate"]:continue
 				var b: Array=component.bounds
 				if at.x>b[0]+.00001 and at.x<b[3]-.00001 and at.y>=b[1]-.00001 and at.y<=b[4]+.00001 and at.z>b[2]+.00001 and at.z<b[5]-.00001:containing.append(component.id)
 			var query:=PhysicsRayQueryParameters3D.create(root.to_global(at+Vector3.UP*.05),root.to_global(at-Vector3.UP*4),1,old_exclude)

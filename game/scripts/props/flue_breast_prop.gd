@@ -69,6 +69,11 @@ func _build_visual() -> void:
 	_draft.max_distance = 10.0
 	_inspection_tap = make_emitter("tick", -21.0)
 	_inspection_tap.pitch_scale = 0.58
+	for emitter: AudioStreamPlayer3D in [_knock,_draft,_inspection_tap]:emitter.position=Vector3(0,CENTRE_Y,-.083)
+
+
+func resonance_origin() -> Vector3:
+	return to_global(Vector3(0,CENTRE_Y,-.083))
 
 
 ## The cursor follows the loose closure, not the fixed masonry or halo.

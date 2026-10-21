@@ -1850,15 +1850,15 @@
     {"id":"b1_toolboard","level":"B1","position":[6.8,1.55,5.6],"yaw":0,"kind":"fixture","space":"B1_MAINTENANCE_SHOP"},
     {"id":"b1_parts_shelf","level":"B1","position":[5.72,0,3.2],"yaw":-1.5707963267948966,"kind":"fixture","space":"B1_MAINTENANCE_SHOP"},
     {"id":"ROOF_LIFT_DRIVE","level":"ROOF","space":"ROOF_PUBLIC_CORE","position":[-0.1,0,-1.7],"yaw":0,"kind":"fixture"},
-    {"id":"5C_pigment_table","level":"F05","space":"F05_C_BED2","position":[6.68,0,10.0],"yaw":1.5707963267948966,"kind":"furniture"},
-    {"id":"5C_pigment_table_STANCE","level":"F05","space":"F05_C_BED2","position":[5.7,0,10.0],"yaw":-1.5707963267948966,"kind":"clearance"},
+    {"id":"5C_pigment_table","level":"F05","space":"F05_C_BED2","position":[6.68,0,10.95],"yaw":1.5707963267948966,"kind":"furniture"},
+    {"id":"5C_pigment_table_STANCE","level":"F05","space":"F05_C_BED2","position":[5.7,0,10.95],"yaw":-1.5707963267948966,"kind":"clearance"},
     {"id":"5C_studio_stool","level":"F05","space":"F05_C_BED2","position":[5.0,0,10.6],"yaw":0,"kind":"furniture"},
     {"id":"6C_archive_table","level":"F06","space":"F06_C_BED2","position":[5.4,0,11.23],"yaw":0,"kind":"furniture"},
     {"id":"6C_archive_table_STANCE","level":"F06","space":"F06_C_BED2","position":[5.4,0,10.2],"yaw":3.141592653589793,"kind":"clearance"},
     {"id":"6C_archive_shelf_01","level":"F06","space":"F06_C_BED2","position":[6.93,0,9.0],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"6C_archive_shelf_01_STANCE","level":"F06","space":"F06_C_BED2","position":[6.1,0,9.0],"yaw":-1.5707963267948966,"kind":"clearance"},
-    {"id":"6C_archive_shelf_02","level":"F06","space":"F06_C_BED2","position":[6.93,0,10.1],"yaw":1.5707963267948966,"kind":"furniture"},
-    {"id":"6C_archive_shelf_02_STANCE","level":"F06","space":"F06_C_BED2","position":[6.1,0,10.1],"yaw":-1.5707963267948966,"kind":"clearance"},
+    {"id":"6C_archive_shelf_02","level":"F06","space":"F06_C_BED2","position":[6.93,0,11.0],"yaw":1.5707963267948966,"kind":"furniture"},
+    {"id":"6C_archive_shelf_02_STANCE","level":"F06","space":"F06_C_BED2","position":[6.1,0,11.0],"yaw":-1.5707963267948966,"kind":"clearance"},
     {"id":"1A_wireless_table","level":"F01","space":"F01_A_MAIN","position":[-12.0,0,-6.95],"yaw":3.141592653589793,"kind":"furniture"},
     {"id":"3D_wireless_table","level":"F03","space":"F03_D_MAIN","position":[-12.0,0,-6.95],"yaw":3.141592653589793,"kind":"furniture"},
     {"id":"4D_wireless_table","level":"F04","space":"F04_D_MAIN","position":[-12.0,0,-6.95],"yaw":3.141592653589793,"kind":"furniture"},
@@ -1942,7 +1942,7 @@
     {"id":"2B_repair_rail","level":"F02","space":"F02_B_MAIN","position":[11.59,0.75,-3.6],"yaw":-1.5707963267948966,"kind":"furniture"},
     {"id":"4B_closet_rail","level":"F04","space":"F04_B_CLOSET","position":[-6.95,0.75,8.16],"yaw":0,"kind":"furniture"},
     {"id":"2C_blanket_a","level":"F02","space":"F02_C_BED2","position":[7.01,0.35,8.7],"yaw":1.5707963267948966,"kind":"furniture"},
-    {"id":"2C_blanket_b","level":"F02","space":"F02_C_BED2","position":[7.01,0.35,10.0],"yaw":1.5707963267948966,"kind":"furniture"},
+    {"id":"2C_blanket_b","level":"F02","space":"F02_C_BED2","position":[7.01,0.35,10.95],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"3D_blanket_a","level":"F03","space":"F03_D_STUDY","position":[-8.29,0.35,-11.65],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"3D_blanket_b","level":"F03","space":"F03_D_STUDY","position":[-8.29,0.35,-10.35],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"2A_hall_hamper","level":"F02","space":"F02_A_PRIVATE_HALL","position":[-9.32,0,7.58],"yaw":0,"kind":"furniture"},
@@ -2238,7 +2238,12 @@
     {"id":"F02_D_RADIATOR_01","level":"F02","space":"F02_D_RESTRICTED","position":[-15.35,0.75,-7.0],"yaw":-1.5707963267948966,"kind":"interaction"},
     {"id":"F03_C_RADIATOR_01","level":"F03","space":"F03_C_RESTRICTED","position":[1.6,0.75,11.35],"yaw":0.0,"kind":"interaction"},
     {"id":"F05_D_RADIATOR_01","level":"F05","space":"F05_D_RESTRICTED","position":[15.35,0.75,-6.0],"yaw":1.5707963267948966,"kind":"interaction"},
-    {"id":"F06_D_RADIATOR_01","level":"F06","space":"F06_D_RESTRICTED","position":[15.35,0.75,-6.0],"yaw":1.5707963267948966,"kind":"interaction"}
+    {"id":"F06_D_RADIATOR_01","level":"F06","space":"F06_D_RESTRICTED","position":[15.35,0.75,-6.0],"yaw":1.5707963267948966,"kind":"interaction"},
+    {"id":"F02_FLUE_BREAST","level":"F02","space":"F02_C_BED2","position":[7.028,0,10.05],"yaw":1.5707963267948966,"kind":"prop"},
+    {"id":"F03_FLUE_BREAST","level":"F03","space":"F03_C_RESTRICTED","position":[7.028,0,10.05],"yaw":1.5707963267948966,"kind":"prop"},
+    {"id":"F04_FLUE_BREAST","level":"F04","space":"F04_C_BED2","position":[7.028,0,10.05],"yaw":1.5707963267948966,"kind":"prop"},
+    {"id":"F05_FLUE_BREAST","level":"F05","space":"F05_C_BED2","position":[7.028,0,10.05],"yaw":1.5707963267948966,"kind":"prop"},
+    {"id":"F06_FLUE_BREAST","level":"F06","space":"F06_C_BED2","position":[7.028,0,10.05],"yaw":1.5707963267948966,"kind":"prop"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},
@@ -2386,7 +2391,8 @@
     {"id":"PASSENGER_LIFT_SHAFT","rect":[-1.2,-2.8,1.2,-0.3],"from_y":-3.2,"to_y":19.2,"class":"core","solid":false},
     {"id":"SERVICE_LIFT_SHAFT","rect":[9.7,0.3,11.0,1.6],"from_y":-3.2,"to_y":19.2,"class":"core","solid":false},
     {"id":"B1_BOILER_FLUE","rect":[15.05,1.8,15.5,2.5],"from_y":-3.2,"to_y":19.2,"class":"service"},
-    {"id":"FIRE_SERVICE_RISER","rect":[4.825,-3.705,4.955,-3.575],"from_y":-3.2,"to_y":20.92,"class":"fire","solid":false}
+    {"id":"FIRE_SERVICE_RISER","rect":[4.825,-3.705,4.955,-3.575],"from_y":-3.2,"to_y":20.92,"class":"fire","solid":false},
+    {"id":"C_STOVE_FLUE","rect":[7.449999999999999,9.700000000000001,8.03,10.4],"from_y":-3.2,"to_y":19.2,"class":"service"}
   ],
   "route_edges": [
     {"id":"ROUTE_PRIMARY_B1_F01","from":"B1_PUBLIC_CORE","to":"F01_PUBLIC_CORE","via":"PRIMARY_B1_F01"},
@@ -2513,7 +2519,9 @@
     {"id":"F06_D_RADIATOR_01_RETROFIT_SLAB_OPENINGS_007","space":"F06_D_RESTRICTED","surface":"Floor","rect":[15.309,-5.371,15.391,-5.289]},
     {"id":"HEAT_H_D_EXTENSION_F04_CEILING_PORT","space":"F04_SERVICE_HALL","surface":"Ceiling","rect":[8.699,0.549,8.781,0.631]},
     {"id":"HEAT_H_D_EXTENSION_F05_FLOOR_PORT","space":"F05_SERVICE_HALL","surface":"Floor","rect":[8.699,0.549,8.781,0.631]},
-    {"id":"BOILER_FLUE_ROOF_PENETRATION","space":"ROOF_DECK_EAST","surface":"Floor","rect":[15.15,1.9000000000000001,15.4,2.4]}
+    {"id":"BOILER_FLUE_ROOF_PENETRATION","space":"ROOF_DECK_EAST","surface":"Floor","rect":[15.15,1.9000000000000001,15.4,2.4]},
+    {"id":"C_STOVE_FLUE_ROOF_PORT","space":"ROOF_DECK_NORTH","surface":"Floor","rect":[7.549999999999999,9.8,7.93,10.3]},
+    {"id":"C_STOVE_FLUE_APRON_PORT","space":"F01_REAR_APRON","surface":"Floor","rect":[7.8,9.8,7.93,10.3]}
   ],
   "riser_openings": [
     {"id":"HEAT_H-A_MAIN_CLEAR","riser":"HEAT_STACK","bounds":[8.570000000000002,-0.45,0.42000000000000004,8.65,16.06,0.5]},
@@ -2565,7 +2573,13 @@
     {"id":"F05_D_RADIATOR_01_RETROFIT_RISER_OPENINGS_005","riser":"HEAT_STACK","bounds":[8.698999771118164,12.278934450578099,0.5340001072883606,8.780999771118164,12.36169919883467,0.75]},
     {"id":"F06_D_RADIATOR_01_RETROFIT_RISER_OPENINGS_006","riser":"HEAT_STACK","bounds":[8.698999771118164,15.478934450578098,0.5340001072883606,8.780999771118164,15.561699198834669,0.75]},
     {"id":"BOILER_FLUE_CONTINUOUS_AIRWAY","riser":"B1_BOILER_FLUE","bounds":[15.15,-3.1,1.9000000000000001,15.4,19.2,2.4]},
-    {"id":"BOILER_FLUE_BREECHING_PORT","riser":"B1_BOILER_FLUE","bounds":[15.05,-0.7300000000000003,1.97,15.151,-0.3700000000000002,2.3299999999999996]}
+    {"id":"BOILER_FLUE_BREECHING_PORT","riser":"B1_BOILER_FLUE","bounds":[15.05,-0.7300000000000003,1.97,15.151,-0.3700000000000002,2.3299999999999996]},
+    {"id":"C_STOVE_FLUE_AIRWAY","riser":"C_STOVE_FLUE","bounds":[7.549999999999999,-3.1,9.8,7.93,19.2,10.3]},
+    {"id":"F02_FLUE_BREAST_STACK_PORT","riser":"C_STOVE_FLUE","bounds":[7.449999999999999,4.500000000000001,9.91,7.550999999999999,4.78,10.190000000000001]},
+    {"id":"F03_FLUE_BREAST_STACK_PORT","riser":"C_STOVE_FLUE","bounds":[7.449999999999999,7.7,9.91,7.550999999999999,7.9799999999999995,10.190000000000001]},
+    {"id":"F04_FLUE_BREAST_STACK_PORT","riser":"C_STOVE_FLUE","bounds":[7.449999999999999,10.899999999999999,9.91,7.550999999999999,11.18,10.190000000000001]},
+    {"id":"F05_FLUE_BREAST_STACK_PORT","riser":"C_STOVE_FLUE","bounds":[7.449999999999999,14.1,9.91,7.550999999999999,14.38,10.190000000000001]},
+    {"id":"F06_FLUE_BREAST_STACK_PORT","riser":"C_STOVE_FLUE","bounds":[7.449999999999999,17.3,9.91,7.550999999999999,17.580000000000002,10.190000000000001]}
   ],
   "wall_service_openings": [
     {"id":"VENT_A_F05_B_BATH_VENT_REGISTER_1_WALL_F05_B_BATH_EAST_CLEAR","bounds":[-6.57,15.39,4.625,-6.43,15.59,4.825],"space":"F05_B_BATH","side":"east"},
@@ -2715,7 +2729,12 @@
     {"id":"F05_D_RADIATOR_01_RETROFIT_WALL_SERVICE_OPENINGS_011","space":"F04_A_MAIN","side":"west","bounds":[11.43,12.30491405814352,-1.4910000476837157,11.57,12.387525854456625,-1.409000047683716]},
     {"id":"F05_D_RADIATOR_01_RETROFIT_WALL_SERVICE_OPENINGS_012","space":"F04_A_MAIN","side":"south","bounds":[15.309000381469726,12.333756009240092,-4.2700000000000005,15.391000381469727,12.41636780763697,-4.13]},
     {"id":"F06_D_RADIATOR_01_RETROFIT_WALL_SERVICE_OPENINGS_013","space":"F05_D_RESTRICTED","side":"west","bounds":[9.43,15.496174072710163,-1.4910000476837157,9.57,15.578785869023267,-1.409000047683716]},
-    {"id":"F02_SERVICE_BYPASS_HEAT_INNER_PORT","space":"F02_SERVICE_RISER_BYPASS","side":"north","bounds":[7.409,5.887134490238611,1.93,7.4910000000000005,5.969590021691974,2.07]}
+    {"id":"F02_SERVICE_BYPASS_HEAT_INNER_PORT","space":"F02_SERVICE_RISER_BYPASS","side":"north","bounds":[7.409,5.887134490238611,1.93,7.4910000000000005,5.969590021691974,2.07]},
+    {"id":"F02_FLUE_BREAST_WALL_PORT","space":"F02_C_BED2","side":"east","bounds":[7.029999999999999,4.49,9.9,7.17,4.790000000000001,10.200000000000001]},
+    {"id":"F03_FLUE_BREAST_WALL_PORT","space":"F03_C_RESTRICTED","side":"east","bounds":[7.029999999999999,7.6899999999999995,9.9,7.17,7.99,10.200000000000001]},
+    {"id":"F04_FLUE_BREAST_WALL_PORT","space":"F04_C_BED2","side":"east","bounds":[7.029999999999999,10.889999999999999,9.9,7.17,11.19,10.200000000000001]},
+    {"id":"F05_FLUE_BREAST_WALL_PORT","space":"F05_C_BED2","side":"east","bounds":[7.029999999999999,14.09,9.9,7.17,14.39,10.200000000000001]},
+    {"id":"F06_FLUE_BREAST_WALL_PORT","space":"F06_C_BED2","side":"east","bounds":[7.029999999999999,17.290000000000003,9.9,7.17,17.59,10.200000000000001]}
   ],
   "masonry_service_openings": [
     {"id":"VENT_A_F05_B_BATH_VENT_REGISTER_1_MASONRY_EXTERIORMASONRY_CLEAR","bounds":[-7.35,15.39,4.625,-6.075,15.59,4.825],"owner":"ExteriorMasonry"},
@@ -2746,6 +2765,11 @@
     {"id":"VENT_C_C_UPTAKE_MASONRY_EXTERIORMASONRY_CLEAR","bounds":[-6.275,18.795,5.7,-6.075,19.469,5.9],"owner":"ExteriorMasonry"},
     {"id":"F03_C_RADIATOR_01_RETROFIT_MASONRY_SERVICE_OPENINGS_000","owner":"ExteriorMasonry","bounds":[7.9790004577636715,5.879780911435273,0.5489999737739563,8.270999542236328,5.962919738206843,0.6309999737739563]},
     {"id":"F03_C_RADIATOR_01_RETROFIT_MASONRY_SERVICE_OPENINGS_001","owner":"ExteriorMasonry","bounds":[7.129000076293945,5.905648589649324,7.509000190734863,7.421000114440918,5.988787419523955,7.591000190734864]},
-    {"id":"F02_SERVICE_BYPASS_HEAT_OUTER_PORT","owner":"ExteriorMasonry","bounds":[7.409,5.887590021691973,2.07,7.4910000000000005,5.970273318872017,2.28]}
+    {"id":"F02_SERVICE_BYPASS_HEAT_OUTER_PORT","owner":"ExteriorMasonry","bounds":[7.409,5.887590021691973,2.07,7.4910000000000005,5.970273318872017,2.28]},
+    {"id":"F02_FLUE_BREAST_OUTER_LEAF_PORT","owner":"ExteriorMasonry","bounds":[7.17,4.49,9.9,7.449999999999999,4.790000000000001,10.200000000000001]},
+    {"id":"F03_FLUE_BREAST_OUTER_LEAF_PORT","owner":"ExteriorMasonry","bounds":[7.17,7.6899999999999995,9.9,7.449999999999999,7.99,10.200000000000001]},
+    {"id":"F04_FLUE_BREAST_OUTER_LEAF_PORT","owner":"ExteriorMasonry","bounds":[7.17,10.889999999999999,9.9,7.449999999999999,11.19,10.200000000000001]},
+    {"id":"F05_FLUE_BREAST_OUTER_LEAF_PORT","owner":"ExteriorMasonry","bounds":[7.17,14.09,9.9,7.449999999999999,14.39,10.200000000000001]},
+    {"id":"F06_FLUE_BREAST_OUTER_LEAF_PORT","owner":"ExteriorMasonry","bounds":[7.17,17.290000000000003,9.9,7.449999999999999,17.59,10.200000000000001]}
   ]
 }

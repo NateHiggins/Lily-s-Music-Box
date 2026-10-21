@@ -57,8 +57,20 @@ bind('art/blender/orison_foundations.blend');bind('game/assets/props/orison_foun
 
 for obj in objects('art/blender/service_alley.blend',lambda n:n.startswith(('PavingFoundation','BoundaryMasonry','BondedPier'))):
     assert obj.parent is None and max(abs(v) for v in obj.rotation_euler)<1e-7
+    if obj.get('source_box_components_json'):
+        kind='retained_continuous_paving_substrate' if obj.name.startswith('PavingFoundation') else 'authored_fitted_box_component'
+        for index,component in enumerate(json.loads(obj['source_box_components_json'])):append('ServiceAlley',obj.name+'_'+str(index),component,kind)
+        continue
     kind='retained_continuous_paving_substrate' if obj.name.startswith('PavingFoundation') else 'authored_original_box' if obj.name.startswith('BoundaryMasonry') else 'worked_arris_clearance_bounds'
     append('ServiceAlley',obj.name,bounds(obj),kind)
+
+# The shaft reservation covers its masonry, while this worked pad extends
+# outside it. Its measured bounds are a footing clearance, never an exact
+# replacement for the beveled native concrete volume.
+if any(r['id']=='C_STOVE_FLUE' for r in json.loads((ROOT/'game/data/orison_v2_blockout.json').read_bytes())['risers']):
+    for obj in objects('art/blender/c_stove_stack/c_stove_stack.blend',lambda n:n=='ContinuousStackFooting'):
+        append('CStoveStack',obj.name,bounds(obj),'worked_arris_footing_clearance_bounds')
+    bind('game/assets/props/c_stove_stack.glb')
 
 pose=survey['poses']['receiving']
 def registered(p):return [pose['origin'][i]+sum(p[j]*pose[k][i] for j,k in enumerate(['x_axis','y_axis','z_axis'])) for i in range(3)]

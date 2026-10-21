@@ -6,11 +6,15 @@ this whole assembly with the existing named front-door street connection.
 from pathlib import Path
 import json
 import math
+import sys
 import bpy
 import bmesh
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0,str(ROOT/'tools'))
+from plan_v2_retained_grade import subtract as subtract_source_box
+catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_bytes())['materials']
 source = json.loads((ROOT / 'game/data/orison_v2_blockout.json').read_text())
 spaces = {r['id']: r for r in source['spaces']}
 doors = {r['id']: r for r in source['doors']}
@@ -108,15 +112,31 @@ for x,z,side in [(outer-.20,-9,1),(outer-.20,2,1),(outer-.20,12.5,1),(apron[0]+.
         box('LampBolt',(face-.023,z-.012,face+.023,z+.012),y-.012,y+.012,'Iron',.002)
 
 for obj in list(bpy.context.scene.objects):
-    bm=bmesh.new();bm.from_mesh(obj.data)
-    bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(obj.data);bm.free()
-    uv=obj.data.uv_layers.new(name='UVMap')
+    # The stove stack replaces the old rear boundary masonry and paving in
+    # this footprint. Cut the actual retained stocks, not just their collision.
+    if obj.type=='MESH':
+        for shaft in source['risers']:
+            if shaft['id']!='C_STOVE_FLUE':continue
+            x0,z0,x1,z1=shaft['rect'];points=[obj.matrix_world@Vector(p) for p in obj.bound_box]
+            if max(p.x for p in points)<=x0 or min(p.x for p in points)>=x1 or -min(p.y for p in points)<=z0 or -max(p.y for p in points)>=z1:continue
+            if obj.name.startswith(('PavingFoundation','BoundaryMasonry')):
+                bounds=[min(p.x for p in points),min(p.z for p in points),-max(p.y for p in points),max(p.x for p in points),max(p.z for p in points),-min(p.y for p in points)]
+                obj['source_box_components_json']=json.dumps(subtract_source_box(bounds,[x0,float(shaft['from_y']),z0,x1,float(shaft['to_y'])+2.2,z1]))
+            cutter=box('StoveStackSourceVoid',(x0,z0,x1,z1),float(shaft['from_y']),float(shaft['to_y'])+2.2,'Brick')
+            bpy.context.view_layer.objects.active=obj;mod=obj.modifiers.new('StoveStackReservation','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter
+            bpy.ops.object.modifier_apply(modifier=mod.name);bpy.data.objects.remove(cutter,do_unlink=True)
+    bpy.context.view_layer.objects.active=obj;bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
+    bm=bmesh.new();bm.from_mesh(obj.data);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-6);bmesh.ops.triangulate(bm,faces=list(bm.faces));bmesh.ops.dissolve_degenerate(bm,edges=list(bm.edges),dist=1e-6)
+    bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(obj.data);bm.free();obj.data.update()
+    while obj.data.uv_layers:obj.data.uv_layers.remove(obj.data.uv_layers[0])
+    uv=obj.data.uv_layers.new(name='Metres');uv.active_render=True
+    role=obj.data.materials[0].name;key={'Brick':'brick','Coping':'limestone','Paving':'concrete','Iron':'iron_neutral'}[role];tile=float(catalog[key]['meters_per_tile'])
     for poly in obj.data.polygons:
-        axis=max(range(3),key=lambda i:abs(poly.normal[i]))
-        axes=((1,2),(0,2),(0,1))[axis]
+        n=poly.normal.normalized();seed=Vector((0,0,1)) if abs(n.z)<.9 else Vector((1,0,0));u=n.cross(seed).normalized();v=n.cross(u)
+        first=obj.data.vertices[obj.data.loops[poly.loop_indices[0]].vertex_index].co
+        origin=[math.fsum(float(first[i])*float(axis[i]) for i in range(3))%tile for axis in [u,v]]
         for loop in poly.loop_indices:
-            p=obj.matrix_world@obj.data.vertices[obj.data.loops[loop].vertex_index].co
-            uv.data[loop].uv=(p[axes[0]],p[axes[1]])
+            p=obj.data.vertices[obj.data.loops[loop].vertex_index].co-first;uv.data[loop].uv=(origin[0]+p.dot(u),origin[1]+p.dot(v))
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/service_alley.blend'))
 for role,mat in mats.items():
     parts=[o for o in bpy.context.scene.objects if o.type=='MESH' and o.data.materials[0]==mat]
@@ -126,4 +146,9 @@ for role,mat in mats.items():
     obj=bpy.context.object;obj.name=role
     bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
 bpy.ops.object.select_all(action='SELECT')
-bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/service_alley.glb'),export_format='GLB',export_yup=True,export_apply=True)
+class ExportUVHandedness:
+    def gather_attribute_change(self,attribute,data,normalized,export_settings):
+        if attribute=='TANGENT':data['data'][:,3]*=-1
+import io_scene_gltf2
+io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
+bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/service_alley.glb'),export_format='GLB',export_yup=True,export_apply=True,export_tangents=True)

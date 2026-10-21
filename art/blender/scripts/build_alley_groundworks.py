@@ -92,6 +92,9 @@ cuts=[('BoilerWell',[inner_x,-.5,z0-.14,outer,.10,z1+.14])]
 chimney=next(r for r in layout['risers'] if r['id']=='B1_BOILER_FLUE')
 cx0,cz0,cx1,cz1=chimney['rect']
 cuts.append(('BoilerChimney',[cx0,-.5,cz0,cx1,.10,cz1]))
+for shaft in layout['risers']:
+    if shaft['id']=='C_STOVE_FLUE':
+        a,b,c,d=shaft['rect'];cuts.append(('CStoveStack',[a,-.5,b,c,.10,d]))
 cuts += [('Catch_%d'%i,[drain_x-.151,-.5,z-.258,drain_x+.151,.10,z+.258]) for i,z in enumerate(drain_z)]
 receiver=json.loads((root/'art/blender/roof_drainage_reservations.json').read_bytes())
 for row in receiver['grade_ports']:

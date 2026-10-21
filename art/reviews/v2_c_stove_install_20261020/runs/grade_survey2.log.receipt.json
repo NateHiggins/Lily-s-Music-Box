@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 15.02,
+  "exit_code": 1,
+  "finished_utc": "2026-10-21T04:08:59Z",
+  "started_utc": "2026-10-21T04:08:44Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-install-20261020/grade_survey2.log.stderr",
+  "stderr_sha256": "21a4423abb9a15cfbfd4d210101b420e63cc894d90e47a7f374740163ba01077",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-install-20261020/grade_survey2.log",
+  "stdout_sha256": "9d20db81b12aeb61dad9c8ac08e4d8794124d2462b8fa27e19dec4ea09a09489"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/v2_grade_owner_survey.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-c-stove-install-20261020/grade_survey2",
+ "source": {
+  "dirty_paths": 1003,
+  "dirty_sample": [
+   "M art/blender/alley_groundworks.blend",
+   " M art/blender/alley_groundworks_construction.json",
+   " M art/blender/alley_groundworks_reservations.json",
+   " M art/blender/exterior_masonry.blend",
+   " M art/blender/exterior_masonry_slab_fit.json",
+   " M art/blender/roof_base_flashings.blend",
+   " M art/blender/roof_base_flashings_construction.json",
+   " M art/blender/roof_drainage_falls.blend",
+   " M art/blender/roof_drainage_falls_construction.json",
+   " M art/blender/roof_membrane.blend",
+   " M art/blender/roof_membrane_construction.json",
+   " M art/blender/roof_public_weathering.blend",
+   " M art/blender/roof_public_weathering_construction.json",
+   " M art/blender/roof_service_weathering.blend",
+   " M art/blender/roof_service_weathering_construction.json",
+   " M art/blender/scripts/build_alley_groundworks.py",
+   " M art/blender/scripts/build_roof_base_flashings.py",
+   " M art/blender/scripts/build_roof_membrane.py",
+   " M art/blender/scripts/build_roof_service_weathering.py",
+   " M art/blender/scripts/build_service_alley.py"
+  ],
+  "repository_head": "486f632d0e0e8ddd6ce24c0bcfd16769f24aa28b",
+  "repository_tree": "60084c9501788c23d3782bad59b728df1b96f664",
+  "runtime_inputs_sha256": "5e8b5ddbadfff2e6db1321e03e52e7d57ba3d52bd6148d54a30aa12b2b10841a",
+  "test_path": "game/tests/v2_grade_owner_survey.gd",
+  "test_sha256": "f825e6e7e15cd6a2ee4f98c783e10f6a5ee840e3fb75816f8335d10df2e882ca"
+ },
+ "windowed": false
+}

@@ -935,6 +935,11 @@ func _compose_service_round_props() -> void:
 		push_error("ORISON V2 RUNTIME: boiler flue connection refused")
 		return
 	_retire_blockout_fixture("B1_BREECHING_MASS")
+	var stove:=preload("res://scripts/building/orison_v2_c_stove_stack.gd").new()
+	if not stove.mount(adapter,_blockout.layout):
+		startup_failed=true
+		push_error("ORISON V2 RUNTIME: stove stack refused: "+str(stove.errors))
+		return
 	preload("res://scripts/building/orison_v2_boiler_pipework.gd").mount(adapter.root)
 	watch_station_network = WatchStationNetwork.new()
 	watch_station_network.name = "WatchStationNetwork"

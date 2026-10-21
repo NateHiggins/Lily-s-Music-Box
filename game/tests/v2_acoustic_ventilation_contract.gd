@@ -34,11 +34,12 @@ func _run() -> void:
 	_check(AcousticGraphData._topology_base==original and not AcousticGraphData._topology_scopes.is_empty(),"topology lease retains the original graph beneath later physical fits")
 	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(Topology.DATA))
 	var heat: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/acoustic_heating.json"))
+	var flue: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/acoustic_flue.json"))
 	var current := {}
 	for identity: String in AcousticGraphData.nodes:
 		if AcousticGraphData.nodes[identity].get("network")=="ventilation":current[identity]=true
 	_check(current.size()==49 and data.nodes.size()==49 and data.routes.size()==45,"all installed ventilation nodes and ducts are represented")
-	_check(AcousticGraphData.nodes.size()==original.size()-2+27,"two absent duct junctions retire and 27 physical heating junctions enter")
+	_check(AcousticGraphData.nodes.size()==original.size()-2+27+11,"two absent duct junctions retire; 27 heating and eleven flue carriers enter")
 	for retired: Dictionary in data.retirements:
 		_check(not AcousticGraphData.nodes.has(str(retired.id)),"uninstalled junction cannot transmit: "+str(retired.id))
 	for row: Dictionary in data.nodes:
@@ -57,7 +58,7 @@ func _run() -> void:
 		if not carriers.has(identity):carriers[identity]=[]
 		carriers[identity].append(node)
 	for identity: String in original:
-		if original[identity].get("network") in ["ventilation","heating"] or identity in four:continue
+		if original[identity].get("network") in ["ventilation","heating","flue"] or identity in four:continue
 		var actual: Dictionary=AcousticGraphData.nodes[identity].duplicate(true)
 		if actual.pos!=original[identity].pos:
 			var owners: Array=carriers.get(identity,[])
@@ -109,6 +110,27 @@ func _run() -> void:
 	_check(heat_heard.size()==53,"original autoload delivers boiler events to every physical heating junction and emitter")
 	for row: Dictionary in heat.nodes:
 		_check(str(row.id) in heat_heard,"observed actual heating delivery: "+str(row.id))
+	_check(flue.nodes.size()==24 and flue.routes.size()==23,"all thirteen retained and eleven passive flue carriers represented")
+	for row: Dictionary in flue.nodes:
+		var identity: String=str(row.id)
+		_check(AcousticGraphData.node_pos(identity).distance_to(world.adapter.root.to_global(GameBoot.b2g(row.pos)))<.0001,"actual flue frame: "+identity)
+		_check(AcousticGraphData.nodes[identity].connections==row.connections,"source-derived physical flue connections: "+identity)
+		if original.has(identity):
+			for key: String in ["frequency_band","delay_ms","damping","infection_receptivity"]:
+				_check(AcousticGraphData.nodes[identity][key]==original[identity][key],"retained flue "+key+": "+identity)
+		else:
+			_check(row.transit_only and row.delay_ms==0 and row.damping==0 and row.infection_receptivity==0,"flue transit cannot invent a case target, loss or delay: "+identity)
+	for target: Dictionary in AcousticGraphData._reality_plan("B1_FLUE_BASE",{"carrier":"network","networks":["flue"]}):
+		_check(not AcousticGraphData.nodes[target.id].get("transit_only",false),"passive flue carrier excluded from case targets: "+str(target.id))
+	var flue_heard: Array[String]=[]
+	var flue_listener:=func(identity: String,index: int,accent: float,pitch: float,_strength: float):
+		if index==0 and accent==.00161803 and pitch==1. and AcousticGraphData.nodes[identity].network=="flue":flue_heard.append(identity)
+	AcousticGraphData.network_event.connect(flue_listener)
+	AcousticGraphData.propagate("B1_FLUE_BASE",0,.00161803,1.)
+	await get_tree().create_timer(2.).timeout
+	AcousticGraphData.network_event.disconnect(flue_listener)
+	_check(flue_heard.size()==24,"original autoload delivers every installed flue carrier")
+	for row: Dictionary in flue.nodes:_check(str(row.id) in flue_heard,"observed actual flue delivery: "+str(row.id))
 
 	if module!=null:
 		_check(module.release() and AcousticGraphData.nodes==original,"explicit release restores the complete original graph")
@@ -140,13 +162,13 @@ func _run() -> void:
 	_check(file!=null,"open executed network contract")
 	var test_path: String = "game/"+get_script().resource_path.trim_prefix("res://")
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Installed V2 ventilation and heating topology and event routing only; other acoustic networks, disk save, navigation and human listening remain unproved. "+_additional_scope(),
+		"scope":"Installed V2 ventilation, heating and flue topology and event routing only; other acoustic networks, disk save, navigation and human listening remain unproved. "+_additional_scope(),
 		"execution":{"completed":true,"exit_code":0 if failures==0 else 1,"timed_out":false},
 		"source":{"test_path":test_path,"test_sha256":bindings.get(test_path,""),
 			"test_dependencies":bindings,"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "",
 			"runtime_inputs_sha256":final_inputs.runtime,"surface_inputs_sha256":final_inputs.surface},
 		"checks":checks,"failures":failures,
-		"contracts":{"heating_topology":{"executed":true,"status":"PASS" if failures==0 else "FAIL","nodes":heat.nodes.size(),"routes":heat.routes.size(),"observed_nodes":heat_heard},
+		"contracts":{"flue_topology":{"executed":true,"status":"PASS" if failures==0 else "FAIL","nodes":flue.nodes.size(),"routes":flue.routes.size(),"observed_nodes":flue_heard},"heating_topology":{"executed":true,"status":"PASS" if failures==0 else "FAIL","nodes":heat.nodes.size(),"routes":heat.routes.size(),"observed_nodes":heat_heard},
 			"ventilation_topology":{"executed":true,"status":"PASS" if failures==0 else "FAIL","nodes":current.size(),"routes":data.routes.size()},
 			"propagation":{"executed":true,"status":"PASS" if failures==0 else "FAIL","observed_nodes":heard},
 			"teardown":{"executed":true,"status":"PASS" if failures==0 else "FAIL","retained_nodes":0 if held.get_ref()==null else 1}}}
