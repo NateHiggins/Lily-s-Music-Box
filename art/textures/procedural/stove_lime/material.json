@@ -3,7 +3,7 @@
   "status": "QUALIFICATION_PENDING",
   "meters_per_tile": 0.25,
   "generator": "art/tools/build_stove_masonry.py",
-  "generator_sha256_lf": "f597eb7c324a3bdec20ede6b2fa86c7229dfc0eceef8eedb157d996da871b41d",
+  "generator_sha256_lf": "ba9bb768d407940227651987b3ca33e7e1b0495d67669f9f8148cb16ee611bae",
   "height_model": "periodic_independent_lime_aggregate_v1",
   "height_storage_bits": 16,
   "normal_strength": 1.0,
@@ -24,5 +24,30 @@
     "normal_slope_rms": 0.1213786588099616,
     "roughness_min": 0.8759481950308569,
     "roughness_max": 0.9636170404032949
+  },
+  "normal_authoring": {
+    "construction": "troweled lime with exposed aggregate",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "physical_tile_m": 0.25,
+    "height_min_m": -0.00047758875759009887,
+    "height_max_m": 0.00032659443365322985,
+    "nominal_feature_bands_m": {
+      "pressed": [
+        0.022727272727272728,
+        0.125
+      ],
+      "grain": [
+        0.0029411764705882353,
+        0.013888888888888888
+      ],
+      "fines": [
+        0.0007142857142857143,
+        0.0025
+      ]
+    },
+    "pigment_is_not_height": true,
+    "unresolved_detail": "Features below the sampled bands remain in roughness, not aliased normal relief."
   }
 }

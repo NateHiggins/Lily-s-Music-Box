@@ -3,7 +3,7 @@
 Evidence class: **CHECKPOINT**. Executed runtime authority proof.
 
 Requalified against the current native library, fire fittings and repaired glass
-on **2026-10-20**, completed in **427.75 seconds**: current test-written authority
+on **2026-10-21**, completed in **426.17 seconds**: current test-written authority
 contract prints 360 passing checks, including finite workshop-part delivery,
 save/load reconstruction and both-world teardown. The receipt serializes 359 because its final output-flush
 check follows serialization. Completed wrapper:
@@ -13,7 +13,7 @@ Status: **TECHNICAL PASS**, scoped to the seven authorities below.
 The original test-written receipt and wrapper bytes are published unchanged,
 with byte-verified compressed stdout/stderr. The earlier original packet is
 preserved under
-**art/reviews/v2_roof_access_repair_20261020/previous_first_slice_packet**.
+**art/reviews/v2_surface_renewal_20261021/previous_first_slice_packet**.
 Publication independently checks the runtime authority contract, current physical
 and production fingerprints, wrapper completion and raw-log hashes. It does not
 manufacture or repin a receipt.
@@ -77,8 +77,8 @@ The 84 exact shared radiator shape IDs are separately measured and do not grow
 on reconstruction. Imported/shared caches remain outside runtime-owned resource
 retirement. The seven known Texture RID shutdown warnings remain disclosed.
 
-This renewal follows the native library and fire-fitting work and glass optical
-repair. Production, physical and root-test fingerprints stay fixed throughout
+This renewal follows the installed C-stack, custom masonry finish, native
+provenance renewal and current composed surface qualification. Production, physical and root-test fingerprints stay fixed throughout
 the actual run; production authorities and protected selector logic are unchanged. The current
 composed surface review is qualified separately. This checkpoint
 does not grant human acceptance, continuous patrol-route proof, whole-building service

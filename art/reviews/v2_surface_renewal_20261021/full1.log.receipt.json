@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 20.62,
+  "exit_code": 1,
+  "finished_utc": "2026-10-21T05:30:49Z",
+  "started_utc": "2026-10-21T05:30:27Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-surface-renewal-20261021/full1.log.stderr",
+  "stderr_sha256": "17edd8797be355c4ce3cf2964868e200402307e1d98d95b9321cebd92410bff2",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-surface-renewal-20261021/full1.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-surface-renewal-20261021/full1",
+ "source": {
+  "dirty_paths": 1054,
+  "dirty_sample": [
+   "M art/blender/city_closure.blend",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations.blend",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_foundations.blend",
+   " M art/blender/city_foundations_construction.json",
+   " M art/blender/city_ground_apron.blend",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/city_horizon_far.blend",
+   " M art/blender/city_horizon_near.blend",
+   " M art/blender/front_pavement.blend",
+   " M art/blender/front_pavement_construction.json",
+   " M art/blender/orison_ground.blend",
+   " M art/blender/orison_ground_construction.json",
+   " M art/blender/scripts/build_city_horizon.py",
+   " M art/blender/street_paving_details.blend",
+   " M art/blender/street_paving_details_construction.json",
+   " M art/data/orison_ground/discovery/native_sources.json",
+   " M art/data/orison_ground/retained_grade_source.json"
+  ],
+  "repository_head": "69df5ec68cd6259ef24077eb91b18f22ad1e40bc",
+  "repository_tree": "fb6a5bf99b1f62c98f5af4897971ef5ac6df84c3",
+  "runtime_inputs_sha256": "7ea9f2b902fdaf0f3557e7ec25bf60f2fb2b4b0fb7d5a03d380f24c753ebb351",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "41f3c9253a3880f39243f3bb95f530d8cb8486f76f8eb44c5a12290cdddeac8a"
+ },
+ "windowed": true
+}

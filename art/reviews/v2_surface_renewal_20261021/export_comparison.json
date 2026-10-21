@@ -1,0 +1,70 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Runtime GLB bytes unchanged by owning native source renewal; no new runtime acceptance.",
+  "reference_commit": "69df5ec68cd6259ef24077eb91b18f22ad1e40bc",
+  "files": [
+    {
+      "file": "game/assets/props/city_shells.glb",
+      "bytes": 1880076,
+      "head_sha256": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e",
+      "current_sha256": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e",
+      "byte_identical": true
+    },
+    {
+      "file": "game/assets/props/city_elevations.glb",
+      "bytes": 84405524,
+      "head_sha256": "92421bf9920cde9c8c43573b24b35326a7ad0940477fbcc42783d3f0e9aa440a",
+      "current_sha256": "92421bf9920cde9c8c43573b24b35326a7ad0940477fbcc42783d3f0e9aa440a",
+      "byte_identical": true
+    },
+    {
+      "file": "game/assets/props/city_foundations.glb",
+      "bytes": 2929852,
+      "head_sha256": "62b02a0194a4a5d332c2a39ae91f9f7f0defd601028806a17f6d33640f5d2ec9",
+      "current_sha256": "62b02a0194a4a5d332c2a39ae91f9f7f0defd601028806a17f6d33640f5d2ec9",
+      "byte_identical": true
+    },
+    {
+      "file": "game/assets/props/city_ground_apron.glb",
+      "bytes": 8220,
+      "head_sha256": "7ba6bfbc8badeb4b3c85c84e6dba8525f2e047be2d0f6dc96b0f57c50e319d3e",
+      "current_sha256": "7ba6bfbc8badeb4b3c85c84e6dba8525f2e047be2d0f6dc96b0f57c50e319d3e",
+      "byte_identical": true
+    },
+    {
+      "file": "game/assets/props/city_horizon_far.glb",
+      "bytes": 87483984,
+      "head_sha256": "14bf89f23519d6877d32aa07ec125254ac16623a7d1ba37de7ed6cbd0dc8edc4",
+      "current_sha256": "14bf89f23519d6877d32aa07ec125254ac16623a7d1ba37de7ed6cbd0dc8edc4",
+      "byte_identical": true
+    },
+    {
+      "file": "game/assets/props/city_horizon_near.glb",
+      "bytes": 52485040,
+      "head_sha256": "88215b8981fb617be489642e62cfed0a7d274c401931520626a286fb56a953f0",
+      "current_sha256": "88215b8981fb617be489642e62cfed0a7d274c401931520626a286fb56a953f0",
+      "byte_identical": true
+    },
+    {
+      "file": "game/assets/props/front_pavement.glb",
+      "bytes": 262248,
+      "head_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
+      "current_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
+      "byte_identical": true
+    },
+    {
+      "file": "game/assets/props/orison_ground.glb",
+      "bytes": 2682296,
+      "head_sha256": "a0407841d1b759de086b388082c59e0edc69fc7bbfe68cde09a7674909d45c0d",
+      "current_sha256": "a0407841d1b759de086b388082c59e0edc69fc7bbfe68cde09a7674909d45c0d",
+      "byte_identical": true
+    },
+    {
+      "file": "game/assets/props/street_paving_details.glb",
+      "bytes": 956856,
+      "head_sha256": "99e4bddfb8fe67d827884f554e8f3545740b1781570a78365bceb27ea40b14fd",
+      "current_sha256": "99e4bddfb8fe67d827884f554e8f3545740b1781570a78365bceb27ea40b14fd",
+      "byte_identical": true
+    }
+  ]
+}

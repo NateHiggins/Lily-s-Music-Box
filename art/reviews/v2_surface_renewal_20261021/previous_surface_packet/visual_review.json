@@ -1,0 +1,81 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "scope": "Reviewed representative current production-world renders and source-current exhaustive UV/PBR/mip discovery. Technical qualification only, not human appearance or gameplay acceptance.",
+  "surface_inputs_sha256": "10c1f1f4e60419c83277b5818f7b29b317dc660af9b41560fb7c2863be96a8b1",
+  "images": [
+    {
+      "file": "street_glazing_fitted_19_5.png",
+      "sha256": "a53a3cc33591616139263708b6971857f7d4b18c649d4dc3e3284843882078f6",
+      "observation": "Fresh production glazing: lamp highlights and tile transmission remain visible. The bright specular hotspot clips; this is an open appearance issue, not an optical absence.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    },
+    {
+      "file": "fire_F01_FIRE_LINE_STAIR_closed.png",
+      "sha256": "eaf91593fa206a7050bc777bc028c3c28a86d9d25a05b151bc26fc0b773d1a28",
+      "observation": "Closed wired cabinet glazing transmits the folded stock and gives visible optical variation under the production carried light.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    },
+    {
+      "file": "fire_F01_FIRE_LINE_STAIR_open.png",
+      "sha256": "3a2f32e34df6b6f828860e9484fae98b20502ecf66cd154351ab6bae68bd1ce4",
+      "observation": "The actual opened leaf exposes the formed case, hinges, hose bearing rack, nozzle and parts tin. The glass and lining remain separate surfaces.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    },
+    {
+      "file": "city_street_skyline.png",
+      "sha256": "3c44d76526c00b9dfef27d3fcca0c57d81e223d5fb6299b78d693d13e1e6c718",
+      "observation": "Windowed masonry masses and the rebuilt rectangular context remain visible behind the native entrance. The nearby pane visibly warps its blinds.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    },
+    {
+      "file": "bookcase.png",
+      "sha256": "3ef74ba118ba3086154d019affa43484fdde37357e79fb588098d2e0e17f232d",
+      "observation": "The native sectional frame, separate glazed sashes and actual bindings remain visible in the composed room. Sparse shelf dressing remains an appearance task.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    },
+    {
+      "file": "roof_tank_uv.png",
+      "sha256": "3e0c5ff6a47245fea92ad7d5eb635d4aea2821c19efc81a6589b5494061c4a98",
+      "observation": "Conical-bottom house tank, rim, four-legged support, service mechanism and retained rectangular city masses are visible. This unlit source-side view is subdued, not an approval of final mood.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    },
+    {
+      "file": "kitchen_2A_hot.png",
+      "sha256": "0444a2b9a3cfe21c3dedbf65eb7f9de804e396a89faf73f4288c47191a93c4a3",
+      "observation": "Native faucet, separate labelled valve stocks, drain, plug and running water are visible with highlights across the enamel basin and metal.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    },
+    {
+      "file": "front_restored_entrance.png",
+      "sha256": "e8a6d206a628a51c99812551ea14f7275b6d710b58d103198a47c03323eb499c",
+      "observation": "The native door, entry frame, marquee, masonry and varied resident blinds remain legible. Glazing distorts the right-hand blind slats.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    },
+    {
+      "file": "radiator_joints_carried.png",
+      "sha256": "9c47ae923d74329aceb1e13c22b4142beadba16dc40c02131f523d6f377802c1",
+      "observation": "Carried-light view retains cast surface variation, separate threaded/service fittings and actual floor bearings. Fine appearance and condition variation remain open.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    },
+    {
+      "file": "clearance_126_F02_2A_BOOKSHELF_01.png",
+      "sha256": "4f9aceac1047513d429e9d33468177a0ed33c9aaf3a0e4992a954254881a89ba",
+      "observation": "The native repaired case clears its wall treatment and contains vertical and flat bindings with real bookends. Additional shelf dressing and a close-up of the raised dark edge in the upper cluster remain polish work.",
+      "origin": "Fresh surface2 composed-world capture, 2026-10-20"
+    }
+  ],
+  "reused_verification": [
+    "Unchanged native source/BVH and imported readable-library hand/print diagnostics are retained in v2_nook_and_glass_20261020. No runtime contract was repinned."
+  ],
+  "open_appearance_work": [
+    "Human acceptance is outstanding.",
+    "Sparse shelf dressing and the raised dark edge in the 2A top cluster need close review.",
+    "Clipped local-light specular hotspot and broader condition/mood polish remain open."
+  ],
+  "limitations": [
+    "Seven existing Texture RID shutdown warnings remain; the test measures runtime-owned retirement, not global GPU-resource cleanliness.",
+    "Screen-space glass excludes transparent and off-screen scenery.",
+    "No new played-route, disk-save, maintenance-case or V1-retirement proof is granted by this surface packet."
+  ]
+}

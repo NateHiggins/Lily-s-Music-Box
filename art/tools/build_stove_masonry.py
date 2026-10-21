@@ -56,6 +56,11 @@ def build():
             'height_storage_bits':16,'normal_strength':1.,'relief_mm':span*1000,'maps':maps,
             'map_sha256':{k:hashlib.sha256((dest/v).read_bytes()).hexdigest() for k,v in maps.items()},
             'measurements':{'normal_slope_rms':float(np.sqrt(np.mean(dx*dx+dy*dy))),'roughness_min':float(rough.min()),'roughness_max':float(rough.max())}}
+        report['normal_authoring']={'construction':'hand-pressed fired clay with mineral pits' if clay else 'troweled lime with exposed aggregate',
+            'height_units':'metres','normal_convention':'OpenGL','normal_strength':1.,
+            'physical_tile_m':TILE,'height_min_m':float(height.min()),'height_max_m':float(height.max()),
+            'nominal_feature_bands_m':{'pressed':[TILE/11,TILE/2],'grain':[TILE/85,TILE/18],'fines':[TILE/350,TILE/100]},
+            'pigment_is_not_height':True,'unresolved_detail':'Features below the sampled bands remain in roughness, not aliased normal relief.'}
         (dest/'material.json').write_text(json.dumps(report,indent=2)+'\n',newline='\n');reports.append(report)
     return reports
 

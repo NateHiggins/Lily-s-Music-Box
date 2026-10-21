@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Source box enumeration changed; owner/bounds multiset is unchanged. No runtime grant.",
+  "comparisons": [
+    {
+      "file": "art/data/orison_ground/retained_grade_source.json",
+      "old_box_records": 2034,
+      "new_box_records": 2034,
+      "owner_and_bounds_multiset_unchanged": true
+    },
+    {
+      "file": "art/data/orison_ground/discovery/native_sources.json",
+      "old_box_records": 1009,
+      "new_box_records": 1009,
+      "owner_and_bounds_multiset_unchanged": true
+    },
+    {
+      "file": "art/blender/city_foundations_construction.json",
+      "old_box_records": 1670,
+      "new_box_records": 1670,
+      "owner_and_bounds_multiset_unchanged": true
+    },
+    {
+      "file": "art/blender/orison_ground_construction.json",
+      "old_box_records": 4592,
+      "new_box_records": 4592,
+      "owner_and_bounds_multiset_unchanged": true
+    }
+  ]
+}

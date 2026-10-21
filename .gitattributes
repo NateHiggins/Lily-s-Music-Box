@@ -2718,3 +2718,7 @@ art/textures/procedural/stove_lime/** -text
 art/reviews/v2_stove_finish_20261021/** -text whitespace=cr-at-eol
 art/reviews/v2_stove_finish_20261021/runs/*.log binary
 art/reviews/v2_stove_finish_20261021/runs/*.stderr binary
+
+# Original surface-renewal contracts, archived packets and diagnostic bytes.
+art/reviews/v2_surface_renewal_20261021/** -text whitespace=cr-at-eol
+art/tools/build_stove_masonry.py -text

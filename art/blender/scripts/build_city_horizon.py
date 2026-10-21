@@ -107,7 +107,7 @@ for family in ['near','far']:
         point=Vector(window['point']);normal=Vector(window['normal'])
         hit,n,index,distance=bvh.ray_cast(point+normal*.05,-normal,.3)
         assert hit is not None and (hit-(point-normal*window['recess_m'])).length<.0001 and owners[index]==window['building']+'__mirror_aged',window
-    proof=export(ROOT,'city_horizon_'+family,collection)
+    proof=export(ROOT,'city_horizon_'+family,collection,staged_output=True)
     native=ROOT/'art/blender'/('city_horizon_'+family+'.blend')
     bpy.ops.wm.save_as_mainfile(filepath=str(native),compress=True)
     asset=ROOT/'game/assets/props'/('city_horizon_'+family+'.glb')

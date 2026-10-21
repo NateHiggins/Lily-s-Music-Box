@@ -1,19 +1,19 @@
 {
   "evidence_class": "INERT",
   "schema": "orison.front-pavement-consumed-source-review.v1",
-  "original_fixture_sha256": "972330109a121f7a365a1128aac1963b2048c894ba0d5850fdf4509e0b942b94",
+  "original_fixture_sha256": "0a18ac8c16fd1c965ecb702e5383a38f86a01232fe4d3085cca423fbaea9d897",
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "beb6f53f9eab4d873b89b4436d0fecaab87f976a72f4ffed9ef00a2605fd0e7e",
+    "game/data/orison_v2_blockout.json": "6f9d033f2f1a0dd849d6afb50f9c5799a3dc2c93587d23db826006e2547d0955",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
     "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
     "game/data/orison_v2/exterior/construction_shed.json": "adc2740f083de4a85eaf9314f01a503ee76fdd0a5706af5acd197f43522e8baa",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
-    "art/blender/exterior_masonry.blend": "d476ac33b804e78200de4355a2303387183f0a8295b250367b62dca8a5d37cb3",
+    "art/blender/exterior_masonry.blend": "c81d7ee8293b0165846f6afb5120be469e31db7c0b2d61a0bb6775ded916eeb7",
     "art/blender/roof_drainage_reservations.json": "b8925c91e6a8c60e76c282d5bc23a185f55a4af7245b5b17a0381f963f4ef051",
     "art/blender/scripts/build_front_pavement.py": "3ee27182b7fe15efc3988866ac2c485b74a17a3cb76214cc56ba8d9eb4c754fa"
   },
   "asset_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
-  "native_sha256": "9842ccc0548ed51c04394525097de8a4f6370f6530fc7fc9b2128e29dbfedf85",
+  "native_sha256": "cf8d667f9b4b96219a551b552c0199094f284936d7f482dd5a19fc8361c58395",
   "blockout_projection": {
     "door": {
       "id": "F01_DOOR_06",
@@ -608,7 +608,7 @@
     ]
   },
   "mask_max_difference_m": 0.0,
-  "closed_union_volume_m3": 27.58376963131868,
+  "closed_union_volume_m3": 27.58376963131869,
   "parts": 34,
   "scope": "Exact consumed layout and 24 native masonry mask comparison. Original source fixture and native paving/export unchanged; no runtime proof."
 }

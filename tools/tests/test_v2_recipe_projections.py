@@ -2,9 +2,26 @@
 from pathlib import Path
 import json,sys,tempfile,unittest
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools'))
-from check_v2_recipe_projections import evaluate
+from check_v2_recipe_projections import evaluate,calibrated
 
 class RecipeProjection(unittest.TestCase):
+    def test_calibrated_recipes_declare_renderer_readable_normal_profiles(self):
+        # The loaded ABI has dedicated readers for these older recipes. All
+        # other procedural stock uses the structured metric authoring profile.
+        catalogue=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
+        for key,policy in calibrated(ROOT).items():
+            mapping=catalogue[key]['catalog_mapping']
+            if not mapping.startswith('procedural/') or key=='bakelite' or key.startswith(('site_softwood','arcade_')):
+                continue
+            with self.subTest(material=key):
+                recipe=json.loads((ROOT/'art/textures'/mapping/'material.json').read_text())
+                self.assertIn('normal_authoring',recipe,'Global loaded ABI cannot read a top-level strength alone')
+                profile=recipe['normal_authoring']
+                self.assertEqual(profile['height_units'],'metres')
+                self.assertEqual(profile['normal_convention'],'OpenGL')
+                self.assertEqual(profile['normal_strength'],recipe['normal_strength'])
+                self.assertEqual(profile['normal_strength'],policy['normal_scale'])
+
     def evaluate(self,part):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);data=root/'game/data';(data/'orison_v2').mkdir(parents=True)

@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 1001.11,
+  "elapsed_s": 1016.49,
   "exit_code": 0,
-  "finished_utc": "2026-10-20T20:10:36Z",
-  "started_utc": "2026-10-20T19:53:54Z",
+  "finished_utc": "2026-10-21T05:51:06Z",
+  "started_utc": "2026-10-21T05:34:09Z",
   "timed_out": false
  },
  "log": {
@@ -13,32 +13,50 @@
   "fail_lines": [],
   "pass_count": 1,
   "pass_lines": [
-   "V2 SURFACE QUALIFICATION: PASS; 40122 checks; 0 failures"
+   "V2 SURFACE QUALIFICATION: PASS; 40134 checks; 0 failures"
   ],
   "script_error_count": 0,
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/surface2.log.stderr",
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-surface-renewal-20261021/full2.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/surface2.log",
-  "stdout_sha256": "2eb1a988433d63c673bc8ad34180dd3107ff8ebaf6f064f07a1ed2220e35efa7"
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-surface-renewal-20261021/full2.log",
+  "stdout_sha256": "948a68378da14731861c8caa45eddc87a748d0a1f945230d50a1f3497bae3a74"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/surface2",
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-surface-renewal-20261021/full2",
  "source": {
-  "dirty_paths": 2,
+  "dirty_paths": 1059,
   "dirty_sample": [
-   "M game/tests/orison_v2_surface_inventory.gd",
-   "?? game/tests/OrisonV2AllHomeAccessCohort.tscn"
+   "M art/blender/city_closure.blend",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations.blend",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_foundations.blend",
+   " M art/blender/city_foundations_construction.json",
+   " M art/blender/city_ground_apron.blend",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/city_horizon_far.blend",
+   " M art/blender/city_horizon_near.blend",
+   " M art/blender/front_pavement.blend",
+   " M art/blender/front_pavement_construction.json",
+   " M art/blender/orison_ground.blend",
+   " M art/blender/orison_ground_construction.json",
+   " M art/blender/scripts/build_city_horizon.py",
+   " M art/blender/street_paving_details.blend",
+   " M art/blender/street_paving_details_construction.json",
+   " M art/data/orison_ground/discovery/native_sources.json",
+   " M art/data/orison_ground/retained_grade_source.json"
   ],
-  "repository_head": "864ecd7d300211abb7aef8d49023d6a9ec3b5094",
-  "repository_tree": "04c69c371ecc005bde7452f80ec9dc1351bf5941",
-  "runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+  "repository_head": "69df5ec68cd6259ef24077eb91b18f22ad1e40bc",
+  "repository_tree": "fb6a5bf99b1f62c98f5af4897971ef5ac6df84c3",
+  "runtime_inputs_sha256": "7ea9f2b902fdaf0f3557e7ec25bf60f2fb2b4b0fb7d5a03d380f24c753ebb351",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "41f3c9253a3880f39243f3bb95f530d8cb8486f76f8eb44c5a12290cdddeac8a"
  },
