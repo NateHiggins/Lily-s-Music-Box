@@ -1,0 +1,143 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "scope": "Agent technical review, not human appearance, gameplay or whole-V2 acceptance. Prior v5 broad review covered all 242 frames on 21 sheets with identical normalized rendering inputs. Fresh v6 selected 20 original witnesses were reviewed on three sheets; the two repaired glare stations were also inspected full resolution. The unqualified v5 runtime packet is not used as runtime proof.",
+  "surface_inputs_sha256": "09a56bdb883265b8caa86502e26e95c27842a3ae1038c03c8a20b09fb1b61ea6",
+  "images": [
+    {
+      "file": "F03_B_BATH_reflection_repair.png",
+      "sha256": "54847e1234f47198d98bf918fd127ed4a4a2ecbc93380e699fbc122a46adcade",
+      "observation": "The broad clipped wall is repaired: tile courses, curtain weave, porcelain and their shadows remain visible. A small direct lamp highlight still saturates.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "F06_B_KITCHEN_reflection_repair.png",
+      "sha256": "895e63f6e226112149fa1d243fc147632b075870dd3dc9eaed4948d7110fc13c",
+      "observation": "Wall finish variation, timber cupboards, porcelain sink, taps and flooring remain legible after removal of duplicate diffuse probe light.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "street_glazing_fitted_19_5.png",
+      "sha256": "8c72c9ce5aa74854fac04dd6782ce338aedc777fd38b3da02386739f5a155114",
+      "observation": "Glass transmits the tiled wall and retains reflection/normal variation. The small bright lamp glint still clips; this remains appearance polish.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "fire_F01_FIRE_LINE_STAIR_closed.png",
+      "sha256": "364cfc780c7d86842d790bf3ca202aa392b72f90df223c7510b2f4b1b847c79a",
+      "observation": "Wired glass transmits folded hose stock and the original case hardware under carried light.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "fire_F01_FIRE_LINE_STAIR_open.png",
+      "sha256": "9a898ff4eb09470b7368cf6d635ae4ff44d21029a34a960b0726e36ed34b812b",
+      "observation": "Open native leaf, hose, nozzle, lettering and fixed supports remain distinct after the actual hand programme.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "fire_ROOF_FIRE_LINE_STAIR_open.png",
+      "sha256": "f38193e671005481b636af46b7ecf14f95e3ad91d693e3de75f76879fd9ef106",
+      "observation": "Roof cabinet retains its native case, folded cloth, valve and lower hardware after the installed programme.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "public_arcade_hall.png",
+      "sha256": "2234bf43333550b851e3b4dbce8d96699b04e56f80c2e1ec54edbcef1087613e",
+      "observation": "Native canopy, shopfront leaves, glazing and passage-floor finishes remain continuous in the composed arcade view.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "arcade_clock_detail.png",
+      "sha256": "e4e2d901bf5642dd37f83e0dbac71d52f305a87d2f2559c740d0431b6ce0dd3a",
+      "observation": "Clock stock, canopy ribs and adjacent fronts retain their construction/material separation.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "construction_joinery_carried.png",
+      "sha256": "4fd9438bf597ff1995a20c4e74767d809c4d3133603a94c43918cfbc047b7a27",
+      "observation": "Timber framing, boarding, diagonal brace and iron attachment render with directional stock charts and retained shadows.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "bookcase.png",
+      "sha256": "6f2aa9142bdd020d619c8e19894d2f5f185f3e3c0aa18da24ff400f8399bac02",
+      "observation": "Bookshelf, books and adjoining architectural trim remain legible; this view does not represent every book mechanism.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "radiator_joint_grazing.png",
+      "sha256": "5c19830be1f8d3875ede816570afc57df3b91f6ae7e7aa794030717095f1d82b",
+      "observation": "Native cast-metal shoulders and unions retain form and roughness under grazing illumination.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "kitchen_2A_filled.png",
+      "sha256": "2c8c00e98af3e1ad4324bd2b3096b589dc5728bf04a8110c50c14fd8b444b417",
+      "observation": "Native sink, independent tap hardware, retained water surface and draining stock remain visibly distinct.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "native_station_open.png",
+      "sha256": "4d54d3a62b87717f421771c8d73d024f9eacafd25d36a5ec600105e59b784511",
+      "observation": "Open watch-station case exposes separate mechanical parts and the printed card.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "native_mail_bank_open.png",
+      "sha256": "8869dd5b3c08755e5cd5a6f128eed4f30cc938bb7a7b9b4284be979483778f9b",
+      "observation": "Mail-bank stock and labels remain present under low room illumination; fine label readability requires close carried light.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "roof_drive_uv.png",
+      "sha256": "f4f9bf10eea3d49994d8bc75c83486c27952a0738227d99f911a79d5c5b6c273",
+      "observation": "Drive, guard and surrounding landing surfaces retain mapped finish and physical separation.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "roof_tank_uv.png",
+      "sha256": "e8da7bfcbc572754e4a747a723d264dc1832d2ea70ae6d5877175a3a7abbdccb",
+      "observation": "Tank, supporting frame and roof context remain visually continuous; no whole-roof acceptance is claimed.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "tile_F04_B_BATH_floor.png",
+      "sha256": "69e0871fa9a2e1715c2703c5068906dcf03952e43b661c28cd73dbe26230675a",
+      "observation": "Bathroom floor/wall charts, curtain and porcelain retain distinct physical scale and normal response.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "front_restored_entrance.png",
+      "sha256": "74ab55ee4ced34a737f1f5c0b6bdf90bd64238000f3909a0d88bb3becece669e",
+      "observation": "Entrance timber, glazing, fittings, masonry and overhead support remain composed in their existing opening.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "control_finish_grazing.png",
+      "sha256": "1a8aa9856a101a19c824e7d727ff6f265d8b2767fc99a9da44ab447fbf8c2ecf",
+      "observation": "Service-control finish retains separate coating/metal response and readable apertures under grazing light.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    },
+    {
+      "file": "window_4C.png",
+      "sha256": "f374319ebd0b31203b46036e301bd7fec9944a693d7d0b93c493d1c2681ac6fd",
+      "observation": "Blind, window frame, furnishing and floor/wall materials remain distinct in the composed room view.",
+      "origin": "Original surface_final_v6 windowed composed-world capture, agent-reviewed 2026-10-21"
+    }
+  ],
+  "open_appearance_work": [
+    "Small street-glass lamp glint clips; retain existing source output pending further appearance work.",
+    "Fine material/art direction and owner visual/listening acceptance remain separate."
+  ],
+  "limitations": [
+    "Technical inventory establishes loaded UV/PBR/normal/mip/filter coverage, not every physical interaction or access route.",
+    "The B1 laundry stepladder and F01 restroom mop-bucket capture stations are occluded/misframed; their images do not establish prop appearance. Their loaded surfaces remain in the exhaustive technical inventory.",
+    "Full room census and actual spatial/save contracts have separate scope; no whole-V2 completion follows."
+  ],
+  "contact_sheet_review": {
+    "reviewed": 21,
+    "original_frames": 242,
+    "directory": "review_sheets",
+    "reviewer": "Codex agent"
+  }
+}

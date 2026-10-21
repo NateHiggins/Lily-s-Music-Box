@@ -1,0 +1,7716 @@
+{
+	"checks": [
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "explicit route families supplied by the bound scene",
+			"ok": true
+		},
+		{
+			"label": "bound scene supplies one route definition per family",
+			"ok": true
+		},
+		{
+			"label": "night campaign fixture is valid",
+			"ok": true
+		},
+		{
+			"label": "production-selected V2 world starts",
+			"ok": true
+		},
+		{
+			"label": "known complete route family: apartments",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F02_2A_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F02_2A_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2A_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2A_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2A_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2A_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2A_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2A_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2A_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2A_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2A_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2A_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2A_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2A_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2A_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2A_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2A_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2A_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_A_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_A_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_A_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_A_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_A_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_A_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_A_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_A_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_A_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_A_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_A_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_A_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_A_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_A_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F02_A_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_A_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_A_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_A_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_A_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F02_A_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_A_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_A_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_A_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_A_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_A_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_A_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_A_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F02_A_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_A_BED_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_A_BED_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_A_BED_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_A_BED_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F02_A_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F02_A_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_A_HALL_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_A_HALL_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_A_HALL_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_A_HALL_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F02_A_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_DOOR_02_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_DOOR_02_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_DOOR_02_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_DOOR_02_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "closed apartment entry restores its barrier: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_B_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_B_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_B_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_B_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_B_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_B_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_B_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_B_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_B_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_B_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_B_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_B_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_B_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_B_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_B_ENTRY_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_B_ENTRY_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "unrelated commit preserves installed held leaf: F02_B_ENTRY_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_B_ENTRY_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_B_ENTRY_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "closed apartment entry restores its barrier: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "Mina cooking approach and independent water controls exercised",
+			"ok": true
+		},
+		{
+			"label": "ordinary collision preserved through both apartments",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: apartments/APARTMENT DOOR BATCH ROUTE",
+			"ok": true
+		},
+		{
+			"label": "4B entry has its production subtype and apartment identity",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F04_4B_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F04_4B_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_B_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_B_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_B_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_B_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_B_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_B_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_B_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "4B shower starts drawn",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: 4B_shower_open",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: 4B_shower_open",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: 4B_shower_open",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: 4B_shower_open",
+			"ok": true
+		},
+		{
+			"label": "input gathers the real curtain",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F04_4B_SHOWER_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F04_4B_SHOWER_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_SHOWER_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_SHOWER_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_SHOWER_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_SHOWER_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_SHOWER_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_SHOWER_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_SHOWER_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_SHOWER_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_SHOWER_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_SHOWER_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_SHOWER_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_SHOWER_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_SHOWER_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_SHOWER_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_SHOWER_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_SHOWER_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: 4B_shower_draw",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: 4B_shower_draw",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: 4B_shower_draw",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: 4B_shower_draw",
+			"ok": true
+		},
+		{
+			"label": "input draws the curtain again",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F04_4B_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F04_4B_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4B_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4B_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4B_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4B_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "4B has one physical toilet in the household care roster",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: 4B_toilet_flush",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: 4B_toilet_flush",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: 4B_toilet_flush",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: 4B_toilet_flush",
+			"ok": true
+		},
+		{
+			"label": "walking approach reaches the actual flush",
+			"ok": true
+		},
+		{
+			"label": "toilet refills before leaving the bathroom",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F04_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_B_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_B_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_B_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_B_BATH_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F04_B_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_B_CLOSET_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_B_CLOSET_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_B_CLOSET_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_B_CLOSET_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_B_CLOSET_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_B_CLOSET_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_B_CLOSET_DOOR",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F04_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_DOOR_03_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_DOOR_03_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_DOOR_03_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_DOOR_03_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F04_DOOR_03",
+			"ok": true
+		},
+		{
+			"label": "closed entry restores its solid barrier",
+			"ok": true
+		},
+		{
+			"label": "ordinary collision remains active after returning to public hall",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: apartments/4B DOOR ROUTE",
+			"ok": true
+		},
+		{
+			"label": "known complete route family: completion",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_D_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_D_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_D_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_D_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_D_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_D_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_D_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_D_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F01_1D_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F01_1D_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_D_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_D_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_D_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_D_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_D_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_D_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_D_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_D_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_D_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_D_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_D_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_D_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_D_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_D_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_D_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_D_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F01_1D_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F01_1D_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "open leaf ready to close: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_D_ENTRY_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_D_ENTRY_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_D_ENTRY_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_D_ENTRY_DOOR_close",
+			"ok": true
+		},
+		{
+			"label": "input closes physical leaf: F01_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: completion/COMPLETION ACCESS 1D",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_A_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_A_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_A_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_A_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_A_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_A_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_A_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_A_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_A_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_A_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_A_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_A_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_A_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_A_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_A_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_A_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_A_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_A_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_A_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_A_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_A_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_A_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_A_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_A_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_A_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_A_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_A_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_A_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_A_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_A_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_A_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_A_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_A_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_A_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_A_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_A_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_A_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_A_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_A_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_A_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F01_1A_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F01_1A_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1A_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1A_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1A_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1A_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1A_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1A_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1A_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1A_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1A_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1A_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1A_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1A_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1A_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1A_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1A_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1A_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_A_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_A_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_A_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_A_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_A_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_A_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_A_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_A_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F01_1A_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F01_1A_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1A_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1A_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1A_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1A_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1A_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1A_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1A_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1A_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1A_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1A_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1A_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1A_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_1A_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_1A_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_1A_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_1A_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: completion/COMPLETION ACCESS 1A",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F03_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F03_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F03_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F03_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F03_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F03_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F03_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F03_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F03_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F03_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F03_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F03_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F03_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F03_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F03_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F03_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F03_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F03_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F03_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F03_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F03_3D_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F03_3D_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_3D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_3D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_3D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_3D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_3D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_3D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_3D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_3D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_3D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_3D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_3D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_3D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_3D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_3D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_3D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_3D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F03_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F03_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F03_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F03_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F03_3D_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F03_3D_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_3D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_3D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_3D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_3D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_3D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_3D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_3D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_3D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_3D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_3D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_3D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_3D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_3D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_3D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_3D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_3D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: completion/COMPLETION ACCESS 3D",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_D_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_D_VESTIBULE_MAIN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_D_MAIN_BED_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and locked: F04_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "locked leaf can be held without toggling: F04_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "locked refusal receives a nonzero opening gesture: F04_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "locked leaf refuses actual opening motion and releases: F04_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "locked leaf refuses primary grab/motion and stays shut: F04_D_BED_STORAGE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_D_MAIN_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F04_4D_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F04_4D_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4D_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4D_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4D_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4D_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_D_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F04_4D_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F04_4D_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4D_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4D_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4D_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4D_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: completion/COMPLETION ACCESS 4D",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F02_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F02_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F02_2C_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F02_2C_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2C_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2C_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2C_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2C_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2C_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2C_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2C_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2C_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2C_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2C_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2C_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2C_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2C_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2C_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2C_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2C_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F02_2C_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F02_2C_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2C_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2C_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2C_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2C_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2C_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2C_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2C_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2C_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2C_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2C_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2C_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2C_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_2C_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_2C_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_2C_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_2C_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F02_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F02_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F02_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F02_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F02_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F02_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F02_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F02_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F02_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: completion/COMPLETION ACCESS 2C",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_C_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_C_PRIVATE_HALL_BATH_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F04_4C_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F04_4C_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4C_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4C_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4C_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4C_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4C_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4C_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4C_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4C_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4C_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4C_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4C_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4C_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4C_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4C_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4C_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4C_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F04_4C_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F04_4C_KITCHEN_SINK_01",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4C_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4C_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4C_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4C_KITCHEN_SINK_01_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4C_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4C_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4C_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4C_KITCHEN_SINK_01_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4C_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4C_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4C_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4C_KITCHEN_SINK_01_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_4C_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_4C_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_4C_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_4C_KITCHEN_SINK_01_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_C_PRIVATE_HALL_BED1_DOOR",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F04_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F04_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F04_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F04_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F04_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F04_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F04_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F04_C_PRIVATE_HALL_BED2_DOOR",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: completion/COMPLETION ACCESS 4C",
+			"ok": true
+		},
+		{
+			"label": "production leaf exists: F01_STAFF_RESTROOM_DOOR",
+			"ok": true
+		},
+		{
+			"label": "leaf starts closed and usable: F01_STAFF_RESTROOM_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects route part: F01_STAFF_RESTROOM_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_STAFF_RESTROOM_DOOR",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_STAFF_RESTROOM_DOOR",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_STAFF_RESTROOM_DOOR",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_STAFF_RESTROOM_DOOR",
+			"ok": true
+		},
+		{
+			"label": "input opens physical leaf to its stop: F01_STAFF_RESTROOM_DOOR",
+			"ok": true
+		},
+		{
+			"label": "water fixture exists: F01_STAFF_SINK",
+			"ok": true
+		},
+		{
+			"label": "independent valve targets exist: F01_STAFF_SINK",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_STAFF_SINK_hot",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_STAFF_SINK_hot",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_STAFF_SINK_hot",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_STAFF_SINK_hot",
+			"ok": true
+		},
+		{
+			"label": "hot valve supplies boiler-heated water through input",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_STAFF_SINK_mix",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_STAFF_SINK_mix",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_STAFF_SINK_mix",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_STAFF_SINK_mix",
+			"ok": true
+		},
+		{
+			"label": "independent cold valve dilutes the hot supply",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_STAFF_SINK_hot_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_STAFF_SINK_hot_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_STAFF_SINK_hot_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_STAFF_SINK_hot_off",
+			"ok": true
+		},
+		{
+			"label": "closing hot leaves only cold water",
+			"ok": true
+		},
+		{
+			"label": "actual player ray selects operable part: F01_STAFF_SINK_cold_off",
+			"ok": true
+		},
+		{
+			"label": "click grabs without toggling: F01_STAFF_SINK_cold_off",
+			"ok": true
+		},
+		{
+			"label": "physical stop remains saveable: F01_STAFF_SINK_cold_off",
+			"ok": true
+		},
+		{
+			"label": "mouse motion reaches stop and second click releases: F01_STAFF_SINK_cold_off",
+			"ok": true
+		},
+		{
+			"label": "both valves shut through input",
+			"ok": true
+		},
+		{
+			"label": "complete collision-bearing leg: completion/COMPLETION ACCESS staff",
+			"ok": true
+		},
+		{
+			"label": "every requested family completes before proof is written",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_A_VESTIBULE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_A_MAIN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_A_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_A_PRIVATE_HALL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_A_BATH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_A_BED",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_B_VESTIBULE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_B_MAIN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_B_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_B_PRIVATE_HALL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_B_BATH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_B_BED",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_B_VESTIBULE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_B_MAIN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_B_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_B_PRIVATE_HALL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_B_ALCOVE_APPROACH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_B_BATH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_B_CLOSET",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_C_VESTIBULE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_C_MAIN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_C_STUDIO",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_C_PRIVATE_HALL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_C_BATH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_C_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_C_BED1",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F02_C_BED2",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_C_VESTIBULE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_C_MAIN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_C_STUDIO",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_C_PRIVATE_HALL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_C_BATH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_C_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_C_BED1",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_C_BED2",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_D_VESTIBULE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_D_MAIN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_D_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_D_BED",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_D_PRIVATE_HALL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_D_BATH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_A_VESTIBULE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_A_MAIN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_A_PRIVATE_HALL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_A_BATH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_A_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_A_BED",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_A_STUDY",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F03_D_VESTIBULE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F03_D_MAIN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F03_D_PRIVATE_HALL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F03_D_BATH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F03_D_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F03_D_BED",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F03_D_STUDY",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_D_VESTIBULE",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_D_MAIN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_D_PRIVATE_HALL",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_D_BATH",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_D_KITCHEN",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F04_D_BED",
+			"ok": true
+		},
+		{
+			"label": "actual walk reaches authored room: F01_STAFF_RESTROOM",
+			"ok": true
+		},
+		{
+			"label": "shared production root and every route/check driver retire",
+			"ok": true
+		},
+		{
+			"label": "bind current production inputs",
+			"ok": true
+		},
+		{
+			"label": "bind current geometry/surface inputs",
+			"ok": true
+		},
+		{
+			"label": "runtime and geometry/surface inputs stay fixed throughout the cohort",
+			"ok": true
+		},
+		{
+			"label": "actual entry scene is source-bound",
+			"ok": true
+		},
+		{
+			"label": "root, scene and all transitive route sources stay fixed throughout the cohort",
+			"ok": true
+		},
+		{
+			"label": "record repository provenance",
+			"ok": true
+		},
+		{
+			"label": "explicit writable receipt destination",
+			"ok": true
+		},
+		{
+			"label": "open cohort runtime contract",
+			"ok": true
+		}
+	],
+	"completed_groups": [
+		"apartments",
+		"completion"
+	],
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"room_access": {
+			"executed": true,
+			"rooms": {
+				"F01_A_BATH": {
+					"actual": [
+						-6.86740112304688,
+						0.000859374180436134,
+						-10.372031211853
+					],
+					"leg": "completion/COMPLETION ACCESS 1A"
+				},
+				"F01_A_BED": {
+					"actual": [
+						-13.4686622619629,
+						0.000859374180436134,
+						-8.09277439117432
+					],
+					"leg": "completion/COMPLETION ACCESS 1A"
+				},
+				"F01_A_KITCHEN": {
+					"actual": [
+						-9.28662776947021,
+						0.000859374180436134,
+						-8.25787353515625
+					],
+					"leg": "completion/COMPLETION ACCESS 1A"
+				},
+				"F01_A_MAIN": {
+					"actual": [
+						-9.69642162322998,
+						0.000859374180436134,
+						-5.70236778259277
+					],
+					"leg": "completion/COMPLETION ACCESS 1A"
+				},
+				"F01_A_PRIVATE_HALL": {
+					"actual": [
+						-6.80293846130371,
+						0.000859374180436134,
+						-8.199049949646
+					],
+					"leg": "completion/COMPLETION ACCESS 1A"
+				},
+				"F01_A_STUDY": {
+					"actual": [
+						-9.79613304138184,
+						0.000859374180436134,
+						-10.8054046630859
+					],
+					"leg": "completion/COMPLETION ACCESS 1A"
+				},
+				"F01_A_VESTIBULE": {
+					"actual": [
+						-6.80009174346924,
+						0.000859374180436134,
+						-5.19636058807373
+					],
+					"leg": "completion/COMPLETION ACCESS 1A"
+				},
+				"F01_D_BATH": {
+					"actual": [
+						14.2665977478027,
+						0.000928507884964347,
+						-10.5039520263672
+					],
+					"leg": "completion/COMPLETION ACCESS 1D"
+				},
+				"F01_D_BED": {
+					"actual": [
+						11.4021263122559,
+						0.000940003432333469,
+						-8.90591049194336
+					],
+					"leg": "completion/COMPLETION ACCESS 1D"
+				},
+				"F01_D_KITCHEN": {
+					"actual": [
+						11.3742351531982,
+						0.000942958518862724,
+						-6.33375597000122
+					],
+					"leg": "completion/COMPLETION ACCESS 1D"
+				},
+				"F01_D_MAIN": {
+					"actual": [
+						12.5906448364258,
+						0.000928507884964347,
+						-2.53139972686768
+					],
+					"leg": "completion/COMPLETION ACCESS 1D"
+				},
+				"F01_D_PRIVATE_HALL": {
+					"actual": [
+						14.2009363174438,
+						0.000928507884964347,
+						-4.69715070724487
+					],
+					"leg": "completion/COMPLETION ACCESS 1D"
+				},
+				"F01_D_VESTIBULE": {
+					"actual": [
+						10.9622802734375,
+						0.000928507884964347,
+						-3.15386199951172
+					],
+					"leg": "completion/COMPLETION ACCESS 1D"
+				},
+				"F01_STAFF_RESTROOM": {
+					"actual": [
+						7.04365634918213,
+						0.000859374180436134,
+						-5.52649164199829
+					],
+					"leg": "completion/COMPLETION ACCESS staff"
+				},
+				"F02_A_BATH": {
+					"actual": [
+						-8.85311985015869,
+						3.20083689689636,
+						4.64996719360352
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_A_BED": {
+					"actual": [
+						-11.7995290756226,
+						3.20094108581543,
+						7.1558837890625
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_A_KITCHEN": {
+					"actual": [
+						-12.0968761444092,
+						3.20083689689636,
+						4.54986953735352
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_A_MAIN": {
+					"actual": [
+						-8.50415420532227,
+						3.20082211494446,
+						0.0974550247192383
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_A_PRIVATE_HALL": {
+					"actual": [
+						-9.79652786254883,
+						3.20094108581543,
+						7.06440734863281
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_A_VESTIBULE": {
+					"actual": [
+						-6.74706506729126,
+						3.20082211494446,
+						0.00510215759277344
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_B_BATH": {
+					"actual": [
+						14.2348976135254,
+						3.20092844963074,
+						-10.5046606063843
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_B_BED": {
+					"actual": [
+						11.4021263122559,
+						3.20093607902527,
+						-8.90590763092041
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_B_KITCHEN": {
+					"actual": [
+						11.4963512420654,
+						3.20013308525085,
+						-6.23655986785889
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_B_MAIN": {
+					"actual": [
+						12.5906391143799,
+						3.20092844963074,
+						-2.53139781951904
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_B_PRIVATE_HALL": {
+					"actual": [
+						14.2008962631226,
+						3.20092844963074,
+						-4.69714260101318
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_B_VESTIBULE": {
+					"actual": [
+						10.9622802734375,
+						3.20092844963074,
+						-3.15386390686035
+					],
+					"leg": "apartments/APARTMENT DOOR BATCH ROUTE"
+				},
+				"F02_C_BATH": {
+					"actual": [
+						2.08741688728333,
+						3.20093321800232,
+						5.45106315612793
+					],
+					"leg": "completion/COMPLETION ACCESS 2C"
+				},
+				"F02_C_BED1": {
+					"actual": [
+						2.47530341148376,
+						3.2009425163269,
+						8.90725517272949
+					],
+					"leg": "completion/COMPLETION ACCESS 2C"
+				},
+				"F02_C_BED2": {
+					"actual": [
+						5.39516735076904,
+						3.2009425163269,
+						8.90371322631836
+					],
+					"leg": "completion/COMPLETION ACCESS 2C"
+				},
+				"F02_C_KITCHEN": {
+					"actual": [
+						5.38445997238159,
+						3.20093321800232,
+						5.40433120727539
+					],
+					"leg": "completion/COMPLETION ACCESS 2C"
+				},
+				"F02_C_MAIN": {
+					"actual": [
+						-0.753863751888275,
+						3.2009425163269,
+						7.1000919342041
+					],
+					"leg": "completion/COMPLETION ACCESS 2C"
+				},
+				"F02_C_PRIVATE_HALL": {
+					"actual": [
+						2.19656300544739,
+						3.2009425163269,
+						7.10283660888672
+					],
+					"leg": "completion/COMPLETION ACCESS 2C"
+				},
+				"F02_C_STUDIO": {
+					"actual": [
+						-3.99423503875732,
+						3.20082187652588,
+						5.59656143188477
+					],
+					"leg": "completion/COMPLETION ACCESS 2C"
+				},
+				"F02_C_VESTIBULE": {
+					"actual": [
+						-0.844839990139008,
+						3.2009425163269,
+						5.39661979675293
+					],
+					"leg": "completion/COMPLETION ACCESS 2C"
+				},
+				"F03_D_BATH": {
+					"actual": [
+						-6.86740207672119,
+						6.40007877349854,
+						-10.3720321655273
+					],
+					"leg": "completion/COMPLETION ACCESS 3D"
+				},
+				"F03_D_BED": {
+					"actual": [
+						-13.4686603546143,
+						6.40007877349854,
+						-8.09278106689453
+					],
+					"leg": "completion/COMPLETION ACCESS 3D"
+				},
+				"F03_D_KITCHEN": {
+					"actual": [
+						-9.28662872314453,
+						6.40007877349854,
+						-8.25787258148193
+					],
+					"leg": "completion/COMPLETION ACCESS 3D"
+				},
+				"F03_D_MAIN": {
+					"actual": [
+						-9.69643020629883,
+						6.40007877349854,
+						-5.70236825942993
+					],
+					"leg": "completion/COMPLETION ACCESS 3D"
+				},
+				"F03_D_PRIVATE_HALL": {
+					"actual": [
+						-6.80293846130371,
+						6.40007877349854,
+						-8.19905471801758
+					],
+					"leg": "completion/COMPLETION ACCESS 3D"
+				},
+				"F03_D_STUDY": {
+					"actual": [
+						-9.79613780975342,
+						6.40007877349854,
+						-10.8054046630859
+					],
+					"leg": "completion/COMPLETION ACCESS 3D"
+				},
+				"F03_D_VESTIBULE": {
+					"actual": [
+						-6.80009174346924,
+						6.40007877349854,
+						-5.19636535644531
+					],
+					"leg": "completion/COMPLETION ACCESS 3D"
+				},
+				"F04_B_ALCOVE_APPROACH": {
+					"actual": [
+						-9.70268535614014,
+						9.60601139068604,
+						7.2499828338623
+					],
+					"leg": "apartments/4B DOOR ROUTE"
+				},
+				"F04_B_BATH": {
+					"actual": [
+						-7.80963230133057,
+						9.60093879699707,
+						4.7160530090332
+					],
+					"leg": "apartments/4B DOOR ROUTE"
+				},
+				"F04_B_CLOSET": {
+					"actual": [
+						-7.04608011245728,
+						9.59996318817139,
+						7.24952697753906
+					],
+					"leg": "apartments/4B DOOR ROUTE"
+				},
+				"F04_B_KITCHEN": {
+					"actual": [
+						-13.0988330841064,
+						9.60066604614258,
+						4.69949722290039
+					],
+					"leg": "apartments/4B DOOR ROUTE"
+				},
+				"F04_B_MAIN": {
+					"actual": [
+						-8.39615058898926,
+						9.60054492950439,
+						0.00377559661865234
+					],
+					"leg": "apartments/4B DOOR ROUTE"
+				},
+				"F04_B_PRIVATE_HALL": {
+					"actual": [
+						-10.0315170288086,
+						9.60054492950439,
+						5.59313201904297
+					],
+					"leg": "apartments/4B DOOR ROUTE"
+				},
+				"F04_B_VESTIBULE": {
+					"actual": [
+						-6.74607133865356,
+						9.60054492950439,
+						0.000207901000976563
+					],
+					"leg": "apartments/4B DOOR ROUTE"
+				},
+				"F04_C_BATH": {
+					"actual": [
+						2.08741664886475,
+						9.60093402862549,
+						5.45106315612793
+					],
+					"leg": "completion/COMPLETION ACCESS 4C"
+				},
+				"F04_C_BED1": {
+					"actual": [
+						2.47508764266968,
+						9.60094451904297,
+						8.90728759765625
+					],
+					"leg": "completion/COMPLETION ACCESS 4C"
+				},
+				"F04_C_BED2": {
+					"actual": [
+						5.39516735076904,
+						9.60094451904297,
+						8.90371322631836
+					],
+					"leg": "completion/COMPLETION ACCESS 4C"
+				},
+				"F04_C_KITCHEN": {
+					"actual": [
+						5.38445997238159,
+						9.60093402862549,
+						5.40432929992676
+					],
+					"leg": "completion/COMPLETION ACCESS 4C"
+				},
+				"F04_C_MAIN": {
+					"actual": [
+						-0.753860712051392,
+						9.60094451904297,
+						7.1000919342041
+					],
+					"leg": "completion/COMPLETION ACCESS 4C"
+				},
+				"F04_C_PRIVATE_HALL": {
+					"actual": [
+						2.19656538963318,
+						9.60094451904297,
+						7.10283660888672
+					],
+					"leg": "completion/COMPLETION ACCESS 4C"
+				},
+				"F04_C_STUDIO": {
+					"actual": [
+						-3.99423670768738,
+						9.59988498687744,
+						5.59655570983887
+					],
+					"leg": "completion/COMPLETION ACCESS 4C"
+				},
+				"F04_C_VESTIBULE": {
+					"actual": [
+						-0.844839811325073,
+						9.60094451904297,
+						5.39662170410156
+					],
+					"leg": "completion/COMPLETION ACCESS 4C"
+				},
+				"F04_D_BATH": {
+					"actual": [
+						-6.86740207672119,
+						9.60034275054932,
+						-10.3720331192017
+					],
+					"leg": "completion/COMPLETION ACCESS 4D"
+				},
+				"F04_D_BED": {
+					"actual": [
+						-13.4706544876099,
+						9.60034275054932,
+						-8.09164047241211
+					],
+					"leg": "completion/COMPLETION ACCESS 4D"
+				},
+				"F04_D_KITCHEN": {
+					"actual": [
+						-9.28662967681885,
+						9.60034275054932,
+						-8.25787162780762
+					],
+					"leg": "completion/COMPLETION ACCESS 4D"
+				},
+				"F04_D_MAIN": {
+					"actual": [
+						-9.69644069671631,
+						9.60034275054932,
+						-5.70236682891846
+					],
+					"leg": "completion/COMPLETION ACCESS 4D"
+				},
+				"F04_D_PRIVATE_HALL": {
+					"actual": [
+						-6.80293846130371,
+						9.60034275054932,
+						-8.19905757904053
+					],
+					"leg": "completion/COMPLETION ACCESS 4D"
+				},
+				"F04_D_VESTIBULE": {
+					"actual": [
+						-6.80009174346924,
+						9.60034275054932,
+						-5.19636917114258
+					],
+					"leg": "completion/COMPLETION ACCESS 4D"
+				}
+			},
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "shared production root and all route/check drivers only",
+			"retained_nodes": 0,
+			"status": "PASS",
+			"tracked_nodes": 10
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 455.631,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": 0,
+	"groups": [
+		"apartments",
+		"completion"
+	],
+	"legs": [
+		{
+			"failures": [],
+			"group": "apartments",
+			"initial_placement_only": true,
+			"name": "apartments/APARTMENT DOOR BATCH ROUTE",
+			"trace": [
+				{
+					"actual": [
+						-6.55360078811646,
+						3.2000777721405,
+						0.00000095367431640625
+					],
+					"ok": true,
+					"target": [
+						-6.65000009536743,
+						3.20000004768372,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.40391635894775,
+						3.2000777721405,
+						0.00000095367431640625
+					],
+					"ok": true,
+					"target": [
+						-8.5,
+						3.20000004768372,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.42146778106689,
+						3.2000777721405,
+						0.742680549621582
+					],
+					"ok": true,
+					"target": [
+						-9.5,
+						3.20000004768372,
+						0.800000011920929
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.9002571105957,
+						3.2000777721405,
+						0.798403739929199
+					],
+					"ok": true,
+					"target": [
+						-13.0,
+						3.20000004768372,
+						0.800000011920929
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.994327545166,
+						3.2000777721405,
+						2.40322303771973
+					],
+					"ok": true,
+					"target": [
+						-13.0,
+						3.20000004768372,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.0958795547485,
+						3.2000777721405,
+						2.49066925048828
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						3.20000004768372,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.0045471191406,
+						3.20083689689636,
+						4.45235633850098
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						3.20000004768372,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-14.6038980484009,
+						3.20083689689636,
+						4.5465202331543
+					],
+					"ok": true,
+					"target": [
+						-14.6999998092651,
+						3.20000004768372,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.0968761444092,
+						3.20083689689636,
+						4.54986953735352
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						3.20000004768372,
+						4.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.0045652389526,
+						3.20083689689636,
+						2.59656524658203
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						3.20000004768372,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.9040117263794,
+						3.20083689689636,
+						2.50931262969971
+					],
+					"ok": true,
+					"target": [
+						-13.0,
+						3.20000004768372,
+						2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.9945163726807,
+						3.20083689689636,
+						0.897650718688965
+					],
+					"ok": true,
+					"target": [
+						-13.0,
+						3.20000004768372,
+						0.800000011920929
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.59600067138672,
+						3.20083689689636,
+						0.802682876586914
+					],
+					"ok": true,
+					"target": [
+						-9.5,
+						3.20000004768372,
+						0.800000011920929
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.57858180999756,
+						3.20083689689636,
+						0.0575494766235352
+					],
+					"ok": true,
+					"target": [
+						-8.5,
+						3.20000004768372,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.50343227386475,
+						3.20083689689636,
+						2.15421676635742
+					],
+					"ok": true,
+					"target": [
+						-8.5,
+						3.20000004768372,
+						2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.60383605957031,
+						3.20083689689636,
+						2.24230194091797
+					],
+					"ok": true,
+					"target": [
+						-9.69999980926514,
+						3.20000004768372,
+						2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.69618797302246,
+						3.20083689689636,
+						4.6025447845459
+					],
+					"ok": true,
+					"target": [
+						-9.69999980926514,
+						3.20000004768372,
+						4.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.04601383209229,
+						3.20083689689636,
+						4.64389419555664
+					],
+					"ok": true,
+					"target": [
+						-8.94999980926514,
+						3.20000004768372,
+						4.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.69604921340942,
+						3.20083689689636,
+						4.64959526062012
+					],
+					"ok": true,
+					"target": [
+						-7.59999990463257,
+						3.20000004768372,
+						4.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.85311985015869,
+						3.20083689689636,
+						4.64996719360352
+					],
+					"ok": true,
+					"target": [
+						-8.94999980926514,
+						3.20000004768372,
+						4.65000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.60389709472656,
+						3.20083689689636,
+						4.6943244934082
+					],
+					"ok": true,
+					"target": [
+						-9.69999980926514,
+						3.20000004768372,
+						4.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.69600200653076,
+						3.20083689689636,
+						6.96162414550781
+					],
+					"ok": true,
+					"target": [
+						-9.69999980926514,
+						3.20000004768372,
+						7.05999994277954
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-11.7006216049194,
+						3.20094108581543,
+						7.05807304382324
+					],
+					"ok": true,
+					"target": [
+						-11.8000001907349,
+						3.20000004768372,
+						7.05999994277954
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_A_PRIVATE_HALL/WallWest_00/Collision": "(10.18, 4.394941, -18.345)"
+					}
+				},
+				{
+					"actual": [
+						-11.7934017181396,
+						3.20094108581543,
+						8.40423965454102
+					],
+					"ok": true,
+					"target": [
+						-11.8000001907349,
+						3.20000004768372,
+						8.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-11.7995290756226,
+						3.20094108581543,
+						7.1558837890625
+					],
+					"ok": true,
+					"target": [
+						-11.8000001907349,
+						3.20000004768372,
+						7.05999994277954
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.79652786254883,
+						3.20094108581543,
+						7.06440734863281
+					],
+					"ok": true,
+					"target": [
+						-9.69999980926514,
+						3.20000004768372,
+						7.05999994277954
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.69701862335205,
+						3.20082211494446,
+						2.3451452255249
+					],
+					"ok": true,
+					"target": [
+						-9.69999980926514,
+						3.20000004768372,
+						2.25
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_A_MAIN/WallNorth_02/Collision": "(10.005, 4.394941, -14.68658)"
+					}
+				},
+				{
+					"actual": [
+						-8.59621334075928,
+						3.20082211494446,
+						2.25764846801758
+					],
+					"ok": true,
+					"target": [
+						-8.5,
+						3.20000004768372,
+						2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.50415420532227,
+						3.20082211494446,
+						0.0974550247192383
+					],
+					"ok": true,
+					"target": [
+						-8.5,
+						3.20000004768372,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.74706506729126,
+						3.20082211494446,
+						0.00510215759277344
+					],
+					"ok": true,
+					"target": [
+						-6.65000009536743,
+						3.20000004768372,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.74614572525024,
+						3.20013833045959,
+						0.000233650207519531
+					],
+					"ok": true,
+					"target": [
+						-4.65000009536743,
+						3.20000004768372,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.29606413841248,
+						3.20013833045959,
+						0.0000143051147460938
+					],
+					"ok": true,
+					"target": [
+						-3.20000004768372,
+						3.20000004768372,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.84605610370636,
+						3.20013833045959,
+						0.00000286102294921875
+					],
+					"ok": true,
+					"target": [
+						-1.75,
+						3.20000004768372,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-1.75171279907227,
+						3.20093607902527,
+						-3.30207252502441
+					],
+					"ok": true,
+					"target": [
+						-1.75,
+						3.20000004768372,
+						-3.40000009536743
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_SOUTHWEST_HALL/WallEast_00/Collision": "(2.130001, 4.394936, -11.05)"
+					}
+				},
+				{
+					"actual": [
+						6.10103511810303,
+						3.20093488693237,
+						-3.24884986877441
+					],
+					"ok": true,
+					"target": [
+						6.19999980926514,
+						3.20000004768372,
+						-3.25
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision": "(-4.627979, 4.4004, -8.088)",
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F02_F03/StairGuards": "(-2.402499, 4.244854, -8.6925)"
+					}
+				},
+				{
+					"actual": [
+						8.45366764068604,
+						3.20093488693237,
+						-3.24995422363281
+					],
+					"ok": true,
+					"target": [
+						8.55000019073486,
+						3.20000004768372,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.8539047241211,
+						3.20013308525085,
+						-3.24999713897705
+					],
+					"ok": true,
+					"target": [
+						10.9499998092651,
+						3.20000004768372,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9376564025879,
+						3.20013308525085,
+						-2.59634399414063
+					],
+					"ok": true,
+					"target": [
+						10.9499998092651,
+						3.20000004768372,
+						-2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4019966125488,
+						3.20013308525085,
+						-2.50604343414307
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						3.20000004768372,
+						-2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						13.5078592300415,
+						3.20013308525085,
+						-2.77739143371582
+					],
+					"ok": true,
+					"target": [
+						13.6000003814697,
+						3.20000004768372,
+						-2.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1657781600952,
+						3.20013308525085,
+						-4.50988626480103
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						3.20000004768372,
+						-4.59999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1980247497559,
+						3.20013308525085,
+						-6.14009046554565
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						3.20000004768372,
+						-6.23999977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.4963512420654,
+						3.20013308525085,
+						-6.23655986785889
+					],
+					"ok": true,
+					"target": [
+						11.3999996185303,
+						3.20000004768372,
+						-6.23999977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1031455993652,
+						3.20013308525085,
+						-6.23987674713135
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						3.20000004768372,
+						-6.23999977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.2347269058228,
+						3.20013308525085,
+						-8.71097660064697
+					],
+					"ok": true,
+					"target": [
+						14.2399997711182,
+						3.20000004768372,
+						-8.8100004196167
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.4956350326538,
+						3.20093607902527,
+						-8.80781555175781
+					],
+					"ok": true,
+					"target": [
+						11.3999996185303,
+						3.20000004768372,
+						-8.8100004196167
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_B_BED/WallEast_02/Collision": "(-12.87, 4.394936, -3.205001)"
+					}
+				},
+				{
+					"actual": [
+						11.4131803512573,
+						3.20093607902527,
+						-9.40459632873535
+					],
+					"ok": true,
+					"target": [
+						11.3999996185303,
+						3.20000004768372,
+						-9.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.4021263122559,
+						3.20093607902527,
+						-8.90590763092041
+					],
+					"ok": true,
+					"target": [
+						11.3999996185303,
+						3.20000004768372,
+						-8.8100004196167
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1443386077881,
+						3.20092844963074,
+						-8.81267738342285
+					],
+					"ok": true,
+					"target": [
+						14.2399997711182,
+						3.20000004768372,
+						-8.8100004196167
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_B_BED_DOOR/F02_B_BED_DOOR_Leaf/HingedLeaf": "(-11.974, 4.394928, -2.443)"
+					}
+				},
+				{
+					"actual": [
+						14.2348976135254,
+						3.20092844963074,
+						-10.5046606063843
+					],
+					"ok": true,
+					"target": [
+						14.2399997711182,
+						3.20000004768372,
+						-10.6000003814697
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.2397117614746,
+						3.20092844963074,
+						-8.90592765808105
+					],
+					"ok": true,
+					"target": [
+						14.2399997711182,
+						3.20000004768372,
+						-8.8100004196167
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.2008962631226,
+						3.20092844963074,
+						-4.69714260101318
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						3.20000004768372,
+						-4.59999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						13.628833770752,
+						3.20092844963074,
+						-2.89103507995605
+					],
+					"ok": true,
+					"target": [
+						13.6000003814697,
+						3.20000004768372,
+						-2.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.5906391143799,
+						3.20092844963074,
+						-2.53139781951904
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						3.20000004768372,
+						-2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0455589294434,
+						3.20092844963074,
+						-2.50183010101318
+					],
+					"ok": true,
+					"target": [
+						10.9499998092651,
+						3.20000004768372,
+						-2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9622802734375,
+						3.20092844963074,
+						-3.15386390686035
+					],
+					"ok": true,
+					"target": [
+						10.9499998092651,
+						3.20000004768372,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.64797782897949,
+						3.20009446144104,
+						-3.24609470367432
+					],
+					"ok": true,
+					"target": [
+						8.55000019073486,
+						3.20000004768372,
+						-3.25
+					],
+					"wall_contacts": {}
+				}
+			]
+		},
+		{
+			"failures": [],
+			"group": "apartments",
+			"initial_placement_only": true,
+			"name": "apartments/4B DOOR ROUTE",
+			"trace": [
+				{
+					"actual": [
+						-6.55360174179077,
+						9.60066604614258,
+						0.00000095367431640625
+					],
+					"ok": true,
+					"target": [
+						-6.65000009536743,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.20390796661377,
+						9.60066604614258,
+						0.00000095367431640625
+					],
+					"ok": true,
+					"target": [
+						-8.30000019073486,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.7039337158203,
+						9.60066604614258,
+						0.00000095367431640625
+					],
+					"ok": true,
+					"target": [
+						-10.8000001907349,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.903938293457,
+						9.60066604614258,
+						0.00000095367431640625
+					],
+					"ok": true,
+					"target": [
+						-13.0,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.9980278015137,
+						9.60066604614258,
+						4.60346412658691
+					],
+					"ok": true,
+					"target": [
+						-13.0,
+						9.60000038146973,
+						4.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-14.3208951950073,
+						9.60066604614258,
+						4.69327354431152
+					],
+					"ok": true,
+					"target": [
+						-14.4200000762939,
+						9.60000038146973,
+						4.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.0988330841064,
+						9.60066604614258,
+						4.69949722290039
+					],
+					"ok": true,
+					"target": [
+						-13.0,
+						9.60000038146973,
+						4.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.0020294189453,
+						9.60066604614258,
+						0.0964879989624023
+					],
+					"ok": true,
+					"target": [
+						-13.0,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.8968200683594,
+						9.60066604614258,
+						0.004241943359375
+					],
+					"ok": true,
+					"target": [
+						-10.8000001907349,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.804144859314,
+						9.60066604614258,
+						2.15385913848877
+					],
+					"ok": true,
+					"target": [
+						-10.8000001907349,
+						9.60000038146973,
+						2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.146821975708,
+						9.60066604614258,
+						2.23765850067139
+					],
+					"ok": true,
+					"target": [
+						-10.0500001907349,
+						9.60000038146973,
+						2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.0553846359253,
+						9.60066604614258,
+						3.90199184417725
+					],
+					"ok": true,
+					"target": [
+						-10.0500001907349,
+						9.60000038146973,
+						4.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.4548234939575,
+						9.60066604614258,
+						4.66383361816406
+					],
+					"ok": true,
+					"target": [
+						-10.5,
+						9.60000038146973,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.9992733001709,
+						9.60093879699707,
+						4.74880790710449
+					],
+					"ok": true,
+					"target": [
+						-7.90000009536743,
+						9.60000038146973,
+						4.75
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F04_B_BATH_DOOR/F04_B_BATH_DOOR_Leaf/HingedLeaf": "(9.876, 10.79494, -16.043)"
+					}
+				},
+				{
+					"actual": [
+						-8.37762546539307,
+						9.60093879699707,
+						4.41403770446777
+					],
+					"ok": true,
+					"target": [
+						-8.44999980926514,
+						9.60000038146973,
+						4.34999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.97763061523438,
+						9.60093879699707,
+						4.69539260864258
+					],
+					"ok": true,
+					"target": [
+						-7.90000009536743,
+						9.60000038146973,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.69959735870361,
+						9.60093879699707,
+						4.69878196716309
+					],
+					"ok": true,
+					"target": [
+						-7.59999990463257,
+						9.60000038146973,
+						4.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.33746576309204,
+						9.60093879699707,
+						4.53867149353027
+					],
+					"ok": true,
+					"target": [
+						-7.25,
+						9.60000038146973,
+						4.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.80963230133057,
+						9.60093879699707,
+						4.7160530090332
+					],
+					"ok": true,
+					"target": [
+						-7.90000009536743,
+						9.60000038146973,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.4044580459595,
+						9.60093879699707,
+						4.74879455566406
+					],
+					"ok": true,
+					"target": [
+						-10.5,
+						9.60000038146973,
+						4.75
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.86147499084473,
+						9.60093879699707,
+						5.42359924316406
+					],
+					"ok": true,
+					"target": [
+						-9.80000019073486,
+						9.60000038146973,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.80334854125977,
+						9.6071891784668,
+						7.15051651000977
+					],
+					"ok": true,
+					"target": [
+						-9.80000019073486,
+						9.60000038146973,
+						7.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.89690589904785,
+						9.6071891784668,
+						7.24038696289063
+					],
+					"ok": true,
+					"target": [
+						-8.80000019073486,
+						9.60000038146973,
+						7.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.04608011245728,
+						9.59996318817139,
+						7.24952697753906
+					],
+					"ok": true,
+					"target": [
+						-6.94999980926514,
+						9.60000038146973,
+						7.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.70268535614014,
+						9.60601139068604,
+						7.2499828338623
+					],
+					"ok": true,
+					"target": [
+						-9.80000019073486,
+						9.60000038146973,
+						7.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.0315170288086,
+						9.60054492950439,
+						5.59313201904297
+					],
+					"ok": true,
+					"target": [
+						-10.0500001907349,
+						9.60000038146973,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.0494709014893,
+						9.60054492950439,
+						2.34579658508301
+					],
+					"ok": true,
+					"target": [
+						-10.0500001907349,
+						9.60000038146973,
+						2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.703592300415,
+						9.60054492950439,
+						2.26230525970459
+					],
+					"ok": true,
+					"target": [
+						-10.8000001907349,
+						9.60000038146973,
+						2.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-10.795823097229,
+						9.60054492950439,
+						0.0980014801025391
+					],
+					"ok": true,
+					"target": [
+						-10.8000001907349,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.39615058898926,
+						9.60054492950439,
+						0.00377559661865234
+					],
+					"ok": true,
+					"target": [
+						-8.30000019073486,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.74607133865356,
+						9.60054492950439,
+						0.000207901000976563
+					],
+					"ok": true,
+					"target": [
+						-6.65000009536743,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.74606132507324,
+						9.6001558303833,
+						0.0000095367431640625
+					],
+					"ok": true,
+					"target": [
+						-4.65000009536743,
+						9.60000038146973,
+						0.0
+					],
+					"wall_contacts": {}
+				}
+			]
+		},
+		{
+			"failures": [],
+			"group": "completion",
+			"initial_placement_only": true,
+			"name": "completion/COMPLETION ACCESS 1D",
+			"trace": [
+				{
+					"actual": [
+						10.8536462783813,
+						0.000942958518862724,
+						-3.25
+					],
+					"ok": true,
+					"target": [
+						10.9499998092651,
+						0.0,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9376211166382,
+						0.000942958518862724,
+						-2.59634685516357
+					],
+					"ok": true,
+					"target": [
+						10.9499998092651,
+						0.0,
+						-2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.4019889831543,
+						0.000942958518862724,
+						-2.50604248046875
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						0.0,
+						-2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						13.5078554153442,
+						0.000942958518862724,
+						-2.77738857269287
+					],
+					"ok": true,
+					"target": [
+						13.6000003814697,
+						0.0,
+						-2.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1657752990723,
+						0.000942958518862724,
+						-4.50988101959229
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						0.0,
+						-4.59999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1980247497559,
+						0.000942958518862724,
+						-6.14008283615112
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						0.0,
+						-6.23999977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.4963626861572,
+						0.000942958518862724,
+						-6.23655891418457
+					],
+					"ok": true,
+					"target": [
+						11.3999996185303,
+						0.0,
+						-6.23999977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.1331806182861,
+						0.000942958518862724,
+						-7.21097469329834
+					],
+					"ok": true,
+					"target": [
+						11.1000003814697,
+						0.0,
+						-7.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.3742351531982,
+						0.000942958518862724,
+						-6.33375597000122
+					],
+					"ok": true,
+					"target": [
+						11.3999996185303,
+						0.0,
+						-6.23999977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1053247451782,
+						0.000821300083771348,
+						-6.24219083786011
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						0.0,
+						-6.23999977111816
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F01_D_KITCHEN/WallEast_00/Collision": "(-12.73, 1.194934, -5.045001)"
+					}
+				},
+				{
+					"actual": [
+						14.2348203659058,
+						0.000821300083771348,
+						-8.71124267578125
+					],
+					"ok": true,
+					"target": [
+						14.2399997711182,
+						0.0,
+						-8.8100004196167
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.4956493377686,
+						0.000940003432333469,
+						-8.80782604217529
+					],
+					"ok": true,
+					"target": [
+						11.3999996185303,
+						0.0,
+						-8.8100004196167
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F01_D_BED/WallEast_02/Collision": "(-12.87, 1.19494, -3.205001)"
+					}
+				},
+				{
+					"actual": [
+						11.4131841659546,
+						0.000940003432333469,
+						-9.40459442138672
+					],
+					"ok": true,
+					"target": [
+						11.3999996185303,
+						0.0,
+						-9.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.4021263122559,
+						0.000940003432333469,
+						-8.90591049194336
+					],
+					"ok": true,
+					"target": [
+						11.3999996185303,
+						0.0,
+						-8.8100004196167
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.1443328857422,
+						0.000928507884964347,
+						-8.81267929077148
+					],
+					"ok": true,
+					"target": [
+						14.2399997711182,
+						0.0,
+						-8.8100004196167
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F01_D_BED_DOOR/F01_D_BED_DOOR_Leaf/HingedLeaf": "(-11.974, 1.194929, -2.443)"
+					}
+				},
+				{
+					"actual": [
+						14.2348957061768,
+						0.000928507884964347,
+						-10.5046558380127
+					],
+					"ok": true,
+					"target": [
+						14.2399997711182,
+						0.0,
+						-10.6000003814697
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.3676109313965,
+						0.000928507884964347,
+						-10.1391925811768
+					],
+					"ok": true,
+					"target": [
+						14.3999996185303,
+						0.0,
+						-10.0500001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.2665977478027,
+						0.000928507884964347,
+						-10.5039520263672
+					],
+					"ok": true,
+					"target": [
+						14.2399997711182,
+						0.0,
+						-10.6000003814697
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.2415056228638,
+						0.000928507884964347,
+						-8.90587425231934
+					],
+					"ok": true,
+					"target": [
+						14.2399997711182,
+						0.0,
+						-8.8100004196167
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						14.2009363174438,
+						0.000928507884964347,
+						-4.69715070724487
+					],
+					"ok": true,
+					"target": [
+						14.1999998092651,
+						0.0,
+						-4.59999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						13.6288375854492,
+						0.000928507884964347,
+						-2.89104175567627
+					],
+					"ok": true,
+					"target": [
+						13.6000003814697,
+						0.0,
+						-2.79999995231628
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						12.5906448364258,
+						0.000928507884964347,
+						-2.53139972686768
+					],
+					"ok": true,
+					"target": [
+						12.5,
+						0.0,
+						-2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0455627441406,
+						0.000928507884964347,
+						-2.50183010101318
+					],
+					"ok": true,
+					"target": [
+						10.9499998092651,
+						0.0,
+						-2.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9622802734375,
+						0.000928507884964347,
+						-3.15386199951172
+					],
+					"ok": true,
+					"target": [
+						10.9499998092651,
+						0.0,
+						-3.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.7112512588501,
+						0.000928507884964347,
+						-3.24357414245605
+					],
+					"ok": true,
+					"target": [
+						8.55000019073486,
+						0.0,
+						-3.25
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F01_SERVICE_HALL/WallWest_02/Collision": "(-8.369999, 1.194942, -8.40598)"
+					}
+				}
+			]
+		},
+		{
+			"failures": [],
+			"group": "completion",
+			"initial_placement_only": true,
+			"name": "completion/COMPLETION ACCESS 1A",
+			"trace": [
+				{
+					"actual": [
+						-6.70355749130249,
+						0.000859374180436134,
+						-5.09999990463257
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						0.0,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.0038948059082,
+						0.000859374180436134,
+						-5.09999942779541
+					],
+					"ok": true,
+					"target": [
+						-9.10000038146973,
+						0.0,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.405707359314,
+						0.000859374180436134,
+						-5.68741655349731
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						0.0,
+						-5.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4960041046143,
+						0.000859374180436134,
+						-7.90196990966797
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						0.0,
+						-8.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.4455642700195,
+						0.000859374180436134,
+						-9.91277980804443
+					],
+					"ok": true,
+					"target": [
+						-12.3999996185303,
+						0.0,
+						-10.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.5858173370361,
+						0.000859374180436134,
+						-10.8547439575195
+					],
+					"ok": true,
+					"target": [
+						-12.6000003814697,
+						0.0,
+						-10.9499998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.094575881958,
+						0.000859374180436134,
+						-10.9346218109131
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						0.0,
+						-10.9499998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.79613304138184,
+						0.000859374180436134,
+						-10.8054046630859
+					],
+					"ok": true,
+					"target": [
+						-9.69999980926514,
+						0.0,
+						-10.8000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-11.902777671814,
+						0.000859374180436134,
+						-10.9436206817627
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						0.0,
+						-10.9499998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.5038328170776,
+						0.000859374180436134,
+						-10.9491195678711
+					],
+					"ok": true,
+					"target": [
+						-12.6000003814697,
+						0.0,
+						-10.9499998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4686622619629,
+						0.000859374180436134,
+						-8.09277439117432
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						0.0,
+						-8.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4987459182739,
+						0.000859374180436134,
+						-5.79577159881592
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						0.0,
+						-5.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.69642162322998,
+						0.000859374180436134,
+						-5.70236778259277
+					],
+					"ok": true,
+					"target": [
+						-9.60000038146973,
+						0.0,
+						-5.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.60371875762939,
+						0.000859374180436134,
+						-8.10367584228516
+					],
+					"ok": true,
+					"target": [
+						-9.60000038146973,
+						0.0,
+						-8.19999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.28662776947021,
+						0.000859374180436134,
+						-8.25787353515625
+					],
+					"ok": true,
+					"target": [
+						-9.19999980926514,
+						0.0,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.39519929885864,
+						0.000859374180436134,
+						-8.29798126220703
+					],
+					"ok": true,
+					"target": [
+						-7.30000019073486,
+						0.0,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.89597749710083,
+						0.000859374180436134,
+						-8.29967498779297
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						0.0,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.80463790893555,
+						0.000859374180436134,
+						-10.2033662796021
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						0.0,
+						-10.3000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.29144477844238,
+						0.000859374180436134,
+						-10.8252038955688
+					],
+					"ok": true,
+					"target": [
+						-7.34999990463257,
+						0.0,
+						-10.8999996185303
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.86740112304688,
+						0.000859374180436134,
+						-10.372031211853
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						0.0,
+						-10.3000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.80293846130371,
+						0.000859374180436134,
+						-8.199049949646
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						0.0,
+						-8.10000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.80009174346924,
+						0.000859374180436134,
+						-5.19636058807373
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						0.0,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.59660577774048,
+						0.000859374180436134,
+						-5.10404634475708
+					],
+					"ok": true,
+					"target": [
+						-4.5,
+						0.0,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				}
+			]
+		},
+		{
+			"failures": [],
+			"group": "completion",
+			"initial_placement_only": true,
+			"name": "completion/COMPLETION ACCESS 3D",
+			"trace": [
+				{
+					"actual": [
+						-6.70361280441284,
+						6.40007877349854,
+						-5.09999990463257
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						6.40000009536743,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.0038948059082,
+						6.40007877349854,
+						-5.09999942779541
+					],
+					"ok": true,
+					"target": [
+						-9.10000038146973,
+						6.40000009536743,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4056987762451,
+						6.40007877349854,
+						-5.68741512298584
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						6.40000009536743,
+						-5.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4960021972656,
+						6.40007877349854,
+						-7.90196514129639
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						6.40000009536743,
+						-8.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.4455652236938,
+						6.40007877349854,
+						-9.91277503967285
+					],
+					"ok": true,
+					"target": [
+						-12.3999996185303,
+						6.40000009536743,
+						-10.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.5858173370361,
+						6.40007877349854,
+						-10.8547410964966
+					],
+					"ok": true,
+					"target": [
+						-12.6000003814697,
+						6.40000009536743,
+						-10.9499998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.0945768356323,
+						6.40007877349854,
+						-10.9346208572388
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						6.40000009536743,
+						-10.9499998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.79613780975342,
+						6.40007877349854,
+						-10.8054046630859
+					],
+					"ok": true,
+					"target": [
+						-9.69999980926514,
+						6.40000009536743,
+						-10.8000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-11.9027729034424,
+						6.40007877349854,
+						-10.9436206817627
+					],
+					"ok": true,
+					"target": [
+						-12.0,
+						6.40000009536743,
+						-10.9499998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.503830909729,
+						6.40007877349854,
+						-10.9491195678711
+					],
+					"ok": true,
+					"target": [
+						-12.6000003814697,
+						6.40000009536743,
+						-10.9499998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4686603546143,
+						6.40007877349854,
+						-8.09278106689453
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						6.40000009536743,
+						-8.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4987449645996,
+						6.40007877349854,
+						-5.79577589035034
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						6.40000009536743,
+						-5.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.69643020629883,
+						6.40007877349854,
+						-5.70236825942993
+					],
+					"ok": true,
+					"target": [
+						-9.60000038146973,
+						6.40000009536743,
+						-5.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.60371780395508,
+						6.40007877349854,
+						-8.10367107391357
+					],
+					"ok": true,
+					"target": [
+						-9.60000038146973,
+						6.40000009536743,
+						-8.19999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.28662872314453,
+						6.40007877349854,
+						-8.25787258148193
+					],
+					"ok": true,
+					"target": [
+						-9.19999980926514,
+						6.40000009536743,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.39520311355591,
+						6.40007877349854,
+						-8.29798126220703
+					],
+					"ok": true,
+					"target": [
+						-7.30000019073486,
+						6.40000009536743,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.89597940444946,
+						6.40007877349854,
+						-8.29967498779297
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						6.40000009536743,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.80463743209839,
+						6.40007877349854,
+						-10.2033624649048
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						6.40000009536743,
+						-10.3000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.29144477844238,
+						6.40007877349854,
+						-10.8252010345459
+					],
+					"ok": true,
+					"target": [
+						-7.34999990463257,
+						6.40000009536743,
+						-10.8999996185303
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.86740207672119,
+						6.40007877349854,
+						-10.3720321655273
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						6.40000009536743,
+						-10.3000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.80293846130371,
+						6.40007877349854,
+						-8.19905471801758
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						6.40000009536743,
+						-8.10000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.80009174346924,
+						6.40007877349854,
+						-5.19636535644531
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						6.40000009536743,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.59657144546509,
+						6.3997278213501,
+						-5.10404539108276
+					],
+					"ok": true,
+					"target": [
+						-4.5,
+						6.40000009536743,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				}
+			]
+		},
+		{
+			"failures": [],
+			"group": "completion",
+			"initial_placement_only": true,
+			"name": "completion/COMPLETION ACCESS 4D",
+			"trace": [
+				{
+					"actual": [
+						-6.70357084274292,
+						9.60034275054932,
+						-5.09999990463257
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						9.60000038146973,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.00388717651367,
+						9.60034275054932,
+						-5.09999942779541
+					],
+					"ok": true,
+					"target": [
+						-9.10000038146973,
+						9.60000038146973,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4056911468506,
+						9.60034275054932,
+						-5.68741464614868
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						9.60000038146973,
+						-5.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.496000289917,
+						9.60034275054932,
+						-7.9019603729248
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						9.60000038146973,
+						-8.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.4455671310425,
+						9.60034275054932,
+						-9.91277027130127
+					],
+					"ok": true,
+					"target": [
+						-12.3999996185303,
+						9.60000038146973,
+						-10.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-12.5858163833618,
+						9.60034275054932,
+						-10.8547382354736
+					],
+					"ok": true,
+					"target": [
+						-12.6000003814697,
+						9.60000038146973,
+						-10.9499998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4706544876099,
+						9.60034275054932,
+						-8.09164047241211
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						9.60000038146973,
+						-8.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.4988250732422,
+						9.60034275054932,
+						-5.79567050933838
+					],
+					"ok": true,
+					"target": [
+						-13.5,
+						9.60000038146973,
+						-5.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.69644069671631,
+						9.60034275054932,
+						-5.70236682891846
+					],
+					"ok": true,
+					"target": [
+						-9.60000038146973,
+						9.60000038146973,
+						-5.69999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.60371875762939,
+						9.60034275054932,
+						-8.10366821289063
+					],
+					"ok": true,
+					"target": [
+						-9.60000038146973,
+						9.60000038146973,
+						-8.19999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-9.28662967681885,
+						9.60034275054932,
+						-8.25787162780762
+					],
+					"ok": true,
+					"target": [
+						-9.19999980926514,
+						9.60000038146973,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.39520406723022,
+						9.60034275054932,
+						-8.29798221588135
+					],
+					"ok": true,
+					"target": [
+						-7.30000019073486,
+						9.60000038146973,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.89598035812378,
+						9.60034275054932,
+						-8.29967498779297
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						9.60000038146973,
+						-8.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.80463743209839,
+						9.60034275054932,
+						-10.2033586502075
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						9.60000038146973,
+						-10.3000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.29144334793091,
+						9.60034275054932,
+						-10.8252000808716
+					],
+					"ok": true,
+					"target": [
+						-7.34999990463257,
+						9.60000038146973,
+						-10.8999996185303
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.86740207672119,
+						9.60034275054932,
+						-10.3720331192017
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						9.60000038146973,
+						-10.3000001907349
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.80293846130371,
+						9.60034275054932,
+						-8.19905757904053
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						9.60000038146973,
+						-8.10000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.80009174346924,
+						9.60034275054932,
+						-5.19636917114258
+					],
+					"ok": true,
+					"target": [
+						-6.80000019073486,
+						9.60000038146973,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-4.59656286239624,
+						9.59982299804688,
+						-5.10404586791992
+					],
+					"ok": true,
+					"target": [
+						-4.5,
+						9.60000038146973,
+						-5.09999990463257
+					],
+					"wall_contacts": {}
+				}
+			]
+		},
+		{
+			"failures": [],
+			"group": "completion",
+			"initial_placement_only": true,
+			"name": "completion/COMPLETION ACCESS 2C",
+			"trace": [
+				{
+					"actual": [
+						-0.849999845027924,
+						3.19995331764221,
+						5.20358657836914
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						3.20000004768372,
+						5.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.849999845027924,
+						3.19995331764221,
+						7.00389289855957
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.90449094772339,
+						3.20082187652588,
+						7.09964942932129
+					],
+					"ok": true,
+					"target": [
+						-4.0,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_2C_BOOKSHELF_01/FixedCase/plain__Side1_Body": "(1.524004, 4.39494, -18.41007)"
+					}
+				},
+				{
+					"actual": [
+						-3.99423503875732,
+						3.20082187652588,
+						5.59656143188477
+					],
+					"ok": true,
+					"target": [
+						-4.0,
+						3.20000004768372,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.9996280670166,
+						3.20082187652588,
+						7.0031566619873
+					],
+					"ok": true,
+					"target": [
+						-4.0,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.948511481285095,
+						3.20093321800232,
+						7.0994873046875
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_2C_BOOKSHELF_01/FixedCase/plain__Side0_Body": "(2.276005, 4.468881, -18.41007)"
+					}
+				},
+				{
+					"actual": [
+						2.00368165969849,
+						3.20093321800232,
+						7.09998512268066
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.09399724006653,
+						3.20093321800232,
+						5.64660453796387
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						3.20000004768372,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.0993185043335,
+						3.20093321800232,
+						4.89611625671387
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						3.20000004768372,
+						4.80000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.14680635929108,
+						3.20093321800232,
+						5.08119010925293
+					],
+					"ok": true,
+					"target": [
+						1.04999995231628,
+						3.20000004768372,
+						5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.00806379318237,
+						3.20093321800232,
+						4.82712364196777
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						3.20000004768372,
+						4.80000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.08741688728333,
+						3.20093321800232,
+						5.45106315612793
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						3.20000004768372,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.09926462173462,
+						3.20093321800232,
+						7.0036563873291
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.30332660675049,
+						3.20093321800232,
+						7.0971794128418
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.39417314529419,
+						3.20093321800232,
+						5.59628105163574
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						3.20000004768372,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.3991961479187,
+						3.20093321800232,
+						4.9960823059082
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						3.20000004768372,
+						4.90000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.94584465026855,
+						3.20093321800232,
+						4.91676712036133
+					],
+					"ok": true,
+					"target": [
+						4.84999990463257,
+						3.20000004768372,
+						4.90000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.30312061309814,
+						3.20093321800232,
+						4.9035758972168
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						3.20000004768372,
+						4.90000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.38445997238159,
+						3.20093321800232,
+						5.40433120727539
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						3.20000004768372,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.39912033081055,
+						3.20093321800232,
+						7.00395965576172
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.19648885726929,
+						3.20093321800232,
+						7.09719085693359
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.47530341148376,
+						3.2009425163269,
+						8.90725517272949
+					],
+					"ok": true,
+					"target": [
+						2.5,
+						3.20000004768372,
+						9.0
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallSouth_02/Collision": "(-2.554998, 4.394943, -19.57)"
+					}
+				},
+				{
+					"actual": [
+						2.11423778533936,
+						3.2009425163269,
+						7.19814872741699
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallSouth_02/Collision": "(-2.554998, 4.394943, -19.57)"
+					}
+				},
+				{
+					"actual": [
+						5.30478525161743,
+						3.2009425163269,
+						7.10284233093262
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.39516735076904,
+						3.2009425163269,
+						8.90371322631836
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						3.20000004768372,
+						9.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.39974117279053,
+						3.2009425163269,
+						7.19688034057617
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.19656300544739,
+						3.2009425163269,
+						7.10283660888672
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.753863751888275,
+						3.2009425163269,
+						7.1000919342041
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						3.20000004768372,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.844839990139008,
+						3.2009425163269,
+						5.39661979675293
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						3.20000004768372,
+						5.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.849816024303436,
+						3.1999032497406,
+						2.79613018035889
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						3.20000004768372,
+						2.70000004768372
+					],
+					"wall_contacts": {}
+				}
+			]
+		},
+		{
+			"failures": [],
+			"group": "completion",
+			"initial_placement_only": true,
+			"name": "completion/COMPLETION ACCESS 4C",
+			"trace": [
+				{
+					"actual": [
+						-0.849999845027924,
+						9.60066413879395,
+						5.20360565185547
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						9.60000038146973,
+						5.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.849999845027924,
+						9.60066413879395,
+						7.00389099121094
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.90452265739441,
+						9.59988498687744,
+						7.099609375
+					],
+					"ok": true,
+					"target": [
+						-4.0,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F04_4C_BOOKSHELF_01/FixedCase/plain__Shelf1_Body": "(1.560358, 10.064, -18.4101)",
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F04_4C_BOOKSHELF_01/FixedCase/plain__Side1_Body": "(1.524004, 10.79494, -18.41007)"
+					}
+				},
+				{
+					"actual": [
+						-3.99423670768738,
+						9.59988498687744,
+						5.59655570983887
+					],
+					"ok": true,
+					"target": [
+						-4.0,
+						9.60000038146973,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-3.99962878227234,
+						9.59988498687744,
+						7.00315475463867
+					],
+					"ok": true,
+					"target": [
+						-4.0,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.948474764823914,
+						9.60093402862549,
+						7.09949684143066
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F04_4C_BOOKSHELF_01/FixedCase/plain__Side0_Body": "(2.276022, 10.79493, -18.41006)"
+					}
+				},
+				{
+					"actual": [
+						2.00368189811707,
+						9.60093402862549,
+						7.09998512268066
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.09399700164795,
+						9.60093402862549,
+						5.64660453796387
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						9.60000038146973,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.0993185043335,
+						9.60093402862549,
+						4.8961181640625
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						9.60000038146973,
+						4.80000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.14680790901184,
+						9.60093402862549,
+						5.08119010925293
+					],
+					"ok": true,
+					"target": [
+						1.04999995231628,
+						9.60000038146973,
+						5.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.00806283950806,
+						9.60093402862549,
+						4.82712364196777
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						9.60000038146973,
+						4.80000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.08741664886475,
+						9.60093402862549,
+						5.45106315612793
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						9.60000038146973,
+						5.55000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.09926462173462,
+						9.60093402862549,
+						7.00365447998047
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.30332231521606,
+						9.60093402862549,
+						7.0971794128418
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.39417219161987,
+						9.60093402862549,
+						5.59628677368164
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						9.60000038146973,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.3991961479187,
+						9.60093402862549,
+						4.99608612060547
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						9.60000038146973,
+						4.90000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						4.94584512710571,
+						9.60093402862549,
+						4.91676712036133
+					],
+					"ok": true,
+					"target": [
+						4.84999990463257,
+						9.60000038146973,
+						4.90000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.30312013626099,
+						9.60093402862549,
+						4.9035758972168
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						9.60000038146973,
+						4.90000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.38445997238159,
+						9.60093402862549,
+						5.40432929992676
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						9.60000038146973,
+						5.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.39912033081055,
+						9.60093402862549,
+						7.00395774841309
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.19649267196655,
+						9.60093402862549,
+						7.09719085693359
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.47508764266968,
+						9.60094451904297,
+						8.90728759765625
+					],
+					"ok": true,
+					"target": [
+						2.5,
+						9.60000038146973,
+						9.0
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F04_C_BED1/WallSouth_02/Collision": "(-2.554998, 10.79494, -19.57)"
+					}
+				},
+				{
+					"actual": [
+						2.1142795085907,
+						9.60094451904297,
+						7.19812774658203
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {
+						"/root/OrisonV2HomeAccessCohort/OrisonV2Runtime/OrisonV2Blockout/F04_C_BED1/WallSouth_02/Collision": "(-2.554998, 10.79494, -19.57)"
+					}
+				},
+				{
+					"actual": [
+						5.30478572845459,
+						9.60094451904297,
+						7.10284233093262
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.39516735076904,
+						9.60094451904297,
+						8.90371322631836
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						9.60000038146973,
+						9.0
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						5.39974117279053,
+						9.60094451904297,
+						7.1968822479248
+					],
+					"ok": true,
+					"target": [
+						5.40000009536743,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						2.19656538963318,
+						9.60094451904297,
+						7.10283660888672
+					],
+					"ok": true,
+					"target": [
+						2.09999990463257,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.753860712051392,
+						9.60094451904297,
+						7.1000919342041
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						9.60000038146973,
+						7.09999990463257
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.844839811325073,
+						9.60094451904297,
+						5.39662170410156
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						9.60000038146973,
+						5.30000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.849816083908081,
+						9.60016345977783,
+						2.79613399505615
+					],
+					"ok": true,
+					"target": [
+						-0.850000023841858,
+						9.60000038146973,
+						2.70000004768372
+					],
+					"wall_contacts": {}
+				}
+			]
+		},
+		{
+			"failures": [],
+			"group": "completion",
+			"initial_placement_only": true,
+			"name": "completion/COMPLETION ACCESS staff",
+			"trace": [
+				{
+					"actual": [
+						7.19645500183105,
+						0.000859374180436134,
+						-5.44999933242798
+					],
+					"ok": true,
+					"target": [
+						7.09999990463257,
+						0.0,
+						-5.44999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						6.16016149520874,
+						0.000859374180436134,
+						-6.72592735290527
+					],
+					"ok": true,
+					"target": [
+						6.09999990463257,
+						0.0,
+						-6.80000019073486
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						7.04365634918213,
+						0.000859374180436134,
+						-5.52649164199829
+					],
+					"ok": true,
+					"target": [
+						7.09999990463257,
+						0.0,
+						-5.44999980926514
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						8.85271835327148,
+						0.000859374180436134,
+						-5.45390319824219
+					],
+					"ok": true,
+					"target": [
+						8.94999980926514,
+						0.0,
+						-5.44999980926514
+					],
+					"wall_contacts": {}
+				}
+			]
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Played room access in one shared production world. Complete route families retain their declared initial placements; roof circuits share one F06 arrival. Subsequent travel uses the normal collision-bearing controller. Physical input replaces inherited E-key toggles. The lift travel request remains a declared stimulus. No inter-floor connection, case completion, disk save, whole-building runtime or human acceptance grant.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "e7c97ae3407a40f13cf306c724fc15d7fb9be8da",
+		"runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+		"scene_path": "res://tests/OrisonV2HomeAccessCohort.tscn",
+		"surface_inputs_sha256": "10c1f1f4e60419c83277b5818f7b29b317dc660af9b41560fb7c2863be96a8b1",
+		"test_dependencies": {
+			"game/tests/OrisonV2ApartmentAccessContractTest.tscn": "d4a2384422f9912dfb5ffbb93aebfa2a4d4c24fc1556e7801eb4c5d357d18a9e",
+			"game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",
+			"game/tests/OrisonV2HomeAccessCohort.tscn": "852dad0e2498e3fab6156abe49d4cf4c7c7d2ba83421a22dccba9ef7c6fa3b82",
+			"game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",
+			"game/tests/orison_v2_4b_door_route_test.gd": "812dda33b098642cfd39f85c858cbe8e431821e49b02b827d0273007e9b029db",
+			"game/tests/orison_v2_apartment_access_contract_test.gd": "a1480f27f488006185702af8cecf1f7f8f0ceea1d9da42a6a06dbcac2069764d",
+			"game/tests/orison_v2_apartment_door_route_test.gd": "e2d8fe48ac080e55d43bda8d0514d52f4cf6e57cec14c5849b89181d55cfa9ac",
+			"game/tests/orison_v2_completion_access_contract_test.gd": "d2bbf278c10712fea959a312ff06e8b3272d0fc92b4d3b007f544fc727ce80cd",
+			"game/tests/orison_v2_completion_interiors_test.gd": "bde71f1b87bb0759f98dd222d3c94fa750621641e1738316492d08f570b59405",
+			"game/tests/orison_v2_connected_exterior_route_test.gd": "f5ed0797ec92fd09570c624fa46d9df85a80d49c1f64fbfd7c40a7e9494c35af",
+			"game/tests/orison_v2_roof_route_test.gd": "55d9eb0d060077b3570e8b4a2db2f202eedbd8027a7c7268ac5c06cc0ca393e9",
+			"game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+			"game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
+			"game/tests/v2_completion_door_settle.gd": "459389748e0fa4374d352f4a618cac42477b407fc40ed8c53599878a4161819a",
+			"game/tests/v2_spatial_access_cohort.gd": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+		},
+		"test_path": "game/tests/v2_spatial_access_cohort.gd",
+		"test_sha256": "8254f1a838f7c2cc2096fc8077ece4906b6e37cb11cc55d01ace2e72cfb4c785"
+	}
+}

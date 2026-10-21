@@ -1,0 +1,15 @@
+{
+  "evidence_class": "INERT",
+  "result": "FAIL",
+  "reason": "runtime contract does not bind the LF-normalized current surface test",
+  "raw_test_sha256": "10bed4baae74448199b0431ede71e6a7d9ff4b0f8f4de2fad3c4263d0f82aba7",
+  "lf_test_sha256": "7e4bd4fa4ffbdd13aeabac781db71c4e6fed4c35236e59bce9ffad38114975f2",
+  "source": {
+    "repository_head": "f4f412589e8c8e279e6eeedc87a35ce0437e2c91",
+    "runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+    "test_path": "game/tests/orison_v2_surface_inventory.gd",
+    "test_sha256": "10bed4baae74448199b0431ede71e6a7d9ff4b0f8f4de2fad3c4263d0f82aba7"
+  },
+  "technical_checks_passed": 40140,
+  "runtime_qualification": false
+}

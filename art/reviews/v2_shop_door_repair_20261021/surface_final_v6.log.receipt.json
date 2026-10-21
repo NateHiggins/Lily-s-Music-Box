@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 907.97,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T16:42:28Z",
+  "started_utc": "2026-10-21T16:27:20Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 40140 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v6.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v6.log",
+  "stdout_sha256": "a32747b25d72c07283a2d773a2aba1b32b8ff7bcd27398e32ff2ab40662bffaa"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v6",
+ "source": {
+  "dirty_paths": 1091,
+  "dirty_sample": [
+   "M art/renders/orison_v2/access_upper_cohort_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_upper_cohort_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/first_slice_contract_20261011/verification.json",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import"
+  ],
+  "repository_head": "1762e9fd4d00ee0b3368a9a8adb0a0c8008c6187",
+  "repository_tree": "fb2be527a7fdc3cf8dc3bfa590345d5de57130a2",
+  "runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "7e4bd4fa4ffbdd13aeabac781db71c4e6fed4c35236e59bce9ffad38114975f2"
+ },
+ "windowed": true
+}
