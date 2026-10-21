@@ -329,7 +329,7 @@ func _mount_markers() -> void:
 				continue
 			var prop: Node3D
 			if marker.kind == "door":
-				var door := DoorProp.new()
+				var door := preload("res://scripts/building/orison_v2_passage_shop_door.gd").new()
 				door.width = float(marker.w)
 				door.height = float(marker.h)
 				door.leaf_state = str(marker.leaf)
@@ -459,6 +459,7 @@ func enable_residency(player: PlayerController, frame: Node3D, layout: Dictionar
 	return true
 
 func suspend_geometry() -> WeakRef:
+	var retirement_started:=Time.get_ticks_usec()
 	for identity: String in _counter_ids:
 		shop_service.unmount_counter(identity)
 	_counter_ids.clear()
@@ -468,13 +469,17 @@ func suspend_geometry() -> WeakRef:
 	receiving_row.suspend()
 	_actors.visible = false
 	_actors.process_mode = Node.PROCESS_MODE_DISABLED
+	var retirement_actors_done:=Time.get_ticks_usec()
 	var retired: WeakRef = weakref(_geometry_root)
 	remove_child(_geometry_root)
+	var retirement_detached:=Time.get_ticks_usec()
 	_geometry_root.queue_free()
 	_geometry_root = null
 	for identity: String in CELLS:
 		cell_nodes.erase(identity)
 	surface_pass = null
+	if OS.get_environment("ORISON_PROFILE_RESIDENCY")=="1":
+		print("PASSAGE_RETIRE_DETAIL ",JSON.stringify({"actors_ms":(retirement_actors_done-retirement_started)/1000.,"detach_ms":(retirement_detached-retirement_actors_done)/1000.,"enqueue_release_ms":(Time.get_ticks_usec()-retirement_detached)/1000.}))
 	return retired
 
 func activate_geometry(geometry: Node3D, cells: Dictionary, surfaces: RefCounted) -> void:

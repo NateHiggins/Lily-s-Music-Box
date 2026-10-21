@@ -627,7 +627,7 @@ func _compose_authorities() -> void:
 	household_state = HouseholdState.new()
 	household_state.name = "HouseholdState"
 	add_child(household_state)
-	if not household_state.bind(adapter, get_node("V2RoomSwitches") as SwitchSystem):
+	if not household_state.bind(adapter, get_node("V2RoomSwitches") as SwitchSystem, passage_region.doors):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
 		return

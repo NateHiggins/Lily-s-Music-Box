@@ -2746,3 +2746,23 @@ game/tests/v2_native_fitting_profile.gd -text
 game/tests/v2_shop_door_clearance_survey.gd -text
 game/tests/v2_fitting_collision_cache_test.gd -text
 game/tests/v2_structural_occlusion_review.gd -text
+
+# Native arcade leaf repair and source-bound diagnostics.
+art/reviews/v2_shop_door_repair_20261021/** -text whitespace=cr-at-eol
+game/scripts/building/orison_v2_passage_shop_door.gd -text
+game/tests/v2_passage_shop_door_repair.gd -text
+game/tests/v2_tick_cost_diagnostic.gd -text
+game/tests/fixtures/passage_shop_leaves.json -text
+art/blender/scripts/build_passage_shop_leaves.py -text
+art/blender/scripts/inspect_passage_shop_leaves.py -text
+game/tests/v2_script_cost_diagnostic.gd -text
+game/tests/v2_lamp_depth_equivalence.gd -text
+game/tests/v2_radiator_authority_lookup_test.gd -text
+game/tests/v2_golden_repair_profile.gd -text
+game/scripts/props/fire_nozzle_coupling.gd -text
+game/tests/v2_area_survey.gd -text
+game/scripts/cases/mina_caption_manifestation.gd -text
+game/tests/v2_caption_retirement_test.gd -text
+game/tests/v2_floor_transition_profile.gd -text
+game/tests/v2_lamp_glare_probe.gd -text
+game/tests/v2_step_contact_test.gd -text

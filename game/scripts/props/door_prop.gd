@@ -402,20 +402,23 @@ func _move_by_hand(angle: float) -> void:
 		var trial := move_toward(accepted,angle,.025)
 		var pose := _body.transform
 		pose.basis = Basis(Vector3.UP,trial)
-		if shape_node != null:
-			var query := PhysicsShapeQueryParameters3D.new()
-			query.shape = shape_node.shape
-			query.transform = global_transform * pose * shape_node.transform
-			query.collision_mask = _body.collision_mask
-			query.exclude = [_body.get_rid()]
-			query.margin = .001
-			if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): break
+		if _motion_is_blocked(pose,shape_node): break
 		accepted = trial
 	_body.rotation.y = accepted
 	open = absf(accepted) > .01
 	if not is_equal_approx(old,accepted) and not has_meta("hand_motion_sound"):
 		_play_move()
 		set_meta("hand_motion_sound",true)
+
+func _motion_is_blocked(pose: Transform3D, shape_node: CollisionShape3D) -> bool:
+	if shape_node == null: return false
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape_node.shape
+	query.transform = global_transform * pose * shape_node.transform
+	query.collision_mask = _body.collision_mask
+	query.exclude = [_body.get_rid()]
+	query.margin = .001
+	return not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty()
 
 func _release_leaf() -> void:
 	_hand_gripped = false

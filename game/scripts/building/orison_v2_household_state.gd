@@ -20,7 +20,7 @@ var _service_defaults: Dictionary = {}
 var _service_completed: Dictionary = {}
 var _service_library: MaintenanceActivityLibrary
 
-func bind(adapter: Variant, switches: SwitchSystem) -> bool:
+func bind(adapter: Variant, switches: SwitchSystem, additional_mechanisms: Dictionary = {}) -> bool:
 	if _bound or adapter == null or switches == null or not is_inside_tree(): return false
 	if not get_tree().get_nodes_in_group("v2_household_state").is_empty():
 		errors.append("another household save owner is already active")
@@ -76,6 +76,18 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 		if _kinds.has(identity): continue
 		_kinds[identity] = "mechanism"
 		_subjects[identity] = mechanism
+	# Streamed regions own actors outside the architectural adapter root.
+	# Admit only explicitly supplied stable owners into this same save authority.
+	for identity: String in additional_mechanisms:
+		var mechanism: Node = additional_mechanisms[identity]
+		if identity.is_empty() or _kinds.has(identity) or not is_instance_valid(mechanism) \
+				or str(mechanism.name)!=identity or not mechanism.is_inside_tree() \
+				or not mechanism.has_method("mechanism_snapshot") or not mechanism.has_method("valid_mechanism") \
+				or not mechanism.has_method("restore_mechanism") or not mechanism.has_signal("manipulation_changed"):
+			errors.append("invalid additional mechanism owner: "+identity)
+			return false
+		_kinds[identity]="mechanism"
+		_subjects[identity]=mechanism
 	for identity: String in _kinds:
 		var prop: Node = _subjects.get(identity,adapter.resolve(identity))
 		var kind: String = _kinds[identity]
