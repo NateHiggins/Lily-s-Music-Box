@@ -154,6 +154,9 @@ func manipulate_binding(owner: Node3D,book: Node3D) -> void:
 				for key in draw.get_blend_shape_count():check(is_zero_approx(draw.get_blend_shape_value(key)),"shared mesh does not share instance opening weights")
 	if player._grab.active(): player._grab.release()
 	await space()
+	check(player._grab.holding_pickup() and player._grab.target.part==book,"Space returns lending copy to original hand")
+	click()
+	check(not player._grab.active() and not book._held,"next primary releases returned lending copy")
 
 func legacy_save_review(collection: Node3D) -> void:
 	var original: Dictionary=collection.library_snapshot()

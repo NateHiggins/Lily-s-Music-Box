@@ -126,7 +126,7 @@ func _sync_cover_target() -> void:
 func _corner(label: String, fraction: float, axis: Vector3) -> void:
 	var target:=preload("res://scripts/props/manipulation_area.gd").new() as Area3D
 	target.name=label
-	target.provider=func(): return turn_grip(axis)
+	target.provider=func(): return turn_grip(axis) if shelf.supports_inspected_stock(self) else grip()
 	target.collision_layer=1;target.collision_mask=0;target.monitoring=false
 	target.add_to_group("functional_interaction_areas")
 	var shape:=CollisionShape3D.new()
@@ -379,6 +379,7 @@ func _release() -> void:
 	if changed: shelf.library_stock_changed(self)
 
 func cover_grip() -> Dictionary:
+	if not shelf.supports_inspected_stock(self):return grip()
 	return {"owner":shelf,"part":left,"frame":self,"kind":"hinge","axis":Vector3.DOWN,
 		"minimum":0.,"maximum":PI,"minimum_lever":.025,
 		"constraint_feedback":func(): return "blocked" if _cover_blocked else "",

@@ -112,6 +112,14 @@ func _run() -> void:
 		check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"inspection releases temporary carrier exceptions")
 		await capture("floating_spread_zoom")
 		await space()
+		check(not player.inspecting() and player._grab.holding_pickup() and player._grab.target.part==book,"Space returns inspected binding to the original hand")
+		check(book._held and book.freeze,"inspection return reacquires owner permission and freezes carried body")
+		check(player.get_collision_exceptions().has(book) and book.get_collision_exceptions().has(player),"inspection return restores only carrier contact exceptions")
+		for frame in 110:await get_tree().physics_frame
+		check((book.global_transform*book.pickup_centre()).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48))<.003,"returned open binding reaches constrained FPS hand")
+		click()
+		check(not player._grab.active() and not book._held and not book.freeze,"next primary releases returned inspected binding")
+		check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"returned binding release restores physical carrier contact")
 	# Reconstruct before testing placement, with no hidden manipulation of the
 	# active hand. The slot is a save authority, not a fresh rigid-body pile.
 	shelf.restore_order(encoded)
@@ -153,10 +161,28 @@ func _run() -> void:
 	book=shelf._books.values()[2]
 	check(await grab_visible_stock(book),"binding can be picked up again after restoration")
 	for frame in 100: await get_tree().physics_frame
+	await space()
+	check(player.inspecting(),"carried binding reenters inspection for cancellation")
+	player.cancel_manipulation()
+	check(not player.inspecting() and not player._grab.active() and not book._held,"save/load cancellation does not reacquire borrowed hand")
+	check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"cancellation leaves no carrier exceptions")
+	for frame in 2:await get_tree().physics_frame
+	check(await grab_visible_stock(book),"cancelled binding can be picked up again")
+	for frame in 100:await get_tree().physics_frame
 	click()
 	check(not player._grab.active() and not book.freeze and book.shelf_slot==-1,"second primary click releases held book outside a placement slot")
 	check(book._closed_solid.disabled and book._solids.size()==3,"released book restores stable native physical groups")
 	check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"primary release restores carrier contact")
+	shelf.restore_order(encoded)
+	for frame in 3:await get_tree().physics_frame
+	book=shelf._books.values()[2]
+	check(await grab_visible_stock(book),"replacement fixture acquires physical binding")
+	for frame in 100:await get_tree().physics_frame
+	await space()
+	check(player.inspecting(),"replacement fixture enters inspection")
+	book.free()
+	await space()
+	check(not player.inspecting() and not player._grab.active(),"destroyed inspected stock is never reacquired or replaced implicitly")
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("input_costs.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","records":player._grab.profile_records},"\t"))
 	print("BOOK SLOT HAND DIAGNOSTIC: ","PASS" if failures.is_empty() else "FAIL"," checks=",checks," failures=",failures)
 	get_tree().quit(failures.size())

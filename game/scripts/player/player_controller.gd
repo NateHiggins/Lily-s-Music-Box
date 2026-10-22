@@ -50,6 +50,8 @@ var _inspect_camera_fov := 72.0
 var _inspect_camera_pose := Transform3D.IDENTITY
 var _inspect_mouse_mode := Input.MOUSE_MODE_CAPTURED
 var _inspect_anchor := Transform3D.IDENTITY
+var _inspect_pickup: Dictionary = {}
+var _inspect_pickup_contact := Vector3.ZERO
 var _profile_disable_step_guard:=false
 var step_guard_rejections:=0
 var profile_physics:=false
@@ -1358,6 +1360,10 @@ func begin_inspection() -> bool:
 	_inspect_camera_fov=camera.fov
 	camera.fov=clampf(float(view.get("fov",camera.fov)),40.0,100.0)
 	_inspect_mouse_mode=Input.mouse_mode
+	# Inspection borrows the hand for individual mechanisms. Remember a
+	# carried object's original grip so Space returns it to the same hand.
+	_inspect_pickup=_grab.target.duplicate() if _grab.holding_pickup() else {}
+	_inspect_pickup_contact=_grab.contact
 	inspect_owner=owner
 	_inspection_active=true
 	_grab.release()
@@ -1373,6 +1379,8 @@ func begin_inspection() -> bool:
 func end_inspection(notify_change := true) -> void:
 	if not _inspection_active: return
 	var previous_owner:=inspect_owner
+	var pickup:=_inspect_pickup
+	_inspect_pickup={}
 	if _grab != null: _grab.release(notify_change)
 	inspect_owner=null
 	_inspection_active=false
@@ -1380,3 +1388,11 @@ func end_inspection(notify_change := true) -> void:
 	camera.fov=_inspect_camera_fov
 	Input.mouse_mode=_inspect_mouse_mode
 	if is_instance_valid(previous_owner) and previous_owner.has_method("inspection_ended"): previous_owner.call("inspection_ended")
+	if notify_change and not call_locked and not mouse_released and _grab!=null and not pickup.is_empty():
+		if is_instance_valid(pickup.get("part")) and is_instance_valid(pickup.get("owner")) and is_instance_valid(pickup.get("frame")):
+			var part: Node3D=pickup.part
+			if not part.is_inside_tree():return
+			pickup.hit_position=part.to_global(_inspect_pickup_contact)
+			# Reacquire through the owner's begin/permission and ordinary swept
+			# hold path. Never teleport the stock or bypass physical blockers.
+			_grab.acquire(pickup)
