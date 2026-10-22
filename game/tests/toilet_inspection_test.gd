@@ -83,6 +83,8 @@ func _run() -> void:
 	wc=load("res://scripts/building/orison_v2_water_closet.gd").new()
 	wc.furniture_kind="toilet";wc.owner_unit="BENCH";wc.record_id="inspection_bench"
 	add_child(wc)
+	var floor_body:=StaticBody3D.new();floor_body.name="StandingFloor";floor_body.position.y=-.1;add_child(floor_body)
+	var floor_shape:=CollisionShape3D.new();var floor_box:=BoxShape3D.new();floor_box.size=Vector3(8,.2,8);floor_shape.shape=floor_box;floor_body.add_child(floor_shape)
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	await get_tree().physics_frame;await get_tree().physics_frame
 	await move_hinge("RaisedLid",wc.parts.RaisedLid.to_global(Vector3(0,.015,-.30)),0.0)
@@ -107,13 +109,21 @@ func _run() -> void:
 	check(not wc._refilling and wc.water_level>=.99,"float refills and stops water")
 	# Lift the removable cover with the same actual camera ray and mouse path.
 	aim(Vector3(0,.835,.235),Vector3(.15,1.4,-.3))
+	player.set_physics_process(true)
 	click()
 	check(player._grab.active() and player._grab.target.part==wc.parts.CisternCover,"cover is separately targetable")
 	if player._grab.active():
-		for i in 10: drag(Vector2(0,-12));await get_tree().physics_frame
-		for i in 28: drag(Vector2(-16,0));await get_tree().physics_frame
+		check(player._grab.holding_pickup(),"removable cover uses the physical FPS hand")
+		for i in 100:await get_tree().physics_frame
+		print("HELD CISTERN COVER: ",wc.parts.CisternCover.position," feedback=",player._grab.feedback({}))
+		for i in 40:drag(Vector2(-12,0));await get_tree().physics_frame
+		for i in 80:await get_tree().physics_frame
+		print("CARRIED CISTERN COVER: ",wc.parts.CisternCover.position," feedback=",player._grab.feedback({}))
 		check(absf(wc.parts.CisternCover.position.x)>.45,"cover can clear cistern rim")
+		check(player._grab.feedback({}).state=="blocked","held cover constraint remains visible in authoritative reticle feedback")
 		click()
+		check(not player._grab.active(),"next primary releases carried cistern cover")
+	player.set_physics_process(false)
 	await get_tree().create_timer(.8).timeout
 	aim(Vector3(.31,.64,.098),Vector3(.62,.68,-.08));click()
 	var eye:=player.camera.transform

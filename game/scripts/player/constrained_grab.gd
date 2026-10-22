@@ -129,7 +129,9 @@ func follow_holder() -> void:
 				var before: Vector3=target.read.call()
 				var request: Vector3=before+target.frame.global_basis.inverse()*motion
 				target.write.call(request)
-				_expect_motion(request)
+				# Continuous hand-follow must retain the last published result;
+				# replacing it with optimistic feedback every tick hides stops.
+				_expect_motion(request,false,true)
 		_observe_motion()
 		return
 	var point: Vector3=target.part.to_global(contact)
@@ -192,12 +194,12 @@ func _observe_motion() -> void:
 	elif not _feedback_pending and Time.get_ticks_msec() > _feedback_until:
 		motion_feedback = "grabbed"
 
-func _expect_motion(requested: Variant, at_limit := false) -> void:
+func _expect_motion(requested: Variant, at_limit := false, retain_feedback := false) -> void:
 	_feedback_requested = requested
 	_feedback_limit = at_limit
 	_feedback_frame = Engine.get_physics_frames()
 	_feedback_pending = true
-	motion_feedback = "limit" if at_limit else "grabbed"
+	if not retain_feedback:motion_feedback = "limit" if at_limit else "grabbed"
 
 func feedback(aimed: Dictionary) -> Dictionary:
 	var descriptor := target if active() else aimed

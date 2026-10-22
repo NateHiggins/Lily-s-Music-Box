@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Cistern pickup test migration and continuous held-object reticle feedback | `design/V2_CISTERN_HAND_FEEDBACK_2026-10-22.md` |
 | Returning inspected books to the hand, loose-cover pickup and retained mechanism-test failures | `design/V2_BOOK_INSPECTION_RETURN_2026-10-22.md` |
 | Curved book print contact, retained regression and actual-input frame distributions | `design/V2_BOOK_PRINT_CONTACT_2026-10-22.md` |
 | Continuous paperback covers, bowed attached pages, editorial formats and measured book input costs | `design/V2_BOOK_EDITORIAL_AND_BINDING_2026-10-22.md` |
