@@ -7,7 +7,7 @@ defect with its full diagnosis so far.
 
 ## What this project is
 
-*Please Remain On The Line* — a first-person Godot game set in the Orison,
+*Please Stay on the Line* — a first-person Godot game set in the Orison,
 a prewar brick apartment block in **Queens, New York**. Vantry & Co. built
 it in 1912 as a showcase; it was partially demolished in 1927 and reopened
 in 1928 as flats, and **it is 1928 when the game starts** (`ORISON_BIBLE.md`

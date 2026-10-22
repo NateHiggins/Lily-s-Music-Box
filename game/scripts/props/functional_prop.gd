@@ -133,9 +133,10 @@ func warehouse_rotation_y() -> float:
 	return 0.0
 
 
-## Temporary universal field slip until I2's researched object book supplies
-## type-specific copy. This reports only the mechanism's own current public
-## state; it invents no provenance and never advances that state.
+## The universal field slip for a fitting the researched object book
+## (prop_service_wire.json) has no card for. It says so, reports only the
+## mechanism's own current public state, invents no provenance and never
+## advances that state.
 func service_wire_card() -> Dictionary:
 	var display := prop_type.replace("_", " ").strip_edges().to_upper()
 	var state_names: Array = PState.keys()
@@ -143,7 +144,7 @@ func service_wire_card() -> Dictionary:
 			and state < state_names.size() else "UNKNOWN"
 	return {
 		"title": display,
-		"body": "MECHANISM ANSWERED TO HAND STOP CONDITION RECORDED STOP",
+		"body": "NO CARD ON FILE FOR THIS FITTING STOP MECHANISM ANSWERED TO HAND STOP",
 		"condition": "PRESENT CONDITION / %s" % condition,
 		"stamp": "SERVICE NOTE",
 	}

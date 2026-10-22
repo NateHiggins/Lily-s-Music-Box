@@ -237,13 +237,13 @@ func _read_letter() -> Dictionary:
 	var text: String
 	if bool(state.get("resolved", false)):
 		text = "PROVISIONAL TESTIMONY — DRAFT 5. (DRAFTS 1–4 SHREDDED.)\n" \
-				+ "RE: Work order 002-A, closed.\n" \
+				+ "RE: Work order 001, closed.\n" \
 				+ "The captions are quiet. That is a fact, and it needs no witness.\n" \
 				+ "The last four seconds of this page are blank. — M.V.\n" \
 				+ "(They are. Nothing is written beside them.)"
 	else:
 		text = "PROVISIONAL TESTIMONY — DRAFT 4. (DRAFTS 1–3 RETAINED.)\n" \
-				+ "RE: Work order 002-A. The captions returned at 11:41 PM. [FACT]\n" \
+				+ "RE: Work order 001. The captions returned at 11:41 PM. [FACT]\n" \
 				+ "You will come back. [ASSUMPTION — RETAINED ANYWAY.]\n" \
 				+ "The last four seconds of this letter are blank. I have\n" \
 				+ "annotated them in the margin. Draft five will not. — M.V."
@@ -503,7 +503,7 @@ func _refresh() -> void:
 				"Discuss assumptions and allow one meaningful silence.")
 	elif stage == "integration_ready":
 		tracker.show_objective("2A — INTEGRATION",
-				"Use the calibrator once more. Leave silence uncaptained.")
+				"Use the calibrator once more. Leave the silence uncaptioned.")
 	elif stage == "resolved":
 		tracker.show_objective("CASE CLOSED — MINA VALE",
 				"Silence does not require annotation.")

@@ -54,7 +54,7 @@ const POLTERGEISTS := {
 	"reenact": [["caption_room", 6], ["prop_turn", 3],
 			["whisper", "the record shows you paused here."]],
 	"address": [["caption_player", 4]],
-	"voice": "[SUBJECT DECLINES TO STATE WHAT HE IS FEELING]",
+	"voice": "[SUBJECT DECLINES TO STATE WHAT THEY ARE FEELING]",
 },
 "juno_feedback_tetris": {
 	"unit": "2C", "resident": "Juno Kells",

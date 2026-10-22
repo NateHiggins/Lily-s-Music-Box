@@ -4,7 +4,8 @@
 
 Evidence class: **INERT**. Governing covenant, not implementation evidence.
 
-This is the covenant document for **Please Remain On The Line**. Where any
+This is the covenant document for **Please Stay on the Line** (retitled at
+the owner's direction on 2026-10-22; see §VIII.5.m). Where any
 other text disagrees with this one, this one prevails until amended; where
 this one is silent, the systems of record in §V speak. Disputed texts are
 confessed openly in §VI rather than papered over.
@@ -967,6 +968,16 @@ operates world objects. This explicitly supersedes the earlier always-visible
 full instrument presentation. The carried flashlight has steady output without
 simulated contact chatter or movement-induced flickering; its logical power
 switch and gameplay authority remain intact.
+
+**VIII.5.m — THE TITLE IS *PLEASE STAY ON THE LINE*.**
+*(Ruled 2026-10-22, at the owner's direction.)* The game's title is *Please
+Stay on the Line*. *Please Remain On The Line* is the retired title; it
+survives in dated reports and in the repository's folder name as history,
+not as a name to revive. The building is still the Orison and the working
+name of the project does not change. Product identity (`project.godot`,
+export presets, the title screen and its test, the tester readme) carries
+the new title; the hold-music card on the televisions reads PLEASE STAY /
+ON THE LINE for the same reason it read the old title.
 
 ### VIII.6 What this does not license
 
