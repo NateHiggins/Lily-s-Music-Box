@@ -144,7 +144,7 @@ func _present_return() -> void:
 	dialogue.present("LENA ORTIZ · 2B",
 			"I can see where you opened it, and I can hear air leave before the iron warms. You didn't hide the repair.", [
 				{"text": "A visible patch can still hold.", "action": close_round},
-				{"text": "The whole building proved this local fault.",
+				{"text": "It took the whole building to prove one vent.",
 					"action": close_round}
 			])
 

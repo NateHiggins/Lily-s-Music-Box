@@ -10,7 +10,7 @@ extends FunctionalProp
 ## makes every clock set from the Handbook's reference wrong for a reason.
 
 const ORDER_ID := "WO-CLOCK-001"
-const ORDER_TITLE := "WORK ORDER 002 — WIND 4B"
+const ORDER_TITLE := "WORK ORDER 003 — WIND 4B"
 const ORDER_TEXT := "The apartment clock is losing its spring. Hold the winding key until the movement takes a full charge."
 const EIGHT_DAYS_SECONDS := 8.0 * 24.0 * 60.0 * 60.0
 const MASTER_ERROR_MINUTES := 4.0

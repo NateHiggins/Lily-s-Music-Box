@@ -38,9 +38,9 @@ NOTICES = [
      "charge of two dollars. Cheques to ORISON REALTY CO. only. Do not "
      "leave payment under the office door.", "ORISON REALTY CO.", 0.15),
     ("heat", "HEAT & HOT WATER",
-     "The boiler is shut down between 1 and 4 AM for servicing. Bleed "
-     "your own radiator before reporting a cold line. Complaints in "
-     "writing to the superintendent.", "R. MAINTENANCE", 0.42),
+     "The boiler is banked between 1 and 4 AM. A radiator that knocks or "
+     "stays cold is to be reported in writing. Do not leave the supply "
+     "valve part way: it is fully open or fully shut.", "R. MAINTENANCE", 0.42),
     ("super", "SUPERINTENDENT HOURS",
      "Weekdays 8 AM to 6 PM. Emergencies only after hours: use the "
      "lobby telephone. Do not knock at 4B after 9 PM.", "R. MAINTENANCE",
@@ -59,7 +59,7 @@ NOTICES = [
      "any circumstance.", "ORISON REALTY CO.", 0.80),
     ("elev", "ELEVATOR",
      "The car is out of service pending inspection. Use the stair. "
-     "This notice was posted in March and has not been taken down.",
+     "Posted the 3rd of March. Remove when the car is returned to service.",
      "ORISON REALTY CO.", 0.92),
     ("lost", "FOUND",
      "One key, brass, no tag, found on the third landing. Claim from "
