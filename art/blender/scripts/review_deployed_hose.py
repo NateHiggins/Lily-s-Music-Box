@@ -5,13 +5,14 @@ from mathutils import Matrix,Vector
 from mathutils.bvhtree import BVHTree
 ROOT=Path(__file__).resolve().parents[3]
 CASE=Path(os.environ.get('ORISON_HOSE_POSE',str(ROOT/'art/reviews/v2_hose_follower_20261021/right_payout_v4/payout.json'))).resolve()
-SOURCE=ROOT/'art/blender/v2_deployable_hose/rig_v3/blender/fire_capacity_candidate.blend'
+SOURCE=Path(os.environ.get('ORISON_HOSE_POSE_SOURCE',str(ROOT/'art/blender/v2_deployable_hose/rig_v3/blender/fire_capacity_candidate.blend'))).resolve()
 OUT=Path(os.environ.get('ORISON_HOSE_POSE_REVIEW_OUT',str(ROOT/'tmp/v2-hose-follower-20261021/deformed_right_v1'))).resolve()
 assert CASE.is_relative_to(ROOT) and OUT.is_relative_to(ROOT/'tmp')
 OUT.mkdir(parents=True,exist_ok=True)
-data=json.loads(CASE.read_text());assert len(data['frames'])==len(data['bind_frames'])==610
+data=json.loads(CASE.read_text());count=int(os.environ.get('ORISON_HOSE_POSE_RINGS','610'))
+assert SOURCE.is_relative_to(ROOT) and len(data['frames'])==len(data['bind_frames'])==count
 bpy.ops.wm.open_mainfile(filepath=str(SOURCE));bpy.context.preferences.filepaths.save_version=0
-obj=bpy.data.objects['Capacity study hose'];bpy.context.view_layer.update();assert obj.matrix_world==Matrix.Identity(4)
+obj=bpy.data.objects[os.environ.get('ORISON_HOSE_POSE_OBJECT','Capacity study hose')];bpy.context.view_layer.update();assert obj.matrix_world==Matrix.Identity(4)
 B=Matrix(((1,0,0),(0,0,-1),(0,1,0))).to_4x4()
 def frame(rows):
  m=Matrix.Identity(4)
@@ -55,7 +56,7 @@ lights=[]
 for power in [8,5]:
  bpy.ops.object.light_add(type='AREA');light=bpy.context.object;light.data.energy=power;light.data.size=.25;lights.append(light)
 def b(point):return Vector((point.x,-point.z,point.y))
-for name,index in [('tip',0),('body',305),('outlet',607)]:
+for name,index in [('tip',0),('body',count//2),('outlet',count-3)]:
  target=b(frames[index].translation);scene.camera.location=target+b(Vector((.03,.12,.35)))
  scene.camera.rotation_euler=(target-scene.camera.location).to_track_quat('-Z','Y').to_euler()
  for light,offset in zip(lights,[Vector((.10,.24,.28)),Vector((-.25,.08,.18))]):

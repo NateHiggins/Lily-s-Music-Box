@@ -1,0 +1,88 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 56.364
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 30.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/LightCourtStructure/F02_LightCourtGuard_SouthCollision",
+			"degrees": 45.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/LightCourtStructure/F02_LightCourtGuard_NorthCollision",
+			"degrees": 60.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_CORE/WallEast_01/Collision",
+			"degrees": 90.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_CORE/WallEast_01/Collision",
+			"degrees": 120.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision",
+			"degrees": 180.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31569/NativeCaseCollision",
+			"degrees": 240.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_CORE/WallSouth_00/Collision",
+			"degrees": 270.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31569/NativeCaseCollision",
+			"degrees": 300.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31569/NativeCaseCollision",
+			"degrees": 330.0,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR"
+		}
+	]
+}

@@ -810,8 +810,149 @@ protected:
         ClassDB::bind_method(D_METHOD("follow","seed","anchor","planes","pins"),&OrisonHoseProjectionNative::follow);
         ClassDB::bind_method(D_METHOD("resume_follow","seed","anchor","planes","pins"),&OrisonHoseProjectionNative::resume_follow);
         ClassDB::bind_method(D_METHOD("pin","indices"),&OrisonHoseProjectionNative::pin);
+        ClassDB::bind_method(D_METHOD("round_self_constraints","before","after","radius","pins"),&OrisonHoseProjectionNative::round_self_constraints);
+        ClassDB::bind_method(D_METHOD("round_guide_seed","before","goal","join","axis","side","floor"),&OrisonHoseProjectionNative::round_guide_seed);
     }
 public:
+    Dictionary round_guide_seed(const PackedVector3Array &before,const Vector3 &goal,int join,Vector3 axis,Vector3 side,double floor) {
+        Dictionary result;result["points"]=PackedVector3Array();
+        if (before.size()!=int(inverse.size()) || join<6 || join>=before.size()-3 || !goal.is_finite() || !std::isfinite(floor)) return result;
+        axis=axis.normalized();side=(side-axis*dot(side,axis)).normalized();Vector3 up=axis.cross(side).normalized();
+        if (axis.length_squared()<.99 || side.length_squared()<.99) return result;
+        Vector3 end=before[join];
+        double total=0.,neck=0.;for (int i=0;i<join;++i) {total+=lengths[i];if (i<3) neck+=lengths[i];}
+        double distance=goal.distance_to(end),slack=total-distance;
+        if (slack<.0001 || dot(up,goal)<floor-.00001 || dot(up,end)<floor-.00001) return result;
+        const double au=dot(axis,goal),bu=dot(axis,end),az=dot(side,goal),bz=dot(side,end),ah=dot(up,goal),bh=dot(up,end);
+        const double straight=std::clamp(1.-slack/.5,0.,1.);
+        // Choose the vertical control height from the actual minimum of the
+        // cubic, so the broad loose line touches the supplied ground datum.
+        auto minimum_height=[&](double control) {
+            double value=std::min(ah,bh),a=bh-ah,b=2.*(ah-control),c=control-ah;
+            auto sample=[&](double t) {if (t>0. && t<1.) {double s=1.-t;value=std::min(value,ah*s*s*s+bh*t*t*t+3.*control*t*s);}};
+            if (std::abs(a)<1e-14) {if (std::abs(b)>1e-14) sample(-c/b);}
+            else {double discriminant=b*b-4.*a*c;if (discriminant>=0.) {double root=std::sqrt(discriminant);sample((-b-root)/(2.*a));sample((-b+root)/(2.*a));}}
+            return value;
+        };
+        double low_height=floor-std::max(total,1.),high_height=std::min(ah,bh);
+        for (int i=0;i<32;++i) {double mid=(low_height+high_height)*.5;if (minimum_height(mid)<floor) low_height=mid;else high_height=mid;}
+        const double height=high_height*(1.-straight)+(ah+bh)*.5*straight;
+        double looseness=1.;
+        auto from_axes=[&](double u,double z,double h) {return WidePoint(axis.x*u+side.x*z+up.x*h,axis.y*u+side.y*z+up.y*h,axis.z*u+side.z*z+up.z*h);};
+        auto norm=[](const WidePoint &p) {return std::sqrt(p.x*p.x+p.y*p.y+p.z*p.z);};
+        auto build=[&](double depth,Points *output) {
+            double width=std::sqrt(std::max(.1,depth-std::min(au,bu))*.15/.338);
+            width=std::min(width,.8*std::sqrt(slack*std::max(distance,1.)));
+            const double mean_z=(az+bz)*.5,mean_h=(ah+bh)*.5;
+            WidePoint c1=from_axes(depth,mean_z+looseness*((az+2.*width)*(1.-straight)+mean_z*straight-mean_z),mean_h+looseness*(height-mean_h));
+            WidePoint c2=from_axes(depth,mean_z+looseness*((bz+.1*width)*(1.-straight)+mean_z*straight-mean_z),mean_h+looseness*(height-mean_h));
+            WidePoint first(goal),last(end);WidePoint tangent=c1-first;double magnitude=norm(tangent);
+            if (magnitude<1e-8) return -1.;
+            Vector3 direction(real_t(tangent.x/magnitude),real_t(tangent.y/magnitude),real_t(tangent.z/magnitude));
+            WidePoint start(goal+direction*neck);
+            auto evaluate=[&](double t) {double s=1.-t;return WidePoint(start.x*s*s*s+3.*c1.x*s*s*t+3.*c2.x*s*t*t+last.x*t*t*t,start.y*s*s*s+3.*c1.y*s*s*t+3.*c2.y*s*t*t+last.y*t*t*t,start.z*s*s*s+3.*c1.z*s*s*t+3.*c2.z*s*t*t+last.z*t*t*t);};
+            Points candidate;if (output) {candidate=unpack(before);candidate[0]=goal;double at=0.;for (int i=1;i<=3;++i) {at+=lengths[i-1];candidate[i]=goal+direction*at;}}
+            WidePoint previous=start;double parameter=0.;
+            for (int ring=4;ring<join;++ring) {
+                const double length=lengths[ring-1];double low=parameter,high=parameter;
+                bool found=false;
+                while (high<1.) {high=std::min(1.,high+1./256.);if (norm(evaluate(high)-previous)>=length) {found=true;break;}low=high;}
+                if (!found) return -1.;
+                for (int pass=0;pass<20;++pass) {double middle=(low+high)*.5;if (norm(evaluate(middle)-previous)<length) low=middle;else high=middle;}
+                parameter=(low+high)*.5;previous=evaluate(parameter);
+                if (output) candidate[ring]=previous.narrow();
+            }
+            double residual=norm(last-previous)-lengths[join-1];
+            if (output) *output=std::move(candidate);
+            return residual;
+        };
+        double low=(au+bu)*.5,high=std::max(au,bu)+total;
+        // Spend only the material slack that exists. A wide ground-level
+        // loop must rise and narrow continuously as the endpoints separate.
+        if (build(low,nullptr)>0.) {
+            double lower=0.,upper=1.;
+            for (int pass=0;pass<20;++pass) {looseness=(lower+upper)*.5;if (build(low,nullptr)>0.) upper=looseness;else lower=looseness;}
+            looseness=lower*.99;
+        }
+        if (build(low,nullptr)>0. || build(high,nullptr)<0.) return result;
+        for (int pass=0;pass<26;++pass) {double middle=(low+high)*.5;if (build(middle,nullptr)<0.) low=middle;else high=middle;}
+        Points candidate;double residual=build((low+high)*.5,&candidate);
+        if (candidate.size()!=size_t(before.size()) || std::abs(residual)>.00001) return result;
+        result["points"]=pack(candidate);result["movable_length_m"]=total;result["fixed_length_m"]=arc_length_after(join);return result;
+    }
+    double arc_length_after(int ring) const {double total=0.;for (int i=ring;i<int(lengths.size());++i) total+=lengths[i];return total;}
+    Dictionary round_self_constraints(const PackedVector3Array &before,const PackedVector3Array &after,double radius,const Dictionary &pins) {
+        Dictionary result; Array planes;
+        result["valid"]=false;result["clear"]=false;result["planes"]=planes;
+        if (before.size()!=int(inverse.size()) || after.size()!=before.size() || !std::isfinite(radius) || radius<=0.) return result;
+        const int count=before.size();
+        std::vector<double> arc(count,0.);
+        for (int i=0;i<count;++i) {
+            if (!before[i].is_finite() || !after[i].is_finite()) return result;
+            if (i) arc[i]=arc[i-1]+lengths[i-1];
+        }
+        auto closest=[](const Vector3 &a,const Vector3 &b,const Vector3 &c,const Vector3 &d,double &s,double &t) {
+            Vector3 u=b-a,v=d-c,w=a-c;
+            double aa=dot(u,u),bb=dot(u,v),cc=dot(v,v),dd=dot(u,w),ee=dot(v,w);
+            if (aa<1e-16 || cc<1e-16) {s=0.;t=0.;return a-c;}
+            double denominator=aa*cc-bb*bb;
+            s=denominator>1e-20?std::clamp((bb*ee-cc*dd)/denominator,0.,1.):0.;
+            t=(bb*s+ee)/cc;
+            if (t<0.) {t=0.;s=std::clamp(-dd/aa,0.,1.);}
+            else if (t>1.) {t=1.;s=std::clamp((bb-dd)/aa,0.,1.);}
+            return (a+u*s)-(c+v*t);
+        };
+        const double diameter=radius*2.;
+        int pairs=0;
+        for (int i=0;i<count-1;++i) for (int j=i+2;j<count-1;++j) {
+            // Adjacent material is governed by the caller's conservative bend
+            // bounds. This query is only for a uniform, round outer envelope.
+            if (arc[j]-arc[i+1]<diameter*2.) continue;
+            bool separated=false;
+            for (int axis=0;axis<3;++axis) {
+                double low_a=std::min({double(before[i][axis]),double(before[i+1][axis]),double(after[i][axis]),double(after[i+1][axis])});
+                double high_a=std::max({double(before[i][axis]),double(before[i+1][axis]),double(after[i][axis]),double(after[i+1][axis])});
+                double low_b=std::min({double(before[j][axis]),double(before[j+1][axis]),double(after[j][axis]),double(after[j+1][axis])});
+                double high_b=std::max({double(before[j][axis]),double(before[j+1][axis]),double(after[j][axis]),double(after[j+1][axis])});
+                if (low_a-high_b>diameter+.000002 || low_b-high_a>diameter+.000002) {separated=true;break;}
+            }
+            if (separated) continue;
+            Vector3 velocity[4]={after[i]-before[i],after[i+1]-before[i+1],after[j]-before[j],after[j+1]-before[j+1]};
+            // Remove common translation before bounding relative speed.
+            double speed=(velocity[1]-velocity[0]).length()+std::max((velocity[2]-velocity[0]).length(),(velocity[3]-velocity[0]).length());
+            double time=0.,s=0.,t=0.;Vector3 delta;bool hit=false;
+            for (int iteration=0;iteration<32;++iteration) {
+                delta=closest(before[i]+velocity[0]*time,before[i+1]+velocity[1]*time,before[j]+velocity[2]*time,before[j+1]+velocity[3]*time,s,t);
+                double distance=delta.length();
+                if (time==0. && distance<diameter-.00001) {result["error"]="initial round hose self penetration";result["first"]=i;result["second"]=j;result["distance_m"]=distance;return result;}
+                if (distance<=diameter+.000002) {hit=true;break;}
+                if (speed<1e-12 || time+(distance-diameter)/speed>1.) break;
+                double advance=.9*(distance-diameter)/speed;
+                if (advance<1e-7 || iteration==31) {hit=true;break;}
+                time+=advance;
+            }
+            if (!hit) continue;
+            if (delta.length_squared()<1e-16) {result["error"]="undefined round self contact normal";return result;}
+            Vector3 normal=delta.normalized();
+            const int rings[4]={i,i+1,j,j+1};
+            const double weights[4]={1.-s,s,-(1.-t),-t};
+            double mobility=0.;
+            for (int k=0;k<4;++k) if (!pins.has(rings[k])) mobility+=weights[k]*weights[k]*inverse[rings[k]];
+            if (mobility<1e-16) {result["error"]="fixed round self contact";return result;}
+            Vector3 final_delta=(after[i]*(1.-s)+after[i+1]*s)-(after[j]*(1.-t)+after[j+1]*t);
+            double correction=std::max(0.,diameter+.0002-dot(normal,final_delta))/mobility;
+            for (int k=0;k<4;++k) {
+                int ring=rings[k];
+                if (pins.has(ring) || inverse[ring]==0. || std::abs(weights[k])<1e-10) continue;
+                Vector3 axis=weights[k]>0.?normal:-normal;
+                double offset=dot(axis,after[ring])+std::abs(weights[k])*inverse[ring]*correction;
+                Dictionary plane;plane["ring"]=ring;plane["normal"]=axis;plane["offset"]=offset;planes.append(plane);
+            }
+            if (++pairs==8) {result["valid"]=true;result["planes"]=planes;return result;}
+        }
+        result["valid"]=true;result["clear"]=planes.is_empty();result["planes"]=planes;
+        return result;
+    }
     bool pin(const PackedInt32Array &indices) {
         if (inverse.empty()) return false;
         if (indices.is_empty()) return true;

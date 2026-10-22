@@ -62,6 +62,7 @@ var _bounds_stamp:=Transform3D.IDENTITY
 var _bounds_ready:=false
 var _world_box:=BoxShape3D.new()
 var receiver_queries:=0
+var hose_grip_provider: Callable
 var _submitted_poses: Dictionary={}
 func configure(owner_actor: Node3D) -> bool:
 	actor=owner_actor;stock=preload("res://scripts/props/fire_nozzle_joint_stock.gd").new()
@@ -160,6 +161,7 @@ func _grip(kind: String,part: Node3D) -> Dictionary:
 		"read":func():return body.position,"write":func(value: Vector3):
 			if actor._hand=="nozzle_body":_carry(value)}
 func body_grip() -> Dictionary:
+	if not loose and hose_grip_provider.is_valid():return hose_grip_provider.call()
 	# A still-threaded body is constrained by its receiving thread. The nut is
 	# the operable turning part; clearing it exposes genuine loose-body carrying.
 	if not loose:return {}

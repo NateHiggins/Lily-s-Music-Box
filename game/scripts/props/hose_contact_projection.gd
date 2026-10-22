@@ -51,6 +51,12 @@ func follow(seed: PackedVector3Array,anchor: Vector3,planes: Dictionary,pins: Di
 	if _native==null or not _native.has_method(method):
 		error="native follower unavailable";return PackedVector3Array()
 	return _native_result(_native.call(method,seed,anchor,planes,pins))
+func round_self_constraints(before: PackedVector3Array,after: PackedVector3Array,radius: float,pins: Dictionary={}) -> Dictionary:
+	if _native==null or not _native.has_method("round_self_constraints"):return {"valid":false,"clear":false,"planes":[],"error":"native round self-contact unavailable"}
+	return _native.call("round_self_constraints",before,after,radius,pins)
+func round_guide_seed(before: PackedVector3Array,goal: Vector3,join: int,axis: Vector3,side: Vector3,floor: float) -> Dictionary:
+	if _native==null or not _native.has_method("round_guide_seed"):return {"points":PackedVector3Array()}
+	return _native.call("round_guide_seed",before,goal,join,axis,side,floor)
 func _dot(a: Vector3,b: Vector3) -> float:
 	# Keep matrix accumulation inFloat64; imported positions remainFloat32.
 	return float(a.x)*float(b.x)+float(a.y)*float(b.y)+float(a.z)*float(b.z)

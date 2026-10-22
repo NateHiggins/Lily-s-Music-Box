@@ -19,6 +19,15 @@ var _warm_before:=PackedVector3Array()
 var _warm_seed:=PackedVector3Array()
 var _warm_world:=Transform3D.IDENTITY
 var keep_necks:=true
+var lock_tip_direction:=true
+var round_self_radius_m:=0.
+var seed_factory: Callable
+var substep_m:=SUBSTEP_M
+var seeded_candidates:=0
+var seeded_accepts:=0
+var last_seed_bend_error:=0.
+var last_seed_material_valid:=false
+var last_seed_points:=PackedVector3Array()
 var _neck_offsets:=PackedVector3Array()
 var _prepared_before:=PackedVector3Array()
 var _prepared_points:=PackedVector3Array()
@@ -27,6 +36,7 @@ var _prepared_frame: int=-1
 func cancel_endpoint() -> void:
 	_prepared_before=PackedVector3Array();_prepared_points=PackedVector3Array();_prepared_frame=-1
 func has_prepared_endpoint() -> bool:return not _prepared_points.is_empty()
+func prepared_endpoint_points() -> PackedVector3Array:return _prepared_points.duplicate()
 
 func _drop_warm() -> void:
 	_warm_before=PackedVector3Array();_warm_seed=PackedVector3Array();pending=false
@@ -34,9 +44,10 @@ func cancel_motion() -> void:
 	_drop_warm();cancel_endpoint()
 func resume_prepare() -> bool:
 	return pending and prepare_endpoint(_requested_goal)
-func configure(owner_rig: RefCounted,owner_contact: RefCounted) -> bool:
+func configure(owner_rig: RefCounted,owner_contact: RefCounted,minimum_radii:=PackedFloat64Array()) -> bool:
 	if rig!=null or owner_rig==null or not owner_rig.configured or owner_contact==null or not owner_contact.ready or owner_contact.rig!=owner_rig:return false
-	var radii: PackedFloat64Array=preload("res://scripts/props/native_hose_bend_limits.gd").for_contact(owner_contact)
+	if not is_finite(substep_m) or substep_m<=0. or substep_m>MAX_MOVE_M:return false
+	var radii: PackedFloat64Array=preload("res://scripts/props/native_hose_bend_limits.gd").for_contact(owner_contact) if minimum_radii.is_empty() else minimum_radii
 	if radii.size()!=owner_rig.rest.size():return false
 	if not kernel.configure(owner_rig.strand.lengths,owner_rig.rest,radii) or kernel.coupled.backend_name!="native":return false
 	rig=owner_rig;contact=owner_contact
@@ -50,17 +61,41 @@ func _merge(planes: Dictionary,plane: Dictionary) -> void:
 			old.offset=maxf(old.offset,plane.offset);return
 	planes[ring].append({"normal":plane.normal,"offset":plane.offset})
 func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
+	var initial: PackedVector3Array=before
+	var has_seed:=false
+	if seed_factory.is_valid():
+		var seeded: Variant=seed_factory.call(before,goal)
+		if seeded is PackedVector3Array and seeded.size()==before.size():initial=seeded;has_seed=true
 	var pins: Dictionary={0:goal}
 	if keep_necks:
-		pins[1]=goal+_neck_offsets[0]
-		pins[2]=goal+_neck_offsets[1]
+		if lock_tip_direction:
+			pins[1]=goal+_neck_offsets[0];pins[2]=goal+_neck_offsets[1]
+		else:
+			var direction: Vector3=(initial[3]-goal).normalized()
+			if direction.length_squared()<.99:error="collapsed rigid hose mouth";return PackedVector3Array()
+			pins[1]=initial[1] if has_seed else goal+direction*_neck_offsets[0].length()
+			pins[2]=initial[2] if has_seed else goal+direction*_neck_offsets[1].length()
 		pins[before.size()-2]=before[before.size()-2]
 		pins[before.size()-3]=before[before.size()-3]
 	var planes: Dictionary={}
+	var own_planes: Array=[]
 	for iteration in MAX_RESPONSES:
 		var continuation: bool=_warm_before==before and _warm_world==rig.model.global_transform and _warm_seed.size()==before.size()
-		var seed: PackedVector3Array=_warm_seed if continuation else before
-		var proposed: PackedVector3Array=kernel.follow(seed,rig.strand.anchor,planes,pins,continuation)
+		var seed: PackedVector3Array=_warm_seed if continuation else initial
+		var solve_planes: Dictionary=planes if own_planes.is_empty() else planes.duplicate(true)
+		for plane: Dictionary in own_planes:_merge(solve_planes,plane)
+		var proposed:=PackedVector3Array()
+		if has_seed and not continuation:
+			seeded_candidates+=1
+			last_seed_points=seed
+			last_seed_material_valid=rig.strand._valid_positions(seed)
+			last_seed_bend_error=kernel._bend_error(seed)
+			var valid: bool=last_seed_material_valid and last_seed_bend_error<=kernel.bend_error_m
+			for ring: int in pins:valid=valid and seed[ring]==pins[ring]
+			for ring: int in solve_planes:
+				for plane: Dictionary in solve_planes[ring]:valid=valid and plane.normal.dot(seed[ring])>=plane.offset-.000001
+			if valid:proposed=seed;seeded_accepts+=1
+		if proposed.is_empty():proposed=kernel.follow(seed,rig.strand.anchor,solve_planes,pins,continuation)
 		if proposed.is_empty():
 			error=kernel.error
 			if error.contains("ceiling") and kernel.coupled.last_iterate.size()==before.size():
@@ -73,6 +108,14 @@ func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 		if not result.valid or result.truncated:error="invalid held native response: "+str(result.error);return PackedVector3Array()
 		if result.planes.is_empty():
 			if not bool(result.get("sweep_clear",false)) and contact.veto(before,proposed):error="held native sweep blocked";return PackedVector3Array()
+			if round_self_radius_m>0.:
+				var own: Dictionary=kernel.coupled.round_self_constraints(before,proposed,round_self_radius_m,pins)
+				if not own.valid:error=str(own.get("error","invalid round self contact"));return PackedVector3Array()
+				if not own.clear:
+					# Self-contact normals depend on BOTH moving segments. Keep
+					# world supports, but replace these local linearizations.
+					own_planes=own.planes
+					continue
 			return proposed
 		for plane: Dictionary in result.planes:
 			if pins.has(plane.ring) and plane.normal.dot(pins[plane.ring])<plane.offset-.000001:
@@ -97,7 +140,7 @@ func prepare_endpoint(goal: Vector3) -> bool:
 	# committing half a solve or buying progress by discarding collision.
 	for fraction: float in [1.,.5]:
 		var end: Vector3=before[0].lerp(goal,fraction)
-		var steps: int=maxi(1,ceili(before[0].distance_to(end)/SUBSTEP_M))
+		var steps: int=maxi(1,ceili(before[0].distance_to(end)/substep_m))
 		var working: PackedVector3Array=before
 		var partial:=false
 		for step in range(1,steps+1):
@@ -128,6 +171,10 @@ func commit_endpoint() -> bool:
 	responses+=1
 	if not response.valid or response.truncated or not response.planes.is_empty() or (not bool(response.get("sweep_clear",false)) and contact.veto(_prepared_before,_prepared_points)):
 		cancel_motion();blocked=true;error="prepared held endpoint became obstructed";last_ms+=(Time.get_ticks_usec()-started)/1000.;return false
+	if round_self_radius_m>0.:
+		var own: Dictionary=kernel.coupled.round_self_constraints(_prepared_before,_prepared_points,round_self_radius_m)
+		if not own.valid or not own.clear:
+			cancel_motion();blocked=true;error="prepared round hose self contact";last_ms+=(Time.get_ticks_usec()-started)/1000.;return false
 	var points: PackedVector3Array=_prepared_points
 	cancel_endpoint()
 	if not rig.apply_points(points):error="held skin rejected pose";blocked=true;return false
