@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "case_id": "cal_memory_radio",
+    "speaker_default": "CAL DWYER",
+    "voice_prefix": "cal_c05_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Cal notices frequency, antenna, dated tape, dead air and repeatable signal. He tunes around the central noun; one plain sentence follows when the carrier drops. Comic engine: correcting the acoustics of a haunting whose content he refuses to hear. Never declares interference meaningless. Case: a radio receiving expired moments; flags hearing_loss_named (marks the Delayed Voice Reel, per Bible VI.4 proposal) and record_the_present. Cal is the WORS transmitter and does not know it as a fact a stranger could hear. He never plays the reel. The reel is never played."
+  },
+  "entries": {
+    "first_stable": "cd_open",
+    "real_talk": "cd_rt_open",
+    "integration": "cd_int_open",
+    "resolved": "cd_res_open",
+    "fallback": "cd_fb_open"
+  },
+  "nodes": {
+    "cd_open": {
+      "line": "Shut the door, you're letting the room in. Sit where the chair is. No, that one, the one worn toward the set. Listen. That's last Tuesday. Clear as glass. I didn't record it. The set is receiving it.",
+      "choices": [
+        {"label": "Receiving from where?", "goto": "cd_where"},
+        {"label": "You know it's Tuesday because you logged Tuesday. [the tape catalogue]", "goto": "cd_log", "evidence": "a chair worn toward the radio"},
+        {"label": "It's a fault in the set. Let me open it.", "goto": "cd_open_set", "trust": -1}
+      ],
+      "silence_goto": "cd_sil1"
+    },
+    "cd_sil1": {
+      "line": "You're listening. Good. Most people talk over a signal to prove they aren't afraid of it. It's a quarter past, Tuesday, the kettle in 5C and a woman saying 'not now.' That's all it is. It's all it ever is. It's just that Tuesday was last week.",
+      "choices": [
+        {"label": "Receiving from where?", "goto": "cd_where"},
+        {"label": "'A woman saying not now.' Whose kettle?", "goto": "cd_whose", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "cd_where"
+    },
+    "cd_whose": {
+      "line": "5C. Above. The painter. I know her kettle the way you know a neighbour's cough. I am not listening to her, I am listening to the carrier she happens to be on. There's a difference and I'd thank you to hear it.",
+      "choices": [
+        {"label": "Receiving from where?", "goto": "cd_where"}
+      ],
+      "silence_goto": "cd_where"
+    },
+    "cd_open_set": {
+      "line": "You will not. I have had that chassis open more nights than you've had this job. There is nothing in it that was not in it in June. Whatever is wrong is not in the set. It is in what the set is tuned to, and you cannot unscrew that.",
+      "choices": [
+        {"label": "Then what is it tuned to?", "goto": "cd_where"}
+      ],
+      "silence_goto": "cd_where"
+    },
+    "cd_log": {
+      "line": "Dated. Every tape. Date, hour, frequency, weather. A man who doesn't date his tapes has a drawer of noise. ... You're right, I didn't say that. You read the spine. That's how I'd have done it.",
+      "choices": [
+        {"label": "Receiving from where?", "goto": "cd_where"}
+      ],
+      "silence_goto": "cd_where"
+    },
+    "cd_where": {
+      "line": "Sixteen-ten. Where it always was. The house frequency. Only there's no station on sixteen-ten and there hasn't been for, well. And the set brings in moments anyway. Ones that have been. Ones from this building. I've logged nine. I can give you the nine.",
+      "choices": [
+        {"label": "Give me the nine.", "goto": "cd_nine"},
+        {"label": "There was a station. In the laundry.", "goto": "cd_wors", "requires": ["station_went_quiet"], "trust": 1},
+        {"label": "You said 'the house frequency' like it's yours.", "goto": "cd_yours", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "cd_nine"
+    },
+    "cd_yours": {
+      "line": "Did I. It's the building's. Every set in the place drifts to it if you leave the dial alone long enough; I've measured. Mine just gets there first because I keep it there. That's not ownership. That's maintenance. You of all people.",
+      "choices": [
+        {"label": "Give me the nine.", "goto": "cd_nine"}
+      ],
+      "silence_goto": "cd_nine"
+    },
+    "cd_wors": {
+      "line": "... Who said laundry. Omar said laundry. He would. There was a carrier out of the basement for a long time and then one night there wasn't, and I have the dead air on tape, and that is the only recording in this flat I have never once played back. Give me the nine.",
+      "flag": "cal_laundry_station",
+      "choices": [
+        {"label": "Give me the nine.", "goto": "cd_nine"}
+      ],
+      "silence_goto": "cd_nine"
+    },
+    "cd_nine": {
+      "line": "A door in 2B, Thursday week. The lift bell, Monday, twice. My own kettle, which is the one that worries me, because I was out. A man on the stair saying 'leave it.' The painter. The painter. The painter. A phone being set down very gently. And one I've logged as unidentified, four seconds, nothing on it.",
+      "choices": [
+        {"label": "Four seconds of nothing. You logged it.", "goto": "cd_four", "trust": 1},
+        {"label": "Three of nine are the painter.", "goto": "cd_painter", "infer": true, "trust": 1},
+        {"label": "The set's replaying your own tapes. Degauss them.", "goto": "cd_degauss", "trust": -1}
+      ],
+      "silence_goto": "cd_nine_sil"
+    },
+    "cd_nine_sil": {
+      "line": "You didn't flinch at the nothing. Everyone flinches at the nothing. They want it to be a hiss or a voice. It is neither. It is a gap with a level on it, and I logged the level.",
+      "choices": [
+        {"label": "Four seconds. Where's it from?", "goto": "cd_four", "trust": 1}
+      ],
+      "silence_goto": "cd_four"
+    },
+    "cd_degauss": {
+      "line": "I have not degaussed a tape in my life and I will not start on a stranger's say-so. Tapes end. That is the one thing I hold against them. I would sooner keep the noise.",
+      "choices": [
+        {"label": "Then tell me about the four seconds.", "goto": "cd_four"}
+      ],
+      "silence_goto": "cd_four"
+    },
+    "cd_painter": {
+      "line": "Three. Yes. I noticed the count too. The set likes her. Or the set likes what's directly above a loop aerial, which is her floor, which is physics, which is what I'm going with until somebody shows me a reason not to.",
+      "choices": [
+        {"label": "Tell me about the four seconds.", "goto": "cd_four"}
+      ],
+      "silence_goto": "cd_four"
+    },
+    "cd_four": {
+      "role": "strained",
+      "line": "Not from this building. Older. A room with a hard floor and a lot of people breathing. I know what a courtroom sounds like on tape; I pulled feeds off the municipal line for years before anyone told me not to. Four seconds, a man was speaking, the level says so, and there is nothing on it. The set keeps bringing it in. I keep logging it. We've an arrangement.",
+      "flag": "cal_courtroom_gap",
+      "choices": [
+        {"label": "Someone downstairs lost four seconds in a courtroom.", "goto": "cd_mina", "requires": ["mina_four_seconds"], "trust": 1, "flag": "cal_knows_mina_gap"},
+        {"label": "You've got the original. On the high shelf.", "goto": "cd_shelf", "infer": true, "trust": 1, "evidence": "the high shelf, dusted, never played"},
+        {"label": "Someone else found that gap in a record, once.", "goto": "cd_peter", "requires": ["peter_gap_found"], "trust": 1}
+      ],
+      "silence_goto": "cd_four_sil"
+    },
+    "cd_four_sil": {
+      "line": "No. Don't ask me to play it. You weren't going to. I could see you weren't going to. Thank you.",
+      "choices": [
+        {"label": "You've got the original. On the high shelf.", "goto": "cd_shelf", "infer": true, "trust": 1, "evidence": "the high shelf, dusted, never played"}
+      ],
+      "silence_goto": "cd_shelf"
+    },
+    "cd_peter": {
+      "line": "Found it and did what? ... Nothing, I'd wager. There's nothing to do with a gap except mind it. I mind mine. He minds his. I'd not want to meet him; we'd have nothing to say and all night to say it.",
+      "choices": [
+        {"label": "You've got the original. On the high shelf.", "goto": "cd_shelf", "infer": true, "trust": 1, "evidence": "the high shelf, dusted, never played"}
+      ],
+      "silence_goto": "cd_shelf"
+    },
+    "cd_mina": {
+      "line": "... Don't tell me which floor. I mean it. If I knew which floor I would know whose four seconds I've been dusting, and then the shelf isn't a shelf anymore, it's a thing I owe somebody, and I am too old to start owing.",
+      "choices": [
+        {"label": "You've got the original. On the high shelf.", "goto": "cd_shelf", "infer": true, "trust": 1, "evidence": "the high shelf, dusted, never played"}
+      ],
+      "silence_goto": "cd_shelf"
+    },
+    "cd_shelf": {
+      "line": "Yes. The Delayed Voice Reel, I called it, when I was younger and liked naming things. Full courthouse feed, one afternoon, the whole proceeding including the part that is not on anyone's record. Dusted weekly. Never threaded. If I play it the four seconds will have something on them, or they won't, and either way they will be over.",
+      "flag": "cal_reel_named",
+      "choices": [
+        {"label": "Over. That's the thing you can't allow.", "goto": "cd_over", "trust": 1},
+        {"label": "You owe it to whoever lost those seconds.", "goto": "cd_owe", "trust": -1},
+        {"label": "Then it stays on the shelf.", "goto": "cd_stays", "flag": "reel_left_alone", "trust": 1}
+      ],
+      "silence_goto": "cd_over",
+      "silence_flag": "reel_left_alone",
+      "silence_trust": 2
+    },
+    "cd_owe": {
+      "line": "I owe nobody a thing I didn't take from them. It was broadcast; I received it. And if I owe them anything it's the not-knowing, which is the only thing about it that's still theirs. You want me to spend that. No.",
+      "choices": [
+        {"label": "Then it stays on the shelf.", "goto": "cd_stays", "flag": "reel_left_alone", "trust": 1}
+      ],
+      "silence_goto": "cd_stays"
+    },
+    "cd_over": {
+      "line": "There it is. Say it plain, you've earned it. Nothing in this flat is allowed to run out. I stop every tape a foot before the leader. I kept a moment tuned so fine it can't finish. And the set has started doing it for me, bringing in Tuesdays, because I taught it that finishing is a fault.",
+      "flag": "hearing_loss_named",
+      "choices": [
+        {"label": "Record something that's happening now. Let it end.", "goto": "cd_now", "flag": "record_the_present", "trust": 1},
+        {"label": "Then it stays on the shelf.", "goto": "cd_stays", "flag": "reel_left_alone", "trust": 1}
+      ],
+      "silence_goto": "cd_now"
+    },
+    "cd_stays": {
+      "line": "It stays. We agree on that, you and I and the dust. Now. If I'm not to play the old thing, what am I to do with a set that only brings in the old things?",
+      "choices": [
+        {"label": "Record something that's happening now. Let it end.", "goto": "cd_now", "flag": "record_the_present", "trust": 1}
+      ],
+      "silence_goto": "cd_now"
+    },
+    "cd_now": {
+      "role": "recognition",
+      "line": "Now. ... All right. Fresh tape. Date, hour, frequency, weather: tenth of November, gone midnight, sixteen-ten, clear and cold. Two people in a room and one of them is talking too much. And when it reaches the end I shall let it reach the end. I'll need you to stay. I don't trust myself with the leader.",
+      "choices": [
+        {"label": "[Stay until the tape runs out.]", "goto": "cd_end"}
+      ],
+      "silence_goto": "cd_end"
+    },
+    "cd_end": {
+      "line": "... There. It's finished. The set's gone quiet and it's just the room. I'd forgotten the room had a sound. It's a poor one. I'll take it.",
+      "flag": "cal_tape_ended"
+    },
+    "cd_rt_open": {
+      "line": "Sit. The set brought in your boots on the stair this morning, and it was this morning, and I checked. I'm counting that as progress and the set can like it or not.",
+      "choices": [
+        {"label": "Who was the station, Cal? [the suitcase of valves]", "goto": "cd_transmitter", "requires": ["cal_laundry_station"], "infer": true, "trust": 1},
+        {"label": "Omar comes up Thursdays.", "goto": "cd_omar", "requires": ["omar_dead_air"], "trust": 1},
+        {"label": "Juno trades tapes with you.", "goto": "cd_juno", "requires": ["juno_archive_open"], "trust": 1}
+      ],
+      "silence_goto": "cd_rt_sil"
+    },
+    "cd_rt_sil": {
+      "line": "Nothing to say. That's a frequency I can work with.",
+      "choices": [
+        {"label": "Who was the station, Cal?", "goto": "cd_transmitter", "requires": ["cal_laundry_station"], "infer": true, "trust": 1}
+      ],
+      "silence_goto": "cd_res_open"
+    },
+    "cd_transmitter": {
+      "line": "You want me to say it. There was never a transmitter found in the laundry because there was never a transmitter in the laundry. There was a man with a suitcase of valves who went down to do his washing and the building did the rest. And then one night he stopped going down. That's not an admission. That's a maintenance history.",
+      "flag": "station_was_cal",
+      "choices": [
+        {"label": "Why did you stop going down?", "goto": "cd_stopped"},
+        {"label": "[Let him have said it.]", "goto": "cd_said", "trust": 1}
+      ],
+      "silence_goto": "cd_said"
+    },
+    "cd_said": {
+      "line": "Thank you for not writing that down. Somebody would have made a plaque.",
+      "flag": "cal_station_kept"
+    },
+    "cd_stopped": {
+      "line": "Because the washing was done. Because a man can only carry a signal so long before he wants to hear one. Because the night the lights went, I was the only thing in this building still broadcasting, and nobody could receive it, and I heard what that sounds like. Pick one. They're all on tape.",
+      "flag": "cal_station_kept"
+    },
+    "cd_omar": {
+      "line": "Thursdays. We re-cap a chassis and don't talk about the night the lights went. He thinks the dead air is his fault. I think it's mine. It's a good arrangement; we take turns being wrong in silence.",
+      "flag": "cal_omar_blackout"
+    },
+    "cd_juno": {
+      "line": "The girl from two. She records me recording her and neither of us says. She has something of mine in that archive and I have something of hers, and I expect that's what people our ages call a friendship now.",
+      "flag": "cal_juno_trade"
+    },
+    "cd_int_open": {
+      "line": "The set brought in a Tuesday. I turned it off before the kettle. First time.",
+      "choices": [
+        {"label": "[Leave the set off.]", "goto": "cd_int_beat"}
+      ],
+      "silence_goto": "cd_int_beat"
+    },
+    "cd_int_beat": {
+      "line": "Room tone.",
+      "action": "quiet_beat"
+    },
+    "cd_fb_open": {
+      "line": "It's bringing in last week again. I've not got the heart to turn it down.",
+      "choices": [
+        {"label": "I'll come back with the present."}
+      ],
+      "silence_goto": "cd_fb_sil"
+    },
+    "cd_fb_sil": {
+      "line": "Shut the door on your way. Gently. The set hears doors."
+    },
+    "cd_res_open": {
+      "line": "Weather on sixteen-ten. Rain by morning, it says. I believe it. I've nothing on tape that contradicts it."
+    }
+  }
+}

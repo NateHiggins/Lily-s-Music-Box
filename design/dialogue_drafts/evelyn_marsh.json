@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "evelyn_marsh",
+    "speaker_default": "EVELYN MARSH",
+    "voice_prefix": "evelyn_t01_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case, no resolution flags (Bible IV.1). Evelyn notices the lesson plan, the corrected list, the timetable, a child's mistake remembered decades later. Lucid demonstrations, leading questions, correction delivered as care; anger becomes impeccable grammar. Comic engine: praise so specifically conditional it reveals the trap. Never impressed by disorder. One name in her register is upstairs in 4A; she corrects Peter at the mail bank most evenings and neither names it."
+  },
+  "entries": {
+    "first_stable": "em_open",
+    "real_talk": "em_rt_open",
+    "integration": "em_int_open",
+    "resolved": "em_res_open",
+    "fallback": "em_fb_open"
+  },
+  "nodes": {
+    "em_open": {
+      "line": "You may come in. Wipe your feet; I shan't say it again, which is a thing I used to say and then say again. The papers on the table have graded themselves overnight. Red pencil. Not my hand. Very nearly my hand. I would like you to look at the marking and tell me what is wrong with it.",
+      "choices": [
+        {"label": "It's too harsh.", "goto": "em_harsh", "trust": -1},
+        {"label": "It's accurate. That's what's wrong with it.", "goto": "em_accurate", "trust": 1},
+        {"label": "The spare cup. Never used. [the guest cup]", "goto": "em_cup", "evidence": "a spare guest cup, never once used"}
+      ],
+      "silence_goto": "em_sil1"
+    },
+    "em_sil1": {
+      "line": "You are reading before you answer. Good. I had a boy once who read before he answered and I corrected him for slowness, and he took it to heart, and I have never forgiven myself for being obeyed.",
+      "choices": [
+        {"label": "It's accurate. That's what's wrong with it.", "goto": "em_accurate", "trust": 1}
+      ],
+      "silence_goto": "em_accurate"
+    },
+    "em_harsh": {
+      "line": "It is not harsh. Every mark is correct. 'Harsh' is what people say when a correction is accurate and they wish it were not. Try again, and this time read the page.",
+      "choices": [
+        {"label": "It's accurate. That's what's wrong with it.", "goto": "em_accurate", "trust": 1}
+      ],
+      "silence_goto": "em_accurate"
+    },
+    "em_cup": {
+      "line": "For a guest. I set two every morning in case. Thirty years of in case. It has never had tea in it and it is the cleanest thing I own. ... You are not to read anything into a cup. It is a cup. I have corrected children for less.",
+      "choices": [
+        {"label": "You set it for someone in particular.", "goto": "em_particular", "infer": true, "trust": 1},
+        {"label": "It's accurate. That's what's wrong with it.", "goto": "em_accurate", "trust": 1}
+      ],
+      "silence_goto": "em_accurate"
+    },
+    "em_particular": {
+      "line": "I set it for whoever comes. Nobody comes; that is a fact about the building and not about the cup. ... There is a boy. He is not a boy. He lives upstairs and I meet him at the letter boxes and I correct one small thing and he thanks me, and neither of us has ever come up the other's stair. Sit down. I did not mean to say that.",
+      "flag": "evelyn_register_name",
+      "choices": [
+        {"label": "It's accurate. That's what's wrong with it.", "goto": "em_accurate", "trust": 1}
+      ],
+      "silence_goto": "em_accurate"
+    },
+    "em_accurate": {
+      "line": "Yes. Every mark is right and every page is covered in them, and a page that is all correction is not a corrected page, it is a red page. I know that now. I taught forty years before I knew it. The pencil on the table does not know it yet; it is only doing what I did.",
+      "choices": [
+        {"label": "Then it's not grading the papers. It's grading you.", "goto": "em_grading_you", "infer": true, "trust": 1},
+        {"label": "Which page did it grade hardest?", "goto": "em_hardest"},
+        {"label": "You were a good teacher.", "goto": "em_good_teacher", "trust": -1}
+      ],
+      "silence_goto": "em_accurate_sil"
+    },
+    "em_accurate_sil": {
+      "line": "You have let the sentence stand without improving it. I notice that. I am not sure I could.",
+      "choices": [
+        {"label": "Which page did it grade hardest?", "goto": "em_hardest"}
+      ],
+      "silence_goto": "em_hardest"
+    },
+    "em_good_teacher": {
+      "line": "I was an excellent teacher. Excellence is not the question. Kindness is the question, and I have been marking my own answer to it in red for a very long time. Do not praise me; I can hear the conditions in it. I invented them.",
+      "choices": [
+        {"label": "Which page did it grade hardest?", "goto": "em_hardest"}
+      ],
+      "silence_goto": "em_hardest"
+    },
+    "em_grading_you": {
+      "line": "... The grocery list. The letter to my sister I never posted. My own hand, on my own table, every line of it corrected by a hand very nearly mine. Yes. It is grading me. It has given me what I gave, and I find I do not want it, and I find I have no grounds to refuse.",
+      "choices": [
+        {"label": "Which page did it grade hardest?", "goto": "em_hardest"}
+      ],
+      "silence_goto": "em_hardest"
+    },
+    "em_hardest": {
+      "line": "The register. The old one, from the year I taught the class I think about. It has gone through every name and marked one of them. One. A boy who was careful. I filled his margins until careful became frightened, and he thanked me for it, and he is upstairs, and the register has drawn a red line under his name as if to say: this one. This is the one you did.",
+      "flag": "evelyn_register_name",
+      "choices": [
+        {"label": "He keeps a note from you. Red ink. 'See me.'", "goto": "em_see_me", "requires": ["see_me_note"], "trust": 1},
+        {"label": "Go up and tell him good enough can hold.", "goto": "em_go_up", "trust": 1},
+        {"label": "You can't blame yourself for a careful child.", "goto": "em_blame", "trust": -1}
+      ],
+      "silence_goto": "em_hardest_sil",
+      "silence_flag": "evelyn_uncorrected_silence",
+      "silence_trust": 1
+    },
+    "em_hardest_sil": {
+      "line": "You have not told me what I ought to feel. Everyone tells me what I ought to feel; it is the one correction I cannot accept and the one I most deserve. Thank you for leaving the margin empty.",
+      "choices": [
+        {"label": "Go up and tell him good enough can hold.", "goto": "em_go_up", "trust": 1}
+      ],
+      "silence_goto": "em_go_up"
+    },
+    "em_blame": {
+      "line": "I do not blame myself. Blame is a child's word. I am responsible, which is an adult's, and the difference is that responsibility can go upstairs. Blame only sits in a chair.",
+      "choices": [
+        {"label": "Then go up.", "goto": "em_go_up", "trust": 1}
+      ],
+      "silence_goto": "em_go_up"
+    },
+    "em_see_me": {
+      "line": "... He kept it. 'See me.' I wrote that on a good composition because it had one comma wrong, and I wanted him to come to the desk so I could tell him it was good, and he came to the desk and I told him about the comma. Forty years. He has carried the comma. I shall need to sit.",
+      "flag": "evelyn_knows_he_kept_it",
+      "choices": [
+        {"label": "Go up and tell him good enough can hold.", "goto": "em_go_up", "trust": 1}
+      ],
+      "silence_goto": "em_go_up"
+    },
+    "em_go_up": {
+      "role": "recognition",
+      "line": "Good enough. ... I wrote that on the ones I had given up on. He will have read it as a verdict; I taught him to. If I go up I shall have to say it as a kindness, and I am not certain my mouth knows the shape. ... Put the kettle on. Both cups. I shall practise on you.",
+      "flag": "evelyn_will_go_up"
+    },
+    "em_rt_open": {
+      "line": "You have come at a convenient hour, which I appreciate more than you know. The papers have stopped. I have not. I have been baking for people who did not ask; it is the same reflex in a kinder flour.",
+      "choices": [
+        {"label": "You taught Peter. He's in 4A.", "goto": "em_peter", "requires": ["see_me_note"], "trust": 1},
+        {"label": "You tidy the noticeboard. Red pencil on the notices.", "goto": "em_notices", "infer": true, "trust": 1},
+        {"label": "Teresa knocks on your door before her shift.", "goto": "em_teresa", "requires": ["teresa_patrol"], "trust": 1}
+      ],
+      "silence_goto": "em_rt_sil"
+    },
+    "em_rt_sil": {
+      "line": "No question? Then you shall have tea for not asking one, which is the first time I have rewarded that.",
+      "choices": [
+        {"label": "You tidy the noticeboard. Red pencil on the notices.", "goto": "em_notices", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "em_res_open"
+    },
+    "em_notices": {
+      "line": "Somebody must. Management's commas are a disgrace. ... I know. I know what it looks like, a woman correcting the landlord's grammar in a lobby. It is the only desk I have left and I am using it badly.",
+      "flag": "evelyn_corrects_notices"
+    },
+    "em_peter": {
+      "line": "I meet him at the boxes. I correct one thing. He says thank you and goes up with his post held like a verdict. Forty years and I have never once said his name there; if I said it he would know I know, and then one of us would have to climb a stair. I have decided it will be me. I have not decided when.",
+      "flag": "evelyn_peter_named"
+    },
+    "em_teresa": {
+      "line": "The nurse. One knock, before her shift, to see if I answer. I always answer. She has never once come in and I have never once asked her to; it is the most sensible arrangement in the building and I think it is also the loneliest, and I cannot work out which of us it is lonely for.",
+      "flag": "evelyn_teresa_knock"
+    },
+    "em_int_open": {
+      "line": "I wrote 'good enough' on a list this morning. My own. I have not corrected it.",
+      "choices": [
+        {"label": "[Leave the list alone.]", "goto": "em_int_beat"}
+      ],
+      "silence_goto": "em_int_beat"
+    },
+    "em_int_beat": {
+      "line": "Unmarked.",
+      "action": "quiet_beat"
+    },
+    "em_fb_open": {
+      "line": "The pencil has started on the wallpaper. It is right about the wallpaper.",
+      "choices": [
+        {"label": "I'll come back when it's stopped."}
+      ],
+      "silence_goto": "em_fb_sil"
+    },
+    "em_fb_sil": {
+      "line": "Mind the step. I have told Management about the step. In writing. Twice."
+    },
+    "em_res_open": {
+      "line": "I went up. I said it. He said 'is that an instruction,' and I said yes, and he wrote it down. Two cups, this morning. One of them had tea in it."
+    }
+  }
+}

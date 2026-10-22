@@ -1,0 +1,320 @@
+{
+  "meta": {
+    "case_id": "peter_form_corridor",
+    "speaker_default": "PETER WREN",
+    "voice_prefix": "peter_c02_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Peter notices procedure, permission and whether the form allows the next action. Qualifications nest; courage is one unmodified verb. Comic engine: the exact procedure for avoiding a decision requires a decision. He must never celebrate spontaneity fluently. The Price appeal is his; he does not know Mina, Teresa, Cal or the Prices share it. Resolution flags from reality_cases.json: courage_was_imperfect, proceed_uncertain."
+  },
+  "entries": {
+    "first_stable": "pw_open",
+    "real_talk": "pw_rt_open",
+    "integration": "pw_int_open",
+    "resolved": "pw_res_open",
+    "fallback": "pw_fb_open"
+  },
+  "nodes": {
+    "pw_open": {
+      "line": "Before you touch anything. Is there a form for what you are about to do? There is usually a form. I would feel better if we had the form first.",
+      "choices": [
+        {"label": "There's a work order. That's the form.", "goto": "pw_order"},
+        {"label": "What happens if we start without it?", "goto": "pw_without"},
+        {"label": "You've got one for every uncertainty. [the staging table]", "goto": "pw_table", "evidence": "an unresolved form at every station, none thrown away"}
+      ],
+      "silence_goto": "pw_sil1"
+    },
+    "pw_sil1": {
+      "line": "You are waiting for me to decide whether you may begin. I see. That is not how I would have arranged it, but it is a procedure, and I can follow a procedure.",
+      "choices": [
+        {"label": "Then follow it.", "goto": "pw_order"},
+        {"label": "It isn't a procedure. I'm just not rushing you.", "goto": "pw_notrush", "trust": 1}
+      ],
+      "silence_goto": "pw_order"
+    },
+    "pw_notrush": {
+      "line": "Nobody has not rushed me since the spring. People find it alarming, how long I take. They start making the decision for me out of kindness, and then it is their decision, and I have a copy of it.",
+      "choices": [
+        {"label": "What was the spring?", "goto": "pw_spring"},
+        {"label": "Show me the fault.", "goto": "pw_order"}
+      ],
+      "silence_goto": "pw_order"
+    },
+    "pw_order": {
+      "line": "Yes. Work order. Issued, acknowledged, countersigned by nobody. You see the difficulty. If it goes wrong there is a signature on it, and the signature is yours, and you have not read the second page, because there is no second page, which is in itself an irregularity.",
+      "choices": [
+        {"label": "It's a corridor that keeps growing. Not a filing.", "goto": "pw_corridor"},
+        {"label": "I'll sign for the second page too.", "goto": "pw_sign", "trust": -1, "flag": "signed_for_peter"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_sign": {
+      "line": "You would. People do. That is how most things in this building got signed: somebody kind, in a hurry, with a pen. Thank you. I have made a note that you offered and I have not accepted it.",
+      "choices": [
+        {"label": "Show me the fault.", "goto": "pw_corridor"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_without": {
+      "line": "Then it is done without authority, and if it holds, it holds without authority, which is worse than not holding, because nobody can later say where it came from. I have seen a thing hold for years without authority. It was a man's conviction.",
+      "choices": [
+        {"label": "'A man's conviction.' Whose?", "goto": "pw_slip", "infer": true, "trust": 1},
+        {"label": "Show me the fault.", "goto": "pw_corridor"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_slip": {
+      "line": "I did not say whose. I said a. The indefinite article is doing exactly the work I asked of it. The corridor is through there, and it was shorter yesterday.",
+      "choices": [
+        {"label": "Show me.", "goto": "pw_corridor"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_table": {
+      "line": "Each station is a decision I have not made, kept where I would have made it. Kitchen: whether to write to my sister. Door: whether to renew. Desk: the other matter. None of them is thrown away because throwing away is also a decision, and I would need a form for that.",
+      "choices": [
+        {"label": "'The other matter.'", "goto": "pw_other"},
+        {"label": "You keep them where you'd act. So you'd see them.", "goto": "pw_seen", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_seen": {
+      "line": "So I would see them. Yes. You have understood the system and I am slightly ashamed that it has a logic. A man with a tidier mind would hide them. I keep them in my way so that I trip, and I have become very good at stepping over.",
+      "choices": [
+        {"label": "Show me the fault.", "goto": "pw_corridor"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_other": {
+      "line": "A filing I failed to make in time. Years ago. There is a form to certify that a filing was late, and I have it, and it requires a reason, and the reason is that I was making certain, and 'making certain' is not a reason the form recognises.",
+      "choices": [
+        {"label": "What was the filing?", "goto": "pw_spring"},
+        {"label": "Show me the fault.", "goto": "pw_corridor"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_spring": {
+      "line": "An appeal. Criminal. I was the clerk. I found an irregularity in the record, a real one, and I requested a form to certify it, and then a form to certify the request, and the deadline passed while I was being thorough. The man stayed where he was. That is all I will say about it standing in a doorway.",
+      "flag": "peter_gap_found",
+      "choices": [
+        {"label": "An irregularity in the record. A gap?", "goto": "pw_gap", "infer": true, "trust": 1},
+        {"label": "You couldn't have known the deadline would matter.", "goto": "pw_comfort", "trust": -1},
+        {"label": "Show me the fault.", "goto": "pw_corridor"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_gap": {
+      "line": "A gap. A few seconds of testimony with nothing under them. The reporter was certified, the court was in session, and the page is blank where a man was speaking. I have thought about those seconds more than I have thought about anything I own.",
+      "choices": [
+        {"label": "Someone in this building has a gap like that.", "goto": "pw_mina_link", "requires": ["mina_four_seconds"], "trust": 1, "flag": "peter_knows_a_reporter"},
+        {"label": "Show me the fault.", "goto": "pw_corridor"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_mina_link": {
+      "line": "Does she. I would not ask her name and I would ask you not to give it. If I knew who she was I would have to decide whether to tell her what the gap cost, and I have been not deciding that for a long time, and it would be unkind to start on a weeknight.",
+      "choices": [
+        {"label": "Show me the fault.", "goto": "pw_corridor"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_comfort": {
+      "line": "I could have known. I did know. I knew the date the way you know a date, by writing it at the top of forms. That is the part people try to take from me, and I would rather keep it.",
+      "choices": [
+        {"label": "Show me the fault.", "goto": "pw_corridor"}
+      ],
+      "silence_goto": "pw_corridor"
+    },
+    "pw_corridor": {
+      "line": "There. The hall. Every time I decide to decide something, a door appears that I have to go through first, and behind it there is a form, and the form asks whether I am sure. I am never sure. So the hall gets longer. I have measured it. It is longer than the flat.",
+      "choices": [
+        {"label": "Then the fault isn't the doors. It's the question.", "goto": "pw_question", "trust": 1},
+        {"label": "I'll walk it and count.", "goto": "pw_count"},
+        {"label": "We'll shut each door as we go.", "goto": "pw_shut", "trust": -1}
+      ],
+      "silence_goto": "pw_corridor_sil"
+    },
+    "pw_corridor_sil": {
+      "line": "You are looking at it the way one looks at a pipe. I find that steadying. A pipe does not ask whether you are sure.",
+      "choices": [
+        {"label": "I'll walk it and count.", "goto": "pw_count"},
+        {"label": "The fault is the question, not the doors.", "goto": "pw_question", "trust": 1}
+      ],
+      "silence_goto": "pw_count"
+    },
+    "pw_shut": {
+      "line": "Shutting is a decision. Each one will ask you to confirm. I have tried. By the sixth door you will be confirming that you confirmed, and I will have made us tea, and the tea will be a decision too.",
+      "choices": [
+        {"label": "Then let's look at the question instead.", "goto": "pw_question", "trust": 1}
+      ],
+      "silence_goto": "pw_question"
+    },
+    "pw_count": {
+      "line": "Eleven this evening. Nine on Tuesday. I keep the count on the back of the gas bill, which I have also not paid, pending.",
+      "choices": [
+        {"label": "Pending what?", "goto": "pw_pending"},
+        {"label": "The fault is the question, not the doors.", "goto": "pw_question", "trust": 1}
+      ],
+      "silence_goto": "pw_question"
+    },
+    "pw_pending": {
+      "line": "Further information. There is always further information. The trick the forms play is that they are right: there always is. There is always a second page somewhere, and the man who acts without it is reckless, and the man who waits for it is me.",
+      "choices": [
+        {"label": "The fault is the question, not the doors.", "goto": "pw_question", "trust": 1}
+      ],
+      "silence_goto": "pw_question"
+    },
+    "pw_question": {
+      "role": "strained",
+      "line": "'Are you sure.' Yes. If I could answer it once, truthfully, the hall would be a hall. I cannot answer it truthfully because the truthful answer is no, and the form does not have a box for no, proceed anyway. Nobody prints that box.",
+      "choices": [
+        {"label": "Write it in. No, and proceed.", "goto": "pw_writein", "flag": "proceed_uncertain_offered"},
+        {"label": "Someone did act unsure once, and it held.", "goto": "pw_evelyn", "requires": ["evelyn_register_name"], "trust": 1},
+        {"label": "You were sure once. About the gap.", "goto": "pw_sure_once", "requires": ["peter_gap_found"], "infer": true, "trust": 1}
+      ],
+      "silence_goto": "pw_question_sil",
+      "silence_flag": "peter_let_sit",
+      "silence_trust": 1
+    },
+    "pw_question_sil": {
+      "line": "You are not going to tell me what to put. Good. Everybody tells me what to put. It is the kindest thing they do and it is the thing that makes the hall longer.",
+      "choices": [
+        {"label": "Write it in. No, and proceed.", "goto": "pw_writein", "flag": "proceed_uncertain_offered"}
+      ],
+      "silence_goto": "pw_writein"
+    },
+    "pw_sure_once": {
+      "line": "I was. I saw the blank and I knew what it was and I knew what to do. I was sure for about a day. Then I asked whether I was entitled to be, and the entitlement had a form, and you know the rest. Certainty was never my trouble. Permission was.",
+      "choices": [
+        {"label": "Then permission is the box to write in.", "goto": "pw_writein", "flag": "proceed_uncertain_offered", "trust": 1}
+      ],
+      "silence_goto": "pw_writein"
+    },
+    "pw_evelyn": {
+      "line": "Did they. In this building? ... There was a woman who taught me that the margin was for corrections. I believed her so completely that I have been correcting myself ever since. I would be interested to know what she thinks holds. I would not ask her.",
+      "choices": [
+        {"label": "Write it in. No, and proceed.", "goto": "pw_writein", "flag": "proceed_uncertain_offered"}
+      ],
+      "silence_goto": "pw_writein"
+    },
+    "pw_writein": {
+      "role": "recognition",
+      "line": "In ink. In the margin, where she taught me to put the things that were wrong. 'No. Proceed.' ... The hall is still there. Of course it is. But it has not grown while I was writing, and that is the first thing that has not grown in this flat since the spring.",
+      "flag": "courage_was_imperfect",
+      "choices": [
+        {"label": "Good enough can hold.", "goto": "pw_good_enough", "requires": ["evelyn_register_name"], "trust": 1},
+        {"label": "Now walk it.", "goto": "pw_walk"}
+      ],
+      "silence_goto": "pw_walk"
+    },
+    "pw_good_enough": {
+      "line": "She used to write that on the ones she had given up on. I always took it as a verdict. Say it again, slower, and I will try to take it as instructions.",
+      "choices": [
+        {"label": "Now walk it.", "goto": "pw_walk"}
+      ],
+      "silence_goto": "pw_walk"
+    },
+    "pw_walk": {
+      "line": "Seven. Seven doors. I have not opened one of them to check what the form says, and they have not asked. Thank you. Please do not countersign anything on the way out; I would like this one to be mine.",
+      "flag": "proceed_uncertain"
+    },
+    "pw_rt_open": {
+      "line": "You came back. I had put you down as pending. Take a seat; the chair is a decision I made in 1924 and I stand by it.",
+      "choices": [
+        {"label": "What's in the wallet, Peter? [the overfilled wallet]", "goto": "pw_wallet", "evidence": "overfilled wallet"},
+        {"label": "How's the hall?", "goto": "pw_hall2"}
+      ],
+      "silence_goto": "pw_hall2"
+    },
+    "pw_hall2": {
+      "line": "Nine doors. It was eleven. I have decided that is progress and I have not asked anyone to confirm it.",
+      "choices": [
+        {"label": "What's in the wallet? [the overfilled wallet]", "goto": "pw_wallet", "evidence": "overfilled wallet"}
+      ],
+      "silence_goto": "pw_wallet"
+    },
+    "pw_wallet": {
+      "line": "Receipts. Stubs. The fee for the first form and the fee for the second. A folded sheet of composition paper I have not unfolded in some years. A man's wallet should be able to shut; mine is a filing cabinet I sit on.",
+      "choices": [
+        {"label": "The composition paper. Red ink?", "goto": "pw_seeme", "infer": true, "trust": 1, "requires": ["evelyn_register_name"]},
+        {"label": "Those stubs are from the appeal.", "goto": "pw_stubs", "requires": ["peter_gap_found"], "infer": true, "trust": 1},
+        {"label": "You should throw half of it away.", "goto": "pw_throw", "trust": -1}
+      ],
+      "silence_goto": "pw_wallet_sil"
+    },
+    "pw_wallet_sil": {
+      "line": "You are not going to ask what the paper says. I keep expecting people to. They see a folded thing and want it open. You have let it stay folded and I find I am grateful and slightly disappointed.",
+      "choices": [
+        {"label": "Tell me when you want to.", "goto": "pw_later", "trust": 1}
+      ],
+      "silence_goto": "pw_later"
+    },
+    "pw_later": {
+      "line": "Pending. Yes. But pending with a date on it this time. I will put a date on it.",
+      "flag": "see_me_pending"
+    },
+    "pw_throw": {
+      "line": "Which half. Tell me which half and I will need to know on what authority, and we will be here until the spring, and you have a building to look after.",
+      "choices": [
+        {"label": "Fair.", "goto": "pw_later"}
+      ],
+      "silence_goto": "pw_later"
+    },
+    "pw_stubs": {
+      "line": "They are. You are the first person to add those two numbers up and arrive at a man. Yes. The first fee bought the form; the second bought the time to doubt the form; the sum is a sentence somebody else served. I carry it because the alternative is a drawer, and I would stop opening the drawer.",
+      "choices": [
+        {"label": "You carry it so you can't stop looking.", "goto": "pw_carry", "trust": 1},
+        {"label": "It wasn't your sentence to serve.", "goto": "pw_notyours", "trust": -1}
+      ],
+      "silence_goto": "pw_carry"
+    },
+    "pw_carry": {
+      "line": "Yes. Which is the one brave thing in the arrangement, and I would prefer you did not tell anyone it is in a wallet.",
+      "flag": "peter_stubs_named"
+    },
+    "pw_notyours": {
+      "line": "No. His. I am aware. That is precisely why I will not put it down: it is the one thing of his I can carry, and I did not ask his permission for that either.",
+      "flag": "peter_stubs_named"
+    },
+    "pw_seeme": {
+      "line": "... Red. Yes. Two words. 'See me.' I was eleven. I have been meaning to. Do not tell me she is in this building. I will have to decide whether to go downstairs and I have only just got the hall down to nine.",
+      "flag": "see_me_note",
+      "choices": [
+        {"label": "I won't tell you anything. The note's yours.", "goto": "pw_seeme_keep", "trust": 1},
+        {"label": "She's in 1A.", "goto": "pw_seeme_told", "trust": -1, "flag": "told_peter_evelyn"}
+      ],
+      "silence_goto": "pw_seeme_keep"
+    },
+    "pw_seeme_keep": {
+      "line": "Thank you. Unfolding it was a decision and I have made it in front of a witness. I may need you to confirm that later. I am joking. I am mostly joking.",
+      "flag": "see_me_unfolded"
+    },
+    "pw_seeme_told": {
+      "line": "You have told me a thing I did not ask for, and now I know it, and knowing it has a form. I will not hold it against you. I will hold it. Those are different, and I have the paperwork to prove it.",
+      "flag": "see_me_unfolded"
+    },
+    "pw_int_open": {
+      "line": "One more door than I would like, and one fewer than yesterday. I am leaving it.",
+      "choices": [
+        {"label": "[Leave it with him.]", "goto": "pw_int_beat"}
+      ],
+      "silence_goto": "pw_int_beat"
+    },
+    "pw_int_beat": {
+      "line": "Unconfirmed.",
+      "action": "quiet_beat"
+    },
+    "pw_fb_open": {
+      "line": "The hall has grown again. I think it heard me say progress.",
+      "choices": [
+        {"label": "I'll come back when it's shorter."}
+      ],
+      "silence_goto": "pw_fb_sil"
+    },
+    "pw_fb_sil": {
+      "line": "Noted, pending. Mind the third door; it asks twice."
+    },
+    "pw_res_open": {
+      "line": "The gas bill is paid. I did not check whether I was sure. It appears the gas does not mind."
+    }
+  }
+}

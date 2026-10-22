@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "case_id": "rhea_bad_karaoke",
+    "speaker_default": "RHEA SATO",
+    "voice_prefix": "rhea_x01_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Sanctioned expansion (Bible IV.1), not a promoted case. Rhea notices take, set list, breath support, sightline and audience response. Theatrical timing, immaculate entrances, a private clause caught after the applause line. Comic engine: narrating her own failure so beautifully the narration becomes the next failure. Never sounds accidentally drab. Case record: a captive note in the booth; flags humiliation_named, imperfection_voluntary. Take eighteen was the honest crack; she deleted it; it survives in Juno's archive, which she has known for a year."
+  },
+  "entries": {
+    "first_stable": "rs_open",
+    "real_talk": "rs_rt_open",
+    "integration": "rs_int_open",
+    "resolved": "rs_res_open",
+    "fallback": "rs_fb_open"
+  },
+  "nodes": {
+    "rs_open": {
+      "line": "You're early. Good; I hate being discovered mid-collapse. The booth. Go in if you like, but mind the note. There's a note in there that didn't come out when I did. It's holding. It's been holding since Thursday. It's a B-flat and it's mine and I would like it to stop.",
+      "choices": [
+        {"label": "Yours. You recognise it.", "goto": "rs_mine", "trust": 1},
+        {"label": "The mirror faces away from the booth. [dressing mirror]", "goto": "rs_mirror", "evidence": "a dressing mirror facing away from the booth"},
+        {"label": "Open the booth door and let it out.", "goto": "rs_door", "trust": -1}
+      ],
+      "silence_goto": "rs_sil1"
+    },
+    "rs_sil1": {
+      "line": "Oh, you're going to let me do the whole bit without an audience. That's cruel. That's very good. Nobody's ever let me finish an entrance into silence before; I don't know where to put my hands.",
+      "choices": [
+        {"label": "Yours. You recognise it.", "goto": "rs_mine", "trust": 1}
+      ],
+      "silence_goto": "rs_mine"
+    },
+    "rs_door": {
+      "line": "I opened the door. Darling. I opened the door Thursday and stood in the corridor and it followed me as far as the frame and stopped there like a dog that isn't allowed in the parlour. It's not a draught. It's a note. Notes don't leave rooms; singers do.",
+      "choices": [
+        {"label": "Yours. You recognise it.", "goto": "rs_mine", "trust": 1}
+      ],
+      "silence_goto": "rs_mine"
+    },
+    "rs_mirror": {
+      "line": "You noticed the mirror. Everybody notices the mirror and nobody says. It faces the room because the room is where I perform, and the booth is where I... don't. The booth gets the back of my head. The back of my head has never once let me down.",
+      "choices": [
+        {"label": "The booth is the only place you're not watched.", "goto": "rs_unwatched", "infer": true, "trust": 1},
+        {"label": "Yours. You recognise it.", "goto": "rs_mine", "trust": 1}
+      ],
+      "silence_goto": "rs_mine"
+    },
+    "rs_unwatched": {
+      "line": "Was. Was the only place. Then the note moved in and now even the booth has an audience, and it's me, and I'm the worst one.",
+      "choices": [
+        {"label": "Which take is it?", "goto": "rs_mine", "trust": 1}
+      ],
+      "silence_goto": "rs_mine"
+    },
+    "rs_mine": {
+      "line": "Mine the way a laugh at a funeral is yours. I made it. It's the sound a voice makes when it cracks on the high note and means it, and I have spent a professional lifetime making sure that sound never leaves a room with my name on it. Well. Here it is. In my room. With my name on the door.",
+      "choices": [
+        {"label": "You said 'means it.' So the crack was true.", "goto": "rs_true", "infer": true, "trust": 1},
+        {"label": "Which take?", "goto": "rs_which"},
+        {"label": "Every voice cracks. Nobody minds.", "goto": "rs_nobody_minds", "trust": -1}
+      ],
+      "silence_goto": "rs_which"
+    },
+    "rs_nobody_minds": {
+      "line": "Everybody minds. They mind beautifully and they clap harder to show they don't, and the clapping is the minding. I have stood in that clapping. You have not. Which take, you were going to ask.",
+      "choices": [
+        {"label": "Which take?", "goto": "rs_which"}
+      ],
+      "silence_goto": "rs_which"
+    },
+    "rs_true": {
+      "line": "... Yes. It was the only true thing on the reel. Seventeen takes of a woman performing feeling and one of a woman having it, and guess which one I kept. Guess which one I kept. I'll give you a hint: I'm a professional.",
+      "choices": [
+        {"label": "Eighteen. You deleted eighteen.", "goto": "rs_which", "trust": 1},
+        {"label": "Which take?", "goto": "rs_which"}
+      ],
+      "silence_goto": "rs_which"
+    },
+    "rs_which": {
+      "line": "Eighteen. Of nineteen. I keep a sheet; I'm not an amateur. Eighteen is the one where it went, and I wiped it before I'd heard it back, which is the one unprofessional thing I have ever done, and the note in the booth is what's left of it. Apparently you can't wipe a thing you meant.",
+      "flag": "rhea_take_eighteen",
+      "choices": [
+        {"label": "You can't wipe it because someone else has it.", "goto": "rs_juno", "requires": ["juno_archive_open"], "trust": 1},
+        {"label": "You wiped it before you heard it. So you've never heard yourself mean it.", "goto": "rs_never_heard", "infer": true, "trust": 1},
+        {"label": "You can record a nineteen that's just as good.", "goto": "rs_record_again", "trust": -1}
+      ],
+      "silence_goto": "rs_which_sil"
+    },
+    "rs_which_sil": {
+      "line": "You're not going to ask to hear it. Of course you can't; it's gone. But you didn't even ask. Do you know how many people have asked? Everybody. 'Oh, I'd love to hear the real you.' No you wouldn't. You'd love to have heard it.",
+      "choices": [
+        {"label": "You've never heard yourself mean it.", "goto": "rs_never_heard", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "rs_never_heard"
+    },
+    "rs_record_again": {
+      "line": "I did. Nineteen's lovely. Nineteen's on a record. Nineteen is a woman doing an impression of eighteen, and the impression is very good, and that's exactly the problem with every note I've sung since.",
+      "choices": [
+        {"label": "You've never heard yourself mean it.", "goto": "rs_never_heard", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "rs_never_heard"
+    },
+    "rs_juno": {
+      "line": "... The girl downstairs. The recordist. With her little mic in the wall. You've talked to her. ... I've known for a year. I heard my own breath come up through the riser one night, a breath I'd wiped, and I knew exactly where it had gone. I never went down. If I went down I'd have to listen.",
+      "flag": "rhea_knows_juno_has_it",
+      "choices": [
+        {"label": "You've never heard yourself mean it.", "goto": "rs_never_heard", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "rs_never_heard"
+    },
+    "rs_never_heard": {
+      "role": "strained",
+      "line": "No. I've heard everyone else hear it, in my head, every night, a hall full of people watching my face do a thing I didn't rehearse. That's the humiliation. Not the crack. The crack is just a crack. It's being seen having it. ... There. I've said the word. Humiliation. I've been calling it 'a bad take' for a year like it was a technical fault.",
+      "flag": "humiliation_named",
+      "choices": [
+        {"label": "Sing the crack on purpose. Here. For nobody.", "goto": "rs_on_purpose", "trust": 1},
+        {"label": "It wasn't humiliating. It was beautiful.", "goto": "rs_beautiful", "trust": -1},
+        {"label": "Go into the booth and let it be the audience.", "goto": "rs_booth", "trust": 1}
+      ],
+      "silence_goto": "rs_never_sil",
+      "silence_flag": "rhea_silence_unperformed",
+      "silence_trust": 1
+    },
+    "rs_never_sil": {
+      "line": "... You're not applauding. God. That's the first time anyone's let that line land without clapping and I think I might be sick. Don't go. Don't say anything either. Just. Hold the light.",
+      "choices": [
+        {"label": "Sing the crack on purpose. For nobody.", "goto": "rs_on_purpose", "trust": 1}
+      ],
+      "silence_goto": "rs_on_purpose"
+    },
+    "rs_beautiful": {
+      "line": "There it is. The compliment. The thing that makes it a performance again. You've put it in a frame and now I'm in the frame and I can't get out of it. Please don't do that. Please just. Let it have been ugly.",
+      "choices": [
+        {"label": "Go into the booth and let it be the audience.", "goto": "rs_booth", "trust": 1}
+      ],
+      "silence_goto": "rs_booth"
+    },
+    "rs_booth": {
+      "line": "In the booth. With the note. ... Fine. Face the back wall, the way I do. It's loud in here. It's me, three days ago, meaning it. ... I'm going to sing the line. The real one. If it cracks it cracks. You're not to listen; you're to stand outside and hold the door so I can't leave.",
+      "choices": [
+        {"label": "[Hold the door. Don't listen.]", "goto": "rs_on_purpose", "trust": 1}
+      ],
+      "silence_goto": "rs_on_purpose"
+    },
+    "rs_on_purpose": {
+      "role": "recognition",
+      "line": "... It cracked. I let it. I heard it. It's a terrible sound and it's the only one in this flat that isn't an impression of something. And the note's gone. It stopped the moment I made it on purpose, like it was waiting to be relieved. I'm going to need a minute and then I'm going to need to be unbearable about this for a week.",
+      "flag": "imperfection_voluntary"
+    },
+    "rs_rt_open": {
+      "line": "Darling. Come in, don't look at the booth, I'm being casual about it. I sang two songs at the bar on Friday and left during the applause, which is progress because I used to leave before.",
+      "choices": [
+        {"label": "Juno brought the box up.", "goto": "rs_box", "requires": ["juno_returned_eighteen"], "trust": 1},
+        {"label": "You take the long way round to avoid 2C.", "goto": "rs_long_way", "infer": true, "trust": 1},
+        {"label": "Iris sings at the bar too. Two songs, staged.", "goto": "rs_iris", "requires": ["iris_two_songs"], "trust": 1}
+      ],
+      "silence_goto": "rs_rt_sil"
+    },
+    "rs_rt_sil": {
+      "line": "No notes? From you? I'm devastated. Sit. Lemon water or nothing; I'm between shows.",
+      "choices": [
+        {"label": "You take the long way round to avoid 2C.", "goto": "rs_long_way", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "rs_res_open"
+    },
+    "rs_long_way": {
+      "line": "I take the long way because the stairs are good for the breath. ... And because 2C is on the short way, and she can hear me come down them, and I would rather be heard arriving somewhere else. Yes. All right. You can stop looking at me like a continuity note.",
+      "flag": "rhea_avoids_juno"
+    },
+    "rs_box": {
+      "line": "She did. Stood in my door with it under her arm like a bomb. I said 'I know.' I'd rehearsed 'I know' for a year; it came out beautifully, which I regret. I haven't played it. I've put it on the mirror shelf, facing the booth. It can watch for a while.",
+      "flag": "rhea_has_eighteen_back"
+    },
+    "rs_iris": {
+      "line": "The painter. Yes. Two songs, lit like an opening, and gone before the clapping finishes. We've never spoken. We don't need to; we've both got the same exit. One of these Fridays I'm going to stay for her applause and see if she notices who's doing it.",
+      "flag": "rhea_iris_same_exit"
+    },
+    "rs_int_open": {
+      "line": "Booth's quiet. I've left the sheet on nineteen takes and I haven't recorded a twentieth.",
+      "choices": [
+        {"label": "[Leave the sheet where it is.]", "goto": "rs_int_beat"}
+      ],
+      "silence_goto": "rs_int_beat"
+    },
+    "rs_int_beat": {
+      "line": "Curtain.",
+      "action": "quiet_beat"
+    },
+    "rs_fb_open": {
+      "line": "It's harmonised with itself. There are two of me in there now and they're both flat.",
+      "choices": [
+        {"label": "I'll come back when there's one."}
+      ],
+      "silence_goto": "rs_fb_sil"
+    },
+    "rs_fb_sil": {
+      "line": "Exit stage left. Mind the fork on the frame; it's load-bearing. Joke. Mostly."
+    },
+    "rs_res_open": {
+      "line": "I played it. Eighteen. In the booth, facing the wall, nobody holding the door. It's not very good. It's the best thing I've ever done. Both of those are true and I've stopped needing them not to be."
+    }
+  }
+}

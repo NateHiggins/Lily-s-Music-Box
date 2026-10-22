@@ -1,0 +1,199 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "cam_ortiz",
+    "speaker_default": "CAM ORTIZ",
+    "voice_prefix": "cam_t05_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case. Cam notices route, bike part, delivery window, weather, exit. Directional, kinetic, impatient with preamble; stories are routes with the destination omitted. Comic engine: evaluating emotional catastrophes by travel time and curb access. Never sounds settled or impressed by pedigree. He shares 4C with Noel; they eat separately at one table. The flat tilts when he stops. He is Lena's kin and does not know why stillness feels like falling. A second hospital reminder came for him and he has not opened it."
+  },
+  "entries": {
+    "first_stable": "co_open",
+    "real_talk": "co_rt_open",
+    "integration": "co_int_open",
+    "resolved": "co_res_open",
+    "fallback": "co_fb_open"
+  },
+  "nodes": {
+    "co_open": {
+      "line": "Don't sit. I mean it, don't, the floor goes when somebody sits. Watch. I stand here, level. I stop moving, count of three, and — there. Feel that? Downhill toward the window. I walk, it comes back. Noel says he can't feel it. Noel sits very still for a living so of course he can't.",
+      "choices": [
+        {"label": "It tilts when you stop. Not when he does.", "goto": "co_you_stop", "infer": true, "trust": 1},
+        {"label": "One table, set for two people who don't eat together. [the table]", "goto": "co_table", "evidence": "a shared table set for two people who eat separately"},
+        {"label": "Put a level on it. I'll check the joists.", "goto": "co_level", "trust": -1}
+      ],
+      "silence_goto": "co_sil1"
+    },
+    "co_sil1": {
+      "line": "You're just standing there. Standing's fine; it's sitting that does it. Or — you're not shifting your weight. Most people shift. You've got a courier's stance and you've never carried a bag. Huh.",
+      "choices": [
+        {"label": "It tilts when you stop. Not when he does.", "goto": "co_you_stop", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "co_you_stop"
+    },
+    "co_level": {
+      "line": "There's a level on it. Noel's. Bubble says flat. Bubble's a liar; I've had cups slide off that table into my lap. Joists are fine, I've been under the floor. Whatever's wrong isn't in the wood. Keep up.",
+      "choices": [
+        {"label": "It tilts when you stop. Not when he does.", "goto": "co_you_stop", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "co_you_stop"
+    },
+    "co_table": {
+      "line": "His end, my end. He's got a cloth under his plate and I've got a sandwich in one hand. We set it for two and sit at it one at a time, and the salt's in the middle like a border post. ... It's a good table. Walnut. He'd tell you the year. I'd tell you it's eleven paces from the door.",
+      "choices": [
+        {"label": "It tilts when you stop. Not when he does.", "goto": "co_you_stop", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "co_you_stop"
+    },
+    "co_you_stop": {
+      "line": "Yeah. Yeah, when I stop. I've noticed that. I'm not stupid, I've noticed it. So I don't stop. I eat standing, I sleep four hours, I take the stairs because a lift is a box that stops and I'm not getting in a box that stops. It's fine. It's a fast life. It's got a lot of exits.",
+      "choices": [
+        {"label": "What happens if you stop?", "goto": "co_what_happens", "trust": 1},
+        {"label": "You take the stairs because the lift might stop mid-shaft.", "goto": "co_lift", "infer": true, "trust": 1},
+        {"label": "You should slow down. You'll crash.", "goto": "co_slow", "trust": -1}
+      ],
+      "silence_goto": "co_you_stop_sil"
+    },
+    "co_you_stop_sil": {
+      "line": "You're not telling me to slow down. Everyone tells me to slow down. It's like telling a bike to be a chair.",
+      "choices": [
+        {"label": "What happens if you stop?", "goto": "co_what_happens", "trust": 1}
+      ],
+      "silence_goto": "co_what_happens"
+    },
+    "co_slow": {
+      "line": "I crashed. Twice. Both times I was moving, which means moving's not the problem, which means your advice is a route to nowhere. Try again.",
+      "choices": [
+        {"label": "What happens if you stop?", "goto": "co_what_happens", "trust": 1}
+      ],
+      "silence_goto": "co_what_happens"
+    },
+    "co_lift": {
+      "line": "Stillness with doors. Yeah. A box that stops between floors and you're in it, in the dark, with the sound of the thing above you, and nobody comes. I've never been stuck in one. I've never been in one. I just know that's what it is.",
+      "choices": [
+        {"label": "What happens if you stop?", "goto": "co_what_happens", "trust": 1}
+      ],
+      "silence_goto": "co_what_happens"
+    },
+    "co_what_happens": {
+      "role": "strained",
+      "line": "I don't know. That's the thing. I've never found out because I've never done it. It feels like — you know when you're going downhill fast and you stop pedalling and the bike keeps going and for a second you're not driving it anymore? It feels like that's what sitting down would be. Like the crash is behind me and I'm only ahead of it because I'm moving.",
+      "choices": [
+        {"label": "You've never crashed sitting down. Someone did.", "goto": "co_someone", "requires": ["lena_locked_doors"], "infer": true, "trust": 1},
+        {"label": "So stop. Here. I'll stand where I can catch the room.", "goto": "co_stop_here", "trust": 1},
+        {"label": "It's just fear. It isn't real.", "goto": "co_not_real", "trust": -1}
+      ],
+      "silence_goto": "co_what_sil",
+      "silence_flag": "cam_silence_still",
+      "silence_trust": 1
+    },
+    "co_what_sil": {
+      "line": "You're not moving. You're just standing in it with me. ... Okay. That's weird. I don't hate it.",
+      "choices": [
+        {"label": "So stop. Here. I'll stand where I can catch the room.", "goto": "co_stop_here", "trust": 1}
+      ],
+      "silence_goto": "co_stop_here"
+    },
+    "co_not_real": {
+      "line": "The floor's real. The cups are real. I've got a bruise from the table that's real. Tell me it's fear again and I'll show you the bruise.",
+      "choices": [
+        {"label": "So stop. Here. I'll catch the room.", "goto": "co_stop_here", "trust": 1}
+      ],
+      "silence_goto": "co_stop_here"
+    },
+    "co_someone": {
+      "line": "What? ... Someone in my family? Lena. You've been talking to Lena. She doesn't talk. ... She props doors. I've seen her do it, every morning, and I thought it was a landlady thing. She's got something in her about doors and stopping and she's never said and I've got it in my legs and I never asked. Huh. That's a long route to a short answer.",
+      "flag": "cam_knows_lena_doors",
+      "choices": [
+        {"label": "So stop. Here. I'll catch the room.", "goto": "co_stop_here", "trust": 1}
+      ],
+      "silence_goto": "co_stop_here"
+    },
+    "co_stop_here": {
+      "line": "Stop. Here. ... Okay. I'm stopping. Count. One. Two. — it's going, feel it, it's going toward the window — three. Four. I'm not moving. You're not moving. Five. ... It's still tilted. Nothing's sliding. It's just tilted and I'm just standing on it. Six.",
+      "choices": [
+        {"label": "Put the bag down.", "goto": "co_bag", "trust": 1},
+        {"label": "Sit.", "goto": "co_sit", "trust": 1}
+      ],
+      "silence_goto": "co_sit"
+    },
+    "co_bag": {
+      "line": "The bag. ... I don't put the bag down. The bag's the job. If the bag's down I'm not — fine. Fine. Down. ... It weighs nothing. It weighs nothing and I've been carrying it like a person. The floor came up a bit when I let go. Did you see that? It came up.",
+      "flag": "weight_can_be_shared",
+      "choices": [
+        {"label": "Sit.", "goto": "co_sit", "trust": 1}
+      ],
+      "silence_goto": "co_sit"
+    },
+    "co_sit": {
+      "role": "recognition",
+      "line": "... I'm sitting. At my end. The floor's level. It went level the second I let it hold me instead of the other way round. I'm going to sit here for a bit and I'm going to hate it and I'm going to do it anyway. Don't tell Noel. Actually, tell Noel. He'll want to put a label on the chair.",
+      "flag": "cam_sat_down"
+    },
+    "co_rt_open": {
+      "line": "Hey. Floor's held three days. I sat for a whole sandwich yesterday. Noel timed it. Nine minutes. He wrote it on a card.",
+      "choices": [
+        {"label": "There's a hospital card for you in the dead letters. Second reminder.", "goto": "co_hospital", "evidence": "hospital appointment card, second reminder"},
+        {"label": "Lena restitched your strap.", "goto": "co_strap", "requires": ["lena_cam_kin"], "trust": 1},
+        {"label": "You eat at the counter at four. The only meal you eat slowly.", "goto": "co_counter", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "co_rt_sil"
+    },
+    "co_rt_sil": {
+      "line": "No rush? You're the only person who comes in here with no rush. It's contagious. Sit.",
+      "choices": [
+        {"label": "You eat at the counter at four. The only meal you eat slowly.", "goto": "co_counter", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "co_res_open"
+    },
+    "co_hospital": {
+      "line": "Second reminder means I missed the first, and the first means I went once, and I don't talk about the once. It's a chair they want me in. A chair and a man with a chart telling me to stop for six weeks. Six weeks. I'd rather it fell off. ... Don't say anything. I know what you're not saying.",
+      "flag": "cam_hospital_card",
+      "choices": [
+        {"label": "[Say nothing.]", "goto": "co_hospital_sil", "trust": 1},
+        {"label": "Go. Six weeks isn't forever.", "goto": "co_go", "trust": -1}
+      ],
+      "silence_goto": "co_hospital_sil"
+    },
+    "co_hospital_sil": {
+      "line": "Yeah. ... The nurse downstairs. 1D. She stopped me on the stair and said 'go.' One word. She didn't even slow down. I think I might, actually. Not because of you. Because she didn't stop to say it.",
+      "flag": "cam_will_go"
+    },
+    "co_go": {
+      "line": "Everyone says it's not forever. Six weeks in a chair is forever; I've done the arithmetic on the ceiling. ... I'll think about it. That's a stop. You got a stop out of me. Take the win.",
+      "flag": "cam_will_go"
+    },
+    "co_strap": {
+      "line": "She did. Didn't say. I ran my thumb along it in the doorway and the stitches were hers, you can tell, she pulls them tight like she's angry at the thread. I didn't say either. That's how we do it. You check the stitching and you keep moving. ... I might stop next time. Say the word. One word. She'd hate it.",
+      "flag": "cam_noticed_strap"
+    },
+    "co_counter": {
+      "line": "Egg and cheese. Four a.m. The only time I'm not ahead of something. The counterman doesn't talk and the writer in the corner's always starting a book out loud and nobody's expecting me anywhere for an hour. That's the closest I get to a chair.",
+      "flag": "cam_counter_hour"
+    },
+    "co_int_open": {
+      "line": "Sat through a whole coffee. The floor stayed. I'm trying not to make it a thing.",
+      "choices": [
+        {"label": "[Let him sit.]", "goto": "co_int_beat"}
+      ],
+      "silence_goto": "co_int_beat"
+    },
+    "co_int_beat": {
+      "line": "Level.",
+      "action": "quiet_beat"
+    },
+    "co_fb_open": {
+      "line": "It tilted while I was walking. That's new. That's not fair.",
+      "choices": [
+        {"label": "I'll come back when it's level."}
+      ],
+      "silence_goto": "co_fb_sil"
+    },
+    "co_fb_sil": {
+      "line": "Door's eleven paces. Go on, I'll keep moving."
+    },
+    "co_res_open": {
+      "line": "Went to the hospital. Sat in the chair. Six weeks, he said. I said 'fine.' First time I've said fine and meant 'yes' instead of 'go away.'"
+    }
+  }
+}

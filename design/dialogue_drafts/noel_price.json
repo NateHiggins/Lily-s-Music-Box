@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "noel_price",
+    "speaker_default": "NOEL PRICE",
+    "voice_prefix": "noel_t06_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case. Noel notices condition report, cotton glove, mount, label, controlled room. Museum neutrality; passive constructions conceal the hand; alarm surfaces as a tiny breach in handling protocol. Comic engine: conservation ethics applied to an object whose chief risk is that nobody wants it. Never calls patina 'character.' He and Jonah are the convicted man's sons; the father's chair is confirmed by sight each morning and handled one night a year. He does not know Mina, Peter, Teresa or Cal touched the trial. The chair the Association keeps (readable minutes) is the same chair: PROPOSED."
+  },
+  "entries": {
+    "first_stable": "np_open",
+    "real_talk": "np_rt_open",
+    "integration": "np_int_open",
+    "resolved": "np_res_open",
+    "fallback": "np_fb_open"
+  },
+  "nodes": {
+    "np_open": {
+      "line": "Gloves are on the hook if you intend to touch anything. You do not need to touch anything. The condition is this: objects in the flat have begun to be found under glass. The mug. The runner. This morning, the chair. Cases, museum pattern, correctly ventilated, which is the detail I find difficult. Someone has done this properly.",
+      "choices": [
+        {"label": "Someone. You keep saying someone.", "goto": "np_someone", "trust": 1},
+        {"label": "The table. Half of it has a cloth and a label; half has crumbs. [the table]", "goto": "np_table", "evidence": "a shared table set for two people who eat separately"},
+        {"label": "Smash the glass. They're your things.", "goto": "np_smash", "trust": -1}
+      ],
+      "silence_goto": "np_sil1"
+    },
+    "np_sil1": {
+      "line": "You are keeping your hands at your sides. That is correct handling and it is also, I notice, what one does at a funeral. Please do not draw any conclusion from a man noticing that.",
+      "choices": [
+        {"label": "Someone. You keep saying someone.", "goto": "np_someone", "trust": 1}
+      ],
+      "silence_goto": "np_someone"
+    },
+    "np_smash": {
+      "line": "One does not smash a case. One deaccessions, through a process, with signatures. The glass is not the problem; the glass is the correct response to the problem, which is that these objects have been assessed as too fragile to use, and the assessment is accurate, and I made it, years ago, without a case.",
+      "choices": [
+        {"label": "Someone. You keep saying someone.", "goto": "np_someone", "trust": 1}
+      ],
+      "silence_goto": "np_someone"
+    },
+    "np_table": {
+      "line": "Mr Ortiz's end is in daily use. My end is maintained. The salt is shared and has a label, which he finds funny and I find reassuring. ... I know how it reads. Two men, one table, a frontier of cruets. We are fond of each other in the way of adjacent exhibits.",
+      "choices": [
+        {"label": "Someone. You keep saying someone.", "goto": "np_someone", "trust": 1}
+      ],
+      "silence_goto": "np_someone"
+    },
+    "np_someone": {
+      "line": "The glass has appeared. The objects have been cased. Yes. I am aware of the construction. In my trade the passive is a courtesy: it keeps the hand out of the record. ... The hand is mine. Not literally; I did not fit the glass. But every object under it is one I had already stopped using, and the glass has merely made the stopping visible.",
+      "choices": [
+        {"label": "Which object did you stop using first?", "goto": "np_first", "trust": 1},
+        {"label": "The chair. You confirm it every morning without touching it.", "goto": "np_chair", "infer": true, "trust": 1},
+        {"label": "You've preserved it all beautifully.", "goto": "np_beautiful", "trust": -1}
+      ],
+      "silence_goto": "np_someone_sil"
+    },
+    "np_someone_sil": {
+      "line": "You have let the passive stand. Most people correct it; they say 'you mean you.' I did mean me. I am grateful not to be made to say so twice.",
+      "choices": [
+        {"label": "Which object did you stop using first?", "goto": "np_first", "trust": 1}
+      ],
+      "silence_goto": "np_first"
+    },
+    "np_beautiful": {
+      "line": "Beautifully. Yes. A flat in which nothing has been touched for years is beautiful in the way a photograph is beautiful: it has stopped. Do not admire my condition reports. Ask what the objects were for.",
+      "choices": [
+        {"label": "Which object did you stop using first?", "goto": "np_first", "trust": 1}
+      ],
+      "silence_goto": "np_first"
+    },
+    "np_chair": {
+      "line": "... By sight. The angle of it to the window, the fringe of the runner where the leg stands, the wear on the left arm. Every morning. One does not need to handle an object to confirm it. One handles it once a year, with gloves, on a date, and I will not say which date, and you have not asked.",
+      "flag": "noel_chair_by_sight",
+      "choices": [
+        {"label": "Whose chair?", "goto": "np_whose"},
+        {"label": "Which object did you stop using first?", "goto": "np_first", "trust": 1}
+      ],
+      "silence_goto": "np_first"
+    },
+    "np_first": {
+      "line": "The chair. ... A man's chair. It was sat in every evening of my childhood and then one evening it was not, and the next morning it was still not, and I was a boy who understood that an object which has stopped being used must be protected from use. I put a cloth over it. I was eleven. Everything since has been that cloth.",
+      "choices": [
+        {"label": "Whose chair?", "goto": "np_whose"},
+        {"label": "He didn't come home. Prison, not death.", "goto": "np_prison", "infer": true, "trust": 1, "requires": ["price_named"]},
+        {"label": "You've protected it from use. Not from loss.", "goto": "np_loss", "trust": 1}
+      ],
+      "silence_goto": "np_first_sil"
+    },
+    "np_first_sil": {
+      "line": "You have not asked whose. You are letting the chair be a chair a moment longer. Thank you; that is more than I manage.",
+      "choices": [
+        {"label": "You've protected it from use. Not from loss.", "goto": "np_loss", "trust": 1}
+      ],
+      "silence_goto": "np_loss"
+    },
+    "np_whose": {
+      "line": "My father's. He left the flat one morning for a courtroom and the next time anyone sat in that chair was never. I am not going to tell you the case; it is the one thing in this flat that is not catalogued and I prefer it that way.",
+      "flag": "noel_father_tried",
+      "choices": [
+        {"label": "You've protected it from use. Not from loss.", "goto": "np_loss", "trust": 1}
+      ],
+      "silence_goto": "np_loss"
+    },
+    "np_prison": {
+      "line": "... You have a name. I can see it in your face; you are deciding whether to say it. Do not. If you say it I shall have to produce a condition report on the word, and I have never had to, because nobody in this building has ever known it. Keep it in your glove.",
+      "flag": "noel_father_tried",
+      "choices": [
+        {"label": "You've protected it from use. Not from loss.", "goto": "np_loss", "trust": 1}
+      ],
+      "silence_goto": "np_loss"
+    },
+    "np_loss": {
+      "role": "strained",
+      "line": "No. Not from loss. He was already lost when I put the cloth on; the cloth was for me. ... And now there is glass over the mug my mother used, and the runner, and the chair, and every one of them is in excellent condition, and no one may touch them, and I live in a flat that is a very good museum of a family that has stopped. Mr Ortiz eats at the other end with his hands.",
+      "choices": [
+        {"label": "Take one thing out. Use it. Tonight.", "goto": "np_one_thing", "trust": 1},
+        {"label": "Your brother writes about it and can't finish.", "goto": "np_jonah", "requires": ["jonah_verdict_unwritten"], "trust": 1},
+        {"label": "The glass is keeping you safe. Leave it.", "goto": "np_safe", "trust": -1}
+      ],
+      "silence_goto": "np_loss_sil",
+      "silence_flag": "noel_silence_unhandled",
+      "silence_trust": 1
+    },
+    "np_loss_sil": {
+      "line": "You have not told me to feel anything. That is the correct protocol for an object in distress and nobody applies it to a person. Please continue not applying it.",
+      "choices": [
+        {"label": "Take one thing out. Use it. Tonight.", "goto": "np_one_thing", "trust": 1}
+      ],
+      "silence_goto": "np_one_thing"
+    },
+    "np_safe": {
+      "line": "Safe. Yes. A thing under glass is safe and a thing that is safe is not in use, and a family is not a thing that was meant to be safe. Do not agree with me; I have had thirty years of agreeing with myself.",
+      "choices": [
+        {"label": "Then take one thing out. Use it.", "goto": "np_one_thing", "trust": 1}
+      ],
+      "silence_goto": "np_one_thing"
+    },
+    "np_jonah": {
+      "line": "He brings two coffees on Sundays and we drink them in the doorway and never inside, because inside is the collection and he cannot bear it, and I cannot bear him not bearing it. He is writing it. He has been writing it since we were boys. He cannot put the last page down because the last page is a verdict, and we both know what it says, and neither of us has said it since.",
+      "flag": "noel_knows_jonah_stuck",
+      "choices": [
+        {"label": "Take one thing out. Use it. Tonight.", "goto": "np_one_thing", "trust": 1}
+      ],
+      "silence_goto": "np_one_thing"
+    },
+    "np_one_thing": {
+      "role": "recognition",
+      "line": "One thing. ... Not the chair. The mug. The chipped one, the one she used every day without a thought in her head about condition. ... The glass lifts. It lifts; it was never fastened. I am going to make tea in it and I am going to hold it without a glove and it is going to be too hot, and that will be the first time in thirty years an object in this flat has done anything to me.",
+      "flag": "use_is_love"
+    },
+    "np_rt_open": {
+      "line": "Good evening. The mug is in use. It has acquired a new chip, which I have recorded, and the record says 'in use,' which is a condition I had no abbreviation for.",
+      "choices": [
+        {"label": "The Association keeps a chair until its owner's found. The minutes say so.", "goto": "np_assoc_chair", "requires": ["minutes_read"], "infer": true, "trust": 1},
+        {"label": "Cam sat down. Nine minutes. You wrote a card.", "goto": "np_cam_card", "requires": ["cam_sat_down"], "trust": 1},
+        {"label": "You process the post downstairs. Nothing comes in unaccessioned.", "goto": "np_post", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "np_rt_sil"
+    },
+    "np_rt_sil": {
+      "line": "No enquiry. Then sit at Mr Ortiz's end; it is the end that permits it.",
+      "choices": [
+        {"label": "You process the post downstairs. Nothing comes in unaccessioned.", "goto": "np_post", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "np_res_open"
+    },
+    "np_assoc_chair": {
+      "line": "... You have read the minutes. The Association's chair. 'Until its owner can be found.' ... The chair in this flat came to us with the lease, from the building, not from my family's rooms. I have known that for some time and I have let the catalogue say otherwise, because a chair that is my father's is a chair I can keep, and a chair that is the building's belongs to a meeting that has not been held in years. I shall need to amend the card. I shall need a sit-down first, and I know exactly which chair I shall not use.",
+      "flag": "noel_chair_is_the_associations"
+    },
+    "np_cam_card": {
+      "line": "Nine minutes, seated, at his own end, with his bag on the floor. I wrote the card and I put it under his plate and he read it and did not throw it away, which for him is an accession. It is the first card in this flat about something happening rather than something having stopped.",
+      "flag": "noel_cam_card"
+    },
+    "np_post": {
+      "line": "Opened, flattened, wrappings binned, in the lobby. Nothing enters the flat that has not been assessed. ... A letter came, hand-delivered, in a child's hand, addressed to Price. I assessed it. I have not opened it. It is in the drawer with the things I have not opened, which is a short drawer and an honest one.",
+      "flag": "noel_childs_letter"
+    },
+    "np_int_open": {
+      "line": "The runner is out from under its glass. It has a footprint on it. I have left the footprint.",
+      "choices": [
+        {"label": "[Leave the footprint.]", "goto": "np_int_beat"}
+      ],
+      "silence_goto": "np_int_beat"
+    },
+    "np_int_beat": {
+      "line": "Handled.",
+      "action": "quiet_beat"
+    },
+    "np_fb_open": {
+      "line": "The bed is under glass. I slept in the chair. I am aware of the irony and I have recorded it.",
+      "choices": [
+        {"label": "I'll come back when the glass lifts."}
+      ],
+      "silence_goto": "np_fb_sil"
+    },
+    "np_fb_sil": {
+      "line": "Gloves on the hook. Thank you for not needing them."
+    },
+    "np_res_open": {
+      "line": "I sat in the chair. Not on the date. A Tuesday. It is less comfortable than I remembered and it holds a man, which is what it was for."
+    }
+  }
+}

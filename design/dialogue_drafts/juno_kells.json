@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "case_id": "juno_feedback_tetris",
+    "speaker_default": "JUNO KELLS",
+    "voice_prefix": "juno_c03_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Juno notices splice, sample, cable route, patch note and stolen voice. Fast associative cuts, technical nouns as dares, sincerity without smoothing the transition. Comic engine: confessing the smaller offence to conceal the exact larger one everybody has noticed. Never delivers preservation rhetoric. Case: speaker feedback gone load-bearing; flags credit_was_taken, one_channel_can_remain_open. Both thefts are true (Bible VI.8): she took Rhea's take 18 without asking; her own work was premiered under someone else's name. Her Vantry recorder is forty years early and looks it."
+  },
+  "entries": {
+    "first_stable": "jk_open",
+    "real_talk": "jk_rt_open",
+    "integration": "jk_int_open",
+    "resolved": "jk_res_open",
+    "fallback": "jk_fb_open"
+  },
+  "nodes": {
+    "jk_open": {
+      "line": "Don't walk between the monitors. No, seriously, don't, it's solid there. Feedback. It started as a ring, I left it up because it sounded like something, and now it holds the shelf up. I put a book on it. The book stayed. Come in the long way round.",
+      "choices": [
+        {"label": "You left it up because it sounded like something.", "goto": "jk_sounded", "trust": 1},
+        {"label": "Every cable in here is labelled. The room isn't. [cable labels]", "goto": "jk_labels", "evidence": "meticulous cable labels in a room of chaos"},
+        {"label": "Pull the mains and it drops.", "goto": "jk_mains", "trust": -1}
+      ],
+      "silence_goto": "jk_sil1"
+    },
+    "jk_sil1": {
+      "line": "Okay you're just standing there listening to it. That's... actually that's the right thing. It's a G. Slightly flat. It's been slightly flat for a week and I can't tune a room.",
+      "choices": [
+        {"label": "You left it up because it sounded like something.", "goto": "jk_sounded", "trust": 1},
+        {"label": "Pull the mains and it drops.", "goto": "jk_mains", "trust": -1}
+      ],
+      "silence_goto": "jk_sounded"
+    },
+    "jk_mains": {
+      "line": "I pulled the mains Tuesday. It stayed up. That's when I put the book on it. You think I haven't tried the obvious thing? I'm chaotic, I'm not stupid. The obvious thing is how I found out it was load-bearing.",
+      "choices": [
+        {"label": "So what's holding it up?", "goto": "jk_sounded"}
+      ],
+      "silence_goto": "jk_sounded"
+    },
+    "jk_labels": {
+      "line": "Cables are the one thing you can't lose. Lose a cable and you lose the take, and the take's the only proof you were there. Everything else in here can rot. ... That came out more like a confession than I meant.",
+      "choices": [
+        {"label": "Proof you were there. Who says you weren't?", "goto": "jk_proof", "infer": true, "trust": 1},
+        {"label": "So what's holding the ring up?", "goto": "jk_sounded"}
+      ],
+      "silence_goto": "jk_sounded"
+    },
+    "jk_proof": {
+      "line": "A programme. A printed one. My piece, somebody else's name, a hall full of people clapping at the wrong person. I have the masters. Masters don't clap. Anyway. Ring. Shelf. Book.",
+      "flag": "credit_was_taken",
+      "choices": [
+        {"label": "So what's holding the ring up?", "goto": "jk_sounded"}
+      ],
+      "silence_goto": "jk_sounded"
+    },
+    "jk_sounded": {
+      "line": "It sounded like a voice. Not words. The shape of someone about to say something and not. I've got about forty hours of people about to say something; it's basically my genre. So I left the channel open and it... stacked. Every time the building makes a sound it lands on the pile and the pile's holding my shelf up.",
+      "choices": [
+        {"label": "Forty hours of other people. Did they know?", "goto": "jk_knew", "trust": 1},
+        {"label": "Whose voice is it the shape of?", "goto": "jk_whose", "infer": true, "trust": 1},
+        {"label": "It's an archive. That's what archives are for.", "goto": "jk_archive_ok", "trust": -1}
+      ],
+      "silence_goto": "jk_sounded_sil"
+    },
+    "jk_sounded_sil": {
+      "line": "You're letting me hear myself say 'forty hours of people.' Fine. Fine! It's a lot of people.",
+      "choices": [
+        {"label": "Did they know?", "goto": "jk_knew", "trust": 1}
+      ],
+      "silence_goto": "jk_knew"
+    },
+    "jk_archive_ok": {
+      "line": "Thank you! Yes! That's what I say! It sounds so much worse when somebody agrees with me. Why does it sound worse when you agree with me.",
+      "choices": [
+        {"label": "Because they didn't know.", "goto": "jk_knew", "trust": 1}
+      ],
+      "silence_goto": "jk_knew"
+    },
+    "jk_whose": {
+      "line": "... The singer. Upstairs. 3D. There's a session in the archive she doesn't know I have, and the ring is the shape of the breath before the take where she, where it went. Where her voice went somewhere she didn't send it. It's the best thing I've ever recorded and I wasn't in the room.",
+      "flag": "juno_archive_open",
+      "choices": [
+        {"label": "Take eighteen.", "goto": "jk_eighteen", "requires": ["rhea_take_eighteen"], "trust": 1},
+        {"label": "You weren't in the room. You had a mic in the wall.", "goto": "jk_mic", "infer": true, "trust": 1},
+        {"label": "Did they know?", "goto": "jk_knew", "trust": 1}
+      ],
+      "silence_goto": "jk_knew"
+    },
+    "jk_eighteen": {
+      "line": "How do you. ... She told you there was an eighteen. She didn't tell you it exists. It exists. It's in a box marked WALL, which, I know. I know. I labelled it honestly, that has to count for something. It doesn't. I know it doesn't.",
+      "flag": "juno_has_eighteen",
+      "choices": [
+        {"label": "Did the others know?", "goto": "jk_knew", "trust": 1}
+      ],
+      "silence_goto": "jk_knew"
+    },
+    "jk_mic": {
+      "line": "Contact mic. On the riser. The pipes carry everything in this building if you're patient and I'm very patient about the wrong things. It's not spying if you're recording the building. That's the sentence I've been using. You can tell by my face how well it's working.",
+      "choices": [
+        {"label": "Did the others know?", "goto": "jk_knew", "trust": 1}
+      ],
+      "silence_goto": "jk_knew"
+    },
+    "jk_knew": {
+      "role": "strained",
+      "line": "No. Nobody knows. That's the whole, that's the technique, you can't get the real thing if they know. And then somebody got the real thing out of me, in a hall, with my name scraped off, and I sat there in the dark thinking 'oh. Oh, that's what it feels like.' And I went home and I did not stop. I opened another channel.",
+      "choices": [
+        {"label": "You know exactly what it feels like. That's why you can't stop.", "goto": "jk_cant_stop", "trust": 1},
+        {"label": "Close the archive. All of it.", "goto": "jk_close_all", "trust": -1},
+        {"label": "Which one channel would you leave open?", "goto": "jk_one", "trust": 1}
+      ],
+      "silence_goto": "jk_knew_sil",
+      "silence_flag": "juno_silence_recorded",
+      "silence_trust": 1
+    },
+    "jk_knew_sil": {
+      "line": "... You're not going to tell me I'm the same as them. You're just going to stand in it. God. Okay. That's worse. Keep doing it.",
+      "choices": [
+        {"label": "Which one channel would you leave open?", "goto": "jk_one", "trust": 1}
+      ],
+      "silence_goto": "jk_one"
+    },
+    "jk_close_all": {
+      "line": "And then what's holding the shelf up? That's not a metaphor. I mean the shelf. If I shut every channel the ring drops and the shelf drops and forty hours go on the floor and so does the one thing in here that's actually mine. I can't close all of it. I can close most of it.",
+      "choices": [
+        {"label": "Then which one would you leave open?", "goto": "jk_one", "trust": 1}
+      ],
+      "silence_goto": "jk_one"
+    },
+    "jk_cant_stop": {
+      "line": "Yeah. Yeah. Because if I stop I've got to go upstairs and say 'I have your voice in a box' and watch her face do what mine did in the hall. And I would rather hold a shelf up with a G-flat forever. ... That's not true. I'd rather not. I just don't know how to open my hand.",
+      "choices": [
+        {"label": "Which one channel would you leave open?", "goto": "jk_one", "trust": 1}
+      ],
+      "silence_goto": "jk_one"
+    },
+    "jk_one": {
+      "line": "One. ... Hers. Not the archive, the live one, the riser. Open the other way. So she could hear me if she wanted. I've never once set up a channel somebody could talk back on. That's, hm. That's a patch note, isn't it. 'Input only. Thirty years.'",
+      "flag": "one_channel_can_remain_open",
+      "choices": [
+        {"label": "Then go up and say it to her face. Take the box.", "goto": "jk_go_up", "trust": 1, "flag": "juno_will_return_eighteen"},
+        {"label": "Open it. Say nothing yet. Let her find it.", "goto": "jk_let_find", "trust": -1},
+        {"label": "Start with the shelf. Take the book off.", "goto": "jk_book", "trust": 1}
+      ],
+      "silence_goto": "jk_book"
+    },
+    "jk_let_find": {
+      "line": "That's what I'd do. That's exactly what I'd do and you've just said it in a voice that makes it sound like a trap. It is a trap. It's the nice version of the trap. ... No. The box goes up in my hands or it doesn't count.",
+      "flag": "juno_will_return_eighteen",
+      "choices": [
+        {"label": "Start with the shelf.", "goto": "jk_book", "trust": 1}
+      ],
+      "silence_goto": "jk_book"
+    },
+    "jk_go_up": {
+      "line": "Yeah. Not tonight. Tonight I'd do it to feel better and that's just taking again. Tomorrow, when it's not about me. ... Start with the shelf. If I can take the book off without the shelf going, I can carry a box upstairs.",
+      "choices": [
+        {"label": "Take the book off.", "goto": "jk_book", "trust": 1}
+      ],
+      "silence_goto": "jk_book"
+    },
+    "jk_book": {
+      "role": "recognition",
+      "line": "Okay. Book. ... It held. The ring's still there but it's not holding anything up; it's just a note. Slightly flat. I'm going to leave the channel open and mute the forty hours and see what comes down the riser when it's allowed to be two-way. Probably the painter's kettle. Honestly? I'd take the kettle.",
+      "flag": "juno_channel_open"
+    },
+    "jk_rt_open": {
+      "line": "Hey. It's still a G. I've stopped tuning it. Sit on the case, the chair's got a mic in it.",
+      "choices": [
+        {"label": "Cal says you trade tapes.", "goto": "jk_cal", "requires": ["cal_juno_trade"], "trust": 1},
+        {"label": "The roof on Mondays and Wednesdays. Sacha has the others.", "goto": "jk_roof", "requires": ["sacha_roof_rota"], "trust": 1},
+        {"label": "Did you go up?", "goto": "jk_went_up", "requires": ["juno_will_return_eighteen"]}
+      ],
+      "silence_goto": "jk_rt_sil"
+    },
+    "jk_rt_sil": {
+      "line": "You come in and don't ask. You know how rare that is in a room with this many inputs.",
+      "choices": [
+        {"label": "Did you go up?", "goto": "jk_went_up", "requires": ["juno_will_return_eighteen"]}
+      ],
+      "silence_goto": "jk_res_open"
+    },
+    "jk_cal": {
+      "line": "He records me recording him and we both pretend it's about the tapes. He's got something on a high shelf he won't play and I've got something in a box I won't, and one day we're going to swap and both be very quiet. He's the only person in this building I'd let hold my recorder.",
+      "flag": "juno_cal_kinship"
+    },
+    "jk_roof": {
+      "line": "We split it so we never meet. Photographer and a recordist on the same roof, you'd think we'd compare notes. We don't. They capture things and I capture things and I think we're both a bit ashamed of the verb.",
+      "flag": "juno_sacha_roof"
+    },
+    "jk_went_up": {
+      "line": "I went up. Box under my arm. She opened the door in a robe and one sock and I said 'I have something that's yours' and she said 'I know.' She knew. She's known for a year. She let me carry it up anyway. I think that was the kindest thing anyone's done to me and I'm furious about it.",
+      "flag": "juno_returned_eighteen"
+    },
+    "jk_int_open": {
+      "line": "Riser's open both ways. Nothing yet. I'm not filling it.",
+      "choices": [
+        {"label": "[Leave the channel quiet.]", "goto": "jk_int_beat"}
+      ],
+      "silence_goto": "jk_int_beat"
+    },
+    "jk_int_beat": {
+      "line": "Room tone.",
+      "action": "quiet_beat"
+    },
+    "jk_fb_open": {
+      "line": "It's holding the desk up now. The desk, with me on it. I'm sort of impressed.",
+      "choices": [
+        {"label": "I'll come back when it's just a note."}
+      ],
+      "silence_goto": "jk_fb_sil"
+    },
+    "jk_fb_sil": {
+      "line": "Mind the gap between the monitors. It bites."
+    },
+    "jk_res_open": {
+      "line": "Something came down the riser this morning. Someone humming. Badly. I didn't record it. First time in my life. I just listened and then it stopped and I let it."
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "transient_guests",
+    "speaker_default": "THE GUESTS",
+    "voice_prefix": "guests_t07_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case. Two speakers, A and B, marked in the line with an em dash turn; they may disagree and never give omniscient exposition as a chorus. They notice key, receipt, transit stub, checkout time, mismatched bag. Adaptive vocabulary, borrowed opinions, pronouns that blur; one personal preference arrives like contraband. Comic engine: two people agreeing perfectly for incompatible reasons. They are the first tenants and have always been checking in; they remember every arrival and will not say so twice. The hallway repeats 4D; checkout is always eleven."
+  },
+  "entries": {
+    "first_stable": "tg_open",
+    "real_talk": "tg_rt_open",
+    "integration": "tg_int_open",
+    "resolved": "tg_res_open",
+    "fallback": "tg_fb_open"
+  },
+  "nodes": {
+    "tg_open": {
+      "line": "Oh! Come in, come in, we're nearly packed. — We're always nearly packed. — That's what I said. The hall. You'll have seen. You go out our door and the next door along is our door again. Four-D. And the one after. — It's very convenient. — It's not convenient, it's a hall full of us.",
+      "choices": [
+        {"label": "How long have you been checking out?", "goto": "tg_how_long", "trust": 1},
+        {"label": "The cases are packed. Never unpacked. [the cases by the door]", "goto": "tg_cases", "evidence": "no personal history at all, which is itself a history"},
+        {"label": "Just leave. Walk past all the doors.", "goto": "tg_just_leave", "trust": -1}
+      ],
+      "silence_goto": "tg_sil1"
+    },
+    "tg_sil1": {
+      "line": "— They're not saying anything. — People usually say something. They say 'how extraordinary.' — You said that. — I said it for them. ... You're not going to, are you. You're just looking at the bags. Hm.",
+      "choices": [
+        {"label": "How long have you been checking out?", "goto": "tg_how_long", "trust": 1}
+      ],
+      "silence_goto": "tg_how_long"
+    },
+    "tg_just_leave": {
+      "line": "We did. — We did! Tuesday. We walked the whole hall with the cases, past every Four-D, and the last door was the lobby, and the lobby was the room. — With the bed made. — We'd made it ourselves, that morning, so.",
+      "choices": [
+        {"label": "How long have you been checking out?", "goto": "tg_how_long", "trust": 1}
+      ],
+      "silence_goto": "tg_how_long"
+    },
+    "tg_cases": {
+      "line": "Packed. — Repacked. Every day. You can't unpack in a let; it's bad manners. — Nothing's unpacked, nothing's ours, you could lift us out and the room wouldn't notice. — That's the idea. — That's the trouble. — It's both. — It's both, yes. We agree on that. We agree on most things, for different reasons.",
+      "choices": [
+        {"label": "You agree so nobody can tell you apart when you go.", "goto": "tg_apart", "infer": true, "trust": 1},
+        {"label": "How long have you been checking out?", "goto": "tg_how_long", "trust": 1}
+      ],
+      "silence_goto": "tg_how_long"
+    },
+    "tg_apart": {
+      "line": "— Oh. — Well. — That's rather personal for a corridor. ... Yes. If we leave no shape then leaving leaves no gap. That's the theory. — It's your theory. — It's ours. — You see? We can't even disagree about agreeing.",
+      "choices": [
+        {"label": "How long have you been checking out?", "goto": "tg_how_long", "trust": 1}
+      ],
+      "silence_goto": "tg_how_long"
+    },
+    "tg_how_long": {
+      "line": "Since we came. — Which was. — Recently. — Recently. We came recently and we've been leaving ever since. Checkout's at eleven. It's always at eleven. We go down with the bags at ten and there's no desk, and we come back up at half past like new arrivals, and the room's made. — It's a lovely room. — It's the same room.",
+      "choices": [
+        {"label": "You were here before anyone. You remember them all arriving.", "goto": "tg_remember", "infer": true, "trust": 1},
+        {"label": "Who makes the bed?", "goto": "tg_bed", "trust": 1},
+        {"label": "You should settle somewhere. Properly.", "goto": "tg_settle", "trust": -1}
+      ],
+      "silence_goto": "tg_how_long_sil"
+    },
+    "tg_how_long_sil": {
+      "line": "— They've gone quiet again. — People go quiet when they're about to say something kind. — Or when they've noticed. — They've noticed. Look at them. They've noticed.",
+      "choices": [
+        {"label": "You were here before anyone. You remember them all arriving.", "goto": "tg_remember", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "tg_remember"
+    },
+    "tg_settle": {
+      "line": "Properly! — Properly. Yes. Everyone says properly. — We've been told properly by people who've since left. — Several. — We saw them off. We're very good at seeing people off. It's arriving we never got the hang of.",
+      "choices": [
+        {"label": "Who makes the bed?", "goto": "tg_bed", "trust": 1}
+      ],
+      "silence_goto": "tg_bed"
+    },
+    "tg_bed": {
+      "line": "We do. — We do. Every morning, corners tucked, like a hotel, for whoever's next. — We're whoever's next. — We know that. — We know that; we make it anyway. It'd be rude to leave it, and ruder to admit we're the ones coming back.",
+      "choices": [
+        {"label": "You were here before anyone. You remember them all arriving.", "goto": "tg_remember", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "tg_remember"
+    },
+    "tg_remember": {
+      "role": "strained",
+      "line": "... — Don't. — I wasn't going to. — You were. ... We remember the woman with the gloves coming up the stair with a man carrying a ledger box. We remember the teacher before the teacher had a cardigan. We remember the night nurse's first thermos; it was green. — It was blue. — You see, we don't remember. — We remember differently. That's not the same as not. ... We've said that once. We won't say it twice.",
+      "flag": "guests_remember",
+      "choices": [
+        {"label": "Then you remember who had 4B before me.", "goto": "tg_4b", "trust": 1},
+        {"label": "You remember so nobody has to. You're the building's guest book.", "goto": "tg_guestbook", "infer": true, "trust": 1},
+        {"label": "Tell me everything you remember.", "goto": "tg_everything", "trust": -1}
+      ],
+      "silence_goto": "tg_remember_sil",
+      "silence_flag": "guests_silence_honoured",
+      "silence_trust": 1
+    },
+    "tg_remember_sil": {
+      "line": "— They're not asking. — They heard us say once. — They did. They're the first one who's heard 'once' and stopped. ... Sit on the case, dear. The lid's reinforced.",
+      "choices": [
+        {"label": "Then you remember who had 4B before me.", "goto": "tg_4b", "trust": 1}
+      ],
+      "silence_goto": "tg_4b"
+    },
+    "tg_everything": {
+      "line": "— No. — No. We said once. Everything is a thing you can only say once, and then it's yours, and we don't keep things. We've told you the thermos. — Green. — Blue. Have the thermos.",
+      "choices": [
+        {"label": "Then who had 4B before me?", "goto": "tg_4b", "trust": 1}
+      ],
+      "silence_goto": "tg_4b"
+    },
+    "tg_guestbook": {
+      "line": "— Oh, that's. — That's rather lovely. — It's rather awful. — It's both. ... A guest book nobody signs. We've never been asked to sign anything here; there's no desk. So we've become the desk. — We didn't choose that. — We never choose. That's the whole trouble and you've put it in a book.",
+      "choices": [
+        {"label": "Then who had 4B before me?", "goto": "tg_4b", "trust": 1}
+      ],
+      "silence_goto": "tg_4b"
+    },
+    "tg_4b": {
+      "line": "— A woman. — Rust cardigan. — She worked nights at the desk like you, and one night she didn't come up, and the next night the line rang in her flat and nobody answered it, and the night after that there was a new notice about not knocking after nine. — We never knocked. — We never knock. ... That's all. We don't know where she went. Nobody checks out of here with a forwarding address; we'd know, we've tried to leave one.",
+      "flag": "guests_remember_mara",
+      "choices": [
+        {"label": "You've been trying to leave something behind. On purpose.", "goto": "tg_leave_something", "infer": true, "trust": 1},
+        {"label": "Choose. Stay or go. Today.", "goto": "tg_choose", "trust": 1}
+      ],
+      "silence_goto": "tg_choose"
+    },
+    "tg_leave_something": {
+      "line": "— ... — A forwarding address is a thing you leave so someone can find you. — We've nowhere to forward to. — So we leave a thing instead. A glove. A book. A hairpin on the sill. — The maid takes them. — There is no maid. — Then we take them. We come back up at half past and the sill's clear and the cases are by the door and we never decide which of us cleared it.",
+      "choices": [
+        {"label": "Choose. Stay or go. Today.", "goto": "tg_choose", "trust": 1}
+      ],
+      "silence_goto": "tg_choose"
+    },
+    "tg_choose": {
+      "role": "recognition",
+      "line": "— Choose. — They said choose. — I heard. ... Stay. — Go. ... — Well. — Well. That's the first time. — That's the first time we've answered differently. — I'd like to stay. — I'd like to go. ... — Then one of us is a tenant and one of us is a guest, and that's — — that's a shape. — That's a shape in the room. — The room will notice. — Let it.",
+      "flag": "departure_is_a_decision"
+    },
+    "tg_rt_open": {
+      "line": "Oh, it's you. — It's them. — Come in; one of us has unpacked a drawer. — One drawer. — It's a start. — It's a shape.",
+      "choices": [
+        {"label": "You go to the counter at four and the clerk doesn't know your name.", "goto": "tg_chapel", "infer": true, "trust": 1},
+        {"label": "You take the lift up to the chapel. The sixth that won't hear.", "goto": "tg_lift", "requires": ["otis_sixth_deaf"], "trust": 1},
+        {"label": "Which drawer?", "goto": "tg_drawer"}
+      ],
+      "silence_goto": "tg_rt_sil"
+    },
+    "tg_rt_sil": {
+      "line": "— Quiet one. — We like the quiet one. — We agree. — For once.",
+      "choices": [
+        {"label": "Which drawer?", "goto": "tg_drawer"}
+      ],
+      "silence_goto": "tg_res_open"
+    },
+    "tg_drawer": {
+      "line": "Mine. — Hers. — Mine. One jumper and a book I've read. In a drawer. With the drawer shut. — I check it. — She checks it. It's still there every time, which is more than we can say for the hairpins.",
+      "flag": "guests_one_drawer"
+    },
+    "tg_chapel": {
+      "line": "The counter. Four in the morning. He pours and doesn't look up and doesn't know us, and that's the whole comfort of it; we call it the chapel. — I call it the chapel. — We both do now. A place where nobody's expecting your name is the only place you can be sure you've still got one.",
+      "flag": "guests_chapel"
+    },
+    "tg_lift": {
+      "line": "Six has to be asked twice. — Everyone up there knows. — We're not up there; we go up anyway. The lift won't hear the sixth the first time and neither will we, and we ask again, and it takes us. — It's the only thing in the building that makes us say a thing twice. — We rather love it for that.",
+      "flag": "guests_lift_twice"
+    },
+    "tg_int_open": {
+      "line": "— Checkout came and went. — We were in. — We were in the room at eleven, sat on the bed, not packed. — One of us wasn't packed.",
+      "choices": [
+        {"label": "[Leave them to eleven.]", "goto": "tg_int_beat"}
+      ],
+      "silence_goto": "tg_int_beat"
+    },
+    "tg_int_beat": {
+      "line": "— Still here. — Still here.",
+      "action": "quiet_beat"
+    },
+    "tg_fb_open": {
+      "line": "The hall's got nine of us in it now. — Ten. — It's hard to count a door.",
+      "choices": [
+        {"label": "I'll come back at half past."}
+      ],
+      "silence_goto": "tg_fb_sil"
+    },
+    "tg_fb_sil": {
+      "line": "— Mind the bags. — There are always bags."
+    },
+    "tg_res_open": {
+      "line": "— One of us has a name on the box downstairs. — In pencil. — It's a start. — It's a shape. — It's a forwarding address."
+    }
+  }
+}

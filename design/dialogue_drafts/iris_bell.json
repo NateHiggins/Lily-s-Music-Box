@@ -1,0 +1,205 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "iris_bell",
+    "speaker_default": "IRIS BELL",
+    "voice_prefix": "iris_t08_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case. Iris notices pigment test, failed canvas, room light, who is looking. Visual comparisons, colour before cause; candid speech still checks its composition. Comic engine: rejecting an honest mess because it looks too deliberately like an honest mess. Never claims indifference to an audience convincingly on the first try. Married to Omar, two floors down; the first real audience stopped looking, or she stopped letting him; both true. She leaves one note a year with only a date on it. Sacha photographs her canvases, the only lens she permits."
+  },
+  "entries": {
+    "first_stable": "ib_open",
+    "real_talk": "ib_rt_open",
+    "integration": "ib_int_open",
+    "resolved": "ib_res_open",
+    "fallback": "ib_fb_open"
+  },
+  "nodes": {
+    "ib_open": {
+      "line": "Stand there. No, there, where the light's flat. Right. The paintings are repainting the flat. Not metaphor. I hung the series facing the room last night and this morning the wall behind them is the colour of the one in the middle, and the floor's taken the shadow from the one on the left, and it's all very well done, and I hate it, and I'd like it to stop.",
+      "choices": [
+        {"label": "Well done for whom?", "goto": "ib_for_whom", "trust": 1},
+        {"label": "The failures face the wall. Kept carefully. [the turned canvases]", "goto": "ib_failures", "evidence": "the failures are kept, carefully, faces hidden"},
+        {"label": "Turn them all to the wall. Then nothing's watching.", "goto": "ib_turn", "trust": -1}
+      ],
+      "silence_goto": "ib_sil1"
+    },
+    "ib_sil1": {
+      "line": "You're looking at the wall and not the paintings. Everyone looks at the paintings. The wall's the one that's honest about what it's been told to be.",
+      "choices": [
+        {"label": "Well done for whom?", "goto": "ib_for_whom", "trust": 1}
+      ],
+      "silence_goto": "ib_for_whom"
+    },
+    "ib_turn": {
+      "line": "I did that. Tuesday. The flat went to the colour of the backs of the canvases, which is a sort of hospital cream, and I lasted an hour. It turns out I'd rather be watched than be in a room that's given up.",
+      "choices": [
+        {"label": "Well done for whom?", "goto": "ib_for_whom", "trust": 1}
+      ],
+      "silence_goto": "ib_for_whom"
+    },
+    "ib_failures": {
+      "line": "Faces to the wall, in order, dusted. Yes. You don't throw a failure out; you'd have to look at it to decide, and I can't. ... That's a good observation and I'm annoyed you had it before I'd finished composing the room for you.",
+      "choices": [
+        {"label": "You composed the room for me. You compose it for everyone.", "goto": "ib_compose", "infer": true, "trust": 1},
+        {"label": "Well done for whom?", "goto": "ib_for_whom", "trust": 1}
+      ],
+      "silence_goto": "ib_for_whom"
+    },
+    "ib_compose": {
+      "line": "At nine. Every night. I stop and I rehang the wall for whoever's coming, and nobody's coming, and I do it anyway, and the one hour I draw for nobody is the light court at dawn when I'm too tired to pose the pigeons. Yes. I know what I am. I'm a woman with a very well-lit audience of none.",
+      "choices": [
+        {"label": "Well done for whom?", "goto": "ib_for_whom", "trust": 1}
+      ],
+      "silence_goto": "ib_for_whom"
+    },
+    "ib_for_whom": {
+      "line": "For them. The audience. There's always an audience; that's how you paint, you paint at someone. Mine's imaginary and it's very demanding and it has started holding the brush. The flat's what the wall looks like when the audience gets to decide. Tasteful. Mine. Not mine.",
+      "choices": [
+        {"label": "Who was the first audience? Before it was imaginary.", "goto": "ib_first", "trust": 1},
+        {"label": "The imaginary one has a face. One man's.", "goto": "ib_one_man", "infer": true, "trust": 1},
+        {"label": "Paint something ugly. On purpose. Prove you don't care.", "goto": "ib_ugly", "trust": -1}
+      ],
+      "silence_goto": "ib_for_whom_sil"
+    },
+    "ib_for_whom_sil": {
+      "line": "You're not asking who. They always ask who. I'd got the answer lit and everything.",
+      "choices": [
+        {"label": "Who was the first audience?", "goto": "ib_first", "trust": 1}
+      ],
+      "silence_goto": "ib_first"
+    },
+    "ib_ugly": {
+      "line": "I tried. Ugly on purpose looks exactly like a woman trying to look like she doesn't care, and the audience sees it, and claps politely, and I want to die. You can't fake indifference in oil. It dries too slow.",
+      "choices": [
+        {"label": "Who was the first audience?", "goto": "ib_first", "trust": 1}
+      ],
+      "silence_goto": "ib_first"
+    },
+    "ib_one_man": {
+      "line": "... One man. Yes. You've got sharp eyes for someone who fixes pipes. He used to sit in the chair with the back to the window and not say anything, which was perfect, and then one day the chair was empty when I turned round, and I've been painting at the chair since. I filled it with people. Hundreds. None of them sit right.",
+      "flag": "iris_first_audience",
+      "choices": [
+        {"label": "Who was he?", "goto": "ib_first", "trust": 1}
+      ],
+      "silence_goto": "ib_first"
+    },
+    "ib_first": {
+      "role": "strained",
+      "line": "My husband. He's two floors down. We're not — we are married. We've not been in the same room since the night the lights went, which was a long time ago and also the week after our anniversary, and he comes up and fixes my sink while I'm out, and I leave him notes with faults on them so he'll come. One note a year has no fault on it. Just the date. He's never answered that one.",
+      "flag": "bells_married",
+      "choices": [
+        {"label": "He stopped looking. Or you stopped letting him.", "goto": "ib_which", "trust": 1},
+        {"label": "The anniversary note. The one he doesn't fix.", "goto": "ib_note", "trust": 1},
+        {"label": "You should just go down and talk to him.", "goto": "ib_just_go", "trust": -1}
+      ],
+      "silence_goto": "ib_first_sil",
+      "silence_flag": "iris_silence_unlit",
+      "silence_trust": 1
+    },
+    "ib_first_sil": {
+      "line": "... No reaction. You're the first person who hasn't arranged their face. Do you know how long it's been since I've been in a room with someone who wasn't composing? Stand there a minute longer. I want to see what the light does when nobody's performing in it.",
+      "choices": [
+        {"label": "He stopped looking. Or you stopped letting him.", "goto": "ib_which", "trust": 1}
+      ],
+      "silence_goto": "ib_which"
+    },
+    "ib_just_go": {
+      "line": "Just go down. Yes. Everybody says just. Just is a word for people who've never had to compose an entrance to their own husband. I'd go down and he'd have a tool in his hand and I'd say 'the sink's fine' and we'd both have said the only line we've got.",
+      "choices": [
+        {"label": "He stopped looking. Or you stopped letting him.", "goto": "ib_which", "trust": 1}
+      ],
+      "silence_goto": "ib_which"
+    },
+    "ib_note": {
+      "line": "One a year. No fault. Just the day. He comes up for every other note and fixes a thing that wasn't broken, and that one he leaves in the box, because there's nothing on it to fix and he can't come up for nothing. I know that. I write it anyway. It's the only painting I make for one person and he never sees it.",
+      "flag": "iris_anniversary_note",
+      "choices": [
+        {"label": "He stopped looking. Or you stopped letting him.", "goto": "ib_which", "trust": 1}
+      ],
+      "silence_goto": "ib_which"
+    },
+    "ib_which": {
+      "line": "Both. Don't make me pick; I've got a wall full of pictures I couldn't pick between. He stopped sitting in the chair and I started hanging the wall for strangers and I don't know which was first and I've never checked because checking would mean asking him, and asking him would be the first honest thing on this floor in years.",
+      "choices": [
+        {"label": "Then paint one thing for him. Not for the wall.", "goto": "ib_for_him", "trust": 1},
+        {"label": "He keeps your notes. He writes them to himself.", "goto": "ib_notes_himself", "requires": ["omar_notes_to_himself"], "trust": 1},
+        {"label": "Paint the light court. Now. For nobody.", "goto": "ib_nobody", "trust": 1}
+      ],
+      "silence_goto": "ib_nobody"
+    },
+    "ib_notes_himself": {
+      "line": "... He writes them to himself. He writes 'the sink, 5C' and puts it in his own box so he can come up. ... That's the stupidest thing I've ever heard and I've just had to sit down on a wet palette. Both of us. Writing notes to get a man up a stair. We could have shouted.",
+      "flag": "iris_knows_his_notes",
+      "choices": [
+        {"label": "Then paint one thing for him. Not for the wall.", "goto": "ib_for_him", "trust": 1}
+      ],
+      "silence_goto": "ib_for_him"
+    },
+    "ib_for_him": {
+      "line": "For him. ... I don't know how to paint for one person anymore. I know how to paint at a chair. ... The chair. I could paint the chair empty. Honestly empty, not composed-empty. And leave it on the landing where he'd pass it on the way to a sink that isn't broken. That's not a note. That's a thing with no fault on it either.",
+      "flag": "creation_need_not_perform",
+      "choices": [
+        {"label": "Start it now. I'll stand in the bad light.", "goto": "ib_nobody", "trust": 1}
+      ],
+      "silence_goto": "ib_nobody"
+    },
+    "ib_nobody": {
+      "role": "recognition",
+      "line": "... I've turned the easel from the door. First time. The wall behind me's still the audience's colour and I've stopped looking at it. ... It's bad. The light's wrong and I've not fixed it and the chair's just a chair with nobody in it. The flat's stopped repainting. It's given up on me, thank God. Don't look at this. I mean it. This one's not for looking.",
+      "flag": "iris_painted_for_nobody"
+    },
+    "ib_rt_open": {
+      "line": "Oh, it's you. Stand anywhere; I've stopped lighting people. The wall's gone back to being a wall. It's a bad colour. I chose it. I'm keeping it.",
+      "choices": [
+        {"label": "Sacha photographs your canvases. The only lens you allow.", "goto": "ib_sacha", "infer": true, "trust": 1},
+        {"label": "You sing two songs at the bar and leave before the clapping.", "goto": "ib_bar", "infer": true, "trust": 1},
+        {"label": "He came up. Without a tool.", "goto": "ib_he_came", "requires": ["omar_went_up_bare"], "trust": 1}
+      ],
+      "silence_goto": "ib_rt_sil"
+    },
+    "ib_rt_sil": {
+      "line": "Nothing? Good. Sit in the chair. Yes, that chair. Somebody should.",
+      "choices": [
+        {"label": "You sing two songs at the bar and leave before the clapping.", "goto": "ib_bar", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "ib_res_open"
+    },
+    "ib_sacha": {
+      "line": "Sundays. They come down with the camera and I direct every frame, and they let me, which is why I let them. It's the only time somebody looks at my work through a thing I can't see into, and I pretend that's about the pictures. It's about having one witness I didn't paint.",
+      "flag": "iris_two_songs"
+    },
+    "ib_bar": {
+      "line": "Two songs. Lit like an opening; I stand under the one good lamp. And I'm gone before the applause finishes because if I heard the end of it I'd know how it ended. There's a singer on three who does the same. We've never spoken. We've got the same exit; that's a kind of conversation.",
+      "flag": "iris_two_songs"
+    },
+    "ib_he_came": {
+      "line": "He stood in the door with nothing in his hands and I said 'the sink's fine' and he said 'I know' and we stood there like two people in a painting of a doorway. Then he looked at the chair. Just looked. ... He hasn't sat in it. But he looked, and I didn't compose anything, and that's the most we've had since the lights.",
+      "flag": "iris_he_looked"
+    },
+    "ib_int_open": {
+      "line": "The chair painting's on the landing. Face out. I've not been to check if anyone's seen it.",
+      "choices": [
+        {"label": "[Don't check either.]", "goto": "ib_int_beat"}
+      ],
+      "silence_goto": "ib_int_beat"
+    },
+    "ib_int_beat": {
+      "line": "Drying.",
+      "action": "quiet_beat"
+    },
+    "ib_fb_open": {
+      "line": "The ceiling's taken the composition now. I'm living in a very good painting. It's exhausting.",
+      "choices": [
+        {"label": "I'll come back when it's a ceiling."}
+      ],
+      "silence_goto": "ib_fb_sil"
+    },
+    "ib_fb_sil": {
+      "line": "Mind the palette. It's live."
+    },
+    "ib_res_open": {
+      "line": "The chair painting's gone from the landing. I didn't take it. I've not asked. I've started a second one and this time I know who it's for and I've still not lit it."
+    }
+  }
+}
