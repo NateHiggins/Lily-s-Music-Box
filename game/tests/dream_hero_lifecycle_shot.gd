@@ -65,7 +65,7 @@ func _run() -> void:
 	camera.make_current()
 	root.view_override = camera
 	root.player.flashlight.visible = true
-	root.player._light_mask.visible = true
+	pass # Photographic lamp overlay retired globally.
 	root.player.flashlight.reparent(camera)
 	root.player.flashlight.transform = Transform3D(Basis(),
 			Vector3(0.14, -0.16, -0.05))

@@ -15,6 +15,7 @@ var _feedback_limit := false
 var _feedback_until := 0
 var profiling := false
 var profile_records: Array[Dictionary] = []
+var _held_depth := 0.0
 
 func _record_cost(stage: String, owner_name: String, started: int) -> void:
 	if not profiling: return
@@ -65,6 +66,9 @@ func _same_assembly(hit: Dictionary) -> bool:
 func active() -> bool:
 	return not target.is_empty()
 
+func holding_pickup() -> bool:
+	return active() and target.kind=="free" and bool(target.get("pickup",true)) and not player.inspecting()
+
 func acquire(candidate: Dictionary) -> bool:
 	if active() or candidate.is_empty() or candidate.get("blocked",false): return false
 	if not is_instance_valid(candidate.get("part")) or not is_instance_valid(candidate.get("owner")): return false
@@ -78,6 +82,7 @@ func acquire(candidate: Dictionary) -> bool:
 	_feedback_pending = false
 	_feedback_until = 0
 	_motion_origin=target.read.call()
+	_held_depth=0.
 	_holder_pose=player.global_transform
 	return true
 
@@ -87,6 +92,22 @@ func follow_holder() -> void:
 	if not active() or target.kind!="free" or player.inspecting(): return
 	validate()
 	if not active(): return
+	if holding_pickup():
+		var hold: Variant=target.get("hold_pose")
+		var view: Transform3D=player.camera.global_transform.translated_local(Vector3(0,0,-_held_depth))
+		if hold is Callable and hold.is_valid(): hold.call(view)
+		else:
+			# Free stock shares the existing owner's constrained setter. A
+			# tether, pilot, wall or stop may keep it short of the hand pose.
+			var point: Vector3=target.part.to_global(contact)
+			var motion: Vector3=(view*Vector3(.17,-.16,-.48)-point).limit_length(.06)
+			if motion.length_squared()>1e-10:
+				var before: Vector3=target.read.call()
+				var request: Vector3=before+target.frame.global_basis.inverse()*motion
+				target.write.call(request)
+				_expect_motion(request)
+		_observe_motion()
+		return
 	var point: Vector3=target.part.to_global(contact)
 	var motion: Vector3=_holder_pose*previous.affine_inverse()*point-point
 	if motion.length()>.5:
@@ -158,7 +179,15 @@ func feedback(aimed: Dictionary) -> Dictionary:
 	var owner := _context_owner(descriptor, true)
 	if not active() and descriptor.get("blocked",false) and descriptor.get("fixed_stock",false):
 		return {"state":"idle","inspectable":false}
-	return {"state":motion_feedback if active() else "available" if descriptor.get("part") is Node3D else "blocked" if descriptor.get("blocked",false) else "idle",
+	var state: String=motion_feedback if active() else "available" if descriptor.get("part") is Node3D else "blocked" if descriptor.get("blocked",false) else "idle"
+	# Some free mechanisms accept a swept proposal in two phases. Their
+	# authoritative result is available before physics publishes a transform.
+	# Read that same result at presentation; do not scan or infer another hit.
+	var constraint: Variant=descriptor.get("constraint_feedback")
+	if active() and constraint is Callable and constraint.is_valid():
+		var observed: Variant=constraint.call()
+		if observed is String and observed in ["grabbed","blocked","limit"]:state=observed
+	return {"state":state,
 		"inspectable":is_instance_valid(owner) and owner.has_method("inspection_view")}
 
 func validate() -> void:
@@ -176,6 +205,10 @@ func validate() -> void:
 			or player.camera.global_position.distance_to(target.part.to_global(contact)) > 2.4:
 		release()
 		return
+	# A held pickup may be occluded when its swept hand pose meets a wall.
+	# Keep possession and let the owner's physical constraint stop it. Reach,
+	# cancellation and ownership checks above still apply.
+	if holding_pickup(): return
 	var query := PhysicsRayQueryParameters3D.create(player.camera.global_position,target.part.to_global(contact))
 	query.collide_with_areas = true
 	query.exclude = [player.get_rid()]
@@ -185,6 +218,9 @@ func validate() -> void:
 func move(relative: Vector2) -> void:
 	validate()
 	if not active() or not relative.is_finite(): return
+	if holding_pickup():
+		player.apply_look(relative)
+		return
 	var camera: Camera3D = player.camera
 	var part: Node3D = target.part
 	var frame: Node3D = target.frame
@@ -240,6 +276,9 @@ func move(relative: Vector2) -> void:
 func move_depth(distance: float) -> bool:
 	validate()
 	if not active() or target.kind!="free" or not is_finite(distance): return false
+	if holding_pickup():
+		_held_depth=clampf(_held_depth+clampf(distance,-.08,.08),-.12,.35)
+		return true
 	var point: Vector3=target.part.to_global(contact)
 	var axis: Vector3=(point-player.camera.global_position).normalized()
 	var before: Vector3=target.read.call()

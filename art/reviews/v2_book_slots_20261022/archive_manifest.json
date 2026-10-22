@@ -1,0 +1,780 @@
+{
+  "evidence_class": "INERT",
+  "note": "Exact diagnostic and source archives. No runtime_contract or human acceptance; original failures retained. Deleted images remain recoverable from c532b280.",
+  "files": [
+    {
+      "original": "art/reviews/v2_book_slots_20261022/board/board.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/board/board.json.gz",
+      "sha256": "a8cfa1d5b58b230e2e9932071bf782d540d4df4d31c7b7528b85751e400a853a",
+      "bytes": 308608
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/board/board.md",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/board/board.md.gz",
+      "sha256": "85c2a3adede4bcea5f2d4552ed512a8abea7a46b23a28e663d02279aa9807370",
+      "bytes": 8125
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/board_staged_removal/board.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/board_staged_removal/board.json.gz",
+      "sha256": "111247faef88e0774b5fdebe89c35a33c0236c42e2b724e1675e64ff4ec0aa09",
+      "bytes": 306587
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/board_staged_removal/board.md",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/board_staged_removal/board.md.gz",
+      "sha256": "834e9994fa4ef543ef7ef6daa0ae8ad7bbb5387f01fb537e43d6e623b245c018",
+      "bytes": 8124
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v1/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v1/floating_book.png",
+      "sha256": "9546d0490029c19253732bcecb0b2f84aab27708223acee39808264f9635a7a2",
+      "bytes": 490725
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v1/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v1/held_book.png",
+      "sha256": "8c62ac5961374c2ae8b974f239644133f019c58467b42dc3498427b2cf9119e0",
+      "bytes": 371086
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v1.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v1.log.gz",
+      "sha256": "06884b77e1a328d76dd786c2cfcda9d516c45f348f1d4808e2beb5624e16a1a9",
+      "bytes": 1334
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v1.log.receipt.json.gz",
+      "sha256": "7ba270ad18925f2b81c5d41018b64b05fe7689fa11314c6fd5c3134411367098",
+      "bytes": 2830
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v1.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v1.log.stderr.gz",
+      "sha256": "416df8c9976cca9a691b77c525b96ca27b0a9a45dcd6a97db2a9bca66e4b9214",
+      "bytes": 652
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v10/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v10/floating_book.png",
+      "sha256": "00af82829631013f88fe4ec2da00d0713e889367d826673d0be7a7fd3274d903",
+      "bytes": 557170
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v10/floating_spread.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v10/floating_spread.png",
+      "sha256": "75664f01b3725bd27d8097684afd2cf36b58d073ca3edd9574c1c6c6aee0b9b1",
+      "bytes": 493350
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v10/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v10/held_book.png",
+      "sha256": "840291f37351686061dc5dee89cc9b717ffc17cb7a2d03b86942be8460d5e172",
+      "bytes": 265876
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v10.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v10.log.gz",
+      "sha256": "5fadce5f87d748ead1adc97db557b9461e00cf8a44e1c5d9bea16e4b36316f8b",
+      "bytes": 1437
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v10.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v10.log.receipt.json.gz",
+      "sha256": "231930c702de6ffb170f6c61834c37ef5f867b0f2039c87f2727fd4ed9cdc529",
+      "bytes": 2895
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v10.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v10.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v11/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v11/floating_book.png",
+      "sha256": "c8f6c88d5bd9b81f24bf767d065c930c7593ef623931e8bd76576905b08e4370",
+      "bytes": 567969
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v11/floating_spread.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v11/floating_spread.png",
+      "sha256": "d04a9e002b9ea93841b5e2980b947dfc469839af2467705f04794a76101d547f",
+      "bytes": 495396
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v11/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v11/held_book.png",
+      "sha256": "0181420252ea0c131022d6d95ca04a30aaeecb107f5712ef7071c750a28a6a8f",
+      "bytes": 278620
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v11.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v11.log.gz",
+      "sha256": "70cef24e4aa5ef0df38255bb865b23e0c785a4891573f6fda2b8e3ad3d738b6e",
+      "bytes": 1437
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v11.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v11.log.receipt.json.gz",
+      "sha256": "af8bcab05ff7363146e7559c6f1756828db383327657d08c0b5ba04492780b5e",
+      "bytes": 3114
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v11.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v11.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v2.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v2.log.gz",
+      "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+      "bytes": 183
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v2.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v2.log.receipt.json.gz",
+      "sha256": "51b21c5f658ab02987ff5d44ac694478b1ab01d2de80cbfa25b67a6d2477f02a",
+      "bytes": 3062
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v2.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v2.log.stderr.gz",
+      "sha256": "313936143c03dc736434e7cfa9ac221f269b66b5dbecaacc1d7642b6c38facb8",
+      "bytes": 343
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v3/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v3/floating_book.png",
+      "sha256": "4bd99d5bdb8a86b042052f05b2f4507644d5239965d76a6c3e74f7e1da548619",
+      "bytes": 497322
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v3/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v3/held_book.png",
+      "sha256": "c3cf777b3721f6bcbda7f1a5a59a9109a47557f9274f3370e1f77731dd0fd954",
+      "bytes": 370519
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v3.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v3.log.gz",
+      "sha256": "83144a11b4837878950654bdd5e0e367c6c7c5348d38fcd3657b55ed04c888aa",
+      "bytes": 1648
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v3.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v3.log.receipt.json.gz",
+      "sha256": "c292b100a4d4190f7447928d70a32b0419b3e0830856ea6b744543ce5145de44",
+      "bytes": 2937
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v3.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v3.log.stderr.gz",
+      "sha256": "f359c8671d74325c88ea12f17a117016780a09b818a968005de3a7ba9954f3bd",
+      "bytes": 298
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v4/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v4/floating_book.png",
+      "sha256": "435393c09c2ed4cae96060a7d1ac567b35483034373939af52b0455e6a7cc275",
+      "bytes": 498709
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v4/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v4/held_book.png",
+      "sha256": "09ef7b8be01ace0e905f13aa6ed679e01ad0d7b397087f481a1545b67405c892",
+      "bytes": 369567
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v4.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v4.log.gz",
+      "sha256": "83144a11b4837878950654bdd5e0e367c6c7c5348d38fcd3657b55ed04c888aa",
+      "bytes": 1648
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v4.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v4.log.receipt.json.gz",
+      "sha256": "87091e385f775f0609dd63425f4170e7e06ea996ddda142ecca6c432e5b577e9",
+      "bytes": 2936
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v4.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v4.log.stderr.gz",
+      "sha256": "f359c8671d74325c88ea12f17a117016780a09b818a968005de3a7ba9954f3bd",
+      "bytes": 298
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v5/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v5/floating_book.png",
+      "sha256": "9cf5de7a31ed6c7f0afeb35af48f81da533463179decd92def921be9697f1330",
+      "bytes": 491035
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v5/floating_spread.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v5/floating_spread.png",
+      "sha256": "467a222ee50354fb9f01ac3dcb01dd5a1ed894bf40ad81cfab3f5bf1effd6499",
+      "bytes": 510815
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v5/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v5/held_book.png",
+      "sha256": "06b88b2c0d11937b5bf07a83fba91015c66bd04dd1af16939e468bd2faf6f574",
+      "bytes": 370305
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v5.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v5.log.gz",
+      "sha256": "28fb5c8fae7fc19820af2379e7032f6a7c934537e736659da4b1e3d86d801da4",
+      "bytes": 1770
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v5.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v5.log.receipt.json.gz",
+      "sha256": "18f4f2a1dc4a1b1c0f545943baa4b7e5ce2efcab71c8a19b77c64d154acb1acf",
+      "bytes": 2937
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v5.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v5.log.stderr.gz",
+      "sha256": "33a0cabcc2be59b38080a414b50ad49bf6890e4bb8aa9d1524185ed5c7f82fe7",
+      "bytes": 298
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v6/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v6/floating_book.png",
+      "sha256": "6cd486be5eb287f406cc853bbd0df2da7b144854bd0b9bceb5cdaefdae95c268",
+      "bytes": 491524
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v6/floating_spread.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v6/floating_spread.png",
+      "sha256": "589fbb867fa3454df7b0ceb49b576385fef8b586086f111b2f10f3135d5fe56b",
+      "bytes": 512273
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v6/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v6/held_book.png",
+      "sha256": "17e77ef8066815ac81d739a433785cbee0cf80d744415eb37d205bfceae808f9",
+      "bytes": 369380
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v6.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v6.log.gz",
+      "sha256": "d6aff460ac3818017a94b72bc35fc1bd2cbeea425a27ed31574cc943a335fc27",
+      "bytes": 1194
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v6.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v6.log.receipt.json.gz",
+      "sha256": "1dd3ed55b9588cfa06865d4080ddadad21b3f25381835fd4e9fbcb1e60e98485",
+      "bytes": 2892
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v6.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v6.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v7/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v7/floating_book.png",
+      "sha256": "cdcacffc79b880e30e11c72553966b4f3fa4149093b4049c435aeed44645c009",
+      "bytes": 490005
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v7/floating_spread.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v7/floating_spread.png",
+      "sha256": "c451de91e219dba1af191d155e577d07f8a20b8809fac2fa827d028e6b43f4cc",
+      "bytes": 511154
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v7/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v7/held_book.png",
+      "sha256": "4dba1d2da58aba42272830bdf873a7e3a93a0257d92b1464ae9e86b751ab1111",
+      "bytes": 370644
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v7.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v7.log.gz",
+      "sha256": "0a2e9e2bbb12397bb722e2f8d31757f2e9c3b0dc851e6a7433309f5a53472d71",
+      "bytes": 1194
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v7.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v7.log.receipt.json.gz",
+      "sha256": "4bcfa9bf5ad23df116938a4250508f8b10751033079985e6f568ded28f92b0cc",
+      "bytes": 2892
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v7.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v7.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v8/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v8/floating_book.png",
+      "sha256": "a366567b6d47c54e60da08235fa28d52bb3edab263dad564ad0e70c03f4fc4f6",
+      "bytes": 492212
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v8/floating_spread.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v8/floating_spread.png",
+      "sha256": "6cab604ed4f5fe19cb16f77d593630e39d6236b80048e09befc92b7dab2af059",
+      "bytes": 511996
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v8/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v8/held_book.png",
+      "sha256": "b03ec431ca9f5085c8e8e0ecf953d2c0549bbd000da1bb25622016cd2324b947",
+      "bytes": 369758
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v8.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v8.log.gz",
+      "sha256": "fe160eb7c70a985ee8a2e76b6ef0e1d2b6b74f8c983f1252758f8603f37776c2",
+      "bytes": 1255
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v8.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v8.log.receipt.json.gz",
+      "sha256": "495a35bcffd1244a667a955af403298663e5b3cdf862886a1c4f07c8bc67adee",
+      "bytes": 2956
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v8.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v8.log.stderr.gz",
+      "sha256": "26a33626fd3d76c9cb26b0e01d2156dafa976be31fcb445c058ae177119f706a",
+      "bytes": 317
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v9/floating_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v9/floating_book.png",
+      "sha256": "29c485ece01fed6fe13a9b65731cb21e8a1a5173ad67caf4c59d5ee625be19bc",
+      "bytes": 493574
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v9/floating_spread.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v9/floating_spread.png",
+      "sha256": "baa37917c1fb8ce7e4539b50d1012d12ab772f84e998cc73077e6194687b870a",
+      "bytes": 513838
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v9/held_book.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v9/held_book.png",
+      "sha256": "3975c36ed310c0427148f62465eb9f14336bf737b1d57d0f7f51756fcc848a6a",
+      "bytes": 369943
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v9.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v9.log.gz",
+      "sha256": "fe160eb7c70a985ee8a2e76b6ef0e1d2b6b74f8c983f1252758f8603f37776c2",
+      "bytes": 1255
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v9.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v9.log.receipt.json.gz",
+      "sha256": "b8246b299bda0e1146d51bc45703115e43cdae13c20bcdf6d01f892c78cd68c3",
+      "bytes": 2956
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/hand_v9.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/hand_v9.log.stderr.gz",
+      "sha256": "26a33626fd3d76c9cb26b0e01d2156dafa976be31fcb445c058ae177119f706a",
+      "bytes": 317
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/import_churn.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/import_churn.json.gz",
+      "sha256": "198698a156890aa27657ec0a20ac36b7685dfbe9461e92ecc50e472493666cc3",
+      "bytes": 47
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/import_no_plate.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/import_no_plate.log.gz",
+      "sha256": "cf0e064a507a7db75c3f583b6cb388fe06d48d7328ac0426a6b698d05d3398f5",
+      "bytes": 67153
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/import_no_plate.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/import_no_plate.log.receipt.json.gz",
+      "sha256": "b6f28be638067a86d7235dbbfdf9d1fa73d6dc13f10376a0917a9f07ca5da531",
+      "bytes": 2868
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/import_no_plate.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/import_no_plate.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/initial/featured_spread.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/initial/featured_spread.png",
+      "sha256": "55e8c54eb3fdc5ad2e1da674bc43ee805b27273ff2ba8c4b4f44d801787ac71b",
+      "bytes": 613296
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/initial/initial_authored_layout.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/initial/initial_authored_layout.png",
+      "sha256": "3efe29f28b7e7925a1290d174880c74d888d333aaa7b0c07179e8aae9916a46f",
+      "bytes": 298136
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/initial/resident_libraries.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/initial/resident_libraries.png",
+      "sha256": "65666770de16136db0c610713c11aca33aeab3fc667ed2f34d60b98fc13ca818",
+      "bytes": 298950
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/initial.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/initial.log.gz",
+      "sha256": "b829135433042ccf40c36228cac18acfe2e14ec93621e4423135ea1fac9977fc",
+      "bytes": 87399
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/initial.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/initial.log.receipt.json.gz",
+      "sha256": "4761255a8618f19bae59b43ca5f2fbfa3c92031644025d767392a8798b6e6295",
+      "bytes": 2932
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/initial.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/initial.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/library_post_removal/featured_spread.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/library_post_removal/featured_spread.png",
+      "sha256": "a5668475f573bb85d2c89f02070e872f03f4ef6ebc8dbe8bcdd3bcb8340b9d0b",
+      "bytes": 613200
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/library_post_removal/initial_authored_layout.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/library_post_removal/initial_authored_layout.png",
+      "sha256": "1ff4b4fdaddb52fff75ba25a6bf5a1d1aa492b3ed6025f84c56b606880336afd",
+      "bytes": 298351
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/library_post_removal/resident_libraries.png",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/library_post_removal/resident_libraries.png",
+      "sha256": "ec79acff468b77ae8f0c1f1baf57bfca339a3c7c29530a1bef88a0f15c31542b",
+      "bytes": 299165
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/library_post_removal.log",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/library_post_removal.log.gz",
+      "sha256": "b829135433042ccf40c36228cac18acfe2e14ec93621e4423135ea1fac9977fc",
+      "bytes": 87399
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/library_post_removal.log.receipt.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/library_post_removal.log.receipt.json.gz",
+      "sha256": "e12e9b8b824b3eb15b1dcc2b0a2ffab8ffe827f73e792e07cd26dafbc63fa10b",
+      "bytes": 3155
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/library_post_removal.log.stderr",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/library_post_removal.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_slots_20261022/protected.json",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/diagnostics/protected.json.gz",
+      "sha256": "e4156a84b1bdc5d1f0d8f1998077024b5ae4afcb9c9864d6a789039474413fe8",
+      "bytes": 1881
+    },
+    {
+      "original": "game/scripts/building/light_rig.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/scripts/building/light_rig.gd.gz",
+      "sha256": "d25b416c3c97660880510ac07dfd43ced442e59e7eea8fc30e387c91268d529b",
+      "bytes": 28288
+    },
+    {
+      "original": "game/scripts/building/v2_readable_bookshelf.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/scripts/building/v2_readable_bookshelf.gd.gz",
+      "sha256": "95f9016e8adba6e7e3756cdf439ee7b45b272746d5f629825a58e57f05c288b8",
+      "bytes": 17933
+    },
+    {
+      "original": "game/scripts/player/constrained_grab.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/scripts/player/constrained_grab.gd.gz",
+      "sha256": "8cfdd99e966d30da65a85cf6fa125739d9533e6a9b5cceb2b69d2b4d00af01bc",
+      "bytes": 13423
+    },
+    {
+      "original": "game/scripts/player/player_controller.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/scripts/player/player_controller.gd.gz",
+      "sha256": "8ec978a638d3924e30b7895ddd787b64ed24ca5f91a101671557bdc8ee9ad52a",
+      "bytes": 58074
+    },
+    {
+      "original": "game/scripts/props/v2_library_movable.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/scripts/props/v2_library_movable.gd.gz",
+      "sha256": "b04a48e2c8a4f2f9bd4f38741522359fa1744e05b56a1438c6de5ac134620a19",
+      "bytes": 11489
+    },
+    {
+      "original": "game/scripts/props/v2_readable_book.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/scripts/props/v2_readable_book.gd.gz",
+      "sha256": "61b598a7fea688ad9e1351fd57f13fd14f5a85b231e8d27f82f744292dfa7681",
+      "bytes": 12203
+    },
+    {
+      "original": "game/tests/V2BookSlotHandBench.tscn",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/V2BookSlotHandBench.tscn.gz",
+      "sha256": "ed18d82f2e2692456f52fa1a72bf01a92445e85738369d7aaf85b85b2c844deb",
+      "bytes": 189
+    },
+    {
+      "original": "game/tests/v2_book_slot_hand_bench.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/v2_book_slot_hand_bench.gd.gz",
+      "sha256": "b58e3d2f35bbcc84ff7a17ddb47e8d344fe7cd10db1688ddeec031eb423d2a13",
+      "bytes": 9002
+    },
+    {
+      "original": "game/tests/v2_book_slot_hand_bench.gd.uid",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/v2_book_slot_hand_bench.gd.uid.gz",
+      "sha256": "aaa85dde205acdf7bceb8c67f014add202ee3b0b5491996d2ed6b8fe7dc8c140",
+      "bytes": 20
+    },
+    {
+      "original": "game/tests/coverage_shot.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/coverage_shot.gd.gz",
+      "sha256": "79f6cdcf3c339b67846446a6054eb4a6acce960667d519646fe48023b364ed51",
+      "bytes": 11910
+    },
+    {
+      "original": "game/tests/dream_hero_lifecycle_shot.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/dream_hero_lifecycle_shot.gd.gz",
+      "sha256": "23fb5f4fd2d3196c653c3cb8ff223de2e6acac48f6a9c1956f391c5a794f6130",
+      "bytes": 8177
+    },
+    {
+      "original": "game/tests/dream_hero_sweep.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/dream_hero_sweep.gd.gz",
+      "sha256": "05f10e9bf2694e47f72c543ccc0c9eef57d3ef623364d2cda8037d238caf5042",
+      "bytes": 83668
+    },
+    {
+      "original": "game/tests/dream_microbiology_secretion_shot.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/dream_microbiology_secretion_shot.gd.gz",
+      "sha256": "8ce06fea1c3bf52208a403757a7e53e1aece83708507b10313b022f3b208ea9e",
+      "bytes": 6479
+    },
+    {
+      "original": "game/tests/free_cam.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/free_cam.gd.gz",
+      "sha256": "19f56b885db0d898299c093987feb5f24600426d346a0355ff45bec1e1fa8084",
+      "bytes": 26666
+    },
+    {
+      "original": "game/tests/lamp_optics_l1_review.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/lamp_optics_l1_review.gd.gz",
+      "sha256": "1976a1649c47a1e826f28fd0a4c18453e5ad06f18448fcf531bbbb4cac2824ea",
+      "bytes": 8572
+    },
+    {
+      "original": "game/tests/light_punch_test.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/light_punch_test.gd.gz",
+      "sha256": "b0c1e2e26d18a90726d3439cf86f723eddef34d9e1558b337b2f16851daf7fc7",
+      "bytes": 1297
+    },
+    {
+      "original": "game/tests/orison_v2_lamp_review.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/orison_v2_lamp_review.gd.gz",
+      "sha256": "a8760298553378b7a5f652c91df1c37bca49f25b3fa359f408b9508029f1e0b0",
+      "bytes": 14154
+    },
+    {
+      "original": "game/tests/phone_light_shots.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/phone_light_shots.gd.gz",
+      "sha256": "bf041f2648a47316efdf240efda034735a3e34d0573b72e3a2a8b05d28f1f2fa",
+      "bytes": 3722
+    },
+    {
+      "original": "game/tests/service_set_test.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/service_set_test.gd.gz",
+      "sha256": "924fc9f34a0e87b3111999e4dc8ad67a6692dd4819a7c37e3ae1f09ee9c3a56b",
+      "bytes": 10201
+    },
+    {
+      "original": "game/tests/surface_shot.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/surface_shot.gd.gz",
+      "sha256": "c5afd3569505fc6a33dc99f71b7034011b581f4470d1b9ed7e1bbe1c59b7dd21",
+      "bytes": 20515
+    },
+    {
+      "original": "game/tests/v2_binding_stock_bench.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/v2_binding_stock_bench.gd.gz",
+      "sha256": "46ed48a9513e746901bc563420f49d6208f5943ce4c5029994863935bd9dfae0",
+      "bytes": 7128
+    },
+    {
+      "original": "game/tests/v2_fire_cabinet_skin_bench.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/v2_fire_cabinet_skin_bench.gd.gz",
+      "sha256": "d985d804f15a16d5f1c70bf15c2fc915ac9f7f3bfbdb84b3e63f564808d62ad6",
+      "bytes": 5034
+    },
+    {
+      "original": "game/tests/v2_lamp_offset_review.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/v2_lamp_offset_review.gd.gz",
+      "sha256": "666c3e03eb9fe4baea347b5c732c0eeaa55d58cf8e0620850c63be1c03d09235",
+      "bytes": 8903
+    },
+    {
+      "original": "game/tests/zoo_teleport_test.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/game/tests/zoo_teleport_test.gd.gz",
+      "sha256": "cf5a3ecfc830ca5111721bcbeab2d50ab44a7cd7f128ea8957c3c4249a1569ca",
+      "bytes": 14967
+    },
+    {
+      "original": "tools/m11c1_floor01_rehearsal/prepare_runtime_rehearsal.py",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/tools/m11c1_floor01_rehearsal/prepare_runtime_rehearsal.py.gz",
+      "sha256": "ce0f04ade8666144c273f51f9d2fa179276526ff6f6de7e9505afa4b8926bf41",
+      "bytes": 77004
+    },
+    {
+      "original": "tools/tests/test_m11c1_runtime_rehearsal.py",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/final_source/tools/tests/test_m11c1_runtime_rehearsal.py.gz",
+      "sha256": "9a18a7fe927f3b1d62dc39b859459632f33f7336484c5bb0d6166329ec33100a",
+      "bytes": 22085
+    },
+    {
+      "original": "git:c532b280:game/scripts/building/light_rig.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/scripts/building/light_rig.gd.gz",
+      "sha256": "a06482c753bf427d78738895f7baa4380b1b2f0f1e989869d2f4ff1ecd9e14d3",
+      "bytes": 27657
+    },
+    {
+      "original": "git:c532b280:game/scripts/building/v2_readable_bookshelf.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/scripts/building/v2_readable_bookshelf.gd.gz",
+      "sha256": "0d5b62658350a102999072401ded56a175a23d47235e401cf08aa017376f6e80",
+      "bytes": 13848
+    },
+    {
+      "original": "git:c532b280:game/scripts/player/constrained_grab.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/scripts/player/constrained_grab.gd.gz",
+      "sha256": "529fefef8cd31b9e04172014d1640050e8440d364f29f3a994b95f88cab07dca",
+      "bytes": 11607
+    },
+    {
+      "original": "git:c532b280:game/scripts/player/player_controller.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/scripts/player/player_controller.gd.gz",
+      "sha256": "1dbadcd60879958e02ca0d17305d39a604f294ee059f4a18f1a719ade7f56abb",
+      "bytes": 60511
+    },
+    {
+      "original": "git:c532b280:game/scripts/props/v2_library_movable.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/scripts/props/v2_library_movable.gd.gz",
+      "sha256": "7a8b1f536b9c2e493ae614ad17f1c64150b1eb601e97f0d295186e40f6e5e611",
+      "bytes": 9375
+    },
+    {
+      "original": "git:c532b280:game/scripts/props/v2_readable_book.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/scripts/props/v2_readable_book.gd.gz",
+      "sha256": "c81493c146c133ae41846ec80fc2491aaccb275d60f3d4a34b698a89212c9900",
+      "bytes": 10508
+    },
+    {
+      "original": "git:c532b280:game/tests/coverage_shot.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/coverage_shot.gd.gz",
+      "sha256": "674ab2f5099e32ce2d2277eaf94a1dc93b77038ab7cada303da5531a13bd635c",
+      "bytes": 11893
+    },
+    {
+      "original": "git:c532b280:game/tests/dream_hero_lifecycle_shot.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/dream_hero_lifecycle_shot.gd.gz",
+      "sha256": "1778d2fc15dde702a38c6de5feae2fdebd76c44846306bbb7dd0d504a3649a71",
+      "bytes": 8165
+    },
+    {
+      "original": "git:c532b280:game/tests/dream_hero_sweep.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/dream_hero_sweep.gd.gz",
+      "sha256": "d776f8b18922114d4a4767c5d822d3f58e362b2e7bc9f477ceb4476291363ad5",
+      "bytes": 83651
+    },
+    {
+      "original": "git:c532b280:game/tests/dream_microbiology_secretion_shot.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/dream_microbiology_secretion_shot.gd.gz",
+      "sha256": "0438274df3cebddd40921fb397b0b282c5de6e6ddb686e636c88bd8695ad92a8",
+      "bytes": 6467
+    },
+    {
+      "original": "git:c532b280:game/tests/free_cam.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/free_cam.gd.gz",
+      "sha256": "4bdc303d967b0b566082a47111f13b4f9acd1459db19a53a2ab91de1b71d3835",
+      "bytes": 26626
+    },
+    {
+      "original": "git:c532b280:game/tests/lamp_optics_l1_review.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/lamp_optics_l1_review.gd.gz",
+      "sha256": "f1e2674d14818f9e3f8ed830c062ecfd3c0ff70a45eb7594013ec156f39db147",
+      "bytes": 8946
+    },
+    {
+      "original": "git:c532b280:game/tests/light_punch_test.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/light_punch_test.gd.gz",
+      "sha256": "8d2c9d67b6a44edc225f87475389d19e93375691d66debd8d321d9444b0ec192",
+      "bytes": 3679
+    },
+    {
+      "original": "git:c532b280:game/tests/orison_v2_lamp_review.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/orison_v2_lamp_review.gd.gz",
+      "sha256": "f76768bf78bcc37bfa9217c5ea150db3a7e00307fbfd223cc893a48bff6f48b6",
+      "bytes": 14188
+    },
+    {
+      "original": "git:c532b280:game/tests/phone_light_shots.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/phone_light_shots.gd.gz",
+      "sha256": "d22406952f1a5de13fd2314197c3370aab98e909839dedbc0651b839a18e6dd1",
+      "bytes": 3689
+    },
+    {
+      "original": "git:c532b280:game/tests/service_set_test.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/service_set_test.gd.gz",
+      "sha256": "de21feef8a4fdda6ce59a7115036834be6e320d9f4056fc7c04c8b88044c2b92",
+      "bytes": 10205
+    },
+    {
+      "original": "git:c532b280:game/tests/surface_shot.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/surface_shot.gd.gz",
+      "sha256": "5a5ad29ab425ae5ddbabe1e775e4b77348013cc079f7f42cc0f40ee2cd4b18af",
+      "bytes": 20498
+    },
+    {
+      "original": "git:c532b280:game/tests/v2_binding_stock_bench.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/v2_binding_stock_bench.gd.gz",
+      "sha256": "5d39b019469fdf1c9ca4a61cea9cb4471a089ba6c2d68edfefb7e4b0e37e750a",
+      "bytes": 7145
+    },
+    {
+      "original": "git:c532b280:game/tests/v2_fire_cabinet_skin_bench.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/v2_fire_cabinet_skin_bench.gd.gz",
+      "sha256": "6546484d6f2061e124078834121778e2c05617c3838eef06cc85a3f49c862878",
+      "bytes": 5051
+    },
+    {
+      "original": "git:c532b280:game/tests/v2_lamp_offset_review.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/v2_lamp_offset_review.gd.gz",
+      "sha256": "a8fa8b0b9887026de495f4ce21b5205794bd34af3a31afffa7d6e934cb95dc18",
+      "bytes": 8920
+    },
+    {
+      "original": "git:c532b280:game/tests/zoo_teleport_test.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/tests/zoo_teleport_test.gd.gz",
+      "sha256": "e6b25b02d9543d27bd2ba2e3593ca74ffed7b6c1fcaff7ae5d47d9acb12122d4",
+      "bytes": 15099
+    },
+    {
+      "original": "git:c532b280:game/scripts/phoneos/phone_light_mask.gd",
+      "stored": "art/reviews/v2_book_slots_20261022/archive/previous_source/game/scripts/phoneos/phone_light_mask.gd.gz",
+      "sha256": "5fbf06d43b2d1f7f65cdba01817ecd65a42d75ce68f436c8fecbbdb87573f38d",
+      "bytes": 19333
+    }
+  ]
+}

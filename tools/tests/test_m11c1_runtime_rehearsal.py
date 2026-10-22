@@ -378,6 +378,8 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
 
     def test_dynamic_scanner_assets_are_mandatory_hashable_inputs(self) -> None:
         resolved = _literal_asset_paths()
+        for filename in ("mask_clean.png", "mask_cracked.png", "mask_haze.png"):
+            self.assertNotIn(GAME_ROOT / "assets/ui/phone" / filename, resolved)
         for relative in REQUIRED_DYNAMIC_RUNTIME_ASSETS:
             path = GAME_ROOT.joinpath(*Path(relative).parts)
             self.assertIn(path, resolved)

@@ -84,7 +84,7 @@ func _run() -> void:
 			var label: String=view.id+"_"+option.id
 			check(image.save_png(out.path_join(label+".png"))==OK,label+" rendered")
 			check(air.field.ready and air.field.failed.is_empty() and air.field.updates>0,"live voxel injection "+label)
-			check(player.flashlight.light_projector==null and not player._light_mask.is_visible_in_tree(),"no patterned projection "+label)
+			check(player.flashlight.light_projector==null and player._light_mask == null,"no patterned projection "+label)
 			var ray:=PhysicsRayQueryParameters3D.create(player.camera.global_position,player.flashlight.global_position,1,[player.get_rid()])
 			var blocked: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ray)
 			rows.append({"view":view.id,"offset":option.id,"origin":[local.x,local.y,local.z],"energy":player.flashlight.light_energy,"half_angle":player.flashlight.spot_angle,"origin_blocked":not blocked.is_empty(),"field_updates":air.field.updates,"field_pose_error":air.field.pose.origin.distance_to(player.flashlight.global_position)})

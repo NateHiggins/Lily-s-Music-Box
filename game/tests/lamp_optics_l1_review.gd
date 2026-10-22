@@ -3,7 +3,7 @@ extends Node3D
 
 const OUTPUT_DIR := "res://../art/renders/lamp_optics_l1/review_01"
 const SHOTS := [
-	"01_old_baked_projection_control", "02_dynamic_clean_air",
+	"01_no_overlay_lamp_off_control", "02_dynamic_clean_air",
 	"03_two_geometry_interruptions", "04_warm_up", "05_contact_recovery",
 	"06_mechanical_tap", "07_dust_and_gold_flecks", "08_wood_and_brass",
 	"09_ecology_front_lit", "10_ecology_side_lit", "11_ecology_backlit",
@@ -16,7 +16,6 @@ var camera: Camera3D
 var title: Label
 var blockers: Array[MeshInstance3D] = []
 var ecology: Node3D
-var old_plate: TextureRect
 var _started_ms := 0
 var _draw_calls: Array[int] = []
 var _frame_times_ms: Array[float] = []
@@ -175,22 +174,10 @@ func _build_overlay() -> void:
 	title.position = Vector2(36, 31)
 	title.add_theme_font_size_override("font_size", 19)
 	layer.add_child(title)
-	old_plate = TextureRect.new()
-	old_plate.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var plate_image := Image.load_from_file(ProjectSettings.globalize_path(
-			"res://assets/ui/phone/mask_clean.png"))
-	old_plate.texture = ImageTexture.create_from_image(plate_image)
-	old_plate.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	old_plate.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	old_plate.modulate = Color(1, 1, 1, 0.62)
-	old_plate.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	layer.add_child(old_plate)
-	layer.move_child(old_plate, 0)
 
 
 func _configure_shot(index: int) -> void:
 	title.text = "LAMP-OPTICS-L1  •  " + SHOTS[index].replace("_", " ").to_upper()
-	old_plate.visible = index == 0
 	for blocker in blockers:
 		blocker.visible = index == 2 or index == 13
 	ecology.visible = index >= 8 and index <= 13

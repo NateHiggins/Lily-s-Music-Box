@@ -43,7 +43,7 @@ func _run() -> void:
 	check(air.setup(player,environment),"production carried voxel light initializes")
 	for frame in 30:await get_tree().physics_frame
 	check(air.field!=null and air.field.ready and air.field.failed.is_empty(),"live voxel field ready")
-	check(player.flashlight.light_projector==null and not player._light_mask.is_visible_in_tree(),"legacy screen plate disabled")
+	check(player.flashlight.light_projector==null and player._light_mask == null,"legacy screen plate disabled")
 	await aim(actor.to_global(Vector3(0,.42,.12)))
 	await capture("cabinet_cut_normals_on")
 	for mat: StandardMaterial3D in stock.finishes.values():mat.normal_enabled=false

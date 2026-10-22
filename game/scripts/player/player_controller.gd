@@ -90,14 +90,9 @@ var _prompt_input_family: StringName = &"keyboard"
 var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
 var _hand: Node3D
-var _light_mask: PhoneLightMask
-## Whether this WORLD permits the screen-space beam plate at all. The dream
-## does not. Held separately from the lamp's own on/off because
-## `set_lamp_enabled()` shows and hides the plate with the switch, and a world
-## that has refused it must not have that refusal undone by the next toggle --
-## which is exactly what was happening: the dream turned the plate off at
-## build, and the first lamp toggle turned it straight back on.
-var _beam_mask_allowed := true
+## Retired compatibility reference for historical diagnostics. Never mounted.
+var _light_mask: Control = null
+var _beam_mask_allowed := false # Historical diagnostics; the renderer is retired.
 var _throw_due := 0.0
 ## Throw measurement cadence; no cookie is baked and no GPU image is read back.
 const THROW_EVERY := 0.10
@@ -233,18 +228,8 @@ func _ready() -> void:
 
 
 func _build_hud() -> void:
-	# The atmospheric screen mask sits under the HUD. It never becomes a
-	# light_projector; the physical beam is the spotlight's authored cone.
-	var mask_layer := CanvasLayer.new()
-	mask_layer.layer = 6
-	add_child(mask_layer)
-	# Three plates blended live instead of one still image. The mix
-	# answers to sanity pressure, to whether the player is walking, and
-	# to the building intruding - see phone_light_mask.gd.
-	_light_mask = PhoneLightMask.new()
-	_light_mask.setup(self)
-	mask_layer.add_child(_light_mask)
-
+	# The real lamp and participating air own the beam. No photographic
+	# screen plate, flare canvas or projected cookie is constructed.
 	# The spotlight owns no projected texture. The former second mask rendered
 	# into a SubViewport and copied the GPU target back into light_projector;
 	# reused backing memory made a deleted Dream plate recur on waking walls.
@@ -515,8 +500,6 @@ func _carry_service_light(delta: float) -> void:
 	var hold: Transform3D
 	if carried_device and carried_device.get("beam_valid"):
 		hold = camera.transform * carried_device.beam_xform
-		if _light_mask:
-			_light_mask.set_aim(carried_device.beam_aim)
 	else:
 		# No carried model in the scene (test rigs, mostly). Keep the old
 		# hand-held offset so the building is still lit.
@@ -608,7 +591,7 @@ func _measure_throw() -> void:
 ## drift into different sensitivities or clamp differently.
 func apply_look(rel: Vector2) -> void:
 	if inspecting(): return
-	if _grab != null and _grab.active():
+	if _grab != null and _grab.active() and not _grab.holding_pickup():
 		_grab.move(rel)
 		return
 	if call_locked:
@@ -682,8 +665,6 @@ func _set_crouched(on: bool) -> void:
 func set_lamp_enabled(on: bool) -> void:
 	var changed := on != _lamp_on
 	_lamp_on = on
-	if _light_mask:
-		_light_mask.visible = on and _beam_mask_allowed
 	if on:
 		_throw_due = 0.0
 	if flashlight:
@@ -881,23 +862,6 @@ func _apply_lamp_gutter() -> void:
 		flashlight.light_energy = _lamp_base_energy * _lamp_gutter_multiplier
 
 
-## Put the carried beam's SCREEN-SPACE mask away entirely.
-##
-## `PhoneLightMask` multiplies a torch plate over the whole frame. In the
-## waking Orison that is most of what makes the lamp feel carried, and it is
-## correct there: the beam is a screen effect because the building is lit by
-## its own fixtures and the torch is a lens on top of them.
-##
-## In the dream it is wrong twice. The Klimt shader already answers the beam ON
-## THE SURFACE -- the gold melts, ripples and reflects where the light lands --
-## so the screen plate is a second, contradictory account of the same lamp. And
-## because it is an oversized screen-space rect, it lays a flat lit RECTANGLE
-## across the frame that follows the camera rather than the geometry, washing
-## the ornament out and reading as a rendering artifact. It is the thing that
-## was ruining the shots.
-##
-## So a world can decline it. The 3D SpotLight3D is untouched and still does
-## all the actual lighting; only the screen plate goes.
 ## THE LAMP AS A POSE, published every frame and coupled to nothing.
 ##
 ## `beam_splash` used to be computed inside `_bake_cookie()`, which returns
@@ -949,15 +913,8 @@ func lamp_pose() -> Dictionary:
 
 
 func set_beam_mask_enabled(on: bool) -> void:
-	_beam_mask_allowed = on
-	# The whole CanvasLayer, not just the plate on it. Hiding the PhoneLightMask
-	# alone left its layer drawing, which is why a band of it survived across
-	# the top of every dream frame after the plate itself was switched off.
-	if _light_mask:
-		_light_mask.visible = on
-		var layer := _light_mask.get_parent() as CanvasLayer
-		if layer:
-			layer.visible = on
+	# Compatibility with world builders. The screen effect is retired globally;
+	# this call cannot allocate or restore it, including when passed true.
 	if on and _lamp_on:
 		_throw_due = 0.0
 	# No world may restore the retired projector path.
@@ -965,17 +922,8 @@ func set_beam_mask_enabled(on: bool) -> void:
 		flashlight.light_projector = null
 
 
-## Tell the beam's screen mask that this world lights itself.
-##
-## The mask dims everything outside the beam, and how far it may dim is set by
-## how much light the LightRig reports. A world without a rig reports nothing
-## and gets the darkest vignette there is, which is wrong for the dream: it
-## lights itself, and crushing its ambient made switching the lamp ON darken
-## the frame. Waking Orison never calls this.
-func set_world_lift_floor(value: float) -> void:
-	var lift: float = clampf(value, 0.0, 1.0)
-	if _light_mask:
-		_light_mask.floor_lift = lift
+## Compatibility with older worlds; surface and volumetric lighting own lift.
+func set_world_lift_floor(_value: float) -> void: pass
 
 
 ## Two transients, built rather than shipped, because the project already

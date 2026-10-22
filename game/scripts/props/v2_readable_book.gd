@@ -16,9 +16,49 @@ var printed_labels: Array[Label3D] = []
 var _sheets: Array[Node3D] = []
 var _pages_ready := false
 var _heading_font: FontVariation
+var shelf_slot := -1
+var _floating_camera := Transform3D.IDENTITY
+var _floating_frames := 0
+
+func requires_shelf_withdrawal() -> bool: return shelf_slot>=0
+
+func pickup_centre() -> Vector3:
+	return Vector3(float(construction.width)*.5,float(construction.height)*.5,0)
+
+func begin_floating_view(camera_pose: Transform3D) -> void:
+	_floating_camera=camera_pose
+	_floating_frames=0
+	freeze=true
+	shelf_slot=-1
+	set_physics_process(true)
+
+func end_floating_view() -> void: set_physics_process(false)
+
+func _physics_process(_delta: float) -> void:
+	if _held: return
+	var before:=global_transform
+	hold_pose(_floating_camera,true)
+	_floating_frames+=1
+	# Once supported in the fixed view, no solver or repeated shape queries.
+	if global_transform.is_equal_approx(before) or _floating_frames>=180:
+		set_physics_process(false)
+
+func park_in_slot(index: int, pose: Transform3D) -> void:
+	shelf_slot=index
+	transform=pose
+	linear_velocity=Vector3.ZERO;angular_velocity=Vector3.ZERO
+	_rest_until=-1
+	freeze=true;sleeping=true
+
+func start_at_rest() -> void:
+	if shelf_slot>=0:
+		freeze=true;sleeping=true
+		return
+	super.start_at_rest()
 
 func _ready() -> void:
 	super._ready()
+	set_physics_process(false)
 	set_meta("library_stock_id",stock_id)
 	if title_id.is_empty(): title_id=stock_id
 	construction=stock.data.books[stock_id]
@@ -146,12 +186,15 @@ func _print_pages() -> void:
 
 func _claim(tag: String) -> bool:
 	if not super._claim(tag): return false
+	if tag in ["body","turn"]: shelf_slot=-1
 	_before_opening=opening
 	return true
 
 func _release() -> void:
 	var changed:=not is_equal_approx(opening,_before_opening)
 	super._release()
+	if shelf_slot<0: shelf.try_place_book(self)
+	if shelf_slot>=0: freeze=true;sleeping=true
 	if changed: shelf.library_stock_changed(self)
 
 func cover_grip() -> Dictionary:
@@ -191,14 +234,20 @@ func _apply_opening(value: float) -> void:
 	if opening>.04 and not _pages_ready: _print_pages()
 	for sheet: Node3D in _sheets: sheet.visible=opening>.04
 
-func book_snapshot() -> Dictionary: return {"body":stock_snapshot(),"opening":opening}
+func book_snapshot() -> Dictionary: return {"body":stock_snapshot(),"opening":opening,"slot":shelf_slot}
 
 static func valid_book(value: Variant) -> bool:
-	return value is Dictionary and value.size()==2 and valid_stock(value.get("body")) \
+	return value is Dictionary and value.size() in [2,3] and valid_stock(value.get("body")) \
+		and (not value.has("slot") or (typeof(value.slot) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(value.slot)) and value.slot>=-1 and float(value.slot)==floorf(float(value.slot)))) \
 		and typeof(value.get("opening")) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(value.opening)) \
 		and float(value.opening)>=0. and float(value.opening)<=PI
 
 func restore_book(value: Dictionary) -> void:
+	end_floating_view()
+	shelf_slot=-1
 	freeze=true
 	_apply_opening(float(value.opening))
 	restore_stock(value.body)
+	shelf_slot=int(value.get("slot",-1))
+	if shelf_slot>=0: park_in_slot(shelf_slot,shelf.book_slots[shelf_slot])
+	elif not value.has("slot"): shelf.try_place_book(self)
