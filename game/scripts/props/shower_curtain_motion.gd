@@ -108,6 +108,7 @@ func grip(at: Vector3) -> Dictionary:
 	var local: Vector3=owner.to_local(at)
 	var fraction:=clampf((rail_distance(local)-travel)/maxf(.18,LENGTH-travel),0,1)
 	return {"owner":owner,"part":hand,"frame":owner,"kind":"slide",
+		"gesture_travel_px":280.,
 		"axis":func(): return rail_axis(mapped(hand_u*LENGTH)),
 		"minimum":0.0,"maximum":TRAVEL,
 		"read":func(): return travel,

@@ -1,0 +1,856 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native form and actual-input diagnostics; no runtime qualification or full-building acceptance.",
+  "assets": {
+    "art/blender/bath_water_closet.blend": {
+      "sha256": "4ecf13c4b027c3503e0ff0adf7d783eabe284e499fb651eeedf38f876d3de96b",
+      "bytes": 1158841
+    },
+    "game/assets/props/bath_water_closet.glb": {
+      "sha256": "a1587bad15314b8d21ba728d3a9283c79ef22281bacc5d08358b59b31c48a484",
+      "bytes": 5168516
+    }
+  },
+  "records": [
+    {
+      "original": ".gitattributes",
+      "archive": "archive/source/.gitattributes.gz",
+      "sha256": "ac5dfdac7934fae7fd7202ee2dba50b286cf19dc5c6ec6a27b5c82150d4f2745",
+      "bytes": 145537
+    },
+    {
+      "original": "DOCS.md",
+      "archive": "archive/source/DOCS.md.gz",
+      "sha256": "3fddf585ee27ef391fd2b7ba20994defeedbc11bc73a874502881c535c6572ea",
+      "bytes": 55626
+    },
+    {
+      "original": "art/blender/scripts/build_operable_water_closet.py",
+      "archive": "archive/source/art/blender/scripts/build_operable_water_closet.py.gz",
+      "sha256": "593211de8121fde241d92d59ca604a993dbe4c18fd2f0c56ee4c66180e76becf",
+      "bytes": 17253
+    },
+    {
+      "original": "art/blender/scripts/water_closet_form.py",
+      "archive": "archive/source/art/blender/scripts/water_closet_form.py.gz",
+      "sha256": "22c1ea1046203a7efcb2414d24a5a07241c5c8abd6c79fcf5474f903fb0f5c42",
+      "bytes": 5509
+    },
+    {
+      "original": "art/blender/scripts/review_operable_water_closet.py",
+      "archive": "archive/source/art/blender/scripts/review_operable_water_closet.py.gz",
+      "sha256": "2732db318d2fa163932fb2c1e5e913d3bac8e0dc81b2ee1ee8b2b593ba405b4e",
+      "bytes": 5197
+    },
+    {
+      "original": "art/blender/bath_water_closet_construction.json",
+      "archive": "archive/source/art/blender/bath_water_closet_construction.json.gz",
+      "sha256": "c0883c9fac02cdf9f97b351c665d996c19bff27fd5e0baa6cb33e0c50df9779f",
+      "bytes": 11086
+    },
+    {
+      "original": "game/assets/props/bath_water_closet.glb.import",
+      "archive": "archive/source/game/assets/props/bath_water_closet.glb.import.gz",
+      "sha256": "f14a6a05b79749abe1ec1f05c87dd4a10452a724ee37d5b0570459a3d3ffce61",
+      "bytes": 1178
+    },
+    {
+      "original": "game/scripts/building/orison_v2_water_closet.gd",
+      "archive": "archive/source/game/scripts/building/orison_v2_water_closet.gd.gz",
+      "sha256": "596fd0a8c9660cf7d0f0cfdaba00e9c35f9e7974fd69516e82e684cb6a95f3f3",
+      "bytes": 11824
+    },
+    {
+      "original": "game/scripts/player/constrained_grab.gd",
+      "archive": "archive/source/game/scripts/player/constrained_grab.gd.gz",
+      "sha256": "f0bcdf4a87211151221a18e7aa5576b0c0d72921bddd6711734c086df7c08ce8",
+      "bytes": 15478
+    },
+    {
+      "original": "game/scripts/props/shower_curtain_motion.gd",
+      "archive": "archive/source/game/scripts/props/shower_curtain_motion.gd.gz",
+      "sha256": "81e8fdfcacb5ed6fbff2d01319da9ad1b89a12802f46ae1ec85704d9c608126f",
+      "bytes": 5136
+    },
+    {
+      "original": "game/tests/toilet_inspection_test.gd",
+      "archive": "archive/source/game/tests/toilet_inspection_test.gd.gz",
+      "sha256": "0e32a7077b47dcf519352a0fe1ca7e129b6afcebaeff54678b7069c20a3bbb96",
+      "bytes": 15866
+    },
+    {
+      "original": "game/tests/direct_manipulation_test.gd",
+      "archive": "archive/source/game/tests/direct_manipulation_test.gd.gz",
+      "sha256": "521673844c35c3118cbd3f3b9902bfc296308f638503059fdd9662da5271afe4",
+      "bytes": 25742
+    },
+    {
+      "original": "game/tests/orison_v2_4b_door_route_test.gd",
+      "archive": "archive/source/game/tests/orison_v2_4b_door_route_test.gd.gz",
+      "sha256": "854945e640080cd9e658245753f9c64772ccee279f75979b1bfea4f5e65b3c89",
+      "bytes": 13529
+    },
+    {
+      "original": "game/tests/v2_curtain_gesture_bench.gd",
+      "archive": "archive/source/game/tests/v2_curtain_gesture_bench.gd.gz",
+      "sha256": "29becd184f6cdfbd4625a8bd801973efb7b63d654fb30dbf6274ef24f1d65eca",
+      "bytes": 2013
+    },
+    {
+      "original": "game/tests/V2CurtainGestureBench.tscn",
+      "archive": "archive/source/game/tests/V2CurtainGestureBench.tscn.gz",
+      "sha256": "e09d1d13ae356c9090ac9c9ce7124e1c233a3de82f38dc08b53089eaa1769a4d",
+      "bytes": 192
+    },
+    {
+      "original": "game/tests/v2_curtain_gesture_bench.gd.uid",
+      "archive": "archive/source/game/tests/v2_curtain_gesture_bench.gd.uid.gz",
+      "sha256": "a6e56ecd13e1fd07c62b09a8663124fcefeb471f0b0f5e14c420114b997d45aa",
+      "bytes": 20
+    },
+    {
+      "original": "design/V2_TOILET_FORM_AND_GESTURES_2026-10-22.md",
+      "archive": "archive/source/design/V2_TOILET_FORM_AND_GESTURES_2026-10-22.md.gz",
+      "sha256": "c16a48ac58d60b8ffe0f378c76b0ac2cba8cdb3907e2303f876899a469c6f05b",
+      "bytes": 9844
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/curtain_before_v1.log",
+      "archive": "archive/runs/curtain_before_v1.log.gz",
+      "sha256": "1b8d75c0e8717ef474a806895d090d7ba92f547b973a24bbe6edc5841c65a242",
+      "bytes": 5725
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/curtain_before_v1.log.receipt.json",
+      "archive": "archive/runs/curtain_before_v1.log.receipt.json.gz",
+      "sha256": "88806b27016af295e65865a77ce92da31289877bc78188669ca894a95e9afa74",
+      "bytes": 3062
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/curtain_before_v1.log.stderr",
+      "archive": "archive/runs/curtain_before_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/curtain_final_v1.log",
+      "archive": "archive/runs/curtain_final_v1.log.gz",
+      "sha256": "278aabccbf018c073ddee4847222b6d62bb03024460a8ca87b56d457340c558f",
+      "bytes": 1266
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/curtain_final_v1.log.receipt.json",
+      "archive": "archive/runs/curtain_final_v1.log.receipt.json.gz",
+      "sha256": "9ed1e257523604ff89f7c3ca8b67b7de3e6c1e473593f55bc6b069f1f94b44cb",
+      "bytes": 3113
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/curtain_final_v1.log.stderr",
+      "archive": "archive/runs/curtain_final_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_corrected_v1.log",
+      "archive": "archive/runs/import_corrected_v1.log.gz",
+      "sha256": "263f6d41df27ddcc6cbbca32523a6b516f0c462642e2956004485ce2326d520d",
+      "bytes": 2625
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_corrected_v1.log.receipt.json",
+      "archive": "archive/runs/import_corrected_v1.log.receipt.json.gz",
+      "sha256": "0bc0f1ab7c226d09bc1191fbce23334148846c2e0d22e27b2b638194d7e5f02c",
+      "bytes": 2851
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_corrected_v1.log.stderr",
+      "archive": "archive/runs/import_corrected_v1.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_dark_final.log",
+      "archive": "archive/runs/import_dark_final.log.gz",
+      "sha256": "6737923c89d1ef43bbbbb7f023d8b4812f94c00c0710cbdff2b2ce22b4f8629f",
+      "bytes": 2907
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_dark_final.log.receipt.json",
+      "archive": "archive/runs/import_dark_final.log.receipt.json.gz",
+      "sha256": "4a01281bfbde063dd59fa1242e95c8ea573fe5aaa4431dfcd4e7b6591111e825",
+      "bytes": 2742
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_dark_final.log.stderr",
+      "archive": "archive/runs/import_dark_final.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_final_v1.log",
+      "archive": "archive/runs/import_final_v1.log.gz",
+      "sha256": "263f6d41df27ddcc6cbbca32523a6b516f0c462642e2956004485ce2326d520d",
+      "bytes": 2625
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_final_v1.log.receipt.json",
+      "archive": "archive/runs/import_final_v1.log.receipt.json.gz",
+      "sha256": "ea8303c604c7db27462a79bca595637f68e172668609578edcd97934251ecae2",
+      "bytes": 2842
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_final_v1.log.stderr",
+      "archive": "archive/runs/import_final_v1.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_hardware_final.log",
+      "archive": "archive/runs/import_hardware_final.log.gz",
+      "sha256": "263f6d41df27ddcc6cbbca32523a6b516f0c462642e2956004485ce2326d520d",
+      "bytes": 2625
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_hardware_final.log.receipt.json",
+      "archive": "archive/runs/import_hardware_final.log.receipt.json.gz",
+      "sha256": "c2c52114b995209e59f05d15b76d378569b47d1c76be4b9f376640707d4e2d40",
+      "bytes": 2749
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_hardware_final.log.stderr",
+      "archive": "archive/runs/import_hardware_final.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_hardware_v1.log",
+      "archive": "archive/runs/import_hardware_v1.log.gz",
+      "sha256": "a044b49f207911799554f94730842d9a9e050b01131d98a3deaffa2b56d18e53",
+      "bytes": 104
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_hardware_v1.log.receipt.json",
+      "archive": "archive/runs/import_hardware_v1.log.receipt.json.gz",
+      "sha256": "a351e6bd1ce49fba66ab852b23f5f0ac350bc5e0175bd344c0b5b0824fdf2235",
+      "bytes": 2853
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_hardware_v1.log.stderr",
+      "archive": "archive/runs/import_hardware_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_hardware_v2.log",
+      "archive": "archive/runs/import_hardware_v2.log.gz",
+      "sha256": "daed4a28ccf34d4e51f12b167a6b7be7a1af6219e9bf1935241e6e78b35146f0",
+      "bytes": 2966
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_hardware_v2.log.receipt.json",
+      "archive": "archive/runs/import_hardware_v2.log.receipt.json.gz",
+      "sha256": "1a97726a1cb9875417a70cf6496c9b4028e6931edfdf6c7a8ba990fc7555fcec",
+      "bytes": 2848
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_hardware_v2.log.stderr",
+      "archive": "archive/runs/import_hardware_v2.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_tangents_v1.log",
+      "archive": "archive/runs/import_tangents_v1.log.gz",
+      "sha256": "263f6d41df27ddcc6cbbca32523a6b516f0c462642e2956004485ce2326d520d",
+      "bytes": 2625
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_tangents_v1.log.receipt.json",
+      "archive": "archive/runs/import_tangents_v1.log.receipt.json.gz",
+      "sha256": "d2cce6d70e22377041e7edf3c3c63e62066e08495cfa0780c2af106d2caa89fc",
+      "bytes": 2849
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_tangents_v1.log.stderr",
+      "archive": "archive/runs/import_tangents_v1.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_uncompressed_v1.log",
+      "archive": "archive/runs/import_uncompressed_v1.log.gz",
+      "sha256": "4cb98d2008d942a5a35f5fc4ba0cadb64d567cadc4ed57b1f205fa1bd5f687e1",
+      "bytes": 3143
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_uncompressed_v1.log.receipt.json",
+      "archive": "archive/runs/import_uncompressed_v1.log.receipt.json.gz",
+      "sha256": "2ac871a71c64289971bdc0588f9de1f6e9e3fec65d4308120d89b3b1a93c820b",
+      "bytes": 2857
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_uncompressed_v1.log.stderr",
+      "archive": "archive/runs/import_uncompressed_v1.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_v1.log",
+      "archive": "archive/runs/import_v1.log.gz",
+      "sha256": "a7f204525125d14a4ea51c9b58e810a7436288b4609aa17113c9cc254ef17148",
+      "bytes": 66313
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_v1.log.receipt.json",
+      "archive": "archive/runs/import_v1.log.receipt.json.gz",
+      "sha256": "a4b7843b8b8dc91efeafdf3942381634afd28466300604c76c08310495fbee85",
+      "bytes": 2831
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/import_v1.log.stderr",
+      "archive": "archive/runs/import_v1.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/interaction_final_v1.log",
+      "archive": "archive/runs/interaction_final_v1.log.gz",
+      "sha256": "ed2cbbac4004062e3d9eb5f226e970781401e4e80109b6f9937b4d29171f4b66",
+      "bytes": 7829
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/interaction_final_v1.log.receipt.json",
+      "archive": "archive/runs/interaction_final_v1.log.receipt.json.gz",
+      "sha256": "8b46c0e2d1fe294c6c0f56ed3bd5438239ad4d4f99571a491485beaa9dc8ba88",
+      "bytes": 3126
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/interaction_final_v1.log.stderr",
+      "archive": "archive/runs/interaction_final_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/interaction_hardware_v1.log",
+      "archive": "archive/runs/interaction_hardware_v1.log.gz",
+      "sha256": "491f347e55632cd59685978e43d5c6a30f7ee8d4681ee749151e8c55218bcbb6",
+      "bytes": 7912
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/interaction_hardware_v1.log.receipt.json",
+      "archive": "archive/runs/interaction_hardware_v1.log.receipt.json.gz",
+      "sha256": "31961589558b4023f466cb745bcc4aca80537394aacca4ba8413c633c07037da",
+      "bytes": 3135
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/interaction_hardware_v1.log.stderr",
+      "archive": "archive/runs/interaction_hardware_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/tangents_v1.log",
+      "archive": "archive/runs/tangents_v1.log.gz",
+      "sha256": "4cd5b1967d7393e78046033234aeae4785d2ad0b7d2400591b3c6288a8958a7e",
+      "bytes": 49536
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/tangents_v1.log.receipt.json",
+      "archive": "archive/runs/tangents_v1.log.receipt.json.gz",
+      "sha256": "c1c86a70b3b36ebede7615b33047bd8fb53ae5a29fe49222541a1e29fdce5807",
+      "bytes": 6388
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/tangents_v1.log.stderr",
+      "archive": "archive/runs/tangents_v1.log.stderr.gz",
+      "sha256": "af1a864a613fdf2f9921dfbceaa793b4dedc27b0e93ca3a97f86c1c80c7aed92",
+      "bytes": 17408
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_dark_final.log",
+      "archive": "archive/runs/toilet_dark_final.log.gz",
+      "sha256": "16b8e25f0f79eb5d1dd6897a2d16fe253d29d411a2e2b067b36556231eba84a8",
+      "bytes": 19704
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_dark_final.log.receipt.json",
+      "archive": "archive/runs/toilet_dark_final.log.receipt.json.gz",
+      "sha256": "fedfe903890550093a0d7e62f129911cb7ea1ed9dcdc6b0a20c700174eea947b",
+      "bytes": 3006
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_dark_final.log.stderr",
+      "archive": "archive/runs/toilet_dark_final.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_final_v1.log",
+      "archive": "archive/runs/toilet_final_v1.log.gz",
+      "sha256": "28ae6a4410e50f1f3d4d35409bae05746851aabb29c098755cb9b6e5e1680364",
+      "bytes": 22876
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_final_v1.log.receipt.json",
+      "archive": "archive/runs/toilet_final_v1.log.receipt.json.gz",
+      "sha256": "585c30ef7c1719e804f1082cbba1d646311a5b6a70ed9a05020f5df7c4c3998f",
+      "bytes": 3105
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_final_v1.log.stderr",
+      "archive": "archive/runs/toilet_final_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_final_v2.log",
+      "archive": "archive/runs/toilet_final_v2.log.gz",
+      "sha256": "d2ef54e90cc1d7a4bb4dc13b85639e1d3bc4ec44be5f4a9ec13574acdbc94eb7",
+      "bytes": 22876
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_final_v2.log.receipt.json",
+      "archive": "archive/runs/toilet_final_v2.log.receipt.json.gz",
+      "sha256": "cf32f79065fc7232ec258ca3353f43da80c12949eb800a29bc3135eb6d4f4730",
+      "bytes": 3105
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_final_v2.log.stderr",
+      "archive": "archive/runs/toilet_final_v2.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_hardware_final.log",
+      "archive": "archive/runs/toilet_hardware_final.log.gz",
+      "sha256": "16b8e25f0f79eb5d1dd6897a2d16fe253d29d411a2e2b067b36556231eba84a8",
+      "bytes": 19704
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_hardware_final.log.receipt.json",
+      "archive": "archive/runs/toilet_hardware_final.log.receipt.json.gz",
+      "sha256": "fb4b7219e980b10bbeb790e9c6eb8ca28578f8fdf73bed9c169a534b520fd5b7",
+      "bytes": 3018
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_hardware_final.log.stderr",
+      "archive": "archive/runs/toilet_hardware_final.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_hardware_v1.log",
+      "archive": "archive/runs/toilet_hardware_v1.log.gz",
+      "sha256": "a5189eb942255ff272f26351abfaa98666120d59a6fc7607b43ec84a823a3c02",
+      "bytes": 19704
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_hardware_v1.log.receipt.json",
+      "archive": "archive/runs/toilet_hardware_v1.log.receipt.json.gz",
+      "sha256": "245cd9b2817922f1ef3c335958b05e8134ed3ef085f6e81064a774a8b39f3efd",
+      "bytes": 3113
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_hardware_v1.log.stderr",
+      "archive": "archive/runs/toilet_hardware_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_v1.log",
+      "archive": "archive/runs/toilet_v1.log.gz",
+      "sha256": "7d952ed7bc9f8d51d60d7cafe99ed1d761edd7d94b260b23c5491e1fbd6e0cd3",
+      "bytes": 51769
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_v1.log.receipt.json",
+      "archive": "archive/runs/toilet_v1.log.receipt.json.gz",
+      "sha256": "63ea44a1a75f7ed0d97972315d06bd2175c6804f1907510e37f37f1f3939068e",
+      "bytes": 3088
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/toilet_v1.log.stderr",
+      "archive": "archive/runs/toilet_v1.log.stderr.gz",
+      "sha256": "de036c8d3d32c46528702fe1de4be273417bf24e5188307c71455ed04ec3c24d",
+      "bytes": 30152
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/uncompressed_v1.log",
+      "archive": "archive/runs/uncompressed_v1.log.gz",
+      "sha256": "5f13e86150f03fd377bba0b2b0c6fa2d0a3c75576b5c73cc0a9644f2fbe0395c",
+      "bytes": 49525
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/uncompressed_v1.log.receipt.json",
+      "archive": "archive/runs/uncompressed_v1.log.receipt.json.gz",
+      "sha256": "9c13e4ca1c927ded347f27a9519cbf84f6a7abdd1284e6d6149a69f7926f96d0",
+      "bytes": 6400
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/uncompressed_v1.log.stderr",
+      "archive": "archive/runs/uncompressed_v1.log.stderr.gz",
+      "sha256": "af1a864a613fdf2f9921dfbceaa793b4dedc27b0e93ca3a97f86c1c80c7aed92",
+      "bytes": 17408
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_dark_final.log",
+      "archive": "archive/runs/world_4b_dark_final.log.gz",
+      "sha256": "08f4ea2365e24f412d685ec6ed1452880116d1a2229640fb78ef156a0684e123",
+      "bytes": 12998
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_dark_final.log.receipt.json",
+      "archive": "archive/runs/world_4b_dark_final.log.receipt.json.gz",
+      "sha256": "eb1acf583580db6b6eff3f540881138521c6390ba2c7f0e7496089620b1c7908",
+      "bytes": 2964
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_dark_final.log.stderr",
+      "archive": "archive/runs/world_4b_dark_final.log.stderr.gz",
+      "sha256": "1eec9b747ff5a22c2d86e147df54557d93386b837dbcbb7d6dfd6ed4b0065446",
+      "bytes": 529
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_hardware_final.log",
+      "archive": "archive/runs/world_4b_hardware_final.log.gz",
+      "sha256": "afa847f699bf008c2ebd1c40a2513fdd1a24664f89d1b2e0caf3404ad37fbf7f",
+      "bytes": 6346
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_hardware_final.log.receipt.json",
+      "archive": "archive/runs/world_4b_hardware_final.log.receipt.json.gz",
+      "sha256": "3a8ab1381fc1fc16c7a45e892393acd117942d1ce55e14b438c1926afabd1e60",
+      "bytes": 2976
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_hardware_final.log.stderr",
+      "archive": "archive/runs/world_4b_hardware_final.log.stderr.gz",
+      "sha256": "06805329197e338076eb189bc0974fab8c27dfdc2ba070977f5aee7f3008dc9b",
+      "bytes": 464
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_mask_final.log",
+      "archive": "archive/runs/world_4b_mask_final.log.gz",
+      "sha256": "53c181dae10f625fec37c553002bd5e414d59a208302c5d26f9f8780bf51483a",
+      "bytes": 12474
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_mask_final.log.receipt.json",
+      "archive": "archive/runs/world_4b_mask_final.log.receipt.json.gz",
+      "sha256": "5e73366e3275fe745ec82fd30ebe2de4a81779465cf093cb9a70349929798cb6",
+      "bytes": 2964
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_mask_final.log.stderr",
+      "archive": "archive/runs/world_4b_mask_final.log.stderr.gz",
+      "sha256": "b2499bcd4efa7659a09a4799b63a163fd69a330636aae9bc78dc175f627a4b40",
+      "bytes": 467
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_reach_final.log",
+      "archive": "archive/runs/world_4b_reach_final.log.gz",
+      "sha256": "4cb776894520d17c789b272ced54c92723473e39c6ba7e52ec5d0fefd76586d8",
+      "bytes": 8317
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_reach_final.log.receipt.json",
+      "archive": "archive/runs/world_4b_reach_final.log.receipt.json.gz",
+      "sha256": "3f015f22564839ec4ec8b764009bb0b47661080a02682ed17e3034ab77f19cb4",
+      "bytes": 2968
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_reach_final.log.stderr",
+      "archive": "archive/runs/world_4b_reach_final.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "tmp/toilet_dark_review_final.log",
+      "archive": "archive/native_logs/toilet_dark_review_final.log.gz",
+      "sha256": "453c60ad10aee2d6f0cf38603ebfdf316a88a072352c118e9ab6464cdbd703aa",
+      "bytes": 1362
+    },
+    {
+      "original": "tmp/toilet_final_static.log",
+      "archive": "archive/native_logs/toilet_final_static.log.gz",
+      "sha256": "842c0b5e06d78fcca59fa9690c2f22472a5b5dc3b2cfa6bbbefa0e29c4b893b7",
+      "bytes": 664
+    },
+    {
+      "original": "tmp/toilet_form_board.log",
+      "archive": "archive/native_logs/toilet_form_board.log.gz",
+      "sha256": "4e3a93508566b625e0c27d44b2adbf12d023340c2885ce0d4d1e3d558dbacbda",
+      "bytes": 8254
+    },
+    {
+      "original": "tmp/toilet_form_build_v1.log",
+      "archive": "archive/native_logs/toilet_form_build_v1.log.gz",
+      "sha256": "324414ee3b2824f2c496f15928b48b432ec0d5f9fe227a9a08d8d5d8d05edcbb",
+      "bytes": 1155
+    },
+    {
+      "original": "tmp/toilet_form_build_v2.log",
+      "archive": "archive/native_logs/toilet_form_build_v2.log.gz",
+      "sha256": "42a1f48fa933ceb6fe41610b46e40b57808da3fefe24adf7266dc5f0732c16dd",
+      "bytes": 3976
+    },
+    {
+      "original": "tmp/toilet_form_build_v3.log",
+      "archive": "archive/native_logs/toilet_form_build_v3.log.gz",
+      "sha256": "369052ee1e11de5822786c39ce791fdad375a42d4b9c61c9a0bafe460f8b2a09",
+      "bytes": 3976
+    },
+    {
+      "original": "tmp/toilet_form_build_v4.log",
+      "archive": "archive/native_logs/toilet_form_build_v4.log.gz",
+      "sha256": "6b31133775c2705d5c7b97e60cedb3c5a0f26090a949ae3962a329e06c2498bf",
+      "bytes": 3976
+    },
+    {
+      "original": "tmp/toilet_form_build_v5.log",
+      "archive": "archive/native_logs/toilet_form_build_v5.log.gz",
+      "sha256": "0f1aef6f417e7d805913f544352e428f7021d4cf3ee8189ed875f53de7ae03cd",
+      "bytes": 3976
+    },
+    {
+      "original": "tmp/toilet_form_build_v6.log",
+      "archive": "archive/native_logs/toilet_form_build_v6.log.gz",
+      "sha256": "ba8a2a5071b246a05e80505a44aebb442dfb89ebba4afe9a7de0c5d05f47b1fa",
+      "bytes": 3976
+    },
+    {
+      "original": "tmp/toilet_form_review_final_v1.log",
+      "archive": "archive/native_logs/toilet_form_review_final_v1.log.gz",
+      "sha256": "50d217b9952375706ece582f6a1fab54ba270e205289d380867db722ae67b94b",
+      "bytes": 1081
+    },
+    {
+      "original": "tmp/toilet_form_review_v1.log",
+      "archive": "archive/native_logs/toilet_form_review_v1.log.gz",
+      "sha256": "ca20f1b72619a8033249ee01848f00eebf5c1db07430a0d47f6c9940a7041808",
+      "bytes": 1063
+    },
+    {
+      "original": "tmp/toilet_form_review_v2.log",
+      "archive": "archive/native_logs/toilet_form_review_v2.log.gz",
+      "sha256": "28c931cb0a686e6bc768fdbc5b1c8c8ee3b86c814f243bb057ab2b18d254f9ee",
+      "bytes": 1063
+    },
+    {
+      "original": "tmp/toilet_form_spatial.json",
+      "archive": "archive/native_logs/toilet_form_spatial.json.gz",
+      "sha256": "65e2d9b896ef355cd04127ec9feaabfac9f02c6d9665ca6e3f62c53d1f5c8c3c",
+      "bytes": 13113
+    },
+    {
+      "original": "tmp/toilet_hardware_build_dark_final.log",
+      "archive": "archive/native_logs/toilet_hardware_build_dark_final.log.gz",
+      "sha256": "adf9f5c786ff58fbfd80d92b0aa9d49e50315a275c516710bf0b8696406406b7",
+      "bytes": 3316
+    },
+    {
+      "original": "tmp/toilet_hardware_build_final.log",
+      "archive": "archive/native_logs/toilet_hardware_build_final.log.gz",
+      "sha256": "9abdf9d5add993997b17fb3b81a197f22a9217f0eda3820e087cd84646b3cb4c",
+      "bytes": 3315
+    },
+    {
+      "original": "tmp/toilet_hardware_build_v1.log",
+      "archive": "archive/native_logs/toilet_hardware_build_v1.log.gz",
+      "sha256": "9c4ce25d524daa0a7e9b1152efb60fbcf5ca8025d71f0474ce5af36ba39d13fb",
+      "bytes": 8725
+    },
+    {
+      "original": "tmp/toilet_hardware_build_v2.log",
+      "archive": "archive/native_logs/toilet_hardware_build_v2.log.gz",
+      "sha256": "2adbd2f4452e3bc5c87e1e4f7ef57747bdf2afd44b1e3456d384d2962e99831f",
+      "bytes": 8724
+    },
+    {
+      "original": "tmp/toilet_hardware_build_v3.log",
+      "archive": "archive/native_logs/toilet_hardware_build_v3.log.gz",
+      "sha256": "a59b0d2510e3812de85b8b6e63d8156786061ad1da5f56b296fbc97dddf2420d",
+      "bytes": 8723
+    },
+    {
+      "original": "tmp/toilet_hardware_build_v4.log",
+      "archive": "archive/native_logs/toilet_hardware_build_v4.log.gz",
+      "sha256": "33bcddcd5efe742dcd94fea151eebcdda053834e58174ae3e2fa455c9d4199b7",
+      "bytes": 7996
+    },
+    {
+      "original": "tmp/toilet_hardware_build_v5.log",
+      "archive": "archive/native_logs/toilet_hardware_build_v5.log.gz",
+      "sha256": "46f19f8ab71676f1d4e183f04ae035d6a5ab899504238c711467f28ad4a8d0a8",
+      "bytes": 1749
+    },
+    {
+      "original": "tmp/toilet_hardware_build_v6.log",
+      "archive": "archive/native_logs/toilet_hardware_build_v6.log.gz",
+      "sha256": "053622bd4b88aec304a3b7932e7ca1ae5b41ae07a14225959fc86826f07a476a",
+      "bytes": 3314
+    },
+    {
+      "original": "tmp/toilet_hardware_build_v7.log",
+      "archive": "archive/native_logs/toilet_hardware_build_v7.log.gz",
+      "sha256": "3f21549a1bfe14481d0264a0dfc19b35cca6da26c38058dd3bb846af1574c167",
+      "bytes": 3316
+    },
+    {
+      "original": "tmp/toilet_hardware_review_final.log",
+      "archive": "archive/native_logs/toilet_hardware_review_final.log.gz",
+      "sha256": "f6cf3224c1965819fe8d5ce89cf204399fb9b9baca730567b907f460641b2309",
+      "bytes": 1382
+    },
+    {
+      "original": "tmp/toilet_hardware_review_final_v2.log",
+      "archive": "archive/native_logs/toilet_hardware_review_final_v2.log.gz",
+      "sha256": "0a835061351eb0e926bbb8bb880dca0cfefd66a30a1ffa4b651544d56bd16c92",
+      "bytes": 1397
+    },
+    {
+      "original": "tmp/toilet_hardware_review_final_v3.log",
+      "archive": "archive/native_logs/toilet_hardware_review_final_v3.log.gz",
+      "sha256": "49b6a46d5ba89c7f2f2ac5b93d99f179fd3ae91434e6e77fa28c2fc7f4d69d48",
+      "bytes": 1397
+    },
+    {
+      "original": "tmp/toilet_hardware_review_v1.log",
+      "archive": "archive/native_logs/toilet_hardware_review_v1.log.gz",
+      "sha256": "539c3b14aedd7105e92ef3c5e36e7bcb595379e56423bdbfa31b1eb24a90753a",
+      "bytes": 460
+    },
+    {
+      "original": "tmp/toilet_hardware_review_v2.log",
+      "archive": "archive/native_logs/toilet_hardware_review_v2.log.gz",
+      "sha256": "6b5992e0486834bfdd4a8788f7d8d2f99625f53ddf60453d645db7e324788b01",
+      "bytes": 1090
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/native_dark_final/native.json",
+      "archive": "archive/native/native_dark_final/native.json.gz",
+      "sha256": "10c21da8892de4a06ebfb8940edf6a78683206bd66a063a889b2573a97bca06c",
+      "bytes": 20666
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/native_final_v1/native.json",
+      "archive": "archive/native/native_final_v1/native.json.gz",
+      "sha256": "24711d487e61909945fab3089b7c2cb8eac332f284bb71f1607b7c511970c01c",
+      "bytes": 8456
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/native_hardware_final/native.json",
+      "archive": "archive/native/native_hardware_final/native.json.gz",
+      "sha256": "6b608c501b6c178da648b85eab329541a2c6ccaea7b5b0940001ff7dc4be9c2c",
+      "bytes": 20394
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/native_hardware_final_v2/native.json",
+      "archive": "archive/native/native_hardware_final_v2/native.json.gz",
+      "sha256": "6b608c501b6c178da648b85eab329541a2c6ccaea7b5b0940001ff7dc4be9c2c",
+      "bytes": 20394
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/native_hardware_final_v3/native.json",
+      "archive": "archive/native/native_hardware_final_v3/native.json.gz",
+      "sha256": "0aef5cb53477ce614e11af09c770529eb5b39b0aa5906b7520ac0c82f3f19863",
+      "bytes": 20669
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/native_hardware_v1/native.json",
+      "archive": "archive/native/native_hardware_v1/native.json.gz",
+      "sha256": "ca61de5b914387c944fb26cb9caf3bda8610be8bc417782cc7847eca46524c61",
+      "bytes": 19128
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/native_hardware_v2/native.json",
+      "archive": "archive/native/native_hardware_v2/native.json.gz",
+      "sha256": "3e0ab6f5535f195df20efd14fdba9072774f28af77a2f1d4475edd2951e58665",
+      "bytes": 19042
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/native_v1/native.json",
+      "archive": "archive/native/native_v1/native.json.gz",
+      "sha256": "94b79b8e0e965458ae97c3e63b4b4181515488d2a0fcda00ec04c0911da4a41a",
+      "bytes": 8456
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/native_v2/native.json",
+      "archive": "archive/native/native_v2/native.json.gz",
+      "sha256": "090e12756e223ea91773e10ceefe3a221e0631131e4986d6dc37cec265c2bc78",
+      "bytes": 8459
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/rejected_tangents_v1/bath_water_closet.glb",
+      "archive": "archive/rejected_tangents_v1/bath_water_closet.glb.gz",
+      "sha256": "bc6a55c3ab78bbf6f69724a27987b5e27bdf0a55567769054cc3ab3f714f82a2",
+      "bytes": 3652224
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/rejected_tangents_v1/build_operable_water_closet.py",
+      "archive": "archive/rejected_tangents_v1/build_operable_water_closet.py.gz",
+      "sha256": "6e677a2842cbd48ac43cf0a9e48c3f0c43f937cadf3684985d4aa0b169f860dd",
+      "bytes": 10922
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/rejected_tangents_v1/water_closet_form.py",
+      "archive": "archive/rejected_tangents_v1/water_closet_form.py.gz",
+      "sha256": "77f39217a36f01b1e0e31d6a7244b3ff60972ed520ff121d820b3c166f3477ec",
+      "bytes": 4619
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/board/board.json",
+      "archive": "archive/board/board.json.gz",
+      "sha256": "9ac6596567707b2763018f93641a51a5745ccde734b98f2acb7d56f2f94cb1e6",
+      "bytes": 355759
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/board/board.md",
+      "archive": "archive/board/board.md.gz",
+      "sha256": "314c1728877318449ee045093f1c76e5556ed729d76e5ef6eecd9fd7c12f8dc3",
+      "bytes": 8133
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/final_static/board.json",
+      "archive": "archive/final_static/board.json.gz",
+      "sha256": "3b971f4ca1866e73c77486e6c380855a84c04b6642fa17d3ce38b86e09f29922",
+      "bytes": 302548
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/final_static/board.md",
+      "archive": "archive/final_static/board.md.gz",
+      "sha256": "f967b48c1c6941e6343658f9c302b8259089573a6735961c7816298beb17d728",
+      "bytes": 647
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/curtain_final_v1/gestures.json",
+      "archive": "archive/diagnostics/curtain_final_v1/gestures.json.gz",
+      "sha256": "b4dc222b11bb82bcd16f7b24a36c1fa4546dbbf5c6563da2e759fdd16b6784e8",
+      "bytes": 517
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_hardware_final/route.json",
+      "archive": "archive/diagnostics/world_4b_hardware_final/route.json.gz",
+      "sha256": "9e91d64765842518992d9d90760672be7c449e4d5d8a95f1f9a25108b94f8a70",
+      "bytes": 4105
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_dark_final/route.json",
+      "archive": "archive/diagnostics/world_4b_dark_final/route.json.gz",
+      "sha256": "8cbbac84abf2c1d2cffda351dcbba52cabb46a923b68bbe8902329d81480139b",
+      "bytes": 8428
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_mask_final/route.json",
+      "archive": "archive/diagnostics/world_4b_mask_final/route.json.gz",
+      "sha256": "cf6348df46dc4acdfacfa7d987e83a861e47da6581aa72b7d9218158a80cc5c6",
+      "bytes": 6132
+    },
+    {
+      "original": "art/reviews/v2_toilet_form_20261022/world_4b_reach_final.cancelled.json",
+      "archive": "archive/cancellations/world_4b_reach_final.cancelled.json.gz",
+      "sha256": "ac330212a6a8924fd6877493363261b9a60c0ac937629efc4a4f484bb5d6891e",
+      "bytes": 355
+    }
+  ]
+}

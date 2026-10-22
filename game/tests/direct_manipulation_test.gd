@@ -142,13 +142,19 @@ func _run() -> void:
 	player.camera.look_at(tap._kitchen_plug.global_position)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
+	var standing_floor:=StaticBody3D.new();standing_floor.position.y=-.1;add_child(standing_floor)
+	var floor_shape:=CollisionShape3D.new();var floor_box:=BoxShape3D.new();floor_box.size=Vector3(12,.2,12);floor_shape.shape=floor_box;standing_floor.add_child(floor_shape)
+	player.velocity=Vector3.ZERO;player.set_physics_process(true)
 	var plug_before: Vector3=tap._kitchen_plug.position
 	click()
 	check(player._grab.active() and tap._plug_hand.held,"mouse acquires visible loose plug")
 	check(tap._kitchen_plug.position.is_equal_approx(plug_before),"plug acquisition has no automatic lift")
 	drag(Vector2(0,-35))
+	for frame in 8:await get_tree().physics_frame
+	check(player._grab.holding_pickup(),"loose plug follows the physical FPS hand within its chain reach")
 	check(tap._kitchen_plug.position.y>plug_before.y and not tap._stopper,"mouse lifts plug and opens drain")
 	click()
+	player.set_physics_process(false)
 	await get_tree().create_timer(.3).timeout
 	check(not tap._plug_hand.held and tap._plug_hand.resting,"released plug settles under gravity")
 	check(is_equal_approx(tap._kitchen_plug.position.y,tap._plug_hand.support(tap._kitchen_plug.position)),"released plug rests on casting surface")
@@ -185,6 +191,23 @@ func _run() -> void:
 	check(shower._curtain_closed.visible and not shower._curtain_gathered.visible,"same authored cloth deforms through fully gathered pose")
 	shower.restore_mechanism(curtain_saved)
 	check(is_equal_approx(shower._curtain_hand.travel,curtain_saved.curtain),"partial curtain gathering restores")
+	# Full travel should take the same gesture at different standing distances
+	# and fields of view, including through the U rail's direction changes.
+	for distance: float in [.85,1.55]:
+		for fov: float in [55.,85.]:
+			shower.set_curtain_open(false)
+			player.position=shower.position+Vector3(0,-.35,-distance)
+			player.camera.fov=fov;player.camera.look_at(shower.to_global(Vector3(0,1.25,-.32)))
+			for frame in 2:await get_tree().physics_frame
+			click()
+			check(player._grab.active() and shower._curtain_hand.held,"uniform gesture acquires the real cloth")
+			for step in 24:drag(Vector2(-12,0));await get_tree().physics_frame
+			print("CURTAIN GESTURE: distance=",distance," fov=",fov," pixels=288 opening=",shower._curtain_hand.travel)
+			check(is_equal_approx(shower._curtain_hand.travel,shower._curtain_hand.TRAVEL),"288-pixel gesture opens the complete rail")
+			for step in 24:drag(Vector2(12,0));await get_tree().physics_frame
+			check(is_zero_approx(shower._curtain_hand.travel),"matching reverse gesture closes the complete rail")
+			click();check(not shower._curtain_hand.held,"next primary releases the gathered cloth")
+	player.camera.fov=72.
 	var prep := preload("res://scripts/building/orison_v2_prep_cabinet.gd").new()
 	prep.position=Vector3(-6,0,0);add_child(prep);prep.setup("test")
 	prep.restore_travel(.37)

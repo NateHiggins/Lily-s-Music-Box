@@ -19,6 +19,7 @@ var _held_depth := 0.0
 var _held_body: PhysicsBody3D
 var _added_holder_exception := false
 var _added_stock_exception := false
+var _gesture_axis := Vector2.ZERO
 
 func _record_cost(stage: String, owner_name: String, started: int) -> void:
 	if not profiling: return
@@ -79,6 +80,7 @@ func acquire(candidate: Dictionary) -> bool:
 	if candidate.has("begin") and not candidate.begin.call(): return false
 	_record_cost("begin",str(candidate.owner.name),started)
 	target = candidate
+	_gesture_axis=Vector2.ZERO
 	contact = target.part.to_local(candidate.hit_position)
 	changed = false
 	motion_feedback = "grabbed"
@@ -285,10 +287,19 @@ func move(relative: Vector2) -> void:
 		screen_axis = Vector2(0,tangent.dot(camera.global_basis.z)*180.0)
 	if screen_axis.length_squared() < .01: return
 	var step := relative.dot(screen_axis)/screen_axis.length_squared()
+	var gesture_pixels: float=float(target.get("gesture_travel_px",0.))
+	var gesture_range: float=float(target.maximum)-float(target.minimum)
+	if gesture_pixels>0.:
+		if not is_finite(gesture_pixels) or gesture_pixels<1. or not is_finite(gesture_range) or gesture_range<=0.:return
+		# A long or bent rail can share one bounded gesture. Keep its initial
+		# screen direction so crossing a rail corner does not reverse the hand.
+		if _gesture_axis.is_zero_approx():_gesture_axis=screen_axis.normalized()
+		step=relative.dot(_gesture_axis)*gesture_range/gesture_pixels
 	var motion_scale: float=float(target.get("motion_scale",1.0))
 	if not is_finite(motion_scale) or motion_scale<=0.:return
 	step*=motion_scale
 	var limit := .24 if target.kind == "hinge" else .08
+	if gesture_pixels>0.:limit=gesture_range*.24
 	step = clampf(step,-limit,limit)
 	var before: float = target.read.call()
 	var value := clampf(before+step,float(target.minimum),float(target.maximum))
