@@ -896,6 +896,20 @@
       "roughness_multiplier": 0.82,
       "visual_lock": false
     },
+    "nook_woven_wool": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.24,
+      "catalog_mapping": "procedural/nook_woven_wool",
+      "files": [
+        "T_ai_materials_nook_woven_wool_albedo.png",
+        "T_ai_materials_nook_woven_wool_rough.png",
+        "T_ai_materials_nook_woven_wool_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.24,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "oak_quartered": {
       "alpha": false,
       "canonical_meters_per_tile": 0.9,

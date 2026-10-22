@@ -176,6 +176,181 @@
       "big": false
     }
   ],
+  "adapted_records": [
+    {
+      "id": "nook_rug",
+      "rect": [
+        -1.61,
+        -1.95,
+        0.89,
+        1.55
+      ],
+      "z0": 0.014,
+      "h": 0.008,
+      "mat": "nook_woven_wool"
+    },
+    {
+      "id": "nook_seat_n",
+      "rect": [
+        -1.3,
+        0.69,
+        0.34,
+        1.07
+      ],
+      "z0": 0.4,
+      "h": 0.065,
+      "mat": "floor_oak"
+    },
+    {
+      "id": "nook_apron_n",
+      "rect": [
+        -1.25,
+        0.74,
+        0.29,
+        1.02
+      ],
+      "z0": 0.0,
+      "h": 0.4,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "nook_seat_w",
+      "rect": [
+        -1.3,
+        -0.19,
+        -0.92,
+        0.69
+      ],
+      "z0": 0.4,
+      "h": 0.065,
+      "mat": "floor_oak"
+    },
+    {
+      "id": "nook_apron_w",
+      "rect": [
+        -1.25,
+        -0.14,
+        -0.97,
+        0.64
+      ],
+      "z0": 0.0,
+      "h": 0.4,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "nook_seat_e",
+      "rect": [
+        -0.04,
+        -0.19,
+        0.34,
+        0.69
+      ],
+      "z0": 0.4,
+      "h": 0.065,
+      "mat": "floor_oak"
+    },
+    {
+      "id": "nook_apron_e",
+      "rect": [
+        0.01,
+        -0.14,
+        0.29,
+        0.64
+      ],
+      "z0": 0.0,
+      "h": 0.4,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "nook_cush1",
+      "rect": [
+        -1.22,
+        0.75,
+        -0.64,
+        1.11
+      ],
+      "z0": 0.465,
+      "h": 0.085,
+      "mat": "fabric_warm"
+    },
+    {
+      "id": "nook_cush2",
+      "rect": [
+        0.02,
+        -0.05,
+        0.32,
+        0.51
+      ],
+      "z0": 0.465,
+      "h": 0.075,
+      "mat": "fabric_green"
+    },
+    {
+      "id": "nook_throw",
+      "rect": [
+        -1.28,
+        -0.09,
+        -0.96,
+        0.55
+      ],
+      "z0": 0.465,
+      "h": 0.055,
+      "mat": "linen"
+    },
+    {
+      "id": "nook_books",
+      "asm": "shelf",
+      "at": [
+        -0.475,
+        1.2398
+      ],
+      "yaw": 180,
+      "W": 1.25,
+      "H": 0.92,
+      "books": true
+    },
+    {
+      "id": "nook_table",
+      "asm": "coffee",
+      "at": [
+        -0.46,
+        -1.4602
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "nook_mug",
+      "asm": "mug",
+      "at": [
+        -0.28,
+        -1.4002
+      ],
+      "yaw": 35,
+      "z0": 0.37,
+      "mat": "ceramic"
+    },
+    {
+      "id": "nook_pile",
+      "asm": "bookpile",
+      "at": [
+        -0.68,
+        -0.6702
+      ],
+      "yaw": 12,
+      "z0": 0.37,
+      "n": 3
+    },
+    {
+      "id": "nook_plant",
+      "asm": "plant",
+      "at": [
+        0.61,
+        1.1698
+      ],
+      "yaw": 0,
+      "big": false
+    }
+  ],
   "assemblies": [
     {
       "id": "nook_rug",
@@ -272,8 +447,32 @@
     {
       "name": "nook_rug_Body",
       "assembly": "nook_rug",
-      "key": "rug_warm",
-      "volume_m3": 0.04918334504824933
+      "key": "nook_woven_wool",
+      "volume_m3": 0.06999399823999891
+    },
+    {
+      "name": "nook_rug_BindingNear",
+      "assembly": "nook_rug",
+      "key": "rug_binding",
+      "volume_m3": 0.0002743612077762509
+    },
+    {
+      "name": "nook_rug_BindingFar",
+      "assembly": "nook_rug",
+      "key": "rug_binding",
+      "volume_m3": 0.00027436061175978126
+    },
+    {
+      "name": "nook_rug_BindingLeft",
+      "assembly": "nook_rug",
+      "key": "rug_binding",
+      "volume_m3": 0.00037203878370446107
+    },
+    {
+      "name": "nook_rug_BindingRight",
+      "assembly": "nook_rug",
+      "key": "rug_binding",
+      "volume_m3": 0.0003720383796000019
     },
     {
       "name": "nook_seat_n_Body",
@@ -456,202 +655,196 @@
       "volume_m3": 0.01827766292771484
     },
     {
-      "name": "nook_plant_Branch0",
-      "assembly": "nook_plant",
-      "key": "timber",
-      "volume_m3": 6.438249986748059e-05
-    },
-    {
-      "name": "nook_plant_Petiole0_0",
+      "name": "nook_plant_Petiole0",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9464385359240997e-07
+      "volume_m3": 2.43526978137398e-06
     },
     {
-      "name": "nook_plant_Leaf0_0",
+      "name": "nook_plant_Blade0",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 3.0076876288971223e-06
+      "volume_m3": 6.003974634018622e-06
     },
     {
-      "name": "nook_plant_Petiole0_1",
+      "name": "nook_plant_Petiole1",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9465614641655838e-07
+      "volume_m3": 3.386331531531607e-06
     },
     {
-      "name": "nook_plant_Leaf0_1",
+      "name": "nook_plant_Blade1",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 2.920655157203792e-06
+      "volume_m3": 8.201697390573829e-06
     },
     {
-      "name": "nook_plant_Petiole0_2",
+      "name": "nook_plant_Petiole2",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9464340070120426e-07
+      "volume_m3": 2.6226327872390536e-06
     },
     {
-      "name": "nook_plant_Leaf0_2",
+      "name": "nook_plant_Blade2",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 2.8350296312341042e-06
+      "volume_m3": 1.067891662516605e-05
     },
     {
-      "name": "nook_plant_Petiole0_3",
+      "name": "nook_plant_Petiole3",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9464423254750172e-07
+      "volume_m3": 3.583658546834122e-06
     },
     {
-      "name": "nook_plant_Leaf0_3",
+      "name": "nook_plant_Blade3",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 2.750238569453238e-06
+      "volume_m3": 8.956218005702883e-06
     },
     {
-      "name": "nook_plant_Petiole0_4",
+      "name": "nook_plant_Petiole4",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.946493126578979e-07
+      "volume_m3": 2.813995490826106e-06
     },
     {
-      "name": "nook_plant_Leaf0_4",
+      "name": "nook_plant_Blade4",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 2.666783844298079e-06
+      "volume_m3": 8.505097369951333e-06
     },
     {
-      "name": "nook_plant_Branch1",
-      "assembly": "nook_plant",
-      "key": "timber",
-      "volume_m3": 6.344970433059701e-05
-    },
-    {
-      "name": "nook_plant_Petiole1_0",
+      "name": "nook_plant_Petiole5",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9464381342115607e-07
+      "volume_m3": 3.7743608239789e-06
     },
     {
-      "name": "nook_plant_Leaf1_0",
+      "name": "nook_plant_Blade5",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 3.22944440661192e-06
+      "volume_m3": 7.108293228517519e-06
     },
     {
-      "name": "nook_plant_Petiole1_1",
+      "name": "nook_plant_Petiole6",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9464403065380097e-07
+      "volume_m3": 3.0024557915311696e-06
     },
     {
-      "name": "nook_plant_Leaf1_1",
+      "name": "nook_plant_Blade6",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 3.138927329309602e-06
+      "volume_m3": 9.492204556697922e-06
     },
     {
-      "name": "nook_plant_Petiole1_2",
+      "name": "nook_plant_Petiole7",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.946562068555422e-07
+      "volume_m3": 3.971696121964773e-06
     },
     {
-      "name": "nook_plant_Leaf1_2",
+      "name": "nook_plant_Blade7",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 3.0498592992781496e-06
+      "volume_m3": 7.676784074203288e-06
     },
     {
-      "name": "nook_plant_Petiole1_3",
+      "name": "nook_plant_Petiole8",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9464911674976454e-07
+      "volume_m3": 3.197216351317901e-06
     },
     {
-      "name": "nook_plant_Leaf1_3",
+      "name": "nook_plant_Blade8",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 2.9622526031881837e-06
+      "volume_m3": 7.504451106077229e-06
     },
     {
-      "name": "nook_plant_Petiole1_4",
+      "name": "nook_plant_Petiole9",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9464471234579082e-07
+      "volume_m3": 2.432354530040467e-06
     },
     {
-      "name": "nook_plant_Leaf1_4",
+      "name": "nook_plant_Blade9",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 2.8757724722545535e-06
+      "volume_m3": 9.842653226577993e-06
     },
     {
-      "name": "nook_plant_Branch2",
-      "assembly": "nook_plant",
-      "key": "timber",
-      "volume_m3": 6.253530608365771e-05
-    },
-    {
-      "name": "nook_plant_Petiole2_0",
+      "name": "nook_plant_Petiole10",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9465780818595313e-07
+      "volume_m3": 3.386757682418204e-06
     },
     {
-      "name": "nook_plant_Leaf2_0",
+      "name": "nook_plant_Blade10",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 3.4588569604456124e-06
+      "volume_m3": 8.305562480077346e-06
     },
     {
-      "name": "nook_plant_Petiole2_1",
+      "name": "nook_plant_Petiole11",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.946443211326666e-07
+      "volume_m3": 2.6254579729049235e-06
     },
     {
-      "name": "nook_plant_Leaf2_1",
+      "name": "nook_plant_Blade11",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 3.3653621643419078e-06
+      "volume_m3": 1.0874365249778442e-05
     },
     {
-      "name": "nook_plant_Petiole2_2",
+      "name": "nook_plant_Petiole12",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.946441008523647e-07
+      "volume_m3": 3.5834723630836774e-06
     },
     {
-      "name": "nook_plant_Leaf2_2",
+      "name": "nook_plant_Blade12",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 3.272838569038496e-06
+      "volume_m3": 6.504169180534876e-06
     },
     {
-      "name": "nook_plant_Petiole2_3",
+      "name": "nook_plant_Petiole13",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.946535841917656e-07
+      "volume_m3": 2.8116282510898503e-06
     },
     {
-      "name": "nook_plant_Leaf2_3",
+      "name": "nook_plant_Blade13",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 3.1823629854337915e-06
+      "volume_m3": 8.748022093133207e-06
     },
     {
-      "name": "nook_plant_Petiole2_4",
+      "name": "nook_plant_Petiole14",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 1.9464223006247285e-07
+      "volume_m3": 3.774208995057778e-06
     },
     {
-      "name": "nook_plant_Leaf2_4",
+      "name": "nook_plant_Blade14",
       "assembly": "nook_plant",
       "key": "plant",
-      "volume_m3": 3.092304551892559e-06
+      "volume_m3": 7.119042339080054e-06
+    },
+    {
+      "name": "nook_plant_Petiole15",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.004491074938339e-06
+    },
+    {
+      "name": "nook_plant_Blade15",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 9.595516378499539e-06
     }
   ],
   "contacts": [
@@ -659,9 +852,9 @@
       "assembly": "nook_rug",
       "owner": "floor",
       "point": [
-        0.016000000000000014,
+        -0.09999999999999987,
         0.0,
-        1.854
+        1.2000000000000002
       ],
       "direction": [
         0,
@@ -674,9 +867,9 @@
       "assembly": "nook_rug",
       "owner": "floor",
       "point": [
-        -0.976,
+        -1.0999999999999999,
         0.0,
-        2.846
+        2.5999999999999996
       ],
       "direction": [
         0,
@@ -1021,7 +1214,7 @@
       "point": [
         -0.20000000953674313,
         0.00800000037997961,
-        1.389799988269806
+        0.5398000240325929
       ],
       "direction": [
         -0.0,
@@ -1036,7 +1229,7 @@
       "point": [
         -0.7799999928474426,
         0.00800000037997961,
-        1.4198000192642213
+        0.5697999954223634
       ],
       "direction": [
         -0.0,
@@ -1051,7 +1244,7 @@
       "point": [
         -0.6799999988079071,
         0.36500000953674316,
-        1.5498000144958497
+        0.6997999906539918
       ],
       "direction": [
         -0.0,
@@ -1066,7 +1259,7 @@
       "point": [
         -0.2799999928474426,
         0.36500000953674316,
-        1.4298000097274781
+        0.5797999858856202
       ],
       "direction": [
         -0.0,
@@ -1079,7 +1272,7 @@
       "assembly": "nook_plant",
       "owner": "nook_rug",
       "point": [
-        -1.4200000083446502,
+        -1.5700000143051147,
         0.00800000037997961,
         3.269800043106079
       ],
@@ -1093,11 +1286,18 @@
   ],
   "parts": [
     {
-      "name": "nook_rug__rug_warm",
+      "name": "nook_rug__nook_woven_wool",
       "assembly": "nook_rug",
       "cell": "B1_PUBLIC_CORE",
-      "key": "rug_warm",
+      "key": "nook_woven_wool",
       "triangles": 188
+    },
+    {
+      "name": "nook_rug__rug_binding",
+      "assembly": "nook_rug",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "rug_binding",
+      "triangles": 752
     },
     {
       "name": "nook_seat_n__floor_oak",
@@ -1209,7 +1409,7 @@
       "assembly": "nook_plant",
       "cell": "B1_PUBLIC_CORE",
       "key": "plant",
-      "triangles": 4260
+      "triangles": 5440
     },
     {
       "name": "nook_plant__soil",
@@ -1224,16 +1424,9 @@
       "cell": "B1_PUBLIC_CORE",
       "key": "terracotta",
       "triangles": 1536
-    },
-    {
-      "name": "nook_plant__timber",
-      "assembly": "nook_plant",
-      "cell": "B1_PUBLIC_CORE",
-      "key": "timber",
-      "triangles": 132
     }
   ],
-  "triangles": 13476,
+  "triangles": 15276,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -1244,15 +1437,28 @@
         "id": "nook_rug",
         "parts": [
           {
-            "name": "nook_rug__rug_warm",
-            "key": "rug_warm",
-            "tile": 1.5
+            "name": "nook_rug__nook_woven_wool",
+            "key": "nook_woven_wool",
+            "tile": 0.24,
+            "catalog_key": "nook_woven_wool"
+          },
+          {
+            "name": "nook_rug__rug_binding",
+            "key": "rug_binding",
+            "tile": 0.24,
+            "catalog_key": "nook_woven_wool",
+            "tint": [
+              0.2,
+              0.24,
+              0.16,
+              1.0
+            ]
           }
         ],
         "position": [
-          -0.48,
+          -0.5999999999999999,
           0,
-          2.35
+          1.9000000000000001
         ],
         "yaw": 3.141592653589793
       },
@@ -1455,7 +1661,7 @@
         "position": [
           -0.49999999999999994,
           0,
-          1.4898000000000002
+          0.6398000000000001
         ],
         "yaw": 3.141592653589793
       },
@@ -1472,7 +1678,7 @@
         "position": [
           -0.6799999999999999,
           0,
-          1.5498
+          0.6998000000000002
         ],
         "yaw": 2.5307274153917776
       },
@@ -1493,7 +1699,13 @@
             "name": "nook_plant__plant",
             "key": "plant",
             "tile": 0.5,
-            "catalog_key": "plant"
+            "catalog_key": "plant",
+            "tint": [
+              0.34,
+              0.48,
+              0.26,
+              1.0
+            ]
           },
           {
             "name": "nook_plant__soil",
@@ -1506,16 +1718,10 @@
             "key": "terracotta",
             "tile": 0.4,
             "catalog_key": "terracotta"
-          },
-          {
-            "name": "nook_plant__timber",
-            "key": "timber",
-            "tile": 1.0,
-            "catalog_key": "timber"
           }
         ],
         "position": [
-          -1.42,
+          -1.5699999999999998,
           0,
           3.2698
         ],
@@ -1528,23 +1734,6 @@
           "T_ai_materials_fabric_green_albedo.png",
           "T_ai_materials_fabric_green_rough.png",
           "T_ai_materials_fabric_green_normal.png"
-        ],
-        "metallic": 0,
-        "roughness": 1,
-        "normal_scale": 0.3499999940395355,
-        "color": [
-          1,
-          1,
-          1,
-          1
-        ],
-        "alpha": false
-      },
-      "rug_warm": {
-        "files": [
-          "T_ai_materials_rug_warm_albedo.png",
-          "T_ai_materials_rug_warm_rough.png",
-          "T_ai_materials_rug_warm_normal.png"
         ],
         "metallic": 0,
         "roughness": 1,
@@ -1576,15 +1765,15 @@
       }
     }
   },
-  "asset_sha256": "7dbed3b6feccac9962388a1fba3f0c221cd36962091430d380ea9e1feae0ca24",
+  "asset_sha256": "987b701e93dcb35acd9b5ecd3647a2be0453ebe3430aa370cca0a8ed9b793495",
   "source_bindings": {
-    "art/data/reading_nook/source_plan.json": "f96aa25f1221e080c8d93c2a32808e76a6e8dd63f5fcf0a55e77793722b0ce76",
+    "art/data/reading_nook/source_plan.json": "47760bcd732c6eecde89e4935f89c05286db620d1c50131e295f232d3fedc694",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_reading_nook.py": "14eb089f088ac4046cf068b4fa05ebba240c59cdc75673dd94537df31711cc82",
+    "art/blender/scripts/build_reading_nook.py": "6d7386b824556d7e1701d4456973157a3c3934bc40bc185af7b62035e1c1f321",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
-    "game/data/runtime_material_sets.json": "6f4c72832a6671c3c36e557560ff147a9e31abbfd0fb1db6504acb7567298e59",
-    "game/scripts/generated/material_sets.gd": "716b084c0d30b10c6b751c3ea2003d7e17a7b6591dd71e6251e33e55db202041",
+    "game/data/runtime_material_sets.json": "195e23fe430e88675bd3deaff13e77be7686785d73f57a93f8efbf206c5bfe26",
+    "game/scripts/generated/material_sets.gd": "132bb198ce87d5720fb5cf382d8fa94eb7410f47988902d44a0c741e4701f6ff",
     "game/assets/props/reading_nook.glb.import": "785c5bcee18216210114b3290db0894c652cfe26288f928c6d282544e8a5746e",
     "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
     "art/textures/ai_materials/floor_oak/material.json": "8aeb952b6d6c65ba9532f6dc3f6c639d7e9cab2c86e31e93b10d696927aa44fb",
@@ -1592,7 +1781,6 @@
     "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
     "art/textures/ai_materials/fabric_green/material.json": "35790b1dd265698ac3d3a0404fea75e2629dcce8a24d85fd1ad4dfea34876fb6",
     "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
-    "art/textures/ai_materials/rug_warm/material.json": "6940c4686f4958b8cdcee7a21be9e60a908d5c5de6f2c71a1104072dc1e5b317",
     "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
     "art/textures/ai_materials/ceramic/material.json": "e81c15195269416622b894d44fef5c76d46c76d2cade3b976e7b55ce9966d43e",
     "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
@@ -1607,6 +1795,7 @@
     "art/textures/ai_materials/terracotta/material.json": "13bc7f107bad6e33ed641ba2b6c80d4447c385ef55ed072902a2009ccbd38327",
     "art/textures/ai_materials/soil/material.json": "293b060f211eacfd06ed4b2a2189495823f4d83b98e2648158326ae38b0559c3",
     "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
+    "art/textures/procedural/nook_woven_wool/material.json": "14004f8d810e9464863b2ab26dd676975ae0d297be459b67e5cccb05b25e5c16",
     "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
     "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
     "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
@@ -1625,9 +1814,6 @@
     "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
     "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
     "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
-    "game/assets/building/textures/T_ai_materials_rug_warm_albedo.png": "126b688d66581cc29c651a16e40eb4db0223ecf649de592952580885c2da3050",
-    "game/assets/building/textures/T_ai_materials_rug_warm_rough.png": "1e72a2bf6178428467ab86824ee826ee7239d4f9dcdf7bf9e5cc2198837e9e15",
-    "game/assets/building/textures/T_ai_materials_rug_warm_normal.png": "a8a7cae9b4a1f3836026d7c284a6b9ce948bf09cc1976d08792895e30ea9ccd7",
     "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
     "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
     "game/assets/building/textures/T_ai_materials_ceramic_albedo.png": "92f1be15dc5609e2cf64544447d869721b6a6be16af829338a1c76da1ba9bea7",
@@ -1661,15 +1847,18 @@
     "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
     "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
     "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
-    "art/data/material_catalog.json": "e3cb8f4442520da2ebe4402ae007a8eeaa163a9a263c1721ab52cecc94dfb282",
-    "art/textures/catalog_mapping.json": "3106088e3eeb8268441780a83ff2f88505203e301e662362bb59a8e0c343fc54",
-    "art/tools/generate_runtime_materials.py": "263d9745d708084ef17cd5b8f871e986b7aeee58c1c0543cb8dce2e97f152d02",
-    "art/blender/scripts/inspect_reading_nook.py": "b948f408c33d66aa97a0e8bf68eed78969f698cf4549cc896a1aa1ae68c761ca",
-    "art/blender/scripts/reading_nook_geometry.py": "bb6e9dcb32bc8c531f1235b103d1b5c7442d1f67048410cb3744a0305ba00d4b",
+    "game/assets/building/textures/T_ai_materials_nook_woven_wool_albedo.png": "df6f3aed36d565fe280d5d763a50f6eabd484e3a141a1aba6c34754376662d91",
+    "game/assets/building/textures/T_ai_materials_nook_woven_wool_rough.png": "48c85862366f0af64a94a39b51ef7785feda2afc5802aec4b4b02019af7237f6",
+    "game/assets/building/textures/T_ai_materials_nook_woven_wool_normal.png": "dfb35862504e7e80e392bb452a16b98f015cc909618fad4b40e08425946af096",
+    "art/data/material_catalog.json": "050c17973a6fd1c1a337a8991a80289c9d94a25481e34a1732af21bdeedb53d4",
+    "art/textures/catalog_mapping.json": "8ba3e2d3b4dc05c2d6d2a7ea6104b4cb2516d24506fa29d6970e530f3f38ea78",
+    "art/tools/generate_runtime_materials.py": "943b23f2456a6ec3b54482e35d0203d8daf1e471c4ab8e3c51619fb85e991237",
+    "art/blender/scripts/inspect_reading_nook.py": "350335473959be58853e3bed7bd6d7c82b5166465fc2092984959ee4ceed7615",
+    "art/blender/scripts/reading_nook_geometry.py": "5c4ed1545e13993b80205cf8d611ec5f9f7700c9e347f80fcc9b219c950cccc5",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
-    "game/data/orison_v2_blockout.json": "beb6f53f9eab4d873b89b4436d0fecaab87f976a72f4ffed9ef00a2605fd0e7e",
-    "game/scripts/building/orison_v2_reading_nook.gd": "cfc3374f8a730432a0eed19a22172314482e2513bd1633fc7dd986f080446afa",
+    "game/data/orison_v2_blockout.json": "6f9d033f2f1a0dd849d6afb50f9c5799a3dc2c93587d23db826006e2547d0955",
+    "game/scripts/building/orison_v2_reading_nook.gd": "b0a0498f127c5d0f7dd70b8ab65a184286ad2b755a1f30a40e8ac0f025c31916",
     "game/scripts/building/orison_v2_task_lamp_installations.gd": "e8996e63c666a265a3fc69196172254515db6810b2a3b59065ab02ddbe8ce784",
     "game/scripts/building/orison_v2_domestic_furniture.gd": "29e4591ece494c3d7ec6a1dd3d2d5b9b6482296b3e8958a505b17261be45fa09",
     "game/data/orison_v2/domestic_furniture.json": "cc91252a2630d26b2632f5e266350378a321f0646e859367346b848b711d4c93",
@@ -1681,10 +1870,10 @@
     "art/blender/scripts/inspect_task_lamp_installations.py": "41fcaf242831300e45f31f960c848be581624f654bba3bf6917770a1ef8a3234",
     "art/blender/task_lamps.blend": "b32d2fcb0f8d0cfcc8485a568dbc5ad9d707fd0472e18b47b46999afcfafdc2e",
     "game/data/orison_v2/domestic_surface_props.json": "20ec7e5a42f4db8d81db0eb63707b59aaa1eeafa053e8881d38d30800552acae",
-    "game/scripts/building/v2_loose_library.gd": "c60d3e492e78754c29b980f0d256157e4d2b1726434ccb9c4575798d3afec663",
-    "game/scripts/building/v2_readable_library_stock.gd": "2cb4cd814c950e29ec5e44b0986a13309c583c75f274fa57c8da4d5900f1402b",
-    "game/scripts/props/v2_readable_book.gd": "c81493c146c133ae41846ec80fc2491aaccb275d60f3d4a34b698a89212c9900",
-    "game/scripts/building/orison_v2_household_state.gd": "919ed02d193e19e3389f7bdfb1b9899a820aeb2ae0f7e73559ddffd233751f08"
+    "game/scripts/building/v2_loose_library.gd": "9f8e7276aa30b7266f06289899f66331a1c87c2da0430c80f78ace0d1ce52b8f",
+    "game/scripts/building/v2_readable_library_stock.gd": "8531f9d64a30bc4f3c6339fc10f8ac9adcf7374efb39d0171f2c22d142628075",
+    "game/scripts/props/v2_readable_book.gd": "6e54232f1548d32879be31de9008a6ceab5bdf446e2c59dfe606bc2d11b2284f",
+    "game/scripts/building/orison_v2_household_state.gd": "69b1d6c23b5fcdaf87fb4c8e82bbd8155465c132eb6e135da705c1b539332c98"
   },
   "book_stock": [
     {

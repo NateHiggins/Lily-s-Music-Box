@@ -114,6 +114,14 @@ for index,record in enumerate(pile):
     record.update(position=[0.,0.,0.],basis=[list(flat.col[i]) for i in range(3)],opening=0.)
     align(record,-.11+index*.002,height,front=-.09)
     height=bounds(record)[1].y+.00035
+# Keep the original pile owner's save frame fixed. Only its authored parked
+# copies follow the repaired table; a loose saved copy retains world position.
+frames={row['id']:row for row in runtime['assemblies']}
+original_table=next(row for row in nook['original_records'] if row['id']=='nook_table')
+old_position=Vector((-.96-original_table['at'][0],0.,2.10+original_table['at'][1]))
+delta=Vector(frames['nook_table']['position'])-old_position
+local_delta=Matrix.Rotation(frames['nook_pile']['yaw'],3,'Y').inverted()@delta
+for record in pile:record['position']=list(Vector(record['position'])+local_delta)
 reader=next(r for r in copies if r['assembly']=='nook_cush1')
 width=books[reader['id']]['width'];theta=math.asin(.022/width)
 reader['opening']=math.pi-2*theta

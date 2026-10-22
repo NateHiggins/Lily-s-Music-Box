@@ -1,6 +1,6 @@
 """Restore the fifteen original reading-nook records in the V2 basement."""
 from pathlib import Path
-import collections,hashlib,json,math,re,sys
+import collections,copy,hashlib,json,math,re,sys
 # Godot may normalize a provisional import UID without changing any geometry.
 # Refresh only that import provenance after import; other drift still refuses.
 if '--refresh-import-binding' in sys.argv:
@@ -58,7 +58,10 @@ for key in plan['runtime_keys']:
 
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
-selected=[rows[identity] for identity in plan['source_ids']]
+original_selected=[rows[identity] for identity in plan['source_ids']]
+selected=copy.deepcopy(original_selected)
+for row in selected:
+ row.update(plan.get('record_adaptations',{}).get(row['id'],{}))
 assert len(selected)==15
 assemblies=[{'id':row['id'],'kind':row.get('asm','box'),'cell':'B1_PUBLIC_CORE','members':[row],'body':{'rect':[0,0,0,0],'z0':0.}} for row in selected]
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
@@ -293,6 +296,6 @@ bindings.extend(ROOT/name for name in ['art/blender/scripts/inspect_reading_nook
 bindings.extend(ROOT/name for name in ['game/scripts/building/orison_v2_reading_nook.gd','game/scripts/building/orison_v2_task_lamp_installations.gd','game/scripts/building/orison_v2_domestic_furniture.gd','game/data/orison_v2/domestic_furniture.json','game/scripts/props/signal_terminal_prop.gd','game/tests/orison_v2_reading_nook_test.gd','art/data/task_lamp_installations/source_plan.json','game/data/orison_v2/task_lamp_installations.json','tools/build_v2_task_lamp_installations.py','art/blender/scripts/inspect_task_lamp_installations.py','art/blender/task_lamps.blend'])
 bindings.append(ROOT/'game/data/orison_v2/domestic_surface_props.json')
 bindings.extend(ROOT/name for name in ['game/scripts/building/v2_loose_library.gd','game/scripts/building/v2_readable_library_stock.gd','game/scripts/props/v2_readable_book.gd','game/scripts/building/orison_v2_household_state.gd'])
-report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'source_record':a['members'][0]['id']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'book_stock':book_stock,'placement':plan['placement'],'open_work':plan['open_work']}
+report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':original_selected,'adapted_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'source_record':a['members'][0]['id']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'book_stock':book_stock,'placement':plan['placement'],'open_work':plan['open_work']}
 for name in ['art/blender/reading_nook_construction.json','game/tests/fixtures/orison_reading_nook.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('READING NOOK',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

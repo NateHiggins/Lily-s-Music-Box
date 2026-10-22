@@ -10609,6 +10609,7 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    "nook_woven_wool": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0, "metallic": 0.0},
     'limewash_plaster': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     # Registered V2 finishes must survive layout/catalogue regeneration.
     'arcade_terrazzo': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},

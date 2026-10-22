@@ -4,7 +4,7 @@ const PATH := "res://data/orison_v2/reading_nook.json"
 const Stock := preload("res://scripts/building/v2_readable_library_stock.gd")
 const COPIES := Stock.PHYSICAL_COPIES
 const LooseLibrary := preload("res://scripts/building/v2_loose_library.gd")
-const SOURCE_FINISHES := ["fabric_green", "glassish", "rug_warm"]
+const SOURCE_FINISHES := ["fabric_green", "glassish"]
 
 static func mount(adapter: OrisonV2AnchorAdapter) -> bool:
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(PATH))
@@ -54,7 +54,8 @@ static func mount(adapter: OrisonV2AnchorAdapter) -> bool:
 			material.uv1_scale = Vector3.ONE / float(part.tile)
 			if part.has("tint"):
 				var tint: Array = part.tint
-				material.albedo_color = Color(tint[0], tint[1], tint[2], tint[3])
+				# Native MixRGB tints are linear; StandardMaterial stores sRGB.
+				material.albedo_color = Color(tint[0], tint[1], tint[2], tint[3]).linear_to_srgb()
 			draw.mesh.surface_set_material(0, material)
 			draw.set_meta("reading_nook_part", str(part.name))
 			draw.set_meta("material_key", str(part.key))

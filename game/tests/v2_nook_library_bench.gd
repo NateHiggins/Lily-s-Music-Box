@@ -62,7 +62,9 @@ func _run() -> void:
 			check(hits.is_empty(),"native stock starts without overlap: "+body.stock_id+"/"+solid.name)
 			for hit: Dictionary in hits: print("NOOK INITIAL CONTACT: ",body.stock_id," -> ",hit.collider.get_path())
 	player.camera.look_at(Vector3(-.48,-2.35,3.0));await capture("nook_installed")
-	for collection: Node3D in collections: legacy_save_review(collection)
+	for collection: Node3D in collections:
+		legacy_save_review(collection)
+		placement_save_review(collection)
 	var owner: Node3D=adapter.resolve("nook_books_library")
 	var original: Dictionary=owner.library_snapshot()
 	for format: String in ["trade","pocket","pamphlet"]:
@@ -176,6 +178,30 @@ func legacy_save_review(collection: Node3D) -> void:
 		else:check(book.shelf_slot>=0 and book.transform.is_equal_approx(collection.book_slots[book.shelf_slot]),"untouched old copy refits its coherent native spot")
 	collection.restore_order(original)
 	check(equivalent(collection.library_snapshot(),original),"current nook placement JSON restores exactly")
+
+func placement_save_review(collection: Node3D) -> void:
+	var original: Dictionary=collection.library_snapshot()
+	var previous: Dictionary=original.duplicate(true);previous.geometry="previous furniture placement"
+	var loose_id: String=collection.copy_records[0].id
+	for identity: String in previous.books:
+		var saved: Dictionary=previous.books[identity]
+		if identity==loose_id:
+			saved.slot=-1;saved.body.position[0]+=24.
+		else:
+			var slot:=int(saved.slot)
+			previous.slots[slot][0]+=.2;saved.body.position[0]+=.2
+	var point: Array=previous.books[loose_id].body.position
+	var expected: Vector3=collection._books_at.to_global(Vector3(point[0],point[1],point[2]))
+	check(collection.valid_library(previous),"previous placement validates without a new save domain")
+	collection.restore_order(previous)
+	for identity: String in collection._books:
+		var book: Node3D=collection._books[identity]
+		if identity==loose_id:
+			check(equivalent(book.book_snapshot(),previous.books[identity]) and book.global_position.distance_to(expected)<.00001,"furniture refit preserves a distant loose saved copy in world space")
+		else:
+			check(book.shelf_slot>=0 and book.transform.is_equal_approx(collection.book_slots[book.shelf_slot]),"parked copy follows revised authored furniture placement")
+	collection.restore_order(original)
+	check(equivalent(collection.library_snapshot(),original),"placement-aware current save restores exactly")
 
 func check_pages(book: Node3D) -> void:
 	check(book._sheets.size()==2,"two printed sheets for copy: "+book.stock_id)

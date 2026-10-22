@@ -49,6 +49,17 @@ for assembly in assemblies:
      point=vertex.co+obj.location
      if layer==0 and point.z<z0+.008:continue
      vertex.co.z+=.0015*math.sin(point.x*21+point.y*16)
+  elif identity=='nook_rug':
+   # One woven field, separately bound perimeter. All charts remain metres;
+   # the periodic wool owns yarn scale, never a repeating whole-carpet plate.
+   box(identity+'_Body',(x0,y0,z0),(x1,y1,z1),identity,key,.001)
+   width=.055
+   for label,lo,hi in [
+    ('Near',(x0,y0,z1-.001),(x1,y0+width,z1+.001)),
+    ('Far',(x0,y1-width,z1-.001),(x1,y1,z1+.001)),
+    ('Left',(x0,y0+width,z1-.001),(x0+width,y1-width,z1+.001)),
+    ('Right',(x1-width,y0+width,z1-.001),(x1,y1-width,z1+.001))]:
+    box(identity+'_Binding'+label,lo,hi,identity,'rug_binding',.0005)
   else:box(identity+'_Body',(x0,y0,z0),(x1,y1,z1),identity,key,edge)
   owner='floor' if identity=='nook_rug' else ('nook_rug' if 'apron' in identity else ('nook_apron_'+identity[-1] if 'seat' in identity else ('nook_seat_n' if identity=='nook_cush1' else ('nook_seat_e' if identity=='nook_cush2' else 'nook_seat_w'))))
   for x,y in [(x0+(x1-x0)*.3,y0+(y1-y0)*.3),(x0+(x1-x0)*.7,y0+(y1-y0)*.7)]:support(identity,owner,(x,y,z0),(0,0,1),'flat seated stock datum')
@@ -97,7 +108,11 @@ for assembly in assemblies:
   row=dict(row);row['z0']=.365;collector=Collector();original['asm_bookpile'](collector,row)
   assert len(collector.rows)==plan['retained_stock'][identity]
   for i,record in enumerate(collector.rows):a=record['args'];book(row,'Volume'+str(i),a[0],Vector(a[1:4]),Vector(a[4:7]),True,record)
-  bearing(row,'nook_table',(0,0,0),(0,0,1),'book pile on actual glass')
+  # Its logical save frame stays put; the physical parked copies follow the
+  # table. Verify the reciprocal bearing at that repaired physical position.
+  before=rows['nook_table']['at'];after=plan.get('record_adaptations',{}).get('nook_table',{}).get('at',before)
+  bearing_row=dict(row,at=[row['at'][i]+after[i]-before[i] for i in range(2)])
+  bearing(bearing_row,'nook_table',(0,0,0),(0,0,1),'book pile on actual glass')
  elif kind=='mug':
   row=dict(row);row['z0']=.365
   lvessel('ThrownCup',row,0,[(0,0),(.033,0),(.039,.008),(.040,.092),(.038,.100),(.035,.100),(.033,.093),(.032,.010),(0,.010)],'ceramic')
@@ -108,25 +123,29 @@ for assembly in assemblies:
   lvessel('Saucer',row,0,[(0,0),(.15,0),(.168,.01),(.158,.032),(.146,.026),(.14,.012),(0,.012)],'terracotta')
   lvessel('ThrownPot',row,.012,[(0,0),(.105,0),(.148,.043),(.175,.278),(.178,.29),(.196,.302),(.198,.34),(.18,.348),(.160,.338),(.16,.285),(.13,.047),(.09,.010),(0,.01)],'terracotta')
   lvessel('Soil',row,0,[(0,.03),(.10,.03),(.16,.335),(.118,.36),(.045,.374),(0,.378)],'soil')
-  seed=identity
-  for i in range(3):
-   angle=math.radians(original['_jit'](seed,i,0,360));lean=original['_jit'](seed,i+9,.10,.22);top=original['_jit'](seed,i+17,.62,.92)
-   start=Vector((.03*math.cos(angle),.03*math.sin(angle),.36));tip=Vector((lean*math.cos(angle),lean*math.sin(angle),top));middle=Vector((tip.x*.6,tip.y*.6,top*.62))
-   lwire('Branch'+str(i),row,[start,middle,tip],.0065,'timber')
-   for k in range(5):
-    t=.42+.58*k/4;attach=middle.lerp(tip,t);direction=Vector((math.cos(angle+k*2.4),math.sin(angle+k*2.4),.12)).normalized();length=original['_jit'](seed,i*41+k,.055,.095)*2
-    stem_end=attach+direction*.022;lrod('Petiole%d_%d'%(i,k),row,attach,stem_end,.0017,'plant',16)
-    # A closed, curved two-sided leaf whose central vein reaches its petiole.
-    side=Vector((-direction.y,direction.x,0));verts=[];segments=18
-    for layer in [-1,1]:
-     for j in range(segments+1):
-      u=j/segments;width=max(.0006,math.sin(math.pi*u)**.85*length*.24);center=stem_end+direction*(length*u)+Vector((0,0,-.025*u*u))
-      for v in [-1,0,1]:verts.append(center+side*(width*v)+Vector((0,0,.004*(1-v*v)*math.sin(math.pi*u)+layer*.0003)))
-    m=(segments+1)*3;faces=[]
-    for j in range(segments):
-     for v in range(2):a=j*3+v;faces.extend([(a,a+1,a+4,a+3),(m+a,m+a+3,m+a+4,m+a+1)])
-    boundary=[j*3 for j in range(segments+1)]+[segments*3+1]+[j*3+2 for j in reversed(range(segments+1))]+[1]
-    faces.extend((a,b,m+b,m+a) for a,b in zip(boundary,boundary[1:]+boundary[:1]));move_local(solid(identity+'_Leaf%d_%d'%(i,k),verts,faces,identity,'plant'),row)
+  # Aspidistra-like basal growth: individual petioles and long folded blades,
+  # never a woody branch cluster. Closed thin stock retains exact contact.
+  for i in range(16):
+   angle=i*2.3999632297;direction=Vector((math.cos(angle),math.sin(angle),0));side=Vector((-direction.y,direction.x,0))
+   length=.36+.13*((i*7)%11)/10;spread=.20+.10*((i*3)%7)/6
+   start=direction*(.025+.025*(i%3))+Vector((0,0,.36))
+   root=direction*(.07+.025*(i%3))+Vector((0,0,.49+.09*((i*5)%9)/8))
+   lwire('Petiole'+str(i),row,[start,start.lerp(root,.55)+Vector((0,0,.015)),root],.0025,'plant')
+   verts=[];segments=14;columns=5
+   for layer in [-1,1]:
+    for j in range(segments+1):
+     u=j/segments;width=max(.0007,math.sin(math.pi*u)**.7*(.043+.012*(i%4)/3))
+     center=root+direction*(spread*u)+Vector((0,0,length*(math.sin(u*math.pi*.77)-.30*u*u)))
+     for c in range(columns):
+      v=c/2-1
+      verts.append(center+side*(width*v)+Vector((0,0,-.012*abs(v)*math.sin(math.pi*u)+.003*math.sin(u*math.pi*4+i)*v*v+layer*.00025)))
+   m=(segments+1)*columns;faces=[]
+   for j in range(segments):
+    for c in range(columns-1):
+     a=j*columns+c;faces.extend([(a,a+1,a+columns+1,a+columns),(m+a,m+a+columns,m+a+columns+1,m+a+1)])
+   boundary=[j*columns for j in range(segments+1)]+[segments*columns+c for c in range(1,columns)]+[j*columns+columns-1 for j in reversed(range(segments))]+list(reversed(range(1,columns-1)))
+   faces.extend((a,b,m+b,m+a) for a,b in zip(boundary,boundary[1:]+boundary[:1]))
+   move_local(solid(identity+'_Blade'+str(i),verts,faces,identity,'plant'),row)
   bearing(row,'nook_rug',(0,0,0),(0,0,1),'saucer on rug')
  else:raise AssertionError(('unhandled original record',identity,kind))
  at=row.get('at',[(row['rect'][0]+row['rect'][2])*.5,(row['rect'][1]+row['rect'][3])*.5] if 'rect' in row else [0,0])

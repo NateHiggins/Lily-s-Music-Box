@@ -67,6 +67,14 @@ func pickup_withdrawal_for(body: Node3D) -> Vector3:
 	# cushion reader lift out; each original native sweep may still refuse it.
 	return -body.global_basis.x*.26 if absf(body.global_basis.y.dot(Vector3.UP))>.5 else Vector3.UP*.26
 
+func _geometry_signature() -> String:
+	# Parked copies follow authored furniture repairs. Loose poses remain in
+	# the original stable collection frame, including books carried far away.
+	var placements: Array=[]
+	for record: Dictionary in copy_records:
+		placements.append([record.id,record.position,record.basis,record.opening])
+	return (super._geometry_signature()+JSON.stringify(placements)).sha256_text()
+
 func valid_library(value: Variant) -> bool:
 	return super.valid_library(_migrate_legacy(value))
 
