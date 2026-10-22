@@ -154,19 +154,23 @@ func load_copy_programme() -> Dictionary:
 	return copies
 
 func append_copies(copies: Dictionary) -> bool:
-	if copies.get("schema_version")!=1 or copies.get("books") is not Dictionary or copies.get("parts") is not Dictionary or copies.get("copies") is not Array: return false
-	if copies.books.size()!=copies.copies.size(): return false
+	if not (copies.get("schema_version")==1 or copies.get("schema_version")==2) or copies.get("books") is not Dictionary or copies.get("parts") is not Dictionary or copies.get("copies") is not Array: push_error("Invalid native copy programme schema");return false
+	if copies.books.size()!=copies.copies.size(): push_error("Native copy definition count differs");return false
 	var seen: Dictionary={}
 	for record: Variant in copies.copies:
-		if record is not Dictionary: return false
+		if record is not Dictionary: push_error("Invalid native copy record");return false
 		var identity:=str(record.get("id",""));var title:=str(record.get("title_id",""))
-		if identity.is_empty() or seen.has(identity) or data.books.has(identity) or not copies.books.has(identity) or not spreads.has(title): return false
+		if identity.is_empty() or seen.has(identity) or data.books.has(identity) or not copies.books.has(identity) or not spreads.has(title): push_error("Invalid native copy identity: "+identity+" / "+title);return false
 		seen[identity]=true
+		if copies.books[identity] is not Dictionary: push_error("Invalid native copy definition: "+identity);return false
 		var book: Dictionary=copies.books[identity]
-		if str(book.get("binding","")).is_empty() or book.get("parts") is not Array: return false
+		if str(book.get("binding","")).is_empty() or book.get("parts") is not Array: push_error("Invalid native copy binding: "+identity);return false
 		for field: String in ["width","height","thickness","left_page_z","right_page_z"]:
-			if typeof(book.get(field)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(book[field])): return false
-		if float(book.width)<=.12 or float(book.height)<=.12 or float(book.thickness)<=.004: return false
+			if typeof(book.get(field)) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(book[field])): push_error("Invalid native copy dimension: "+identity+" / "+field);return false
+		var minimum_thickness:=.004 if int(copies.schema_version)==1 else 0.
+		if float(book.width)<=.10 or float(book.height)<=.15 or float(book.thickness)<=minimum_thickness: push_error("Invalid native copy dimensions: "+identity+" / "+str(Vector3(book.width,book.height,book.thickness)));return false
+		if int(copies.schema_version)==2 and str(book.get("native_title",""))!=title: push_error("Native copy title mismatch: "+identity);return false
+	if int(copies.schema_version)==2: return _append_native_copies(copies)
 	var packed:=load(str(copies.asset)) as PackedScene
 	if packed==null: return false
 	var model:=packed.instantiate()
@@ -188,6 +192,38 @@ func append_copies(copies: Dictionary) -> bool:
 	data.books=data.books.duplicate();data.books.merge(copies.books)
 	data.parts=data.parts.duplicate();data.parts.merge(copies.parts)
 	_gather_book_hulls(copies.books)
+	return true
+
+func _append_native_copies(copies: Dictionary) -> bool:
+	if str(copies.asset)!=str(data.asset): push_error("Native copy asset mismatch");return false
+	for identity: String in copies.parts:
+		if copies.parts[identity] is not Dictionary: push_error("Invalid native copy surface: "+identity);return false
+		var spec: Dictionary=copies.parts[identity]
+		if data.parts.has(identity) or spec.get("native_part") is not String or not data.parts.has(spec.native_part): push_error("Invalid native copy part: "+identity);return false
+		var original: Dictionary=spec.duplicate(true);original.erase("native_part")
+		if original!=data.parts[spec.native_part]: push_error("Native copy surface differs: "+identity);return false
+	for identity: String in copies.books:
+		var book: Dictionary=copies.books[identity]
+		if book.get("native_title") is not String or not data.books.has(book.native_title): push_error("Invalid native copy title: "+identity);return false
+		var original: Dictionary=data.books[book.native_title]
+		if book.size()!=original.size()+1 or book.parts.size()!=original.parts.size(): push_error("Native copy definition size differs: "+identity);return false
+		for field: String in original:
+			if field!="parts" and book.get(field)!=original[field]: push_error("Native copy definition differs: "+identity+" / "+field);return false
+		for index in original.parts.size():
+			if not copies.parts.has(book.parts[index]) or str(copies.parts[book.parts[index]].native_part)!=str(original.parts[index]): push_error("Native copy part order differs: "+identity);return false
+	# Copies retain independent owners, poses and blend weights, while native
+	# buffers, PBR and immutable collision stock are shared per edition.
+	for identity: String in copies.parts:
+		var original: String=copies.parts[identity].native_part
+		meshes[identity]=meshes[original];poses[identity]=poses[original]
+		if hulls.has(original): hulls[identity]=hulls[original];hull_poses[identity]=hull_poses[original]
+		if _tinted_parts.has(original): _tinted_parts[identity]=_tinted_parts[original]
+	for identity: String in copies.books:
+		var original: String=copies.books[identity].native_title
+		gathering_hulls[identity]=gathering_hulls[original];gathering_poses[identity]=gathering_poses[original]
+		closed_hulls[identity]=closed_hulls[original];closed_poses[identity]=closed_poses[original]
+	data=data.duplicate();data.books=data.books.duplicate();data.parts=data.parts.duplicate()
+	data.books.merge(copies.books);data.parts.merge(copies.parts)
 	return true
 
 func _gather_book_hulls(blueprints: Dictionary) -> void:
@@ -369,6 +405,8 @@ static func valid_copy_records(records: Array, stock: RefCounted) -> bool:
 		if not Vector3(record.position[0],record.position[1],record.position[2]).is_finite(): return false
 		if not basis.is_equal_approx(basis.orthonormalized()) or absf(basis.determinant()-1.)>.0001: return false
 		if typeof(record.get("opening")) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(record.opening)) or float(record.opening)<0. or float(record.opening)>PI: return false
+		if record.has("legacy_pose") and not valid_legacy_pose(record.legacy_pose): return false
+		if record.has("legacy_opening") and (typeof(record.legacy_opening) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(record.legacy_opening)) or float(record.legacy_opening)<0. or float(record.legacy_opening)>PI): return false
 	return not records.is_empty()
 
 static func valid_end_records(records: Array, stock: RefCounted) -> bool:
@@ -385,4 +423,11 @@ static func valid_end_records(records: Array, stock: RefCounted) -> bool:
 		var axes: Array=record.basis
 		var basis:=Basis(Vector3(axes[0][0],axes[0][1],axes[0][2]),Vector3(axes[1][0],axes[1][1],axes[1][2]),Vector3(axes[2][0],axes[2][1],axes[2][2]))
 		if not Vector3(record.position[0],record.position[1],record.position[2]).is_finite() or not basis.is_equal_approx(basis.orthonormalized()) or absf(basis.determinant()-1.)>.0001: return false
+		if record.has("legacy_pose") and not valid_legacy_pose(record.legacy_pose): return false
 	return true
+
+static func valid_legacy_pose(value: Variant) -> bool:
+	if value is not Array or value.size()!=7: return false
+	for number: Variant in value:
+		if typeof(number) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(number)): return false
+	return Vector3(value[0],value[1],value[2]).is_finite() and absf(Quaternion(value[3],value[4],value[5],value[6]).length_squared()-1.)<.0001

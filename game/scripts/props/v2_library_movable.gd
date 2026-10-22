@@ -61,7 +61,8 @@ func _claim(tag: String) -> bool:
 	_contact_ids.clear()
 	_before=transform
 	_pickup_lift_goal=global_position+Vector3.UP*.004
-	_pickup_exit=_pickup_lift_goal+shelf.global_basis.z*.26
+	var withdrawal: Vector3=shelf.pickup_withdrawal_for(self) if shelf.has_method("pickup_withdrawal_for") else shelf.global_basis.z*.26
+	_pickup_exit=_pickup_lift_goal+withdrawal
 	_pickup_extracted=not requires_shelf_withdrawal()
 	_pickup_lifted=_pickup_extracted
 	_hold_blocked=false

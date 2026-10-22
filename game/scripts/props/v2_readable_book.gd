@@ -110,6 +110,9 @@ func _sync_cover_target() -> void:
 	var extent:=Vector3.ZERO
 	for point: Vector3 in points: extent=extent.max(point.abs())
 	var scale:=Vector3.ONE+Vector3.ONE*.001/extent.max(Vector3.ONE*.00001)
+	# Keep the sewn/spine edge exact. Inflating this axis puts the cover's
+	# picking halo ahead of a thin paperback spine and steals its pickup grip.
+	scale.x=1.
 	for index in points.size(): points[index]*=scale
 	var target:=ConvexPolygonShape3D.new();target.points=points;target.margin=0.
 	_cover_target.shape=target

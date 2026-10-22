@@ -23,8 +23,12 @@ func _build_visual() -> void:
 		body.mass=float(spec.mass_kg)
 		for identity: String in spec.parts:
 			native_stock.draw(body,identity)
+			if identity.ends_with("__Foot") or identity.ends_with("__Felt"): continue
 			var solid: CollisionShape3D=native_stock.collision(body,identity,Transform3D.IDENTITY)
 			if solid!=null: body._solids.append(solid)
+		var bearing: Dictionary=native_stock.bookend_bearing(str(record.style))
+		var sole:=CollisionShape3D.new();sole.name="BondedFootBearing";sole.shape=bearing.shape;sole.transform=bearing.pose
+		body.add_child(sole);body._solids.append(sole)
 		body.set_meta("library_stock_id",body.stock_id)
 		body.settled.connect(library_stock_changed.bind(body));_ends[str(record.id)]=body
 	sorter.order=_library_ids.duplicate()
@@ -34,6 +38,7 @@ func _build_visual() -> void:
 
 func _arrange(_order: Array) -> void:
 	var previous:=_restoring_library;_restoring_library=true
+	book_slots.clear()
 	for record: Dictionary in end_records:
 		_place(_ends[str(record.id)],record)
 	for record: Dictionary in copy_records:
@@ -41,6 +46,8 @@ func _arrange(_order: Array) -> void:
 		_place(book,record)
 		book._apply_opening(float(record.opening))
 		book.linear_velocity=Vector3.ZERO;book.angular_velocity=Vector3.ZERO
+		book_slots.append(book.transform)
+		book.park_in_slot(book_slots.size()-1,book.transform)
 		book.force_update_transform()
 	for body: Node3D in _books.values()+_ends.values(): body.start_at_rest()
 	_restoring_library=previous
@@ -53,15 +60,48 @@ func _place(body: Node3D,record: Dictionary) -> void:
 	body.force_update_transform()
 
 func inspection_view_for(part: Node3D) -> Dictionary:
-	var cursor:=part
-	while cursor!=null and cursor!=self:
-		var identity:=str(cursor.get_meta("library_stock_id",""))
-		if _books.has(identity):
-			var book: Node3D=_books[identity];_pending_inspection_stock=book
-			if absf(book.global_basis.y.dot(Vector3.UP))>.5:
-				var point:=book.to_global(Vector3(0,float(book.construction.height)*.5,0))
-				return {"from":point-book.global_basis.x*.9,"at":point,"fov":40.}
-			var camera:=get_viewport().get_camera_3d()
-			return {"from":camera.global_position,"at":camera.global_position-camera.global_basis.z,"fov":camera.fov}
-		cursor=cursor.get_parent() as Node3D
 	return super.inspection_view_for(part)
+
+func pickup_withdrawal_for(body: Node3D) -> Vector3:
+	# The nook rack faces opposite the household cases. Flat stacks and the
+	# cushion reader lift out; each original native sweep may still refuse it.
+	return -body.global_basis.x*.26 if absf(body.global_basis.y.dot(Vector3.UP))>.5 else Vector3.UP*.26
+
+func valid_library(value: Variant) -> bool:
+	return super.valid_library(_migrate_legacy(value))
+
+func restore_order(value: Variant) -> void:
+	super.restore_order(_migrate_legacy(value))
+
+func _migrate_legacy(value: Variant) -> Variant:
+	if value is not Dictionary or value.get("books") is not Dictionary or not (value.get("schema_version")==2 or value.get("schema_version")==3 or value.get("schema_version")==4): return value
+	if value.get("slots") is Array and not value.slots.is_empty(): return value
+	var migrated: Dictionary=value.duplicate(true)
+	migrated.schema_version=4;migrated.geometry=_geometry_signature();migrated.slots=[]
+	for pose: Transform3D in book_slots:
+		var q:=pose.basis.get_rotation_quaternion().normalized()
+		migrated.slots.append([pose.origin.x,pose.origin.y,pose.origin.z,q.x,q.y,q.z,q.w])
+	for index in copy_records.size():
+		var record: Dictionary=copy_records[index]
+		var saved: Variant=migrated.books.get(str(record.id))
+		if not Book.valid_book(saved) or not record.has("legacy_pose"): continue
+		if not _at_legacy_pose(saved.body,record.legacy_pose) or absf(float(saved.opening)-float(record.legacy_opening))>.0001: continue
+		var pose: Transform3D=book_slots[index];var q:=pose.basis.get_rotation_quaternion().normalized()
+		saved.body.position=[pose.origin.x,pose.origin.y,pose.origin.z];saved.body.rotation=[q.x,q.y,q.z,q.w]
+		saved.body.velocity=[0.,0.,0.];saved.body.spin=[0.,0.,0.];saved.body.sleeping=true
+		saved.slot=index;saved.opening=float(record.opening)
+	if migrated.get("bookends") is Dictionary:
+		for record: Dictionary in end_records:
+			var saved: Variant=migrated.bookends.get(str(record.id))
+			if not Movable.valid_stock(saved) or not record.has("legacy_pose") or not _at_legacy_pose(saved,record.legacy_pose): continue
+			var axes: Array=record.basis
+			var q:=Basis(Vector3(axes[0][0],axes[0][1],axes[0][2]),Vector3(axes[1][0],axes[1][1],axes[1][2]),Vector3(axes[2][0],axes[2][1],axes[2][2])).get_rotation_quaternion().normalized()
+			saved.position=record.position.duplicate();saved.rotation=[q.x,q.y,q.z,q.w]
+			saved.velocity=[0.,0.,0.];saved.spin=[0.,0.,0.]
+	return migrated
+
+func _at_legacy_pose(body: Dictionary, reference: Array) -> bool:
+	if not bool(body.sleeping): return false
+	var point:=Vector3(body.position[0],body.position[1],body.position[2])
+	var q:=Quaternion(body.rotation[0],body.rotation[1],body.rotation[2],body.rotation[3])
+	return point.distance_to(Vector3(reference[0],reference[1],reference[2]))<.004 and absf(q.dot(Quaternion(reference[3],reference[4],reference[5],reference[6])))>.999999
