@@ -34,6 +34,8 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| V2 player-only fire-door contact, transform drift, measured tail improvement and p95 tradeoff | `design/V2_FIRE_PLAYER_CONTACT_2026-10-21.md` |
+| Uninstalled full-length hose candidate, physical support, release costs and remaining spray work | `design/V2_DEPLOYABLE_HOSE_STUDY_2026-10-21.md` |
 | Fire-cabinet step-query repair, reduced hose density, paired frame distributions and remaining deployment work | `design/V2_HOSE_RESPONSIVENESS_2026-10-21.md` |
 | Rejected exact-triangle stair acceleration, paired frame distributions and retained failures | `design/V2_STAIR_TRIANGLE_DIAGNOSIS_2026-10-21.md` |
 | V2 physical caption-calibrator construction, exact spring return and current renewal status | `design/V2_CASE_CALIBRATOR_2026-10-21.md` |

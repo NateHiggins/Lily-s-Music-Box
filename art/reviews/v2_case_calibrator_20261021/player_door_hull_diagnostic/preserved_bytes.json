@@ -1,0 +1,331 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Byte-preserving archives of completed original diagnostics. Source logs remain locally; no runtime or acceptance grant.",
+  "files": [
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/board_initial/board.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/board_initial/board.json.gz",
+      "sha256": "4c898ee8d7805b99b71f64fffa51aec8ea8d3f1128df175f3857966436cfba13"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/clean_main_baseline_console.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/clean_main_baseline_console.log.gz",
+      "sha256": "50e8a167523941600e27f2aecb3d0ebf4d37344b0b2edbd24b6f8457c4632b3b"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/clean_main_baseline_validation.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/clean_main_baseline_validation.json.gz",
+      "sha256": "4eb308ed066ed2ed6dea405c23b7bd5018d8a49eea0ece9b4226a34a924768f2"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/compare_clean_main.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/compare_clean_main.log.gz",
+      "sha256": "a47193e6a4807610895fbdf8df76e797552f2e4288c29c1686a2e59d1e37bb91"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/empty_selection_not_validation/console.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/empty_selection_not_validation/console.log.gz",
+      "sha256": "1abfeaf16fdc614a8af96bd94b83d4c84cfd65a8cdb12590e7842fbcc2ddb1d8"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/packaging_original_crlf_check.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/packaging_original_crlf_check.log.gz",
+      "sha256": "65337ebbd68442d3b053b8c0bd303f817ead303e7a5b757b2d5e396722804af9"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/protected_working.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/protected_working.json.gz",
+      "sha256": "3ab2548b8ca16e2141e120009a6b5672e34e598566a754646bc97fd3cd853494"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/registered_static_console.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/registered_static_console.log.gz",
+      "sha256": "4388f710d971f890073e357c15a0326a46509e8af016e5ce682bcb1947233ab1"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden/frames.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden/frames.json.gz",
+      "sha256": "3ed71cd6befd9b301cbd7cd42b3456d05dc758d4ee19d8fc994eda3d9f87d77b"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden.log.gz",
+      "sha256": "903b5853862e1fa14e1bd848f83ecaecc10562372f7faaa4319a3355414a2d6c"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden.log.stderr.gz",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden_v3/frames.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden_v3/frames.json.gz",
+      "sha256": "ef072d5e4d6a1ae289edae4f662c6b69dce46f3e22be7d30ce8a1bdc2e71b8aa"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden_v3.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden_v3.log.gz",
+      "sha256": "48b0dafc6e1aefe0c4cfd27fc07c6ddb48b8f543474ff68ea1841056300d2612"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden_v3.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden_v3.log.stderr.gz",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand.log.gz",
+      "sha256": "97dc5b8b4a69bf2edcdeac4494ad6bada4e4ab71328cce286ead27d6cd0fd3fd"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand_v3.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand_v3.log.gz",
+      "sha256": "d7d7089bfa5bf5f5a1330986cc06fa06c9bee1aff2c3c1fab5710869458567d5"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand_v3.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand_v3.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import1.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import1.log.gz",
+      "sha256": "e6724219a0f34d05629148a56b7a428deaf7f00fa3a3d3a3955e80539b9f9554"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import1.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import2.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import2.log.gz",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import2.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import2.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v1.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v1.log.gz",
+      "sha256": "1909364d8967497b99413c7b73076502a833ae4e086743aa248c9d1d109e1942"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v1.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v2.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v2.log.gz",
+      "sha256": "d7d7089bfa5bf5f5a1330986cc06fa06c9bee1aff2c3c1fab5710869458567d5"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v2.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v2.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile/frames.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile/frames.json.gz",
+      "sha256": "542dda4eabf4a722de2b050c20da41da2df96247812e6e66b7ec49e3c1019591"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile/inspection_observations.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile/inspection_observations.json.gz",
+      "sha256": "544bc48f087a35a722b249647cf5576015efd23fd4e1a0b59c554c3564bfdbce"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile.log.gz",
+      "sha256": "4689b150ea0d1b92598af2e5b34af7a2dbf5a69ccea104f24c6c29f936249e77"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile.log.stderr.gz",
+      "sha256": "6d217021d3d35199971d50eda9301a0f7743fa997fc968c2b29e3c7f204bff4f"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2/frames.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2/frames.json.gz",
+      "sha256": "07a7817ff5a6108c03b52f6b8415ff654aa397338230fe385eb63fd27aa393e2"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2/inspection_observations.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2/inspection_observations.json.gz",
+      "sha256": "3da2b28433c2efd3b0a3226c2ea47443b1acabf6fd1053fa0e4d4b2dce93d97b"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2.log.gz",
+      "sha256": "d7bd2efffa105ec6f5af11db12ca02a68af7c109f8b13cd7810a3b4e88df4089"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2.log.stderr.gz",
+      "sha256": "3e399d4abf8c855e99ae5db1113568680a3a482106461a424c6171d66e5ee201"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3/frames.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3/frames.json.gz",
+      "sha256": "810dbc91bcebb04dbe08f8a5efcd4dbe913a451dcad63da4e5f2bb8cc968d38d"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3/inspection_observations.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3/inspection_observations.json.gz",
+      "sha256": "568ffa965b0923a8d3644a2d3f2362a865b887d7b23342b444224a62598ec520"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3.log.gz",
+      "sha256": "0be826276fb914e57ef824146723fc223b01db7786f702fe636b80474df6f4be"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4/frames.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4/frames.json.gz",
+      "sha256": "6b0d241fc77315382f2288b1fba5abf110c1e4ad4f533400cd53d585dabf0796"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4/inspection_observations.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4/inspection_observations.json.gz",
+      "sha256": "e6b72f2575272ea107c3d62c189ec7b02a3b0ccff5ff2cf299a6ab6419662ff4"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4/mode_trace_summary.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4/mode_trace_summary.json.gz",
+      "sha256": "4b485fbd2095f4032ad6a7cb15d3856a95a6199d46c9e566a516b0d29c62b40b"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4.log.gz",
+      "sha256": "4587534f0f029631594118b2bc36c9db49acc1f23352f4908ca58961f2996384"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle.log.gz",
+      "sha256": "1e3ade45b472cb50ecc9b6357b192d483e62a71f6f733d6a7f09fc46869c3de2"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle_v3.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle_v3.log.gz",
+      "sha256": "1e3ade45b472cb50ecc9b6357b192d483e62a71f6f733d6a7f09fc46869c3de2"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle_v3.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle_v3.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/spatial_after_registration.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/spatial_after_registration.json.gz",
+      "sha256": "710f972e3508401a3e91045e1a9ee3bbc622c15cd0e7bd98f49c8cc17743b826"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/spatial_before_registration.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/spatial_before_registration.json.gz",
+      "sha256": "ad3c25dd8fd130c1566902eb65f2312d2c96f7b2455c7c2c0146629b71fc7ee2"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/stale_index_20261021T232857Z.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/stale_index_20261021T232857Z.json.gz",
+      "sha256": "bd656f4951f44eab0d59b5cafa15832d6329ae07c929c4b2cce8ad475a5dbdaa"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/temporary_sources_archive/archive.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/temporary_sources_archive/archive.json.gz",
+      "sha256": "ac9dbbf8971452a84f8ce2f231b8fd15bbcee9e735136b042bf083f51ae8ef31"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1.log.gz",
+      "sha256": "a4b5a10f37c1301bb7fa843f619c256aed7a3605c3d983c497ede1f1bfde1151"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1.log.stderr.gz",
+      "sha256": "0a66d5b82ffe350edcf82f1a965c07a5633c8199a476ee4eba4de7d9703895e3"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2/frames.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2/frames.json.gz",
+      "sha256": "1142e078070fc8e5b6f57b2c73d0cdd764554a86b240e9ab263ffd5bee2fd721"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2/inspection_observations.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2/inspection_observations.json.gz",
+      "sha256": "369deaef9924f49b493138d0589c044288cc910772150768f6f4860ca3626b28"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2.log.gz",
+      "sha256": "f4b29d890e22e6b752a6b3e723843c51f167feff81de2cdcef3f07ff568d9e89"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2.log.stderr.gz",
+      "sha256": "08346063afa0db43f992f9fa4f73fc4e5e48a0cbd9f4e15dddaf1e44af40ed1d"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3/frames.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3/frames.json.gz",
+      "sha256": "d8173bec07252b46b9c39932e9137b6a6cd047e5c7139c76f7c99c774ac49202"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3/inspection_observations.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3/inspection_observations.json.gz",
+      "sha256": "a2363433bc9e21ac5aeb1848bd984b3bad084301a4401be2891bd6696bfc1354"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3.log.gz",
+      "sha256": "2066f8a2cfa4f55998d410f10c10b64e62aee5605d4a241e9b781a4531f9a716"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4/frames.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4/frames.json.gz",
+      "sha256": "bd19cdb186a64f6648ce2f39238674c447a9eaddd2dd6a512c37fd49ba46f6d8"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4/inspection_observations.json",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4/inspection_observations.json.gz",
+      "sha256": "99702be07fe168ff75fba5a56139dc2f5082e817f82c8c00186694f7eb57a98e"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4.log",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4.log.gz",
+      "sha256": "f46cbd62133d43989cb1819ce9d8103176c64367e2bb1a346a1718ec62658764"
+    },
+    {
+      "original": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4.log.stderr",
+      "archive": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

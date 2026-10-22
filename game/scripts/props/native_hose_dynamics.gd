@@ -25,6 +25,7 @@ var last_attempt_delta_s:=0.
 var _accepted_contacts:=0
 var profile_usec: Dictionary={}
 var projection_calls:=0
+var last_contact_energy_removed:=0.
 func _profile(category: String,started: int) -> void:
 	profile_usec[category]=int(profile_usec.get(category,0))+Time.get_ticks_usec()-started
 func configure(owner_rig: RefCounted,owner_contact: RefCounted) -> bool:
@@ -71,11 +72,13 @@ func _integrate(delta: float,gravity: Vector3,depth: int) -> bool:
 	step_attempts+=1;last_attempt_delta_s=delta
 	var before: PackedVector3Array=rig.strand.points.duplicate();var speed:=velocities.duplicate()
 	var previous_count: int=accepted_substeps;var previous_time: float=advanced_time_s;var previous_contacts: int=_accepted_contacts
+	var previous_dissipation: float=last_contact_energy_removed
 	if _advance(delta,gravity):
 		accepted_substeps+=1;advanced_time_s+=delta;_accepted_contacts+=contacts_resolved
 		return true
 	var failure: String=error
 	_rollback(before,speed)
+	last_contact_energy_removed=previous_dissipation
 	if depth<MAX_SUBDIVISION_DEPTH:
 		if _integrate(delta*.5,gravity,depth+1) and _integrate(delta*.5,gravity,depth+1):
 			var change: float=_energy_change(before,speed,gravity)
@@ -84,11 +87,13 @@ func _integrate(delta: float,gravity: Vector3,depth: int) -> bool:
 		else:failure=error
 	_rollback(before,speed)
 	accepted_substeps=previous_count;advanced_time_s=previous_time;_accepted_contacts=previous_contacts
+	last_contact_energy_removed=previous_dissipation
 	error=failure
 	return false
 func step(delta: float,world_gravity: Vector3=Vector3(0,-9.81,0)) -> bool:
 	step_attempts=0;accepted_substeps=0;advanced_time_s=0.;_accepted_contacts=0
 	profile_usec={};projection_calls=0
+	last_contact_energy_removed=0.
 	if rig==null or not is_finite(delta) or delta<=0. or delta>STEP_S+.00000001 or not world_gravity.is_finite():
 		error="invalid bounded dynamics step";return false
 	var before: PackedVector3Array=rig.strand.points.duplicate();var speed:=velocities.duplicate()
@@ -146,7 +151,19 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 			# The allowance is only the existing20micrometre positional precision;
 			# it is translation-independent, unlike a percentage of altitude.
 			if last_energy_delta>rig.strand.total_length*world_gravity.length()*.00002:
-				error="release proposal injects mechanical energy: "+str(last_energy_delta);return false
+				if planes.is_empty() or contacts_resolved==0:
+					error="release proposal injects mechanical energy: "+str(last_energy_delta);return false
+				# Positional contact projection can create an excessive derived
+				# velocity. An inelastic impact dissipates it; the same strict
+				# positional, swept-contact and energy bounds still gate acceptance.
+				# Uniform scaling preserves homogeneous tangent/contact velocity
+				# constraints and zero velocity at the pinned outlet.
+				var impact: Dictionary=preload("res://scripts/props/hose_contact_energy.gd").dissipate(before,velocities,proposed,next_velocity,masses,rig.model.global_basis,world_gravity)
+				if not impact.valid:error="contact pose exceeds available mechanical energy";return false
+				next_velocity=impact.velocities;last_contact_energy_removed+=impact.removed
+				last_energy_delta=0.
+				for i in velocities.size():last_energy_delta+=masses[i]*(((rig.model.global_basis*next_velocity[i]).length_squared()-(rig.model.global_basis*velocities[i]).length_squared())*.5-world_gravity.dot(rig.model.global_basis*(proposed[i]-before[i])))
+				if last_energy_delta>rig.strand.total_length*world_gravity.length()*.00002:error="dissipated contact exceeds unchanged energy bound";return false
 			var skin_started: int=Time.get_ticks_usec()
 			var applied: bool=rig.apply_points(proposed)
 			_profile("accepted_skin",skin_started)

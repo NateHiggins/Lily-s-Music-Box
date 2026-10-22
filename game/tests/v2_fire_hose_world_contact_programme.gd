@@ -4,13 +4,24 @@ var failures: Array[String]=[]
 func check(ok: bool,label: String) -> void:
 	print("HOSE WORLD CHECK: ",label," = ",ok)
 	if not ok:failures.append(label)
+func _check_native_sections(rig: RefCounted,contact: RefCounted) -> void:
+	check(contact.sections.size()==rig.indices.size() and contact.sections.size()>3000,"all dense native sections retain32outer and32inner points")
+func _projection_path() -> String:return "res://tests/fixtures/fire_capacity_rig.json"
+func _analytic_boxes_enabled() -> bool:return false
+func _flat_probe_span(rest: PackedVector3Array,index: int) -> bool:
+	if index+8>=rest.size():return false
+	var axis: Vector3=(rest[index+1]-rest[index]).normalized()
+	for step in range(1,8):
+		if axis.dot((rest[index+step+1]-rest[index+step]).normalized())<.999999:return false
+	return true
 func run(root: Node3D,rig: RefCounted,exclusions: Array[RID]) -> RefCounted:
 	var contact:=preload("res://scripts/props/native_hose_world_contact.gd").new()
+	contact.analytic_boxes=_analytic_boxes_enabled()
 	var started: int=Time.get_ticks_usec()
 	check(contact.configure(rig,root.get_world_3d().direct_space_state,exclusions),"full inner/outer native ring profile binds from imported skin")
 	print("HOSE WORLD SETUP: ms=",float(Time.get_ticks_usec()-started)/1000.," error=",contact.error)
 	if not failures.is_empty():return contact
-	check(contact.sections.size()==rig.indices.size() and contact.sections.size()>3000,"all dense native sections retain32outer and32inner points")
+	_check_native_sections(rig,contact)
 	var rest: PackedVector3Array=rig.strand.points.duplicate()
 	var invalid:=rest.duplicate();invalid[0]=Vector3(INF,0,0)
 	check(contact.veto(rest,invalid),"invalid contact coordinates are rejected before broad-phase queries")
@@ -29,11 +40,8 @@ func run(root: Node3D,rig: RefCounted,exclusions: Array[RID]) -> RefCounted:
 	for i in range(contact.sections.size()-1):
 		var r:=Vector2.ZERO
 		for p: Vector3 in contact.sections[i].outer:r=r.max(Vector2(absf(p.x),absf(p.z)))
-		if r.x>=.005 or r.y<=.030 or i+8>=rest.size():continue
-		var axis: Vector3=(rest[i+1]-rest[i]).normalized();var straight:=true
-		for step in range(1,8):
-			if axis.dot((rest[i+step+1]-rest[i+step]).normalized())<.999999:straight=false;break
-		if straight:flat_index=i;break
+		if r.x>=.005 or r.y<=.030:continue
+		if _flat_probe_span(rest,i):flat_index=i;break
 	check(flat_index>=0,"actual flattened native strand selected")
 	if flat_index>=0:
 		var flat_frame: Transform3D=rig.model.global_transform*rig.original_frames[flat_index]
@@ -64,7 +72,7 @@ func run(root: Node3D,rig: RefCounted,exclusions: Array[RID]) -> RefCounted:
 	body.global_position=frame*Vector3(0,.004,0)
 	await root.get_tree().physics_frame;await root.get_tree().physics_frame
 	check(not contact.intersects_pose(rest),"native bore remains open at the transformed world pose")
-	var projection: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/fire_capacity_rig.json"))
+	var projection: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(_projection_path()))
 	for height: float in [-3.2,9.6,19.2]:
 		for angle: float in [PI,-PI]:
 			var clone:=rig.model.duplicate() as Node3D;root.add_child(clone)

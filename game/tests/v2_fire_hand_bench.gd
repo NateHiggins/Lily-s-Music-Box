@@ -11,6 +11,7 @@ class FixtureAdapter extends RefCounted:
 var failures: Array[String]=[]
 var observations: Array[Dictionary]=[]
 var player: PlayerController
+func _prepare_player_contacts(_native: RefCounted) -> void:pass
 func check(ok: bool,label: String) -> bool:
 	observations.append({"ok":ok,"label":label})
 	print("FIRE HAND CHECK: ",label," = ",ok)
@@ -236,6 +237,7 @@ func _run() -> void:
 		retained_parents=retained_parents and draw!=null and draw.get_parent().get_instance_id()==original.parent
 	check(retained_parents,"native mesh parents survive rigid wire refitting and control installation")
 	player=PlayerController.new();player.position=Vector3(-.1,.025,1.15);add_child(player);player.set_lamp_enabled(false);player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	_prepare_player_contacts(native)
 	await get_tree().physics_frame;await get_tree().physics_frame
 	var hand: Node=Hand.PatrolHand.new();hand.player=player;add_child(hand)
 	var at: Vector3=actor._door_pivot.to_global(Vector3(-.4,.1,.015))

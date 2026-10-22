@@ -1,0 +1,11 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/review_fire_capacity_candidate.py",
+      "env": {
+        "ORISON_FIRE_CAPACITY_OUT": "C:/PleaseRemainOnTheLine/tmp/v2-deployable-hose-20261021/stock_v2",
+        "ORISON_FIRE_CAPACITY_SKIP_RENDER": "1"
+      }
+    }
+  ]
+}

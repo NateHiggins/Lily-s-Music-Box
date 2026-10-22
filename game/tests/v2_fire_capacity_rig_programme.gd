@@ -13,8 +13,10 @@ var contact: RefCounted
 func check(ok: bool,label: String) -> void:
 	print("FIRE RIG CHECK: ",label," = ",ok)
 	if not ok:failures.append(label)
+func _projection_path() -> String:return "res://tests/fixtures/fire_capacity_rig.json"
+func _make_world_programme() -> RefCounted:return preload("res://tests/v2_fire_hose_world_contact_programme.gd").new()
 func prepare(model: Node3D) -> bool:
-	var projection: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/fire_capacity_rig.json"))
+	var projection: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(_projection_path()))
 	check(rig.configure(model,projection),"native skin and authored centreline rings bind")
 	if not failures.is_empty():return false
 	var library:=preload("res://scripts/props/fire_nozzle_joint_stock.gd").new()
@@ -75,13 +77,15 @@ func _render_high_rings() -> void:
 		hidden.save_png(directory.path_join("high_ring_hidden.png"));visible.save_png(directory.path_join("high_ring_visible.png"))
 	print("HIGH RING RENDER: pixels=",lit_pixels," mean_rgb_difference=",difference/samples)
 	player.global_transform=saved_player;player.camera.transform=saved_camera
-func run(holder: PlayerController) -> bool:
-	player=holder
+func _check_native_density() -> void:
 	check(rig.indices.size()>3000 and rig.indices.size()==rig.rest.size() and absf(rig.strand.total_length-15.24)<.00002,"all dense native ring bones retain the full15.24m strand")
 	var widest:=0.0
 	for distance: float in rig.strand.lengths:widest=maxf(widest,distance)
 	check(widest<=.005001,"every actual centreline interval is at most5mm within float precision")
 	print("FIRE RIG RESOLUTION: rings=",rig.indices.size()," maximum_interval_m=",widest)
+func run(holder: PlayerController) -> bool:
+	player=holder
+	_check_native_density()
 	await get_tree().process_frame
 	check(_pose_matches(),"native bind points and rendered skeleton agree at rest")
 	var saved: Dictionary=rig.snapshot()
@@ -107,7 +111,7 @@ func run(holder: PlayerController) -> bool:
 	check(_pose_matches(),"all native bones follow the fully extended constraint result")
 	await _render_high_rings()
 	check(rig.restore(saved),"resting cloth restores after maximum-reach test")
-	var world_checks:=preload("res://tests/v2_fire_hose_world_contact_programme.gd").new()
+	var world_checks: RefCounted=_make_world_programme()
 	var excluded: Array[RID]=[endpoint.get_rid(),player.get_rid()]
 	contact=await world_checks.run(self,rig,excluded)
 	for failure: String in world_checks.failures:check(false,failure)

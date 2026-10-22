@@ -311089,6 +311089,37 @@
    "rationale": "Node-path lookup embeds spatial identity.",
    "resolved_target": "v2_blockout",
    "target_exists": null
+  },
+  {
+   "key": "8b92ec91e8fba32d",
+   "kind": "vector3_coordinate",
+   "token": "_compare_box_faces",
+   "file": "game/tests/v2_deployable_hose_programme.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_compare_box_faces"
+   ],
+   "lines": [
+    40
+   ],
+   "count": 1,
+   "context": [
+    "var extra:=CollisionShape3D.new();extra.shape=BoxShape3D.new();extra.position=Vector3(10,10,10);body.add_child(extra)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

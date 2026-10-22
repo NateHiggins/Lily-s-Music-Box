@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
  if is_instance_valid(player):player.set("cost_phase",profile_phase)
  super._process(delta)
 func _prepare_control() -> bool:return player.get_script()==Controller and player._step_cap!=null and player._step_cap.collision_layer==0 and player._step_cap.collision_mask==0
+func _control_cycles() -> Array[String]:return ["original_a_","lower_cap_b_","restored_a_"]
+func _observe_initial_obstruction(_actor: Node3D,_hits: Array) -> void:pass
 func _swap(enabled: bool) -> void:
  player.set("_low_step_probe_enabled",enabled)
  for frame in 30:await get_tree().process_frame
@@ -26,7 +28,7 @@ func _play_route() -> void:
  profile_phase="control_prepare_excluded"
  if not _require(_prepare_control(),"shipping V2 lower-cap query is installed and physically inert"):return
  for cycle in 3:
-  profile_cycle=["original_a_","lower_cap_b_","restored_a_"][cycle]
+  profile_cycle=_control_cycles()[cycle]
   var cycle_label: String=profile_cycle
   profile_phase=profile_cycle+"shape_switch_excluded"
   await _swap(cycle==1)
@@ -59,6 +61,7 @@ func _inspection_route() -> bool:
  var saved: Dictionary=actor.mechanism_snapshot()
  profile_phase=inspection_prefix+"inspection_original_stance_probe_excluded"
  var original_obstructions: Array=_door_obstructions(actor,.25)
+ _observe_initial_obstruction(actor,original_obstructions)
  if not await _walk(Vector3(3.65,3.2,-3.4)):return false
  profile_phase=inspection_prefix+"inspection_side_stance_probe_excluded"
  var side_obstructions: Array=_door_obstructions(actor,.25)

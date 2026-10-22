@@ -2827,3 +2827,28 @@ game/tests/V2LowStepProbeBench.tscn -text
 game/tests/v2_low_step_profile_controller.gd -text
 game/tests/v2_low_step_stair_profile.gd -text
 game/tests/V2LowStepStairProfile.tscn -text
+
+# Source-bound player contact repair and uninstalled full-hose diagnostics.
+game/scripts/building/v2_fire_player_contact.gd -text
+game/tests/v2_fire_player_contact_bench.gd -text
+game/tests/v2_fire_player_contact_profile.gd -text
+game/tests/V2FirePlayerContactBench.tscn -text
+game/tests/V2FirePlayerContactProfile.tscn -text
+game/scripts/props/hose_contact_energy.gd -text
+game/scripts/props/native_hose_box_support.gd -text
+game/tests/v2_deployable_hose_programme.gd -text
+game/tests/v2_deployable_hose_native_test.gd -text
+game/tests/V2DeployableHoseNativeTest.tscn -text
+game/tests/hose_contact_energy_test.gd -text
+game/tests/HoseContactEnergyTest.tscn -text
+game/tests/fixtures/v2_deployable_hose_rig.json -text
+art/reviews/v2_deployable_hose_20261021/** -text
+art/blender/scripts/build_fire_capacity_candidate.py -text
+game/scripts/props/native_hose_dynamics.gd -text
+game/scripts/props/native_hose_world_contact.gd -text
+game/tests/v2_fire_capacity_native_test.gd -text
+game/tests/v2_fire_capacity_rig_programme.gd -text
+game/tests/v2_fire_hose_world_contact_programme.gd -text
+game/tests/v2_fire_hose_gravity_programme.gd -text
+game/scripts/props/native_hose_rig.gd -text
+art/blender/v2_deployable_hose/** -text

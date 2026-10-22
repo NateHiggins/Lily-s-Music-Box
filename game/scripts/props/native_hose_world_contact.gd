@@ -12,6 +12,9 @@ var error:=""
 var broad_queries:=0
 var shell_queries:=0
 var chunked:=true
+var analytic_boxes:=false
+var analytic_segments:=0
+var _box_support:=preload("res://scripts/props/native_hose_box_support.gd").new()
 var last_collider: Object
 var _radius:=0.0
 var _box:=BoxShape3D.new()
@@ -112,7 +115,7 @@ func _cell_hull(posed: Array[PackedVector3Array],sector: int,origin: Vector3,fra
 			if row>=2:p=posed[row-2][index].lerp(p,fraction)
 			hull.append(p-origin)
 	return hull
-func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictionary) -> Dictionary:
+func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictionary,refine: bool=true) -> Dictionary:
 	if info.is_empty():return {}
 	var normal: Vector3=info.normal
 	var point: Vector3=info.point
@@ -122,7 +125,7 @@ func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictio
 	# on what is physically one flat floor. Retain the manifold if the local
 	# ray does not hit that same body or describes a different-facing surface.
 	var ray:=PhysicsRayQueryParameters3D.create(point+normal*.005,point-normal*.005,1,exclusions)
-	var hit: Dictionary=space.intersect_ray(ray)
+	var hit: Dictionary=space.intersect_ray(ray) if refine else {}
 	if not hit.is_empty() and hit.rid==info.rid and normal.dot(hit.normal)>.9:
 		normal=hit.normal;point=hit.position
 	var local: Vector3=world.basis.transposed()*normal
@@ -137,6 +140,8 @@ func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictio
 	return {"ring":ring,"normal":local,"offset":surface-support+RESPONSE_CLEARANCE_M/scale,"rid":info.rid}
 func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: bool,collect: bool=false) -> bool:
 	broad_queries=0;shell_queries=0;last_collider=null
+	analytic_segments=0
+	if analytic_boxes:_box_support.begin_test()
 	_response_planes.clear();_response_valid=false;_response_truncated=false
 	_response_error=""
 	if not ready or before.size()!=sections.size() or after.size()!=sections.size():return true
@@ -158,13 +163,19 @@ func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: b
 	# Chunk bounds avoid thousands of native shape queries on long, clear
 	# spans. Every occupied chunk still gets the original per-cell narrow test.
 	var bounds_by_segment: Array[AABB]=[];bounds_by_segment.resize(sections.size()-1)
+	var old_bounds_by_segment: Array[AABB]=[];old_bounds_by_segment.resize(sections.size()-1)
+	var next_bounds_by_segment: Array[AABB]=[];next_bounds_by_segment.resize(sections.size()-1)
 	var occupied:=PackedByteArray();occupied.resize(sections.size()-1);occupied.fill(0)
 	for start in range(0,sections.size()-1,32):
 		var chunk:=AABB(world*old[start].origin,Vector3.ZERO)
 		for i in range(start,mini(start+32,sections.size()-1)):
 			var bounds: AABB=(world*old[i])*sections[i].bounds
 			bounds=bounds.merge((world*old[i+1])*sections[i+1].bounds)
-			bounds=bounds.merge((world*next[i])*sections[i].bounds).merge((world*next[i+1])*sections[i+1].bounds)
+			if analytic_boxes:old_bounds_by_segment[i]=bounds
+			var first: AABB=(world*next[i])*sections[i].bounds
+			var second: AABB=(world*next[i+1])*sections[i+1].bounds
+			if analytic_boxes:next_bounds_by_segment[i]=first.merge(second)
+			bounds=bounds.merge(first).merge(second)
 			bounds_by_segment[i]=bounds;chunk=chunk.merge(bounds)
 		if chunked:broad_queries+=1
 		if not chunked or _hits_box(chunk.grow(.000002)):
@@ -175,6 +186,19 @@ func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: b
 		var bounds: AABB=bounds_by_segment[i]
 		broad_queries+=1
 		if not _hits_box(bounds.grow(.000002)):continue
+		if analytic_boxes:
+			# _hits_box left the same conservative broad-phase box in _query.
+			var broad_hits: Array[Dictionary]=space.intersect_shape(_query,65)
+			var shortcut: Dictionary=_box_support.segment(self,broad_hits,bounds,old_bounds_by_segment[i],next_bounds_by_segment[i],world,old,next,i)
+			if shortcut.handled:
+				analytic_segments+=1
+				if shortcut.planes.is_empty():continue
+				last_collider=shortcut.collider
+				if not collect:return true
+				for plane: Dictionary in shortcut.planes:
+					_response_planes.append(plane)
+					if _response_planes.size()>=_response_limit:_response_truncated=true;return true
+				continue
 		var posed: Array[PackedVector3Array]=[]
 		for frame: Transform3D in [world*old[i],world*old[i+1],world*next[i],world*next[i+1]]:
 			var index: int=i if posed.size()%2==0 else i+1

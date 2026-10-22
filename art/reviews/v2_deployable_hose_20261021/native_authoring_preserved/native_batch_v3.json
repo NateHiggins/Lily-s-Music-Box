@@ -1,0 +1,27 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/build_fire_capacity_candidate.py",
+      "env": {
+        "ORISON_FIRE_CAPACITY_OUT": "C:/PleaseRemainOnTheLine/tmp/v2-deployable-hose-20261021/stock_v3",
+        "ORISON_FIRE_CAPACITY_MAX_SPAN": ".08",
+        "ORISON_FIRE_CAPACITY_CURVE_STEPS": "8",
+        "ORISON_FIRE_CAPACITY_TRANSITION_STEPS": "32"
+      }
+    },
+    {
+      "script": "art/blender/scripts/review_fire_capacity_candidate.py",
+      "env": {
+        "ORISON_FIRE_CAPACITY_OUT": "C:/PleaseRemainOnTheLine/tmp/v2-deployable-hose-20261021/stock_v3",
+        "ORISON_FIRE_CAPACITY_SKIP_RENDER": "1"
+      }
+    },
+    {
+      "script": "art/blender/scripts/build_fire_capacity_rig.py",
+      "env": {
+        "ORISON_FIRE_CAPACITY_SOURCE": "C:/PleaseRemainOnTheLine/tmp/v2-deployable-hose-20261021/stock_v3",
+        "ORISON_FIRE_CAPACITY_RIG_OUT": "C:/PleaseRemainOnTheLine/tmp/v2-deployable-hose-20261021/rig_v3"
+      }
+    }
+  ]
+}

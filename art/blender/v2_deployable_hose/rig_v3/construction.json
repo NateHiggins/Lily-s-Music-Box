@@ -1,0 +1,24 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Skinned native candidate, not physical deployment or runtime acceptance.",
+  "bones": 610,
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-deployable-hose-20261021\\rig_v3\\game\\assets\\props\\fire_capacity_candidate.glb",
+    "primitives": 1,
+    "triangles": 78080,
+    "minimum_tangent_agreement": 0.9999999412574077,
+    "status": "PASS"
+  },
+  "source_bindings": {
+    "art/blender/scripts/build_fire_capacity_rig.py": "e8d64da1184feb09ccad47ea1af495d878c519a6fb0f7ccaa60c3eb06b63a0e3",
+    "tmp/v2-deployable-hose-20261021/stock_v3/art/blender/fire_capacity_candidate.blend": "5a50fd5514161e263f7af47f39bb6557f94c2101ae20948c7bb444b8486a9592",
+    "tmp/v2-deployable-hose-20261021/stock_v3/candidate_construction.json": "797756f944a76cb74f142dc929ef78a683576478bb46f1fd32a85c783d8e65cd",
+    "tmp/v2-deployable-hose-20261021/stock_v3/capacity_plan.json": "181c0ef0d96b4875318a1e8bee627bc2431b7319c745724ac1fcd88273c07ac7",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea"
+  },
+  "outputs": {
+    "art/blender/fire_capacity_candidate.blend": "0ed13c1228eae3b6f52f68d885cff0a4b94809dc23ce427c3629fcdfa18a4dff",
+    "game/assets/props/fire_capacity_candidate.glb": "ff61b327dcf1d7ee33ac308089e4c4b1c41a4c8d0021274dfd66302aa28f2938",
+    "rig_projection.json": "a1d2bcf4c51a1a5f0c2d0ed01f2bfd6d928be1a8b43d6196cb65180388aba94d"
+  }
+}

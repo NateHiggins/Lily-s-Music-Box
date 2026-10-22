@@ -40,7 +40,15 @@ func configure(root: Node3D,data: Dictionary) -> bool:
 func model_frames(points: PackedVector3Array) -> Array[Transform3D]:
 	if skeleton==null or rest.size()<3 or points.size()!=rest.size() or original_frames.size()!=rest.size():return []
 	for i in _frame_points.size():
-		if points==_frame_points[i]:return _frame_values[i].duplicate()
+		if points==_frame_points[i]:
+			# Keep the repeatedly reused pre-step pose when trial poses change.
+			# FIFO eviction regenerated it on every second contact iteration.
+			var cached: Array[Transform3D]=_frame_values[i]
+			if i>0:
+				var coordinates: PackedVector3Array=_frame_points[i]
+				_frame_points.remove_at(i);_frame_values.remove_at(i)
+				_frame_points.push_front(coordinates);_frame_values.push_front(cached)
+			return cached.duplicate()
 	var frames: Array[Transform3D]=[]
 	for i in points.size():
 		if not points[i].is_finite():return []

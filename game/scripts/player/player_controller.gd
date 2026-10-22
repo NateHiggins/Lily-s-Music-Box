@@ -58,6 +58,8 @@ var _low_step_probe_enabled:=false
 var _step_cap: CharacterBody3D
 var _step_cap_shape: SphereShape3D
 var _step_cap_exceptions: Array=[]
+var _native_contact_agent: RefCounted
+var _native_contact_layers:=0
 var _grab: RefCounted
 var telegram_hud: TelegramHud
 var _interaction_hud: CanvasLayer
@@ -424,7 +426,7 @@ func _process(_delta: float) -> void:
 			and Input.is_action_just_pressed("noclip"):
 		noclip = not noclip
 		collision_layer = 0 if noclip else 1
-		collision_mask = 0 if noclip else 1
+		collision_mask = 0 if noclip else (1|_native_contact_layers)
 		if noclip:
 			_clear_stagger()
 	if Input.is_action_just_pressed("crouch") and not inspecting():
@@ -613,7 +615,9 @@ func apply_look(rel: Vector2) -> void:
 		return
 	var sensitivity := clampf(float(GameBoot.settings.get(
 			"look_sensitivity", 1.0)), 0.25, 2.0)
-	rotate_y(-rel.x * MOUSE_SENS * sensitivity)
+	# Rebuild from yaw rather than repeatedly multiplying the float basis.
+	# Long mouse turns must not gradually shrink the physical capsule frame.
+	rotation.y -= rel.x * MOUSE_SENS * sensitivity
 	camera.rotate_x(-rel.y * MOUSE_SENS * sensitivity)
 	# The hand trails the view. One look path in, one hand lag out, so
 	# a mouse and a dragged thumb can never disagree about it.
@@ -637,7 +641,7 @@ func apply_look_rate(axis: Vector2, delta: float) -> void:
 			"controller_look_sensitivity", 1.0)), 0.25, 2.0)
 	var y_sign := -1.0 if bool(GameBoot.settings.get(
 			"controller_invert_y", false)) else 1.0
-	rotate_y(-shaped.x * 2.45 * sensitivity * delta)
+	rotation.y -= shaped.x * 2.45 * sensitivity * delta
 	camera.rotate_x(-shaped.y * y_sign * 2.05 * sensitivity * delta)
 	if carried_device and carried_device.has_method("apply_look"):
 		carried_device.apply_look(Vector2(shaped.x, shaped.y * y_sign)
@@ -1105,6 +1109,16 @@ func _clear_stagger() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _native_contact_agent!=null:
+		# CharacterBody's transform round trips also accumulate basis drift
+		# during walking. Keep an intended unit rigid frame orthonormal. The
+		# 1e-4 bound admits float roundoff; deliberate scale and tilt retain
+		# their original values and the contact agent's fallback protection.
+		var scale_error: Vector3=(basis.get_scale()-Vector3.ONE).abs()
+		var largest_error:=maxf(scale_error.x,maxf(scale_error.y,scale_error.z))
+		if largest_error>.000001 and largest_error<.0001:
+			basis=basis.orthonormalized()
+		_native_contact_agent.sync()
 	if inspecting():
 		velocity=Vector3.ZERO
 		return
@@ -1239,6 +1253,19 @@ func enable_low_step_probe() -> void:
 		_step_cap.add_collision_exception_with(self)
 	_low_step_probe_enabled=true
 
+func install_native_contact_agent(agent: RefCounted) -> bool:
+	if agent==null or _native_contact_agent!=null:return false
+	_native_contact_agent=agent;agent.sync();return true
+
+func set_native_contact_layers(layers: int) -> void:
+	_native_contact_layers=layers
+	# Supplemental query layers never replace the world's physical layer.
+	collision_mask=0 if noclip else (1|layers)
+
+func clear_native_contact_agent() -> void:
+	var previous: RefCounted=_native_contact_agent;_native_contact_agent=null
+	if previous!=null:previous.release()
+
 func _step_path_blocked(probe: Vector3) -> bool:
 	if not _low_step_probe_enabled or _step_cap==null or _capsule.radius<.30 or _shape.basis!=Basis.IDENTITY:
 		return test_move(global_transform,probe)
@@ -1344,6 +1371,7 @@ func set_mouse_released(released: bool) -> void:
 
 func _exit_tree() -> void:
 	if _grab != null: _grab.release()
+	clear_native_contact_agent()
 
 
 func cancel_manipulation() -> void:
