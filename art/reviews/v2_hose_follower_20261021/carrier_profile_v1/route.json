@@ -1,0 +1,788 @@
+{
+  "failures": [],
+  "trace": [
+    {
+      "actual": [
+        1.92500019073486,
+        1.6007993221283,
+        1.20408153533936
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984156608582,
+        1.60094308853149,
+        1.27155876159668
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.87984, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.97247123718262,
+        3.20023441314697,
+        -2.30218696594238
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.9745991230011,
+        3.2009425163269,
+        -3.22610473632813
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045417, 4.400382, -8.088)"
+      }
+    },
+    {
+      "actual": [
+        2.02187585830688,
+        3.20079326629639,
+        -3.39177894592285
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.84133839607239,
+        3.2009425163269,
+        -3.29073143005371
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31569/NativeCaseCollision": "(-4.039999, 4.4, -8.08)",
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045178, 4.400382, -8.087932)"
+      }
+    },
+    {
+      "actual": [
+        3.97209072113037,
+        1.62048816680908,
+        1.22177028656006
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.97209, 1.76, -12.6)"
+      }
+    },
+    {
+      "actual": [
+        2.01972222328186,
+        1.6009441614151,
+        1.27155876159668
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.967503, 1.76, -12.6)",
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.019721, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.92693686485291,
+        0.000838593463413417,
+        -3.40259456634521
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        1.92503929138184,
+        1.60084128379822,
+        1.20407676696777
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984609603882,
+        1.60092854499817,
+        1.271559715271
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.876898, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.9724714756012,
+        3.20023083686829,
+        -2.30219173431396
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.97459936141968,
+        3.2009425163269,
+        -3.22610664367676
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045417, 4.400382, -8.088)"
+      }
+    },
+    {
+      "actual": [
+        3.73658180236816,
+        3.20082235336304,
+        -3.35284614562988
+      ],
+      "ok": true,
+      "target": [
+        3.65000009536743,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045178, 4.400382, -8.087932)"
+      }
+    },
+    {
+      "actual": [
+        3.97044372558594,
+        1.60226774215698,
+        1.23386669158936
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.970222, 1.76, -12.6)",
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.497499, 4.085, -9.8925)"
+      }
+    },
+    {
+      "actual": [
+        2.01956582069397,
+        1.60094058513641,
+        1.271559715271
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.02243, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.92693328857422,
+        0.00081068160943687,
+        -3.40259838104248
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        1.92503929138184,
+        1.60083794593811,
+        1.20407581329346
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984609603882,
+        1.60094141960144,
+        1.271559715271
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.879845, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.97246837615967,
+        3.20026087760925,
+        -2.3020715713501
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.97459888458252,
+        3.20094275474548,
+        -3.22606086730957
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045417, 4.400382, -8.088)"
+      }
+    },
+    {
+      "actual": [
+        2.02187585830688,
+        3.20083999633789,
+        -3.39177894592285
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.84133839607239,
+        3.20094132423401,
+        -3.29073143005371
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31569/NativeCaseCollision": "(-4.039999, 4.4, -8.08)",
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045178, 4.400382, -8.087932)"
+      }
+    },
+    {
+      "actual": [
+        3.97209072113037,
+        1.62047755718231,
+        1.22176074981689
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.97209, 1.76, -12.6)"
+      }
+    },
+    {
+      "actual": [
+        2.01972198486328,
+        1.6009407043457,
+        1.27155876159668
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.967503, 1.76, -12.6)",
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.022602, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.92693674564362,
+        0.000843165733385831,
+        -3.40259647369385
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        1.92503929138184,
+        1.60084414482117,
+        1.20407867431641
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984609603882,
+        1.6009418964386,
+        1.271559715271
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.879845, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.97247123718262,
+        3.20023369789124,
+        -2.30218696594238
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.9745991230011,
+        3.2009425163269,
+        -3.22610473632813
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045417, 4.400382, -8.088)"
+      }
+    },
+    {
+      "actual": [
+        3.73658609390259,
+        3.20082235336304,
+        -3.35284900665283
+      ],
+      "ok": true,
+      "target": [
+        3.65000009536743,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045178, 4.400382, -8.087932)"
+      }
+    },
+    {
+      "actual": [
+        3.97044324874878,
+        1.60227966308594,
+        1.23386096954346
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.970222, 1.76, -12.6)",
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.497499, 4.085, -9.8925)"
+      }
+    },
+    {
+      "actual": [
+        2.01956558227539,
+        1.60094237327576,
+        1.27155876159668
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.019564, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.9269335269928,
+        0.000843465968500823,
+        -3.40259552001953
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        1.92503929138184,
+        1.59966659545898,
+        1.20407772064209
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984609603882,
+        1.60094225406647,
+        1.271559715271
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.879845, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.9724714756012,
+        3.20025944709778,
+        -2.30219745635986
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.97459936141968,
+        3.20094275474548,
+        -3.22610855102539
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045417, 4.400382, -8.088)"
+      }
+    },
+    {
+      "actual": [
+        2.02187609672546,
+        3.20079326629639,
+        -3.39177894592285
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.84131240844727,
+        3.2009425163269,
+        -3.29071998596191
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31569/NativeCaseCollision": "(-4.039999, 4.4, -8.08)",
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045178, 4.400382, -8.087932)"
+      }
+    },
+    {
+      "actual": [
+        3.97209215164185,
+        1.61891484260559,
+        1.22285461425781
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.97202, 1.76, -12.6)"
+      }
+    },
+    {
+      "actual": [
+        2.01972126960754,
+        1.60094022750854,
+        1.27155780792236
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.967212, 1.76, -12.6)",
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.022624, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.92693686485291,
+        0.000781865906901658,
+        -3.40259456634521
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        1.92503929138184,
+        1.60083568096161,
+        1.20407199859619
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984609603882,
+        1.60094130039215,
+        1.271559715271
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.879845, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.97246837615967,
+        3.20026087760925,
+        -2.3020715713501
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.97459888458252,
+        3.20094275474548,
+        -3.22606086730957
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045417, 4.400382, -8.088)"
+      }
+    },
+    {
+      "actual": [
+        3.73658609390259,
+        3.20082235336304,
+        -3.35284996032715
+      ],
+      "ok": true,
+      "target": [
+        3.65000009536743,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision/PlayerContactStock": "(-4.045178, 4.400382, -8.087932)"
+      }
+    },
+    {
+      "actual": [
+        3.97044372558594,
+        1.60228705406189,
+        1.23385620117188
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.970222, 1.76, -12.6)",
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.497499, 4.085, -9.8925)"
+      }
+    },
+    {
+      "actual": [
+        2.01956629753113,
+        1.60094261169434,
+        1.27155876159668
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FireCarrierProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.019565, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.9269335269928,
+        0.000798055669292808,
+        -3.40259552001953
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    }
+  ]
+}

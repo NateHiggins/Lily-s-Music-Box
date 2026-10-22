@@ -311120,6 +311120,37 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "48f1b2c6ca1afb04",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_capacity_rack_surface_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    47
+   ],
+   "count": 1,
+   "context": [
+    "var player:=PlayerController.new();player.position=Vector3(0,-1.15,1.0);add_child(player);player.set_physics_process(false);player.camera.make_current();player."
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -34,7 +34,11 @@ func save_case(dynamics: RefCounted) -> void:
 	for point: Vector3 in kernel.last_result:result.append([point.x,point.y,point.z])
 	for ring: int in kernel.last_planes:
 		for plane: Dictionary in kernel.last_planes[ring]:planes.append({"ring":ring,"normal":[plane.normal.x,plane.normal.y,plane.normal.z],"offset":plane.offset})
-	FileAccess.open(directory.path_join("kernel_case.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","error":dynamics.error,"target":target,"result":result,"planes":planes,"lengths":Array(kernel.lengths),"masses":Array(kernel.masses),"bend_spans":Array(kernel.bend_spans)},"\t"))
+	var evidence: Dictionary={"evidence_class":"INERT","error":dynamics.error,"target":target,"result":result,"planes":planes,"lengths":Array(kernel.lengths),"masses":Array(kernel.masses),"bend_spans":Array(kernel.bend_spans)}
+	if dynamics.use_follow_projection or dynamics.pin_outlet_direction:
+		evidence["inverse"]=Array(kernel.inverse);evidence["fixed_rings"]=Array(dynamics._fixed_rings)
+		evidence["last_follow_error"]=dynamics.last_follow_error;evidence["before"]=dynamics.rig.snapshot()
+	FileAccess.open(directory.path_join("kernel_case.json"),FileAccess.WRITE).store_string(JSON.stringify(evidence,"\t"))
 func replay_cases() -> void:
 	# Numerical regression only; these historical inputs grant no runtime proof.
 	var repository: String=ProjectSettings.globalize_path("res://").trim_suffix("/").get_base_dir()
@@ -112,10 +116,12 @@ func replay_cases() -> void:
 				var normal:=Vector3(plane.normal[0],plane.normal[1],plane.normal[2])
 				support=maxf(support,float(plane.offset)-normal.dot(result[int(plane.ring)]))
 			check(finite and result[-1]==seed[-1] and maximum<=.00002 and absf(total)<=.00002 and bend<=.00002 and support<=.000001,"independent final joint residual check "+stem)
+func _make_dynamics() -> RefCounted:return preload("res://scripts/props/native_hose_dynamics.gd").new()
+func _check_fixed_outlet(_dynamics: RefCounted,_initial: PackedVector3Array) -> void:pass
 func run(root: Node3D,rig: RefCounted,contact: RefCounted) -> bool:
 	var saved: Dictionary=rig.snapshot()
 	var initial: PackedVector3Array=rig.strand.points.duplicate()
-	var dynamics:=preload("res://scripts/props/native_hose_dynamics.gd").new()
+	var dynamics: RefCounted=_make_dynamics()
 	check(dynamics.configure(rig,contact),"native release solver binds actual length and shell owners")
 	replay_cases()
 	if not failures.is_empty():return false
@@ -133,6 +139,7 @@ func run(root: Node3D,rig: RefCounted,contact: RefCounted) -> bool:
 	check(exact_time,"successful free steps advance their entire requested time")
 	check(rig.strand._valid_positions(rig.strand.points) and rig.strand.points[-1]==initial[-1],"fall preserves every length and fixed outlet")
 	check(dynamics.kernel._bend_error(rig.strand.points)<=dynamics.kernel.ACCEPT_ERROR_M,"free cloth retains finite native bend radius")
+	_check_fixed_outlet(dynamics,initial)
 	await capture(root,"gravity_free")
 	check(rig.restore(saved),"release diagnostic restores original native pose")
 	dynamics.reset_velocity()
@@ -162,11 +169,17 @@ func run(root: Node3D,rig: RefCounted,contact: RefCounted) -> bool:
 		print("HOSE GRAVITY PROGRESS: step=",step," ms=",float(Time.get_ticks_usec()-step_started)/1000.," attempts=",dynamics.step_attempts," substeps=",dynamics.accepted_substeps," time_s=",dynamics.advanced_time_s," contact_energy_removed=",dynamics.last_contact_energy_removed)
 		exact_time=exact_time and absf(dynamics.advanced_time_s-dynamics.STEP_S)<.0000000001
 		history.append({"step":step,"energy":energy(rig,dynamics.velocities),"response_planes":dynamics.contacts_resolved,"response_iterations":dynamics.response_iterations,"projection_iterations":dynamics.kernel.iterations,"joint_accepted":dynamics.kernel.joint_accepted,"attempts":dynamics.step_attempts,"substeps":dynamics.accepted_substeps,"advanced_time_s":dynamics.advanced_time_s,"profile_usec":dynamics.profile_usec.duplicate(),"projection_calls":dynamics.projection_calls})
+		if dynamics.use_follow_projection:
+			history.back()["follow_successes"]=dynamics.follow_successes
+			history.back()["follow_fallbacks"]=dynamics.follow_fallbacks
+			history.back()["last_follow_error"]=dynamics.last_follow_error
+			history.back()["internal_energy_removed"]=dynamics.last_internal_energy_removed
 	print("HOSE GRAVITY SUPPORTED: ms=",float(Time.get_ticks_usec()-started)/1000.," response_planes=",responses)
 	check(success and responses>0,"gravity reaches real floor and resolves native shell contacts")
 	check(exact_time,"successful supported steps advance their entire requested time")
 	check(not contact.intersects_pose(rig.strand.points) and rig.strand._valid_positions(rig.strand.points),"supported cloth remains outside floor without length gain")
 	check(dynamics.kernel._bend_error(rig.strand.points)<=dynamics.kernel.ACCEPT_ERROR_M,"supported cloth retains finite native bend radius")
+	_check_fixed_outlet(dynamics,initial)
 	var final_energy: float=energy(rig,dynamics.velocities)
 	print("HOSE GRAVITY ENERGY: initial=",initial_energy," final=",final_energy)
 	check(final_energy<=initial_energy*1.001,"stationary floor response does not inject mechanical energy")

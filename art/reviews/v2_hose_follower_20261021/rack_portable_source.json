@@ -1,0 +1,20 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Only default native input path changed. Reuse native renders/checks because source input bytes and all geometry-producing code are unchanged; not new runtime proof.",
+  "executed_recipe_sha256": "f9b118460e75c771784043623fa5cea1daf402e695bb9f51ffdbed0cc6e528d3",
+  "portable_recipe_sha256": "344aa18697f803f23f990fa36b37f050aaebc3fc49e2a6600c29715520775bea",
+  "identical_blend_input_sha256": "5a50fd5514161e263f7af47f39bb6557f94c2101ae20948c7bb444b8486a9592",
+  "diff": [
+    "--- ",
+    "+++ ",
+    "@@ -11,7 +11,7 @@",
+    " from mathutils.bvhtree import BVHTree",
+    " ROOT=Path(__file__).resolve().parents[3]",
+    " OUT=Path(os.environ.get('ORISON_FIRE_CAPACITY_RACK_OUT',str(ROOT/'tmp/v2-hose-follower-20261021/rack_v1'))).resolve()",
+    "-CLOTH=Path(os.environ.get('ORISON_FIRE_CAPACITY_CLOTH',str(ROOT/'tmp/v2-deployable-hose-20261021/stock_v3/art/blender/fire_capacity_candidate.blend'))).resolve()",
+    "+CLOTH=Path(os.environ.get('ORISON_FIRE_CAPACITY_CLOTH',str(ROOT/'art/blender/v2_deployable_hose/stock_v3/blender/fire_capacity_candidate.blend'))).resolve()",
+    " assert OUT.is_relative_to(ROOT/'tmp') and CLOTH.is_relative_to(ROOT)",
+    " for path in ['art/blender','game/assets/props']:(OUT/path).mkdir(parents=True,exist_ok=True)",
+    " sys.path.insert(0,str(Path(__file__).parent))"
+  ]
+}

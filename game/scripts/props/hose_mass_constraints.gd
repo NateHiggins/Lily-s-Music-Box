@@ -243,3 +243,27 @@ func project_velocity(points: PackedVector3Array,velocity: PackedVector3Array,pl
 	var result: PackedVector3Array=coupled.project_velocity(points,velocity,planes)
 	if result.is_empty():error=coupled.error
 	return result
+func follow(target: PackedVector3Array,anchor: Vector3,planes: Dictionary,pins: Dictionary={}) -> PackedVector3Array:
+	error="";iterations=0;joint_usec=0;joint_accepted=false
+	last_input=target.duplicate();last_planes=planes.duplicate(true);last_result=PackedVector3Array()
+	var points: PackedVector3Array=coupled.follow(target,anchor,planes,pins)
+	iterations=coupled.iterations;error=coupled.error
+	if points.is_empty():return points
+	# The fast numerical path must pass the same independent material bounds.
+	var total:=0.
+	for i in lengths.size():
+		var difference: float=points[i].distance_to(points[i+1])-lengths[i]
+		if absf(difference)>ACCEPT_ERROR_M:error="follower interval residual";return PackedVector3Array()
+		total+=difference
+	if absf(total)>ACCEPT_ERROR_M or _bend_error(points)>ACCEPT_ERROR_M or points[-1]!=anchor:
+		error="follower material/anchor residual";return PackedVector3Array()
+	for ring: int in planes:
+		for plane: Dictionary in planes[ring]:
+			if plane.normal.dot(points[ring])<plane.offset-PROJECTION_ERROR_M:error="follower support residual";return PackedVector3Array()
+	for ring: int in pins:
+		if points[ring]!=pins[ring]:error="follower pin residual";return PackedVector3Array()
+	return points
+func pin_rings(indices: PackedInt32Array) -> bool:
+	if not coupled.pin_rings(indices):error=coupled.error;return false
+	for ring: int in indices:inverse[ring]=0.
+	return true

@@ -105,8 +105,8 @@ func contact_constraints(points: PackedVector3Array,limit: int=128) -> Dictionar
 	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true),"error":_response_error}
 func motion_constraints(before: PackedVector3Array,after: PackedVector3Array,limit: int=128) -> Dictionary:
 	_response_limit=clampi(limit,1,4096)
-	_test(before,after,true,true)
-	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true),"error":_response_error}
+	var blocked: bool=_test(before,after,true,true)
+	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true),"error":_response_error,"sweep_clear":not blocked and _response_valid and not _response_truncated}
 func _cell_hull(posed: Array[PackedVector3Array],sector: int,origin: Vector3,fraction: float) -> PackedVector3Array:
 	var hull:=PackedVector3Array()
 	for row in 4:

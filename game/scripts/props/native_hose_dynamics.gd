@@ -26,12 +26,24 @@ var _accepted_contacts:=0
 var profile_usec: Dictionary={}
 var projection_calls:=0
 var last_contact_energy_removed:=0.
+var use_follow_projection:=false
+var follow_successes:=0
+var follow_fallbacks:=0
+var follow_iterations:=0
+var last_follow_error:=""
+var last_internal_energy_removed:=0.
+var _last_projection_followed:=false
+var pin_outlet_direction:=false
+var _fixed_rings:=PackedInt32Array()
 func _profile(category: String,started: int) -> void:
 	profile_usec[category]=int(profile_usec.get(category,0))+Time.get_ticks_usec()-started
 func configure(owner_rig: RefCounted,owner_contact: RefCounted) -> bool:
 	if rig!=null or owner_rig==null or not owner_rig.configured or owner_contact==null or not owner_contact.ready:return false
 	if owner_contact.rig!=owner_rig:return false
 	if not kernel.configure(owner_rig.strand.lengths,owner_rig.rest):return false
+	if pin_outlet_direction:
+		_fixed_rings=PackedInt32Array([owner_rig.rest.size()-3,owner_rig.rest.size()-2])
+		if not kernel.pin_rings(_fixed_rings):return false
 	rig=owner_rig;contact=owner_contact
 	velocities.resize(rig.strand.points.size());velocities.fill(Vector3.ZERO)
 	masses.resize(velocities.size())
@@ -50,7 +62,24 @@ func _merge(planes: Dictionary,ring: int,normal: Vector3,offset: float) -> void:
 	planes[ring].append({"normal":normal,"offset":offset})
 func _project(target: PackedVector3Array,planes: Dictionary) -> PackedVector3Array:
 	var started: int=Time.get_ticks_usec();projection_calls+=1
-	var result: PackedVector3Array=kernel.project(target,rig.strand.anchor,planes)
+	var result:=PackedVector3Array()
+	_last_projection_followed=false
+	if use_follow_projection:
+		var pins: Dictionary={}
+		for ring: int in _fixed_rings:pins[ring]=rig.strand.points[ring]
+		var following_started: int=Time.get_ticks_usec()
+		result=kernel.follow(target,rig.strand.anchor,planes,pins)
+		_profile("follow_projection",following_started);follow_iterations+=kernel.iterations
+		if result.is_empty():follow_fallbacks+=1;last_follow_error=kernel.error
+		else:follow_successes+=1;_last_projection_followed=true
+	if not use_follow_projection:result=kernel.project(target,rig.strand.anchor,planes)
+	elif result.is_empty():
+		var fallback_started: int=Time.get_ticks_usec()
+		var seed: PackedVector3Array=kernel.coupled.last_iterate
+		# The failed fast solve still supplies a finite, fixed-neck seed.
+		# The original joint solve validates every material/support bound.
+		result=kernel.project(seed if seed.size()==target.size() else target,rig.strand.anchor,planes)
+		_profile("fallback_projection",fallback_started)
 	_profile("position_projection",started)
 	profile_usec["joint_projection"]=int(profile_usec.get("joint_projection",0))+kernel.joint_usec
 	projection_error=kernel.error
@@ -73,12 +102,14 @@ func _integrate(delta: float,gravity: Vector3,depth: int) -> bool:
 	var before: PackedVector3Array=rig.strand.points.duplicate();var speed:=velocities.duplicate()
 	var previous_count: int=accepted_substeps;var previous_time: float=advanced_time_s;var previous_contacts: int=_accepted_contacts
 	var previous_dissipation: float=last_contact_energy_removed
+	var previous_internal_dissipation: float=last_internal_energy_removed
 	if _advance(delta,gravity):
 		accepted_substeps+=1;advanced_time_s+=delta;_accepted_contacts+=contacts_resolved
 		return true
 	var failure: String=error
 	_rollback(before,speed)
 	last_contact_energy_removed=previous_dissipation
+	last_internal_energy_removed=previous_internal_dissipation
 	if depth<MAX_SUBDIVISION_DEPTH:
 		if _integrate(delta*.5,gravity,depth+1) and _integrate(delta*.5,gravity,depth+1):
 			var change: float=_energy_change(before,speed,gravity)
@@ -88,12 +119,15 @@ func _integrate(delta: float,gravity: Vector3,depth: int) -> bool:
 	_rollback(before,speed)
 	accepted_substeps=previous_count;advanced_time_s=previous_time;_accepted_contacts=previous_contacts
 	last_contact_energy_removed=previous_dissipation
+	last_internal_energy_removed=previous_internal_dissipation
 	error=failure
 	return false
 func step(delta: float,world_gravity: Vector3=Vector3(0,-9.81,0)) -> bool:
 	step_attempts=0;accepted_substeps=0;advanced_time_s=0.;_accepted_contacts=0
 	profile_usec={};projection_calls=0
 	last_contact_energy_removed=0.
+	last_internal_energy_removed=0.
+	follow_successes=0;follow_fallbacks=0;follow_iterations=0;last_follow_error=""
 	if rig==null or not is_finite(delta) or delta<=0. or delta>STEP_S+.00000001 or not world_gravity.is_finite():
 		error="invalid bounded dynamics step";return false
 	var before: PackedVector3Array=rig.strand.points.duplicate();var speed:=velocities.duplicate()
@@ -111,7 +145,8 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 	var predicted:=before.duplicate()
 	var gravity: Vector3=rig.model.global_basis.inverse()*world_gravity
 	var damping: float=exp(-3.*delta)
-	for i in range(predicted.size()-1):predicted[i]+=velocities[i]*delta*damping+gravity*delta*delta
+	for i in range(predicted.size()-1):
+		if kernel.inverse[i]>0.:predicted[i]+=velocities[i]*delta*damping+gravity*delta*delta
 	var planes: Dictionary={}
 	for iteration in 32:
 		response_iterations=iteration+1
@@ -132,7 +167,11 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 			error="invalid or truncated native contact response: "+str([result.valid,result.truncated,result.error]);return false
 		if result.planes.is_empty():
 			var sweep_started: int=Time.get_ticks_usec()
-			var blocked: bool=contact.veto(before,proposed)
+			# A successful full motion query already covered every moving and
+			# still native cell in this same synchronous world state. Reuse its
+			# explicit proof in the opt-in model; never cache collision answers
+			# between steps. Legacy mass-model checks retain their original path.
+			var blocked: bool=false if use_follow_projection and bool(result.get("sweep_clear",false)) else contact.veto(before,proposed)
 			_profile("final_sweep",sweep_started)
 			if blocked:error="native swept shell blocked release step";return false
 			var next_velocity:=PackedVector3Array();next_velocity.resize(velocities.size())
@@ -151,7 +190,14 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 			# The allowance is only the existing20micrometre positional precision;
 			# it is translation-independent, unlike a percentage of altitude.
 			if last_energy_delta>rig.strand.total_length*world_gravity.length()*.00002:
-				if planes.is_empty() or contacts_resolved==0:
+				var external_contact: bool=not planes.is_empty() and contacts_resolved>0
+				# The opt-in follower is a dissipative geometric constraint
+				# model. Its internal length/bend correction can also require
+				# velocity loss without a world impact. The mass model's free
+				# release policy is unchanged. Neither model can buy an elevated
+				# pose with unavailable energy; the same final budget still gates.
+				var internal_projection: bool=use_follow_projection and _last_projection_followed
+				if not external_contact and not internal_projection:
 					error="release proposal injects mechanical energy: "+str(last_energy_delta);return false
 				# Positional contact projection can create an excessive derived
 				# velocity. An inelastic impact dissipates it; the same strict
@@ -160,7 +206,9 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 				# constraints and zero velocity at the pinned outlet.
 				var impact: Dictionary=preload("res://scripts/props/hose_contact_energy.gd").dissipate(before,velocities,proposed,next_velocity,masses,rig.model.global_basis,world_gravity)
 				if not impact.valid:error="contact pose exceeds available mechanical energy";return false
-				next_velocity=impact.velocities;last_contact_energy_removed+=impact.removed
+				next_velocity=impact.velocities
+				if external_contact:last_contact_energy_removed+=impact.removed
+				else:last_internal_energy_removed+=impact.removed
 				last_energy_delta=0.
 				for i in velocities.size():last_energy_delta+=masses[i]*(((rig.model.global_basis*next_velocity[i]).length_squared()-(rig.model.global_basis*velocities[i]).length_squared())*.5-world_gravity.dot(rig.model.global_basis*(proposed[i]-before[i])))
 				if last_energy_delta>rig.strand.total_length*world_gravity.length()*.00002:error="dissipated contact exceeds unchanged energy bound";return false
@@ -178,6 +226,6 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 		response_history.append({"iteration":iteration,"planes":result.planes.size(),"required_correction":deepest})
 		for plane: Dictionary in result.planes:
 			var ring: int=plane.ring
-			if ring==before.size()-1:error="fixed outlet intersects world";return false
+			if ring==before.size()-1 or ring in _fixed_rings:error="fixed outlet intersects world";return false
 			_merge(planes,ring,plane.normal,plane.offset)
 	error="native response did not converge: "+str(response_history.slice(-4));return false

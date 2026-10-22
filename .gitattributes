@@ -2852,3 +2852,36 @@ game/tests/v2_fire_hose_world_contact_programme.gd -text
 game/tests/v2_fire_hose_gravity_programme.gd -text
 game/scripts/props/native_hose_rig.gd -text
 art/blender/v2_deployable_hose/** -text
+
+# Source-bound uninstalled hose follower and native review.
+art/blender/scripts/build_fire_capacity_rack.py -text
+art/blender/scripts/review_deployed_hose.py -text
+game/native/hose_math/src/hose_projection.cpp -text
+game/scripts/props/hose_contact_projection.gd -text
+game/scripts/props/hose_mass_constraints.gd -text
+game/scripts/props/native_hose_tether.gd -text
+game/tests/hose_follow_kernel_test.gd -text
+game/tests/HoseFollowKernelTest.tscn -text
+game/tests/v2_hose_follower_programme.gd -text
+game/tests/v2_hose_follower_test.gd -text
+game/tests/V2HoseFollowerTest.tscn -text
+game/tests/v2_hose_settling_programme.gd -text
+game/tests/v2_hose_settling_test.gd -text
+game/tests/V2HoseSettlingTest.tscn -text
+game/tests/v2_fire_carrier_profile.gd -text
+game/tests/V2FireCarrierProfile.tscn -text
+game/tests/v2_capacity_rack_surface_test.gd -text
+game/tests/V2CapacityRackSurfaceTest.tscn -text
+game/tests/v2_hose_payout_programme.gd -text
+game/tests/v2_hose_payout_test.gd -text
+game/tests/V2HosePayoutTest.tscn -text
+game/tests/v2_hose_right_payout_programme.gd -text
+game/tests/v2_hose_right_payout_test.gd -text
+game/tests/V2HoseRightPayoutTest.tscn -text
+game/tests/fixtures/v2_fire_capacity_rack.json -text
+game/tests/fixtures/v2_fire_capacity_rack.glb.import -text
+game/tests/fixtures/v2_hose_held_case.json -text
+game/tests/fixtures/v2_hose_held_roundoff_case.json -text
+game/tests/fixtures/v2_hose_taut_case.json -text
+art/reviews/v2_hose_follower_20261021/** -text
+art/reviews/v3_hose_follower_20261021/** -text

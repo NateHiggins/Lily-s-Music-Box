@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Full-length hose input, reduced rack, retained deformed-skin failure and remaining release/spray work | `design/V2_HOSE_FOLLOWER_STUDY_2026-10-22.md` |
 | V2 player-only fire-door contact, transform drift, measured tail improvement and p95 tradeoff | `design/V2_FIRE_PLAYER_CONTACT_2026-10-21.md` |
 | Uninstalled full-length hose candidate, physical support, release costs and remaining spray work | `design/V2_DEPLOYABLE_HOSE_STUDY_2026-10-21.md` |
 | Fire-cabinet step-query repair, reduced hose density, paired frame distributions and remaining deployment work | `design/V2_HOSE_RESPONSIVENESS_2026-10-21.md` |

@@ -15,6 +15,7 @@ func check(ok: bool,label: String) -> void:
 	if not ok:failures.append(label)
 func _projection_path() -> String:return "res://tests/fixtures/fire_capacity_rig.json"
 func _make_world_programme() -> RefCounted:return preload("res://tests/v2_fire_hose_world_contact_programme.gd").new()
+func _make_gravity_programme() -> RefCounted:return preload("res://tests/v2_fire_hose_gravity_programme.gd").new()
 func prepare(model: Node3D) -> bool:
 	var projection: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(_projection_path()))
 	check(rig.configure(model,projection),"native skin and authored centreline rings bind")
@@ -29,11 +30,12 @@ func prepare(model: Node3D) -> bool:
 func _sync() -> void:
 	endpoint.position=rig.strand.points[0]
 	endpoint.basis=Basis(Vector3.BACK,1.5708+PI)
+func _move_hose_endpoint(value: Vector3) -> bool:return rig.move_endpoint(value,contact.veto)
 func _grip() -> Dictionary:
 	return {"owner":self,"part":handle,"frame":self,"kind":"free",
 		"read":func():return endpoint.position,
 		"write":func(value: Vector3):
-			if held and contact!=null and contact.ready and rig.move_endpoint(value,contact.veto):_sync(),
+			if held and contact!=null and contact.ready and _move_hose_endpoint(value):_sync(),
 		"begin":func():
 			if held:return false
 			held=true;return true,
@@ -138,7 +140,7 @@ func run(holder: PlayerController) -> bool:
 	var roundtrip: Variant=JSON.parse_string(JSON.stringify(rig.snapshot()))
 	check(rig.restore(saved),"original physical strand restores")
 	check(rig.restore(roundtrip) and rig.strand.points==moved,"JSON roundtrip restores exact moved cloth positions")
-	var gravity:=preload("res://tests/v2_fire_hose_gravity_programme.gd").new()
+	var gravity: RefCounted=_make_gravity_programme()
 	check(await gravity.run(self,rig,contact),"native gravity and contact response programme")
 	for failure: String in gravity.failures:check(false,failure)
 	_sync()
