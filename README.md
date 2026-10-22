@@ -1,6 +1,6 @@
 # Lily's Music Box
 
-The live project is **Please Remain On The Line** — the Orison Apartments, a
+The live project is **Please Stay on the Line** (formerly *Please Remain On The Line*; retitled 2026-10-22) — the Orison Apartments, a
 first-person psychological horror set in a 1927 Queens block where sound moves
 through the building's own wiring. It is `art/` + `game/`.
 

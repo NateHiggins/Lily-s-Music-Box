@@ -27,7 +27,7 @@ worker crossing between them. It contains no dream geography, Tenant,
 impossible architecture, supernatural figure or preview of dream play. The
 fantasy is entirely composition, scale, weather and light applied to mundane
 work. Selecting a record never changes the image. The menu title is the actual
-project title, *Please Remain On The Line*.
+project title, *Please Stay on the Line* (retitled by owner ruling 2026-10-22; Bible §VIII.5.m).
 
 `TitleScreenTest.tscn` proves full durations, loop flags, opening selection,
 single-hero invariance and alternation. `TitleScreenAudioTest.tscn` proves

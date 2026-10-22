@@ -1,4 +1,4 @@
-PLEASE REMAIN ON THE LINE — friends build {{BUILD_NUMBER}}
+PLEASE STAY ON THE LINE — friends build {{BUILD_NUMBER}}
 Version {{VERSION}} · commit {{SHORT_SHA}} · not for redistribution
 
 INSTALL

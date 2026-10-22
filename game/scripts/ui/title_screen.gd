@@ -175,7 +175,7 @@ func _build_menu() -> void:
 			Color(0.59, 0.58, 0.53))
 	eyebrow.name = "Eyebrow"
 	menu.add_child(eyebrow)
-	var title := _label("PLEASE\nREMAIN ON\nTHE LINE", 46,
+	var title := _label("PLEASE\nSTAY ON\nTHE LINE", 46,
 			Color(0.90, 0.84, 0.70))
 	title.name = "GameTitle"
 	title.add_theme_font_override("font", _serif_font())

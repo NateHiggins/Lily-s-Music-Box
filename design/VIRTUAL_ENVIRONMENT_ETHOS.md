@@ -1,6 +1,6 @@
 # Virtual environment ethos
 
-This document is a binding design authority for Please Remain on the Line.
+This document is a binding design authority for Please Stay on the Line (retitled 2026-10-22).
 Where older milestone language describes a quest, objective, success, or
 failure, this contract governs player-facing behavior.
 

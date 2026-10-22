@@ -5,7 +5,7 @@ func _ready() -> void:
 	var failures := 0
 	var claims := {
 		"public product name is canonical": ProjectSettings.get_setting(
-				"application/config/name", "") == "Please Remain on the Line",
+				"application/config/name", "") == "Please Stay on the Line",
 		"version is explicit": ProjectSettings.get_setting(
 				"application/config/version", "") == "0.1.0",
 		"user data does not depend on a renamed project": bool(

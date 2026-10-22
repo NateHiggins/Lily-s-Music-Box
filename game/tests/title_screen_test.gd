@@ -23,7 +23,7 @@ func _ready() -> void:
 
 	_check("the real title replaces the maintenance placeholder",
 			screen.find_child("GameTitle", true, false).text \
-			== "PLEASE\nREMAIN ON\nTHE LINE")
+			== "PLEASE\nSTAY ON\nTHE LINE")
 	_check("title establishes keyboard and controller focus",
 			screen._first_menu_button.has_focus())
 	screen._open_settings()

@@ -29,11 +29,11 @@ retired V1 building and is not reachable in the shipping V2 runtime
 
 ## 2. What the project actually is
 
-- **Title.** The covenant (`design/ORISON_BIBLE.md:7`) names the game
-  *Please Remain On The Line*; the title screen renders exactly that and a
-  test pins it. The building and the working name is **the Orison**. The
-  brief's title *Please Stay on the Line* matches nothing in the tree. No
-  asset was renamed. See decision D1.
+- **Title.** At the start of this pass the covenant named the game
+  *Please Remain On The Line* and a test pinned the title screen; the
+  brief's *Please Stay on the Line* matched nothing in the tree. The owner
+  ruled the rename on 2026-10-22 (D1, Bible §VIII.5.m). The building and
+  the working name remain **the Orison**.
 - **Period and place.** Saturday, 10 November 1928, a prewar block in
   Queens, New York, in a world where signal technology ran forty to sixty
   years ahead of everything else (Bible §VIII). The Rule of Signal is the
@@ -189,10 +189,13 @@ Representative before-and-after, with the reasoning in one line each:
 
 Each is stated as the smallest decision that unblocks the dependent text.
 
-- **D1 — Title.** The repository and its tests say *Please Remain On The
-  Line*; the brief says *Please Stay on the Line*. Decision: confirm the
-  established title, or rule a rename (title screen literal, title test,
-  Bible line 7, `game/docs/title_screen.md`).
+- **D1 — Title. RULED 2026-10-22: *Please Stay on the Line*.** The owner
+  ruled the rename after this pass reported the conflict. Applied in the
+  same session: Bible line 7 and new §VIII.5.m, `project.godot`, both export
+  preset fields, the title screen and its test, the project-identity test,
+  the television hold card, `game/docs/title_screen.md`, README, HANDOFF, the
+  tester readme, the environment ethos and the Astra governance documents.
+  Dated historical reports keep the old title as history.
 - **D2 — Traces of tenancy before 1928.** `dead_letters.json` (a tenant
   dead in 5D in 1924, a bank writing to a non-tenant "for a decade"),
   `library.json` ("Tenants' Association Minutes, 1919–1924") and the
@@ -264,7 +267,7 @@ Names and terms as the text uses them. Prefer these spellings.
 | Term | Use |
 |---|---|
 | the Orison | the building; also the game's working name. Never "the Orison Apartments" except on the objective card "FIRST SHIFT — ORISON APARTMENTS" and the legacy sign. |
-| *Please Remain On The Line* | the title, rendered on three lines on the title screen |
+| *Please Stay on the Line* | the title (ruled 2026-10-22), rendered on three lines on the title screen; *Please Remain On The Line* is the retired title |
 | Vantry, Vantry & Co. | the 1912 builders; "Vantry point" is the saucer-sized ceiling listener in every room; "Vantry service set" or "the carried set" is the player's radiophone; "service wire" and "field slip" are its printed paper |
 | the Tenant | the one presence that is the building; "she" in `THE_TENANT.md`, "it" in the Bible; never given a form |
 | Room 0 | "SHARED MECHANICAL / DEVOTIONAL / UNRESOLVED"; exists while the hum does |
