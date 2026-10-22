@@ -80,7 +80,8 @@ func acquire(candidate: Dictionary) -> bool:
 	if candidate.has("begin") and not candidate.begin.call(): return false
 	_record_cost("begin",str(candidate.owner.name),started)
 	target = candidate
-	_gesture_axis=Vector2.ZERO
+	_gesture_axis=candidate.get("gesture_screen_axis",Vector2.ZERO)
+	if candidate.has("bind_holder"):candidate.bind_holder.call(player)
 	contact = target.part.to_local(candidate.hit_position)
 	changed = false
 	motion_feedback = "grabbed"
@@ -228,16 +229,17 @@ func validate() -> void:
 		target={};changed=false
 		return
 	_observe_motion()
+	var reach: Vector3=target.reach_point.call() if target.has("reach_point") else target.part.to_global(contact)
 	if player.call_locked or player.mouse_released \
 			or (not player.touch_input and not player.inspecting() and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) \
 			or not target.part.is_inside_tree() \
-			or player.camera.global_position.distance_to(target.part.to_global(contact)) > 2.4:
+			or player.camera.global_position.distance_to(reach) > 2.4:
 		release()
 		return
 	# A held pickup may be occluded when its swept hand pose meets a wall.
 	# Keep possession and let the owner's physical constraint stop it. Reach,
 	# cancellation and ownership checks above still apply.
-	if holding_pickup(): return
+	if holding_pickup() or target.get("unobstructed_hold",false): return
 	var query := PhysicsRayQueryParameters3D.create(player.camera.global_position,target.part.to_global(contact))
 	query.collide_with_areas = true
 	query.exclude = [player.get_rid()]

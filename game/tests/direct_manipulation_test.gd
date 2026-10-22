@@ -65,7 +65,7 @@ func _run() -> void:
 	check(is_zero_approx(door._body.rotation.y),"acquire does not open leaf")
 	var camera_pose := player.camera.global_transform
 	for i in 8:
-		drag(Vector2(0,8))
+		drag(Vector2(8,0))
 		await get_tree().physics_frame
 	check(absf(door._body.rotation.y)>.01,"mouse displacement moves leaf")
 	check(player.camera.global_transform.is_equal_approx(camera_pose),"hand motion leaves camera stable")
@@ -98,7 +98,7 @@ func _run() -> void:
 	player.position.z=-1.7
 	door.leaf_state="locked"
 	await get_tree().physics_frame
-	click();drag(Vector2(0,20));click()
+	click();drag(Vector2(20,0));click()
 	check(is_zero_approx(door._body.rotation.y) and door.leaf_state=="locked","locked leaf resists hand motion")
 	door.leaf_state="closed"
 	door.restore_mechanism({"angle":angle})

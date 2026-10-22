@@ -1,5 +1,5 @@
 extends DoorProp
-## Fitted presentation and compound sweep, retaining DoorProp's hand/lock/save owners.
+## Fitted presentation and easy bounded motion, retaining DoorProp's hand/lock/save owners.
 const NATIVE := preload("res://assets/props/passage_shop_leaves.glb")
 const Glass := preload("res://scripts/building/orison_v2_expressive_glass.gd")
 static var _meshes: Dictionary = {}
@@ -35,12 +35,6 @@ func _build_storefront() -> void:
 
 func motion_target_angle(want_open: bool) -> float:
 	return deg_to_rad(-90.0 if swing_out else 90.0) if want_open else 0.0
-
-func _motion_is_blocked(pose: Transform3D, _shape_node: CollisionShape3D) -> bool:
-	# Pulls are moving physical stock too. Never exclude the floor, player or furniture.
-	for child in _body.get_children():
-		if child is CollisionShape3D and super._motion_is_blocked(pose,child): return true
-	return false
 
 func valid_mechanism(value: Variant) -> bool:
 	# Accept historical 100-degree saves. The inherited restore clamps them to

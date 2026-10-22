@@ -34,6 +34,8 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Passage-first door controls and queued input checks | `design/V2_EASY_DOORS_2026-10-22.md` |
+| Requested shower spray, steam and side-correct wet-glass work | `design/V2_BATHROOM_WET_GLASS_BRIEF_2026-10-22.md` |
 | Toilet casting, attached hinges, linked flush mechanism and curtain mouse travel | `design/V2_TOILET_FORM_AND_GESTURES_2026-10-22.md` |
 | Cistern pickup test migration and continuous held-object reticle feedback | `design/V2_CISTERN_HAND_FEEDBACK_2026-10-22.md` |
 | Returning inspected books to the hand, loose-cover pickup and retained mechanism-test failures | `design/V2_BOOK_INSPECTION_RETURN_2026-10-22.md` |
