@@ -16,6 +16,9 @@ var _feedback_until := 0
 var profiling := false
 var profile_records: Array[Dictionary] = []
 var _held_depth := 0.0
+var _held_body: PhysicsBody3D
+var _added_holder_exception := false
+var _added_stock_exception := false
 
 func _record_cost(stage: String, owner_name: String, started: int) -> void:
 	if not profiling: return
@@ -84,7 +87,28 @@ func acquire(candidate: Dictionary) -> bool:
 	_motion_origin=target.read.call()
 	_held_depth=0.
 	_holder_pose=player.global_transform
+	_bind_carrier_collision()
 	return true
+
+func _bind_carrier_collision() -> void:
+	if not holding_pickup() or player is not PhysicsBody3D: return
+	var body: Node=target.part
+	while body!=null and body is not PhysicsBody3D: body=body.get_parent()
+	if body==null or body==player: return
+	_held_body=body as PhysicsBody3D
+	var holder:=player as PhysicsBody3D
+	_added_holder_exception=not holder.get_collision_exceptions().has(_held_body)
+	_added_stock_exception=not _held_body.get_collision_exceptions().has(holder)
+	if _added_holder_exception: holder.add_collision_exception_with(_held_body)
+	if _added_stock_exception: _held_body.add_collision_exception_with(holder)
+
+func _unbind_carrier_collision() -> void:
+	if is_instance_valid(_held_body) and is_instance_valid(player):
+		var holder:=player as PhysicsBody3D
+		if holder!=null:
+			if _added_holder_exception: holder.remove_collision_exception_with(_held_body)
+			if _added_stock_exception: _held_body.remove_collision_exception_with(holder)
+	_held_body=null;_added_holder_exception=false;_added_stock_exception=false
 
 func follow_holder() -> void:
 	var previous := _holder_pose
@@ -124,6 +148,7 @@ func release(notify_change := true) -> void:
 	_observe_motion()
 	var old := target
 	var accepted_change:=changed
+	_unbind_carrier_collision()
 	target = {}
 	_feedback_pending = false
 	changed=false

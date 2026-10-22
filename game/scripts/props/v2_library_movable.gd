@@ -16,6 +16,8 @@ var _push_frame := -1
 var _pushed: Dictionary = {}
 var _pickup_exit := Vector3.ZERO
 var _pickup_extracted := false
+var _pickup_lifted := false
+var _pickup_lift_goal := Vector3.ZERO
 var _hold_blocked := false
 var _hold_feedback_active := false
 
@@ -58,8 +60,10 @@ func _claim(tag: String) -> bool:
 	_rest_until=-1
 	_contact_ids.clear()
 	_before=transform
-	_pickup_exit=global_position+shelf.global_basis.z*.26
+	_pickup_lift_goal=global_position+Vector3.UP*.004
+	_pickup_exit=_pickup_lift_goal+shelf.global_basis.z*.26
 	_pickup_extracted=not requires_shelf_withdrawal()
+	_pickup_lifted=_pickup_extracted
 	_hold_blocked=false
 	_hold_feedback_active=false
 	_held=true;_hand_tag=tag
@@ -95,6 +99,12 @@ func hold_pose(camera_pose: Transform3D, centered := false) -> void:
 	# First withdraw from the shelf, keeping the binding/bookend orientation.
 	# The accepted body follows the ordinary native-stock sweep throughout.
 	if not _pickup_extracted:
+		if not _pickup_lifted:
+			_carry(position+shelf.global_basis.inverse()*(_pickup_lift_goal-global_position))
+			_pickup_lifted=global_position.distance_to(_pickup_lift_goal)<.0001
+			if not _pickup_lifted:
+				_hold_blocked=not _last_motion.is_empty()
+				return
 		var withdraw:=_pickup_exit-global_position
 		_carry(position+shelf.global_basis.inverse()*withdraw.limit_length(.06))
 		_pickup_extracted=global_position.distance_to(_pickup_exit)<.002
@@ -128,10 +138,18 @@ func turn_grip(axis: Vector3) -> Dictionary:
 		"owns":func(): return _held and _hand_tag=="turn",
 		"end":_release}
 
+func _query_exclusions() -> Array[RID]:
+	var result: Array[RID]=[get_rid()]
+	# Swept hand queries follow the body's real collision exceptions. The
+	# active carrier is excluded; every external obstruction still participates.
+	for body: PhysicsBody3D in get_collision_exceptions():
+		if is_instance_valid(body): result.append(body.get_rid())
+	return result
+
 func _shape_query(solid: CollisionShape3D, pose: Transform3D) -> PhysicsShapeQueryParameters3D:
 	var query:=PhysicsShapeQueryParameters3D.new()
 	query.shape=solid.shape;query.transform=pose*solid.transform
-	query.exclude=[get_rid()];query.margin=.00002;query.collision_mask=collision_mask
+	query.exclude=_query_exclusions();query.margin=.00002;query.collision_mask=collision_mask
 	return query
 
 func _contact(info: Dictionary, motion: Vector3) -> void:
@@ -212,7 +230,7 @@ func _clear_pose(pose: Transform3D, selected: Array[CollisionShape3D]=[]) -> boo
 		if shape.disabled: continue
 		var query:=PhysicsShapeQueryParameters3D.new()
 		query.shape=shape.shape;query.transform=pose*shape.transform
-		query.exclude=[get_rid()];query.margin=.00001;query.collision_mask=collision_mask
+		query.exclude=_query_exclusions();query.margin=.00001;query.collision_mask=collision_mask
 		if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): return false
 	return true
 

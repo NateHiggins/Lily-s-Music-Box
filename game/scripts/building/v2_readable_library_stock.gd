@@ -12,7 +12,12 @@ var hulls: Dictionary = {}
 var hull_poses: Dictionary = {}
 var gathering_hulls: Dictionary = {}
 var gathering_poses: Dictionary = {}
+var closed_hulls: Dictionary = {}
+var closed_poses: Dictionary = {}
 var printed_materials: Dictionary = {}
+var _tinted_parts: Dictionary = {}
+var _tint_cache: Dictionary = {}
+var _morph_geometry: Dictionary = {}
 
 func prepare() -> bool:
 	data=JSON.parse_string(FileAccess.get_file_as_string(PATH))
@@ -23,8 +28,26 @@ func prepare() -> bool:
 	if data.books.size()!=spreads.size() or str(data.material_intent.soot).is_empty() or str(data.material_intent.paper).is_empty(): return false
 	# Validate the authored consumer schema before constructing any physics or
 	# labels. Identity maps remain dynamic; malformed dimensions/text fail closed.
+	for format_id: String in data.formats:
+		var format: Dictionary=data.formats[format_id]
+		if float(format.width_m)<=.10 or float(format.height_m)<=.15 or float(format.cover_m)<=0. or float(format.leaf_m)<=0. or str(format.binding).is_empty(): return false
+	for publisher_id: String in data.publishers:
+		if str(data.publishers[publisher_id].name).is_empty() or str(data.publishers[publisher_id].place).is_empty(): return false
+	for layout_id: String in data.publication_layouts:
+		var layout: Dictionary=data.publication_layouts[layout_id]
+		if float(layout.body_em_m)<.002 or float(layout.margin_fraction)<=0. or int(layout.columns) not in [1,2] or float(layout.plate_fraction)<=0.: return false
 	for identity: String in data.books:
 		var book: Dictionary=data.books[identity]
+		if not data.formats.has(str(book.format)) or not data.publishers.has(str(book.publisher)) or not data.publication_layouts.has(str(book.layout)): return false
+		var format: Dictionary=data.formats[str(book.format)]
+		if not is_equal_approx(float(book.width),float(format.width_m)) or not is_equal_approx(float(book.height),float(format.height_m)): return false
+		if int(book.page_count)<8 or not is_equal_approx(float(book.thickness),int(book.page_count)*.5*float(format.leaf_m)+2.*float(format.cover_m)): return false
+		if str(book.opening_style) not in ["hardback","paperback","pamphlet"]: return false
+		if book.opening_keys.size()!=8 or book.opening_angles.size()!=9 or book.spine_frames.size()!=9 or book.get("subtitle") is not String: return false
+		for index in 9:
+			if not is_equal_approx(float(book.opening_angles[index]),PI*index/8.) or book.spine_frames[index].size()!=7: return false
+		for index in 8:
+			if str(book.opening_keys[index])!="Opening%02d"%(index+1): return false
 		if not data.page_designs.has(identity): return false
 		var design: Dictionary=data.page_designs[identity]
 		if str(design.style) not in ["manual","register","prospectus","verse","botanical","literary","pamphlet"] or str(design.annotation_heading).is_empty(): return false
@@ -43,6 +66,7 @@ func prepare() -> bool:
 			if door.pivot.size()!=3 or float(door.angle_limit)<=0. or float(door.angle_limit)>PI*.5 \
 				or float(door.inset_limit)<=0. or float(door.inset_limit)>float(body.depth): return false
 	for identity: String in data.parts:
+		if data.parts[identity].has("render_surface") and data.parts[identity].render_surface is not bool: return false
 		if str(data.parts[identity].role) not in ["fixed","left","right","carriage","case","door","print","end"]: return false
 	for key: String in data.finishes:
 		var finish: Dictionary=data.finishes[key]
@@ -61,6 +85,17 @@ func prepare() -> bool:
 		material.uv1_scale=Vector3.ONE/float(catalogue[key].meters_per_tile)
 		material.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 		materials[key]=material
+	for identity: String in data.parts:
+		var part: Dictionary=data.parts[identity]
+		if not part.has("tint"): continue
+		if part.tint is not Array or part.tint.size()!=4: return false
+		for value: Variant in part.tint:
+			if typeof(value) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value)) or float(value)<0. or float(value)>1.: return false
+		var key:=str(part.material)+JSON.stringify(part.tint)
+		if not _tint_cache.has(key):
+			var pigment: StandardMaterial3D=materials[str(part.material)].duplicate()
+			pigment.albedo_color=Color(part.tint[0],part.tint[1],part.tint[2],part.tint[3]);_tint_cache[key]=pigment
+		_tinted_parts[identity]=_tint_cache[key]
 	var packed:=load(str(data.asset)) as PackedScene
 	if packed==null: return false
 	var model:=packed.instantiate()
@@ -92,6 +127,11 @@ func prepare() -> bool:
 		var bounds:=_bounds(end.parts)
 		if absf(bounds.size.x-float(end.width))>.00002 or absf(bounds.size.z-float(end.depth))>.00002 \
 			or bounds.end.y>float(end.height)+.00002 or bounds.position.y<float(end.support_y)-.00002: return false
+	for decoration_id: String in data.decorations:
+		var decoration: Dictionary=data.decorations[decoration_id]
+		if decoration.get("parts") is not Array or decoration.parts.is_empty() or decoration.get("open_vessel") is not bool: return false
+		for part: String in decoration.parts:
+			if not meshes.has(part): return false
 	for style: String in data.illustrations:
 		var plate: Dictionary=data.illustrations[style]
 		var bounds:=_bounds([plate.part])
@@ -168,6 +208,98 @@ func _gather_book_hulls(blueprints: Dictionary) -> void:
 			frames[role]=Transform3D(Basis.IDENTITY,centre)
 		gathering_hulls[identity]=groups
 		gathering_poses[identity]=frames
+		var closed:=PackedVector3Array()
+		for role: String in groups:
+			for point: Vector3 in groups[role].points: closed.append(frames[role]*point)
+		var bounds:=AABB(closed[0],Vector3.ZERO)
+		for point: Vector3 in closed: bounds=bounds.expand(point)
+		var centre:=bounds.get_center()
+		for index in closed.size(): closed[index]-=centre
+		var hull:=ConvexPolygonShape3D.new();hull.points=closed;hull.margin=.00008
+		closed_hulls[identity]=hull;closed_poses[identity]=Transform3D(Basis.IDENTITY,centre)
+
+# Reuse imported vertex streams. Only accepted/proposed opening work samples
+# them; parked and held closed volumes never run a deformation simulation.
+func opening_weights(angle: float) -> PackedFloat32Array:
+	var weights:=PackedFloat32Array();weights.resize(8)
+	var step:=clampf(angle,0.,PI)*8./PI
+	var low:=floori(step);var high:=mini(8,low+1);var fraction:=step-low
+	if low>0: weights[low-1]=1.-fraction
+	if high>0 and high!=low: weights[high-1]=fraction
+	return weights
+
+func left_pose(identity: String,angle: float) -> Transform3D:
+	var thickness:=float(data.books[identity].thickness)
+	if not data.books[identity].has("opening_keys"): return Transform3D(Basis(Vector3.DOWN,angle),Vector3.ZERO)
+	var flex: float={"hardback":0.,"paperback":.22,"pamphlet":.30}.get(str(data.books[identity].get("opening_style","hardback")),0.)
+	var span:=thickness*(1.-.06*sin(angle)-flex*pow(sin(angle*.5),2.))
+	return Transform3D(Basis(Vector3.DOWN,angle),Vector3(-span*sin(angle*.5)+thickness*.5*sin(angle),0.,-thickness*.5+span*cos(angle*.5)-thickness*.5*cos(angle)))
+
+func _part_points(identity: String,weights: PackedFloat32Array) -> PackedVector3Array:
+	if not _morph_geometry.has(identity):
+		var streams: Array=[]
+		var mesh: ArrayMesh=meshes[identity]
+		for surface in mesh.get_surface_count():
+			streams.append({"base":mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX],"targets":mesh.surface_get_blend_shape_arrays(surface)})
+		_morph_geometry[identity]=streams
+	var points:=PackedVector3Array()
+	var normalized: bool=(meshes[identity] as ArrayMesh).blend_shape_mode==Mesh.BLEND_SHAPE_MODE_NORMALIZED
+	for stream: Dictionary in _morph_geometry[identity]:
+		var vertices: PackedVector3Array=stream.base
+		var posed:=vertices.duplicate()
+		for key in mini(weights.size(),stream.targets.size()):
+			if weights[key]<=0.: continue
+			var target: PackedVector3Array=stream.targets[key][Mesh.ARRAY_VERTEX]
+			for index in posed.size(): posed[index]+=(target[index]-vertices[index] if normalized else target[index])*weights[key]
+		for point: Vector3 in posed: points.append(poses[identity]*point)
+	return points
+
+func page_profile(identity: String,side: String,angle: float) -> Array:
+	var face_z:=float(data.books[identity].left_page_z)+.00004 if side=="left" else float(data.books[identity].right_page_z)-.00004
+	return surface_profile(identity+"__"+side+"_leaves",face_z,angle)
+
+func surface_profile(part: String,face_z: float,angle: float) -> Array:
+	var neutral:=_part_points(part,opening_weights(0.))
+	var posed:=_part_points(part,opening_weights(angle))
+	var samples: Dictionary={}
+	for index in neutral.size():
+		if absf(neutral[index].z-face_z)>.0000002: continue
+		var key:=roundi(neutral[index].x*100000000.)
+		samples[key]=Vector3(neutral[index].x,posed[index].x,posed[index].z)
+	var result: Array=samples.values()
+	result.sort_custom(func(a: Vector3,b: Vector3): return a.x<b.x)
+	return result
+
+func sample_page(profile: Array,x: float) -> Vector4:
+	var low:=0;var high:=profile.size()-1
+	while high-low>1:
+		var middle: int=(low+high)/2
+		if float(profile[middle].x)<x: low=middle
+		else: high=middle
+	var a: Vector3=profile[low];var b: Vector3=profile[high]
+	var fraction:=clampf((x-a.x)/(b.x-a.x),0.,1.)
+	return Vector4(lerpf(a.y,b.y,fraction),lerpf(a.z,b.z,fraction),(b.y-a.y)/(b.x-a.x),(b.z-a.z)/(b.x-a.x))
+
+func posed_gatherings(identity: String,angle: float) -> Dictionary:
+	var groups: Dictionary={}
+	if is_zero_approx(angle):
+		for role: String in gathering_hulls[identity]: groups[role]={"shape":gathering_hulls[identity][role],"pose":gathering_poses[identity][role]}
+		return groups
+	var weights:=opening_weights(angle)
+	for role: String in ["left","right","fixed"]:
+		var vertices:=PackedVector3Array()
+		var frame:=left_pose(identity,angle) if role=="left" else Transform3D.IDENTITY
+		for part: String in data.books[identity].parts:
+			if not bool(data.parts[part].collision) or str(data.parts[part].role)!=role: continue
+			vertices.append_array(_part_points(part,weights))
+		if vertices.is_empty(): continue
+		var bounds:=AABB(vertices[0],Vector3.ZERO)
+		for point: Vector3 in vertices: bounds=bounds.expand(point)
+		var centre:=bounds.get_center()
+		for index in vertices.size(): vertices[index]-=centre
+		var hull:=ConvexPolygonShape3D.new();hull.points=vertices;hull.margin=.00008
+		groups[role]={"shape":hull,"pose":frame*Transform3D(Basis.IDENTITY,centre)}
+	return groups
 
 func _bounds(parts: Array) -> AABB:
 	var result:=AABB()
@@ -182,7 +314,7 @@ func draw(parent: Node3D, identity: String) -> MeshInstance3D:
 	result.name=identity
 	result.mesh=meshes[identity]
 	result.transform=poses[identity]
-	result.material_override=printed_materials.get(identity,materials[str(data.parts[identity].material)])
+	result.material_override=_tinted_parts.get(identity,printed_materials.get(identity,materials[str(data.parts[identity].material)]))
 	result.set_meta("readable_library_part",identity)
 	result.set_meta("material_key",str(data.parts[identity].material))
 	parent.add_child(result)
@@ -198,7 +330,7 @@ func collision(parent: CollisionObject3D, identity: String, pose: Transform3D) -
 	return shape
 
 func finish() -> void:
-	meshes.clear();poses.clear();materials.clear();printed_materials.clear();hulls.clear();hull_poses.clear();gathering_hulls.clear();gathering_poses.clear()
+	_tinted_parts.clear();_tint_cache.clear();_morph_geometry.clear();meshes.clear();poses.clear();materials.clear();printed_materials.clear();hulls.clear();hull_poses.clear();gathering_hulls.clear();gathering_poses.clear();closed_hulls.clear();closed_poses.clear()
 
 static func valid_copy_records(records: Array, stock: RefCounted) -> bool:
 	var seen: Dictionary={}

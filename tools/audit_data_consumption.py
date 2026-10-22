@@ -58,7 +58,7 @@ DYNAMIC_MAP_PATHS_BY_SCHEMA = {
 DYNAMIC_MAP_PATHS_BY_FILE = {
     # Readable library cache resolves authored stock/finish/plate identities;
     # record values still need ordinary production field readers.
-    "orison_v2/readable_library.json": frozenset({"parts", "books", "cases", "bookends", "finishes", "illustrations", "page_designs"}),
+    "orison_v2/readable_library.json": frozenset({"parts", "books", "cases", "bookends", "finishes", "illustrations", "page_designs", "formats", "publishers", "publication_layouts", "decorations"}),
     "orison_v2/nook_readable_books.json": frozenset({"books", "parts"}),
     "orison_v2/book_spreads.json": frozenset({"spreads"}),
     # FunctionalProp._ready: _catalog.get(prop_type).

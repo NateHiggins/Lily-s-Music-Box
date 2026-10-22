@@ -28,17 +28,36 @@ func _run() -> void:
 	check(shelf.valid_library(encoded),"slot JSON payload validates")
 	shelf.restore_order(encoded)
 	check(equivalent(shelf.library_snapshot(),original),"slot JSON round trip")
-	var legacy:=original.duplicate(true);legacy.schema_version=2;legacy.erase("slots")
+	var legacy:=original.duplicate(true);legacy.schema_version=2;legacy.erase("slots");legacy.erase("geometry")
 	for entry: Dictionary in legacy.books.values(): entry.erase("slot")
 	check(shelf.valid_library(legacy),"legacy schema 2 accepted")
 	shelf.restore_order(legacy)
 	for book: Node3D in shelf._books.values(): check(book.freeze and book.shelf_slot>=0,"legacy resting book adopts slot: "+book.stock_id)
+	var previous:=original.duplicate(true);previous.schema_version=3;previous.erase("geometry")
+	for row: Array in previous.slots: row[0]+=.03
+	for entry: Dictionary in previous.books.values(): entry.body.position[0]+=.03
+	var loose_id: String=shelf._books.keys()[0]
+	previous.books[loose_id].slot=-1
+	previous.books[loose_id].body.position=[2.,.5,2.]
+	check(shelf.valid_library(previous),"schema 3 displaced placements and loose stock validate")
+	shelf.restore_order(previous)
+	for identity: String in shelf._books:
+		var restored: Node3D=shelf._books[identity]
+		if identity==loose_id:
+			check(restored.shelf_slot==-1 and restored.position.is_equal_approx(Vector3(2.,.5,2.)),"geometry migration preserves loose book pose")
+		else:
+			check(restored.transform.is_equal_approx(shelf.book_slots[restored.shelf_slot]),"geometry migration refits parked stock: "+identity)
+	shelf.restore_order(encoded)
+	player._grab.profiling=true
 	player.set_mouse_released(false)
 	var book: Node3D=shelf._books.values()[2]
+	var player_before_pickup:=player.global_position
 	check(await grab_visible_stock(book),"real primary click picks up binding")
 	if player._grab.active():
 		for frame in 110: await get_tree().physics_frame
 		check(player._grab.active() and player._grab.holding_pickup(),"pickup remains in hand")
+		check(player.get_collision_exceptions().has(book) and book.get_collision_exceptions().has(player),"held stock excludes only its carrier from physical contact")
+		check(Vector2(player.global_position.x-player_before_pickup.x,player.global_position.z-player_before_pickup.z).length()<.01,"carried book cannot push idle player away")
 		var wanted: Vector3=player.camera.global_transform*Vector3(.17,-.16,-.48)
 		check((book.global_transform*book.pickup_centre()).distance_to(wanted)<.003,"binding reaches FPS held pose")
 		check(book.shelf_slot==-1,"pickup vacates placement spot")
@@ -73,10 +92,25 @@ func _run() -> void:
 		print("FLOATING COVER TARGET: ",selected)
 		check(selected.get("part")==book.left,"free cursor identifies actual cover")
 		click()
-		if player._grab.active():
-			check(await hinge(PI),"actual mouse opens floating cover to full spread")
+		if player._grab.active() and player._grab.target.kind=="hinge":
+			var blocker:=StaticBody3D.new();blocker.name="CoverTravelObstruction"
+			var block_shape:=CollisionShape3D.new();var block_box:=BoxShape3D.new();block_box.size=Vector3(.035,float(book.construction.height)*.75,.035);block_shape.shape=block_box;blocker.add_child(block_shape);add_child(blocker)
+			blocker.global_transform=book.global_transform*stock.left_pose(book.stock_id,PI*.5)*Transform3D(Basis.IDENTITY,Vector3(float(book.construction.width)*.65,float(book.construction.height)*.5,0.))
+			for frame in 2: await get_tree().physics_frame
+			check(not await hinge(PI) and book.opening<PI-.1,"native obstruction stops actual cover travel")
+			check(player._grab.feedback(player._grab.target).state=="blocked","reticle reports authoritative cover obstruction")
+			blocker.free()
+			for frame in 2: await get_tree().physics_frame
+			check(await hinge(PI),"actual mouse opens floating cover to full spread after obstruction clears")
+			check(book._closed_solid.disabled and book._solids.size()==3,"opened binding restores three native moving groups")
 			await capture("floating_spread")
 			click()
+		var fov:=player.camera.fov
+		var zoom:=InputEventMouseButton.new();zoom.pressed=true;zoom.button_index=MOUSE_BUTTON_WHEEL_UP;zoom.factor=15.
+		player._unhandled_input(zoom)
+		check(player.camera.fov<fov and book.global_transform.is_equal_approx(pose),"reading zoom preserves fixed floating pose")
+		check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"inspection releases temporary carrier exceptions")
+		await capture("floating_spread_zoom")
 		await space()
 	# Reconstruct before testing placement, with no hidden manipulation of the
 	# active hand. The slot is a save authority, not a fresh rigid-body pile.
@@ -121,5 +155,8 @@ func _run() -> void:
 	for frame in 100: await get_tree().physics_frame
 	click()
 	check(not player._grab.active() and not book.freeze and book.shelf_slot==-1,"second primary click releases held book outside a placement slot")
+	check(book._closed_solid.disabled and book._solids.size()==3,"released book restores stable native physical groups")
+	check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"primary release restores carrier contact")
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("input_costs.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","records":player._grab.profile_records},"\t"))
 	print("BOOK SLOT HAND DIAGNOSTIC: ","PASS" if failures.is_empty() else "FAIL"," checks=",checks," failures=",failures)
 	get_tree().quit(failures.size())

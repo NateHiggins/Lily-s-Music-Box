@@ -437,6 +437,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		_grab.move_depth((-.025 if event.button_index==MOUSE_BUTTON_WHEEL_UP else .025)*event.factor)
 		get_viewport().set_input_as_handled()
 		return
+	if inspecting() and event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and not _grab.active() and inspect_owner.has_method("reading_view_active") and inspect_owner.reading_view_active():
+		var pixel:=get_viewport().get_mouse_position()
+		var old_ray:=camera.global_basis.inverse()*camera.project_ray_normal(pixel)
+		camera.fov=clampf(camera.fov+(-2. if event.button_index==MOUSE_BUTTON_WHEEL_UP else 2.)*event.factor,8.,65.)
+		var new_ray:=camera.global_basis.inverse()*camera.project_ray_normal(pixel)
+		# Zoom about the free cursor with a rotation at the same eye position.
+		# The inspected stock and the physical camera anchor never translate.
+		_inspect_anchor.basis=_inspect_anchor.basis*Basis(Quaternion(new_ray,old_ray))
+		camera.global_transform=_inspect_anchor
+		get_viewport().set_input_as_handled();return
 	if inspecting():
 		if event.is_action_pressed("pause_services") or event.is_action_pressed("release_mouse"):
 			end_inspection()

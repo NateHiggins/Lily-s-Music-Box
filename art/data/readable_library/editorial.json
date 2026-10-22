@@ -1,0 +1,1171 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT",
+  "purpose": "Authoring source for coherent native book sizes, editorial selection and publisher-specific layouts. Not runtime acceptance.",
+  "formats": {
+    "pocket": {
+      "name": "Pocket paperback",
+      "width_m": 0.112,
+      "height_m": 0.178,
+      "cover_m": 0.00045,
+      "leaf_m": 0.0001,
+      "binding": "sewn paper cover"
+    },
+    "trade": {
+      "name": "Trade hardback",
+      "width_m": 0.14,
+      "height_m": 0.216,
+      "cover_m": 0.0018,
+      "leaf_m": 0.0001,
+      "binding": "cloth case binding"
+    },
+    "reference": {
+      "name": "Reference and encyclopedia",
+      "width_m": 0.185,
+      "height_m": 0.254,
+      "cover_m": 0.002,
+      "leaf_m": 9.5e-05,
+      "binding": "reinforced cloth case binding"
+    },
+    "illustrated": {
+      "name": "Illustrated and picture book",
+      "width_m": 0.21,
+      "height_m": 0.26,
+      "cover_m": 0.0018,
+      "leaf_m": 0.00011,
+      "binding": "illustrated case binding"
+    },
+    "pamphlet": {
+      "name": "Stitched pamphlet and personal booklet",
+      "width_m": 0.13,
+      "height_m": 0.2,
+      "cover_m": 0.00025,
+      "leaf_m": 0.0001,
+      "binding": "stitched pamphlet"
+    }
+  },
+  "publishers": {
+    "aster_quay": {
+      "name": "Aster & Quay",
+      "place": "Long Island City, New York",
+      "founded": 1894,
+      "character": "A small literary and illustrated-list publisher: domestic strangeness, readable verse, natural history and essays worth disagreeing with.",
+      "device": "An aster above a folded paper boat, cut as a small unlettered wood engraving.",
+      "type": "Garamond body; quiet centered chapter openings; italic captions; generous outer margin.",
+      "covers": "Burgundy, bottle green and tobacco cloth; one restrained blind border, never generic ornamental gold everywhere."
+    },
+    "darrow": {
+      "name": "Darrow Scientific & Practical Books",
+      "place": "Brooklyn, New York",
+      "founded": 1881,
+      "character": "Workshop books meant to be marked up, with clean diagrams, careful figure captions and enough margin for a contrary owner.",
+      "device": "Open dividers enclosing a small circle; a simple unlettered printer device.",
+      "type": "Compact serif text, strong section heads, technical rules, aligned figure captions and authored callouts.",
+      "covers": "Navy, ochre and teal cloth or stout paper; clear titles and edition information."
+    },
+    "private": {
+      "name": "Private and local editions",
+      "place": "Queens, New York",
+      "founded": 0,
+      "character": "Preserve individual authorship: Vantry prospectus, tenant ledger, Jonah's nine copies and Noel's shoelace booklet.",
+      "device": "",
+      "type": "An individual programme per object, not a fictional mass-market imprint.",
+      "covers": "Construction follows the actual record or homemade booklet."
+    },
+    "borough": {
+      "name": "Borough Survey Office",
+      "place": "Queens, New York",
+      "founded": 0,
+      "character": "Civic records and maps: useful, austere and occasionally incomplete.",
+      "device": "",
+      "type": "Running subject heads, ruled records, aligned columns and precise map captions.",
+      "covers": "Ochre, green and dark municipal cloth; plain labels."
+    }
+  },
+  "layouts": {
+    "fiction": {
+      "body_em_m": 0.0036,
+      "margin_fraction": 0.11,
+      "columns": 1,
+      "plate_fraction": 0.47,
+      "composition": "A quiet chapter opening, inset first paragraph, running author/title heads and a restrained folio. A facing frontispiece gets a real caption and room to breathe."
+    },
+    "manual": {
+      "body_em_m": 0.0035,
+      "margin_fraction": 0.1,
+      "columns": 1,
+      "plate_fraction": 0.5,
+      "composition": "Numbered section head, short readable paragraphs, a diagram panel on the facing page and a caption below. Callouts are authored Label3D lettering, never baked into the art."
+    },
+    "reference": {
+      "body_em_m": 0.0033,
+      "margin_fraction": 0.09,
+      "columns": 2,
+      "plate_fraction": 0.47,
+      "composition": "Aligned two-column entries, strong running entry heads, fine rules and modest folios; the gutter stays clear of printed ink."
+    },
+    "illustrated": {
+      "body_em_m": 0.004,
+      "margin_fraction": 0.1,
+      "columns": 1,
+      "plate_fraction": 0.62,
+      "composition": "A large image with a deliberate crop, a separate short caption and a concise block of text. No stretched thumbnail surrounded by filler."
+    },
+    "verse": {
+      "body_em_m": 0.0038,
+      "margin_fraction": 0.14,
+      "columns": 1,
+      "plate_fraction": 0.4,
+      "composition": "Stanzas preserve authored line breaks; short lines are not fully justified. Ample white space and a small folio."
+    },
+    "ledger": {
+      "body_em_m": 0.0036,
+      "margin_fraction": 0.1,
+      "columns": 1,
+      "plate_fraction": 0.4,
+      "composition": "Ruled entries, dates as headings and handwritten additions. Preserve the abrupt stopping point rather than filling the leaf."
+    },
+    "pamphlet": {
+      "body_em_m": 0.0038,
+      "margin_fraction": 0.1,
+      "columns": 1,
+      "plate_fraction": 0.48,
+      "composition": "Direct title, compact single column, one useful figure or small ornament. The homemade score keeps its child-made marks and shoelace binding."
+    }
+  },
+  "books": {
+    "prospectus": {
+      "catalogue": {
+        "id": "prospectus",
+        "title": "The Orison: A Prospectus",
+        "author": "Vantry & Co.",
+        "subject": "the building",
+        "dewey": 728.3,
+        "hue": 18,
+        "height": 268,
+        "year": 1912,
+        "note": "Sixteen pages of promises. The roof garden is drawn with people in it."
+      },
+      "subtitle": "",
+      "format": "pamphlet",
+      "layout": "illustrated",
+      "publisher": "private",
+      "page_count": 16,
+      "material": "book_ochre",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 10,
+        "left": {
+          "heading": "Above the City",
+          "body": "The roof garden shall be the common drawing-room of the house. A tenant arriving without company may nevertheless find a chair already turned toward the sunset. No additional charge is contemplated for this amenity."
+        },
+        "right": {
+          "heading": "Plate IV",
+          "body": "The proposed garden is shown fully furnished. The artist has included an extra chair beyond the balustrade. Subscribers are advised that the plate is an impression of the completed work, rather than a measured survey.",
+          "illustration": "roof_plan"
+        }
+      }
+    },
+    "minutes": {
+      "catalogue": {
+        "id": "minutes",
+        "title": "Tenants' Association Minutes, 1919-1924",
+        "author": "Ash, Dorothy",
+        "subject": "the building",
+        "dewey": 728.4,
+        "hue": 34,
+        "height": 244,
+        "year": 1924,
+        "note": "Kept in a fair hand for five years and then, abruptly, not."
+      },
+      "subtitle": "",
+      "format": "trade",
+      "layout": "ledger",
+      "publisher": "private",
+      "page_count": 192,
+      "material": "book_brown",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 46,
+        "left": {
+          "heading": "Tuesday Meeting",
+          "body": "The matter of the laundry key was carried over. It was agreed that a person working nights should not lose her washing day for failing to attend a meeting held during her sleep. The amendment was carried unanimously."
+        },
+        "right": {
+          "heading": "Business Arising",
+          "body": "One chair remains with the Association until its owner can be found. Do not put it out with the rubbish. A folded square of paper marks the next meeting, but the date was never entered."
+        }
+      }
+    },
+    "wiring": {
+      "catalogue": {
+        "id": "wiring",
+        "title": "Practical Wiring for the Small Apartment",
+        "author": "Ferrant, H.",
+        "subject": "trades",
+        "dewey": 621.3,
+        "hue": 92,
+        "height": 197,
+        "year": 1921,
+        "note": "Somebody has pencilled DO NOT beside the section on shared neutrals."
+      },
+      "subtitle": "",
+      "format": "trade",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 192,
+      "material": "book_green",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 32,
+        "left": {
+          "heading": "On Labels",
+          "body": "A neatly lettered circuit card may describe the intention of an installation and none of its subsequent history. The next man must be told what was actually found, even when the finding is embarrassing to the first man."
+        },
+        "right": {
+          "heading": "A Tenant's Addition",
+          "body": "In pencil: The bell in the little room sounded at six although the button had been removed. I have written this down so that whoever comes next need not spend his first morning proving it.",
+          "illustration": "circuit_wiring"
+        }
+      }
+    },
+    "switchboard": {
+      "catalogue": {
+        "id": "switchboard",
+        "title": "The Sympathetic Switchboard",
+        "author": "Okonkwo, R.",
+        "subject": "the work",
+        "dewey": 384.6,
+        "hue": 210,
+        "height": 213,
+        "year": 1923,
+        "note": "On listening. Half of it is about when not to speak."
+      },
+      "subtitle": "",
+      "format": "trade",
+      "layout": "fiction",
+      "publisher": "aster_quay",
+      "page_count": 160,
+      "material": "book_teal",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 18,
+        "left": {
+          "heading": "The Interval",
+          "body": "Permit the caller the small silence in which a difficult name is gathered. Do not fill it with the name you expected. A board is an arrangement for connecting people, not for finishing their sentences."
+        },
+        "right": {
+          "heading": "An Exercise",
+          "body": "Sit beside an idle position and hear the room before putting on the receiver. Count the ordinary sounds. The click you could not place may become ordinary on the second evening. It may also fail to recur."
+        }
+      }
+    },
+    "hymns": {
+      "catalogue": {
+        "id": "hymns",
+        "title": "Hymns for the Late Shift",
+        "author": "Price, Jonah",
+        "subject": "faith",
+        "dewey": 245.0,
+        "hue": 268,
+        "height": 168,
+        "year": 1926,
+        "note": "Forty pages, hand-set. He printed nine of them and gave away eight."
+      },
+      "subtitle": "",
+      "format": "pamphlet",
+      "layout": "verse",
+      "publisher": "private",
+      "page_count": 40,
+      "material": "book_navy",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 12,
+        "left": {
+          "heading": "For Those Returning",
+          "body": "Leave one light above the stair,\nLeave the kettle where it stood.\nLet the sleeping keep their share\nOf the little that was good."
+        },
+        "right": {
+          "heading": "Printer's Note",
+          "body": "Sing quietly. The last line was changed after the first eight copies had gone out. If your neighbour has the earlier wording, neither of you is obliged to correct the other. The tune will carry both."
+        }
+      }
+    },
+    "cordcircuits": {
+      "catalogue": {
+        "id": "cordcircuits",
+        "title": "Cord Circuits and Their Faults",
+        "author": "Bell, O.",
+        "subject": "the work",
+        "dewey": 384.62,
+        "hue": 196,
+        "height": 231,
+        "year": 1925,
+        "note": "The union library stamp is still in it and nobody has asked."
+      },
+      "subtitle": "",
+      "format": "reference",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 384,
+      "material": "book_navy",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 54,
+        "left": {
+          "heading": "The Fault Ticket",
+          "body": "Record the hour and the weather, the words used by the complainant, and whether the trouble was heard by one ear or by two. 'Intermittent' is the beginning of an account. It is not an account."
+        },
+        "right": {
+          "heading": "Library Copy",
+          "body": "A square stamp has worn almost white. Beneath it, in another hand: Returned Wednesday. Beneath that, in the same hand but a softer pencil: Borrowed again before the desk opened.",
+          "illustration": "circuit_switchboard"
+        }
+      }
+    },
+    "nurse": {
+      "catalogue": {
+        "id": "nurse",
+        "title": "A Nurse's Vade Mecum",
+        "author": "Vale, Teresa",
+        "subject": "medicine",
+        "dewey": 610.7,
+        "hue": 6,
+        "height": 152,
+        "year": 1908,
+        "note": "Small enough for an apron pocket, and it has been in one."
+      },
+      "subtitle": "",
+      "format": "pocket",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 256,
+      "material": "book_burgundy",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 28,
+        "left": {
+          "heading": "The Quiet Visit",
+          "body": "A stranger's room may contain no spare place for a bag. Ask before moving the photograph. What appears to be an inconvenient chair may be the chair in which a husband last sat. The work begins before the instruments are unpacked."
+        },
+        "right": {
+          "heading": "In the Margin",
+          "body": "Keep two clean aprons. Leave one here, even if it seems extravagant. At the foot of the page someone has made a list: tram fare, bread, blue thread. The last item has been carefully crossed off."
+        }
+      }
+    },
+    "photochem": {
+      "catalogue": {
+        "id": "photochem",
+        "title": "The Dark-Room Cabinet",
+        "author": "Quell, N.",
+        "subject": "pictures",
+        "dewey": 771.5,
+        "hue": 44,
+        "height": 254,
+        "year": 1922,
+        "note": "The margins are a second book, in her hand, disagreeing."
+      },
+      "subtitle": "Photographic Chemistry for the Amateur",
+      "format": "reference",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 320,
+      "material": "book_brown",
+      "selection": "retitle, retaining subject, author and clue",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 64,
+        "left": {
+          "heading": "A Repeatable Result",
+          "body": "The successful worker keeps a record of the unsuccessful plate. A pleasing accident cannot be repeated merely by desiring the same pleasure. Note the time, the room, and the interruption which seemed too trivial to matter."
+        },
+        "right": {
+          "heading": "N.Q., in Pencil",
+          "body": "The interruption was the photograph. She turned toward the knock and the whole room came into her face. I kept the blurred plate. The sharp one has nothing of the visit in it.",
+          "illustration": "contact_frames"
+        }
+      }
+    },
+    "atlas": {
+      "catalogue": {
+        "id": "atlas",
+        "title": "Queens: A Street Atlas",
+        "author": "Municipal Survey",
+        "subject": "the city",
+        "dewey": 912.7,
+        "hue": 128,
+        "height": 285,
+        "year": 1919,
+        "note": "Three streets on the Orison's block are drawn that were never built."
+      },
+      "subtitle": "",
+      "format": "illustrated",
+      "layout": "illustrated",
+      "publisher": "borough",
+      "page_count": 96,
+      "material": "book_green",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 22,
+        "left": {
+          "heading": "Explanation of Lines",
+          "body": "A dotted street is a promise by somebody who is not obliged to walk there. Until the pavement is laid, the purchaser should consult the ground as well as the map. Distance measured upon paper is free of fences."
+        },
+        "right": {
+          "heading": "The Unbuilt Block",
+          "body": "Three pale roads run straight through a pencilled rectangle. Beside them: There is a gate here now. It opens inward. Whoever marked it returned later to add the word still.",
+          "illustration": "street_plan"
+        }
+      }
+    },
+    "standards": {
+      "catalogue": {
+        "id": "standards",
+        "title": "Sixteen Standards for Piano",
+        "author": "Sato, Rhea",
+        "subject": "music",
+        "dewey": 786.2,
+        "hue": 330,
+        "height": 302,
+        "year": 1926,
+        "note": "Number eleven has a different ending pencilled over the printed one."
+      },
+      "subtitle": "",
+      "format": "illustrated",
+      "layout": "illustrated",
+      "publisher": "aster_quay",
+      "page_count": 64,
+      "material": "book_burgundy",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 40,
+        "left": {
+          "heading": "No. XI: Returning",
+          "body": "The printed ending climbs with great confidence toward its final chord. A hand has drawn a line through the last four bars. Underneath, a quieter ending returns to the small phrase with which the piece began."
+        },
+        "right": {
+          "heading": "For the Second Player",
+          "body": "Do not wait for me at the turn. Take the little figure in the left hand and I shall find you. The instruction appears to concern the music. It is the only sentence written in ink.",
+          "illustration": "keyboard"
+        }
+      }
+    },
+    "radio": {
+      "catalogue": {
+        "id": "radio",
+        "title": "Listening After Midnight",
+        "author": "Dwyer, Cal",
+        "subject": "trades",
+        "dewey": 621.384,
+        "hue": 108,
+        "height": 221,
+        "year": 1924,
+        "note": "The chapter on unexplained carriers has been read to pieces."
+      },
+      "subtitle": "The Radio Amateur's Handbook",
+      "format": "trade",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 256,
+      "material": "book_teal",
+      "selection": "retitle, retaining subject, author and clue",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 76,
+        "left": {
+          "heading": "The Station Log",
+          "body": "Write down what was received before deciding what it means. A fragment resembling one's own name is an especially poor foundation for a theory. The hand is often more impatient than the instrument."
+        },
+        "right": {
+          "heading": "After Midnight",
+          "body": "The printed sample log contains distances, call letters and weather. Its owner has added a narrow fourth column headed WHO WAS AWAKE. For three nights the same room number appears there, followed by a question mark.",
+          "illustration": "midnight_receiver"
+        }
+      }
+    },
+    "sorting": {
+      "catalogue": {
+        "id": "sorting",
+        "title": "On the Sorting of Domestic Libraries",
+        "author": "Kessler, Mae",
+        "subject": "books",
+        "dewey": 25.4,
+        "hue": 240,
+        "height": 189,
+        "year": 1925,
+        "note": "Eleven pages on why colour is not a system, and a colour plate."
+      },
+      "subtitle": "",
+      "format": "pamphlet",
+      "layout": "pamphlet",
+      "publisher": "aster_quay",
+      "page_count": 24,
+      "material": "book_navy",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 14,
+        "left": {
+          "heading": "A Useful Order",
+          "body": "A system need not be universal. It must permit its keeper to recover a particular volume without first emptying the shelf. The fault of colour is not that it is frivolous, but that a binder may contradict it at any time."
+        },
+        "right": {
+          "heading": "The Plate Opposite",
+          "body": "The colour plate is very beautiful. A later reader has put a small tick beside every red volume and written: I can find these perfectly well. The author has replied in a different pencil: That is not the point."
+        }
+      }
+    },
+    "glass": {
+      "catalogue": {
+        "id": "glass",
+        "title": "Winter Under Glass",
+        "author": "Marsh, Evelyn",
+        "subject": "the garden",
+        "dewey": 635.98,
+        "hue": 84,
+        "height": 176,
+        "year": 1917,
+        "note": "Everything in it works. Nobody has tried since she stopped."
+      },
+      "subtitle": "Vegetables for a Small Roof Garden",
+      "format": "trade",
+      "layout": "illustrated",
+      "publisher": "aster_quay",
+      "page_count": 160,
+      "material": "book_green",
+      "selection": "retitle, retaining subject, author and clue",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 36,
+        "left": {
+          "heading": "A Small Garden",
+          "body": "Do not count the little glasshouse by its yield alone. In a narrow house the sight of something green continuing its work may repay the winter's trouble. Leave a place to sit which is not also a place for a pot."
+        },
+        "right": {
+          "heading": "October List",
+          "body": "Six pots moved away from the cracked pane. One chair brought up. String wanted. At the bottom, beneath a thumbprint of earth: Ask whether the others would like some. There is no list of names.",
+          "illustration": "seedling"
+        }
+      }
+    },
+    "letters": {
+      "catalogue": {
+        "id": "letters",
+        "title": "Letters to an Empty House",
+        "author": "Venn, Ada",
+        "subject": "fiction",
+        "dewey": 823.9,
+        "hue": 24,
+        "height": 163,
+        "year": 1916,
+        "note": "A story told in letters. Someone copied the condolence in its last chapter onto two separate sheets."
+      },
+      "subtitle": "",
+      "format": "pocket",
+      "layout": "fiction",
+      "publisher": "aster_quay",
+      "page_count": 192,
+      "material": "book_burgundy",
+      "selection": "replace a generic etiquette filler with an original epistolary novella; retain the copied-condolence motif",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 84,
+        "left": {
+          "heading": "The Address That Remained",
+          "body": "My dear friend,\n\nI have begun this letter three times by asking after the house. Each time I remember that you have left it. The rooms must have some way of knowing; I cannot imagine them continuing in exactly the old arrangement without you.\n\nThe forwarding address on your envelope is quite clear. I keep setting this sheet beside it, as though the two pieces of paper might settle the matter between themselves."
+        },
+        "right": {
+          "heading": "A Letter Not Posted",
+          "body": "I meant to say that I was sorry. All this talk of rooms is merely the distance I have put between myself and those five words.\n\nTomorrow I will write them at the top. Then your name, and the address where you are, and no account of the house at all.",
+          "illustration": "empty_house_frontispiece"
+        }
+      }
+    },
+    "elevator": {
+      "catalogue": {
+        "id": "elevator",
+        "title": "Fault-Finding in Elevator Machinery",
+        "author": "Otis Bros.",
+        "subject": "trades",
+        "dewey": 621.877,
+        "hue": 15,
+        "height": 239,
+        "year": 1913,
+        "note": "The section on a car that will not answer a floor is dog-eared."
+      },
+      "subtitle": "",
+      "format": "reference",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 384,
+      "material": "book_brown",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 88,
+        "left": {
+          "heading": "A Complaint from One Floor",
+          "body": "When a car passes a floor without answering, first establish what the passenger expected it to do. A report of a missing stop and a report of a missing passenger are not interchangeable, however similar the first conversation may sound."
+        },
+        "right": {
+          "heading": "Service Record",
+          "body": "Call answered. Landing empty. Same complaint repeated after supper. In the margin: I could hear somebody moving a chair above me, but I had the top landing open. The next entry concerns a worn latch.",
+          "illustration": "lift_section"
+        }
+      }
+    },
+    "barsongs": {
+      "catalogue": {
+        "id": "barsongs",
+        "title": "A Treasury of Bar Songs",
+        "author": "Kells, Juno",
+        "subject": "music",
+        "dewey": 782.42,
+        "hue": 350,
+        "height": 208,
+        "year": 1927,
+        "note": "No two copies have the same words. That is rather the point of it."
+      },
+      "subtitle": "",
+      "format": "pocket",
+      "layout": "verse",
+      "publisher": "aster_quay",
+      "page_count": 128,
+      "material": "book_burgundy",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 24,
+        "left": {
+          "heading": "The Man at the End",
+          "body": "He said he had a train to catch,\nWe said the train could wait.\nBy closing time he'd bought the clock\nAnd sold us all the date."
+        },
+        "right": {
+          "heading": "Collector's Remark",
+          "body": "This verse was supplied by three patrons, each of whom objected to the other two versions. All three claimed to have been absent on the evening in question. The melody was agreed upon without discussion."
+        }
+      }
+    },
+    "recipes": {
+      "catalogue": {
+        "id": "recipes",
+        "title": "Supper at Four in the Morning",
+        "author": "Ortiz, Cam",
+        "subject": "cooking",
+        "dewey": 641.5,
+        "hue": 30,
+        "height": 184,
+        "year": 1926,
+        "note": "Written for somebody who gets in at four in the morning."
+      },
+      "subtitle": "Sixty Recipes for One",
+      "format": "trade",
+      "layout": "manual",
+      "publisher": "aster_quay",
+      "page_count": 160,
+      "material": "book_ochre",
+      "selection": "retitle, retaining subject, author and clue",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 16,
+        "left": {
+          "heading": "Supper Already Waiting",
+          "body": "Set out the cup before going to work. Put the spoon where a tired hand expects it. A meal for one need not be a meal assembled in apology. Use the good plate when the ordinary one is in the sink."
+        },
+        "right": {
+          "heading": "For Two, Unexpectedly",
+          "body": "The quantities are easily increased. The difficult part is asking the other person to stay. A floury fingerprint obscures the suggested garnish. Someone has written beneath it: He stayed. We used the saucers."
+        }
+      }
+    },
+    "flowers": {
+      "catalogue": {
+        "id": "flowers",
+        "title": "The Language of Flowers",
+        "author": "Ortiz, Lena",
+        "subject": "the garden",
+        "dewey": 398.368,
+        "hue": 300,
+        "height": 145,
+        "year": 1899,
+        "note": "Pressed between 40 and 41, something that was blue."
+      },
+      "subtitle": "",
+      "format": "illustrated",
+      "layout": "illustrated",
+      "publisher": "aster_quay",
+      "page_count": 96,
+      "material": "book_teal",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 40,
+        "left": {
+          "heading": "The Meaning Supplied",
+          "body": "No flower can be held responsible for the message assigned to it. Consider the ribbon, the season and the person who carried it through the rain. These particulars may contradict the table on the following page."
+        },
+        "right": {
+          "heading": "A Blue Specimen",
+          "body": "The pressed stem has left a pale twin on the opposite leaf. A slip of paper gives neither the flower's name nor its meaning: Tuesday, after the fitting. He waited until the last customer had gone.",
+          "illustration": "pressed_flower"
+        }
+      }
+    },
+    "knots": {
+      "catalogue": {
+        "id": "knots",
+        "title": "Knots for a Sailor Who Stayed Ashore",
+        "author": "Reed, Malcolm",
+        "subject": "trades",
+        "dewey": 623.888,
+        "hue": 60,
+        "height": 158,
+        "year": 1911,
+        "note": "He can do every one of them and has never been on a boat."
+      },
+      "subtitle": "Knots, Splices and Whippings",
+      "format": "pocket",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 128,
+      "material": "book_ochre",
+      "selection": "retitle, retaining subject, author and clue",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 30,
+        "left": {
+          "heading": "A Temporary Arrangement",
+          "body": "A temporary fastening should declare itself temporary. The next hand must be able to see where the free end lies. Work which can only be undone by cutting has made a decision on behalf of a stranger."
+        },
+        "right": {
+          "heading": "Malcolm's Example",
+          "body": "The demonstration rope is traced in blue pencil. Beside it: Curtains, parcels, the loose rung, the handle on the kettle. Below these uses, in smaller writing: Never been to sea. Still a useful book.",
+          "illustration": "shore_boat_frontispiece"
+        }
+      }
+    },
+    "dressmaking": {
+      "catalogue": {
+        "id": "dressmaking",
+        "title": "Dressmaking Without Patterns",
+        "author": "Ortiz, Lena",
+        "subject": "trades",
+        "dewey": 646.4,
+        "hue": 318,
+        "height": 227,
+        "year": 1920,
+        "note": "The measurements inside the cover are for four different people."
+      },
+      "subtitle": "",
+      "format": "illustrated",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 192,
+      "material": "book_burgundy",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 44,
+        "left": {
+          "heading": "The Second Fitting",
+          "body": "Ask the wearer to reach for something she uses every day. A garment which fits only while its owner stands politely still has been fitted to the wrong occasion. A good pocket is not an unnecessary alteration."
+        },
+        "right": {
+          "heading": "Inside the Cover",
+          "body": "Four sets of measurements share the same page. One is labelled WORK, one SUNDAY, and two are identified only by initials. The last alteration is in another hand: Leave room. She carries everything for everybody.",
+          "illustration": "pattern"
+        }
+      }
+    },
+    "birds": {
+      "catalogue": {
+        "id": "birds",
+        "title": "The Small Parlour Aviary",
+        "author": "Wren, Peter",
+        "subject": "animals",
+        "dewey": 636.686,
+        "hue": 168,
+        "height": 171,
+        "year": 1918,
+        "note": "He has never kept one. The name was a coincidence and then it was not."
+      },
+      "subtitle": "The Care of Cage Birds",
+      "format": "illustrated",
+      "layout": "illustrated",
+      "publisher": "aster_quay",
+      "page_count": 96,
+      "material": "book_green",
+      "selection": "retitle, retaining subject, author and clue",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 20,
+        "left": {
+          "heading": "A Position by the Window",
+          "body": "Watch the ordinary traffic of the room before deciding where a cage belongs. The place which gives its keeper the pleasantest view is not necessarily the place in which a small creature will feel least observed."
+        },
+        "right": {
+          "heading": "No Cage Purchased",
+          "body": "A bird has been drawn in the margin facing an open rectangle. Underneath: I bought the book because of the name. The drawing has been rubbed and repaired until the rectangle resembles a familiar window.",
+          "illustration": "bird_window"
+        }
+      }
+    },
+    "billiards": {
+      "catalogue": {
+        "id": "billiards",
+        "title": "The Last Ball on the Cloth",
+        "author": "Reed, Sacha",
+        "subject": "games",
+        "dewey": 794.72,
+        "hue": 140,
+        "height": 149,
+        "year": 1922,
+        "note": "The section on what to do when a ball is missing has been torn out."
+      },
+      "subtitle": "Billiards, Pool and the Awkward Shot",
+      "format": "pocket",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 128,
+      "material": "book_teal",
+      "selection": "retitle, retaining subject, author and clue",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 26,
+        "left": {
+          "heading": "The Unplayed Shot",
+          "body": "A player may learn something by standing at the table without a cue. Consider which difficulties belong to the arrangement of the balls and which were introduced by the last confident suggestion from the rail."
+        },
+        "right": {
+          "heading": "A Missing Leaf",
+          "body": "The stitching continues past a ragged strip of paper. Only the end of a sentence remains: ...must first be accounted for. On the facing page someone has drawn a small circle outside the table.",
+          "illustration": "billiards"
+        }
+      }
+    },
+    "darts": {
+      "catalogue": {
+        "id": "darts",
+        "title": "The Public-House Dartboard",
+        "author": "Bell, Omar",
+        "subject": "games",
+        "dewey": 794.3,
+        "hue": 355,
+        "height": 141,
+        "year": 1924,
+        "note": "It gives the board's numbers in the wrong order and nobody has noticed."
+      },
+      "subtitle": "A Small Book of a Large Argument",
+      "format": "pocket",
+      "layout": "manual",
+      "publisher": "darrow",
+      "page_count": 96,
+      "material": "book_ochre",
+      "selection": "retitle, retaining subject, author and clue",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 18,
+        "left": {
+          "heading": "The House Board",
+          "body": "Learn the light before blaming the board. The cabinet door may throw a shadow at one hour and none at the next. A regular is often a person who has had time to learn where the furniture interferes."
+        },
+        "right": {
+          "heading": "The Errant Plate",
+          "body": "The circular diagram was printed from a reversed drawing. Omar has marked the error, then added: Leave it. I should like to see who is looking. Three later readers have put their initials below his.",
+          "illustration": "dartboard"
+        }
+      }
+    },
+    "dreams": {
+      "catalogue": {
+        "id": "dreams",
+        "title": "A Grammar of Dreams",
+        "author": "Vale, Mina",
+        "subject": "the mind",
+        "dewey": 154.63,
+        "hue": 258,
+        "height": 205,
+        "year": 1925,
+        "note": "Borrowed from 2A and never returned, by somebody who lives here."
+      },
+      "subtitle": "",
+      "format": "trade",
+      "layout": "fiction",
+      "publisher": "aster_quay",
+      "page_count": 224,
+      "material": "book_navy",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 34,
+        "left": {
+          "heading": "The Name of a Room",
+          "body": "In the morning, write the room before writing what occurred there. Was it the room as it stands, the room as it used to stand, or a place recognised without ever having been visited? Do not resolve the distinction too quickly."
+        },
+        "right": {
+          "heading": "A Borrower's Mark",
+          "body": "A reader has underlined recognised and drawn a tiny door in the margin. It has a handle but no number. The facing corner is folded toward a sentence about the noise one expects on the other side.",
+          "illustration": "door"
+        }
+      }
+    },
+    "concrete": {
+      "catalogue": {
+        "id": "concrete",
+        "title": "Concrete: Its Uses and Abuses",
+        "author": "Vantry, H.",
+        "subject": "trades",
+        "dewey": 624.183,
+        "hue": 200,
+        "height": 276,
+        "year": 1909,
+        "note": "The Orison is in it as a plate, before the top two floors."
+      },
+      "subtitle": "",
+      "format": "reference",
+      "layout": "illustrated",
+      "publisher": "darrow",
+      "page_count": 384,
+      "material": "book_navy",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 62,
+        "left": {
+          "heading": "Plate: A New Residence",
+          "body": "The building is shown at its first height, the parapet drawn clean against an empty sky. The caption praises a permanent solution. A later owner has extended the vertical lines with a ruler and omitted a new caption."
+        },
+        "right": {
+          "heading": "Alterations",
+          "body": "At the edge of the plate: The man who drew this did not have to mend it. Lower down, apparently added on another evening: Neither did the man who wrote that. A ring from a tea glass crosses both remarks.",
+          "illustration": "elevation"
+        }
+      }
+    },
+    "interborough": {
+      "catalogue": {
+        "id": "interborough",
+        "title": "Timetables of the Interborough",
+        "author": "Municipal Survey",
+        "subject": "the city",
+        "dewey": 385.22,
+        "hue": 72,
+        "height": 132,
+        "year": 1926,
+        "note": "The last train home is on page nine and it is later than anyone thinks."
+      },
+      "subtitle": "",
+      "format": "pamphlet",
+      "layout": "reference",
+      "publisher": "borough",
+      "page_count": 32,
+      "material": "book_ochre",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 8,
+        "left": {
+          "heading": "The Last Connection",
+          "body": "The last useful train is not always the last train printed. Allow for the distance from the factory gate, the signal at the crossing and the friend who wishes to tell you something just as you are leaving."
+        },
+        "right": {
+          "heading": "Page Nine",
+          "body": "A narrow pencil line joins two departures. Beneath it: If you miss this one, knock. I am generally still up. There is a room number, almost erased by the thumb which held the page open.",
+          "illustration": "timetable"
+        }
+      }
+    },
+    "walls": {
+      "catalogue": {
+        "id": "walls",
+        "title": "What the Walls Heard",
+        "author": "Anon.",
+        "subject": "the building",
+        "dewey": 133.12,
+        "hue": 285,
+        "height": 194,
+        "year": 1920,
+        "note": "Nine accounts, all from this street. Two of them are this address."
+      },
+      "subtitle": "",
+      "format": "trade",
+      "layout": "fiction",
+      "publisher": "aster_quay",
+      "page_count": 192,
+      "material": "book_burgundy",
+      "selection": "retain",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 48,
+        "left": {
+          "heading": "Account VII",
+          "body": "The tapping stopped whenever she put a cup against the wall. This seemed proof that somebody was listening. Her brother observed that she held her breath at the same time. They tried the experiment twice more, without agreeing."
+        },
+        "right": {
+          "heading": "Editor's Appendix",
+          "body": "Both witnesses signed the account. Neither requested that the other one's explanation be removed. The editor records this courtesy because it was less common than the noises described in the preceding chapters.",
+          "illustration": "walls_frontispiece"
+        }
+      }
+    },
+    "missing": {
+      "catalogue": {
+        "id": "missing",
+        "title": "An Index of Missing Persons, Vol. II",
+        "author": "Municipal Survey",
+        "subject": "the city",
+        "dewey": 363.233,
+        "hue": 10,
+        "height": 291,
+        "year": 1923,
+        "note": "Alphabetical, and there are four Marshes."
+      },
+      "subtitle": "",
+      "format": "reference",
+      "layout": "reference",
+      "publisher": "borough",
+      "page_count": 512,
+      "material": "book_brown",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 116,
+        "left": {
+          "heading": "Marsh",
+          "body": "Four entries occupy less than half a page. Each has an initial, a last address and a date after which the compiler could obtain no further particulars. None has a space large enough for the account a neighbour might give."
+        },
+        "right": {
+          "heading": "A Loose Index Card",
+          "body": "Check whether these are four people or four reports. Ask at the old address before sending another letter. The card was cut from a used envelope. Its reverse bears the impression of a key."
+        }
+      }
+    },
+    "deadletter": {
+      "catalogue": {
+        "id": "deadletter",
+        "title": "The Country of Undelivered Letters",
+        "author": "Kessler, Mae",
+        "subject": "the work",
+        "dewey": 383.145,
+        "hue": 220,
+        "height": 216,
+        "year": 1921,
+        "note": "On what happens to a letter that cannot be delivered. It is longer than you would think."
+      },
+      "subtitle": "A History of the Dead Letter Office",
+      "format": "trade",
+      "layout": "fiction",
+      "publisher": "aster_quay",
+      "page_count": 224,
+      "material": "book_teal",
+      "selection": "retitle, retaining subject, author and clue",
+      "case_text_preserved": false,
+      "featured_spread": {
+        "page": 72,
+        "left": {
+          "heading": "Unclaimed",
+          "body": "A letter is called dead when the office has exhausted its ways of moving it. This describes the office's position. It tells us nothing certain about the writer, the intended reader or the reason the address ceased to serve."
+        },
+        "right": {
+          "heading": "The Returned Envelope",
+          "body": "It had travelled farther on its return than on its outward journey. Every clerk had found room for one more mark. The name beneath them was still legible. The author has reproduced the envelope without reproducing the letter.",
+          "illustration": "envelope"
+        }
+      }
+    },
+    "onefinger": {
+      "catalogue": {
+        "id": "onefinger",
+        "title": "Piano With One Finger",
+        "author": "Price, Noel",
+        "subject": "music",
+        "dewey": 786.3,
+        "hue": 48,
+        "height": 155,
+        "year": 1927,
+        "note": "Eight pages, in a child's hand, bound with a shoelace."
+      },
+      "subtitle": "",
+      "format": "pamphlet",
+      "layout": "pamphlet",
+      "publisher": "private",
+      "page_count": 8,
+      "material": "paper",
+      "selection": "retain",
+      "case_text_preserved": true,
+      "featured_spread": {
+        "page": 4,
+        "left": {
+          "heading": "The Little Tune",
+          "body": "First find the note that sounds like coming home. You may choose a different one from mine. Play it again after the other notes so that I shall know when you have finished and when to begin my part."
+        },
+        "right": {
+          "heading": "For the Other Hand",
+          "body": "You do not need the other hand yet. It can turn the page, or hold the book, or belong to somebody sitting beside you. There is room on the bench. A small ink keyboard runs into the bottom margin.",
+          "illustration": "onefinger_drawing"
+        }
+      }
+    }
+  },
+  "art_commissions": {
+    "empty_house_frontispiece": {
+      "house": "aster_quay",
+      "for_books": [
+        "letters"
+      ],
+      "brief": "Original small wood engraving: an empty front hall, an open inner doorway and two unposted envelopes on a hall table. Strong quiet silhouette, deliberate white space, no people, no writing or numbers, no photographic rendering.",
+      "caption": "The hall after the last letter.",
+      "status": "generated_reviewed_uninstalled",
+      "source": "art/illustrations/book_editorial_20261022/empty_house_frontispiece.png"
+    },
+    "walls_frontispiece": {
+      "house": "aster_quay",
+      "for_books": [
+        "walls"
+      ],
+      "brief": "Original wood engraving: the inside of an old apartment partition, timber lath and a branching speaking pipe, with the pale shape of an empty room beyond. Material detail rather than a monster or literal ear. Black ink on clean untextured white; no lettering.",
+      "caption": "The room on the other side.",
+      "status": "generated_reviewed_uninstalled",
+      "source": "art/illustrations/book_editorial_20261022/walls_frontispiece.png"
+    },
+    "midnight_receiver": {
+      "house": "darrow",
+      "for_books": [
+        "radio"
+      ],
+      "brief": "Original technical-frontispiece engraving of a homemade 1920s valve receiver on a small table at night, loose headphones and an aerial lead disappearing through an open sash. Crisp copperplate hatch, clear apparatus silhouette; no letters, labels, digits or logos.",
+      "caption": "A receiver kept ready after the ordinary programme.",
+      "status": "generated_reviewed_uninstalled",
+      "source": "art/illustrations/book_editorial_20261022/midnight_receiver.png"
+    },
+    "shore_boat_frontispiece": {
+      "house": "darrow",
+      "for_books": [
+        "knots"
+      ],
+      "brief": "Original engraved still life of a small unfinished wooden model boat, hand plane, shavings and a closed tin of fittings on a workshop table in a city apartment. No rigging, text, numbers or logos.",
+      "caption": "A voyage prepared for at home.",
+      "status": "generated_reviewed_uninstalled",
+      "source": "art/illustrations/book_editorial_20261022/shore_boat_frontispiece.png"
+    }
+  },
+  "constraints": [
+    "Keep all existing stock ids so household, case and borrowed-copy ownership survive the selection pass.",
+    "Replace arbitrary size hashing with a declared format and a page-count-derived thickness.",
+    "Keep the distinctive private editions; do not assign Noel or Jonah a commercial imprint.",
+    "Do not replace known clue text or silently invent a new case fact.",
+    "Stored shelf poses are placement spots, never a rigid-body pile.",
+    "All art is original; no lettering, numbers or logos baked into generated images.",
+    "Repair native binding orientation, attached page-stack deformation and bowed top pages before room installation."
+  ]
+}
