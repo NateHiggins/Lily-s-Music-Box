@@ -14,6 +14,7 @@ var gathering_hulls: Dictionary = {}
 var gathering_poses: Dictionary = {}
 var closed_hulls: Dictionary = {}
 var closed_poses: Dictionary = {}
+var _bearing_contacts: Dictionary = {}
 var printed_materials: Dictionary = {}
 var _tinted_parts: Dictionary = {}
 var _tint_cache: Dictionary = {}
@@ -330,7 +331,26 @@ func collision(parent: CollisionObject3D, identity: String, pose: Transform3D) -
 	return shape
 
 func finish() -> void:
+	_bearing_contacts.clear()
 	_tinted_parts.clear();_tint_cache.clear();_morph_geometry.clear();meshes.clear();poses.clear();materials.clear();printed_materials.clear();hulls.clear();hull_poses.clear();gathering_hulls.clear();gathering_poses.clear();closed_hulls.clear();closed_poses.clear()
+
+func bookend_bearing(style: String) -> Dictionary:
+	if _bearing_contacts.has(style): return _bearing_contacts[style]
+	# Felt is bonded to the solid steel/brass foot. One native envelope keeps
+	# its millimetre sole in the cast instead of letting the thicker metal
+	# piece win a compound contact. Uprights and return folds stay separate.
+	var points:=PackedVector3Array()
+	for suffix: String in ["Foot","Felt"]:
+		var identity: String="bookend_"+style+"__"+suffix
+		for point: Vector3 in hulls[identity].points: points.append(hull_poses[identity]*point)
+	var bounds:=AABB(points[0],Vector3.ZERO)
+	for point: Vector3 in points: bounds=bounds.expand(point)
+	var centre:=bounds.get_center()
+	for index in points.size(): points[index]-=centre
+	var shape:=ConvexPolygonShape3D.new();shape.points=points;shape.margin=.00002
+	var result: Dictionary={"shape":shape,"pose":Transform3D(Basis.IDENTITY,centre)}
+	_bearing_contacts[style]=result
+	return result
 
 static func valid_copy_records(records: Array, stock: RefCounted) -> bool:
 	var seen: Dictionary={}

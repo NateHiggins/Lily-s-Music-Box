@@ -2,6 +2,10 @@
 
 Evidence class: **INERT**. Scoped repairs, diagnostics and continuation only.
 
+Follow-up: the open bookend sole finding below is subsequently repaired in
+**design/V2_BOOKEND_BEARING_2026-10-22.md**. The original failure and this
+checkpoint's original diagnostic packet remain unchanged.
+
 | Location / severity | Reproduction / evidence | Repair / verification |
 |---|---|---|
 | Primary thirty bindings / high visual defect | Open covers expose a rigid rotated block rather than attached gatherings. | Native Blender deformation targets fan the text block into a shared sewn gutter and bow the top sheets. Hardbacks retain rigid boards and a hollow case spine. All thirty fully open gutters meet within 0.1 micrometre; 1,312 posed stock checks retain positive volume. These checks do not prove every possible self-intersection absent. |

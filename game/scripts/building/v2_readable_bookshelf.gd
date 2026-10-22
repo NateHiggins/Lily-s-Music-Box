@@ -66,8 +66,13 @@ func _make_end(side: String) -> void:
 	body.mass=float(native_stock.data.bookends[style].mass_kg)
 	for identity: String in native_stock.data.bookends[style].parts:
 		var draw: MeshInstance3D=native_stock.draw(body,identity)
+		if identity.ends_with("__Foot") or identity.ends_with("__Felt"): continue
 		var shape: CollisionShape3D=native_stock.collision(body,identity,Transform3D.IDENTITY)
 		if shape!=null: body._solids.append(shape)
+	var bearing: Dictionary=native_stock.bookend_bearing(style)
+	var sole:=CollisionShape3D.new();sole.name="BondedFootBearing"
+	sole.shape=bearing.shape;sole.transform=bearing.pose
+	body.add_child(sole);body._solids.append(sole)
 	body.set_meta("library_stock_id",body.stock_id)
 	body.settled.connect(library_stock_changed.bind(body));_ends[side]=body
 

@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 | Continuous paperback covers, bowed attached pages, editorial formats and measured book input costs | `design/V2_BOOK_EDITORIAL_AND_BINDING_2026-10-22.md` |
+| Thin bookend sole collision repair and the combined 2,182-check library diagnostic | `design/V2_BOOKEND_BEARING_2026-10-22.md` |
 | Static book placement, held stock, floating inspection and removal of the photographic lamp overlay | `design/V2_BOOK_SLOTS_AND_LIGHT_REMOVAL_2026-10-22.md` |
 | World-fitting unracked hose, actual removal, bare-end targeting and remaining installation requirements | `design/V2_UNRACKED_HOSE_WORLD_FIT_2026-10-22.md` |
 | Static-rack removal, a simpler full-length round-hose candidate and the remaining world-layout repair | `design/V2_UNRACKED_HOSE_2026-10-22.md` |
