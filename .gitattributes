@@ -2885,3 +2885,10 @@ game/tests/fixtures/v2_hose_held_roundoff_case.json -text
 game/tests/fixtures/v2_hose_taut_case.json -text
 art/reviews/v2_hose_follower_20261021/** -text
 art/reviews/v3_hose_follower_20261021/** -text
+
+# Uninstalled native hose skin, contact response and diagnostic sources.
+game/scripts/props/native_hose_bend_limits.gd -text
+game/tests/v2_hose_skin_payout_programme.gd -text
+game/tests/v2_hose_skin_payout_test.gd -text
+game/tests/V2HoseSkinPayoutTest.tscn -text
+art/reviews/v2_hose_skin_20261022/** -text

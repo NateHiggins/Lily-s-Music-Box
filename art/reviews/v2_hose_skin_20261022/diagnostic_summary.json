@@ -1,0 +1,500 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled input and solver diagnostics; no played-world frame-time or installed spray qualification.",
+  "payout": {
+    "payout_v2": {
+      "events": 217,
+      "failures": [
+        "payout makes physical progress before the material reach limit",
+        "actual mouse input pays out all15.24m stock within the stated rigid-neck endpoint-span allowance"
+      ],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 3.893,
+        "p95": 4.876799999999995,
+        "p99": 9.852600000000008,
+        "max": 13.431
+      },
+      "solve_ms": {
+        "p50": 2.536,
+        "p95": 3.2825999999999995,
+        "p99": 6.976000000000003,
+        "max": 12.1
+      },
+      "events_with_pending_work": 0
+    },
+    "payout_v3": {
+      "events": 253,
+      "failures": [
+        "payout makes physical progress before the material reach limit",
+        "actual mouse input pays out all15.24m stock within the stated rigid-neck endpoint-span allowance"
+      ],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 3.955,
+        "p95": 6.0914,
+        "p99": 8.733279999999992,
+        "max": 10.159
+      },
+      "pose_latency_ms": {
+        "p50": 3.956,
+        "p95": 6.2715999999999905,
+        "p99": 139.4140799999996,
+        "max": 320.074
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.579,
+        "p95": 4.180999999999988,
+        "p99": 7.6407599999999976,
+        "max": 8.853
+      },
+      "solve_ms": {
+        "p50": 2.579,
+        "p95": 4.180999999999988,
+        "p99": 48.208519999999865,
+        "max": 92.108
+      },
+      "events_with_pending_work": 7
+    },
+    "payout_v4": {
+      "events": 1,
+      "failures": [
+        "payout makes physical progress before the material reach limit",
+        "actual mouse input pays out all15.24m stock within the stated rigid-neck endpoint-span allowance"
+      ],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 4.564,
+        "p95": 4.564,
+        "p99": 4.564,
+        "max": 4.564
+      },
+      "pose_latency_ms": {
+        "p50": 4.566,
+        "p95": 4.566,
+        "p99": 4.566,
+        "max": 4.566
+      },
+      "max_solver_chunk_ms": {
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "solve_ms": {
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "events_with_pending_work": 0
+    },
+    "payout_v5": {
+      "events": 281,
+      "failures": [
+        "payout makes physical progress before the material reach limit",
+        "actual mouse input pays out all15.24m stock within the stated rigid-neck endpoint-span allowance"
+      ],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 3.922,
+        "p95": 5.741,
+        "p99": 7.695399999999991,
+        "max": 34.964
+      },
+      "pose_latency_ms": {
+        "p50": 3.923,
+        "p95": 6.328,
+        "p99": 318.9136,
+        "max": 325.464
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.556,
+        "p95": 4.44,
+        "p99": 6.878199999999999,
+        "max": 8.028
+      },
+      "solve_ms": {
+        "p50": 2.556,
+        "p95": 4.458,
+        "p99": 76.19899999999997,
+        "max": 83.297
+      },
+      "events_with_pending_work": 9
+    },
+    "payout_v6": {
+      "events": 281,
+      "failures": [],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 3.924,
+        "p95": 6.124,
+        "p99": 9.06439999999997,
+        "max": 35.68
+      },
+      "pose_latency_ms": {
+        "p50": 3.925,
+        "p95": 6.983,
+        "p99": 319.0124,
+        "max": 320.337
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.56,
+        "p95": 4.477,
+        "p99": 7.014799999999998,
+        "max": 8.138
+      },
+      "solve_ms": {
+        "p50": 2.56,
+        "p95": 4.477,
+        "p99": 75.06639999999997,
+        "max": 81.887
+      },
+      "events_with_pending_work": 6
+    },
+    "payout_v8": {
+      "events": 281,
+      "failures": [],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 4.111,
+        "p95": 5.816,
+        "p99": 8.344799999999998,
+        "max": 8.943
+      },
+      "pose_latency_ms": {
+        "p50": 4.112,
+        "p95": 6.115,
+        "p99": 318.8874,
+        "max": 320.298
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.76,
+        "p95": 4.608,
+        "p99": 7.116199999999998,
+        "max": 8.288
+      },
+      "solve_ms": {
+        "p50": 2.76,
+        "p95": 4.608,
+        "p99": 77.33619999999999,
+        "max": 84.374
+      },
+      "events_with_pending_work": 7
+    },
+    "payout_v9": {
+      "events": 271,
+      "failures": [
+        "payout makes physical progress before the material reach limit",
+        "actual mouse input pays out all15.24m stock within the stated rigid-neck endpoint-span allowance"
+      ],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 4.049,
+        "p95": 5.1975,
+        "p99": 8.995300000000027,
+        "max": 33.519
+      },
+      "pose_latency_ms": {
+        "p50": 4.05,
+        "p95": 5.297,
+        "p99": 319.8013,
+        "max": 321.902
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.697,
+        "p95": 3.4565,
+        "p99": 6.867000000000002,
+        "max": 9.217
+      },
+      "solve_ms": {
+        "p50": 2.697,
+        "p95": 3.4565,
+        "p99": 73.54890000000002,
+        "max": 90.604
+      },
+      "events_with_pending_work": 9
+    },
+    "payout_v10": {
+      "events": 235,
+      "failures": [
+        "payout makes physical progress before the material reach limit",
+        "actual mouse input pays out all15.24m stock within the stated rigid-neck endpoint-span allowance"
+      ],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 4.077,
+        "p95": 6.233199999999999,
+        "p99": 9.450259999999998,
+        "max": 32.812
+      },
+      "pose_latency_ms": {
+        "p50": 4.08,
+        "p95": 15.359499999999574,
+        "p99": 321.0047,
+        "max": 328.786
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.722,
+        "p95": 5.609599999999989,
+        "p99": 8.675039999999997,
+        "max": 8.995
+      },
+      "solve_ms": {
+        "p50": 2.722,
+        "p95": 6.189799999999994,
+        "p99": 85.03237999999999,
+        "max": 89.484
+      },
+      "events_with_pending_work": 11
+    },
+    "payout_v11": {
+      "events": 287,
+      "failures": [],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 4.126,
+        "p95": 6.533099999999995,
+        "p99": 8.809059999999999,
+        "max": 12.414
+      },
+      "pose_latency_ms": {
+        "p50": 4.128,
+        "p95": 8.774799999999997,
+        "p99": 320.89568,
+        "max": 321.975
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.74,
+        "p95": 6.3550999999999975,
+        "p99": 8.00034,
+        "max": 9.229
+      },
+      "solve_ms": {
+        "p50": 2.74,
+        "p95": 7.1483,
+        "p99": 68.83722,
+        "max": 71.096
+      },
+      "events_with_pending_work": 13
+    },
+    "payout_v12": {
+      "events": 283,
+      "failures": [
+        "payout makes physical progress before the material reach limit",
+        "actual mouse input pays out all15.24m stock within the stated rigid-neck endpoint-span allowance"
+      ],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 8.166,
+        "p95": 12.359899999999993,
+        "p99": 14.684940000000006,
+        "max": 18.662
+      },
+      "pose_latency_ms": {
+        "p50": 19.734,
+        "p95": 320.3655,
+        "p99": 327.24422,
+        "max": 330.253
+      },
+      "max_solver_chunk_ms": {
+        "p50": 7.475,
+        "p95": 14.0711,
+        "p99": 22.677860000000006,
+        "max": 36.16
+      },
+      "solve_ms": {
+        "p50": 12.918,
+        "p95": 136.36129999999983,
+        "p99": 198.02178000000004,
+        "max": 237.232
+      },
+      "events_with_pending_work": 183
+    },
+    "payout_v13": {
+      "events": 293,
+      "failures": [],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 4.176,
+        "p95": 9.373799999999989,
+        "p99": 13.16799999999999,
+        "max": 32.4
+      },
+      "pose_latency_ms": {
+        "p50": 4.178,
+        "p95": 313.7428,
+        "p99": 321.17732,
+        "max": 328.292
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.829,
+        "p95": 8.5964,
+        "p99": 9.59896,
+        "max": 9.856
+      },
+      "solve_ms": {
+        "p50": 2.829,
+        "p95": 118.13119999999978,
+        "p99": 138.9114399999999,
+        "max": 144.438
+      },
+      "events_with_pending_work": 27
+    },
+    "payout_v14": {
+      "events": 291,
+      "failures": [],
+      "input_setup_ms": null,
+      "input_ms": {
+        "p50": 4.086,
+        "p95": 9.0565,
+        "p99": 13.604000000000033,
+        "max": 16.896
+      },
+      "pose_latency_ms": {
+        "p50": 4.089,
+        "p95": 317.592,
+        "p99": 321.6731,
+        "max": 326.478
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.743,
+        "p95": 11.7775,
+        "p99": 14.841700000000015,
+        "max": 23.596
+      },
+      "solve_ms": {
+        "p50": 2.743,
+        "p95": 131.0095,
+        "p99": 143.79340000000005,
+        "max": 176.76
+      },
+      "events_with_pending_work": 22
+    },
+    "payout_v15": {
+      "events": 229,
+      "failures": [
+        "payout makes physical progress before the material reach limit",
+        "actual mouse input pays out all15.24m stock within the stated rigid-neck endpoint-span allowance"
+      ],
+      "input_setup_ms": 6.437,
+      "input_ms": {
+        "p50": 4.073,
+        "p95": 5.942,
+        "p99": 9.106919999999999,
+        "max": 30.918
+      },
+      "pose_latency_ms": {
+        "p50": 4.075,
+        "p95": 21.64679999999987,
+        "p99": 320.37568,
+        "max": 322.607
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.714,
+        "p95": 5.5669999999999975,
+        "p99": 8.3078,
+        "max": 9.172
+      },
+      "solve_ms": {
+        "p50": 2.714,
+        "p95": 6.007999999999993,
+        "p99": 83.99544,
+        "max": 86.448
+      },
+      "events_with_pending_work": 10
+    },
+    "payout_v16": {
+      "events": 287,
+      "failures": [],
+      "input_setup_ms": 5.407,
+      "input_ms": {
+        "p50": 4.11,
+        "p95": 6.6033,
+        "p99": 8.881139999999997,
+        "max": 11.766
+      },
+      "pose_latency_ms": {
+        "p50": 4.112,
+        "p95": 8.8362,
+        "p99": 321.35892,
+        "max": 322.616
+      },
+      "max_solver_chunk_ms": {
+        "p50": 2.744,
+        "p95": 6.317999999999997,
+        "p99": 8.11884,
+        "max": 9.169
+      },
+      "solve_ms": {
+        "p50": 2.744,
+        "p95": 7.329399999999998,
+        "p99": 68.95096,
+        "max": 71.369
+      },
+      "events_with_pending_work": 13
+    }
+  },
+  "release": {
+    "settling_v1": {
+      "steps": 96,
+      "solver_ms": {
+        "p50": 5.0545,
+        "p95": 145.17225,
+        "p99": 450.39684999999815,
+        "max": 1079.921
+      },
+      "total_solver_ms": 4195.604,
+      "last_error": "infeasible length/support constraints: global length/support projection did not converge: [0.00035542505793, 0.00117206422146, 0.00007029245022] joint=wide nonlinear projection ceiling",
+      "failures": [
+        "full native strand advances all120steps across60real physics frames"
+      ]
+    },
+    "misdirected_settling_v2": {
+      "steps": 30,
+      "solver_ms": {
+        "p50": 6.0975,
+        "p95": 799.9464499999995,
+        "p99": 1385.0631600000006,
+        "max": 1588.033
+      },
+      "total_solver_ms": 3512.4649999999997,
+      "last_error": "native response did not converge: [{ \"iteration\": 28, \"planes\": 18, \"required_correction\": 0.0009790018037 }, { \"iteration\": 29, \"planes\": 4, \"required_correction\": 0.00032953189909 }, { \"iteration\": 30, \"planes\": 18, \"required_correction\": 0.00097984744459 }, { \"iteration\": 31, \"planes\": 4, \"required_correction\": 0.00032951886058 }]",
+      "failures": [
+        "full native strand advances all120steps across60real physics frames"
+      ]
+    },
+    "settling_v3": {
+      "steps": 120,
+      "solver_ms": {
+        "p50": 18.28,
+        "p95": 109.51079999999989,
+        "p99": 364.8672300000003,
+        "max": 529.649
+      },
+      "total_solver_ms": 4986.43,
+      "last_error": "",
+      "failures": []
+    },
+    "settling_final": {
+      "steps": 120,
+      "solver_ms": {
+        "p50": 18.051499999999997,
+        "p95": 116.88864999999991,
+        "p99": 369.3742600000003,
+        "max": 535.98
+      },
+      "total_solver_ms": 5070.653,
+      "last_error": "",
+      "failures": []
+    }
+  },
+  "default_controls": {
+    "sparse": {
+      "all_non_timing_fields_identical": true
+    },
+    "dense": {
+      "all_non_timing_fields_identical": true
+    }
+  }
+}

@@ -7,7 +7,8 @@ func run(holder: PlayerController) -> bool:
 func _settle() -> void:
 	var saved: Dictionary=rig.snapshot();var initial: PackedVector3Array=rig.strand.points.duplicate()
 	var dynamics:=preload("res://scripts/props/native_hose_dynamics.gd").new()
-	dynamics.use_follow_projection=true;dynamics.pin_outlet_direction=true
+	dynamics.use_follow_projection=true;dynamics.pin_outlet_direction=true;dynamics.native_skin_bends=true
+	dynamics.refresh_section_support=true
 	if not check_configuration(dynamics):return
 	var frames: Array[Transform3D]=rig.model_frames(initial);var lowest:=INF
 	for i in initial.size():

@@ -25,6 +25,7 @@ class OrisonHoseProjectionNative : public RefCounted {
     std::vector<double> lengths, spans, inverse;
     bool pinned_mode=false;
     bool held_projection=false;
+    double bend_error_m=.00002;
     std::string error;
     int iterations = 0, qp_iterations = 0;
     Points last_iterate;
@@ -95,7 +96,7 @@ class OrisonHoseProjectionNative : public RefCounted {
                 if (distance<.0000001) {error="collapsed native bend gradient";return false;}
                 double residual=distance-spans[i];
                 if (pinned_mode && inverse[i]==0. && inverse[i+2]==0.) {
-                    if (residual<-ERROR_M) {error="incompatible fixed bend span";return false;}
+                    if (residual<-bend_error_m) {error="incompatible fixed bend span";return false;}
                 } else rows.push_back({i,i+2,d/real_t(distance),residual,false,false});
             }
             for (const Plane &plane:planes[i]) {
@@ -221,14 +222,14 @@ class OrisonHoseProjectionNative : public RefCounted {
         }
         error="native active-set iteration ceiling";return false;
     }
-    static bool acceptable(const Rows &rows) {
+    bool acceptable(const Rows &rows) const {
         double maximum=0.,total=0.,bend=0.,plane=0.;
         for (const Row &r:rows) {
             if (r.equality) {maximum=std::max(maximum,std::abs(r.g));total+=r.g;}
             else if (r.plane) plane=std::max(plane,-r.g);
             else bend=std::max(bend,-r.g);
         }
-        return maximum<=ERROR_M && std::abs(total)<=ERROR_M && bend<=ERROR_M && plane<=.000001;
+        return maximum<=ERROR_M && std::abs(total)<=ERROR_M && bend<=bend_error_m && plane<=.000001;
     }
     static double merit(const Rows &rows) {
         double value=0.;
@@ -255,7 +256,7 @@ class OrisonHoseProjectionNative : public RefCounted {
                 double g=dot(p.normal,points[i])-p.offset;plane_error=std::max(plane_error,-g);trial_merit+=std::max(0.,-g);
             }
         }
-        accepted=maximum<=ERROR_M && std::abs(total)<=ERROR_M && bend<=ERROR_M && plane_error<=.000001;
+        accepted=maximum<=ERROR_M && std::abs(total)<=ERROR_M && bend<=bend_error_m && plane_error<=.000001;
         return true;
     }
 
@@ -453,7 +454,7 @@ class OrisonHoseProjectionNative : public RefCounted {
                 if (distance<1e-7) {error="collapsed wide bend gradient";return false;}
                 double residual=distance-spans[i];
                 if (inverse[i]==0. && inverse[i+2]==0.) {
-                    if (residual<-ERROR_M) {error="incompatible fixed wide bend";return false;}
+                    if (residual<-bend_error_m) {error="incompatible fixed wide bend";return false;}
                 } else rows.push_back({i,i+2,Vector3(real_t(d.x/distance),real_t(d.y/distance),real_t(d.z/distance)),residual,false,false});
             }
             for (const Plane &plane:planes[i]) {
@@ -481,7 +482,7 @@ class OrisonHoseProjectionNative : public RefCounted {
                 support=std::max(support,-residual);value+=std::max(0.,-residual);
             }
         }
-        accepted=maximum<=ERROR_M && std::abs(total)<=ERROR_M && bend<=ERROR_M && support<=1e-6;
+        accepted=maximum<=ERROR_M && std::abs(total)<=ERROR_M && bend<=bend_error_m && support<=1e-6;
         return true;
     }
     Dictionary project_wide(const Points &seed,const Vector3 &anchor,const Planes &planes) {
@@ -517,6 +518,93 @@ class OrisonHoseProjectionNative : public RefCounted {
             if (!advanced) {error="wide nonlinear line search stalled";last_iterate=narrow(points);return output({});}
         }
         error="wide nonlinear projection ceiling";last_iterate=narrow(points);return output({});
+    }
+
+    bool local_body_arc(Points &guide,const Points &hints,int first,int last,double stock) {
+        Vector3 a=guide[first],b=guide[last],axis=b-a;double distance=axis.length();
+        if (distance<stock*.95 || distance>=stock || last-first<4) return false;
+        axis/=real_t(distance);std::vector<double> arc(last-first+1,0.);
+        for (int i=first+1;i<=last;++i) arc[i-first]=arc[i-first-1]+lengths[i-1];
+        Vector3 normal;double weight=0.,center=0.;
+        for (int i=first+1;i<last;++i) {
+            double t=arc[i-first]/stock;Vector3 deviation=hints[i]-a-axis*real_t(distance*t);
+            deviation-=axis*real_t(dot(axis,deviation));double w=dot(deviation,deviation);
+            center+=w*t;weight+=w;normal+=deviation*real_t(t*(1.-t));
+        }
+        if (normal.length_squared()<1e-12) normal=Vector3(0,-1,0)-axis*axis.y;
+        if (normal.length_squared()<1e-12) normal=Vector3(0,0,1)-axis*axis.z;
+        normal.normalize();
+        double width=std::min(.35,2./distance),middle=weight>1e-12?center/weight:.5;
+        middle=std::clamp(middle,width*.5,1.-width*.5);double start=middle-width*.5;
+        auto curve=[&](double t,double amplitude) {
+            double u=(t-start)/width,height=u>0. && u<1.?16.*amplitude*u*u*(1.-u)*(1.-u):0.;
+            return a+axis*real_t(distance*t)+normal*real_t(height);
+        };
+        constexpr int SAMPLES=1024;Points samples(SAMPLES+1,Vector3());std::vector<double> prefix(SAMPLES+1,0.);
+        Points best=guide;double best_error=INFINITY,low=0.,high=stock;
+        for (int pass=0;pass<40;++pass) {
+            double amplitude=(low+high)*.5;prefix[0]=0.;samples[0]=a;
+            for (int j=1;j<=SAMPLES;++j) {samples[j]=curve(double(j)/SAMPLES,amplitude);prefix[j]=prefix[j-1]+samples[j].distance_to(samples[j-1]);}
+            Points trial=guide;int segment=1;
+            for (int i=first+1;i<last;++i) {
+                double target=arc[i-first]/stock*prefix.back();
+                while (segment<SAMPLES && prefix[segment]<target) ++segment;
+                double fraction=(target-prefix[segment-1])/(prefix[segment]-prefix[segment-1]);
+                trial[i]=curve((double(segment-1)+fraction)/SAMPLES,amplitude);
+            }
+            double actual=0.;for (int i=first;i<last;++i) actual+=trial[i].distance_to(trial[i+1]);
+            double error=std::abs(actual-stock);if (error<best_error) {best_error=error;best=std::move(trial);}
+            if (actual<stock) low=amplitude;else high=amplitude;
+        }
+        if (best_error>ERROR_M) return false;
+        // Initial guess only: retain the round exit fillets and place spare
+        // material in the existing slack region. Fine constraints and swept
+        // native-world contact remain the only acceptance path.
+        guide=std::move(best);return true;
+    }
+
+    bool fillet_held_hint(Points &points,const Points &hints,const std::vector<bool> &fixed) {
+        int count=int(points.size()),left=0,right=count-1;
+        while (left+1<count && fixed[left+1]) ++left;
+        while (right>0 && fixed[right-1]) --right;
+        if (left<2 || right>count-3 || right-left<8) return false;
+        double stock=0.;for (int i=left;i<right;++i) stock+=lengths[i];
+        Vector3 axis=points[right]-points[left];
+        if (axis.length()<stock*.65) return false;
+        axis.normalize();Points guide=hints;
+        auto turn=[&](Vector3 from,const Vector3 &to,double maximum) {
+            double angle=std::acos(std::clamp(dot(from,to),-1.,1.));
+            if (angle<1e-6) return to;
+            Vector3 normal=from.cross(to);
+            if (normal.length_squared()<1e-12) normal=from.cross(std::abs(from.z)<.7?Vector3(0,0,1):Vector3(1,0,0));
+            return from.rotated(normal.normalized(),real_t(std::min(angle,maximum))).normalized();
+        };
+        auto allowance=[&](int first,int middle,int last) {
+            int span=std::min(first,last);double a=lengths[std::min(first,middle)],b=lengths[std::min(middle,last)];
+            double cosine=(spans[span]*spans[span]-a*a-b*b)/(2.*a*b);
+            return .75*std::acos(std::clamp(cosine,-1.,1.));
+        };
+        Vector3 direction=(guide[left]-guide[left-1]).normalized();int steps=0;
+        while (dot(direction,axis)<.999999 && left+2<right && steps++<64) {
+            double angle=allowance(left-1,left,left+1);if (angle<1e-7) return false;
+            direction=turn(direction,axis,angle);guide[left+1]=guide[left]+direction*real_t(lengths[left]);++left;
+        }
+        if (dot(direction,axis)<.999999) return false;
+        direction=(guide[right]-guide[right+1]).normalized();steps=0;
+        while (dot(direction,-axis)<.999999 && left+2<right && steps++<64) {
+            double angle=allowance(right+1,right,right-1);if (angle<1e-7) return false;
+            direction=turn(direction,-axis,angle);guide[right-1]=guide[right]+direction*real_t(lengths[right-1]);--right;
+        }
+        if (dot(direction,-axis)<.999999) return false;
+        Vector3 first_offset=guide[left]-hints[left],last_offset=guide[right]-hints[right];
+        double free_stock=0.;for (int i=left;i<right;++i) free_stock+=lengths[i];
+        double arc=0.;
+        for (int i=left+1;i<right;++i) {
+            arc+=lengths[i-1];guide[i]=hints[i]+first_offset.lerp(last_offset,real_t(arc/free_stock));
+        }
+        local_body_arc(guide,hints,left,right,free_stock);
+        // A local initial guess, not a new constraint or accepted movement.
+        points=std::move(guide);return true;
     }
 
     bool bow_held_hint(Points &points,const Points &hints,const std::vector<bool> &fixed) {
@@ -708,7 +796,7 @@ public:
         for (int i=0;i<int(lengths.size());++i) {
             double distance=points[i].distance_to(points[i+1]);maximum=std::max(maximum,std::abs(distance-lengths[i]));total+=distance-lengths[i];
         }
-        return warm_output(points,maximum<=ERROR_M && std::abs(total)<=ERROR_M && warm_bend_error(points)<=ERROR_M);
+        return warm_output(points,maximum<=ERROR_M && std::abs(total)<=ERROR_M && warm_bend_error(points)<=bend_error_m);
     }
 private:
 
@@ -716,9 +804,11 @@ protected:
     static void _bind_methods() {
         ClassDB::bind_method(D_METHOD("warm_start","seed","anchor","planes","hints"),&OrisonHoseProjectionNative::warm_start);
         ClassDB::bind_method(D_METHOD("configure","lengths","spans","inverse"),&OrisonHoseProjectionNative::configure);
+        ClassDB::bind_method(D_METHOD("set_bend_error","value"),&OrisonHoseProjectionNative::set_bend_error);
         ClassDB::bind_method(D_METHOD("project","seed","anchor","planes"),&OrisonHoseProjectionNative::project);
         ClassDB::bind_method(D_METHOD("project_velocity","points","velocity","planes"),&OrisonHoseProjectionNative::project_velocity);
         ClassDB::bind_method(D_METHOD("follow","seed","anchor","planes","pins"),&OrisonHoseProjectionNative::follow);
+        ClassDB::bind_method(D_METHOD("resume_follow","seed","anchor","planes","pins"),&OrisonHoseProjectionNative::resume_follow);
         ClassDB::bind_method(D_METHOD("pin","indices"),&OrisonHoseProjectionNative::pin);
     }
 public:
@@ -734,6 +824,12 @@ public:
         inverse=std::move(proposed);pinned_mode=true;return true;
     }
     Dictionary follow(const PackedVector3Array &seed,const Vector3 &anchor,const Dictionary &support,const Dictionary &pins) {
+        return follow_impl(seed,anchor,support,pins,false);
+    }
+    Dictionary resume_follow(const PackedVector3Array &seed,const Vector3 &anchor,const Dictionary &support,const Dictionary &pins) {
+        return follow_impl(seed,anchor,support,pins,true);
+    }
+    Dictionary follow_impl(const PackedVector3Array &seed,const Vector3 &anchor,const Dictionary &support,const Dictionary &pins,bool continuation) {
         error.clear();iterations=0;qp_iterations=0;Points points=unpack(seed);last_iterate=points;
         if (!valid_points(points)) return output({});
         if (!anchor.is_finite()) {error="nonfinite follower anchor";return output({});}
@@ -773,7 +869,7 @@ public:
         }
         Points hints=points;
         int stagnation=0;
-        int directional_limit=fixed[0]?8:(support.is_empty()?256:32);
+        int directional_limit=continuation?0:(fixed[0]?8:(support.is_empty()?256:32));
         for (int pass=0;pass<directional_limit;++pass) {
             iterations=pass+1;
             Points previous=points;
@@ -797,7 +893,10 @@ public:
             // A held fitting can trap a local directional sweep against its
             // rigid neck. Couple all original rows with zero mobility at the
             // exact caller pins rather than stretching or moving the fitting.
-            if (support.is_empty()) bow_held_hint(points,hints,fixed);
+            if (!continuation && support.is_empty()) {
+                if (bend_error_m<ERROR_M) fillet_held_hint(points,hints,fixed);
+                else bow_held_hint(points,hints,fixed);
+            }
             auto configured_inverse=inverse;bool configured_pinned=pinned_mode;
             for (int i=0;i<int(fixed.size());++i) if (fixed[i]) inverse[i]=0.;
             pinned_mode=true;bool previous_held=held_projection;held_projection=true;
@@ -810,13 +909,17 @@ public:
         error="bounded follower pin convergence ceiling";last_iterate=relaxed;return output({});
     }
 
+    bool set_bend_error(double value) {
+        if (!std::isfinite(value) || value<=0. || value>ERROR_M) return false;
+        bend_error_m=value;return true;
+    }
     bool configure(const PackedFloat64Array &l,const PackedFloat64Array &b,const PackedFloat64Array &w) {
         if (l.size()<2 || w.size()!=l.size()+1 || b.size()+1!=l.size()) return false;
         for (int i=0;i<l.size();++i) if (!std::isfinite(l[i]) || l[i]<=0.) return false;
         for (int i=0;i<b.size();++i) if (!std::isfinite(b[i]) || b[i]<=0.) return false;
         for (int i=0;i<w.size();++i) if (!std::isfinite(w[i]) || (i+1<w.size()?w[i]<=0.:w[i]!=0.)) return false;
         lengths.assign(l.ptr(),l.ptr()+l.size());spans.assign(b.ptr(),b.ptr()+b.size());inverse.assign(w.ptr(),w.ptr()+w.size());
-        pinned_mode=false;
+        pinned_mode=false;bend_error_m=ERROR_M;
         return inverse.size()==lengths.size()+1 && spans.size()+1==lengths.size();
     }
     Dictionary project(const PackedVector3Array &seed,const Vector3 &anchor,const Dictionary &support) {
@@ -862,7 +965,7 @@ public:
         Planes planes;if (!unpack_planes(support,int(points.size()),planes)) return output({});
         Rows all,selected;if (!make_rows(points,planes,all)) return output({});
         for (Row row:all) {
-            if (!row.equality && row.g>(row.plane?.000001:ERROR_M)) continue;
+            if (!row.equality && row.g>(row.plane?.000001:bend_error_m)) continue;
             row.g=gradient(row,speed);selected.push_back(row);
         }
         Points delta;if (!linear(selected,int(points.size()),delta)) return output({});

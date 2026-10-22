@@ -34,13 +34,19 @@ var last_follow_error:=""
 var last_internal_energy_removed:=0.
 var _last_projection_followed:=false
 var pin_outlet_direction:=false
+var native_skin_bends:=false
+var refresh_section_support:=false
 var _fixed_rings:=PackedInt32Array()
 func _profile(category: String,started: int) -> void:
 	profile_usec[category]=int(profile_usec.get(category,0))+Time.get_ticks_usec()-started
 func configure(owner_rig: RefCounted,owner_contact: RefCounted) -> bool:
 	if rig!=null or owner_rig==null or not owner_rig.configured or owner_contact==null or not owner_contact.ready:return false
 	if owner_contact.rig!=owner_rig:return false
-	if not kernel.configure(owner_rig.strand.lengths,owner_rig.rest):return false
+	var radii:=PackedFloat64Array()
+	if native_skin_bends:
+		radii=preload("res://scripts/props/native_hose_bend_limits.gd").for_contact(owner_contact)
+		if radii.size()!=owner_rig.rest.size():return false
+	if not kernel.configure(owner_rig.strand.lengths,owner_rig.rest,radii):return false
 	if pin_outlet_direction:
 		_fixed_rings=PackedInt32Array([owner_rig.rest.size()-3,owner_rig.rest.size()-2])
 		if not kernel.pin_rings(_fixed_rings):return false
@@ -148,8 +154,16 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 	for i in range(predicted.size()-1):
 		if kernel.inverse[i]>0.:predicted[i]+=velocities[i]*delta*damping+gravity*delta*delta
 	var planes: Dictionary={}
+	var support_records: Array=[]
+	var constraint_pose:=predicted
 	for iteration in 32:
 		response_iterations=iteration+1
+		if refresh_section_support:
+			var reframe_started: int=Time.get_ticks_usec()
+			var reframed: Dictionary=contact.reframe_support(support_records,constraint_pose)
+			_profile("support_reframe",reframe_started)
+			if not reframed.valid:error="invalid native section support";return false
+			planes=reframed.planes
 		var proposed:=_project(predicted,planes)
 		if proposed.is_empty() or not rig.strand._valid_positions(proposed):
 			error="infeasible length/support constraints: "+projection_error
@@ -227,5 +241,9 @@ func _advance(delta: float,world_gravity: Vector3) -> bool:
 		for plane: Dictionary in result.planes:
 			var ring: int=plane.ring
 			if ring==before.size()-1 or ring in _fixed_rings:error="fixed outlet intersects world";return false
-			_merge(planes,ring,plane.normal,plane.offset)
+			if refresh_section_support:
+				if not contact.remember_support(support_records,plane):error="invalid native surface support";return false
+			else:_merge(planes,ring,plane.normal,plane.offset)
+		constraint_pose=proposed
+		if refresh_section_support:predicted=proposed
 	error="native response did not converge: "+str(response_history.slice(-4));return false

@@ -8,6 +8,8 @@ var sides:=PackedVector3Array()
 var parent_inverse: Array[Transform3D]=[]
 var original_frames: Array[Transform3D]=[]
 var configured:=false
+var _material_transport:=false
+var _rest_transport_twist:=PackedFloat64Array()
 var _frame_points: Array[PackedVector3Array]=[]
 var _frame_values: Array=[]
 var strand:=preload("res://scripts/props/hose_length_constraint.gd").new()
@@ -37,6 +39,60 @@ func configure(root: Node3D,data: Dictionary) -> bool:
 		original_frames.append(original)
 	configured=apply_points(rest)
 	return configured
+func enable_material_transport() -> bool:
+	if not configured or rest.size()<6:return false
+	_material_transport=true;_frame_points.clear();_frame_values.clear();_rest_transport_twist.clear()
+	var baseline: Array[Transform3D]=_transported_frames(rest)
+	if baseline.size()!=rest.size():_material_transport=false;return false
+	# Preserve the authored rest roll relative to the rest Bishop frame.
+	# Endpoint correction alone would retwist the stored three-dimensional lead.
+	for i in rest.size():
+		var tangent: Vector3=(rest[mini(i+1,rest.size()-1)]-rest[maxi(i-1,0)]).normalized()
+		var original: Vector3=(sides[i]-tangent*tangent.dot(sides[i])).normalized()
+		var transported: Vector3=(baseline[i].basis*original_frames[i].basis.inverse()*original).normalized()
+		_rest_transport_twist.append(atan2(tangent.dot(transported.cross(original)),transported.dot(original)))
+	var checked: Array[Transform3D]=_transported_frames(rest)
+	for i in checked.size():
+		if not checked[i].basis.is_equal_approx(original_frames[i].basis):_material_transport=false;return false
+	if apply_points(strand.points):return true
+	_material_transport=false;_frame_points.clear();_frame_values.clear();return false
+func _transported_frames(points: PackedVector3Array) -> Array[Transform3D]:
+	var tangents:=PackedVector3Array();var directors:=PackedVector3Array();directors.resize(points.size())
+	for i in points.size():
+		if not points[i].is_finite():return []
+		var tangent: Vector3=points[mini(i+1,points.size()-1)]-points[maxi(i-1,0)]
+		if tangent.length_squared()<1e-14:return []
+		tangents.append(tangent.normalized())
+	var last: int=points.size()-1
+	var seed: Vector3=sides[last]-tangents[last]*tangents[last].dot(sides[last])
+	if seed.length_squared()<1e-14:return []
+	directors[last]=seed.normalized()
+	# Transport between adjacent CURRENT tangents, never from an unrelated
+	# rest tangent that can become antiparallel and flip one section's roll.
+	for i in range(last-1,-1,-1):
+		var turn: Quaternion=Quaternion(directors[i+1],PI) if tangents[i+1].dot(tangents[i])<-.999999 else Quaternion(tangents[i+1],tangents[i])
+		var side: Vector3=turn*directors[i+1];side-=tangents[i]*tangents[i].dot(side)
+		if side.length_squared()<1e-14:return []
+		directors[i]=side.normalized()
+	var head: Vector3=sides[0]-tangents[0]*tangents[0].dot(sides[0])
+	if head.length_squared()<1e-14:return []
+	head=head.normalized()
+	var twist: float=atan2(tangents[0].dot(directors[0].cross(head)),directors[0].dot(head))
+	var arc:=PackedFloat64Array();arc.resize(points.size());arc[0]=0.
+	for i in range(1,points.size()):arc[i]=arc[i-1]+strand.lengths[i-1]
+	var start: float=arc[2];var end: float=arc[points.size()-3]
+	if end<=start:return []
+	var frames: Array[Transform3D]=[]
+	for i in points.size():
+		var fraction: float=clampf((end-arc[i])/(end-start),0.,1.)
+		var rest_twist: float=0. if _rest_transport_twist.is_empty() else _rest_transport_twist[i]
+		var side: Vector3=directors[i].rotated(tangents[i],twist*fraction+rest_twist).normalized()
+		var before: Vector3=(rest[mini(i+1,rest.size()-1)]-rest[maxi(i-1,0)]).normalized()
+		var original_side: Vector3=(sides[i]-before*before.dot(sides[i])).normalized()
+		var old_frame:=Basis(before,original_side,before.cross(original_side))
+		var new_frame:=Basis(tangents[i],side,tangents[i].cross(side))
+		frames.append(Transform3D(new_frame*old_frame.transposed()*original_frames[i].basis,points[i]))
+	return frames
 func model_frames(points: PackedVector3Array) -> Array[Transform3D]:
 	if skeleton==null or rest.size()<3 or points.size()!=rest.size() or original_frames.size()!=rest.size():return []
 	for i in _frame_points.size():
@@ -50,21 +106,25 @@ func model_frames(points: PackedVector3Array) -> Array[Transform3D]:
 				_frame_points.push_front(coordinates);_frame_values.push_front(cached)
 			return cached.duplicate()
 	var frames: Array[Transform3D]=[]
-	for i in points.size():
-		if not points[i].is_finite():return []
-		var tangent: Vector3=points[mini(i+1,points.size()-1)]-points[maxi(i-1,0)]
-		var before: Vector3=rest[mini(i+1,rest.size()-1)]-rest[maxi(i-1,0)]
-		if tangent.length_squared()<1e-14 or before.length_squared()<1e-14:return []
-		tangent=tangent.normalized();before=before.normalized()
-		var side: Vector3=sides[i]-before*before.dot(sides[i])
-		if side.length_squared()<1e-14:return []
-		side=side.normalized()
-		var turn: Quaternion=Quaternion(side,PI) if before.dot(tangent)<-.999999 else Quaternion(before,tangent)
-		# Transport the actual native bind orientation rather than assuming an
-		# importer bone-axis convention. Godot4 poses include their rest
-		# transform; they are not deltas multiplied on top of that rest.
-		var frame:=Transform3D(Basis(turn)*original_frames[i].basis,points[i])
-		frames.append(frame)
+	if _material_transport:
+		frames=_transported_frames(points)
+		if frames.is_empty():return []
+	else:
+		for i in points.size():
+			if not points[i].is_finite():return []
+			var tangent: Vector3=points[mini(i+1,points.size()-1)]-points[maxi(i-1,0)]
+			var before: Vector3=rest[mini(i+1,rest.size()-1)]-rest[maxi(i-1,0)]
+			if tangent.length_squared()<1e-14 or before.length_squared()<1e-14:return []
+			tangent=tangent.normalized();before=before.normalized()
+			var side: Vector3=sides[i]-before*before.dot(sides[i])
+			if side.length_squared()<1e-14:return []
+			side=side.normalized()
+			var turn: Quaternion=Quaternion(side,PI) if before.dot(tangent)<-.999999 else Quaternion(before,tangent)
+			# Transport the actual native bind orientation rather than assuming an
+			# importer bone-axis convention. Godot4 poses include their rest
+			# transform; they are not deltas multiplied on top of that rest.
+			var frame:=Transform3D(Basis(turn)*original_frames[i].basis,points[i])
+			frames.append(frame)
 	# Cache geometry only. Copy the coordinates so in-place solver edits cannot
 	# silently retain an old frame, and never cache world collision answers.
 	_frame_points.push_front(points.duplicate());_frame_values.push_front(frames.duplicate())

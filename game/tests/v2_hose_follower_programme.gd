@@ -1,11 +1,26 @@
 extends "res://tests/v2_deployable_hose_programme.gd"
 ## Opt-in uninstalled numerical candidate; every inherited physical guard stays.
 var tether:=preload("res://scripts/props/native_hose_tether.gd").new()
+var resume_costs: Array[float]=[]
+var input_diagnostic: Dictionary={}
+func _grip() -> Dictionary:
+	var descriptor: Dictionary=super._grip()
+	descriptor.motion_pending=func():return tether.pending
+	return descriptor
+func _process(_delta: float) -> void:
+	if held and tether.pending:
+		if tether.resume_prepare() and tether.commit_endpoint():_sync()
+		resume_costs.append(tether.last_ms)
+func _release_hose_grip() -> void:
+	super._release_hose_grip();tether.cancel_motion()
+func prepare(model: Node3D) -> bool:
+	return super.prepare(model) and rig.enable_material_transport()
 class FollowGravity extends "res://tests/v2_fire_hose_gravity_programme.gd":
 	func _make_dynamics() -> RefCounted:
 		var dynamics:=preload("res://scripts/props/native_hose_dynamics.gd").new()
 		dynamics.use_follow_projection=true
-		dynamics.pin_outlet_direction=true
+		dynamics.pin_outlet_direction=true;dynamics.native_skin_bends=true
+		dynamics.refresh_section_support=true
 		return dynamics
 	func _check_fixed_outlet(dynamics: RefCounted,initial: PackedVector3Array) -> void:
 		var fixed:=true
@@ -15,9 +30,13 @@ class FollowGravity extends "res://tests/v2_fire_hose_gravity_programme.gd":
 		check(fixed and frames[-1].basis.is_equal_approx(dynamics.rig.original_frames[-1].basis) and frames[-2].basis.is_equal_approx(dynamics.rig.original_frames[-2].basis),"released and supported cloth retains the rigid native outlet neck and its frame")
 func _make_gravity_programme() -> RefCounted:return FollowGravity.new()
 func _move_hose_endpoint(value: Vector3) -> bool:
+	var start: int=Time.get_ticks_usec()
 	if tether.rig==null and not tether.configure(rig,contact):return false
+	var configured: int=Time.get_ticks_usec()
 	var moved: bool=tether.move_endpoint(value)
+	var solved: int=Time.get_ticks_usec()
 	print("HOSE HELD FOLLOW: moved=",moved," ms=",tether.last_ms," responses=",tether.responses," error=",tether.error)
+	input_diagnostic={"configure_ms":(configured-start)/1000.,"full_solver_call_ms":(solved-configured)/1000.,"logging_ms":(Time.get_ticks_usec()-solved)/1000.}
 	return moved
 func run(holder: PlayerController) -> bool:
 	if not await super.run(holder):return false

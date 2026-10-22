@@ -134,6 +134,10 @@ func _observe_motion() -> void:
 		changed=changed or not is_equal_approx(float(current),float(_motion_origin))
 	# Read back the owner's accepted value after physics publishes moving bodies.
 	# No extra sweep or collision query belongs to the indicator.
+	var pending: Variant=target.get("motion_pending")
+	if pending is Callable and pending.is_valid() and bool(pending.call()):
+		motion_feedback="grabbed"
+		return
 	if _feedback_pending and Engine.get_physics_frames() > _feedback_frame:
 		var accepted: bool = current.is_equal_approx(_feedback_requested) if current is Vector3 else absf(float(current)-float(_feedback_requested)) < .0001
 		motion_feedback = ("limit" if _feedback_limit else "grabbed") if accepted else "blocked"

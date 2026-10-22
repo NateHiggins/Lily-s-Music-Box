@@ -2,13 +2,13 @@
   "schema": "orison.hose-math-build.v1",
   "sdk_commit": "27d9dd23c83871e0619fca5dc2cddfbfd69e926a",
   "zig_version": "0.16.0",
-  "sdk_library_sha256": "66439ebbfc3c96fafafb8b7a0878f6ba244d333898c97e8f6ab6f56efbe7ff95",
+  "sdk_library_sha256": "2264f9604caeebd5033954fc86edd2166725151cc82943f9ae27209b9d0de77b",
   "sources": {
     "tools/build_hose_math.py": "3f7b4e87603da4e88139a0ac54c1b5740341a1a42eef17bad9836d2312d7c6f2",
     "game/native/hose_math/CMakeLists.txt": "c3266e8a97af05953a784765b61785a7480e55bcffd772da2c6aa934cd0ddad0",
     "game/native/hose_math/build_profile.json": "af90c850e43cc773d47241de0077923dcae94a0697415a6d2d3eff78f404f919",
-    "game/native/hose_math/src/hose_projection.cpp": "575435255f6284df7259a5751c9261a9b3353fba59670a65b5f8fdc6ad48b75b"
+    "game/native/hose_math/src/hose_projection.cpp": "e4b01f41764d1d6f56f0e0d813f3d6f1f445ff07c2adcd8ae905a027a5f2c274"
   },
-  "binary_sha256": "9b3b52cd62a65d86eb8f27816d4f2228b004d7669331f5a77229fe5755da9152",
+  "binary_sha256": "92f7a8e613d13fbac4e4c79b5593281b00c044c4386983df1c59e87dd479c7c4",
   "scope": "Numerical build binding only; not runtime or appearance acceptance."
 }

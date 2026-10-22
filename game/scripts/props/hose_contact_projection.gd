@@ -36,6 +36,8 @@ func configure(material_lengths: PackedFloat64Array,bend_spans: PackedFloat64Arr
 func _native_result(value: Dictionary) -> PackedVector3Array:
 	error=value.error;iterations=int(value.iterations);qp_iterations=int(value.qp_iterations);last_iterate=value.last_iterate
 	return value.points
+func set_bend_error(value: float) -> bool:
+	return _native!=null and _native.has_method("set_bend_error") and bool(_native.call("set_bend_error",value))
 func pin_rings(indices: PackedInt32Array) -> bool:
 	if _native==null or not _native.has_method("pin") or not bool(_native.call("pin",indices)):
 		error="native fixed-ring configuration rejected";return false
@@ -44,10 +46,11 @@ func pin_rings(indices: PackedInt32Array) -> bool:
 func warm_start(seed: PackedVector3Array,anchor: Vector3,planes: Dictionary,hints: PackedVector3Array) -> Dictionary:
 	if _native==null:return {"points":PackedVector3Array(),"accepted":false,"iterations":0,"error":"native warm kernel unavailable"}
 	return _native.call("warm_start",seed,anchor,planes,hints)
-func follow(seed: PackedVector3Array,anchor: Vector3,planes: Dictionary,pins: Dictionary={}) -> PackedVector3Array:
-	if _native==null or not _native.has_method("follow"):
+func follow(seed: PackedVector3Array,anchor: Vector3,planes: Dictionary,pins: Dictionary={},continuation:=false) -> PackedVector3Array:
+	var method: String="resume_follow" if continuation else "follow"
+	if _native==null or not _native.has_method(method):
 		error="native follower unavailable";return PackedVector3Array()
-	return _native_result(_native.call("follow",seed,anchor,planes,pins))
+	return _native_result(_native.call(method,seed,anchor,planes,pins))
 func _dot(a: Vector3,b: Vector3) -> float:
 	# Keep matrix accumulation inFloat64; imported positions remainFloat32.
 	return float(a.x)*float(b.x)+float(a.y)*float(b.y)+float(a.z)*float(b.z)

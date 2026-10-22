@@ -137,7 +137,35 @@ func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictio
 	for p: Vector3 in sections[ring].outer:support=minf(support,local.dot(frame.basis*p))
 	# A0.1mm stand-off prevents resting contact chatter. This moves cloth away
 	# from the obstacle; narrow/swept collision margins remain at1micrometre.
-	return {"ring":ring,"normal":local,"offset":surface-support+RESPONSE_CLEARANCE_M/scale,"rid":info.rid}
+	return {"ring":ring,"normal":local,"offset":surface-support+RESPONSE_CLEARANCE_M/scale,"rid":info.rid,"surface":surface,"clearance":RESPONSE_CLEARANCE_M/scale}
+func remember_support(records: Array,plane: Dictionary) -> bool:
+	if not plane.has_all(["ring","normal","surface","clearance","rid"]):return false
+	var ring: int=plane.ring
+	var normal: Vector3=plane.normal
+	if ring<0 or ring>=sections.size() or not normal.is_finite() or absf(normal.length_squared()-1.)>.000001:return false
+	if not is_finite(plane.surface) or not is_finite(plane.clearance) or plane.clearance<=0.:return false
+	for old: Dictionary in records:
+		if old.ring==ring and old.rid==plane.rid and (old.normal-normal).length_squared()<1e-14 and absf(old.surface-plane.surface)<.000002:
+			old.surface=maxf(old.surface,plane.surface);return true
+	records.append(plane.duplicate());return true
+func reframe_support(records: Array,points: PackedVector3Array) -> Dictionary:
+	var planes: Dictionary={}
+	if records.is_empty():return {"valid":true,"planes":planes}
+	var frames: Array[Transform3D]=rig.model_frames(points)
+	if frames.size()!=sections.size():return {"valid":false,"planes":{}}
+	for plane: Dictionary in records:
+		var ring: int=plane.ring
+		var support:=INF
+		for point: Vector3 in sections[ring].outer:support=minf(support,plane.normal.dot(frames[ring].basis*point))
+		var offset: float=plane.surface-support+plane.clearance
+		if not is_finite(offset):return {"valid":false,"planes":{}}
+		if not planes.has(ring):planes[ring]=[]
+		var merged:=false
+		for old: Dictionary in planes[ring]:
+			if (old.normal-plane.normal).length_squared()<1e-14:
+				old.offset=maxf(old.offset,offset);merged=true;break
+		if not merged:planes[ring].append({"normal":plane.normal,"offset":offset})
+	return {"valid":true,"planes":planes}
 func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: bool,collect: bool=false) -> bool:
 	broad_queries=0;shell_queries=0;last_collider=null
 	analytic_segments=0

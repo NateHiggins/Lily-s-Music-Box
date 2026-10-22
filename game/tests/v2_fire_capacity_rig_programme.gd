@@ -31,6 +31,7 @@ func _sync() -> void:
 	endpoint.position=rig.strand.points[0]
 	endpoint.basis=Basis(Vector3.BACK,1.5708+PI)
 func _move_hose_endpoint(value: Vector3) -> bool:return rig.move_endpoint(value,contact.veto)
+func _release_hose_grip() -> void:held=false
 func _grip() -> Dictionary:
 	return {"owner":self,"part":handle,"frame":self,"kind":"free",
 		"read":func():return endpoint.position,
@@ -39,7 +40,7 @@ func _grip() -> Dictionary:
 		"begin":func():
 			if held:return false
 			held=true;return true,
-		"owns":func():return held,"end":func():held=false}
+		"owns":func():return held,"end":_release_hose_grip}
 func _click() -> void:
 	var event:=InputEventMouseButton.new();event.button_index=MOUSE_BUTTON_LEFT;event.pressed=true
 	player._unhandled_input(event)
