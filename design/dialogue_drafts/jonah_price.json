@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "jonah_price",
+    "speaker_default": "JONAH PRICE",
+    "voice_prefix": "jonah_t10_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case. Jonah notices draft card, cold mug, ending, bookstore receipt, sentence left open. Recursive revisions, alternative clauses, parenthetical escape hatches; rare finality sounds almost violent. Comic engine: revising an apology until the original offence is historically efficient. Never offers a polished conclusion without the scene marking its cost. He is the convicted man's son; the family book has no last chapter because the last chapter is the verdict; Noel is his brother; Leon ran. The spine is can't finish (Bible VI.6 proposal)."
+  },
+  "entries": {
+    "first_stable": "jp_open",
+    "real_talk": "jp_rt_open",
+    "integration": "jp_int_open",
+    "resolved": "jp_res_open",
+    "fallback": "jp_fb_open"
+  },
+  "nodes": {
+    "jp_open": {
+      "line": "Come in, come in, don't step on the — thank you. Sentences. Behind the skirting. They nest. I'll be writing, and the end of a line will go, just the last word or two, and I'll hear it later under the boards, finishing itself, badly. Last night one of them finished a paragraph I abandoned in — well, years ago. It was worse than I'd have done. That's what I can't forgive.",
+      "choices": [
+        {"label": "Worse than you'd have done. So you'd have done it.", "goto": "jp_would_have", "trust": 1},
+        {"label": "The bed faces the desk. Last thing you see is the page. [the bed]", "goto": "jp_bed", "evidence": "the bed faces the desk so the last thing he sees is the unfinished page"},
+        {"label": "Pull the skirting off. Let's see them.", "goto": "jp_skirting", "trust": -1}
+      ],
+      "silence_goto": "jp_sil1"
+    },
+    "jp_sil1": {
+      "line": "You're not saying anything, which is — that's a full stop. You've brought a full stop into my flat. I don't have many. Sit on it; I mean, sit down.",
+      "choices": [
+        {"label": "Worse than you'd have done. So you'd have done it.", "goto": "jp_would_have", "trust": 1}
+      ],
+      "silence_goto": "jp_would_have"
+    },
+    "jp_skirting": {
+      "line": "I had the skirting off Thursday. There's nothing there. Dust, a receipt from a bookshop, and the sound. The sound stayed when the board came off. I put the board back because a room with the sound and no board felt like a sentence with no — there, you see, I can't even.",
+      "choices": [
+        {"label": "Worse than you'd have done. So you'd have done it.", "goto": "jp_would_have", "trust": 1}
+      ],
+      "silence_goto": "jp_would_have"
+    },
+    "jp_bed": {
+      "line": "Yes. Last thing at night, first thing in the morning: the page. Unfinished. So I never wake up having forgotten it, and I never sleep having finished it. It's a very efficient arrangement for a man who doesn't want to be let off. ... You weren't meant to notice the bed.",
+      "choices": [
+        {"label": "You've arranged the room so you can't be let off.", "goto": "jp_let_off", "infer": true, "trust": 1},
+        {"label": "Worse than you'd have done. So you'd have done it.", "goto": "jp_would_have", "trust": 1}
+      ],
+      "silence_goto": "jp_would_have"
+    },
+    "jp_let_off": {
+      "line": "Let off. That's the phrase. Yes. A man who finishes a book gets let off; he's said what he had to say and he can go. I'd rather keep owing it. Owing it is a kind of company. ... I've started four books in the last month. Started. Read the openings aloud at the counter at four to people who'll never hear the ends. That's not writing. That's a man clearing his throat for years.",
+      "choices": [
+        {"label": "Worse than you'd have done. So you'd have done it.", "goto": "jp_would_have", "trust": 1}
+      ],
+      "silence_goto": "jp_would_have"
+    },
+    "jp_would_have": {
+      "line": "I'd have done it. Yes. I know how every one of them ends; I've known for years. The sentence under the boards isn't finishing something I couldn't. It's finishing something I wouldn't. There's a word I've been not writing for so long the floor's started to do it for me, and it does it in my hand, which is — which is the cruelty, if we're using the word, which I'd rather we didn't, pending.",
+      "choices": [
+        {"label": "Which book? There's one. The others are the throat-clearing.", "goto": "jp_which_book", "infer": true, "trust": 1},
+        {"label": "What's the word?", "goto": "jp_word"},
+        {"label": "Then write it badly and be done.", "goto": "jp_badly_early", "trust": -1}
+      ],
+      "silence_goto": "jp_would_sil"
+    },
+    "jp_would_sil": {
+      "line": "You're waiting for the end of the sentence. I'd forgotten people did that. Most people fill it; it's a kindness; it's how I lost the ends of most of mine.",
+      "choices": [
+        {"label": "Which book? There's one.", "goto": "jp_which_book", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "jp_which_book"
+    },
+    "jp_badly_early": {
+      "line": "Badly. Yes. Everyone says write it badly. I've written it badly four hundred times; I've a wastebasket of bad endings. Bad isn't the problem. Written is the problem. Try me again when you've thought about the difference.",
+      "choices": [
+        {"label": "Which book? There's one.", "goto": "jp_which_book", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "jp_which_book"
+    },
+    "jp_word": {
+      "line": "A short one. Legal. The kind of word a man in a robe says and a room goes quiet and a boy in the back row with his brother learns what his surname's going to mean for the rest of his — I'm not going to say it. If I say it I've written it. That's how it works with words; you'd think I'd know.",
+      "flag": "jonah_verdict_unwritten",
+      "choices": [
+        {"label": "Which book? There's one.", "goto": "jp_which_book", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "jp_which_book"
+    },
+    "jp_which_book": {
+      "role": "strained",
+      "line": "The family's. My father's. I've been writing it since I was a boy with a composition book in a stairwell. Every chapter's done but the last, and the last is a courtroom, and I know what the judge said because I was there, and I have never once written it down. My brother's got the flat under glass and I've got the book without an end and between us we've preserved the exact shape of the hole.",
+      "flag": "jonah_verdict_unwritten",
+      "choices": [
+        {"label": "There's a gap in that record. Someone else has carried it too.", "goto": "jp_gap", "requires": ["peter_gap_found"], "trust": 1},
+        {"label": "You were in the room. You heard it. Your record's complete.", "goto": "jp_complete", "trust": 1},
+        {"label": "Your father would want you to finish.", "goto": "jp_father_want", "trust": -1}
+      ],
+      "silence_goto": "jp_which_sil",
+      "silence_flag": "jonah_silence_unfilled",
+      "silence_trust": 1
+    },
+    "jp_which_sil": {
+      "line": "... No. Don't fill that. You're right not to. That's the sentence; that silence is exactly how long it was between the judge opening his mouth and the word. I've never been able to write a pause that long. You've just done it for nothing.",
+      "choices": [
+        {"label": "You were in the room. You heard it. Your record's complete.", "goto": "jp_complete", "trust": 1}
+      ],
+      "silence_goto": "jp_complete"
+    },
+    "jp_father_want": {
+      "line": "He'd want — no. Don't. You didn't know him; I barely did; the only thing I know he wanted was to come home, and the ending's the part where he doesn't, so I'll thank you not to guess at his preferences about my prose.",
+      "choices": [
+        {"label": "You were in the room. You heard it. Your record's complete.", "goto": "jp_complete", "trust": 1}
+      ],
+      "silence_goto": "jp_complete"
+    },
+    "jp_gap": {
+      "line": "A gap. ... There was a gap, yes, in the transcript; the appeal turned on it, or didn't, I was a boy, I heard 'irregularity' and thought it meant hope. Someone carried that? Someone else in this — no. Don't tell me who. If there's a man in this building who found that gap and couldn't do anything with it either, I don't want to meet him. We'd just sit there being two halves of the same unfinished sentence.",
+      "flag": "jonah_knows_the_gap",
+      "choices": [
+        {"label": "You were in the room. You heard it. Your record's complete.", "goto": "jp_complete", "trust": 1}
+      ],
+      "silence_goto": "jp_complete"
+    },
+    "jp_complete": {
+      "line": "Complete. ... It is, isn't it. I've got the one record nobody else has: I was there and I remember. The transcript has a blank; I don't. I've been treating what I know as the thing I can't write, when it's the only thing in this family that was never lost. ... That's a terrible thing to find out on a Tuesday.",
+      "choices": [
+        {"label": "Then write it. Badly. Tonight. And let it end.", "goto": "jp_write", "trust": 1},
+        {"label": "An ending doesn't erase what came after. Noel. Leon. You.", "goto": "jp_continuation", "trust": 1},
+        {"label": "Leave it open. The hole is the book.", "goto": "jp_leave_open", "trust": -1}
+      ],
+      "silence_goto": "jp_write"
+    },
+    "jp_leave_open": {
+      "line": "The hole is the book. Yes. That's the sentence I've used for twenty years and it sounds so much worse in a plumber's mouth. Thank you for that. I mean it. I'd never heard how it sounded.",
+      "choices": [
+        {"label": "Then write it. Badly. Tonight.", "goto": "jp_write", "trust": 1}
+      ],
+      "silence_goto": "jp_write"
+    },
+    "jp_continuation": {
+      "line": "It doesn't erase. ... No. The word gets said and then there's thirty years of after; Noel with his gloves, Leon on the phone from wherever he is, me at a counter at four telling strangers how books begin. The ending happened and we kept going. That's the chapter I've never written because I thought the ending was the end. It isn't. It's page one of the part I'm in.",
+      "flag": "endings_do_not_erase",
+      "choices": [
+        {"label": "Then write it. Badly. Tonight.", "goto": "jp_write", "trust": 1}
+      ],
+      "silence_goto": "jp_write"
+    },
+    "jp_write": {
+      "role": "recognition",
+      "line": "Badly. Tonight. ... Fresh page. No. The old page, the one on the desk, the one the bed looks at. ... 'The judge said —' ... I've written it. It's one word. It's the worst sentence in the book and it's the only one that's finished. ... The skirting's quiet. Listen. First time in a year it's not finishing anything for me. I've put it out of a job.",
+      "flag": "jonah_wrote_the_word"
+    },
+    "jp_rt_open": {
+      "line": "Come in. The book's got an end. It's bad. I've not fixed it. I've started a second book, which is new; usually I start a fourth.",
+      "choices": [
+        {"label": "You pause outside 4C on your walk and never knock.", "goto": "jp_4c", "infer": true, "trust": 1},
+        {"label": "Your brother took the mug out from under the glass.", "goto": "jp_mug", "requires": ["use_is_love"], "trust": 1},
+        {"label": "The hymn book. Nine printed, eight given away.", "goto": "jp_hymns", "requires": ["minutes_read"], "trust": 1}
+      ],
+      "silence_goto": "jp_rt_sil"
+    },
+    "jp_rt_sil": {
+      "line": "No question? Then you'll hear the opening. Everyone hears the opening. Sit.",
+      "choices": [
+        {"label": "You pause outside 4C and never knock.", "goto": "jp_4c", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "jp_res_open"
+    },
+    "jp_4c": {
+      "line": "The landing outside my brother's door. Yes. Longest pause in the building; I've timed it against the clock on the stair. I don't knock because inside is the flat as it was and he can't bear me not bearing it. We do coffee in the doorway on Sundays. Two cups, never inside. ... I might go in. Now there's an end. You can go into a room once you know how the story ends; before that it's just a room you're not allowed to leave.",
+      "flag": "jonah_might_go_in"
+    },
+    "jp_mug": {
+      "line": "He did? Out from under the glass? ... Her mug. The chipped one. He's drinking out of it. ... I'm going to have to go in, aren't I. I can't have him using a thing while I stand in the door with a coffee. That's not a scene; that's a stage direction I've been refusing for a decade.",
+      "flag": "jonah_will_go_in"
+    },
+    "jp_hymns": {
+      "line": "Forty pages, hand-set, nine copies, eight given away. 'Leave one light above the stair.' I changed the last line after the first eight went out and never told anyone, so there are two endings in this building to a hymn I wrote, and nobody's obliged to correct anybody. That's the only piece I've ever finished and I finished it twice. You can see the trouble.",
+      "flag": "jonah_hymn_two_endings"
+    },
+    "jp_int_open": {
+      "line": "Slept with the page turned over. Blank side up. First time. Woke up and didn't know what I'd forgotten, which is what the rest of you call morning.",
+      "choices": [
+        {"label": "[Leave the page turned.]", "goto": "jp_int_beat"}
+      ],
+      "silence_goto": "jp_int_beat"
+    },
+    "jp_int_beat": {
+      "line": "Full stop.",
+      "action": "quiet_beat"
+    },
+    "jp_fb_open": {
+      "line": "They've started finishing other people's sentences now. The kettle's. I didn't know a kettle had a clause.",
+      "choices": [
+        {"label": "I'll come back when the boards are quiet."}
+      ],
+      "silence_goto": "jp_fb_sil"
+    },
+    "jp_fb_sil": {
+      "line": "Mind the mug. It's cold. It's always cold; that's its job."
+    },
+    "jp_res_open": {
+      "line": "Went in. Sat at the table, his end, with the coffee. He didn't label me. The book's on his shelf now, with the end in it. He hasn't read the last page. He's holding it with both hands, which is more than I ever did."
+    }
+  }
+}

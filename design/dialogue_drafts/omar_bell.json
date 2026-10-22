@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "case_id": "omar_unrepairable",
+    "speaker_default": "OMAR BELL",
+    "voice_prefix": "omar_c06_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Omar notices fit, fatigue, fastener, service tag and somebody else's failed repair. Mechanical verbs, short diagnosis, exact tolerance; emotion enters as the part he elects not to replace. Comic engine: professional offence at a metaphysical event's workmanship. Never says an object 'wanted' something before exhausting material causes. Case: appliances returning with another impossible fault; flags not_every_loss_is_a_failure, declare_unrepairable. He is the super by day; Iris in 5C is his wife; the notes are to himself. He does not say 'marriage' until the player has earned it."
+  },
+  "entries": {
+    "first_stable": "ob_open",
+    "real_talk": "ob_rt_open",
+    "integration": "ob_int_open",
+    "resolved": "ob_res_open",
+    "fallback": "ob_fb_open"
+  },
+  "nodes": {
+    "ob_open": {
+      "line": "Don't touch the toaster. It's mine. I know it's on the intake bench. It came back. I fixed the latch Tuesday, it came back Wednesday with the element gone, I did the element, it came back with a plug I've never seen. Three pins. Look at it. Who makes a three-pin plug.",
+      "choices": [
+        {"label": "Somebody, somewhere. Not here.", "goto": "ob_plug"},
+        {"label": "You keep one broken on purpose. [the teardown appliance]", "goto": "ob_kept", "evidence": "one appliance kept broken on purpose, for parts and company"},
+        {"label": "Have you tried not fixing it?", "goto": "ob_notfix", "trust": -1}
+      ],
+      "silence_goto": "ob_sil1"
+    },
+    "ob_sil1": {
+      "line": "You're looking at the joint, not the plug. Good. The joint's mine. It's sound. Whatever's wrong with that machine, it is not my work, and I'd like that on the tag.",
+      "choices": [
+        {"label": "Then the fault isn't the work. It's that it keeps coming back.", "goto": "ob_back", "trust": 1},
+        {"label": "Somebody makes three-pin plugs. Not here.", "goto": "ob_plug"}
+      ],
+      "silence_goto": "ob_plug"
+    },
+    "ob_notfix": {
+      "line": "That's not a sentence. That's a man with a cold pipe telling me to leave it. I don't leave it. If I could leave it I'd be a landlord.",
+      "choices": [
+        {"label": "Then show me what came back.", "goto": "ob_plug"}
+      ],
+      "silence_goto": "ob_plug"
+    },
+    "ob_kept": {
+      "line": "The wireless on the shelf. Back off, chassis out, valves pulled. For parts. ... And it's company, all right, it's company. A man can't work in a room where everything's finished. You'd have a room with nothing in it to do.",
+      "choices": [
+        {"label": "So you keep one thing you'll never close.", "goto": "ob_never_close", "infer": true, "trust": 1},
+        {"label": "Then show me what came back.", "goto": "ob_plug"}
+      ],
+      "silence_goto": "ob_plug"
+    },
+    "ob_never_close": {
+      "line": "I keep one thing I'll get to. Different. Everything in this flat is a thing I'll get to. The toaster's just rude about it.",
+      "choices": [
+        {"label": "Show me what came back.", "goto": "ob_plug"}
+      ],
+      "silence_goto": "ob_plug"
+    },
+    "ob_plug": {
+      "line": "Not here, no. Not anywhere I've worked, and I've worked. The brass is wrong. Too light. Like it was made by somebody who'd heard of brass. And the element I put in on Wednesday is gone, not burnt, gone, and in its place a coil of something that gets hot without drawing. I measured. It draws nothing.",
+      "choices": [
+        {"label": "Then the fault isn't the work. It's that it keeps coming back.", "goto": "ob_back", "trust": 1},
+        {"label": "Draws nothing and heats. Then it's not a toaster.", "goto": "ob_not_toaster", "infer": true, "trust": 1},
+        {"label": "Write it up as unrepairable.", "goto": "ob_write", "trust": -1}
+      ],
+      "silence_goto": "ob_back"
+    },
+    "ob_write": {
+      "line": "I don't have that tag. I've got FAULT FOUND, PART FITTED, TESTED, and a blank one I've never filled in. You'll notice the blank one's the cleanest. Nobody's ever had to pick it up.",
+      "choices": [
+        {"label": "Then the fault isn't the work. It's that it keeps coming back.", "goto": "ob_back", "trust": 1}
+      ],
+      "silence_goto": "ob_back"
+    },
+    "ob_not_toaster": {
+      "line": "It's a toaster. It's shaped like one and it burnt bread this morning. Whatever's inside it is somebody's idea of a toaster, and the idea is wrong, and I can fix a thing but I can't fix an idea. I've tried. On the fourth floor and the fifth.",
+      "choices": [
+        {"label": "The fifth. 5C.", "goto": "ob_fifth", "infer": true, "trust": 1, "requires": ["bells_married"]},
+        {"label": "Then the fault isn't the work. It's that it keeps coming back.", "goto": "ob_back", "trust": 1}
+      ],
+      "silence_goto": "ob_back"
+    },
+    "ob_fifth": {
+      "line": "Who told you fifth. ... Doesn't matter. Yes. There's a sink up there I've fixed four times and it wasn't broken any of them. Leave it.",
+      "flag": "omar_fifth_floor",
+      "choices": [
+        {"label": "Then the fault isn't the work. It's that it keeps coming back.", "goto": "ob_back", "trust": 1}
+      ],
+      "silence_goto": "ob_back"
+    },
+    "ob_back": {
+      "line": "It keeps coming back. Yes. That's what a fault does. Water finds the low point and a fault finds the man who'll take it. I've been taking it twenty years. You don't get to put that down just because the plug's gone strange on you.",
+      "choices": [
+        {"label": "Some of those twenty years weren't yours to take.", "goto": "ob_notyours", "trust": 1},
+        {"label": "You take it because nobody else will.", "goto": "ob_nobody", "trust": -1},
+        {"label": "The night the lights went. You took that one too.", "goto": "ob_blackout", "requires": ["cal_omar_blackout"], "trust": 1}
+      ],
+      "silence_goto": "ob_back_sil"
+    },
+    "ob_back_sil": {
+      "line": "You're letting me hear myself. Fine. Twenty years. Say it back slower and it sounds like a sentence.",
+      "choices": [
+        {"label": "Some of those years weren't yours to take.", "goto": "ob_notyours", "trust": 1}
+      ],
+      "silence_goto": "ob_notyours"
+    },
+    "ob_nobody": {
+      "line": "Nobody else will. That's right. You've said the thing I say and I don't like the sound of it in another mouth. It's a reason. It's not a good one. Move along.",
+      "choices": [
+        {"label": "Some of those years weren't yours to take.", "goto": "ob_notyours", "trust": 1}
+      ],
+      "silence_goto": "ob_notyours"
+    },
+    "ob_blackout": {
+      "line": "Cal talks too much for a man who says nothing. ... The lights went and I was the super and I could not bring them back. Hours. Whole building in the dark listening to me not fix it. First thing in my life I couldn't. I've been fixing that night ever since and it's the one job I'm not allowed to close.",
+      "flag": "omar_dead_air",
+      "choices": [
+        {"label": "You couldn't fix the dark. Nobody could.", "goto": "ob_nobody_could", "trust": -1},
+        {"label": "You've been fixing a night. Nights aren't on the bench.", "goto": "ob_notyours", "trust": 1}
+      ],
+      "silence_goto": "ob_notyours"
+    },
+    "ob_nobody_could": {
+      "line": "People keep telling me that. It isn't comfort, it's a tag I didn't write. Let me get to it in my own hand.",
+      "choices": [
+        {"label": "Then get to it.", "goto": "ob_notyours"}
+      ],
+      "silence_goto": "ob_notyours"
+    },
+    "ob_notyours": {
+      "role": "strained",
+      "line": "Not mine to take. ... There's a marriage two floors up I maintain like a boiler. Notes in the box. Her sink, her sash, her radiator. She's out when I come. I'm out when she's back. It works. It has worked for years. Nothing about it is broken and I have never once stopped fixing it.",
+      "flag": "bells_married",
+      "choices": [
+        {"label": "The notes are from you to you.", "goto": "ob_notes", "infer": true, "trust": 1},
+        {"label": "She left you a note with nothing in it but a date.", "goto": "ob_anniversary", "requires": ["iris_anniversary_note"], "trust": 1},
+        {"label": "Maybe it is broken, Omar.", "goto": "ob_maybe", "trust": -1}
+      ],
+      "silence_goto": "ob_notyours_sil",
+      "silence_flag": "omar_silence_held",
+      "silence_trust": 1
+    },
+    "ob_notyours_sil": {
+      "line": "You didn't say 'I'm sorry.' Everybody says 'I'm sorry' like it's a washer. Thank you for not fitting one.",
+      "choices": [
+        {"label": "The notes are from you to you.", "goto": "ob_notes", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "ob_notes"
+    },
+    "ob_maybe": {
+      "line": "Broken is a thing I'd know. I'd have the part on the bench. I don't. So it's not broken. It's just ended, and I don't keep a tag for that either.",
+      "choices": [
+        {"label": "Then that's the tag you need.", "goto": "ob_tag", "trust": 1}
+      ],
+      "silence_goto": "ob_tag"
+    },
+    "ob_notes": {
+      "line": "She's never written one. I write 'the sink, 5C' and put it in my own box and go up. If I didn't write it I'd go up anyway, and then it would be visiting, and visiting isn't maintenance, and I can't do visiting. I can do the sink.",
+      "flag": "omar_notes_to_himself",
+      "choices": [
+        {"label": "Then that's the tag you need.", "goto": "ob_tag", "trust": 1}
+      ],
+      "silence_goto": "ob_tag"
+    },
+    "ob_anniversary": {
+      "line": "... She did. One note, no fault on it. Just the day. I didn't go up. Only note all year I didn't answer with a fix, because there was nothing on it to fix, and that's the one I think about on the bench at three.",
+      "flag": "omar_unanswered_note",
+      "choices": [
+        {"label": "Then that's the tag you need.", "goto": "ob_tag", "trust": 1}
+      ],
+      "silence_goto": "ob_tag"
+    },
+    "ob_tag": {
+      "role": "recognition",
+      "line": "The blank tag. ... Give it here. I'll do it on the toaster first; a man practises on a toaster. 'Not repairable. Not failed.' Two lines. Wire it to the handle. There. It's the ugliest thing on the bench and it's the only one that's finished.",
+      "flag": "declare_unrepairable",
+      "choices": [
+        {"label": "Not failed. Say that part again.", "goto": "ob_not_failed", "trust": 1},
+        {"label": "Now do the one upstairs.", "goto": "ob_upstairs", "trust": -1}
+      ],
+      "silence_goto": "ob_not_failed"
+    },
+    "ob_upstairs": {
+      "line": "No. You don't tag a person. I'll tag the toaster and I'll think about the sink and that's the order it goes in. Don't rush a man who's just learnt to write.",
+      "flag": "not_every_loss_is_a_failure"
+    },
+    "ob_not_failed": {
+      "line": "Not failed. The thing ran its course and I was there and I did good work on it and it's done. That's not a failure; it's a service history. I'll want a stack of those tags. Don't tell Cal; he'll want one for a tape.",
+      "flag": "not_every_loss_is_a_failure"
+    },
+    "ob_rt_open": {
+      "line": "Toaster's quiet. Three days. I've not touched it and it's not come back, and I'm telling you that like it's weather, because that's how it feels.",
+      "choices": [
+        {"label": "Who's H. Vantry, 3C? [the parcel shelf]", "goto": "ob_vantry", "requires": ["vantry_in_3c"], "trust": 1},
+        {"label": "The wireless on the shelf. Still company?", "goto": "ob_company"},
+        {"label": "Did you go up?", "goto": "ob_went_up", "requires": ["bells_married"]}
+      ],
+      "silence_goto": "ob_company"
+    },
+    "ob_company": {
+      "line": "Still company. Still for parts. I've decided a man's allowed one. You've a building; you'll have your one.",
+      "flag": "omar_one_kept"
+    },
+    "ob_vantry": {
+      "line": "Moved out in the spring. Left a radio on the intake bench and no address. I fixed it. It works. Nobody's come for it and I've stopped expecting them to. Odd thing: the chassis has the house mark on it, same as the points in the ceiling. Like it was made here. I don't ask. I fix.",
+      "flag": "vantry_radio_on_bench"
+    },
+    "ob_went_up": {
+      "line": "I went up. Didn't take a tool. Stood in the door like a man who'd forgotten what he came for. She said 'the sink's fine.' I said 'I know.' That's as far as we got and it's further than the sink.",
+      "flag": "omar_went_up_bare"
+    },
+    "ob_int_open": {
+      "line": "Left the blank tag on the bench where I can see it. Haven't needed a second one. Yet.",
+      "choices": [
+        {"label": "[Let the bench be quiet.]", "goto": "ob_int_beat"}
+      ],
+      "silence_goto": "ob_int_beat"
+    },
+    "ob_int_beat": {
+      "line": "Clean.",
+      "action": "quiet_beat"
+    },
+    "ob_fb_open": {
+      "line": "It came back. Four pins this time. I'm not even angry; I'm curious who's got the plugs.",
+      "choices": [
+        {"label": "I'll come back when it's stopped."}
+      ],
+      "silence_goto": "ob_fb_sil"
+    },
+    "ob_fb_sil": {
+      "line": "Mind the bench. Half of it's other people's."
+    },
+    "ob_res_open": {
+      "line": "Fixed the lift bell this morning. It was actually broken. I can't tell you what a pleasure that was."
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "teresa_vale",
+    "speaker_default": "TERESA VALE",
+    "voice_prefix": "teresa_t02_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case, no resolution flags. Teresa notices triage, dosage, shift handoff, pulse, who is still standing. Clipped under pressure, expansive only after danger; imperatives practical. Comic engine: treating the supernatural as the least urgent item on an impossible round. Never luxuriates in diagnosis. She was on the custody ward the night Price died; the alarm was not hers; she does not know Mina's part and Mina does not know hers. The Vales' hours do not overlap by design. She knocks once on 1A before every shift."
+  },
+  "entries": {
+    "first_stable": "tv_open",
+    "real_talk": "tv_rt_open",
+    "integration": "tv_int_open",
+    "resolved": "tv_res_open",
+    "fallback": "tv_fb_open"
+  },
+  "nodes": {
+    "tv_open": {
+      "line": "Boots off or stand on the mat; I sleep in here. The bell. Yes. It rings with the breaker out. I've pulled the fuse, I've had the wire off the wall, it rings. I've got forty minutes before I leave for a ward where bells ring for a reason, so if you're going to look at it, look.",
+      "choices": [
+        {"label": "Blackout curtains and a bell you can't unplug. [the curtains]", "goto": "tv_curtains", "evidence": "blackout curtains, and a bell she cannot unplug"},
+        {"label": "When it rings, do you get up?", "goto": "tv_get_up", "trust": 1},
+        {"label": "I'll rip it out of the wall.", "goto": "tv_rip", "trust": -1}
+      ],
+      "silence_goto": "tv_sil1"
+    },
+    "tv_sil1": {
+      "line": "You're standing on the mat and waiting. Good; the ones who march in get the bell going. It's quiet now. It won't be in a minute. You'll see.",
+      "choices": [
+        {"label": "When it rings, do you get up?", "goto": "tv_get_up", "trust": 1}
+      ],
+      "silence_goto": "tv_get_up"
+    },
+    "tv_rip": {
+      "line": "I had it out of the wall Monday. In a drawer. It rang in the drawer. Put the tool down and ask me a better question; I've no time for the one you've got.",
+      "choices": [
+        {"label": "When it rings, do you get up?", "goto": "tv_get_up", "trust": 1}
+      ],
+      "silence_goto": "tv_get_up"
+    },
+    "tv_curtains": {
+      "line": "Day sleeper. Curtains keep the day out; nothing keeps the bell out. ... You've put the two together faster than I'd like. Yes. I can shut out the sun. I can't shut out being called.",
+      "choices": [
+        {"label": "When it rings, do you get up?", "goto": "tv_get_up", "trust": 1}
+      ],
+      "silence_goto": "tv_get_up"
+    },
+    "tv_get_up": {
+      "line": "Every time. I'm on my feet before I'm awake. Thirty years of it. A bell goes and some part of me is already down the ward counting beds. It's not a decision. If it were a decision I'd have stopped.",
+      "choices": [
+        {"label": "Even when it isn't yours.", "goto": "tv_not_yours", "trust": 1},
+        {"label": "You answer every alarm on your ward. Hers or not.", "goto": "tv_every", "infer": true, "trust": 1},
+        {"label": "That's dedication.", "goto": "tv_dedication", "trust": -1}
+      ],
+      "silence_goto": "tv_get_up_sil"
+    },
+    "tv_get_up_sil": {
+      "line": "You're not going to say it's admirable. Good. The ones who say it's admirable have never been woken by it.",
+      "choices": [
+        {"label": "Even when it isn't yours.", "goto": "tv_not_yours", "trust": 1}
+      ],
+      "silence_goto": "tv_not_yours"
+    },
+    "tv_dedication": {
+      "line": "It's a reflex. A dog has them. Don't dress it up; I've no time to take it off again.",
+      "choices": [
+        {"label": "Even when it isn't yours.", "goto": "tv_not_yours", "trust": 1}
+      ],
+      "silence_goto": "tv_not_yours"
+    },
+    "tv_every": {
+      "line": "Hers or not. Yes. There's a girl on nights who's learnt to let me; she sits down when a bell goes because she knows I'll be up. I've made her a worse nurse by being a faster one. Don't tell her I said so.",
+      "choices": [
+        {"label": "Even when it isn't yours.", "goto": "tv_not_yours", "trust": 1}
+      ],
+      "silence_goto": "tv_not_yours"
+    },
+    "tv_not_yours": {
+      "role": "strained",
+      "line": "... There was one that wasn't. Years back. Custody ward, a prisoner, another nurse's bed. The bell went and I was at the far end with my own, and I thought, that's hers, she'll take it. She took it. By the time she got there it didn't matter. It was never my alarm. I've answered every one since as if it were.",
+      "flag": "teresa_alarm_not_hers",
+      "choices": [
+        {"label": "A prisoner. On a custody ward.", "goto": "tv_prisoner", "infer": true, "trust": 1},
+        {"label": "You couldn't have reached him either.", "goto": "tv_couldnt", "trust": -1},
+        {"label": "So the bell here. You answer it so you never think 'that's hers' again.", "goto": "tv_never_again", "trust": 1}
+      ],
+      "silence_goto": "tv_not_yours_sil",
+      "silence_flag": "teresa_silence_let_stand",
+      "silence_trust": 1
+    },
+    "tv_not_yours_sil": {
+      "line": "You've not said anything. That's correct. There isn't anything; I've had years to look for it.",
+      "choices": [
+        {"label": "So the bell here. You answer it so you never think 'that's hers' again.", "goto": "tv_never_again", "trust": 1}
+      ],
+      "silence_goto": "tv_never_again"
+    },
+    "tv_couldnt": {
+      "line": "No. I couldn't. I know the distances; I've paced them in my head enough. That isn't the point and you know it isn't. The point is I thought 'hers.' Don't do my arithmetic for me.",
+      "choices": [
+        {"label": "So the bell here. You answer it so you never think 'that's hers' again.", "goto": "tv_never_again", "trust": 1}
+      ],
+      "silence_goto": "tv_never_again"
+    },
+    "tv_prisoner": {
+      "line": "A man waiting on an appeal. I didn't know him. I knew his chart. ... You're looking at me like the name would mean something to you. It wouldn't. It's a common enough name.",
+      "flag": "price_named",
+      "choices": [
+        {"label": "Price.", "goto": "tv_price", "requires": ["peter_gap_found"], "infer": true, "trust": 1},
+        {"label": "So the bell here. You answer it so you never think 'that's hers' again.", "goto": "tv_never_again", "trust": 1}
+      ],
+      "silence_goto": "tv_never_again"
+    },
+    "tv_price": {
+      "line": "... Who told you that. Nobody in this building knows that. ... I'll not ask. If somebody else in this building is carrying that name I don't want to know which floor; I've enough beds. Leave it at the door with your boots.",
+      "flag": "teresa_knows_price_is_here",
+      "choices": [
+        {"label": "So the bell here. You answer it so you never think 'that's hers' again.", "goto": "tv_never_again", "trust": 1}
+      ],
+      "silence_goto": "tv_never_again"
+    },
+    "tv_never_again": {
+      "line": "That's it. That's the whole of it. I've not said it in that order before. ... It's going to ring in a minute. I can feel it the way you feel weather. When it does, I'd like you to watch me not get up. I've never managed it past the third step.",
+      "choices": [
+        {"label": "[Wait for the bell with her.]", "goto": "tv_bell"}
+      ],
+      "silence_goto": "tv_bell"
+    },
+    "tv_bell": {
+      "role": "recognition",
+      "line": "... There. Ringing. I'm up. I'm — no. Sit down, Teresa. Sit. ... It's still ringing. Nobody's dying. It's a bell in a drawer with no wire. ... It's stopped. Not every alarm is mine. I'll want that written somewhere I'll see it at three in the morning, because I won't believe it then.",
+      "flag": "teresa_sat_through_it"
+    },
+    "tv_rt_open": {
+      "line": "Mat. Thank you. Bell's rung twice this week and I sat through one, which is a fifty per cent I'd not accept on a ward and will take in a flat.",
+      "choices": [
+        {"label": "Your daughter's upstairs. You leave seventy minutes before she comes down.", "goto": "tv_mina", "requires": ["vales_hours_do_not_overlap"], "trust": 1},
+        {"label": "You knock on 1A before every shift.", "goto": "tv_knock", "infer": true, "trust": 1},
+        {"label": "A hospital reminder came for Cam Ortiz. Second one.", "goto": "tv_cam", "requires": ["cam_hospital_card"], "trust": 1}
+      ],
+      "silence_goto": "tv_rt_sil"
+    },
+    "tv_rt_sil": {
+      "line": "Nothing? Then you've forty minutes of mine and I'll spend them sitting. First time this year.",
+      "choices": [
+        {"label": "You knock on 1A before every shift.", "goto": "tv_knock", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "tv_res_open"
+    },
+    "tv_knock": {
+      "line": "Once. To hear her answer. She always answers; she'd answer a knock from the grave and correct its timing. I've never gone in. If I went in she'd give me tea and I'd have to be a person for twenty minutes, and I've a ward. ... That's not why. I don't know why. One knock. It's enough to know she's standing.",
+      "flag": "teresa_patrol"
+    },
+    "tv_mina": {
+      "line": "She's a grown woman with a desk. ... Seventy minutes. You've timed it. Yes. I'm out before she's down and she's up before I'm back, and we've lived one floor apart the way we lived under one roof: she leaves notes, I read them when I'm too tired to answer. She learnt to write things down because I was never awake to hear them. I know that. I've known it since she was six.",
+      "flag": "teresa_daughter_notes"
+    },
+    "tv_cam": {
+      "line": "Ortiz. 4C. The courier. ... Our ward sends second reminders when the first's been ignored, and they're ignored by people who'd rather be moving than sitting in a chair being told something. I'll not say what for; it's his. But I'll stop him on the stair, which he'll hate, and I'll say 'go,' which he'll hate more.",
+      "flag": "teresa_will_stop_cam"
+    },
+    "tv_int_open": {
+      "line": "Bell rang at four. I lay there. Counted to sixty. Didn't get up. Went back to sleep like a civilian.",
+      "choices": [
+        {"label": "[Let her sleep.]", "goto": "tv_int_beat"}
+      ],
+      "silence_goto": "tv_int_beat"
+    },
+    "tv_int_beat": {
+      "line": "Rest.",
+      "action": "quiet_beat"
+    },
+    "tv_fb_open": {
+      "line": "It's ringing in the thermos now. I've had worse shifts.",
+      "choices": [
+        {"label": "I'll come back when it's quiet."}
+      ],
+      "silence_goto": "tv_fb_sil"
+    },
+    "tv_fb_sil": {
+      "line": "Mat. Boots. Go on."
+    },
+    "tv_res_open": {
+      "line": "The girl on nights took a bell on her own last night. I sat and let her. She was slow and she was fine and so was he."
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "sacha_reed",
+    "speaker_default": "SACHA REED",
+    "voice_prefix": "sacha_t09_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case. Sacha (they/them) notices contact sheet, release, battery, frame edge, absent subject. Spare visual facts; ethical qualifiers; emotion appears in what they decline to crop. Comic engine: a devastating observation presented as a continuity note. Never treats an image as the whole event. Rooms arrive seven seconds late on their camera. Auggie Reed's family, four generations on, with one surviving photograph and a date on the back; they do not know Malcolm knows. The roof is split with Juno by day of week."
+  },
+  "entries": {
+    "first_stable": "sr_open",
+    "real_talk": "sr_rt_open",
+    "integration": "sr_int_open",
+    "resolved": "sr_res_open",
+    "fallback": "sr_fb_open"
+  },
+  "nodes": {
+    "sr_open": {
+      "line": "You can come in. Mind the cases. Look at the wall first, then the camera. Wall: you, now, in the door. Camera: the door, empty. In seven seconds the camera will have you. It's not slow. I've timed the shutter. It's that the room arrives late in it. Everything I shoot in here is already over.",
+      "choices": [
+        {"label": "Seven seconds. Exactly?", "goto": "sr_seven", "trust": 1},
+        {"label": "One folding chair in a room built for lenses. [the chair]", "goto": "sr_chair", "evidence": "one practical folding chair in a room built for an audience of lenses"},
+        {"label": "Stop shooting the room. Live in it.", "goto": "sr_live", "trust": -1}
+      ],
+      "silence_goto": "sr_sil1"
+    },
+    "sr_sil1": {
+      "line": "You're standing still for it. People usually wave to see themselves wave. ... There. Seven seconds. You, standing still, as you were. That's the first frame I've made in a month that matches the room.",
+      "choices": [
+        {"label": "Seven seconds. Exactly?", "goto": "sr_seven", "trust": 1}
+      ],
+      "silence_goto": "sr_seven"
+    },
+    "sr_live": {
+      "line": "I live in it. I live in it with a camera, which is how I live in rooms; I don't have another way. Telling me to put it down is telling me to close my eyes. Ask something I can answer.",
+      "choices": [
+        {"label": "Seven seconds. Exactly?", "goto": "sr_seven", "trust": 1}
+      ],
+      "silence_goto": "sr_seven"
+    },
+    "sr_chair": {
+      "line": "One chair. For a sitter. I stand. ... You've noticed there's nowhere in here for me to be in the picture. That's correct. That's a continuity note about my whole life and I'd rather you'd found it in the contact sheets than in the furniture.",
+      "choices": [
+        {"label": "You witness through the lens so you don't have to be in frame.", "goto": "sr_in_frame", "infer": true, "trust": 1},
+        {"label": "Seven seconds. Exactly?", "goto": "sr_seven", "trust": 1}
+      ],
+      "silence_goto": "sr_seven"
+    },
+    "sr_in_frame": {
+      "line": "Yes. If I'm behind it, it happened to the frame, not to me. I've documented every family on this street for a decade and I'm in none of the pictures and that's called professionalism. ... It's also called hiding. Both captions fit. I'd print the second.",
+      "choices": [
+        {"label": "Seven seconds. Exactly?", "goto": "sr_seven", "trust": 1}
+      ],
+      "silence_goto": "sr_seven"
+    },
+    "sr_seven": {
+      "line": "Seven, give or take the shutter. Long enough that whatever I shoot has stopped being true by the time it's a picture. Which, fine, that's all photography, I know the argument. But seven seconds is long enough to watch it happen. I watch my own room become evidence of a room I'm no longer in.",
+      "choices": [
+        {"label": "You'd rather have the evidence than the room.", "goto": "sr_rather", "trust": 1},
+        {"label": "Nothing counts for you until it's on film. Who taught you that?", "goto": "sr_who_taught", "infer": true, "trust": 1},
+        {"label": "Then shoot faster.", "goto": "sr_faster", "trust": -1}
+      ],
+      "silence_goto": "sr_seven_sil"
+    },
+    "sr_seven_sil": {
+      "line": "No note? I'd have had three by now. That's the job: see it, say it, move on before you feel it. You're just seeing it.",
+      "choices": [
+        {"label": "You'd rather have the evidence than the room.", "goto": "sr_rather", "trust": 1}
+      ],
+      "silence_goto": "sr_rather"
+    },
+    "sr_faster": {
+      "line": "Faster doesn't help when the room's late. I could shoot at a thousandth and get a thousandth of seven seconds ago. You can't out-shutter time. Believe me; I've the contact sheets.",
+      "choices": [
+        {"label": "You'd rather have the evidence than the room.", "goto": "sr_rather", "trust": 1}
+      ],
+      "silence_goto": "sr_rather"
+    },
+    "sr_who_taught": {
+      "line": "... Nobody taught it. It's in the family. We've one photograph. One. Of the man the family's about, and he's not in it, there's a date on the back and a window with a plant on the sill and a shoulder at the edge of the frame that might be his. Everything I believe about proof comes from having none.",
+      "flag": "sacha_photo_date",
+      "choices": [
+        {"label": "You'd rather have the evidence than the room.", "goto": "sr_rather", "trust": 1}
+      ],
+      "silence_goto": "sr_rather"
+    },
+    "sr_rather": {
+      "role": "strained",
+      "line": "Rather have the evidence. Yes. Because the room goes and the evidence stays, and in my family the room went and there was no evidence, and four generations have been describing a man from a shoulder at the edge of a frame. So I shoot everything. Everything. And now everything I shoot is late, which is the building telling me the one thing I know: you're not in it. You were never in it. You've got a picture.",
+      "choices": [
+        {"label": "The man in your one photograph. The sill with the plant.", "goto": "sr_malcolm", "requires": ["malcolm_auggie"], "trust": 1},
+        {"label": "Put the camera down. Seven seconds. Just be in the room.", "goto": "sr_down", "trust": 1},
+        {"label": "You've got the pictures. That's more than most families.", "goto": "sr_more_than", "trust": -1}
+      ],
+      "silence_goto": "sr_rather_sil",
+      "silence_flag": "sacha_silence_uncaptioned",
+      "silence_trust": 1
+    },
+    "sr_rather_sil": {
+      "line": "... You're not captioning me. I'd have captioned me. 'Subject, 6A, declines to crop.' You're just letting the frame be the frame.",
+      "choices": [
+        {"label": "Put the camera down. Seven seconds. Just be in the room.", "goto": "sr_down", "trust": 1}
+      ],
+      "silence_goto": "sr_down"
+    },
+    "sr_more_than": {
+      "line": "More than most. Yes. I've got a thousand pictures of other people's families and one of a shoulder. Don't do the arithmetic on my behalf; I've a darkroom for that.",
+      "choices": [
+        {"label": "Put the camera down. Seven seconds. Just be in the room.", "goto": "sr_down", "trust": 1}
+      ],
+      "silence_goto": "sr_down"
+    },
+    "sr_malcolm": {
+      "line": "... What. ... What do you mean, the sill. ... The man downstairs. The plants. I've photographed every plant he owns and he names them for me and there's one on his table he's never named and I've never asked because — because you don't ask about the one thing a man leaves out of frame. ... Is it the same sill. Don't answer. I need to go down there with my hands empty and I've never gone anywhere with my hands empty.",
+      "flag": "sacha_suspects_malcolm",
+      "choices": [
+        {"label": "Put the camera down. Seven seconds. Just be in the room.", "goto": "sr_down", "trust": 1}
+      ],
+      "silence_goto": "sr_down"
+    },
+    "sr_down": {
+      "role": "recognition",
+      "line": "Down. ... Okay. It's down. It's on the chair; somebody should sit in the chair. One. Two. ... I'm in the room. Nothing's recording it. Five. Six. Seven. ... It happened. I was here for it. Nobody will ever be able to prove it and I'm — I'm going to need to not shoot the next thing either, just to see if I can stand it twice.",
+      "flag": "experience_before_proof"
+    },
+    "sr_rt_open": {
+      "line": "Come in. The camera's on the chair. It's been on the chair two days. The room's stopped being late, or I've stopped checking, and I'm not sure I want to know which.",
+      "choices": [
+        {"label": "You went down to 3A with your hands empty.", "goto": "sr_went_down", "requires": ["malcolm_will_divide"], "trust": 1},
+        {"label": "You have the roof Tuesdays and Thursdays. Juno has the others.", "goto": "sr_roof", "infer": true, "trust": 1},
+        {"label": "You photograph Iris's canvases. She directs every frame.", "goto": "sr_iris", "requires": ["iris_two_songs"], "trust": 1}
+      ],
+      "silence_goto": "sr_rt_sil"
+    },
+    "sr_rt_sil": {
+      "line": "No caption. Right. Sit, then. The chair's finally got a use.",
+      "choices": [
+        {"label": "You have the roof Tuesdays and Thursdays.", "goto": "sr_roof", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "sr_res_open"
+    },
+    "sr_roof": {
+      "line": "We split it so we never overlap. A recordist and a photographer on one roof should compare notes. We don't. I think we're both a bit ashamed of the word 'capture.' I'd like to meet her up there once, no gear, and see if either of us knows what to do with our hands.",
+      "flag": "sacha_roof_rota"
+    },
+    "sr_iris": {
+      "line": "Every frame. 'Higher. No. There.' And I do it, because it's the only time a subject tells me where to stand instead of the other way round. She thinks it's about her pictures. It's about me being directed for once. I've never told her. I've never told anyone anything I could print instead.",
+      "flag": "sacha_iris_directed"
+    },
+    "sr_went_down": {
+      "line": "I went down. No camera. He looked at my hands and then at the plant on his table and he said 'you'll want to know whose that is,' and I said yes, and he told me, and I didn't shoot it. It's rooting in a jar on my sill now. A cutting off a cutting off a sill with a date on the back. I have proof. I've never once looked at it through a lens.",
+      "flag": "sacha_has_cutting"
+    },
+    "sr_int_open": {
+      "line": "Didn't shoot the stairwell at three. Stood on the landing and watched the lift move with nobody in it. No frame. It happened anyway.",
+      "choices": [
+        {"label": "[Let it stay unshot.]", "goto": "sr_int_beat"}
+      ],
+      "silence_goto": "sr_int_beat"
+    },
+    "sr_int_beat": {
+      "line": "Unrecorded.",
+      "action": "quiet_beat"
+    },
+    "sr_fb_open": {
+      "line": "It's up to twelve seconds. The camera's showing me a room I left before I came in.",
+      "choices": [
+        {"label": "I'll come back when it catches up."}
+      ],
+      "silence_goto": "sr_fb_sil"
+    },
+    "sr_fb_sil": {
+      "line": "Mind the cases. They're all full of other people."
+    },
+    "sr_res_open": {
+      "line": "The family box came down. I didn't scan it. I looked at the photograph with my eyes and the shoulder's just a shoulder and the plant on the sill is a geranium, and I know that now because I've got one."
+    }
+  }
+}

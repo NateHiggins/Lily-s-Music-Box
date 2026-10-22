@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "malcolm_reed",
+    "speaker_default": "MALCOLM REED",
+    "voice_prefix": "malcolm_t04_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case. Malcolm notices cutting, propagation date, root, jar, seasonal return. Patient botanical time; the oldest fact is the quietest clause. Comic engine: relationship advice so horticulturally exact it becomes either wisdom or a threat. Never treats preservation and care as identical. The cutting is from a goodbye he could not finish; the man's name was Auggie Reed and Malcolm took the surname; Sacha in 6A is Auggie's family and does not know; Malcolm knows exactly who Sacha is."
+  },
+  "entries": {
+    "first_stable": "mr_open",
+    "real_talk": "mr_rt_open",
+    "integration": "mr_int_open",
+    "resolved": "mr_res_open",
+    "fallback": "mr_fb_open"
+  },
+  "nodes": {
+    "mr_open": {
+      "line": "Mind the trays. Come round by the sink. The cuttings have started talking; I expect you've been told. Not talking. Repeating. You water one and it says a thing in a voice, and the thing is always the same, and it's always the end of a sentence. 'Well, then.' That's the whole of it. 'Well, then.'",
+      "choices": [
+        {"label": "Whose voice?", "goto": "mr_whose", "trust": 1},
+        {"label": "One shelf space kept empty. Dusted. [the empty pot]", "goto": "mr_empty", "evidence": "one shelf spot kept clear, dusted, and never filled"},
+        {"label": "Repot them in fresh soil. Whatever it is, it's in the mix.", "goto": "mr_repot", "trust": -1}
+      ],
+      "silence_goto": "mr_sil1"
+    },
+    "mr_sil1": {
+      "line": "You've not touched anything. Most people touch the leaves. You're waiting to be shown where to put your hands. That's how you handle a cutting, as it happens.",
+      "choices": [
+        {"label": "Whose voice?", "goto": "mr_whose", "trust": 1}
+      ],
+      "silence_goto": "mr_whose"
+    },
+    "mr_repot": {
+      "line": "It's not in the mix. I've mixed it myself for twenty years from the same bin and the bin's never said a word. Don't tell a gardener it's the soil. It's the only thing he's sure of.",
+      "choices": [
+        {"label": "Whose voice?", "goto": "mr_whose", "trust": 1}
+      ],
+      "silence_goto": "mr_whose"
+    },
+    "mr_empty": {
+      "line": "That's where it goes. The one. It isn't on the shelf; it's on the table, where I can see it from the bed. The shelf space is where it'd go if I ever put it with the others, and I never will, so the space stays. Dusted. ... Yes, I hear it. I'm a gardener, not a fool.",
+      "choices": [
+        {"label": "Whose voice?", "goto": "mr_whose", "trust": 1}
+      ],
+      "silence_goto": "mr_whose"
+    },
+    "mr_whose": {
+      "line": "A man's. I knew him. I took a cutting off his windowsill the morning I left his room, and I've kept it alive since, and every plant in this building that's mine comes off that one. So when the cuttings say 'well, then,' they're all saying it in his voice, because they're all him. Botanically speaking.",
+      "choices": [
+        {"label": "The morning you left. You didn't finish saying goodbye.", "goto": "mr_goodbye", "infer": true, "trust": 1},
+        {"label": "'Well, then' is how he'd start a goodbye.", "goto": "mr_well_then", "infer": true, "trust": 1},
+        {"label": "You've kept him alive. That's beautiful.", "goto": "mr_beautiful", "trust": -1}
+      ],
+      "silence_goto": "mr_whose_sil"
+    },
+    "mr_whose_sil": {
+      "line": "You're letting that sit. Good. It's a thing that wants a season.",
+      "choices": [
+        {"label": "You didn't finish saying goodbye.", "goto": "mr_goodbye", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "mr_goodbye"
+    },
+    "mr_beautiful": {
+      "line": "I've kept a geranium alive. He died in the afternoon. Those aren't the same thing and I'd thank you not to put them in the same pot. A cutting isn't the plant. It's what you took when you couldn't take the plant.",
+      "choices": [
+        {"label": "You didn't finish saying goodbye.", "goto": "mr_goodbye", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "mr_goodbye"
+    },
+    "mr_well_then": {
+      "line": "It is. 'Well, then.' And then he'd say the rest. He said 'well, then' and I said I'd be back by six, and I took the cutting on the way out because the sill was sunny, and that was the goodbye. Half of one. The plant's got the first half. I've never had the second.",
+      "flag": "malcolm_half_goodbye",
+      "choices": [
+        {"label": "So you keep it alive so the goodbye stays open.", "goto": "mr_open_goodbye", "trust": 1}
+      ],
+      "silence_goto": "mr_open_goodbye"
+    },
+    "mr_goodbye": {
+      "role": "strained",
+      "line": "No. The influenza had him by six. I'd said I'd be back and I was, and he wasn't, and the cutting was in my pocket in a bit of wet paper. ... His name was Auggie. Reed. I took the name after. It was the only paper they'd give a man like me for a man like him. Water those while I say that again to myself.",
+      "flag": "malcolm_auggie",
+      "choices": [
+        {"label": "So you keep it alive so the goodbye stays open.", "goto": "mr_open_goodbye", "trust": 1},
+        {"label": "Reed. Sacha, in 6A, is a Reed.", "goto": "mr_sacha", "requires": ["sacha_photo_date"], "trust": 1},
+        {"label": "He knew. People know.", "goto": "mr_he_knew", "trust": -1}
+      ],
+      "silence_goto": "mr_goodbye_sil",
+      "silence_flag": "malcolm_silence_rooted",
+      "silence_trust": 1
+    },
+    "mr_goodbye_sil": {
+      "line": "You've not said sorry. Thank you. Sorry's a thing you put on a grave. I've a plant.",
+      "choices": [
+        {"label": "You keep it alive so the goodbye stays open.", "goto": "mr_open_goodbye", "trust": 1}
+      ],
+      "silence_goto": "mr_open_goodbye"
+    },
+    "mr_he_knew": {
+      "line": "He knew what I was going to say. He didn't hear it. Those are different soils. Don't tell me what grew in a room you weren't in.",
+      "choices": [
+        {"label": "You keep it alive so the goodbye stays open.", "goto": "mr_open_goodbye", "trust": 1}
+      ],
+      "silence_goto": "mr_open_goodbye"
+    },
+    "mr_sacha": {
+      "line": "... Yes. His people. Four generations on and come to live over my head with a camera, and no idea. I know exactly who they are. I've watched them photograph every plant I own but the one, and I've named every one for them but the one, and I'm waiting to see if they notice there's a gap in the collection. They're a Reed. They'll notice.",
+      "flag": "malcolm_knows_sacha",
+      "choices": [
+        {"label": "You keep it alive so the goodbye stays open.", "goto": "mr_open_goodbye", "trust": 1}
+      ],
+      "silence_goto": "mr_open_goodbye"
+    },
+    "mr_open_goodbye": {
+      "line": "So long as it's alive the goodbye's not finished, and so long as it's not finished he's not — well. You've seen the shelf. I've given a cutting off it to half this building. Every one of them's got a bit of him and none of them know, and the one on the table is the only one that's never been divided. It's the only thing I own I've never shared, and it's a plant.",
+      "choices": [
+        {"label": "Divide it. Give the last one away.", "goto": "mr_divide", "trust": 1},
+        {"label": "Compost it. Let it finish.", "goto": "mr_compost", "trust": 1},
+        {"label": "Keep it. You've earned the one thing.", "goto": "mr_keep", "trust": -1}
+      ],
+      "silence_goto": "mr_divide"
+    },
+    "mr_keep": {
+      "line": "Earned. Nobody earns a plant; you water it or you don't. ... You're kind. It's the wrong kindness. I've had it from everyone and it keeps the pot exactly where it is.",
+      "choices": [
+        {"label": "Then divide it. Give the last one away.", "goto": "mr_divide", "trust": 1}
+      ],
+      "silence_goto": "mr_divide"
+    },
+    "mr_compost": {
+      "line": "Compost. ... That's transformation, you know, not an ending. Everything in that bin is becoming something else's spring. I've told forty people that at the bench. I've never once believed it about the one on the table. ... Not tonight. But I heard you say it in my own words, and that's a cutting of a kind.",
+      "flag": "malcolm_heard_compost"
+    },
+    "mr_divide": {
+      "role": "recognition",
+      "line": "Divide it. ... There's a Reed upstairs who's never had a thing of his. Give them a cutting off the last cutting and tell them what it is, and then it's not the only one anymore, and the goodbye's got two people holding it instead of one man and a geranium. ... Fetch me the knife. The small one. I'll do it while my hands are steady, which is now and might not be in a minute.",
+      "flag": "malcolm_will_divide"
+    },
+    "mr_rt_open": {
+      "line": "Round by the sink. The cuttings have gone quiet. I almost miss it; a plant that talks is company, even if it only says the one thing.",
+      "choices": [
+        {"label": "You walk to the old street and don't turn down it.", "goto": "mr_walk", "infer": true, "trust": 1},
+        {"label": "Sacha came up for the cutting?", "goto": "mr_sacha_came", "requires": ["malcolm_will_divide"], "trust": 1},
+        {"label": "Evelyn's book. Vegetables under glass. 'Nobody has tried since she stopped.'", "goto": "mr_evelyn", "requires": ["evelyn_register_name"], "trust": 1}
+      ],
+      "silence_goto": "mr_rt_sil"
+    },
+    "mr_rt_sil": {
+      "line": "Nothing? Then water that one. Gently. It's new.",
+      "choices": [
+        {"label": "You walk to the old street and don't turn down it.", "goto": "mr_walk", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "mr_res_open"
+    },
+    "mr_walk": {
+      "line": "Sundays. And Saturdays, when it's fine. I walk as far as the corner where you can see his window and I don't turn down. There's a different curtain. I know there's a different curtain; I've seen it from the corner for years. If I went down I'd see the sill. It's a good sill. It'd have something on it.",
+      "flag": "malcolm_corner"
+    },
+    "mr_sacha_came": {
+      "line": "They came. Stood where you're standing with a camera round their neck and didn't lift it. I told them whose it was. They put a hand on the pot the way you'd put a hand on a shoulder, and then they said 'can I photograph it,' and I said 'now you can,' and they didn't. They just stood. I've a cutting off the cutting rooting in a jar on their windowsill. First Reed to own one in four generations.",
+      "flag": "malcolm_gave_cutting"
+    },
+    "mr_evelyn": {
+      "line": "Her glasshouse book. I've the copy. Everything in it works; I've tried half. I've never told her. If I told her she'd correct my pruning and I'd have to let her, and she'd be right, and it'd be the best afternoon either of us has had in years. One of these days.",
+      "flag": "malcolm_evelyn_book"
+    },
+    "mr_int_open": {
+      "line": "The shelf space has a pot in it. Empty pot, fresh soil. I've not decided what goes in. That's allowed.",
+      "choices": [
+        {"label": "[Leave the pot to settle.]", "goto": "mr_int_beat"}
+      ],
+      "silence_goto": "mr_int_beat"
+    },
+    "mr_int_beat": {
+      "line": "Rooting.",
+      "action": "quiet_beat"
+    },
+    "mr_fb_open": {
+      "line": "They've learnt a second word. 'Well, then, Mal.' I've had to sit down.",
+      "choices": [
+        {"label": "I'll come back when they're quiet."}
+      ],
+      "silence_goto": "mr_fb_sil"
+    },
+    "mr_fb_sil": {
+      "line": "Mind the trays going out. They're all somebody."
+    },
+    "mr_res_open": {
+      "line": "I turned down the street. Stood at the sill. There's a fern on it now. Somebody else's. It's doing well."
+    }
+  }
+}

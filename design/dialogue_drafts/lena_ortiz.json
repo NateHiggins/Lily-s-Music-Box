@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "lena_ortiz",
+    "speaker_default": "LENA ORTIZ",
+    "voice_prefix": "lena_t03_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Threshold conversation; no case. Her radiator round (WORK ORDER 002) is canon in service_round_director.gd and is not redrafted; this tree is the door, the mending basket and the west wall. Lena notices seam, strain, hem, saved repair and the doors somebody else left shut. Practical hospitality; refusal arrives as another offer. Comic engine: a devastating family judgment disguised as garment advice. Never romanticises sacrifice. Her shift at a locked factory never ended; she props every door she can reach; she has opinions about locked doors she has never spoken. Cam is kin."
+  },
+  "entries": {
+    "first_stable": "lo_open",
+    "real_talk": "lo_rt_open",
+    "integration": "lo_int_open",
+    "resolved": "lo_res_open",
+    "fallback": "lo_fb_open"
+  },
+  "nodes": {
+    "lo_open": {
+      "line": "Door's open, it's always open, come in. Sit, I'll finish this seam. The wall. Yes. West wall's coming unstitched, there's no other word for it, the paper's lifting in a line like a hem letting go, and I keep tacking it back and it keeps going. Tea's on. You'll have tea.",
+      "choices": [
+        {"label": "Everything in here is mended but your hem. [her hem]", "goto": "lo_hem", "evidence": "everything mended but her own fraying hem"},
+        {"label": "What's on the other side of the west wall?", "goto": "lo_other_side"},
+        {"label": "Stop tacking it. Let it go and see where it stops.", "goto": "lo_let_go", "trust": 1}
+      ],
+      "silence_goto": "lo_sil1"
+    },
+    "lo_sil1": {
+      "line": "You've sat down without being asked twice. Good. Most of them stand in the door like they're waiting for a bus. Tea.",
+      "choices": [
+        {"label": "What's on the other side of the west wall?", "goto": "lo_other_side"}
+      ],
+      "silence_goto": "lo_other_side"
+    },
+    "lo_hem": {
+      "line": "My hem. Mm. You've got eyes. There's nobody to see my hem but me and I'm looking at other people's. That's not sad; that's a trade. ... It is a bit sad. Drink your tea.",
+      "choices": [
+        {"label": "Who'd mend it if you asked?", "goto": "lo_who_mend", "infer": true, "trust": 1},
+        {"label": "What's on the other side of the west wall?", "goto": "lo_other_side"}
+      ],
+      "silence_goto": "lo_other_side"
+    },
+    "lo_who_mend": {
+      "line": "Asked. There's a word. I don't ask; I do, and then it's done, and nobody has to feel the weight of having been asked. ... The boy would. Cam. If I let him near a needle he'd do it badly and I'd have to redo it and that'd be a visit. We don't do visits. We do dinner, standing.",
+      "choices": [
+        {"label": "What's on the other side of the wall?", "goto": "lo_other_side"}
+      ],
+      "silence_goto": "lo_other_side"
+    },
+    "lo_let_go": {
+      "line": "Let it go. ... I've never let a thing go in my life. I can tell you where every stitch in this building is that I put there. Letting go isn't a thing I've got the hands for. But I'll stop tacking tonight, since you ask, and we'll see where it stops.",
+      "choices": [
+        {"label": "What's on the other side of the wall?", "goto": "lo_other_side"}
+      ],
+      "silence_goto": "lo_other_side"
+    },
+    "lo_other_side": {
+      "line": "2D. Sealed. Has been since before I came; nobody dresses a tomb, Management says, which is a thing to say. The paper's lifting along the line of the old door, I think. There was a door there once. Somebody shut it and papered it and it's remembering.",
+      "choices": [
+        {"label": "A shut door. You prop every one you can reach.", "goto": "lo_doors", "infer": true, "trust": 1},
+        {"label": "Why does a shut door bother you?", "goto": "lo_doors"},
+        {"label": "Then it's damp from 2D. Not your wall.", "goto": "lo_damp", "trust": -1}
+      ],
+      "silence_goto": "lo_other_side_sil"
+    },
+    "lo_other_side_sil": {
+      "line": "You're looking at the line and not at me. That's right. The line's the honest one.",
+      "choices": [
+        {"label": "A shut door. You prop every one you can reach.", "goto": "lo_doors", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "lo_doors"
+    },
+    "lo_damp": {
+      "line": "It's not damp. Damp goes brown. This goes straight. You can't tell me about walls, love, I've been reading seams since before you were a seam.",
+      "choices": [
+        {"label": "Why does a shut door bother you?", "goto": "lo_doors"}
+      ],
+      "silence_goto": "lo_doors"
+    },
+    "lo_doors": {
+      "role": "strained",
+      "line": "... I prop them. Every one I can reach, every morning, the round before anyone's up. Nothing written down. I worked a floor once where the doors were locked from the outside so the girls wouldn't take breaks, and there was a fire. I got out. I don't talk about the ones who were slower. I prop doors. That's all it is.",
+      "flag": "lena_locked_doors",
+      "choices": [
+        {"label": "So the wall's unstitching along a door somebody locked.", "goto": "lo_wall_door", "trust": 1},
+        {"label": "You got out. That isn't a thing to be ashamed of.", "goto": "lo_ashamed", "trust": -1},
+        {"label": "That's why Cam can't sit still. He's yours.", "goto": "lo_cam_link", "requires": ["cam_strap_restitched"], "infer": true, "trust": 1}
+      ],
+      "silence_goto": "lo_doors_sil",
+      "silence_flag": "lena_silence_kept",
+      "silence_trust": 1
+    },
+    "lo_doors_sil": {
+      "line": "You've let me stop there. Everybody wants the rest of it. There isn't a rest; there's a door, and I prop it. Have another cup.",
+      "choices": [
+        {"label": "So the wall's unstitching along a door somebody locked.", "goto": "lo_wall_door", "trust": 1}
+      ],
+      "silence_goto": "lo_wall_door"
+    },
+    "lo_ashamed": {
+      "line": "I'm not ashamed. I'm here. Shame's a thing for people who stood still. I didn't, and I've not stood still since, and that's the trouble if there is one. Don't tell me what I'm not; mend something.",
+      "choices": [
+        {"label": "So the wall's unstitching along a door somebody locked.", "goto": "lo_wall_door", "trust": 1}
+      ],
+      "silence_goto": "lo_wall_door"
+    },
+    "lo_cam_link": {
+      "line": "... Mine. Yes. Not my son; mine the way a hem's mine. He can't sit because sitting's what happened to the girls who didn't get out, and he's never heard that, and he's got it in his legs anyway. I restitch his strap when he's not looking. It's the only thing of my own I'll touch.",
+      "flag": "lena_cam_kin",
+      "choices": [
+        {"label": "So the wall's unstitching along a door somebody locked.", "goto": "lo_wall_door", "trust": 1}
+      ],
+      "silence_goto": "lo_wall_door"
+    },
+    "lo_wall_door": {
+      "line": "Along the old door. Yes. I've been tacking a door shut, haven't I. Every night. ... A visible mend holds. I tell everyone that. A patch you can see is a patch that's honest about what happened. I've never once let a thing I mended show.",
+      "choices": [
+        {"label": "Then let the line show. Don't paper it.", "goto": "lo_show", "trust": 1},
+        {"label": "Let someone mend your hem. Tonight.", "goto": "lo_hem_mend", "trust": 1},
+        {"label": "I'll paper it properly for you.", "goto": "lo_paper", "trust": -1}
+      ],
+      "silence_goto": "lo_show"
+    },
+    "lo_paper": {
+      "line": "You will not. You'll do it badly and I'll have to redo it and then it's mine again. ... Listen to me. That's the whole trouble in one sentence and you got it out of me with a paste brush.",
+      "choices": [
+        {"label": "Then let the line show.", "goto": "lo_show", "trust": 1}
+      ],
+      "silence_goto": "lo_show"
+    },
+    "lo_hem_mend": {
+      "line": "... Sit there. Don't move. I'm going to hand you the needle, and the thread, and my hem, and I'm going to drink my own tea while you do it badly. ... You're doing it badly. Keep going. It's the first thing in this flat I haven't done and it looks like it.",
+      "flag": "lena_let_help",
+      "choices": [
+        {"label": "Then let the wall show too.", "goto": "lo_show", "trust": 1}
+      ],
+      "silence_goto": "lo_show"
+    },
+    "lo_show": {
+      "role": "recognition",
+      "line": "Let it show. The line where the door was. ... All right. I'll pin the paper back and leave it. Anyone who comes in will see there was a door here and somebody shut it, and I'll tell them if they ask, and I won't if they don't. That's a visible mend. First one I've made.",
+      "flag": "lena_visible_line"
+    },
+    "lo_rt_open": {
+      "line": "Door's open. Wall's held; the line's showing and nobody's asked yet. You'll have tea.",
+      "choices": [
+        {"label": "You mend the banquette at the bar and leave before the singing.", "goto": "lo_bar", "infer": true, "trust": 1},
+        {"label": "Cam's strap. He hasn't noticed.", "goto": "lo_strap", "requires": ["lena_cam_kin"], "trust": 1},
+        {"label": "The radiator breathes before it warms now.", "goto": "lo_radiator", "requires": ["service_round_visible_patch"], "trust": 1}
+      ],
+      "silence_goto": "lo_rt_sil"
+    },
+    "lo_rt_sil": {
+      "line": "Nothing to mend? Then sit and be nothing to mend. It's a rest for me too.",
+      "choices": [
+        {"label": "You mend the banquette and leave before the singing.", "goto": "lo_bar", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "lo_res_open"
+    },
+    "lo_bar": {
+      "line": "The corner seat. Split vinyl, somebody's keys. I do it Fridays before it fills, and I'm gone before anyone stands up to sing, because if I stayed somebody'd ask me to and I'd have to be looked at. I'd rather be sat on.",
+      "flag": "lena_banquette"
+    },
+    "lo_strap": {
+      "line": "He's noticed. He runs his thumb along it in the door and says nothing. That's how we say thank you in this family: we check the stitching.",
+      "flag": "cam_strap_restitched"
+    },
+    "lo_radiator": {
+      "line": "It does. Air out, then the iron. You didn't hide the repair and I could hear what you'd done from the chair. That's the only kind of fixed I believe in. The rest is paper over a door.",
+      "flag": "lena_believes_the_patch"
+    },
+    "lo_int_open": {
+      "line": "Left the hem. Your stitches. They're terrible. I've looked at them twice today.",
+      "choices": [
+        {"label": "[Leave them in.]", "goto": "lo_int_beat"}
+      ],
+      "silence_goto": "lo_int_beat"
+    },
+    "lo_int_beat": {
+      "line": "Holding.",
+      "action": "quiet_beat"
+    },
+    "lo_fb_open": {
+      "line": "It's unpicking the ceiling now. Neat work, whoever it is. I'd hire them.",
+      "choices": [
+        {"label": "I'll come back when it's stopped."}
+      ],
+      "silence_goto": "lo_fb_sil"
+    },
+    "lo_fb_sil": {
+      "line": "Door's open. It's always open."
+    },
+    "lo_res_open": {
+      "line": "Somebody asked about the line this morning. I told them. Took longer than the hem. Shorter than I thought."
+    }
+  }
+}

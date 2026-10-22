@@ -337,4 +337,6 @@ Names and terms as the text uses them. Prefer these spellings.
 - This pass did not write Peter Wren's case. He is the ordained second case
   and has no dialogue; writing it would wire new content into progression,
   which the brief forbids, and the Bible reviews cases one at a time with the
-  owner.
+  owner. *Later the same day the owner asked for dialogue drafts for every
+  resident; those are in `design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md` and
+  `design/dialogue_drafts/`, as design-shape data read by nothing.*

@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "case_id": "mae_contradictory_antiques",
+    "speaker_default": "MAE KESSLER",
+    "voice_prefix": "mae_c07_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Mae notices provenance tags, auction notes, inventory contradiction and family authority. Sovereign declarations, exact attributions, courtesy sharpened into jurisdiction. Comic engine: appraising an insult's authenticity before being offended by it. Never says history belongs to everybody. Case: antiques reporting incompatible provenance; flags certainty_is_not_memory, contradiction_survivable. She is the last Kessler; the Estate holds the Orison; she does not remember the silence her family bought from Nadia. The ledger box on the bottom shelf is dusted around and never opened."
+  },
+  "entries": {
+    "first_stable": "mk_open",
+    "real_talk": "mk_rt_open",
+    "integration": "mk_int_open",
+    "resolved": "mk_res_open",
+    "fallback": "mk_fb_open"
+  },
+  "nodes": {
+    "mk_open": {
+      "line": "Gloves are by the door. Thank you. The box on the table has two cards, both in my hand, both correct, and they cannot both be correct. I have appraised for thirty years and I have never issued two certificates for one object. I would like you to tell me which of them I wrote.",
+      "choices": [
+        {"label": "Read me both.", "goto": "mk_cards"},
+        {"label": "Which one do you remember writing?", "goto": "mk_remember"},
+        {"label": "Maybe you wrote neither.", "goto": "mk_neither", "trust": -1}
+      ],
+      "silence_goto": "mk_sil1"
+    },
+    "mk_sil1": {
+      "line": "You are waiting to be told what the object is before you form a view. That is correct practice and almost nobody does it. Sit. You may keep the gloves on.",
+      "choices": [
+        {"label": "Read me both.", "goto": "mk_cards"}
+      ],
+      "silence_goto": "mk_cards"
+    },
+    "mk_neither": {
+      "line": "I would know my own hand. I would know it on a wall in the dark. Do not begin by doubting the one certainty in the room; it is poor method and worse manners.",
+      "choices": [
+        {"label": "Read me both.", "goto": "mk_cards"}
+      ],
+      "silence_goto": "mk_cards"
+    },
+    "mk_remember": {
+      "line": "Both. That is the difficulty. I remember the afternoon I wrote the first with perfect clarity, and I remember the afternoon I wrote the second with perfect clarity, and they are the same afternoon, and the light was different.",
+      "choices": [
+        {"label": "Read me both.", "goto": "mk_cards"}
+      ],
+      "silence_goto": "mk_cards"
+    },
+    "mk_cards": {
+      "line": "A walnut writing box, English, 1840s. Card one: by descent in the Kessler family, acquired by my grandfather in the year the house was raised, never out of family custody. Card two: purchased at auction, lot forty-one, from the estate of a tenant of this building, in the spring. Same box. Same brass. Same crack in the lid I know by touch.",
+      "choices": [
+        {"label": "'A tenant of this building.' 3C?", "goto": "mk_vantry", "infer": true, "trust": 1, "requires": ["vantry_in_3c"]},
+        {"label": "Which card has the older ink?", "goto": "mk_ink", "trust": 1},
+        {"label": "Family custody is the one you'd rather be true.", "goto": "mk_rather", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "mk_cards_sil"
+    },
+    "mk_cards_sil": {
+      "line": "You have not picked. Good. Everybody picks the family. They think it flatters me. It does not; it merely agrees with me, which is a different service and a cheaper one.",
+      "choices": [
+        {"label": "Which card has the older ink?", "goto": "mk_ink", "trust": 1}
+      ],
+      "silence_goto": "mk_ink"
+    },
+    "mk_vantry": {
+      "line": "... Yes. The spring sale. The last appraisal I made before the tenant left was for a man called Vantry, and I remember the box on his table and I remember buying it, and I remember it has stood on my grandfather's shelf since before I was born. You see my difficulty. I will not say that name again; it is not mine to spend.",
+      "flag": "mae_vantry_appraisal",
+      "choices": [
+        {"label": "Which card has the older ink?", "goto": "mk_ink", "trust": 1}
+      ],
+      "silence_goto": "mk_ink"
+    },
+    "mk_rather": {
+      "line": "Rather. What a word to use to an appraiser. I do not rather; I attribute. ... The family card is the one I would defend in a room. The auction card is the one with a lot number, and lot numbers do not have feelings.",
+      "choices": [
+        {"label": "Which card has the older ink?", "goto": "mk_ink", "trust": 1}
+      ],
+      "silence_goto": "mk_ink"
+    },
+    "mk_ink": {
+      "line": "The family card. By a decade at least; the iron gall has gone brown. The auction card is this year's ink. So the family card is older and the auction card is later and the box has been on that shelf the whole time, which is the one fact a shelf cannot lie about. Dust does not take sides.",
+      "choices": [
+        {"label": "So the box never left. Something else did.", "goto": "mk_left", "infer": true, "trust": 1},
+        {"label": "Then the auction card is a mistake. Burn it.", "goto": "mk_burn", "trust": -1},
+        {"label": "Two true cards. Can a thing survive that?", "goto": "mk_survive", "trust": 1}
+      ],
+      "silence_goto": "mk_survive"
+    },
+    "mk_burn": {
+      "line": "I do not burn provenance. One does not. A false card is evidence of a falsehood, which is itself a fact about the object, and I file facts. I merely cannot file this one, because I do not know which drawer it goes in.",
+      "choices": [
+        {"label": "Two true cards. Can a thing survive that?", "goto": "mk_survive", "trust": 1}
+      ],
+      "silence_goto": "mk_survive"
+    },
+    "mk_left": {
+      "line": "Something else. ... I have an inventory of every object in this flat and every object in this building that I have been permitted to see, and I have never once inventoried the ledger box on the bottom shelf. I dust around it. One does not open the family's own accounts. One keeps them.",
+      "flag": "mae_ledger_unopened",
+      "choices": [
+        {"label": "Whose accounts? Whose building is this, Mae?", "goto": "mk_estate", "trust": 1},
+        {"label": "Two true cards. Can a thing survive that?", "goto": "mk_survive", "trust": 1}
+      ],
+      "silence_goto": "mk_survive"
+    },
+    "mk_estate": {
+      "line": "The Estate's. Kessler. The name on every lease in this building is my family's, and my family is me, and I take tea on Thursdays with the manager who collects the rents and I have never once asked to see the book. That is not negligence. That is custody. Custody is what a family does with a thing instead of looking at it.",
+      "flag": "estate_is_kessler",
+      "choices": [
+        {"label": "Thursdays. With Management.", "goto": "mk_nadia", "requires": ["nadia_signed_silence"], "trust": 1},
+        {"label": "Two true cards. Can a thing survive that?", "goto": "mk_survive", "trust": 1}
+      ],
+      "silence_goto": "mk_survive"
+    },
+    "mk_nadia": {
+      "line": "She pours. I let her. We discuss the roof. ... You are going to tell me there is something between us that neither of us has said, and I am going to tell you that I appraise objects, not silences, and we shall both be correct, and I shall be the one who sleeps badly.",
+      "flag": "mae_knows_tea_is_not_neutral",
+      "choices": [
+        {"label": "Two true cards. Can a thing survive that?", "goto": "mk_survive", "trust": 1}
+      ],
+      "silence_goto": "mk_survive"
+    },
+    "mk_survive": {
+      "role": "strained",
+      "line": "Survive. Objects survive contradiction constantly; that is what a provenance gap is. It is the appraiser who does not. If I cannot say which afternoon was real then I cannot say which of me was in the room, and I have built a life on being the one in the room who knows.",
+      "choices": [
+        {"label": "Certainty isn't memory. You had one and called it the other.", "goto": "mk_certainty", "trust": 1, "flag": "certainty_is_not_memory"},
+        {"label": "You were in the room both times. That's allowed.", "goto": "mk_both", "trust": 1},
+        {"label": "Take the family card. It's the one you can live with.", "goto": "mk_live_with", "trust": -1}
+      ],
+      "silence_goto": "mk_survive_sil",
+      "silence_flag": "mae_silence_witnessed",
+      "silence_trust": 1
+    },
+    "mk_survive_sil": {
+      "line": "You are declining to certify. ... That is the first professional courtesy anyone has shown me in this flat. Say nothing a moment longer; I am enjoying it.",
+      "choices": [
+        {"label": "You were in the room both times. That's allowed.", "goto": "mk_both", "trust": 1}
+      ],
+      "silence_goto": "mk_both"
+    },
+    "mk_live_with": {
+      "line": "Live with. I have lived with it for thirty years; that is the complaint. One does not appraise by comfort. Put the gloves back on and try again.",
+      "choices": [
+        {"label": "You were in the room both times. That's allowed.", "goto": "mk_both", "trust": 1}
+      ],
+      "silence_goto": "mk_both"
+    },
+    "mk_certainty": {
+      "line": "... Yes. I was certain. I have been certain in this flat for thirty years and called it remembering, and the box has sat there with its crack, remembering nothing, which is the one honest thing it has done.",
+      "choices": [
+        {"label": "Keep both cards. Together.", "goto": "mk_both_cards", "flag": "contradiction_survivable", "trust": 1}
+      ],
+      "silence_goto": "mk_both_cards"
+    },
+    "mk_both": {
+      "line": "Allowed. By whom. ... By me, I suppose. I am the authority in this room; I have the gloves. Very well: Mae Kessler, in the presence of a witness, finds that she wrote both cards and that both are true and that the object is in excellent condition and the appraiser is not.",
+      "choices": [
+        {"label": "Keep both cards. Together.", "goto": "mk_both_cards", "flag": "contradiction_survivable", "trust": 1}
+      ],
+      "silence_goto": "mk_both_cards"
+    },
+    "mk_both_cards": {
+      "role": "recognition",
+      "line": "Together. In the same sleeve. Facing. ... It is the ugliest filing I have ever done and the box has not moved and the dust has not taken a side. I shall want tea. You may take the gloves off; nothing in here is more fragile than it was an hour ago, including me.",
+      "flag": "mae_two_cards_kept"
+    },
+    "mk_rt_open": {
+      "line": "You again. The box has behaved. I have not. I opened the ledger to the first page and shut it, which is more than my mother managed, and less than you would like.",
+      "choices": [
+        {"label": "The key in your bowl. The spare one.", "goto": "mk_key", "evidence": "the key bowl's extra, familiar key"},
+        {"label": "What was on the first page?", "goto": "mk_first_page"}
+      ],
+      "silence_goto": "mk_first_page"
+    },
+    "mk_first_page": {
+      "line": "A date, and a sum, and a name I know, and a word I did not expect to see in my grandfather's hand, which was 'silence,' with an amount beside it. I shut the book. I am telling you so that somebody knows I saw it. Do not make me say the name.",
+      "flag": "mae_saw_the_entry",
+      "choices": [
+        {"label": "You don't have to say it. You've said it.", "goto": "mk_said", "trust": 1},
+        {"label": "It's Quell.", "goto": "mk_quell", "requires": ["nadia_signed_silence"], "trust": -1}
+      ],
+      "silence_goto": "mk_said"
+    },
+    "mk_said": {
+      "line": "I have, haven't I. Thursday will be very long. Thank you for not helping.",
+      "flag": "mae_ledger_opened"
+    },
+    "mk_quell": {
+      "line": "I did not ask you for an attribution. ... Yes. Thank you. Now I cannot take the tea without knowing what I am being poured, and that was the last thing in this building I took without appraising.",
+      "flag": "mae_ledger_opened"
+    },
+    "mk_key": {
+      "line": "You noticed. There are four keys in that bowl and I own three. The fourth is brass, no tag, and it is familiar in the way a thing is familiar when you have seen it in another person's hand. It fits nothing in this flat. I have tried every lock twice.",
+      "choices": [
+        {"label": "Found on the third landing. The notice downstairs.", "goto": "mk_landing", "infer": true, "trust": 1},
+        {"label": "Try it on 3C.", "goto": "mk_3c", "requires": ["vantry_in_3c"], "trust": 1}
+      ],
+      "silence_goto": "mk_landing"
+    },
+    "mk_landing": {
+      "line": "The found notice. 'Describe it first.' ... I could describe it. I could describe it to the maker. That is what frightens me about it, and I have decided to be frightened in an orderly way, which is to leave it in the bowl.",
+      "flag": "mae_brass_key"
+    },
+    "mk_3c": {
+      "line": "I will not try a dead man's door with a key I cannot provenance. He is not dead. He moved out. One says dead because the box has been empty since spring and the post still comes. ... Leave it in the bowl. I shall think about the third floor on a day when I have thought about nothing else.",
+      "flag": "mae_brass_key"
+    },
+    "mk_int_open": {
+      "line": "Two cards, one sleeve. I have stopped turning them to face the way I prefer.",
+      "choices": [
+        {"label": "[Leave the sleeve as it lies.]", "goto": "mk_int_beat"}
+      ],
+      "silence_goto": "mk_int_beat"
+    },
+    "mk_int_beat": {
+      "line": "Noted.",
+      "action": "quiet_beat"
+    },
+    "mk_fb_open": {
+      "line": "A third card has appeared. I did not write it. I know, because it is accurate.",
+      "choices": [
+        {"label": "I'll come back when there are two."}
+      ],
+      "silence_goto": "mk_fb_sil"
+    },
+    "mk_fb_sil": {
+      "line": "Gloves on the hook, please. Thank you."
+    },
+    "mk_res_open": {
+      "line": "The tea was poured and I drank it. I asked about the roof. She told me. Neither of us said the thing, and for the first time I noticed the not-saying, and that is a provenance of a kind."
+    }
+  }
+}

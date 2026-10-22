@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "case_id": "nadia_code_pinball",
+    "speaker_default": "NADIA QUELL",
+    "voice_prefix": "nadia_x02_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md). Sanctioned expansion (Bible IV.1), not a promoted case. Nadia notices plan, violation, load path, tenant notice and corrected floor. Architectural overview, causal chains, decisions voiced as already-built facts. Comic engine: explaining why nobody else could have made the unilateral choice she is blaming on consensus. Never treats space as neutral. Case record: the floor plan overwriting the flat; flags silence_was_coerced, name_the_violation. She signs everything 'Management'; the flat was the price of her signature; she organises the tenants against the Estate; the player works for her and does not know whose war it is."
+  },
+  "entries": {
+    "first_stable": "nq_open",
+    "real_talk": "nq_rt_open",
+    "integration": "nq_int_open",
+    "resolved": "nq_res_open",
+    "fallback": "nq_fb_open"
+  },
+  "nodes": {
+    "nq_open": {
+      "line": "Management. Come in; you're expected, it says so on the plan. That is the plan, on the wall, and that is the flat, around us, and the flat is losing. The door you came through was a window on the drawing until Tuesday. The drawing is correct. The flat is being brought into compliance with it.",
+      "choices": [
+        {"label": "Compliance with a drawing you made.", "goto": "nq_mine", "trust": 1},
+        {"label": "The exit route's marked on the floor. Rehearsed. [the measured route]", "goto": "nq_route", "evidence": "the exit route is measured, marked, and blocked by nothing"},
+        {"label": "Take the plan down and it stops.", "goto": "nq_take_down", "trust": -1}
+      ],
+      "silence_goto": "nq_sil1"
+    },
+    "nq_sil1": {
+      "line": "You're reading the plan before you speak. That's correct. Most people look at the room. The room is an opinion; the plan is a record of who was allowed to have one.",
+      "choices": [
+        {"label": "Compliance with a drawing you made.", "goto": "nq_mine", "trust": 1}
+      ],
+      "silence_goto": "nq_mine"
+    },
+    "nq_take_down": {
+      "line": "I took it down Wednesday. The wall kept it. There's a drawing on the plaster now in a pencil I did not hold, and it's better than mine, and I am not in the habit of being out-drafted in my own flat. Put the tool down; you're not here for the wall.",
+      "choices": [
+        {"label": "Compliance with a drawing you made.", "goto": "nq_mine", "trust": 1}
+      ],
+      "silence_goto": "nq_mine"
+    },
+    "nq_route": {
+      "line": "Three paces to the door, eleven to the stair, forty-two to the street. Measured, chalked, kept clear. I rehearse it on Sundays. An architect who does not know her own egress is a client. ... You're wondering why a manager rehearses leaving her own building. Keep wondering; it's good for you.",
+      "choices": [
+        {"label": "Because the building has a violation you know about.", "goto": "nq_violation_early", "infer": true, "trust": 1},
+        {"label": "Compliance with a drawing you made.", "goto": "nq_mine", "trust": 1}
+      ],
+      "silence_goto": "nq_mine"
+    },
+    "nq_violation_early": {
+      "line": "Several. I know where they are the way you know where your own teeth are. We'll come to it. Look at the plan first; the plan is where I keep the ones I can say.",
+      "choices": [
+        {"label": "Compliance with a drawing you made.", "goto": "nq_mine", "trust": 1}
+      ],
+      "silence_goto": "nq_mine"
+    },
+    "nq_mine": {
+      "line": "A drawing I made. Yes. Not the one I filed; the one I keep. The filed set is correct and signed and the building passed on it. This set has the corrections. Every line in red is a place where the filed drawing and the building disagree, and I was the one who noticed, and I was the one who signed anyway.",
+      "choices": [
+        {"label": "Who asked you to sign?", "goto": "nq_who"},
+        {"label": "You weren't asked. You were paid. The flat.", "goto": "nq_paid", "infer": true, "trust": 1},
+        {"label": "Everyone signs things under pressure.", "goto": "nq_everyone", "trust": -1}
+      ],
+      "silence_goto": "nq_mine_sil"
+    },
+    "nq_mine_sil": {
+      "line": "You've gone quiet at 'signed anyway.' So did I, at the time. That's how it was done. Quietly, by a woman who had just been given a flat.",
+      "choices": [
+        {"label": "Who asked you to sign?", "goto": "nq_who"}
+      ],
+      "silence_goto": "nq_who"
+    },
+    "nq_everyone": {
+      "line": "Everyone does. That is the sentence the people who apply the pressure have printed for the people who feel it, and I will not say it in my own flat. I signed. The pressure was real and the hand was mine.",
+      "choices": [
+        {"label": "Who asked you to sign?", "goto": "nq_who"}
+      ],
+      "silence_goto": "nq_who"
+    },
+    "nq_paid": {
+      "line": "Paid. The flat was the fee for my name on a certificate I did not believe. I took it. Then I took the manager's post, and the keys, and the tenants' confidence, and I have been spending every one of them against the people who paid me. Slowly. In memos. Signed 'Management,' because a name is a thing they bought and I am not giving them the use of it.",
+      "flag": "nadia_signed_silence",
+      "choices": [
+        {"label": "The Estate. Kessler.", "goto": "nq_estate", "requires": ["estate_is_kessler"], "trust": 1},
+        {"label": "So who do I work for? You, or them?", "goto": "nq_work_for", "trust": 1},
+        {"label": "Which violation does the flat keep redrawing?", "goto": "nq_which", "trust": 1}
+      ],
+      "silence_goto": "nq_which"
+    },
+    "nq_who": {
+      "line": "The owners. Through a solicitor, through a letter, through the kind of silence a room goes into when a woman says 'the egress does not meet the standard' and nobody looks up from the table. They offered me the manager's flat. Live-in. I understood what was being purchased. I sold it.",
+      "flag": "nadia_signed_silence",
+      "choices": [
+        {"label": "The Estate. Kessler.", "goto": "nq_estate", "requires": ["estate_is_kessler"], "trust": 1},
+        {"label": "So who do I work for? You, or them?", "goto": "nq_work_for", "trust": 1},
+        {"label": "Which violation does the flat keep redrawing?", "goto": "nq_which", "trust": 1}
+      ],
+      "silence_goto": "nq_which"
+    },
+    "nq_estate": {
+      "line": "You've been upstairs. ... Yes. I take tea with the last of them on Thursdays. She pours. She does not know; her family kept the ledger shut and raised her to keep it shut, and I have never told her, because the day I tell her I lose the only person in this building who treats me as a guest. Don't do my telling for me.",
+      "flag": "nadia_tea_with_mae",
+      "choices": [
+        {"label": "Which violation does the flat keep redrawing?", "goto": "nq_which", "trust": 1}
+      ],
+      "silence_goto": "nq_which"
+    },
+    "nq_work_for": {
+      "line": "For the building. That's the honest answer and it's the one that lets me sleep. Your orders come through my box in my hand, and the rent you forward goes to theirs, and you stand between those two facts every night with a lamp. I didn't tell you that when I hired you. I'm telling you now. That's the only apology you'll get and it's a real one.",
+      "flag": "player_knows_the_war",
+      "choices": [
+        {"label": "Which violation does the flat keep redrawing?", "goto": "nq_which", "trust": 1}
+      ],
+      "silence_goto": "nq_which"
+    },
+    "nq_which": {
+      "role": "strained",
+      "line": "The second exit. There isn't one. Floors four to six have one stair and the plan says two, and the second is drawn as a dotted line, 'future,' and the future has been ten years coming. That's the line the flat keeps redrawing. It puts a door where the second stair should start and I keep walking into a wall where I signed that there wasn't one.",
+      "choices": [
+        {"label": "Say it out loud. Not in a memo. Name it.", "goto": "nq_name", "trust": 1, "flag": "name_the_violation"},
+        {"label": "You were silenced. That's on them.", "goto": "nq_on_them", "trust": -1},
+        {"label": "You signed because your signature was the only one in the room.", "goto": "nq_only_one", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "nq_which_sil",
+      "silence_flag": "nadia_silence_not_bought",
+      "silence_trust": 1
+    },
+    "nq_which_sil": {
+      "line": "You're not filling it. The silence. ... That's what they did, you know, at the table. Didn't fill it. Waited for me to. Yours is a different silence; I can tell because I don't feel sold in it.",
+      "choices": [
+        {"label": "Say it out loud. Name it.", "goto": "nq_name", "trust": 1, "flag": "name_the_violation"}
+      ],
+      "silence_goto": "nq_name"
+    },
+    "nq_on_them": {
+      "line": "It is on them and it is on me and the building does not care whose it is on; the building has one stair. Don't give me the half that comforts. Give me the half I can act on.",
+      "choices": [
+        {"label": "Then name it.", "goto": "nq_name", "trust": 1, "flag": "name_the_violation"}
+      ],
+      "silence_goto": "nq_name"
+    },
+    "nq_only_one": {
+      "line": "The only one who'd read the drawing. Yes. That's what silence costs: it is purchased from whoever can see. They couldn't have bought it from the solicitor; he couldn't tell a riser from a rain pipe. They bought it from me because I was the one in the room who knew, and knowing is what I had to sell.",
+      "flag": "silence_was_coerced",
+      "choices": [
+        {"label": "Then name it. Out loud.", "goto": "nq_name", "trust": 1, "flag": "name_the_violation"}
+      ],
+      "silence_goto": "nq_name"
+    },
+    "nq_name": {
+      "role": "recognition",
+      "line": "... Floors four, five and six of the Orison have no second means of egress. I certified that they did. ... There. Not a memo; a sentence, in a room, with a witness. The wall's still a wall. But the pencil line on it has stopped, mid-door, like it heard. I'll chalk a new route in the morning. A true one. It'll be longer.",
+      "flag": "nadia_named_it"
+    },
+    "nq_rt_open": {
+      "line": "Management. Sit. The plan has stayed on the wall and the wall has stayed a wall, and I have drafted a letter to the owners that I have not sent, which for me is a form of restraint.",
+      "choices": [
+        {"label": "The minutes on the board are signed Management. You chair the meeting.", "goto": "nq_minutes", "infer": true, "trust": 1},
+        {"label": "Peter checks your paperwork and signs nothing.", "goto": "nq_peter", "requires": ["peter_gap_found"], "trust": 1},
+        {"label": "Mae opened the ledger.", "goto": "nq_mae_ledger", "requires": ["mae_ledger_opened"], "trust": 1}
+      ],
+      "silence_goto": "nq_rt_sil"
+    },
+    "nq_rt_sil": {
+      "line": "No report? Then you've nothing to tell me that the building hasn't. Good. Sit anyway.",
+      "choices": [
+        {"label": "You chair the meeting and sign the minutes Management.", "goto": "nq_minutes", "infer": true, "trust": 1}
+      ],
+      "silence_goto": "nq_res_open"
+    },
+    "nq_minutes": {
+      "line": "I chair it, I take the minutes, I pin them up, and the tenants read 'Management' and think the owners are listening. They aren't. I am. It is the most useful lie in the building and I would like it on record that I know it's one.",
+      "flag": "nadia_is_management"
+    },
+    "nq_peter": {
+      "line": "He reads every page for procedure and won't put his name to a line of it. I used to think it was cowardice. It isn't. He's the only one in the room who knows what a signature costs, and he's decided not to spend his twice. I'd hire him if he'd let me.",
+      "flag": "nadia_respects_peter"
+    },
+    "nq_mae_ledger": {
+      "line": "... Did she. Then Thursday is going to be a different afternoon. I'll pour. She's never once poured; it would be a courtesy to let her be the guest for a change. Don't come to tea. I mean that kindly.",
+      "flag": "nadia_knows_mae_knows"
+    },
+    "nq_int_open": {
+      "line": "New route chalked. Longer. True. I haven't rehearsed it yet; I'm letting it be a drawing for a day.",
+      "choices": [
+        {"label": "[Leave the chalk to dry.]", "goto": "nq_int_beat"}
+      ],
+      "silence_goto": "nq_int_beat"
+    },
+    "nq_int_beat": {
+      "line": "Filed.",
+      "action": "quiet_beat"
+    },
+    "nq_fb_open": {
+      "line": "The plan has added a floor. The building has not. I'm choosing to find that funny.",
+      "choices": [
+        {"label": "I'll come back when they agree."}
+      ],
+      "silence_goto": "nq_fb_sil"
+    },
+    "nq_fb_sil": {
+      "line": "Mind the egress. The real one. It's the long way."
+    },
+    "nq_res_open": {
+      "line": "I sent the letter. Signed it with my name. First thing in ten years with Quell at the bottom that wasn't a building nobody commissioned."
+    }
+  }
+}
