@@ -1,0 +1,387 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Separate unracked hose candidate. Input/geometry diagnostics only; no played-world frame-time, water, save or human acceptance.",
+  "payout": {
+    "guide_v2": {
+      "events": 14,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 18.4735,
+        "p95": 28.86245,
+        "p99": 29.45889,
+        "max": 29.608
+      },
+      "pose_latency_ms": {
+        "p50": 18.7755,
+        "p95": 256.53714999999977,
+        "p99": 548.4698299999995,
+        "max": 621.453
+      },
+      "maximum_span_m": 0.512069046497345,
+      "events_with_pending_work": 5
+    },
+    "guide_v3": {
+      "events": 7,
+      "failures": [
+        "actual depth input reaches a nozzle pose wholly clear of the cabinet front before lateral travel",
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 2.895,
+        "p95": 13.00599999999999,
+        "p99": 16.447599999999994,
+        "max": 17.308
+      },
+      "pose_latency_ms": {
+        "p50": 2.895,
+        "p95": 13.00669999999999,
+        "p99": 16.448539999999994,
+        "max": 17.309
+      },
+      "maximum_span_m": 0.487321525812149,
+      "events_with_pending_work": 0
+    },
+    "guide_v4": {
+      "events": 11,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 33.699,
+        "p95": 34.9895,
+        "p99": 35.7819,
+        "max": 35.98
+      },
+      "pose_latency_ms": {
+        "p50": 33.783,
+        "p95": 64.9475,
+        "p99": 88.12070000000003,
+        "max": 93.914
+      },
+      "maximum_span_m": 0.515001118183136,
+      "events_with_pending_work": 1
+    },
+    "guide_v6": {
+      "events": 510,
+      "failures": [],
+      "input_ms": {
+        "p50": 8.9045,
+        "p95": 10.64855,
+        "p99": 11.038669999999998,
+        "max": 11.48
+      },
+      "pose_latency_ms": {
+        "p50": 40.2355,
+        "p95": 614.92985,
+        "p99": 621.3157399999999,
+        "max": 628.698
+      },
+      "maximum_span_m": 15.0976037979126,
+      "events_with_pending_work": 357
+    },
+    "guide_v7": {
+      "events": 402,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 9.6745,
+        "p95": 10.2349,
+        "p99": 10.40996,
+        "max": 11.368
+      },
+      "pose_latency_ms": {
+        "p50": 40.2175,
+        "p95": 616.7095,
+        "p99": 626.05669,
+        "max": 627.341
+      },
+      "maximum_span_m": 14.4274911880493,
+      "events_with_pending_work": 290
+    },
+    "guide_v8": {
+      "events": 337,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 4.756,
+        "p95": 5.1108,
+        "p99": 5.42084,
+        "max": 7.226
+      },
+      "pose_latency_ms": {
+        "p50": 4.807,
+        "p95": 619.1802,
+        "p99": 622.8636799999999,
+        "max": 625.836
+      },
+      "maximum_span_m": 14.9769048690796,
+      "events_with_pending_work": 36
+    },
+    "guide_v9": {
+      "events": 272,
+      "failures": [],
+      "input_ms": {
+        "p50": 4.7844999999999995,
+        "p95": 5.0278,
+        "p99": 5.2098200000000014,
+        "max": 5.258
+      },
+      "pose_latency_ms": {
+        "p50": 4.785,
+        "p95": 5.0283500000000005,
+        "p99": 5.210820000000001,
+        "max": 5.259
+      },
+      "maximum_span_m": 15.0982084274292,
+      "events_with_pending_work": 0
+    },
+    "payout_v2": {
+      "events": 6,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 11.324,
+        "p95": 12.71925,
+        "p99": 13.068650000000002,
+        "max": 13.156
+      },
+      "pose_latency_ms": {
+        "p50": 59.334,
+        "p95": 60.48325,
+        "p99": 60.547050000000006,
+        "max": 60.563
+      },
+      "maximum_span_m": 0.631125807762146,
+      "events_with_pending_work": 5
+    },
+    "payout_v3": {
+      "events": 250,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 9.7,
+        "p95": 10.37385,
+        "p99": 10.842569999999998,
+        "max": 11.477
+      },
+      "pose_latency_ms": {
+        "p50": 20.206,
+        "p95": 40.54324999999999,
+        "p99": 41.627109999999995,
+        "max": 42.013
+      },
+      "maximum_span_m": 13.9317750930786,
+      "events_with_pending_work": 151
+    },
+    "receiving_guard_full_v1": {
+      "events": 272,
+      "failures": [],
+      "input_ms": {
+        "p50": 4.932499999999999,
+        "p95": 5.28585,
+        "p99": 5.43735,
+        "max": 5.662
+      },
+      "pose_latency_ms": {
+        "p50": 4.9335,
+        "p95": 5.2863999999999995,
+        "p99": 5.43864,
+        "max": 5.663
+      },
+      "maximum_span_m": 15.0982084274292,
+      "events_with_pending_work": 0
+    },
+    "rotating_v5": {
+      "events": 900,
+      "failures": [
+        "actual depth input pulls the nozzle clear of the open cabinet before lateral travel",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 6.901999999999999,
+        "p95": 10.533649999999998,
+        "p99": 13.111079999999998,
+        "max": 20.879
+      },
+      "pose_latency_ms": {
+        "p50": 6.9085,
+        "p95": 40.20705,
+        "p99": 60.15322,
+        "max": 62.696
+      },
+      "maximum_span_m": 10.2841014862061,
+      "events_with_pending_work": 136
+    },
+    "rotating_v6": {
+      "events": 158,
+      "failures": [
+        "actual depth input reaches a nozzle pose wholly clear of the cabinet front before lateral travel",
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 8.8095,
+        "p95": 13.6218,
+        "p99": 15.80328,
+        "max": 20.937
+      },
+      "pose_latency_ms": {
+        "p50": 10.146999999999998,
+        "p95": 40.372699999999995,
+        "p99": 40.71748,
+        "max": 48.797
+      },
+      "maximum_span_m": 3.96257734298706,
+      "events_with_pending_work": 61
+    },
+    "self_v10": {
+      "events": 194,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 8.5715,
+        "p95": 16.7774,
+        "p99": 25.349309999999974,
+        "max": 30.162
+      },
+      "pose_latency_ms": {
+        "p50": 20.242,
+        "p95": 22.2532,
+        "p99": 38.64889999999998,
+        "max": 60.398
+      },
+      "maximum_span_m": 9.33399486541748,
+      "events_with_pending_work": 152
+    },
+    "self_v6": {
+      "events": 44,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 10.5195,
+        "p95": 11.408399999999999,
+        "p99": 14.546190000000001,
+        "max": 15.779
+      },
+      "pose_latency_ms": {
+        "p50": 20.31,
+        "p95": 40.454350000000005,
+        "p99": 51.76643000000001,
+        "max": 60.237
+      },
+      "maximum_span_m": 2.74905848503113,
+      "events_with_pending_work": 43
+    },
+    "self_v7": {
+      "events": 50,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 10.442499999999999,
+        "p95": 19.63965,
+        "p99": 20.20037,
+        "max": 20.243
+      },
+      "pose_latency_ms": {
+        "p50": 20.323999999999998,
+        "p95": 40.454299999999996,
+        "p99": 50.722799999999964,
+        "max": 60.464
+      },
+      "maximum_span_m": 2.74905848503113,
+      "events_with_pending_work": 43
+    },
+    "self_v9": {
+      "events": 214,
+      "failures": [
+        "long payout makes progress before the physical reach limit",
+        "actual nozzle input deploys the full15.24m material within150mm rigid-end span allowance"
+      ],
+      "input_ms": {
+        "p50": 8.4875,
+        "p95": 9.271799999999999,
+        "p99": 12.052130000000012,
+        "max": 13.161
+      },
+      "pose_latency_ms": {
+        "p50": 20.217,
+        "p95": 28.922999999999895,
+        "p99": 620.45195,
+        "max": 626.492
+      },
+      "maximum_span_m": 9.52865982055664,
+      "events_with_pending_work": 158
+    }
+  },
+  "controls": {
+    "sparse": {
+      "all_non_timing_fields_identical": true
+    },
+    "dense": {
+      "all_non_timing_fields_identical": true
+    }
+  },
+  "native_poses": [
+    {
+      "step": 0,
+      "crossings": 0,
+      "nonmanifold": 0,
+      "volume_m3": 0.0036804750475538856,
+      "known_crossing_control": true
+    },
+    {
+      "step": 64,
+      "crossings": 0,
+      "nonmanifold": 0,
+      "volume_m3": 0.0036765855355502166,
+      "known_crossing_control": true
+    },
+    {
+      "step": 128,
+      "crossings": 0,
+      "nonmanifold": 0,
+      "volume_m3": 0.0037296411274749092,
+      "known_crossing_control": true
+    },
+    {
+      "step": 192,
+      "crossings": 0,
+      "nonmanifold": 0,
+      "volume_m3": 0.0037098492515069232,
+      "known_crossing_control": true
+    },
+    {
+      "step": 256,
+      "crossings": 0,
+      "nonmanifold": 0,
+      "volume_m3": 0.0037120667948665493,
+      "known_crossing_control": true
+    },
+    {
+      "step": 272,
+      "crossings": 0,
+      "nonmanifold": 0,
+      "volume_m3": 0.0037117790656395282,
+      "known_crossing_control": true
+    }
+  ]
+}

@@ -139,8 +139,12 @@ func exercise_nozzle(actor: Node3D,hand: Node) -> void:
 	var goal: Vector3=joint.body.position+Vector3(0,.060,.060)
 	# Withdraw the loose spigot from the recessed receiving nut before
 	# lifting across its rim; keep the actual collision and hand path.
-	var clear: Vector3=joint.body.position+joint.receiver.basis.y*.012
-	check(await carry_path(actor,actor._play_pipe,point,[clear,goal+joint.receiver.basis.y*.012,goal],.0001),"actual grab and depth wheel carry the separate original nozzle")
+	# Lift from the actual bearing before withdrawing across the rim. A
+	# horizontal waypoint at the old contact height fights floor recovery.
+	# Keep the original final goal, reach tolerance and all collision checks.
+	var lifted: Vector3=joint.body.position+Vector3.UP*.001
+	var clear: Vector3=lifted+joint.receiver.basis.y*.012
+	check(await carry_path(actor,actor._play_pipe,point,[lifted,clear,goal+joint.receiver.basis.y*.012,goal],.0001),"actual grab and depth wheel carry the separate original nozzle")
 	check(joint.loose and not actor.nozzle_coupled and player.camera.global_transform.is_equal_approx(eye),"loose carrying leaves repair facts false and inspection camera static")
 	var inlet: Transform3D=joint.seat.global_transform
 	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),1.1),"empty captured nut turns freely through actual mouse input")

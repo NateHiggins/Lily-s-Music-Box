@@ -9,6 +9,9 @@ class CursorBody extends AnimatableBody3D:
 class LooseBody extends RigidBody3D:
 	var provider: Callable
 	func manipulation_target(hit: Dictionary) -> Dictionary:return provider.call(hit)
+class SeatBody extends StaticBody3D:
+	var provider: Callable
+	func manipulation_target(_hit: Dictionary) -> Dictionary:return provider.call() if provider.is_valid() else {}
 class RadialEnvelope extends RefCounted:
 	var minimum:=INF
 	var peak:=-INF
@@ -63,6 +66,7 @@ var _bounds_ready:=false
 var _world_box:=BoxShape3D.new()
 var receiver_queries:=0
 var hose_grip_provider: Callable
+var hose_seat_grip_provider: Callable
 var _submitted_poses: Dictionary={}
 func configure(owner_actor: Node3D) -> bool:
 	actor=owner_actor;stock=preload("res://scripts/props/fire_nozzle_joint_stock.gd").new()
@@ -77,7 +81,8 @@ func configure(owner_actor: Node3D) -> bool:
 	seat.global_transform=actor.global_transform*receiver
 	nut=stock.make_part("NozzleNut");add_child(nut);nut.transform=receiver
 	spigot=stock.make_part("NozzleSpigot");actor._play_pipe.add_child(spigot)
-	var fixed:=StaticBody3D.new();fixed.name="NativeNozzleSeatCollision";fixed.collision_layer=1|FITTING_LAYER;seat.add_child(fixed)
+	var fixed:=SeatBody.new();fixed.name="NativeNozzleSeatCollision";fixed.collision_layer=1|FITTING_LAYER;seat.add_child(fixed)
+	fixed.provider=func():return hose_seat_grip_provider.call() if loose and hose_seat_grip_provider.is_valid() else {}
 	var shape:=ConcavePolygonShape3D.new();shape.set_faces(preload("res://scripts/props/fire_hose_rack.gd").imported_faces(seat.mesh))
 	var collision:=CollisionShape3D.new();collision.shape=shape;fixed.add_child(collision)
 	var hand:=CursorBody.new();hand.sync_to_physics=false;hand.name="NativeNozzleNutCursor";hand.collision_layer=CURSOR_LAYER;nut.add_child(hand);hand.provider=func(_hit: Dictionary):return nut_grip()

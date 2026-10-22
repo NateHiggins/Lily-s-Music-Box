@@ -1,0 +1,18 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"configured": true,
+			"error": "initial hose contact fit: wide nonlinear projection ceiling",
+			"id": "F02_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 120.023
+		}
+	]
+}

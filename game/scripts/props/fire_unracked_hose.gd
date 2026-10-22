@@ -24,6 +24,7 @@ var last_nozzle_query: Dictionary={}
 var _nozzle_bounds: Dictionary={}
 var _nozzle_box:=BoxShape3D.new()
 var _nozzle_radius:=0.
+var _receiving_stock: Array[Dictionary]=[]
 var guide_enabled:=false
 var ground_y_local:=0.
 var guide_axis_local:=Vector3.LEFT
@@ -41,6 +42,23 @@ func configure(owner_actor: Node3D,asset_path: String,projection: Dictionary,pla
 		for point: Vector3 in shape.shape.points:local=local.expand(point)
 		_nozzle_bounds[shape]={"resource":shape.shape,"bounds":local}
 		for point: Vector3 in shape.shape.points:_nozzle_radius=maxf(_nozzle_radius,(shape.transform*point).length())
+	# The receiving seat and captured nut travel with the cloth as well as
+	# the barrel. Preserve their bores with native angular stock sectors.
+	var nut_mesh:=ArrayMesh.new();var arrays:=[];arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX]=joint.stock.physical_nut.get_faces()
+	var indices:=PackedInt32Array();indices.resize(arrays[Mesh.ARRAY_VERTEX].size())
+	for i in indices.size():indices[i]=i
+	arrays[Mesh.ARRAY_INDEX]=indices
+	nut_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+	for row: Dictionary in [{"mesh":joint.seat.mesh,"nut":false,"cuts":[-.016,0.,.005,.014,.017]}, {"mesh":nut_mesh,"nut":true,"cuts":[.005,.0055,.014,.017,.0285,.029]}]:
+		var cuts: Array[float]=[]
+		for height: float in row.cuts:cuts.append(height)
+		var cells: Array[ConvexPolygonShape3D]=preload("res://scripts/props/native_annular_collision.gd").build(row.mesh,cuts,48)
+		if cells.is_empty():return false
+		for cell: ConvexPolygonShape3D in cells:
+			var bounds:=AABB(cell.points[0],Vector3.ZERO)
+			for point: Vector3 in cell.points:bounds=bounds.expand(point)
+			_receiving_stock.append({"shape":cell,"bounds":bounds,"nut":row.nut})
 	var packed:=load(asset_path) as PackedScene
 	if packed==null:return false
 	model=packed.instantiate();add_child(model);model.visible=false
@@ -97,7 +115,8 @@ func configure(owner_actor: Node3D,asset_path: String,projection: Dictionary,pla
 	return true
 
 func prepare_contact() -> bool:
-	var excluded: Array[RID]=[joint.body.get_rid(),actor._bodies.lever.get_rid(),joint.physical_nut.get_rid()]
+	var excluded: Array[RID]=[actor._bodies.lever.get_rid(),joint.physical_nut.get_rid()]
+	if not joint.loose:excluded.append(joint.body.get_rid())
 	for node: Node3D in _stored:
 		for body: CollisionObject3D in node.find_children("*","CollisionObject3D",true,false):excluded.append(body.get_rid())
 	for part: Node3D in [joint.seat,joint.nut]:
@@ -170,17 +189,20 @@ func _physical_bends_clear(points: PackedVector3Array) -> bool:
 	return true
 
 func grip() -> Dictionary:
-	if not actor.door_open or joint.loose:return {}
+	if not actor.door_open:return {}
+	var part: Node3D=joint.seat if joint.loose else actor._play_pipe
 	if deployed:
-		return {"owner":actor,"part":actor._play_pipe,"frame":model,"kind":"free",
+		return {"owner":actor,"part":part,"frame":model,"kind":"free",
 			"read":func():return rig.strand.points[0],"write":_move,
 			"begin":func():return actor._claim("hose"),"owns":func():return actor._hand=="hose",
 			"motion_pending":func():return tether.pending,"end":_release}
-	return {"owner":actor,"part":actor._play_pipe,"frame":actor,"kind":"slider","axis":Vector3.BACK,
+	return {"owner":actor,"part":part,"frame":actor,"kind":"slider","axis":Vector3.BACK,
 		"minimum":0.,"maximum":EXTRACTION_M,"read":func():return extraction,"write":_extract,
 		"begin":func():return actor._claim("hose"),"owns":func():return actor._hand=="hose","end":_release}
 
 func _nozzle_clear(receiver: Transform3D) -> bool:
+	if not _receiving_stock_clear(receiver):return false
+	if joint.loose:return true
 	var pose: Transform3D=actor.global_transform*joint.thread_pose(joint.angle)
 	var proposed: Transform3D=actor.global_transform*receiver*Transform3D(Basis(Vector3.UP,joint.clocking),Vector3(0,joint.stock.body_y(joint.angle),0))
 	var excluded: Array[RID]=[joint.body.get_rid(),actor._bodies.lever.get_rid(),joint.physical_nut.get_rid()]
@@ -240,6 +262,43 @@ func _nozzle_clear(receiver: Transform3D) -> bool:
 		query.transform=pose*shape.transform;query.motion=proposed.origin-pose.origin
 		var result: PackedFloat32Array=space.cast_motion(query)
 		if result.size()!=2 or result[0]<1.:return false
+	return true
+
+func _receiving_stock_clear(receiver: Transform3D) -> bool:
+	var before: Transform3D=actor.global_transform*joint.receiver
+	var after: Transform3D=actor.global_transform*receiver
+	var excluded: Array[RID]=[actor._bodies.lever.get_rid(),joint.physical_nut.get_rid()]
+	if not joint.loose:excluded.append(joint.body.get_rid())
+	for part: Node3D in [joint.seat,joint.nut]:
+		for body: CollisionObject3D in part.find_children("*","CollisionObject3D",true,false):excluded.append(body.get_rid())
+	var space:=get_world_3d().direct_space_state
+	var query:=PhysicsShapeQueryParameters3D.new();query.collision_mask=1;query.exclude=excluded
+	var bounds:=AABB();var first:=true;var radius:=0.
+	var spin:=Transform3D(Basis(Vector3.UP,joint.angle+joint.spin),Vector3.ZERO)
+	for row: Dictionary in _receiving_stock:
+		var local: AABB=(spin*row.bounds) if row.nut else row.bounds
+		radius=maxf(radius,local.position.abs().max(local.end.abs()).length())
+		var swept: AABB=(before*local).merge(after*local)
+		bounds=swept if first else bounds.merge(swept);first=false
+	if first:return false
+	var angle: float=before.basis.get_rotation_quaternion().angle_to(after.basis.get_rotation_quaternion())
+	bounds=bounds.grow(radius*(1.-cos(angle*.5))+.0001)
+	_nozzle_box.size=bounds.size;query.shape=_nozzle_box;query.margin=0.;query.transform=Transform3D(Basis.IDENTITY,bounds.get_center())
+	if space.intersect_shape(query,1).is_empty():return true
+	var steps: int=maxi(1,ceili(angle/.04))
+	if steps>64:return false
+	query.margin=2.*radius*sin(angle/(4.*steps))+.00002
+	for row: Dictionary in _receiving_stock:
+		query.shape=row.shape
+		var local: Transform3D=spin if row.nut else Transform3D.IDENTITY
+		for step in steps:
+			var fraction: float=float(step)/steps
+			var rotation:=Basis(before.basis.get_rotation_quaternion().slerp(after.basis.get_rotation_quaternion(),(float(step)+.5)/steps))
+			query.transform=Transform3D(rotation,before.origin.lerp(after.origin,fraction))*local;query.motion=Vector3.ZERO
+			if not space.intersect_shape(query,1).is_empty():return false
+			query.motion=(after.origin-before.origin)/steps
+			var swept: PackedFloat32Array=space.cast_motion(query)
+			if swept.size()!=2 or swept[0]<1.:return false
 	return true
 
 func _extract(value: float) -> void:

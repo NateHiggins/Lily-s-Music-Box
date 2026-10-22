@@ -1,0 +1,130 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Complete-world initial layout and actual removal diagnostic. No matched before/after optimization, released behavior, save, spray or runtime qualification.",
+  "clear_stations": [
+    "B1_FIRE_LINE_STAIR",
+    "F01_FIRE_LINE_STAIR",
+    "F02_FIRE_LINE_STAIR",
+    "F03_FIRE_LINE_STAIR",
+    "F04_FIRE_LINE_STAIR",
+    "F05_FIRE_LINE_STAIR",
+    "F06_FIRE_LINE_STAIR",
+    "ROOF_FIRE_LINE_STAIR"
+  ],
+  "actual_removal": {
+    "picked": true,
+    "deployed": true,
+    "released": true,
+    "cpu_input_ms": {
+      "samples": 25,
+      "p50": 0.668,
+      "p95": 0.9997999999999999,
+      "p99": 11.75743999999997,
+      "maximum": 15.152,
+      "over_16_667": 0,
+      "over_33_333": 0,
+      "over_100": 0
+    }
+  },
+  "frames": {
+    "wall_ms": {
+      "samples": 7,
+      "p50": 59.004,
+      "p95": 318.8244999999997,
+      "p99": 406.8288999999998,
+      "maximum": 428.83,
+      "over_16_667": 7,
+      "over_33_333": 7,
+      "over_100": 1
+    },
+    "process_ms": {
+      "samples": 7,
+      "p50": 46.724,
+      "p95": 46.724,
+      "p99": 46.724,
+      "maximum": 46.724,
+      "over_16_667": 7,
+      "over_33_333": 7,
+      "over_100": 0
+    },
+    "physics_ms": {
+      "samples": 7,
+      "p50": 6.784,
+      "p95": 6.784,
+      "p99": 6.784,
+      "maximum": 6.784,
+      "over_16_667": 0,
+      "over_33_333": 0,
+      "over_100": 0
+    },
+    "render_cpu_ms": {
+      "samples": 7,
+      "p50": 24.9230003356934,
+      "p95": 25.35390014648437,
+      "p99": 25.420380249023435,
+      "maximum": 25.4370002746582,
+      "over_16_667": 7,
+      "over_33_333": 0,
+      "over_100": 0
+    },
+    "render_gpu_ms": {
+      "samples": 7,
+      "p50": 17.4549999237061,
+      "p95": 19.808899688720718,
+      "p99": 19.954579315185583,
+      "maximum": 19.9909992218018,
+      "over_16_667": 7,
+      "over_33_333": 0,
+      "over_100": 0
+    }
+  },
+  "pipeline_compilation_changes": {
+    "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+    "PIPELINE_COMPILATIONS_DRAW": 0.0,
+    "PIPELINE_COMPILATIONS_MESH": 0.0,
+    "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+    "PIPELINE_COMPILATIONS_SURFACE": 0.0
+  },
+  "native": [
+    {
+      "name": "world_coil_v4_native_B1_FIRE_LINE_STAIR_pose",
+      "geometry": {
+        "evidence_class": "INERT",
+        "scope": "Actual native vertices deformed with the captured imported bind/current frames. Static self-crossing and native appearance review only. No self-contact dynamics, installed world, water, save or human acceptance.",
+        "vertices": 8640,
+        "triangles": 17280,
+        "nonmanifold_edges": 0,
+        "signed_volume_m3": 0.0037193098122811946,
+        "self_crossing_pairs_without_shared_vertices": 0,
+        "first_pairs": [],
+        "first_pair_rings": [],
+        "known_crossing_control": true,
+        "source_bindings": {
+          "art/reviews/v2_unracked_hose_20261022/world_coil_v4/B1_FIRE_LINE_STAIR_pose.json": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+          "art/blender/v2_unracked_hose/native_v1/blender/unracked_fire_hose.blend": "8397ea005251bf9fb95045c83c1865e8c91a584ef0c8a6ac5158c2c928bb884e",
+          "art/blender/scripts/review_deployed_hose.py": "75d071df6476d20464618fa78a65b5f1995f7ff86818868fee85cc4a9926e935"
+        }
+      }
+    },
+    {
+      "name": "world_coil_v4_native_ROOF_FIRE_LINE_STAIR_pose",
+      "geometry": {
+        "evidence_class": "INERT",
+        "scope": "Actual native vertices deformed with the captured imported bind/current frames. Static self-crossing and native appearance review only. No self-contact dynamics, installed world, water, save or human acceptance.",
+        "vertices": 8640,
+        "triangles": 17280,
+        "nonmanifold_edges": 0,
+        "signed_volume_m3": 0.0037196023480126346,
+        "self_crossing_pairs_without_shared_vertices": 0,
+        "first_pairs": [],
+        "first_pair_rings": [],
+        "known_crossing_control": true,
+        "source_bindings": {
+          "art/reviews/v2_unracked_hose_20261022/world_coil_v4/ROOF_FIRE_LINE_STAIR_pose.json": "aaf14a4ff3bab16841a1662ba59124d6e2bdcf27ce9412d56eae88bc05f14986",
+          "art/blender/v2_unracked_hose/native_v1/blender/unracked_fire_hose.blend": "8397ea005251bf9fb95045c83c1865e8c91a584ef0c8a6ac5158c2c928bb884e",
+          "art/blender/scripts/review_deployed_hose.py": "75d071df6476d20464618fa78a65b5f1995f7ff86818868fee85cc4a9926e935"
+        }
+      }
+    }
+  ]
+}

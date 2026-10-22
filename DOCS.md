@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| World-fitting unracked hose, actual removal, bare-end targeting and remaining installation requirements | `design/V2_UNRACKED_HOSE_WORLD_FIT_2026-10-22.md` |
 | Static-rack removal, a simpler full-length round-hose candidate and the remaining world-layout repair | `design/V2_UNRACKED_HOSE_2026-10-22.md` |
 | Retired stored-hose simulation diagnostics and the owner's static-rack/simple-extended-hose direction | `design/V2_STORED_HOSE_DIAGNOSTICS_2026-10-22.md` |
 | Repaired candidate hose skin, pending-grab feedback, expensive release and remaining installed water work | `design/V2_HOSE_SKIN_REPAIR_2026-10-22.md` |

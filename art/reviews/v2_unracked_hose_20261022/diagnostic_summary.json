@@ -186,6 +186,24 @@
       "maximum_span_m": 13.9317750930786,
       "events_with_pending_work": 151
     },
+    "receiving_guard_full_v1": {
+      "events": 272,
+      "failures": [],
+      "input_ms": {
+        "p50": 4.932499999999999,
+        "p95": 5.28585,
+        "p99": 5.43735,
+        "max": 5.662
+      },
+      "pose_latency_ms": {
+        "p50": 4.9335,
+        "p95": 5.2863999999999995,
+        "p99": 5.43864,
+        "max": 5.663
+      },
+      "maximum_span_m": 15.0982084274292,
+      "events_with_pending_work": 0
+    },
     "rotating_v5": {
       "events": 900,
       "failures": [
