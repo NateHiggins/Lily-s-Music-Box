@@ -3,6 +3,7 @@ extends "res://scripts/props/v2_library_movable.gd"
 const SERIF := preload("res://assets/fonts/eb_garamond/EBGaramond[wght].ttf")
 const ITALIC := preload("res://assets/fonts/eb_garamond/EBGaramond-Italic[wght].ttf")
 const HAND := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
+const PrintMesh := preload("res://scripts/props/book_print_mesh.gd")
 var stock: RefCounted
 var title_id := "" # Physical stock_id may identify a distinct copy of this title.
 var entry: Dictionary
@@ -24,6 +25,7 @@ var _print_angle := -1.0
 var printed_labels: Array[Label3D] = []
 var _sheets: Array[Node3D] = []
 var _pages_ready := false
+var _print_ready := false
 var _heading_font: FontVariation
 var shelf_slot := -1
 var _floating_camera := Transform3D.IDENTITY
@@ -41,6 +43,9 @@ func begin_floating_view(camera_pose: Transform3D) -> void:
 	shelf_slot=-1
 	_contact_mode(true)
 	set_physics_process(true)
+	# Prepare hidden glyph streams while the supported view settles. Their
+	# bounded slices do not sit on the first cover-drag input event.
+	if not _pages_ready:_print_pages()
 
 func end_floating_view() -> void:
 	set_physics_process(false)
@@ -197,6 +202,7 @@ func _print_pages() -> void:
 	for side: String in ["left","right"]:
 		var parent: Node3D=left if side=="left" else self
 		var sheet:=Node3D.new();sheet.name=side.capitalize()+"PrintedSpread"
+		sheet.visible=false
 		parent.add_child(sheet);_sheets.append(sheet)
 		if side=="left": sheet.transform=Transform3D(Basis(Vector3.UP,PI),Vector3(width,0,float(construction.left_page_z)))
 		else: sheet.position.z=float(construction.right_page_z)
@@ -247,9 +253,21 @@ func _print_pages() -> void:
 
 func _capture_print() -> void:
 	# Font atlas/material updates finish before retaining vertex streams.
+	var preparation_requested:=Time.get_ticks_usec()
 	for frame in 2: await RenderingServer.frame_post_draw
 	if not is_inside_tree(): return
+	var preparation_started:=Time.get_ticks_usec()
+	var slice_started:=preparation_started;var preparation_cpu:=0;var maximum_slice:=0
 	var targets: Array=[]
+	var cuts: Dictionary={}
+	for side: String in ["left","right"]:
+		var values:=PackedFloat64Array()
+		for point: Vector3 in stock.page_profile(stock_id,side,0.):values.append(point.x)
+		cuts[side]=values
+	if str(construction.get("opening_style","hardback"))!="hardback":
+		var values:=PackedFloat64Array()
+		for point: Vector3 in stock.surface_profile(stock_id+"__left_board",float(construction.thickness)*.5,0.):values.append(point.x)
+		cuts.cover_left=values
 	for sheet: Node3D in _sheets:
 		var side: String="left" if str(sheet.name).begins_with("Left") else "right"
 		var face_z:=float(construction.left_page_z)+.00004 if side=="left" else float(construction.right_page_z)-.00004
@@ -264,56 +282,74 @@ func _capture_print() -> void:
 		elif node is MeshInstance3D: source=node.mesh.get_rid();instance=node.get_instance()
 		else: continue
 		var surfaces: Array=[]
+		var native_width:=.102 if node.name=="type__running_rule" else 0.
+		if node.has_meta("printed_illustration"):native_width=float(stock.data.illustrations[str(node.get_meta("printed_illustration"))].width)
+		var factor:=float(node.get_meta("print_width",native_width))/native_width if native_width>0. else 1.
 		for surface in RenderingServer.mesh_get_surface_count(source):
-			surfaces.append({"arrays":RenderingServer.mesh_surface_get_arrays(source,surface),"material":RenderingServer.mesh_surface_get_material(source,surface)})
+			var stream:=PrintMesh.stream(RenderingServer.mesh_surface_get_arrays(source,surface),target.frame*node.transform,cuts[str(target.side)],factor)
+			stream.material=RenderingServer.mesh_surface_get_material(source,surface);surfaces.append(stream)
 		if surfaces.is_empty(): continue
 		target.merge({"surfaces":surfaces,"mesh":RenderingServer.mesh_create(),"instance":instance})
+		# Own every RID immediately, including if this book is freed while
+		# a later preparation slice is waiting for its next frame.
 		_print_surfaces.append(target)
+		var elapsed:=Time.get_ticks_usec()-slice_started
+		if elapsed>=2000:
+			preparation_cpu+=elapsed;maximum_slice=maxi(maximum_slice,elapsed)
+			await get_tree().process_frame
+			if not is_inside_tree():return
+			slice_started=Time.get_ticks_usec()
+	_print_ready=true
 	_print_angle=-1.;_warp_print()
+	var final_slice:=Time.get_ticks_usec()-slice_started
+	preparation_cpu+=final_slice;maximum_slice=maxi(maximum_slice,final_slice)
+	set_meta("print_preparation_ms",preparation_cpu/1000.)
+	set_meta("print_preparation_max_slice_ms",maximum_slice/1000.)
+	set_meta("print_preparation_latency_ms",(Time.get_ticks_usec()-preparation_requested)/1000.)
+	for sheet: Node3D in _sheets:sheet.visible=opening>.04
 
 func _warp_print() -> void:
+	if not _print_ready:return
 	if _print_surfaces.is_empty(): return
 	if is_equal_approx(_print_angle,opening): return
 	_print_angle=opening
 	var profiles: Dictionary={}
+	var samples: Dictionary={"left":{},"right":{},"cover_left":{}}
 	for side: String in ["left","right"]: profiles[side]=stock.page_profile(stock_id,side,opening)
 	if str(construction.get("opening_style","hardback"))!="hardback": profiles.cover_left=stock.surface_profile(stock_id+"__left_board",float(construction.thickness)*.5,opening)
 	for printed: Dictionary in _print_surfaces:
 		var node: Node3D=printed.node
-		var to_book: Transform3D=printed.frame*node.transform
-		var inverse:=to_book.affine_inverse()
 		var side: String=printed.side
 		var face_z:=float(printed.face_z)
 		var mesh: RID=printed.mesh
 		RenderingServer.mesh_clear(mesh)
 		for surface: Dictionary in printed.surfaces:
-			var arrays: Array=surface.arrays.duplicate(true)
+			var inverse: Transform3D=surface.inverse
+			var reference_points: PackedVector3Array=surface.reference_points
+			var reference_normals: PackedVector3Array=surface.reference_normals
+			var reference_tangents: PackedVector3Array=surface.reference_tangents
+			var sample_keys: PackedInt32Array=surface.sample_keys
+			var sample_cache: Dictionary=samples[side]
+			var arrays: Array=surface.arrays.duplicate()
 			var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
 			var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
 			var tangents: PackedFloat32Array=arrays[Mesh.ARRAY_TANGENT] if arrays[Mesh.ARRAY_TANGENT]!=null else PackedFloat32Array()
-			var native_width:=.102 if node.name=="type__running_rule" else 0.
-			if node.has_meta("printed_illustration"): native_width=float(stock.data.illustrations[str(node.get_meta("printed_illustration"))].width)
-			var factor:=float(node.get_meta("print_width",native_width))/native_width if native_width>0. else 1.
 			for index in vertices.size():
-				var local:=vertices[index]
-				if native_width>0.: local.x*=factor;local.y*=factor
-				var point:=to_book*local
-				var sample: Vector4=stock.sample_page(profiles[side],point.x)
+				var point: Vector3=reference_points[index]
+				var key: int=sample_keys[index]
+				if not sample_cache.has(key):sample_cache[key]=stock.sample_page(profiles[side],point.x)
+				var sample: Vector4=sample_cache[key]
 				point=Vector3(sample.x,point.y,sample.y+point.z-face_z)
 				vertices[index]=inverse*point
 				if normals.size()>index:
-					var normal:=to_book.basis*normals[index];normal.x=(normal.x-sample.w*normal.z)/sample.z
+					var normal: Vector3=reference_normals[index];normal.x=(normal.x-sample.w*normal.z)/sample.z
 					normals[index]=(inverse.basis*normal).normalized()
 				if tangents.size()>index*4+2:
-					var tangent:=to_book.basis*Vector3(tangents[index*4],tangents[index*4+1],tangents[index*4+2]);tangent.z+=sample.w*tangent.x;tangent.x*=sample.z
+					var tangent: Vector3=reference_tangents[index];tangent.z+=sample.w*tangent.x;tangent.x*=sample.z
 					tangent=(inverse.basis*tangent).normalized()
 					for axis in 3: tangents[index*4+axis]=tangent[axis]
 			arrays[Mesh.ARRAY_VERTEX]=vertices;arrays[Mesh.ARRAY_NORMAL]=normals
 			if not tangents.is_empty(): arrays[Mesh.ARRAY_TANGENT]=tangents
-			if native_width>0. and arrays[Mesh.ARRAY_TEX_UV]!=null:
-				var uv: PackedVector2Array=arrays[Mesh.ARRAY_TEX_UV]
-				for index in uv.size(): uv[index]*=factor
-				arrays[Mesh.ARRAY_TEX_UV]=uv
 			RenderingServer.mesh_add_surface_from_arrays(mesh,RenderingServer.PRIMITIVE_TRIANGLES,arrays)
 			var material: RID=surface.material
 			if node is Label3D:
@@ -399,7 +435,7 @@ func _apply_opening(value: float, groups: Dictionary={}) -> void:
 		var second:=Transform3D(Basis(Quaternion(b[3],b[4],b[5],b[6])),Vector3(b[0],b[1],b[2]))
 		_spine.transform=first.interpolate_with(second,step-low)
 	if opening>.04 and not _pages_ready: _print_pages()
-	for sheet: Node3D in _sheets: sheet.visible=opening>.04
+	for sheet: Node3D in _sheets: sheet.visible=opening>.04 and _print_ready
 	_warp_print()
 
 func _contact_mode(compact: bool) -> void:

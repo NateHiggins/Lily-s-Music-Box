@@ -57,7 +57,10 @@ func _play_route() -> void:
 	get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join("nook_world_floating_book.png"))
 	var data: Dictionary={"evidence_class":"INERT","stock_id":selected.stock_id,"book_count":shelf._books.size(),"shelf_pose":str(shelf.global_transform),"player_pose":str(player.global_transform),"book_pose":str(selected.global_transform),"frozen":selected.freeze,"failures":failures}
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("nook_state.json"),FileAccess.WRITE).store_string(JSON.stringify(data,"\t"))
+	await _inspect_stock_review(selected)
 	player.end_inspection()
+
+func _inspect_stock_review(_selected: Node3D) -> void:pass
 
 func _click_library() -> void:
 	var event:=InputEventMouseButton.new();event.button_index=MOUSE_BUTTON_LEFT;event.pressed=true;player._unhandled_input(event)

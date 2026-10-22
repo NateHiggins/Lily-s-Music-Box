@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Curved book print contact, retained regression and actual-input frame distributions | `design/V2_BOOK_PRINT_CONTACT_2026-10-22.md` |
 | Continuous paperback covers, bowed attached pages, editorial formats and measured book input costs | `design/V2_BOOK_EDITORIAL_AND_BINDING_2026-10-22.md` |
 | Remade nook plant, fitted woven rug and actual-input entry/exit | `design/V2_NOOK_REVAMP_2026-10-22.md` |
 | Shared native nook bindings, static lending spots and paired local world timings | `design/V2_NOOK_BINDINGS_2026-10-22.md` |

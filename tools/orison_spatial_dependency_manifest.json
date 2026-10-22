@@ -311245,6 +311245,39 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "dbac671a03ae28f9",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_book_print_contact.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    8,
+    17
+   ],
+   "count": 2,
+   "context": [
+    "player=PlayerController.new();player.position=Vector3(0,2,5);add_child(player);player.set_physics_process(false);player.camera.make_current()",
+    "book.position=Vector3(0,3,8);add_child(book);book.freeze=true"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

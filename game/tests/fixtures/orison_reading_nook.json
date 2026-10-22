@@ -1769,7 +1769,7 @@
   "source_bindings": {
     "art/data/reading_nook/source_plan.json": "47760bcd732c6eecde89e4935f89c05286db620d1c50131e295f232d3fedc694",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_reading_nook.py": "6d7386b824556d7e1701d4456973157a3c3934bc40bc185af7b62035e1c1f321",
+    "art/blender/scripts/build_reading_nook.py": "4a3d383c7090132f8f491e1f1165174460a6c269551d2928b32f2bb60433b8e7",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "195e23fe430e88675bd3deaff13e77be7686785d73f57a93f8efbf206c5bfe26",
@@ -1872,8 +1872,9 @@
     "game/data/orison_v2/domestic_surface_props.json": "20ec7e5a42f4db8d81db0eb63707b59aaa1eeafa053e8881d38d30800552acae",
     "game/scripts/building/v2_loose_library.gd": "9f8e7276aa30b7266f06289899f66331a1c87c2da0430c80f78ace0d1ce52b8f",
     "game/scripts/building/v2_readable_library_stock.gd": "8531f9d64a30bc4f3c6339fc10f8ac9adcf7374efb39d0171f2c22d142628075",
-    "game/scripts/props/v2_readable_book.gd": "6e54232f1548d32879be31de9008a6ceab5bdf446e2c59dfe606bc2d11b2284f",
-    "game/scripts/building/orison_v2_household_state.gd": "69b1d6c23b5fcdaf87fb4c8e82bbd8155465c132eb6e135da705c1b539332c98"
+    "game/scripts/props/v2_readable_book.gd": "fd121446db2d2362a6dabc6b6cfcb31999d7d971bbb6bd61bab6df98f4e1cc1a",
+    "game/scripts/building/orison_v2_household_state.gd": "69b1d6c23b5fcdaf87fb4c8e82bbd8155465c132eb6e135da705c1b539332c98",
+    "game/scripts/props/book_print_mesh.gd": "9f158d52ae43b4779720500aaacc1f736fbdec8f2f1440382c2d62f8448dfa4e"
   },
   "book_stock": [
     {
