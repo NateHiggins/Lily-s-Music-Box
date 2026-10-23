@@ -172,3 +172,13 @@ limp. Charging through the supply valve and spraying through the nozzle lever
 must be separate interactions. Preserve existing joint, gasket, inventory and
 case truths; charging is not inspection certification. This water/flattening
 change has not yet been installed at this controls checkpoint.
+
+The shared XYZ controls checkpoint is committed and pushed as **5bfaba7d**.
+The follow-on candidate study is **V2_HOSE_VISUAL_ROUTE_2026-10-23.md**:
+**visual_payout_v3** passes actual225-step FPS walking to15.09000015m, exact
+source anchoring, reticle limit, aim, static release and owned-contact cleanup.
+Its512 retained visual setters show0.278ms median /0.514ms p95, with static
+gates running concurrently; no fair world performance comparison is claimed.
+The candidate remains uninstalled. **hose_water_charge.gd** is an untracked,
+untested fill/drain-response draft for the next water/flattening work, not an
+installed authority. Preserve the unrelated spatial dependency manifest.

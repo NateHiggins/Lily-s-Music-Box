@@ -46,25 +46,55 @@ var fps_aim_enabled:=false
 var fps_once_per_frame:=false
 var last_hand_debug: Dictionary={}
 var _hold_frame: int=-1
+var _last_hold_usec: int=0
 var _carrier: WeakRef
+var _auxiliary_contacts: Array[Dictionary]=[]
 var _cover: PhysicsBody3D
 var _cover_stock_added:=false
 var _cover_holder_added:=false
 var _contact_exclusions: Array[RID]=[]
 var _local_follow:=preload("res://scripts/props/round_local_endpoint.gd").new()
+var visual_follow_enabled:=false
+var visual_route:=preload("res://scripts/props/hose_visual_route.gd").new()
+
+func enable_visual_follow() -> void:
+	# Owner-authorized approximation supersedes physical full-payout solves.
+	# Maintenance fittings retain their existing separate mechanical owners.
+	tether.cancel_motion();set_process(false);visual_follow_enabled=true
+	fps_aim_enabled=true;fps_once_per_frame=true;error=""
+
+func _visual_receiver(wanted: Transform3D) -> void:
+	var started: int=Time.get_ticks_usec()
+	var anchor: Vector3=model.to_global(rig.strand.anchor)
+	wanted.origin=anchor+(wanted.origin-anchor).limit_length(rig.strand.total_length-.15)
+	var local_tip: Vector3=model.to_local(wanted.origin)
+	var back: Vector3=(model.global_basis.inverse()*-wanted.basis.y).normalized()
+	var up: Vector3=(model.global_basis.inverse()*Vector3.UP).normalized()
+	var points: PackedVector3Array=visual_route.build(local_tip,back,rig.strand.anchor,rig.rest.size(),rig.strand.total_length,up,_guide_floor)
+	if points.is_empty() or not rig.apply_points(points):error="visual hose route unavailable";return
+	rig.strand.points=points
+	joint.receiver=actor.global_transform.affine_inverse()*wanted
+	joint.sync();error=""
+	if profile_motion:
+		last_motion_profile={"total_usec":Time.get_ticks_usec()-started,"mode":"visual","process_frame":Engine.get_process_frames(),"shell_queries":0,"broad_queries":0}
+		motion_profile_records.append(last_motion_profile)
+		if motion_profile_records.size()>512:motion_profile_records.pop_front()
 
 func set_local_follow(enabled: bool) -> bool:
 	if not contact.ready:return false
 	if enabled:
 		if _local_follow.rig==null and not _local_follow.configure(rig,_bend_radii):return false
 		_local_follow.prime(rig.strand.points if deployed else _placement)
-		tether.seed_factory=_local_follow.seed;tether.substep_m=.08
+		tether.seed_factory=_carry_seed;tether.substep_m=.08
 		tether.constrained_seed_factory=_local_follow.constrained_seed if local_contacts_enabled else Callable()
 	else:
 		tether.constrained_seed_factory=Callable()
 		tether.seed_factory=_guide_seed if guide_enabled else Callable()
 		tether.substep_m=.08 if guide_enabled else .008
 	local_follow_enabled=enabled;return true
+
+func _carry_seed(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
+	return _local_follow.seed(before,goal)
 
 func configure(owner_actor: Node3D,asset_path: String,projection: Dictionary,placement: Dictionary) -> bool:
 	var started: int=Time.get_ticks_usec()
@@ -169,9 +199,9 @@ func prepare_contact() -> bool:
 	if not prepared:return false
 	if not tether.kernel.coupled.set_bend_error(.00002):return false
 	tether.kernel.bend_error_m=.00002
+	var up: Vector3=model.basis.inverse()*Vector3.UP
+	_guide_floor=up.dot(model.transform.affine_inverse()*Vector3(0,ground_y_local+.023,0))
 	if guide_enabled:
-		var up: Vector3=model.basis.inverse()*Vector3.UP
-		_guide_floor=up.dot(model.transform.affine_inverse()*Vector3(0,ground_y_local+.023,0))
 		tether.seed_factory=_guide_seed
 	var pins: Dictionary={0:_placement[0],1:_placement[1],2:_placement[2],_placement.size()-2:_placement[-2],_placement.size()-3:_placement[-3]}
 	if guide_enabled:
@@ -245,7 +275,32 @@ func _begin_hose() -> bool:
 	error="";tether.blocked=false;tether.limited=false;return true
 
 func _bind_hose_holder(holder: Node3D) -> void:
-	_clear_cover_passage();_carrier=weakref(holder);_refresh_cover_passage()
+	_hold_frame=-1;_last_hold_usec=0
+	_clear_cover_passage();_clear_auxiliary_contacts();_carrier=weakref(holder);_refresh_cover_passage()
+	if holder is not PhysicsBody3D:return
+	var roots: Array[Node]=[joint.seat]
+	if not joint.loose:roots.append_array([joint.nut,joint.physical_nut,actor._bodies.lever])
+	var parts: Array[PhysicsBody3D]=[]
+	for root: Node in roots:
+		if root is PhysicsBody3D and not parts.has(root):parts.append(root)
+		for part: PhysicsBody3D in root.find_children("*","PhysicsBody3D",true,false):
+			if not parts.has(part):parts.append(part)
+	for part: PhysicsBody3D in parts:
+		if part==joint.body or part==holder:continue
+		var holder_added: bool=not holder.get_collision_exceptions().has(part)
+		var part_added: bool=not part.get_collision_exceptions().has(holder)
+		if holder_added:holder.add_collision_exception_with(part)
+		if part_added:part.add_collision_exception_with(holder)
+		_auxiliary_contacts.append({"body":part,"holder_added":holder_added,"part_added":part_added})
+
+func _clear_auxiliary_contacts() -> void:
+	var holder: PhysicsBody3D=_carrier.get_ref() as PhysicsBody3D if _carrier!=null else null
+	for row: Dictionary in _auxiliary_contacts:
+		var part: PhysicsBody3D=row.body
+		if holder==null or not is_instance_valid(part):continue
+		if row.holder_added:holder.remove_collision_exception_with(part)
+		if row.part_added:part.remove_collision_exception_with(holder)
+	_auxiliary_contacts.clear()
 
 func _refresh_cover_passage() -> void:
 	if not actor.door_open or joint.loose or actor._hand!="hose":
@@ -267,7 +322,7 @@ func _clear_cover_passage() -> void:
 	_cover=null;_cover_stock_added=false;_cover_holder_added=false
 
 func _exit_tree() -> void:
-	_clear_cover_passage()
+	_clear_cover_passage();_clear_auxiliary_contacts()
 
 func _hold_pose(view: Transform3D) -> void:
 	_refresh_cover_passage()
@@ -275,6 +330,11 @@ func _hold_pose(view: Transform3D) -> void:
 		var frame: int=Engine.get_process_frames()
 		if frame==_hold_frame:return
 		_hold_frame=frame
+	if visual_follow_enabled:
+		var aimed:=Basis(view.basis.x,-view.basis.z,view.basis.y)
+		var wanted:=Transform3D(aimed*Basis(Vector3.UP,-joint.clocking),view*Vector3(.17,-.16,-.48))
+		_visual_receiver(wanted)
+		return
 	if not fps_aim_enabled:
 		# Preserve the previous position-only candidate for isolated controls.
 		var point: Vector3=joint.body.global_position
@@ -288,7 +348,9 @@ func _hold_pose(view: Transform3D) -> void:
 	# A blocked translation still remains blocked by the original fitting sweep.
 	if before[0].distance_to(goal)>.12:desired=direction
 	var angle: float=acos(clampf(direction.dot(desired),-1.,1.))
-	var elapsed: float=minf(get_process_delta_time(),.1) if fps_once_per_frame else get_physics_process_delta_time()
+	var now: int=Time.get_ticks_usec()
+	var elapsed: float=minf(float(now-_last_hold_usec)/1000000.,.1) if fps_once_per_frame and _last_hold_usec>0 else get_physics_process_delta_time()
+	_last_hold_usec=now
 	var turn: float=minf(angle,6.*elapsed)
 	if angle>.00001:
 		# Antiparallel directions need an explicit stable perpendicular axis.
@@ -301,6 +363,9 @@ func _hold_pose(view: Transform3D) -> void:
 	_move(before[0]+(goal-before[0]).limit_length(minf(.6,12.*elapsed)))
 
 func _constraint_feedback() -> String:
+	if visual_follow_enabled:
+		if not error.is_empty():return "blocked"
+		return "limit" if visual_route.limited else "grabbed"
 	if tether.pending:return "grabbed"
 	if not error.is_empty() or tether.blocked:return "blocked"
 	return "limit" if tether.limited else "grabbed"
@@ -469,6 +534,9 @@ func _extract(value: float) -> void:
 
 func _move(value: Vector3) -> void:
 	if actor._hand!="hose" or not deployed or not value.is_finite():return
+	if visual_follow_enabled:
+		var wanted: Transform3D=actor.global_transform*joint.receiver
+		wanted.origin=model.to_global(value);_visual_receiver(wanted);return
 	_refresh_cover_passage()
 	_refresh_carry_contacts()
 	tether.collect_profile=profile_motion
@@ -508,6 +576,6 @@ func _commit_motion() -> void:
 	joint.receiver=receiver;joint.sync();error=""
 
 func _release() -> void:
-	_clear_cover_passage();_carrier=null
+	_clear_cover_passage();_clear_auxiliary_contacts();_carrier=null
 	if contact.ready:contact.set_exclusions(_contact_exclusions)
 	tether.cancel_motion();set_process(false);actor._release()

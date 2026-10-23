@@ -1,0 +1,14 @@
+SCRIPT ERROR: Parse Error: Could not preload resource script "res://scripts/props/round_local_endpoint.gd".
+   at: GDScript::reload (res://scripts/props/fire_unracked_hose.gd:55)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://scripts/props/round_local_endpoint.gd".
+   at: GDScript::reload (res://scripts/props/fire_unracked_hose.gd:55)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "_local_follow" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/props/fire_unracked_hose.gd:55)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/v2_unracked_hose_bench.gd:0)
+ERROR: Failed to load script "res://tests/v2_unracked_hose_bench.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: _run (res://tests/v2_unracked_hose_bench.gd:21)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/v2_unracked_hose_bench.gd:21)

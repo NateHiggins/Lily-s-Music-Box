@@ -23,6 +23,7 @@ func _run() -> void:
 	var projection: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_fire_hose_rig.json"))
 	var placement: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_fire_hose_placement.json"))
 	if OS.get_environment("ORISON_UNRACKED_FLOOR")=="1":placement=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_floor_hose_placement.json"))
+	if not OS.get_environment("ORISON_UNRACKED_PLACEMENT").is_empty():placement=JSON.parse_string(FileAccess.get_file_as_string(OS.get_environment("ORISON_UNRACKED_PLACEMENT")))
 	if not check(hose.configure(actor,"res://tests/fixtures/v2_unracked_fire_hose.glb",projection,placement),"135-ring separate round hose prepares before input"):
 		print("UNRACKED SETUP ERROR: ",hose.error);get_tree().quit(1);return
 	var metrics: Node=preload("res://tests/orison_v2_domestic_native_test.gd").new()
@@ -183,14 +184,14 @@ func _frame_rows(frames: Array[Transform3D]) -> Array:
 	for frame: Transform3D in frames:rows.append([Array([frame.basis.x.x,frame.basis.x.y,frame.basis.x.z]),Array([frame.basis.y.x,frame.basis.y.y,frame.basis.y.z]),Array([frame.basis.z.x,frame.basis.z.y,frame.basis.z.z]),Array([frame.origin.x,frame.origin.y,frame.origin.z])])
 	return rows
 
-func _aim_nozzle_surface(actor: Node3D,joint: Node3D) -> bool:
+func _aim_nozzle_surface(actor: Node3D,joint: Node3D,allow_reposition:=true) -> bool:
 	var barrel: MeshInstance3D
 	for draw: MeshInstance3D in actor._play_pipe.find_children("*","MeshInstance3D",true,false):
 		if str(draw.get_meta("native_fire_part",""))=="F059":barrel=draw;break
 	if barrel==null or barrel.mesh==null:return false
 	var faces: PackedVector3Array=barrel.mesh.get_faces()
 	var center: Vector3=barrel.to_global(barrel.mesh.get_aabb().get_center())
-	for view in 4:
+	for view in (4 if allow_reposition else 1):
 		if view>0:
 			var offset: Vector3=joint.body.global_basis.z*(.65 if view==1 else -.65) if view<3 else Vector3(0,.2,.65)
 			player.global_position=center+offset-player.camera.position
@@ -209,6 +210,9 @@ func _aim_nozzle_surface(actor: Node3D,joint: Node3D) -> bool:
 	return false
 
 func _full_payout(actor: Node3D,hose: Node3D,joint: Node3D) -> void:
+	await preload("res://tests/v2_hose_fps_payout_programme.gd").new().run(self,actor,hose,joint)
+
+func _legacy_full_payout(actor: Node3D,hose: Node3D,joint: Node3D) -> void:
 	# The diagnostic camera follows with player physics disabled. This is
 	# actual mouse handling, not a playable-building traversal claim.
 	var pick: Vector3=joint.body.to_global(Vector3(.008,.12,.008))

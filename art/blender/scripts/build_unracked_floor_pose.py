@@ -15,18 +15,28 @@ old=json.loads((ROOT/'game/tests/fixtures/v2_unracked_fire_hose_placement.json')
 tail=[(.340-p[0],p[1],p[2]) for p in old['points']]
 goal=(-.048,.068,.312);join=127;neck=.015;segment=15.21/128
 center=(-1.1,-1.177,float(os.environ.get('HOSE_FLOOR_Z','.85')));outer=.82;pitch=.07
+outer_pickup=os.environ.get('HOSE_FLOOR_OUTER_PICKUP')=='1'
 def path(turns):
     start=-math.pi/2;end=start-turns*math.tau
     inner=outer-pitch*turns
     point=add(center,(inner*math.cos(end),0,inner*math.sin(end)))
     # Reversed spiral runs outwards, counterclockwise.
     tangent=unit((-inner*math.sin(end)+pitch/math.tau*math.cos(end),0,inner*math.cos(end)+pitch/math.tau*math.sin(end)))
+    if outer_pickup:
+        point=add(center,(outer*math.cos(start),0,outer*math.sin(start)))
+        tangent=unit((outer*math.sin(start)-pitch/math.tau*math.cos(start),0,-outer*math.cos(start)-pitch/math.tau*math.sin(start)))
     result=[bez(goal,add(goal,(-.65,0,0)),sub(point,mul(tangent,.30)),point,i/300) for i in range(301)]
     for i in range(1,1801):
-        t=i/1800;angle=end+(start-end)*t;radius=inner+(outer-inner)*t
+        t=i/1800
+        angle=start+(end-start)*t if outer_pickup else end+(start-end)*t
+        radius=outer+(inner-outer)*t if outer_pickup else inner+(outer-inner)*t
         result.append(add(center,(radius*math.cos(angle),0,radius*math.sin(angle))))
     start_point=result[-1]
-    result += [bez(start_point,add(start_point,(.4,0,0)),sub(tail[join],(.4,0,0)),tail[join],i/300) for i in range(1,301)]
+    exit_control=add(start_point,(.4,0,0))
+    if outer_pickup:
+        exit_tangent=unit((inner*math.sin(end)-pitch/math.tau*math.cos(end),0,-inner*math.cos(end)-pitch/math.tau*math.sin(end)))
+        exit_control=add(add(start_point,mul(exit_tangent,.4)),(0,.25,0))
+    result += [bez(start_point,exit_control,sub(tail[join],(.4,0,0)),tail[join],i/300) for i in range(1,301)]
     return result
 def sample(turns):
     curve=path(turns);points=[add(goal,(-.005*i,0,0)) for i in range(4)]
@@ -55,7 +65,9 @@ for _ in range(40):
 error,points=sample((lo+hi)/2)
 assert len(points)==135 and abs(error)<1e-8,(len(points),error)
 result=dict(evidence_class='INERT',scope='Compact floor layout proposal. Actual world/native/contact verification required.',points=[(.340-p[0],p[1],p[2]) for p in points],turns=(lo+hi)/2,residual_m=error)
-out=Path(os.environ.get('HOSE_FLOOR_OUTPUT',str(ROOT/'game/tests/fixtures/v2_unracked_floor_hose_placement.json')))
+if outer_pickup:result['outer_pickup']=True
+default_output='v2_unracked_outer_floor_hose_placement.json' if outer_pickup else 'v2_unracked_floor_hose_placement.json'
+out=Path(os.environ.get('HOSE_FLOOR_OUTPUT',str(ROOT/'game/tests/fixtures'/default_output)))
 out.write_text(json.dumps(result,indent=2)+'\n',newline='\n')
 print('turns',result['turns'],'residual',error,'segments',len(points)-1)
 def closest(a,b,c,d):
