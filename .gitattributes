@@ -3059,3 +3059,10 @@ art/reviews/v2_player_doodle_20261023/** -text -whitespace
 game/assets/characters/player_doodle/** -text
 game/tests/v2_player_mirror_review.gd -text
 game/tests/v2_player_rig_bench.gd -text
+
+# Byte-bound bathroom contact diagnostics and hidden native contact sources.
+art/reviews/v2_bath_contact_20261023/** -text -whitespace
+art/reviews/v2_bath_contact_build*_20261023.log -text -whitespace
+game/assets/props/bath_lavatory_contact.glb* -text
+game/assets/props/bath_water_closet_contact.glb* -text
+game/tests/v2_bath_contact_*.gd -text

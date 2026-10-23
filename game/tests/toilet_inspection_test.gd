@@ -21,6 +21,14 @@ func drag(relative: Vector2) -> void:
 	var event:=InputEventMouseMotion.new()
 	event.relative=relative
 	player._unhandled_input(event)
+func warp_cursor(position: Vector2) -> void:
+	Input.warp_mouse(position)
+	# The window backend publishes a warp asynchronously. A process-frame
+	# signal can precede that update; verify the real cursor before clicking.
+	for frame in 8:
+		await RenderingServer.frame_post_draw
+		if get_viewport().get_mouse_position().distance_to(position)<2.:return
+	check(false,"free inspection pointer reaches requested window position")
 func aim(at: Vector3,eye: Vector3) -> void:
 	player.camera.global_position=eye
 	player.camera.look_at(at)
@@ -179,8 +187,7 @@ func _run() -> void:
 	check(player.camera.global_transform.is_equal_approx(fixed_eye),"cursor motion leaves inspection camera static")
 	if player.inspecting():
 		var cursor:=player.camera.unproject_position(wc.parts.FloatArm.to_global(Vector3(.25,-.023,0)))
-		Input.warp_mouse(cursor)
-		await get_tree().process_frame
+		await warp_cursor(cursor)
 		click()
 		check(player._grab.active() and player._grab.target.part==wc.parts.FloatArm,"free cursor selects internal float")
 		if player._grab.active():
@@ -188,8 +195,7 @@ func _run() -> void:
 			for i in 8: drag(Vector2(0,12));await get_tree().physics_frame
 			check(absf(wc.parts.FloatArm.rotation.z-before)>.04,"internal float follows mouse")
 			click()
-		Input.warp_mouse(player.camera.unproject_position(wc.parts.FlushBall.to_global(Vector3(.015,.018,0))))
-		await get_tree().process_frame
+		await warp_cursor(player.camera.unproject_position(wc.parts.FlushBall.to_global(Vector3(.015,.018,0))))
 		click()
 		print("DISCHARGE picked=",player._grab.target.get("part"))
 		check(player._grab.active() and player._grab.target.part==wc.parts.FlushBall,"cursor selects discharge ball and lift rod")

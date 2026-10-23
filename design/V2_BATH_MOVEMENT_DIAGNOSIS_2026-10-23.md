@@ -62,3 +62,34 @@ The completed wrapper receipts for diagnostic_v1, collision_v1 and collision_v3
 are **suite_run** only. No test-written runtime_contract or human acceptance is
 claimed. The private step bypass defaults false and exists solely for the named
 diagnostic control. The goal and all started feature closure work remain open.
+
+
+## Stable local attribution and rejected exact chunking
+
+**collision_v4/** completes in 170 seconds. It settles 20 physics ticks and
+8 rendered frames and records matching node/server transforms, the actual
+1.524 m / .33 m capsule and .001 m safe margin. Global bisection now interleaves
+restored baselines without yielding, but detects drift and rejects a unique
+suspect. That rejection is preserved.
+
+Local owner exclusions at the surveyed normal stance provide stronger scoped
+evidence: +X query median 19.095 ms falls by 13.254 ms excluding the sink body
+and by 4.665 ms excluding the fixed toilet casting. All nearby exclusions give
+.012 ms. At the raised second stance, toilet exclusion removes 6.849 ms of a
+7.358 ms +X baseline. These synchronous isolated query results add diagnostic
+work and do not measure normal wall time or establish a safe bypass.
+
+**collision_v5/** completes in 186 seconds. Exact .12 m triangle-centroid bins
+replace eight concave shapes with 295 chunks only inside this diagnostic.
+Every original triangle and hole remains; visuals and production files remain
+unchanged. Identical actual A/D and turn inputs run original/chunked/restored.
+Warm query medians 8.548 / 8.688 / 8.541 ms show no steady win. Maximum recorded
+slide cost 44.986 / 27.321 / 44.425 ms alone does not justify 295 shapes. Reject
+production installation. End positions differ by approximately .1 mm in the
+chunked phase, consistent with changed contact order, not proof of identical
+contact semantics. Preserve the candidate helper and raw results as diagnostics.
+
+The next candidate is native surface reduction of fixed castings and plumbing,
+with bounded sampled geometric error, preserved hollow interiors and actual
+access/contact verification. Never fill the basin/cistern with convex proxies
+or disable collision to manufacture a performance result.

@@ -1,0 +1,100 @@
+{
+  "evidence_class": "INERT",
+  "percentiles": "sorted index round((n-1)*p); discard first incomplete wall sample per phase",
+  "phases": [
+    {
+      "phase": "original",
+      "wall_ms": {
+        "n": 28,
+        "p50": 150.266,
+        "p95": 217.396,
+        "p99": 415.154,
+        "max": 415.154,
+        "over_50": 28,
+        "over_100": 28
+      },
+      "query_median_ms": 8.527,
+      "slide_ms": {
+        "n": 239,
+        "p50": 10.094,
+        "p95": 18.759,
+        "p99": 41.509,
+        "max": 44.452,
+        "over_50": 0,
+        "over_100": 0
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.39386, 6.400836, -0.596633)",
+      "render_cpu_median_ms": 24.434999465942397,
+      "render_gpu_median_ms": 32.0674991607666
+    },
+    {
+      "phase": "candidate",
+      "wall_ms": {
+        "n": 63,
+        "p50": 54.605,
+        "p95": 106.841,
+        "p99": 127.665,
+        "max": 158.067,
+        "over_50": 54,
+        "over_100": 4
+      },
+      "query_median_ms": 2.01,
+      "slide_ms": {
+        "n": 223,
+        "p50": 1.024,
+        "p95": 8.059,
+        "p99": 17.061,
+        "max": 18.383,
+        "over_50": 0,
+        "over_100": 0
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.22103, 6.400857, -0.706438)",
+      "render_cpu_median_ms": 24.5100002288818,
+      "render_gpu_median_ms": 16.6089992523193
+    },
+    {
+      "phase": "restored",
+      "wall_ms": {
+        "n": 28,
+        "p50": 146.115,
+        "p95": 214.446,
+        "p99": 417.865,
+        "max": 417.865,
+        "over_50": 28,
+        "over_100": 28
+      },
+      "query_median_ms": 8.612,
+      "slide_ms": {
+        "n": 239,
+        "p50": 10.06,
+        "p95": 18.847,
+        "p99": 41.75,
+        "max": 44.363,
+        "over_50": 0,
+        "over_100": 0
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.39377, 6.400836, -0.596571)",
+      "render_cpu_median_ms": 24.50950050354,
+      "render_gpu_median_ms": 31.01700019836425
+    }
+  ],
+  "interaction_checks": 17,
+  "failures": [],
+  "shapes": [
+    {
+      "candidate_shapes": 3,
+      "candidate_triangles": 4017,
+      "fixture": "F03_3B_SINK_01",
+      "original_shapes": 3
+    },
+    {
+      "candidate_shapes": 5,
+      "candidate_triangles": 7142,
+      "fixture": "3B_wc",
+      "original_shapes": 5
+    }
+  ]
+}

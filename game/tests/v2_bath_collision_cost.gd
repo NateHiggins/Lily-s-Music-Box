@@ -26,6 +26,8 @@ func run() -> void:
 	world=load("res://scenes/building/orison_v2_runtime.tscn").instantiate();add_child(world)
 	if world.startup_failed:get_tree().quit(1);return
 	player=world.player;player.set_physics_process(false)
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);Engine.max_fps=0
 	await get_tree().physics_frame
 	# Exact overlap queries omit large concave bounds whose triangles do not
 	# touch the capsule. Attribute those query candidates by global exclusion
@@ -34,23 +36,58 @@ func run() -> void:
 	for body: PhysicsBody3D in world.find_children("*","PhysicsBody3D",true,false):
 		if body!=player and (body.collision_layer&player.collision_mask)!=0:global_bodies.append(body)
 	player.global_position=Vector3(-14.325,6.400265,-.575)
-	await get_tree().physics_frame
+	var subject: Vector3=player.global_position+Vector3.FORWARD
+	for surface in get_tree().get_nodes_in_group("planar_mirror_surface"):
+		var cabinet: Node=surface.get_parent()
+		while cabinet!=null and not cabinet.has_method("mirror_center"):cabinet=cabinet.get_parent()
+		if cabinet!=null and str(cabinet.name)=="F03_3B_MIRROR_01":subject=cabinet.mirror_center();break
+	player.face_world_point(subject)
+	for tick in 20:await get_tree().physics_frame
+	for frame in 8:await RenderingServer.frame_post_draw
+	var published:=state()
 	var attribution_motion:=Vector3(.05,0,0)
 	var baseline: Dictionary=measure([],attribution_motion)
 	var remaining: Array[PhysicsBody3D]=global_bodies.duplicate()
 	var attribution: Array=[]
+	var reason: String="stable query below 1ms; no expensive owner established"
 	while remaining.size()>1:
+		var restored_before:=measure([],attribution_motion)
+		if median(restored_before.ms)<1.:break
 		var half: int=remaining.size()/2
 		var left: Array[RID]=[];var right: Array[RID]=[]
 		for index in remaining.size():
 			if index<half:left.append(remaining[index].get_rid())
 			else:right.append(remaining[index].get_rid())
 		var without_left:=measure(left,attribution_motion);var without_right:=measure(right,attribution_motion)
-		attribution.append({"candidates":remaining.size(),"without_left":without_left,"without_right":without_right})
+		var restored_after:=measure([],attribution_motion)
+		attribution.append({"candidates":remaining.size(),"restored_before":restored_before,"without_left":without_left,"without_right":without_right,"restored_after":restored_after})
+		if absf(median(restored_before.ms)-median(restored_after.ms))>maxf(.1,median(restored_before.ms)*.15):
+			reason="restored baseline drifted; attribution rejected";break
+		if absf(median(without_left.ms)-median(without_right.ms))<median(restored_before.ms)*.15:
+			reason="cost not isolated by either half; no single owner established";break
 		remaining=remaining.slice(0,half) if median(without_left.ms)<median(without_right.ms) else remaining.slice(half)
-		await get_tree().process_frame
-	var expensive: PhysicsBody3D=remaining[0]
-	FileAccess.open(directory.path_join("global_attribution.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","baseline":baseline,"body_count":global_bodies.size(),"steps":attribution,"suspect":str(expensive.get_path()),"suspect_excluded":measure([expensive.get_rid()],attribution_motion)},"\t"))
+		# No yield within a paired restored-baseline attribution sequence.
+	var result: Dictionary={"evidence_class":"INERT","state":published,"baseline":baseline,"body_count":global_bodies.size(),"steps":attribution,"reason":reason}
+	if remaining.size()==1:
+		result.suspect=str(remaining[0].get_path());result.suspect_excluded=measure([remaining[0].get_rid()],attribution_motion)
+	FileAccess.open(directory.path_join("global_attribution.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+	var live: Array=[]
+	player.profile_physics=true;player.physics_profile_records.clear();player.set_physics_process(true)
+	for tick in 120:
+		if tick==0:key(KEY_A,true)
+		if tick==12:key(KEY_A,false)
+		if tick==36:key(KEY_D,true)
+		if tick==48:key(KEY_D,false)
+		if tick<48:
+			var turn:=InputEventMouseMotion.new();turn.relative=Vector2(1.5 if tick<24 else -1.5,0);Input.parse_input_event(turn)
+		await get_tree().physics_frame
+		if tick%12==0:
+			var before_draw: Dictionary={"tick":tick,"state":state(),"query":measure([],attribution_motion)}
+			await RenderingServer.frame_post_draw
+			before_draw.after_draw=measure([],attribution_motion);live.append(before_draw)
+	key(KEY_A,false);key(KEY_D,false);player.set_physics_process(false)
+	FileAccess.open(directory.path_join("live_query.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","samples":live,"physics":player.physics_profile_records,"limits":"Queries add work to this diagnostic route. Not a before/after wall-time benchmark."},"\t"))
+	await chunk_controls(subject)
 	var records: Array=[]
 	for feet: Vector3 in [Vector3(-14.325,6.400265,-.575),Vector3(-14.684,6.700265,-.303697)]:
 		player.global_position=feet
@@ -82,3 +119,46 @@ func run() -> void:
 
 func median(values: Array) -> float:
 	var sorted:=values.duplicate();sorted.sort();return float(sorted[sorted.size()/2])
+
+func key(code: Key,pressed: bool) -> void:
+	var event:=InputEventKey.new();event.physical_keycode=code;event.keycode=code;event.pressed=pressed;Input.parse_input_event(event)
+
+func state() -> Dictionary:
+	return {"physics_frame":Engine.get_physics_frames(),"render_frame":Engine.get_process_frames(),"engine":ProjectSettings.get_setting("physics/3d/physics_engine","DEFAULT"),"basis":str(player.global_basis),"server_pose":str(PhysicsServer3D.body_get_state(player.get_rid(),PhysicsServer3D.BODY_STATE_TRANSFORM)),"node_pose":str(player.global_transform),"capsule_radius":player._capsule.radius,"capsule_height":player._capsule.height,"shape_pose":str(player._shape.transform),"safe_margin":player.safe_margin,"exceptions":player.get_collision_exceptions().size(),"position":str(player.global_position)}
+
+func chunk_controls(subject: Vector3) -> void:
+	var shapes: Array[Dictionary]=[]
+	for body: PhysicsBody3D in world.find_children("*","PhysicsBody3D",true,false):
+		if not str(body.get_path()).contains("F03_3B_SINK_01/FixtureBody") and not str(body.get_path()).contains("3B_wc/FixedCastingCollision"):continue
+		for shape: CollisionShape3D in body.get_children():
+			if not shape.shape is ConcavePolygonShape3D:continue
+			shapes.append({"original":shape,"chunks":[]})
+			for partition: ConcavePolygonShape3D in preload("res://scripts/props/native_collision_chunks.gd").build_mesh_faces(shape.shape.get_faces()):
+				var node:=CollisionShape3D.new();node.shape=partition;node.transform=shape.transform;node.disabled=true;body.add_child(node)
+				shapes[-1].chunks.append(node)
+	var phases: Array=[]
+	for label: String in ["original","chunked","restored"]:
+		for row: Dictionary in shapes:
+			row.original.disabled=label=="chunked"
+			for chunk: CollisionShape3D in row.chunks:chunk.disabled=label!="chunked"
+		player.global_position=Vector3(-14.325,6.400265,-.575);player.velocity=Vector3.ZERO;player.face_world_point(subject)
+		player.set_physics_process(true)
+		for tick in 20:await get_tree().physics_frame
+		for frame in 8:await RenderingServer.frame_post_draw
+		player.physics_profile_records.clear()
+		var start: Dictionary=state();var query:=measure([],Vector3(.05,0,0))
+		for tick in 120:
+			if tick==0:key(KEY_A,true)
+			if tick==12:key(KEY_A,false)
+			if tick==36:key(KEY_D,true)
+			if tick==48:key(KEY_D,false)
+			if tick<48:
+				var turn:=InputEventMouseMotion.new();turn.relative=Vector2(1.5 if tick<24 else -1.5,0);Input.parse_input_event(turn)
+			await get_tree().physics_frame
+		key(KEY_A,false);key(KEY_D,false);player.set_physics_process(false)
+		phases.append({"phase":label,"start":start,"end":state(),"query":query,"slow_physics":player.physics_profile_records.duplicate(true)})
+	var counts: Array=[]
+	for row: Dictionary in shapes:
+		counts.append({"original":str(row.original.get_path()),"triangles":row.original.shape.get_faces().size()/3,"chunks":row.chunks.size()})
+		for chunk: CollisionShape3D in row.chunks:chunk.free()
+	FileAccess.open(directory.path_join("chunk_controls.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","phases":phases,"shapes":counts,"limits":"Exact triangle repartition candidate; original/chunked/restored actual keys and turns. No rendering or contact bypass."},"\t"))

@@ -1,0 +1,11 @@
+00:04.171  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\bath_lavatory.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_bath_contact_candidates.py", line 35, in <module>
+    originals=[obj for obj in bpy.context.scene.objects if obj.type=='MESH' and fixed in obj.parent_recursive and obj.name not in {'WaterSeal','StoredWater'}]
+                                                                                         ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Object' object has no attribute 'parent_recursive'. Did you mean: 'children_recursive'?
+
+Error: script failed, file: 'art/blender/scripts/build_bath_contact_candidates.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -432,3 +432,36 @@ concave contact cost; v5 exact triangle chunking shows no steady query win and
 is NOT installed. Keep raw original/restored pairs and investigate measured
 collision simplification preserving openings, access and protection. Broad
 started work and V2 qualification remain incomplete; do not close the goal.
+
+
+## Installed fixed bath contact reduction — 2026-10-23
+
+**V2_BATH_CONTACT_REDUCTION_2026-10-23.md** retains v4 local attribution, rejected
+exact chunking, native contact LOD and the final original/candidate/restored
+comparison. Sink 26,000 ->4,017 contact triangles; toilet 21,760 ->7,142, with
+exact thin lift guides and the original three/five shape grouping. Visible GLBs
+and original Blender owners are byte-identical. Cached hidden stock replaces
+only fixed bathroom contacts; no physical bypass or new rendering surfaces.
+
+Final world_v3 (163 seconds) query medians 8.527 /2.010 /8.612 ms. Same actual
+input sequence wall p50/p95/p99/max 150.266/217.396/415.154/415.154 ->
+54.605/106.841/127.665/158.067 ms; restored146.115/214.446/417.865/417.865.
+The candidate endpoint differs by about .205 m, so camera visibility differs:
+wall/GPU deltas are not purely isolated physics wins. All raw distributions,
+small sample counts and original/restored controls remain. Rendering CPU stays
+about24.5 ms and responsiveness remains poor. Continue measured work.
+
+An actual regression blocking discharge selection was traced to a simplified
+LiftGuide and repaired by preserving both guides exactly. Another input-fixture
+failure used a stale window cursor after warp; wait for actual cursor readback.
+Original sources and failures remain. Final toilet trace is192 checks/three
+unchanged original failures (locked-door feedback and two obsolete UI checks),
+NOT whole-suite PASS. Final world test passes17 actual sink checks: four valve
+grabs/motions/releases, saveable stops and unobstructed plug target from a full
+capsule service stance. No walked approach or full save reconstruction claimed.
+Wrapper receipts remain suite_run, not runtime_contract or human acceptance.
+
+Physical source retention keeps four unrelated street/traffic findings, reader33
+NEW remains unrelated street/tent data, six physical-import tools tests pass,
+and17 protected paths remain unchanged. Preserve shared spatial manifest and
+untracked art. Continue the closure queue; do not close V2 or the active goal.

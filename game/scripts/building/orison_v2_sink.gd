@@ -21,6 +21,8 @@ func mount(tap: TapProp) -> bool:
 	# A solid bounding box filled the open bowl and hid the drain plug from
 	# the player's ray. Use the same fixed casting that supports the plug.
 	tap.add_child(body)
+	if tap.fixture=="bath_sink":
+		return preload("res://scripts/props/native_bath_contacts.gd").install(body,tap,"bath_lavatory")
 	for draw: MeshInstance3D in tap.get_node("StaticFixture").find_children("*","MeshInstance3D",true,false):
 		if draw.mesh == null: continue
 		var collision := CollisionShape3D.new()

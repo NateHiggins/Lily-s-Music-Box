@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Reduced sink/toilet collision cost, retained contact regression and final timing limits | `design/V2_BATH_CONTACT_REDUCTION_2026-10-23.md` |
 | Owner-supplied rig, reduced native mesh and three actual mirror idle images | `design/V2_PLAYER_DOODLE_INSTALLATION_2026-10-23.md` |
 | Bathroom bell replacement, period research and powered review | `design/V2_BATH_SCONCE_REPLACEMENT_2026-10-23.md` |
 | Finish already-started chat work before unrelated scope | `design/V2_STARTED_WORK_CLOSURE_2026-10-23.md` |

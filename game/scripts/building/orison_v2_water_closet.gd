@@ -66,12 +66,8 @@ func _ready() -> void:
 	var casting := StaticBody3D.new()
 	casting.name="FixedCastingCollision"
 	add_child(casting)
-	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
-		if draw.name in ["WaterSeal", "StoredWater"]: continue
-		var shape := CollisionShape3D.new()
-		shape.shape = draw.mesh.create_trimesh_shape()
-		casting.add_child(shape)
-		shape.global_transform = draw.global_transform
+	if not preload("res://scripts/props/native_bath_contacts.gd").install(casting,self,"bath_water_closet"):
+		push_error("Native water closet contact stock did not load")
 	parts["Water"] = model.find_child("CisternWaterSurface", true, false)
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
