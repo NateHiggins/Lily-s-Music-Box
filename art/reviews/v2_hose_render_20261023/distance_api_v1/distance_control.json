@@ -1,0 +1,34 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"records": [
+		{
+			"begin": 40.0,
+			"brightness": 0.438051470865806,
+			"camera_distance": 3.61109399795532,
+			"enabled": false,
+			"length": 10.0,
+			"phase": "original",
+			"shadow_distance": 50.0
+		},
+		{
+			"begin": 0.100000001490116,
+			"brightness": 0.0,
+			"camera_distance": 3.61109399795532,
+			"enabled": true,
+			"length": 0.100000001490116,
+			"phase": "faded",
+			"shadow_distance": 0.100000001490116
+		},
+		{
+			"begin": 0.100000001490116,
+			"brightness": 0.438051470865806,
+			"camera_distance": 3.61109399795532,
+			"enabled": false,
+			"length": 0.100000001490116,
+			"phase": "restored",
+			"shadow_distance": 0.100000001490116
+		}
+	],
+	"scope": "Isolated engine/API positive control, not V2 rendering or gameplay qualification."
+}

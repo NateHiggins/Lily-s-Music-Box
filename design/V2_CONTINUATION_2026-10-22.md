@@ -12,6 +12,19 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Latest diagnosis: **V2_HOSE_RENDER_ATTRIBUTION_2026-10-23.md** records four
+controlled occupied-world rendering studies after five walked waypoints each,
+all completed with zero failures and empty stderr. Hiding the cloth/cabinet has
+no clear frame benefit. Sixteen service-source shadows retained in conservative
+**F02_LANDING** context dominate: median41.959ms →22.136ms with their shadows off,
+but the image loses occlusion, so that treatment is rejected. Native8/12/16m
+shadow-only and whole-light fade controls do not reduce shadow draw counts;
+effective fields/distances are recorded. An isolated API control does fade to
+black and restore exactly. No production light policy changed. Next test
+explicit smooth visibility/caster control that respects active reflection
+cameras; do not repeat the failed native-fade assumption or discard detail
+without a measured benefit. Released-nozzle support remains open below.
+
 Latest installed hose batch: **V2_HOSE_PRODUCTION_DEPLOYMENT_2026-10-23.md**.
 All eight cabinets now use the separate native extended skin with no numerical
 cloth/contact setup. Same-click extraction continues to FPS carry. Open supply
