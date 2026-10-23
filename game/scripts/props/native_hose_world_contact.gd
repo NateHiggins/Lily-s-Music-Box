@@ -13,6 +13,11 @@ var broad_queries:=0
 var shell_queries:=0
 var chunked:=true
 var analytic_boxes:=false
+var capsule_broadphase:=false
+var capsule_queries:=0
+var capsule_clears:=0
+var _capsule:=CapsuleShape3D.new()
+var _capsule_query:=PhysicsShapeQueryParameters3D.new()
 var analytic_segments:=0
 var _box_support:=preload("res://scripts/props/native_hose_box_support.gd").new()
 var last_collider: Object
@@ -32,6 +37,8 @@ func configure(owner_rig: RefCounted,world: PhysicsDirectSpaceState3D,exclude: A
 	rig=owner_rig;space=world;exclusions=exclude.duplicate()
 	_box.margin=.000001;_shell.margin=.000001;_query.margin=0.
 	_query.collision_mask=1;_query.collide_with_areas=false;_query.exclude=exclusions
+	_capsule_query.collision_mask=1;_capsule_query.collide_with_areas=false;_capsule_query.exclude=exclusions
+	_capsule_query.margin=0.;_capsule_query.shape=_capsule
 	var draws: Array[Node]=rig.model.find_children("*","MeshInstance3D",true,false)
 	if draws.size()!=1:return _fail("expected one native cloth skin")
 	var draw: MeshInstance3D=draws[0]
@@ -88,13 +95,45 @@ func configure(owner_rig: RefCounted,world: PhysicsDirectSpaceState3D,exclude: A
 		var bounds:=AABB(points[0],Vector3.ZERO)
 		for p: Vector3 in points:
 			bounds=bounds.expand(p);_radius=maxf(_radius,(rig.original_frames[ring].basis*p).length())
-		sections.append({"outer":sorted_outer,"inner":sorted_inner,"bounds":bounds})
+		var section_radius:=0.
+		for point: Vector3 in points:section_radius=maxf(section_radius,point.length())
+		sections.append({"outer":sorted_outer,"inner":sorted_inner,"bounds":bounds,"radius":section_radius})
 	ready=sections.size()==rig.indices.size()
 	return ready
 func _hits_box(bounds: AABB) -> bool:
 	_box.size=Vector3(maxf(bounds.size.x,.000002),maxf(bounds.size.y,.000002),maxf(bounds.size.z,.000002))
 	_query.shape=_box;_query.transform=Transform3D(Basis.IDENTITY,bounds.get_center())
 	return not space.intersect_shape(_query,1).is_empty()
+
+func _basis_radius_bound(basis: Basis) -> float:
+	# Largest absolute row sum of B'B bounds its largest eigenvalue. This
+	# remains conservative for nonuniform scale and shear, not only rotations.
+	var xy:=absf(basis.x.dot(basis.y));var xz:=absf(basis.x.dot(basis.z));var yz:=absf(basis.y.dot(basis.z))
+	return sqrt(maxf(basis.x.length_squared()+xy+xz,maxf(basis.y.length_squared()+xy+yz,basis.z.length_squared()+xz+yz)))
+
+func _capsule_sweep_clear(world: Transform3D,old: Array[Transform3D],next: Array[Transform3D],index: int) -> bool:
+	var a: Vector3=world*old[index].origin;var b: Vector3=world*old[index+1].origin
+	var c: Vector3=world*next[index].origin;var d: Vector3=world*next[index+1].origin
+	var length: float=a.distance_to(b)
+	if length<.000001:return false
+	var radius:=0.
+	for ring: int in [index,index+1]:
+		for pose: Transform3D in [old[ring],next[ring]]:
+			radius=maxf(radius,float(sections[ring].radius)*_basis_radius_bound(world.basis*pose.basis))
+	# Every intermediate centreline lies within max endpoint displacement of
+	# the old segment. Each native vertex lies within the section radius.
+	# A clear envelope therefore proves the entire swept native shell clear.
+	radius+=maxf(a.distance_to(c),b.distance_to(d))+.00002
+	if not is_finite(radius) or not is_finite(length+2.*radius) or not a.is_finite() or not b.is_finite() or not c.is_finite() or not d.is_finite():return false
+	_capsule.radius=radius;_capsule.height=length+2.*radius
+	var y: Vector3=(b-a)/length
+	var reference:=Vector3.RIGHT if absf(y.dot(Vector3.UP))>.95 else Vector3.UP
+	var x: Vector3=reference.cross(y).normalized()
+	_capsule_query.transform=Transform3D(Basis(x,y,x.cross(y)),(a+b)*.5)
+	capsule_queries+=1
+	var clear: bool=space.intersect_shape(_capsule_query,1).is_empty()
+	if clear:capsule_clears+=1
+	return clear
 func veto(before: PackedVector3Array,after: PackedVector3Array) -> bool:return _test(before,after,false)
 func intersects_pose(points: PackedVector3Array) -> bool:return _test(points,points,true)
 func contact_constraints(points: PackedVector3Array,limit: int=128) -> Dictionary:
@@ -211,6 +250,7 @@ func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: b
 	for i in range(sections.size()-1):
 		if occupied[i]==0:continue
 		if not include_still and old[i]==next[i] and old[i+1]==next[i+1]:continue
+		if capsule_broadphase and _capsule_sweep_clear(world,old,next,i):continue
 		var bounds: AABB=bounds_by_segment[i]
 		broad_queries+=1
 		if not _hits_box(bounds.grow(.000002)):continue

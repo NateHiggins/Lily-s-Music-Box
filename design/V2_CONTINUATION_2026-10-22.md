@@ -12,6 +12,17 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Latest hose diagnostic: **V2_HOSE_CONTACT_ENVELOPE_2026-10-23.md**. The complete
+dense native contact controls passed with a new opt-in negative envelope. In
+the frozen actual-windowed F02 original/envelope/restored-original comparison,
+frame p95 was 805.077 / 459.209 / 789.101 ms. Both global variants still stall
+after about 10 cm and aim about 89 degrees away from the reticle. This is an
+isolated measured contact-cost improvement, not a production hose installation.
+The option defaults off. Packet **v2_hose_carry_20261023** preserves original
+failures, corrected local-seed control_v3, raw frames/calls, source archives and
+wrapper receipts. Next combine local seed/envelope separately, repair real
+receiver orientation and repeated follow costs, then finish release/water/save.
+
 The native hardware radio counter, continuous bottle glaze, static inspection,
 shared held-stock response, door passage for held items and source-cell stock
 residency repairs are installed. The final family passed 72 checks; the book

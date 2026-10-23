@@ -17,6 +17,7 @@ func _flat_probe_span(rest: PackedVector3Array,index: int) -> bool:
 func run(root: Node3D,rig: RefCounted,exclusions: Array[RID]) -> RefCounted:
 	var contact:=preload("res://scripts/props/native_hose_world_contact.gd").new()
 	contact.analytic_boxes=_analytic_boxes_enabled()
+	contact.capsule_broadphase=OS.get_environment("ORISON_HOSE_CAPSULE_BROADPHASE")=="1"
 	var started: int=Time.get_ticks_usec()
 	check(contact.configure(rig,root.get_world_3d().direct_space_state,exclusions),"full inner/outer native ring profile binds from imported skin")
 	print("HOSE WORLD SETUP: ms=",float(Time.get_ticks_usec()-started)/1000.," error=",contact.error)
