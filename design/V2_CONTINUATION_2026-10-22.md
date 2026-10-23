@@ -12,6 +12,25 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest input/save repair: **V2_UNCHANGED_FIRE_RELEASE_2026-10-23.md**. Cabinet
+grabs bookmark their own persistent snapshot; unchanged release/Space cleanup
+no longer requests a whole-campaign save solely because the watchman clock
+advanced. Meaningful clock, fridge and boiler state remains captured normally.
+Eleven focused actual-input checks and final ten-waypoint49-check disk-rebuild
+route pass, empty stderr. Changed commits15→13; both clock-only inspection saves
+are removed. Frame p50/p95/p99/max39.632/54.532/101.933/167.854ms remains broadly
+similar; no broad FPS gain. Same-frame paired saves are two explicit stress-fixture
+actions, not double handling of one click. A completed-fill save occupies53.520ms
+of55.147ms observed physics callback; do not call that collision-solver cost.
+New root pass counters show306 visible versus33315 shadow draw calls median,
+with40 visible shadow-enabled sources at route end. Far-shadow A/B attribution is
+next; preserve nearby and mirror lighting/color. Full static comparison has no regressions (101 PASS,8 FAIL,1 INCOMPLETE;
+98 tools suites,1194 tests, five existing failures). Original missing-riser and washer-settling fixture failures are preserved. The
+one executed riser reference is selectively registered; two shared bathroom
+records remain62 unstaged lines. Broader interactions, surface/runtime/human
+qualification and actual cell transitions remain open.
+
+
 Newest save-path repair: **V2_SAVE_UTF8_COST_2026-10-23.md**. Strict save-byte
 validation now locates ASCII spans natively and retains the original validator
 for complete non-ASCII runs and large/NUL/dense fallbacks. No save-format,

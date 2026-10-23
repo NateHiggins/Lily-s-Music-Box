@@ -1,0 +1,189 @@
+{
+	"causes": [
+		{
+			"changed": [
+				"CAB",
+				"CLOCK"
+			],
+			"physics_frame": 6,
+			"probe_usec": 4,
+			"process_frame": 0,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_physics_process",
+					"line": 69,
+					"source": "res://scripts/props/fire_line_gasket.gd"
+				}
+			],
+			"start_usec": 13597396
+		},
+		{
+			"changed": [
+				"CAB"
+			],
+			"physics_frame": 22,
+			"probe_usec": 8,
+			"process_frame": 2,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 248,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 478,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 12,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				},
+				{
+					"function": "operate",
+					"line": 58,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				},
+				{
+					"function": "move_to",
+					"line": 19,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				}
+			],
+			"start_usec": 13911104
+		}
+	],
+	"changes": 2,
+	"checks": [
+		{
+			"label": "native fixture mounts",
+			"ok": true
+		},
+		{
+			"label": "real household validator accepts native controls and running clock fixture",
+			"ok": true
+		},
+		{
+			"label": "primary input grabs the real door",
+			"ok": true
+		},
+		{
+			"label": "unchanged second click still releases and cleans up",
+			"ok": true
+		},
+		{
+			"label": "unchanged release does not save incidental clock advance or roll it back",
+			"ok": true
+		},
+		{
+			"label": "actual motion opens and releases the real door",
+			"ok": true
+		},
+		{
+			"label": "changed release publishes controls and live clock through the original owner",
+			"ok": false
+		},
+		{
+			"label": "Space borrows the unchanged tag grip and clears ownership",
+			"ok": true
+		},
+		{
+			"label": "unchanged inspection entry does not request another save",
+			"ok": false
+		},
+		{
+			"label": "normal pre-save snapshot still captures live clock movement",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [
+		"changed release publishes controls and live clock through the original owner",
+		"unchanged inspection entry does not request another save"
+	],
+	"signals": [
+		{
+			"clock": 0.2,
+			"door": 0.0,
+			"stack": [
+				{
+					"function": "<anonymous lambda>",
+					"line": 35,
+					"source": "res://tests/v2_fire_unchanged_release.gd"
+				},
+				{
+					"function": "_physics_process",
+					"line": 69,
+					"source": "res://scripts/props/fire_line_gasket.gd"
+				}
+			]
+		},
+		{
+			"clock": 0.2,
+			"door": 1.77999998138917,
+			"stack": [
+				{
+					"function": "<anonymous lambda>",
+					"line": 35,
+					"source": "res://tests/v2_fire_unchanged_release.gd"
+				},
+				{
+					"function": "_release",
+					"line": 248,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 478,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 12,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				},
+				{
+					"function": "operate",
+					"line": 58,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				},
+				{
+					"function": "move_to",
+					"line": 19,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				}
+			]
+		}
+	]
+}

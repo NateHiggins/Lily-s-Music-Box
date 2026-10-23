@@ -1,0 +1,43 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Executed top-level test sources match wrapper hashes after LF normalization, including retained failed fixtures. Inherited dependency sources preserved separately.",
+  "checks": [
+    {
+      "run": "world_before_v1",
+      "archive": "source_before/game/tests/v2_commit_cause_world.gd.gz",
+      "test_sha256": "5e57c1001e5473562fc88dfa76c634bad0746b2e880804221b97e766c405cdc2",
+      "matches": true
+    },
+    {
+      "run": "world_after_v1",
+      "archive": "source_after/game/tests/v2_commit_cause_world.gd.gz",
+      "test_sha256": "999edb4d0930b1284339d6f1d6b10a4e6e7d05c8ec2a529bc16c064914e89279",
+      "matches": true
+    },
+    {
+      "run": "unchanged_v1",
+      "archive": "source_unchanged_v1/game/tests/v2_fire_unchanged_release.gd.gz",
+      "test_sha256": "fede4ad835ca7367b3add09ed16c0f9d82a2eca6b1aa2099cb27642795dc636f",
+      "matches": true
+    },
+    {
+      "run": "unchanged_v2",
+      "archive": "source_unchanged_v2/fixture.gd.gz",
+      "test_sha256": "79e7416af0443e4fc5b0c183e630c735043a996c7f52c776046535c223b33496",
+      "matches": true
+    },
+    {
+      "run": "unchanged_v3",
+      "archive": "source_unchanged_v3/fixture.gd.gz",
+      "test_sha256": "bb8dbd5d8d7daf3d5ba16dc2047b6bb364454efaeb884eddcf29d179508e80bb",
+      "matches": true
+    },
+    {
+      "run": "unchanged_v4",
+      "archive": "source_after/game/tests/v2_fire_unchanged_release.gd.gz",
+      "test_sha256": "4d3c1b031052f03c552b7e70483646c4f11aaa3427022ecb1832738b6b1354b8",
+      "matches": true
+    }
+  ],
+  "parent_fire_lf_sha256": "5fcd26c91351299c7a0e8976a5212fa5a1c2b78b7a152947ab60075a6c2cd77d"
+}

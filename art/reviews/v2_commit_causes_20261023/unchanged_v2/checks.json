@@ -1,0 +1,50 @@
+{
+	"changes": 2,
+	"checks": [
+		{
+			"label": "native fixture mounts",
+			"ok": true
+		},
+		{
+			"label": "real household validator accepts native controls and running clock fixture",
+			"ok": true
+		},
+		{
+			"label": "primary input grabs the real door",
+			"ok": true
+		},
+		{
+			"label": "unchanged second click still releases and cleans up",
+			"ok": true
+		},
+		{
+			"label": "unchanged release does not save incidental clock advance or roll it back",
+			"ok": true
+		},
+		{
+			"label": "actual motion opens and releases the real door",
+			"ok": true
+		},
+		{
+			"label": "changed release publishes controls and live clock through the original owner",
+			"ok": false
+		},
+		{
+			"label": "Space borrows the unchanged tag grip and clears ownership",
+			"ok": true
+		},
+		{
+			"label": "unchanged inspection entry does not request another save",
+			"ok": false
+		},
+		{
+			"label": "normal pre-save snapshot still captures live clock movement",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [
+		"changed release publishes controls and live clock through the original owner",
+		"unchanged inspection entry does not request another save"
+	]
+}

@@ -1,0 +1,36 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Diagnostic origins; stack and ID comparison overhead is included in commit costs. Root viewport CPU/GPU counters lag rendering and are not additive to each other or callback wall intervals.",
+  "changed_commits": 15,
+  "same_frame_commits": {
+    "278": 2
+  },
+  "cause_probe_usec": {
+    "n": 15,
+    "p50": 594,
+    "p95": 638.8,
+    "p99": 647.76,
+    "max": 650
+  },
+  "commit_ms": {
+    "n": 15,
+    "p50": 52.732,
+    "p95": 55.860299999999995,
+    "p99": 56.504859999999994,
+    "max": 56.666
+  },
+  "root_render_cpu_ms": {
+    "n": 726,
+    "p50": 22.1840000152588,
+    "p95": 27.070750713348403,
+    "p99": 31.51175022125245,
+    "max": 38.814998626709
+  },
+  "root_render_gpu_ms": {
+    "n": 726,
+    "p50": 13.4654998779297,
+    "p95": 17.5872492790222,
+    "p99": 19.68725061416625,
+    "max": 21.0100002288818
+  }
+}

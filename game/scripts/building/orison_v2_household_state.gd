@@ -21,6 +21,7 @@ var _service_completed: Dictionary = {}
 var _service_library: MaintenanceActivityLibrary
 var profiling:=false
 var profile_records: Array[Dictionary]=[]
+var profile_causes: Array[Dictionary]=[]
 var reuse_unchanged_validation:=true
 
 func _profile_start() -> int:
@@ -353,7 +354,17 @@ func _capture_snapshot() -> void:
 
 func _commit_change() -> void:
 	var profile_started:=_profile_start()
-	if capture_now(): RealityState.commit()
+	var previous: Dictionary = _last_saved if profiling else {}
+	if capture_now():
+		if profiling:
+			var probe_started := Time.get_ticks_usec()
+			var changed: Array = []
+			for identity: String in _last_saved.get("records", {}):
+				if previous.get("records", {}).get(identity) != _last_saved.records[identity]:
+					changed.append(identity)
+			profile_causes.append({"start_usec":profile_started,"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),"changed":changed,"stack":get_stack(),"probe_usec":Time.get_ticks_usec()-probe_started})
+			if profile_causes.size()>128:profile_causes.pop_front()
+		RealityState.commit()
 	_profile_end("commit_change",profile_started)
 
 func _on_room_changed(_room: String, _on: bool) -> void:

@@ -311746,6 +311746,34 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "dbd5e29d65c9abd6",
+   "kind": "id_reference",
+   "token": "FIRE_SERVICE_RISER",
+   "file": "game/tests/v2_fire_unchanged_release.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    18
+   ],
+   "count": 1,
+   "context": [
+    "var reserve:=MeshInstance3D.new();reserve.name=\"FIRE_SERVICE_RISER\";adapter.root.add_child(reserve)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

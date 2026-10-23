@@ -10,6 +10,7 @@ class HandBody extends AnimatableBody3D:
 
 var _hands_ready := false
 var _hand := ""
+var _hand_start: Dictionary = {}
 var _door_angle := 0.0
 var _lever_angle := -.95
 var _tag_hinge: Node3D
@@ -231,6 +232,7 @@ func hose_supply_opening() -> float:
 func _claim(id: String) -> bool:
 	if not _hands_ready or not _hand.is_empty(): return false
 	if id=="joint" and not door_open:return false
+	_hand_start=mechanism_snapshot().duplicate(true)
 	_hand = id; _balk_left = 0.0; _balk_focus = ""
 	if id=="tag": _tag_velocity=0.0
 	return true
@@ -238,7 +240,12 @@ func _claim(id: String) -> bool:
 func _release() -> void:
 	if _hand=="joint":_loose_union.release()
 	var was_door: bool=_hand=="door"
-	_hand = ""; manipulation_changed.emit()
+	# Cleanup also happens when inspection borrows an unmoved grip. Only a
+	# change to this cabinet requests a household save; unrelated live clocks
+	# are still captured by every real change and explicit save as before.
+	var changed: bool=_hand_start.is_empty() or mechanism_snapshot()!=_hand_start
+	_hand = ""; _hand_start={}
+	if changed:manipulation_changed.emit()
 	if was_door:_door_motion.schedule()
 
 func _grip(id: String) -> Dictionary:

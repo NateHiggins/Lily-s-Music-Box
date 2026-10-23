@@ -1,0 +1,103 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Diagnostic origins; stack and ID comparison overhead is included in commit costs. Root viewport CPU/GPU counters lag rendering and are not additive to each other or callback wall intervals.",
+  "changed_commits": 13,
+  "same_frame_commits": {
+    "275": 2
+  },
+  "cause_probe_usec": {
+    "n": 13,
+    "p50": 607,
+    "p95": 666.8,
+    "p99": 672.56,
+    "max": 674
+  },
+  "commit_ms": {
+    "n": 13,
+    "p50": 52.91,
+    "p95": 56.22839999999999,
+    "p99": 56.49048,
+    "max": 56.556
+  },
+  "root_render_cpu_ms": {
+    "n": 726,
+    "p50": 22.1549997329712,
+    "p95": 26.7647495269775,
+    "p99": 31.461000442504876,
+    "max": 41.1730003356934
+  },
+  "root_render_gpu_ms": {
+    "n": 726,
+    "p50": 13.3159999847412,
+    "p95": 17.353500843048124,
+    "p99": 20.288750171661377,
+    "max": 22.1900005340576
+  },
+  "render_passes": {
+    "0": {
+      "objects": {
+        "n": 729,
+        "p50": 467,
+        "p95": 1231.6000000000004,
+        "p99": 1648.44,
+        "max": 1787
+      },
+      "primitives": {
+        "n": 729,
+        "p50": 1226887,
+        "p95": 2298240.6,
+        "p99": 2669732.4000000013,
+        "max": 2754846
+      },
+      "draw_calls": {
+        "n": 729,
+        "p50": 306,
+        "p95": 1128.2,
+        "p99": 1544.4800000000002,
+        "max": 1580
+      }
+    },
+    "1": {
+      "objects": {
+        "n": 729,
+        "p50": 35264,
+        "p95": 48940.0,
+        "p99": 56628.32000000001,
+        "max": 84757
+      },
+      "primitives": {
+        "n": 729,
+        "p50": 144128374,
+        "p95": 182368455.0,
+        "p99": 206266843.76000008,
+        "max": 228388290
+      },
+      "draw_calls": {
+        "n": 729,
+        "p50": 33315,
+        "p95": 45959.0,
+        "p99": 51527.560000000005,
+        "max": 75176
+      }
+    }
+  },
+  "render_probe_usec": {
+    "n": 729,
+    "p50": 3,
+    "p95": 4.0,
+    "p99": 5.0,
+    "max": 17
+  },
+  "render_setup_cpu_ms": {
+    "n": 729,
+    "p50": 1.549,
+    "p95": 5.8382000000000005,
+    "p99": 6.386920000000002,
+    "max": 7.655
+  },
+  "light_inventory": {
+    "total": 663,
+    "visible_shadow": 40,
+    "visible": 159
+  }
+}
