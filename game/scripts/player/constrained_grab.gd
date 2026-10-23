@@ -20,6 +20,56 @@ var _held_body: PhysicsBody3D
 var _added_holder_exception := false
 var _added_stock_exception := false
 var _gesture_axis := Vector2.ZERO
+var transform_axis: int=-1
+var transform_rotating:=false
+
+func transform_input(event: InputEvent) -> bool:
+	# Precision manipulation belongs to the existing static inspection view;
+	# ordinary FPS look and hinged controls retain their established gestures.
+	if not active() or target.kind!="free" or not player.inspecting():return false
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT:
+		if not target.get("read_basis") is Callable or not target.get("write_basis") is Callable:return false
+		transform_rotating=event.pressed;return true
+	if event is InputEventKey and event.pressed and not event.echo:
+		var code: int=event.physical_keycode if event.physical_keycode else event.keycode
+		var axis: int=[KEY_X,KEY_Y,KEY_Z].find(code)
+		if axis>=0:
+			transform_axis=-1 if transform_axis==axis else axis
+			return true
+	return false
+
+func _translation_step(relative: Vector2,point: Vector3) -> Vector3:
+	var camera: Camera3D=player.camera
+	var depth: float=maxf(.05,-camera.to_local(point).z)
+	var pixel: Vector2=camera.unproject_position(point)
+	if transform_axis<0:return camera.project_position(pixel+relative,depth)-point
+	# Axis gestures stay usable even when that axis points into the camera.
+	# Right/up both advance the selected owner-local axis; no near-zero screen
+	# projection can silently remove a degree of movement.
+	var metre_per_pixel: float=camera.project_position(pixel+Vector2.RIGHT,depth).distance_to(camera.project_position(pixel,depth))
+	var axis:=Vector3.ZERO;axis[transform_axis]=1.
+	return target.frame.global_basis*axis*((relative.x-relative.y)*metre_per_pixel)
+
+func _rotate_step(relative: Vector2,roll: float=0.) -> void:
+	var read: Variant=target.get("read_basis")
+	var write: Variant=target.get("write_basis")
+	if not read is Callable or not write is Callable or not read.is_valid() or not write.is_valid():return
+	var before: Basis=read.call()
+	var turn:=Basis.IDENTITY
+	if transform_axis>=0:
+		var axis:=Vector3.ZERO;axis[transform_axis]=1.
+		turn=Basis(axis,clampf((relative.x-relative.y)*.008+roll,-.25,.25))
+	else:
+		var inverse: Basis=target.frame.global_basis.inverse()
+		turn=Basis((inverse*player.camera.global_basis.z).normalized(),roll)*Basis((inverse*player.camera.global_basis.y).normalized(),clampf(relative.x*.008,-.25,.25))*Basis((inverse*player.camera.global_basis.x).normalized(),clampf(-relative.y*.008,-.25,.25))
+	var wanted: Basis=turn*before
+	var started:=Time.get_ticks_usec() if profiling else 0
+	write.call(wanted)
+	_record_cost("free_rotation",str(target.owner.name),started)
+	var accepted: Basis=read.call()
+	if not before.is_equal_approx(accepted):changed=true
+	motion_feedback="grabbed" if accepted.is_equal_approx(wanted) else "blocked"
+	_feedback_until=Time.get_ticks_msec()+250
 
 func _record_cost(stage: String, owner_name: String, started: int) -> void:
 	if not profiling: return
@@ -83,6 +133,7 @@ func acquire(candidate: Dictionary) -> bool:
 	if candidate.has("begin") and not candidate.begin.call(): return false
 	_record_cost("begin",str(candidate.owner.name),started)
 	target = candidate
+	transform_axis=-1;transform_rotating=false
 	_gesture_axis=candidate.get("gesture_screen_axis",Vector2.ZERO)
 	if candidate.has("bind_holder"):candidate.bind_holder.call(player)
 	contact = target.part.to_local(candidate.hit_position)
@@ -160,6 +211,7 @@ func release(notify_change := true) -> void:
 	var accepted_change:=changed
 	_unbind_carrier_collision()
 	target = {}
+	transform_axis=-1;transform_rotating=false
 	_feedback_pending = false
 	changed=false
 	if is_instance_valid(old.get("owner")):
@@ -223,6 +275,8 @@ func feedback(aimed: Dictionary) -> Dictionary:
 		var observed: Variant=constraint.call()
 		if observed is String and observed in ["grabbed","blocked","limit"]:state=observed
 	return {"state":state,
+		"transform_axis":transform_axis if active() and player.inspecting() else -1,
+		"transform_rotating":transform_rotating if active() and player.inspecting() else false,
 		"inspectable":is_instance_valid(owner) and owner.has_method("inspection_view")}
 
 func validate() -> void:
@@ -254,6 +308,8 @@ func validate() -> void:
 func move(relative: Vector2) -> void:
 	validate()
 	if not active() or not relative.is_finite(): return
+	if target.kind=="free" and player.inspecting() and transform_rotating:
+		_rotate_step(relative);return
 	if holding_pickup():
 		player.apply_look(relative)
 		return
@@ -263,9 +319,7 @@ func move(relative: Vector2) -> void:
 	if target.kind == "free":
 		var point: Vector3=part.to_global(contact)
 		if camera.is_position_behind(point): release();return
-		var depth: float=-camera.to_local(point).z
-		var screen: Vector2=camera.unproject_position(point)
-		var displacement: Vector3=camera.project_position(screen+relative,depth)-point
+		var displacement: Vector3=_translation_step(relative,point)
 		displacement=displacement.limit_length(.08)
 		var before: Vector3=target.read.call()
 		var started := Time.get_ticks_usec() if profiling else 0
@@ -321,11 +375,15 @@ func move(relative: Vector2) -> void:
 func move_depth(distance: float) -> bool:
 	validate()
 	if not active() or target.kind!="free" or not is_finite(distance): return false
+	if player.inspecting() and transform_rotating:
+		_rotate_step(Vector2.ZERO,distance*4.);return true
 	if holding_pickup():
 		_held_depth=clampf(_held_depth+clampf(distance,-.08,.08),-.12,.35)
 		return true
 	var point: Vector3=target.part.to_global(contact)
 	var axis: Vector3=(point-player.camera.global_position).normalized()
+	if transform_axis>=0:
+		axis=Vector3.ZERO;axis[transform_axis]=1.;axis=(target.frame.global_basis*axis).normalized()
 	var before: Vector3=target.read.call()
 	target.write.call(before+target.frame.global_basis.inverse()*axis*clampf(distance,-.08,.08))
 	_expect_motion(before+target.frame.global_basis.inverse()*axis*clampf(distance,-.08,.08))

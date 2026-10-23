@@ -177,7 +177,7 @@ func exercise_nozzle(actor: Node3D,hand: Node) -> void:
 	check(actor.nozzle_coupled and not actor.gasket_seen and not actor.tag_signed,"only completed nozzle travel changes its coupling fact")
 	check(joint.seat.global_transform.is_equal_approx(inlet),"screwing the nozzle preserves its actual fixed hose inlet")
 	var saved: Dictionary=actor.mechanism_snapshot()
-	check(actor.valid_mechanism(saved) and saved.size()==7,"seven-field household mechanism includes physical nozzle state")
+	check(actor.valid_mechanism(saved) and saved.size()==8 and saved.has_all(["door","lever","joint","loose","gasket","facts","nozzle","rubber_dressed"]),"household mechanism includes nozzle pose and existing rubber dressing state")
 	var bad: Dictionary=saved.duplicate(true);bad.nozzle.angle=joint.stock.maximum_angle()+1.
 	check(not actor.valid_mechanism(bad),"saved overtravel cannot replace actual thread state")
 	bad=saved.duplicate(true);bad.facts.nozzle_coupled=false

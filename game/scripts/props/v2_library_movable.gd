@@ -86,11 +86,25 @@ func grip() -> Dictionary:
 		"constraint_feedback":func(): return ("blocked" if _hold_blocked else "grabbed") if _hold_feedback_active else "",
 		"change_origin":func(): return global_position,
 		"read":func(): return position,
+		"read_basis":func():return basis,"write_basis":_manipulate_basis,
 		"write":func(value: Vector3):
 			if _held and _hand_tag=="body": _carry(value),
 		"begin":func(): return _claim("body"),
 		"owns":func(): return _held and _hand_tag=="body",
 		"end":_release}
+
+func _manipulate_basis(value: Basis) -> void:
+	if not _held or _hand_tag!="body" or not value.is_finite():return
+	_hold_feedback_active=false
+	var from:=basis
+	var wanted:=value.orthonormalized().scaled(from.get_scale())
+	var angle: float=from.get_rotation_quaternion().angle_to(wanted.get_rotation_quaternion())
+	var start:=global_transform
+	for index in range(1,maxi(1,ceili(angle/.025))+1):
+		var pose:=start
+		pose.basis=shelf.global_basis*from.slerp(wanted,float(index)/maxi(1,ceili(angle/.025)))
+		if not _clear_pose(pose):return
+		global_transform=pose
 
 func requires_shelf_withdrawal() -> bool: return false
 

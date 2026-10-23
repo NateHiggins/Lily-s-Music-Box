@@ -143,3 +143,32 @@ it. The optional-stock file's fields now have real validation/price consumers.
 The full clean merge-base gate board remains unavailable; previous main gate
 debt and incomplete full-world acceptance still stand. Continue with named-path
 commits and pushed coherent checkpoints after relevant verification.
+
+
+## Shared XYZ manipulation checkpoint — 2026-10-23
+
+Owner clarified nozzle Y/Z alignment and requested a common XYZ translation /
+rotation system. See **V2_GRABBED_TRANSFORMS_2026-10-23.md** and
+**game/docs/grabbed_object_transforms.md**. Inspection now supports axis-select
+translation, secondary-button XYZ rotation and wheel roll through owner
+callbacks. Nozzle actual input and save checks pass; book_v4 passes102 checks;
+existing coupling_v2 and72 bottle checks pass. Original failures remain in
+**art/reviews/v2_grab_transform_20261023/**. No runtime-contract or general
+performance qualification is claimed. The reader retains33 NEW uninstalled
+street/tent findings, protected17 paths match the merge-base, and unrelated
+spatial-manifest work remains unstaged.
+
+Newest hose direction supersedes physical full-payout studies: use a cheap
+length-bounded visual hose, allow overlap where needed, no simulation while
+stored or resting; move only handled maintenance parts. The visual candidate
+reaches the nominal15.24m stock bound (150mm fitting allowance) with actual FPS
+walking, but remains uninstalled pending world review, maintenance/supply,
+controllable spray and save/rebuild. Preserve all failed simulation packets
+and the retired-before-visual source archive; do not continue self-collision
+solver experiments as the default runtime path. Broad V2 work remains active.
+
+The owner further requires the unpressurized deployed hose to look flat and
+limp. Charging through the supply valve and spraying through the nozzle lever
+must be separate interactions. Preserve existing joint, gasket, inventory and
+case truths; charging is not inspection certification. This water/flattening
+change has not yet been installed at this controls checkpoint.

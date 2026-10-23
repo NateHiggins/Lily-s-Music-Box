@@ -295,7 +295,7 @@ func _update_prompt() -> void:
 		var feedback: Dictionary = _grab.feedback(aimed)
 		if call_locked or mouse_released or (not inspecting() and not touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED): feedback.state="hidden"
 		_target_dot.present(feedback.state,feedback.inspectable,
-			get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5)
+			get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5,feedback.get("transform_axis",-1),feedback.get("transform_rotating",false))
 		if _grab.active() or available or aimed.get("blocked",false): return
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact_prompt"):
@@ -424,6 +424,8 @@ func _process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _grab!=null and _grab.transform_input(event):
+		get_viewport().set_input_as_handled();return
 	if event.is_action_pressed("jump") and not event.is_echo():
 		if inspecting():
 			_inspection_jump_consumed=true

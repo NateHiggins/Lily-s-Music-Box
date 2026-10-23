@@ -105,7 +105,7 @@ func _ready() -> void:
 	for child: Node in _cover_area.get_children(): child.free()
 	_cover_target=CollisionShape3D.new();_cover_target.name="AcceptedGatheringTarget";_cover_area.add_child(_cover_target)
 	_sync_cover_target()
-	_corner("TurnForeedge",.82,Vector3.UP)
+	_corner("ManipulateSpine",.82,Vector3.UP)
 	_corner("RollForeedge",.16,Vector3.BACK)
 
 func _sync_cover_target() -> void:
@@ -126,7 +126,7 @@ func _sync_cover_target() -> void:
 func _corner(label: String, fraction: float, axis: Vector3) -> void:
 	var target:=preload("res://scripts/props/manipulation_area.gd").new() as Area3D
 	target.name=label
-	target.provider=func(): return turn_grip(axis) if shelf.supports_inspected_stock(self) else grip()
+	target.provider=func():return turn_grip(axis) if label!="ManipulateSpine" and shelf.supports_inspected_stock(self) else grip()
 	target.collision_layer=1;target.collision_mask=0;target.monitoring=false
 	target.add_to_group("functional_interaction_areas")
 	var shape:=CollisionShape3D.new()
@@ -366,6 +366,7 @@ func _claim(tag: String) -> bool:
 	if not super._claim(tag): return false
 	_contact_mode(true)
 	if tag in ["body","turn"]: shelf_slot=-1
+	if tag=="body" and shelf.supports_inspected_stock(self):set_physics_process(false)
 	_before_opening=opening
 	_cover_blocked=false
 	return true

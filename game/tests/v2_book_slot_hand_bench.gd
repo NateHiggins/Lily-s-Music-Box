@@ -82,6 +82,7 @@ func _run() -> void:
 		check(player.inspecting() and not player._grab.active(),"Space enters free cursor inspection")
 		for frame in 100: await get_tree().physics_frame
 		check(book.freeze and not book.is_physics_processing(),"floating inspection settles without simulation or polling")
+		if OS.get_environment("ORISON_XYZ_BOOK")=="1":await preload("res://tests/grab_transform_stock_programme.gd").new().run(self,book)
 		var pose: Transform3D=book.global_transform
 		for frame in 8: await get_tree().physics_frame
 		check(book.global_transform.is_equal_approx(pose),"floating inspected book remains static")

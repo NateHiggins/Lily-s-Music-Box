@@ -24,6 +24,11 @@ func grip() -> Dictionary:
 	if shelf==null or not shelf.can_take(self):return {"blocked":true}
 	return super.grip()
 
+func _claim(tag: String) -> bool:
+	if not super._claim(tag):return false
+	if tag=="body":_floating=false
+	return true
+
 func hold_pose(camera_pose: Transform3D, centered := false) -> void:
 	# A small bottle needs a closer supported inspection than a full book page.
 	var view:=camera_pose.translated_local(Vector3(0,0,.35)) if centered else camera_pose
