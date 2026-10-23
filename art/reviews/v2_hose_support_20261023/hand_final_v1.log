@@ -1,0 +1,76 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: production native and deployment factories mount = true
+FIRE HAND CHECK: actual ray selects the fitted nozzle for extraction = true
+FIRE HAND CHECK: primary click latches the stored hose without toggling deployment = true
+FIRE HAND CHECK: actual pull replaces stored cloth with the separate native skin = true
+FIRE HAND CHECK: extraction continues into the same FPS grab without release or extra click = true
+FIRE HAND CHECK: continued grab registers the original physical nozzle = true
+FIRE HAND CHECK: held nozzle follows reticle yaw and pitch within a tenth of a degree = true
+FIRE HAND CHECK: FPS visual follow runs no environment scan or cloth solver = true
+FIRE HAND CHECK: continued FPS hose hold rendered = true
+FIRE HAND CHECK: next click releases the same hand and publishes exactly one owner event = true
+FIRE HAND CHECK: deployed hose remains operable when its distant cabinet is closed = true
+FIRE HAND CHECK: uncharged native hose is a flat ribbon with unchanged longitudinal scale = true
+FIRE HAND CHECK: empty uncharged hose performs no resting fluid or cloth tick = true
+FIRE HAND CHECK: native hose section render saved: flat_native_stock = true
+FIRE HAND CHECK: actual grabbed tag enters water-control inspection = true
+FIRE HAND CHECK: actual mouse closes nozzle lever before charging = true
+FIRE HAND CHECK: actual grab and mouse rotation open the separate supply valve = true
+HOSE CHARGE: { "fill": 1.0, "pressure": 1.0 } supply=12.5663706143592 lever=-0.00000000613364 ticks=60
+FIRE HAND CHECK: closed nozzle can hold a full charge without spraying = true
+FIRE HAND CHECK: charging rounds the native hose without changing its length axis = true
+FIRE HAND CHECK: stable charged hose stops CPU fluid and cloth callbacks = true
+FIRE HAND CHECK: native hose section render saved: round_native_stock = true
+FIRE HAND CHECK: actual separate nozzle lever starts water spray = true
+FIRE HAND CHECK: open lever emits water only through the charged nozzle = true
+FIRE HAND CHECK: open supply keeps hose charged throughout sustained spraying = true
+FIRE HAND CHECK: water spray retains the registered UV-based custom water finish = true
+FIRE HAND CHECK: spray PBR map has its loaded mip chain = true
+FIRE HAND CHECK: spray PBR map has its loaded mip chain = true
+FIRE HAND CHECK: spray PBR map has its loaded mip chain = true
+FIRE HAND CHECK: charged spray and round hose are captured = true
+FIRE HAND CHECK: actual nozzle lever closes before trapping charge = true
+FIRE HAND CHECK: actual supply valve closure is independent of nozzle lever = true
+CLOSED NOZZLE TRAPPED CHARGE: { "fill": 1.0, "pressure": 1.0 }
+FIRE HAND CHECK: gradual supply closure with shut nozzle retains full trapped charge = true
+FIRE HAND CHECK: separate lever can release the trapped charge with supply closed = true
+FIRE HAND CHECK: open nozzle drains the isolated hose and stops spray = true
+FIRE HAND CHECK: drained hose lies flat without resting simulation = true
+FIRE HAND CHECK: charging and spraying do not certify or fabricate gasket inspection = true
+FIRE HAND CHECK: actual supply operation exercises the missing-gasket denial = true
+FIRE HAND CHECK: missing gasket prevents hose charging and nozzle spray = true
+FIRE HAND CHECK: actual supply input returns the denied line to shut = true
+FIRE HAND CHECK: supported release begins by targeting the specific nozzle = true
+FIRE HAND CHECK: entering static inspection does not drop or reposition the carried nozzle = true
+FIRE HAND CHECK: actual lever input closes the nozzle before the supported pickup regression = true
+FIRE HAND CHECK: leaving static inspection returns nozzle to the same FPS hand = true
+FIRE HAND CHECK: next click places the coupled nozzle on real support = true
+FIRE HAND CHECK: physical nozzle and coupling envelope rests two millimetres above the floor = true
+FIRE HAND CHECK: release retains water authority and clears the hand = true
+FIRE HAND CHECK: supported nozzle rests with no placement queries, cloth or fluid ticks = true
+FIRE HAND CHECK: floor nozzle can be targeted with the player's real collision capsule = true
+FIRE HAND CHECK: held floor pickup allows lever motion during inspection with the real player capsule = true
+SUPPORTED INSPECTION OBSTRUCTION: {  }
+FIRE HAND CHECK: borrowed nozzle inspection excludes only the original holder capsule = true
+FIRE HAND CHECK: external solid still blocks the lever while holder capsule is excluded = true
+FIRE HAND CHECK: ending borrowed inspection removes the holder exclusion = true
+FIRE HAND CHECK: cabinet automatic closure stays slow and leaves the deployed hose exit clear = true
+FIRE HAND CHECK: automatic closure restores only its owned player collision exceptions = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [0.0, 0] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [0.0, 1] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [0.0, 2] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [0.0, 3] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [0.0, 4] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [0.0, 5] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [0.0, 6] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [1.0, 0] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [1.0, 1] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [1.0, 2] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [1.0, 3] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [1.0, 4] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [1.0, 5] = true
+FIRE HAND CHECK: external cloth clears expanded cabinet bounds: [1.0, 6] = true
+PRODUCTION HOSE HAND: PASS failures=0 setup_ms=5.995

@@ -48,11 +48,19 @@ func build(tip: Vector3,back: Vector3,anchor: Vector3,count: int,stock_m: float,
 	var lead: Vector3=at+direction*.015
 	var floor_y: float=floor_height+model_to_actor.origin.y
 	var knots:=PackedVector3Array([lead])
-	if CASE.intersects_segment(lead,exit)!=null:
+	if CASE.intersects_segment(lead,exit)!=null or CASE.intersects_segment(lead,Vector3(lead.x,floor_y+.05,lead.z))!=null:
 		var side: float=.50 if lead.x>0. else -.50
 		knots.append(Vector3(side,lead.y,lead.z))
 		knots.append(Vector3(side,minf(lead.y,floor_y+.05),lead.z))
 		knots.append(Vector3(side,floor_y+.05,exit.z))
+	else:
+		# Withdraw behind the socket, then let the line fall beside the hand.
+		# Crossing at socket height hides the nozzle behind a broad flat ribbon.
+		knots.append(Vector3(lead.x,minf(lead.y,floor_y+.05),lead.z))
+		knots.append(Vector3(lead.x,minf(lead.y,floor_y+.05),exit.z))
+	# Cross beneath the case before rising along its outside edge. The former
+	# diagonal from the opposite floor corner cut straight across the FPS view.
+	knots.append(Vector3(exit.x,minf(lead.y,floor_y+.05),exit.z))
 	knots.append(exit)
 	var points:=PackedVector3Array([at,at+direction*.005,at+direction*.010])
 	var outer: PackedVector3Array=_sample(_rounded(knots),count-27)

@@ -33,6 +33,7 @@ var rubber_dressed := false
 var _undressed_rubber: Material
 var _live_hose: Node3D
 var _door_motion: RefCounted
+var last_hand_obstruction: Dictionary={}
 
 func try_dress_gasket(items: MaintenanceInventory, contact: Vector3) -> bool:
 	if rubber_dressed or items==null or not items.has_item("fire_hose_rubber_protectant") \
@@ -278,6 +279,7 @@ func _move_hand_part(id: String, value: float) -> void:
 	if is_instance_valid(_live_hose):_live_hose.water_controls_changed()
 
 func _obstructed(id: String, value: float) -> bool:
+	last_hand_obstruction={}
 	var part: Node3D = _part(id)
 	var proposed: Transform3D = part.transform
 	proposed.basis = Basis(_axis(id),value+PI if id=="lever" else value)
@@ -288,6 +290,7 @@ func _obstructed(id: String, value: float) -> bool:
 		world=global_transform*frame*proposed
 	var excluded: Array[RID] = [(_bodies[id] as HandBody).get_rid()]
 	if id=="lever" and _nozzle_joint!=null and _nozzle_joint.body!=null:excluded.append(_nozzle_joint.body.get_rid())
+	if id=="lever" and is_instance_valid(_live_hose):excluded.append_array(_live_hose.inspection_control_exclusions())
 	if id=="joint" and _loose_union!=null:excluded.append_array(_loose_union._excluded)
 	if id=="joint" and gasket_seated:excluded.append(_gasket_body.get_rid())
 	# Fixed stock in this same fitted assembly supplies the hinge/valve stops.
@@ -298,7 +301,11 @@ func _obstructed(id: String, value: float) -> bool:
 	query.collision_mask = 1; query.exclude = excluded; query.margin = .00001
 	for stock: Dictionary in _stock[id]:
 		query.shape = stock.shape; query.transform = world*stock.frame
-		if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): return true
+		var hits: Array[Dictionary]=get_world_3d().direct_space_state.intersect_shape(query,1)
+		if not hits.is_empty():
+			var collider: Object=hits[0].get("collider")
+			last_hand_obstruction={"control":id,"value":value,"collider":str(collider.get_path()) if collider is Node else str(collider)}
+			return true
 	return false
 
 func _apply_hand_pose() -> void:

@@ -1,0 +1,1201 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Raw packet integrity only, not runtime qualification or human acceptance.",
+  "files": [
+    {
+      "path": "case_gallery.jpg",
+      "bytes": 111325,
+      "sha256": "75205b927e73cf9a1e2e1919f965e4843499ea7b34245d9d7a3fd73267e45a18"
+    },
+    {
+      "path": "gates/board.json",
+      "bytes": 351884,
+      "sha256": "d5a9c1c98fc8c8bf0219025523ffd6285a5c6d9e122fe72aece9a8fd20aacb2e"
+    },
+    {
+      "path": "gates/board.md",
+      "bytes": 8307,
+      "sha256": "2ec5be282540372e106f993c47e564e062c5ddfccab74b9be51f82206bdbd350"
+    },
+    {
+      "path": "hand_after_v1/case_0_0.png",
+      "bytes": 174088,
+      "sha256": "c31a52ca2861bc5f81af8f2698aa2e736479b65c5b9763570074d2883238ca67"
+    },
+    {
+      "path": "hand_after_v1/case_0_1.png",
+      "bytes": 160482,
+      "sha256": "aa755a4f158e007c70ca9a17f8a0dd57d50866ccfd081c17421ce6a4a4f74c96"
+    },
+    {
+      "path": "hand_after_v1/case_0_2.png",
+      "bytes": 170713,
+      "sha256": "12eb99afe4b6342c2fcc805563e12f130a84282eee7fe365939a092cc219345e"
+    },
+    {
+      "path": "hand_after_v1/case_0_3.png",
+      "bytes": 166211,
+      "sha256": "385b0ed88277306e31200fd9f61cea655dc3df095ebed8a56eadc8b24459bacb"
+    },
+    {
+      "path": "hand_after_v1/case_0_4.png",
+      "bytes": 169647,
+      "sha256": "94548e1ec24249ad85854eeeb44978da96a6baf48f255e33fda73e3891d9a127"
+    },
+    {
+      "path": "hand_after_v1/case_0_5.png",
+      "bytes": 160012,
+      "sha256": "e9d8cb6c97494a5c1198f2265761e3697192fd391b4164737ea4bc1a13eca991"
+    },
+    {
+      "path": "hand_after_v1/case_0_6.png",
+      "bytes": 166963,
+      "sha256": "e71edcbf1afc2ffae3f9ddf62975676702ff13cad710d5ce29b24b672c799f27"
+    },
+    {
+      "path": "hand_after_v1/case_1_0.png",
+      "bytes": 174627,
+      "sha256": "8614649e5ab9492fe6d8aff0a32681291e6526b246a105f1f8d9707bb2ef057a"
+    },
+    {
+      "path": "hand_after_v1/case_1_1.png",
+      "bytes": 162319,
+      "sha256": "3bebc8acae2cdd5c0606fd78a5380daecff94ba9043d4677b7d79f64393eb508"
+    },
+    {
+      "path": "hand_after_v1/case_1_2.png",
+      "bytes": 171143,
+      "sha256": "173c135cbb6cae589b0c512942f56bcac9a072c75be7cd36c94972c0a05286ec"
+    },
+    {
+      "path": "hand_after_v1/case_1_3.png",
+      "bytes": 168721,
+      "sha256": "b68087836f9b4b158f7ec9d3bd4e0721bc19b81d4fe1e52b041df1ce47c9f220"
+    },
+    {
+      "path": "hand_after_v1/case_1_4.png",
+      "bytes": 170556,
+      "sha256": "af35db24c7e42c85f985a9a273e541fcddd0dd159b65f3c64d9470b8dfb3ffc1"
+    },
+    {
+      "path": "hand_after_v1/case_1_5.png",
+      "bytes": 161276,
+      "sha256": "0488b147e97fd6ab1bed114bb4c69c2a8c13a43998eb051d1e7d38d2b2c5008a"
+    },
+    {
+      "path": "hand_after_v1/case_1_6.png",
+      "bytes": 169975,
+      "sha256": "f0b822d7b230c04588498c3d6491aa5f13d33933c2372f1354293c559746f3ee"
+    },
+    {
+      "path": "hand_after_v1/case_geometry.json",
+      "bytes": 1742,
+      "sha256": "53c75a410dfd26893d05b6e1af4fa74faa3502fb1ce881b4e1d47e6c00d00459"
+    },
+    {
+      "path": "hand_after_v1/charged_spray.png",
+      "bytes": 35999,
+      "sha256": "63a4a32636d8c88274bfb930bd16d0f83aaa7287f970286c2fb12fbfe0533174"
+    },
+    {
+      "path": "hand_after_v1/diagnostic.json",
+      "bytes": 11998,
+      "sha256": "e22a98831711c4c16829b2c31dd38e1b169ef038b7bd677e216217a1ecaa9971"
+    },
+    {
+      "path": "hand_after_v1/flat_native_stock.png",
+      "bytes": 35981,
+      "sha256": "ad3e1be8fe155c3dfbe39d776447b43c2613a15e2c5d00bad00a6fe3f419087e"
+    },
+    {
+      "path": "hand_after_v1/held_projection.json",
+      "bytes": 4615,
+      "sha256": "0329192d641d5b7ddd165876049109c36d714eb3173a80553a2644784ba438e2"
+    },
+    {
+      "path": "hand_after_v1/production_fps_hold.png",
+      "bytes": 395884,
+      "sha256": "5bae77a2d48f93bf5fc2dc1c722123a906b846ba18c7f835ec46e1a37db8ba65"
+    },
+    {
+      "path": "hand_after_v1/release_support.json",
+      "bytes": 227,
+      "sha256": "78ec5602ae0db01e78ed7bcb819c1188065c509d2f350de1fa0ecb572486766f"
+    },
+    {
+      "path": "hand_after_v1/round_native_stock.png",
+      "bytes": 82050,
+      "sha256": "603636b7815878e20f195a8709a35207e8a45cca2be87b8330ed24ad5eba29c2"
+    },
+    {
+      "path": "hand_after_v1/supported_nozzle.png",
+      "bytes": 82341,
+      "sha256": "0eae32c0c72ac448bbba52cf2346cebb53aadf523277c238ffec1761024e167a"
+    },
+    {
+      "path": "hand_after_v1.log",
+      "bytes": 5536,
+      "sha256": "570b2ebabe3a9019f07046018087b07d77a2c01f3737d19ee54707ad2f0d53cd"
+    },
+    {
+      "path": "hand_after_v1.log.receipt.json",
+      "bytes": 2911,
+      "sha256": "d85321cc69b951a5772ef88d46a49aced6de53333c87c9afc32183b2347d6448"
+    },
+    {
+      "path": "hand_after_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hand_after_v2/case_0_0.png",
+      "bytes": 174088,
+      "sha256": "c31a52ca2861bc5f81af8f2698aa2e736479b65c5b9763570074d2883238ca67"
+    },
+    {
+      "path": "hand_after_v2/case_0_1.png",
+      "bytes": 160482,
+      "sha256": "aa755a4f158e007c70ca9a17f8a0dd57d50866ccfd081c17421ce6a4a4f74c96"
+    },
+    {
+      "path": "hand_after_v2/case_0_2.png",
+      "bytes": 170713,
+      "sha256": "12eb99afe4b6342c2fcc805563e12f130a84282eee7fe365939a092cc219345e"
+    },
+    {
+      "path": "hand_after_v2/case_0_3.png",
+      "bytes": 166211,
+      "sha256": "385b0ed88277306e31200fd9f61cea655dc3df095ebed8a56eadc8b24459bacb"
+    },
+    {
+      "path": "hand_after_v2/case_0_4.png",
+      "bytes": 164715,
+      "sha256": "3f977b58b3994b700c1e3369c17253127a675357bbafaa086ba15ccaa9ca01d6"
+    },
+    {
+      "path": "hand_after_v2/case_0_5.png",
+      "bytes": 160012,
+      "sha256": "e9d8cb6c97494a5c1198f2265761e3697192fd391b4164737ea4bc1a13eca991"
+    },
+    {
+      "path": "hand_after_v2/case_0_6.png",
+      "bytes": 166963,
+      "sha256": "e71edcbf1afc2ffae3f9ddf62975676702ff13cad710d5ce29b24b672c799f27"
+    },
+    {
+      "path": "hand_after_v2/case_1_0.png",
+      "bytes": 174627,
+      "sha256": "8614649e5ab9492fe6d8aff0a32681291e6526b246a105f1f8d9707bb2ef057a"
+    },
+    {
+      "path": "hand_after_v2/case_1_1.png",
+      "bytes": 162319,
+      "sha256": "3bebc8acae2cdd5c0606fd78a5380daecff94ba9043d4677b7d79f64393eb508"
+    },
+    {
+      "path": "hand_after_v2/case_1_2.png",
+      "bytes": 171143,
+      "sha256": "173c135cbb6cae589b0c512942f56bcac9a072c75be7cd36c94972c0a05286ec"
+    },
+    {
+      "path": "hand_after_v2/case_1_3.png",
+      "bytes": 168721,
+      "sha256": "b68087836f9b4b158f7ec9d3bd4e0721bc19b81d4fe1e52b041df1ce47c9f220"
+    },
+    {
+      "path": "hand_after_v2/case_1_4.png",
+      "bytes": 176491,
+      "sha256": "dbc2011ca6905a4b8181456495b133b33b62fb23031e1517bd6500dbf0460129"
+    },
+    {
+      "path": "hand_after_v2/case_1_5.png",
+      "bytes": 161276,
+      "sha256": "0488b147e97fd6ab1bed114bb4c69c2a8c13a43998eb051d1e7d38d2b2c5008a"
+    },
+    {
+      "path": "hand_after_v2/case_1_6.png",
+      "bytes": 169975,
+      "sha256": "f0b822d7b230c04588498c3d6491aa5f13d33933c2372f1354293c559746f3ee"
+    },
+    {
+      "path": "hand_after_v2/case_geometry.json",
+      "bytes": 1740,
+      "sha256": "8dc9aa7fb344136ae6c9ab46071f1f769de023699a679c33f1856235e7f8fc32"
+    },
+    {
+      "path": "hand_after_v2/charged_spray.png",
+      "bytes": 36160,
+      "sha256": "afcc0527fec56efa7fd9c2441453f94e2999f26abd2e2209f801a5391c302c82"
+    },
+    {
+      "path": "hand_after_v2/diagnostic.json",
+      "bytes": 11873,
+      "sha256": "0f9c00e13a975651328ef71d85f6c0731e1c51882f2f2c3e45cda61f0aaa6f50"
+    },
+    {
+      "path": "hand_after_v2/flat_native_stock.png",
+      "bytes": 35981,
+      "sha256": "ad3e1be8fe155c3dfbe39d776447b43c2613a15e2c5d00bad00a6fe3f419087e"
+    },
+    {
+      "path": "hand_after_v2/held_projection.json",
+      "bytes": 4615,
+      "sha256": "0329192d641d5b7ddd165876049109c36d714eb3173a80553a2644784ba438e2"
+    },
+    {
+      "path": "hand_after_v2/production_fps_hold.png",
+      "bytes": 396064,
+      "sha256": "4de7f17fdd0f083a983b3a17f31426993425e23504bfaaad4b42c7360c4d5e20"
+    },
+    {
+      "path": "hand_after_v2/release_support.json",
+      "bytes": 227,
+      "sha256": "15ace2141c04a0f5cee99e176079759ecb153aa62f17afcc1a678d1de5036eb0"
+    },
+    {
+      "path": "hand_after_v2/round_native_stock.png",
+      "bytes": 82050,
+      "sha256": "603636b7815878e20f195a8709a35207e8a45cca2be87b8330ed24ad5eba29c2"
+    },
+    {
+      "path": "hand_after_v2/supported_nozzle.png",
+      "bytes": 82339,
+      "sha256": "6916e4a5e48eff2b993e93624df273f3bb3f8864c73ad9ee766d53737380f594"
+    },
+    {
+      "path": "hand_after_v2.log",
+      "bytes": 5534,
+      "sha256": "f0caddb16dc78161cb421b6860cb366f9c3b68d0bd4b6bd3d7f7224de05524b0"
+    },
+    {
+      "path": "hand_after_v2.log.receipt.json",
+      "bytes": 2911,
+      "sha256": "fab1b3b2471b5688c8aadd10fd6a89101266ce5fab7b0e186814f1caaa63fe6e"
+    },
+    {
+      "path": "hand_after_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hand_before/case_0_0.png",
+      "bytes": 182522,
+      "sha256": "640f665e85afab380979023eaceece4a01dd5a710bb39eed044053602340fb06"
+    },
+    {
+      "path": "hand_before/case_0_1.png",
+      "bytes": 163514,
+      "sha256": "c1168706b2189a725143bc1fd4f7f7047ca60ea2da315d228b2294fa1e284889"
+    },
+    {
+      "path": "hand_before/case_0_2.png",
+      "bytes": 179385,
+      "sha256": "64be9633932331890176d34afa45904553ff641bdc59080c062fa40c22024d4a"
+    },
+    {
+      "path": "hand_before/case_0_3.png",
+      "bytes": 171803,
+      "sha256": "6849d8d35e7c9293963ad7df4e3a0673895671b62ec8f5da820d25acb00b84b5"
+    },
+    {
+      "path": "hand_before/case_0_4.png",
+      "bytes": 163701,
+      "sha256": "b6127c389cb36fcdc453dc9b436c3552be59240e2455ba3ba3724c0db4377a06"
+    },
+    {
+      "path": "hand_before/case_0_5.png",
+      "bytes": 162281,
+      "sha256": "2eea9dfcb8c95764309b04562685ab938a99f4a5fb65eb8399738ff6d7daf2a0"
+    },
+    {
+      "path": "hand_before/case_0_6.png",
+      "bytes": 157754,
+      "sha256": "6376c49ba9fcf8f6a39ff3347ef6079961a1bad11632bd47cfdf411f4892db69"
+    },
+    {
+      "path": "hand_before/case_1_0.png",
+      "bytes": 183151,
+      "sha256": "013de14d4576e5027fd74885590b993e0b430327dd9d3a657d7813328599c7eb"
+    },
+    {
+      "path": "hand_before/case_1_1.png",
+      "bytes": 170740,
+      "sha256": "40dd92b176943c6fa2630bc21c988b4a233c26a30a28ce6cf2aa50b1fdad3e17"
+    },
+    {
+      "path": "hand_before/case_1_2.png",
+      "bytes": 182465,
+      "sha256": "3ff5a1d3e4a12d9d97df02574a3e8720e41b40d3bab1fa92279cc91bbe22625e"
+    },
+    {
+      "path": "hand_before/case_1_3.png",
+      "bytes": 173784,
+      "sha256": "698d34f3f7aa8a94a76880788da55a1a21fb3481c23a159af33c7750704ea7b4"
+    },
+    {
+      "path": "hand_before/case_1_4.png",
+      "bytes": 164468,
+      "sha256": "01708bec6a2c1e57371a354915a42514998bc66063cbc05668763816092fbcb5"
+    },
+    {
+      "path": "hand_before/case_1_5.png",
+      "bytes": 164381,
+      "sha256": "85ab4e6f90844b6ba568f8967200a99e1ce63282ff17ce387ba4af2abd9ed151"
+    },
+    {
+      "path": "hand_before/case_1_6.png",
+      "bytes": 159608,
+      "sha256": "3abdefde1b00c80bc2343ea2be12e2cfb7e52ed969a6eeac53ec937fc6c1b4a9"
+    },
+    {
+      "path": "hand_before/case_geometry.json",
+      "bytes": 1740,
+      "sha256": "8dc9aa7fb344136ae6c9ab46071f1f769de023699a679c33f1856235e7f8fc32"
+    },
+    {
+      "path": "hand_before/charged_spray.png",
+      "bytes": 36983,
+      "sha256": "2d4cb4736d74a6657e74f8e476efe1edfa41344c30d1afc17e25e4d91abed176"
+    },
+    {
+      "path": "hand_before/diagnostic.json",
+      "bytes": 10301,
+      "sha256": "5898e64ed88e10f3f780cd4987dc3e76260c161496e72107eed30a53f58caf8e"
+    },
+    {
+      "path": "hand_before/flat_native_stock.png",
+      "bytes": 220279,
+      "sha256": "38daf43e05068fd2a740e7875ac49f7e8c7d19e31926ddc3237aeade6fc062c4"
+    },
+    {
+      "path": "hand_before/held_projection.json",
+      "bytes": 5131,
+      "sha256": "9d19334809702d559bb0631d5de3136eb20fa8b2cb0a4db0f48ee521193e46d1"
+    },
+    {
+      "path": "hand_before/production_fps_hold.png",
+      "bytes": 428991,
+      "sha256": "197656a86316a263f7335848ad5a911904f5964ec39981a161aba560edd2a1b4"
+    },
+    {
+      "path": "hand_before/round_native_stock.png",
+      "bytes": 254044,
+      "sha256": "f638f5470b06121941aa7680d8e73e253dae15aeee6093cf20e083ec6438f9fc"
+    },
+    {
+      "path": "hand_before.log",
+      "bytes": 4914,
+      "sha256": "f844b4ebe0a61fb735328eb54d95d029e90e97e0a4a7fc777d65150f57aa79cb"
+    },
+    {
+      "path": "hand_before.log.receipt.json",
+      "bytes": 2966,
+      "sha256": "76ca7c74dd47c22ec8558ffd0fe6994a1139b6c7330b35f03c006f93daa33fec"
+    },
+    {
+      "path": "hand_before.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_0_0.png",
+      "bytes": 171882,
+      "sha256": "2bcd5e06e1df43b3ddf4008b1ca291d5a1a0a20f73c970ae9358327936e12ab3"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_0_1.png",
+      "bytes": 159322,
+      "sha256": "6a07016a43f56401d5532169aab18c7b37ffa5a787fa4f04e7408a7f074bef50"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_0_2.png",
+      "bytes": 170538,
+      "sha256": "7b718269cb445c64d4a30f71c040b0ab10ddf944934e41a5f52cf7b1d43ab18c"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_0_3.png",
+      "bytes": 166646,
+      "sha256": "33ab542029224c22c7bf8743f9db8768dd1c1e20c98bcdbbcd85a063315410a7"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_0_4.png",
+      "bytes": 164754,
+      "sha256": "a310513002fce2e8f050224b22cb486d63b375867dcc927aa212178d440c76c8"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_0_5.png",
+      "bytes": 160600,
+      "sha256": "58858a85bf2203c7e9b648ccc311c8af5730fc57b7aa6274111b2fe76f595c09"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_0_6.png",
+      "bytes": 167142,
+      "sha256": "117a522534df8f53c0bc6f1bd278745b0542e695ba268c905d993f8ad6a7c1eb"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_1_0.png",
+      "bytes": 174444,
+      "sha256": "dd7a55a20e15fa63d870bbf26109b02b5c8346d9a445ad41fb24aca038171789"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_1_1.png",
+      "bytes": 162135,
+      "sha256": "56f0a2d7e4822af9bcaf21b1989d19dfd3c18b7953b2e6648e3b768e450f80ca"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_1_2.png",
+      "bytes": 170888,
+      "sha256": "b2e448488a268cc8442e38e0f74e33e487369e7f249493d8f036cf030ba2b027"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_1_3.png",
+      "bytes": 168895,
+      "sha256": "42845de3fe8c00a698a73f3ee0567e23e17001e5e79a747ec9fd66202cf9cc5e"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_1_4.png",
+      "bytes": 176447,
+      "sha256": "d5a04a23df985f4ed6de8df7fd3cde22980e14d8953bc0101dfd03df1d6a676b"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_1_5.png",
+      "bytes": 161114,
+      "sha256": "10b95c898eed871a85652895daefdf6988113e5b1d43556980acaf7459549a3e"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_1_6.png",
+      "bytes": 170039,
+      "sha256": "e92bb572dbfe56e8c6af72019b50d67989e671e615f123ef333efd9927b2d9cd"
+    },
+    {
+      "path": "hand_capsule_diagnosis/case_geometry.json",
+      "bytes": 1740,
+      "sha256": "8dc9aa7fb344136ae6c9ab46071f1f769de023699a679c33f1856235e7f8fc32"
+    },
+    {
+      "path": "hand_capsule_diagnosis/charged_spray.png",
+      "bytes": 35504,
+      "sha256": "bac2dd39308e53df2ce02b62339633c5650fd00b2f80bb408a302a9763ec5f37"
+    },
+    {
+      "path": "hand_capsule_diagnosis/diagnostic.json",
+      "bytes": 12596,
+      "sha256": "5d259258f11d8b86d62e28e4dd5b474d08382104a43d2c7d5d0544b565800e44"
+    },
+    {
+      "path": "hand_capsule_diagnosis/flat_native_stock.png",
+      "bytes": 35981,
+      "sha256": "ad3e1be8fe155c3dfbe39d776447b43c2613a15e2c5d00bad00a6fe3f419087e"
+    },
+    {
+      "path": "hand_capsule_diagnosis/held_projection.json",
+      "bytes": 4615,
+      "sha256": "0329192d641d5b7ddd165876049109c36d714eb3173a80553a2644784ba438e2"
+    },
+    {
+      "path": "hand_capsule_diagnosis/production_fps_hold.png",
+      "bytes": 395862,
+      "sha256": "e913e10bc95771f288f2df627eb99728642f1837261d62f87f05f58da74b8d91"
+    },
+    {
+      "path": "hand_capsule_diagnosis/release_support.json",
+      "bytes": 227,
+      "sha256": "1cf8d23fcd6f5209cdff4edc576bd8b7f6d0da5a65b025ee7975e704ebfcd67c"
+    },
+    {
+      "path": "hand_capsule_diagnosis/round_native_stock.png",
+      "bytes": 82050,
+      "sha256": "603636b7815878e20f195a8709a35207e8a45cca2be87b8330ed24ad5eba29c2"
+    },
+    {
+      "path": "hand_capsule_diagnosis/supported_nozzle.png",
+      "bytes": 89365,
+      "sha256": "ff02fba40f76f3d371940a41646c8423fc2a2ceb3c3e181f44d9f30c2da7e103"
+    },
+    {
+      "path": "hand_capsule_diagnosis.log",
+      "bytes": 5779,
+      "sha256": "80d0cf80fe05055696d69358c7fe59814fd2d58fb8ca10fbcf340498feb82bfc"
+    },
+    {
+      "path": "hand_capsule_diagnosis.log.receipt.json",
+      "bytes": 2768,
+      "sha256": "70ec6d79e852a1e5b8040b9f632c088f3d615a03171a5293710b5fa525a64302"
+    },
+    {
+      "path": "hand_capsule_diagnosis.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hand_capsule_v2/charged_spray.png",
+      "bytes": 36221,
+      "sha256": "4db4316c18c0d307ae6fb5c9b2b1df8835d9cd9aab903502bee7ef439e5b947f"
+    },
+    {
+      "path": "hand_capsule_v2/diagnostic.json",
+      "bytes": 9764,
+      "sha256": "a60889e003cacc729840012f18161526e257f442a68bcc77c16a0228c2474ad0"
+    },
+    {
+      "path": "hand_capsule_v2/flat_native_stock.png",
+      "bytes": 35981,
+      "sha256": "ad3e1be8fe155c3dfbe39d776447b43c2613a15e2c5d00bad00a6fe3f419087e"
+    },
+    {
+      "path": "hand_capsule_v2/held_projection.json",
+      "bytes": 4615,
+      "sha256": "0329192d641d5b7ddd165876049109c36d714eb3173a80553a2644784ba438e2"
+    },
+    {
+      "path": "hand_capsule_v2/production_fps_hold.png",
+      "bytes": 395921,
+      "sha256": "f2df6bcfd82486f72365f897287ea88412465892da49d9632330a279e052355d"
+    },
+    {
+      "path": "hand_capsule_v2/release_support.json",
+      "bytes": 227,
+      "sha256": "7975569da5408905cb0b01e293334495067296f8ab735f525bd16979c3c461fe"
+    },
+    {
+      "path": "hand_capsule_v2/round_native_stock.png",
+      "bytes": 82050,
+      "sha256": "603636b7815878e20f195a8709a35207e8a45cca2be87b8330ed24ad5eba29c2"
+    },
+    {
+      "path": "hand_capsule_v2/supported_nozzle.png",
+      "bytes": 87824,
+      "sha256": "4bb4400b310cf4c12a9dd64818ec24e5ea631e35d1f5dd7c8a6cb947a641ea0f"
+    },
+    {
+      "path": "hand_capsule_v2.log",
+      "bytes": 5064,
+      "sha256": "73837a78f9b390dba7b2ac2b992d03832b6b8f18c20049a0fce93fe252d3f94c"
+    },
+    {
+      "path": "hand_capsule_v2.log.receipt.json",
+      "bytes": 2964,
+      "sha256": "7e8d4523e85aeb66ad825284281793a071be8f3202374ebf766333d88b8d1f4e"
+    },
+    {
+      "path": "hand_capsule_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hand_final_v1/case_0_0.png",
+      "bytes": 171882,
+      "sha256": "2bcd5e06e1df43b3ddf4008b1ca291d5a1a0a20f73c970ae9358327936e12ab3"
+    },
+    {
+      "path": "hand_final_v1/case_0_1.png",
+      "bytes": 159322,
+      "sha256": "6a07016a43f56401d5532169aab18c7b37ffa5a787fa4f04e7408a7f074bef50"
+    },
+    {
+      "path": "hand_final_v1/case_0_2.png",
+      "bytes": 170538,
+      "sha256": "7b718269cb445c64d4a30f71c040b0ab10ddf944934e41a5f52cf7b1d43ab18c"
+    },
+    {
+      "path": "hand_final_v1/case_0_3.png",
+      "bytes": 166646,
+      "sha256": "33ab542029224c22c7bf8743f9db8768dd1c1e20c98bcdbbcd85a063315410a7"
+    },
+    {
+      "path": "hand_final_v1/case_0_4.png",
+      "bytes": 164754,
+      "sha256": "a310513002fce2e8f050224b22cb486d63b375867dcc927aa212178d440c76c8"
+    },
+    {
+      "path": "hand_final_v1/case_0_5.png",
+      "bytes": 160600,
+      "sha256": "58858a85bf2203c7e9b648ccc311c8af5730fc57b7aa6274111b2fe76f595c09"
+    },
+    {
+      "path": "hand_final_v1/case_0_6.png",
+      "bytes": 167142,
+      "sha256": "117a522534df8f53c0bc6f1bd278745b0542e695ba268c905d993f8ad6a7c1eb"
+    },
+    {
+      "path": "hand_final_v1/case_1_0.png",
+      "bytes": 174444,
+      "sha256": "dd7a55a20e15fa63d870bbf26109b02b5c8346d9a445ad41fb24aca038171789"
+    },
+    {
+      "path": "hand_final_v1/case_1_1.png",
+      "bytes": 162135,
+      "sha256": "56f0a2d7e4822af9bcaf21b1989d19dfd3c18b7953b2e6648e3b768e450f80ca"
+    },
+    {
+      "path": "hand_final_v1/case_1_2.png",
+      "bytes": 170888,
+      "sha256": "b2e448488a268cc8442e38e0f74e33e487369e7f249493d8f036cf030ba2b027"
+    },
+    {
+      "path": "hand_final_v1/case_1_3.png",
+      "bytes": 168895,
+      "sha256": "42845de3fe8c00a698a73f3ee0567e23e17001e5e79a747ec9fd66202cf9cc5e"
+    },
+    {
+      "path": "hand_final_v1/case_1_4.png",
+      "bytes": 176447,
+      "sha256": "d5a04a23df985f4ed6de8df7fd3cde22980e14d8953bc0101dfd03df1d6a676b"
+    },
+    {
+      "path": "hand_final_v1/case_1_5.png",
+      "bytes": 161114,
+      "sha256": "10b95c898eed871a85652895daefdf6988113e5b1d43556980acaf7459549a3e"
+    },
+    {
+      "path": "hand_final_v1/case_1_6.png",
+      "bytes": 170039,
+      "sha256": "e92bb572dbfe56e8c6af72019b50d67989e671e615f123ef333efd9927b2d9cd"
+    },
+    {
+      "path": "hand_final_v1/case_geometry.json",
+      "bytes": 1740,
+      "sha256": "8dc9aa7fb344136ae6c9ab46071f1f769de023699a679c33f1856235e7f8fc32"
+    },
+    {
+      "path": "hand_final_v1/charged_spray.png",
+      "bytes": 36408,
+      "sha256": "34e67dbde6e8d7bd8da6cb7e6ff261c30a91059a7a8a12cf7ec8341ffc69a99c"
+    },
+    {
+      "path": "hand_final_v1/diagnostic.json",
+      "bytes": 13020,
+      "sha256": "bafe771763e49e5782b97c963dd4eca97ff3f7bc957149af137fd93250442a62"
+    },
+    {
+      "path": "hand_final_v1/flat_native_stock.png",
+      "bytes": 35981,
+      "sha256": "ad3e1be8fe155c3dfbe39d776447b43c2613a15e2c5d00bad00a6fe3f419087e"
+    },
+    {
+      "path": "hand_final_v1/held_projection.json",
+      "bytes": 4615,
+      "sha256": "0329192d641d5b7ddd165876049109c36d714eb3173a80553a2644784ba438e2"
+    },
+    {
+      "path": "hand_final_v1/production_fps_hold.png",
+      "bytes": 395885,
+      "sha256": "c1d7eb35cadb4ba003c126ed706798c04d851cecfe61f81beb55f47351d89f5e"
+    },
+    {
+      "path": "hand_final_v1/release_support.json",
+      "bytes": 227,
+      "sha256": "29087469163de5149786fb4854aaa2239e7342f1b460291f3b388af01700850a"
+    },
+    {
+      "path": "hand_final_v1/round_native_stock.png",
+      "bytes": 82050,
+      "sha256": "603636b7815878e20f195a8709a35207e8a45cca2be87b8330ed24ad5eba29c2"
+    },
+    {
+      "path": "hand_final_v1/supported_nozzle.png",
+      "bytes": 88538,
+      "sha256": "b266335b15dc2c48ecd6dd181e08bca0f7280ec24e4f9dbccd2c3d2a3972255c"
+    },
+    {
+      "path": "hand_final_v1.log",
+      "bytes": 6151,
+      "sha256": "16445ff8cc55265ae879b167683475235f38ac9236f697985fb556cc0a714ccd"
+    },
+    {
+      "path": "hand_final_v1.log.receipt.json",
+      "bytes": 2741,
+      "sha256": "da9a399b5df21c8184cc5b8dabd66e3f66a76f5c6c09f2852978fda9db81f202"
+    },
+    {
+      "path": "hand_final_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "held_comparison.jpg",
+      "bytes": 91444,
+      "sha256": "f5e0d87d224f8e7055643fc8055f56d350861b88042e5d0b5e2334410d5021a7"
+    },
+    {
+      "path": "interim_route_reconstruction.json",
+      "bytes": 418,
+      "sha256": "79d82b260345f0143111b623593fc477f1e0d774b1af21d02b3b987fccc3da7c"
+    },
+    {
+      "path": "interruption_context.json",
+      "bytes": 273,
+      "sha256": "5915ca636df39af2f65b0b45c797d3f4f7c3dd95cac1b1b4e4eb41df6383fe4d"
+    },
+    {
+      "path": "protected.json",
+      "bytes": 4063,
+      "sha256": "e9cd1af79b76b05d044eed3792c80864cce6fc92216cdf7ddf6f0a3376570eb8"
+    },
+    {
+      "path": "save_final.log",
+      "bytes": 5885,
+      "sha256": "9c62c464a02810770889a170c2229730cf2cea13ca76523a57e9127e27b976be"
+    },
+    {
+      "path": "save_final.log.receipt.json",
+      "bytes": 2689,
+      "sha256": "807aec64949d121d0892ed8d6615b4a5f2200a653bb6be112067922800d018a0"
+    },
+    {
+      "path": "save_final.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "source_after/game/scripts/props/fire_unracked_hose.gd.gz",
+      "bytes": 11546,
+      "sha256": "bbf525c6662549a6c052b9b8dd6b4c4e5a0d06f46bca2af0eee6819723e36aba"
+    },
+    {
+      "path": "source_after/game/scripts/props/hose_cabinet_route.gd.gz",
+      "bytes": 1876,
+      "sha256": "215e024fc8c6fccc7dcfabd0317c2d701608e797be3e21e64c23e7c2706a032a"
+    },
+    {
+      "path": "source_after/game/scripts/props/hose_release_support.gd.gz",
+      "bytes": 1740,
+      "sha256": "0caabfcab7297b8a65575942a0169fbd7af180250702ece2bfad192462fd612a"
+    },
+    {
+      "path": "source_after/game/tests/v2_hose_installed_world.gd.gz",
+      "bytes": 4219,
+      "sha256": "c90210d30d442d39a1eee5374634fd9b45835a7ed619c46bd2b876f45730b65c"
+    },
+    {
+      "path": "source_after/game/tests/v2_hose_production_hand_bench.gd.gz",
+      "bytes": 4158,
+      "sha256": "70ffcebbf2595804269ea75f8617fdbd47a30ad7bc4954245041bde9f618931d"
+    },
+    {
+      "path": "source_after/game/tests/v2_unracked_hose_bench.gd.gz",
+      "bytes": 6286,
+      "sha256": "5cd0bebc43aeca3508ac428d43e632287c1c2f40d6ac6da82d90608e396ae4c7"
+    },
+    {
+      "path": "source_after.json",
+      "bytes": 2018,
+      "sha256": "e33c2b3bc64730c4a083bb5cf6cab0d7bfa5abde9aa5e5d0001f255d0f61a5e9"
+    },
+    {
+      "path": "source_before/game/scripts/props/fire_unracked_hose.gd.gz",
+      "bytes": 11375,
+      "sha256": "58408409e01e8f23d77b30b33cdc49606867bd6100abb2001d6201f3159c82cc"
+    },
+    {
+      "path": "source_before/game/scripts/props/hose_cabinet_route.gd.gz",
+      "bytes": 1678,
+      "sha256": "c8b4962b33500783e370f7bfe94751509efbad73de8588ae356ad05b1b6d3d29"
+    },
+    {
+      "path": "source_before/game/tests/v2_hose_installed_world.gd.gz",
+      "bytes": 3980,
+      "sha256": "9ef0b708058e2d5c425acb5aafd894873c958cd7135af8c53ac38cf07ca8e8ac"
+    },
+    {
+      "path": "source_before/game/tests/v2_hose_production_hand_bench.gd.gz",
+      "bytes": 3490,
+      "sha256": "e7da33f215be40aba83887a9b4e28b20a4e7a7efd366c2f321f6c1528fc8ecbd"
+    },
+    {
+      "path": "source_before/game/tests/v2_unracked_hose_bench.gd.gz",
+      "bytes": 6175,
+      "sha256": "ad80d70d8d89c4a9774a40f33baa691214c95ec6cd51a3c7704382a0d64ae8dd"
+    },
+    {
+      "path": "source_before.json",
+      "bytes": 1370,
+      "sha256": "865d445a8e2e2d31a1effc92f19f7a1c0c1688e849c3bddbf35a3ea2d0f0df39"
+    },
+    {
+      "path": "source_final/game/scripts/props/fire_unracked_hose.gd.gz",
+      "bytes": 11751,
+      "sha256": "7d528e4741d1713de3c4c51ee9b42dd75f90a86350644893935d90f33ece1c37"
+    },
+    {
+      "path": "source_final/game/scripts/props/hose_cabinet_route.gd.gz",
+      "bytes": 1876,
+      "sha256": "215e024fc8c6fccc7dcfabd0317c2d701608e797be3e21e64c23e7c2706a032a"
+    },
+    {
+      "path": "source_final/game/scripts/props/hose_release_support.gd.gz",
+      "bytes": 1740,
+      "sha256": "0caabfcab7297b8a65575942a0169fbd7af180250702ece2bfad192462fd612a"
+    },
+    {
+      "path": "source_final/game/scripts/props/v2_fire_line_cabinet.gd.gz",
+      "bytes": 7387,
+      "sha256": "37115e6c2852f95d3bb715eb258856a21e993441b285d0097a8cd6980f0bcd45"
+    },
+    {
+      "path": "source_final/game/tests/v2_fire_hand_bench.gd.gz",
+      "bytes": 10547,
+      "sha256": "f7ab9e0794f6ef34bfbbc32ac367fae9a609340a99148a2015770c6f5f9a3692"
+    },
+    {
+      "path": "source_final/game/tests/v2_hose_installed_world.gd.gz",
+      "bytes": 4219,
+      "sha256": "c90210d30d442d39a1eee5374634fd9b45835a7ed619c46bd2b876f45730b65c"
+    },
+    {
+      "path": "source_final/game/tests/v2_hose_production_hand_bench.gd.gz",
+      "bytes": 4649,
+      "sha256": "6719b93ebb02f790f9125a6a1e33039f01fb1fa5d6f11dcf9203ed94e62bacd8"
+    },
+    {
+      "path": "source_final/game/tests/v2_unracked_hose_bench.gd.gz",
+      "bytes": 6286,
+      "sha256": "5cd0bebc43aeca3508ac428d43e632287c1c2f40d6ac6da82d90608e396ae4c7"
+    },
+    {
+      "path": "source_final.json",
+      "bytes": 2662,
+      "sha256": "2520e94689b3bfad77e773dc83ecb480ef9a63873025a3224a2053c2988007a7"
+    },
+    {
+      "path": "source_final_v4/game/scripts/props/fire_unracked_hose.gd.gz",
+      "bytes": 11751,
+      "sha256": "7d528e4741d1713de3c4c51ee9b42dd75f90a86350644893935d90f33ece1c37"
+    },
+    {
+      "path": "source_final_v4/game/scripts/props/hose_cabinet_route.gd.gz",
+      "bytes": 1876,
+      "sha256": "215e024fc8c6fccc7dcfabd0317c2d701608e797be3e21e64c23e7c2706a032a"
+    },
+    {
+      "path": "source_final_v4/game/scripts/props/hose_release_support.gd.gz",
+      "bytes": 1740,
+      "sha256": "0caabfcab7297b8a65575942a0169fbd7af180250702ece2bfad192462fd612a"
+    },
+    {
+      "path": "source_final_v4/game/scripts/props/v2_fire_line_cabinet.gd.gz",
+      "bytes": 7387,
+      "sha256": "37115e6c2852f95d3bb715eb258856a21e993441b285d0097a8cd6980f0bcd45"
+    },
+    {
+      "path": "source_final_v4/game/tests/v2_fire_hand_bench.gd.gz",
+      "bytes": 10547,
+      "sha256": "f7ab9e0794f6ef34bfbbc32ac367fae9a609340a99148a2015770c6f5f9a3692"
+    },
+    {
+      "path": "source_final_v4/game/tests/v2_golden_repair_profile.gd.gz",
+      "bytes": 1559,
+      "sha256": "39b37345eb216fe83c0a4e810ef71aebc90fafe7e642e1eced3f1633009574a5"
+    },
+    {
+      "path": "source_final_v4/game/tests/v2_hose_installed_world.gd.gz",
+      "bytes": 4236,
+      "sha256": "46b75230daaa2182ba8d56df415b1bafc85e0de48989cb8bdfc9859921c062de"
+    },
+    {
+      "path": "source_final_v4/game/tests/v2_hose_production_hand_bench.gd.gz",
+      "bytes": 4649,
+      "sha256": "6719b93ebb02f790f9125a6a1e33039f01fb1fa5d6f11dcf9203ed94e62bacd8"
+    },
+    {
+      "path": "source_final_v4/game/tests/v2_unracked_hose_bench.gd.gz",
+      "bytes": 6286,
+      "sha256": "5cd0bebc43aeca3508ac428d43e632287c1c2f40d6ac6da82d90608e396ae4c7"
+    },
+    {
+      "path": "source_final_v4.json",
+      "bytes": 3173,
+      "sha256": "b25131687ffa3c635e42f404a4e587bb2ced74f90a7ce6d049945f506f60ac81"
+    },
+    {
+      "path": "source_interim_route_reconstructed.gd.gz",
+      "bytes": 1862,
+      "sha256": "68478cebc8ed7d6d6c45bd826b0938ec3c497fe5eddacc2b7bfbbc92de7d5f51"
+    },
+    {
+      "path": "spatial_before.json",
+      "bytes": 45624,
+      "sha256": "f16a04e513d6195461d3fd0aac4a404430ef73c4be974c18918fb0b77c579bba"
+    },
+    {
+      "path": "world_after_v1/frames.json",
+      "bytes": 150968,
+      "sha256": "4e167130340e725b7b2ebfb940f15545788335ea15825c9a253f84207872c391"
+    },
+    {
+      "path": "world_after_v1/held_projection.json",
+      "bytes": 4707,
+      "sha256": "74e899161f99445b9808025b0d0d0b2698947f28b45eae7d420fbe7d6a83899f"
+    },
+    {
+      "path": "world_after_v1/hose_checks.json",
+      "bytes": 2327,
+      "sha256": "592e6f4bc1c1c6891a1e985d55d01948d6f42e1b92927a2cf6bfc82e9a33778c"
+    },
+    {
+      "path": "world_after_v1/installed_held_nozzle.png",
+      "bytes": 596788,
+      "sha256": "5cb838a78b7bbb6c192cf5c5ec3ba1d6ab4dc31d4501d01d5fd253dd8bdaf679"
+    },
+    {
+      "path": "world_after_v1/last_position.png",
+      "bytes": 922734,
+      "sha256": "3693375293f6644352ff0eb44b026a7e848fd85d1d09952a703a0192250099d5"
+    },
+    {
+      "path": "world_after_v1/release_support.json",
+      "bytes": 232,
+      "sha256": "96f65432401dbcf27d4e32f88c012c0fc29e2889260edc345f96a76d31265ffb"
+    },
+    {
+      "path": "world_after_v1/route.json",
+      "bytes": 1542,
+      "sha256": "f88cf0ec3b7e50cf7ef2ba38a8984c9139a9cde63377fbe1a83bbec9a09ddf0e"
+    },
+    {
+      "path": "world_after_v1.log",
+      "bytes": 4076,
+      "sha256": "4621bbd307e4d522073401c1783b089c3d637b89adfa17053ee5a2f2c67675e9"
+    },
+    {
+      "path": "world_after_v1.log.receipt.json",
+      "bytes": 2732,
+      "sha256": "66881a27fff2b3fe4b89d82145b55096279aa1ca145a4bbea2271a4dbda41626"
+    },
+    {
+      "path": "world_after_v1.log.stderr",
+      "bytes": 409,
+      "sha256": "cdbbe0356fb19d1242b3b14993c62b16f699814c7d6cab5d2200990cc1bd6bc8"
+    },
+    {
+      "path": "world_after_v2/frames.json",
+      "bytes": 227378,
+      "sha256": "6a7d5659a56ccdc5f168bdc19e0bd39cdcca970123a411f03234eb71db293e43"
+    },
+    {
+      "path": "world_after_v2/held_projection.json",
+      "bytes": 4730,
+      "sha256": "5510ca1a6d7aadb3b007671a3c5567e88106de5acdd7f3fbe8c51656b0e55cc1"
+    },
+    {
+      "path": "world_after_v2/hose_checks.json",
+      "bytes": 2326,
+      "sha256": "6642a082fbfdd88c6cd322e10912db8aa5079bd04243d729986818224e8a4b3f"
+    },
+    {
+      "path": "world_after_v2/installed_held_nozzle.png",
+      "bytes": 598351,
+      "sha256": "b148ba44d68ec8992e2224121d4e83e7298ba38f66f5f3721972aa850ec6cde6"
+    },
+    {
+      "path": "world_after_v2/last_position.png",
+      "bytes": 819223,
+      "sha256": "68b6e331da69341949d05056ecf8a1c30265b1b99e6a72a76b9bb98ba6081ec4"
+    },
+    {
+      "path": "world_after_v2/release_support.json",
+      "bytes": 228,
+      "sha256": "a1b4fc9e9a82ef416b0947a37d618cb8bf23650559cf59bff386c08d6b9cf844"
+    },
+    {
+      "path": "world_after_v2/route.json",
+      "bytes": 1543,
+      "sha256": "e85c981b6ed9bb7dcc891a3faf0c914a7ee8ffb947120968a785c20e115ebc13"
+    },
+    {
+      "path": "world_after_v2.log",
+      "bytes": 4268,
+      "sha256": "515f96cdf89af6b305a83409c77b89fc05a56419bcfd5fb5cd0cde80ed56ee41"
+    },
+    {
+      "path": "world_after_v2.log.receipt.json",
+      "bytes": 2700,
+      "sha256": "cc4688b7152a698dd10072e5a22a42df1f0817d0c8585e73cba8791f5ef685a5"
+    },
+    {
+      "path": "world_after_v2.log.stderr",
+      "bytes": 554,
+      "sha256": "5bde703b36edecb4df1b88f270eb0988dcb2109fc189bdc6f0555264a37923bd"
+    },
+    {
+      "path": "world_after_v3/held_projection.json",
+      "bytes": 4694,
+      "sha256": "c323f5856121ba0f9ebfc9dfcceecf7d3355caf00fd70624eba123c9a4d38237"
+    },
+    {
+      "path": "world_after_v3/hose_checks.json",
+      "bytes": 2326,
+      "sha256": "6642a082fbfdd88c6cd322e10912db8aa5079bd04243d729986818224e8a4b3f"
+    },
+    {
+      "path": "world_after_v3/installed_held_nozzle.png",
+      "bytes": 599382,
+      "sha256": "3a774a35d9576101b6662020f5b5059bb4559889fdaaf1265c82426412fffbf8"
+    },
+    {
+      "path": "world_after_v3/installed_spray.png",
+      "bytes": 820744,
+      "sha256": "0e6aa7013ee863c0c3ae4cba34553d0c5d7a724c3971b1aabdf39335aa4ba226"
+    },
+    {
+      "path": "world_after_v3/release_support.json",
+      "bytes": 229,
+      "sha256": "814e5661dca76f553f7e50c339454368d91747ee15820be1ad035c835c080144"
+    },
+    {
+      "path": "world_after_v3/remote_nozzle_inspection.png",
+      "bytes": 1104251,
+      "sha256": "3fdf4fc8643de9b3fc0722e79fa7231b54a691dcf0acbf7b0f253d4d91b40efb"
+    },
+    {
+      "path": "world_after_v3/remote_state.json",
+      "bytes": 1623,
+      "sha256": "bd6be5e83aa3ee93c8ce8fc9cc867a4bad7b5c63ed62f1a6980f8cbe4519fc74"
+    },
+    {
+      "path": "world_after_v3.log",
+      "bytes": 5706,
+      "sha256": "5caf53da307eb491bd7e65ebd8179ac06f89c2ef37656376e090039d7b0d5574"
+    },
+    {
+      "path": "world_after_v3.log.receipt.json",
+      "bytes": 2680,
+      "sha256": "cb38162c8abbefcfbc4bb28adbe7613b1571f35cd067c3d69648955a074043c3"
+    },
+    {
+      "path": "world_after_v3.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "world_after_v4/analysis.json",
+      "bytes": 25364,
+      "sha256": "255ffa0eecb621b5c25c1006882084fa969bf1ac3cd1b06cf3fac3bc14af4a65"
+    },
+    {
+      "path": "world_after_v4/frames.json",
+      "bytes": 257816,
+      "sha256": "78298e83561775b109a2a566e565cabee1452c92efed67dac4e897c208494096"
+    },
+    {
+      "path": "world_after_v4/frames_before_rebuild.json",
+      "bytes": 263495,
+      "sha256": "afd21e624a81865502ea6cdebf535fa453e55f5fe8cafacf5571a5dd2ea8a28a"
+    },
+    {
+      "path": "world_after_v4/held_projection.json",
+      "bytes": 4712,
+      "sha256": "dbcd2672ab9b0f82e3c6c90b8ae40241d341d926cb7e25be644cd2801c99bed2"
+    },
+    {
+      "path": "world_after_v4/hose_checks.json",
+      "bytes": 25862,
+      "sha256": "5cc4406791ce4177be059680e0114f19688e71ce9236b3272208b9eda9e2e643"
+    },
+    {
+      "path": "world_after_v4/installed_held_nozzle.png",
+      "bytes": 594405,
+      "sha256": "458437a6a12c72b4bc0f76e5f5bb2a25a89085bf58c7384237a7a2edc62bef7a"
+    },
+    {
+      "path": "world_after_v4/installed_spray.png",
+      "bytes": 837959,
+      "sha256": "7829d8594575e17af6d07e979e7660665f396a469c2079d91443c49d621dead6"
+    },
+    {
+      "path": "world_after_v4/last_position.png",
+      "bytes": 1314594,
+      "sha256": "9659bbf05e7f55c1b7f6b2bd1846b285c3578c56f9168b5fa4a33242aeb76efb"
+    },
+    {
+      "path": "world_after_v4/pre_rebuild_copy.json",
+      "bytes": 414,
+      "sha256": "57be5181b68fe3827744df803f2d221da5613f1bdee9a550dfe6d56f6610ac98"
+    },
+    {
+      "path": "world_after_v4/rebuild_comparison.json",
+      "bytes": 3731,
+      "sha256": "2342e9ceecb917fc3f91dbf0a37dce9de7f66cadd07f57989527b93cd0e5482a"
+    },
+    {
+      "path": "world_after_v4/release_support.json",
+      "bytes": 233,
+      "sha256": "d88ed7b8de7debffba660cd1e55b92ac568264d383079bd31dc23a011593c155"
+    },
+    {
+      "path": "world_after_v4/remote_nozzle_inspection.png",
+      "bytes": 1100694,
+      "sha256": "56b674a7623af83b625a1b9fcb0c7e33598d515be86dc61bfa96a8fec27837db"
+    },
+    {
+      "path": "world_after_v4/remote_state.json",
+      "bytes": 1669,
+      "sha256": "c9d9cede7224ffb4b6f34548c4a0f99a1e8777e4218aba20a289e1d8b8b371c0"
+    },
+    {
+      "path": "world_after_v4/route.json",
+      "bytes": 3194,
+      "sha256": "5a5025d42868c4444b417a47c92e8439dd87e690f474c730edd2d83c6539ff96"
+    },
+    {
+      "path": "world_after_v4.log",
+      "bytes": 7405,
+      "sha256": "2a89c8aabec84445e2b62babc64ba0082f934fd5e6878cf5246a8a0d2556d418"
+    },
+    {
+      "path": "world_after_v4.log.receipt.json",
+      "bytes": 2650,
+      "sha256": "fbe1219c46a37402bb6010dd7958dbfee870be151750d696867bd6f179896e35"
+    },
+    {
+      "path": "world_after_v4.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "world_hand_before/frames.json",
+      "bytes": 97850,
+      "sha256": "774674b8762aab12b3d328af1ca1d2419b55f95167c00eceff9f2387a614dcd0"
+    },
+    {
+      "path": "world_hand_before/held_projection.json",
+      "bytes": 5207,
+      "sha256": "4a64e3f0c0fc667f57a60dcb76e3223e0baf47f4d736ba74c6747f38b573d79d"
+    },
+    {
+      "path": "world_hand_before/hose_checks.json",
+      "bytes": 9814,
+      "sha256": "0518e344b5ceedc3d82151ce98e7c9a75020673fcafc6ecc1c93a7e321d4efc3"
+    },
+    {
+      "path": "world_hand_before/installed_held_nozzle.png",
+      "bytes": 600094,
+      "sha256": "b0aefac1b10e837a97d42bf835f1e9e2e06571fa33be63761abceee71872ce6a"
+    },
+    {
+      "path": "world_hand_before/last_position.png",
+      "bytes": 598436,
+      "sha256": "9058c2f22745125af1eb906ae1afe310195cce8025df4a24648ba1a419b4ba05"
+    },
+    {
+      "path": "world_hand_before/route.json",
+      "bytes": 1477,
+      "sha256": "c8afb97ff99d7417180ceb406afc0ca983a8240579362e858e2019ec50ee3574"
+    },
+    {
+      "path": "world_hand_before.log",
+      "bytes": 3431,
+      "sha256": "cab7692d2971b036ce1f3fed54616a68a9016e232edec45c5a019cd0484ce888"
+    },
+    {
+      "path": "world_hand_before.log.receipt.json",
+      "bytes": 2896,
+      "sha256": "1da59761ce7877e3ae775ad33c7afef447f8746c392695227b89ce088e9dec84"
+    },
+    {
+      "path": "world_hand_before.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

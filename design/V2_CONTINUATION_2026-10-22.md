@@ -12,6 +12,22 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest hose repair: **V2_HOSE_RELEASE_SUPPORT_2026-10-23.md**. The near hose now
+crosses below the cabinet instead of obscuring the held nozzle. Ordinary release
+uses a one-time real-support placement, with no resting simulation. Space retains
+the static borrowed inspection view. A reproduced holder-capsule lever jam is
+fixed by excluding only that holder during borrowed nozzle inspection; external
+solids and ordinary cabinet inspection retain protection. **hand_final_v1** passes
+68 controls; **world_after_v4** passes ten walked waypoints and40 checks with real
+disk/world reconstruction, empty stderr; legacy/invalid-save fixture also passes.
+Prior overhead, aiming-helper and actual capsule failures remain preserved.
+**world_after_v3** was closed by the owner during reconstruction, not a proved
+engine crash. Final route p50/p95/p99/max39.040/53.794/83.898/240.938ms; the changed
+operation sequence does not support a causal performance comparison. First real
+floor placement927us; held follow p95.384ms. Broader stutter diagnosis, full payout,
+maintenance inputs, all-station/surface/runtime and human qualification remain.
+
+
 Newest installed rendering batch: **V2_SERVICE_SHADOW_DISTANCE_2026-10-23.md**.
 Owner-authorized source-light culling fades from4 to8m, then explicitly avoids
 distant shadow submissions while respecting the active camera, live mirror and

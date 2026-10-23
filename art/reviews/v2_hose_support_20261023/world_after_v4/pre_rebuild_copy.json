@@ -1,0 +1,9 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exact-byte preservation of test-written frames before normal final serialization overwrites frames.json. No new runtime qualification.",
+  "original": "frames.json",
+  "copy": "frames_before_rebuild.json",
+  "sha256": "afd21e624a81865502ea6cdebf535fa453e55f5fe8cafacf5571a5dd2ea8a28a",
+  "capture_stage": "before_world_rebuild",
+  "player_physics_samples": 13
+}

@@ -107,6 +107,8 @@ func inspect_operate(hand: Node, part: Node3D, point: Vector3, goal: float) -> b
 		if player._grab.active():click()
 		return false
 	var moved: bool=await hand.move_to(goal)
+	if not moved:
+		print("INSPECTION MOTION FAILURE: goal=",goal," actual=",player._grab.target.read.call() if player._grab.active() else "released"," owner_obstruction=",player._grab.target.owner.get("last_hand_obstruction") if player._grab.active() else {})
 	if player._grab.active():click()
 	return moved
 func diagnose_joint(actor: Node3D) -> void:

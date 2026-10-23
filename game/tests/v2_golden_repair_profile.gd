@@ -25,10 +25,13 @@ func _route() -> void:
 	profile_active=true
 	await _play_route()
 	profile_active=false
+	_write_profile("route_returned")
+
+func _write_profile(stage: String) -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
 		DirAccess.make_dir_recursive_absolute(directory)
-		FileAccess.open(directory.path_join("frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","kind":"performance_diagnostic","resolution":str(get_viewport().get_visible_rect().size),"vsync":false,"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","engine_monitors"],"capture_control":capture_control,"capture_samples":capture_samples,"samples":profile_samples,"player_physics":player.physics_profile_records,"step_guard_rejections":player.step_guard_rejections,"failures":failures},"\t"))
+		FileAccess.open(directory.path_join("frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","kind":"performance_diagnostic","capture_stage":stage,"resolution":str(get_viewport().get_visible_rect().size),"vsync":false,"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","engine_monitors"],"capture_control":capture_control,"capture_samples":capture_samples,"samples":profile_samples,"samples_player_generation":"walked_world","player_physics":player.physics_profile_records,"step_guard_rejections":player.step_guard_rejections,"failures":failures},"\t"))
 
 func _walk(target: Vector3) -> bool:
 	profile_phase=profile_cycle+"walk_"+str(target)

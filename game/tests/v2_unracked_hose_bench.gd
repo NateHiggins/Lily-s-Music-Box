@@ -198,6 +198,10 @@ func _aim_nozzle_surface(actor: Node3D,joint: Node3D,allow_reposition:=true) -> 
 			player.global_position=center+offset-player.camera.position
 			player.camera.look_at(center)
 			await get_tree().physics_frame;await get_tree().physics_frame
+		# A released nozzle can now be below an eye still facing the cabinet.
+		# Face it before projected-area filtering; otherwise every face can be
+		# rejected as behind the old view without ever exercising the real ray.
+		await aim(center)
 		var candidates: Array[Dictionary]=[]
 		for index in range(0,faces.size(),3):
 			var a: Vector3=barrel.to_global(faces[index]);var b: Vector3=barrel.to_global(faces[index+1]);var c: Vector3=barrel.to_global(faces[index+2])

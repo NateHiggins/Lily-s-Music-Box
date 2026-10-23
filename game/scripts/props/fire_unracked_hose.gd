@@ -49,6 +49,7 @@ var last_hand_debug: Dictionary={}
 var _hold_frame: int=-1
 var _last_hold_usec: int=0
 var _carrier: WeakRef
+var _inspection_holder: WeakRef
 var _auxiliary_contacts: Array[Dictionary]=[]
 var _cover: PhysicsBody3D
 var _cover_stock_added:=false
@@ -60,6 +61,7 @@ var visual_route: RefCounted=preload("res://scripts/props/hose_visual_route.gd")
 var water:=preload("res://scripts/props/hose_water_charge.gd").new()
 var _spray: GPUParticles3D
 var _charge_dirty:=false
+var release_support:=preload("res://scripts/props/hose_release_support.gd").new()
 
 func deployment_snapshot() -> Dictionary:
 	var pose: Transform3D=joint.receiver
@@ -222,6 +224,7 @@ func configure_visual(owner_actor: Node3D,asset_path: String) -> bool:
 	actor=owner_actor;joint=actor._nozzle_joint;_receiver=joint.receiver
 	_extracted_receiver=_receiver;_extracted_receiver.origin+=Vector3.BACK*EXTRACTION_M
 	if not _configure_skin(asset_path):return false
+	release_support.prepare(self)
 	visual_route=preload("res://scripts/props/hose_cabinet_route.gd").new()
 	visual_route.model_to_actor=model.transform
 	var up: Vector3=(model.global_basis.inverse()*Vector3.UP).normalized()
@@ -420,6 +423,7 @@ func _begin_hose() -> bool:
 	error="";tether.blocked=false;tether.limited=false;return true
 
 func _bind_hose_holder(holder: Node3D) -> void:
+	_inspection_holder=null
 	_hold_frame=-1;_last_hold_usec=0
 	_clear_cover_passage();_clear_auxiliary_contacts();_carrier=weakref(holder);_refresh_cover_passage()
 	if holder is not PhysicsBody3D:return
@@ -718,6 +722,21 @@ func _commit_motion() -> void:
 	joint.receiver=receiver;joint.sync();error=""
 
 func _release() -> void:
+	var holder: Node3D=_carrier.get_ref() if _carrier!=null else null
+	# Inspection borrows the hand after setting its active state. Preserve its
+	# static mechanism view; an ordinary release instead places the nozzle once.
+	if visual_follow_enabled and deployed and not joint.loose and is_instance_valid(holder):
+		if holder.has_method("inspecting") and holder.inspecting():_inspection_holder=weakref(holder)
+		else:_inspection_holder=null;release_support.place(self,holder)
 	_clear_cover_passage();_clear_auxiliary_contacts();_carrier=null
 	if contact.ready:contact.set_exclusions(_contact_exclusions)
 	tether.cancel_motion();set_process(false);actor._release()
+
+func inspection_control_exclusions() -> Array[RID]:
+	# The same pickup bookmark that restores the shared hand authorizes this
+	# narrow self-body exclusion. Ordinary cabinet inspection does not.
+	var holder: Node3D=_inspection_holder.get_ref() if _inspection_holder!=null else null
+	if joint.loose or not is_instance_valid(holder) or not holder.has_method("inspecting") or not holder.inspecting() or holder.inspect_owner!=actor:return []
+	var pickup: Dictionary=holder._inspect_pickup
+	if pickup.get("owner")!=actor or pickup.get("part")!=actor._play_pipe or holder is not CollisionObject3D:return []
+	return [holder.get_rid()]

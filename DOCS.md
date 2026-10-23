@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Supported hose release, clear FPS routing and actual-input checks | `design/V2_HOSE_RELEASE_SUPPORT_2026-10-23.md` |
 | Installed distance culling for service lights, mirror protection and paired frame times | `design/V2_SERVICE_SHADOW_DISTANCE_2026-10-23.md` |
 | Controlled cabinet geometry and service-light shadow rendering costs | `design/V2_HOSE_RENDER_ATTRIBUTION_2026-10-23.md` |
 | Installed extended hose, sustained charge, cabinet clearance and world disk reconstruction | `design/V2_HOSE_PRODUCTION_DEPLOYMENT_2026-10-23.md` |

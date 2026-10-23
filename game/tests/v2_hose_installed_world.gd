@@ -67,15 +67,31 @@ func _play_route() -> void:
 	_write_checks()
 	if not aligned:return
 	await _picture("installed_held_nozzle")
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("held_projection.json"),FileAccess.WRITE).store_string(JSON.stringify(helper.hand_projection(actor,hose),"\t"))
+	if OS.get_environment("V2_HOSE_HAND_REVIEW_ONLY")=="1":
+		hose_motion=hose.motion_profile_records.duplicate(true);_write_checks();return
+	profile_phase="close_held_nozzle_input"
+	helper.key(KEY_SPACE)
+	if not _check(player.inspecting(),"held nozzle enters static free-cursor inspection before release"):return
+	if not _check(await helper.inspect_operate(driver,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),0.),"actual held nozzle lever closes before floor placement"):return
+	helper.key(KEY_ESCAPE)
+	profile_phase="release_to_floor"
 	helper.click()
+	if not _check(hose.release_support.last_result.get("placed",false),"ordinary release places the installed nozzle on real floor support"):return
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("release_support.json"),FileAccess.WRITE).store_string(JSON.stringify(hose.release_support.last_result,"\t"))
 	profile_phase="charge_control_input"
 	await helper.aim(actor._tag.to_global(Vector3(0,0,.0035)));helper.click();helper.key(KEY_SPACE)
 	if not _check(player.inspecting(),"actual tag grab enters the supported mechanism view"):return
-	if not _check(await helper.inspect_operate(driver,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),0.),"actual lever input closes the nozzle before charging"):return
 	if not _check(await helper.inspect_operate(driver,actor._valve_wheel,actor._valve_wheel.to_global(Vector3(.04,0,0)),TAU*2.),"actual supply-wheel input charges the installed hose"):return
 	profile_phase="first_fill"
 	await get_tree().create_timer(4.).timeout
 	if not _check(hose.water.pressure>.99 and hose.water.spray==0.,"installed closed nozzle holds full charge without spraying"):return
+	helper.key(KEY_ESCAPE)
+	if not _check(await helper._aim_nozzle_surface(actor,joint,false),"charged floor nozzle remains within reach from standing"):return
+	helper.click()
+	for frame in 3:await get_tree().process_frame
+	helper.key(KEY_SPACE)
+	if not _check(player.inspecting(),"charged nozzle returns to static inspection for its separate lever"):return
 	profile_phase="first_spray_input"
 	if not _check(await helper.inspect_operate(driver,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),-.95),"actual separate lever input starts first installed spray"):return
 	profile_phase="steady_spray"
@@ -84,6 +100,10 @@ func _play_route() -> void:
 	await _picture("installed_spray")
 	if not _check(await helper.inspect_operate(driver,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),0.),"actual nozzle lever stops spray"):return
 	await get_tree().create_timer(.7).timeout
+	helper.key(KEY_ESCAPE);helper.click()
+	if not _check(hose.release_support.last_result.get("placed",false),"charged nozzle can be set down again before closing supply"):return
+	await helper.aim(actor._tag.to_global(Vector3(0,0,.0035)));helper.click();helper.key(KEY_SPACE)
+	if not _check(player.inspecting(),"cabinet valve remains independently accessible after nozzle placement"):return
 	if not _check(await helper.inspect_operate(driver,actor._valve_wheel,actor._valve_wheel.to_global(Vector3(.04,0,0)),0.),"actual supply-wheel closure traps charge independently"):return
 	helper.key(KEY_ESCAPE)
 	if not _check(await helper._aim_nozzle_surface(actor,joint,false),"released deployed nozzle can be selected again at the unchanged standing stance"):return
@@ -92,6 +112,7 @@ func _play_route() -> void:
 		if not await _walk(point):return
 	if not _check(player._grab.holding_pickup() and not player.noclip and player.is_on_floor(),"charged hose follows ordinary standing walking and stair descent"):return
 	helper.click()
+	if not _check(hose.release_support.last_result.get("placed",false),"remote stair-carried nozzle rests on real floor support"):return
 	var wanted: Dictionary=actor.mechanism_snapshot()
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("remote_state.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","cabinet":wanted,"valid":actor.valid_mechanism(wanted),"nozzle_valid":joint.valid(wanted.nozzle,wanted.facts.nozzle_coupled),"hose_valid":hose.valid_deployment(wanted.hose)},"\t"))
 	if not _check(actor.valid_mechanism(wanted) and wanted.hose.deployed and wanted.hose.water.pressure>.99,"released remote charged hose has a valid household payload"):return
@@ -113,6 +134,7 @@ func _picture(name: String) -> void:
 
 func _save_reload(wanted: Dictionary) -> void:
 	profile_active=false
+	_write_checks();_write_profile("before_world_rebuild")
 	var previous_path: String=RealityState.save_path
 	var test_path: String="user://v2_hose_world_%d.json"%Time.get_ticks_usec()
 	RealityState.save_path=test_path
