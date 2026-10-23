@@ -10,6 +10,20 @@ var _unit := ""
 var _home := true
 
 
+class StubDevice extends Node:
+	var powered := true
+	var printed: Array = []
+	func radio_is_powered() -> bool:
+		return powered
+	func print_telegram_card(card: Variant) -> bool:
+		printed.append(card)
+		return true
+
+
+class StubPlayer extends Node:
+	var carried_device: Node
+
+
 func _check(label: String, ok: bool) -> void:
 	print("RESIDENT CONVERSATION: ", label, " = ", ok)
 	if not ok:
@@ -47,6 +61,18 @@ func _run() -> void:
 	var nobody: Dictionary = director.knock("4A")
 	_check("a knock on an empty flat files a slip and opens nothing",
 			str(nobody.get("body", "")).contains("NO ANSWER") and not panel.attention_active())
+	_check("the first unanswered knock is the handheld note about hours",
+			str(nobody.get("body", "")).contains("THEY KEEP HOURS") and str(nobody.get("title", "")) == "UNIT 4A"
+			and RealityState.has_knowledge("note:first_knock_unanswered"))
+	var again: Dictionary = director.knock("4A")
+	_check("the second unanswered knock is the plain slip",
+			str(again.get("body", "")).contains("NO ANSWER") and not str(again.get("body", "")).contains("HOURS"))
+	for note_id in director.notes:
+		var widest := 0
+		for line in str(director.field_note(note_id, "4A").body).split("\n"):
+			widest = maxi(widest, line.length())
+		_check("note %s fits the printer's thirty columns" % note_id, widest <= 30)
+	_check("both notes loaded", director.notes.has("first_conversation") and director.notes.size() == 2)
 	_home = true
 	_check("a knock on an occupied flat opens the conversation",
 			director.knock("4A").is_empty() and panel.attention_active()
@@ -101,6 +127,26 @@ func _run() -> void:
 	_check("after integration the resident is resolved for good",
 			director.entry_for("peter_wren") == "resolved"
 			and RealityState.has_knowledge("peter_wren:integration"))
+
+	# --- the first conversation's handheld note -------------------------------------
+	var stub_player := StubPlayer.new()
+	var stub_device := StubDevice.new()
+	stub_player.carried_device = stub_device
+	add_child(stub_player)
+	add_child(stub_device)
+	stub_device.powered = false
+	_check("a dead set prints nothing and the note stays pending",
+			not director.file_note("first_conversation", stub_player)
+			and director.note_pending("first_conversation") and stub_device.printed.is_empty())
+	stub_device.powered = true
+	_check("a powered set prints the note once",
+			director.file_note("first_conversation", stub_player)
+			and stub_device.printed.size() == 1
+			and str(stub_device.printed[0].get("body", "")).contains("NOUGHT IS ALSO AN ANSWER")
+			and not director.file_note("first_conversation", stub_player)
+			and stub_device.printed.size() == 1)
+	_check("ending a conversation files it through the knock's player",
+			not director.note_pending("first_conversation"))
 
 	# --- the campaign remembers --------------------------------------------------
 	var snapshot: Dictionary = RealityState.data.duplicate(true)

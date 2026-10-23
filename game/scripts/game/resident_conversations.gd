@@ -50,6 +50,13 @@ const TREE_PATHS: Array[String] = [
 	"res://data/dialogue/transient_guests.json",
 ]
 const SCHEDULES_PATH := "res://data/resident_schedules.json"
+## Handheld field notes (Bible VIII.5.l, design/DIRECT_MANIPULATION_2026-10-12.md):
+## opaque messages on the service set's slip printer, each printed once per
+## campaign and only while the radio is powered. They never explain how to
+## operate a thing (the cursor does that). Thirty columns; illustrations are
+## crude on purpose; {unit} is replaced with the apartment number.
+const NOTES_PATH := "res://data/field_notes.json"
+const NOTE_PREFIX := "note:"
 
 ## Trust at which a resident moves on from first contact, and at which the one
 ## quiet integration beat is offered. Mina's case uses its own stages.
@@ -59,6 +66,8 @@ const INTEGRATION_TRUST := 6
 var dialogue: CaseDialoguePanel
 var trees: Dictionary = {}
 var units: Dictionary = {}
+var notes: Dictionary = {}
+var _last_player: Node = null
 var errors: Array[String] = []
 var _unit_resolver: Callable = Callable()
 var _home_resolver: Callable = Callable()
@@ -77,6 +86,7 @@ func setup(panel: CaseDialoguePanel, player_unit := Callable(),
 		dialogue.tree_ended.connect(_on_tree_ended)
 	_load_units()
 	_load_trees()
+	_load_notes()
 
 
 func _ready() -> void:
@@ -121,7 +131,8 @@ func player_unit() -> String:
 ## A knock at an apartment door. Whoever is home answers; two residents
 ## alternate by who has been spoken to less. Returns a field slip only when
 ## nobody answers, so the carried set files the silence and nothing else.
-func knock(unit: String, _player: Node = null) -> Dictionary:
+func knock(unit: String, player: Node = null) -> Dictionary:
+	_last_player = player
 	var candidates: Array = []
 	for resident_id in residents_in(unit):
 		if is_home(resident_id):
@@ -131,6 +142,11 @@ func knock(unit: String, _player: Node = null) -> Dictionary:
 	for resident_id in candidates:
 		if start(resident_id):
 			return {}
+	# The first unanswered knock is the handheld note about hours; the slip
+	# is the printed thing itself, so the note is marked filed on return.
+	if note_pending("first_knock_unanswered"):
+		RealityState.grant_knowledge(NOTE_PREFIX + "first_knock_unanswered")
+		return field_note("first_knock_unanswered", unit)
 	return {"title": "UNIT %s" % unit,
 			"body": "KNOCKED STOP NO ANSWER STOP",
 			"condition": "DOOR CLOSED / NOBODY HOME",
@@ -224,8 +240,45 @@ func _on_tree_ended() -> void:
 		return
 	var resident_id := _active_resident
 	_active_resident = ""
+	if note_pending("first_conversation"):
+		file_note("first_conversation", _last_player)
 	RealityState.commit()
 	conversation_ended.emit(resident_id)
+
+
+## --- field notes ---------------------------------------------------------
+
+func note_pending(note_id: String) -> bool:
+	return notes.has(note_id) and not RealityState.has_knowledge(NOTE_PREFIX + note_id)
+
+
+## The card as the printer receives it: title, body, condition, stamp.
+func field_note(note_id: String, unit := "") -> Dictionary:
+	var note: Dictionary = notes.get(note_id, {})
+	if note.is_empty():
+		return {}
+	return {"title": str(note.get("title", "")).replace("{unit}", unit),
+		"body": str(note.get("body", "")).replace("{unit}", unit),
+		"condition": str(note.get("condition", "")),
+		"stamp": str(note.get("stamp", "SERVICE NOTE"))}
+
+
+## Print a note on the player's carried service set. Device power governs
+## its messages: an unpowered set prints nothing and the note stays pending.
+func file_note(note_id: String, player: Node) -> bool:
+	if not note_pending(note_id) or player == null or not is_instance_valid(player):
+		return false
+	var device: Variant = player.get("carried_device")
+	if device == null or not is_instance_valid(device) \
+			or not device.has_method("print_telegram_card") \
+			or not device.has_method("radio_is_powered"):
+		return false
+	if not bool(device.call("radio_is_powered")):
+		return false
+	if not bool(device.call("print_telegram_card", field_note(note_id))):
+		return false
+	RealityState.grant_knowledge(NOTE_PREFIX + note_id)
+	return true
 
 
 ## --- loading ------------------------------------------------------------
@@ -239,6 +292,20 @@ func _load_units() -> void:
 		return
 	for resident_id in schedules.residents:
 		units[str(resident_id)] = str(schedules.residents[resident_id].get("unit", ""))
+
+
+func _load_notes() -> void:
+	notes.clear()
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(NOTES_PATH))
+	if parsed is not Dictionary or parsed.get("notes") is not Dictionary:
+		errors.append("field notes unreadable: %s" % NOTES_PATH)
+		return
+	for note_id in parsed.notes:
+		var note: Dictionary = parsed.notes[note_id]
+		if str(note.get("title", "")) == "" or str(note.get("body", "")) == "":
+			errors.append("field note %s has no title or body" % note_id)
+			continue
+		notes[str(note_id)] = note
 
 
 func _load_trees() -> void:

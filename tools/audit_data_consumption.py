@@ -78,6 +78,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "orison_v2/mina_routine.json": frozenset({"places"}),
     # ResidentConversations/CaseDialoguePanel: nodes[node_id] by authored id;
     # every record field (line, role, choices, silence_goto, flag...) is read by name.
+    # Field notes are keyed by note id; the director reads each note's fields.
+    "field_notes.json": frozenset({"notes"}),
     "dialogue/cal_dwyer.json": frozenset({"nodes"}),
     "dialogue/cam_ortiz.json": frozenset({"nodes"}),
     "dialogue/evelyn_marsh.json": frozenset({"nodes"}),

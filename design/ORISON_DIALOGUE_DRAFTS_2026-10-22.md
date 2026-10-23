@@ -126,6 +126,13 @@ A mail delivery may carry `knowledge` (granted when taken) and a `when`
 condition `min_conversations`, the player's knocks-and-talks counted across
 every resident, so the post arrives once the building has started talking.
 
+Two handheld field notes (`game/data/field_notes.json`, Bible VIII.5.l)
+print on the service set, once per campaign and only while the radio is
+powered: the first unanswered knock returns the note about hours in place of
+the plain slip, and the first conversation's end prints the note about
+numbered replies, silence and what can be said only in the room. Neither
+explains how to operate anything; the cursor does that.
+
 A node may grant more than one flag on arrival: `flag` (one name) and
 `flags` (a list) are both honoured by the panel and validated at load.
 `WorldFlagTest` drives all six grants headless and checks that the replies
@@ -209,7 +216,8 @@ button chrome; `ResidentConversationTest` drives it headless.
 Not done, by design: no case is promoted and no door activates one; Mina's
 lines are unedited (two `requires` replies were added to existing nodes and
 her gameplay grants one world flag by node id). Still unwired in V2: the
-laundry room's station legend (no such fitting exists yet) and the mail
-bank's empty 3C slot; both flags now also arrive by post; the knock has no
+laundry room's station legend (no such fitting exists yet); the mail bank's
+empty 3C slot stays uncontrolled because a nameless box cannot teach a name
+and the post now carries it; the knock has no
 answering animation or voice. Cases are still reviewed one at a time with
 the owner before any of the five case trees is promoted to case gameplay.
