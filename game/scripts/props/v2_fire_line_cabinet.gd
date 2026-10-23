@@ -31,6 +31,7 @@ var _gasket_body: RigidBody3D
 var _nozzle_joint: Node3D
 var rubber_dressed := false
 var _undressed_rubber: Material
+var _live_hose: Node3D
 
 func try_dress_gasket(items: MaintenanceInventory, contact: Vector3) -> bool:
 	if rubber_dressed or items==null or not items.has_item("fire_hose_rubber_protectant") \
@@ -213,9 +214,15 @@ func _maximum(id: String) -> float:
 	match id:
 		"door": return 1.78
 		"tag": return 1.0
-		"valve": return .025
+		"valve": return TAU*2. if is_instance_valid(_live_hose) and _live_hose.deployed else .025
 		"joint": return TAU*.008/float(_joint_stock.data.dimensions.pitch_m)
 	return 0.0
+
+func hose_supply_opening() -> float:
+	# Retain the original 25 mrad spindle play as closed-seat travel. Tiny
+	# accepted angles inside that play cannot create a permanent trickle.
+	if not is_instance_valid(_live_hose) or not _live_hose.deployed:return 0.
+	return clampf((_wheel_angle-.025)/(TAU*2.-.025),0.,1.)
 
 func _claim(id: String) -> bool:
 	if not _hands_ready or not _hand.is_empty(): return false
@@ -246,7 +253,7 @@ func _move_hand_part(id: String, value: float) -> void:
 	var steps: int = maxi(1,ceili(absf(value-before)/.01))
 	var accepted: float = before
 	for step in range(1,steps+1):
-		var proposed: float = lerpf(before,value,float(step)/steps)
+		var proposed: float = value if step==steps else lerpf(before,value,float(step)/steps)
 		if _obstructed(id,proposed): break
 		accepted = proposed
 	if id=="door":
@@ -258,6 +265,7 @@ func _move_hand_part(id: String, value: float) -> void:
 	elif id=="joint":
 		_union_angle=accepted;coupling_made_up=absf(accepted-_minimum("joint"))<.0001;_observed_coupled=coupling_made_up
 	_apply_hand_pose()
+	if is_instance_valid(_live_hose):_live_hose.water_controls_changed()
 
 func _obstructed(id: String, value: float) -> bool:
 	var part: Node3D = _part(id)
@@ -310,7 +318,7 @@ func _physics_process(delta: float) -> void:
 		var before: float = _tag_angle
 		_move_hand_part("tag",_tag_angle+_tag_velocity*delta)
 		if _tag_angle<=0.0 or is_equal_approx(before,_tag_angle): _tag_velocity=0.0
-	if _hand!="valve" and _wheel_angle>0.0:
+	if _hand!="valve" and _wheel_angle>0.0 and not (is_instance_valid(_live_hose) and _live_hose.deployed):
 		_move_hand_part("valve",move_toward(_wheel_angle,0.0,delta*.2))
 
 func _refresh_cabinet() -> void:
@@ -325,7 +333,15 @@ func _refresh_cabinet() -> void:
 		_apply_hand_pose(); _observed_open = door_open; _observed_shut = nozzle_shut;_observed_coupled=coupling_made_up
 
 func inspection_view() -> Dictionary:
+	if is_instance_valid(_live_hose) and _live_hose.deployed:
+		return {"from":to_global(Vector3(-.10,.60,1.10)),"at":to_global(Vector3(.04,.35,.15)),"fov":60.0}
 	return {"from":to_global(Vector3(-.10,.80,.85)),"at":to_global(Vector3(.04,.43,.10)),"fov":50.0}
+
+func inspection_view_for(part: Node3D) -> Dictionary:
+	if is_instance_valid(_live_hose) and _live_hose.deployed and (part==_play_pipe or _play_pipe.is_ancestor_of(part)):
+		var camera:=get_viewport().get_camera_3d()
+		return {"from":camera.global_position,"at":camera.global_position-camera.global_basis.z,"fov":50.}
+	return inspection_view()
 
 func flexible_outlet_hose_points() -> Dictionary:
 	var fold: MeshInstance3D=_fold_leaves.back()

@@ -56,12 +56,59 @@ var _contact_exclusions: Array[RID]=[]
 var _local_follow:=preload("res://scripts/props/round_local_endpoint.gd").new()
 var visual_follow_enabled:=false
 var visual_route:=preload("res://scripts/props/hose_visual_route.gd").new()
+var water:=preload("res://scripts/props/hose_water_charge.gd").new()
+var _spray: GPUParticles3D
 
 func enable_visual_follow() -> void:
 	# Owner-authorized approximation supersedes physical full-payout solves.
 	# Maintenance fittings retain their existing separate mechanical owners.
 	tether.cancel_motion();set_process(false);visual_follow_enabled=true
 	fps_aim_enabled=true;fps_once_per_frame=true;error=""
+	actor._live_hose=self
+	if not actor.manipulation_changed.is_connected(water_controls_changed):actor.manipulation_changed.connect(water_controls_changed)
+	if deployed:rig.apply_points(rig.strand.points,water.pressure)
+	water_controls_changed()
+
+func water_controls_changed() -> void:
+	if not visual_follow_enabled or not deployed:return
+	var connected: bool=actor.gasket_seated and actor.coupling_made_up and actor.nozzle_coupled
+	var needs_fill: bool=connected and actor.hose_supply_opening()>0.
+	var needs_drain: bool=water.fill>0. and (not connected or actor._lever_angle<-.0001)
+	if needs_fill or needs_drain or water.spray>0.:set_physics_process(true)
+
+func _physics_process(delta: float) -> void:
+	if not visual_follow_enabled or not deployed:set_physics_process(false);return
+	var connected: bool=actor.gasket_seated and actor.coupling_made_up and actor.nozzle_coupled
+	var supply: float=actor.hose_supply_opening()
+	var lever: float=0. if actor.nozzle_shut else clampf(-actor._lever_angle/.95,0.,1.)
+	var changed: bool=water.advance(delta,supply,lever,connected)
+	if changed:rig.apply_points(rig.strand.points,water.pressure)
+	if water.spray>0.001 and _spray==null:_make_spray()
+	if _spray!=null:
+		_spray.emitting=water.spray>.001
+		_spray.amount_ratio=clampf(water.spray,0.,1.)
+	# Stable pressure and GPU emission require no ongoing cloth/fluid tick.
+	set_physics_process(changed)
+
+func _make_spray() -> void:
+	_spray=GPUParticles3D.new();_spray.name="NozzleWater";_spray.emitting=false
+	_spray.local_coords=false
+	_spray.amount=384;_spray.lifetime=.65;_spray.fixed_fps=30
+	_spray.visibility_aabb=AABB(Vector3(-12,-12,-12),Vector3(24,24,24))
+	var process:=ParticleProcessMaterial.new();process.direction=Vector3.UP;process.spread=2.5
+	process.initial_velocity_min=11.;process.initial_velocity_max=13.;process.gravity=Vector3(0,-9.8,0)
+	process.particle_flag_align_y=true
+	process.scale_min=.5;process.scale_max=1.;_spray.process_material=process
+	var drop:=SphereMesh.new();drop.radius=.002;drop.height=.025;drop.radial_segments=8;drop.rings=4
+	var finish: StandardMaterial3D=MatLib.get_mat("water_clear").duplicate()
+	finish.uv1_triplanar=false;finish.uv1_scale=Vector3(.05,.10,1.)
+	finish.normal_enabled=true;finish.normal_scale=.1
+	finish.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+	finish.albedo_color=Color(.7,.85,1.,.5);finish.roughness=.12
+	drop.material=finish;_spray.draw_pass_1=drop
+	# Keep the physical body's shape-only child contract intact. The original
+	# play-pipe presentation already follows its authoritative rigid pose.
+	actor._play_pipe.add_child(_spray);_spray.position=Vector3(0,.171,0)
 
 func _visual_receiver(wanted: Transform3D) -> void:
 	var started: int=Time.get_ticks_usec()
@@ -71,7 +118,7 @@ func _visual_receiver(wanted: Transform3D) -> void:
 	var back: Vector3=(model.global_basis.inverse()*-wanted.basis.y).normalized()
 	var up: Vector3=(model.global_basis.inverse()*Vector3.UP).normalized()
 	var points: PackedVector3Array=visual_route.build(local_tip,back,rig.strand.anchor,rig.rest.size(),rig.strand.total_length,up,_guide_floor)
-	if points.is_empty() or not rig.apply_points(points):error="visual hose route unavailable";return
+	if points.is_empty() or not rig.apply_points(points,water.pressure):error="visual hose route unavailable";return
 	rig.strand.points=points
 	joint.receiver=actor.global_transform.affine_inverse()*wanted
 	joint.sync();error=""
@@ -323,6 +370,8 @@ func _clear_cover_passage() -> void:
 
 func _exit_tree() -> void:
 	_clear_cover_passage();_clear_auxiliary_contacts()
+	if is_instance_valid(actor) and actor._live_hose==self:actor._live_hose=null
+	if is_instance_valid(_spray):_spray.queue_free()
 
 func _hold_pose(view: Transform3D) -> void:
 	_refresh_cover_passage()
@@ -523,7 +572,7 @@ func _extract(value: float) -> void:
 		# Representation swap is discrete and authorized. Occupancy is checked
 		# afresh; no sweep from a completely different folded topology is faked.
 		if not contact.ready or contact.intersects_pose(_placement):error="unracked placement obstructed";return
-		if not rig.apply_points(_placement):error="unracked native skin unavailable";return
+		if not rig.apply_points(_placement,water.pressure if visual_follow_enabled else 1.):error="unracked native skin unavailable";return
 		rig.strand.points=_placement.duplicate();deployed=true;actor.hose_racked=false
 		for node: Node3D in _stored:
 			node.visible=false;node.set_process(false)

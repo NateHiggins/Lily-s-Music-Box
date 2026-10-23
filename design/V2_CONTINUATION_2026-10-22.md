@@ -182,3 +182,24 @@ gates running concurrently; no fair world performance comparison is claimed.
 The candidate remains uninstalled. **hose_water_charge.gd** is an untracked,
 untested fill/drain-response draft for the next water/flattening work, not an
 installed authority. Preserve the unrelated spatial dependency manifest.
+
+## Flat / charged / spraying candidate — 2026-10-23
+
+The visual-route checkpoint is committed and pushed as **7378f8fd**. Newer
+candidate work is detailed in **V2_HOSE_CHARGE_2026-10-23.md**. The former
+untested **hose_water_charge.gd** draft now drives tested native radial
+flattening, separate supply charging / nozzle-lever spray, static empty and
+charged states, closed-seat play and custom UV/PBR/mipped GPU water.
+**water_v9** passes actual input and missing-gasket denial with zero failures;
+**charge_coupling_regression** and **flat_payout_v1** also pass. Original
+water_v1–v7 failures remain. The old dry spindle return caused pressure loss;
+endpoint residues and inherited triplanar water were also fixed.
+
+Do not describe this as installed or saved. Next, connect deployment, supply,
+receiver, resting shape and charge to the original household authority,
+including nozzle validation against a saved receiver, legacy migration and
+actual save/rebuild. Publish/install the existing native candidate through its
+Blender owner, then run the occupied-world route and first/steady-spray timing.
+No new self-collision solver work. Reader remains33 NEW, spatial8/11 and
+systemic25 unchanged. Broad world stutter and all remaining V2 goals stay open.
+The unrelated spatial dependency manifest remains unstaged.

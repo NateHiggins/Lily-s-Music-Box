@@ -168,6 +168,7 @@ func _run() -> void:
 		for frame in 3:await get_tree().physics_frame
 		check(not player._grab.active() and not hose.tether.pending and hose.rig.strand.points==before_release,"second click cancels pending hose carry and preserves its accepted pose")
 		if OS.get_environment("ORISON_UNRACKED_FULL_PAYOUT")=="1" and failures.is_empty():await _full_payout(actor,hose,joint)
+		if OS.get_environment("ORISON_UNRACKED_WATER")=="1" and failures.is_empty():await preload("res://tests/v2_hose_water_programme.gd").new().run(self,actor,hose)
 	var out:=OS.get_environment("SHOT_DIR")
 	if not out.is_empty():
 		DirAccess.make_dir_recursive_absolute(out)

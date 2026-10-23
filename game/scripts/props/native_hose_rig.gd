@@ -130,7 +130,8 @@ func model_frames(points: PackedVector3Array) -> Array[Transform3D]:
 	_frame_points.push_front(points.duplicate());_frame_values.push_front(frames.duplicate())
 	if _frame_points.size()>2:_frame_points.pop_back();_frame_values.pop_back()
 	return frames
-func apply_points(points: PackedVector3Array) -> bool:
+func apply_points(points: PackedVector3Array,roundness: float=1.) -> bool:
+	if not is_finite(roundness) or roundness<0. or roundness>1.:return false
 	var frames: Array[Transform3D]=model_frames(points)
 	if frames.is_empty():return false
 	var to_skeleton: Transform3D=skeleton.global_transform.affine_inverse()*model.global_transform
@@ -138,7 +139,13 @@ func apply_points(points: PackedVector3Array) -> bool:
 		var pose: Transform3D=parent_inverse[i]*to_skeleton*frames[i]
 		skeleton.set_bone_pose_position(indices[i],pose.origin)
 		skeleton.set_bone_pose_rotation(indices[i],pose.basis.get_rotation_quaternion())
-		skeleton.set_bone_pose_scale(indices[i],pose.basis.get_scale())
+		# Native ring bones run along local Y. Flatten only their radial axes;
+		# the linen width approaches half the round circumference. Keep short
+		# round leads at the rigid couplings and blend into the resting ribbon.
+		var flexible: float=clampf(float(mini(i,indices.size()-1-i)-2)/3.,0.,1.)
+		var flat: float=(1.-roundness)*flexible
+		var section:=Vector3(lerpf(1.,.10,flat),1.,lerpf(1.,PI*.5,flat))
+		skeleton.set_bone_pose_scale(indices[i],pose.basis.get_scale()*section)
 	var bounds:=AABB(points[0],Vector3.ZERO)
 	for p: Vector3 in points:bounds=bounds.expand(p)
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):draw.custom_aabb=bounds.grow(.04)
