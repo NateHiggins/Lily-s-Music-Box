@@ -78,6 +78,16 @@ func _fresh_data() -> Dictionary:
 		"sleep_pressure": {},
 		"waking_residues": {},
 		"last_waking_residue_id": "",
+		# WHAT THE PLAYER HAS COME TO KNOW, campaign-wide. Resident conversations
+		# grant these (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md): a flag earned
+		# in one flat unlocks an inference in another. Flat list of strings, no
+		# owner but the player; never a case resolution flag.
+		"knowledge_flags": [],
+		# Per-resident trust for threshold conversations that have no case, and
+		# how many times each resident has been spoken to. Case residents keep
+		# their trust on the case record as before.
+		"resident_trust": {},
+		"conversation_visits": {},
 	}
 
 
@@ -96,6 +106,47 @@ func ensure_case(case_id: String, resident_id: String) -> Dictionary:
 			"resolved": false,
 		}
 	return data.cases[case_id]
+
+
+## --- what the player knows -------------------------------------------------
+
+func has_knowledge(flag: String) -> bool:
+	return flag != "" and flag in data.get("knowledge_flags", [])
+
+
+## Grants a campaign-wide knowledge flag. Returns true only when it is new,
+## so callers can tell a first recognition from a repeat.
+func grant_knowledge(flag: String) -> bool:
+	if flag == "":
+		return false
+	if not data.has("knowledge_flags") or data.knowledge_flags is not Array:
+		data.knowledge_flags = []
+	if flag in data.knowledge_flags:
+		return false
+	data.knowledge_flags.append(flag)
+	return true
+
+
+func resident_trust(resident_id: String) -> int:
+	return int(data.get("resident_trust", {}).get(resident_id, 0))
+
+
+func add_resident_trust(resident_id: String, delta: int) -> int:
+	if not data.has("resident_trust") or data.resident_trust is not Dictionary:
+		data.resident_trust = {}
+	data.resident_trust[resident_id] = resident_trust(resident_id) + delta
+	return int(data.resident_trust[resident_id])
+
+
+func conversation_visits(resident_id: String) -> int:
+	return int(data.get("conversation_visits", {}).get(resident_id, 0))
+
+
+func record_conversation_visit(resident_id: String) -> int:
+	if not data.has("conversation_visits") or data.conversation_visits is not Dictionary:
+		data.conversation_visits = {}
+	data.conversation_visits[resident_id] = conversation_visits(resident_id) + 1
+	return int(data.conversation_visits[resident_id])
 
 
 ## HOW MANY CASES THIS CAMPAIGN HAS PUT DOWN. Owner ruling 2026-08-18: the
@@ -209,10 +260,12 @@ func _validate_document(candidate: Dictionary) -> Dictionary:
 	for key in ["cases", "building_personality", "work_orders", "maintenance_jobs",
 			"maintenance_items", "open_shift_situations", "shop_buckets", "exterior_semantics",
 			"organism_incidents", "core_loop", "first_shift", "dream", "sleep_pressure", "waking_residues",
-			"night_register", "npc_observations", "porter_actor"]:
+			"night_register", "npc_observations", "porter_actor",
+			"resident_trust", "conversation_visits"]:
 		if candidate.has(key) and candidate[key] is not Dictionary:
 			return _invalid_shape(key)
-	for key in ["portal_rules", "discovered_documents", "music_library", "heard_music_anecdotes"]:
+	for key in ["portal_rules", "discovered_documents", "music_library", "heard_music_anecdotes",
+			"knowledge_flags"]:
 		if candidate.has(key) and candidate[key] is not Array:
 			return _invalid_shape(key)
 	for key in ["current_case_id", "dream_seed", "last_waking_residue_id"]:

@@ -8,12 +8,14 @@ to the runtime, promotes a requirement, or changes a case's status.
 drafted and gamified; reward empathy, intuition and inferring things from
 context; a myriad of interconnected mysteries for anyone paying attention."*
 
-The seventeen trees live in `design/dialogue_drafts/*.json`, in the schema
-of `game/data/case01_dialogue.json` plus three draft fields (section 3).
-They sit in `design/` for the same reason `resident_decor_profiles.json`
-does: they are design written as data, read by nobody yet, and the reader
-gate must not mistake them for game data. Mina's canon tree is not
-redrafted; her knot references are listed in section 5 for the case owner.
+The seventeen trees live in `game/data/dialogue/*.json`, in the schema of
+`game/data/case01_dialogue.json` plus four draft fields (section 3). They
+were drafted under `design/` and moved into the game the same evening, when
+`game/scripts/game/resident_conversations.gd` began reading them: every
+neighbour's entry door now carries a knock, and whoever the timetable says
+is home answers through the redesigned `CaseDialoguePanel`. Mina's canon
+tree is not redrafted; her knot references are listed in section 5 for the
+case owner.
 
 ---
 
@@ -80,14 +82,17 @@ Each file is a `case01_dialogue.json`-shaped tree: `meta`, `entries`,
 `label`, optional `goto`, `flag`, `trust`. The structural auditor
 (`tools/audit_authored_voice.py`) passes every file.
 
-Three fields are proposals for the runtime and are ignored by the current
-`CaseDialoguePanel`:
+Three fields extend the runtime contract and are honoured by
+`CaseDialoguePanel` through the `available` callable that
+`ResidentConversations` supplies:
 
-- `"requires": ["flag", ...]` on a choice: shown only if every flag is held
-  (flags are global across trees; the canon store is `conversation_flags`
-  on the case plus a proposed campaign-wide `knowledge_flags` list).
+- `"requires": ["flag", ...]` on a choice: shown only if every flag is held.
+  Flags are campaign-wide, in `RealityState.data.knowledge_flags`; a case
+  resident whose case is enabled and in play also has the flag recorded on
+  the case through `RealityCases.record_conversation`.
 - `"evidence": "hero object or contradiction"` on a choice: shown only
-  inside the resident's own flat, where the thing is in view.
+  while the player stands inside the resident's own flat (the V2 root
+  answers which unit the player is in by its room grammar).
 - `"infer": true` on a choice: the player is asserting something the
   resident did not say. Right inferences carry `trust +1`; plausible wrong
   ones carry `trust -1` and a correction node.
@@ -180,10 +185,18 @@ Each is written so a "no" removes one node, not a tree.
 
 Done: seventeen trees in the shared schema, auditor PASS on each, every
 `requires` flag granted somewhere, every knot traversable in at least one
-direction, no node explaining what the Bible keeps silent.
+direction, no node explaining what the Bible keeps silent. Played: the
+trees load through `ResidentConversations`, which validates every field at
+startup; apartment entry doors carry a knock control; trust and visits
+select the entry; knowledge flags, trust and visits persist on the campaign
+document (save version unchanged, additive keys). The panel is a
+lower-third scrim with the building's serif, numbered plain replies and no
+button chrome; `ResidentConversationTest` drives it headless.
 
-Not done, by design: no runtime reads these files; no case is promoted;
-Mina's tree is unchanged; the `requires`/`evidence`/`infer` fields need a
-small `CaseDialoguePanel` extension and a campaign-wide flag store before
-any of this can be played. That is implementation work for a later slice,
-reviewed one case at a time with the owner, as the Bible requires.
+Not done, by design: no case is promoted and no door activates one; Mina's
+tree and her gameplay are unchanged; the six world flags in section 3 are
+not yet granted by the objects named there (the library spread, the lift,
+the laundry legend, the register, the dead-letter tray), so the replies
+that need them stay hidden until that wiring lands; the knock has no
+answering animation or voice. Cases are still reviewed one at a time with
+the owner before any of the five case trees is promoted to case gameplay.

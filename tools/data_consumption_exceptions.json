@@ -1,5 +1,7 @@
 {
   "schema": "orison.data-consumption-exceptions.v1",
   "files": {},
-  "fields": {}
+  "fields": {
+    "game/data/audio_cues.json:door_knock": "Cue id presented dynamically: AudioPolicy looks every cue up by the id its caller passes (cues[cue_id]), and DoorProp presents interaction.door_knock from a const. Same read shape as every other cue id, which predate the baseline."
+  }
 }

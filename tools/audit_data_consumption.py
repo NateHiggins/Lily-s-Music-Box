@@ -76,6 +76,25 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "orison_v2/upper_floor_programs.json": frozenset({"doors"}),
     # OrisonV2MinaRoutine: places.get(destination).
     "orison_v2/mina_routine.json": frozenset({"places"}),
+    # ResidentConversations/CaseDialoguePanel: nodes[node_id] by authored id;
+    # every record field (line, role, choices, silence_goto, flag...) is read by name.
+    "dialogue/cal_dwyer.json": frozenset({"nodes"}),
+    "dialogue/cam_ortiz.json": frozenset({"nodes"}),
+    "dialogue/evelyn_marsh.json": frozenset({"nodes"}),
+    "dialogue/iris_bell.json": frozenset({"nodes"}),
+    "dialogue/jonah_price.json": frozenset({"nodes"}),
+    "dialogue/juno_kells.json": frozenset({"nodes"}),
+    "dialogue/lena_ortiz.json": frozenset({"nodes"}),
+    "dialogue/mae_kessler.json": frozenset({"nodes"}),
+    "dialogue/malcolm_reed.json": frozenset({"nodes"}),
+    "dialogue/nadia_quell.json": frozenset({"nodes"}),
+    "dialogue/noel_price.json": frozenset({"nodes"}),
+    "dialogue/omar_bell.json": frozenset({"nodes"}),
+    "dialogue/peter_wren.json": frozenset({"nodes"}),
+    "dialogue/rhea_sato.json": frozenset({"nodes"}),
+    "dialogue/sacha_reed.json": frozenset({"nodes"}),
+    "dialogue/teresa_vale.json": frozenset({"nodes"}),
+    "dialogue/transient_guests.json": frozenset({"nodes"}),
     # Build-time mirror: finish IDs produced by generate_runtime_materials.py.
     # Its FILE_UNREAD and unread value schema remain reported independently.
     "runtime_material_sets.json": frozenset({"materials"}),

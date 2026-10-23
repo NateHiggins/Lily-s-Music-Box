@@ -30,6 +30,13 @@ static func _sources() -> void:
 	for door: Dictionary in _policy.v2_initial_states:
 		assert(door.door_id is String and door.leaf_state in ["closed","open","locked"])
 
+## The player's own apartment, from the policy. Public so doors can tell the
+## tenant's door from a neighbour's without hardcoding "4B".
+static func player_unit() -> String:
+	_sources()
+	return str(_policy.player_unit)
+
+
 static func valid(value: Variant) -> bool:
 	_sources()
 	if value is not Dictionary: return false

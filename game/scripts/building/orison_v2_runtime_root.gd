@@ -40,6 +40,7 @@ var safety_net: SafetyNet
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var service_round: ServiceRoundDirector
+var conversations: ResidentConversations
 var boiler_tend: BoilerTend
 var heat_balance: HeatBalance
 var mirror_renderer: PlanarMirrorRenderer
@@ -568,6 +569,20 @@ func _compose_authorities() -> void:
 	service_round.name = "ServiceRoundDirector"
 	add_child(service_round)
 	service_round.setup(work_orders, _blockout, player, service_set_carrier)
+	# Every other tenant speaks at their own door (DoorProp knock control) through
+	# the authored trees in res://data/dialogue/. The director owns no case; it
+	# asks this root which flat the player stands in and whose timetable says
+	# they are home.
+	conversations = ResidentConversations.new()
+	conversations.name = "ResidentConversations"
+	add_child(conversations)
+	var conversation_panel := CaseDialoguePanel.new()
+	conversation_panel.name = "ResidentConversationPanel"
+	conversations.add_child(conversation_panel)
+	conversations.setup(conversation_panel, Callable(self, "player_unit"),
+			Callable(self, "resident_is_home"))
+	if not conversations.errors.is_empty():
+		push_warning("ORISON V2 RUNTIME: dialogue trees: %s" % [conversations.errors])
 	open_shift_ecosystem = preload("res://scripts/game/open_shift_radiator_ecosystem.gd").new()
 	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
 	add_child(open_shift_ecosystem)
@@ -1063,6 +1078,21 @@ func _exit_tree() -> void:
 	if acoustic_topology!=null: acoustic_topology.release();acoustic_topology=null
 
 	_contact_precision.release()
+
+## The apartment the player is standing in, by the same room-id grammar the
+## keyring uses (F0X_A_* belongs to unit XA); "" in corridors and shops.
+func player_unit() -> String:
+	if player == null or not is_instance_valid(player):
+		return ""
+	return unit_of_room(room_at_world(player.global_position))
+
+
+static func unit_of_room(room_id: String) -> String:
+	var parts := room_id.split("_")
+	if parts.size() >= 3 and parts[0].begins_with("F0") and parts[1] in ["A", "B", "C", "D"]:
+		return parts[0].trim_prefix("F0") + parts[1]
+	return ""
+
 
 func room_at_world(world_position: Vector3) -> String:
 	if _blockout==null or layout.is_empty():return ""
