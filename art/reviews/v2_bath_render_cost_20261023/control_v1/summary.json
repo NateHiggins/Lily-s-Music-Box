@@ -1,0 +1,331 @@
+{
+  "evidence_class": "INERT",
+  "original": {
+    "fog": true,
+    "msaa": 3,
+    "rig_process": true,
+    "ssao": true,
+    "ssil": true,
+    "volumetric": false
+  },
+  "fixture_scripts": 267,
+  "light_nodes": 663,
+  "failures": [],
+  "phases": [
+    {
+      "phase": "normal_static",
+      "wall_ms": {
+        "n": 119,
+        "p50": 46.79,
+        "p95": 55.804,
+        "p99": 57.979,
+        "max": 58.71,
+        "over_50": 37,
+        "over_100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 50.076,
+        "p95": 56.797,
+        "p99": 57.248,
+        "max": 57.248,
+        "over_50": 8,
+        "over_100": 0
+      },
+      "query_median_ms": 2.034,
+      "medians": {
+        "process_ms": 51.695,
+        "physics_ms": 3.706,
+        "render_cpu_ms": 23.2950000762939,
+        "render_gpu_ms": 14.0200004577637,
+        "mirror_cpu_ms": 6.18699979782104,
+        "mirror_gpu_ms": 3.42799997329712,
+        "main_draws": 792,
+        "mirror_draws": 214,
+        "main_shadow_draws": 44265,
+        "mirror_shadow_draws": 10396
+      },
+      "static_camera_unchanged": true
+    },
+    {
+      "phase": "mirror_frozen",
+      "wall_ms": {
+        "n": 119,
+        "p50": 37.958,
+        "p95": 43.843,
+        "p99": 45.894,
+        "max": 47.778,
+        "over_50": 0,
+        "over_100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 38.66,
+        "p95": 43.63,
+        "p99": 43.825,
+        "max": 43.825,
+        "over_50": 0,
+        "over_100": 0
+      },
+      "query_median_ms": 2.035,
+      "medians": {
+        "process_ms": 43.497,
+        "physics_ms": 2.943,
+        "render_cpu_ms": 23.2189998626709,
+        "render_gpu_ms": 13.6040000915527,
+        "mirror_cpu_ms": 5.94299983978271,
+        "mirror_gpu_ms": 3.61199998855591,
+        "main_draws": 792,
+        "mirror_draws": 214,
+        "main_shadow_draws": 41054,
+        "mirror_shadow_draws": 10396
+      },
+      "static_camera_unchanged": true
+    },
+    {
+      "phase": "light_scripts_frozen",
+      "wall_ms": {
+        "n": 119,
+        "p50": 43.789,
+        "p95": 48.227,
+        "p99": 53.195,
+        "max": 60.875,
+        "over_50": 3,
+        "over_100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 44.189,
+        "p95": 45.868,
+        "p99": 47.959,
+        "max": 47.959,
+        "over_50": 0,
+        "over_100": 0
+      },
+      "query_median_ms": 2.023,
+      "medians": {
+        "process_ms": 43.882,
+        "physics_ms": 2.837,
+        "render_cpu_ms": 23.6259994506836,
+        "render_gpu_ms": 12.6280002593994,
+        "mirror_cpu_ms": 6.21999979019165,
+        "mirror_gpu_ms": 3.08899998664856,
+        "main_draws": 792,
+        "mirror_draws": 214,
+        "main_shadow_draws": 44268,
+        "mirror_shadow_draws": 10396
+      },
+      "static_camera_unchanged": true
+    },
+    {
+      "phase": "shadows_off",
+      "wall_ms": {
+        "n": 119,
+        "p50": 6.372,
+        "p95": 8.394,
+        "p99": 9.129,
+        "max": 9.933,
+        "over_50": 0,
+        "over_100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 7.039,
+        "p95": 8.127,
+        "p99": 20.81,
+        "max": 20.81,
+        "over_50": 0,
+        "over_100": 0
+      },
+      "query_median_ms": 2.013,
+      "medians": {
+        "process_ms": 46.96,
+        "physics_ms": 2.087,
+        "render_cpu_ms": 1.35000002384186,
+        "render_gpu_ms": 1.67999994754791,
+        "mirror_cpu_ms": 0.365000009536743,
+        "mirror_gpu_ms": 0.42399999499321,
+        "main_draws": 792,
+        "mirror_draws": 214,
+        "main_shadow_draws": 0,
+        "mirror_shadow_draws": 0
+      },
+      "static_camera_unchanged": true
+    },
+    {
+      "phase": "screen_space_off",
+      "wall_ms": {
+        "n": 119,
+        "p50": 46.431,
+        "p95": 55.029,
+        "p99": 58.098,
+        "max": 58.162,
+        "over_50": 35,
+        "over_100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 44.86,
+        "p95": 51.681,
+        "p99": 51.757,
+        "max": 51.757,
+        "over_50": 4,
+        "over_100": 0
+      },
+      "query_median_ms": 2.035,
+      "medians": {
+        "process_ms": 52.489,
+        "physics_ms": 2.763,
+        "render_cpu_ms": 23.5949993133545,
+        "render_gpu_ms": 13.5790004730225,
+        "mirror_cpu_ms": 6.2039999961853,
+        "mirror_gpu_ms": 3.33999991416931,
+        "main_draws": 792,
+        "mirror_draws": 214,
+        "main_shadow_draws": 44271,
+        "mirror_shadow_draws": 10397
+      },
+      "static_camera_unchanged": true
+    },
+    {
+      "phase": "fog_off",
+      "wall_ms": {
+        "n": 119,
+        "p50": 47.814,
+        "p95": 54.906,
+        "p99": 56.71,
+        "max": 59.171,
+        "over_50": 40,
+        "over_100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 46.816,
+        "p95": 52.003,
+        "p99": 54.052,
+        "max": 54.052,
+        "over_50": 5,
+        "over_100": 0
+      },
+      "query_median_ms": 2.017,
+      "medians": {
+        "process_ms": 52.239,
+        "physics_ms": 2.874,
+        "render_cpu_ms": 23.8020000457764,
+        "render_gpu_ms": 13.7880001068115,
+        "mirror_cpu_ms": 6.33799982070923,
+        "mirror_gpu_ms": 3.45499992370605,
+        "main_draws": 792,
+        "mirror_draws": 214,
+        "main_shadow_draws": 42732,
+        "mirror_shadow_draws": 10397
+      },
+      "static_camera_unchanged": true
+    },
+    {
+      "phase": "msaa4",
+      "wall_ms": {
+        "n": 119,
+        "p50": 47.83,
+        "p95": 54.524,
+        "p99": 56.108,
+        "max": 56.488,
+        "over_50": 46,
+        "over_100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 47.112,
+        "p95": 56.221,
+        "p99": 87.41,
+        "max": 87.41,
+        "over_50": 6,
+        "over_100": 0
+      },
+      "query_median_ms": 2.011,
+      "medians": {
+        "process_ms": 50.894,
+        "physics_ms": 2.825,
+        "render_cpu_ms": 23.8439998626709,
+        "render_gpu_ms": 14.2159996032715,
+        "mirror_cpu_ms": 6.32800006866455,
+        "mirror_gpu_ms": 3.53099989891052,
+        "main_draws": 792,
+        "mirror_draws": 214,
+        "main_shadow_draws": 44273,
+        "mirror_shadow_draws": 10397
+      },
+      "static_camera_unchanged": true
+    },
+    {
+      "phase": "normal_static_restored",
+      "wall_ms": {
+        "n": 119,
+        "p50": 47.47,
+        "p95": 57.051,
+        "p99": 58.167,
+        "max": 59.027,
+        "over_50": 45,
+        "over_100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 48.978,
+        "p95": 57.126,
+        "p99": 57.18,
+        "max": 57.18,
+        "over_50": 6,
+        "over_100": 0
+      },
+      "query_median_ms": 2.015,
+      "medians": {
+        "process_ms": 52.91,
+        "physics_ms": 2.91,
+        "render_cpu_ms": 24.1679992675781,
+        "render_gpu_ms": 14.3999996185303,
+        "mirror_cpu_ms": 6.43499994277954,
+        "mirror_gpu_ms": 3.53299999237061,
+        "main_draws": 792,
+        "mirror_draws": 214,
+        "main_shadow_draws": 44272,
+        "mirror_shadow_draws": 10397
+      },
+      "static_camera_unchanged": true
+    },
+    {
+      "phase": "normal_move",
+      "wall_ms": {
+        "n": 66,
+        "p50": 53.956,
+        "p95": 105.954,
+        "p99": 140.467,
+        "max": 143.451,
+        "over_50": 54,
+        "over_100": 4
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 49.007,
+        "p95": 54.342,
+        "p99": 58.393,
+        "max": 58.393,
+        "over_50": 7,
+        "over_100": 0
+      },
+      "query_median_ms": 2.013,
+      "medians": {
+        "process_ms": 54.355,
+        "physics_ms": 3.679,
+        "render_cpu_ms": 24.1234998703003,
+        "render_gpu_ms": 14.84050035476685,
+        "mirror_cpu_ms": 8.646499633789059,
+        "mirror_gpu_ms": 4.67750000953674,
+        "main_draws": 752.0,
+        "mirror_draws": 243.0,
+        "main_shadow_draws": 43051.5,
+        "mirror_shadow_draws": 14807.0
+      },
+      "static_camera_unchanged": false
+    }
+  ]
+}

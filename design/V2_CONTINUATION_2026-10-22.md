@@ -465,3 +465,42 @@ Physical source retention keeps four unrelated street/traffic findings, reader33
 NEW remains unrelated street/tent data, six physical-import tools tests pass,
 and17 protected paths remain unchanged. Preserve shared spatial manifest and
 untracked art. Continue the closure queue; do not close V2 or the active goal.
+
+
+## Service practical visibility and rendering cost — 2026-10-23
+
+**V2_SERVICE_LIGHT_VISIBILITY_2026-10-23.md** and
+**art/reviews/v2_bath_render_cost_20261023/** retain fixed-view controls, budget
+sweeps, source inventory, rejected faster shadow projections and the installed
+room/door-connected service-light client. Sixteen unmanaged service practicals
+account for about29,500 main shadow submissions in the sealed-bath view.
+Global shadow removal washes out the room; shrinking ordinary budgets barely
+helps. Neither, nor MSAA/effects reductions or faster shadow modes, is installed.
+The depth-fog disable control was owner-overridden and cannot isolate fog cost.
+
+Existing world room lookup and actual leaf/opening states now cull disconnected
+service-light presentation only. All original geometry, emissive lenses, energy,
+reach, cube shadows and ordinary lighting budgets remain. Unknown contexts,
+open/core volumes and transmitting/unknown leaves are conservative. No raycast
+or new save/electrical/case authority. Controller mounts after household restore.
+
+First fixed-view candidate p50/p95/p99/max46.216/52.570/54.653/60.536 ->
+24.807/32.886/34.441/37.262 ms; restored48.517/56.424/59.069/60.460.
+CPU22.392 ->8.623 ms. Moving median55.393 ->28.810 ms has differing endpoints;
+keep that caveat. Rendering and >100 ms movement spikes still need work.
+
+Installed_v1 completes222 seconds,105 checks pass, with sixteen inspected paired
+opening views, unknown-context fallback and actual door grab/motion/release
+restoring then isolating connected sources. Seventeen sink checks also pass.
+Capsule-volume placements are not walked/ground-support qualification. Seven
+existing Texture RID warnings remain. All receipts are suite_run / INERT, not
+runtime_contract or human acceptance. Cross-court glazing, open/public performance,
+longer walked routes and the rest of the closure queue remain open.
+
+Full board101 PASS /8 FAIL /1 INCOMPLETE;98 tools suites /1194 tests retain the
+same five failures across four suites. Reader33 NEW and physical-import4 are
+unchanged unrelated street/tent/traffic debt. Spatial8 failures and45 reported
+references (up from21 older scoped snapshot) remain explicit. Shared spatial
+manifest is preserved. Surface qualification is stale;17 protected paths unchanged.
+Historical board comparisons are scoped/dirty, not clean merge-base certification.
+Continue autonomously under the full goal; do not claim V2 complete.

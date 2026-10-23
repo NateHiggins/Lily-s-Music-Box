@@ -80,6 +80,7 @@ var fire_maintenance_counter: Node3D
 var shop_simulation: Node
 var day_night_director: DayNightDirector
 var light_rig: LightRig
+var service_light_visibility: Node
 var touch: TouchControls
 var shots: ShotCapture
 var warehouse: PropWarehouse
@@ -667,6 +668,12 @@ func _compose_authorities() -> void:
 	notebook.economy = economy
 	add_child(notebook)
 	preload("res://scripts/building/orison_v2_owner_finishes.gd").new().apply_service_actors(self)
+	service_light_visibility=preload("res://scripts/building/orison_v2_service_light_visibility.gd").new()
+	service_light_visibility.name="ServiceLightVisibility"
+	add_child(service_light_visibility)
+	if not service_light_visibility.setup(self):
+		startup_failed=true;push_error("V2 service practical visibility could not bind original sources");return
+	service_light_visibility.set_enabled(true)
 
 func arrival_placement() -> Dictionary:
 	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)

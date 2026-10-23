@@ -3066,3 +3066,12 @@ art/reviews/v2_bath_contact_build*_20261023.log -text -whitespace
 game/assets/props/bath_lavatory_contact.glb* -text
 game/assets/props/bath_water_closet_contact.glb* -text
 game/tests/v2_bath_contact_*.gd -text
+
+# Byte-bound rendering diagnosis and original alternative captures.
+art/reviews/v2_bath_render_cost_20261023/** -text -whitespace
+game/tests/v2_bath_render_cost.gd -text
+game/tests/v2_bath_shadow_budget.gd -text
+game/tests/v2_bath_service_light_study.gd -text
+game/tests/v2_bath_shadow_projection.gd -text
+game/tests/v2_service_room_light_study.gd -text
+game/tests/v2_service_light_visibility_review.gd -text
