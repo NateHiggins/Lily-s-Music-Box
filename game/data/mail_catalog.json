@@ -28,6 +28,22 @@
       "title": "PARCEL — M. VALE, 2A",
       "body": "A stenographer's notebook, hard blue covers, spiral bound. Every page is blank. On the flyleaf, typed: PROPERTY LOG — CONTENTS ACCURATE AS WRITTEN. Nothing else is written.",
       "when": {"case": "mina_caption_crisis", "resolved": true}
+    },
+    {
+      "id": "vantry_final_demand",
+      "kind": "letter",
+      "title": "MISDELIVERED \u2014 H. VANTRY, 3C",
+      "body": "A final demand from the Queens Gas Company, the third this year by its own count, addressed to H. Vantry, 3C. Across the corner in carrier's pencil: 3C EMPTY SINCE SPRING. NO FORWARDING. TRY 4B, THEY ANSWER THINGS. Under that, in a different pencil, smaller: they do not.",
+      "knowledge": "vantry_in_3c",
+      "when": {"min_conversations": 1}
+    },
+    {
+      "id": "wors_programme_card",
+      "kind": "letter",
+      "title": "WORS 1610 \u2014 PROGRAMME CARD",
+      "body": "A printed card, one side, from the Orison Community Service Frequency. Programme for the week: the hour of announcements, the hour of music by request, the hour of silence kept on purpose. At the foot, in smaller type and older ink: ON THE NIGHT THE STATION WENT QUIET NO PROGRAMME WAS MISSED. THE PROGRAMME WAS THE QUIET. Listeners are asked not to write in about it.",
+      "knowledge": "station_went_quiet",
+      "when": {"min_conversations": 2}
     }
   ]
 }

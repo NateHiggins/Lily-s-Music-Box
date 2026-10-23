@@ -349,7 +349,16 @@ func _on_resident_interaction(case_id: String, resident_id: String) -> void:
 		return
 	var state := RealityState.case_state(CASE_ID)
 	dialogue.run_tree(dialogue_tree, _entry_for(state), _apply_flag,
-			_apply_dialogue_action)
+			_apply_dialogue_action, {"available": choice_available})
+
+
+## A reply that `requires` knowledge flags is offered only once the player
+## has earned them elsewhere in the building (drafts doc section 5 hooks).
+static func choice_available(choice: Dictionary) -> bool:
+	for flag in choice.get("requires", []):
+		if not RealityState.has_knowledge(str(flag)):
+			return false
+	return true
 
 
 func _entry_for(state: Dictionary) -> String:
