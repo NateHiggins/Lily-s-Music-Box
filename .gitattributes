@@ -3052,3 +3052,10 @@ art/concepts/v2_player_doodle_20261023/** -text
 game/tests/v2_bath_movement_profile.gd -text
 game/tests/v2_bath_collision_cost.gd -text
 game/tests/v2_bath_sconce_review.gd -text
+
+# Owner rig native source and byte-bound review inputs.
+art/source/player_doodle_20261023/** -text -whitespace
+art/reviews/v2_player_doodle_20261023/** -text -whitespace
+game/assets/characters/player_doodle/** -text
+game/tests/v2_player_mirror_review.gd -text
+game/tests/v2_player_rig_bench.gd -text

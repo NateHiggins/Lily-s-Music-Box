@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 2.24,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T16:26:43Z",
+  "started_utc": "2026-10-23T16:26:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "PLAYER RIG BENCH: PASS diagnostic only"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_player_doodle_20261023/rig_v1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_player_doodle_20261023/rig_v1.log",
+  "stdout_sha256": "800e5519c51fc4d2b973b65aea9b94a55016c248170b0b26335a0a44538e3a73"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2PlayerRigBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_player_doodle_20261023/rig_v1",
+ "source": {
+  "dirty_paths": 3354,
+  "dirty_sample": [
+   "M art/blender/bath_water_closet_construction.json",
+   " M art/blender/case_calibrator_construction.json",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/fire_fold_stock_construction.json",
+   " M art/blender/fire_hose_stock_construction.json",
+   " M art/blender/fixed_lighting_construction.json",
+   " M art/blender/house_switchboard_construction.json",
+   " M art/blender/nook_readable_books_construction.json",
+   " M art/blender/readable_library_construction.json",
+   " M art/blender/reading_nook_construction.json",
+   " M art/blender/roof_public_weathering_construction.json",
+   " M art/blender/street_paving_details_construction.json",
+   " M art/blender/surface_stock_construction.json",
+   " M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json"
+  ],
+  "repository_head": "b44d11f6828accda7ce80921840a8ca6897b45ae",
+  "repository_tree": "ad233e6b524ed1e1ca1bcebbc41d4e931eb554a6",
+  "runtime_inputs_sha256": "b35826def37607b1e572a611551161eb9656ff8b2501a8c35ed392f9f2cb070e",
+  "test_path": "game/tests/v2_player_rig_bench.gd",
+  "test_sha256": "5d3693080a2e6692e26f1033b016f7adbd72e56f5e415cdfed612e2a32f56225"
+ },
+ "windowed": true
+}

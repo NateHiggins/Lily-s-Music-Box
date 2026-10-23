@@ -27,6 +27,7 @@ var layout: Dictionary = {}
 var acoustic_topology
 var floor_nodes: Dictionary = {}
 var player: PlayerController
+var player_avatar: Node3D
 var objective_tracker: ObjectiveTracker
 var work_orders: WorkOrders
 var maintenance_inventory: MaintenanceInventory
@@ -424,6 +425,10 @@ func _compose_authorities() -> void:
 	player.position = _connection.arrival.position
 	add_child(player)
 	player.enable_low_step_probe()
+	player_avatar=preload("res://scripts/player/doodle_player_avatar.gd").new()
+	player_avatar.name="ReflectedPlayer";player_avatar.holder=player;player.add_child(player_avatar)
+	if not player_avatar.native_ready:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: owner player rig refused");return
 	if not _compose_exterior():
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: exterior composition failed")
@@ -558,7 +563,7 @@ func _compose_authorities() -> void:
 		_retire_blockout_fixture(identity)
 	mirror_renderer = PlanarMirrorRenderer.new()
 	add_child(mirror_renderer)
-	mirror_renderer.setup(player.camera)
+	mirror_renderer.setup(player.camera,player_avatar)
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)

@@ -21,11 +21,13 @@ var _active: Variant
 var _material: ShaderMaterial
 var _texture_bound := false
 var _stopped := false
+var _avatar: Node3D
 
 
-func setup(main_camera: Camera3D) -> void:
+func setup(main_camera: Camera3D,avatar: Node3D=null) -> void:
 	name = "PlanarMirrorRenderer"
 	_main_camera = main_camera
+	_avatar=avatar
 	process_priority = 100
 	_view = SubViewport.new()
 	_view.name = "ReflectedView"
@@ -44,6 +46,7 @@ func setup(main_camera: Camera3D) -> void:
 	_camera.fov = main_camera.fov
 	_camera.far = main_camera.far
 	_camera.cull_mask = main_camera.cull_mask & ~MIRROR_LAYER
+	if _avatar!=null:_camera.cull_mask|=preload("res://scripts/player/doodle_player_avatar.gd").LAYER
 	_camera.current = true
 	_view.add_child(_camera)
 	call_deferred("_bind_texture")
@@ -81,6 +84,7 @@ func _process(_delta: float) -> void:
 		_sleep()
 		return
 	_pose_reflection(_active)
+	if is_instance_valid(_avatar):_avatar.set_reflection_active(true)
 	_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	set_meta("active_unit", _active.unit)
 
@@ -147,6 +151,7 @@ func _reflect_vector(vector: Vector3, normal: Vector3) -> Vector3:
 
 
 func _sleep() -> void:
+	if is_instance_valid(_avatar):_avatar.set_reflection_active(false)
 	if is_instance_valid(_view):
 		_view.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	if is_instance_valid(_active):

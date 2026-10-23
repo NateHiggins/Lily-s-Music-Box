@@ -1,0 +1,25 @@
+{
+	"checks": 17,
+	"evidence_class": "INERT",
+	"failures": [
+		"supplied skeletal idle changes across three real-time frames"
+	],
+	"images": [
+		{
+			"bones": {},
+			"clip_time": 1.05744055555557,
+			"image": "mirror_idle_1.png"
+		},
+		{
+			"bones": {},
+			"clip_time": 4.85051033333334,
+			"image": "mirror_idle_2.png"
+		},
+		{
+			"bones": {},
+			"clip_time": 8.46570500000001,
+			"image": "mirror_idle_3.png"
+		}
+	],
+	"limits": "Installed owner rig, supplied idle and actual mirror images. Not locomotion, face morphs, full V2 qualification or human acceptance."
+}

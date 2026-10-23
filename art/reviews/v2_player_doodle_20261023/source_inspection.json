@@ -1,0 +1,248 @@
+{
+  "evidence_class": "INERT",
+  "files": [
+    {
+      "file": "Meshy_AI_Smiling_Stick_Figure_biped_Animation__01a16981_df16_7433_b162_60a018f2b8ab_frame_rate_30.fbx",
+      "fps": 30,
+      "objects": [
+        {
+          "name": "SmartRigArmature",
+          "type": "ARMATURE",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "dimensions": [
+            0.3866223394870758,
+            1.931505560874939,
+            0.3438950479030609
+          ],
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.5707964897155762,
+            -0.0,
+            0.0
+          ],
+          "vertices": 0,
+          "polygons": 0,
+          "uv_layers": 0,
+          "bones": [
+            "smartrig:Hips",
+            "smartrig:Spine",
+            "smartrig:Spine1",
+            "smartrig:Spine2",
+            "smartrig:Neck",
+            "smartrig:Head",
+            "smartrig:HeadTop_End",
+            "headfront",
+            "smartrig:LeftShoulder",
+            "smartrig:LeftArm",
+            "smartrig:LeftForeArm",
+            "smartrig:LeftHand",
+            "smartrig:LeftHandMiddle1",
+            "smartrig:LeftHandMiddle2",
+            "smartrig:LeftHandMiddle3",
+            "smartrig:LeftHandMiddle4",
+            "smartrig:LeftHandPinky1",
+            "smartrig:LeftHandPinky2",
+            "smartrig:LeftHandPinky3",
+            "smartrig:LeftHandPinky4",
+            "smartrig:LeftHandThumb1",
+            "smartrig:LeftHandThumb2",
+            "smartrig:LeftHandThumb3",
+            "smartrig:LeftHandThumb4",
+            "smartrig:RightShoulder",
+            "smartrig:RightArm",
+            "smartrig:RightForeArm",
+            "smartrig:RightHand",
+            "smartrig:RightHandMiddle1",
+            "smartrig:RightHandMiddle2",
+            "smartrig:RightHandMiddle3",
+            "smartrig:RightHandMiddle4",
+            "smartrig:RightHandPinky1",
+            "smartrig:RightHandPinky2",
+            "smartrig:RightHandPinky3",
+            "smartrig:RightHandPinky4",
+            "smartrig:RightHandThumb1",
+            "smartrig:RightHandThumb2",
+            "smartrig:RightHandThumb3",
+            "smartrig:RightHandThumb4",
+            "smartrig:LeftUpLeg",
+            "smartrig:LeftLeg",
+            "smartrig:LeftFoot",
+            "smartrig:LeftToeBase",
+            "smartrig:LeftToe_End",
+            "Bone_007",
+            "smartrig:RightUpLeg",
+            "smartrig:RightLeg",
+            "smartrig:RightFoot",
+            "smartrig:RightToeBase",
+            "smartrig:RightToe_End",
+            "Bone_013"
+          ]
+        },
+        {
+          "name": "Mesh_0",
+          "type": "MESH",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "dimensions": [
+            0.4710041582584381,
+            1.7058268785476685,
+            0.42459461092948914
+          ],
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "vertices": 108210,
+          "polygons": 198520,
+          "uv_layers": 1,
+          "bones": []
+        }
+      ],
+      "actions": [
+        {
+          "name": "SmartRigArmature|SmartRigArmature|SmartRigArmature|retarget_clip|BaseLayer",
+          "range": [
+            1.0,
+            300.0
+          ],
+          "slots": [
+            "OBSlot"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Meshy_AI_Smiling_Stick_Figure_biped_Character_output.fbx",
+      "fps": 24,
+      "objects": [
+        {
+          "name": "SmartRigArmature",
+          "type": "ARMATURE",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "dimensions": [
+            0.9991941452026367,
+            0.20430006086826324,
+            1.9563183784484863
+          ],
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            -4.371138828673793e-08,
+            0.0,
+            0.0
+          ],
+          "vertices": 0,
+          "polygons": 0,
+          "uv_layers": 0,
+          "bones": [
+            "smartrig:Hips",
+            "smartrig:Spine",
+            "smartrig:Spine1",
+            "smartrig:Spine2",
+            "smartrig:Neck",
+            "smartrig:Head",
+            "smartrig:HeadTop_End",
+            "headfront",
+            "smartrig:LeftShoulder",
+            "smartrig:LeftArm",
+            "smartrig:LeftForeArm",
+            "smartrig:LeftHand",
+            "smartrig:LeftHandMiddle1",
+            "smartrig:LeftHandMiddle2",
+            "smartrig:LeftHandMiddle3",
+            "smartrig:LeftHandMiddle4",
+            "smartrig:LeftHandPinky1",
+            "smartrig:LeftHandPinky2",
+            "smartrig:LeftHandPinky3",
+            "smartrig:LeftHandPinky4",
+            "smartrig:LeftHandThumb1",
+            "smartrig:LeftHandThumb2",
+            "smartrig:LeftHandThumb3",
+            "smartrig:LeftHandThumb4",
+            "smartrig:RightShoulder",
+            "smartrig:RightArm",
+            "smartrig:RightForeArm",
+            "smartrig:RightHand",
+            "smartrig:RightHandMiddle1",
+            "smartrig:RightHandMiddle2",
+            "smartrig:RightHandMiddle3",
+            "smartrig:RightHandMiddle4",
+            "smartrig:RightHandPinky1",
+            "smartrig:RightHandPinky2",
+            "smartrig:RightHandPinky3",
+            "smartrig:RightHandPinky4",
+            "smartrig:RightHandThumb1",
+            "smartrig:RightHandThumb2",
+            "smartrig:RightHandThumb3",
+            "smartrig:RightHandThumb4",
+            "smartrig:LeftUpLeg",
+            "smartrig:LeftLeg",
+            "smartrig:LeftFoot",
+            "smartrig:LeftToeBase",
+            "smartrig:LeftToe_End",
+            "Bone_007",
+            "smartrig:RightUpLeg",
+            "smartrig:RightLeg",
+            "smartrig:RightFoot",
+            "smartrig:RightToeBase",
+            "smartrig:RightToe_End",
+            "Bone_013"
+          ]
+        },
+        {
+          "name": "Mesh_0",
+          "type": "MESH",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "dimensions": [
+            0.9991475343704224,
+            0.4166392385959625,
+            1.699999451637268
+          ],
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "vertices": 108210,
+          "polygons": 198520,
+          "uv_layers": 1,
+          "bones": []
+        }
+      ],
+      "actions": []
+    }
+  ]
+}

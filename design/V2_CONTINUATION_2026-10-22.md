@@ -406,3 +406,29 @@ All 32 surface requirement tools tests pass. Focused gates retain reader33 NEW,
 spatial8 failing/25 reported and four untracked street/traffic import findings;
 unrelated assets and the spatial manifest remain preserved. No clean candidate
 or broad qualification claimed. Godot remains authorized through shared wrappers.
+
+
+## Owner player rig and actual mirror idle — 2026-10-23
+
+**V2_PLAYER_DOODLE_INSTALLATION_2026-10-23.md** records the newest owner ZIP,
+archived source, native Blender reduction from 198,520 to 19,852 triangles and
+52 retained bones. The supplied roughly ten-second idle is installed in the
+production V2 player presentation. Layer 16 is mirror-only and excluded from
+room cube probes; animation sleeps away from mirrors. No physical/save owner
+is replaced and no extra viewport/light is introduced. Movement currently
+pauses idle at its first pose; proper locomotion remains open.
+
+Original failed build/world review and isolated rig diagnostics remain. The
+corrected actual world_v2 mirror run completes in 157 seconds with 18 checks.
+Three inspected player-camera images at approximately 1.11, 4.90 and 8.47
+seconds show changing smiling/head-turn/lean poses. The existing small mirror
+crops the head; no full-body movement claim. The mirrored grain/checker and
+bright sconce remain appearance limitations. Wrapper receipts are suite_run,
+not runtime_contract or human acceptance. Material append preserves all 292 old
+runtime texture files and explicitly retains 820 stale baseline bindings.
+
+Resume bathroom movement diagnosis: v4 local exclusions implicate sink/toilet
+concave contact cost; v5 exact triangle chunking shows no steady query win and
+is NOT installed. Keep raw original/restored pairs and investigate measured
+collision simplification preserving openings, access and protection. Broad
+started work and V2 qualification remain incomplete; do not close the goal.

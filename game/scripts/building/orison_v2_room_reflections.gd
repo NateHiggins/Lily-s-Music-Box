@@ -2,7 +2,7 @@ extends Node3D
 ## Bounded room-local specular context; no new lights or material overrides.
 ## Production owner; broader appearance qualification remains separate.
 const TRANSIENT_LIGHT_LAYER := 1<<18
-const CAPTURE_MASK := 0xFFFFF & ~((1<<1)|(1<<17)|(1<<18)|(1<<19))
+const CAPTURE_MASK := 0xFFFFF & ~((1<<1)|(1<<15)|(1<<17)|(1<<18)|(1<<19))
 const CACHE_LIMIT := 3
 const REFRESH_SECONDS := 30.0
 var world: OrisonV2RuntimeRoot
