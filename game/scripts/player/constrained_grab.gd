@@ -73,6 +73,9 @@ func active() -> bool:
 func holding_pickup() -> bool:
 	return active() and target.kind=="free" and bool(target.get("pickup",true)) and not player.inspecting()
 
+func held_physics_body() -> PhysicsBody3D:
+	return _held_body if holding_pickup() and is_instance_valid(_held_body) else null
+
 func acquire(candidate: Dictionary) -> bool:
 	if active() or candidate.is_empty() or candidate.get("blocked",false): return false
 	if not is_instance_valid(candidate.get("part")) or not is_instance_valid(candidate.get("owner")): return false

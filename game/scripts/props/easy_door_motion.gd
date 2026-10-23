@@ -8,6 +8,8 @@ var closing := false
 var remaining := 0.0
 var _excepted: CharacterBody3D
 var _added_exception := false
+var _held_stock: PhysicsBody3D
+var _added_stock_exception := false
 
 func _init(owner_node: Node3D) -> void:
 	door=owner_node
@@ -24,13 +26,30 @@ func prepare_motion() -> void:
 
 func _allow_player(actor: Node3D) -> void:
 	if actor is not CharacterBody3D:return
-	if _excepted==actor:return
+	if _excepted==actor:
+		_refresh_held_stock(actor);return
 	_restore_collision()
 	_excepted=actor
 	_added_exception=not actor.get_collision_exceptions().has(door._body)
 	if _added_exception:actor.add_collision_exception_with(door._body)
+	_refresh_held_stock(actor)
+
+func _refresh_held_stock(actor: Node3D) -> void:
+	var stock: PhysicsBody3D=actor.held_stock_body() if actor.has_method("held_stock_body") else null
+	if stock==_held_stock:return
+	_restore_stock_collision()
+	_held_stock=stock
+	if stock==null:return
+	_added_stock_exception=not stock.get_collision_exceptions().has(door._body)
+	if _added_stock_exception:stock.add_collision_exception_with(door._body)
+
+func _restore_stock_collision() -> void:
+	if is_instance_valid(_held_stock) and _added_stock_exception and is_instance_valid(door._body):
+		_held_stock.remove_collision_exception_with(door._body)
+	_held_stock=null;_added_stock_exception=false
 
 func _restore_collision() -> void:
+	_restore_stock_collision()
 	if is_instance_valid(_excepted) and _added_exception and is_instance_valid(door._body):
 		_excepted.remove_collision_exception_with(door._body)
 	_excepted=null;_added_exception=false
@@ -67,6 +86,7 @@ func _in_passage() -> bool:
 
 func update(delta: float) -> void:
 	if not is_instance_valid(_excepted):prepare_motion()
+	if is_instance_valid(_excepted):_refresh_held_stock(_excepted)
 	if door._hand_gripped or door._key_turning or door._moving:return
 	if _in_passage():remaining=maxf(remaining,.75);return
 	if remaining>0:

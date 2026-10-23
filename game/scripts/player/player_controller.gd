@@ -1304,6 +1304,9 @@ func _try_interact() -> void:
 ## Presentation follows the authoritative interaction; it cannot make a prop
 ## respond, open a job or acquire an item. Protected/modal interactions suppress
 ## the slip so a field note can never cover dialogue or a call surface.
+func present_service_note(owner: Node, card: Dictionary) -> void:
+	_present_interaction_telegram(owner,card)
+
 func _present_interaction_telegram(owner: Node, result: Variant) -> void:
 	if telegram_hud == null or call_locked or not is_instance_valid(owner):
 		return
@@ -1337,6 +1340,9 @@ func _exit_tree() -> void:
 func cancel_manipulation() -> void:
 	end_inspection(false)
 	if _grab != null: _grab.release(false)
+
+func held_stock_body() -> PhysicsBody3D:
+	return _grab.held_physics_body() if _grab!=null else null
 
 
 func inspecting() -> bool:

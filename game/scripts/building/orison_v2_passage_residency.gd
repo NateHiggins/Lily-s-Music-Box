@@ -123,7 +123,8 @@ func _update_wanted(world_position: Vector3) -> void:
 
 func _process(_delta: float) -> void:
 	if _stopped or not is_instance_valid(player): return
-	if state == "RESIDENT" and not _wanted:
+	var stock_wants: bool=region.geometry_required_by_stock()
+	if state == "RESIDENT" and not _wanted and not stock_wants:
 		_retired_meshes.clear()
 		for identity: String in region.CELLS:
 			var cell: Node3D = region.cell_nodes[identity]
@@ -134,7 +135,7 @@ func _process(_delta: float) -> void:
 		unload_cycles += 1
 		state = "DORMANT"
 		_gate(true)
-	if state == "DORMANT" and _wanted:
+	if state == "DORMANT" and (_wanted or stock_wants):
 		_begin_load()
 	if state == "LOADING":
 		_stage_one()
@@ -289,7 +290,7 @@ func _stage_one() -> void:
 		]
 		return
 	if not _pending.is_empty(): return
-	if not _wanted:
+	if not _wanted and not region.geometry_required_by_stock():
 		_staging.free()
 		_staging = null
 		_staged_cells.clear()

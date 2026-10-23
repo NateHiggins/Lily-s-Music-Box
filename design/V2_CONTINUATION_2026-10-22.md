@@ -10,6 +10,25 @@ branch **codex/v2-acoustic-topology**, HEAD **276e2ff4**, remote main/merge-base
 contributors' files remain in the shared tree. Other worktrees and Godot runs
 are actively in use and must not be removed or stopped.
 
+## Latest verified batch, 2026-10-23
+
+The native hardware radio counter, continuous bottle glaze, static inspection,
+shared held-stock response, door passage for held items and source-cell stock
+residency repairs are installed. The final family passed 72 checks; the book
+regression passed 89; the door regression passed 34. The actual counter route
+passed 22 walked waypoints and 36 interaction/save checks including disk reload
+and production-world reconstruction. See **V2_HARDWARE_RADIO_COUNTER_2026-10-22.md**
+for receipts, retained failures and scope limits. Frame p95 remains 61.360ms on
+that route, so the stutter goal is still open. This is not V2 completion.
+
+Next: finish purchased-washer handoff and actual dressing input while completing
+the deployed/FPS-held hose and water. Resume measured hose and mirror work;
+retain the requested child-drawn player, street/tent/gaslight/traffic and full
+existing-area coverage. All-shop radio migration and resident staffing remain
+open beyond this first installed counter. Two existing precision owners set
+different tolerances; audit them before consolidation. The seven-Texture-RID
+shutdown warning remains explicit.
+
 ## Work order
 
 1. Finish one shared purchase authority, then physical hardware hose supplies.
@@ -39,6 +58,10 @@ The order can change when measurement or shared-lane availability makes another
 independent repair useful. None of these bullets means that other requests have
 been cancelled or that partial coverage establishes V2 completion.
 
+Latest working batch and queued import handle: **V2_HARDWARE_RADIO_COUNTER_2026-10-22.md**.
+Its native counter/held bottle is installed in source; playable carry, streaming
+and save reconstruction checks are still in progress. It is not qualified yet.
+
 ## New mirror player direction
 
 The mirror-visible player should be an original child's drawing of a person:
@@ -61,7 +84,7 @@ No player replacement has been installed at this point.
 | Street crossing and bar approach | Repeatable baseline needed before new tent/traffic | before_v1 failed one transient landing assertion, original retained. Corrected fixture waits for landing through ordinary physics. before_v2 completed 22 waypoints, zero failures, startup 120,552.921 ms; raw frame distributions await comparison. |
 | Both played baselines, teardown | Seven Texture RID leak warning on teardown | Retained stderr. Not repaired and not represented as an empty-stderr pass. |
 | Hardware optional supplies | Missing purchases and rubber protectant | New uninstalled V2 shop/radio core: stock_v6 passes 30 transaction/save checks. The original v5 JSON receipt-type failure is retained. Existing economy regression passes 22 checks. Physical input, installed sales and bottle application remain pending. |
-| Bottle close render | Surface mapping restarted per triangle | First render retained. Revised native source develops cylindrical/conical bands and keeps paper chart continuous; five groups, 2,552 triangles, exported tangent validation passes. Loaded Godot material and close-world render pending. |
+| Bottle close render | Surface mapping restarted per triangle | The defect was recorded in the original review. Revised native source develops cylindrical/conical bands and keeps paper chart continuous. The combined terminal kit has nine groups, 3,956 triangles; imported UV derivatives and loaded maps passed hand_v2. Save/streaming failures remain, with a further hollow-mouth native preview awaiting installation. |
 | Tent candidate | Initial rigid booth/roof and UV errors | Rebuilt as sagging canvas ridge tent; 98 closed editable stocks, 13 material groups, native tangent/UV validation passes. Interior jagged shadow edges still need diagnosis; candidate not installed. |
 | Arcade shop doors | Previous measured floor/sweep obstruction | Easy fixed gestures/backstep/slow auto close committed at 276e2ff4. Focused actual-input diagnostic passed 34 checks; remaining mechanism and route qualifications stay explicit. |
 | Mina bookshelf dark silhouette | Previously reported stray geometry | Diagnosed as cast shadow. Do not delete bookshelf geometry to remove it. |
@@ -74,7 +97,7 @@ autoload errors are retained alongside them. Wrapper receipts describe execution
 only. Neither profile writes a schema-2 runtime contract. Do not repin old
 receipts or call parse-only autoload errors a production regression.
 
-The street baseline ran 2026-10-23 00:31:04–00:34:09 UTC with rendering inputs
+The street baseline ran 2026-10-23 00:31:04Ã¢â‚¬â€œ00:34:09 UTC with rendering inputs
 frozen, no heavy native builds during sampling. The shared lane broker waited
 for another contributor's surface inventory; it was not bypassed. Additional
 new assets remain unreferenced and must pass the catalogue, imported-mip and

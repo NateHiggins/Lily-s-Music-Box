@@ -25,6 +25,8 @@ var _rest_until := -1
 var _rest_pose := Transform3D.IDENTITY
 var _rest_velocity := Vector3.ZERO
 var _rest_spin := Vector3.ZERO
+const CARRY_SPEED_MPS := 16.
+const CARRY_TURN_RADPS := 6.
 
 func start_at_rest() -> void:
 	# Shape/mass synchronization can wake newly placed bodies after sleeping
@@ -97,6 +99,8 @@ func pickup_centre() -> Vector3: return Vector3.ZERO
 func hold_pose(camera_pose: Transform3D, centered := false) -> void:
 	_hold_blocked=false
 	_hold_feedback_active=true
+	var elapsed: float=get_physics_process_delta_time()
+	var travel: float=CARRY_SPEED_MPS*elapsed
 	# First withdraw from the shelf, keeping the binding/bookend orientation.
 	# The accepted body follows the ordinary native-stock sweep throughout.
 	if not _pickup_extracted:
@@ -107,7 +111,7 @@ func hold_pose(camera_pose: Transform3D, centered := false) -> void:
 				_hold_blocked=not _last_motion.is_empty()
 				return
 		var withdraw:=_pickup_exit-global_position
-		_carry(position+shelf.global_basis.inverse()*withdraw.limit_length(.06))
+		_carry(position+shelf.global_basis.inverse()*withdraw.limit_length(travel))
 		_pickup_extracted=global_position.distance_to(_pickup_exit)<.002
 		if not _pickup_extracted:
 			_hold_blocked=not _last_motion.is_empty()
@@ -115,16 +119,23 @@ func hold_pose(camera_pose: Transform3D, centered := false) -> void:
 	var offset:=Vector3(0,-.035,-.80) if centered else Vector3(.17,-.16,-.48)
 	var centre:=pickup_centre()
 	var desired:=camera_pose*offset-camera_pose.basis*centre
-	_carry(position+shelf.global_basis.inverse()*(desired-global_position).limit_length(.06))
+	_carry(position+shelf.global_basis.inverse()*(desired-global_position).limit_length(travel))
 	_hold_blocked=global_position.distance_to(desired)>.002 and not _last_motion.is_empty()
 	var local_basis:=shelf.global_basis.inverse()*camera_pose.basis
 	if basis.is_equal_approx(local_basis): return
 	var angle:=basis.get_rotation_quaternion().angle_to(local_basis.get_rotation_quaternion())
 	if angle<.0001: return
-	var pose:=global_transform
-	pose.basis=shelf.global_basis*basis.slerp(local_basis,minf(1.,.025/angle))
-	if _clear_pose(pose): global_transform=pose
-	else: _hold_blocked=true
+	var start:=global_transform
+	var from_basis:=basis
+	var accepted_angle:=minf(angle,CARRY_TURN_RADPS*elapsed)
+	# Keep the established angular clearance resolution while reducing lag.
+	# A faster hand must not skip an intervening physical obstruction.
+	var steps:=maxi(1,ceili(accepted_angle/.025))
+	for index in range(1,steps+1):
+		var pose:=start
+		pose.basis=shelf.global_basis*from_basis.slerp(local_basis,accepted_angle/angle*float(index)/steps)
+		if not _clear_pose(pose):_hold_blocked=true;break
+		global_transform=pose
 
 func turn_grip(axis: Vector3) -> Dictionary:
 	return {"owner":shelf,"part":self,"frame":shelf,"kind":"hinge","axis":func(): return _turn_axis,

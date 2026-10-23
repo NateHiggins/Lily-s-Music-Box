@@ -83,6 +83,27 @@ var receiving_row: Receivers
 ## Temporarily absent by owner request. Read once so streaming keeps the same policy.
 var cabinets_enabled := false
 var _acoustic_originals: Dictionary = {}
+var _residency_clients: Array[WeakRef] = []
+
+func register_residency_client(client: Node) -> bool:
+	if client==null or not client.has_method("wants_passage_geometry") \
+			or not client.has_method("passage_geometry_dormant") or not client.has_method("passage_geometry_active"):return false
+	for reference: WeakRef in _residency_clients:
+		if reference.get_ref()==client:return true
+	_residency_clients.append(weakref(client));return true
+
+func geometry_required_by_stock() -> bool:
+	for reference: WeakRef in _residency_clients:
+		var client: Node=reference.get_ref()
+		if client!=null and bool(client.wants_passage_geometry()):return true
+	return false
+
+func _notify_stock_residency(active: bool) -> void:
+	for reference: WeakRef in _residency_clients:
+		var client: Node=reference.get_ref()
+		if client!=null:
+			if active:client.passage_geometry_active()
+			else:client.passage_geometry_dormant()
 
 static func cell_path(identity: String) -> String:
 	if identity == "passage":
@@ -407,6 +428,13 @@ func _mount_counters() -> void:
 			return
 		_counter_ids.append(identity)
 
+func transaction_actor_root() -> Node3D:
+	return _actors
+
+func transaction_counter_available(shop_id: String) -> bool:
+	return not startup_failed and shop_id in _counter_ids and shop_service!=null \
+			and is_instance_valid(shop_service.counter(shop_id))
+
 
 func _mount_key_counter() -> bool:
 	var matches: Array[Dictionary] = []
@@ -460,6 +488,7 @@ func enable_residency(player: PlayerController, frame: Node3D, layout: Dictionar
 
 func suspend_geometry() -> WeakRef:
 	var retirement_started:=Time.get_ticks_usec()
+	_notify_stock_residency(false)
 	for identity: String in _counter_ids:
 		shop_service.unmount_counter(identity)
 	_counter_ids.clear()
@@ -496,6 +525,7 @@ func activate_geometry(geometry: Node3D, cells: Dictionary, surfaces: RefCounted
 	for cart: PassagePushcart in finish.pushcarts:
 		cart.set_passage_active(true)
 	_mount_counters()
+	_notify_stock_residency(true)
 
 func _exit_tree() -> void:
 	shutdown()

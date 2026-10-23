@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/v2_fire_maintenance_physics_diagnostic.gd" id="1"]
+[node name="V2FireMaintenancePhysicsDiagnostic" type="Node3D"]
+script = ExtResource("1")

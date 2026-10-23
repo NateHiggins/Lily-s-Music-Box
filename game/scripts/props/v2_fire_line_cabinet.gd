@@ -29,6 +29,27 @@ var _observed_coupled := true
 var _loose_union: RefCounted
 var _gasket_body: RigidBody3D
 var _nozzle_joint: Node3D
+var rubber_dressed := false
+var _undressed_rubber: Material
+
+func try_dress_gasket(items: MaintenanceInventory, contact: Vector3) -> bool:
+	if rubber_dressed or items==null or not items.has_item("fire_hose_rubber_protectant") \
+			or not contact.is_finite() or not door_open or coupling_made_up or absf(_wheel_angle)>.0001:return false
+	if _spare_gasket==null or _spare_gasket.mesh==null:return false
+	var at:=_spare_gasket.to_local(contact)
+	var bounds: AABB=_spare_gasket.mesh.get_aabb()
+	var radius:=Vector2(at.x,at.z).length()
+	var outer:=maxf(absf(bounds.position.x),absf(bounds.end.x))
+	var inner:=float(_joint_stock.data.dimensions.bore_radius_m)
+	if radius<inner-.003 or radius>outer+.003 or at.y<bounds.position.y-.003 or at.y>bounds.end.y+.003:return false
+	rubber_dressed=true;_rubber_finish();manipulation_changed.emit();return true
+
+func _rubber_finish() -> void:
+	if _spare_gasket==null:return
+	if _undressed_rubber==null:_undressed_rubber=_spare_gasket.material_override
+	if not rubber_dressed:_spare_gasket.material_override=_undressed_rubber;return
+	var finish:=_undressed_rubber.duplicate() as StandardMaterial3D
+	if finish!=null:finish.roughness*=.85;_spare_gasket.material_override=finish
 
 func install_nozzle_joint() -> bool:
 	_nozzle_joint=preload("res://scripts/props/fire_nozzle_coupling.gd").new();_nozzle_joint.name="NativeNozzleCoupling";add_child(_nozzle_joint)
@@ -317,14 +338,17 @@ func mechanism_snapshot() -> Dictionary:
 	var at: Vector3=_loose_union.location if _loose_union.active else _loose_union.receiving()
 	var value: Dictionary={"door":_door_angle,"lever":_lever_angle,"joint":_union_angle,"loose":{"active":_loose_union.active,"position":[at.x,at.y,at.z]},"gasket":_gasket_body.snapshot(),"facts":maintenance_snapshot()}
 	if _nozzle_joint!=null:value.nozzle=_nozzle_joint.snapshot()
+	value.rubber_dressed=rubber_dressed
 	return value
 
 func valid_mechanism(value: Variant) -> bool:
-	if value is not Dictionary or value.size() not in [3,4,5,6,7]: return false
-	if value.size()>=4 and not value.has("joint"):return false
-	if value.size()>=5 and not value.has("loose"):return false
-	if value.size()>=6 and not value.has("gasket"):return false
-	if value.size()==7 and (not value.has("nozzle") or _nozzle_joint==null):return false
+	if value is not Dictionary or value.size()<3 or value.size()>8:return false
+	for key: String in value:
+		if key not in ["door","lever","facts","joint","loose","gasket","nozzle","rubber_dressed"]:return false
+	if value.has("loose") and not value.has("joint"):return false
+	if value.has("gasket") and not value.has("loose"):return false
+	if value.has("nozzle") and (not value.has("gasket") or _nozzle_joint==null):return false
+	if value.has("rubber_dressed") and value.rubber_dressed is not bool:return false
 	if value.has("gasket") and not preload("res://scripts/props/fire_line_gasket.gd").valid(value.gasket):return false
 	if value.has("joint"):
 		if typeof(value.joint) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(value.joint)) or float(value.joint)<0. or float(value.joint)>_maximum("joint"):return false
@@ -382,3 +406,4 @@ func restore_mechanism(value: Dictionary) -> void:
 	else:_gasket_body.restore({"position":[.245,.048,.150],"rotation":[0.,0.,0.,1.]})
 	if value.has("nozzle"):_nozzle_joint.restore(value.nozzle)
 	elif _nozzle_joint!=null:_nozzle_joint.restore_legacy(value.facts.nozzle_coupled)
+	rubber_dressed=bool(value.get("rubber_dressed",false));_rubber_finish()

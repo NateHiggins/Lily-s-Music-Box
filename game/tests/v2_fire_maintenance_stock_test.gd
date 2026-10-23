@@ -75,6 +75,18 @@ func _ready() -> void:
 	_check(items.consume(GASKET) and not items.consume(GASKET), "replacement gasket spent once through inventory")
 	_check(items.has_item(BOTTLE), "reusable bottle survives fitting a gasket")
 	_check(not shop.purchase_supply(GASKET, "hardware_paint"), "consumed campaign stock cannot resurrect")
+	const CAPSULE := "carbon_transmitter_capsule"
+	const JOB := "vantry_chirp_2a"
+	_check(not shop.transact(CAPSULE,"hardware_paint"), "radio transaction cannot invent a requisition")
+	_check(orders.issue_job(JOB,"reported") and orders.acknowledge_job(JOB)
+		and orders.diagnose_job(JOB) and orders.mark_job_awaiting_part(JOB), "original work-order owner authorizes the building part")
+	radio_on=false
+	_check(not shop.transact(CAPSULE,"hardware_paint") and orders.job_stage(JOB)=="awaiting_part", "radio-off building requisition leaves inventory and job pending")
+	radio_on=true
+	_check(shop.transact(CAPSULE,"hardware_paint") and items.has_item(CAPSULE)
+		and orders.job_stage(JOB)=="repairable", "live radio requisition delivers through the original work-order contract")
+	_check(int(economy.book().cash)==65 and int(clearing_amount(network,"requisition:"+CAPSULE))==0, "approved building account never debits personal cash")
+	_check(not shop.transact(CAPSULE,"hardware_paint"), "building receipt cannot duplicate its part")
 	RealityState.save_path=RealityState.SAVE_PATH
 	print("V2 FIRE MAINTENANCE STOCK: %d checks, %d failures" % [checks, failures])
 	get_tree().quit(0 if failures == 0 else 1)
@@ -84,3 +96,6 @@ func _check(ok: bool, label: String) -> void:
 	if not ok:
 		failures += 1
 		push_error(label)
+
+func clearing_amount(network: RefCounted, identity: String) -> int:
+	return int(network.receipt(identity).get("cents",-1))

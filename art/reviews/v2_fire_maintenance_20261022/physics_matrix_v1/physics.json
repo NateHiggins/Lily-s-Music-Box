@@ -1,0 +1,530 @@
+{
+  "cases": [
+    {
+      "ccd": true,
+      "damp": 0.0,
+      "friction": 0.85,
+      "name": "native_ccd",
+      "primitive": false
+    },
+    {
+      "ccd": false,
+      "damp": 0.0,
+      "friction": 0.85,
+      "name": "native_discrete",
+      "primitive": false
+    },
+    {
+      "ccd": false,
+      "damp": 0.0,
+      "friction": 0.35,
+      "name": "native_glaze_discrete",
+      "primitive": false
+    },
+    {
+      "ccd": true,
+      "damp": 5.0,
+      "friction": 0.85,
+      "name": "native_damped",
+      "primitive": false
+    },
+    {
+      "ccd": true,
+      "damp": 0.0,
+      "friction": 0.35,
+      "name": "cylinder_ccd",
+      "primitive": true
+    },
+    {
+      "ccd": false,
+      "damp": 0.0,
+      "friction": 0.35,
+      "name": "cylinder_discrete",
+      "primitive": true
+    }
+  ],
+  "contact_allowed_penetration_m": 0.00999999977648258,
+  "evidence_class": "INERT",
+  "samples": [
+    {
+      "case": "native_ccd",
+      "frame": 60,
+      "position": "(0.000558, -0.009642, -0.001124)",
+      "sleeping": false,
+      "spin": "(0.967753, -0.013911, -0.640188)",
+      "velocity": "(0.000226, -0.028789, 0.000804)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 60,
+      "position": "(1.007946, 0.002752, -0.011004)",
+      "sleeping": false,
+      "spin": "(3.346877, 0.068246, 4.127122)",
+      "velocity": "(-0.045525, 0.126455, 0.034921)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 60,
+      "position": "(2.018857, 0.001399, -0.040306)",
+      "sleeping": false,
+      "spin": "(2.983905, 0.360533, 3.79258)",
+      "velocity": "(-0.043152, 0.117848, 0.022713)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 60,
+      "position": "(3.000567, -0.009726, -0.001032)",
+      "sleeping": false,
+      "spin": "(-0.691882, -0.028825, 0.197788)",
+      "velocity": "(0.000039, -0.001943, -0.000004)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 60,
+      "position": "(4.007165, -0.00537, -0.011601)",
+      "sleeping": false,
+      "spin": "(0.332602, 0.000202, -0.37055)",
+      "velocity": "(0.030442, -0.015862, 0.028059)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 60,
+      "position": "(5.0051, -0.010155, -0.009036)",
+      "sleeping": false,
+      "spin": "(0.133306, 0.000923, -0.285689)",
+      "velocity": "(0.023739, -0.007644, 0.011052)"
+    },
+    {
+      "case": "native_ccd",
+      "frame": 120,
+      "position": "(0.000728, -0.010502, -0.000921)",
+      "sleeping": false,
+      "spin": "(-0.760964, -0.003101, 1.062986)",
+      "velocity": "(0.000035, -0.032383, -0.000094)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 120,
+      "position": "(1.009494, -0.009994, -0.014706)",
+      "sleeping": false,
+      "spin": "(0.0618, 0.0026, 0.010886)",
+      "velocity": "(0.000031, 0.000134, 0.000012)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 120,
+      "position": "(2.019322, -0.009766, -0.044822)",
+      "sleeping": false,
+      "spin": "(-0.696861, -0.010931, 0.057635)",
+      "velocity": "(0.000077, -0.005436, -0.000033)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 120,
+      "position": "(3.000786, -0.009934, -0.0008)",
+      "sleeping": false,
+      "spin": "(-1.10763, -0.017753, -0.235887)",
+      "velocity": "(0.000117, -0.011754, 0.000065)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 120,
+      "position": "(4.008106, -0.010164, -0.01023)",
+      "sleeping": false,
+      "spin": "(0.163635, 0.000086, -0.216032)",
+      "velocity": "(0.017956, -0.007956, 0.013598)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 120,
+      "position": "(5.005863, -0.010164, -0.008525)",
+      "sleeping": false,
+      "spin": "(-0.146921, -0.000032, 0.227146)",
+      "velocity": "(-0.018877, -0.007845, -0.012211)"
+    },
+    {
+      "case": "native_ccd",
+      "frame": 180,
+      "position": "(0.000986, -0.009515, -0.000645)",
+      "sleeping": false,
+      "spin": "(-0.097257, -0.001741, -0.04002)",
+      "velocity": "(-0.000022, 0.000512, -0.000028)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 180,
+      "position": "(1.009791, -0.011066, -0.014597)",
+      "sleeping": false,
+      "spin": "(-0.303444, -0.001287, 1.857062)",
+      "velocity": "(0.000535, -0.048531, 0.000029)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 180,
+      "position": "(2.019691, -0.010133, -0.044658)",
+      "sleeping": false,
+      "spin": "(0.155813, 0.015588, 0.57864)",
+      "velocity": "(0.000037, -0.014424, 0.000364)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 180,
+      "position": "(3.001044, -0.011033, -0.000614)",
+      "sleeping": false,
+      "spin": "(-0.824126, 0.001086, 1.702347)",
+      "velocity": "(0.000813, -0.049558, 0.000452)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 180,
+      "position": "(4.007989, -0.010163, -0.010139)",
+      "sleeping": false,
+      "spin": "(0.161283, 0.000067, -0.21425)",
+      "velocity": "(0.017808, -0.00786, 0.013403)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 180,
+      "position": "(5.005698, -0.010164, -0.008432)",
+      "sleeping": false,
+      "spin": "(-0.14699, -0.000031, 0.227198)",
+      "velocity": "(-0.018881, -0.007848, -0.012217)"
+    },
+    {
+      "case": "native_ccd",
+      "frame": 240,
+      "position": "(0.00124, -0.010427, -0.000446)",
+      "sleeping": false,
+      "spin": "(-0.496361, 0.012134, 1.22943)",
+      "velocity": "(0.000333, -0.03495, 0.000424)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 240,
+      "position": "(1.01011, -0.01006, -0.014405)",
+      "sleeping": false,
+      "spin": "(-0.349532, -0.016099, 0.051966)",
+      "velocity": "(0.000001, -0.000046, 0.000003)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 240,
+      "position": "(2.020028, -0.009866, -0.044628)",
+      "sleeping": false,
+      "spin": "(-0.138817, -0.005621, 0.013851)",
+      "velocity": "(-0.000036, 0.000329, -0.000024)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 240,
+      "position": "(3.001323, -0.009971, -0.000464)",
+      "sleeping": false,
+      "spin": "(0.094378, 0.007921, 0.042419)",
+      "velocity": "(0.000002, -0.000598, 0.000031)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 240,
+      "position": "(4.00786, -0.010163, -0.01007)",
+      "sleeping": false,
+      "spin": "(0.161284, 0.000067, -0.214249)",
+      "velocity": "(0.017808, -0.00786, 0.013403)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 240,
+      "position": "(5.005534, -0.010164, -0.00834)",
+      "sleeping": false,
+      "spin": "(-0.146993, -0.000031, 0.227194)",
+      "velocity": "(-0.018881, -0.007848, -0.012217)"
+    },
+    {
+      "case": "native_ccd",
+      "frame": 300,
+      "position": "(0.001504, -0.009815, -0.000289)",
+      "sleeping": false,
+      "spin": "(0.365964, -0.009664, -1.19643)",
+      "velocity": "(0.000811, -0.03227, 0.000513)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 300,
+      "position": "(1.010438, -0.01005, -0.014273)",
+      "sleeping": false,
+      "spin": "(-0.149365, -0.004903, -0.021589)",
+      "velocity": "(0.000047, -0.000431, 0.000013)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 300,
+      "position": "(2.020302, -0.010199, -0.044504)",
+      "sleeping": false,
+      "spin": "(0.157971, 0.017431, 0.57781)",
+      "velocity": "(0.000005, -0.014421, 0.000415)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 300,
+      "position": "(3.00166, -0.010076, -0.000187)",
+      "sleeping": false,
+      "spin": "(-0.220682, 0.001718, 0.610461)",
+      "velocity": "(0.000159, -0.016976, 0.000075)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 300,
+      "position": "(4.007731, -0.010163, -0.010001)",
+      "sleeping": false,
+      "spin": "(0.161286, 0.000067, -0.214248)",
+      "velocity": "(0.017808, -0.00786, 0.013403)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 300,
+      "position": "(5.005371, -0.010164, -0.008249)",
+      "sleeping": false,
+      "spin": "(-0.146997, -0.000032, 0.227192)",
+      "velocity": "(-0.018881, -0.007848, -0.012217)"
+    },
+    {
+      "case": "native_ccd",
+      "frame": 360,
+      "position": "(0.001773, -0.009798, -0.000105)",
+      "sleeping": false,
+      "spin": "(-0.231575, -0.003091, -0.129032)",
+      "velocity": "(0.000008, -0.000748, -0.00001)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 360,
+      "position": "(1.010779, -0.010018, -0.0142)",
+      "sleeping": false,
+      "spin": "(-0.051505, 0.000987, -0.008994)",
+      "velocity": "(0.000041, -0.00017, -0.000004)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 360,
+      "position": "(2.020523, -0.011049, -0.044385)",
+      "sleeping": false,
+      "spin": "(-0.066525, 0.006413, 1.84938)",
+      "velocity": "(0.000544, -0.04869, 0.000223)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 360,
+      "position": "(3.00186, -0.010236, 0.000039)",
+      "sleeping": false,
+      "spin": "(-0.768033, -0.003077, 1.061496)",
+      "velocity": "(0.000361, -0.032268, 0.000176)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 360,
+      "position": "(4.007603, -0.010163, -0.009931)",
+      "sleeping": false,
+      "spin": "(0.161288, 0.000068, -0.214246)",
+      "velocity": "(0.017808, -0.00786, 0.013404)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 360,
+      "position": "(5.005213, -0.010164, -0.008157)",
+      "sleeping": false,
+      "spin": "(-0.146998, -0.000032, 0.227188)",
+      "velocity": "(-0.018881, -0.007848, -0.012218)"
+    },
+    {
+      "case": "native_ccd",
+      "frame": 420,
+      "position": "(0.002069, -0.009493, 0.000156)",
+      "sleeping": false,
+      "spin": "(-0.09032, -0.001968, -0.109459)",
+      "velocity": "(0.000028, 0.001074, -0.000039)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 420,
+      "position": "(1.011042, -0.009722, -0.014125)",
+      "sleeping": false,
+      "spin": "(0.779545, -0.012513, -1.036284)",
+      "velocity": "(0.000881, -0.034292, 0.001053)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 420,
+      "position": "(2.020839, -0.011077, -0.044247)",
+      "sleeping": false,
+      "spin": "(0.01986, 0.0293, 1.908485)",
+      "velocity": "(0.000421, -0.050412, 0.00078)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 420,
+      "position": "(3.002192, -0.010032, 0.000244)",
+      "sleeping": false,
+      "spin": "(0.584539, 0.006275, -1.159086)",
+      "velocity": "(0.000766, -0.034988, 0.000208)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 420,
+      "position": "(4.007474, -0.010163, -0.009862)",
+      "sleeping": false,
+      "spin": "(0.161289, 0.000068, -0.214245)",
+      "velocity": "(0.017808, -0.00786, 0.013404)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 420,
+      "position": "(5.005056, -0.010164, -0.008065)",
+      "sleeping": false,
+      "spin": "(-0.147002, -0.000032, 0.227184)",
+      "velocity": "(-0.01888, -0.007848, -0.012218)"
+    },
+    {
+      "case": "native_ccd",
+      "frame": 480,
+      "position": "(0.002412, -0.009683, 0.000413)",
+      "sleeping": false,
+      "spin": "(0.133191, 0.008056, 0.333641)",
+      "velocity": "(-0.00001, -0.005344, 0.000198)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 480,
+      "position": "(1.011383, -0.009804, -0.014013)",
+      "sleeping": false,
+      "spin": "(-0.616709, -0.005644, 0.02915)",
+      "velocity": "(0.000004, -0.004873, 0.000026)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 480,
+      "position": "(2.021126, -0.009859, -0.044156)",
+      "sleeping": false,
+      "spin": "(-0.577611, -0.005493, -0.002028)",
+      "velocity": "(-0.000024, -0.003011, 0.000026)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 480,
+      "position": "(3.002497, -0.010322, 0.000493)",
+      "sleeping": false,
+      "spin": "(0.140153, 0.033622, 0.918068)",
+      "velocity": "(-0.000503, -0.018433, 0.000765)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 480,
+      "position": "(4.007345, -0.010163, -0.009793)",
+      "sleeping": false,
+      "spin": "(0.161292, 0.000068, -0.214245)",
+      "velocity": "(0.017808, -0.00786, 0.013404)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 480,
+      "position": "(5.004896, -0.010164, -0.007974)",
+      "sleeping": false,
+      "spin": "(-0.147005, -0.000032, 0.227179)",
+      "velocity": "(-0.01888, -0.007848, -0.012218)"
+    },
+    {
+      "case": "native_ccd",
+      "frame": 540,
+      "position": "(0.002651, -0.010191, 0.000624)",
+      "sleeping": false,
+      "spin": "(-0.185983, 0.00335, 0.53293)",
+      "velocity": "(0.000092, -0.01473, 0.000104)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 540,
+      "position": "(1.0118, -0.009757, -0.013863)",
+      "sleeping": false,
+      "spin": "(-0.268712, -0.008569, 0.041781)",
+      "velocity": "(0.000061, -0.002846, -0.000081)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 540,
+      "position": "(2.021531, -0.009869, -0.044012)",
+      "sleeping": false,
+      "spin": "(0.057313, 0.001999, 0.013192)",
+      "velocity": "(0.000035, 0.00005, 0.000026)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 540,
+      "position": "(3.002799, -0.009489, 0.000727)",
+      "sleeping": false,
+      "spin": "(0.293914, 0.017601, 0.291892)",
+      "velocity": "(0.000059, -0.002247, 0.000069)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 540,
+      "position": "(4.007209, -0.010163, -0.009724)",
+      "sleeping": false,
+      "spin": "(0.161294, 0.000068, -0.214243)",
+      "velocity": "(0.017808, -0.00786, 0.013404)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 540,
+      "position": "(5.00473, -0.010164, -0.007882)",
+      "sleeping": false,
+      "spin": "(-0.146906, -0.000058, 0.227305)",
+      "velocity": "(-0.018889, -0.007848, -0.01221)"
+    },
+    {
+      "case": "native_ccd",
+      "frame": 600,
+      "position": "(0.00296, -0.010244, 0.000838)",
+      "sleeping": false,
+      "spin": "(0.008218, 0.015694, 0.698517)",
+      "velocity": "(-0.000129, -0.01551, 0.00035)"
+    },
+    {
+      "case": "native_discrete",
+      "frame": 600,
+      "position": "(1.012123, -0.009569, -0.013781)",
+      "sleeping": false,
+      "spin": "(0.212763, 0.009945, 0.037334)",
+      "velocity": "(0.000032, -0.001848, 0.000044)"
+    },
+    {
+      "case": "native_glaze_discrete",
+      "frame": 600,
+      "position": "(2.021874, -0.010113, -0.043933)",
+      "sleeping": false,
+      "spin": "(0.274176, 0.011063, 0.63937)",
+      "velocity": "(0.0001, -0.015514, 0.000307)"
+    },
+    {
+      "case": "native_damped",
+      "frame": 600,
+      "position": "(3.003136, -0.009785, 0.000962)",
+      "sleeping": false,
+      "spin": "(-0.632864, -0.012394, -0.26331)",
+      "velocity": "(0.000024, -0.003582, 0.000027)"
+    },
+    {
+      "case": "cylinder_ccd",
+      "frame": 600,
+      "position": "(4.007073, -0.010163, -0.009655)",
+      "sleeping": false,
+      "spin": "(0.161296, 0.000069, -0.214242)",
+      "velocity": "(0.017808, -0.00786, 0.013404)"
+    },
+    {
+      "case": "cylinder_discrete",
+      "frame": 600,
+      "position": "(5.004558, -0.010164, -0.007787)",
+      "sleeping": false,
+      "spin": "(-0.146916, -0.000058, 0.227304)",
+      "velocity": "(-0.018889, -0.007848, -0.012211)"
+    }
+  ]
+}

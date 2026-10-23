@@ -1,0 +1,20 @@
+ERROR: V2 HARDWARE STOCK WORLD: picked bottle reaches the real FPS hand pose without obstruction
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _street_route (res://tests/v2_fire_maintenance_world_test.gd:53)
+ERROR: Condition "!is_inside_tree()" is true. Returning: Transform3D()
+   at: get_global_transform (scene/3d/node_3d.cpp:649)
+   GDScript backtrace (most recent call first):
+       [0] release (res://scripts/player/constrained_grab.gd:167)
+       [1] _exit_tree (res://scripts/player/player_controller.gd:1336)
+       [2] _run (res://tests/orison_v2_vertical_route_test.gd:40)
+ERROR: Condition "!is_inside_tree()" is true. Returning: Transform3D()
+   at: get_global_transform (scene/3d/node_3d.cpp:649)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://scripts/props/v2_library_movable.gd:85)
+       [1] release (res://scripts/player/constrained_grab.gd:170)
+       [2] _exit_tree (res://scripts/player/player_controller.gd:1336)
+       [3] _run (res://tests/orison_v2_vertical_route_test.gd:40)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

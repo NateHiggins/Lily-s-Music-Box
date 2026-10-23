@@ -75,6 +75,7 @@ var exterior_cell: OrisonV2ExteriorCell
 var passage_region: OrisonV2PassageRegion
 var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
+var fire_maintenance_counter: Node3D
 var shop_simulation: Node
 var day_night_director: DayNightDirector
 var light_rig: LightRig
@@ -631,13 +632,6 @@ func _compose_authorities() -> void:
 	var kitchen_plumbing:=preload("res://scripts/building/orison_v2_kitchen_plumbing.gd").new()
 	if not kitchen_plumbing.mount(self):
 		startup_failed=true;push_error("V2 kitchen plumbing refused: %s" % [kitchen_plumbing.errors]);return
-	household_state = HouseholdState.new()
-	household_state.name = "HouseholdState"
-	add_child(household_state)
-	if not household_state.bind(adapter, get_node("V2RoomSwitches") as SwitchSystem, passage_region.doors):
-		startup_failed = true
-		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
-		return
 	var economy := preload("res://scripts/game/caretaker_economy.gd").new()
 	economy.name = "CaretakerEconomy"
 	add_child(economy)
@@ -647,6 +641,19 @@ func _compose_authorities() -> void:
 	if not economy.setup(work_orders) or not care.setup(_blockout,economy):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: caretaker ledger refused")
+		return
+	var installed_fire: RefCounted=adapter.root.get_meta("v2_native_fire_service")
+	fire_maintenance_counter=preload("res://scripts/building/orison_v2_fire_maintenance_counter.gd").mount(self,economy,installed_fire.stations)
+	if fire_maintenance_counter==null:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: fire maintenance counter refused");return
+	var saved_mechanisms: Dictionary=passage_region.doors.duplicate()
+	saved_mechanisms[str(fire_maintenance_counter.name)]=fire_maintenance_counter
+	household_state = HouseholdState.new()
+	household_state.name = "HouseholdState"
+	add_child(household_state)
+	if not household_state.bind(adapter, get_node("V2RoomSwitches") as SwitchSystem, saved_mechanisms):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
 		return
 	var notebook := preload("res://scripts/ui/caretaker_notebook.gd").new()
 	notebook.name = "CaretakerNotebook"
@@ -731,7 +738,7 @@ func debug_destinations() -> Dictionary:
 func _compose_exterior() -> bool:
 	public_regions=preload("res://scripts/building/orison_v2_public_region_programmes.gd").new()
 	if not public_regions.configure(_exterior_resolver):return false
-	shop_service = MaintenanceShopService.new()
+	shop_service = preload("res://scripts/game/v2_maintenance_shop_service.gd").new()
 	shop_service.name = "MaintenanceShopService"
 	add_child(shop_service)
 	shop_service.setup(maintenance_inventory, work_orders)

@@ -2986,3 +2986,39 @@ game/tests/v2_fire_maintenance_stock_test.gd -text
 game/tests/V2FireMaintenanceStockTest.tscn -text
 design/V2_RADIO_SHOP_NETWORK_2026-10-22.md -text
 design/V2_CONTINUATION_2026-10-22.md -text
+
+art/blender/scripts/build_fire_maintenance_stock.py -text
+
+art/blender/scripts/review_fire_maintenance_stock.py -text
+
+art/blender/scripts/native_textile_export.py -text
+
+game/data/orison_v2/fire_maintenance_meshes.json -text
+
+game/assets/props/fire_maintenance_stock.glb.import -text
+
+game/scripts/props/fire_maintenance_stock_library.gd -text
+
+game/scripts/props/fire_maintenance_pickup.gd -text
+
+game/scripts/props/radio_sale_terminal.gd -text
+
+game/scripts/building/fire_maintenance_counter.gd -text
+
+game/scripts/building/orison_v2_fire_maintenance_counter.gd -text
+
+game/scripts/props/v2_fire_line_cabinet.gd -text
+
+game/scripts/game/caretaker_economy.gd -text
+
+game/tests/v2_fire_maintenance_hand_bench.gd -text
+
+game/tests/v2_fire_maintenance_hand_runner.gd -text
+
+game/tests/V2FireMaintenanceHandBench.tscn -text
+
+game/tests/v2_fire_maintenance_world_test.gd -text
+
+game/tests/V2FireMaintenanceWorldTest.tscn -text
+
+design/V2_HARDWARE_RADIO_COUNTER_2026-10-22.md -text

@@ -39,7 +39,7 @@ static func valid(value: Variant) -> bool:
 			if identity is not String or identity.is_empty() or purchase is not Dictionary \
 					or purchase.get("merchant") is not String or str(purchase.merchant).is_empty() \
 					or purchase.get("item") is not String or str(purchase.item).is_empty() \
-					or not whole(purchase.get("cents"),1): return false
+					or not whole(purchase.get("cents")): return false
 	return true
 
 func setup(work: WorkOrders) -> bool:
@@ -135,7 +135,7 @@ func pay_rent() -> bool:
 func purchase_once(identity: String, merchant: String, item: String,
 		cents: int, deliver: Callable) -> bool:
 	if _purchasing or RealityState.save_write_blocked or identity.is_empty() \
-			or merchant.is_empty() or item.is_empty() or cents<1 \
+			or merchant.is_empty() or item.is_empty() or cents<0 \
 			or not deliver.is_valid() or not clock.bind_state(): return false
 	var ledger:=book()
 	if not valid(ledger) or int(ledger.cash)<cents: return false

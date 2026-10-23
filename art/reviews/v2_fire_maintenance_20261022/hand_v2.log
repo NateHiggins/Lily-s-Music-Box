@@ -1,0 +1,77 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: existing economy binds = true
+FIRE HAND CHECK: existing radio state gates settlement = true
+FIRE HAND CHECK: native counter and two service products mount = true
+CAP MAPPING: mesh=fire_maintenance_stock_StonewareBottle_001 valid_basis=true max_uv_excess=0.00001073349267 widest=1.00161038651093 vertices=1287 derivatives=true bad_derivatives=0 min_determinant=0.00000146939719 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fire_maintenance_stock_BottleHinge valid_basis=true max_uv_excess=0.00000006851042 widest=1.00011299316689 vertices=648 derivatives=true bad_derivatives=0 min_determinant=0.00000029471781 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fire_maintenance_stock_Cap valid_basis=true max_uv_excess=0.00000006519258 widest=1.00011233250015 vertices=3663 derivatives=true bad_derivatives=0 min_determinant=0.00000029469015 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fire_maintenance_stock_Gasket valid_basis=true max_uv_excess=0.00000003911555 widest=1.00001314436329 vertices=1071 derivatives=true bad_derivatives=0 min_determinant=0.00000373771469 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fire_maintenance_stock_GluedPaperLabel_001 valid_basis=true max_uv_excess=0.00000881706364 widest=1.00272756050472 vertices=480 derivatives=true bad_derivatives=0 min_determinant=0.00000051656681 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fire_maintenance_stock_TerminalLever valid_basis=true max_uv_excess=0.00000006973278 widest=1.00009111043543 vertices=648 derivatives=true bad_derivatives=0 min_determinant=0.00000046050204 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fire_maintenance_stock_TerminalMetal valid_basis=true max_uv_excess=0.00000006565824 widest=1.00022002959951 vertices=1616 derivatives=true bad_derivatives=0 min_determinant=0.00000007367409 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fire_maintenance_stock_TerminalShell valid_basis=true max_uv_excess=0.00000007450581 widest=1.00006951150221 vertices=968 derivatives=true bad_derivatives=0 min_determinant=0.00000046050204 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fire_maintenance_stock_PressedGasketTin_001 valid_basis=true max_uv_excess=0.00001073349267 widest=1.00161038651093 vertices=936 derivatives=true bad_derivatives=0 min_determinant=0.00000720437501 worst_dot=0.99999982118607
+FIRE HAND CHECK: all nine imported stocks retain finite metric UVs and tangent frames = true
+FIRE HAND CHECK: native UV and normal map: Bottle = true
+FIRE HAND CHECK: loaded custom-map mips: Bottle = true
+FIRE HAND CHECK: loaded custom-map mips: Bottle = true
+FIRE HAND CHECK: loaded custom-map mips: Bottle = true
+FIRE HAND CHECK: native UV and normal map: Cap = true
+FIRE HAND CHECK: loaded custom-map mips: Cap = true
+FIRE HAND CHECK: loaded custom-map mips: Cap = true
+FIRE HAND CHECK: loaded custom-map mips: Cap = true
+FIRE HAND CHECK: native UV and normal map: Label = true
+FIRE HAND CHECK: loaded custom-map mips: Label = true
+FIRE HAND CHECK: loaded custom-map mips: Label = true
+FIRE HAND CHECK: loaded custom-map mips: Label = true
+FIRE HAND CHECK: native UV and normal map: Tin = true
+FIRE HAND CHECK: loaded custom-map mips: Tin = true
+FIRE HAND CHECK: loaded custom-map mips: Tin = true
+FIRE HAND CHECK: loaded custom-map mips: Tin = true
+FIRE HAND CHECK: native UV and normal map: Gasket = true
+FIRE HAND CHECK: loaded custom-map mips: Gasket = true
+FIRE HAND CHECK: loaded custom-map mips: Gasket = true
+FIRE HAND CHECK: loaded custom-map mips: Gasket = true
+FIRE HAND CHECK: native UV and normal map: BottleHinge = true
+FIRE HAND CHECK: loaded custom-map mips: BottleHinge = true
+FIRE HAND CHECK: loaded custom-map mips: BottleHinge = true
+FIRE HAND CHECK: loaded custom-map mips: BottleHinge = true
+FIRE HAND CHECK: native UV and normal map: TerminalShell = true
+FIRE HAND CHECK: loaded custom-map mips: TerminalShell = true
+FIRE HAND CHECK: loaded custom-map mips: TerminalShell = true
+FIRE HAND CHECK: loaded custom-map mips: TerminalShell = true
+FIRE HAND CHECK: native UV and normal map: TerminalMetal = true
+FIRE HAND CHECK: loaded custom-map mips: TerminalMetal = true
+FIRE HAND CHECK: loaded custom-map mips: TerminalMetal = true
+FIRE HAND CHECK: loaded custom-map mips: TerminalMetal = true
+FIRE HAND CHECK: native UV and normal map: TerminalLever = true
+FIRE HAND CHECK: loaded custom-map mips: TerminalLever = true
+FIRE HAND CHECK: loaded custom-map mips: TerminalLever = true
+FIRE HAND CHECK: loaded custom-map mips: TerminalLever = true
+FIRE HAND CHECK: unpaid bottle cannot be carried and inspection does not bill it = true
+FIRE HAND CHECK: actual click mouse travel release reaches the radio-off lever stop = true
+FIRE HAND CHECK: radio-off stroke charges and delivers nothing = true
+FIRE HAND CHECK: partial actual lever stroke = true
+FIRE HAND CHECK: partial pull does not buy = true
+FIRE HAND CHECK: full actual lever stroke = true
+FIRE HAND CHECK: exact purchase owns bottle and debits25c = true
+FIRE HAND CHECK: paid bottle primary click grabs actual stock = true
+FIRE HAND CHECK: bottle follows held stock without free rigid-body simulation = true
+FIRE HAND CHECK: Space enters supported static inspection = true
+FIRE HAND CHECK: floating inspection settles to a fixed pose = true
+FIRE HAND CHECK: free cursor identifies the captive cap = true
+FIRE HAND CHECK: primary click grabs cap instead of parent bottle = true
+FIRE HAND CHECK: actual mouse motion opens cap to its physical stop and next click releases = true
+FIRE HAND CHECK: physical stock and cap have a valid household-save contract = true
+FIRE HAND CHECK: leaving inspection returns the bottle to the held-stock path = true
+FIRE HAND CHECK: next click releases held bottle = true
+FIRE HAND CHECK: stock pose and cap restore exactly = false
+FIRE HAND CHECK: stock residency derives bounds from the original floor record = true
+FIRE HAND CHECK: moving unheld stock retains its physical region = false
+FIRE HAND CHECK: quiet suspension preserves durable pose, velocity and parked state = false
+FIRE HAND CHECK: suspended stock does not fall through a retired floor = false
+FIRE HAND CHECK: restored floor resumes the original sleeping body = false
+FIRE MAINTENANCE HAND: 63 checks, 5 failures
