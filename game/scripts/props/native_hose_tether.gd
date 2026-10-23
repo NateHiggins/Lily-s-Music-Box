@@ -23,10 +23,15 @@ var lock_tip_direction:=true
 var tip_direction:=Vector3.ZERO
 var round_self_radius_m:=0.
 var seed_factory: Callable
+var constrained_seed_factory: Callable
+var failure_observer: Callable
+var _world_contact_sources: Array=[]
 var collect_profile:=false
 var profile_usec: Dictionary={}
 
 var substep_m:=SUBSTEP_M
+var max_move_m:=MAX_MOVE_M
+var work_budget_usec:=WORK_BUDGET_USEC
 var seeded_candidates:=0
 var seeded_accepts:=0
 var last_seed_bend_error:=0.
@@ -39,6 +44,10 @@ var _prepared_world:=Transform3D.IDENTITY
 var _prepared_frame: int=-1
 func _profile_add(stage: String,started: int) -> void:
 	if collect_profile:profile_usec[stage]=int(profile_usec.get(stage,0))+Time.get_ticks_usec()-started
+func set_hand_follow_budget(travel: float,budget_usec: int) -> bool:
+	if not is_finite(travel) or travel<=0. or travel>.6 or budget_usec<=0 or budget_usec>12000:return false
+	if max_move_m!=travel or work_budget_usec!=budget_usec:cancel_motion()
+	max_move_m=travel;work_budget_usec=budget_usec;return true
 func cancel_endpoint() -> void:
 	_prepared_before=PackedVector3Array();_prepared_points=PackedVector3Array();_prepared_frame=-1
 func has_prepared_endpoint() -> bool:return not _prepared_points.is_empty()
@@ -67,6 +76,7 @@ func _merge(planes: Dictionary,plane: Dictionary) -> void:
 			old.offset=maxf(old.offset,plane.offset);return
 	planes[ring].append({"normal":plane.normal,"offset":plane.offset})
 func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
+	_world_contact_sources.clear()
 	var initial: PackedVector3Array=before
 	var has_seed:=false
 	if seed_factory.is_valid():
@@ -96,6 +106,12 @@ func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 		var solve_planes: Dictionary=planes if own_planes.is_empty() else planes.duplicate(true)
 		for plane: Dictionary in own_planes:_merge(solve_planes,plane)
 		var proposed:=PackedVector3Array()
+		if not solve_planes.is_empty() and constrained_seed_factory.is_valid():
+			var local_started: int=Time.get_ticks_usec() if collect_profile else 0
+			var local: Variant=constrained_seed_factory.call(before,goal,solve_planes,pins)
+			_profile_add("contact_seed",local_started)
+			if local is PackedVector3Array and local.size()==before.size():
+				seed=local;has_seed=true;continuation=false
 		if has_seed and not continuation:
 			seeded_candidates+=1
 			last_seed_points=seed
@@ -112,6 +128,7 @@ func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 			_profile_add("solver",stage_started)
 		if proposed.is_empty():
 			error=kernel.error
+			if failure_observer.is_valid():failure_observer.call(seed,goal,solve_planes,pins,_world_contact_sources,continuation)
 			if error.contains("ceiling") and kernel.coupled.last_iterate.size()==before.size():
 				_warm_before=before.duplicate();_warm_seed=kernel.coupled.last_iterate.duplicate();_warm_world=rig.model.global_transform;pending=true
 			else:_drop_warm()
@@ -120,6 +137,7 @@ func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 		if not rig.strand._valid_positions(proposed):error="held material residual";return PackedVector3Array()
 		var stage_started: int=Time.get_ticks_usec() if collect_profile else 0
 		var result: Dictionary=contact.motion_constraints(before,proposed,4096);responses+=1
+		if failure_observer.is_valid():_world_contact_sources.append_array(result.planes)
 		_profile_add("world_constraints",stage_started)
 		if not result.valid or result.truncated:error="invalid held native response: "+str(result.error);return PackedVector3Array()
 		if result.planes.is_empty():
@@ -155,7 +173,7 @@ func prepare_endpoint(goal: Vector3) -> bool:
 	if offset.length()>rig.strand.total_length:
 		goal=rig.strand.anchor+offset.normalized()*rig.strand.total_length;limited=true
 	var travel: Vector3=goal-before[0]
-	if travel.length()>MAX_MOVE_M:goal=before[0]+travel.normalized()*MAX_MOVE_M
+	if travel.length()>max_move_m:goal=before[0]+travel.normalized()*max_move_m
 	_requested_goal=goal
 	var neck_matches: bool=tip_direction.length_squared()<.99 or (before[1]-before[0]).normalized().dot(tip_direction)>1.-1e-10
 	if goal==before[0] and neck_matches:
@@ -171,7 +189,7 @@ func prepare_endpoint(goal: Vector3) -> bool:
 			var proposed: PackedVector3Array=_trial(working,before[0].lerp(end,float(step)/steps))
 			if proposed.is_empty():partial=not pending;break
 			working=proposed
-			if step<steps and Time.get_ticks_usec()-started>=WORK_BUDGET_USEC:
+			if step<steps and Time.get_ticks_usec()-started>=work_budget_usec:
 				pending=true;break
 		if working==before:
 			if pending:last_ms=(Time.get_ticks_usec()-started)/1000.;return false

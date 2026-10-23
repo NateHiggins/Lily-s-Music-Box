@@ -112,6 +112,7 @@ func _exercise_pull(actor: Node3D,hose: Node3D) -> Dictionary:
 		if OS.get_environment("ORISON_HOSE_COMBINED_COMPARE")=="1":cycles=["local_a","combined_b","restored_local_a"]
 		if OS.get_environment("ORISON_HOSE_AIM_CONTROL")=="1":cycles=["aim_b"]
 		hose.profile_motion=true
+		hose.local_contacts_enabled=OS.get_environment("ORISON_HOSE_LOCAL_CONTACT")=="1"
 		for cycle: String in cycles:
 			profile_phase=cycle+"_pose_restore_excluded"
 			hose.tether.cancel_motion();hose.set_process(false)

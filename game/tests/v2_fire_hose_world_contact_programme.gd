@@ -37,6 +37,11 @@ func run(root: Node3D,rig: RefCounted,exclusions: Array[RID]) -> RefCounted:
 	body.global_position=frame*cloth
 	await root.get_tree().physics_frame;await root.get_tree().physics_frame
 	check(contact.intersects_pose(rest) and contact.last_collider==body,"same real probe intersects the actual canvas wall")
+	var carried_exclusions: Array[RID]=exclusions.duplicate();carried_exclusions.append(body.get_rid())
+	contact.set_exclusions(carried_exclusions)
+	check(not contact.intersects_pose(rest),"live authoritative exclusion updates native and envelope queries")
+	contact.set_exclusions(exclusions)
+	check(contact.intersects_pose(rest) and contact.last_collider==body,"restoring exclusions immediately restores the real native wall contact")
 	var flat_index: int=-1
 	for i in range(contact.sections.size()-1):
 		var r:=Vector2.ZERO

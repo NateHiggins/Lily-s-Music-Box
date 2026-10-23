@@ -41,13 +41,16 @@ var _last_prepare_usec:=0
 var _last_broad_queries:=0
 var _last_shell_queries:=0
 var local_follow_enabled:=false
+var local_contacts_enabled:=false
 var fps_aim_enabled:=false
 var fps_once_per_frame:=false
+var last_hand_debug: Dictionary={}
 var _hold_frame: int=-1
 var _carrier: WeakRef
 var _cover: PhysicsBody3D
 var _cover_stock_added:=false
 var _cover_holder_added:=false
+var _contact_exclusions: Array[RID]=[]
 var _local_follow:=preload("res://scripts/props/round_local_endpoint.gd").new()
 
 func set_local_follow(enabled: bool) -> bool:
@@ -56,7 +59,9 @@ func set_local_follow(enabled: bool) -> bool:
 		if _local_follow.rig==null and not _local_follow.configure(rig,_bend_radii):return false
 		_local_follow.prime(rig.strand.points if deployed else _placement)
 		tether.seed_factory=_local_follow.seed;tether.substep_m=.08
+		tether.constrained_seed_factory=_local_follow.constrained_seed if local_contacts_enabled else Callable()
 	else:
+		tether.constrained_seed_factory=Callable()
 		tether.seed_factory=_guide_seed if guide_enabled else Callable()
 		tether.substep_m=.08 if guide_enabled else .008
 	local_follow_enabled=enabled;return true
@@ -152,6 +157,7 @@ func prepare_contact() -> bool:
 	for part: Node3D in [joint.seat,joint.nut]:
 		for body: CollisionObject3D in part.find_children("*","CollisionObject3D",true,false):excluded.append(body.get_rid())
 	if not contact.configure(rig,get_world_3d().direct_space_state,excluded):error=contact.error;return false
+	_contact_exclusions=excluded.duplicate()
 	contact.analytic_boxes=true
 	var before: PackedVector3Array=rig.strand.points
 	rig.strand.points=_placement
@@ -234,6 +240,7 @@ func grip() -> Dictionary:
 		"begin":_begin_hose,"owns":func():return actor._hand=="hose","constraint_feedback":_extraction_feedback,"end":_release}
 
 func _begin_hose() -> bool:
+	if not tether.set_hand_follow_budget(.6 if fps_aim_enabled else tether.MAX_MOVE_M,12000 if fps_aim_enabled else tether.WORK_BUDGET_USEC):return false
 	if not actor._claim("hose"):return false
 	error="";tether.blocked=false;tether.limited=false;return true
 
@@ -281,7 +288,7 @@ func _hold_pose(view: Transform3D) -> void:
 	# A blocked translation still remains blocked by the original fitting sweep.
 	if before[0].distance_to(goal)>.12:desired=direction
 	var angle: float=acos(clampf(direction.dot(desired),-1.,1.))
-	var elapsed: float=minf(get_process_delta_time(),.033333) if fps_once_per_frame else get_physics_process_delta_time()
+	var elapsed: float=minf(get_process_delta_time(),.1) if fps_once_per_frame else get_physics_process_delta_time()
 	var turn: float=minf(angle,6.*elapsed)
 	if angle>.00001:
 		# Antiparallel directions need an explicit stable perpendicular axis.
@@ -289,8 +296,9 @@ func _hold_pose(view: Transform3D) -> void:
 		if axis.length_squared()<1e-12:axis=direction.cross(Vector3.UP if absf(direction.y)<.9 else Vector3.RIGHT)
 		direction=direction.rotated(axis.normalized(),turn).normalized()
 	if tether.tip_direction.distance_to(direction)>.000001:tether.cancel_motion()
+	if profile_motion:last_hand_debug={"frame":Engine.get_process_frames(),"distance_to_hand":before[0].distance_to(goal),"angle":angle,"elapsed":elapsed,"turn":turn,"requested":[direction.x,direction.y,direction.z],"desired":[desired.x,desired.y,desired.z]}
 	tether.tip_direction=direction;_local_follow.tip_direction=direction
-	_move(before[0]+(goal-before[0]).limit_length(.06))
+	_move(before[0]+(goal-before[0]).limit_length(minf(.6,12.*elapsed)))
 
 func _constraint_feedback() -> String:
 	if tether.pending:return "grabbed"
@@ -390,6 +398,12 @@ func _append_carried_exclusions(excluded: Array[RID]) -> void:
 		var rid: RID=body.get_rid()
 		if not excluded.has(rid):excluded.append(rid)
 
+func _refresh_carry_contacts() -> void:
+	if not contact.ready:return
+	var excluded: Array[RID]=_contact_exclusions.duplicate()
+	_append_carried_exclusions(excluded)
+	if excluded!=contact.exclusions:contact.set_exclusions(excluded)
+
 func _fitting_probe_clear(space: PhysicsDirectSpaceState3D,query: PhysicsShapeQueryParameters3D,stage: String) -> bool:
 	var hits: Array[Dictionary]=space.intersect_shape(query,1)
 	if hits.is_empty():return true
@@ -456,6 +470,7 @@ func _extract(value: float) -> void:
 func _move(value: Vector3) -> void:
 	if actor._hand!="hose" or not deployed or not value.is_finite():return
 	_refresh_cover_passage()
+	_refresh_carry_contacts()
 	tether.collect_profile=profile_motion
 	var started: int=Time.get_ticks_usec() if profile_motion else 0
 	_last_fitting_usec=0;_last_broad_queries=contact.broad_queries;_last_shell_queries=contact.shell_queries
@@ -476,6 +491,7 @@ func _record_motion_profile(started: int) -> void:
 
 func _process(_delta: float) -> void:
 	if actor._hand!="hose" or not deployed:tether.cancel_motion();set_process(false);return
+	_refresh_cover_passage();_refresh_carry_contacts()
 	if tether.pending and tether.resume_prepare():_commit_motion()
 	set_process(tether.pending)
 
@@ -493,4 +509,5 @@ func _commit_motion() -> void:
 
 func _release() -> void:
 	_clear_cover_passage();_carrier=null
+	if contact.ready:contact.set_exclusions(_contact_exclusions)
 	tether.cancel_motion();set_process(false);actor._release()

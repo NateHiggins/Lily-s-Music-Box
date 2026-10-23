@@ -32,6 +32,9 @@ var _response_limit:=128
 var _response_error:=""
 func _fail(message: String) -> bool:
 	error=message;return false
+func set_exclusions(exclude: Array[RID]) -> void:
+	exclusions=exclude.duplicate()
+	_query.exclude=exclusions;_capsule_query.exclude=exclusions
 func configure(owner_rig: RefCounted,world: PhysicsDirectSpaceState3D,exclude: Array[RID]) -> bool:
 	if ready or owner_rig==null or not owner_rig.configured:return _fail("unconfigured or already bound hose")
 	rig=owner_rig;space=world;exclusions=exclude.duplicate()

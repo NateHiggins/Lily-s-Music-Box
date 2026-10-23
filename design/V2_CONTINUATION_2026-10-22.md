@@ -12,6 +12,18 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest: **carry_walk_v3** passes seven actual walked waypoints plus strict F02
+FPS hand/aim, native-clearance, material/bend and release-cleanup assertions.
+The cloth query now shares authoritative carried-body exclusions with fittings;
+elapsed-time hand travel replaces fixed-per-presented-frame travel. Final aim
+after walking is zero degrees. Native controls pass 35 assertions; hose hand /
+wall feedback passes 21, both empty stderr. See the latest section of
+**V2_HOSE_FPS_HAND_2026-10-23.md**, including original failed experiments.
+Standing window p95 remains 143.918 ms, with zero compilation-counter increments.
+This is not production installation or all-station/runtime qualification. Next
+complete sustained/full-payout carry, physical release, inspection, water and
+save/rebuild; continue broader measured performance and remaining V2 work.
+
 Newer hose hand work: **V2_HOSE_FPS_HAND_2026-10-23.md**. Combined local seed /
 envelope drops median follow call to 4.316 ms in the diagnostic; imperfect replay
 starting state is disclosed. Explicit sibling physics-body binding now gives

@@ -112,9 +112,91 @@ widened. Full gate-board and clean-main candidate verification remain outstandin
 
 ## Remaining work
 
-Usable aiming, full deployment, release, moving obstacles, water/supply/valve,
+Broader aiming/carry coverage, full deployment, physical release, moving obstacles, water/supply/valve,
 maintenance handoff and coupling-aware save/rebuild remain required. The round
 candidate remains outside production. All 15.24 m, native fitting checks,
 material and bend bounds, and world/self collision checks are retained.
 The broader book/nook qualifications, mirror/avatar, street and systematic V2
 coverage remain active. No owner decision is needed.
+
+## Latest batch: shared contact ownership and walked FPS hold
+
+Starting HEAD **ff1ce58e**. **local_contacts_v1** extended the optional local seed
+to contact planes, but still hit the same nonlinear ceiling in 31/40 samples.
+That experiment did not fix the observed stall. Its raw timings and failure
+are retained. The callback remains optional, off by default, and no
+separate performance benefit is claimed for it.
+
+**solver_capture_v1** preserved the failing seed, six near-end contact planes,
+pins, radii and material lengths. Its original source-name lookup searched only
+the building subtree and left the six RID names unresolved; the lookup now
+includes the complete scene tree. Do not treat those old unresolved names as
+identified collider evidence. **solver_replay_v1** independently reproduces
+**wide nonlinear projection ceiling** with those planes; the same numerical
+input succeeds without them. It is a numerical diagnosis, not gameplay proof.
+
+The cloth owner now consumes the carried body's live authoritative exception
+list, matching the fitting queries. Both its original shell query and capsule
+envelope query update together. Release restores the original exclusions.
+There is no world-contact answer cache and no extra reticle scan. Walls, locked
+leaves, native fittings, self contact, material length and bend bounds remain
+under their existing owners.
+
+**carry_contacts_v1** then completes the original standing/turning input with
+40 error-free samples and approximately .25-degree settled aim error. The
+stronger **carry_walk_v1** and **carry_walk_v2** intentionally expose a further
+failure: fixed six-centimetre travel per rendered frame cannot keep up with
+actual player movement. The traced receiver reaches the hand, but staged
+withdrawal leaves too few turns within the original settling window. The
+nozzle body's authored 30 mm offset also needed to be distinguished from the
+receiver's intended hand position in that test. Both failures are preserved.
+
+FPS hand travel now follows elapsed time, with up to .6 m requested travel,
+the original maximum 8 cm substeps, and a 12 ms prepare-work budget. Every
+accepted substep retains native world/self checks and final fitting/commit
+checks. The budget is checked between bounded solves; it is not a hard upper
+bound on the whole hand update. Existing callers keep their original 8 cm
+request / 6 ms prepare defaults. Turning retains the 6 rad/s rate, with a
+100 ms elapsed-time cap for low frame rates.
+
+**carry_walk_v3.log.receipt.json** records a completed actual-windowed run with
+seven walked waypoints and zero assertions failed. It verifies settled aim
+within one degree, actual walked withdrawal while holding, physical native
+world/fitting clearance, full material/bend bounds and release cleanup. After
+walking, aim settles to zero and receiver-to-hand error is about .7 micrometres;
+the first three recorded settling frames reduce aim from 67.4 to 33.0 to zero
+degrees. The final capture was visually reviewed. This remains a scoped F02
+diagnostic; it is not all-station gameplay qualification or human acceptance.
+
+At unchanged 1280x720 / VSync off, the 40-frame standing/turning window has p50
+134.822 ms, p95 143.918 ms, p99/max 146.922 ms. It remains unacceptably slow.
+All five recorded compilation counters have zero increments in this window.
+The 67 recorded setter calls, including the walked segment, have p50 4.356 ms,
+p95 6.337 ms and max 16.165 ms. Pending process continuations are reflected in
+frame/process monitors but are not separate setter-call records. These nested
+scopes overlap; do not sum them or represent the mixed calls as a fair route
+comparison. No general performance improvement or production installation is
+claimed from this passing behavior diagnostic.
+
+**live_contact_controls** passes all 35 existing/extended native assertions,
+including live exclusion and restoration, hollow bore, flattened native stock,
+thin-wall sweep and measured response. **live_contact_hand** passes all 21
+actual-input hand, loaded-map, wall/reticle and release assertions. Both wrapper
+receipts record completed execution with empty stderr. Wrapper receipts remain
+**suite_run**, not **runtime_contract**. Existing full-board and clean-main
+candidate-verification limitations remain. The reader audit still exits 1 on
+the same 33 NEW uninstalled street/tent findings; its baseline was not widened.
+All 17 protected paths still match the recorded merge-base. Current changed
+source is archived with LF-normalized hashes; earlier diagnostic run receipts
+do not constitute a source-bound runtime contract.
+
+| Location / reproduction | Severity | Evidence | Repair | Verification |
+|---|---|---|---|---|
+| F02, grab deployed nozzle and turn | High | Captured contact planes cause the nonlinear ceiling; original names unresolved | Share live carried-body exceptions across cloth and fitting queries | 40 error-free standing/turning samples; strict settled aim below one degree |
+| F02, walk away while holding | High | Fixed per-frame travel leaves a 1.2 m catch-up request; two original failures retained | Elapsed-time travel with bounded substeps and prepare budget | Seven walked waypoints; hand/aim, physical-clearance and release assertions pass |
+| Same route, steady detailed world view | High / open | Standing p95 143.918 ms, no compilation-counter changes | Follow cost bounded and measured; broader cost not repaired | No general performance qualification claimed |
+
+Next: full-payout and sustained walked carry, physical release, away-from-cabinet
+inspection, supply valve / controllable spray, maintenance handoff and save /
+rebuild before installing the candidate. Continue measured broader frame-cost
+diagnosis and the remaining mirror/avatar, street and systematic V2 work.

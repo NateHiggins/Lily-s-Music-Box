@@ -27,6 +27,9 @@ func prime(before: PackedVector3Array) -> void:
 		if join<before.size():_ensure_kernel(join,before)
 
 func seed(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
+	return constrained_seed(before,goal,{},{})
+
+func constrained_seed(before: PackedVector3Array,goal: Vector3,planes: Dictionary,requested_pins: Dictionary) -> PackedVector3Array:
 	var started: int=Time.get_ticks_usec();last_join=-1;last_error=""
 	if rig==null or before.size()!=rig.rest.size() or not goal.is_finite():return PackedVector3Array()
 	var direction: Vector3=(before[1]-before[0]).normalized()
@@ -47,7 +50,20 @@ func seed(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 		if not _ensure_kernel(join,before):continue
 		var kernel: RefCounted=kernels[join]
 		var pins: Dictionary={0:goal,1:first,2:second,join-1:before[join-1],join-2:before[join-2]}
-		var local: PackedVector3Array=kernel.follow(before.slice(0,join+1),before[join],{},pins)
+		var compatible:=true
+		for ring: int in requested_pins:
+			if ring>=join-2:
+				compatible=compatible and before[ring].distance_to(requested_pins[ring])<.000001
+			else:pins[ring]=requested_pins[ring]
+		var local_planes: Dictionary={}
+		for ring: int in planes:
+			if ring<=join:local_planes[ring]=planes[ring]
+			else:
+				# The retained tail is fixed for this local solve. Expand the
+				# solved span if any of its contacts needs actual displacement.
+				for plane: Dictionary in planes[ring]:compatible=compatible and plane.normal.dot(before[ring])>=plane.offset-.000001
+		if not compatible:continue
+		var local: PackedVector3Array=kernel.follow(before.slice(0,join+1),before[join],local_planes,pins)
 		if local.is_empty():failures+=1;last_error=kernel.error;continue
 		var proposed: PackedVector3Array=before.duplicate()
 		for i in local.size():proposed[i]=local[i]

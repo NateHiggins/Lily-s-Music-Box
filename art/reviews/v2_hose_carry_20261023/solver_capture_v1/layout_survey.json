@@ -1,0 +1,1716 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F02_FIRE_LINE_STAIR",
+			"input": {
+				"carry": [
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 471,
+						"process_frame": 169,
+						"profile": {},
+						"progress_m": 0.0,
+						"step": 0,
+						"tip": [
+							14.8629999160767,
+							0.218000024557114,
+							0.214000016450882
+						]
+					},
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 477,
+						"process_frame": 170,
+						"profile": {
+							"broad_queries": -123,
+							"fitting_usec": 465,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 239,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 472,
+							"prepare_usec": 2412,
+							"process_frame": 170,
+							"responses": 2,
+							"shell_queries": -128,
+							"tether": {
+								"commit_self": 309,
+								"commit_world": 1647,
+								"seed": 243,
+								"self_constraints": 288,
+								"skin_apply": 42,
+								"world_constraints": 1835
+							},
+							"total_usec": 4999
+						},
+						"progress_m": 0.0600000470876694,
+						"step": 1,
+						"tip": [
+							14.840669631958,
+							0.16541662812233,
+							0.23233987390995
+						]
+					},
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 482,
+						"process_frame": 171,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 473,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 201,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 478,
+							"prepare_usec": 4409,
+							"process_frame": 171,
+							"responses": 3,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 290,
+								"commit_world": 1688,
+								"contact_seed": 203,
+								"seed": 230,
+								"self_constraints": 291,
+								"skin_apply": 42,
+								"world_constraints": 3589
+							},
+							"total_usec": 7026
+						},
+						"progress_m": 0.0600000470876694,
+						"step": 2,
+						"tip": [
+							14.8183393478394,
+							0.112833231687546,
+							0.250679731369019
+						]
+					},
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 488,
+						"process_frame": 172,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 488,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 189,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 483,
+							"prepare_usec": 4357,
+							"process_frame": 172,
+							"responses": 3,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 296,
+								"commit_world": 1643,
+								"contact_seed": 191,
+								"seed": 247,
+								"self_constraints": 286,
+								"skin_apply": 43,
+								"world_constraints": 3545
+							},
+							"total_usec": 6952
+						},
+						"progress_m": 0.0600000582635403,
+						"step": 3,
+						"tip": [
+							14.7960090637207,
+							0.0602498240768909,
+							0.269019603729248
+						]
+					},
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 494,
+						"process_frame": 173,
+						"profile": {
+							"broad_queries": -1,
+							"fitting_usec": 712,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 221,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 489,
+							"prepare_usec": 5799,
+							"process_frame": 173,
+							"responses": 3,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 359,
+								"commit_world": 2430,
+								"contact_seed": 223,
+								"seed": 272,
+								"self_constraints": 383,
+								"skin_apply": 46,
+								"world_constraints": 4812
+							},
+							"total_usec": 9603
+						},
+						"progress_m": 0.0600000694394112,
+						"step": 4,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 501,
+						"process_frame": 174,
+						"profile": {
+							"broad_queries": 1,
+							"fitting_usec": 763,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 272,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 495,
+							"prepare_usec": 6624,
+							"process_frame": 174,
+							"responses": 3,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 369,
+								"commit_world": 2478,
+								"contact_seed": 275,
+								"seed": 329,
+								"self_constraints": 370,
+								"skin_apply": 61,
+								"world_constraints": 5511
+							},
+							"total_usec": 10529
+						},
+						"progress_m": 0.0600000955164433,
+						"step": 5,
+						"tip": [
+							14.7513484954834,
+							-0.0449170432984829,
+							0.305699348449707
+						]
+					},
+					{
+						"aim_error_degrees": 69.3136963717717,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 509,
+						"process_frame": 175,
+						"profile": {
+							"broad_queries": 3,
+							"fitting_usec": 502,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 118,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 502,
+							"prepare_usec": 10141,
+							"process_frame": 175,
+							"responses": 2,
+							"shell_queries": 64,
+							"tether": {
+								"commit_self": 299,
+								"commit_world": 8564,
+								"seed": 123,
+								"self_constraints": 296,
+								"skin_apply": 46,
+								"world_constraints": 9664
+							},
+							"total_usec": 19695
+						},
+						"progress_m": 0.060000155121088,
+						"step": 6,
+						"tip": [
+							14.7290182113647,
+							-0.0975005477666855,
+							0.324039250612259
+						]
+					},
+					{
+						"aim_error_degrees": 57.8552555209,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 517,
+						"process_frame": 176,
+						"profile": {
+							"broad_queries": -2,
+							"fitting_usec": 487,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 305,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 510,
+							"prepare_usec": 19636,
+							"process_frame": 176,
+							"responses": 3,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 291,
+								"commit_world": 8705,
+								"contact_seed": 308,
+								"seed": 145,
+								"self_constraints": 289,
+								"skin_apply": 49,
+								"world_constraints": 18797
+							},
+							"total_usec": 29314
+						},
+						"progress_m": 0.0276530291885138,
+						"step": 7,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 57.8552555209,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 525,
+						"process_frame": 177,
+						"profile": {
+							"broad_queries": -3,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 2881,
+							"native_iterations": 64,
+							"native_qp_iterations": 82,
+							"physics_frame": 518,
+							"prepare_usec": 56609,
+							"process_frame": 177,
+							"responses": 1,
+							"shell_queries": -58,
+							"tether": {
+								"contact_seed": 2883,
+								"seed": 70,
+								"solver": 1021,
+								"world_constraints": 8063
+							},
+							"total_usec": 56614
+						},
+						"progress_m": 0.0,
+						"step": 8,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 57.8552555209,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 533,
+						"process_frame": 178,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 73,
+							"native_iterations": 64,
+							"native_qp_iterations": 65,
+							"physics_frame": 526,
+							"prepare_usec": 847,
+							"process_frame": 178,
+							"responses": 0,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 77,
+								"solver": 746
+							},
+							"total_usec": 849
+						},
+						"progress_m": 0.0,
+						"step": 9,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.3973309660242,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 541,
+						"process_frame": 179,
+						"profile": {
+							"broad_queries": 3,
+							"fitting_usec": 543,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 419,
+							"native_iterations": 12,
+							"native_qp_iterations": 12,
+							"physics_frame": 534,
+							"prepare_usec": 36501,
+							"process_frame": 179,
+							"responses": 4,
+							"shell_queries": 90,
+							"tether": {
+								"commit_self": 292,
+								"commit_world": 12031,
+								"contact_seed": 835,
+								"seed": 74,
+								"self_constraints": 292,
+								"skin_apply": 46,
+								"solver": 154,
+								"world_constraints": 35034
+							},
+							"total_usec": 49565
+						},
+						"progress_m": 0.0,
+						"step": 10,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.3973309660242,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 549,
+						"process_frame": 180,
+						"profile": {
+							"broad_queries": -2,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3040,
+							"native_iterations": 64,
+							"native_qp_iterations": 68,
+							"physics_frame": 542,
+							"prepare_usec": 13869,
+							"process_frame": 180,
+							"responses": 1,
+							"shell_queries": -92,
+							"tether": {
+								"contact_seed": 3042,
+								"seed": 76,
+								"solver": 1043,
+								"world_constraints": 9619
+							},
+							"total_usec": 13872
+						},
+						"progress_m": 0.0,
+						"step": 11,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.3973309660242,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 557,
+						"process_frame": 181,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 66,
+							"native_iterations": 64,
+							"native_qp_iterations": 65,
+							"physics_frame": 550,
+							"prepare_usec": 870,
+							"process_frame": 181,
+							"responses": 0,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 70,
+								"solver": 778
+							},
+							"total_usec": 872
+						},
+						"progress_m": 0.0,
+						"step": 12,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.3973309660242,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 565,
+						"process_frame": 182,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 67,
+							"native_iterations": 64,
+							"native_qp_iterations": 65,
+							"physics_frame": 558,
+							"prepare_usec": 905,
+							"process_frame": 182,
+							"responses": 0,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 71,
+								"solver": 813
+							},
+							"total_usec": 907
+						},
+						"progress_m": 0.0,
+						"step": 13,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.3973309660242,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 573,
+						"process_frame": 183,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 67,
+							"native_iterations": 64,
+							"native_qp_iterations": 65,
+							"physics_frame": 566,
+							"prepare_usec": 901,
+							"process_frame": 183,
+							"responses": 0,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 71,
+								"solver": 807
+							},
+							"total_usec": 903
+						},
+						"progress_m": 0.0,
+						"step": 14,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.3973309660242,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 581,
+						"process_frame": 184,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 71,
+							"native_iterations": 64,
+							"native_qp_iterations": 65,
+							"physics_frame": 574,
+							"prepare_usec": 866,
+							"process_frame": 184,
+							"responses": 0,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 75,
+								"solver": 768
+							},
+							"total_usec": 868
+						},
+						"progress_m": 0.0,
+						"step": 15,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.1443279922983,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 589,
+						"process_frame": 185,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 73,
+							"native_iterations": 64,
+							"native_qp_iterations": 65,
+							"physics_frame": 582,
+							"prepare_usec": 886,
+							"process_frame": 185,
+							"responses": 0,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 78,
+								"solver": 783
+							},
+							"total_usec": 888
+						},
+						"progress_m": 0.0,
+						"step": 16,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 45.8913504521261,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 597,
+						"process_frame": 186,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 2948,
+							"native_iterations": 64,
+							"native_qp_iterations": 74,
+							"physics_frame": 590,
+							"prepare_usec": 13990,
+							"process_frame": 186,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 2951,
+								"seed": 204,
+								"solver": 1056,
+								"world_constraints": 9690
+							},
+							"total_usec": 13993
+						},
+						"progress_m": 0.0,
+						"step": 17,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 45.6383937091661,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 605,
+						"process_frame": 187,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 2872,
+							"native_iterations": 64,
+							"native_qp_iterations": 77,
+							"physics_frame": 598,
+							"prepare_usec": 13517,
+							"process_frame": 187,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 2875,
+								"seed": 196,
+								"solver": 1063,
+								"world_constraints": 9293
+							},
+							"total_usec": 13519
+						},
+						"progress_m": 0.0,
+						"step": 18,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 45.3854530707367,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 613,
+						"process_frame": 188,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 2992,
+							"native_iterations": 64,
+							"native_qp_iterations": 83,
+							"physics_frame": 606,
+							"prepare_usec": 14861,
+							"process_frame": 188,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 2995,
+								"seed": 207,
+								"solver": 1103,
+								"world_constraints": 10460
+							},
+							"total_usec": 14864
+						},
+						"progress_m": 0.0,
+						"step": 19,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 45.1325334228447,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 621,
+						"process_frame": 189,
+						"profile": {
+							"broad_queries": 3,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3435,
+							"native_iterations": 64,
+							"native_qp_iterations": 76,
+							"physics_frame": 614,
+							"prepare_usec": 14960,
+							"process_frame": 189,
+							"responses": 1,
+							"shell_queries": 3,
+							"tether": {
+								"contact_seed": 3438,
+								"seed": 363,
+								"solver": 1074,
+								"world_constraints": 9999
+							},
+							"total_usec": 14962
+						},
+						"progress_m": 0.0,
+						"step": 20,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 44.8796300817777,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 629,
+						"process_frame": 190,
+						"profile": {
+							"broad_queries": 1,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3629,
+							"native_iterations": 64,
+							"native_qp_iterations": 82,
+							"physics_frame": 622,
+							"prepare_usec": 17463,
+							"process_frame": 190,
+							"responses": 1,
+							"shell_queries": 5,
+							"tether": {
+								"contact_seed": 3632,
+								"seed": 357,
+								"solver": 1110,
+								"world_constraints": 12274
+							},
+							"total_usec": 17466
+						},
+						"progress_m": 0.0,
+						"step": 21,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 44.6267577503119,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 637,
+						"process_frame": 191,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3373,
+							"native_iterations": 64,
+							"native_qp_iterations": 136,
+							"physics_frame": 630,
+							"prepare_usec": 16748,
+							"process_frame": 191,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 3376,
+								"seed": 359,
+								"solver": 1493,
+								"world_constraints": 11424
+							},
+							"total_usec": 16751
+						},
+						"progress_m": 0.0,
+						"step": 22,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 44.373902119916,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 645,
+						"process_frame": 192,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3466,
+							"native_iterations": 64,
+							"native_qp_iterations": 70,
+							"physics_frame": 638,
+							"prepare_usec": 16923,
+							"process_frame": 192,
+							"responses": 1,
+							"shell_queries": -3,
+							"tether": {
+								"contact_seed": 3469,
+								"seed": 351,
+								"solver": 1020,
+								"world_constraints": 11992
+							},
+							"total_usec": 16926
+						},
+						"progress_m": 0.0,
+						"step": 23,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 44.1210633645103,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 653,
+						"process_frame": 193,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3271,
+							"native_iterations": 64,
+							"native_qp_iterations": 68,
+							"physics_frame": 646,
+							"prepare_usec": 16492,
+							"process_frame": 193,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 3273,
+								"seed": 348,
+								"solver": 1003,
+								"world_constraints": 11773
+							},
+							"total_usec": 16495
+						},
+						"progress_m": 0.0,
+						"step": 24,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 43.8682564694766,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 661,
+						"process_frame": 194,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3199,
+							"native_iterations": 64,
+							"native_qp_iterations": 67,
+							"physics_frame": 654,
+							"prepare_usec": 16840,
+							"process_frame": 194,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 3203,
+								"seed": 338,
+								"solver": 1038,
+								"world_constraints": 12164
+							},
+							"total_usec": 16843
+						},
+						"progress_m": 0.0,
+						"step": 25,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 43.6154670173197,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 669,
+						"process_frame": 195,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3528,
+							"native_iterations": 64,
+							"native_qp_iterations": 89,
+							"physics_frame": 662,
+							"prepare_usec": 16964,
+							"process_frame": 195,
+							"responses": 1,
+							"shell_queries": -1,
+							"tether": {
+								"contact_seed": 3531,
+								"seed": 362,
+								"solver": 1171,
+								"world_constraints": 11789
+							},
+							"total_usec": 16966
+						},
+						"progress_m": 0.0,
+						"step": 26,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 43.3627101911226,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 677,
+						"process_frame": 196,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 2901,
+							"native_iterations": 64,
+							"native_qp_iterations": 72,
+							"physics_frame": 670,
+							"prepare_usec": 16265,
+							"process_frame": 196,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 2904,
+								"seed": 259,
+								"solver": 1044,
+								"world_constraints": 11966
+							},
+							"total_usec": 16268
+						},
+						"progress_m": 0.0,
+						"step": 27,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 43.6154769187984,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 685,
+						"process_frame": 197,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 2892,
+							"native_iterations": 64,
+							"native_qp_iterations": 94,
+							"physics_frame": 678,
+							"prepare_usec": 16321,
+							"process_frame": 197,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 2894,
+								"seed": 253,
+								"solver": 1226,
+								"world_constraints": 11861
+							},
+							"total_usec": 16324
+						},
+						"progress_m": 0.0,
+						"step": 28,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 43.8682564694766,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 693,
+						"process_frame": 198,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3234,
+							"native_iterations": 64,
+							"native_qp_iterations": 72,
+							"physics_frame": 686,
+							"prepare_usec": 16549,
+							"process_frame": 198,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 3237,
+								"seed": 278,
+								"solver": 1069,
+								"world_constraints": 11872
+							},
+							"total_usec": 16552
+						},
+						"progress_m": 0.0,
+						"step": 29,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 44.1210584590107,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 701,
+						"process_frame": 199,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3201,
+							"native_iterations": 64,
+							"native_qp_iterations": 86,
+							"physics_frame": 694,
+							"prepare_usec": 16711,
+							"process_frame": 199,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 3204,
+								"seed": 326,
+								"solver": 1143,
+								"world_constraints": 11947
+							},
+							"total_usec": 16713
+						},
+						"progress_m": 0.0,
+						"step": 30,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 44.373902119916,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 709,
+						"process_frame": 200,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3397,
+							"native_iterations": 64,
+							"native_qp_iterations": 67,
+							"physics_frame": 702,
+							"prepare_usec": 16900,
+							"process_frame": 200,
+							"responses": 1,
+							"shell_queries": 1,
+							"tether": {
+								"contact_seed": 3400,
+								"seed": 335,
+								"solver": 1042,
+								"world_constraints": 12032
+							},
+							"total_usec": 16902
+						},
+						"progress_m": 0.0,
+						"step": 31,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 44.6267528888668,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 717,
+						"process_frame": 201,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3190,
+							"native_iterations": 64,
+							"native_qp_iterations": 68,
+							"physics_frame": 710,
+							"prepare_usec": 16532,
+							"process_frame": 201,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 3192,
+								"seed": 337,
+								"solver": 1003,
+								"world_constraints": 11912
+							},
+							"total_usec": 16535
+						},
+						"progress_m": 0.0,
+						"step": 32,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 44.8796300817777,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 725,
+						"process_frame": 202,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3752,
+							"native_iterations": 64,
+							"native_qp_iterations": 68,
+							"physics_frame": 718,
+							"prepare_usec": 17142,
+							"process_frame": 202,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 3754,
+								"seed": 353,
+								"solver": 1028,
+								"world_constraints": 11917
+							},
+							"total_usec": 17144
+						},
+						"progress_m": 0.0,
+						"step": 33,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 45.1325334228447,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 733,
+						"process_frame": 203,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3681,
+							"native_iterations": 64,
+							"native_qp_iterations": 136,
+							"physics_frame": 726,
+							"prepare_usec": 17877,
+							"process_frame": 203,
+							"responses": 1,
+							"shell_queries": 3,
+							"tether": {
+								"contact_seed": 3684,
+								"seed": 347,
+								"solver": 1465,
+								"world_constraints": 12293
+							},
+							"total_usec": 17879
+						},
+						"progress_m": 0.0,
+						"step": 34,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 45.3854530707367,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 741,
+						"process_frame": 204,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3678,
+							"native_iterations": 64,
+							"native_qp_iterations": 82,
+							"physics_frame": 734,
+							"prepare_usec": 17303,
+							"process_frame": 204,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 3681,
+								"seed": 358,
+								"solver": 1097,
+								"world_constraints": 12078
+							},
+							"total_usec": 17305
+						},
+						"progress_m": 0.0,
+						"step": 35,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 45.6383937091661,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 749,
+						"process_frame": 205,
+						"profile": {
+							"broad_queries": -1,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 3602,
+							"native_iterations": 64,
+							"native_qp_iterations": 75,
+							"physics_frame": 742,
+							"prepare_usec": 15033,
+							"process_frame": 205,
+							"responses": 1,
+							"shell_queries": -5,
+							"tether": {
+								"contact_seed": 3605,
+								"seed": 356,
+								"solver": 1048,
+								"world_constraints": 9937
+							},
+							"total_usec": 15036
+						},
+						"progress_m": 0.0,
+						"step": 36,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 45.8913504521261,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 757,
+						"process_frame": 206,
+						"profile": {
+							"broad_queries": -3,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 2900,
+							"native_iterations": 64,
+							"native_qp_iterations": 83,
+							"physics_frame": 750,
+							"prepare_usec": 13987,
+							"process_frame": 206,
+							"responses": 1,
+							"shell_queries": -3,
+							"tether": {
+								"contact_seed": 2903,
+								"seed": 203,
+								"solver": 1100,
+								"world_constraints": 9693
+							},
+							"total_usec": 13989
+						},
+						"progress_m": 0.0,
+						"step": 37,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.1443279922983,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 765,
+						"process_frame": 207,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 2874,
+							"native_iterations": 64,
+							"native_qp_iterations": 77,
+							"physics_frame": 758,
+							"prepare_usec": 13904,
+							"process_frame": 207,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 2876,
+								"seed": 195,
+								"solver": 1062,
+								"world_constraints": 9679
+							},
+							"total_usec": 13906
+						},
+						"progress_m": 0.0,
+						"step": 38,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.3973262499527,
+						"cycle": "aim_b",
+						"error": "wide nonlinear projection ceiling",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 773,
+						"process_frame": 208,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": true,
+							"local_join": -1,
+							"local_usec": 2878,
+							"native_iterations": 64,
+							"native_qp_iterations": 74,
+							"physics_frame": 766,
+							"prepare_usec": 13855,
+							"process_frame": 208,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"contact_seed": 2880,
+								"seed": 195,
+								"solver": 1040,
+								"world_constraints": 9651
+							},
+							"total_usec": 13857
+						},
+						"progress_m": 0.0,
+						"step": 39,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					}
+				],
+				"collision_mask": 2097153,
+				"deployed": true,
+				"error": "wide nonlinear projection ceiling",
+				"events": [
+					{
+						"cpu_input_ms": 0.738,
+						"error": "",
+						"extraction_m": 0.0080000001858765,
+						"feedback": "grabbed",
+						"step": 0
+					},
+					{
+						"cpu_input_ms": 0.882,
+						"error": "",
+						"extraction_m": 0.0160000005566099,
+						"feedback": "grabbed",
+						"step": 1
+					},
+					{
+						"cpu_input_ms": 0.862,
+						"error": "",
+						"extraction_m": 0.0240000008257705,
+						"feedback": "grabbed",
+						"step": 2
+					},
+					{
+						"cpu_input_ms": 0.883,
+						"error": "",
+						"extraction_m": 0.0320000015438589,
+						"feedback": "grabbed",
+						"step": 3
+					},
+					{
+						"cpu_input_ms": 0.837,
+						"error": "",
+						"extraction_m": 0.04000000203813,
+						"feedback": "grabbed",
+						"step": 4
+					},
+					{
+						"cpu_input_ms": 0.903,
+						"error": "",
+						"extraction_m": 0.048000002863499,
+						"feedback": "grabbed",
+						"step": 5
+					},
+					{
+						"cpu_input_ms": 0.821,
+						"error": "",
+						"extraction_m": 0.0560000034479367,
+						"feedback": "grabbed",
+						"step": 6
+					},
+					{
+						"cpu_input_ms": 0.772,
+						"error": "",
+						"extraction_m": 0.064000003416595,
+						"feedback": "grabbed",
+						"step": 7
+					},
+					{
+						"cpu_input_ms": 0.755,
+						"error": "",
+						"extraction_m": 0.0720000046836749,
+						"feedback": "grabbed",
+						"step": 8
+					},
+					{
+						"cpu_input_ms": 0.785,
+						"error": "",
+						"extraction_m": 0.0800000043718958,
+						"feedback": "grabbed",
+						"step": 9
+					},
+					{
+						"cpu_input_ms": 0.818,
+						"error": "",
+						"extraction_m": 0.0880000045401879,
+						"feedback": "grabbed",
+						"step": 10
+					},
+					{
+						"cpu_input_ms": 0.832,
+						"error": "",
+						"extraction_m": 0.0960000046616222,
+						"feedback": "grabbed",
+						"step": 11
+					},
+					{
+						"cpu_input_ms": 0.814,
+						"error": "",
+						"extraction_m": 0.104000004291721,
+						"feedback": "grabbed",
+						"step": 12
+					},
+					{
+						"cpu_input_ms": 0.812,
+						"error": "",
+						"extraction_m": 0.112000003590306,
+						"feedback": "grabbed",
+						"step": 13
+					},
+					{
+						"cpu_input_ms": 0.862,
+						"error": "",
+						"extraction_m": 0.120000003437789,
+						"feedback": "grabbed",
+						"step": 14
+					},
+					{
+						"cpu_input_ms": 0.798,
+						"error": "",
+						"extraction_m": 0.128000003463574,
+						"feedback": "grabbed",
+						"step": 15
+					},
+					{
+						"cpu_input_ms": 0.801,
+						"error": "",
+						"extraction_m": 0.13600000338064,
+						"feedback": "grabbed",
+						"step": 16
+					},
+					{
+						"cpu_input_ms": 0.821,
+						"error": "",
+						"extraction_m": 0.144000003122404,
+						"feedback": "grabbed",
+						"step": 17
+					},
+					{
+						"cpu_input_ms": 0.767,
+						"error": "",
+						"extraction_m": 0.152000003213869,
+						"feedback": "grabbed",
+						"step": 18
+					},
+					{
+						"cpu_input_ms": 0.81,
+						"error": "",
+						"extraction_m": 0.16000000391263,
+						"feedback": "grabbed",
+						"step": 19
+					},
+					{
+						"cpu_input_ms": 0.961,
+						"error": "",
+						"extraction_m": 0.16800000395914,
+						"feedback": "grabbed",
+						"step": 20
+					},
+					{
+						"cpu_input_ms": 0.946,
+						"error": "",
+						"extraction_m": 0.176000004857374,
+						"feedback": "grabbed",
+						"step": 21
+					},
+					{
+						"cpu_input_ms": 0.937,
+						"error": "",
+						"extraction_m": 0.184000004795511,
+						"feedback": "grabbed",
+						"step": 22
+					},
+					{
+						"cpu_input_ms": 0.809,
+						"error": "",
+						"extraction_m": 0.192000004795511,
+						"feedback": "grabbed",
+						"step": 23
+					},
+					{
+						"cpu_input_ms": 17.096,
+						"error": "",
+						"extraction_m": 0.2,
+						"feedback": "grabbed",
+						"step": 24
+					}
+				],
+				"picked": true,
+				"player_position": "(-4.404536, 3.200234, -8.683311)",
+				"released": true
+			},
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 162.046
+		}
+	]
+}
