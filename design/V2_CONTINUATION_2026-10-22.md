@@ -203,3 +203,28 @@ Blender owner, then run the occupied-world route and first/steady-spray timing.
 No new self-collision solver work. Reader remains33 NEW, spatial8/11 and
 systemic25 unchanged. Broad world stutter and all remaining V2 goals stay open.
 The unrelated spatial dependency manifest remains unstaged.
+
+## Hero handheld native study — 2026-10-23
+
+Newest owner direction: the Blender-built handheld is the star, visible most
+of the time, with useful mechanisms, readable paper and bounded rendering cost.
+See **V2_HANDHELD_HERO_STUDY_2026-10-23.md**. Three native form studies led to
+the compact service-set candidate: **art/blender/service_radiophone_v2.blend**,
+**game/assets/props/service_radiophone_v2.glb**, reproducible native recipe and
+front/open-service/rear views in **art/reviews/v2_handheld_20261023/**.
+Source UV/tangents and semantic ABI pass; 35 partitions / 11920 triangles.
+It is NOT installed: production still assembles the old 384-mesh instrument.
+
+The pre-existing occupied-world baseline finished successfully after the owner
+asked to pause before Godot; it had already started. No later Godot launch was
+made. Its two short 48-frame distributions overlap; no speedup is established.
+Original wrapper receipt, source harness, captures, samples and native failures
+are retained. Do not promote them to runtime contracts or complete V2 claims.
+
+Ask and obtain owner approval BEFORE any new Godot launch. Next approved batch
+should bind this candidate to existing owners, remove duplicate visual stock,
+fit the always-carried and readable-paper poses, exercise actual physical input,
+verify loaded surfaces/mips and compare the same occupied-world view plus
+first/steady printing. Keep cached idle rendering and bounded moving details.
+Do not silently truncate full messages to the sample copy in native renders.
+Hose installation/save and the broader V2 performance/coverage goals remain open.
