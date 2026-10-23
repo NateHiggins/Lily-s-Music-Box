@@ -153,7 +153,10 @@
       "line": "Realtime court reporting. Twenty-two years, certified, two hundred and sixty words a minute. Nothing got past me. People's futures went through my hands and I caught every word — that is not a metaphor, that was the actual job.",
       "choices": [
         {"label": "What changed?", "goto": "rt_court2"},
-        {"label": "'Went.' Past tense.", "goto": "rt_court2"}
+        {"label": "'Went.' Past tense.", "goto": "rt_court2"},
+        {"label": "Someone else in this building found a gap in a record. Yours isn't the only one.",
+         "goto": "rt_court2", "requires": ["peter_gap_found"],
+         "flag": "heard_of_another_gap", "trust": 1}
       ],
       "silence_goto": "rt_court2"
     },
@@ -178,7 +181,10 @@
         {"label": "The blank never said that. You did.", "goto": "rt_heart"},
         {"label": "You've paid for four seconds every day since.", "goto": "rt_heart"},
         {"label": "One gap in twenty-two years. Your record was accurate.",
-         "goto": "rt_armor", "flag": "defended_the_record", "trust": -1}
+         "goto": "rt_armor", "flag": "defended_the_record", "trust": -1},
+        {"label": "The record is not the only copy.",
+         "goto": "rt_armor", "requires": ["cal_reel_named"],
+         "flag": "named_the_other_copy", "trust": -1}
       ],
       "silence_goto": "rt_heart_sil"
     },

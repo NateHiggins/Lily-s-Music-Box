@@ -146,6 +146,53 @@ func _run() -> void:
 			break
 	_check("filing the Vantry letter in play grants the flag", filed_vantry)
 
+	# --- the mail bank: two V2 routes by post ---------------------------------------
+	RealityState.reset_campaign_for_tests()
+	var bank := MailBankProp.new()
+	add_child(bank)
+	await get_tree().process_frame
+	_check("the catalogue carries the two knowledge letters",
+			not _delivery(bank, "vantry_final_demand").is_empty()
+			and not _delivery(bank, "wors_programme_card").is_empty())
+	_check("neither is posted before the player has talked to anyone",
+			not _ids(bank.pending()).has("vantry_final_demand")
+			and not _ids(bank.pending()).has("wors_programme_card"))
+	RealityState.record_conversation_visit("peter_wren")
+	_check("one conversation posts the misdelivered demand only",
+			_ids(bank.pending()).has("vantry_final_demand")
+			and not _ids(bank.pending()).has("wors_programme_card"))
+	RealityState.record_conversation_visit("cal_dwyer")
+	_check("two conversations post the programme card",
+			_ids(bank.pending()).has("wors_programme_card")
+			and MailBankProp.conversations_total() == 2)
+	bank._take(_delivery(bank, "vantry_final_demand"), true)
+	_check("taking the demand teaches 3C", RealityState.has_knowledge("vantry_in_3c"))
+	bank._take(_delivery(bank, "wors_programme_card"), true)
+	_check("taking the card teaches the quiet",
+			RealityState.has_knowledge("station_went_quiet")
+			and not _ids(bank.pending()).has("wors_programme_card"))
+	_check("the always-deliveries are untouched by the gate",
+			_ids(bank.pending()).has("welcome_note") and _ids(bank.pending()).has("notice_hum"))
+
+	# --- Mina's knot hooks ------------------------------------------------------------
+	RealityState.reset_campaign_for_tests()
+	var court := _choice_requiring({"nodes": {"n": mina_nodes.get("rt_court_door", {})}},
+			"peter_gap_found")
+	var copy := _choice_requiring({"nodes": {"n": mina_nodes.get("rt_blank", {})}},
+			"cal_reel_named")
+	_check("her court-door node offers Peter's gap only to a player who found it",
+			not court.is_empty() and str(court.get("goto", "")) == "rt_court2"
+			and not MinaCaseGameplay.choice_available(court))
+	_check("her blank node offers Cal's reel only to a player who named it",
+			not copy.is_empty() and str(copy.get("goto", "")) == "rt_armor"
+			and int(copy.get("trust", 0)) == -1 and str(copy.get("flag", "")) != ""
+			and not MinaCaseGameplay.choice_available(copy))
+	RealityState.grant_knowledge("peter_gap_found")
+	_check("and the gap reply opens once the gap is known",
+			MinaCaseGameplay.choice_available(court) and not MinaCaseGameplay.choice_available(copy))
+	_check("an ordinary reply is always available",
+			MinaCaseGameplay.choice_available({"label": "x", "goto": "rt_court2"}))
+
 	# --- the replies that needed them -------------------------------------------------
 	RealityState.reset_campaign_for_tests()
 	var peter: Dictionary = director.trees.get("peter_wren", {})
@@ -160,6 +207,20 @@ func _run() -> void:
 			["omar_bell", "vantry_in_3c"]]:
 		var choice := _choice_requiring(director.trees.get(pair[0], {}), pair[1])
 		_check("%s still asks for %s" % [pair[0], pair[1]], not choice.is_empty())
+
+
+static func _delivery(bank: MailBankProp, id: String) -> Dictionary:
+	for item in bank.deliveries:
+		if str(item.get("id", "")) == id:
+			return item
+	return {}
+
+
+static func _ids(items: Array) -> Array:
+	var ids: Array = []
+	for item in items:
+		ids.append(str(item.get("id", "")))
+	return ids
 
 
 static func _spread_titles(spreads: Dictionary) -> Array:

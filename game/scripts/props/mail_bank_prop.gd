@@ -464,12 +464,17 @@ func pending() -> Array:
 	return due
 
 
+## `min_conversations` holds a delivery back until the player has knocked
+## and talked that many times, counted across every resident; a delivery
+## with only that condition is due once it is met.
 func _due(when: Dictionary) -> bool:
+	if int(when.get("min_conversations", 0)) > conversations_total():
+		return false
 	if when.get("always", false):
 		return true
 	var case_id := str(when.get("case", ""))
 	if case_id == "":
-		return false
+		return when.has("min_conversations")
 	var state := RealityState.case_state(case_id)
 	if state.is_empty():
 		return false
@@ -518,6 +523,10 @@ func _take(item: Dictionary,physical := false) -> void:
 	var taken: Array = RealityState.data.get("mail_taken", [])
 	taken.append(str(item.id))
 	RealityState.data["mail_taken"] = taken
+	# Reading a delivery can teach a world flag (dialogue drafts section 3).
+	var knowledge := str(item.get("knowledge", ""))
+	if knowledge != "":
+		RealityState.grant_knowledge(knowledge)
 	var upgrade := str(item.get("upgrade", ""))
 	if upgrade != "":
 		var upgrades: Array = RealityState.data.get("upgrades", [])
@@ -532,6 +541,13 @@ func _take(item: Dictionary,physical := false) -> void:
 		_set_door(false)
 	else:
 		_offer_next()
+
+
+static func conversations_total() -> int:
+	var total := 0
+	for resident_id in (RealityState.data.get("conversation_visits", {}) as Dictionary):
+		total += int(RealityState.data.conversation_visits[resident_id])
+	return total
 
 
 func _set_door(open: bool) -> void:

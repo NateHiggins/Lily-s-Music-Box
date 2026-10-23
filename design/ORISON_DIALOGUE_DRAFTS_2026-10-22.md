@@ -118,9 +118,20 @@ player reads or operates something:
 | `mina_four_seconds` | Mina's canon tree reaching `rt_blank` or `res_open` (`MinaCaseGameplay.NODE_KNOWLEDGE`; the tree itself is unedited) | Peter, Cal |
 | `minutes_read` | the association minutes spread opened past 0.6 rad in the readable library (`v2_readable_book.gd`, `SPREAD_KNOWLEDGE`) | Noel, Jonah |
 | `otis_sixth_deaf` | the car refusing the first call to the sixth (`otis.gd`, the `deaf` quirk) | the Guests |
-| `station_went_quiet` | Omar's blackout node `ob_blackout`, which now carries `flags: ["station_went_quiet"]` beside its own flag. The laundry room has no station legend in V2; when one is authored it should grant the same flag | Cal |
+| `station_went_quiet` | Omar's blackout node `ob_blackout`, which carries `flags: ["station_went_quiet"]` beside its own flag; or the WORS 1610 programme card posted to box 4B after two conversations (`mail_catalog.json`, `knowledge`). The laundry room has no station legend in V2; when one is authored it should grant the same flag | Cal |
 | `vales_hours_do_not_overlap` | witnessing either Vale on the hour they miss each other: Teresa's 22:20 lobby transit or Mina's 23:30 late run. The schedule block carries `knowledge`; `ScheduleDirector` passes it in the directive and `ResidentRoutines` grants it within 4 m of the resident | Teresa |
-| `vantry_in_3c` | the dead-letter tray: filing the letter addressed to H. Vantry (`dead_letters.json` `gone[].knowledge`). The tray is mounted by the V1 detail pass only; the V2 mail bank's empty 3C slot has no control yet | Mae, Omar |
+| `vantry_in_3c` | the misdelivered final demand for H. Vantry, 3C, posted to box 4B after one conversation (`mail_catalog.json`, `knowledge`); or, in V1, filing the Vantry letter in the dead-letter tray (`dead_letters.json` `gone[].knowledge`). The V2 mail bank's empty 3C slot itself has no control yet | Mae, Omar |
+
+A mail delivery may carry `knowledge` (granted when taken) and a `when`
+condition `min_conversations`, the player's knocks-and-talks counted across
+every resident, so the post arrives once the building has started talking.
+
+Two handheld field notes (`game/data/field_notes.json`, Bible VIII.5.l)
+print on the service set, once per campaign and only while the radio is
+powered: the first unanswered knock returns the note about hours in place of
+the plain slip, and the first conversation's end prints the note about
+numbered replies, silence and what can be said only in the room. Neither
+explains how to operate anything; the cursor does that.
 
 A node may grant more than one flag on arrival: `flag` (one name) and
 `flags` (a list) are both honoured by the panel and validated at load.
@@ -142,12 +153,16 @@ requiring them become offerable through the director's own `requires` check.
 
 ## 5. Mina's canon tree: knot hooks for the case owner
 
-Not edited. If the case owner wants the Conviction to reach her, three
-hooks fit her existing nodes without new lines: `rt_court_door` could accept
-a `requires: ["peter_gap_found"]` choice ("Someone else found that gap.");
-`rt_blank` could accept `requires: ["cal_reel_named"]` ("The record is not
-the only copy.") at trust -1, because it is the cruellest true thing; and
-`res_open` already grants `mina_four_seconds` by reaching it.
+Her lines are not edited. Two of the three hooks are now in her tree as
+`requires` replies, so they exist only for a player who learnt the thing
+elsewhere: `rt_court_door` offers "Someone else in this building found a gap
+in a record. Yours isn't the only one." (`requires: ["peter_gap_found"]`,
+trust 1, bookkeeping flag `heard_of_another_gap`); `rt_blank` offers "The
+record is not the only copy." (`requires: ["cal_reel_named"]`, trust -1,
+bookkeeping flag `named_the_other_copy`), because it is the cruellest true
+thing. `MinaCaseGameplay.choice_available` honours `requires` against the
+knowledge store. The third hook needs no edit: reaching `rt_blank` or
+`res_open` grants `mina_four_seconds` (`NODE_KNOWLEDGE`).
 
 ## 6. The seventeen trees, one line each
 
@@ -199,9 +214,10 @@ lower-third scrim with the building's serif, numbered plain replies and no
 button chrome; `ResidentConversationTest` drives it headless.
 
 Not done, by design: no case is promoted and no door activates one; Mina's
-tree is unedited (her gameplay grants one world flag by node id). Still
-unwired in V2: the laundry room's station legend (no such fitting exists
-yet) and the mail bank's empty 3C slot, so in V2 `station_went_quiet` has
-only Omar's route and `vantry_in_3c` only the V1 tray; the knock has no
+lines are unedited (two `requires` replies were added to existing nodes and
+her gameplay grants one world flag by node id). Still unwired in V2: the
+laundry room's station legend (no such fitting exists yet); the mail bank's
+empty 3C slot stays uncontrolled because a nameless box cannot teach a name
+and the post now carries it; the knock has no
 answering animation or voice. Cases are still reviewed one at a time with
 the owner before any of the five case trees is promoted to case gameplay.
