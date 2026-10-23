@@ -32,6 +32,7 @@ var _nozzle_joint: Node3D
 var rubber_dressed := false
 var _undressed_rubber: Material
 var _live_hose: Node3D
+var _door_motion: RefCounted
 
 func try_dress_gasket(items: MaintenanceInventory, contact: Vector3) -> bool:
 	if rubber_dressed or items==null or not items.has_item("fire_hose_rubber_protectant") \
@@ -113,6 +114,7 @@ func interact_control(_control_id: String, _player: Node) -> bool: return false
 
 func install_native_hand_controls() -> bool:
 	if _hands_ready: return false
+	_door_motion=preload("res://scripts/props/fire_cabinet_door_motion.gd").new(self)
 	_door_angle = 1.78 if door_open else 0.0
 	_lever_angle = 0.0 if nozzle_shut else -.95
 	_observed_open = door_open; _observed_shut = nozzle_shut
@@ -207,6 +209,7 @@ func _axis(id: String) -> Vector3:
 	return Vector3.LEFT if id=="tag" else Vector3.BACK
 
 func _minimum(id: String) -> float:
+	if id=="door" and is_instance_valid(_live_hose) and _live_hose.deployed:return preload("res://scripts/props/hose_cabinet_route.gd").AJAR
 	if id=="joint":return TAU*float(_joint_stock.data.dimensions.gasket_thickness_m)/float(_joint_stock.data.dimensions.pitch_m) if gasket_seated else 0.
 	return -.95 if id=="lever" else 0.0
 
@@ -233,18 +236,22 @@ func _claim(id: String) -> bool:
 
 func _release() -> void:
 	if _hand=="joint":_loose_union.release()
+	var was_door: bool=_hand=="door"
 	_hand = ""; manipulation_changed.emit()
+	if was_door:_door_motion.schedule()
 
 func _grip(id: String) -> Dictionary:
 	if id=="joint" and not door_open:return {}
 	if id=="joint" and _loose_union!=null and _loose_union.active:return _loose_union.grip()
-	return {"owner":self, "part":_part(id), "frame":_part(id).get_parent_node_3d(),
+	var result: Dictionary={"owner":self, "part":_part(id), "frame":_part(id).get_parent_node_3d(),
 		"kind":"hinge", "axis":_axis(id),
 		"minimum":_minimum(id), "maximum":_maximum(id),
 		"read":func():return _read(id), "write":func(value: float):
 			if _hand==id: _move_hand_part(id,value),
 		"begin":func():return _claim(id), "owns":func():return _hand==id,
 		"end":_release}
+	if id=="door":result.bind_holder=_door_motion.bind_holder
+	return result
 
 func _move_hand_part(id: String, value: float) -> void:
 	if not is_finite(value): return
@@ -252,10 +259,13 @@ func _move_hand_part(id: String, value: float) -> void:
 	var before: float = _read(id)
 	var steps: int = maxi(1,ceili(absf(value-before)/.01))
 	var accepted: float = before
-	for step in range(1,steps+1):
-		var proposed: float = value if step==steps else lerpf(before,value,float(step)/steps)
-		if _obstructed(id,proposed): break
-		accepted = proposed
+	if id=="door":
+		_door_motion.accommodate(value);accepted=value
+	else:
+		for step in range(1,steps+1):
+			var proposed: float = value if step==steps else lerpf(before,value,float(step)/steps)
+			if _obstructed(id,proposed): break
+			accepted = proposed
 	if id=="door":
 		_door_angle = accepted; door_open = accepted>=.8; _observed_open = door_open
 	elif id=="lever":
@@ -311,6 +321,7 @@ func _apply_nozzle_pose() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not _hands_ready: return
+	_door_motion.tick(delta)
 	_loose_union.tick(delta)
 	# Neither transient wire swing nor locked-spindle play is a saved setting.
 	if _hand!="tag" and (_tag_angle>0.0 or absf(_tag_velocity)>.00001):
@@ -384,7 +395,7 @@ func valid_mechanism(value: Variant) -> bool:
 		elif typeof(facts.get(key))!=TYPE_BOOL: return false
 	var receiver: Variant=null
 	if value.has("hose"):
-		if facts.hose_racked==value.hose.deployed:return false
+		if value.hose.deployed and facts.hose_racked:return false
 		receiver=_live_hose.saved_receiver(value.hose)
 	elif is_instance_valid(_live_hose) and _live_hose.visual_follow_enabled:
 		# Legacy rack saves must not depend on the current deployed receiver.
@@ -436,3 +447,7 @@ func restore_mechanism(value: Dictionary) -> void:
 	if value.has("nozzle"):_nozzle_joint.restore(value.nozzle)
 	elif _nozzle_joint!=null:_nozzle_joint.restore_legacy(value.facts.nozzle_coupled)
 	rubber_dressed=bool(value.get("rubber_dressed",false));_rubber_finish()
+	_door_motion.schedule()
+
+func _exit_tree() -> void:
+	if _door_motion!=null:_door_motion.release()

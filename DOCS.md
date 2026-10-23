@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Installed extended hose, sustained charge, cabinet clearance and world disk reconstruction | `design/V2_HOSE_PRODUCTION_DEPLOYMENT_2026-10-23.md` |
 | Hose household saved receiver, charge completion and legacy payload diagnostics | `design/V2_HOSE_HOUSEHOLD_SAVE_2026-10-23.md` |
 | Service-source shadow cost, room/door visibility and retained rendering alternatives | `design/V2_SERVICE_LIGHT_VISIBILITY_2026-10-23.md` |
 | Reduced sink/toilet collision cost, retained contact regression and final timing limits | `design/V2_BATH_CONTACT_REDUCTION_2026-10-23.md` |

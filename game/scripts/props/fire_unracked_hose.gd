@@ -1,6 +1,6 @@
 extends Node3D
 ## Separate round native stock after extraction. The folded representation has
-## no solver. Candidate owner; installed only by the dedicated diagnostic bench.
+## no solver. Production uses visual following; numerical modes are diagnostics.
 const EXTRACTION_M:=.20
 var actor: Node3D
 var joint: Node3D
@@ -56,7 +56,7 @@ var _cover_holder_added:=false
 var _contact_exclusions: Array[RID]=[]
 var _local_follow:=preload("res://scripts/props/round_local_endpoint.gd").new()
 var visual_follow_enabled:=false
-var visual_route:=preload("res://scripts/props/hose_visual_route.gd").new()
+var visual_route: RefCounted=preload("res://scripts/props/hose_visual_route.gd").new()
 var water:=preload("res://scripts/props/hose_water_charge.gd").new()
 var _spray: GPUParticles3D
 var _charge_dirty:=false
@@ -100,6 +100,8 @@ func valid_deployment(value: Variant) -> bool:
 
 func _show_deployment(enabled: bool) -> void:
 	deployed=enabled;model.visible=enabled
+	if enabled and visual_follow_enabled:
+		actor._door_angle=maxf(actor._door_angle,actor._minimum("door"));actor._apply_hand_pose()
 	for node: Node3D in _stored:
 		if not _stock_processing.has(node):_stock_processing[node]={"visible":node.visible,"process":node.is_processing()}
 		node.visible=false if enabled else _stock_processing[node].visible
@@ -190,6 +192,7 @@ func _visual_receiver(wanted: Transform3D) -> void:
 	var points: PackedVector3Array=visual_route.build(local_tip,back,rig.strand.anchor,rig.rest.size(),rig.strand.total_length,up,_guide_floor)
 	if points.is_empty() or not rig.apply_points(points,water.pressure):error="visual hose route unavailable";return
 	rig.strand.points=points
+	wanted.origin=model.to_global(points[0])
 	joint.receiver=actor.global_transform.affine_inverse()*wanted
 	joint.sync();error=""
 	if profile_motion:
@@ -212,6 +215,43 @@ func set_local_follow(enabled: bool) -> bool:
 
 func _carry_seed(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 	return _local_follow.seed(before,goal)
+
+func configure_visual(owner_actor: Node3D,asset_path: String) -> bool:
+	var started: int=Time.get_ticks_usec()
+	if actor!=null or owner_actor._nozzle_joint==null:return false
+	actor=owner_actor;joint=actor._nozzle_joint;_receiver=joint.receiver
+	_extracted_receiver=_receiver;_extracted_receiver.origin+=Vector3.BACK*EXTRACTION_M
+	if not _configure_skin(asset_path):return false
+	visual_route=preload("res://scripts/props/hose_cabinet_route.gd").new()
+	visual_route.model_to_actor=model.transform
+	var up: Vector3=(model.global_basis.inverse()*Vector3.UP).normalized()
+	_guide_floor=up.dot(model.transform.affine_inverse()*Vector3(0,ground_y_local+.023,0))
+	var tip: Vector3=model.transform.affine_inverse()*_extracted_receiver.origin
+	var back: Vector3=-(model.basis.inverse()*_extracted_receiver.basis.y)
+	_placement=visual_route.build(tip,back,rig.strand.anchor,rig.rest.size(),rig.strand.total_length,up,_guide_floor)
+	if _placement.is_empty():return false
+	enable_visual_follow()
+	joint.hose_grip_provider=grip;joint.hose_seat_grip_provider=grip
+	setup_ms=(Time.get_ticks_usec()-started)/1000.
+	return true
+
+func _configure_skin(asset_path: String,projection: Variant=null) -> bool:
+	var packed:=load(asset_path) as PackedScene
+	if packed==null:return false
+	model=packed.instantiate();add_child(model);model.visible=false
+	var prepared: bool=rig.configure_deployment(model) if projection==null else rig.configure(model,projection)
+	if not prepared or not rig.enable_material_transport():return false
+	# Retain the native upstream frame at the original union port.
+	model.transform=Transform3D(Basis(Vector3.BACK,PI*.5),Vector3.ZERO)
+	model.position=Vector3(.170,.445,.098)-model.basis*rig.rest[-1]
+	for node: Node3D in [actor._folds,actor.get_node("NativeContinuousFolds"),actor.get_node("NativeHoseRuns")]:_stored.append(node)
+	var finish: StandardMaterial3D=MatLib.get_mat("linen").duplicate()
+	var catalogue: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/runtime_material_sets.json"))
+	finish.uv1_triplanar=false;finish.uv1_scale=Vector3.ONE/float(catalogue.materials.linen.meters_per_tile)
+	finish.albedo_color=Color(.75,.71,.59);finish.normal_scale=.08;finish.roughness=.9;finish.metallic=0.
+	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):draw.material_override=finish
+	set_process(false);set_physics_process(false)
+	return true
 
 func configure(owner_actor: Node3D,asset_path: String,projection: Dictionary,placement: Dictionary) -> bool:
 	var started: int=Time.get_ticks_usec()
@@ -241,13 +281,7 @@ func configure(owner_actor: Node3D,asset_path: String,projection: Dictionary,pla
 			var bounds:=AABB(cell.points[0],Vector3.ZERO)
 			for point: Vector3 in cell.points:bounds=bounds.expand(point)
 			_receiving_stock.append({"shape":cell,"bounds":bounds,"nut":row.nut})
-	var packed:=load(asset_path) as PackedScene
-	if packed==null:return false
-	model=packed.instantiate();add_child(model);model.visible=false
-	if not rig.configure(model,projection) or not rig.enable_material_transport():return false
-	# Retain the source's rigid upstream frame at the actual union port.
-	model.transform=Transform3D(Basis(Vector3.BACK,PI*.5),Vector3.ZERO)
-	model.position=Vector3(.170,.445,.098)-model.basis*rig.rest[-1]
+	if not _configure_skin(asset_path,projection):return false
 	if placement.get("points") is not Array or placement.points.size()!=rig.rest.size():return false
 	for row: Array in placement.points:
 		if row.size()!=3:return false
@@ -285,13 +319,6 @@ func configure(owner_actor: Node3D,asset_path: String,projection: Dictionary,pla
 	var own: Dictionary=kernel.coupled.round_self_constraints(_placement,_placement,.021,pins)
 	if not own.valid or not own.clear:error="unracked placement has round self contact: "+str(own);return false
 	_receiver_from_tip=rig.model_frames(_placement)[0].affine_inverse()*model.transform.affine_inverse()*(_receiver*Transform3D(Basis.IDENTITY,_receiver.basis.inverse()*Vector3.BACK*EXTRACTION_M))
-	for node: Node3D in [actor._folds,actor.get_node("NativeContinuousFolds"),actor.get_node("NativeHoseRuns")]:_stored.append(node)
-	# Material setup and the numerical initial pose happen before input.
-	var finish: StandardMaterial3D=MatLib.get_mat("linen").duplicate()
-	var catalogue: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/runtime_material_sets.json"))
-	finish.uv1_triplanar=false;finish.uv1_scale=Vector3.ONE/float(catalogue.materials.linen.meters_per_tile)
-	finish.albedo_color=Color(.75,.71,.59);finish.normal_scale=.08;finish.roughness=.9;finish.metallic=0.
-	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):draw.material_override=finish
 	setup_ms=(Time.get_ticks_usec()-started)/1000.
 	set_process(false);set_physics_process(false)
 	return true
@@ -372,7 +399,7 @@ func _physical_bends_clear(points: PackedVector3Array) -> bool:
 	return true
 
 func grip() -> Dictionary:
-	if not actor.door_open:return {}
+	if not deployed and not actor.door_open:return {}
 	var part: Node3D=joint.seat if joint.loose else actor._play_pipe
 	if deployed:
 		return {"owner":actor,"part":part,"frame":model,"kind":"free",
@@ -384,6 +411,7 @@ func grip() -> Dictionary:
 			"motion_pending":func():return tether.pending,"constraint_feedback":_constraint_feedback,"end":_release}
 	return {"owner":actor,"part":part,"frame":actor,"kind":"slider","axis":Vector3.BACK,
 		"minimum":0.,"maximum":EXTRACTION_M,"read":func():return extraction,"write":_extract,
+		"continue_grab":func():return grip() if visual_follow_enabled and deployed else {},
 		"begin":_begin_hose,"owns":func():return actor._hand=="hose","constraint_feedback":_extraction_feedback,"end":_release}
 
 func _begin_hose() -> bool:
@@ -637,11 +665,11 @@ func _extract(value: float) -> void:
 	value=clampf(value,0.,EXTRACTION_M)
 	var proposed:=_receiver;proposed.origin+=Vector3.BACK*value
 	proposed.basis=Basis(_receiver.basis.get_rotation_quaternion().slerp(_extracted_receiver.basis.get_rotation_quaternion(),value/EXTRACTION_M))
-	if not _nozzle_clear(proposed):error="nozzle extraction obstructed";return
+	if not visual_follow_enabled and not _nozzle_clear(proposed):error="nozzle extraction obstructed";return
 	if value>=EXTRACTION_M-.000001:
 		# Representation swap is discrete and authorized. Occupancy is checked
 		# afresh; no sweep from a completely different folded topology is faked.
-		if not contact.ready or contact.intersects_pose(_placement):error="unracked placement obstructed";return
+		if not visual_follow_enabled and (not contact.ready or contact.intersects_pose(_placement)):error="unracked placement obstructed";return
 		if not rig.apply_points(_placement,water.pressure if visual_follow_enabled else 1.):error="unracked native skin unavailable";return
 		rig.strand.points=_placement.duplicate();_show_deployment(true);actor.hose_racked=false
 	joint.receiver=proposed;joint.sync();extraction=value;error=""

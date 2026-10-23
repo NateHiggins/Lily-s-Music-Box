@@ -17,7 +17,9 @@ func advance(delta: float,supply: float,lever: float,path_made_up: bool) -> bool
 		pressure=move_toward(pressure,0.,delta*3.)
 	elif supply>0.:
 		fill=move_toward(fill,1.,delta*supply/FILL_SECONDS)
-		pressure=move_toward(pressure,fill*supply*(1.-lever*.2),delta*2.)
+		# The supply opening meters filling, not the shut nozzle's static
+		# pressure. Throttling a full line must not vent its trapped charge.
+		pressure=move_toward(pressure,fill*(1.-lever*.2),delta*2.)
 	elif lever>0.:
 		fill=move_toward(fill,0.,delta*lever/DRAIN_SECONDS)
 		pressure=move_toward(pressure,0.,delta*lever*2.)

@@ -1,0 +1,21 @@
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: _write_checks (res://tests/v2_hose_installed_world.gd:139)
+   GDScript backtrace (most recent call first):
+       [0] _write_checks (res://tests/v2_hose_installed_world.gd:139)
+       [1] _play_route (res://tests/v2_hose_installed_world.gd:66)
+ERROR: Can't save PNG at path: 'C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v3/installed_held_nozzle.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _picture (res://tests/v2_hose_installed_world.gd:109)
+ERROR: Can't save PNG at path: 'C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v3/installed_spray.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _picture (res://tests/v2_hose_installed_world.gd:109)
+ERROR: V2 INSTALLED HOSE WORLD: released remote charged hose has a valid household payload
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _check (res://tests/v2_hose_installed_world.gd:15)
+       [2] _play_route (res://tests/v2_hose_installed_world.gd:95)
+       [3] _walk (res://tests/v2_golden_repair_profile.gd:35)
+       [4] _walk (res://tests/orison_v2_vertical_route_test.gd:137)

@@ -1,0 +1,8 @@
+ERROR: V2 INSTALLED HOSE WORLD: actual grab/motion/release opens the installed cabinet
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _check (res://tests/v2_hose_installed_world.gd:14)
+       [2] _play_route (res://tests/v2_hose_installed_world.gd:33)
+       [3] operate (res://tests/orison_v2_first_slice_contract_test.gd:59)
+       [4] move_to (res://tests/orison_v2_first_slice_contract_test.gd:39)

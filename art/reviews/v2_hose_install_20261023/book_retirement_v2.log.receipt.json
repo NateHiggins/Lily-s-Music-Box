@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 10.01,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T20:10:14Z",
+  "started_utc": "2026-10-23T20:10:04Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "BOOK PRINT RETIREMENT: PASS failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/book_retirement_v2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/book_retirement_v2.log",
+  "stdout_sha256": "1e04b11327f4eccf46acbc2f38359d4e7bd732351ce14ebd31651eb1cbe7a81c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2BookPrintRetirement.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 3052,
+  "dirty_sample": [
+   "M .gitattributes",
+   "A  game/assets/props/unracked_fire_hose.glb",
+   "A  game/assets/props/unracked_fire_hose.glb.import",
+   "A  game/data/orison_v2/unracked_fire_hose_rig.json",
+   " M game/scripts/building/orison_v2_native_fire_service.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/props/fire_unracked_hose.gd",
+   " M game/scripts/props/hose_water_charge.gd",
+   " M game/scripts/props/native_hose_rig.gd",
+   " M game/scripts/props/v2_fire_line_cabinet.gd",
+   " M game/scripts/props/v2_readable_book.gd",
+   " M game/tests/v2_fire_hand_bench.gd",
+   " M game/tests/v2_hose_save_bench.gd",
+   " M game/tests/v2_hose_water_programme.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py"
+  ],
+  "repository_head": "cef32947ea3ff3785ee267025591ecc7eba00516",
+  "repository_tree": "6606931c3fb2a6ee8a7c239dfdea5a602b397086",
+  "runtime_inputs_sha256": "edfaae323ac1f2dd0c3d16a7f2010f89961bf6a34039da723e35d072ab8d9c6a",
+  "test_path": "game/tests/v2_book_print_retirement.gd",
+  "test_sha256": "5d849ab391b4b1e248c64a859acb38a348681d301b415d1e8f461cde9cdefe23"
+ },
+ "windowed": true
+}

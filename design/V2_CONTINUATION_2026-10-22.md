@@ -12,6 +12,24 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Latest installed hose batch: **V2_HOSE_PRODUCTION_DEPLOYMENT_2026-10-23.md**.
+All eight cabinets now use the separate native extended skin with no numerical
+cloth/contact setup. Same-click extraction continues to FPS carry. Open supply
+maintains charge; gradual closure with a shut nozzle traps it. An authored
+fairlead, outside detour and slightly ajar leaf prevent deployed case crossings.
+**world_v6** passes ten walked waypoints and 33 checks, including charge, six-second
+spray, stair carry, remote inspection and real disk/world rebuild, empty stderr.
+Assembly is a staged precondition, not procurement or maintenance-input proof.
+The freed-book glyph coroutine exposed during rebuilding is also repaired;
+retirement and three-title print-contact regressions pass.
+Frame p50/p95/p99/max is42.692/61.351/82.547/295.426ms; no matched before/after
+improvement is claimed. Hose follow p95 is0.341ms with zero contact queries.
+Next repair released-nozzle support, then perform cabinet rendering attribution,
+full payout, remote controls, actual washer handoff/dressing and the started queue.
+Original failures, source archives and wrapper receipts remain in
+**art/reviews/v2_hose_install_20261023/**. These are INERT diagnostics, not runtime
+contracts or human acceptance. Earlier progression below remains historical.
+
 Newest: **carry_walk_v3** passes seven actual walked waypoints plus strict F02
 FPS hand/aim, native-clearance, material/bend and release-cleanup assertions.
 The cloth query now shares authoritative carried-body exclusions with fittings;

@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 11.21,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T19:50:36Z",
+  "started_utc": "2026-10-23T19:50:24Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 HOSE SAVE: PASS failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/production_save_v4.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/production_save_v4.log",
+  "stdout_sha256": "c7d6dd4fa8d8dd4d743e523ef8b8bd077e3313be8a205fdafdc0cd46ae80f9ae"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2HoseProductionSaveBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 3044,
+  "dirty_sample": [
+   "M .gitattributes",
+   "A  game/assets/props/unracked_fire_hose.glb",
+   "A  game/assets/props/unracked_fire_hose.glb.import",
+   "A  game/data/orison_v2/unracked_fire_hose_rig.json",
+   " M game/scripts/building/orison_v2_native_fire_service.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/props/fire_unracked_hose.gd",
+   " M game/scripts/props/hose_water_charge.gd",
+   " M game/scripts/props/native_hose_rig.gd",
+   " M game/scripts/props/v2_fire_line_cabinet.gd",
+   " M game/tests/v2_fire_hand_bench.gd",
+   " M game/tests/v2_hose_save_bench.gd",
+   " M game/tests/v2_hose_water_programme.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py"
+  ],
+  "repository_head": "cef32947ea3ff3785ee267025591ecc7eba00516",
+  "repository_tree": "6606931c3fb2a6ee8a7c239dfdea5a602b397086",
+  "runtime_inputs_sha256": "9c7fee84893d69276fb13e2cb2717cbff65e797fda92b9bb3b5bc7681f2cd793",
+  "test_path": "game/tests/v2_hose_production_save_bench.gd",
+  "test_sha256": "3692fed348e52ddc7ed5b771f13c137ee0a07616b0f7738a4d5b12aa8346cd6c"
+ },
+ "windowed": false
+}

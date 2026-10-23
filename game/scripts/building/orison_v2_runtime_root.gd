@@ -511,6 +511,10 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: fire service refused: %s" % [fire_service.errors])
 		return
 	adapter.root.set_meta("v2_native_fire_service",fire_service)
+	if not fire_service.mount_hose_deployment():
+		startup_failed=true
+		push_error("ORISON V2 RUNTIME: hose deployment refused: %s"%[fire_service.errors])
+		return
 	var player_fire_contact:=preload("res://scripts/building/v2_fire_player_contact.gd").new()
 	if not player_fire_contact.configure(player,fire_service.stations):
 		startup_failed=true

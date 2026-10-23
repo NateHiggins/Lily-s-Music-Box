@@ -285,6 +285,27 @@ func feedback(aimed: Dictionary) -> Dictionary:
 		"transform_rotating":transform_rotating if active() and player.inspecting() else false,
 		"inspectable":is_instance_valid(owner) and owner.has_method("inspection_view")}
 
+func _continue_grab() -> bool:
+	# An owner's representation can change while the same primary-click hand
+	# remains latched (for example, extracting a hose then carrying its tip).
+	# Accept only a descriptor from that same owner; do not acquire or release
+	# it again, scan a new target, or duplicate the mechanism's state.
+	var continuation: Variant=target.get("continue_grab")
+	if continuation is Callable and continuation.is_valid():
+		var candidate: Variant=continuation.call()
+		if candidate is Dictionary and not candidate.is_empty():
+			if candidate.get("owner")!=target.owner or candidate.get("kind")!="free" or not is_instance_valid(candidate.get("part")) or not is_instance_valid(candidate.get("frame")):
+				release();return false
+			var point: Vector3=target.part.to_global(contact)
+			_unbind_carrier_collision();target=candidate
+			contact=target.part.to_local(point);_motion_origin=target.read.call()
+			transform_axis=-1;transform_rotating=false;_gesture_axis=Vector2.ZERO
+			_feedback_pending=false;_feedback_until=0;motion_feedback="grabbed";_held_depth=0.
+			if target.has("bind_holder"):target.bind_holder.call(player)
+			_bind_carrier_collision()
+			return true
+	return false
+
 func validate() -> void:
 	if not active(): return
 	if not is_instance_valid(target.get("owner")) or not is_instance_valid(target.get("part")) or not is_instance_valid(target.get("frame")):
@@ -294,6 +315,8 @@ func validate() -> void:
 		target={};changed=false
 		return
 	_observe_motion()
+	_continue_grab()
+	if not active():return
 	var view: Camera3D=target.get("view_camera",player.camera)
 	var valid: Variant=target.get("interaction_valid")
 	if not is_instance_valid(view) or (valid is Callable and (not valid.is_valid() or not valid.call())):
@@ -381,6 +404,7 @@ func move(relative: Vector2) -> void:
 	target.write.call(value)
 	_record_cost("constrained_motion",str(target.owner.name),started)
 	if not is_equal_approx(float(target.read.call()),before): changed = true
+	if _continue_grab():follow_holder()
 
 func move_depth(distance: float) -> bool:
 	validate()

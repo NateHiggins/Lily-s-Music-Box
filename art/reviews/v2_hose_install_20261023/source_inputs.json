@@ -1,0 +1,188 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Final production inputs and final world-v6 comparison source. Earlier evolving controls retain their own receipts; this archive does not retroactively bind them.",
+  "records": [
+    {
+      "path": "game/scripts/building/orison_v2_native_fire_service.gd",
+      "raw_sha256": "8b41017ce095b489eee694864c8d963fccea61aad8df161a983844ce477ad42d",
+      "lf_sha256": "8b41017ce095b489eee694864c8d963fccea61aad8df161a983844ce477ad42d",
+      "archive": "source_final/game/scripts/building/orison_v2_native_fire_service.gd.gz"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_runtime_root.gd",
+      "raw_sha256": "237316dd9f20448c0191cb741c851b2c59726ba5d1fa15f94f81b60184076eaf",
+      "lf_sha256": "237316dd9f20448c0191cb741c851b2c59726ba5d1fa15f94f81b60184076eaf",
+      "archive": "source_final/game/scripts/building/orison_v2_runtime_root.gd.gz"
+    },
+    {
+      "path": "game/scripts/player/constrained_grab.gd",
+      "raw_sha256": "98374e1ec40aa4939a182f76ca50bf2575df537ed2fb184d4516ee4c59be7886",
+      "lf_sha256": "98374e1ec40aa4939a182f76ca50bf2575df537ed2fb184d4516ee4c59be7886",
+      "archive": "source_final/game/scripts/player/constrained_grab.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/fire_unracked_hose.gd",
+      "raw_sha256": "8661fb7875928523347077e2ba9ead9f4e9810cdbb7f80d919f540089494c97e",
+      "lf_sha256": "8661fb7875928523347077e2ba9ead9f4e9810cdbb7f80d919f540089494c97e",
+      "archive": "source_final/game/scripts/props/fire_unracked_hose.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/hose_water_charge.gd",
+      "raw_sha256": "213ed654236516fedcae50b9a7d1de946d2b29cf7aa00efe773d29a262a49bde",
+      "lf_sha256": "213ed654236516fedcae50b9a7d1de946d2b29cf7aa00efe773d29a262a49bde",
+      "archive": "source_final/game/scripts/props/hose_water_charge.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/native_hose_rig.gd",
+      "raw_sha256": "78e0476db780ae4e1cfd5fbbb2936fa10e6b37063f9cbd65e1233db4996e8d6f",
+      "lf_sha256": "78e0476db780ae4e1cfd5fbbb2936fa10e6b37063f9cbd65e1233db4996e8d6f",
+      "archive": "source_final/game/scripts/props/native_hose_rig.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/v2_fire_line_cabinet.gd",
+      "raw_sha256": "5681753a9fbce0fa9b4c1f62f0650c3a1290934c21857644aa4a446c9d685506",
+      "lf_sha256": "5681753a9fbce0fa9b4c1f62f0650c3a1290934c21857644aa4a446c9d685506",
+      "archive": "source_final/game/scripts/props/v2_fire_line_cabinet.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/v2_readable_book.gd",
+      "raw_sha256": "cef148cb3ce3243800451e461d4c726876c0ddbd5546f168badde153127adff0",
+      "lf_sha256": "cef148cb3ce3243800451e461d4c726876c0ddbd5546f168badde153127adff0",
+      "archive": "source_final/game/scripts/props/v2_readable_book.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/book_print_preparation.gd",
+      "raw_sha256": "dee634380c0e206e4b61a493e00f6e52d62c157f1ded2666865c063afbd43cf0",
+      "lf_sha256": "dee634380c0e206e4b61a493e00f6e52d62c157f1ded2666865c063afbd43cf0",
+      "archive": "source_final/game/scripts/props/book_print_preparation.gd.gz",
+      "executed_archive": "source_final/game/scripts/props/book_print_preparation.gd.world_v6.gz",
+      "executed_raw_sha256": "609f1077324066f1527e48dd86aaf128b67b2260da7b08ee2070eb6765b16a68",
+      "executed_lf_sha256": "609f1077324066f1527e48dd86aaf128b67b2260da7b08ee2070eb6765b16a68",
+      "post_run_change": "Removed one blank EOF line only; executed source preserved separately."
+    },
+    {
+      "path": "game/scripts/props/hose_cabinet_route.gd",
+      "raw_sha256": "a00d0f96bca11d8ef3310c2c3a8b28435c9b26d844baa759d4a64744f2baf295",
+      "lf_sha256": "a00d0f96bca11d8ef3310c2c3a8b28435c9b26d844baa759d4a64744f2baf295",
+      "archive": "source_final/game/scripts/props/hose_cabinet_route.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/fire_cabinet_door_motion.gd",
+      "raw_sha256": "8b5f96720b5cf24756b976d6ab3831f6838e3fa278a86cb52def85d059f26297",
+      "lf_sha256": "8b5f96720b5cf24756b976d6ab3831f6838e3fa278a86cb52def85d059f26297",
+      "archive": "source_final/game/scripts/props/fire_cabinet_door_motion.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/fire_nozzle_coupling.gd",
+      "raw_sha256": "aa40ec07a11e75bb7464b569f36ac6162b738372cb588daa7c86394d40bfdbfb",
+      "lf_sha256": "aa40ec07a11e75bb7464b569f36ac6162b738372cb588daa7c86394d40bfdbfb",
+      "archive": "source_final/game/scripts/props/fire_nozzle_coupling.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_fire_hand_bench.gd",
+      "raw_sha256": "914e567363099bbc88444aee2a68769f98bdc0c4587631cfa4d8935df9291a9e",
+      "lf_sha256": "914e567363099bbc88444aee2a68769f98bdc0c4587631cfa4d8935df9291a9e",
+      "archive": "source_final/game/tests/v2_fire_hand_bench.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_save_bench.gd",
+      "raw_sha256": "970dd6fea10cd9067a22d14dc5238195f43dab92e4cd5781bed0921069c24c1f",
+      "lf_sha256": "970dd6fea10cd9067a22d14dc5238195f43dab92e4cd5781bed0921069c24c1f",
+      "archive": "source_final/game/tests/v2_hose_save_bench.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_water_programme.gd",
+      "raw_sha256": "2086d2a9a45c85808c79103c471ddf8b0e27100f9ed9d6761ad9a311088c04c5",
+      "lf_sha256": "2086d2a9a45c85808c79103c471ddf8b0e27100f9ed9d6761ad9a311088c04c5",
+      "archive": "source_final/game/tests/v2_hose_water_programme.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_production_save_bench.gd",
+      "raw_sha256": "3692fed348e52ddc7ed5b771f13c137ee0a07616b0f7738a4d5b12aa8346cd6c",
+      "lf_sha256": "3692fed348e52ddc7ed5b771f13c137ee0a07616b0f7738a4d5b12aa8346cd6c",
+      "archive": "source_final/game/tests/v2_hose_production_save_bench.gd.gz"
+    },
+    {
+      "path": "game/tests/V2HoseProductionSaveBench.tscn",
+      "raw_sha256": "548e9f281b7e03ca61b0f20d8ae8e1f1baa031e791a838834ce7214a9ed73486",
+      "lf_sha256": "548e9f281b7e03ca61b0f20d8ae8e1f1baa031e791a838834ce7214a9ed73486",
+      "archive": "source_final/game/tests/V2HoseProductionSaveBench.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_production_hand_bench.gd",
+      "raw_sha256": "c84593610be365fb4c41a091ca88bffdaa5722240b9362da3b88184e42e9c791",
+      "lf_sha256": "c84593610be365fb4c41a091ca88bffdaa5722240b9362da3b88184e42e9c791",
+      "archive": "source_final/game/tests/v2_hose_production_hand_bench.gd.gz"
+    },
+    {
+      "path": "game/tests/V2HoseProductionHandBench.tscn",
+      "raw_sha256": "ea4074a1b7e0516cbb021f33f8be0da1f9846fe6c5def2001402c12e6820997a",
+      "lf_sha256": "ea4074a1b7e0516cbb021f33f8be0da1f9846fe6c5def2001402c12e6820997a",
+      "archive": "source_final/game/tests/V2HoseProductionHandBench.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_installed_world.gd",
+      "raw_sha256": "e0f6c93e683f09f62de7f91a5ba9b308ea1152c685e904c7a2530be653becc62",
+      "lf_sha256": "e0f6c93e683f09f62de7f91a5ba9b308ea1152c685e904c7a2530be653becc62",
+      "archive": "source_final/game/tests/v2_hose_installed_world.gd.gz"
+    },
+    {
+      "path": "game/tests/V2HoseInstalledWorld.tscn",
+      "raw_sha256": "ed32f3b592d588e0fb6d938175078a1ce9d2c17052aeaea327d90a460ed58630",
+      "lf_sha256": "ed32f3b592d588e0fb6d938175078a1ce9d2c17052aeaea327d90a460ed58630",
+      "archive": "source_final/game/tests/V2HoseInstalledWorld.tscn.gz"
+    },
+    {
+      "path": "game/tests/hose_saved_pose_comparison.gd",
+      "raw_sha256": "721cbc6a682dd16fc5cb0b4f2375c86013de4aaddb67def27dfb719e97cf5e4e",
+      "lf_sha256": "721cbc6a682dd16fc5cb0b4f2375c86013de4aaddb67def27dfb719e97cf5e4e",
+      "archive": "source_final/game/tests/hose_saved_pose_comparison.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_remote_restore_bench.gd",
+      "raw_sha256": "fd12ef0be1ead6160daa0f429b99c8e845dc36504a63acc1ead203cefc2b7d82",
+      "lf_sha256": "fd12ef0be1ead6160daa0f429b99c8e845dc36504a63acc1ead203cefc2b7d82",
+      "archive": "source_final/game/tests/v2_hose_remote_restore_bench.gd.gz"
+    },
+    {
+      "path": "game/tests/V2HoseRemoteRestoreBench.tscn",
+      "raw_sha256": "c8d1a02aae6954837530bf7fc3f2d61cd500e751c8308c2aace91c3397e9731f",
+      "lf_sha256": "c8d1a02aae6954837530bf7fc3f2d61cd500e751c8308c2aace91c3397e9731f",
+      "archive": "source_final/game/tests/V2HoseRemoteRestoreBench.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_book_print_retirement.gd",
+      "raw_sha256": "5d849ab391b4b1e248c64a859acb38a348681d301b415d1e8f461cde9cdefe23",
+      "lf_sha256": "5d849ab391b4b1e248c64a859acb38a348681d301b415d1e8f461cde9cdefe23",
+      "archive": "source_final/game/tests/v2_book_print_retirement.gd.gz"
+    },
+    {
+      "path": "game/tests/V2BookPrintRetirement.tscn",
+      "raw_sha256": "01bf227c8424581341c4f992614f7d853f71d3920f7d63bc337557dc5eb7b7a5",
+      "lf_sha256": "01bf227c8424581341c4f992614f7d853f71d3920f7d63bc337557dc5eb7b7a5",
+      "archive": "source_final/game/tests/V2BookPrintRetirement.tscn.gz"
+    },
+    {
+      "path": "game/tests/fixtures/v2_hose_remote_restore_20261023.json",
+      "raw_sha256": "9ec4f9d24aca8ed355072780b6a9405fe0e3961b4ef9424e708487ab6f06d0dd",
+      "lf_sha256": "9ec4f9d24aca8ed355072780b6a9405fe0e3961b4ef9424e708487ab6f06d0dd",
+      "archive": "source_final/game/tests/fixtures/v2_hose_remote_restore_20261023.json.gz"
+    },
+    {
+      "path": "game/data/orison_v2/unracked_fire_hose_rig.json",
+      "raw_sha256": "d272742c59b0c9421378e37446d2e11178534ee28c7ea9b60fa6d4e717714e23",
+      "lf_sha256": "d272742c59b0c9421378e37446d2e11178534ee28c7ea9b60fa6d4e717714e23",
+      "archive": "source_final/game/data/orison_v2/unracked_fire_hose_rig.json.gz"
+    },
+    {
+      "path": "game/assets/props/unracked_fire_hose.glb.import",
+      "raw_sha256": "258b6c4d4b98406a3596d145488f8af535618c1b193dc1da1e825ce0211b41f8",
+      "lf_sha256": "258b6c4d4b98406a3596d145488f8af535618c1b193dc1da1e825ce0211b41f8",
+      "archive": "source_final/game/assets/props/unracked_fire_hose.glb.import.gz"
+    }
+  ],
+  "assets": {
+    "game/assets/props/unracked_fire_hose.glb": "d8276569f30d61e92d713f21d653f2b465106ffeb09fdd5b3514bc53d6eb9915",
+    "game/tests/fixtures/v2_unracked_fire_hose.glb": "d8276569f30d61e92d713f21d653f2b465106ffeb09fdd5b3514bc53d6eb9915"
+  }
+}

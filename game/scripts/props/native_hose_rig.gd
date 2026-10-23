@@ -13,6 +13,10 @@ var _rest_transport_twist:=PackedFloat64Array()
 var _frame_points: Array[PackedVector3Array]=[]
 var _frame_values: Array=[]
 var strand:=preload("res://scripts/props/hose_length_constraint.gd").new()
+func configure_deployment(root: Node3D) -> bool:
+	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/unracked_fire_hose_rig.json"))
+	return data is Dictionary and configure(root,data)
+
 func configure(root: Node3D,data: Dictionary) -> bool:
 	if model!=null:return false
 	if data.size()!=5 or data.get("schema_version")!=1:return false

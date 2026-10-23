@@ -1,5 +1,12 @@
 extends "res://tests/v2_fire_hand_bench.gd"
 ## Household payload diagnostics. Staged poses are not interaction qualification.
+func _install_hose(_native: RefCounted,actor: Node3D) -> Node3D:
+	var hose:=preload("res://scripts/props/fire_unracked_hose.gd").new();actor.add_child(hose)
+	var projection: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_fire_hose_rig.json"))
+	var placement: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_fire_hose_placement.json"))
+	if not check(hose.configure(actor,"res://tests/fixtures/v2_unracked_fire_hose.glb",projection,placement),"native hose prepares for saved-pose reconstruction"):return null
+	return hose
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	var adapter:=FixtureAdapter.new();adapter.root=Node3D.new();add_child(adapter.root)
@@ -14,11 +21,8 @@ func _run() -> void:
 	actor.nozzle_coupled=true;joint.restore_legacy(true)
 	var legacy: Dictionary=actor.mechanism_snapshot()
 	check(legacy.size()==8 and actor.valid_mechanism(legacy),"original eight-field cabinet save is valid")
-	var hose:=preload("res://scripts/props/fire_unracked_hose.gd").new();actor.add_child(hose)
-	var projection: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_fire_hose_rig.json"))
-	var placement: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_fire_hose_placement.json"))
-	if not check(hose.configure(actor,"res://tests/fixtures/v2_unracked_fire_hose.glb",projection,placement),"native hose prepares for saved-pose reconstruction"):
-		print(hose.error);get_tree().quit(1);return
+	var hose: Node3D=_install_hose(native,actor)
+	if hose==null:get_tree().quit(1);return
 	hose.enable_visual_follow()
 	var stored: Dictionary=actor.mechanism_snapshot()
 	check(stored.size()==9 and actor.valid_mechanism(stored),"nine-field stored hose snapshot validates")
@@ -65,6 +69,10 @@ func _run() -> void:
 	check(actor.valid_mechanism(old_nozzle),"legacy five-field nozzle save remains valid")
 	actor.restore_mechanism(old_nozzle)
 	check(actor.valid_mechanism(actor.mechanism_snapshot()),"legacy reconstruction emits valid current payload")
+	var old_absent: Dictionary=legacy.duplicate(true);old_absent.facts.hose_racked=false
+	check(actor.valid_mechanism(old_absent),"legacy absent-hose maintenance fact remains readable")
+	actor.restore_mechanism(old_absent)
+	check(not actor.hose_racked and actor.valid_mechanism(actor.mechanism_snapshot()),"legacy absent-hose fact survives migration without invalidating current household payload")
 	var events: Dictionary={"count":0,"water":{}}
 	actor.manipulation_changed.connect(func() -> void:
 		events.count+=1;events.water=actor.mechanism_snapshot().hose.water)

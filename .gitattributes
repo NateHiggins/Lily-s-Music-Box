@@ -3078,3 +3078,11 @@ game/tests/v2_service_light_visibility_review.gd -text
 
 # Original hose-save diagnostic logs and wrapper receipts are byte-bound.
 art/reviews/v2_hose_save_20261023/** -text -whitespace
+
+# Unchanged native hose publication and its skeletal projection.
+game/assets/props/unracked_fire_hose.glb* -text
+game/data/orison_v2/unracked_fire_hose_rig.json -text
+
+# Original installed-hose controls, captures, failures and source archives.
+art/reviews/v2_hose_install_20261023/** -text -whitespace
+game/tests/fixtures/v2_hose_remote_restore_20261023.json -text
