@@ -163,6 +163,10 @@ func _sleep() -> void:
 func active_mirror() -> Variant:
 	return _active
 
+func active_camera() -> Camera3D:
+	if _stopped or not is_instance_valid(_active) or not is_instance_valid(_view) or _view.render_target_update_mode==SubViewport.UPDATE_DISABLED:return null
+	return _camera if is_instance_valid(_camera) else null
+
 
 func shutdown() -> void:
 	_stopped = true

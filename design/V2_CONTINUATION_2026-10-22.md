@@ -12,6 +12,20 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest installed rendering batch: **V2_SERVICE_SHADOW_DISTANCE_2026-10-23.md**.
+Owner-authorized source-light culling fades from4 to8m, then explicitly avoids
+distant shadow submissions while respecting the active camera, live mirror and
+recent shadowless cube captures. Interleaved installed fixed-view p50 is35.106/
+34.812ms versus original41.915/41.657/42.276ms; zero compilation-counter deltas.
+Twelve state controls, room/door graph review and actual animated mirror review
+pass. **walk_save_v2** passes ten walked waypoints and33 checks with disk/world
+reconstruction and empty stderr. Original lever JSON-rounding failure is retained;
+only the test comparator receives1e-12rad tolerance, water/facts remain exact.
+Route p50/p95/p99/max38.804/57.046/79.464/729.202ms includes a startup-boundary
+first sample; later spray reaches254.716ms. Stuttering remains open. Broader
+appearance qualification and released-nozzle support remain next.
+
+
 Latest diagnosis: **V2_HOSE_RENDER_ATTRIBUTION_2026-10-23.md** records four
 controlled occupied-world rendering studies after five walked waypoints each,
 all completed with zero failures and empty stderr. Hiding the cloth/cabinet has

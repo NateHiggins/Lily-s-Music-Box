@@ -1,0 +1,54 @@
+{
+	"checks": [
+		{
+			"label": "main camera retains sources inside eight metres",
+			"ok": true
+		},
+		{
+			"label": "originally unshadowed source stays unshadowed",
+			"ok": true
+		},
+		{
+			"label": "stable resting view repeats no source switches",
+			"ok": true
+		},
+		{
+			"label": "distance vote never bypasses the existing room graph",
+			"ok": true
+		},
+		{
+			"label": "active reflected camera preserves distant illumination and shadows",
+			"ok": true
+		},
+		{
+			"label": "reflected camera never enables an originally hidden source",
+			"ok": true
+		},
+		{
+			"label": "shadowless cube capture preserves illumination without extra shadow work",
+			"ok": true
+		},
+		{
+			"label": "actual camera movement controls distance independently of player feet",
+			"ok": true
+		},
+		{
+			"label": "nearby sources return after camera movement",
+			"ok": true
+		},
+		{
+			"label": "disabling distance policy restores every original light property and graph visibility",
+			"ok": true
+		},
+		{
+			"label": "real cube capture exports its transformed optical origin",
+			"ok": true
+		},
+		{
+			"label": "finished cube captures stop retaining source illumination",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": []
+}

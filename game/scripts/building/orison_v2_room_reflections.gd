@@ -21,6 +21,7 @@ var _enabled := true
 var _available := false
 var _lamp_layers_before := 1
 var _switches: SwitchSystem
+var _capture_frames: Dictionary={}
 
 func setup(owner: OrisonV2RuntimeRoot) -> bool:
 	if world!=null or owner==null or owner.player==null:return false
@@ -91,6 +92,7 @@ func _create(identity: String) -> void:
 			if int(_last_used.get(key,0))<timestamp:timestamp=int(_last_used.get(key,0));oldest=key
 		(probes[oldest] as ReflectionProbe).free();probes.erase(oldest)
 		_last_used.erase(oldest);_refresh_due.erase(oldest);_base_positions.erase(oldest)
+		_capture_frames.erase(oldest)
 	var probe := ReflectionProbe.new()
 	probe.name="RoomReflection_"+identity
 	probe.size=bounds.size;probe.max_distance=bounds.size.length()
@@ -114,6 +116,7 @@ func _create(identity: String) -> void:
 	add_child(probe)
 	probes[identity]=probe;_base_positions[identity]=probe.position
 	_refresh_due[identity]=Time.get_ticks_msec()+int(REFRESH_SECONDS*1000);refresh_count+=1
+	_capture_frames[identity]=Engine.get_frames_drawn()
 
 func _clear_origin(bounds: AABB) -> Vector3:
 	var eye := frame.to_local(_view_position())
@@ -139,6 +142,18 @@ func _refresh(identity: String) -> void:
 	# UPDATE_ONCE stale even though the counter and deadline advance.
 	probe.position=base+Vector3(-.00001 if probe.position.x>base.x else .00001,0,0)
 	_refresh_due[identity]=Time.get_ticks_msec()+int(REFRESH_SECONDS*1000);refresh_count+=1
+	_capture_frames[identity]=Engine.get_frames_drawn()
+
+func capture_positions() -> Array[Vector3]:
+	# Capture illumination stays available through cube faces and filtering.
+	# These probes have shadows disabled, so they need no shadow-camera vote.
+	var result: Array[Vector3]=[]
+	if not _enabled:return result
+	for identity: String in _capture_frames:
+		if probes.has(identity) and Engine.get_frames_drawn()-int(_capture_frames[identity])<=32:
+			var probe: ReflectionProbe=probes[identity]
+			result.append(probe.to_global(probe.origin_offset))
+	return result
 
 func _view_position() -> Vector3:
 	# Inspection/free cameras can leave the controller parked on another floor.

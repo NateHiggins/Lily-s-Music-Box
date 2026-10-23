@@ -59,6 +59,7 @@ func run() -> void:
 	switches.restore_room("F03_B_BATH",lit)
 	for frame in 16:await RenderingServer.frame_post_draw
 	check(world.mirror_renderer.active_mirror()==mirror,"production renderer selects this actual mirror")
+	check(world.mirror_renderer.active_camera()==world.mirror_renderer._camera,"live mirror exports the actual reflected shadow viewpoint")
 	avatar.animator.play(avatar.idle_clip);avatar.animator.seek(0,true)
 	var images: Array=[]
 	for target: float in [1.,4.8,8.4]:
@@ -76,6 +77,7 @@ func run() -> void:
 	var turn:=InputEventMouseMotion.new();turn.relative=Vector2(PI/PlayerController.MOUSE_SENS,0);Input.parse_input_event(turn)
 	for frame in 8:await RenderingServer.frame_post_draw
 	check(not avatar.reflected and not avatar.animator.active,"leaving mirror stops reflected animation work")
+	check(world.mirror_renderer.active_camera()==null,"sleeping mirror stops retaining distant source shadows")
 	switches.restore_room("F03_B_BATH",saved)
 	FileAccess.open(directory.path_join("review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"images":images,"limits":"Installed owner rig, supplied idle and actual mirror images. Not locomotion, face morphs, full V2 qualification or human acceptance."},"\t"))
 	print("PLAYER MIRROR REVIEW: ","PASS" if failures.is_empty() else "FAIL")

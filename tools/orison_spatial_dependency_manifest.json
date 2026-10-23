@@ -311560,6 +311560,192 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "eba47f257089ae07",
+   "kind": "id_reference",
+   "token": "F03_B_BATH",
+   "file": "game/tests/v2_player_mirror_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    57,
+    59,
+    81
+   ],
+   "count": 3,
+   "context": [
+    "var saved:=switches.room_snapshot(\"F03_B_BATH\");var lit: Dictionary={}",
+    "switches.restore_room(\"F03_B_BATH\",lit)",
+    "switches.restore_room(\"F03_B_BATH\",saved)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "00a9bf5ac108f95c",
+   "kind": "id_reference",
+   "token": "F03_B_BATH",
+   "file": "game/tests/v2_service_light_visibility_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    80
+   ],
+   "count": 1,
+   "context": [
+    "check(policy.context_room==\"F03_B_BATH\" and not policy.conservative,\"closed bathroom context comes from existing room owner\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "193fd2170b16defe",
+   "kind": "id_reference",
+   "token": "F03_B_BATH_DOOR",
+   "file": "game/tests/v2_service_light_visibility_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    75
+   ],
+   "count": 1,
+   "context": [
+    "var anchor:=world.adapter.root.get_node(\"F03_B_BATH_DOOR\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cfae200697397911",
+   "kind": "node_path",
+   "token": "F03_B_BATH_DOOR",
+   "file": "game/tests/v2_service_light_visibility_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    75
+   ],
+   "count": 1,
+   "context": [
+    "var anchor:=world.adapter.root.get_node(\"F03_B_BATH_DOOR\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": null
+  },
+  {
+   "key": "460a86a84fad317d",
+   "kind": "node_path",
+   "token": "F03_B_BATH_DOOR_Leaf",
+   "file": "game/tests/v2_service_light_visibility_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [
+    "var door:=anchor.get_node(\"F03_B_BATH_DOOR_Leaf\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a904cdb6e23e52f0",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/v2_service_light_visibility_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    73,
+    73
+   ],
+   "count": 2,
+   "context": [
+    "player.global_position=Vector3(90,0,90);player.face_world_point(Vector3(91,1.4,90));policy._invalidate();policy._poll()"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

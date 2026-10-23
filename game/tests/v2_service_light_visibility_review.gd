@@ -38,6 +38,9 @@ func run() -> void:
 	check(not world.startup_failed,"ordinary production world starts")
 	if world.startup_failed:get_tree().quit(1);return
 	player=world.player;player.set_physics_process(false);policy=world.service_light_visibility
+	# Retained room/door-graph regression. New distance/active-camera behavior
+	# has separate installed render and source-state controls.
+	policy.set_distance_enabled(false)
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED;DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);Engine.max_fps=0
 	world.service_set_carrier.set_capture_hidden(true);player.set_lamp_enabled(false)
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
