@@ -334,3 +334,32 @@ spatial manifest stays unrelated WIP. Saved device positions, actual incoming-
 call hand answering, physical history selection and human acceptance remain
 open, alongside the broader V2 repair/qualification queue. Godot is authorized
 through the shared lane. Stage named paths and preserve other work.
+
+## Reflection capture cost and bathroom movement — 2026-10-23
+
+See **V2_REFLECTION_CAPTURE_COST_2026-10-23.md** and
+**art/reviews/v2_reflection_capture_20261023/**. Only the room-probe shadow flag
+changes in production. Main scene and planar-mirror shadows remain. Paired
+lit/dark bathroom and kitchen views retain darkness, with slightly brighter
+secondary brass as the explicit visual tradeoff. First-report maximum falls
+335.892 ->159.291 ms; final p99 worsens 38.940 ->48.825 ms. Earlier shadow-only
+repeat p99/max32.373/163.573. Keep all distributions; shader surface delta90
+remains. No rejected shader warmup is installed.
+
+Mirror viewport occlusion was tried and rejected: lit CPU median5.629 ->6.682
+ms, dark5.394 ->5.350, no reliable win. Both mirror and runtime-root source
+restore exactly. Original two-sample oblique/readback failure remains. The
+corrected final actual sidestep/turn settles readback and awaits a render per
+step, yet still has29 complete samples p50/p99/max132.614/456.239/457.512 ms.
+This is a serious unresolved movement defect, now the next performance target.
+Use the player's profile_physics/physics_profile_records and step/contact
+instrumentation, and separate rendering/pipeline costs. Disabling the step
+guard may isolate cost diagnostically; do not ship a physical bypass as repair.
+
+Final production contracts:71 carried-device checks and24 listener checks/two
+grabs pass. They do not qualify bathroom movement or visual acceptance. The
+seven-texture shutdown warning remains. Reader33 NEW street/tent fields and
+spatial8 failures remain; new reported items are diagnostic fixtures. Preserve
+the unrelated spatial manifest. Broader V2 repairs, save/call/history work and
+full surface/runtime/human qualification remain open. Godot is authorized
+through the shared wrappers; retain original failures and stage named paths.

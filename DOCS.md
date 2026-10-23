@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Reduced reflection capture stall, rejected mirror culling and severe bathroom movement finding | `design/V2_REFLECTION_CAPTURE_COST_2026-10-23.md` |
 | Carried physical controls, native feed repair and actual-input scope | `design/V2_CARRIED_INSTRUMENT_HAND_2026-10-23.md` |
 | Retained reflection hitch controls and rejected warmup treatments | `design/V2_REFLECTION_PIPELINE_WARMUP_2026-10-23.md` |
 | Installed physical service UI, flush ceiling listener and paired frame-time limits | `design/V2_PHYSICAL_DEVICE_AND_CEILING_POINTS_2026-10-23.md` |

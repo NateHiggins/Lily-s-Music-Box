@@ -95,7 +95,12 @@ func _create(identity: String) -> void:
 	probe.name="RoomReflection_"+identity
 	probe.size=bounds.size;probe.max_distance=bounds.size.length()
 	# Keep outdoor sky available through real openings, including daylight.
-	probe.box_projection=true;probe.interior=false;probe.enable_shadows=true
+	probe.box_projection=true;probe.interior=false
+	# Six secondary cube faces otherwise repeat the room's shadow work in one
+	# engine step. Paired occupied-world captures retain the main scene's
+	# shadows/dark circuits; accept slightly brighter secondary brass in return
+	# for lower capture stalls. See V2_REFLECTION_CAPTURE_COST_2026-10-23.md.
+	probe.enable_shadows=false
 	# The world environment, actual fixtures and SSIL own diffuse light.
 	# Reusing captured room radiance as diffuse ambient bleached compact rooms
 	# even after their lights were off. Keep only the probe's specular context.
