@@ -1,0 +1,36 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Final stock_v6 diagnostic source; no runtime contract",
+  "files": [
+    {
+      "path": "game/scripts/game/caretaker_economy.gd",
+      "snapshot": "caretaker_economy.gd",
+      "lf_sha256": "c6ac9788b96f21b6c4dddd1bc9c707c50cbe3f1be617f1c14c1c91ad4d495743"
+    },
+    {
+      "path": "game/scripts/game/radio_clearing_network.gd",
+      "snapshot": "radio_clearing_network.gd",
+      "lf_sha256": "48cf74ef1bec34f456233721b25dd7cdd4373d537a0dce6a08d416d4b82d1a42"
+    },
+    {
+      "path": "game/scripts/game/v2_maintenance_shop_service.gd",
+      "snapshot": "v2_maintenance_shop_service.gd",
+      "lf_sha256": "9b8e6a958a6138a9f2c731a73d302277bddd86b133c10fed9e2825d3e053f5b9"
+    },
+    {
+      "path": "game/data/orison_v2/fire_maintenance_stock.json",
+      "snapshot": "fire_maintenance_stock.json",
+      "lf_sha256": "7381090a5e404b6ac29f204156810f2231f7651b1fec0b95d9e0a5a8f638ff76"
+    },
+    {
+      "path": "game/tests/v2_fire_maintenance_stock_test.gd",
+      "snapshot": "v2_fire_maintenance_stock_test.gd",
+      "lf_sha256": "69716c055c03d55597967c445307e37e064ab9ac50eecccba2b32523df867e1b"
+    },
+    {
+      "path": "game/tests/V2FireMaintenanceStockTest.tscn",
+      "snapshot": "V2FireMaintenanceStockTest.tscn",
+      "lf_sha256": "a30c121b0bff49f1726e9bf2def8bfab3ec6d9ef9f88f6bd01195907bb4fa537"
+    }
+  ]
+}

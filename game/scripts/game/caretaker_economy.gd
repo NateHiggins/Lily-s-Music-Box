@@ -5,6 +5,7 @@ const MONTH := 43200.0
 const RENT := 500
 var clock := CampaignClock.new()
 var orders: WorkOrders
+var _purchasing := false
 
 static func whole(value: Variant, low := 0, high := 1000000000) -> bool:
 	return typeof(value) in [TYPE_INT, TYPE_FLOAT] and is_finite(float(value)) \
@@ -31,6 +32,14 @@ static func valid(value: Variant) -> bool:
 		for field in ["due","last"]:
 			if typeof(r.get(field)) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(r[field])) or r[field]<-1: return false
 		if r.due<0 or r.due<=r.last or not whole(r.get("cycle")): return false
+	if value.has("purchases"):
+		if value.purchases is not Dictionary: return false
+		for identity: Variant in value.purchases:
+			var purchase: Variant=value.purchases[identity]
+			if identity is not String or identity.is_empty() or purchase is not Dictionary \
+					or purchase.get("merchant") is not String or str(purchase.merchant).is_empty() \
+					or purchase.get("item") is not String or str(purchase.item).is_empty() \
+					or not whole(purchase.get("cents"),1): return false
 	return true
 
 func setup(work: WorkOrders) -> bool:
@@ -119,6 +128,36 @@ func pay_rent() -> bool:
 	book().rent_paid = int(book().rent_paid)+1
 	RealityState.commit()
 	return true
+
+## The existing ledger is the sole money owner. Delivery must be a synchronous
+## all-or-nothing inventory grant. Its commit then saves the debit, receipt and
+## acquired item together; there is no separately saved radio wallet.
+func purchase_once(identity: String, merchant: String, item: String,
+		cents: int, deliver: Callable) -> bool:
+	if _purchasing or RealityState.save_write_blocked or identity.is_empty() \
+			or merchant.is_empty() or item.is_empty() or cents<1 \
+			or not deliver.is_valid() or not clock.bind_state(): return false
+	var ledger:=book()
+	if not valid(ledger) or int(ledger.cash)<cents: return false
+	if not ledger.has("purchases"): ledger.purchases={}
+	if ledger.purchases.has(identity): return false
+	_purchasing=true
+	ledger.cash=int(ledger.cash)-cents
+	ledger.purchases[identity]={"merchant":merchant,"item":item,"cents":cents}
+	var delivered: bool=bool(deliver.call())
+	if not delivered:
+		ledger.cash=int(ledger.cash)+cents
+		ledger.purchases.erase(identity)
+	else:
+		RealityState.commit()
+	_purchasing=false
+	return delivered
+
+func purchase_receipt(identity: String) -> Dictionary:
+	var receipt: Dictionary=book().get("purchases",{}).get(identity,{}).duplicate(true)
+	# JSON numbers reload as floats; the public money ABI remains integer cents.
+	if not receipt.is_empty():receipt.cents=int(receipt.cents)
+	return receipt
 
 static func money(cents: int) -> String:
 	return "$%d.%02d" % [cents/100,cents%100]

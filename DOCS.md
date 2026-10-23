@@ -34,6 +34,8 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Latest V2 work order, measured routes and requested mirror-visible player | `design/V2_CONTINUATION_2026-10-22.md` |
+| Radio-based shop settlement, hardware hose supplies and selected resident staff | `design/V2_RADIO_SHOP_NETWORK_2026-10-22.md` |
 | Passage-first door controls and queued input checks | `design/V2_EASY_DOORS_2026-10-22.md` |
 | Requested shower spray, steam and side-correct wet-glass work | `design/V2_BATHROOM_WET_GLASS_BRIEF_2026-10-22.md` |
 | Toilet casting, attached hinges, linked flush mechanism and curtain mouse travel | `design/V2_TOILET_FORM_AND_GESTURES_2026-10-22.md` |
