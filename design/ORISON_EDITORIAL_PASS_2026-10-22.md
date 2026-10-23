@@ -326,6 +326,32 @@ Names and terms as the text uses them. Prefer these spellings.
   (`design/case01_recording_script.md`) is generated from the dialogue and
   the dialogue did not change.
 
+- **Proof re-earned source-current (2026-10-23).** From the short-path
+  worktree `C:/ov/edproof` on main `975da382` (which contains this pass,
+  the title ruling and PR 13), two `--import` passes through the long
+  runner, then: `MinaCaseGameplayTest`, `MaintenanceErrandTest`,
+  `DeadLettersTest`, `MusicDirectorTest`, `ClockAnswersTest`,
+  `ProjectIdentityTest`, `TitleScreenTest` and `GoldenLoopTest` all exit 0
+  with wrapper receipts; `ServiceWireResponseTest` still hangs to the 180 s
+  ceiling on its pre-existing `_counter_tap` read (a property removed on
+  2026-08-27, known red since the 2026-09-16 evaluation), twelve checks in
+  and before it reaches the edited sign-card text. The three contract
+  suites were re-executed windowed and their original test-written
+  receipts published: first slice (359 checks, 418 s), upper
+  apartment/roof access cohort (993 checks, 69 rooms, 11 legs, 1,183 s;
+  two earlier runs on the same tree failed different roof-leg physics
+  checks and are retained as records, not repinned) and the composed
+  surface qualification (40,134 checks, 995 s; the surface suite first
+  stopped at its fixture preflight because PR 13 changed `door_prop.gd`
+  without rebinding `orison_bodega_frontage.json`, so the owning Blender
+  builder was re-run: asset bytes and the physical digest unchanged, only
+  the binding renewed). Ledger blockers read 0 / 1 / 56 / 26 / 73 / 75
+  again with zero requirement changes against the pre-edit ledger; the
+  surface gate passes with zero defects. Run receipts, compressed logs,
+  the archived previous packets and the board comparisons are under
+  `art/reviews/v2_editorial_proof_20261022/`. The gate board verdict is
+  recorded in that folder's `board_after/`.
+
 ## 10. Limitations stated plainly
 
 - Text baked into art (landing posters, stair notices, the title) was read

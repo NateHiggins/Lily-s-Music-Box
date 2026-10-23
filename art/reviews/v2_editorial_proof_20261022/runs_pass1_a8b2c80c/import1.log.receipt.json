@@ -1,0 +1,73 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 487.04,
+  "exit_code": 0,
+  "finished_utc": "2026-10-22T23:09:06Z",
+  "started_utc": "2026-10-22T23:00:59Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 10,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Regular.ttf\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Bold.ttf\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://scripts/game_boot.gd\" with error \"Parse error\".",
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Regular.ttf\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Bold.ttf\" has no resource loaders (unrecognized file extension)."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/edproof_scratch/logs/import1.log.stderr",
+  "stderr_sha256": "bc19ee638739c65ec8dd8024fdb57a0f179dee229137376e657b3ea1e0046d35",
+  "stdout": "C:/ov/edproof_scratch/logs/import1.log",
+  "stdout_sha256": "28700adaf9d8e4e04a3fe25670578a0cf2bb906ccde9c92527364babfefc0131"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 648,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_chrome_d_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_chrome_d_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_chrome_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_chrome_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_common_brick_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_common_brick_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_common_brick_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_common_brick_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_common_brick_c_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_common_brick_c_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_common_brick_c_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_common_brick_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_common_brick_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_concrete_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_concrete_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_concrete_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_concrete_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_concrete_c_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_concrete_c_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_concrete_c_rough.png.import"
+  ],
+  "repository_head": "a8b2c80c70713707d4269e70f02bb5c0c8679033",
+  "repository_tree": "9d89b8c62d4afa4cb70d54c892a4f28a0837548c",
+  "runtime_inputs_sha256": "4395a71718e0cde619242c4f26ae06edb839da0f4bf0069d991999fb911c95d4",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

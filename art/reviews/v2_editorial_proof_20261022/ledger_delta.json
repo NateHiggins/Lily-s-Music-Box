@@ -1,0 +1,28 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Ledger on main 975da382 after renewing the first-slice and upper-cohort proof, compared with the pre-edit main ledger (21f0b1fc). Record only; no grant.",
+  "pre_edit_blockers": {
+    "FIRST_SLICE_TECHNICAL": 0,
+    "GOLDEN_SHIFT_V2": 1,
+    "FULL_BUILDING_STRUCTURAL": 56,
+    "FULL_BUILDING_RUNTIME": 26,
+    "PRODUCTION_CUTOVER": 73,
+    "V1_RETIREMENT": 75
+  },
+  "after_blockers": {
+    "FIRST_SLICE_TECHNICAL": 0,
+    "GOLDEN_SHIFT_V2": 1,
+    "FULL_BUILDING_STRUCTURAL": 56,
+    "FULL_BUILDING_RUNTIME": 26,
+    "PRODUCTION_CUTOVER": 73,
+    "V1_RETIREMENT": 75
+  },
+  "comparison": {
+    "improved": [],
+    "regressed": [],
+    "added": [],
+    "removed": []
+  },
+  "rejected_runtime_receipts_after": 52,
+  "rejected_runtime_receipts_pre_edit": 52
+}
