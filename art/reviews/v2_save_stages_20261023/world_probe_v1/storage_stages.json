@@ -1,0 +1,2903 @@
+{
+	"bytes": 272367,
+	"cleanup": [
+		{
+			"error": 0,
+			"suffix": ""
+		},
+		{
+			"error": 0,
+			"suffix": ".bak"
+		}
+	],
+	"evidence_class": "INERT",
+	"phases": [
+		{
+			"fast_utf8": false,
+			"rows": [
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7766
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11810
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 589
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7833
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11999
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 447
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 279
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 259
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 748
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4599
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 767
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4427
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 578
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 582
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 698
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 4128
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 444
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 655
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 380
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 217
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 108
+						}
+					],
+					"usec": 45295
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7659
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11757
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 683
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7677
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11776
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 557
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 336
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 313
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 721
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 5116
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 736
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4011
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 590
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 572
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 680
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 543
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 421
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 645
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 357
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 231
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 106
+						}
+					],
+					"usec": 41902
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7783
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11864
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 594
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7838
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11988
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 605
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 336
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 358
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 740
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4797
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 801
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 5950
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 601
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 619
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 701
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 625
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 497
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 681
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 385
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 278
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 124
+						}
+					],
+					"usec": 44519
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7832
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11977
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 655
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7829
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 12034
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 607
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 427
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 325
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 718
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4989
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 754
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4356
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 593
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 593
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 768
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 649
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 505
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 681
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 408
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 239
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 118
+						}
+					],
+					"usec": 43269
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7618
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11701
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 655
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7747
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11941
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 586
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 359
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 291
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 717
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 5784
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 784
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4752
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 578
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 618
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 657
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 545
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 420
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 688
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 486
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 251
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 115
+						}
+					],
+					"usec": 43698
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7779
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11864
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 797
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7733
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11897
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 873
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 930
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 760
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 1411
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 5373
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 969
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4874
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 580
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 574
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 1041
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 743
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 620
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 1297
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 763
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 409
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 249
+						}
+					],
+					"usec": 47875
+				}
+			]
+		},
+		{
+			"fast_utf8": true,
+			"rows": [
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 673
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4800
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 525
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 494
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4575
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 454
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 315
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 280
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 643
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4597
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 666
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 3745
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 578
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 573
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 622
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 553
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 374
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 663
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 328
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 264
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 115
+						}
+					],
+					"usec": 26375
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 727
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4920
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 577
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 515
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4695
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 517
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 371
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 280
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 706
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 5006
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 711
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4157
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 577
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 577
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 695
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 553
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 419
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 706
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 348
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 239
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 118
+						}
+					],
+					"usec": 27901
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 698
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4820
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 542
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 500
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4643
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 416
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 353
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 302
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 684
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4643
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 704
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4045
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 579
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 582
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 675
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 570
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 393
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 689
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 455
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 223
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 129
+						}
+					],
+					"usec": 27037
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 704
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4783
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 539
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 461
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4558
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 460
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 319
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 278
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 746
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4670
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 692
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4010
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 616
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 608
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 646
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 512
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 356
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 635
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 315
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 206
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 110
+						}
+					],
+					"usec": 26593
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 748
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 5007
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 887
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 491
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4831
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 875
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 757
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 724
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 1450
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 5534
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 1572
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 5487
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 590
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 594
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 1099
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 674
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 553
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 1460
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 664
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 336
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 158
+						}
+					],
+					"usec": 35435
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 716
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4975
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 645
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 469
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4610
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 552
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 376
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 341
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 805
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4833
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 779
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4060
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 581
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 579
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 776
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 573
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 450
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 702
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 361
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 219
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 162
+						}
+					],
+					"usec": 28051
+				}
+			]
+		},
+		{
+			"fast_utf8": false,
+			"rows": [
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7704
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11780
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 604
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7724
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11836
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 588
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 352
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 303
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 676
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4683
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 727
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4598
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 630
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 605
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 657
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 559
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 415
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 728
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 386
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 304
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 121
+						}
+					],
+					"usec": 42222
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7820
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11896
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 633
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7822
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11968
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 621
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 357
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 322
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 737
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4824
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 735
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 3959
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 586
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 612
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 655
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 594
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 370
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 655
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 332
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 262
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 108
+						}
+					],
+					"usec": 41886
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7746
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11812
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 625
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7654
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11732
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 547
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 329
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 279
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 711
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4741
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 684
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 3852
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 608
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 573
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 700
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 536
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 373
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 667
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 330
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 244
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 134
+						}
+					],
+					"usec": 41061
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7796
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11882
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 600
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7722
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11861
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 569
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 330
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 264
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 730
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 5184
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 720
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 3892
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 578
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 629
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 668
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 541
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 330
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 625
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 335
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 207
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 107
+						}
+					],
+					"usec": 41697
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7853
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11943
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 605
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7727
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11877
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 598
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 345
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 263
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 693
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4815
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 672
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 3806
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 604
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 633
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 638
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 511
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 403
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 666
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 320
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 206
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 103
+						}
+					],
+					"usec": 41298
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7721
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11776
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 575
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 7637
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 11723
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 595
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 344
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 306
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 768
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4366
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 671
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4312
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 577
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 574
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 648
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 497
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 367
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 726
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 324
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 218
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 119
+						}
+					],
+					"usec": 41071
+				}
+			]
+		},
+		{
+			"fast_utf8": true,
+			"rows": [
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 636
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4674
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 473
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 405
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4451
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 447
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 307
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 286
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 680
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4748
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 774
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 3888
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 578
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 571
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 655
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 566
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 379
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 665
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 380
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 220
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 107
+						}
+					],
+					"usec": 26367
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 691
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4772
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 522
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 471
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4507
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 420
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 307
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 275
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 675
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4929
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 725
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4380
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 578
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 574
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 656
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 567
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 387
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 678
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 345
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 220
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 125
+						}
+					],
+					"usec": 27182
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 679
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4836
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 533
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 478
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4589
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 444
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 415
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 340
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 786
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 5013
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 736
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 3774
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 628
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 580
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 648
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 544
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 371
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 665
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 313
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 217
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 175
+						}
+					],
+					"usec": 27155
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 679
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4769
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 528
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 466
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4500
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 427
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 330
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 263
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 663
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4764
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 681
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 3829
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 619
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 594
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 710
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 511
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 365
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 718
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 349
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 224
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 121
+						}
+					],
+					"usec": 26490
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 707
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4898
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 600
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 490
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4653
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 465
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 318
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 293
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 679
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4654
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 734
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 4486
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 577
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 589
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 671
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 562
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 395
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 674
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 479
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 222
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 112
+						}
+					],
+					"usec": 27687
+				},
+				{
+					"result": {
+						"code": "",
+						"ok": true,
+						"protection_required": false,
+						"recovered": false,
+						"stage": "complete"
+					},
+					"stages": [
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 703
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4905
+						},
+						{
+							"operation": "read",
+							"stage": "write_primary",
+							"usec": 567
+						},
+						{
+							"bytes": 272367,
+							"stage": "utf8",
+							"usec": 475
+						},
+						{
+							"bytes": 272367,
+							"stage": "decode",
+							"usec": 4662
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.bak",
+							"usec": 534
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.txn",
+							"usec": 342
+						},
+						{
+							"operation": "read",
+							"stage": "inspect.tmp",
+							"usec": 307
+						},
+						{
+							"operation": "write",
+							"stage": "temp_write",
+							"usec": 722
+						},
+						{
+							"operation": "read",
+							"stage": "temp_verify",
+							"usec": 4719
+						},
+						{
+							"operation": "write",
+							"stage": "backup_write",
+							"usec": 670
+						},
+						{
+							"operation": "read",
+							"stage": "backup_verify",
+							"usec": 3776
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 577
+						},
+						{
+							"bytes": 272367,
+							"stage": "hash",
+							"usec": 586
+						},
+						{
+							"operation": "write",
+							"stage": "journal_write",
+							"usec": 704
+						},
+						{
+							"operation": "read",
+							"stage": "journal_verify",
+							"usec": 554
+						},
+						{
+							"operation": "read",
+							"stage": "pre_promote_primary",
+							"usec": 366
+						},
+						{
+							"operation": "rename",
+							"stage": "promote",
+							"usec": 657
+						},
+						{
+							"operation": "read",
+							"stage": "primary_verify",
+							"usec": 335
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_journal",
+							"usec": 222
+						},
+						{
+							"operation": "remove",
+							"stage": "cleanup_temp",
+							"usec": 145
+						}
+					],
+					"usec": 26956
+				}
+			]
+		}
+	],
+	"scope": "Same occupied-world snapshot, alternating original/sparse UTF-8 candidate in diagnostic subclass only. Same verified storage path, outside active route timing. Nested stage costs are inclusive.",
+	"serialization": [
+		{
+			"bytes": 272367,
+			"pretty": true,
+			"times_usec": [
+				4284,
+				4103,
+				4053,
+				3969,
+				3959,
+				3926,
+				3913,
+				3965
+			]
+		},
+		{
+			"bytes": 163282,
+			"pretty": false,
+			"times_usec": [
+				3590,
+				3507,
+				3520,
+				3495,
+				3497,
+				3467,
+				3477,
+				3486
+			]
+		},
+		{
+			"bytes": 272367,
+			"pretty": true,
+			"times_usec": [
+				4043,
+				4058,
+				3996,
+				3978,
+				3941,
+				3983,
+				3964,
+				3955
+			]
+		},
+		{
+			"bytes": 163282,
+			"pretty": false,
+			"times_usec": [
+				3633,
+				3516,
+				3508,
+				3491,
+				3581,
+				3504,
+				3466,
+				3492
+			]
+		}
+	]
+}

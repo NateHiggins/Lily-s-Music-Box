@@ -11,6 +11,7 @@ var validate_document: Callable
 ## or its result Dictionary to inject a failure/short read/write. No production
 ## consumer installs it. Tests can exit a separate process at these boundaries.
 var operation_override: Callable
+var _utf8_non_ascii: RegEx
 
 
 func load_snapshot() -> Dictionary:
@@ -161,6 +162,39 @@ func _decode(bytes: PackedByteArray) -> Dictionary:
 
 
 func _valid_utf8(bytes: PackedByteArray) -> bool:
+	# Save JSON is mostly ASCII. Locate complete non-ASCII runs natively instead
+	# of visiting every ASCII byte in GDScript. This Latin-1 map is never parsed
+	# as save content; actual decoding still follows strict UTF-8 validation.
+	# Bound temporary allocation/search work. Large, NUL-bearing or Unicode-dense
+	# input retains the original validator, with no new file-size acceptance limit.
+	if bytes.size() > 1048576:
+		return _valid_utf8_full(bytes)
+	var mapped := bytes.get_string_from_ascii()
+	if mapped.length() != bytes.size():
+		return _valid_utf8_full(bytes)
+	if _utf8_non_ascii == null:
+		_utf8_non_ascii = RegEx.new()
+		if _utf8_non_ascii.compile("[\\x{80}-\\x{ff}]+") != OK:
+			_utf8_non_ascii = null
+			return _valid_utf8_full(bytes)
+	var at := 0
+	var runs := 0
+	while at < mapped.length():
+		var found := _utf8_non_ascii.search(mapped, at)
+		if found == null:
+			return true
+		runs += 1
+		if runs > 64:
+			return _valid_utf8_full(bytes)
+		# A UTF-8 sequence cannot cross an ASCII byte, so a whole run can be
+		# checked independently without accepting a truncated sequence.
+		if not _valid_utf8_full(bytes.slice(found.get_start(), found.get_end())):
+			return false
+		at = found.get_end()
+	return true
+
+
+func _valid_utf8_full(bytes: PackedByteArray) -> bool:
 	# Validate before Godot converts bytes to String: its replacement decoding
 	# can otherwise turn corrupt bytes into apparently valid JSON and emit errors.
 	var at := 0

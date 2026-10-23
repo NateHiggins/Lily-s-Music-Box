@@ -12,6 +12,24 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest save-path repair: **V2_SAVE_UTF8_COST_2026-10-23.md**. Strict save-byte
+validation now locates ASCII spans natively and retains the original validator
+for complete non-ASCII runs and large/NUL/dense fallbacks. No save-format,
+transaction, backup or recovery behavior changes. Installed decoder passes77,970
+independent strict-UTF8 comparisons and195 existing recovery checks. Original/
+installed/original/installed fixed-snapshot verified writes cost
+42.355/27.985/41.310/28.288ms median. Same actual hose route observes household
+commit median66.819→51.932ms; frame p50/p95/p99/max changes
+38.837/53.538/112.048/196.994 to39.133/53.759/98.583/179.988ms,13→8 intervals
+above100ms. Frame medians remain essentially unchanged, and route tails vary with
+ambient physics; fixed-byte controls establish the local CPU gain more strongly.
+Installed world reconstruction passes all53 checks with empty stderr and owned
+save cleanup error0. Full static comparison has no regressions (101 PASS,8 FAIL,1 INCOMPLETE;
+98 tools suites,1194 tests, five existing failures). No all-area or completion
+claim follows. Next attribution remains rendering/GPU,
+physics spikes, consecutive synchronous saves and actual cell streaming.
+
+
 Newest performance repair: **V2_HOUSEHOLD_NOTIFICATION_COST_2026-10-23.md**.
 Actual occupied hose route instrumentation identifies repeated validation across
 651 household subjects and synchronous automatic saves. Same-campaign, unblocked,

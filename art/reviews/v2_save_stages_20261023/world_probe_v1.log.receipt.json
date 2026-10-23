@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 316.82,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T23:16:30Z",
+  "started_utc": "2026-10-23T23:11:13Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_save_stages_20261023/world_probe_v1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_save_stages_20261023/world_probe_v1.log",
+  "stdout_sha256": "939fd5d1276293a0d918e38a9a803fe87ef63536bb5fdaa5dab2b05ead206d88"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2SaveStageWorld.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_save_stages_20261023/world_probe_v1",
+ "source": {
+  "dirty_paths": 3026,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png",
+   "?? art/reviews/v2_arcade_clock_install_20261018/bench3/"
+  ],
+  "repository_head": "9eabb02c6132959f3d331e29e2cf7923b58740f6",
+  "repository_tree": "7650c0147e0c12ee062cc7f2066813a91947e498",
+  "runtime_inputs_sha256": "7737bbc9ba4ca654bdfbc5a952c45060ebead6f35fef317fc27f110cf61b5dcd",
+  "test_path": "game/tests/v2_save_stage_world.gd",
+  "test_sha256": "39e2cb278261a67469a1fba67ff37e3f2527b0f0115dca9e0c0b7ae78d245ec3"
+ },
+ "windowed": true
+}

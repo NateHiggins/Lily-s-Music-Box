@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Strict save-byte validation, Unicode/corruption controls and occupied-world storage timing | `design/V2_SAVE_UTF8_COST_2026-10-23.md` |
 | Household notification timing, guarded validation reuse and automatic-save attribution | `design/V2_HOUSEHOLD_NOTIFICATION_COST_2026-10-23.md` |
 | Supported hose release, clear FPS routing and actual-input checks | `design/V2_HOSE_RELEASE_SUPPORT_2026-10-23.md` |
 | Installed distance culling for service lights, mirror protection and paired frame times | `design/V2_SERVICE_SHADOW_DISTANCE_2026-10-23.md` |
