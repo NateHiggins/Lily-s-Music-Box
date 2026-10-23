@@ -308,3 +308,29 @@ warmup production injections; root/reflection owners remain identical to
 Investigate real cubemap capture/specialization next; no full-world completion
 or reflection-performance fix is claimed. Existing device and flush listener
 repairs remain installed. Godot use is authorized through shared wrappers.
+
+## Carried physical controls — 2026-10-23
+
+See **V2_CARRIED_INSTRUMENT_HAND_2026-10-23.md**. E raises the instrument without
+freezing movement; Space explicitly enters its free-cursor mechanism view.
+Six native controls now use the shared latched hand/reticle: lamp, radio,
+service cover, focus and two feed wheels. Actual page review never reprints or
+creates another received report. Fixed held-pass stock occludes hidden parts.
+The original player lamp, radio/printer and service-round owners remain.
+A broad native name search had driven both wheel pivots and their material
+meshes; bind the two pivots once, and exclude mesh children from gear driving.
+
+Final **art/reviews/v2_device_hand_20261023/world_v2/** has a test-written
+schema-2 carried-controls contract, 71 checks; actual targeting, partial motion,
+release, stops, circuit authority, page review and interruption pass. Existing
+listener input still passes separately. Printer/shared hand/book regression
+checks pass (21/116/89). Retain failed benches and first world run. The paired
+frame table is not a performance win: reflection activation still hitches;
+steady wall distributions vary slightly worse. No rejected warmup is installed.
+
+All 98 tools suites ran 1,194 tests: same five existing failures across four
+suites, front-trim five tests now pass. Reader remains 33 NEW street/tent fields;
+spatial manifest stays unrelated WIP. Saved device positions, actual incoming-
+call hand answering, physical history selection and human acceptance remain
+open, alongside the broader V2 repair/qualification queue. Godot is authorized
+through the shared lane. Stage named paths and preserve other work.

@@ -43,6 +43,7 @@ var focus_wheel: Node3D
 var torch_lens: MeshInstance3D
 var lamp_switch: Node3D
 var radio_switch: Node3D
+var hand_control: Node3D
 var _gears: Array[Node]=[]
 var _jewels: Array[MeshInstance3D]=[]
 var _control_state: Array=[]
@@ -71,8 +72,11 @@ func _ready() -> void:
 	torch_lens.set_surface_override_material(0,torch_lens.get_active_material(0).duplicate())
 	lamp_switch=model.find_child("LampSwitch",true,false)
 	radio_switch=model.find_child("RadioSwitch",true,false)
-	_gears=model.find_children("FeedGear*","Node3D",true,false)
-	feed_wheels=model.find_children("FeedWheel*","Node3D",true,false)
+	for gear: Node3D in model.find_children("FeedGear*","Node3D",true,false):
+		if gear is not MeshInstance3D:_gears.append(gear)
+	# The importer names material meshes FeedWheel0__Brass beneath FeedWheel0.
+	# Rotating both doubled shaft travel and created overlapping hand targets.
+	for key in ["FeedWheel0","FeedWheel1"]:feed_wheels.append(model.find_child(key,true,false))
 	for key in ["OrderJewel","NetJewel","LampJewel"]:
 		var jewel := model.find_child(key,true,false) as MeshInstance3D
 		jewel.set_surface_override_material(0,jewel.get_active_material(0).duplicate())
@@ -187,17 +191,22 @@ func set_action_hint(value: String) -> void:
 func set_controls(radio: bool, lamp: bool, order: bool, animate := true) -> void:
 	var state := [radio,lamp,order]
 	if state==_control_state: return
+	var old:=_control_state
 	_control_state=state
 	if _controls_motion: _controls_motion.kill()
-	if animate:
+	var move_lamp: bool=hand_control!=lamp_switch and (old.is_empty() or old[1]!=lamp)
+	var move_radio: bool=old.is_empty() or old[0]!=radio
+	if animate and (move_lamp or move_radio):
 		_controls_motion=create_tween().set_parallel(true)
-		_controls_motion.tween_property(lamp_switch,"rotation:z",-.4 if lamp else .4,.18)
-		_controls_motion.tween_property(radio_switch,"rotation:z",-.4 if radio else .4,.18)
-		_controls_motion.tween_property(_aerial,"scale:y",1. if radio else .14,.28)
+		if move_lamp:_controls_motion.tween_property(lamp_switch,"rotation:z",-.4 if lamp else .4,.18)
+		if move_radio:
+			if hand_control!=radio_switch:_controls_motion.tween_property(radio_switch,"rotation:z",-.4 if radio else .4,.18)
+			_controls_motion.tween_property(_aerial,"scale:y",1. if radio else .14,.28)
 	else:
-		lamp_switch.rotation.z=-.4 if lamp else .4
-		radio_switch.rotation.z=-.4 if radio else .4
-		_aerial.scale.y=1. if radio else .14
+		if move_lamp:lamp_switch.rotation.z=-.4 if lamp else .4
+		if move_radio:
+			if hand_control!=radio_switch:radio_switch.rotation.z=-.4 if radio else .4
+			_aerial.scale.y=1. if radio else .14
 	var lens := torch_lens.get_active_material(0) as StandardMaterial3D
 	lens.emission=Color("ffd08a"); lens.emission_enabled=lamp
 	lens.emission_energy_multiplier=.65

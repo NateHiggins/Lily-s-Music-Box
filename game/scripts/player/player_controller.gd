@@ -1351,11 +1351,16 @@ func inspecting() -> bool:
 	return _inspection_active and is_instance_valid(inspect_owner)
 
 func begin_inspection() -> bool:
-	if call_locked or mouse_released or _grab == null or not _grab.active(): return false
-	var owner: Node3D = _grab.target.owner
-	if owner.has_method("inspection_owner_for"): owner=owner.inspection_owner_for(_grab.target.part)
+	if call_locked or mouse_released or _grab == null: return false
+	var owner: Node3D
+	if _grab.active():
+		owner=_grab.target.owner
+		if owner.has_method("inspection_owner_for"): owner=owner.inspection_owner_for(_grab.target.part)
+	elif is_instance_valid(carried_device) and carried_device.has_method("can_inspect_controls") and carried_device.can_inspect_controls():
+		owner=carried_device
+	else:return false
 	if not owner.has_method("inspection_view"): return false
-	var view: Dictionary = owner.inspection_view_for(_grab.target.part) if owner.has_method("inspection_view_for") else owner.inspection_view()
+	var view: Dictionary = owner.inspection_view_for(_grab.target.part) if _grab.active() and owner.has_method("inspection_view_for") else owner.inspection_view()
 	var from: Vector3 = view.from
 	var at: Vector3 = view.at
 	# Do not move the eye through a neighbouring wall into another room.
@@ -1363,7 +1368,7 @@ func begin_inspection() -> bool:
 	query.exclude=[get_rid()]
 	for body: CollisionObject3D in owner.find_children("*","CollisionObject3D",true,false): query.exclude.append(body.get_rid())
 	if owner is CollisionObject3D: query.exclude.append(owner.get_rid())
-	if not get_world_3d().direct_space_state.intersect_ray(query).is_empty(): return false
+	if camera.global_position.distance_squared_to(from)>.000001 and not get_world_3d().direct_space_state.intersect_ray(query).is_empty(): return false
 	_inspect_camera_pose=camera.transform
 	_inspect_camera_fov=camera.fov
 	camera.fov=clampf(float(view.get("fov",camera.fov)),40.0,100.0)

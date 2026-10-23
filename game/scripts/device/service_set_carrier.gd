@@ -36,6 +36,7 @@ var _proof_pose := 0
 var _sleep_onset := 0.0
 var _service_round: Node
 var _pass_reading := false
+var _hand: RefCounted
 
 
 func setup(player: PlayerController, camera: Camera3D,
@@ -46,6 +47,7 @@ func setup(player: PlayerController, camera: Camera3D,
 	device.name = "VantryServiceSet"
 	device.bind_work_orders(work_orders)
 	_build_overlay_pass(camera)
+	_hand=preload("res://scripts/device/service_set_hand.gd").new(self)
 	player.set_physical_display_enabled(true)
 	if player.telegram_hud != null:
 		player.telegram_hud.card_presented.connect(func(_serial: int, card: Dictionary):
@@ -249,6 +251,15 @@ func adjust_reading_distance(amount: float) -> void:
 	reading_distance=clampf(reading_distance+amount,READING_NEAR,READING_FAR)
 	device.teletype.set_focus_position(inverse_lerp(READING_FAR,READING_NEAR,reading_distance))
 
+func can_inspect_controls() -> bool:
+	return reading and not _capture_hidden and _proof_pose==0
+
+func inspection_view() -> Dictionary:
+	return {"from":_player.camera.global_position,"at":_player.camera.global_position-_player.camera.global_basis.z}
+
+func find_manipulation_target() -> Dictionary:
+	return _hand.find_target() if _hand!=null else {}
+
 func _process(delta: float) -> void:
 	if device == null:
 		return
@@ -325,6 +336,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 	if event.is_action_pressed("teletype_read"):
+		if _player.inspecting() and _player.inspect_owner==self:_player.end_inspection()
 		reading=not reading
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("teletype_next"):

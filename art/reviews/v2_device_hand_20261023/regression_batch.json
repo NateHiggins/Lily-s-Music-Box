@@ -1,0 +1,26 @@
+[
+  {
+    "scene": "res://tests/ServiceRadiophoneReview.tscn",
+    "runner": "serial",
+    "timeout": 120,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_device_hand_20261023/printer_regression",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_device_hand_20261023/printer_regression.log"
+  },
+  {
+    "scene": "res://tests/DirectManipulationTest.tscn",
+    "runner": "serial",
+    "timeout": 120,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_device_hand_20261023/world_hand_regression",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_device_hand_20261023/world_hand_regression.log"
+  },
+  {
+    "scene": "res://tests/V2BookSlotHandBench.tscn",
+    "runner": "serial",
+    "timeout": 120,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_device_hand_20261023/book_hand_regression",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_device_hand_20261023/book_hand_regression.log"
+  }
+]

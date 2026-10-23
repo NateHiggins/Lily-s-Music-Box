@@ -80,6 +80,12 @@ func _init(holder: Node3D) -> void:
 	player = holder
 
 func find_target() -> Dictionary:
+	# A carried instrument has its own rendered World3D. Ask its authoritative
+	# provider only in the explicit free-cursor inspection context.
+	var carried: Node=player.carried_device
+	if player.inspecting() and carried==player.inspect_owner and is_instance_valid(carried) and carried.has_method("find_manipulation_target"):
+		last_hit={}
+		return carried.find_manipulation_target()
 	var camera: Camera3D = player.camera
 	var cursor: Vector2 = player.get_viewport().get_mouse_position() if player.inspecting() else camera.get_viewport().get_visible_rect().size*.5
 	var origin := camera.project_ray_origin(cursor)
@@ -288,11 +294,15 @@ func validate() -> void:
 		target={};changed=false
 		return
 	_observe_motion()
+	var view: Camera3D=target.get("view_camera",player.camera)
+	var valid: Variant=target.get("interaction_valid")
+	if not is_instance_valid(view) or (valid is Callable and (not valid.is_valid() or not valid.call())):
+		release();return
 	var reach: Vector3=target.reach_point.call() if target.has("reach_point") else target.part.to_global(contact)
 	if player.call_locked or player.mouse_released \
 			or (not player.touch_input and not player.inspecting() and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) \
 			or not target.part.is_inside_tree() \
-			or player.camera.global_position.distance_to(reach) > 2.4:
+			or view.global_position.distance_to(reach) > 2.4:
 		release()
 		return
 	# A held pickup may be occluded when its swept hand pose meets a wall.
@@ -313,7 +323,7 @@ func move(relative: Vector2) -> void:
 	if holding_pickup():
 		player.apply_look(relative)
 		return
-	var camera: Camera3D = player.camera
+	var camera: Camera3D = target.get("view_camera",player.camera)
 	var part: Node3D = target.part
 	var frame: Node3D = target.frame
 	if target.kind == "free":

@@ -94,7 +94,7 @@ func toggle_radio_power() -> void:
 func set_incoming_call(waiting: bool) -> void:
 	incoming_call = waiting
 	if waiting and teletype != null:
-		teletype.present({"title":"LINE REQUEST","body":"L. ORTIZ / 2B\nPRESS R TO ANSWER"},printed_count)
+		teletype.present({"title":"LINE REQUEST","body":"L. ORTIZ / 2B\nTHE LINE IS WAITING."},printed_count)
 	_apply_state(false)
 
 

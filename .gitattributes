@@ -3033,3 +3033,9 @@ art/reviews/v2_grab_transform_20261023/** -text
 art/reviews/v2_handheld_20261023/** -text
 game/assets/device/writer_type/** -text
 game/data/device/service_radiophone_v2.json -text
+
+# Byte-bound carried UI input and profile packet.
+art/reviews/v2_device_hand_20261023/** -text
+game/tests/service_set_hand_test.gd -text
+game/tests/v2_service_set_hand_world_test.gd -text
+game/tests/v2_handheld_profile.gd -text

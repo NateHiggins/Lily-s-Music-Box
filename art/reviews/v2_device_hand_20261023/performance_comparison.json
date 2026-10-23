@@ -1,0 +1,211 @@
+{
+  "evidence_class": "INERT",
+  "notes": [
+    "First partial sample excluded per phase. 300 physics-tick W/S/turn route,1280x720,Forward+,uncapped,VSync off.",
+    "Initialized world; no cold cache claim. Measurements overlap and lag; no asset/streaming isolation.",
+    "Controls are exercised after timed samples. No reflection treatment installed. One pair does not establish causality for changed wall times."
+  ],
+  "runs": {
+    "before": {
+      "settings": {
+        "fixed_route_ticks": 300,
+        "fps_limit": 0,
+        "physics_hz": 60,
+        "viewport": "(1280, 720)",
+        "vsync": "disabled"
+      },
+      "phases": {
+        "first_print": {
+          "frames": 212,
+          "wall_ms": {
+            "p50": 20.868000000000002,
+            "p95": 32.2078,
+            "p99": 39.69658999999997,
+            "max": 322.443
+          },
+          "over_50ms": 1,
+          "over_100ms": 1,
+          "physics_median_ms": 4.114,
+          "held_cpu_median_ms": 0.137999996542931,
+          "held_gpu_median_ms": 0.07850000262260434
+        },
+        "steady_print": {
+          "frames": 233,
+          "wall_ms": {
+            "p50": 19.758,
+            "p95": 26.460199999999997,
+            "p99": 29.198920000000005,
+            "max": 36.181
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "physics_median_ms": 3.463,
+          "held_cpu_median_ms": 0.140000000596046,
+          "held_gpu_median_ms": 0.0799999982118607
+        },
+        "held_idle": {
+          "frames": 240,
+          "wall_ms": {
+            "p50": 19.921999999999997,
+            "p95": 26.093049999999995,
+            "p99": 27.52454,
+            "max": 28.565
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "physics_median_ms": 3.249,
+          "held_cpu_median_ms": 0.108999997377396,
+          "held_gpu_median_ms": 0.0750000029802322
+        },
+        "lowered": {
+          "frames": 239,
+          "wall_ms": {
+            "p50": 19.647,
+            "p95": 26.3922,
+            "p99": 28.9161,
+            "max": 38.912
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "physics_median_ms": 3.291,
+          "held_cpu_median_ms": 0.118000000715256,
+          "held_gpu_median_ms": 0.0659999996423721
+        }
+      }
+    },
+    "after": {
+      "settings": {
+        "fixed_route_ticks": 300,
+        "fps_limit": 0,
+        "physics_hz": 60,
+        "viewport": "(1280, 720)",
+        "vsync": "disabled"
+      },
+      "phases": {
+        "first_print": {
+          "frames": 208,
+          "wall_ms": {
+            "p50": 21.549999999999997,
+            "p95": 31.6465,
+            "p99": 35.73830000000001,
+            "max": 282.589
+          },
+          "over_50ms": 2,
+          "over_100ms": 1,
+          "physics_median_ms": 3.962,
+          "held_cpu_median_ms": 0.141000002622604,
+          "held_gpu_median_ms": 0.0829999968409538
+        },
+        "steady_print": {
+          "frames": 220,
+          "wall_ms": {
+            "p50": 21.228499999999997,
+            "p95": 27.18294999999999,
+            "p99": 29.94894,
+            "max": 37.65
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "physics_median_ms": 3.518,
+          "held_cpu_median_ms": 0.143999993801117,
+          "held_gpu_median_ms": 0.0810000002384186
+        },
+        "held_idle": {
+          "frames": 232,
+          "wall_ms": {
+            "p50": 20.599,
+            "p95": 26.7565,
+            "p99": 28.12925,
+            "max": 32.204
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "physics_median_ms": 3.247,
+          "held_cpu_median_ms": 0.119999997317791,
+          "held_gpu_median_ms": 0.0729999989271164
+        },
+        "lowered": {
+          "frames": 222,
+          "wall_ms": {
+            "p50": 21.5775,
+            "p95": 28.1631,
+            "p99": 30.187949999999994,
+            "max": 36.26
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "physics_median_ms": 3.219,
+          "held_cpu_median_ms": 0.122000001370907,
+          "held_gpu_median_ms": 0.0659999996423721
+        }
+      }
+    },
+    "after_repeat": {
+      "settings": {
+        "fixed_route_ticks": 300,
+        "fps_limit": 0,
+        "physics_hz": 60,
+        "viewport": "(1280, 720)",
+        "vsync": "disabled"
+      },
+      "phases": {
+        "first_print": {
+          "frames": 203,
+          "wall_ms": {
+            "p50": 22.529,
+            "p95": 31.1114,
+            "p99": 38.940459999999945,
+            "max": 335.892
+          },
+          "over_50ms": 2,
+          "over_100ms": 1,
+          "physics_median_ms": 3.894,
+          "held_cpu_median_ms": 0.140000000596046,
+          "held_gpu_median_ms": 0.0810000002384186
+        },
+        "steady_print": {
+          "frames": 218,
+          "wall_ms": {
+            "p50": 21.250999999999998,
+            "p95": 27.705999999999996,
+            "p99": 30.35065999999999,
+            "max": 37.122
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "physics_median_ms": 3.157,
+          "held_cpu_median_ms": 0.143999993801117,
+          "held_gpu_median_ms": 0.0810000002384186
+        },
+        "held_idle": {
+          "frames": 229,
+          "wall_ms": {
+            "p50": 20.812,
+            "p95": 27.4896,
+            "p99": 28.93224,
+            "max": 31.613
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "physics_median_ms": 2.962,
+          "held_cpu_median_ms": 0.112000003457069,
+          "held_gpu_median_ms": 0.0740000009536743
+        },
+        "lowered": {
+          "frames": 228,
+          "wall_ms": {
+            "p50": 20.8925,
+            "p95": 27.0072,
+            "p99": 30.087939999999996,
+            "max": 36.368
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "physics_median_ms": 2.878,
+          "held_cpu_median_ms": 0.118000000715256,
+          "held_gpu_median_ms": 0.0659999996423721
+        }
+      }
+    }
+  }
+}

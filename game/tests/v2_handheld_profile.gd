@@ -25,6 +25,9 @@ func _ready() -> void:
 func configure_treatment() -> void:
 	pass
 
+func review_controls() -> Dictionary:
+	return {}
+
 func runtime_digest() -> String:
 	var output: Array=[]
 	var root:=ProjectSettings.globalize_path("res://..").simplify_path()
@@ -94,6 +97,8 @@ func _run() -> void:
 	var review: Node=preload("res://tests/v2_vantry_ceiling_review.gd").new();add_child(review)
 	var detector: Dictionary=await review.run(world,directory)
 	for failure: String in detector.failures:failures.append(failure)
+	var control_review: Dictionary=await review_controls()
+	for failure: String in control_review.get("failures",[]):failures.append(failure)
 	FileAccess.open(directory.path_join("profile.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","treatment":treatment,"settings":{"viewport":str(get_viewport().size),"vsync":"disabled","fps_limit":0,"fixed_route_ticks":300,"physics_hz":Engine.physics_ticks_per_second},"limitations":"Process/physics and render monitors overlap and lag; asset/streaming costs not independently instrumented. First field report is in an initialized world, not a cleared driver cache.","observations":observations,"samples":samples,"detector":detector,"failures":failures},"\t"))
 	var digest:=runtime_digest()
 	check(not source_before.is_empty() and digest==source_before,"runtime inputs remain unchanged through composed check")

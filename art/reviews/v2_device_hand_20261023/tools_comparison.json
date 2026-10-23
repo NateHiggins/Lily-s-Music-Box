@@ -1,0 +1,23 @@
+{
+  "evidence_class": "INERT",
+  "baseline": "art/reviews/v2_handheld_20261023/gates/board.json",
+  "suites": 98,
+  "ran": 1194,
+  "changes": [
+    {
+      "id": "test:test_v2_front_trim",
+      "before": {
+        "severity": "FAIL",
+        "counts": {
+          "failed": 1
+        }
+      },
+      "after": {
+        "severity": "PASS",
+        "counts": {
+          "failed": 0
+        }
+      }
+    }
+  ]
+}
