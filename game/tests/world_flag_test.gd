@@ -56,8 +56,9 @@ func _run() -> void:
 
 	# --- the lift: it will not hear the sixth -----------------------------------
 	var car := Otis.new()
-	_check("the car's data loads", car.load_data() and car.has_quirk("deaf"))
+	_check("the car's data loads", car.load_data() and not car.quirk("deaf").is_empty())
 	car.start(7)
+	_check("the deaf quirk is in play on an ordinary shift", car.has_quirk("deaf"))
 	var deaf_floor := int(car.quirk("deaf").get("floor", -1))
 	_check("the deaf floor is the sixth", deaf_floor == 6 and car.top() >= 6)
 	var heard_first := car.call_to(deaf_floor)
