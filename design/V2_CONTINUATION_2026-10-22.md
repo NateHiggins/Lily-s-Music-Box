@@ -294,3 +294,17 @@ actual grabs pass in **profile_ui_v2/runtime_contract.json** (schema 2).
 Regenerated acoustic projections preserve node/route content; retain the original
 stale-binding startup failure. Legacy point surfaces and intermediate-travel
 save remain unqualified. Preserve the unrelated spatial manifest. V2 is not complete.
+
+## Reflection hitch diagnosis — 2026-10-23
+
+See **V2_REFLECTION_PIPELINE_WARMUP_2026-10-23.md** and the retained
+**reflection_comparison.json**. Disabling reflections experimentally removes
+the 322 ms hitch (46.8 ms control maximum), but is not a shipping treatment.
+A hidden probe declaration does nothing. Loading-time rendering removes the
+90 late surface compilations, but the final existing-viewport candidate has
+three >100 ms frames and p99 106.2 ms versus 39.7 ms baseline. Rejected both
+warmup production injections; root/reflection owners remain identical to
+**0548d2fd**. Candidate fixture and original failures remain diagnostic only.
+Investigate real cubemap capture/specialization next; no full-world completion
+or reflection-performance fix is claimed. Existing device and flush listener
+repairs remain installed. Godot use is authorized through shared wrappers.

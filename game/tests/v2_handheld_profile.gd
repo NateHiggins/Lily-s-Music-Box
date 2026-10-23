@@ -11,6 +11,8 @@ var directory := ""
 var observations: Array=[]
 var source_before := ""
 var started := 0
+var treatment := "live"
+var reflections: Node
 const CARD := {"title":"HOT WATER / FIELD REPORT","body":"The hot valve turns freely. Water warms steadily; the drain clears without backing up.\n\nClean the strainer and oil the cabinet hinge before the next call.\n\nThe tenant mentioned a knocking pipe after midnight. Listen again when the upstairs shower stops.","condition":"SERVICE COPY / NORTH STACK"}
 
 func check(ok: bool,label: String) -> void:
@@ -19,6 +21,9 @@ func check(ok: bool,label: String) -> void:
 
 func _ready() -> void:
 	set_process(false);_run.call_deferred()
+
+func configure_treatment() -> void:
+	pass
 
 func runtime_digest() -> String:
 	var output: Array=[]
@@ -39,7 +44,9 @@ func _process(_delta: float) -> void:
 		"held_render_cpu_ms":RenderingServer.viewport_get_measured_render_time_cpu(held),"held_render_gpu_ms":RenderingServer.viewport_get_measured_render_time_gpu(held),
 		"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
 		"pipeline_draw":Performance.get_monitor(Performance.PIPELINE_COMPILATIONS_DRAW),"pipeline_surface":Performance.get_monitor(Performance.PIPELINE_COMPILATIONS_SURFACE),
-		"pipeline_specialization":Performance.get_monitor(Performance.PIPELINE_COMPILATIONS_SPECIALIZATION)})
+		"pipeline_specialization":Performance.get_monitor(Performance.PIPELINE_COMPILATIONS_SPECIALIZATION),"reflection_warm_ms":world.get_meta("reflection_pipeline_warm_ms",0.)})
+	samples[-1].reflection_refreshes=reflections.refresh_count
+	samples[-1].reflection_probes=reflections.probes.size()
 	previous=now
 
 func _run() -> void:
@@ -48,6 +55,9 @@ func _run() -> void:
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	directory=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
 	world=load("res://scenes/building/orison_v2_runtime.tscn").instantiate();add_child(world)
+	if world.startup_failed:check(false,"occupied world starts");get_tree().quit(1);return
+	reflections=world.get_node("V2RoomReflections")
+	configure_treatment()
 	await get_tree().create_timer(1.).timeout
 	player=world.player;carrier=world.service_set_carrier
 	check(not world.startup_failed,"occupied world starts")
@@ -84,9 +94,12 @@ func _run() -> void:
 	var review: Node=preload("res://tests/v2_vantry_ceiling_review.gd").new();add_child(review)
 	var detector: Dictionary=await review.run(world,directory)
 	for failure: String in detector.failures:failures.append(failure)
-	FileAccess.open(directory.path_join("profile.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","settings":{"viewport":str(get_viewport().size),"vsync":"disabled","fps_limit":0,"fixed_route_ticks":300,"physics_hz":Engine.physics_ticks_per_second},"limitations":"Process/physics and render monitors overlap and lag; asset/streaming costs not independently instrumented. First-print is first held render in a warmed world, not a cleared driver cache.","observations":observations,"samples":samples,"detector":detector,"failures":failures},"\t"))
+	FileAccess.open(directory.path_join("profile.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","treatment":treatment,"settings":{"viewport":str(get_viewport().size),"vsync":"disabled","fps_limit":0,"fixed_route_ticks":300,"physics_hz":Engine.physics_ticks_per_second},"limitations":"Process/physics and render monitors overlap and lag; asset/streaming costs not independently instrumented. First field report is in an initialized world, not a cleared driver cache.","observations":observations,"samples":samples,"detector":detector,"failures":failures},"\t"))
 	var digest:=runtime_digest()
 	check(not source_before.is_empty() and digest==source_before,"runtime inputs remain unchanged through composed check")
+	if treatment!="live":
+		print("HANDHELD REFLECTION CONTROL: ","PASS" if failures.is_empty() else "FAIL"," diagnostic only; samples=",samples.size())
+		get_tree().quit(0 if failures.is_empty() else 1);return
 	var test_sources: Dictionary={}
 	for path in ["v2_handheld_profile.gd","v2_vantry_ceiling_review.gd"]:test_sources["game/tests/"+path]=FileAccess.get_file_as_string("res://tests/"+path).replace("\r\n","\n").sha256_text()
 	var status: String="PASS" if failures.is_empty() else "FAIL"

@@ -1,0 +1,4 @@
+SCRIPT ERROR: Parse Error: Static function "make_dir_recursive_directory_absolute()" not found in base "GDScriptNativeClass".
+   at: GDScript::reload (res://tests/reflection_warmup_test.gd:25)
+ERROR: Failed to load script "res://tests/reflection_warmup_test.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
