@@ -248,3 +248,25 @@ an exercised print cycle. Type faces, driven selection/feed/index, powered
 impression, full-travel clearances and several case-level joints still need
 qualification. Candidate remains unreferenced by production. No Godot was
 launched; the owner's explicit permission requirement remains in force.
+
+## Heated reverse type — 2026-10-23
+
+Newest owner direction: reversed embossed type decals, blurred high-speed
+selection, glowing hot faces, a small singe and tiny smoke puffs. See
+**V2_HEATED_TYPE_2026-10-23.md**. Ink ribbon/reels are removed from the candidate.
+The one-surface 48-glyph relief atlas is generated from the existing font;
+**hot_type_writer.gd** consumes printer character events for conditional
+candidate effects. Production MODEL remains old, so the new effect branch is
+not yet active in ordinary play. Do not claim Godot smoke/audio or performance
+qualification from the native spin GIF. Native source is 29 partitions /19302
+triangles with passing source UV/tangents and gdtoolkit parsing only.
+No new Godot launch was made. Import/loaded mips, shader/semantic compilation,
+first/steady print performance and actual audiovisual behavior need the owner's
+approval for a shared-lane batch. Existing mechanism/joint qualification remains
+open; effects do not close it. Preserve the spatial manifest and other work.
+
+Latest refinements: opposite 6-degree upper/lower bank cambers with independent
+seating morphs, fixed recessed spindle and flush blind cap; exposed upper tip
+and collector stack removed. Four exported bank-isolation checks pass. Preserve
+the original cross-bank deformation failure log. Seated-row native renders are
+appearance evidence only, not exercised Godot printing.

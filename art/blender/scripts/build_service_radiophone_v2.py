@@ -19,6 +19,7 @@ p.add_argument('--out', required=True)
 p.add_argument('--view', choices=['front', 'service', 'back', 'printer', 'lamp', 'section'], default='front')
 p.add_argument('--publish', action='store_true')
 p.add_argument('--all-views', action='store_true')
+p.add_argument('--hot-preview', action='store_true')
 p.add_argument('--review-name', default='native', help='Separate retained native review packet')
 args = p.parse_args(sys.argv[sys.argv.index('--')+1:])
 OUT = (ROOT / args.out).resolve()
@@ -136,6 +137,9 @@ def knurl(name, at, radius, depth, group, axis='z', count=18):
 # The printer is one datum-driven cartridge, including bored carrying frames.
 from radiophone_printer_cartridge import build
 W,H,PW,PH,PX,PY,paper_z,door_y,cover_w,lx,ly,cy=build(globals())
+from writer_type_native import stock as type_stock,finish as finish_type,row_keys
+finishes['TypeEmboss']=dict(finishes['Steel'])
+type_stock(globals())
 
 # Parent parts share actual pivots, not one mesh instance per screw or tooth.
 nodes={}
@@ -149,8 +153,10 @@ for (group,surface),objects in groups.items():
     for obj in objects:obj.data.materials.append(mat)
     name=group if group in ['Paper','TorchLens','OrderJewel','NetJewel','LampJewel'] else group+'__'+surface
     obj=partition(exports,name,objects,spec,mat,Matrix.Identity(4),catalog)
+    if surface=='TypeEmboss':finish_type(obj,ROOT)
+    if group=='TypeSelector' and surface in ['Steel','TypeEmboss']:row_keys(obj,objects,pivots['TypeSelector'])
     if group in nodes:
-        obj.data.transform(Matrix.Translation(-nodes[group].location))
+        obj.data.transform(Matrix.Translation(-nodes[group].location),shape_keys=True)
         obj.parent=nodes[group];obj.location=(0,0,0)
 for name in ['Paper','TorchLens']:
     # Exact mesh names are the existing teletype's lookup ABI.
@@ -168,7 +174,7 @@ leaf.shape_key_add(name='Basis');impression=leaf.shape_key_add(name='Impression'
 for vertex in impression.data:
     y=vertex.co.z+pivots['Carriage'].z
     weight=max(0.,min(1.,(y+.064)/.018))
-    vertex.co.y+=.00125*weight*weight
+    vertex.co.y+=.00155*weight*weight
 stocks.hide_render=True;stocks.hide_viewport=True
 proof=export(OUT,'service_radiophone_v2',exports,material_names_only=True,staged_output=True)
 mesh_nodes=sum(o.type=='MESH' for o in exports.objects)
@@ -246,3 +252,39 @@ for view in (['front','service','back','printer','lamp','selection','impression'
     o.location=coords(eye);aim(o,target)
     scene.render.filepath=str(REVIEW/f'{view}.png');bpy.ops.render.render(write_still=True)
     print('HANDHELD NATIVE REVIEW',args.concept,view,mesh_nodes,proof['triangles'])
+if args.hot_preview:
+    # Separate preview animation: emitted only after the canonical resting
+    # asset is saved/exported. Actual runtime effects use printer events.
+    exports.hide_render=False;stocks.hide_render=True
+    for stage in review.objects:
+        if stage.type=='FONT':stage.hide_render=False
+    carriage.location.x=0;selector.location.z=0
+    hammer.location.y=(pivots['Type_hammer']-pivots['Carriage']).y
+    eye=(.12,.006,.27);target=(0,-.030,.068);cam.ortho_scale=.078
+    o.location=coords(eye);aim(o,target)
+    heat=bpy.data.materials['TypeEmboss'].node_tree.nodes['ImpressionHeat'].inputs[1]
+    heat.default_value=.65
+    scene.render.resolution_x=640;scene.render.resolution_y=480;scene.cycles.samples=20
+    selector.rotation_euler.z=0.;scene.render.filepath=str(REVIEW/'hot_type_sharp.png');bpy.ops.render.render(write_still=True)
+    scene.render.fps=240
+    for frame in [0,60]:
+        selector.rotation_euler.z=frame/240*math.tau*36
+        selector.keyframe_insert('rotation_euler',frame=frame)
+    if selector.animation_data and selector.animation_data.action:
+        # Blender 5 actions use layered channels; defaults are suitable for a
+        # short preview, while the runtime uses bounded analytic interpolation.
+        pass
+    scene.render.use_motion_blur=True;scene.render.motion_blur_shutter=1.0
+    for frame in range(4,40,3):
+        scene.frame_set(frame)
+        scene.render.filepath=str(REVIEW/f'spin_{frame:03d}.png');bpy.ops.render.render(write_still=True)
+    scene.render.use_motion_blur=False
+    selector.animation_data_clear();selector.rotation_euler.z=0
+    for bank,label in [(-1,'lower'),(0,'middle'),(1,'upper')]:
+        selector.location.z=-bank*.0045
+        for part in selector.children:
+            if part.type=='MESH' and part.data.shape_keys:
+                part.data.shape_keys.key_blocks['LowerSeat'].value=1. if bank==-1 else 0.
+                part.data.shape_keys.key_blocks['UpperSeat'].value=1. if bank==1 else 0.
+        scene.render.filepath=str(REVIEW/f'{label}_row_seated.png');bpy.ops.render.render(write_still=True)
+    print('HOT TYPE NATIVE ANIMATION: 12 frames, local type-cylinder motion blur')

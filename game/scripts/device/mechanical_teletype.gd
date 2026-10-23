@@ -49,9 +49,13 @@ var _control_state: Array=[]
 var _controls_motion: Tween
 var _cover_motion: Tween
 var _focus_motion: Tween
+var _hot_writer: Node3D
 
 func _ready() -> void:
 	var model := MODEL.instantiate(); add_child(model)
+	if model.find_child("TypeSelector",true,false)!=null:
+		_hot_writer=preload("res://scripts/device/hot_type_writer.gd").new();add_child(_hot_writer)
+		if not _hot_writer.bind_model(model):_hot_writer.queue_free();_hot_writer=null
 	service_cover=model.find_child("ServiceCover",true,false)
 	focus_wheel=model.find_child("FocusWheel",true,false)
 	torch_lens=model.find_child("TorchLens",true,false)
@@ -74,7 +78,9 @@ func _ready() -> void:
 	hammer=model.find_child("Type_hammer",true,false)
 	if hammer==null: hammer=model.find_child("Type hammer",true,false)
 	platen=model.find_child("Platen",true,false)
-	for key in ["SupplySpool","TakeupSpool"]: spools.append(model.find_child(key,true,false))
+	for key in ["SupplySpool","TakeupSpool"]:
+		var spool:=model.find_child(key,true,false)
+		if spool!=null:spools.append(spool)
 	_carriage_home=carriage.position; _hammer_home=hammer.position
 	heading=_label(Vector3(0,.096,.0812),.00014)
 	heading.font=TelegramStyle.BOLD_FONT
@@ -145,6 +151,7 @@ func _show_copy() -> void:
 	if _paper_motion: _paper_motion.kill()
 	_paper.position=_paper_home
 	printing=false; printed_characters=pages[page].length()
+	if _hot_writer:_hot_writer.stop()
 	ink.text=pages[page]; _column=0; _return_left=0
 	carriage.position=_carriage_home; hammer.position=_hammer_home
 	_update_footer()
@@ -206,7 +213,9 @@ func _begin_page() -> void:
 	if _feed.stream: _feed.play()
 
 func _process(delta: float) -> void:
-	if not powered or not printing: return
+	if not powered or not printing:
+		if not powered and _hot_writer:_hot_writer.stop()
+		return
 	_clock+=delta; _advance+=delta
 	# Account for every character, including low-frame-rate catch-up. Feed belongs
 	# to line endings, not to render frames; return travel has its own dwell.
@@ -229,14 +238,17 @@ func _process(delta: float) -> void:
 			if _feed.stream: _feed.play()
 		else:
 			_column+=1
+			if _hot_writer:_hot_writer.strike(character)
 			carriage.position.x=lerpf(-.076,.076,float(_column)/COLUMNS)
 			for spool in spools: spool.rotate_z(.035)
 			for index in range(_gears.size()): (_gears[index] as Node3D).rotate_z(.045 if index%2==0 else -.045)
 			if _tick.stream and not _tick.playing: _tick.play()
 	ink.text=pages[page].left(printed_characters)
-	hammer.position=_hammer_home
-	if _return_left<=0: hammer.position.z+=sin(_clock*TAU*24)*.002
+	if _hot_writer==null:
+		hammer.position=_hammer_home
+		if _return_left<=0: hammer.position.z+=sin(_clock*TAU*24)*.002
 	if printed_characters==pages[page].length():
-		printing=false; hammer.position=_hammer_home
+		printing=false
+		if _hot_writer==null:hammer.position=_hammer_home
 		_return_motion = create_tween()
 		_return_motion.tween_property(carriage,"position",_carriage_home,.18)

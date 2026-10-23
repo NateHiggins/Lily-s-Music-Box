@@ -131,10 +131,13 @@ def build(api):
                  (head_x,type_y,rotor_z),.007,plane='xy',surface='Brass',group='Type_hammer')
     cut(fork,(head_x,type_y,rotor_z),size=(.0324,.024,.030))
     cut(fork,(head_x,type_y,rotor_z),radius=.00165,axis='y')
+    cyl('Flush blind bearing cap',(head_x,type_y+.0147,rotor_z),.00165,.0006,'Brass','Type_hammer',axis='y',sides=20)
     pivot('Type_hammer',(head_x,type_y,rotor_z))
     pivot('TypeSelector',(head_x,type_y,rotor_z))
     cyl('Type selector sleeve',(head_x,type_y,rotor_z),.0135,.0137,'Steel','TypeSelector',axis='y',sides=48)
-    cyl('Selector sliding spindle',(head_x,type_y,rotor_z),.0015,.034,'Steel','TypeSelector',axis='y',sides=16)
+    # The sleeve slides/rotates on a fixed spindle. Its upper end terminates
+    # inside the bearing bridge, with no exposed tip or ornamental collectors.
+    cyl('Recessed selector spindle',(head_x,-.030,rotor_z),.0015,.0264,'Steel','Type_hammer',axis='y',sides=16)
     for row in [-1,0,1]:
         for j in range(16):
             angle=j*math.tau/16
@@ -143,7 +146,10 @@ def build(api):
             rot=Matrix.Rotation(-angle,4,'Z')
             # Rotate pads around their own Y-axis centre, not the whole sleeve.
             pos=coords((head_x+.01365*math.sin(angle),type_y+row*.0045,rotor_z-.01365*math.cos(angle)))
-            pad.data.transform(Matrix.Translation(pos) @ rot @ Matrix.Translation(-pos))
+            tangent=Vector((-math.cos(angle),math.sin(angle),0))
+            camber=Matrix.Rotation(-row*math.radians(6),4,tangent)
+            pad.data.transform(Matrix.Translation(pos) @ camber @ rot @ Matrix.Translation(-pos))
+            pad['type_bank']=row;pad['type_angle']=angle
     # A pair of thin parallel cantilever leaves retains the impression cradle.
     # The bank spindle clears both way rods throughout its +/-4.5mm shift.
     for x in [head_x-.017,head_x+.017]:
@@ -153,20 +159,8 @@ def build(api):
         box('Flexure root clamp',(x,-.063,.0735),(.005,.004,.001),'Brass','Carriage')
         box('Flexure end clamp',(x,-.046,.072),(.005,.004,.001),'Brass','Type_hammer')
 
-    # Horizontal-axis ribbon reels keep ribbon width vertical all the way to
-    # the printing line: no unexplained quarter-turns or floating ribbon ends.
-    for side in [-1,1]:
-        x=side*.094;group='SupplySpool' if side<0 else 'TakeupSpool'
-        bracket=profile('Ribbon spindle bracket',[(side*.080,-.053),(side*.101,-.053),(side*.101,-.038),(side*.088,-.038),(side*.088,-.046),(side*.080,-.046)],
-                        (0,0,.066),.006,plane='xy')
-        cut(bracket,(x,-.044,.066),radius=.00165,axis='y')
-        cyl('Ribbon reel spindle',(x,-.034,.066),.0015,.025,'Steel',axis='y',sides=16)
-        pivot(group,(x,P,.066));tube('Ribbon wound core',(x,P,.066),.009,.0016,.004,'Rubber',group,axis='y')
-        for y in [P-.003,P+.003]:tube('Ribbon spool flange',(x,y,.066),.010,.0016,.0008,'Steel',group,axis='y',sides=24)
-        cyl('Spool retaining nut',(x,P+.004,.066),.003,.0015,'Brass',group,axis='y',sides=8)
-        rod('Ribbon guide stalk',(side*.072,P-.010,.058),(side*.072,P+.004,.058),.001,'Steel')
-    strip('Ink ribbon',[((-.094,P,.057),(0,.002,0)),((-.072,P,.0528),(0,.002,0)),
-                       ((.072,P,.0528),(0,.002,0)),((.094,P,.057),(0,.002,0))],surface='Rubber',thickness=.00018)
+    # Owner-directed heated type replaces ribbon and ink reels. The electrical
+    # feed remains inside the head; no exposed top spindle/collector stack.
 
     # Lamp is retained by a split clamp in a profiled mounting yoke.
     lx,ly=-.079,.069
