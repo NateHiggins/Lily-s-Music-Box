@@ -26,6 +26,9 @@ var floors: Array = []
 var car: Dictionary = {}
 var rules: Dictionary = {}
 var quirks: Array = []
+## World knowledge the car grants by refusing (design/
+## ORISON_DIALOGUE_DRAFTS_2026-10-22.md section 3).
+const KNOWLEDGE_DEAF := "otis_sixth_deaf"
 var riders_pool: Array = []
 
 ## Live state.
@@ -140,6 +143,7 @@ func call_to(f: int) -> bool:
 		_asked[f] = int(_asked.get(f, 0)) + 1
 		if int(_asked[f]) < 2:
 			log_lines.append("the car does not hear %s" % label_of(f))
+			RealityState.grant_knowledge(KNOWLEDGE_DEAF)
 			return false
 		_asked[f] = 0
 	if f != int(round(at)) or door != Door.SHUT:

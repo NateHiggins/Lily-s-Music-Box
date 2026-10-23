@@ -111,6 +111,7 @@
     "ob_blackout": {
       "line": "Cal talks too much for a man who says nothing. ... The lights went and I was the super and I could not bring them back. Hours. Whole building in the dark listening to me not fix it. First thing in my life I couldn't. I've been fixing that night ever since and it's the one job I'm not allowed to close.",
       "flag": "omar_dead_air",
+      "flags": ["station_went_quiet"],
       "choices": [
         {"label": "You couldn't fix the dark. Nobody could.", "goto": "ob_nobody_could", "trust": -1},
         {"label": "You've been fixing a night. Nights aren't on the bench.", "goto": "ob_notyours", "trust": 1}

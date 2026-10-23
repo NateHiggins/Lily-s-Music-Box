@@ -304,6 +304,11 @@ func _valid_tree(tree: Dictionary, path: String) -> bool:
 		if node.has("flag") and str(node.flag) == "":
 			errors.append("%s: node %s flag is empty" % [path, node_id])
 			ok = false
+		if node.has("flags"):
+			if node.flags is not Array or node.flags.is_empty() \
+					or node.flags.any(func(f): return str(f) == ""):
+				errors.append("%s: node %s flags is not a list of names" % [path, node_id])
+				ok = false
 		for choice in node.get("choices", []):
 			if str(choice.get("label", "")) == "":
 				errors.append("%s: node %s has an unlabelled choice" % [path, node_id])
