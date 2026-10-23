@@ -2,104 +2,85 @@
   "evidence_class": "INERT",
   "status": "PASS",
   "scope": "Agent-reviewed representative production-world renders plus exhaustive loaded UV/PBR/mip discovery. Technical qualification only; human appearance and gameplay acceptance remain separate.",
-  "surface_inputs_sha256": "6ba4123958e0faa3de814795385799f022ae8783ad4b2416b8c01b1b0b42e74e",
+  "surface_inputs_sha256": "f0dc4750e0afd422315778f78298c0fa61bc96f05206d114eef9ecdb0c2211c0",
   "images": [
     {
       "file": "street_glazing_fitted_19_5.png",
-      "sha256": "c448d5c75fe29bac09b77a095ba04990efe6c332c0de838f61fceea59a79e97d",
-      "observation": "Production glazing transmits tiles and produces a visible reflection. The lamp highlight clips and remains an open appearance issue.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "ddc32d39f44007ae0dd6fa9893a4babc8267a13c120ddfb23c18a176304a3724",
+      "observation": "Fitted shop glazing transmits the lit interior and the produce stand; the lamp highlight clips and remains an open appearance issue.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "fire_F01_FIRE_LINE_STAIR_closed.png",
-      "sha256": "93cf73888ec912016332144f6a3c0d6b2bedd2043155f19b141021efd4161cbe",
-      "observation": "Wired cabinet glass transmits folded hose stock and changes its highlights under the production carried light.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "96ab13fc847228cb76d99f05e835762af10b06d624803a57f8e9282c0e890ca5",
+      "observation": "Closed red cabinet; wired glass transmits the folded hose stock and the FIRE HOSE lettering reads under the carried light.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "fire_F01_FIRE_LINE_STAIR_open.png",
-      "sha256": "439a96b8adff6111e594d6cf75c0e2f4af896eebe5f673c7afda132ab6ceff1f",
-      "observation": "Opened leaf exposes the separate formed lining, rack, nozzle, hinges and parts tin.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "3f21cab764e16a937f715a12c02a86a68b14532aa25e205b9bf2a1645e1994ef",
+      "observation": "Opened leaf exposes the formed lining, rack, nozzle, hinges and the parts tin on the cabinet floor.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "city_street_skyline.png",
-      "sha256": "a753384097b46b0f4ece0f9f9d339535e1be02561f02bdc463e2f56029823e4a",
-      "observation": "Retained rectangular masonry context and recessed window stock remain visible behind the rebuilt entrance; the nearby glass distorts blind slats.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "3b605836977bdd77462d72e1c6284b05328b61f81c5d77aa5719d78f327cd1fd",
+      "observation": "Rectangular masonry neighbours and recessed window stock remain visible behind the rebuilt entrance under a dusk sky.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "bookcase.png",
-      "sha256": "32e46f40fd86feb2fe81d6e8c34562c51d016eb3a80318d4051e09bd75adf4ee",
-      "observation": "Native sectional frame, glazed sashes and individual bindings remain visible in the actual composed room. Shelf dressing remains sparse.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "e0704f74893864a805c1089cef34a0ff845cc94cd8f05a15a22972743f4f7903",
+      "observation": "Sectional glazed bookcase stands against the apartment wall with doorway, umbrella and framed print in view; glass panes read as glass.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "5d87a4cbaabf707b4db822a8ba7338efd23564ac8a216e834aa3bdc5fcc1d794",
-      "observation": "House tank, rim, support, services and surrounding rectangular masses are visible. Subdued source-side lighting is not final mood approval.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "170d4f6a358ff255764d8ef192d53ecf0db48a086acf7158592ff762c6a68b6d",
+      "observation": "Timber water tank with its steel band and trestle sits against neighbouring roofs; staves and cone read without stretching.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "kitchen_2A_hot.png",
-      "sha256": "e6e5df65d1f87ddbe7fd69dbef085d36e1874da0c89690dbd19beee848bbe8e8",
-      "observation": "Enamel basin, faucet, distinct valve stocks, drain, plug and continuous water stream are visible with metal and enamel highlights.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "2c9198c47d7002cb3ad622cc1981eb62baccab9d90758ca946ca7c786b85c56d",
+      "observation": "Hot tap runs into the enamel sink with the dish rack beside it; the stream and drain read correctly, the enamel is slightly flat.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "front_restored_entrance.png",
-      "sha256": "2f9fc117ad0e54732ece3cdd609cc228b6a7e4e38bcde0fb7f8a6d51f2f9ff52",
-      "observation": "Native entrance leaf, frame, canopy, masonry and varied blinds remain legible; glazing visibly warps blind slats.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "6accc817e25be73ce4a3aab790cb66e4f028d393929581b80e5df44f21086316",
+      "observation": "Restored entrance with THE ORISON canopy, lit lobby doors, brick courses and the vertical neon sign; window stock recessed.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "radiator_joints_carried.png",
-      "sha256": "38196f49aeea1ae1a943fcad95ae6f7f6a2517515ed4da1f76a78f6d3113565c",
-      "observation": "Loaded cast stock retains surface variation, joined sections, valve and floor bearings. Fine finish and condition variation remain appearance work.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "d84c13f7eff332b86e32682f030551cc32a94efb389b745d30f3e3eed39e77da",
+      "observation": "Column radiator, valve and branch joints under the carried light; the joint camera framing is diagnostic, not a tag placement proof.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "clearance_126_F02_2A_BOOKSHELF_01.png",
-      "sha256": "8e63c72cf4270cfad57b629ff54af67ba1914e36fc18a3b7c549cb9642b3c1a3",
-      "observation": "Native case clears wall trim and contains standing and flat bindings with bookends. Sparse dressing and raised dark edge above the upper book cluster need close follow-up.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "a1b1ec3fcc061f0fb010b51fd165b63bcc10bff90f2e4e2fc00d2f7c91bbe421",
+      "observation": "Open bookshelf at 2A with surface stock on its boards and clear floor around it under the carried light.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "tile_F02_A_BATH_floor.png",
-      "sha256": "0884396ff4008d0bec5be48fe5461c15261b7c8df420f27809c4103f3c0c25c2",
-      "observation": "Small floor tile and independent wall tile show their different scales under actual bathroom light; no repeating grime patch is apparent in this station.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "c54ebfa12cc7e5f4bf7cb45ac0cf57ba1e52723cead4bc7333f6b48d8445687d",
+      "observation": "Hexagonal bathroom floor tile, white wall tile, radiator, pedestal basin and toilet; grout lines resolve without shimmer.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "construction_joinery_carried.png",
-      "sha256": "2dab4575a0ce5fd65a5a14827225370f2d69a3790c639435bf34b30fedb9cb1e",
-      "observation": "Separate softwood framing members, fasteners and ceiling boards show directional grain and joint shadows under carried light.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
+      "sha256": "6cc7e3df500b64a195efffe0560dd01a5b0306db5707d3fc56f8a2508a282190",
+      "observation": "Softwood framing joint seen from below under the carried light; grain follows each member and the joinery edges resolve.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     },
     {
       "file": "public_arcade_hall.png",
-      "sha256": "68041cc16c2a910f9c501d6b344eb945843d43f6012911727160bd7336ecece3",
-      "observation": "Continuous arcade interior, fitted storefronts, lantern roof and clock are visible. This posed image grants no continuous-access proof.",
-      "origin": "Original full2 windowed composed-world capture, 2026-10-21"
-    }
-  ],
-  "open_appearance_work": [
-    "Human acceptance remains outstanding.",
-    "Sparse shelf dressing and harsh cast silhouettes remain art-direction polish.",
-    "Clipped local-light specular hotspot and broader condition/mood polish remain open."
-  ],
-  "limitations": [
-    "Seven existing Texture RID shutdown warnings remain; runtime-owned teardown is measured, global GPU retirement is not proved.",
-    "Screen-space glazing excludes transparent and off-screen scenery.",
-    "The city_ground_seam, omitted_B1_laundry_stepladder, omitted_F01_restroom_mop_bucket and dumbwaiter diagnostic cameras miss or obscure their intended subjects; these are not appearance proof for those objects.",
-    "No played-route, disk-save, maintenance-case, human appearance or V1-retirement acceptance is granted by this packet."
-  ],
-  "diagnostic_followups": [
-    {
-      "finding": "Raised dark shape above 2A upper book cluster",
-      "conclusion": "Cast shadow, not projecting book geometry: disappears with book casting disabled and returns with the same native stock poses restored.",
-      "evidence": "art/reviews/v2_upper_access_20261021/library_shadow/shadow_diagnosis.json",
-      "scope": "Isolated original native Mina stock and production carried-light comparison; no production shadow or geometry change."
+      "sha256": "8342049cc87fc36374267b6a14c8d1a2504d78289ec6e27d038e3c8e7b9f9af6",
+      "observation": "Arcade hall with LUNCHEONETTE and MODEL LAUNDRY fascias, glazed shopfronts, pendant lamps and the skylight vault; signage is Label3D.",
+      "origin": "Original windowed composed-world capture on main 975da382 with the rebound bodega fixture, 2026-10-22"
     }
   ]
 }

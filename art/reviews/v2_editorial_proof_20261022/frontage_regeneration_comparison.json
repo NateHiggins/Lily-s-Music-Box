@@ -1,0 +1,16 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Owning Blender builder re-run after PR 13 changed game/scripts/props/door_prop.gd; record only.",
+  "builder": "art/blender/scripts/build_bodega_frontage.py (Blender 5.2.0 LTS, headless)",
+  "asset": "game/assets/props/bodega_frontage.glb",
+  "asset_sha256_before": "a780cffaed39caf71a51e0ad2cb985256060455f6e75464d59dadc40692d140a",
+  "asset_sha256_after": "a780cffaed39caf71a51e0ad2cb985256060455f6e75464d59dadc40692d140a",
+  "asset_byte_identical": true,
+  "physical_inputs_sha256_before": "650c83d0fe41db6a8d1eea9a877e1b2e0d60c3278a92437e7601b9b38b846af2",
+  "physical_inputs_sha256_after": "650c83d0fe41db6a8d1eea9a877e1b2e0d60c3278a92437e7601b9b38b846af2",
+  "fixture": "game/tests/fixtures/orison_bodega_frontage.json",
+  "fixture_sha256_before": "623b81662447fc00753c706362b629b5ec4664eb03fb5182ed0ef18b0281e1b8",
+  "fixture_sha256_after": "3e30e248364674b4b60512a3d0b379184daf5483b927fdba39bee7109decaabf",
+  "changed_binding": "game/scripts/props/door_prop.gd",
+  "preflight_after": "orison_bodega_frontage.json: PASS"
+}

@@ -1,0 +1,66 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 12.49,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T01:18:57Z",
+  "started_utc": "2026-10-23T01:18:44Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "ERROR: Native fixture source preflight failed before world composition: [\"orison_bodega_frontage.json: FAIL\\r\\n  stale fixture dependency: game/scripts/props/door_prop.gd\\r\\norison_city_closure.json: PASS\\r\\norison_city_elevations.json: PASS\\r\\norison_city_ground_apron.json: PASS\\r\\norison_city_horizon.json: PASS\\r\\norison_front_pavement_construction.json: PASS\\r\\norison_front_pavement_review.json: PASS\\r\\norison_street_paving_details.json: PASS\\r\\n0 scripts; 8 fixtures; 1 failed; source preflight only\\r\\n\"]"
+  ],
+  "pass_count": 1,
+  "pass_lines": [
+   "ERROR: Native fixture source preflight failed before world composition: [\"orison_bodega_frontage.json: FAIL\\r\\n  stale fixture dependency: game/scripts/props/door_prop.gd\\r\\norison_city_closure.json: PASS\\r\\norison_city_elevations.json: PASS\\r\\norison_city_ground_apron.json: PASS\\r\\norison_city_horizon.json: PASS\\r\\norison_front_pavement_construction.json: PASS\\r\\norison_front_pavement_review.json: PASS\\r\\norison_street_paving_details.json: PASS\\r\\n0 scripts; 8 fixtures; 1 failed; source preflight only\\r\\n\"]"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/edproof_scratch/logs/p2_surface.log.stderr",
+  "stderr_sha256": "c23351d307c293ae88279096646f3577d687168625191212bbcd27961a80cb72",
+  "stdout": "C:/ov/edproof_scratch/logs/p2_surface.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/edproof_scratch/p2_surface",
+ "source": {
+  "dirty_paths": 2010,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import",
+   " M game/assets/audio/music/covers/no_subject_line.webp.import"
+  ],
+  "repository_head": "975da382281ba60e94ca77a7a5a0a87dcccdf627",
+  "repository_tree": "542a2ddb4aeb8a066ebeed77206f3827d3e444f9",
+  "runtime_inputs_sha256": "295816568b7fcfb10b9e9f7269bdcafabfc32e68d8ba9a7f9facced390dbc410",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "41f3c9253a3880f39243f3bb95f530d8cb8486f76f8eb44c5a12290cdddeac8a"
+ },
+ "windowed": true
+}

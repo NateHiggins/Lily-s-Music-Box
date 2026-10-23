@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 1199.67,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T01:44:30Z",
+  "started_utc": "2026-10-23T01:24:30Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 SPATIAL ACCESS COHORT: FAIL; 69 rooms; 11 legs; 972 checks; 2 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/edproof_scratch/logs/p2_upper2.log.stderr",
+  "stderr_sha256": "0767704c61e4658951da8397307d827937853485d805c6b36864ccfd2e6091b3",
+  "stdout": "C:/ov/edproof_scratch/logs/p2_upper2.log",
+  "stdout_sha256": "7d4fa38d027e93e41821c39bc3ad3fa293929133666ac533a5b88c729948f6ee"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/edproof_scratch/p2_upper2",
+ "source": {
+  "dirty_paths": 2016,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/bodega_frontage.blend",
+   " M art/blender/bodega_frontage_construction.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.stdout.log.gz",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import"
+  ],
+  "repository_head": "975da382281ba60e94ca77a7a5a0a87dcccdf627",
+  "repository_tree": "542a2ddb4aeb8a066ebeed77206f3827d3e444f9",
+  "runtime_inputs_sha256": "295816568b7fcfb10b9e9f7269bdcafabfc32e68d8ba9a7f9facced390dbc410",
+  "test_path": "game/tests/v2_spatial_access_cohort.gd",
+  "test_sha256": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9"
+ },
+ "windowed": true
+}

@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 63.57,
+  "exit_code": 0,
+  "finished_utc": "2026-10-22T23:18:18Z",
+  "started_utc": "2026-10-22T23:17:14Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "[K6] COMPLETE: PASS"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/edproof_scratch/logs/GoldenLoopTest.log.stderr",
+  "stderr_sha256": "e7e0911cad392a29a2007190162fb02f2150a6cde9e2d59139d45957dcf32398",
+  "stdout": "C:/ov/edproof_scratch/logs/GoldenLoopTest.log",
+  "stdout_sha256": "343281d6caa873b98236ff20cab45d97017829ab72ed21a5ad967069d9fda6e1"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/GoldenLoopTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/edproof_scratch/logs/GoldenLoopTest_shots",
+ "source": {
+  "dirty_paths": 2007,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import",
+   " M game/assets/audio/music/covers/no_subject_line.webp.import"
+  ],
+  "repository_head": "a8b2c80c70713707d4269e70f02bb5c0c8679033",
+  "repository_tree": "9d89b8c62d4afa4cb70d54c892a4f28a0837548c",
+  "runtime_inputs_sha256": "4395a71718e0cde619242c4f26ae06edb839da0f4bf0069d991999fb911c95d4",
+  "test_path": "game/tests/golden_loop_test.gd",
+  "test_sha256": "d40679d2ad8125ba94971566e821ef2385f08deaf91d88b62adc27f4960f9e05"
+ },
+ "windowed": false
+}
