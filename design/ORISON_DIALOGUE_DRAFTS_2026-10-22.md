@@ -115,12 +115,17 @@ player reads or operates something:
 
 | World flag | Granted by | Required in |
 |---|---|---|
-| `mina_four_seconds` | Mina's canon tree, on reaching `rt_blank` or `res_open` (section 5 proposal) | Peter, Cal |
-| `minutes_read` | reading the association minutes spread in the readable library | Noel, Jonah |
-| `otis_sixth_deaf` | riding the lift and meeting the sixth-floor quirk in `otis.json` | the Guests |
-| `station_went_quiet` | the laundry room's station legend, or Omar's blackout node (`omar_dead_air`) | Cal |
-| `vales_hours_do_not_overlap` | the night register or schedule observation: Teresa out at 22:20, Mina's late run after | Teresa |
-| `vantry_in_3c` | the dead-letter tray or the empty 3C box on the mail bank | Mae, Omar |
+| `mina_four_seconds` | Mina's canon tree reaching `rt_blank` or `res_open` (`MinaCaseGameplay.NODE_KNOWLEDGE`; the tree itself is unedited) | Peter, Cal |
+| `minutes_read` | the association minutes spread opened past 0.6 rad in the readable library (`v2_readable_book.gd`, `SPREAD_KNOWLEDGE`) | Noel, Jonah |
+| `otis_sixth_deaf` | the car refusing the first call to the sixth (`otis.gd`, the `deaf` quirk) | the Guests |
+| `station_went_quiet` | Omar's blackout node `ob_blackout`, which now carries `flags: ["station_went_quiet"]` beside its own flag. The laundry room has no station legend in V2; when one is authored it should grant the same flag | Cal |
+| `vales_hours_do_not_overlap` | witnessing either Vale on the hour they miss each other: Teresa's 22:20 lobby transit or Mina's 23:30 late run. The schedule block carries `knowledge`; `ScheduleDirector` passes it in the directive and `ResidentRoutines` grants it within 4 m of the resident | Teresa |
+| `vantry_in_3c` | the dead-letter tray: filing the letter addressed to H. Vantry (`dead_letters.json` `gone[].knowledge`). The tray is mounted by the V1 detail pass only; the V2 mail bank's empty 3C slot has no control yet | Mae, Omar |
+
+A node may grant more than one flag on arrival: `flag` (one name) and
+`flags` (a list) are both honoured by the panel and validated at load.
+`WorldFlagTest` drives all six grants headless and checks that the replies
+requiring them become offerable through the director's own `requires` check.
 
 ## 4. Period and knowledge rules kept
 
@@ -194,9 +199,9 @@ lower-third scrim with the building's serif, numbered plain replies and no
 button chrome; `ResidentConversationTest` drives it headless.
 
 Not done, by design: no case is promoted and no door activates one; Mina's
-tree and her gameplay are unchanged; the six world flags in section 3 are
-not yet granted by the objects named there (the library spread, the lift,
-the laundry legend, the register, the dead-letter tray), so the replies
-that need them stay hidden until that wiring lands; the knock has no
+tree is unedited (her gameplay grants one world flag by node id). Still
+unwired in V2: the laundry room's station legend (no such fitting exists
+yet) and the mail bank's empty 3C slot, so in V2 `station_went_quiet` has
+only Omar's route and `vantry_in_3c` only the V1 tray; the knock has no
 answering animation or voice. Cases are still reviewed one at a time with
 the owner before any of the five case trees is promoted to case gameplay.

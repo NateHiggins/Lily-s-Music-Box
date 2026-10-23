@@ -9,6 +9,13 @@ const CASE_ID := "mina_caption_crisis"
 const JOB_ID := "vantry_chirp_2a"
 const DIALOGUE_TREE_PATH := "res://data/case01_dialogue.json"
 const VOICE_DIR := "res://assets/audio/voice/"
+## World knowledge her tree grants by being reached (design/
+## ORISON_DIALOGUE_DRAFTS_2026-10-22.md section 3): the four seconds nobody
+## will ever hear become a thing the player can say to Peter and Cal.
+const NODE_KNOWLEDGE := {
+	"rt_blank": "mina_four_seconds",
+	"res_open": "mina_four_seconds",
+}
 var _animation_thanks := false
 const EVIDENCE := [
 	{"id": "caption_cards", "name": "Caption Cards",
@@ -160,6 +167,7 @@ func _build_dialogue() -> void:
 
 
 func _on_dialogue_node(node_id: String) -> void:
+	grant_node_knowledge(node_id)
 	_play_voice_line(node_id)
 	_animation_thanks = node_id in ["rt_earned", "int_beat", "res_open"]
 	# Deeper layers borrow her body: the tree names the animation role, the
@@ -168,6 +176,13 @@ func _on_dialogue_node(node_id: String) -> void:
 	var actor := _mina_actor()
 	if actor:
 		actor.play_case_role(str(node.get("role", "talk")))
+
+
+static func grant_node_knowledge(node_id: String) -> bool:
+	var flag := str(NODE_KNOWLEDGE.get(node_id, ""))
+	if flag == "":
+		return false
+	return RealityState.grant_knowledge(flag)
 
 
 func _mina_actor() -> AnimatedResident:

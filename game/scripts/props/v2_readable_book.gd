@@ -3,6 +3,11 @@ extends "res://scripts/props/v2_library_movable.gd"
 const SERIF := preload("res://assets/fonts/eb_garamond/EBGaramond[wght].ttf")
 const ITALIC := preload("res://assets/fonts/eb_garamond/EBGaramond-Italic[wght].ttf")
 const HAND := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
+## A spread the player has opened wide enough to read grants world knowledge
+## (design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md section 3). Pages print at
+## .04 rad; a reader holds the book open well past that.
+const SPREAD_KNOWLEDGE := {"minutes": "minutes_read"}
+const READ_OPENING := 0.6
 var stock: RefCounted
 var title_id := "" # Physical stock_id may identify a distinct copy of this title.
 var entry: Dictionary
@@ -182,6 +187,11 @@ func _open(proposed: float) -> void:
 			if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): clear=false;break
 		if not clear: break
 		_apply_opening(angle)
+	note_spread_read(title_id,opening)
+
+static func note_spread_read(title: String, angle: float) -> bool:
+	if angle<READ_OPENING or not SPREAD_KNOWLEDGE.has(title): return false
+	return RealityState.grant_knowledge(str(SPREAD_KNOWLEDGE[title]))
 
 func _apply_opening(value: float) -> void:
 	var previous:=left.transform

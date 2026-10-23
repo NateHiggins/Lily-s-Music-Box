@@ -300,8 +300,12 @@ func _show_node(node_id: String) -> void:
 	var node: Dictionary = nodes[node_id]
 	if node.has("action") and _on_action.is_valid():
 		_on_action.call(str(node.action))
-	var node_flag := str(node.get("flag", ""))
-	if node_flag != "":
+	var node_flags: Array = []
+	if str(node.get("flag", "")) != "":
+		node_flags.append(str(node.flag))
+	for extra in node.get("flags", []):
+		node_flags.append(str(extra))
+	for node_flag in node_flags:
 		var on_node_flag: Callable = _context.get("on_node_flag", Callable())
 		if on_node_flag.is_valid():
 			on_node_flag.call(node_flag)

@@ -640,6 +640,9 @@ var inspection_hold := false
 ## the player's space steps aside instead of being walked through.
 const YIELD_RADIUS := 0.62
 const YIELD_SPEED := 1.6
+## Close enough to see who is leaving and when: a schedule block that names
+## `knowledge` is learnt by being near the resident while it runs.
+const WITNESS_RADIUS := 4.0
 var _player: Node3D
 
 
@@ -673,10 +676,20 @@ func _yield_to_player(actor: Dictionary, delta: float) -> void:
 		return  # different storey
 	away.y = 0.0
 	var gap := away.length()
+	_witness(str(actor.get("slug", "")), gap)
 	if gap >= YIELD_RADIUS or gap < 0.001:
 		return
 	var push := minf(YIELD_SPEED * delta, YIELD_RADIUS - gap)
 	node.global_position += away.normalized() * push
+
+
+func _witness(slug: String, gap: float) -> bool:
+	if gap >= WITNESS_RADIUS:
+		return false
+	var flag := str((schedules.get(slug, {}) as Dictionary).get("knowledge", ""))
+	if flag == "":
+		return false
+	return RealityState.grant_knowledge(flag)
 
 
 func _step(actor: Dictionary, delta: float) -> void:

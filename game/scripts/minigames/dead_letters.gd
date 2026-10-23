@@ -124,7 +124,17 @@ func file_into(unit: String) -> Dictionary:
 		"why": str(L.get("why", ""))}
 	history.append(out)
 	at += 1
+	note_gone(str(L.get("to", "")))
 	return out
+
+
+## Reading a dead letter's face is reading where its addressee was: a `gone`
+## entry may name the world knowledge that teaches.
+func note_gone(name: String) -> bool:
+	for g in gone:
+		if str(g.get("name", "")) == name and str(g.get("knowledge", "")) != "":
+			return RealityState.grant_knowledge(str(g.knowledge))
+	return false
 
 
 ## Who a dead letter was for, if the building remembers them.

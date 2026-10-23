@@ -290,7 +290,16 @@ func _daily_roll(slug: String, doy: int, start: int) -> float:
 
 ## ---- mapping ---------------------------------------------------------
 
+## A block may name what witnessing it teaches (`knowledge`); the directive
+## carries it to ResidentRoutines, which grants it when the player is near.
 func directive_for(slug: String, block: Dictionary) -> Dictionary:
+	var directive := _place_directive(slug, block)
+	if str(block.get("knowledge", "")) != "":
+		directive["knowledge"] = str(block.knowledge)
+	return directive
+
+
+func _place_directive(slug: String, block: Dictionary) -> Dictionary:
 	if block.is_empty():
 		# Coverage gaps do not exist in the data; this is the guests'
 		# role-filtered hour and the inert fallback.
