@@ -60,7 +60,25 @@ def build(api):
     # dry cells stay behind the paper supply, separated in depth.
     for x in [-W/2+.0045,W/2-.0045]:box('Case side',(x,0,0),(.009,H,.055),'Case',bevel=.002)
     for y in [-H/2+.0045,H/2-.0045]:box('Case end',(0,y,0),(W-.018,.009,.055),'Case',bevel=.002)
-    box('Rear pan',(0,0,-.029),(W-.010,H-.010,.004),'Steel')
+    rear=box('Rear pan',(0,0,-.029),(W-.010,H-.010,.004),'Steel')
+    # Rear-facing speaker and carbon mouthpiece fit behind the copy bed.
+    # Ports are real openings through the common pan, with seated collars
+    # and a retained perforated grille, rather than discs over a sealed box.
+    for x,y,r in [(.043,.049,.021),(-.049,-.041,.013)]:cut(rear,(x,y,-.029),radius=r,axis='z')
+    tube('Speaker pan seat',(.043,.049,-.032),.025,.021,.002,'Brass',sides=40)
+    tube('Speaker retaining bezel',(.043,.049,-.0345),.025,.0225,.003,'Case',sides=40)
+    grille=cyl('Perforated speaker grille',(.043,.049,-.0364),.0235,.0012,'Brass',sides=40)
+    for y in [-.014,-.007,0,.007,.014]:
+        width=2*math.sqrt(.020**2-y*y)
+        cut(grille,(.043,.049+y,-.0364),size=(width,.0026,.008))
+    cyl('Speaker diaphragm',(.043,.049,-.0305),.021,.0003,'Rubber',sides=40)
+    for x in [.014,.072]:
+        box('Speaker mounting ear',(x,.049,-.0318),(.008,.010,.0016),'Brass')
+        screw((x,.049,-.0332))
+    tube('Mouthpiece pan socket',(-.049,-.041,-.032),.018,.013,.002,'Brass',sides=32)
+    tube('Carbon mouthpiece shell',(-.049,-.041,-.041),.0175,.013,.016,'Case',sides=32)
+    tube('Mouthpiece rolled lip',(-.049,-.041,-.0495),.019,.013,.002,'Case',sides=32)
+    cyl('Carbon diaphragm',(-.049,-.041,-.032),.0128,.0004,'Rubber',sides=32)
     for x in [-.093,.093]:box('Chassis return',(x,0,.029),(.016,H-.016,.003),'Steel')
 
     # A common side-frame profile carries reel, platen and slide-rail bores.
@@ -100,7 +118,7 @@ def build(api):
     for j in range(1,13):
         t=theta*(1-j/12);web.append(((0,P+.0082*math.sin(t),Z+.0082*math.cos(t)),(PW/2,0,0)))
     web.append(((0,PY-PH/2,paper_z),(PW/2,0,0)))
-    strip('Unbroken paper feed',web,group='Paper')
+    strip('Unbroken paper feed',web,group='Fixed')
     box('Paper',(0,PY,paper_z),(PW,PH,.0003),'Paper','Paper',bevel=0);pivot('Paper',(0,PY,paper_z))
     box('Copy support bed',(0,PY,paper_z-.00115),(PW+.003,PH+.004,.002),'Steel')
     # Two pressure rollers hold the sheet to the driven platen at its edges.
@@ -177,6 +195,10 @@ def build(api):
     box('Service door',(0,door_y,.039),(cover_w,.028,.004),'Case','ServiceCover');pivot('ServiceCover',(0,-.094,.036))
     for i in range(15):tube('Door hinge',( -.063+i*.009,-.094,.036),.0025,.0012,.0085,'Brass','ServiceCover' if i%2 else 'Fixed',axis='x',sides=12)
     rod('Door hinge pin',(-.070,-.094,.036),(.070,-.094,.036),.0011)
+    for x in [-.054,.054]:
+        leaf=profile('Case hinge folded leaf',[(-.006,-.002),(.006,-.002),(.006,.003),(.004,.007),(-.004,.007),(-.006,.003)],
+                     (x,-.092,.029),.0012,plane='xz',surface='Brass')
+        screw((x,-.091,.0305))
     for x in [-.028,.028]:cyl('Dry cell',(x,-.070,-.015),.010,.036,'Rubber',axis='y',sides=20)
     for x,name in [(-.028,'OrderJewel'),(0,'NetJewel'),(.028,'LampJewel')]:
         cyl('Jewel bezel',(x,-.059,.048),.004,.004,'Brass',sides=20)

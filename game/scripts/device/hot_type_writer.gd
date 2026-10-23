@@ -8,6 +8,10 @@ var selector: Node3D
 var _face: ShaderMaterial
 var _heat := 0.0
 var _blur := 0.0
+var _stroke_age := 1.0
+var _sync_frame := -1
+var _stamp_enabled := false
+var _pending_puff := false
 var _cooldown := 0.0
 var _sound_left := 0.0
 var _target_angle := 0.0
@@ -34,7 +38,7 @@ func bind_model(model: Node3D) -> bool:
 	_face.set_shader_parameter("steel_roughness",steel.roughness_texture)
 	_face.set_shader_parameter("steel_normal",steel.normal_texture)
 	_face.set_shader_parameter("metres_per_tile",1.0/steel.uv1_scale.x)
-	decal.material_override=_face
+	decal.set_surface_override_material(0,_face)
 	_sound=AudioStreamPlayer.new();add_child(_sound);_sound.bus="UI"
 	_sound.stream=PropAudio.get_stream("cellular_relay");_sound.volume_db=-34.;_sound.pitch_scale=1.8
 	_puff=GPUParticles3D.new();add_child(_puff)
@@ -54,26 +58,28 @@ func bind_model(model: Node3D) -> bool:
 	return true
 
 func strike(character: String) -> void:
-	if _face==null or character.strip_edges().is_empty(): return
+	_stamp_enabled=not character.strip_edges().is_empty()
+	if _face==null or not _stamp_enabled: return
 	var index:=CHARS.find(character.to_upper())
 	if index<0:index=CHARS.find("?")
 	_target_angle=float(index%16)*TAU/16.
 	_bank=floori(float(index)/16.)-1
 	selector.position.y=-float(_bank)*.0045
 	_face.set_shader_parameter("selected_cell",float(index))
-	_heat=.85;_blur=1.
-	if _cooldown<=0.:
-		_puff.position=to_local(selector.global_position+selector.global_basis*Vector3(0,0,-.014))
-		_puff.restart();_puff.emitting=true
-		_sound.play();_sound_left=.045;_cooldown=.10
+	_heat=.85;_blur=1.;_stroke_age=0.
+	_pending_puff=true
 	set_process(true)
 
+func sync_phase(age: float) -> void:
+	_stroke_age=age;_sync_frame=Engine.get_process_frames()
+
 func stop() -> void:
-	_blur=0.;_heat=0.;set_process(false)
+	_blur=0.;_heat=0.;_stroke_age=1.;_cooldown=0.;_sound_left=0.;set_process(false)
+	_stamp_enabled=false;_pending_puff=false
 	if _face:
 		_face.set_shader_parameter("heat",0.);_face.set_shader_parameter("spin_blur",0.)
 	if _sound:_sound.stop()
-	if _puff:_puff.emitting=false
+	if _puff:_puff.emitting=false;_puff.visible=false
 	if _hammer:_hammer.position=_hammer_home
 	if _flexure:_flexure.set_blend_shape_value(_flexure.find_blend_shape_by_name("Impression"),0.)
 	for row in _rows:
@@ -82,11 +88,24 @@ func stop() -> void:
 
 func _process(delta: float) -> void:
 	_heat=move_toward(_heat,0.,delta*5.5);_cooldown=maxf(0.,_cooldown-delta)
-	_blur=move_toward(_blur,0.,delta*35.)
+	# Parent printer supplies residual character time after catch-up. Do not
+	# advance it by an entire frame a second time in this child's callback.
+	if _sync_frame!=Engine.get_process_frames():_stroke_age+=delta
+	_blur=maxf(0.,1.-_stroke_age/.006)
 	# Two visual turns collapse onto the selected seat. The local blur stands
 	# in for sub-frame motion at print rates above the display's frame rate.
 	selector.rotation.y=_target_angle+_blur*TAU*2.
-	var seating: float=(1.-_blur)*smoothstep(0.,.35,_heat)
+	# Complete selection and impression inside the printer's 20.83ms character
+	# interval. Cooling may continue, but cannot delay the next impression.
+	var seating: float=smoothstep(.006,.009,_stroke_age)*(1.-smoothstep(.012,.020,_stroke_age))
+	if not _stamp_enabled:seating=0.
+	if _pending_puff and seating>.5:
+		_pending_puff=false
+		if _cooldown<=0.:
+			_puff.position=to_local(_hammer.to_global(Vector3(0,0,-.014)))
+			_puff.visible=true
+			_puff.restart();_puff.emitting=true
+			_sound.play();_sound_left=.045;_cooldown=.10
 	_hammer.position=_hammer_home-Vector3(0,0,.00155*seating)
 	if _flexure:_flexure.set_blend_shape_value(_flexure.find_blend_shape_by_name("Impression"),seating)
 	for row in _rows:

@@ -1,6 +1,8 @@
 # Godot per-machine caches
 .godot/
 *.import
+!game/assets/props/service_radiophone_v2.glb.import
+!game/assets/device/writer_type/reversed_type_emboss.png.import
 !game/assets/building/textures/**/*.import
 !game/assets/props/stair_ironwork_service.glb.import
 !game/assets/props/boiler_body.glb.import

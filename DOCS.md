@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Installed physical service UI, flush ceiling listener and paired frame-time limits | `design/V2_PHYSICAL_DEVICE_AND_CEILING_POINTS_2026-10-23.md` |
 | Latest V2 work order, measured routes and requested mirror-visible player | `design/V2_CONTINUATION_2026-10-22.md` |
 | Radio-based shop settlement, hardware hose supplies and selected resident staff | `design/V2_RADIO_SHOP_NETWORK_2026-10-22.md` |
 | Passage-first door controls and queued input checks | `design/V2_EASY_DOORS_2026-10-22.md` |

@@ -200,7 +200,7 @@ receiver, resting shape and charge to the original household authority,
 including nozzle validation against a saved receiver, legacy migration and
 actual save/rebuild. Publish/install the existing native candidate through its
 Blender owner, then run the occupied-world route and first/steady-spray timing.
-No new self-collision solver work. Reader remains33 NEW, spatial8/11 and
+No new self-collision solver work. Reader remains 33 NEW, spatial8/11 and
 systemic25 unchanged. Broad world stutter and all remaining V2 goals stay open.
 The unrelated spatial dependency manifest remains unstaged.
 
@@ -270,3 +270,27 @@ seating morphs, fixed recessed spindle and flush blind cap; exposed upper tip
 and collector stack removed. Four exported bank-isolation checks pass. Preserve
 the original cross-bank deformation failure log. Seated-row native renders are
 appearance evidence only, not exercised Godot printing.
+
+## Physical UI installation and flush listener — 2026-10-23
+
+The owner authorized autonomous Godot use; earlier launch-approval notes are
+superseded. Retain shared-lane wrappers. See
+**V2_PHYSICAL_DEVICE_AND_CEILING_POINTS_2026-10-23.md**. The native set is installed:
+384 mesh nodes become 29 partitions /22,522 triangles. Catalogue surfaces, loaded
+atlas mips, parent-synchronized impressions and clean unmount pass. Original
+compression, timing and teardown failures remain in **installed_stock/**.
+
+The set stays visible while walking; raised paper uses 40% width. Ten-row full
+messages continue across pages and feed clear of the head. Handheld-control
+hand migration remains open; keyboard/wheel seams remain. Steady-print paired
+p95/p99: 28.02/34.84 ->26.46/29.20ms; held CPU median 0.347 -> 0.140ms. First-use
+spike remains about 322 ms, with 90 new surface pipelines. Investigate early room-
+reflection feature activation before adopting a treatment or claiming a cause.
+
+The one existing composed V2 Vantry point seats at the 3 m ceiling, not1.25 m.
+It now has direct grille movement, a moving reach area and free-cursor inspection.
+The original capsule/WorkOrders signal owns repair. Five ceiling rays and two
+actual grabs pass in **profile_ui_v2/runtime_contract.json** (schema 2).
+Regenerated acoustic projections preserve node/route content; retain the original
+stale-binding startup failure. Legacy point surfaces and intermediate-travel
+save remain unqualified. Preserve the unrelated spatial manifest. V2 is not complete.

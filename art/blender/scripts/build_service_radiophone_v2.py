@@ -180,6 +180,11 @@ proof=export(OUT,'service_radiophone_v2',exports,material_names_only=True,staged
 mesh_nodes=sum(o.type=='MESH' for o in exports.objects)
 assert mesh_nodes<=36,(mesh_nodes,'draw partitions budget')
 assert proof['triangles']<35000,proof
+(OUT/'game/data/device').mkdir(parents=True,exist_ok=True)
+(OUT/'game/data/device/service_radiophone_v2.json').write_text(json.dumps(dict(
+    schema_version=1,asset='res://assets/props/service_radiophone_v2.glb',
+    asset_sha256=hashlib.sha256((OUT/'game/assets/props/service_radiophone_v2.glb').read_bytes()).hexdigest(),
+    finishes=finishes,paper=dict(center=[PX,PY,paper_z],width=PW,height=PH)),indent=2)+'\n',newline='\n')
 (REVIEW/'build.json').write_text(json.dumps(dict(evidence_class='INERT',concept=args.concept,
     export=proof,mesh_nodes=mesh_nodes,editable_parts=len(stocks.objects),finishes=finishes,
     paper=dict(center=[PX,PY,paper_z],width=PW,height=PH),
