@@ -53,6 +53,7 @@ var _inspect_anchor := Transform3D.IDENTITY
 var _inspect_pickup: Dictionary = {}
 var _inspect_pickup_contact := Vector3.ZERO
 var _profile_disable_step_guard:=false
+var _profile_disable_step_up:=false
 var step_guard_rejections:=0
 var profile_physics:=false
 var physics_profile_records: Array=[]
@@ -1071,6 +1072,7 @@ func _clear_stagger() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	var sync_started:=Time.get_ticks_usec() if profile_physics else 0
 	if _native_contact_agent!=null:
 		# CharacterBody's transform round trips also accumulate basis drift
 		# during walking. Keep an intended unit rigid frame orthonormal. The
@@ -1081,6 +1083,7 @@ func _physics_process(delta: float) -> void:
 		if largest_error>.000001 and largest_error<.0001:
 			basis=basis.orthonormalized()
 		_native_contact_agent.sync()
+	var native_sync_ms: float=(Time.get_ticks_usec()-sync_started)/1000. if profile_physics else 0.
 	if inspecting():
 		velocity=Vector3.ZERO
 		return
@@ -1142,12 +1145,12 @@ func _physics_process(delta: float) -> void:
 	var slide_done:=Time.get_ticks_usec() if profile_physics else 0
 	if _grab!=null: _grab.follow_holder()
 	_publish_foot_contacts()
-	if profile_physics and Time.get_ticks_usec()-physics_started>1000:
+	if profile_physics and Time.get_ticks_usec()-sync_started>1000:
 		var contacts: Array=[]
 		for index in get_slide_collision_count():
 			var collider: Object=get_slide_collision(index).get_collider()
 			if collider is Node:contacts.append(str(collider.get_path()))
-		physics_profile_records.append({"step_guard_disabled":_profile_disable_step_guard,"position":[global_position.x,global_position.y,global_position.z],"gravity_ms":(gravity_done-physics_started)/1000.,"step_ms":(step_done-step_started)/1000.,"slide_ms":(slide_done-step_done)/1000.,"follow_and_contact_ms":(Time.get_ticks_usec()-slide_done)/1000.,"contacts":contacts})
+		physics_profile_records.append({"physics_frame":Engine.get_physics_frames(),"native_sync_ms":native_sync_ms,"step_up_disabled":_profile_disable_step_up,"step_guard_disabled":_profile_disable_step_guard,"position":[global_position.x,global_position.y,global_position.z],"gravity_ms":(gravity_done-physics_started)/1000.,"step_ms":(step_done-step_started)/1000.,"slide_ms":(slide_done-step_done)/1000.,"follow_and_contact_ms":(Time.get_ticks_usec()-slide_done)/1000.,"contacts":contacts})
 		if physics_profile_records.size()>6000:physics_profile_records.pop_front()
 	if _stagger_left > 0.0:
 		_stagger_left = maxf(0.0, _stagger_left - delta)
@@ -1246,6 +1249,7 @@ func _step_path_blocked(probe: Vector3) -> bool:
 	return blocked
 
 func _try_step_up(delta: float) -> void:
+	if _profile_disable_step_up:return
 	if not is_on_floor():
 		return
 	var motion := Vector3(velocity.x, 0, velocity.z) * delta

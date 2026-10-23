@@ -103,7 +103,17 @@ func install_on(prop: LightFixtureProp) -> bool:
 		(prop if part.component == "Mount" else prop._swing_node).add_child(draw)
 	# Bound the local optical halo to this small globe beside the medicine mirror.
 	# The original halo object, gradient, light energy and circuit remain owners.
-	if identity == "3B_LT_SCONCE":
+	if identity == "3B_LT_SCONCE" and variant == "bath_bell_over_mirror":
+		# The original actor/circuit remains. Its presentation now seats on
+		# the basin wall above the mirror; aim the emitter inside that shade.
+		prop.light.position=Vector3(-.150,.058,0)
+		prop.bounce.position=_offsets[identity]+Vector3(-.150,-.142,0)
+		prop._halo.position=prop.light.position
+		prop.envelope_gain=.28
+		var halo_mesh := prop._halo.mesh.duplicate() as QuadMesh
+		halo_mesh.size = Vector2(.09,.09)
+		prop._halo.mesh = halo_mesh
+	elif identity == "3B_LT_SCONCE":
 		var halo_mesh := prop._halo.mesh.duplicate() as QuadMesh
 		halo_mesh.size = Vector2(.205, .205)
 		prop._halo.mesh = halo_mesh

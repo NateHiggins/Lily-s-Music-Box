@@ -75,6 +75,9 @@ def flush():
  for x in [-.09,.09]:support(identity,'ceiling',(x,0,0),(0,0,-1),'schoolhouse canopy ceiling seat')
 
 def sconce():
+ if variant.get('form')=='bath_bell':
+  bath_bell()
+  return
  back=float(variant.get('wall_back',.0245))
  stock('Backplate',(-.045,back-.004,-.08),(.045,back,.08),'brass',.0007)
  for z in [-.055,.055]:
@@ -88,6 +91,38 @@ def sconce():
  ring('GlobeCollar',0,-.115,.001,.024,.015,.008,'brass')
  globe=shell('OpalGlobe',(0,-.115,.09),.085,.17)
  transform(globe,Matrix.Translation((0,-.115,.09))@Matrix.Rotation(math.pi,4,'X')@Matrix.Translation((0,.115,-.09)))
+
+def bath_bell():
+ # Original period-informed adaptation, not a reproduction of a photograph.
+ # A hollow formed-glass bell seats in a three-screw gallery; the bent brass
+ # feed enters the socket from above and terminates at a fitted wall rosette.
+ first=len(pieces[identity]);first_contact=len(contacts)
+ back=float(variant.get('wall_back',.06))
+ plate=axial(identity+'_OvalRosette',0,0,[(0,back),(.026,back),(.034,back-.004),(.034,back-.009),(.027,back-.016),(0,back-.016)],identity,'brass',48)
+ transform(plate,Matrix.Diagonal((1,1,1.45,1)))
+ # Oval stock is not a surface of revolution. Use the metric triangle
+ # charts rather than retaining the circular rosette's cylindrical chart.
+ del plate['uv_axis'];del plate['uv_center']
+ for z in [-.033,.033]:
+  screw=axial(identity+'_RosetteScrew'+str(z),0,z,[(0,back-.009),(.003,back-.009),(.003,back-.017),(0,back-.017)],identity,'brass',12)
+  del screw['uv_axis'];del screw['uv_center']
+  support(identity,'wall',(0,back,z),(0,-1,0),'oval rosette seated to tile wall')
+ a,b,c,d=[Vector(p) for p in [(0,back-.014,0),(0,-.130,0),(0,-.150,.200),(0,-.150,.112)]]
+ wire('BentFeed',[(1-t)**3*a+3*(1-t)**2*t*b+3*(1-t)*t*t*c+t**3*d for t in np.linspace(0,1,19)],.0075,'brass')
+ socket('CeramicSocket',(0,-.150,.076),.043,.017)
+ ring('ShadeGallery',0,-.150,.075,.027,.020,.012,'brass')
+ for index in range(3):
+  angle=index*math.tau/3
+  tube('GalleryScrew'+str(index),(math.cos(angle)*.023,-.150+math.sin(angle)*.023,.081),(math.cos(angle)*.031,-.150+math.sin(angle)*.031,.081),.002,'brass')
+ shade=lathe('OpalBell',0,-.150,0,[(.020,.090),(.024,.075),(.028,.050),(.036,.015),(.052,-.020),(.071,-.045),(.072,-.049),(.069,-.051),(.067,-.047),(.050,-.023),(.034,.014),(.026,.050),(.022,.073),(.018,.090),(.020,.090)],'bulb')
+ component(shade,'Bulb')
+ component(lathe('InnerLamp',0,-.150,0,[(0,.080),(.006,.080),(.006,.075),(.011,.069),(.015,.058),(.014,.047),(.010,.039),(0,.036)],'bulb'),'Bulb')
+ if variant.get('mount_yaw'):
+  rotation=Matrix.Rotation(float(variant['mount_yaw']),4,'Z')
+  for obj,key in pieces[identity][first:]:transform(obj,rotation)
+  for contact in contacts[first_contact:]:
+   for field in ['point','direction']:
+    p=contact[field];native=rotation.to_3x3()@Vector((p[0],-p[2],p[1]));contact[field]=[native.x,native.z,-native.y]
 
 def linear():
  # Folded enamel trough, closed edge returns and two source tube sockets.

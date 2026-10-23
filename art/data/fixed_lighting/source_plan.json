@@ -2,7 +2,7 @@
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
   "mechanism_source": "game/scripts/props/light_fixture_prop.gd",
-  "mechanism_sha256": "fb03473169a196be04bcaee3b680af8d11d61844e3da648099e92c696d2ac5b6",
+  "mechanism_sha256": "29bf8f3e6e9918c86349dfbb63ab926f7e1fda63ce663a17ab873671a1575413",
   "original_source_markers": [
     {
       "kind": "flush_dome",
@@ -3926,7 +3926,7 @@
       "kind": "sconce_globe",
       "properties": {
         "range_clamp": 4.0,
-        "energy_scale": 1.05
+        "energy_scale": 0.18
       }
     },
     {
@@ -5433,6 +5433,14 @@
       "kind": "sconce_globe",
       "source_id": "F01_BAR_LT_WEST0",
       "wall_back": 0.16
+    },
+    {
+      "id": "bath_bell_over_mirror",
+      "kind": "sconce_globe",
+      "source_id": "3B_LT_SCONCE",
+      "wall_back": 0.06,
+      "form": "bath_bell",
+      "mount_yaw": -1.5707963267948966
     }
   ],
   "instances": [
@@ -5458,11 +5466,11 @@
     },
     {
       "id": "3B_LT_SCONCE",
-      "variant": "sconce_globe_back050",
+      "variant": "bath_bell_over_mirror",
       "visual_offset": [
-        0.8,
-        0,
-        0
+        1.17,
+        0.53,
+        0.38
       ]
     },
     {
@@ -7670,11 +7678,11 @@
         "id": "3B_LT_SCONCE",
         "classification": "NECESSITY",
         "visual_offset": [
-          0.8,
-          0,
-          0
+          1.17,
+          0.53,
+          0.38
         ],
-        "reason": "Original anchor is centered in the bath window opening. Fit on the adjacent east-wall pier, clear of window trim and the overhead vent duct; retain actor anchor and circuit."
+        "reason": "Owner-requested replacement above the basin mirror; oval plate bears on north tile face at local (15.15,2.15,-9.87); original actor and circuit remain."
       }
     ]
   },

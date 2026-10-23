@@ -70,6 +70,9 @@ var _entry_emphasis := 1.0
 var range_clamp := 0.0
 ## Room-character multiplier from the generator (Mina bright, Juno dim).
 var energy_scale := 1.0
+## Visible shade luminance can differ from the light pool. Native fitted stock
+## sets this locally; circuit, flicker and surge continue to own its envelope.
+var envelope_gain := 1.0
 ## Minimum direct contribution when outside the nearby full-light budget.
 ## Navigation fixtures receive a higher authored value from the light map.
 var standby_scale := 0.0
@@ -675,9 +678,9 @@ func _process(delta: float) -> void:
 			if _bounce_on else 0.0,
 			delta * 4.0)
 	var envelope := (1.0 if prop_type == "flush_dome" else 1.6) \
-			* _target_scale * _flicker_value * _state_gain
+			* _target_scale * _flicker_value * _state_gain * envelope_gain
 	_bulb_mat.emission_energy_multiplier = lerpf(
-			_bulb_mat.emission_energy_multiplier, envelope + _surge * 2.4,
+			_bulb_mat.emission_energy_multiplier, envelope + _surge * 2.4 * envelope_gain,
 			delta * 8.0)
 	_surge = maxf(0.0, _surge - delta * 2.2)
 	if prop_type == "chandelier":

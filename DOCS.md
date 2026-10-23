@@ -34,6 +34,9 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Bathroom bell replacement, period research and powered review | `design/V2_BATH_SCONCE_REPLACEMENT_2026-10-23.md` |
+| Finish already-started chat work before unrelated scope | `design/V2_STARTED_WORK_CLOSURE_2026-10-23.md` |
+| Bathroom movement cost and isolated-query attribution limits | `design/V2_BATH_MOVEMENT_DIAGNOSIS_2026-10-23.md` |
 | Reduced reflection capture stall, rejected mirror culling and severe bathroom movement finding | `design/V2_REFLECTION_CAPTURE_COST_2026-10-23.md` |
 | Carried physical controls, native feed repair and actual-input scope | `design/V2_CARRIED_INSTRUMENT_HAND_2026-10-23.md` |
 | Retained reflection hitch controls and rejected warmup treatments | `design/V2_REFLECTION_PIPELINE_WARMUP_2026-10-23.md` |

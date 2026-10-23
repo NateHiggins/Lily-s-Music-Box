@@ -35,10 +35,15 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(prop.transform.is_equal_approx(source.actor_pose) and prop.graph_node_id == source.graph_node_id, "source anchor and acoustic identity retained")
 		check(prop.light.get_instance_id() == source.light and prop.bounce.get_instance_id() == source.bounce and prop._halo.get_instance_id() == source.halo and prop._swing_node.get_instance_id() == source.swing, "original emitter, bounce, halo and swing owners retained")
 		check(prop._bulb_mat.get_instance_id() == source.bulb_material and prop._bulb_mat.emission_enabled, "original dynamic envelope material retained")
-		if not (prop.light.transform.is_equal_approx(source.light_pose) and is_equal_approx(prop._base_energy,float(source.base_energy)) and is_equal_approx(prop.light.omni_range,expected_range) and prop.navigation_light == source.navigation and is_equal_approx(prop.standby_scale,float(source.standby))):
+		var expected_pose: Transform3D=source.light_pose
+		var expected_bounce: Vector3=source.bounce_pose.origin+factory._offsets[identity]
+		if identity=="3B_LT_SCONCE":
+			expected_pose.origin=Vector3(-.150,.058,0)
+			expected_bounce=factory._offsets[identity]+Vector3(-.150,-.142,0)
+		if not (prop.light.transform.is_equal_approx(expected_pose) and is_equal_approx(prop._base_energy,float(source.base_energy)) and is_equal_approx(prop.light.omni_range,expected_range) and prop.navigation_light == source.navigation and is_equal_approx(prop.standby_scale,float(source.standby))):
 			print("LIGHT SETTINGS ",identity," pose=",prop.light.transform," before=",source.light_pose," energy=",prop._base_energy,"/",source.base_energy," range=",prop.light.omni_range,"/",source.range," navigation=",prop.navigation_light,"/",source.navigation," standby=",prop.standby_scale,"/",source.standby)
-		check(prop.light.transform.is_equal_approx(source.light_pose) and is_equal_approx(prop._base_energy,float(source.base_energy)) and is_equal_approx(prop.light.omni_range,expected_range) and prop.navigation_light == source.navigation and is_equal_approx(prop.standby_scale,float(source.standby)), "original emission frame and photometric settings retained")
-		check(prop.bounce.position.is_equal_approx(source.bounce_pose.origin+factory._offsets[identity]), "original bounce follows explicit fixture fitting offset")
+		check(prop.light.transform.is_equal_approx(expected_pose) and is_equal_approx(prop._base_energy,float(source.base_energy)) and is_equal_approx(prop.light.omni_range,expected_range) and prop.navigation_light == source.navigation and is_equal_approx(prop.standby_scale,float(source.standby)), "fitted emission frame and original photometric settings retained")
+		check(prop.bounce.position.is_equal_approx(expected_bounce), "original bounce follows explicit fixture fitting offset")
 		check(prop._swing_node.position.is_equal_approx(factory._offsets[identity]), "explicit visual fitting offset applied only once")
 		var variant := str(row.variant)
 		if not variants.has(variant): captures.append(prop)
@@ -91,7 +96,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		for identity: String in before: check(after[identity] != before[identity], "existing room switch controls native fixture")
 		check(switches.restore_room(room,before) and switches.room_snapshot(room) == before, "existing circuit restore retains native fixture state")
 	var sconce: LightFixtureProp = factory.installed["3B_LT_SCONCE"].get_ref()
-	check((sconce._halo.mesh as QuadMesh).size.is_equal_approx(Vector2(.205,.205)), "sconce halo fitted to source globe beside mirror")
+	check((sconce._halo.mesh as QuadMesh).size.is_equal_approx(Vector2(.09,.09)), "small halo fitted inside replacement bell")
 	var sconce_bounds := _light_bounds(sconce)
 	var clearance_shape := BoxShape3D.new()
 	clearance_shape.size = sconce_bounds.size-Vector3.ONE*.0002

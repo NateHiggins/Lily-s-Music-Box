@@ -363,3 +363,46 @@ spatial8 failures remain; new reported items are diagnostic fixtures. Preserve
 the unrelated spatial manifest. Broader V2 repairs, save/call/history work and
 full surface/runtime/human qualification remain open. Godot is authorized
 through the shared wrappers; retain original failures and stage named paths.
+
+
+## Started-work closure, bathroom light and player concept — 2026-10-23
+
+The owner requests finishing all already-started chat work before unrelated
+issues. **V2_STARTED_WORK_CLOSURE_2026-10-23.md** preserves the full request
+inventory and explicitly distinguishes installed repairs from candidate fixtures.
+Hose production/save integration, nook book conversion, bathroom wet effects,
+device saved controls/calls/history, street/shop/avatar and broad qualification
+remain open. Do not claim completion from partial tests.
+
+**V2_BATH_MOVEMENT_DIAGNOSIS_2026-10-23.md** retains six actual-input bathroom
+controls. Normal wall p50/p95/p99/max 151.76/295.19/385.42/407.98 ms; restored
+normal is 151.42/289.38/383.12/406.55. Collision slide reaches 44.58 ms and step
+queries 29.09 ms. Native sync is about .01 ms. Mirror sleep improves the median
+but does not remove physics spikes. No physical bypass is installed as a repair.
+Global exclusion bisection is confounded by frame yielding; its spare-tin suspect
+is not causal proof. Retain original failures and diagnose at stable published
+physical poses with interleaved restored baselines. These are diagnostics only.
+
+The owner confirmed the bathroom sconce. **V2_BATH_SCONCE_REPLACEMENT_2026-10-23.md**
+records original period research and the installed small open opal bell above
+the mirror, replacing the globe in the window corner. Original actor, circuit,
+light/bounce/material/acoustic identities remain. Native connected stock, metric
+UVs and wall contacts pass. Final world_v2 passes 6,588 diagnostic checks and
+powered/off images with carried lamp disabled were inspected. The fixture has
+three active partitions; no additional light or viewport. Lower only this pool
+and visible shade envelope; all other fixtures default to their existing curve.
+Retain failed native/first powered studies. Wrapper receipts are suite_run,
+not runtime_contract or human acceptance. Seven Texture RID teardown warnings
+and the existing mirror checker/grain appearance remain open.
+
+The owner offered to generate the player mesh from an A-pose. Original built-in
+image-generation concept and exact prompt are saved under
+**art/concepts/v2_player_doodle_20261023/**. Cheerful charcoal stick limbs and a
+rounded off-white happy face; child-drawn adult silhouette, androgynous and
+riggable with real depth. Mesh/rig/reflected movement are not installed. Preserve
+player collision/save authorities when integrating the offered mesh.
+
+All 32 surface requirement tools tests pass. Focused gates retain reader33 NEW,
+spatial8 failing/25 reported and four untracked street/traffic import findings;
+unrelated assets and the spatial manifest remain preserved. No clean candidate
+or broad qualification claimed. Godot remains authorized through shared wrappers.
