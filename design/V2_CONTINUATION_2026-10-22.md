@@ -12,6 +12,22 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest performance repair: **V2_HOUSEHOLD_NOTIFICATION_COST_2026-10-23.md**.
+Actual occupied hose route instrumentation identifies repeated validation across
+651 household subjects and synchronous automatic saves. Same-campaign, unblocked,
+deep-equal payloads and unchanged fresh snapshots now reuse their last validation;
+changed/invalid data and replacement campaigns retain the original validator.
+Fourteen state checks and final **persistent_v2** ten-waypoint48-check actual-input
+route pass, including disk reconstruction and disposable-save cleanup. Alternating
+real disk commit medians69.558/54.697/69.038/56.122ms (original/cached twice).
+Final route p50/p95/p99/max38.714/53.445/114.768/208.690ms still has12 intervals
+above100ms. This does not resolve all stutter. Rendering, physics and remaining
+synchronous storage cost need further attribution; cell streaming is unmeasured
+in this DORMANT-passage route. Original failed stale door expectation is preserved;
+controls advance the slow-closing door, so the fixture now captures its expected
+pose immediately before saving. No door behavior or tolerance changed.
+
+
 Newest hose repair: **V2_HOSE_RELEASE_SUPPORT_2026-10-23.md**. The near hose now
 crosses below the cabinet instead of obscuring the held nozzle. Ordinary release
 uses a one-time real-support placement, with no resting simulation. Space retains

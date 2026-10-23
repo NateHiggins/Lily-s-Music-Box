@@ -1,0 +1,42 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Diagnostic instrumentation only, original validation order. Frozen before_v1 inputs.",
+  "files": [
+    {
+      "path": "game/scripts/building/orison_v2_household_state.gd",
+      "raw_sha256": "b1fd4c4b5aca63e87cf2c5f8d9a3b3da8700efaee6e3aa0354c242b4f5e60192",
+      "lf_sha256": "b1fd4c4b5aca63e87cf2c5f8d9a3b3da8700efaee6e3aa0354c242b4f5e60192",
+      "archive": "source_before/game/scripts/building/orison_v2_household_state.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_frame_work_probe.gd",
+      "raw_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "lf_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "archive": "source_before/game/tests/v2_frame_work_probe.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_work_attribution.gd",
+      "raw_sha256": "30703baf3248ba862e0b8a5d6c866e6c29cd51e69b5abb65185967cc06843edc",
+      "lf_sha256": "30703baf3248ba862e0b8a5d6c866e6c29cd51e69b5abb65185967cc06843edc",
+      "archive": "source_before/game/tests/v2_hose_work_attribution.gd.gz"
+    },
+    {
+      "path": "game/tests/V2HoseWorkAttribution.tscn",
+      "raw_sha256": "5e05ae2ceeaf2d7ea735bc2991af969ac0302d64ebb3013487ed4cfdd58be287",
+      "lf_sha256": "5e05ae2ceeaf2d7ea735bc2991af969ac0302d64ebb3013487ed4cfdd58be287",
+      "archive": "source_before/game/tests/V2HoseWorkAttribution.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_golden_repair_profile.gd",
+      "raw_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "lf_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "archive": "source_before/game/tests/v2_golden_repair_profile.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_installed_world.gd",
+      "raw_sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "lf_sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "archive": "source_before/game/tests/v2_hose_installed_world.gd.gz"
+    }
+  ]
+}

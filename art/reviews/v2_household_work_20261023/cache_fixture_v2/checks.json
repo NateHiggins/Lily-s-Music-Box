@@ -1,0 +1,62 @@
+{
+	"checks": [
+		{
+			"label": "initial payload passes the real household validator",
+			"ok": true
+		},
+		{
+			"label": "same owned payload skips validation without rolling back live intermediate motion",
+			"ok": true
+		},
+		{
+			"label": "original-order control validates but also preserves live motion",
+			"ok": true
+		},
+		{
+			"label": "equal-valued replacement document still validates and restores",
+			"ok": true
+		},
+		{
+			"label": "changed valid payload restores through the original authority",
+			"ok": true
+		},
+		{
+			"label": "in-place invalid mutation blocks without restoring invalid state",
+			"ok": true
+		},
+		{
+			"label": "blocked recovery validates even when payload equals the last good value",
+			"ok": true
+		},
+		{
+			"label": "cross-record inconsistency still fails full related-record validation",
+			"ok": true
+		},
+		{
+			"label": "changed unsupported schema still blocks",
+			"ok": true
+		},
+		{
+			"label": "new live positions still snapshot and validate before publication",
+			"ok": true
+		},
+		{
+			"label": "unchanged live snapshot reuses the validated owned payload",
+			"ok": true
+		},
+		{
+			"label": "original-order unchanged capture still validates as a paired control",
+			"ok": true
+		},
+		{
+			"label": "invalid new live state cannot reuse cached validation or overwrite saved state",
+			"ok": true
+		},
+		{
+			"label": "unbound owner does not process campaign events",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": []
+}

@@ -19,6 +19,17 @@ const SERVICE_ACTIVITIES := {"fuse_service":"fuse_panel_rating_service",
 var _service_defaults: Dictionary = {}
 var _service_completed: Dictionary = {}
 var _service_library: MaintenanceActivityLibrary
+var profiling:=false
+var profile_records: Array[Dictionary]=[]
+var reuse_unchanged_validation:=true
+
+func _profile_start() -> int:
+	return Time.get_ticks_usec() if profiling else 0
+
+func _profile_end(stage: String,started: int) -> void:
+	if started<=0:return
+	profile_records.append({"stage":stage,"start_usec":started,"end_usec":Time.get_ticks_usec(),"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),"subjects":_subjects.size()})
+	if profile_records.size()>4096:profile_records.pop_front()
 
 func bind(adapter: Variant, switches: SwitchSystem, additional_mechanisms: Dictionary = {}) -> bool:
 	if _bound or adapter == null or switches == null or not is_inside_tree(): return false
@@ -146,14 +157,17 @@ func _saved_value() -> Variant:
 	return RealityState.data[KEY] if RealityState.data.has(KEY) else {"schema_version":1, "records":{}}
 
 func validate(value: Variant, kinds: Dictionary) -> bool:
+	var profile_started:=_profile_start()
 	errors.clear()
 	if value is not Dictionary or value.size() != 2 \
 			or value.get("records") is not Dictionary:
 		errors.append("invalid household save schema")
+		_profile_end("validate_invalid_schema",profile_started)
 		return false
 	if typeof(value.get("schema_version")) not in [TYPE_INT, TYPE_FLOAT] \
 			or not is_finite(float(value.schema_version)) or float(value.schema_version) != 1.0:
 		errors.append("household save version must be numeric")
+		_profile_end("validate_invalid_version",profile_started)
 		return false
 	for identity: Variant in value.records:
 		var record: Variant = value.records[identity]
@@ -189,6 +203,7 @@ func validate(value: Variant, kinds: Dictionary) -> bool:
 		for identity: String in _subjects:
 			if _subjects[identity].has_method("validate_related_records") and not _subjects[identity].validate_related_records(value.records):
 				errors.append("inconsistent related mechanism identities")
+	_profile_end("validate",profile_started)
 	return errors.is_empty()
 
 func _valid_book_order(identity: String, value: Variant) -> bool:
@@ -206,10 +221,12 @@ func _valid_book_order(identity: String, value: Variant) -> bool:
 	return true
 
 func snapshot() -> Dictionary:
+	var profile_started:=_profile_start()
 	var records := {}
 	for identity: String in _subjects:
 		var prop = _subjects[identity]
-		if not is_instance_valid(prop) or not prop.is_inside_tree() or prop.is_queued_for_deletion(): return {}
+		if not is_instance_valid(prop) or not prop.is_inside_tree() or prop.is_queued_for_deletion():
+			_profile_end("snapshot_detached",profile_started);return {}
 		var kind: String = _kinds[identity]
 		var setting: Variant
 		match kind:
@@ -224,6 +241,7 @@ func snapshot() -> Dictionary:
 			"blind": setting = prop.call("settings_snapshot")
 			"books": setting = prop.library_snapshot() if prop.has_method("library_snapshot") else prop.get("sorter").order.duplicate()
 		records[identity] = {"kind":kind, "value":setting}
+	_profile_end("snapshot",profile_started)
 	return {"schema_version":1, "records":records}
 
 func _restore(saved: Dictionary) -> void:
@@ -289,35 +307,54 @@ func _on_service_completed(_result: Dictionary, identity: String) -> void:
 
 func _on_state_changed() -> void:
 	if not _bound or _restoring: return
+	var profile_started:=_profile_start()
 	var saved: Variant = _saved_value()
+	# A deep-equal copy of our last validated payload in the same campaign
+	# document is already trusted. Load/reset replaces the document; changed
+	# values or recovery from a blocked state still take full validation below.
+	if reuse_unchanged_validation and not _blocked and saved == _last_saved and is_same(_state_document, RealityState.data):
+		errors.clear();_profile_end("state_cached",profile_started);return
 	# A load/reset replaces facts underneath an existing world. Adopt only a
 	# fully valid document; never flush stale controls back into the new save.
 	if not validate(saved, _kinds):
 		_blocked = true
+		_profile_end("state_invalid",profile_started)
 		return
 	# Ordinary commits can arrive while a hand or spring is moving. Their
 	# unchanged household payload must not roll that live motion back. A real
 	# load/reset replaces RealityState.data, even when its values are identical.
-	if not _blocked and saved == _last_saved and is_same(_state_document, RealityState.data): return
+	if not _blocked and saved == _last_saved and is_same(_state_document, RealityState.data):
+		_profile_end("state_unchanged",profile_started);return
 	_restore(saved)
+	_profile_end("state_restored",profile_started)
 
 func capture_now() -> bool:
 	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or not is_inside_tree(): return false
+	var profile_started:=_profile_start()
 	var saved: Variant = _saved_value()
 	if saved != _last_saved or not is_same(_state_document, RealityState.data):
 		_on_state_changed()
+		_profile_end("capture_replaced",profile_started)
 		return false
 	var current := snapshot()
-	if current.is_empty() or not validate(current, _kinds) or current == saved: return false
+	# A fresh snapshot equal to the same validated saved payload needs no
+	# second validation. Changed live positions still pass the full validator.
+	if reuse_unchanged_validation and not current.is_empty() and current == saved:
+		errors.clear();_profile_end("capture_cached",profile_started);return false
+	if current.is_empty() or not validate(current, _kinds) or current == saved:
+		_profile_end("capture_unchanged_or_invalid",profile_started);return false
 	RealityState.data[KEY] = current
 	_last_saved = current.duplicate(true)
+	_profile_end("capture_changed",profile_started)
 	return true
 
 func _capture_snapshot() -> void:
 	capture_now()
 
 func _commit_change() -> void:
+	var profile_started:=_profile_start()
 	if capture_now(): RealityState.commit()
+	_profile_end("commit_change",profile_started)
 
 func _on_room_changed(_room: String, _on: bool) -> void:
 	_commit_change()
