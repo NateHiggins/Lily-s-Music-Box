@@ -21,6 +21,9 @@ var _receiver_from_tip:=Transform3D.IDENTITY
 var _bend_radii:=PackedFloat64Array()
 var _physical_bend_spans:=PackedFloat64Array()
 var last_nozzle_query: Dictionary={}
+var last_fitting_blocker:=""
+var cast_observer: Callable
+var _fitting_candidates: Array[Dictionary]=[]
 var _nozzle_bounds: Dictionary={}
 var _nozzle_box:=BoxShape3D.new()
 var _nozzle_radius:=0.
@@ -30,6 +33,33 @@ var ground_y_local:=0.
 var guide_axis_local:=Vector3.LEFT
 var guide_side_local:=Vector3.BACK
 var _guide_floor:=0.
+var profile_motion:=false
+var last_motion_profile: Dictionary={}
+var motion_profile_records: Array[Dictionary]=[]
+var _last_fitting_usec:=0
+var _last_prepare_usec:=0
+var _last_broad_queries:=0
+var _last_shell_queries:=0
+var local_follow_enabled:=false
+var fps_aim_enabled:=false
+var fps_once_per_frame:=false
+var _hold_frame: int=-1
+var _carrier: WeakRef
+var _cover: PhysicsBody3D
+var _cover_stock_added:=false
+var _cover_holder_added:=false
+var _local_follow:=preload("res://scripts/props/round_local_endpoint.gd").new()
+
+func set_local_follow(enabled: bool) -> bool:
+	if not contact.ready:return false
+	if enabled:
+		if _local_follow.rig==null and not _local_follow.configure(rig,_bend_radii):return false
+		_local_follow.prime(rig.strand.points if deployed else _placement)
+		tether.seed_factory=_local_follow.seed;tether.substep_m=.08
+	else:
+		tether.seed_factory=_guide_seed if guide_enabled else Callable()
+		tether.substep_m=.08 if guide_enabled else .008
+	local_follow_enabled=enabled;return true
 
 func configure(owner_actor: Node3D,asset_path: String,projection: Dictionary,placement: Dictionary) -> bool:
 	var started: int=Time.get_ticks_usec()
@@ -193,19 +223,92 @@ func grip() -> Dictionary:
 	var part: Node3D=joint.seat if joint.loose else actor._play_pipe
 	if deployed:
 		return {"owner":actor,"part":part,"frame":model,"kind":"free",
+			"physics_body":joint.body if not joint.loose else null,
+			"bind_holder":_bind_hose_holder,
+			"hold_pose":_hold_pose if fps_aim_enabled else null,
 			"read":func():return rig.strand.points[0],"write":_move,
-			"begin":func():return actor._claim("hose"),"owns":func():return actor._hand=="hose",
-			"motion_pending":func():return tether.pending,"end":_release}
+			"begin":_begin_hose,"owns":func():return actor._hand=="hose",
+			"motion_pending":func():return tether.pending,"constraint_feedback":_constraint_feedback,"end":_release}
 	return {"owner":actor,"part":part,"frame":actor,"kind":"slider","axis":Vector3.BACK,
 		"minimum":0.,"maximum":EXTRACTION_M,"read":func():return extraction,"write":_extract,
-		"begin":func():return actor._claim("hose"),"owns":func():return actor._hand=="hose","end":_release}
+		"begin":_begin_hose,"owns":func():return actor._hand=="hose","constraint_feedback":_extraction_feedback,"end":_release}
+
+func _begin_hose() -> bool:
+	if not actor._claim("hose"):return false
+	error="";tether.blocked=false;tether.limited=false;return true
+
+func _bind_hose_holder(holder: Node3D) -> void:
+	_clear_cover_passage();_carrier=weakref(holder);_refresh_cover_passage()
+
+func _refresh_cover_passage() -> void:
+	if not actor.door_open or joint.loose or actor._hand!="hose":
+		_clear_cover_passage();return
+	if is_instance_valid(_cover):return
+	var holder: PhysicsBody3D=_carrier.get_ref() as PhysicsBody3D if _carrier!=null else null
+	if holder==null:return
+	_cover=actor._bodies.door
+	_cover_stock_added=not joint.body.get_collision_exceptions().has(_cover)
+	_cover_holder_added=not holder.get_collision_exceptions().has(_cover)
+	if _cover_stock_added:joint.body.add_collision_exception_with(_cover)
+	if _cover_holder_added:holder.add_collision_exception_with(_cover)
+
+func _clear_cover_passage() -> void:
+	if is_instance_valid(_cover):
+		if _cover_stock_added and is_instance_valid(joint):joint.body.remove_collision_exception_with(_cover)
+		var holder: PhysicsBody3D=_carrier.get_ref() as PhysicsBody3D if _carrier!=null else null
+		if _cover_holder_added and holder!=null:holder.remove_collision_exception_with(_cover)
+	_cover=null;_cover_stock_added=false;_cover_holder_added=false
+
+func _exit_tree() -> void:
+	_clear_cover_passage()
+
+func _hold_pose(view: Transform3D) -> void:
+	_refresh_cover_passage()
+	if fps_once_per_frame:
+		var frame: int=Engine.get_process_frames()
+		if frame==_hold_frame:return
+		_hold_frame=frame
+	if not fps_aim_enabled:
+		# Preserve the previous position-only candidate for isolated controls.
+		var point: Vector3=joint.body.global_position
+		_move(rig.strand.points[0]+model.global_basis.inverse()*(view*Vector3(.17,-.16,-.48)-point).limit_length(.06))
+		return
+	var before: PackedVector3Array=rig.strand.points
+	var direction: Vector3=(before[1]-before[0]).normalized()
+	var desired: Vector3=(model.global_basis.inverse()*view.basis.z).normalized()
+	var goal: Vector3=model.to_local(view*Vector3(.17,-.16,-.48))
+	# Withdraw into the hand before turning beside the rack and open leaf.
+	# A blocked translation still remains blocked by the original fitting sweep.
+	if before[0].distance_to(goal)>.12:desired=direction
+	var angle: float=acos(clampf(direction.dot(desired),-1.,1.))
+	var elapsed: float=minf(get_process_delta_time(),.033333) if fps_once_per_frame else get_physics_process_delta_time()
+	var turn: float=minf(angle,6.*elapsed)
+	if angle>.00001:
+		# Antiparallel directions need an explicit stable perpendicular axis.
+		var axis: Vector3=direction.cross(desired)
+		if axis.length_squared()<1e-12:axis=direction.cross(Vector3.UP if absf(direction.y)<.9 else Vector3.RIGHT)
+		direction=direction.rotated(axis.normalized(),turn).normalized()
+	if tether.tip_direction.distance_to(direction)>.000001:tether.cancel_motion()
+	tether.tip_direction=direction;_local_follow.tip_direction=direction
+	_move(before[0]+(goal-before[0]).limit_length(.06))
+
+func _constraint_feedback() -> String:
+	if tether.pending:return "grabbed"
+	if not error.is_empty() or tether.blocked:return "blocked"
+	return "limit" if tether.limited else "grabbed"
+
+func _extraction_feedback() -> String:
+	if not error.is_empty():return "blocked"
+	return "limit" if extraction>=EXTRACTION_M-.000001 else "grabbed"
 
 func _nozzle_clear(receiver: Transform3D) -> bool:
+	last_fitting_blocker=""
 	if not _receiving_stock_clear(receiver):return false
 	if joint.loose:return true
 	var pose: Transform3D=actor.global_transform*joint.thread_pose(joint.angle)
 	var proposed: Transform3D=actor.global_transform*receiver*Transform3D(Basis(Vector3.UP,joint.clocking),Vector3(0,joint.stock.body_y(joint.angle),0))
 	var excluded: Array[RID]=[joint.body.get_rid(),actor._bodies.lever.get_rid(),joint.physical_nut.get_rid()]
+	_append_carried_exclusions(excluded)
 	for part: Node3D in [joint.seat,joint.nut]:
 		for body: CollisionObject3D in part.find_children("*","CollisionObject3D",true,false):excluded.append(body.get_rid())
 	# Receiver transport can change the child collider frames independently
@@ -230,6 +333,7 @@ func _nozzle_clear(receiver: Transform3D) -> bool:
 	var query:=PhysicsShapeQueryParameters3D.new();query.collision_mask=1;query.exclude=excluded;query.margin=0.
 	_nozzle_box.size=bounds.size;query.shape=_nozzle_box;query.transform=Transform3D(Basis.IDENTITY,bounds.get_center())
 	var broad_clear: bool=space.intersect_shape(query,1).is_empty()
+	if cast_observer.is_valid():_fitting_candidates=space.intersect_shape(query,256)
 	last_nozzle_query={"motion":motion,"broad_clear":broad_clear}
 	if broad_clear:return true
 	# The coupled body is frozen. Sweep its actual convex stock directly,
@@ -252,22 +356,52 @@ func _nozzle_clear(receiver: Transform3D) -> bool:
 				var fraction: float=float(step)/steps
 				var basis:=Basis(first_rotation.slerp(last_rotation,(float(step)+.5)/steps))
 				query.transform=Transform3D(basis,pose.origin+motion*fraction)*shape.transform;query.motion=Vector3.ZERO
-				if not space.intersect_shape(query,1).is_empty():return false
+				if not _fitting_probe_clear(space,query,"barrel rotation"):return false
 				query.motion=motion/steps
-				var swept: PackedFloat32Array=space.cast_motion(query)
-				if swept.size()!=2 or swept[0]<1.:return false
+				if not _fitting_sweep_clear(space,query,"barrel arc"):return false
 			continue
 		query.shape=shape.shape;query.transform=proposed*shape.transform;query.motion=Vector3.ZERO
-		if not space.intersect_shape(query,1).is_empty():return false
+		if not _fitting_probe_clear(space,query,"barrel endpoint"):return false
 		query.transform=pose*shape.transform;query.motion=proposed.origin-pose.origin
-		var result: PackedFloat32Array=space.cast_motion(query)
-		if result.size()!=2 or result[0]<1.:return false
+		if not _fitting_sweep_clear(space,query,"barrel translation"):return false
 	return true
+
+func _fitting_sweep_clear(space: PhysicsDirectSpaceState3D,query: PhysicsShapeQueryParameters3D,stage: String) -> bool:
+	var result: PackedFloat32Array=space.cast_motion(query)
+	if result.size()==2 and result[0]>=1.:return true
+	if cast_observer.is_valid():cast_observer.call(query,_fitting_candidates,stage,result)
+	last_fitting_blocker=stage+": fractions="+str(result)
+	if profile_motion and result.size()==2:
+		var original: Transform3D=query.transform;var motion: Vector3=query.motion
+		query.transform=original.translated(motion*result[1]);query.motion=Vector3.ZERO
+		var hits: Array[Dictionary]=space.intersect_shape(query,1)
+		if not hits.is_empty():
+			var collider: Object=hits[0].get("collider")
+			last_fitting_blocker+=" "+(str(collider.get_path()) if collider is Node else str(collider))
+		query.transform=original;query.motion=motion
+	return false
+
+func _append_carried_exclusions(excluded: Array[RID]) -> void:
+	# Manual fitting queries must share the body's authoritative exceptions:
+	# the carrier and any unlocked leaf accommodated by EasyDoorMotion.
+	# No wall, locked leaf or unrelated body is added here.
+	if joint.loose or actor._hand!="hose":return
+	for body: PhysicsBody3D in joint.body.get_collision_exceptions():
+		var rid: RID=body.get_rid()
+		if not excluded.has(rid):excluded.append(rid)
+
+func _fitting_probe_clear(space: PhysicsDirectSpaceState3D,query: PhysicsShapeQueryParameters3D,stage: String) -> bool:
+	var hits: Array[Dictionary]=space.intersect_shape(query,1)
+	if hits.is_empty():return true
+	var collider: Object=hits[0].get("collider")
+	last_fitting_blocker=stage+": "+(str(collider.get_path()) if collider is Node else str(collider))
+	return false
 
 func _receiving_stock_clear(receiver: Transform3D) -> bool:
 	var before: Transform3D=actor.global_transform*joint.receiver
 	var after: Transform3D=actor.global_transform*receiver
 	var excluded: Array[RID]=[actor._bodies.lever.get_rid(),joint.physical_nut.get_rid()]
+	_append_carried_exclusions(excluded)
 	if not joint.loose:excluded.append(joint.body.get_rid())
 	for part: Node3D in [joint.seat,joint.nut]:
 		for body: CollisionObject3D in part.find_children("*","CollisionObject3D",true,false):excluded.append(body.get_rid())
@@ -295,10 +429,9 @@ func _receiving_stock_clear(receiver: Transform3D) -> bool:
 			var fraction: float=float(step)/steps
 			var rotation:=Basis(before.basis.get_rotation_quaternion().slerp(after.basis.get_rotation_quaternion(),(float(step)+.5)/steps))
 			query.transform=Transform3D(rotation,before.origin.lerp(after.origin,fraction))*local;query.motion=Vector3.ZERO
-			if not space.intersect_shape(query,1).is_empty():return false
+			if not _fitting_probe_clear(space,query,"receiver rotation"):return false
 			query.motion=(after.origin-before.origin)/steps
-			var swept: PackedFloat32Array=space.cast_motion(query)
-			if swept.size()!=2 or swept[0]<1.:return false
+			if not _fitting_sweep_clear(space,query,"receiver arc"):return false
 	return true
 
 func _extract(value: float) -> void:
@@ -322,9 +455,24 @@ func _extract(value: float) -> void:
 
 func _move(value: Vector3) -> void:
 	if actor._hand!="hose" or not deployed or not value.is_finite():return
-	if not tether.prepare_endpoint(value):error=tether.error;set_process(tether.pending);return
+	_refresh_cover_passage()
+	tether.collect_profile=profile_motion
+	var started: int=Time.get_ticks_usec() if profile_motion else 0
+	_last_fitting_usec=0;_last_broad_queries=contact.broad_queries;_last_shell_queries=contact.shell_queries
+	var prepared: bool=tether.prepare_endpoint(value)
+	_last_prepare_usec=Time.get_ticks_usec()-started if profile_motion else 0
+	if not prepared:
+		error=tether.error;set_process(tether.pending);_record_motion_profile(started);return
 	_commit_motion()
 	set_process(tether.pending)
+	_record_motion_profile(started)
+
+func _record_motion_profile(started: int) -> void:
+	if not profile_motion:return
+	last_motion_profile={"total_usec":Time.get_ticks_usec()-started,"prepare_usec":_last_prepare_usec,"fitting_usec":_last_fitting_usec,"tether":tether.profile_usec.duplicate(),"broad_queries":contact.broad_queries-_last_broad_queries,"shell_queries":contact.shell_queries-_last_shell_queries,"responses":tether.responses,"native_iterations":tether.kernel.coupled.iterations,"native_qp_iterations":tether.kernel.coupled.qp_iterations,"local_enabled":local_follow_enabled,"local_join":_local_follow.last_join if local_follow_enabled else -1,"local_usec":_local_follow.last_usec if local_follow_enabled else 0}
+	last_motion_profile.physics_frame=Engine.get_physics_frames();last_motion_profile.process_frame=Engine.get_process_frames()
+	motion_profile_records.append(last_motion_profile)
+	if motion_profile_records.size()>512:motion_profile_records.pop_front()
 
 func _process(_delta: float) -> void:
 	if actor._hand!="hose" or not deployed:tether.cancel_motion();set_process(false);return
@@ -336,9 +484,13 @@ func _commit_motion() -> void:
 	var points: PackedVector3Array=tether.prepared_endpoint_points()
 	if not _physical_bends_clear(points):tether.cancel_motion();error="round hose physical bend bound";return
 	var receiver: Transform3D=model.transform*rig.model_frames(points)[0]*_receiver_from_tip
-	if not _nozzle_clear(receiver):tether.cancel_motion();error="nozzle obstructed";return
+	var started: int=Time.get_ticks_usec() if profile_motion else 0
+	var clear: bool=_nozzle_clear(receiver)
+	_last_fitting_usec=Time.get_ticks_usec()-started if profile_motion else 0
+	if not clear:tether.cancel_motion();error="nozzle obstructed";return
 	if not tether.commit_endpoint():error=tether.error;return
 	joint.receiver=receiver;joint.sync();error=""
 
 func _release() -> void:
+	_clear_cover_passage();_carrier=null
 	tether.cancel_motion();set_process(false);actor._release()

@@ -20,8 +20,12 @@ var _warm_seed:=PackedVector3Array()
 var _warm_world:=Transform3D.IDENTITY
 var keep_necks:=true
 var lock_tip_direction:=true
+var tip_direction:=Vector3.ZERO
 var round_self_radius_m:=0.
 var seed_factory: Callable
+var collect_profile:=false
+var profile_usec: Dictionary={}
+
 var substep_m:=SUBSTEP_M
 var seeded_candidates:=0
 var seeded_accepts:=0
@@ -33,6 +37,8 @@ var _prepared_before:=PackedVector3Array()
 var _prepared_points:=PackedVector3Array()
 var _prepared_world:=Transform3D.IDENTITY
 var _prepared_frame: int=-1
+func _profile_add(stage: String,started: int) -> void:
+	if collect_profile:profile_usec[stage]=int(profile_usec.get(stage,0))+Time.get_ticks_usec()-started
 func cancel_endpoint() -> void:
 	_prepared_before=PackedVector3Array();_prepared_points=PackedVector3Array();_prepared_frame=-1
 func has_prepared_endpoint() -> bool:return not _prepared_points.is_empty()
@@ -64,11 +70,16 @@ func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 	var initial: PackedVector3Array=before
 	var has_seed:=false
 	if seed_factory.is_valid():
+		var stage_started: int=Time.get_ticks_usec() if collect_profile else 0
 		var seeded: Variant=seed_factory.call(before,goal)
+		_profile_add("seed",stage_started)
 		if seeded is PackedVector3Array and seeded.size()==before.size():initial=seeded;has_seed=true
 	var pins: Dictionary={0:goal}
 	if keep_necks:
-		if lock_tip_direction:
+		if tip_direction.length_squared()>.99:
+			pins[1]=goal+tip_direction*rig.strand.lengths[0]
+			pins[2]=goal+tip_direction*(rig.strand.lengths[0]+rig.strand.lengths[1])
+		elif lock_tip_direction:
 			pins[1]=goal+_neck_offsets[0];pins[2]=goal+_neck_offsets[1]
 		else:
 			var direction: Vector3=(initial[3]-goal).normalized()
@@ -95,7 +106,10 @@ func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 			for ring: int in solve_planes:
 				for plane: Dictionary in solve_planes[ring]:valid=valid and plane.normal.dot(seed[ring])>=plane.offset-.000001
 			if valid:proposed=seed;seeded_accepts+=1
-		if proposed.is_empty():proposed=kernel.follow(seed,rig.strand.anchor,solve_planes,pins,continuation)
+		if proposed.is_empty():
+			var stage_started: int=Time.get_ticks_usec() if collect_profile else 0
+			proposed=kernel.follow(seed,rig.strand.anchor,solve_planes,pins,continuation)
+			_profile_add("solver",stage_started)
 		if proposed.is_empty():
 			error=kernel.error
 			if error.contains("ceiling") and kernel.coupled.last_iterate.size()==before.size():
@@ -104,12 +118,20 @@ func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 			return PackedVector3Array()
 		_drop_warm()
 		if not rig.strand._valid_positions(proposed):error="held material residual";return PackedVector3Array()
+		var stage_started: int=Time.get_ticks_usec() if collect_profile else 0
 		var result: Dictionary=contact.motion_constraints(before,proposed,4096);responses+=1
+		_profile_add("world_constraints",stage_started)
 		if not result.valid or result.truncated:error="invalid held native response: "+str(result.error);return PackedVector3Array()
 		if result.planes.is_empty():
-			if not bool(result.get("sweep_clear",false)) and contact.veto(before,proposed):error="held native sweep blocked";return PackedVector3Array()
+			if not bool(result.get("sweep_clear",false)):
+				stage_started=Time.get_ticks_usec() if collect_profile else 0
+				var vetoed: bool=contact.veto(before,proposed)
+				_profile_add("world_veto",stage_started)
+				if vetoed:error="held native sweep blocked";return PackedVector3Array()
 			if round_self_radius_m>0.:
+				stage_started=Time.get_ticks_usec() if collect_profile else 0
 				var own: Dictionary=kernel.coupled.round_self_constraints(before,proposed,round_self_radius_m,pins)
+				_profile_add("self_constraints",stage_started)
 				if not own.valid:error=str(own.get("error","invalid round self contact"));return PackedVector3Array()
 				if not own.clear:
 					# Self-contact normals depend on BOTH moving segments. Keep
@@ -126,6 +148,7 @@ func _trial(before: PackedVector3Array,goal: Vector3) -> PackedVector3Array:
 func prepare_endpoint(goal: Vector3) -> bool:
 	cancel_endpoint()
 	var started: int=Time.get_ticks_usec();responses=0;limited=false;blocked=false;error="";pending=false
+	if collect_profile:profile_usec={}
 	if rig==null or not goal.is_finite():error="invalid held endpoint";blocked=true;last_ms=(Time.get_ticks_usec()-started)/1000.;return false
 	var before: PackedVector3Array=rig.strand.points.duplicate()
 	var offset: Vector3=goal-rig.strand.anchor
@@ -134,7 +157,8 @@ func prepare_endpoint(goal: Vector3) -> bool:
 	var travel: Vector3=goal-before[0]
 	if travel.length()>MAX_MOVE_M:goal=before[0]+travel.normalized()*MAX_MOVE_M
 	_requested_goal=goal
-	if goal==before[0]:
+	var neck_matches: bool=tip_direction.length_squared()<.99 or (before[1]-before[0]).normalized().dot(tip_direction)>1.-1e-10
+	if goal==before[0] and neck_matches:
 		_drop_warm();_prepare(before,before);last_ms=(Time.get_ticks_usec()-started)/1000.;return true
 	# Two bounded attempts permit partial approach to an obstruction without
 	# committing half a solve or buying progress by discarding collision.
@@ -167,17 +191,24 @@ func commit_endpoint() -> bool:
 	# is rejected; recheck world contact even inside the same physics frame.
 	if Engine.get_physics_frames()!=_prepared_frame or rig.strand.points!=_prepared_before or rig.model.global_transform!=_prepared_world:
 		cancel_motion();blocked=true;error="stale held endpoint proposal";return false
+	var stage_started: int=Time.get_ticks_usec() if collect_profile else 0
 	var response: Dictionary=contact.motion_constraints(_prepared_before,_prepared_points,4096)
+	_profile_add("commit_world",stage_started)
 	responses+=1
 	if not response.valid or response.truncated or not response.planes.is_empty() or (not bool(response.get("sweep_clear",false)) and contact.veto(_prepared_before,_prepared_points)):
 		cancel_motion();blocked=true;error="prepared held endpoint became obstructed";last_ms+=(Time.get_ticks_usec()-started)/1000.;return false
 	if round_self_radius_m>0.:
+		stage_started=Time.get_ticks_usec() if collect_profile else 0
 		var own: Dictionary=kernel.coupled.round_self_constraints(_prepared_before,_prepared_points,round_self_radius_m)
+		_profile_add("commit_self",stage_started)
 		if not own.valid or not own.clear:
 			cancel_motion();blocked=true;error="prepared round hose self contact";last_ms+=(Time.get_ticks_usec()-started)/1000.;return false
 	var points: PackedVector3Array=_prepared_points
 	cancel_endpoint()
-	if not rig.apply_points(points):error="held skin rejected pose";blocked=true;return false
+	stage_started=Time.get_ticks_usec() if collect_profile else 0
+	var applied: bool=rig.apply_points(points)
+	_profile_add("skin_apply",stage_started)
+	if not applied:error="held skin rejected pose";blocked=true;return false
 	rig.strand.points=points
 	if not _warm_before.is_empty() and _warm_before!=points:
 		_warm_before=PackedVector3Array();_warm_seed=PackedVector3Array()

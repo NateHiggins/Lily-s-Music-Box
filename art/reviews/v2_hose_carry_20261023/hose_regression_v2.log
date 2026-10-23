@@ -1,0 +1,31 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: production cabinet installer mounts = true
+FIRE HAND CHECK: 135-ring separate round hose prepares before input = true
+CAP MAPPING: mesh=v2_unracked_fire_hose_UnrackedHose valid_basis=true max_uv_excess=0.00000006705523 widest=1.00002459646573 vertices=19348 derivatives=true bad_derivatives=0 min_determinant=0.00000724698455 worst_dot=0.99999982118607
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: isolated following camera has no physical player capsule in the hose route = true
+FIRE HAND CHECK: native annular world queries and short solver initialize = true
+FIRE HAND CHECK: optional local numerical seed prepares before input = true
+FIRE HAND CHECK: stored representation has no running hose simulation = true
+UNRACKED READY: setup_ms=48.227 initial_placement_clear=true collider=none
+FIRE HAND CHECK: actual nozzle surface targets the rack extraction owner = true
+FIRE HAND CHECK: primary click grabs without removing or moving the stored hose = true
+FIRE HAND CHECK: a real distant obstruction prevents the representation swap = true
+UNRACKED EXTRACTION: deployed=true distance=0.2 error= collider=none
+FIRE HAND CHECK: actual mouse pull replaces stored stock with full-length round hose = true
+FIRE HAND CHECK: second click releases extraction = true
+FIRE HAND CHECK: unracked nozzle remains the actual carry target = true
+FIRE HAND CHECK: regrabbing the actual unracked nozzle does not snap the hose = true
+FIRE HAND CHECK: actual unracked mouse carry moves the full material without stretching or world penetration = true
+UNRACKED CARRY: moved=0.20992004871368 error= input_ms=[8.278, 7.891, 7.849, 7.516, 7.813, 7.715, 7.655, 7.73, 7.707, 7.687, 7.553, 7.751, 7.451, 7.484, 7.498, 7.629]
+FIRE HAND CHECK: carry blocker begins outside the accepted hose without stealing the held sightline = true
+UNRACKED BLOCK: direction=(1.0, 0.0, 0.0) wall=[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.189795, 1.14597, 0.525146)] delta=(0.007017, -0.010626, 0.014507) error= feedback=grabbed clear=true
+FIRE HAND CHECK: actual nozzle carry retains physical obstruction protection = true
+FIRE HAND CHECK: reticle reads blocked carry from the same accepted motion state = false
+FIRE HAND CHECK: second click cancels pending hose carry and preserves its accepted pose = true
+V2 UNRACKED HOSE: FAIL failures=1

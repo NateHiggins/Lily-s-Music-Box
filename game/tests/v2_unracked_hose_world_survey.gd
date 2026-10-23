@@ -87,7 +87,7 @@ func _exercise_pull(actor: Node3D,hose: Node3D) -> Dictionary:
 	var inputs: Array=[]
 	if picked:
 		for frame in 4:await get_tree().process_frame
-		previous_usec=Time.get_ticks_usec();profile_phase="played_unrack_input"
+		profile_phase="played_unrack_input"
 		helper.click()
 		for step in 40:
 			if not player._grab.active() or hose.deployed:break
@@ -103,30 +103,61 @@ func _exercise_pull(actor: Node3D,hose: Node3D) -> Dictionary:
 	for frame in 3:await get_tree().process_frame
 	var carry: Array=[]
 	if hose.deployed:
-		profile_phase="played_unracked_carry_acquire_excluded"
-		var carry_pick:=false
-		for point: Vector3 in [Vector3(0,.155,.014),Vector3(0,.065,.020),Vector3(0,.04,.020)]:
-			await helper.aim(actor._play_pipe.to_global(point))
-			if player._grab.find_target().get("part")==actor._play_pipe:carry_pick=true;break
-		if carry_pick:
-			for frame in 4:await get_tree().process_frame
-			previous_usec=Time.get_ticks_usec();profile_phase="played_unracked_carry"
-			helper.click()
-			for step in 8:
-				if not player._grab.active():break
-				var before: Vector3=hose.rig.strand.points[0]
-				var point: Vector3=actor._play_pipe.to_global(player._grab.contact)
-				var delta: Vector3=actor.global_basis*Vector3(-.002,.001,0)
-				var event:=InputEventMouseMotion.new();event.relative=player.camera.unproject_position(point+delta)-player.camera.unproject_position(point)
-				var start: int=Time.get_ticks_usec();player._unhandled_input(event)
-				var cpu: float=(Time.get_ticks_usec()-start)/1000.
-				var pending_frames:=0
-				while hose.tether.pending and pending_frames<12:
-					await get_tree().process_frame;pending_frames+=1
-				carry.append({"step":step,"cpu_input_ms":cpu,"pose_acceptance_ms":(Time.get_ticks_usec()-start)/1000.,"pending_frames":pending_frames,"progress_m":before.distance_to(hose.rig.strand.points[0]),"error":hose.error,"feedback":player._grab.motion_feedback})
-				await get_tree().process_frame
-			if player._grab.active():helper.click()
-			for frame in 3:await get_tree().process_frame
-		_require(carry_pick and carry.any(func(row: Dictionary):return row.progress_m>.0001),"actual unracked carry moves the original nozzle and full hose")
+		var initial: PackedVector3Array=hose.rig.strand.points.duplicate()
+		var receiver: Transform3D=actor._nozzle_joint.receiver
+		var eye: Transform3D=player.camera.global_transform
+		var cycles: Array[String]=["single"]
+		if OS.get_environment("ORISON_HOSE_LOCAL_COMPARE")=="1":cycles=["global_a","local_b","restored_a"]
+		if OS.get_environment("ORISON_HOSE_CONTACT_COMPARE")=="1":cycles=["global_a","envelope_b","restored_a"]
+		if OS.get_environment("ORISON_HOSE_COMBINED_COMPARE")=="1":cycles=["local_a","combined_b","restored_local_a"]
+		if OS.get_environment("ORISON_HOSE_AIM_CONTROL")=="1":cycles=["aim_b"]
+		hose.profile_motion=true
+		for cycle: String in cycles:
+			profile_phase=cycle+"_pose_restore_excluded"
+			hose.tether.cancel_motion();hose.set_process(false)
+			if not _require(hose.rig.apply_points(initial),"control restores the same accepted cloth pose"):break
+			hose.rig.strand.points=initial.duplicate();actor._nozzle_joint.receiver=receiver;actor._nozzle_joint.sync();hose.error=""
+			player.camera.global_transform=eye
+			if not _require(hose.set_local_follow(cycle in ["local_b","local_a","combined_b","restored_local_a","aim_b"]),"control applies the selected numerical seed"):break
+			if not _require(not hose.contact.intersects_pose(initial),"control retains all world obstructions at its initial pose"):break
+			var rows: Array=await _carry_control(actor,hose,helper,cycle)
+			carry.append_array(rows)
+			_require(rows.any(func(row: Dictionary):return row.progress_m>.0001),"actual unracked carry moves the original nozzle and full hose: "+cycle)
+			profile_phase=cycle+"_pose_capture_excluded"
+			var frames: Array=[];var binds: Array=[]
+			for frame: Transform3D in hose.rig.model_frames(hose.rig.strand.points):frames.append(_frame_row(frame))
+			for frame: Transform3D in hose.rig.original_frames:binds.append(_frame_row(frame))
+			FileAccess.open(OS.get_environment("SHOT_DIR").path_join("F02_"+cycle+"_pose.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","frames":frames,"bind_frames":binds},"\t"))
 	var result: Dictionary={"picked":picked,"deployed":hose.deployed,"events":inputs,"carry":carry,"error":hose.error,"released":not player._grab.active(),"player_position":str(player.global_position),"collision_mask":player.collision_mask}
 	helper.free();return result
+
+func _carry_control(actor: Node3D,hose: Node3D,helper: Node,cycle: String) -> Array:
+	profile_phase=cycle+"_carry_acquire_excluded"
+	var picked:=false
+	for point: Vector3 in [Vector3(0,.155,.014),Vector3(0,.065,.020),Vector3(0,.04,.020)]:
+		await helper.aim(actor._play_pipe.to_global(point))
+		if player._grab.find_target().get("part")==actor._play_pipe:picked=true;break
+	if not _require(picked,"control targets the same original nozzle: "+cycle):return []
+	for frame in 4:await get_tree().process_frame
+	profile_phase="played_unracked_carry_"+cycle
+	helper.click()
+	var rows: Array=[]
+	for step in 8:
+		if not player._grab.active():break
+		var before: Vector3=hose.rig.strand.points[0]
+		var point: Vector3=actor._play_pipe.to_global(player._grab.contact)
+		var delta: Vector3=actor.global_basis*Vector3(-.002,.001,0)
+		var event:=InputEventMouseMotion.new();event.relative=player.camera.unproject_position(point+delta)-player.camera.unproject_position(point)
+		var start: int=Time.get_ticks_usec();player._unhandled_input(event)
+		var cpu: float=(Time.get_ticks_usec()-start)/1000.
+		var pending_frames:=0
+		while hose.tether.pending and pending_frames<12:
+			await get_tree().process_frame;pending_frames+=1
+		var row: Dictionary={"cycle":cycle,"step":step,"cpu_input_ms":cpu,"pose_acceptance_ms":(Time.get_ticks_usec()-start)/1000.,"pending_frames":pending_frames,"progress_m":before.distance_to(hose.rig.strand.points[0]),"error":hose.error,"profile":hose.last_motion_profile.duplicate(true)}
+		await RenderingServer.frame_post_draw
+		row.feedback=player._grab.feedback({}).state
+		rows.append(row);await get_tree().process_frame
+	if player._grab.active():helper.click()
+	profile_phase="played_unracked_release_"+cycle
+	for frame in 3:await get_tree().process_frame
+	return rows

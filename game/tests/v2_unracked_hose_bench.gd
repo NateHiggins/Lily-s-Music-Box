@@ -22,6 +22,7 @@ func _run() -> void:
 	hose.guide_enabled=OS.get_environment("ORISON_UNRACKED_GUIDE")=="1";hose.ground_y_local=-1.2
 	var projection: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_fire_hose_rig.json"))
 	var placement: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_fire_hose_placement.json"))
+	if OS.get_environment("ORISON_UNRACKED_FLOOR")=="1":placement=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_unracked_floor_hose_placement.json"))
 	if not check(hose.configure(actor,"res://tests/fixtures/v2_unracked_fire_hose.glb",projection,placement),"135-ring separate round hose prepares before input"):
 		print("UNRACKED SETUP ERROR: ",hose.error);get_tree().quit(1);return
 	var metrics: Node=preload("res://tests/orison_v2_domestic_native_test.gd").new()
@@ -48,6 +49,9 @@ func _run() -> void:
 	for frame in 8:await get_tree().physics_frame
 	if not check(hose.prepare_contact(),"native annular world queries and short solver initialize"):
 		print("UNRACKED CONTACT ERROR: ",hose.error);get_tree().quit(1);return
+	if OS.get_environment("ORISON_UNRACKED_LOCAL")=="1":
+		check(hose.set_local_follow(true),"optional local numerical seed prepares before input")
+		hose.profile_motion=true
 	joint.hose_grip_provider=hose.grip
 	check(not hose.deployed and not hose.model.visible and not hose.is_processing() and not hose.is_physics_processing(),"stored representation has no running hose simulation")
 	var initially_clear: bool=not hose.contact.intersects_pose(hose._placement)
@@ -100,6 +104,9 @@ func _run() -> void:
 			var event:=InputEventMouseMotion.new()
 			event.relative=player.camera.unproject_position(point+displacement)-player.camera.unproject_position(point)
 			var started: int=Time.get_ticks_usec();player._unhandled_input(event)
+			# The isolated camera disables player physics. Drive the same hand
+			# publication normally called by PlayerController after mouse input.
+			player._grab.follow_holder()
 			input_ms.append((Time.get_ticks_usec()-started)/1000.)
 			for frame in 8:
 				if not hose.tether.pending:break
@@ -110,6 +117,7 @@ func _run() -> void:
 		for step in 8:
 			var wheel:=InputEventMouseButton.new();wheel.button_index=MOUSE_BUTTON_WHEEL_UP;wheel.pressed=true
 			player._unhandled_input(wheel)
+			player._grab.follow_holder()
 			for frame in 32:
 				if not hose.tether.pending:break
 				await get_tree().process_frame
@@ -123,7 +131,7 @@ func _run() -> void:
 		var direction:=Vector3.ZERO
 		for option: Vector3 in [Vector3.RIGHT,Vector3.UP,Vector3.LEFT,Vector3.DOWN]:
 			var axis: int=option.abs().max_axis_index()
-			carry_box.size=bounds.size+Vector3.ONE*.01;carry_box.size[axis]=.01
+			carry_box.size=bounds.size+Vector3.ONE*.4;carry_box.size[axis]=.01
 			var center: Vector3=bounds.get_center();center[axis]=(bounds.end[axis] if option[axis]>0. else bounds.position[axis])+option[axis]*.03
 			carry_blocker.global_position=center
 			await get_tree().physics_frame;await get_tree().physics_frame
@@ -135,14 +143,24 @@ func _run() -> void:
 		var contact_point: Vector3=actor._play_pipe.to_global(player._grab.contact)
 		var blocked_event:=InputEventMouseMotion.new()
 		blocked_event.relative=player.camera.unproject_position(contact_point+direction*.05)-player.camera.unproject_position(contact_point)
-		player._unhandled_input(blocked_event)
-		for frame in 8:
-			if not hose.tether.pending:break
-			await get_tree().process_frame
+		# FPS mouse motion turns the view; keep requesting movement until the
+		# hand actually reaches the barrier instead of assuming a pixel drag
+		# is an exact five-centimetre world-space displacement.
+		var blocked_feedback:=""
+		for attempt in 16:
+			player._unhandled_input(blocked_event)
+			player._grab.follow_holder()
+			for frame in 8:
+				if not hose.tether.pending:break
+				await get_tree().process_frame
+			await get_tree().physics_frame;await get_tree().physics_frame
+			player._grab.validate()
+			blocked_feedback=player._grab.feedback({}).state
+			if blocked_feedback=="blocked":break
 		await get_tree().physics_frame;player._grab.validate()
 		print("UNRACKED BLOCK: direction=",direction," wall=",carry_blocker.global_transform," delta=",hose.rig.strand.points[0]-stopped[0]," error=",hose.error," feedback=",player._grab.motion_feedback," clear=",not hose.contact.intersects_pose(hose.rig.strand.points))
-		check(hose.rig.strand.points[0].distance_to(stopped[0])<.026 and not hose.contact.intersects_pose(hose.rig.strand.points),"actual nozzle carry retains physical obstruction protection")
-		check(player._grab.motion_feedback=="blocked","reticle reads blocked carry from the same accepted motion state")
+		check(not hose.contact.intersects_pose(hose.rig.strand.points) and hose._nozzle_clear(joint.receiver),"actual nozzle carry retains physical obstruction protection")
+		check(blocked_feedback=="blocked","reticle reads blocked carry from the same accepted motion state")
 		carry_blocker.free();await get_tree().physics_frame
 		var before_release: PackedVector3Array=hose.rig.strand.points.duplicate()
 		if player._grab.active():click()

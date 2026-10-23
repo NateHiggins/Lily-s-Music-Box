@@ -1,0 +1,2404 @@
+{
+	"calls": [
+		{
+			"broad_queries": -123,
+			"cycle": "aim_b",
+			"fitting_usec": 458,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 229,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 475,
+			"prepare_usec": 2411,
+			"process_frame": 163,
+			"responses": 2,
+			"shell_queries": -128,
+			"tether": {
+				"commit_self": 296,
+				"commit_world": 1668,
+				"seed": 232,
+				"self_constraints": 288,
+				"skin_apply": 44,
+				"world_constraints": 1841
+			},
+			"total_usec": 5012
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 467,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 199,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 481,
+			"prepare_usec": 4243,
+			"process_frame": 164,
+			"responses": 3,
+			"shell_queries": 0,
+			"tether": {
+				"commit_self": 289,
+				"commit_world": 1674,
+				"seed": 201,
+				"self_constraints": 307,
+				"skin_apply": 41,
+				"solver": 59,
+				"world_constraints": 3584
+			},
+			"total_usec": 6838
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 460,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 217,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 488,
+			"prepare_usec": 4297,
+			"process_frame": 165,
+			"responses": 3,
+			"shell_queries": 0,
+			"tether": {
+				"commit_self": 287,
+				"commit_world": 1681,
+				"seed": 219,
+				"self_constraints": 287,
+				"skin_apply": 41,
+				"solver": 39,
+				"world_constraints": 3659
+			},
+			"total_usec": 6888
+		},
+		{
+			"broad_queries": -1,
+			"cycle": "aim_b",
+			"fitting_usec": 1786,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 229,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 495,
+			"prepare_usec": 4110,
+			"process_frame": 166,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 232,
+				"self_constraints": 314,
+				"solver": 45,
+				"world_constraints": 3431
+			},
+			"total_usec": 5910
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 2091,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 243,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 502,
+			"prepare_usec": 4578,
+			"process_frame": 167,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 247,
+				"self_constraints": 292,
+				"solver": 49,
+				"world_constraints": 3894
+			},
+			"total_usec": 6685
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 2368,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 308,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 510,
+			"prepare_usec": 6012,
+			"process_frame": 168,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 312,
+				"self_constraints": 368,
+				"solver": 67,
+				"world_constraints": 5136
+			},
+			"total_usec": 8401
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 2157,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 274,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 518,
+			"prepare_usec": 5193,
+			"process_frame": 169,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 276,
+				"self_constraints": 324,
+				"solver": 58,
+				"world_constraints": 4418
+			},
+			"total_usec": 7368
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1766,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 225,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 526,
+			"prepare_usec": 4215,
+			"process_frame": 170,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 227,
+				"self_constraints": 286,
+				"solver": 56,
+				"world_constraints": 3548
+			},
+			"total_usec": 5996
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1775,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 234,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 534,
+			"prepare_usec": 4176,
+			"process_frame": 171,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 238,
+				"self_constraints": 290,
+				"solver": 46,
+				"world_constraints": 3512
+			},
+			"total_usec": 5967
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1743,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 222,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 542,
+			"prepare_usec": 4134,
+			"process_frame": 172,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 225,
+				"self_constraints": 287,
+				"solver": 47,
+				"world_constraints": 3485
+			},
+			"total_usec": 5891
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1751,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 220,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 550,
+			"prepare_usec": 4173,
+			"process_frame": 173,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 223,
+				"self_constraints": 298,
+				"solver": 49,
+				"world_constraints": 3514
+			},
+			"total_usec": 5937
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1756,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 229,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 558,
+			"prepare_usec": 4149,
+			"process_frame": 174,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 231,
+				"self_constraints": 286,
+				"solver": 46,
+				"world_constraints": 3492
+			},
+			"total_usec": 5920
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1759,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 220,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 566,
+			"prepare_usec": 4159,
+			"process_frame": 175,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 224,
+				"self_constraints": 287,
+				"solver": 56,
+				"world_constraints": 3493
+			},
+			"total_usec": 5933
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1741,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 222,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 574,
+			"prepare_usec": 4180,
+			"process_frame": 176,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 226,
+				"self_constraints": 309,
+				"solver": 47,
+				"world_constraints": 3508
+			},
+			"total_usec": 5935
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1746,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 223,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 582,
+			"prepare_usec": 4157,
+			"process_frame": 177,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 226,
+				"self_constraints": 313,
+				"solver": 48,
+				"world_constraints": 3479
+			},
+			"total_usec": 5918
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1739,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 234,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 590,
+			"prepare_usec": 4161,
+			"process_frame": 178,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 238,
+				"self_constraints": 287,
+				"solver": 48,
+				"world_constraints": 3494
+			},
+			"total_usec": 5915
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1752,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 226,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 598,
+			"prepare_usec": 4185,
+			"process_frame": 179,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 228,
+				"self_constraints": 332,
+				"solver": 48,
+				"world_constraints": 3482
+			},
+			"total_usec": 5952
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1698,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 215,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 606,
+			"prepare_usec": 4156,
+			"process_frame": 180,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 218,
+				"self_constraints": 289,
+				"solver": 47,
+				"world_constraints": 3479
+			},
+			"total_usec": 5866
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1691,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 214,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 614,
+			"prepare_usec": 4134,
+			"process_frame": 181,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 217,
+				"self_constraints": 302,
+				"solver": 46,
+				"world_constraints": 3476
+			},
+			"total_usec": 5839
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1775,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 217,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 622,
+			"prepare_usec": 4172,
+			"process_frame": 182,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 219,
+				"self_constraints": 286,
+				"solver": 49,
+				"world_constraints": 3529
+			},
+			"total_usec": 5963
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1704,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 222,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 630,
+			"prepare_usec": 4182,
+			"process_frame": 183,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 225,
+				"self_constraints": 287,
+				"solver": 56,
+				"world_constraints": 3520
+			},
+			"total_usec": 5901
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1703,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 229,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 638,
+			"prepare_usec": 4122,
+			"process_frame": 184,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 231,
+				"self_constraints": 287,
+				"solver": 50,
+				"world_constraints": 3459
+			},
+			"total_usec": 5839
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1709,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 222,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 646,
+			"prepare_usec": 4103,
+			"process_frame": 185,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 224,
+				"self_constraints": 287,
+				"solver": 42,
+				"world_constraints": 3459
+			},
+			"total_usec": 5827
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1715,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 215,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 654,
+			"prepare_usec": 4172,
+			"process_frame": 186,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 218,
+				"self_constraints": 287,
+				"solver": 48,
+				"world_constraints": 3524
+			},
+			"total_usec": 5901
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1681,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 215,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 662,
+			"prepare_usec": 4088,
+			"process_frame": 187,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 218,
+				"self_constraints": 287,
+				"solver": 41,
+				"world_constraints": 3454
+			},
+			"total_usec": 5783
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1699,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 214,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 670,
+			"prepare_usec": 4153,
+			"process_frame": 188,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 217,
+				"self_constraints": 294,
+				"solver": 47,
+				"world_constraints": 3497
+			},
+			"total_usec": 5866
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1676,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 230,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 678,
+			"prepare_usec": 4191,
+			"process_frame": 189,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 233,
+				"self_constraints": 287,
+				"solver": 47,
+				"world_constraints": 3521
+			},
+			"total_usec": 5882
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1688,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 211,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 686,
+			"prepare_usec": 4145,
+			"process_frame": 190,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 214,
+				"self_constraints": 287,
+				"solver": 43,
+				"world_constraints": 3511
+			},
+			"total_usec": 5846
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1670,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 220,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 694,
+			"prepare_usec": 4202,
+			"process_frame": 191,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 222,
+				"self_constraints": 301,
+				"solver": 43,
+				"world_constraints": 3543
+			},
+			"total_usec": 5887
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1714,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 211,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 702,
+			"prepare_usec": 4158,
+			"process_frame": 192,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 215,
+				"self_constraints": 286,
+				"solver": 45,
+				"world_constraints": 3514
+			},
+			"total_usec": 5885
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1703,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 213,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 710,
+			"prepare_usec": 4135,
+			"process_frame": 193,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 215,
+				"self_constraints": 287,
+				"solver": 42,
+				"world_constraints": 3500
+			},
+			"total_usec": 5853
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1722,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 229,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 718,
+			"prepare_usec": 4185,
+			"process_frame": 194,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 232,
+				"self_constraints": 294,
+				"solver": 55,
+				"world_constraints": 3506
+			},
+			"total_usec": 5921
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1725,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 207,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 726,
+			"prepare_usec": 4094,
+			"process_frame": 195,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 211,
+				"self_constraints": 287,
+				"solver": 41,
+				"world_constraints": 3467
+			},
+			"total_usec": 5834
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1715,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 225,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 734,
+			"prepare_usec": 4149,
+			"process_frame": 196,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 227,
+				"self_constraints": 303,
+				"solver": 48,
+				"world_constraints": 3478
+			},
+			"total_usec": 5879
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1797,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 224,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 742,
+			"prepare_usec": 4174,
+			"process_frame": 197,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 227,
+				"self_constraints": 295,
+				"solver": 49,
+				"world_constraints": 3509
+			},
+			"total_usec": 5987
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1682,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 210,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 750,
+			"prepare_usec": 4083,
+			"process_frame": 198,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 212,
+				"self_constraints": 286,
+				"solver": 48,
+				"world_constraints": 3448
+			},
+			"total_usec": 5779
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1680,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 208,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 758,
+			"prepare_usec": 4086,
+			"process_frame": 199,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 211,
+				"self_constraints": 287,
+				"solver": 48,
+				"world_constraints": 3445
+			},
+			"total_usec": 5780
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1689,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 215,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 766,
+			"prepare_usec": 4144,
+			"process_frame": 200,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 218,
+				"self_constraints": 286,
+				"solver": 54,
+				"world_constraints": 3486
+			},
+			"total_usec": 5848
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1689,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 212,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 774,
+			"prepare_usec": 4174,
+			"process_frame": 201,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 215,
+				"self_constraints": 288,
+				"solver": 49,
+				"world_constraints": 3532
+			},
+			"total_usec": 5877
+		},
+		{
+			"broad_queries": 0,
+			"cycle": "aim_b",
+			"fitting_usec": 1736,
+			"local_enabled": true,
+			"local_join": 28,
+			"local_usec": 219,
+			"native_iterations": 1,
+			"native_qp_iterations": 0,
+			"physics_frame": 782,
+			"prepare_usec": 4122,
+			"process_frame": 202,
+			"responses": 2,
+			"shell_queries": 0,
+			"tether": {
+				"seed": 221,
+				"self_constraints": 293,
+				"solver": 50,
+				"world_constraints": 3467
+			},
+			"total_usec": 5872
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"samples": [
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "",
+			"feedback": "grabbed",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 474,
+			"process_frame": 162,
+			"profile": {},
+			"progress_m": 0.0,
+			"step": 0,
+			"tip": [
+				14.8629999160767,
+				0.218000024557114,
+				0.214000016450882
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "",
+			"feedback": "grabbed",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 480,
+			"process_frame": 163,
+			"profile": {
+				"broad_queries": -123,
+				"fitting_usec": 458,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 229,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 475,
+				"prepare_usec": 2411,
+				"process_frame": 163,
+				"responses": 2,
+				"shell_queries": -128,
+				"tether": {
+					"commit_self": 296,
+					"commit_world": 1668,
+					"seed": 232,
+					"self_constraints": 288,
+					"skin_apply": 44,
+					"world_constraints": 1841
+				},
+				"total_usec": 5012
+			},
+			"progress_m": 0.0600000470876694,
+			"step": 1,
+			"tip": [
+				14.840669631958,
+				0.16541662812233,
+				0.23233987390995
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "",
+			"feedback": "grabbed",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 487,
+			"process_frame": 164,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 467,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 199,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 481,
+				"prepare_usec": 4243,
+				"process_frame": 164,
+				"responses": 3,
+				"shell_queries": 0,
+				"tether": {
+					"commit_self": 289,
+					"commit_world": 1674,
+					"seed": 201,
+					"self_constraints": 307,
+					"skin_apply": 41,
+					"solver": 59,
+					"world_constraints": 3584
+				},
+				"total_usec": 6838
+			},
+			"progress_m": 0.0600000470876694,
+			"step": 2,
+			"tip": [
+				14.8183393478394,
+				0.112833231687546,
+				0.250679731369019
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "",
+			"feedback": "grabbed",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 494,
+			"process_frame": 165,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 460,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 217,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 488,
+				"prepare_usec": 4297,
+				"process_frame": 165,
+				"responses": 3,
+				"shell_queries": 0,
+				"tether": {
+					"commit_self": 287,
+					"commit_world": 1681,
+					"seed": 219,
+					"self_constraints": 287,
+					"skin_apply": 41,
+					"solver": 39,
+					"world_constraints": 3659
+				},
+				"total_usec": 6888
+			},
+			"progress_m": 0.0600000582635403,
+			"step": 3,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 501,
+			"process_frame": 166,
+			"profile": {
+				"broad_queries": -1,
+				"fitting_usec": 1786,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 229,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 495,
+				"prepare_usec": 4110,
+				"process_frame": 166,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 232,
+					"self_constraints": 314,
+					"solver": 45,
+					"world_constraints": 3431
+				},
+				"total_usec": 5910
+			},
+			"progress_m": 0.0,
+			"step": 4,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 509,
+			"process_frame": 167,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 2091,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 243,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 502,
+				"prepare_usec": 4578,
+				"process_frame": 167,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 247,
+					"self_constraints": 292,
+					"solver": 49,
+					"world_constraints": 3894
+				},
+				"total_usec": 6685
+			},
+			"progress_m": 0.0,
+			"step": 5,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 517,
+			"process_frame": 168,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 2368,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 308,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 510,
+				"prepare_usec": 6012,
+				"process_frame": 168,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 312,
+					"self_constraints": 368,
+					"solver": 67,
+					"world_constraints": 5136
+				},
+				"total_usec": 8401
+			},
+			"progress_m": 0.0,
+			"step": 6,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 525,
+			"process_frame": 169,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 2157,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 274,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 518,
+				"prepare_usec": 5193,
+				"process_frame": 169,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 276,
+					"self_constraints": 324,
+					"solver": 58,
+					"world_constraints": 4418
+				},
+				"total_usec": 7368
+			},
+			"progress_m": 0.0,
+			"step": 7,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 533,
+			"process_frame": 170,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1766,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 225,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 526,
+				"prepare_usec": 4215,
+				"process_frame": 170,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 227,
+					"self_constraints": 286,
+					"solver": 56,
+					"world_constraints": 3548
+				},
+				"total_usec": 5996
+			},
+			"progress_m": 0.0,
+			"step": 8,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 541,
+			"process_frame": 171,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1775,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 234,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 534,
+				"prepare_usec": 4176,
+				"process_frame": 171,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 238,
+					"self_constraints": 290,
+					"solver": 46,
+					"world_constraints": 3512
+				},
+				"total_usec": 5967
+			},
+			"progress_m": 0.0,
+			"step": 9,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 549,
+			"process_frame": 172,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1743,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 222,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 542,
+				"prepare_usec": 4134,
+				"process_frame": 172,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 225,
+					"self_constraints": 287,
+					"solver": 47,
+					"world_constraints": 3485
+				},
+				"total_usec": 5891
+			},
+			"progress_m": 0.0,
+			"step": 10,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 557,
+			"process_frame": 173,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1751,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 220,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 550,
+				"prepare_usec": 4173,
+				"process_frame": 173,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 223,
+					"self_constraints": 298,
+					"solver": 49,
+					"world_constraints": 3514
+				},
+				"total_usec": 5937
+			},
+			"progress_m": 0.0,
+			"step": 11,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 565,
+			"process_frame": 174,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1756,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 229,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 558,
+				"prepare_usec": 4149,
+				"process_frame": 174,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 231,
+					"self_constraints": 286,
+					"solver": 46,
+					"world_constraints": 3492
+				},
+				"total_usec": 5920
+			},
+			"progress_m": 0.0,
+			"step": 12,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 573,
+			"process_frame": 175,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1759,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 220,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 566,
+				"prepare_usec": 4159,
+				"process_frame": 175,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 224,
+					"self_constraints": 287,
+					"solver": 56,
+					"world_constraints": 3493
+				},
+				"total_usec": 5933
+			},
+			"progress_m": 0.0,
+			"step": 13,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 581,
+			"process_frame": 176,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1741,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 222,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 574,
+				"prepare_usec": 4180,
+				"process_frame": 176,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 226,
+					"self_constraints": 309,
+					"solver": 47,
+					"world_constraints": 3508
+				},
+				"total_usec": 5935
+			},
+			"progress_m": 0.0,
+			"step": 14,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732786822108,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 589,
+			"process_frame": 177,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1746,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 223,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 582,
+				"prepare_usec": 4157,
+				"process_frame": 177,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 226,
+					"self_constraints": 313,
+					"solver": 48,
+					"world_constraints": 3479
+				},
+				"total_usec": 5918
+			},
+			"progress_m": 0.0,
+			"step": 15,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.5202783004881,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 597,
+			"process_frame": 178,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1739,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 234,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 590,
+				"prepare_usec": 4161,
+				"process_frame": 178,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 238,
+					"self_constraints": 287,
+					"solver": 48,
+					"world_constraints": 3494
+				},
+				"total_usec": 5915
+			},
+			"progress_m": 0.0,
+			"step": 16,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.2672956686718,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 605,
+			"process_frame": 179,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1752,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 226,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 598,
+				"prepare_usec": 4185,
+				"process_frame": 179,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 228,
+					"self_constraints": 332,
+					"solver": 48,
+					"world_constraints": 3482
+				},
+				"total_usec": 5952
+			},
+			"progress_m": 0.0,
+			"step": 17,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.0143293565517,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 613,
+			"process_frame": 180,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1698,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 215,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 606,
+				"prepare_usec": 4156,
+				"process_frame": 180,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 218,
+					"self_constraints": 289,
+					"solver": 47,
+					"world_constraints": 3479
+				},
+				"total_usec": 5866
+			},
+			"progress_m": 0.0,
+			"step": 18,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 79.7613822731741,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 621,
+			"process_frame": 181,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1691,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 214,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 614,
+				"prepare_usec": 4134,
+				"process_frame": 181,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 217,
+					"self_constraints": 302,
+					"solver": 46,
+					"world_constraints": 3476
+				},
+				"total_usec": 5839
+			},
+			"progress_m": 0.0,
+			"step": 19,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 79.5084477915433,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 629,
+			"process_frame": 182,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1775,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 217,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 622,
+				"prepare_usec": 4172,
+				"process_frame": 182,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 219,
+					"self_constraints": 286,
+					"solver": 49,
+					"world_constraints": 3529
+				},
+				"total_usec": 5963
+			},
+			"progress_m": 0.0,
+			"step": 20,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 79.2555340420532,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 637,
+			"process_frame": 183,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1704,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 222,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 630,
+				"prepare_usec": 4182,
+				"process_frame": 183,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 225,
+					"self_constraints": 287,
+					"solver": 56,
+					"world_constraints": 3520
+				},
+				"total_usec": 5901
+			},
+			"progress_m": 0.0,
+			"step": 21,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 79.0026378814929,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 645,
+			"process_frame": 184,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1703,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 229,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 638,
+				"prepare_usec": 4122,
+				"process_frame": 184,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 231,
+					"self_constraints": 287,
+					"solver": 50,
+					"world_constraints": 3459
+				},
+				"total_usec": 5839
+			},
+			"progress_m": 0.0,
+			"step": 22,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 78.7497605147977,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 653,
+			"process_frame": 185,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1709,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 222,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 646,
+				"prepare_usec": 4103,
+				"process_frame": 185,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 224,
+					"self_constraints": 287,
+					"solver": 42,
+					"world_constraints": 3459
+				},
+				"total_usec": 5827
+			},
+			"progress_m": 0.0,
+			"step": 23,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 78.4969005436516,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 661,
+			"process_frame": 186,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1715,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 215,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 654,
+				"prepare_usec": 4172,
+				"process_frame": 186,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 218,
+					"self_constraints": 287,
+					"solver": 48,
+					"world_constraints": 3524
+				},
+				"total_usec": 5901
+			},
+			"progress_m": 0.0,
+			"step": 24,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 78.2440626756454,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 669,
+			"process_frame": 187,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1681,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 215,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 662,
+				"prepare_usec": 4088,
+				"process_frame": 187,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 218,
+					"self_constraints": 287,
+					"solver": 41,
+					"world_constraints": 3454
+				},
+				"total_usec": 5783
+			},
+			"progress_m": 0.0,
+			"step": 25,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 77.9912437864424,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 677,
+			"process_frame": 188,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1699,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 214,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 670,
+				"prepare_usec": 4153,
+				"process_frame": 188,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 217,
+					"self_constraints": 294,
+					"solver": 47,
+					"world_constraints": 3497
+				},
+				"total_usec": 5866
+			},
+			"progress_m": 0.0,
+			"step": 26,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 77.738443368068,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 685,
+			"process_frame": 189,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1676,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 230,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 678,
+				"prepare_usec": 4191,
+				"process_frame": 189,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 233,
+					"self_constraints": 287,
+					"solver": 47,
+					"world_constraints": 3521
+				},
+				"total_usec": 5882
+			},
+			"progress_m": 0.0,
+			"step": 27,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 77.9912437864424,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 693,
+			"process_frame": 190,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1688,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 211,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 686,
+				"prepare_usec": 4145,
+				"process_frame": 190,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 214,
+					"self_constraints": 287,
+					"solver": 43,
+					"world_constraints": 3511
+				},
+				"total_usec": 5846
+			},
+			"progress_m": 0.0,
+			"step": 28,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 78.2440626756454,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 701,
+			"process_frame": 191,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1670,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 220,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 694,
+				"prepare_usec": 4202,
+				"process_frame": 191,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 222,
+					"self_constraints": 301,
+					"solver": 43,
+					"world_constraints": 3543
+				},
+				"total_usec": 5887
+			},
+			"progress_m": 0.0,
+			"step": 29,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 78.4969005436516,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 709,
+			"process_frame": 192,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1714,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 211,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 702,
+				"prepare_usec": 4158,
+				"process_frame": 192,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 215,
+					"self_constraints": 286,
+					"solver": 45,
+					"world_constraints": 3514
+				},
+				"total_usec": 5885
+			},
+			"progress_m": 0.0,
+			"step": 30,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 78.7497613852984,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 717,
+			"process_frame": 193,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1703,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 213,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 710,
+				"prepare_usec": 4135,
+				"process_frame": 193,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 215,
+					"self_constraints": 287,
+					"solver": 42,
+					"world_constraints": 3500
+				},
+				"total_usec": 5853
+			},
+			"progress_m": 0.0,
+			"step": 31,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 79.0026370117472,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 725,
+			"process_frame": 194,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1722,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 229,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 718,
+				"prepare_usec": 4185,
+				"process_frame": 194,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 232,
+					"self_constraints": 294,
+					"solver": 55,
+					"world_constraints": 3506
+				},
+				"total_usec": 5921
+			},
+			"progress_m": 0.0,
+			"step": 32,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 79.255534911062,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 733,
+			"process_frame": 195,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1725,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 207,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 726,
+				"prepare_usec": 4094,
+				"process_frame": 195,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 211,
+					"self_constraints": 287,
+					"solver": 41,
+					"world_constraints": 3467
+				},
+				"total_usec": 5834
+			},
+			"progress_m": 0.0,
+			"step": 33,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 79.5084486598333,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 741,
+			"process_frame": 196,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1715,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 225,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 734,
+				"prepare_usec": 4149,
+				"process_frame": 196,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 227,
+					"self_constraints": 303,
+					"solver": 48,
+					"world_constraints": 3478
+				},
+				"total_usec": 5879
+			},
+			"progress_m": 0.0,
+			"step": 34,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 79.7613840083523,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 749,
+			"process_frame": 197,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1797,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 224,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 742,
+				"prepare_usec": 4174,
+				"process_frame": 197,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 227,
+					"self_constraints": 295,
+					"solver": 49,
+					"world_constraints": 3509
+				},
+				"total_usec": 5987
+			},
+			"progress_m": 0.0,
+			"step": 35,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.0143310903642,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 757,
+			"process_frame": 198,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1682,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 210,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 750,
+				"prepare_usec": 4083,
+				"process_frame": 198,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 212,
+					"self_constraints": 286,
+					"solver": 48,
+					"world_constraints": 3448
+				},
+				"total_usec": 5779
+			},
+			"progress_m": 0.0,
+			"step": 36,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.2672982673958,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 765,
+			"process_frame": 199,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1680,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 208,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 758,
+				"prepare_usec": 4086,
+				"process_frame": 199,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 211,
+					"self_constraints": 287,
+					"solver": 48,
+					"world_constraints": 3445
+				},
+				"total_usec": 5780
+			},
+			"progress_m": 0.0,
+			"step": 37,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.5202808972708,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 773,
+			"process_frame": 200,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1689,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 215,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 766,
+				"prepare_usec": 4144,
+				"process_frame": 200,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 218,
+					"self_constraints": 286,
+					"solver": 54,
+					"world_constraints": 3486
+				},
+				"total_usec": 5848
+			},
+			"progress_m": 0.0,
+			"step": 38,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		},
+		{
+			"aim_error_degrees": 80.7732795471757,
+			"cycle": "aim_b",
+			"error": "nozzle obstructed",
+			"feedback": "blocked",
+			"fitting_blocker": "",
+			"held": true,
+			"physics_frame": 781,
+			"process_frame": 201,
+			"profile": {
+				"broad_queries": 0,
+				"fitting_usec": 1689,
+				"local_enabled": true,
+				"local_join": 28,
+				"local_usec": 212,
+				"native_iterations": 1,
+				"native_qp_iterations": 0,
+				"physics_frame": 774,
+				"prepare_usec": 4174,
+				"process_frame": 201,
+				"responses": 2,
+				"shell_queries": 0,
+				"tether": {
+					"seed": 215,
+					"self_constraints": 288,
+					"solver": 49,
+					"world_constraints": 3532
+				},
+				"total_usec": 5877
+			},
+			"progress_m": 0.0,
+			"step": 39,
+			"tip": [
+				14.7960090637207,
+				0.0602498240768909,
+				0.269019603729248
+			]
+		}
+	]
+}

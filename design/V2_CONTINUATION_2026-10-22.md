@@ -12,6 +12,17 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newer hose hand work: **V2_HOSE_FPS_HAND_2026-10-23.md**. Combined local seed /
+envelope drops median follow call to 4.316 ms in the diagnostic; imperfect replay
+starting state is disclosed. Explicit sibling physics-body binding now gives
+the nozzle shared carrier/door ownership. Exact isolated replay identified
+the open cabinet cover as the withdrawal blocker. Temporary cover passage
+exceptions remove that jam in **aim_v6**, but contact solving then stops with
+**wide nonlinear projection ceiling**, about 46-degree median aim error. No hose
+installation or usable-aim claim. Next extend local response to contact planes,
+exercise an actual walked withdrawal/turn, then finish release/water/save.
+Shared book/bottle/door regressions pass 89/72/34 with empty stderr.
+
 Latest hose diagnostic: **V2_HOSE_CONTACT_ENVELOPE_2026-10-23.md**. The complete
 dense native contact controls passed with a new opt-in negative envelope. In
 the frozen actual-windowed F02 original/envelope/restored-original comparison,

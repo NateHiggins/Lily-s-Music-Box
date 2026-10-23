@@ -98,8 +98,10 @@ func acquire(candidate: Dictionary) -> bool:
 
 func _bind_carrier_collision() -> void:
 	if not holding_pickup() or player is not PhysicsBody3D: return
-	var body: Node=target.part
-	while body!=null and body is not PhysicsBody3D: body=body.get_parent()
+	var body: Node=target.get("physics_body")
+	if not is_instance_valid(body) or not body is PhysicsBody3D:
+		body=target.part
+		while body!=null and body is not PhysicsBody3D: body=body.get_parent()
 	if body==null or body==player: return
 	_held_body=body as PhysicsBody3D
 	var holder:=player as PhysicsBody3D
