@@ -67,6 +67,8 @@ func _ready() -> void:
 		add_to_group("apartment_doors")
 	_build_leaf()
 	_build_audio()
+	if door_kind == "apartment_entry" and unit != "" and unit != DoorKeyring.player_unit():
+		_build_knock()
 	if leaf_state == "open":
 		open = true
 		_body.rotation.y = motion_target_angle(true)
@@ -328,6 +330,49 @@ func interact_key(_player: Node) -> Dictionary:
 	_turn_key(_player)
 	DoorKeyring.remember_lock(self, locked)
 	return {"title":"DOOR KEY", "body":"Door locked." if locked else "Door unlocked.", "stamp":"KEY RING"}
+
+
+## A place to knock: the upper panel of a neighbour's entry leaf, well clear
+## of the knob and the edge the hand grabs. The door owns no conversation; it
+## asks the building's ResidentConversations who, if anyone, answers.
+func _build_knock() -> void:
+	var knock := PropControlArea.new()
+	knock.name = "KnockPanel"
+	knock.configure("knock")
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(0.18, 0.18, 0.09)
+	shape.shape = box
+	knock.add_child(shape)
+	knock.position = Vector3(width * 0.5, minf(height - 0.55, 1.48), 0.0)
+	_body.add_child(knock)
+
+
+func control_prompt(control_id: String) -> String:
+	if control_id != "knock" or open or _moving:
+		return ""
+	if get_tree().get_first_node_in_group("resident_conversations") == null:
+		return ""
+	return "Knock"
+
+
+func interact_control(control_id: String, player: Node) -> Variant:
+	if control_id != "knock" or open or _moving:
+		return {}
+	var conversations := get_tree().get_first_node_in_group("resident_conversations")
+	if conversations == null:
+		return {}
+	_play_knock()
+	return conversations.call("knock", unit, player)
+
+
+## The knock's cue id, read here by name: "door_knock" in audio_cues.json.
+const KNOCK_CUE := "door_knock"
+
+
+func _play_knock() -> void:
+	AudioPolicy.present_3d(StringName("interaction." + KNOCK_CUE),
+			global_position + Vector3(0, 1.4, 0), 1.0, StringName(name))
 
 
 func interact(_player: Node) -> void:

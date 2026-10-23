@@ -172,7 +172,7 @@
       "bus": "Interaction",
       "priority": 54,
       "volume_db": -14.0,
-      "pitch_scale": 0.90,
+      "pitch_scale": 0.9,
       "unit_size": 2.5,
       "max_distance": 12.0,
       "cooldown": 0.04,
@@ -252,7 +252,7 @@
       "bus": "State",
       "priority": 50,
       "volume_db": -17.0,
-      "pitch_scale": 1.10,
+      "pitch_scale": 1.1,
       "unit_size": 1.1,
       "max_distance": 7.0,
       "cooldown": 0.05,
@@ -423,6 +423,20 @@
       "cooldown": 0.0,
       "max_instances": 2,
       "caption": "live electrical buzz",
+      "graph_transmitted": false
+    },
+    "interaction.door_knock": {
+      "stream_key": "knock",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 56,
+      "volume_db": -15.0,
+      "pitch_scale": 1.08,
+      "unit_size": 1.6,
+      "max_distance": 9.0,
+      "cooldown": 0.25,
+      "max_instances": 2,
+      "caption": "knuckles on a door panel",
       "graph_transmitted": false
     }
   }
