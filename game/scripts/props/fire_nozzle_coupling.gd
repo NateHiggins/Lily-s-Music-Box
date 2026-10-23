@@ -511,8 +511,9 @@ func snapshot() -> Dictionary:
 	for axis: Vector3 in [body.basis.x,body.basis.y,body.basis.z]:axes.append([axis.x,axis.y,axis.z])
 	return {"angle":angle,"spin":spin,"clocking":clocking,"loose":loose,"position":[body.position.x,body.position.y,body.position.z],"basis":axes}
 
-func _saved_basis(value: Dictionary) -> Basis:
-	if not value.has("basis"):return receiver.basis*Basis(Vector3.UP,float(value.clocking))
+func _saved_basis(value: Dictionary,saved_receiver: Variant=null) -> Basis:
+	var reference: Transform3D=receiver if saved_receiver==null else saved_receiver
+	if not value.has("basis"):return reference.basis*Basis(Vector3.UP,float(value.clocking))
 	if value.basis is not Array or value.basis.size()!=3:return Basis(Vector3.ZERO,Vector3.ZERO,Vector3.ZERO)
 	var axes: Array[Vector3]=[]
 	for row: Variant in value.basis:
@@ -521,16 +522,19 @@ func _saved_basis(value: Dictionary) -> Basis:
 			if typeof(number) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(number)):return Basis(Vector3.ZERO,Vector3.ZERO,Vector3.ZERO)
 		axes.append(Vector3(row[0],row[1],row[2]))
 	return Basis(axes[0],axes[1],axes[2])
-func valid(value: Variant,made_up: bool) -> bool:
+func valid(value: Variant,made_up: bool,saved_receiver: Variant=null) -> bool:
+	if saved_receiver!=null and typeof(saved_receiver)!=TYPE_TRANSFORM3D:return false
+	var reference: Transform3D=receiver if saved_receiver==null else saved_receiver
+	if not reference.is_finite() or absf(reference.basis.determinant()-1.)>.00001 or not reference.basis.transposed().is_equal_approx(reference.basis.inverse()):return false
 	if value is not Dictionary or value.size() not in [5,6] or typeof(value.get("loose"))!=TYPE_BOOL:return false
 	for key: String in value:
 		if key not in ["angle","spin","clocking","loose","position","basis"]:return false
 	for key: String in ["spin","clocking"]:
 		if typeof(value.get(key)) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(value[key])):return false
 	if value.clocking<0. or value.clocking>=TAU or value.spin<0. or value.spin>=TAU:return false
-	var orientation: Basis=_saved_basis(value)
+	var orientation: Basis=_saved_basis(value,saved_receiver)
 	if not orientation.is_finite() or absf(orientation.determinant()-1.)>.00001 or not orientation.transposed().is_equal_approx(orientation.inverse()):return false
-	if not value.loose and not orientation.is_equal_approx(receiver.basis*Basis(Vector3.UP,float(value.clocking))):return false
+	if not value.loose and not orientation.is_equal_approx(reference.basis*Basis(Vector3.UP,float(value.clocking))):return false
 	if typeof(value.get("angle")) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(value.angle)) or value.angle<0. or value.angle>stock.maximum_angle():return false
 	if value.get("position") is not Array or value.position.size()!=3:return false
 	for coordinate: Variant in value.position:
@@ -538,7 +542,8 @@ func valid(value: Variant,made_up: bool) -> bool:
 	var at:=Vector3(value.position[0],value.position[1],value.position[2])
 	if at.length()>10000.:return false
 	if value.loose and absf(float(value.angle)-stock.maximum_angle())>.000001:return false
-	if not value.loose and (at.distance_to(thread_pose(float(value.angle),float(value.clocking)).origin)>.000001 or absf(float(value.spin)-float(value.clocking))>.000001):return false
+	var saved_pose:=reference*Transform3D(Basis(Vector3.UP,float(value.clocking)),Vector3(0,stock.body_y(float(value.angle)),0))
+	if not value.loose and (at.distance_to(saved_pose.origin)>.000001 or absf(float(value.spin)-float(value.clocking))>.000001):return false
 	return made_up==(not value.loose and absf(float(value.angle))<.0001)
 func restore(value: Dictionary) -> void:
 	angle=value.angle;spin=value.spin;clocking=value.clocking;loose=value.loose;_observed=actor.nozzle_coupled;_support=null;_speed=0.;_restore_support=true

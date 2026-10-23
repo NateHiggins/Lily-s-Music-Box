@@ -504,3 +504,27 @@ references (up from21 older scoped snapshot) remain explicit. Shared spatial
 manifest is preserved. Surface qualification is stale;17 protected paths unchanged.
 Historical board comparisons are scoped/dirty, not clean merge-base certification.
 Continue autonomously under the full goal; do not claim V2 complete.
+
+## 2026-10-23 hose household payload checkpoint
+
+See **design/V2_HOSE_HOUSEHOLD_SAVE_2026-10-23.md**. Candidate deployment,
+receiving pose, wheel and charge now use the existing cabinet snapshot owner.
+Saved coupled nozzle validation accepts the saved receiver without moving the
+live fitting. Legacy eight-field cabinet and five/six-field nozzle records remain
+readable. Invalid complete payloads cannot partially restore owners. Final
+fill/drain publishes the existing household signal once, then stops CPU ticks.
+
+**art/reviews/v2_hose_save_20261023/** retains all original logs, including four
+ineffective negative-fixture assertions in save_v1. Final save_v3 passes36 checks.
+Actual windowed water regression passes; actual nozzle/fold/rack/hand chain
+passes369 checks, four PASS lines, empty stderr. Byte-bound packet and normalized
+final-source manifest retained. These are candidate diagnostics / suite_run,
+not runtime_contract. Reader keeps the same33 unrelated street/tent NEW fields;
+full board not repeated. Protected17 unchanged; shared spatial WIP preserved.
+
+Next: lightweight production setup, unchanged native asset publication and
+ordinary-world extraction/targeting, household reconstruction, release/full
+payout/remote inspection, gasket handoff/dressing and first/steady spray cost.
+Stored stock must have no simulation; visual following may cheat within full
+length bounds as authorized. No full-world installation claim yet. Preserve
+existing mechanical and save authorities. Continue the active goal.

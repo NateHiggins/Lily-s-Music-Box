@@ -17,6 +17,7 @@ var _extracted_receiver:=Transform3D.IDENTITY
 var _placement:=PackedVector3Array()
 var _stored: Array[Node3D]=[]
 var _stock_layers: Dictionary={}
+var _stock_processing: Dictionary={}
 var _receiver_from_tip:=Transform3D.IDENTITY
 var _bend_radii:=PackedFloat64Array()
 var _physical_bend_spans:=PackedFloat64Array()
@@ -58,6 +59,70 @@ var visual_follow_enabled:=false
 var visual_route:=preload("res://scripts/props/hose_visual_route.gd").new()
 var water:=preload("res://scripts/props/hose_water_charge.gd").new()
 var _spray: GPUParticles3D
+var _charge_dirty:=false
+
+func deployment_snapshot() -> Dictionary:
+	var pose: Transform3D=joint.receiver
+	var axes: Array=[]
+	for axis: Vector3 in [pose.basis.x,pose.basis.y,pose.basis.z]:axes.append([axis.x,axis.y,axis.z])
+	return {"deployed":deployed,"extraction":extraction,"wheel":actor._wheel_angle,
+		"receiver":{"position":[pose.origin.x,pose.origin.y,pose.origin.z],"basis":axes},"water":water.snapshot()}
+
+func saved_receiver(value: Dictionary) -> Transform3D:
+	var row: Dictionary=value.receiver
+	var axes: Array[Vector3]=[]
+	for axis: Array in row.basis:axes.append(Vector3(axis[0],axis[1],axis[2]))
+	return Transform3D(Basis(axes[0],axes[1],axes[2]),Vector3(row.position[0],row.position[1],row.position[2]))
+
+func valid_deployment(value: Variant) -> bool:
+	if not visual_follow_enabled or value is not Dictionary or value.size()!=5:return false
+	for key: String in ["deployed","extraction","wheel","receiver","water"]:
+		if not value.has(key):return false
+	if value.deployed is not bool or not water.valid(value.water):return false
+	for key: String in ["extraction","wheel"]:
+		if typeof(value[key]) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(value[key])):return false
+	if value.extraction<0. or value.extraction>EXTRACTION_M or value.wheel<0. or value.wheel>(TAU*2. if value.deployed else .025):return false
+	var row: Variant=value.receiver
+	if row is not Dictionary or row.size()!=2 or row.get("position") is not Array or row.position.size()!=3 or row.get("basis") is not Array or row.basis.size()!=3:return false
+	var numbers: Array=row.position.duplicate()
+	for axis: Variant in row.basis:
+		if axis is not Array or axis.size()!=3:return false
+		numbers.append_array(axis)
+	for number: Variant in numbers:
+		if typeof(number) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(number)):return false
+	var pose: Transform3D=saved_receiver(value)
+	if absf(pose.basis.determinant()-1.)>.00001 or not pose.basis.transposed().is_equal_approx(pose.basis.inverse()):return false
+	if value.deployed:
+		return absf(float(value.extraction)-EXTRACTION_M)<.000001 and (model.transform.affine_inverse()*pose.origin).distance_to(rig.strand.anchor)<=rig.strand.total_length-.15+.00001
+	var expected:=_receiver;expected.origin+=Vector3.BACK*float(value.extraction)
+	expected.basis=Basis(_receiver.basis.get_rotation_quaternion().slerp(_extracted_receiver.basis.get_rotation_quaternion(),float(value.extraction)/EXTRACTION_M))
+	return pose.is_equal_approx(expected) and float(value.water.fill)==0. and float(value.water.pressure)==0.
+
+func _show_deployment(enabled: bool) -> void:
+	deployed=enabled;model.visible=enabled
+	for node: Node3D in _stored:
+		if not _stock_processing.has(node):_stock_processing[node]={"visible":node.visible,"process":node.is_processing()}
+		node.visible=false if enabled else _stock_processing[node].visible
+		node.set_process(false if enabled else _stock_processing[node].process)
+		for body: CollisionObject3D in node.find_children("*","CollisionObject3D",true,false):
+			if not _stock_layers.has(body):_stock_layers[body]=body.collision_layer
+			body.collision_layer=0 if enabled else _stock_layers[body]
+
+func restore_deployment(value: Dictionary) -> void:
+	# Cabinet validates the complete payload before restoring any owner.
+	water.restore(value.water);_charge_dirty=false;extraction=float(value.extraction);actor._wheel_angle=float(value.wheel)
+	_show_deployment(value.deployed)
+	if deployed:_visual_receiver(actor.global_transform*saved_receiver(value))
+	else:joint.receiver=saved_receiver(value);joint.sync()
+	if _spray!=null:_spray.emitting=false
+	set_physics_process(false)
+	water_controls_changed()
+
+func restore_stored() -> void:
+	water.restore({"fill":0.,"pressure":0.});_charge_dirty=false;extraction=0.;actor._wheel_angle=0.
+	_show_deployment(false);joint.receiver=_receiver;joint.sync()
+	if _spray!=null:_spray.emitting=false
+	set_physics_process(false)
 
 func enable_visual_follow() -> void:
 	# Owner-authorized approximation supersedes physical full-payout solves.
@@ -82,12 +147,17 @@ func _physics_process(delta: float) -> void:
 	var supply: float=actor.hose_supply_opening()
 	var lever: float=0. if actor.nozzle_shut else clampf(-actor._lever_angle/.95,0.,1.)
 	var changed: bool=water.advance(delta,supply,lever,connected)
+	_charge_dirty=_charge_dirty or changed
 	if changed:rig.apply_points(rig.strand.points,water.pressure)
 	if water.spray>0.001 and _spray==null:_make_spray()
 	if _spray!=null:
 		_spray.emitting=water.spray>.001
 		_spray.amount_ratio=clampf(water.spray,0.,1.)
 	# Stable pressure and GPU emission require no ongoing cloth/fluid tick.
+	# Publish the completed fill/drain through the existing household signal,
+	# rather than leaving the last saved value at the valve's release instant.
+	if not changed and _charge_dirty:
+		_charge_dirty=false;actor.manipulation_changed.emit()
 	set_physics_process(changed)
 
 func _make_spray() -> void:
@@ -573,12 +643,7 @@ func _extract(value: float) -> void:
 		# afresh; no sweep from a completely different folded topology is faked.
 		if not contact.ready or contact.intersects_pose(_placement):error="unracked placement obstructed";return
 		if not rig.apply_points(_placement,water.pressure if visual_follow_enabled else 1.):error="unracked native skin unavailable";return
-		rig.strand.points=_placement.duplicate();deployed=true;actor.hose_racked=false
-		for node: Node3D in _stored:
-			node.visible=false;node.set_process(false)
-			for body: CollisionObject3D in node.find_children("*","CollisionObject3D",true,false):
-				_stock_layers[body]=body.collision_layer;body.collision_layer=0
-		model.visible=true
+		rig.strand.points=_placement.duplicate();_show_deployment(true);actor.hose_racked=false
 	joint.receiver=proposed;joint.sync();extraction=value;error=""
 
 func _move(value: Vector3) -> void:

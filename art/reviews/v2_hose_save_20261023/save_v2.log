@@ -1,0 +1,36 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: production cabinet owners mount = true
+FIRE HAND CHECK: original eight-field cabinet save is valid = true
+FIRE HAND CHECK: native hose prepares for saved-pose reconstruction = true
+FIRE HAND CHECK: nine-field stored hose snapshot validates = true
+FIRE HAND CHECK: deployed receiver, intermediate supply and trapped charge validate together = true
+FIRE HAND CHECK: saved receiver validates without mutating the different live receiver = true
+FIRE HAND CHECK: restore reconstructs the saved deployed representation and receiving pose = true
+FIRE HAND CHECK: restore retains charge and supply angle = true
+FIRE HAND CHECK: resting native skin meets restored receiver = true
+FIRE HAND CHECK: reconstructed cabinet immediately produces a valid snapshot = true
+FIRE HAND CHECK: reject invalid saved basis = true
+FIRE HAND CHECK: invalid basis cannot partially mutate household owners = true
+FIRE HAND CHECK: reject invalid saved reach = true
+FIRE HAND CHECK: invalid reach cannot partially mutate household owners = true
+FIRE HAND CHECK: reject invalid saved wheel = true
+FIRE HAND CHECK: invalid wheel cannot partially mutate household owners = true
+FIRE HAND CHECK: reject invalid saved charge = true
+FIRE HAND CHECK: invalid charge cannot partially mutate household owners = true
+FIRE HAND CHECK: reject invalid saved racked = true
+FIRE HAND CHECK: invalid racked cannot partially mutate household owners = true
+FIRE HAND CHECK: reject invalid saved nozzle = true
+FIRE HAND CHECK: invalid nozzle cannot partially mutate household owners = true
+FIRE HAND CHECK: reject invalid saved extra = true
+FIRE HAND CHECK: invalid extra cannot partially mutate household owners = true
+FIRE HAND CHECK: reject invalid saved nan = true
+FIRE HAND CHECK: invalid nan cannot partially mutate household owners = true
+FIRE HAND CHECK: stored snapshot restores rack, emptiness and hidden extended skin = true
+FIRE HAND CHECK: deployed save remains valid from the stored receiver = true
+FIRE HAND CHECK: legacy eight-field save validates from deployed state = true
+FIRE HAND CHECK: legacy restore resets deployed representation and receiver = true
+FIRE HAND CHECK: legacy five-field nozzle save remains valid = true
+FIRE HAND CHECK: legacy reconstruction emits valid current payload = true
+V2 HOSE SAVE: PASS failures=0

@@ -355,12 +355,14 @@ func mechanism_snapshot() -> Dictionary:
 	var value: Dictionary={"door":_door_angle,"lever":_lever_angle,"joint":_union_angle,"loose":{"active":_loose_union.active,"position":[at.x,at.y,at.z]},"gasket":_gasket_body.snapshot(),"facts":maintenance_snapshot()}
 	if _nozzle_joint!=null:value.nozzle=_nozzle_joint.snapshot()
 	value.rubber_dressed=rubber_dressed
+	if is_instance_valid(_live_hose) and _live_hose.visual_follow_enabled:value.hose=_live_hose.deployment_snapshot()
 	return value
 
 func valid_mechanism(value: Variant) -> bool:
-	if value is not Dictionary or value.size()<3 or value.size()>8:return false
+	if value is not Dictionary or value.size()<3 or value.size()>9:return false
 	for key: String in value:
-		if key not in ["door","lever","facts","joint","loose","gasket","nozzle","rubber_dressed"]:return false
+		if key not in ["door","lever","facts","joint","loose","gasket","nozzle","rubber_dressed","hose"]:return false
+	if value.has("hose") and (not value.has("nozzle") or not is_instance_valid(_live_hose) or not _live_hose.valid_deployment(value.hose)):return false
 	if value.has("loose") and not value.has("joint"):return false
 	if value.has("gasket") and not value.has("loose"):return false
 	if value.has("nozzle") and (not value.has("gasket") or _nozzle_joint==null):return false
@@ -380,7 +382,14 @@ func valid_mechanism(value: Variant) -> bool:
 		if key=="tag_line":
 			if facts.get(key) is not String or str(facts[key]).length()>64: return false
 		elif typeof(facts.get(key))!=TYPE_BOOL: return false
-	if value.has("nozzle") and (_nozzle_joint==null or not _nozzle_joint.valid(value.nozzle,facts.nozzle_coupled)):return false
+	var receiver: Variant=null
+	if value.has("hose"):
+		if facts.hose_racked==value.hose.deployed:return false
+		receiver=_live_hose.saved_receiver(value.hose)
+	elif is_instance_valid(_live_hose) and _live_hose.visual_follow_enabled:
+		# Legacy rack saves must not depend on the current deployed receiver.
+		receiver=_live_hose._receiver
+	if value.has("nozzle") and (_nozzle_joint==null or not _nozzle_joint.valid(value.nozzle,facts.nozzle_coupled,receiver)):return false
 	if value.has("joint"):
 		var stop: float=TAU*float(_joint_stock.data.dimensions.gasket_thickness_m)/float(_joint_stock.data.dimensions.pitch_m) if facts.gasket_seated else 0.
 		if float(value.joint)<stop or facts.coupling_made_up!=(absf(float(value.joint)-stop)<.0001):return false
@@ -420,6 +429,10 @@ func restore_mechanism(value: Dictionary) -> void:
 	_observed_open = door_open; _observed_shut = nozzle_shut; _apply_hand_pose()
 	if value.has("gasket"):_gasket_body.restore(value.gasket)
 	else:_gasket_body.restore({"position":[.245,.048,.150],"rotation":[0.,0.,0.,1.]})
+	if is_instance_valid(_live_hose) and _live_hose.visual_follow_enabled:
+		if value.has("hose"):_live_hose.restore_deployment(value.hose)
+		else:_live_hose.restore_stored()
+		_apply_hand_pose()
 	if value.has("nozzle"):_nozzle_joint.restore(value.nozzle)
 	elif _nozzle_joint!=null:_nozzle_joint.restore_legacy(value.facts.nozzle_coupled)
 	rubber_dressed=bool(value.get("rubber_dressed",false));_rubber_finish()

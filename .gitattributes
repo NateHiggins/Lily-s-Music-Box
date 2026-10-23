@@ -3075,3 +3075,6 @@ game/tests/v2_bath_service_light_study.gd -text
 game/tests/v2_bath_shadow_projection.gd -text
 game/tests/v2_service_room_light_study.gd -text
 game/tests/v2_service_light_visibility_review.gd -text
+
+# Original hose-save diagnostic logs and wrapper receipts are byte-bound.
+art/reviews/v2_hose_save_20261023/** -text -whitespace
