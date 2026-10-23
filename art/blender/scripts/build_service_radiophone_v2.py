@@ -16,15 +16,17 @@ from fabrication_native_batch import material, partition, export
 p = argparse.ArgumentParser()
 p.add_argument('--concept', choices=['A', 'B', 'C'], default='C')
 p.add_argument('--out', required=True)
-p.add_argument('--view', choices=['front', 'service', 'back'], default='front')
+p.add_argument('--view', choices=['front', 'service', 'back', 'printer', 'lamp', 'section'], default='front')
 p.add_argument('--publish', action='store_true')
 p.add_argument('--all-views', action='store_true')
+p.add_argument('--review-name', default='native', help='Separate retained native review packet')
 args = p.parse_args(sys.argv[sys.argv.index('--')+1:])
 OUT = (ROOT / args.out).resolve()
 assert OUT.is_relative_to((ROOT/'tmp').resolve()) or (args.publish and OUT==ROOT), 'Review candidates stay in tmp/; publishing requires --publish --out .'
 for folder in ['art/blender', 'game/assets/props', 'review']:
     (OUT/folder).mkdir(parents=True, exist_ok=True)
-REVIEW = OUT/'art/reviews/v2_handheld_20261023/native' if args.publish else OUT/'review'
+assert Path(args.review_name).name==args.review_name
+REVIEW = OUT/'art/reviews/v2_handheld_20261023'/args.review_name if args.publish else OUT/'review'
 REVIEW.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.context.preferences.filepaths.save_version = 0
@@ -43,6 +45,7 @@ finishes = {
     'Rubber': dict(catalog_key='washer_rubber', tint=[.6,.6,.58,1], normal=.3, roughness=1., pigment=.7),
     'Leather': dict(catalog_key='leather_worn', tint=[.60,.44,.30,1], normal=.5, roughness=1., pigment=.65),
     'Porcelain': dict(catalog_key='porcelain_fixture', tint=[.88,.83,.67,1], normal=.12, roughness=.65, pigment=.4),
+    'Lens': dict(catalog_key='milk_glass', tint=[.98,.98,.94,1], normal=.10, roughness=.35, pigment=.15),
 }
 
 def coords(v): return Vector((v[0],-v[2],v[1]))
@@ -75,6 +78,48 @@ def cylinder(name, at, radius, depth, surface='Brass', group='Fixed', axis='z', 
 
 def pivot(name, at): pivots[name]=coords(at)
 
+def tube(name, at, outer, inner, depth, surface='Brass', group='Fixed', axis='z', sides=24):
+    """Closed bored bearing, rolled lip or spool rim; never a solid axle plug."""
+    assert 0 < inner < outer
+    vertices=[]
+    for r,h in [(outer,-depth/2),(outer,depth/2),(inner,depth/2),(inner,-depth/2)]:
+        for i in range(sides):
+            a=i*math.tau/sides;v=[r*math.cos(a),r*math.sin(a),h]
+            if axis=='x':v=[h,v[0],v[1]]
+            elif axis=='y':v=[v[0],h,v[1]]
+            vertices.append(coords([at[j]+v[j] for j in range(3)]))
+    faces=[(k*sides+i,k*sides+(i+1)%sides,((k+1)%4)*sides+(i+1)%sides,((k+1)%4)*sides+i)
+           for k in range(4) for i in range(sides)]
+    mesh=bpy.data.meshes.new(name);mesh.from_pydata(vertices,[],faces);mesh.update()
+    import bmesh
+    bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(mesh);bm.free()
+    obj=bpy.data.objects.new(name,mesh);stocks.objects.link(obj)
+    return finish(obj,name,group,surface)
+
+def rod(name,a,b,radius=.001,surface='Steel',group='Fixed',sides=12):
+    a,b=coords(a),coords(b)
+    bpy.ops.mesh.primitive_cylinder_add(vertices=sides,radius=radius,depth=(b-a).length,location=(a+b)/2)
+    obj=bpy.context.object;obj.rotation_euler=(b-a).to_track_quat('Z','Y').to_euler()
+    bpy.ops.object.transform_apply(location=False,rotation=True,scale=True)
+    return finish(obj,name,group,surface)
+
+def strip(name, sections, surface='Paper', group='Fixed', thickness=.00025):
+    """Static formed sheet from centre/half-width vectors; no cloth solver."""
+    vertices=[]
+    for i,(center,width) in enumerate(sections):
+        c,w=coords(center),coords(width)
+        tangent=coords(sections[min(i+1,len(sections)-1)][0])-coords(sections[max(0,i-1)][0])
+        normal=tangent.cross(w).normalized()
+        vertices.extend([c-w-normal*thickness/2,c+w-normal*thickness/2,c-w+normal*thickness/2,c+w+normal*thickness/2])
+    faces=[(0,2,3,1),(len(vertices)-4,len(vertices)-3,len(vertices)-1,len(vertices)-2)]
+    for i in range(len(sections)-1):
+        a=i*4;b=a+4
+        faces.extend([(a,a+1,b+1,b),(a+2,b+2,b+3,a+3),(a,b,b+2,a+2),(a+1,a+3,b+3,b+1)])
+    mesh=bpy.data.meshes.new(name);mesh.from_pydata(vertices,[],faces);mesh.update()
+    import bmesh
+    bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(mesh);bm.free()
+    obj=bpy.data.objects.new(name,mesh);stocks.objects.link(obj);return finish(obj,name,group,surface)
+
 def screw(at, axis='z'):
     cylinder('Captive screw',at,.0021,.0015,'Steel',axis=axis,sides=12)
     if axis=='z': box('Slot',tuple(at[i]+([0,0,.0008][i]) for i in range(3)),(.0028,.00045,.00035),'Brass',bevel=0)
@@ -88,139 +133,19 @@ def knurl(name, at, radius, depth, group, axis='z', count=18):
         point[plane[0]]+=radius*math.cos(a); point[plane[1]]+=radius*math.sin(a)
         cylinder('Knurl',point,.00065,depth*.92,'Steel',group,axis,sides=6)
 
-# A: upright field ledger; B: broad folio; C: clipped asymmetric service set.
-W,H = {'A':(.166,.228),'B':(.236,.157),'C':(.214,.193)}[args.concept]
-PW = W-.038 if args.concept!='C' else .164
-PH = .116 if args.concept=='C' else H-.065
-PX = -.004 if args.concept=='C' else 0.
-PY = .032 if args.concept=='C' else .019
-paper_z = .042
-# Hollow case, with separate walls. Opening the access door must expose cells,
-# not a solid cube dressed with disconnected interior props.
-for x in [-W/2+.0045,W/2-.0045]:
-    box('Chassis side wall',(x,0,0),(.009,H,.055),'Case',bevel=.002)
-for y in [-H/2+.0045,H/2-.0045]:
-    box('Chassis cross wall',(0,y,0),(W-.018,.009,.055),'Case',bevel=.002)
-box('Rear steel pan',(0,0,-.029),(W-.010,H-.010,.005),'Steel',bevel=.003)
-for x in [-W/2+.009,W/2-.009]:
-    box('Front mounting ledge',(x,0,.029),(.009,H-.014,.009),'Brass',bevel=.001)
-for y in [-H/2+.008,H/2-.008]:
-    box('Front cross ledge',(0,y,.029),(W-.018,.006,.009),'Brass',bevel=.001)
-box('Paper recess',(PX,PY,.035),(PW+.010,PH+.010,.006),'Steel')
-box('Paper',(PX,PY,paper_z),(PW,PH,.0008),'Paper','Paper')
-pivot('Paper',(PX,PY,paper_z))
-for x in [PX-PW/2-.004,PX+PW/2+.004]:
-    box('Spring paper guide',(x,PY,.045),(.004,PH+.006,.005))
-    for y in [PY-PH*.38,PY+PH*.38]: screw((x,y,.048))
-top=PY+PH/2+.004
-bottom=PY-PH/2-.006
-box('Tear bar',(PX,top,.046),(PW+.010,.004,.006))
-for i in range(40):
-    box('Tear tooth',(PX-PW/2+(i+.5)*PW/40,top-.0025,.047),(PW/90,.002,.001),'Steel',bevel=0)
-cylinder('Platen',(PX,bottom,.045),.008,PW+.009,'Rubber','Platen',axis='x',sides=32)
-pivot('Platen',(PX,bottom,.045))
-for i,x in enumerate([PX-PW/2-.011,PX+PW/2+.011]):
-    name='FeedWheel'+str(i);pivot(name,(x,bottom,.045))
-    knurl(name,(x,bottom,.045),.010,.006,name,'x')
-    cylinder('Platen bearing',(x,bottom,.045),.004,.012,'Steel',axis='x')
-# The paper is supported by a real bed. Ribbon and carriage sit below its edge.
-cy=bottom-.012
-for dy in [-.0035,.0035]: cylinder('Carriage rail',(PX,cy+dy,.047),.0015,PW,'Steel',axis='x')
-for side in [-1,1]:
-    x=PX+side*(PW/2-.012)
-    name='SupplySpool' if side<0 else 'TakeupSpool';pivot(name,(x,cy-.009,.048))
-    cylinder('Ribbon core',(x,cy-.009,.048),.008,.008,'Rubber',name)
-    for z in [.044,.053]:
-        cylinder('Ribbon flange',(x,cy-.009,z),.011,.0015,'Brass',name)
-    cylinder('Spool screw',(x,cy-.009,.054),.003,.002,'Steel',name,sides=12)
-box('Ink ribbon',(PX,cy+.002,.053),(PW-.023,.004,.0007),'Rubber')
-box('Mechanism bearing plate',(PX,cy-.006,.031),(PW+.008,.029,.004),'Steel')
-pivot('Carriage',(PX-PW/2+.010,cy,.054))
-box('Rail truck',(PX-PW/2+.010,cy,.052),(.014,.013,.009),'Steel','Carriage')
-box('Strike shoe',(PX-PW/2+.010,cy+.008,.055),(.006,.008,.006),'Brass','Type_hammer')
-pivot('Type_hammer',(PX-PW/2+.010,cy+.008,.055))
-# Service door has a hinge axis supported by fixed ears at both ends.
-door_y=-H/2+.020
-cover_w=W-.066
-pivot('ServiceCover',(0,-H/2+.005,.034))
-box('Battery access door',(0,door_y,.041),(cover_w,.027,.008),'Case','ServiceCover',bevel=.002)
-box('Access plate',(0,door_y+.002,.046),(cover_w-.014,.013,.0015),'Brass','ServiceCover')
-for x in [-cover_w/2+.008,cover_w/2-.008]:
-    cylinder('Door captive latch',(x,door_y,.047),.002,.002,'Steel','ServiceCover',sides=12)
-for x in [-cover_w/2,0,cover_w/2]:
-    cylinder('Hinge knuckle',(x,-H/2+.005,.034),.0038,.012,'Brass','ServiceCover' if x==0 else 'Fixed',axis='x',sides=16)
-cylinder('Hinge pin',(0,-H/2+.005,.034),.0015,cover_w+.017,'Steel',axis='x',sides=12)
-for x in [-.028,.028]:
-    cylinder('Dry cell',(x,door_y,-.005),.012,.041,'Rubber',axis='y',sides=20)
-    cylinder('Battery terminal',(x,door_y+.022,-.005),.004,.004,'Brass',axis='y',sides=12)
-    box('Cell spring clip',(x,door_y-.022,-.005),(.011,.003,.012),'Brass')
-    box('Terminal strap',(x,door_y+.023,.004),(.006,.003,.019),'Brass')
-box('Battery retaining bridge',(0,door_y,-.022),(.089,.008,.003),'Leather')
-# No invented meter states: the three jewels report exactly their owners.
-for x,name in [(-.028,'OrderJewel'),(0,'NetJewel'),(.028,'LampJewel')]:
-    at=(x,-H/2+.035,.043)
-    cylinder('Jewel bezel',at,.0044,.003,'Brass',sides=20)
-    cylinder(name,(x,at[1],.045),.003,.002,'Porcelain',name,sides=20)
-for x,name in [(-W/2+.014,'LampSwitch'),(W/2-.014,'RadioSwitch')]:
-    at=(x,-H/2+.023,.047);pivot(name,at)
-    cylinder('Switch mounting nut',at,.006,.003,'Brass',sides=8)
-    box('Switch lever',(x,at[1]+.006,.052),(.004,.013,.004),'Steel',name)
-    cylinder('Switch grip',(x,at[1]+.012,.053),.004,.004,'Case',name,sides=16)
-box('Jewel mounting rail',(0,-H/2+.035,.037),(.081,.014,.006),'Case')
-# Shouldered inspection lamp is aimed into the world (-Z), not at the owner.
-lx=-W/2+.015; ly=H/2-.016
-box('Lamp saddle',(lx,ly,-.004),(.037,.019,.018),'Steel')
-cylinder('Lamp can',(lx,ly,-.022),.017,.044,'Brass',sides=32)
-cylinder('TorchLens',(lx,ly,-.045),.014,.002,'Porcelain','TorchLens',sides=32)
-for x in [lx-.010,lx+.010]:box('Lamp guard',(x,ly,-.048),(.002,.028,.002),'Steel')
-# Telescoping aerial has a bottom socket and a retained sliding stem.
-ax=W/2-.012; ay=H/2-.014
-cylinder('Aerial insulator',(ax,ay,.006),.006,.019,'Case',axis='y',sides=16)
-pivot('Aerial',(ax,ay+.007,.006))
-cylinder('Aerial sleeve',(ax,ay+.019,.006),.0026,.027,'Brass','Aerial',axis='y',sides=12)
-cylinder('Aerial stem',(ax,ay+.043,.006),.0015,.027,'Steel','Aerial',axis='y',sides=12)
-cylinder('Aerial tip',(ax,ay+.057,.006),.0022,.003,'Brass','Aerial',axis='y',sides=12)
-# Tactile focus/feed control at right; speaker & mic are acoustic apertures.
-fx=W/2+.001;fy=PY+.016
-pivot('FocusWheel',(fx,fy,.006))
-knurl('Reading wheel',(fx,fy,.006),.012,.009,'FocusWheel','x',24)
-for x in [-W/2+.010,W/2-.010]:
-    for y in [-H/2+.009,H/2-.009]:screw((x,y,.035))
-for row in range(9):
-    y=-.018+row*.004
-    box('Receiver grille',(W/2+.0007,y,-.006),(.001,.0015,.030),'Rubber',bevel=0)
-box('Hand strap',(0,0,-.039),(W-.040,.024,.005),'Leather',bevel=.002)
-for x in [-W/2+.022,W/2-.022]:
-    box('Strap keeper',(x,0,-.039),(.006,.032,.006),'Brass')
-    cylinder('Strap rivet',(x,0,-.043),.002,.001,'Steel',sides=12)
-# Rounded reel bonnet and its end bearings explain where the continuous slip
-# comes from. Only the exposed paper tongue is animated; no sheet simulation.
-if args.concept=='C':
-    cylinder('Paper roll core',(PX,H/2-.009,.010),.012,PW-.012,'Paper',axis='x',sides=32)
-    for x in [PX-PW/2,PX+PW/2]:
-        cylinder('Reel end bearing',(x,H/2-.009,.010),.014,.003,'Brass',axis='x',sides=24)
-        screw((x,H/2-.009,.026))
-    box('Reel protective bonnet',(PX,H/2+.001,-.001),(PW-.010,.009,.023),'Case',bevel=.003)
-    # Exposed return spring and crank are on a separate service frame. They
-    # move only during carriage return, and can be omitted at carry scale.
-    for x in [PX-PW/2+.018,PX+PW/2-.018]:
-        box('Return-frame standoff',(x,cy-.004,.037),(.004,.012,.018),'Steel')
-    for j in range(20):
-        cylinder('Return spring turn',(PX-.025+j*.0025,cy-.007,.043),.003,.00065,'Steel',axis='x',sides=12)
-    box('Return drawbar',(PX,cy-.007,.043),(.062,.0014,.0014),'Brass')
-    # Rear radio coils and a protected carbon microphone remain reachable
-    # beside the battery drawer when the set is turned over for inspection.
-    cylinder('Carbon mouthpiece',(W/2-.028,.039,-.034),.016,.009,'Case',sides=32)
-    for row in range(-3,4):
-        for col in range(-3,4):
-            if row*row+col*col<=10:
-                cylinder('Microphone aperture',(W/2-.028+col*.003,.039+row*.003,-.039),.00075,.001,'Rubber',sides=8)
+# The printer is one datum-driven cartridge, including bored carrying frames.
+from radiophone_printer_cartridge import build
+W,H,PW,PH,PX,PY,paper_z,door_y,cover_w,lx,ly,cy=build(globals())
+
 # Parent parts share actual pivots, not one mesh instance per screw or tooth.
 nodes={}
 for name,at in pivots.items():
     node=bpy.data.objects.new(name,None);exports.objects.link(node);node.location=at;nodes[name]=node
 for (group,surface),objects in groups.items():
     spec=finishes[surface];mat=bpy.data.materials.get(surface) or material(ROOT,surface,spec,catalog)
+    if surface=='Lens':
+        bsdf=mat.node_tree.nodes['Principled BSDF'];bsdf.inputs['Transmission Weight'].default_value=.85
+        bsdf.inputs['IOR'].default_value=1.48
     for obj in objects:obj.data.materials.append(mat)
     name=group if group in ['Paper','TorchLens','OrderJewel','NetJewel','LampJewel'] else group+'__'+surface
     obj=partition(exports,name,objects,spec,mat,Matrix.Identity(4),catalog)
@@ -236,8 +161,16 @@ for name in ['Paper','TorchLens']:
         bpy.data.objects.remove(node,do_unlink=True);mesh.name=name
 hammer=nodes['Type_hammer'];carriage=nodes['Carriage']
 hammer.parent=carriage;hammer.location=pivots['Type_hammer']-pivots['Carriage']
+selector=nodes['TypeSelector'];selector.parent=hammer;selector.location=pivots['TypeSelector']-pivots['Type_hammer']
+# Authored flexure, driven only during an impression. No resting solver.
+leaf=next(o for o in exports.objects if o.name=='Carriage__Steel')
+leaf.shape_key_add(name='Basis');impression=leaf.shape_key_add(name='Impression')
+for vertex in impression.data:
+    y=vertex.co.z+pivots['Carriage'].z
+    weight=max(0.,min(1.,(y+.064)/.018))
+    vertex.co.y+=.00125*weight*weight
 stocks.hide_render=True;stocks.hide_viewport=True
-proof=export(OUT,'service_radiophone_v2',exports,material_names_only=True)
+proof=export(OUT,'service_radiophone_v2',exports,material_names_only=True,staged_output=True)
 mesh_nodes=sum(o.type=='MESH' for o in exports.objects)
 assert mesh_nodes<=36,(mesh_nodes,'draw partitions budget')
 assert proof['triangles']<35000,proof
@@ -245,6 +178,7 @@ assert proof['triangles']<35000,proof
     export=proof,mesh_nodes=mesh_nodes,editable_parts=len(stocks.objects),finishes=finishes,
     paper=dict(center=[PX,PY,paper_z],width=PW,height=PH),
     dimensions=[W,H,.055],view=args.view,
+    cartridge_sha256=hashlib.sha256((Path(__file__).parent/'radiophone_printer_cartridge.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest(),
     source_sha256=hashlib.sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest()),indent=2)+'\n')
 
 # Native review typography is geometry in a separate, unexported collection.
@@ -259,11 +193,11 @@ def text(body,at,size,color=(.055,.041,.028,1)):
     mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.95
     curve.materials.append(mat)
     return obj
-text('VANTRY / SERVICE WIRE  0041',(PX-PW/2+.005,PY+PH/2-.010,.0426),.005)
+text('VANTRY / SERVICE WIRE  0041',(PX-PW/2+.005,PY+PH/2-.010,paper_z+.0004),.005)
 copy='HOT WATER / FIELD REPORT\n\nThe hot valve turns freely.\nWater warms steadily; the\ndrain clears without backing\nup.\n\nListen again after midnight.'
-text(copy,(PX-PW/2+.005,PY+PH/2-.024,.0426),min(.0078,(PW-.01)/18.))
-text('02 / 04    FILE 0041',(PX-PW/2+.005,PY-PH/2+.004,.0426),.0045)
-plate=text('VANTRY  /  TYPE 28-R',(-cover_w/2+.010,door_y,.047),.004)
+text(copy,(PX-PW/2+.005,PY+PH/2-.024,paper_z+.0004),min(.0078,(PW-.01)/18.))
+text('02 / 04    FILE 0041',(PX-PW/2+.005,PY-PH/2+.004,paper_z+.0004),.0045)
+plate=text('VANTRY  /  TYPE 28-R',(-cover_w/2+.010,door_y,.0412),.004)
 bpy.context.view_layer.update()
 world=plate.matrix_world.copy();plate.parent=nodes['ServiceCover'];plate.matrix_world=world
 for x,t in [(-.028,'ORDER'),(0,'NET'),(.028,'LAMP')]:text(t,(x-.007,-H/2+.041,.046),.0032)
@@ -289,8 +223,26 @@ for name,at,power,size in [('Softbox',(-.35,.42,.45),22,.30),('Rim',(.28,.18,-.2
 cam=bpy.data.cameras.new('Review camera');o=bpy.data.objects.new('Review camera',cam);review.objects.link(o)
 o.location=coords((.19,.13,.59) if args.view!='back' else (-.21,.10,-.58));aim(o,(0,.008,0));cam.type='ORTHO';cam.ortho_scale=.295 if args.concept!='A' else .32;scene.camera=o
 scene.render.image_settings.file_format='PNG'
-for view in (['front','service','back'] if args.all_views else [args.view]):
+for view in (['front','service','back','printer','lamp','selection','impression','section'] if args.all_views else [args.view]):
     nodes['ServiceCover'].rotation_euler.x=-1.85 if view=='service' else 0.
-    o.location=coords((.19,.13,.59) if view!='back' else (-.21,.10,-.58));aim(o,(0,.008,0))
+    cam.ortho_scale=.33;target=(0,.023,0)
+    eye=(.19,.13,.59) if view!='back' else (-.21,.10,-.58)
+    if view=='printer':eye=(.12,.012,.33);target=(0,cy,.044);cam.ortho_scale=.235
+    if view=='lamp':eye=(-.21,.17,-.28);target=(lx,ly,-.045);cam.ortho_scale=.130
+    if view in ['selection','impression']:
+        carriage.location.x=0
+        selector.rotation_euler.z=math.tau*5/16
+        selector.location.z=.0045
+        impression.value=1. if view=='impression' else 0.
+        hammer.location.y=(pivots['Type_hammer']-pivots['Carriage']).y+(.00125 if view=='impression' else 0.)
+        eye=(.13,.015,.32);target=(0,-.038,.066);cam.ortho_scale=.15
+    if view=='section':
+        exports.hide_render=True;stocks.hide_render=False;stocks.hide_viewport=False
+        for stock in stocks.objects:
+            stock.hide_render=not stock.name.startswith(('Stock__Paper','Stock__Unbroken paper','Stock__Unprinted paper','Stock__Platen','Stock__Type selector','Stock__Replaceable type','Stock__Copy support','Stock__Ink ribbon','Stock__Feed pressure roller')) or stock.name.startswith('Stock__Platen finger')
+        for stage in review.objects:
+            if stage.type=='FONT':stage.hide_render=True
+        eye=(.4,0,.04);target=(0,0,.04);cam.ortho_scale=.22
+    o.location=coords(eye);aim(o,target)
     scene.render.filepath=str(REVIEW/f'{view}.png');bpy.ops.render.render(write_still=True)
     print('HANDHELD NATIVE REVIEW',args.concept,view,mesh_nodes,proof['triangles'])

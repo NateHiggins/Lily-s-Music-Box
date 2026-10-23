@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_service_radiophone_v2.py", line 151, in <module>
+    obj=partition(exports,name,objects,spec,mat,Matrix.Identity(4),catalog)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\fabrication_native_batch.py", line 51, in partition
+    ns,us,charts,_=triangle_charts(coords[indices],np.zeros(3),1.,rotations,grain)
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\fabrication_chart_batch.py", line 31, in triangle_charts
+    n[i],u[i],values[i],_=chart_for_triangle(points[i],origins[i],tile,bool(long_grain[i]) if long_grain is not None else False)
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\fabrication_uvs.py", line 36, in chart_for_triangle
+    raise AssertionError(('no representable metre chart',points.tolist()))
+AssertionError: ('no representable metre chart', [[-0.0989999994635582, 0.054059650748968124, 0.06859030574560165], [-0.0989999994635582, 0.054042719304561615, 0.0685345008969307], [-0.0989999994635582, 0.053940147161483765, 0.0681963637471199]])
+
+Error: script failed, file: 'art/blender/scripts/build_service_radiophone_v2.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

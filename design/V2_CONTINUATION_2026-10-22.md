@@ -228,3 +228,23 @@ verify loaded surfaces/mips and compare the same occupied-world view plus
 first/steady printing. Keep cached idle rendering and bounded moving details.
 Do not silently truncate full messages to the sample copy in native renders.
 Hose installation/save and the broader V2 performance/coverage goals remain open.
+
+## Rejected joints pass and cartridge rebuild — 2026-10-23
+
+The owner rejected the added hardware as intersecting prisms/cylinders. Do NOT
+call **mechanical_joins/** accepted. Its recipe and failures are retained under
+**art/reviews/v2_handheld_20261023/rejected_joins/**. The new native source splits
+the actual cartridge layout into **radiophone_printer_cartridge.py**, called by
+the existing reproducible handheld builder. See
+**V2_HANDHELD_CARTRIDGE_REBUILD_2026-10-23.md** for primary research, issue log,
+scope and unresolved operation.
+
+Current candidate: lower paper reel, analytic tangent/roller wrap, upright bed,
+contoured carrying frames with machined shaft bores, two-rod carriage, hollow
+selector cradle and native impression-flexure shape key. The source exports
+33 partitions /21078 triangles with passing UV/tangent checks. Native section
+and selection/impression views are under **cartridge_rebuild/**. They are NOT
+an exercised print cycle. Type faces, driven selection/feed/index, powered
+impression, full-travel clearances and several case-level joints still need
+qualification. Candidate remains unreferenced by production. No Godot was
+launched; the owner's explicit permission requirement remains in force.

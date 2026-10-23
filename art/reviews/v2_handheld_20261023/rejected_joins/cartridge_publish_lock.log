@@ -1,0 +1,141 @@
+Info: Saved as "service_radiophone_v2.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+07:47:08 | INFO: Starting glTF 2.0 export
+07:47:08 | INFO: Extracting primitive: Aerial__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Carriage__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Carriage__Steel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Type_hammer__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: TypeSelector__Steel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: FeedWheel0__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: FeedWheel0__Steel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: FeedWheel1__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: FeedWheel1__Steel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Fixed__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Fixed__Case
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Fixed__Leather
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Fixed__Paper
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Fixed__Porcelain
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Fixed__Rubber
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Fixed__Steel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: FocusWheel__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: LampJewel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: LampSwitch__Steel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: NetJewel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: OrderJewel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Paper
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: Platen__Rubber
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: RadioSwitch__Steel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: ServiceCover__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: ServiceCover__Case
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: SupplySpool__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: SupplySpool__Rubber
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: SupplySpool__Steel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: TakeupSpool__Brass
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: TakeupSpool__Rubber
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: TakeupSpool__Steel
+07:47:08 | INFO: Primitives created: 1
+07:47:08 | INFO: Extracting primitive: TorchLens
+07:47:08 | INFO: Primitives created: 1
+Traceback (most recent call last):
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\__init__.py", line 1409, in execute
+    res = gltf2_blender_export.save(context, export_settings)
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\blender\exp\export.py", line 42, in save
+    __write_file(json, buffer, export_settings)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\blender\exp\export.py", line 571, in __write_file
+    gltf2_io_export.save_gltf(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        json,
+        ^^^^^
+        export_settings,
+        ^^^^^^^^^^^^^^^^
+        json_util.BlenderJSONEncoder,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        buffer)
+        ^^^^^^^
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\io\exp\export.py", line 85, in save_gltf
+    file = open(export_settings['gltf_filepath'], "wb")
+OSError: [Errno 22] Invalid argument: 'C:\\PleaseRemainOnTheLine\\game\\assets\\props\\service_radiophone_v2.glb'
+00:07.781  bpy.rna          | ERROR Python script error in EXPORT_SCENE_OT_gltf.execute
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_service_radiophone_v2.py", line 173, in <module>
+    proof=export(OUT,'service_radiophone_v2',exports,material_names_only=True)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\fabrication_native_batch.py", line 88, in export
+    bpy.ops.export_scene.gltf(filepath=str(destination),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True,export_materials='EXPORT' if material_names_only else 'PLACEHOLDER')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Error: Python: Traceback (most recent call last):
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\__init__.py", line 1409, in execute
+    res = gltf2_blender_export.save(context, export_settings)
+Error: Python: Traceback (most recent call last):
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\__init__.py", line 1409, in execute
+    res = gltf2_blender_export.save(context, export_settings)
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\blender\exp\export.py", line 42, in save
+    __write_file(json, buffer, export_settings)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\blender\exp\export.py", line 42, in save
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\blender\exp\export.py", line 571, in __write_file
+    __write_file(json, buffer, export_settings)
+    gltf2_io_export.save_gltf(
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        json,
+        ^^^^^
+        export_settings,
+        ^^^^^^^^^^^^^^^^
+        json_util.BlenderJSONEncoder,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        buffer)
+        ^^^^^^^
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\blender\exp\export.py", line 571, in __write_file
+    gltf2_io_export.save_gltf(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        json,
+        ^^^^^
+        export_settings,
+        ^^^^^^^^^^^^^^^^
+        json_util.BlenderJSONEncoder,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        buffer)
+        ^^^^^^^
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\io\exp\export.py", line 85, in save_gltf
+    file = open(export_settings['gltf_filepath'], "wb")
+OSError: [Errno 22] Invalid argument: 'C:\\PleaseRemainOnTheLine\\game\\assets\\props\\service_radiophone_v2.glb'
+Location: C:\PleaseRemainOnTheLine\art\blender\scripts\fabrication_native_batch.py:88
+
+
+Error: script failed, file: 'art/blender/scripts/build_service_radiophone_v2.py', exiting.
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\io\exp\export.py", line 85, in save_g... truncatedBlender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

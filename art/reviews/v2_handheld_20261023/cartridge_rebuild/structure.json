@@ -1,0 +1,23 @@
+{
+  "evidence_class": "INERT",
+  "required_nodes": [
+    "Paper",
+    "Platen",
+    "Carriage",
+    "Type_hammer",
+    "TypeSelector",
+    "ServiceCover",
+    "TorchLens",
+    "SupplySpool",
+    "TakeupSpool",
+    "LampSwitch",
+    "RadioSwitch",
+    "OrderJewel",
+    "NetJewel",
+    "LampJewel"
+  ],
+  "selector_parent": "Type_hammer",
+  "hammer_parent": "Carriage",
+  "native_impression_morphs": 1,
+  "qualification": "source structure only"
+}

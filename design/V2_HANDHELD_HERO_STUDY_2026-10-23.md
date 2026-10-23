@@ -3,6 +3,10 @@
 Evidence class: **INERT**. Native design study and short baseline diagnostic;
 not installed gameplay, runtime qualification, or human acceptance.
 
+Superseded geometry: the owner rejected the later decorative joints pass.
+See **V2_HANDHELD_CARTRIDGE_REBUILD_2026-10-23.md** for the reopened mechanical
+layout and its remaining qualification. The original baseline below is retained.
+
 ## Direction and boundaries
 
 The owner now wants the instrument visible most of the time, a showcase with
