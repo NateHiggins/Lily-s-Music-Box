@@ -341,10 +341,12 @@ func _build_knock() -> void:
 	knock.configure("knock")
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
-	box.size = Vector3(0.18, 0.18, 0.09)
+	# Through both faces of the leaf, proud of each by four centimetres, so
+	# the ray from the corridor reaches the knock before it reaches the leaf.
+	box.size = Vector3(0.18, 0.18, 0.044 + 0.08)
 	shape.shape = box
 	knock.add_child(shape)
-	knock.position = Vector3(width * 0.5, minf(height - 0.55, 1.48), 0.0)
+	knock.position = Vector3(width * 0.5, minf(height - 0.55, 1.48), _hinge_offset)
 	_body.add_child(knock)
 
 

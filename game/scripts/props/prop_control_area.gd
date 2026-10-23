@@ -9,10 +9,22 @@ extends Area3D
 var control_id := ""
 
 func manipulation_target(_hit: Dictionary) -> Dictionary:
-	var mechanism := get_parent()
-	if mechanism != null and mechanism.has_method("control_grip"):
+	var mechanism := _mechanism("control_grip")
+	if mechanism != null:
 		return mechanism.call("control_grip",control_id,self)
 	return {"legacy":true}
+
+
+## The mechanism is the nearest ancestor that answers for this control. A
+## control may sit on a moving part of it (a knock panel on a door leaf) and
+## that part is not the authority.
+func _mechanism(method: String) -> Node:
+	var node := get_parent()
+	while node != null:
+		if node.has_method(method):
+			return node
+		node = node.get_parent()
+	return null
 
 
 func configure(id: String) -> void:
@@ -25,14 +37,14 @@ func configure(id: String) -> void:
 
 
 func interact_prompt() -> String:
-	var owner := get_parent()
-	if owner != null and owner.has_method("control_prompt"):
+	var owner := _mechanism("control_prompt")
+	if owner != null:
 		return str(owner.call("control_prompt", control_id))
 	return ""
 
 
 func interact(player: Node) -> Variant:
-	var owner := get_parent()
-	if owner != null and owner.has_method("interact_control"):
+	var owner := _mechanism("interact_control")
+	if owner != null:
 		return owner.call("interact_control", control_id, player)
 	return {}
