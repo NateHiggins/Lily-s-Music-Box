@@ -23,6 +23,11 @@ static func mount(world: Node3D) -> bool:
             actor.tint=Color(authored.tint[0],authored.tint[1],authored.tint[2])
             actor.raised=float(authored.raise);actor.tilt_degrees=float(authored.tilt_degrees)
             actor.curtain_open=float(authored.curtain_open);actor.character_note=str(authored.character_note)
+            # The glass curtain, where the household hangs one (design/ORISON_DRAPERY_2026-10-24.md).
+            var sheer: Dictionary=authored.get("sheer",{})
+            if not sheer.is_empty():
+                actor.sheer_fabric=str(sheer.material);actor.sheer_lace=bool(sheer.get("lace",false))
+                actor.sheer_tint=Color(sheer.tint[0],sheer.tint[1],sheer.tint[2]);actor.sheer_opacity=float(sheer.opacity)
             var info: Dictionary=world.campaign_clock.day_info()
             var sleeping := false
             for resident: String in profile.resident_ids:
@@ -36,7 +41,8 @@ static func mount(world: Node3D) -> bool:
         else:
             actor.tint=Color(.82,.77,.66);actor.character_note="Quiet civic linen and matched blinds in the shared rooms."
         if "KITCHEN" in str(record.space):actor.style="bare";actor.raised=.65;actor.tilt_degrees=20
-        if "BATH" in str(record.space):actor.style="cafe";actor.fabric="linen";actor.raised=0;actor.tilt_degrees=75;actor.curtain_open=0
+        if "BATH" in str(record.space):actor.style="cafe";actor.fabric="linen";actor.raised=0;actor.tilt_degrees=75;actor.curtain_open=0;actor.sheer_fabric=""
+        if "KITCHEN" in str(record.space):actor.sheer_fabric=""
         var span: Vector2=root.window_reveal_span(record)
         var along_x: bool=str(record.axis)=="x"
         var fixed_axis := 2 if along_x else 0
@@ -47,6 +53,6 @@ static func mount(world: Node3D) -> bool:
         at[fixed_axis]=(span.y if inward>0 else span.x)+inward*.045
         var yaw := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
         actor.transform=opening.transform.affine_inverse()*Transform3D(Basis(Vector3.UP,yaw),at)
-        actor.set_meta("unit",unit);actor.set_meta("semantic_window",str(record.id))
+        actor.set_meta("unit",unit);actor.set_meta("semantic_window",str(record.id));actor.set_meta("space",str(record.space))
         opening.add_child(actor);actor.add_to_group("v2_window_treatments")
     return true

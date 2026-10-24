@@ -1,0 +1,76 @@
+{
+ "evidence_class": "INERT",
+ "source": "art/blender/scripts/build_v2_entry_vestibule.py",
+ "design": "design/V2_ENTRY_VESTIBULE_2026-10-24.md",
+ "runtime_table": "game/data/orison_v2/entry_vestibule_stock.json",
+ "export_proof": {
+  "primitives": 23,
+  "triangles": 11504,
+  "minimum_tangent_agreement": 0.9999999599844206,
+  "status": "PASS"
+ },
+ "stocks": [
+  {
+   "id": "directory_board",
+   "signal": false,
+   "period": "Felt changeable-letter tenant directory in a stained oak wall case."
+  },
+  {
+   "id": "notice_frame",
+   "signal": false,
+   "period": "A printed house notice in a narrow oak frame, screwed up so nobody takes it."
+  },
+  {
+   "id": "bronze_plaque",
+   "signal": false,
+   "period": "The building's cast bronze identity plaque, EST. 1928, moved in from the pier."
+  },
+  {
+   "id": "signal_point",
+   "signal": true,
+   "period": "Vantry & Co. brass flush signal outlet beside the house power socket (Bible VIII.3)."
+  },
+  {
+   "id": "radiator",
+   "signal": false,
+   "period": "Cast-iron one-pipe steam column radiator with bottom-fed valve and air vent (Bible VIII.5.c)."
+  },
+  {
+   "id": "door_mat",
+   "signal": false,
+   "period": "Coir door mat."
+  },
+  {
+   "id": "coat_hooks",
+   "signal": false,
+   "period": "Cast-iron double coat hooks on a stained oak rail."
+  },
+  {
+   "id": "gas_bracket",
+   "signal": false,
+   "period": "Inverted Welsbach mantle gas bracket with swing arm, gas cock and etched bell shade (after c. 1905)."
+  },
+  {
+   "id": "gas_lantern",
+   "signal": false,
+   "period": "Wall-bracket gas lantern with a tapered four-light frame and an inverted mantle."
+  },
+  {
+   "id": "gas_pipe_vestibule",
+   "signal": false,
+   "period": "Surface-run half-inch black iron gas supply, floor flange, plug cock and straps."
+  }
+ ],
+ "triangles": {
+  "directory_board": 464,
+  "notice_frame": 312,
+  "bronze_plaque": 460,
+  "signal_point": 664,
+  "radiator": 5444,
+  "door_mat": 44,
+  "coat_hooks": 976,
+  "gas_bracket": 1544,
+  "gas_lantern": 888,
+  "gas_pipe_vestibule": 708
+ }
+}

@@ -1441,6 +1441,48 @@
       "meters_per_tile": 0.6,
       "roughness_multiplier": 1.0,
       "visual_lock": false
+    },
+    "monks_cloth": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.3,
+      "catalog_mapping": "procedural/monks_cloth",
+      "files": [
+        "T_ai_materials_monks_cloth_albedo.png",
+        "T_ai_materials_monks_cloth_rough.png",
+        "T_ai_materials_monks_cloth_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.3,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "ninon": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.12,
+      "catalog_mapping": "procedural/ninon",
+      "files": [
+        "T_ai_materials_ninon_albedo.png",
+        "T_ai_materials_ninon_rough.png",
+        "T_ai_materials_ninon_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.12,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "velour": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "procedural/velour",
+      "files": [
+        "T_ai_materials_velour_albedo.png",
+        "T_ai_materials_velour_rough.png",
+        "T_ai_materials_velour_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
     }
   },
   "schema": 1,

@@ -195976,1297 +195976,1294 @@
    "token": "mount_cell"
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "if str(record.level)==\"ROOF\": door.open_stop_degrees=100.0"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
    "key": "99f3daa537206283",
    "kind": "floor_reference",
-   "lines": [
-    73
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "floor+v2_blockout",
-   "spatial": [
-    "FLOOR_MEMBERSHIP"
-   ],
+   "token": "ROOF",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "mount_specs"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "ROOF"
-  },
-  {
-   "authority": [
-    "GENERATED_IDENTITY"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"Link%d\" % index"
+   "lines": [
+    77
    ],
    "count": 1,
-   "disposition": "REGENERATE_CONSUMER",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "context": [
+    "if str(record.level)==\"ROOF\": door.open_stop_degrees=100.0"
+   ],
    "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "489d8bf556670226",
    "kind": "generated_name",
-   "lines": [
-    225
-   ],
-   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
-   "resolved_target": null,
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "_add_chain_guard",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_add_chain_guard"
    ],
-   "target_exists": null,
-   "tier": "production",
-   "token": "_add_chain_guard"
-  },
-  {
+   "lines": [
+    250
+   ],
+   "count": 1,
+   "context": [
+    "\"Link%d\" % index"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "GENERATED_IDENTITY"
    ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
    "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1386a37e61380877",
+   "kind": "generated_name",
+   "token": "mount_specs",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_specs"
+   ],
+   "lines": [
+    81
+   ],
+   "count": 1,
    "context": [
     "identity + \"_Leaf\""
    ],
-   "count": 1,
-   "disposition": "REGENERATE_CONSUMER",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
    "gameplay_binding": false,
-   "key": "1386a37e61380877",
-   "kind": "generated_name",
-   "lines": [
-    77
+   "authority": [
+    "GENERATED_IDENTITY"
    ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "mount_specs"
-   ],
-   "target_exists": null,
-   "tier": "production",
-   "token": "mount_specs"
+   "target_exists": null
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"B1_LAUNDRY_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
    "key": "586ba148edc576ff",
    "kind": "id_reference",
-   "lines": [
-    31
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
+   "token": "B1_LAUNDRY_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "<module>"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "B1_LAUNDRY_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "if identity==\"B1_SHOP_STAIR_DOOR\": door.open_stop_degrees=85.0"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "dca8974f32ce7405",
-   "kind": "id_reference",
-   "lines": [
-    74
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "mount_specs"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "B1_SHOP_STAIR_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F01_INNER_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"\"},",
-    "if identity==\"F01_INNER_DOOR\" else OrisonV2FittedDoor.new())"
-   ],
-   "count": 2,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "5a901941d7fe039f",
-   "kind": "id_reference",
-   "lines": [
-    6,
-    72
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>",
-    "mount_specs"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_INNER_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F01_MAIL_PACKAGE_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "8c745fbcc9a828e0",
-   "kind": "id_reference",
-   "lines": [
-    11
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_MAIL_PACKAGE_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F01_PACKAGE_COMMON_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "30f80e5656530bd3",
-   "kind": "id_reference",
-   "lines": [
-    12
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_PACKAGE_COMMON_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F01_REAR_SERVICE_DOOR\": {\"kind\": \"service\", \"swing_out\": true, \"unit\": \"\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "745af2e7db60fc4d",
-   "kind": "id_reference",
-   "lines": [
-    7
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_REAR_SERVICE_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F01_SERVICE_CORE_DOOR\": {\"kind\": \"service\", \"swing_out\": true, \"unit\": \"\", \"native_service_joinery\": true},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "e53d21ebaff6850c",
-   "kind": "id_reference",
-   "lines": [
-    8
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_SERVICE_CORE_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F01_WATCH_MAIL_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "e8312d22c7aef0bc",
-   "kind": "id_reference",
-   "lines": [
-    10
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_WATCH_MAIL_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F02_A_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"2A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "ba58588cdb2c6462",
-   "kind": "id_reference",
-   "lines": [
-    25
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_A_BATH_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F02_A_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "330f78c369bfd702",
-   "kind": "id_reference",
-   "lines": [
-    26
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_A_BED_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F02_A_HALL_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"2A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "0b83497504312e43",
-   "kind": "id_reference",
-   "lines": [
-    24
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_A_HALL_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F02_B_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2B\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "33761e5624b93996",
-   "kind": "id_reference",
-   "lines": [
-    30
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_B_BATH_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F02_B_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2B\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "143ce10d5aff5f67",
-   "kind": "id_reference",
-   "lines": [
-    29
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_B_BED_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F02_B_ENTRY_DOOR\": {\"kind\": \"apartment_entry\", \"swing_out\": true, \"unit\": \"2B\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "102a60bb002b5342",
-   "kind": "id_reference",
-   "lines": [
-    27
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_B_ENTRY_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F02_B_KITCHEN_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2B\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "c3fe16bf4492a46e",
-   "kind": "id_reference",
-   "lines": [
-    28
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_B_KITCHEN_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F02_DOOR_02\": {\"kind\": \"apartment_entry\", \"swing_out\": false, \"unit\": \"2A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "30023e404a40f702",
-   "kind": "id_reference",
-   "lines": [
-    23
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F02/marker+v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_DOOR_02"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F03_A_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"3A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "6cd131ab5fd61a13",
-   "kind": "id_reference",
-   "lines": [
-    17
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03_A_BATH_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F03_A_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"3A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "c4871d36c6cd724c",
-   "kind": "id_reference",
-   "lines": [
-    18
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03_A_BED_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F03_A_HALL_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"3A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "4a07fc7d968bc779",
-   "kind": "id_reference",
-   "lines": [
-    16
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03_A_HALL_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F03_B_ALCOVE_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "3a870c5f9efefc63",
-   "kind": "id_reference",
-   "lines": [
-    38
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03_B_ALCOVE_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F03_B_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "e12fe6bf49ed9faa",
-   "kind": "id_reference",
-   "lines": [
-    39
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03_B_BATH_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F03_B_SERVICE_DOOR\": {\"kind\": \"service\", \"swing_out\": true},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "3ab91dc6789ae5e4",
-   "kind": "id_reference",
-   "lines": [
-    37
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03_B_SERVICE_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F03_DOOR_02\": {\"kind\": \"apartment_entry\", \"swing_out\": false, \"unit\": \"3A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "b356c847713c612b",
-   "kind": "id_reference",
-   "lines": [
-    15
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F03/marker+v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03_DOOR_02"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F03_DOOR_03\": {\"kind\": \"apartment_entry\", \"swing_out\": true},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "f66f426b7685fd5c",
-   "kind": "id_reference",
-   "lines": [
-    36
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F03/marker+v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03_DOOR_03"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F03_SERVICE_CORE_DOOR\": {\"kind\": \"service\", \"swing_out\": true, \"unit\": \"\", \"native_service_joinery\": true},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "bcbb72a299d2df29",
-   "kind": "id_reference",
-   "lines": [
-    9
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03_SERVICE_CORE_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F04_A_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "2757d053eaeee482",
-   "kind": "id_reference",
-   "lines": [
-    22
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_A_BATH_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F04_A_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "e1b263db283289be",
-   "kind": "id_reference",
-   "lines": [
-    21
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_A_BED_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F04_A_KITCHEN_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4A\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "1b2bae7ee6869866",
-   "kind": "id_reference",
-   "lines": [
-    20
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_A_KITCHEN_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F04_B_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4B\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "6e8c9ab660c07da6",
-   "kind": "id_reference",
-   "lines": [
-    35
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_B_BATH_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F04_B_CLOSET_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4B\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "b431e04e5cf5ca24",
-   "kind": "id_reference",
    "lines": [
     33
    ],
+   "count": 1,
+   "context": [
+    "\"B1_LAUNDRY_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_B_CLOSET_DOOR"
+   "target_exists": true
   },
   {
+   "key": "dca8974f32ce7405",
+   "kind": "id_reference",
+   "token": "B1_SHOP_STAIR_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_specs"
+   ],
+   "lines": [
+    78
+   ],
+   "count": 1,
+   "context": [
+    "if identity==\"B1_SHOP_STAIR_DOOR\": door.open_stop_degrees=85.0"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "RUNTIME_LOOKUP"
    ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F04_B_HALL_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4B\"},"
-   ],
-   "count": 1,
+   "spatial": [],
    "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "abe252c439356c24",
-   "kind": "id_reference",
-   "lines": [
-    34
-   ],
+   "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5a901941d7fe039f",
+   "kind": "id_reference",
+   "token": "F01_INNER_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_INNER_DOOR\": {\"kind\": \"unhung\", \"swing_out\": true, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
    "spatial": [],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_B_HALL_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F04_DOOR_02\": {\"kind\": \"apartment_entry\", \"swing_out\": true, \"unit\": \"4A\"},"
-   ],
-   "count": 1,
    "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "7b845e065cae559a",
-   "kind": "id_reference",
-   "lines": [
-    19
-   ],
+   "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F04/marker+v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8c745fbcc9a828e0",
+   "kind": "id_reference",
+   "token": "F01_MAIL_PACKAGE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "<module>"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_DOOR_02"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"F04_DOOR_03\": {\"kind\": \"apartment_entry\", \"swing_out\": false, \"unit\": \"4B\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "1c8aba52a708d6f0",
-   "kind": "id_reference",
-   "lines": [
-    32
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F04/marker+v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_DOOR_03"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"ROOF_PUBLIC_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "1da0674872c0f57e",
-   "kind": "id_reference",
    "lines": [
     13
    ],
+   "count": 1,
+   "context": [
+    "\"F01_MAIL_PACKAGE_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "v2_blockout",
-   "spatial": [],
+   "target_exists": true
+  },
+  {
+   "key": "30f80e5656530bd3",
+   "kind": "id_reference",
+   "token": "F01_PACKAGE_COMMON_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "<module>"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "ROOF_PUBLIC_DOOR"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "\"ROOF_SERVICE_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "39449c89ab23cb37",
-   "kind": "id_reference",
    "lines": [
     14
    ],
+   "count": 1,
+   "context": [
+    "\"F01_PACKAGE_COMMON_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "v2_blockout",
-   "spatial": [],
+   "target_exists": true
+  },
+  {
+   "key": "745af2e7db60fc4d",
+   "kind": "id_reference",
+   "token": "F01_REAR_SERVICE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "<module>"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "ROOF_SERVICE_DOOR"
-  },
-  {
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_REAR_SERVICE_DOOR\": {\"kind\": \"service\", \"swing_out\": true, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "RUNTIME_LOOKUP"
    ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e53d21ebaff6850c",
+   "kind": "id_reference",
+   "token": "F01_SERVICE_CORE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_SERVICE_CORE_DOOR\": {\"kind\": \"service\", \"swing_out\": true, \"unit\": \"\", \"native_service_joinery\": true},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e8312d22c7aef0bc",
+   "kind": "id_reference",
+   "token": "F01_WATCH_MAIL_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_WATCH_MAIL_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ba58588cdb2c6462",
+   "kind": "id_reference",
+   "token": "F02_A_BATH_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    27
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_A_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"2A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "330f78c369bfd702",
+   "kind": "id_reference",
+   "token": "F02_A_BED_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_A_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0b83497504312e43",
+   "kind": "id_reference",
+   "token": "F02_A_HALL_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    26
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_A_HALL_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"2A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "33761e5624b93996",
+   "kind": "id_reference",
+   "token": "F02_B_BATH_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_B_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2B\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "143ce10d5aff5f67",
+   "kind": "id_reference",
+   "token": "F02_B_BED_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    31
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_B_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2B\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "102a60bb002b5342",
+   "kind": "id_reference",
+   "token": "F02_B_ENTRY_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_B_ENTRY_DOOR\": {\"kind\": \"apartment_entry\", \"swing_out\": true, \"unit\": \"2B\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c3fe16bf4492a46e",
+   "kind": "id_reference",
+   "token": "F02_B_KITCHEN_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_B_KITCHEN_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2B\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "30023e404a40f702",
+   "kind": "id_reference",
+   "token": "F02_DOOR_02",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    25
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_DOOR_02\": {\"kind\": \"apartment_entry\", \"swing_out\": false, \"unit\": \"2A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6cd131ab5fd61a13",
+   "kind": "id_reference",
+   "token": "F03_A_BATH_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    19
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_A_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"3A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c4871d36c6cd724c",
+   "kind": "id_reference",
+   "token": "F03_A_BED_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    20
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_A_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"3A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4a07fc7d968bc779",
+   "kind": "id_reference",
+   "token": "F03_A_HALL_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    18
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_A_HALL_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"3A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3a870c5f9efefc63",
+   "kind": "id_reference",
+   "token": "F03_B_ALCOVE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    40
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_B_ALCOVE_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e12fe6bf49ed9faa",
+   "kind": "id_reference",
+   "token": "F03_B_BATH_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    41
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_B_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3ab91dc6789ae5e4",
+   "kind": "id_reference",
+   "token": "F03_B_SERVICE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    39
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_B_SERVICE_DOOR\": {\"kind\": \"service\", \"swing_out\": true},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b356c847713c612b",
+   "kind": "id_reference",
+   "token": "F03_DOOR_02",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    17
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_DOOR_02\": {\"kind\": \"apartment_entry\", \"swing_out\": false, \"unit\": \"3A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F03/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f66f426b7685fd5c",
+   "kind": "id_reference",
+   "token": "F03_DOOR_03",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    38
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_DOOR_03\": {\"kind\": \"apartment_entry\", \"swing_out\": true},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F03/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bcbb72a299d2df29",
+   "kind": "id_reference",
+   "token": "F03_SERVICE_CORE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_SERVICE_CORE_DOOR\": {\"kind\": \"service\", \"swing_out\": true, \"unit\": \"\", \"native_service_joinery\": true},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2757d053eaeee482",
+   "kind": "id_reference",
+   "token": "F04_A_BATH_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    24
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_A_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e1b263db283289be",
+   "kind": "id_reference",
+   "token": "F04_A_BED_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    23
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_A_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1b2bae7ee6869866",
+   "kind": "id_reference",
+   "token": "F04_A_KITCHEN_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_A_KITCHEN_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6e8c9ab660c07da6",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    37
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_B_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4B\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b431e04e5cf5ca24",
+   "kind": "id_reference",
+   "token": "F04_B_CLOSET_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    35
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_B_CLOSET_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4B\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "abe252c439356c24",
+   "kind": "id_reference",
+   "token": "F04_B_HALL_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_B_HALL_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4B\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7b845e065cae559a",
+   "kind": "id_reference",
+   "token": "F04_DOOR_02",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    21
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_DOOR_02\": {\"kind\": \"apartment_entry\", \"swing_out\": true, \"unit\": \"4A\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1c8aba52a708d6f0",
+   "kind": "id_reference",
+   "token": "F04_DOOR_03",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    34
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_DOOR_03\": {\"kind\": \"apartment_entry\", \"swing_out\": false, \"unit\": \"4B\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1da0674872c0f57e",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "\"ROOF_PUBLIC_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "39449c89ab23cb37",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [
+    "\"ROOF_SERVICE_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8ff7664561caf684",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    25,
+    26,
+    27,
+    28
+   ],
+   "count": 4,
    "context": [
     "\"F02_DOOR_02\": {\"kind\": \"apartment_entry\", \"swing_out\": false, \"unit\": \"2A\"},",
     "\"F02_A_HALL_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"2A\"},",
     "\"F02_A_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"2A\"},",
     "\"F02_A_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2A\"},"
    ],
-   "count": 4,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
    "gameplay_binding": false,
-   "key": "8ff7664561caf684",
-   "kind": "unit_reference",
-   "lines": [
-    23,
-    24,
-    25,
-    26
+   "authority": [
+    "RUNTIME_LOOKUP"
    ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "92d480a7dc23e945",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "<module>"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "2A"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
+   "lines": [
+    29,
+    30,
+    31,
+    32
    ],
-   "confidence": "MEDIUM",
+   "count": 4,
    "context": [
     "\"F02_B_ENTRY_DOOR\": {\"kind\": \"apartment_entry\", \"swing_out\": true, \"unit\": \"2B\"},",
     "\"F02_B_KITCHEN_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2B\"},",
     "\"F02_B_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2B\"},",
     "\"F02_B_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"2B\"},"
    ],
-   "count": 4,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
    "gameplay_binding": false,
-   "key": "92d480a7dc23e945",
-   "kind": "unit_reference",
-   "lines": [
-    27,
-    28,
-    29,
-    30
+   "authority": [
+    "RUNTIME_LOOKUP"
    ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "aa7c75d985a381fd",
+   "kind": "unit_reference",
+   "token": "3A",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "<module>"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "2B"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
+   "lines": [
+    17,
+    18,
+    19,
+    20
    ],
-   "confidence": "MEDIUM",
+   "count": 4,
    "context": [
     "\"F03_DOOR_02\": {\"kind\": \"apartment_entry\", \"swing_out\": false, \"unit\": \"3A\"},",
     "\"F03_A_HALL_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"3A\"},",
     "\"F03_A_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"3A\"},",
     "\"F03_A_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"3A\"},"
    ],
-   "count": 4,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
    "gameplay_binding": false,
-   "key": "aa7c75d985a381fd",
-   "kind": "unit_reference",
-   "lines": [
-    15,
-    16,
-    17,
-    18
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "3A"
-  },
-  {
    "authority": [
     "RUNTIME_LOOKUP"
    ],
-   "confidence": "MEDIUM",
-   "context": [
-    "door.unit = str(specs[identity].get(\"unit\",\"3B\"))"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
-   "gameplay_binding": false,
-   "key": "07fc6041a53a1364",
-   "kind": "unit_reference",
-   "lines": [
-    87
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "07fc6041a53a1364",
+   "kind": "unit_reference",
+   "token": "3B",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "mount_specs"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "3B"
-  },
-  {
+   "lines": [
+    91
+   ],
+   "count": 1,
+   "context": [
+    "door.unit = str(specs[identity].get(\"unit\",\"3B\"))"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "RUNTIME_LOOKUP"
    ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "3e0ec2148590bbab",
+   "kind": "unit_reference",
+   "token": "4A",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    21,
+    22,
+    23,
+    24
+   ],
+   "count": 4,
    "context": [
     "\"F04_DOOR_02\": {\"kind\": \"apartment_entry\", \"swing_out\": true, \"unit\": \"4A\"},",
     "\"F04_A_KITCHEN_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4A\"},",
     "\"F04_A_BED_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4A\"},",
     "\"F04_A_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4A\"},"
    ],
-   "count": 4,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
    "gameplay_binding": false,
-   "key": "3e0ec2148590bbab",
-   "kind": "unit_reference",
-   "lines": [
-    19,
-    20,
-    21,
-    22
+   "authority": [
+    "RUNTIME_LOOKUP"
    ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "fd5b33d8b766e23d",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "<module>"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "4A"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
+   "lines": [
+    34,
+    35,
+    36,
+    37
    ],
-   "confidence": "MEDIUM",
+   "count": 4,
    "context": [
     "\"F04_DOOR_03\": {\"kind\": \"apartment_entry\", \"swing_out\": false, \"unit\": \"4B\"},",
     "\"F04_B_CLOSET_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4B\"},",
     "\"F04_B_HALL_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4B\"},",
     "\"F04_B_BATH_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"4B\"},"
    ],
-   "count": 4,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
    "gameplay_binding": false,
-   "key": "fd5b33d8b766e23d",
-   "kind": "unit_reference",
-   "lines": [
-    32,
-    33,
-    34,
-    35
+   "authority": [
+    "RUNTIME_LOOKUP"
    ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
-   "subsystem": "building",
-   "symbols": [
-    "<module>"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "4B"
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
   },
   {
    "authority": [
@@ -198230,94 +198227,94 @@
    "token": "F01"
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "for level: String in [\"F02\",\"F03\"]:"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_front_facade.gd",
-   "gameplay_binding": false,
    "key": "9d25c7a6c1f6f1d1",
    "kind": "floor_reference",
-   "lines": [
-    71
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "floor+v2_blockout",
-   "spatial": [
-    "FLOOR_MEMBERSHIP"
-   ],
+   "token": "F02",
+   "file": "game/scripts/building/orison_v2_front_facade.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "mount"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
+   "lines": [
+    69
    ],
-   "confidence": "MEDIUM",
+   "count": 1,
    "context": [
     "for level: String in [\"F02\",\"F03\"]:"
    ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_front_facade.gd",
    "gameplay_binding": false,
-   "key": "be455267d1bc028f",
-   "kind": "floor_reference",
-   "lines": [
-    71
+   "authority": [
+    "RUNTIME_LOOKUP"
    ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "floor+v2_blockout",
    "spatial": [
     "FLOOR_MEMBERSHIP"
    ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "be455267d1bc028f",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/scripts/building/orison_v2_front_facade.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "mount"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F03"
+   "lines": [
+    69
+   ],
+   "count": 1,
+   "context": [
+    "for level: String in [\"F02\",\"F03\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
   },
   {
-   "authority": [
-    "GENERATED_IDENTITY"
+   "key": "06d3548e5da15c11",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_front_facade.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
    ],
-   "confidence": "MEDIUM",
+   "lines": [
+    65
+   ],
+   "count": 1,
    "context": [
     "str(marker.id);blade.prop_type=\"neon_sign\";blade.sign_text=str(marker.text);blade.vertical=bool(marker.vertical)"
    ],
-   "count": 1,
-   "disposition": "REGENERATE_CONSUMER",
-   "file": "game/scripts/building/orison_v2_front_facade.gd",
    "gameplay_binding": false,
-   "key": "06d3548e5da15c11",
-   "kind": "generated_name",
-   "lines": [
-    67
+   "authority": [
+    "GENERATED_IDENTITY"
    ],
-   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
-   "resolved_target": null,
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
-   "subsystem": "building",
-   "symbols": [
-    "mount"
-   ],
-   "target_exists": null,
-   "tier": "production",
-   "token": "mount"
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "authority": [
@@ -203208,66 +203205,66 @@
    "token": "res://scenes/building/orison_v2_blockout.tscn"
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "boiler.position.y = float(_blockout.level_y[\"B1\"])"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
    "key": "d7d6a3359dd8773f",
    "kind": "floor_reference",
-   "lines": [
-    960
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "floor+v2_blockout",
-   "spatial": [
-    "FLOOR_MEMBERSHIP"
-   ],
+   "token": "B1",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_service_round_props"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "B1"
-  },
-  {
+   "lines": [
+    962
+   ],
+   "count": 1,
+   "context": [
+    "boiler.position.y = float(_blockout.level_y[\"B1\"])"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "RUNTIME_LOOKUP"
    ],
-   "confidence": "MEDIUM",
-   "context": [
-    "vantry_points.floor_nodes = {\"F02\": _blockout}",
-    "anchor.global_position.y], \"floor\": \"F02\", \"room\": \"2A\"}}"
-   ],
-   "count": 2,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
-   "key": "e8ab200f3f84d42a",
-   "kind": "floor_reference",
-   "lines": [
-    1040,
-    1043
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "floor+v2_blockout",
    "spatial": [
     "FLOOR_MEMBERSHIP"
    ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e8ab200f3f84d42a",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_vantry"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02"
+   "lines": [
+    1042,
+    1045
+   ],
+   "count": 2,
+   "context": [
+    "vantry_points.floor_nodes = {\"F02\": _blockout}",
+    "anchor.global_position.y], \"floor\": \"F02\", \"room\": \"2A\"}}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
   },
   {
    "authority": [
@@ -203480,129 +203477,129 @@
    "target_exists": true
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "HIGH",
-   "context": [
-    "boiler.graph_node_id = \"B1_BOILER_01\"",
-    "_mount(\"B1_BOILER_01\", boiler)",
-    "var plant := adapter.resolve(\"B1_BOILER_01\") as BoilerProp"
-   ],
-   "count": 3,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
    "key": "751328a46abd1272",
    "kind": "id_reference",
-   "lines": [
-    954,
-    957,
-    1019
-   ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "B1_BOILER_01",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_service_round_props",
     "_compose_hot_water"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "B1_BOILER_01"
-  },
-  {
+   "lines": [
+    956,
+    959,
+    1021
+   ],
+   "count": 3,
+   "context": [
+    "boiler.graph_node_id = \"B1_BOILER_01\"",
+    "_mount(\"B1_BOILER_01\", boiler)",
+    "var plant := adapter.resolve(\"B1_BOILER_01\") as BoilerProp"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "RUNTIME_LOOKUP"
    ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
    "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2bd54f055850f1aa",
+   "kind": "id_reference",
+   "token": "B1_BOILER_BODY_MASS",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
+   ],
+   "lines": [
+    971
+   ],
+   "count": 1,
    "context": [
     "_retire_blockout_fixture(\"B1_BOILER_BODY_MASS\")"
    ],
-   "count": 1,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
    "gameplay_binding": false,
-   "key": "2bd54f055850f1aa",
-   "kind": "id_reference",
-   "lines": [
-    969
+   "authority": [
+    "RUNTIME_LOOKUP"
    ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "v2_blockout",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "aa802c821b60474a",
+   "kind": "id_reference",
+   "token": "B1_BOILER_CONTROL_STANCE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_service_round_props"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "B1_BOILER_BODY_MASS"
-  },
-  {
-   "authority": [
-    "RUNTIME_LOOKUP"
+   "lines": [
+    963
    ],
-   "confidence": "HIGH",
+   "count": 1,
    "context": [
     "var boiler_stance := adapter.resolve(\"B1_BOILER_CONTROL_STANCE\") as Node3D"
    ],
-   "count": 1,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
    "gameplay_binding": false,
-   "key": "aa802c821b60474a",
-   "kind": "id_reference",
-   "lines": [
-    961
-   ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "_compose_service_round_props"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "B1_BOILER_CONTROL_STANCE"
-  },
-  {
    "authority": [
     "RUNTIME_LOOKUP"
    ],
-   "confidence": "HIGH",
-   "context": [
-    "_retire_blockout_fixture(\"B1_BREECHING_MASS\")"
-   ],
-   "count": 1,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
-   "key": "7eccc2c2d0a34f20",
-   "kind": "id_reference",
-   "lines": [
-    978
-   ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "v2_blockout",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7eccc2c2d0a34f20",
+   "kind": "id_reference",
+   "token": "B1_BREECHING_MASS",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_service_round_props"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "B1_BREECHING_MASS"
+   "lines": [
+    980
+   ],
+   "count": 1,
+   "context": [
+    "_retire_blockout_fixture(\"B1_BREECHING_MASS\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
    "authority": [
@@ -203635,34 +203632,34 @@
    "token": "B1_WATCH_STATION"
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "HIGH",
-   "context": [
-    "_retire_blockout_fixture(\"B1_WATER_COLUMN_MASS\")"
-   ],
-   "count": 1,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
    "key": "faf200baf84ba59e",
    "kind": "id_reference",
-   "lines": [
-    970
-   ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "B1_WATER_COLUMN_MASS",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_service_round_props"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "B1_WATER_COLUMN_MASS"
+   "lines": [
+    972
+   ],
+   "count": 1,
+   "context": [
+    "_retire_blockout_fixture(\"B1_WATER_COLUMN_MASS\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
    "authority": [
@@ -203845,38 +203842,38 @@
    "token": "F01_WATCH_STATION"
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
+   "key": "3657605e50203e7d",
+   "kind": "id_reference",
+   "token": "F02_A_MAIN_VANTRY_POINT",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_vantry"
    ],
-   "confidence": "HIGH",
+   "lines": [
+    1039,
+    1043,
+    1046
+   ],
+   "count": 3,
    "context": [
     "var anchor := adapter.resolve(\"F02_A_MAIN_VANTRY_POINT\") as Node3D",
     "vantry_points.points = {\"F02_A_MAIN_VANTRY_POINT\": {",
     "vantry_points.point_order = [\"F02_A_MAIN_VANTRY_POINT\"]"
    ],
-   "count": 3,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
    "gameplay_binding": false,
-   "key": "3657605e50203e7d",
-   "kind": "id_reference",
-   "lines": [
-    1037,
-    1041,
-    1044
+   "authority": [
+    "RUNTIME_LOOKUP"
    ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "F02/vantry+acoustic_node+v2_blockout",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
-   "subsystem": "building",
-   "symbols": [
-    "_compose_vantry"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_A_MAIN_VANTRY_POINT"
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "F02/vantry+acoustic_node+v2_blockout",
+   "target_exists": true
   },
   {
    "authority": [
@@ -203999,64 +203996,64 @@
    "token": "F02_B_KITCHEN_RUN_MASS"
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
+   "key": "a95319f849eb9f3c",
+   "kind": "id_reference",
+   "token": "F02_B_RADIATOR_MASS",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
    ],
-   "confidence": "HIGH",
+   "lines": [
+    947
+   ],
+   "count": 1,
    "context": [
     "_retire_blockout_fixture(\"F02_B_RADIATOR_MASS\")"
    ],
-   "count": 1,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
    "gameplay_binding": false,
-   "key": "a95319f849eb9f3c",
-   "kind": "id_reference",
-   "lines": [
-    945
-   ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "_compose_service_round_props"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_B_RADIATOR_MASS"
-  },
-  {
    "authority": [
     "RUNTIME_LOOKUP"
    ],
-   "confidence": "HIGH",
-   "context": [
-    "_retire_blockout_fixture(\"F02_B_RADIATOR_USE\")"
-   ],
-   "count": 1,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
-   "key": "68debb6919a3fe62",
-   "kind": "id_reference",
-   "lines": [
-    946
-   ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "v2_blockout",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "68debb6919a3fe62",
+   "kind": "id_reference",
+   "token": "F02_B_RADIATOR_USE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_service_round_props"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F02_B_RADIATOR_USE"
+   "lines": [
+    948
+   ],
+   "count": 1,
+   "context": [
+    "_retire_blockout_fixture(\"F02_B_RADIATOR_USE\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
    "authority": [
@@ -204149,34 +204146,34 @@
    "token": "F03_WATCH_STATION"
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "HIGH",
-   "context": [
-    "desk.name = \"F04_B_DESK_ZONE\""
-   ],
-   "count": 1,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
    "key": "278e31b0de3e0971",
    "kind": "id_reference",
-   "lines": [
-    866
-   ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "F04/marker",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "F04_B_DESK_ZONE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_call_station"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_B_DESK_ZONE"
+   "lines": [
+    868
+   ],
+   "count": 1,
+   "context": [
+    "desk.name = \"F04_B_DESK_ZONE\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "F04/marker",
+   "target_exists": true
   },
   {
    "authority": [
@@ -204209,67 +204206,67 @@
    "token": "F04_B_MONITOR_01"
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "HIGH",
-   "context": [
-    "var desk := adapter.resolve(\"F04_B_MONITOR_STANCE\") as Node3D",
-    "var operator := adapter.resolve(\"F04_B_MONITOR_STANCE\") as Node3D"
-   ],
-   "count": 2,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
    "key": "1eef430d5e31abf3",
    "kind": "id_reference",
-   "lines": [
-    748,
-    851
-   ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "F04_B_MONITOR_STANCE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "debug_destinations",
     "_compose_call_station"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_B_MONITOR_STANCE"
-  },
-  {
+   "lines": [
+    748,
+    853
+   ],
+   "count": 2,
+   "context": [
+    "var desk := adapter.resolve(\"F04_B_MONITOR_STANCE\") as Node3D",
+    "var operator := adapter.resolve(\"F04_B_MONITOR_STANCE\") as Node3D"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "RUNTIME_LOOKUP"
    ],
-   "confidence": "HIGH",
-   "context": [
-    "var use := adapter.resolve(\"F04_B_TERMINAL_USE\") as MeshInstance3D"
-   ],
-   "count": 1,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
-   "key": "09631e744e448653",
-   "kind": "id_reference",
-   "lines": [
-    852
-   ],
-   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
-   "resolved_target": "v2_blockout",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "09631e744e448653",
+   "kind": "id_reference",
+   "token": "F04_B_TERMINAL_USE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_call_station"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F04_B_TERMINAL_USE"
+   "lines": [
+    854
+   ],
+   "count": 1,
+   "context": [
+    "var use := adapter.resolve(\"F04_B_TERMINAL_USE\") as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
    "authority": [
@@ -204392,124 +204389,124 @@
    "token": "ROOF_LIFT_DRIVE"
   },
   {
-   "authority": [
-    "SCENE_NODE_PATH"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "var register := find_child(\"F01_NIGHT_REGISTER\", true, false) as NightRegisterProp"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
    "key": "f9dbd2015ceeee85",
    "kind": "node_path",
-   "lines": [
-    1003
-   ],
-   "rationale": "Node-path lookup embeds spatial identity.",
-   "resolved_target": "v2_blockout+runtime_created",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "F01_NIGHT_REGISTER",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_bind_first_shift_station"
    ],
-   "target_exists": null,
-   "tier": "production",
-   "token": "F01_NIGHT_REGISTER"
-  },
-  {
-   "authority": [
-    "SCENE_NODE_PATH"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "var signal_register := find_child(\"F01_SIGNAL_REGISTER\", true, false) as WatchRegisterProp"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
-   "key": "8c8833ecd3294594",
-   "kind": "node_path",
-   "lines": [
-    1004
-   ],
-   "rationale": "Node-path lookup embeds spatial identity.",
-   "resolved_target": "v2_blockout+runtime_created",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "_bind_first_shift_station"
-   ],
-   "target_exists": null,
-   "tier": "production",
-   "token": "F01_SIGNAL_REGISTER"
-  },
-  {
-   "authority": [
-    "SCENE_NODE_PATH"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "var tour_guard := find_child(\"F01_TOUR_KEY_GUARD\", true, false) as TourKeyGuardProp"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
-   "key": "8468fef5b9c2c71d",
-   "kind": "node_path",
    "lines": [
     1005
    ],
-   "rationale": "Node-path lookup embeds spatial identity.",
-   "resolved_target": "v2_blockout+runtime_created",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
+   "count": 1,
+   "context": [
+    "var register := find_child(\"F01_NIGHT_REGISTER\", true, false) as NightRegisterProp"
    ],
-   "subsystem": "building",
-   "symbols": [
-    "_bind_first_shift_station"
-   ],
-   "target_exists": null,
-   "tier": "production",
-   "token": "F01_TOUR_KEY_GUARD"
-  },
-  {
+   "gameplay_binding": false,
    "authority": [
     "SCENE_NODE_PATH"
    ],
-   "confidence": "MEDIUM",
-   "context": [
-    "var detector := find_child(\"F01_WATCHMAN_DETECTOR\", true, false) as WatchmanClockProp"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
-   "key": "9950e260d654065d",
-   "kind": "node_path",
-   "lines": [
-    1002
-   ],
-   "rationale": "Node-path lookup embeds spatial identity.",
-   "resolved_target": "v2_blockout+runtime_created",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "8c8833ecd3294594",
+   "kind": "node_path",
+   "token": "F01_SIGNAL_REGISTER",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_bind_first_shift_station"
    ],
-   "target_exists": null,
+   "lines": [
+    1006
+   ],
+   "count": 1,
+   "context": [
+    "var signal_register := find_child(\"F01_SIGNAL_REGISTER\", true, false) as WatchRegisterProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "8468fef5b9c2c71d",
+   "kind": "node_path",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
    "tier": "production",
-   "token": "F01_WATCHMAN_DETECTOR"
+   "subsystem": "building",
+   "symbols": [
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    1007
+   ],
+   "count": 1,
+   "context": [
+    "var tour_guard := find_child(\"F01_TOUR_KEY_GUARD\", true, false) as TourKeyGuardProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "9950e260d654065d",
+   "kind": "node_path",
+   "token": "F01_WATCHMAN_DETECTOR",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    1004
+   ],
+   "count": 1,
+   "context": [
+    "var detector := find_child(\"F01_WATCHMAN_DETECTOR\", true, false) as WatchmanClockProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
   },
   {
    "authority": [
@@ -204574,140 +204571,140 @@
    "token": "F01_HOUSE_TELEPHONE_BOARD"
   },
   {
-   "authority": [
-    "GENERATED_IDENTITY",
-    "RUNTIME_LOOKUP"
+   "key": "eac0532c0782d08f",
+   "kind": "runtime_id",
+   "token": "F01_NIGHT_REGISTER",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props",
+    "_bind_first_shift_station"
    ],
-   "confidence": "HIGH",
+   "lines": [
+    940,
+    1005
+   ],
+   "count": 2,
    "context": [
     "_mount(\"F01_NIGHT_REGISTER\", register)",
     "var register := find_child(\"F01_NIGHT_REGISTER\", true, false) as NightRegisterProp"
    ],
-   "count": 2,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
    "gameplay_binding": false,
-   "key": "eac0532c0782d08f",
-   "kind": "runtime_id",
-   "lines": [
-    938,
-    1003
+   "authority": [
+    "GENERATED_IDENTITY",
+    "RUNTIME_LOOKUP"
    ],
-   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
-   "resolved_target": "v2_blockout+runtime_created",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "d7fd50a61bd5b7f5",
+   "kind": "runtime_id",
+   "token": "F01_SIGNAL_REGISTER",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_service_round_props",
     "_bind_first_shift_station"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_NIGHT_REGISTER"
-  },
-  {
-   "authority": [
-    "GENERATED_IDENTITY",
-    "RUNTIME_LOOKUP"
+   "lines": [
+    943,
+    1006
    ],
-   "confidence": "HIGH",
+   "count": 2,
    "context": [
     "_mount(\"F01_SIGNAL_REGISTER\", signal_register)",
     "var signal_register := find_child(\"F01_SIGNAL_REGISTER\", true, false) as WatchRegisterProp"
    ],
-   "count": 2,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
    "gameplay_binding": false,
-   "key": "d7fd50a61bd5b7f5",
-   "kind": "runtime_id",
-   "lines": [
-    941,
-    1004
+   "authority": [
+    "GENERATED_IDENTITY",
+    "RUNTIME_LOOKUP"
    ],
-   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
-   "resolved_target": "v2_blockout+runtime_created",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "314c12e08e09626d",
+   "kind": "runtime_id",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_service_round_props",
     "_bind_first_shift_station"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_SIGNAL_REGISTER"
-  },
-  {
-   "authority": [
-    "GENERATED_IDENTITY",
-    "RUNTIME_LOOKUP"
+   "lines": [
+    946,
+    1007
    ],
-   "confidence": "HIGH",
+   "count": 2,
    "context": [
     "_mount(\"F01_TOUR_KEY_GUARD\", tour_guard)",
     "var tour_guard := find_child(\"F01_TOUR_KEY_GUARD\", true, false) as TourKeyGuardProp"
    ],
-   "count": 2,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
    "gameplay_binding": false,
-   "key": "314c12e08e09626d",
-   "kind": "runtime_id",
-   "lines": [
-    944,
-    1005
-   ],
-   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
-   "resolved_target": "v2_blockout+runtime_created",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "_compose_service_round_props",
-    "_bind_first_shift_station"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_TOUR_KEY_GUARD"
-  },
-  {
    "authority": [
     "GENERATED_IDENTITY",
     "RUNTIME_LOOKUP"
    ],
-   "confidence": "HIGH",
-   "context": [
-    "_mount(\"F01_WATCHMAN_DETECTOR\", detector)",
-    "var detector := find_child(\"F01_WATCHMAN_DETECTOR\", true, false) as WatchmanClockProp"
-   ],
-   "count": 2,
-   "disposition": "MUST_PRESERVE_ID",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
-   "key": "2f23e220b620b26a",
-   "kind": "runtime_id",
-   "lines": [
-    935,
-    1002
-   ],
-   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
-   "resolved_target": "v2_blockout+runtime_created",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "2f23e220b620b26a",
+   "kind": "runtime_id",
+   "token": "F01_WATCHMAN_DETECTOR",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_service_round_props",
     "_bind_first_shift_station"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "F01_WATCHMAN_DETECTOR"
+   "lines": [
+    937,
+    1004
+   ],
+   "count": 2,
+   "context": [
+    "_mount(\"F01_WATCHMAN_DETECTOR\", detector)",
+    "var detector := find_child(\"F01_WATCHMAN_DETECTOR\", true, false) as WatchmanClockProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
   },
   {
    "authority": [
@@ -204868,97 +204865,97 @@
    "token": "ROOF_TANK_BALLCOCK"
   },
   {
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "line.register_endpoint({\"id\": \"F02_A_TELEPHONE\", \"extension\": \"2A\"})",
-    "anchor.global_position.y], \"floor\": \"F02\", \"room\": \"2A\"}}"
-   ],
-   "count": 2,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
    "key": "981015bae63035d6",
    "kind": "unit_reference",
-   "lines": [
-    407,
-    1043
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "2A",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_authorities",
     "_compose_vantry"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "2A"
-  },
-  {
+   "lines": [
+    407,
+    1045
+   ],
+   "count": 2,
+   "context": [
+    "line.register_endpoint({\"id\": \"F02_A_TELEPHONE\", \"extension\": \"2A\"})",
+    "anchor.global_position.y], \"floor\": \"F02\", \"room\": \"2A\"}}"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "RUNTIME_LOOKUP"
    ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "e1dcd402c9db0601",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_observation_ledger"
+   ],
+   "lines": [
+    906
+   ],
+   "count": 1,
    "context": [
     "{\"npc\": ServiceRoundDirector.RESIDENT_ID, \"unit\": \"2B\"},"
    ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
    "gameplay_binding": false,
-   "key": "e1dcd402c9db0601",
-   "kind": "unit_reference",
-   "lines": [
-    904
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "subsystem": "building",
-   "symbols": [
-    "_compose_observation_ledger"
-   ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "2B"
-  },
-  {
    "authority": [
     "RUNTIME_LOOKUP"
    ],
-   "confidence": "MEDIUM",
-   "context": [
-    "{\"npc\": \"omar_bell\", \"unit\": \"3B\"},"
-   ],
-   "count": 1,
-   "disposition": "PRESERVE_OR_ALIAS",
-   "file": "game/scripts/building/orison_v2_runtime_root.gd",
-   "gameplay_binding": false,
-   "key": "55bf1978aa887283",
-   "kind": "unit_reference",
-   "lines": [
-    905
-   ],
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "55bf1978aa887283",
+   "kind": "unit_reference",
+   "token": "3B",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_compose_observation_ledger"
    ],
-   "target_exists": true,
-   "tier": "production",
-   "token": "3B"
+   "lines": [
+    907
+   ],
+   "count": 1,
+   "context": [
+    "{\"npc\": \"omar_bell\", \"unit\": \"3B\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
   },
   {
    "authority": [
@@ -205301,7 +205298,7 @@
     "_add_batch"
    ],
    "lines": [
-    222
+    224
    ],
    "count": 1,
    "context": [
@@ -205331,7 +205328,7 @@
     "_park"
    ],
    "lines": [
-    241
+    243
    ],
    "count": 1,
    "context": [
@@ -207765,7 +207762,7 @@
    "confidence": "MEDIUM",
    "context": [
     "const LEVELS := {\"B1\":-2.8, \"F01\":0.0, \"F02\":3.2, \"F03\":6.4,",
-    "var street := \"STREET LEVEL \u2193\" if fid != \"F01\" else \"STREET LEVEL \u2014 THIS FLOOR\""
+    "var street := \"STREET LEVEL ↓\" if fid != \"F01\" else \"STREET LEVEL — THIS FLOOR\""
    ],
    "count": 2,
    "disposition": "PRESERVE_OR_ALIAS",
@@ -216715,7 +216712,7 @@
    ],
    "confidence": "MEDIUM",
    "context": [
-    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "count": 2,
@@ -216788,7 +216785,7 @@
    ],
    "confidence": "MEDIUM",
    "context": [
-    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "count": 2,
@@ -263932,62 +263929,34 @@
    "token": "res://scenes/building/orison_v2_runtime.tscn"
   },
   {
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "if not await _open_front_entrance(\"F01_INNER_DOOR\"):return false"
-   ],
-   "count": 1,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
-   "gameplay_binding": false,
-   "key": "b5760fdd419d1414",
-   "kind": "id_reference",
-   "lines": [
-    122
-   ],
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "tests",
-   "symbols": [
-    "_enter_front_entrance"
-   ],
-   "target_exists": true,
-   "tier": "test",
-   "token": "F01_INNER_DOOR"
-  },
-  {
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "if not await _open_apartment_door(\"F02_DOOR_02\"): return false"
-   ],
-   "count": 1,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
-   "gameplay_binding": false,
    "key": "5ed137ad23303941",
    "kind": "id_reference",
-   "lines": [
-    137
-   ],
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "F02/marker+v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "F02_DOOR_02",
+   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
+   "tier": "test",
    "subsystem": "tests",
    "symbols": [
     "_enter_2a"
    ],
-   "target_exists": true,
-   "tier": "test",
-   "token": "F02_DOOR_02"
+   "lines": [
+    136
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_apartment_door(\"F02_DOOR_02\"): return false"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/marker+v2_blockout",
+   "target_exists": true
   },
   {
    "authority": [
@@ -264052,39 +264021,39 @@
    "token": "F01_WATCHMAN_DETECTOR"
   },
   {
-   "authority": [
-    "TEST_CONTRACT"
+   "key": "3f457a9edf18ae5d",
+   "kind": "vector3_coordinate",
+   "token": "_enter_front_entrance",
+   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_enter_front_entrance"
    ],
-   "confidence": "MEDIUM",
+   "lines": [
+    119,
+    121,
+    122
+   ],
+   "count": 3,
    "context": [
     "if not await _walk(Vector3(0,0,-13.55)):return false",
     "if not await _walk(Vector3(0,0,-10.2)):return false",
     "return await _walk(Vector3(0,0,-8.5))"
    ],
-   "count": 3,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
    "gameplay_binding": true,
-   "key": "3f457a9edf18ae5d",
-   "kind": "vector3_coordinate",
-   "lines": [
-    119,
-    121,
-    123
+   "authority": [
+    "TEST_CONTRACT"
    ],
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
    "spatial": [
     "CAMERA_STATION",
     "RAW_GODOT_COORDINATE"
    ],
-   "subsystem": "tests",
-   "symbols": [
-    "_enter_front_entrance"
-   ],
-   "target_exists": null,
-   "tier": "test",
-   "token": "_enter_front_entrance"
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "authority": [
@@ -265625,66 +265594,63 @@
    "token": "b1_repair_bench"
   },
   {
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "var anchor:=world.adapter.resolve(\"F01_INNER_DOOR\") as Node3D",
-    "if DoorKeyring.identity(door)!=\"F01_INNER_DOOR\" or DoorKeyring.book().locks.get(\"F01_INNER_DOOR\",true):"
-   ],
-   "count": 3,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_inner_door_test.gd",
-   "gameplay_binding": false,
    "key": "df988026e8ce30b0",
    "kind": "id_reference",
-   "lines": [
-    6,
-    62,
-    62
-   ],
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
+   "token": "F01_INNER_DOOR",
+   "file": "game/tests/orison_v2_inner_door_test.gd",
+   "tier": "test",
    "subsystem": "tests",
    "symbols": [
     "_route"
    ],
-   "target_exists": true,
-   "tier": "test",
-   "token": "F01_INNER_DOOR"
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "var anchor:=world.adapter.resolve(\"F01_INNER_DOOR\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
+   "key": "fba5dfabde313df4",
+   "kind": "node_path",
+   "token": "F01_INNER_DOOR_Leaf",
+   "file": "game/tests/orison_v2_inner_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "if anchor==null or anchor.has_node(\"Hinge\") or anchor.has_node(\"F01_INNER_DOOR_Leaf\"):"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "SCENE_NODE_PATH",
     "TEST_CONTRACT"
    ],
-   "confidence": "MEDIUM",
-   "context": [
-    "var door:=anchor.get_node_or_null(\"F01_INNER_DOOR_Leaf\") as DoorProp"
-   ],
-   "count": 1,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_inner_door_test.gd",
-   "gameplay_binding": false,
-   "key": "fba5dfabde313df4",
-   "kind": "node_path",
-   "lines": [
-    7
-   ],
-   "rationale": "Node-path lookup embeds spatial identity.",
-   "resolved_target": null,
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
-   "subsystem": "tests",
-   "symbols": [
-    "_route"
-   ],
-   "target_exists": null,
-   "tier": "test",
-   "token": "F01_INNER_DOOR_Leaf"
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "authority": [
@@ -268668,7 +268634,7 @@
    ],
    "confidence": "HIGH",
    "context": [
-    "await _owner_shot(\"05_night_register\", \"F01_NIGHT_REGISTER\", \"NIGHT REGISTER \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"05_night_register\", \"F01_NIGHT_REGISTER\", \"NIGHT REGISTER · PRODUCTION AUTHORITY\")"
    ],
    "count": 1,
    "disposition": "UPDATE_TEST_FIXTURE",
@@ -268699,7 +268665,7 @@
    ],
    "confidence": "HIGH",
    "context": [
-    "await _owner_shot(\"06_signal_register\", \"F01_SIGNAL_REGISTER\", \"SIGNAL REGISTER \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"06_signal_register\", \"F01_SIGNAL_REGISTER\", \"SIGNAL REGISTER · PRODUCTION AUTHORITY\")"
    ],
    "count": 1,
    "disposition": "UPDATE_TEST_FIXTURE",
@@ -268730,7 +268696,7 @@
    ],
    "confidence": "HIGH",
    "context": [
-    "await _owner_shot(\"07_tour_key_guard\", \"F01_TOUR_KEY_GUARD\", \"TOUR KEY GUARD \u00b7 COMPOSED PROP\")"
+    "await _owner_shot(\"07_tour_key_guard\", \"F01_TOUR_KEY_GUARD\", \"TOUR KEY GUARD · COMPOSED PROP\")"
    ],
    "count": 1,
    "disposition": "UPDATE_TEST_FIXTURE",
@@ -268761,7 +268727,7 @@
    ],
    "confidence": "HIGH",
    "context": [
-    "await _owner_shot(\"04_watchman_detector\", \"F01_WATCHMAN_DETECTOR\", \"WATCHMAN DETECTOR \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"04_watchman_detector\", \"F01_WATCHMAN_DETECTOR\", \"WATCHMAN DETECTOR · PRODUCTION AUTHORITY\")"
    ],
    "count": 1,
    "disposition": "UPDATE_TEST_FIXTURE",
@@ -282779,50 +282745,15 @@
    "token": "_route"
   },
   {
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "if not await _close_front_entrance(\"F01_INNER_DOOR\"):return"
-   ],
-   "count": 1,
-   "disposition": "UPDATE_TEST_FIXTURE",
+   "key": "f19e90d4ba89fbaa",
+   "kind": "vector3_coordinate",
+   "token": "_route",
    "file": "game/tests/orison_v2_street_crossing_test.gd",
-   "gameplay_binding": false,
-   "key": "f30dd4faec731af0",
-   "kind": "id_reference",
-   "lines": [
-    30
-   ],
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
+   "tier": "test",
    "subsystem": "tests",
    "symbols": [
     "_route"
    ],
-   "target_exists": true,
-   "tier": "test",
-   "token": "F01_INNER_DOOR"
-  },
-  {
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "var crossing := [Vector3(0, 0, 3), Vector3(14, 0, 3), Vector3(14, 0, 4.2),",
-    "Vector3(14, -0.1, 8), Vector3(14, -0.1, 13.6), Vector3(14, 0, 15),",
-    "Vector3(14, 0, 18.2)]",
-    "player.camera.look_at(Vector3(0, 1.5, 0))"
-   ],
-   "count": 13,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_street_crossing_test.gd",
-   "gameplay_binding": true,
-   "key": "f19e90d4ba89fbaa",
-   "kind": "vector3_coordinate",
    "lines": [
     9,
     9,
@@ -282836,21 +282767,28 @@
     25,
     28,
     28,
-    31
+    28
    ],
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
+   "count": 13,
+   "context": [
+    "var crossing := [Vector3(0, 0, 3), Vector3(14, 0, 3), Vector3(14, 0, 4.2),",
+    "Vector3(14, -0.1, 8), Vector3(14, -0.1, 13.6), Vector3(14, 0, 15),",
+    "Vector3(14, 0, 18.2)]",
+    "player.camera.look_at(Vector3(0, 1.5, 0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
    "spatial": [
     "CAMERA_STATION",
     "RAW_GODOT_COORDINATE"
    ],
-   "subsystem": "tests",
-   "symbols": [
-    "_route"
-   ],
-   "target_exists": null,
-   "tier": "test",
-   "token": "_route"
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "authority": [
@@ -286729,67 +286667,37 @@
    "token": "res://scenes/building/orison_v2_runtime.tscn"
   },
   {
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "func _open_front_entrance(identity: String=\"F01_DOOR_06\") -> bool:",
-    "func _close_front_entrance(identity: String=\"F01_DOOR_06\") -> bool:"
-   ],
-   "count": 2,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_vertical_route_test.gd",
-   "gameplay_binding": false,
    "key": "44cf3285dbb47a62",
    "kind": "id_reference",
-   "lines": [
-    157,
-    160
-   ],
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "F01/marker+v2_blockout",
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "F01_DOOR_06",
+   "file": "game/tests/orison_v2_vertical_route_test.gd",
+   "tier": "test",
    "subsystem": "tests",
    "symbols": [
     "_open_front_entrance",
     "_close_front_entrance"
    ],
-   "target_exists": true,
-   "tier": "test",
-   "token": "F01_DOOR_06"
-  },
-  {
+   "lines": [
+    155,
+    158
+   ],
+   "count": 2,
+   "context": [
+    "func _open_front_entrance(identity: String=\"F01_DOOR_06\") -> bool:",
+    "func _close_front_entrance(identity: String=\"F01_DOOR_06\") -> bool:"
+   ],
+   "gameplay_binding": false,
    "authority": [
     "TEST_CONTRACT"
    ],
-   "confidence": "MEDIUM",
-   "context": [
-    "if not await _open_front_entrance(\"F01_INNER_DOOR\"):return false"
+   "spatial": [
+    "SEMANTIC_ANCHOR"
    ],
-   "count": 2,
    "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_vertical_route_test.gd",
-   "gameplay_binding": false,
-   "key": "2e46f8dab04f0aef",
-   "kind": "id_reference",
-   "lines": [
-    144,
-    154
-   ],
+   "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "v2_blockout",
-   "spatial": [],
-   "subsystem": "tests",
-   "symbols": [
-    "_leave_front_entrance",
-    "_enter_front_entrance"
-   ],
-   "target_exists": true,
-   "tier": "test",
-   "token": "F01_INNER_DOOR"
+   "resolved_target": "F01/marker+v2_blockout",
+   "target_exists": true
   },
   {
    "authority": [
@@ -286822,72 +286730,70 @@
    "token": "F03_SERVICE_CORE_DOOR"
   },
   {
-   "authority": [
-    "TEST_CONTRACT"
+   "key": "e163f2da7fe77d4a",
+   "kind": "vector3_coordinate",
+   "token": "_enter_front_entrance",
+   "file": "game/tests/orison_v2_vertical_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_enter_front_entrance"
    ],
-   "confidence": "MEDIUM",
+   "lines": [
+    150,
+    152,
+    153
+   ],
+   "count": 3,
    "context": [
     "if not await _walk(Vector3(0,0,-13.15)):return false",
     "if not await _walk(Vector3(0,0,-10.2)):return false",
     "return await _walk(Vector3(0,0,-8.5))"
    ],
-   "count": 3,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_vertical_route_test.gd",
    "gameplay_binding": true,
-   "key": "e163f2da7fe77d4a",
-   "kind": "vector3_coordinate",
-   "lines": [
-    151,
-    153,
-    155
-   ],
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "subsystem": "tests",
-   "symbols": [
-    "_enter_front_entrance"
-   ],
-   "target_exists": null,
-   "tier": "test",
-   "token": "_enter_front_entrance"
-  },
-  {
    "authority": [
     "TEST_CONTRACT"
    ],
-   "confidence": "MEDIUM",
-   "context": [
-    "if not await _walk(Vector3(0,0,-10.2)):return false",
-    "return await _walk(Vector3(0,0,-12.2))"
-   ],
-   "count": 2,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_vertical_route_test.gd",
-   "gameplay_binding": true,
-   "key": "c7ba91fe5572c709",
-   "kind": "vector3_coordinate",
-   "lines": [
-    145,
-    147
-   ],
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
    "spatial": [
     "CAMERA_STATION",
     "RAW_GODOT_COORDINATE"
    ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c7ba91fe5572c709",
+   "kind": "vector3_coordinate",
+   "token": "_leave_front_entrance",
+   "file": "game/tests/orison_v2_vertical_route_test.gd",
+   "tier": "test",
    "subsystem": "tests",
    "symbols": [
     "_leave_front_entrance"
    ],
-   "target_exists": null,
-   "tier": "test",
-   "token": "_leave_front_entrance"
+   "lines": [
+    146
+   ],
+   "count": 1,
+   "context": [
+    "return await _walk(Vector3(0,0,-12.2))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "authority": [
@@ -297277,8 +297183,8 @@
    "confidence": "MEDIUM",
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2190\").contains(\"2A\"),",
-    "and not _side_label(plate, \"\u2192\").contains(\"2A\"),"
+    "_check(_side_label(plate, \"←\").contains(\"2A\"),",
+    "and not _side_label(plate, \"→\").contains(\"2A\"),"
    ],
    "count": 3,
    "disposition": "UPDATE_TEST_FIXTURE",
@@ -297341,7 +297247,7 @@
    "confidence": "MEDIUM",
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2192\").contains(\"2C\")"
+    "_check(_side_label(plate, \"→\").contains(\"2C\")"
    ],
    "count": 2,
    "disposition": "UPDATE_TEST_FIXTURE",
@@ -314219,6 +314125,156 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "5f7cfe7d42007132",
+   "kind": "generated_name",
+   "token": "_directory",
+   "file": "game/scripts/building/orison_v2_entry_vestibule.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_directory"
+   ],
+   "lines": [
+    151
+   ],
+   "count": 1,
+   "context": [
+    "\"Unit\" + str(order[i])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a6b5f3b5ba64463e",
+   "kind": "id_reference",
+   "token": "F01_DOOR_06",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    61
+   ],
+   "count": 1,
+   "context": [
+    "var street_door := world.adapter.resolve(\"F01_DOOR_06\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8e029facff136807",
+   "kind": "id_reference",
+   "token": "F01_INNER_DOOR",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    62
+   ],
+   "count": 1,
+   "context": [
+    "var inner := world.adapter.resolve(\"F01_INNER_DOOR\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5d7a04ffe3b127c5",
+   "kind": "node_path",
+   "token": "F01_DOOR_06_Leaf",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    63
+   ],
+   "count": 1,
+   "context": [
+    "check(street_door != null and street_door.has_node(\"F01_DOOR_06_Leaf\"),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1253f089b88cfb3a",
+   "kind": "node_path",
+   "token": "F01_INNER_DOOR_Leaf",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    65
+   ],
+   "count": 1,
+   "context": [
+    "check(inner != null and not inner.has_node(\"Hinge\") and not inner.has_node(\"F01_INNER_DOOR_Leaf\"),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

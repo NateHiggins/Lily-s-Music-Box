@@ -119,7 +119,6 @@ func _enter_front_entrance() -> bool:
 	if not await _walk(Vector3(0,0,-13.55)):return false
 	if not await _open_front_entrance():return false
 	if not await _walk(Vector3(0,0,-10.2)):return false
-	if not await _open_front_entrance("F01_INNER_DOOR"):return false
 	return await _walk(Vector3(0,0,-8.5))
 
 func _prepare_procurement() -> bool:

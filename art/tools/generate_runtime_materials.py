@@ -91,6 +91,8 @@ RUNTIME_POLICY = {
     "milk_glass": {}, "bakelite_black": {}, "terrazzo_dark": {},
     "brass_mesh": {}, "indicator_enamel": {},
     "iron_blackened": {}, "billiard_resin": {}, "smoked_plaster": {},
+    # Period drapery (design/ORISON_DRAPERY_2026-10-24.md, art/tools/build_drapery_fabrics.py).
+    "monks_cloth": {}, "velour": {}, "ninon": {},
 }
 
 # These are compatibility locks, not a second silent material catalog. They

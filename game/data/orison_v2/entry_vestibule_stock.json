@@ -1,0 +1,192 @@
+{
+ "schema": "orison.v2.entry-vestibule-stock.v1",
+ "stock": "res://assets/props/v2_entry_vestibule.glb",
+ "finishes": [
+  {
+   "id": "oak",
+   "catalog_key": "wood_dark",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "felt",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.07,
+    0.065,
+    0.06,
+    1
+   ],
+   "normal": 0.8,
+   "roughness": 1.0
+  },
+  {
+   "id": "paper",
+   "catalog_key": "paper",
+   "tint": [
+    0.93,
+    0.9,
+    0.8,
+    1
+   ],
+   "normal": 0.4,
+   "roughness": 1.0
+  },
+  {
+   "id": "brass",
+   "catalog_key": "brass_dull",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "bronze",
+   "catalog_key": "bronze_sheet",
+   "tint": [
+    0.55,
+    0.42,
+    0.26,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "bakelite",
+   "catalog_key": "bakelite_black",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "iron",
+   "catalog_key": "iron_blackened",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "radiator",
+   "catalog_key": "radiator_cast_iron",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "valve_brass",
+   "catalog_key": "radiator_service_brass",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "coir",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.5,
+    0.37,
+    0.21,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "mantle_lit",
+   "catalog_key": "milk_glass",
+   "tint": [
+    1,
+    1,
+    0.92,
+    1
+   ],
+   "normal": 0.3,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.96,
+    0.8,
+    3.0
+   ]
+  },
+  {
+   "id": "shade_lit",
+   "catalog_key": "milk_glass",
+   "tint": [
+    0.96,
+    0.93,
+    0.86,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.86,
+    0.62,
+    0.55
+   ]
+  },
+  {
+   "id": "pane_lit",
+   "catalog_key": "milk_glass",
+   "tint": [
+    0.9,
+    0.86,
+    0.74,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.82,
+    0.55,
+    0.7
+   ]
+  }
+ ],
+ "stocks": [
+  "bronze_plaque",
+  "coat_hooks",
+  "directory_board",
+  "door_mat",
+  "gas_bracket",
+  "gas_lantern",
+  "gas_pipe_vestibule",
+  "notice_frame",
+  "radiator",
+  "signal_point"
+ ]
+}

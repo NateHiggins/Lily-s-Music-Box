@@ -44,16 +44,17 @@ func inspect_world(world: Node3D) -> void:
 		var anchor := world.adapter.resolve(str(record.id)) as Node3D
 		if anchor==null: continue
 		var leaf := anchor.get_node_or_null(str(record.id)+"_Leaf") as DoorProp
-		if leaf==null or leaf.door_kind not in ["apartment_entry","apartment_interior","service"]: continue
+		var kind := leaf.door_kind if leaf!=null else str(anchor.get_meta("unhung_door_kind",""))
+		if kind not in ["apartment_entry","apartment_interior","service"]: continue
 		var span: Vector2=preload("res://scripts/generated/v2_exterior_masonry.gd").DOOR_SPANS.get(str(record.id),Vector2(-half_depth,half_depth))
 		var center := (span.x+span.y)*.5
 		var depth := (span.y-span.x)*.5
-		var service := leaf.door_kind=="service"
+		var service := kind=="service"
 		if service:
 			service_openings+=1
 			service_detail = anchor
-		var category := str(record.level)+":"+leaf.door_kind
-		if capture_ids.size()<4 and category not in captured_types:
+		var category := str(record.level)+":"+kind
+		if leaf!=null and capture_ids.size()<4 and category not in captured_types:
 			capture_ids.append(str(record.id)); captured_types.append(category)
 		openings+=1
 		var casing := anchor.get_node_or_null("DoorCasings") as MultiMeshInstance3D
@@ -63,7 +64,10 @@ func inspect_world(world: Node3D) -> void:
 		check(casing.multimesh.instance_count==2 and lining.multimesh.instance_count==3,"two-sided casing and three reveal liners")
 		check(casing.multimesh.mesh is ArrayMesh and casing.multimesh.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].size()>8,"Blender section is imported")
 		check(casing.get_child_count()==0 and lining.get_child_count()==0,"joinery adds no collision owners")
-		check(leaf.get_node("HingedLeaf") is AnimatableBody3D,"existing moving collision owner retained")
+		if leaf!=null:
+			check(leaf.get_node("HingedLeaf") is AnimatableBody3D,"existing moving collision owner retained")
+		else:
+			check(anchor.has_node("EmptyButts") and not anchor.has_node("Hinge"),"unhung doorway retains its casing without a replacement leaf or moving collision owner")
 		var expected: Dictionary=stock.frame_for(float(record.width),float(record.height),service)
 		check(casing.multimesh.mesh==expected.mesh,"opening uses its exact native mitered front frame")
 		var native_parts: Dictionary=casing.get_meta("native_parts",{})
@@ -140,7 +144,7 @@ func inspect_world(world: Node3D) -> void:
 				var ray := PhysicsRayQueryParameters3D.create(eye,anchor.to_global(Vector3(0,1.2,0)),1,[world.player.get_rid()])
 				ray.hit_from_inside = true
 				var hit: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(ray)
-				if not hit.is_empty() and leaf.is_ancestor_of(hit.collider):
+				if not hit.is_empty() and leaf!=null and leaf.is_ancestor_of(hit.collider):
 					stance = Vector3(0,.05,side*distance); found = true; break
 			if found: break
 		check(found,identity+" has a clear rendered doorway view")

@@ -163,3 +163,40 @@ work still making progress. The diagnostic output is inert and grants no runtime
 contract. Existing completed save diagnostics remain reusable only while their
 actual source/log bindings still verify. PR23 remains unmerged pending the
 combined world, played routes, surface renewal and final baseline comparison.
+
+The unchanged-budget **runtime_v5** trace identifies the fixture defect. At
+frame600 (12.701seconds), the player remains inside the actual vestibule trigger,
+residency is wanted, both processing callbacks are enabled, and the owner is
+still **LOADING**. Eleven cells are staged and one request remains; samples show
+continued advance from the passage through laundry, hardware, photo, radio,
+pawn and druggist fitting. There is no stopped owner or lost prefetch trigger.
+The aggregate correctly fails with nine failures and retains its original logs
+and test-written trace. Seven existing Texture-RID teardown warnings persist.
+
+**4fae7365** changes only stationary inspection setup: wait for the existing
+resident state within a60second wall-clock deadline, stop immediately on an
+explicit failure, retain progress samples and all seven required-cell checks.
+There is no changed production budget, forced geometry activation, collision
+bypass or streaming-speed claim. The recorded final frame now reflects actual
+iterations instead of labeling early completion as frame600.
+
+Main has advanced to **5485fbb4** with the dressed, gas-lit entry vestibule and
+period window fabrics. Preserve the unhung inner doorway alongside this branch's
+native mitered casings; extend the casing inspection to cover the unhung frame
+without assuming a moving leaf. Source material conflicts resolve as an exact
+semantic three-way merge. The additive material comparator proves three new
+keys (**monks_cloth**, **velour**, **ninon**) and295 unchanged existing runtime
+texture files. Archive the29 original native provenance records before updating
+only their catalogue bindings. The comparison receipt is inert; existing stale
+bindings remain stale and no runtime contract is renewed by this operation.
+Reader audit remains zero NEW and the merged spatial audit is clean. A fresh
+clean-main board and merged runtime checks remain required before landing.
+
+Clean **5485fbb4** records nine newly wrong drapery texture imports in addition
+to main's previous debt. Repair those nine sidecars with the established V2
+policy tool; the source check now reports1,389 correct and zero needing repair.
+Actual reimport and loaded-map validation remain pending. The strict additive
+comparison leaves820 already-stale binding entries stale. A supplemental native
+preflight confirms the five renewed city fixtures pass while four legacy
+domestic/lighting/surface fixtures still report their unrelated old dependencies;
+do not relabel those failures as current qualification or blanket-refresh them.

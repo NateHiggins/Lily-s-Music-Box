@@ -1,0 +1,95 @@
+{
+ "checks": [
+  {
+   "label": "the street door keeps its production leaf",
+   "ok": true
+  },
+  {
+   "label": "the vestibule's inner doorway hangs no leaf",
+   "ok": true
+  },
+  {
+   "label": "the unhung doorway keeps its casings and its empty jamb butts",
+   "ok": true
+  },
+  {
+   "label": "the entry vestibule owner is composed",
+   "ok": true
+  },
+  {
+   "label": "the directory board lists every unit in Label3D",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries EstablishedPlaque",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries NoticeHum",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries NoticeHouse",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries SignalPoint",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries Radiator",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries DoorMat",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries CoatHooks",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries EntranceLamp",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries VestibuleLamp",
+   "ok": true
+  },
+  {
+   "label": "vestibule carries GasSupply",
+   "ok": true
+  }
+ ],
+ "captures": [
+  "street_night.png",
+  "kerb_night.png",
+  "under_awning.png",
+  "vestibule_entering.png",
+  "vestibule_west.png",
+  "vestibule_east.png",
+  "vestibule_north.png",
+  "from_lobby.png",
+  "directory_close.png",
+  "notices_close.png",
+  "plaque_close.png",
+  "gas_bracket_close.png",
+  "lantern_close.png"
+ ],
+ "lights": [
+  {
+   "path": "EntryVestibule/EntranceLamp/Mantle",
+   "class": "OmniLight3D",
+   "energy": 1.29999995231628,
+   "distance": 2.47,
+   "shadow": true
+  },
+  {
+   "path": "EntryVestibule/VestibuleLamp/Mantle",
+   "class": "OmniLight3D",
+   "energy": 0.850000023841858,
+   "distance": 3.14,
+   "shadow": true
+  }
+ ]
+}
