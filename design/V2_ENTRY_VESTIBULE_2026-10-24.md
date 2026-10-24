@@ -183,13 +183,11 @@ corner.
   in **art/reviews/v2_entry_vestibule_20261024/godot/**.
 - Route tests, windowed, through the one front door: **OrisonV2InnerDoorTest**
   (unhung doorway), **OrisonV2PassageRouteTest**,
-  **OrisonV2GoldenRepairRouteTest**, **OrisonV2NewsRouteTest** and
-  **OrisonV2StreetCrossingTest** pass with 0 failures.
+  **OrisonV2GoldenRepairRouteTest**, **OrisonV2NewsRouteTest**,
+  **OrisonV2StreetCrossingTest** and, after merging main's PR 24,
+  **OrisonV2ConnectedExteriorRouteTest** (18 waypoints) pass with 0 failures.
 - **OrisonV2VerticalRouteTest** fails with the same F03 fire-cabinet
   collision on clean main at 662aa9fc; that failure is not caused here.
-  **OrisonV2ConnectedExteriorRouteTest** leaves through the entrance and
-  then fails on a shop door's `[E]` prompt, which storefront doors no longer
-  offer under direct manipulation (RUL-013).
 - Static: reader gate 0 new, period dates PASS, spatial audit clean after
   registering the new rows, design-doc lint clean. The gate board against
   main's board regressed only on the then-uncommitted GLB and the
