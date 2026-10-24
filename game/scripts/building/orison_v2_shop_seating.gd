@@ -1,5 +1,17 @@
 extends RefCounted
 
+
+# Residency prepares only wrappers whose preflight accepts a mounted result.
+# Exact handoff matching in mount_records prevents recipe drift.
+static func begin_streamed_fitting(kind: String, cell: Node3D, layout: Dictionary) -> RefCounted:
+	match kind:
+		"arcade_canopy":return begin_records(cell,layout,"res://data/orison_v2/arcade_canopy.json","ArcadeCanopy","F01_retail_arcade_","arcade_canopy_part")
+		"arcade_throat":return begin_records(cell,layout,"res://data/orison_v2/arcade_throat.json","ArcadeThroat","F01_retail_arcade_","arcade_throat_part")
+		"hardware_drawers":return begin_records(cell,layout,"res://data/orison_v2/hardware_drawers.json","HardwareDrawers","F01_retail_hardware_drawers_","hardware_drawer_part")
+		"hardware_stock":return begin_records(cell,layout,"res://data/orison_v2/hardware_stock.json","HardwareStock","F01_retail_hardware_stock_","hardware_stock_part")
+		"druggist_drawers":return begin_records(cell,layout,"res://data/orison_v2/druggist_drawers.json","DruggistDrawers","F01_retail_druggist_drawers_","druggist_drawer_part")
+	return null
+
 static func mount_arcade_canopy(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/arcade_canopy.json","ArcadeCanopy","F01_retail_arcade_","arcade_canopy_part")
 
@@ -219,206 +231,19 @@ static func fitting_assets(cell_ids: Array = []) -> Array[String]:
 		if used and not assets.has(str(data.asset)): assets.append(str(data.asset))
 	return assets
 
+static func begin_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String, cell_identity: String = "", borrowed_materials: Dictionary = {}) -> RefCounted:
+	return FitJob.new(_without_boxes,_copy_native_mesh,cell,layout,data_path,model_name,draw_prefix,part_meta,cell_identity,borrowed_materials)
+
 static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String, cell_identity: String = "", borrowed_materials: Dictionary = {}) -> bool:
-	var profile_start := Time.get_ticks_usec()
-	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(data_path))
-	if data is not Dictionary or int(data.get("schema_version",0))!=1:return false
-	var matches: Array=[]
-	for row: Dictionary in data.cells:
-		if str(row.id)==(str(cell.name) if cell_identity.is_empty() else cell_identity):matches.append(row)
-	if matches.is_empty():return true
-	if matches.size()!=1 or cell.has_node(model_name):return false
-	var record: Dictionary=matches[0]
-	var source_rows: Dictionary={}
-	for floor: Dictionary in layout.floors:
-		if floor.id!="F01":continue
-		for row: Dictionary in floor.furniture:source_rows[str(row.id)]=row
-	var tolerance:=float(data.tolerance)
-	var counts: Dictionary={};var originals: Dictionary={};var materials: Dictionary=borrowed_materials.duplicate()
-	for key: Variant in materials:
-		var mat: StandardMaterial3D=materials[key] as StandardMaterial3D
-		if mat==null or mat.roughness_texture==null or mat.normal_texture==null:return false
-		if mat.albedo_texture==null and (str(key)!="glassish" or mat.transparency not in [BaseMaterial3D.TRANSPARENCY_ALPHA,BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS] or mat.albedo_color.a<=0. or mat.albedo_color.a>=1.):return false
-	for box: Dictionary in record.replace:
-		if not source_rows.has(str(box.id)):return false
-		var source: Dictionary=source_rows[box.id];var r: Array=source.rect
-		if str(source.mat)!=str(box.key) or _v(box.low).distance_to(Vector3(r[0],source.z0,-r[3]))>tolerance or _v(box.high).distance_to(Vector3(r[2],float(source.z0)+float(source.h),-r[1]))>tolerance:return false
-		counts[str(box.id)]=0
-	var replacements: Dictionary={}
-	for draw: MeshInstance3D in cell.find_children("*","MeshInstance3D",true,false):
-		# Earlier native fittings keep their own geometry/material owner.
-		# Only shipping source draws supply authored retirement boundaries.
-		if draw.has_meta("material_key"):continue
-		var boxes: Array[Dictionary]=[]
-		for box: Dictionary in record.replace:
-			if str(draw.name).trim_suffix("-col").ends_with("_"+str(box.key)):boxes.append(box)
-		if boxes.is_empty():continue
-		# Shipping cells quantize positions to their imported AABB. Account for
-		# one encoded step while still requiring one outward source boundary.
-		var extent:=draw.mesh.get_aabb().size
-		var encoded_tolerance:=tolerance+maxf(maxf(extent.x,extent.y),extent.z)/65535.
-		var before:=0
-		for box: Dictionary in boxes:before+=int(counts[str(box.id)])
-		var result:=_without_boxes(draw,boxes,encoded_tolerance,counts)
-		if result==null:return false
-		var after:=0
-		for box: Dictionary in boxes:after+=int(counts[str(box.id)])
-		# A source can contain colliding and decorative draws with the same
-		# material key. Only the draw that owns a removed boundary is fitted.
-		if before==after:continue
-		replacements[draw]=result;originals[draw]=draw.mesh
-		for box: Dictionary in boxes:
-			if draw.mesh.get_surface_count()!=1:return false
-			var original:=draw.mesh.surface_get_material(0) as StandardMaterial3D
-			if original==null or original.roughness_texture==null or original.normal_texture==null:return false
-			# Source drawn glass deliberately carries literal color/alpha and
-			# two maps. Preserve that authored optical owner without adding albedo.
-			if original.albedo_texture==null and (str(box.key)!="glassish" or original.transparency not in [BaseMaterial3D.TRANSPARENCY_ALPHA,BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS] or original.albedo_color.a<=0. or original.albedo_color.a>=1.):return false
-			materials[str(box.key)]=original
-	for box: Dictionary in record.replace:
-		if counts[str(box.id)]!=int(box.expected_triangles):
-			push_error("Shop seating boundary mismatch: "+str(box.id)+" count="+str(counts[str(box.id)]));return false
-	var profile_cut := Time.get_ticks_usec()
-	# The loader cache is weak. The residency owner releases its prefetched
-	# scenes on activation/cancellation; this fitter retains no scene cache.
-	var packed:=ResourceLoader.load(str(data.asset),"PackedScene",ResourceLoader.CACHE_MODE_REUSE) as PackedScene
-	if packed==null:return false
-	var profile_load := Time.get_ticks_usec()
-	var model:=packed.instantiate() as Node3D
-	var profile_instance := Time.get_ticks_usec()
-	if model==null:return false
-	model.name=model_name
-	var parts: Dictionary={}
-	for part: Dictionary in record.parts:
-		if parts.has(str(part.name)) or float(part.tile)<=0.:model.free();return false
-		if not materials.has(str(part.key)) and (not part.has("catalog_key") or not MatLib.SETS.has(str(part.catalog_key))):model.free();return false
-		if part.has("tint"):
-			if part.tint is not Array or part.tint.size()!=4:model.free();return false
-			for component: Variant in part.tint:
-				if (component is not float and component is not int) or not is_finite(float(component)) or float(component)<0. or float(component)>1.:model.free();return false
-			if float(part.tint[3])!=1.:model.free();return false
-		if part.has("plain_alpha") and (part.plain_alpha is not bool or str(part.key)!="glassish" or part.has("catalog_key")):model.free();return false
-		parts[str(part.name)]=part
-	var profile_material_us := 0
-	var profile_assign_us := 0
-	var profile_duplicate_us := 0
-	var profile_collision_us := 0
-	var profile_mesh_hash_us := 0
-	var profile_face_hash_us := 0
-	var profile_attach_us := 0
-	var mounted: Dictionary={};var local_materials: Dictionary={}
-	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		if not parts.has(str(draw.name)):draw.free();continue
-		var material_started:=Time.get_ticks_usec()
-		var part: Dictionary=parts[str(draw.name)];var key:=str(part.key)
-		var material_slot:=key+"|"+str(part.get("catalog_key",""))+"|"+str(part.tile)+"|"+JSON.stringify(part.get("tint",[]))+"|"+str(part.get("plain_alpha",false))
-		if not local_materials.has(material_slot):
-			var mat: StandardMaterial3D
-			if part.has("catalog_key"):
-				var catalog_key:=str(part.catalog_key)
-				if not MatLib.SETS.has(catalog_key):model.free();return false
-				if absf(float(MatLib.SETS[catalog_key][3])-float(part.tile))>.000001:model.free();return false
-				mat=MatLib.get_mat(catalog_key).duplicate() as StandardMaterial3D
-			else:mat=materials[key].duplicate() as StandardMaterial3D
-			if part.has("tint"):
-				var tint: Array=part.tint
-				mat.albedo_color=Color(tint[0],tint[1],tint[2],tint[3])
-			if part.get("plain_alpha",false):mat.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
-			mat.uv1_triplanar=false;mat.uv1_scale=Vector3.ONE/float(part.tile)
-			local_materials[material_slot]=mat
-		profile_material_us+=Time.get_ticks_usec()-material_started
-		# Imported mesh buffers remain immutable even when the PackedScene was
-		# shared with another cell or prefetch. Only this instance owns the slot.
-		var profile_step := Time.get_ticks_usec()
-		var native_mesh_source: Mesh=draw.mesh
-		var native_surface_buffers: Array=[]
-		if native_mesh_source is ArrayMesh and native_mesh_source.get_blend_shape_count()==0 and native_mesh_source.get_script()==null:
-			# One renderer-buffer read supplies both the local copy and the exact
-			# collision signature. Resource.duplicate followed by another mesh read
-			# was a large measured cost for the 164-part druggist fitting.
-			native_surface_buffers=native_mesh_source.get("_surfaces")
-			draw.mesh=_copy_native_mesh(native_mesh_source,native_surface_buffers)
-		else:draw.mesh=native_mesh_source.duplicate() as Mesh
-		profile_duplicate_us += Time.get_ticks_usec()-profile_step
-		var assign_started:=Time.get_ticks_usec()
-		draw.mesh.surface_set_material(0,local_materials[material_slot])
-		profile_assign_us+=Time.get_ticks_usec()-assign_started
-		# Name retains SurfacePass's retail class and therefore its state owner.
-		draw.set_meta(part_meta,str(draw.name));draw.set_meta("material_key",key)
-		draw.name=draw_prefix+str(draw.name)
-		profile_step = Time.get_ticks_usec()
-		var collision_key := str(data.asset)+"::"+str(part.name)
-		draw.set_meta("native_collision_key",collision_key)
-		var collision_paths: Dictionary=cell.get_meta("native_collision_paths",{})
-		if collision_paths.is_empty():
-			draw.create_trimesh_collision()
-		else:
-			if not collision_paths.has(collision_key): model.free(); return false
-			var entry: Dictionary=collision_paths[collision_key]
-			var shape: ConcavePolygonShape3D = (cell.get_meta("native_collision_shapes",{}) as Dictionary).get(collision_key) as ConcavePolygonShape3D
-			# Reusing acceleration data never substitutes a proxy or relaxes fit.
-			# Mesh.get_faces itself builds a TriangleMesh BVH. Compare the exact
-			# serialized geometry and original face hashes without rebuilding it.
-			var cache := preload("res://scripts/building/orison_v2_fitting_collision_cache.gd")
-			if shape==null: model.free(); return false
-			var checkpoint:=Time.get_ticks_usec()
-			var mesh_hash: String=cache.surfaces_signature(native_surface_buffers) if not native_surface_buffers.is_empty() else cache.mesh_signature(draw.mesh)
-			profile_mesh_hash_us+=Time.get_ticks_usec()-checkpoint
-			checkpoint=Time.get_ticks_usec()
-			var face_hash: String=str(entry.face_hash) if int(entry.get("shape_rid",0))==shape.get_rid().get_id() else cache.face_signature(shape)
-			profile_face_hash_us+=Time.get_ticks_usec()-checkpoint
-			if mesh_hash!=str(entry.mesh_hash) or face_hash!=str(entry.face_hash): model.free(); return false
-			checkpoint=Time.get_ticks_usec()
-			var body:=StaticBody3D.new();body.name="StaticBody3D"
-			var collision:=CollisionShape3D.new();collision.name="CollisionShape3D";collision.shape=shape
-			body.add_child(collision);draw.add_child(body)
-			profile_attach_us+=Time.get_ticks_usec()-checkpoint
-		profile_collision_us += Time.get_ticks_usec()-profile_step
-		mounted[str(part.name)]=true
-	if mounted.size()!=parts.size():model.free();return false
-	var profile_models := Time.get_ticks_usec()
-	# Validate collision ownership before altering any imported draw.
-	for draw: MeshInstance3D in replacements:
-		var collisions:=draw.find_children("*","CollisionShape3D",true,false)
-		if collisions.size()!=1 or (collisions[0] as CollisionShape3D).shape is not ConcavePolygonShape3D:model.free();return false
-	for draw: MeshInstance3D in replacements:
-		draw.mesh=replacements[draw]
-		var collision: CollisionShape3D=draw.find_children("*","CollisionShape3D",true,false)[0]
-		if draw.mesh.get_surface_count()==0:
-			draw.hide();collision.disabled=true
-		else:
-			var shape:=ConcavePolygonShape3D.new();shape.set_faces(draw.mesh.get_faces());collision.shape=shape
-	model.set_meta("original_meshes",originals);model.set_meta("removed_triangles",counts)
-	# Dossier slice 69: words on a fitted card or board are Label3D, never texture (RUL-008).
-	for label: Variant in record.get("labels",[]):
-		if label is not Dictionary or label.get("text") is not String or str(label.text).is_empty() \
-				or label.get("at") is not Array or label.at.size()!=3 \
-				or (label.get("yaw") is not float and label.get("yaw") is not int):
-			model.free();return false
-		var words:=Label3D.new()
-		words.name="Words_"+str(label.get("id","label"))
-		words.text=str(label.text)
-		words.font_size=int(label.get("font_size",40))
-		words.pixel_size=float(label.get("pixel_size",.0004))
-		words.modulate=Color(.07,.06,.05)
-		var colour: Variant=label.get("color")
-		if colour!=null:
-			if colour is not Array or colour.size()!=3:model.free();return false
-			for component: Variant in colour:
-				if (component is not float and component is not int) or float(component)<0. or float(component)>1.:model.free();return false
-			words.modulate=Color(float(colour[0]),float(colour[1]),float(colour[2]))
-		words.outline_size=0
-		words.double_sided=false
-		words.position=_v(label.at)
-		words.rotation.y=float(label.yaw)
-		model.add_child(words)
-	cell.add_child(model)
-	if OS.get_environment("ORISON_PROFILE_NATIVE")=="1" or OS.get_environment("ORISON_PROFILE_RESIDENCY")=="1":
-		print("NATIVE_FIT_DETAIL ",JSON.stringify({"cell":str(cell.name),"data":data_path,
-			"material_ms":profile_material_us/1000.0,"slot_assignment_ms":profile_assign_us/1000.0,"cut_ms":(profile_cut-profile_start)/1000.0,"duplicate_ms":profile_duplicate_us/1000.0,"collision_ms":profile_collision_us/1000.0,"mesh_hash_ms":profile_mesh_hash_us/1000.0,"face_hash_ms":profile_face_hash_us/1000.0,"attach_ms":profile_attach_us/1000.0,"load_ms":(profile_load-profile_cut)/1000.0,
-			"instantiate_ms":(profile_instance-profile_load)/1000.0,"model_and_collision_ms":(profile_models-profile_instance)/1000.0,
-			"publish_ms":(Time.get_ticks_usec()-profile_models)/1000.0}))
-	return true
+	# Residency may prepare this exact request incrementally. Consume its
+	# one-use result before the original wrapper performs its optical finishing.
+	var prepared: Variant=cell.get_meta("prepared_native_fit") if cell.has_meta("prepared_native_fit") else null
+	if prepared!=null:
+		cell.remove_meta("prepared_native_fit")
+		if prepared is not RefCounted or prepared.get_script()!=FitJob:return false
+		return prepared.matches(cell,layout,data_path,model_name,draw_prefix,part_meta,cell_identity,borrowed_materials)
+	return begin_records(cell,layout,data_path,model_name,draw_prefix,part_meta,cell_identity,borrowed_materials).finish()
+
 
 static func _without_boxes(draw: MeshInstance3D, boxes: Array[Dictionary], tolerance: float, counts: Dictionary, require_boundary := true) -> ArrayMesh:
 	var result:=ArrayMesh.new()
@@ -518,3 +343,357 @@ static func _copy_native_mesh(source: ArrayMesh,surfaces: Array) -> ArrayMesh:
 	for metadata_key: StringName in source.get_meta_list():native_mesh_copy.set_meta(metadata_key,source.get_meta(metadata_key))
 	native_mesh_copy.set("_surfaces",surfaces)
 	return native_mesh_copy
+
+# Private construction state stays with its sole data-owning fitter.
+# Keeping the actual reads here preserves exact source-file audit provenance.
+class FitJob extends RefCounted:
+	## Cooperative private construction; the existing fitter supplies pure mesh helpers.
+	## No active tree or gameplay owner is published before all native parts validate.
+	var cut_mesh: Callable
+	var copy_mesh: Callable
+	var cell: Node3D
+	var layout: Dictionary
+	var layout_identity: Dictionary
+	var data_path: String
+	var model_name: String
+	var draw_prefix: String
+	var part_meta: String
+	var cell_identity: String
+	var borrowed_materials: Dictionary
+	var cell_name: String
+	var data_digest: String
+	var data: Variant
+	var record: Dictionary={}
+	var counts: Dictionary={}
+	var originals: Dictionary={}
+	var materials: Dictionary={}
+	var replacements: Dictionary={}
+	var model: Node3D
+	var parts: Dictionary={}
+	var mounted: Dictionary={}
+	var local_materials: Dictionary={}
+	var draws: Array[Node]=[]
+	var cursor:=0
+	var prepared:=false
+	var done:=false
+	var ok:=false
+	var skipped:=false
+	var cooperative:=false
+	var source_changed:=false
+	var source_guards: Array[Dictionary]=[]
+	var watched_meshes: Dictionary={}
+	var verified_shapes: Array[Dictionary]=[]
+	var profile_start:=0
+	var profile_cut:=0
+	var profile_load:=0
+	var profile_instance:=0
+	var profile_model_us:=0
+	var profile_material_us:=0
+	var profile_assign_us:=0
+	var profile_duplicate_us:=0
+	var profile_collision_us:=0
+	var profile_mesh_hash_us:=0
+	var profile_face_hash_us:=0
+	var profile_attach_us:=0
+
+	func _init(cut: Callable,copy: Callable,owner_cell: Node3D,source_layout: Dictionary,path: String,stock_name: String,prefix: String,metadata: String,identity: String="",borrowed: Dictionary={}) -> void:
+		cut_mesh=cut;copy_mesh=copy;cell=owner_cell;layout_identity=source_layout
+		layout=source_layout;data_path=path;model_name=stock_name
+		draw_prefix=prefix;part_meta=metadata;cell_identity=identity
+		borrowed_materials=borrowed.duplicate();cell_name=str(cell.name)
+
+	func finish() -> bool:
+		while not done:advance(0)
+		return ok
+
+	func advance(budget_usec: int) -> void:
+		if done:return
+		cooperative=cooperative or budget_usec>0
+		var started:=Time.get_ticks_usec()
+		if not prepared:
+			prepared=true
+			data_digest=FileAccess.get_sha256(data_path)
+			if not _prepare():_fail();return
+			if done:return
+			# Only jobs that actually yield need an immutable layout snapshot.
+			# Synchronous and nonmatching calls must not clone the whole building.
+			if budget_usec>0:layout=layout_identity.duplicate(true)
+			if budget_usec>0 and Time.get_ticks_usec()-started>=budget_usec:return
+		while cursor<draws.size():
+			var draw:=draws[cursor];cursor+=1
+			var before:=Time.get_ticks_usec()
+			if not is_instance_valid(draw) or not _mount_draw(draw):_fail();return
+			profile_model_us+=Time.get_ticks_usec()-before
+			if budget_usec>0 and Time.get_ticks_usec()-started>=budget_usec:return
+		if not _publish():_fail();return
+		done=true;ok=true;draws.clear();_disconnect_sources()
+
+	func matches(owner_cell: Node3D,source_layout: Dictionary,path: String,stock_name: String,prefix: String,metadata: String,identity: String,borrowed: Dictionary) -> bool:
+		return done and ok and not skipped and is_instance_valid(cell) and cell==owner_cell and str(cell.name)==cell_name and is_same(layout_identity,source_layout) and layout==source_layout and data_path==path and model_name==stock_name and draw_prefix==prefix and part_meta==metadata and cell_identity==identity and borrowed_materials==borrowed and FileAccess.get_sha256(path)==data_digest and is_instance_valid(model) and model.get_parent()==cell and _shapes_valid()
+
+	func cancel() -> void:
+		if not done:_fail()
+
+	func _fail() -> void:
+		done=true;ok=false;draws.clear();_disconnect_sources()
+		if is_instance_valid(model) and model.get_parent()==null:model.free()
+		model=null;replacements.clear();originals.clear();local_materials.clear()
+		verified_shapes.clear()
+
+	func _notification(what: int) -> void:
+		if what==NOTIFICATION_PREDELETE:
+			# RefCounted is already at zero here; calling another method on self
+			# would attempt an invalid reference acquisition. Disconnect inline.
+			for row: Dictionary in watched_meshes.values():
+				if is_instance_valid(row.mesh) and row.mesh.changed.is_connected(row.callback):row.mesh.changed.disconnect(row.callback)
+			watched_meshes.clear();source_guards.clear()
+			if is_instance_valid(model) and model.get_parent()==null:model.free()
+
+	static func _mark_changed(reference: WeakRef) -> void:
+		var job: RefCounted=reference.get_ref()
+		if job!=null:job.source_changed=true
+
+	func _watch_mesh(mesh: Mesh) -> void:
+		if mesh==null or watched_meshes.has(mesh.get_instance_id()):return
+		var callback:=_mark_changed.bind(weakref(self))
+		mesh.changed.connect(callback)
+		watched_meshes[mesh.get_instance_id()]={"mesh":mesh,"callback":callback}
+
+	func _watch_source(draw: MeshInstance3D) -> void:
+		source_guards.append({"draw":draw,"mesh":draw.mesh,"pose":draw.transform})
+		_watch_mesh(draw.mesh)
+
+	func _sources_valid() -> bool:
+		if source_changed or not is_instance_valid(cell) or str(cell.name)!=cell_name or layout!=layout_identity or FileAccess.get_sha256(data_path)!=data_digest:return false
+		for row: Dictionary in source_guards:
+			if not is_instance_valid(row.draw) or row.draw.mesh!=row.mesh or row.draw.transform!=row.pose:return false
+		return _shapes_valid()
+
+	func _shapes_valid() -> bool:
+		for row: Dictionary in verified_shapes:
+			if row.entry.mesh_hash!=row.mesh_hash or row.entry.face_hash!=row.face_hash:return false
+			if int(row.entry.get("shape_rid",0))!=row.shape.get_rid().get_id():
+				if preload("res://scripts/building/orison_v2_fitting_collision_cache.gd").face_signature(row.shape)!=row.face_hash:return false
+		return true
+
+	func _disconnect_sources() -> void:
+		for row: Dictionary in watched_meshes.values():
+			if is_instance_valid(row.mesh) and row.mesh.changed.is_connected(row.callback):row.mesh.changed.disconnect(row.callback)
+		watched_meshes.clear();source_guards.clear()
+
+	func _labels_valid() -> bool:
+		for label: Variant in record.get("labels",[]):
+			if label is not Dictionary or label.get("text") is not String or str(label.text).is_empty() or label.get("at") is not Array or label.at.size()!=3 or typeof(label.get("yaw")) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(label.yaw)):return false
+			for component: Variant in label.at:
+				if typeof(component) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(component)):return false
+			var color: Variant=label.get("color")
+			if color!=null:
+				if color is not Array or color.size()!=3:return false
+				for component: Variant in color:
+					if typeof(component) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(component)) or float(component)<0. or float(component)>1.:return false
+		return true
+
+	static func _v(value: Array) -> Vector3:return Vector3(value[0],value[1],value[2])
+
+	func _prepare() -> bool:
+		profile_start = Time.get_ticks_usec()
+		data=JSON.parse_string(FileAccess.get_file_as_string(data_path))
+		if data is not Dictionary or int(data.get("schema_version",0))!=1:return false
+		var matches: Array=[]
+		for row: Dictionary in data.cells:
+			if str(row.id)==(str(cell.name) if cell_identity.is_empty() else cell_identity):matches.append(row)
+		if matches.is_empty():done=true;ok=true;skipped=true;return true
+		if matches.size()!=1 or cell.has_node(model_name):return false
+		record=matches[0]
+		var source_rows: Dictionary={}
+		for floor: Dictionary in layout.floors:
+			if floor.id!="F01":continue
+			for row: Dictionary in floor.furniture:source_rows[str(row.id)]=row
+		var tolerance:=float(data.tolerance)
+		counts={};originals={};materials=borrowed_materials.duplicate()
+		for key: Variant in materials:
+			var mat: StandardMaterial3D=materials[key] as StandardMaterial3D
+			if mat==null or mat.roughness_texture==null or mat.normal_texture==null:return false
+			if mat.albedo_texture==null and (str(key)!="glassish" or mat.transparency not in [BaseMaterial3D.TRANSPARENCY_ALPHA,BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS] or mat.albedo_color.a<=0. or mat.albedo_color.a>=1.):return false
+		for box: Dictionary in record.replace:
+			if not source_rows.has(str(box.id)):return false
+			var source: Dictionary=source_rows[box.id];var r: Array=source.rect
+			if str(source.mat)!=str(box.key) or _v(box.low).distance_to(Vector3(r[0],source.z0,-r[3]))>tolerance or _v(box.high).distance_to(Vector3(r[2],float(source.z0)+float(source.h),-r[1]))>tolerance:return false
+			counts[str(box.id)]=0
+		replacements={}
+		for draw: MeshInstance3D in cell.find_children("*","MeshInstance3D",true,false):
+			# Earlier native fittings keep their own geometry/material owner.
+			# Only shipping source draws supply authored retirement boundaries.
+			if draw.has_meta("material_key"):continue
+			var boxes: Array[Dictionary]=[]
+			for box: Dictionary in record.replace:
+				if str(draw.name).trim_suffix("-col").ends_with("_"+str(box.key)):boxes.append(box)
+			if boxes.is_empty():continue
+			# Shipping cells quantize positions to their imported AABB. Account for
+			# one encoded step while still requiring one outward source boundary.
+			var extent:=draw.mesh.get_aabb().size
+			var encoded_tolerance:=tolerance+maxf(maxf(extent.x,extent.y),extent.z)/65535.
+			var before:=0
+			for box: Dictionary in boxes:before+=int(counts[str(box.id)])
+			_watch_source(draw)
+			var result: ArrayMesh=cut_mesh.call(draw,boxes,encoded_tolerance,counts)
+			if result==null:return false
+			var after:=0
+			for box: Dictionary in boxes:after+=int(counts[str(box.id)])
+			# A source can contain colliding and decorative draws with the same
+			# material key. Only the draw that owns a removed boundary is fitted.
+			if before==after:continue
+			replacements[draw]=result;originals[draw]=draw.mesh
+			for box: Dictionary in boxes:
+				if draw.mesh.get_surface_count()!=1:return false
+				var original:=draw.mesh.surface_get_material(0) as StandardMaterial3D
+				if original==null or original.roughness_texture==null or original.normal_texture==null:return false
+				# Source drawn glass deliberately carries literal color/alpha and
+				# two maps. Preserve that authored optical owner without adding albedo.
+				if original.albedo_texture==null and (str(box.key)!="glassish" or original.transparency not in [BaseMaterial3D.TRANSPARENCY_ALPHA,BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS] or original.albedo_color.a<=0. or original.albedo_color.a>=1.):return false
+				materials[str(box.key)]=original
+		for box: Dictionary in record.replace:
+			if counts[str(box.id)]!=int(box.expected_triangles):
+				push_error("Shop seating boundary mismatch: "+str(box.id)+" count="+str(counts[str(box.id)]));return false
+		profile_cut = Time.get_ticks_usec()
+		# The loader cache is weak. The residency owner releases its prefetched
+		# scenes on activation/cancellation; this fitter retains no scene cache.
+		var packed:=ResourceLoader.load(str(data.asset),"PackedScene",ResourceLoader.CACHE_MODE_REUSE) as PackedScene
+		if packed==null:return false
+		profile_load = Time.get_ticks_usec()
+		model=packed.instantiate() as Node3D
+		profile_instance = Time.get_ticks_usec()
+		if model==null:return false
+		model.name=model_name
+		parts={}
+		for part: Dictionary in record.parts:
+			if parts.has(str(part.name)) or float(part.tile)<=0.:model.free();return false
+			if not materials.has(str(part.key)) and (not part.has("catalog_key") or not MatLib.SETS.has(str(part.catalog_key))):model.free();return false
+			if part.has("tint"):
+				if part.tint is not Array or part.tint.size()!=4:model.free();return false
+				for component: Variant in part.tint:
+					if (component is not float and component is not int) or not is_finite(float(component)) or float(component)<0. or float(component)>1.:model.free();return false
+				if float(part.tint[3])!=1.:model.free();return false
+			if part.has("plain_alpha") and (part.plain_alpha is not bool or str(part.key)!="glassish" or part.has("catalog_key")):model.free();return false
+			parts[str(part.name)]=part
+		draws=model.find_children("*","MeshInstance3D",true,false)
+		return _labels_valid()
+
+	func _mount_draw(draw: MeshInstance3D) -> bool:
+		if not parts.has(str(draw.name)):draw.free();return true
+		var material_started:=Time.get_ticks_usec()
+		var part: Dictionary=parts[str(draw.name)];var key:=str(part.key)
+		var material_slot:=key+"|"+str(part.get("catalog_key",""))+"|"+str(part.tile)+"|"+JSON.stringify(part.get("tint",[]))+"|"+str(part.get("plain_alpha",false))
+		if not local_materials.has(material_slot):
+			var mat: StandardMaterial3D
+			if part.has("catalog_key"):
+				var catalog_key:=str(part.catalog_key)
+				if not MatLib.SETS.has(catalog_key):model.free();return false
+				if absf(float(MatLib.SETS[catalog_key][3])-float(part.tile))>.000001:model.free();return false
+				mat=MatLib.get_mat(catalog_key).duplicate() as StandardMaterial3D
+			else:mat=materials[key].duplicate() as StandardMaterial3D
+			if part.has("tint"):
+				var tint: Array=part.tint
+				mat.albedo_color=Color(tint[0],tint[1],tint[2],tint[3])
+			if part.get("plain_alpha",false):mat.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+			mat.uv1_triplanar=false;mat.uv1_scale=Vector3.ONE/float(part.tile)
+			local_materials[material_slot]=mat
+		profile_material_us+=Time.get_ticks_usec()-material_started
+		# Imported mesh buffers remain immutable even when the PackedScene was
+		# shared with another cell or prefetch. Only this instance owns the slot.
+		var profile_step := Time.get_ticks_usec()
+		var native_mesh_source: Mesh=draw.mesh
+		_watch_mesh(native_mesh_source)
+		var native_surface_buffers: Array=[]
+		if native_mesh_source is ArrayMesh and native_mesh_source.get_blend_shape_count()==0 and native_mesh_source.get_script()==null:
+			# One renderer-buffer read supplies both the local copy and the exact
+			# collision signature. Resource.duplicate followed by another mesh read
+			# was a large measured cost for the 164-part druggist fitting.
+			native_surface_buffers=native_mesh_source.get("_surfaces")
+			draw.mesh=copy_mesh.call(native_mesh_source,native_surface_buffers)
+		else:draw.mesh=native_mesh_source.duplicate() as Mesh
+		profile_duplicate_us += Time.get_ticks_usec()-profile_step
+		var assign_started:=Time.get_ticks_usec()
+		draw.mesh.surface_set_material(0,local_materials[material_slot])
+		profile_assign_us+=Time.get_ticks_usec()-assign_started
+		# Name retains SurfacePass's retail class and therefore its state owner.
+		draw.set_meta(part_meta,str(draw.name));draw.set_meta("material_key",key)
+		draw.name=draw_prefix+str(draw.name)
+		profile_step = Time.get_ticks_usec()
+		var collision_key := str(data.asset)+"::"+str(part.name)
+		draw.set_meta("native_collision_key",collision_key)
+		var collision_paths: Dictionary=cell.get_meta("native_collision_paths",{})
+		if collision_paths.is_empty():
+			draw.create_trimesh_collision()
+		else:
+			if not collision_paths.has(collision_key): model.free(); return false
+			var entry: Dictionary=collision_paths[collision_key]
+			var shape: ConcavePolygonShape3D = (cell.get_meta("native_collision_shapes",{}) as Dictionary).get(collision_key) as ConcavePolygonShape3D
+			# Reusing acceleration data never substitutes a proxy or relaxes fit.
+			# Mesh.get_faces itself builds a TriangleMesh BVH. Compare the exact
+			# serialized geometry and original face hashes without rebuilding it.
+			var cache := preload("res://scripts/building/orison_v2_fitting_collision_cache.gd")
+			if shape==null: model.free(); return false
+			var checkpoint:=Time.get_ticks_usec()
+			var mesh_hash: String=cache.surfaces_signature(native_surface_buffers) if not native_surface_buffers.is_empty() else cache.mesh_signature(draw.mesh)
+			profile_mesh_hash_us+=Time.get_ticks_usec()-checkpoint
+			checkpoint=Time.get_ticks_usec()
+			var face_hash: String=str(entry.face_hash) if int(entry.get("shape_rid",0))==shape.get_rid().get_id() else cache.face_signature(shape)
+			profile_face_hash_us+=Time.get_ticks_usec()-checkpoint
+			if mesh_hash!=str(entry.mesh_hash) or face_hash!=str(entry.face_hash): model.free(); return false
+			verified_shapes.append({"shape":shape,"entry":entry,"mesh_hash":mesh_hash,"face_hash":face_hash})
+			checkpoint=Time.get_ticks_usec()
+			var body:=StaticBody3D.new();body.name="StaticBody3D"
+			var collision:=CollisionShape3D.new();collision.name="CollisionShape3D";collision.shape=shape
+			body.add_child(collision);draw.add_child(body)
+			profile_attach_us+=Time.get_ticks_usec()-checkpoint
+		profile_collision_us += Time.get_ticks_usec()-profile_step
+		mounted[str(part.name)]=true
+		return true
+
+	func _publish() -> bool:
+		if mounted.size()!=parts.size():model.free();return false
+		var profile_models := Time.get_ticks_usec()
+		if not _sources_valid():model.free();return false
+		# Validate collision ownership before altering any imported draw.
+		for draw: MeshInstance3D in replacements:
+			var collisions:=draw.find_children("*","CollisionShape3D",true,false)
+			if collisions.size()!=1 or (collisions[0] as CollisionShape3D).shape is not ConcavePolygonShape3D:model.free();return false
+		for draw: MeshInstance3D in replacements:
+			draw.mesh=replacements[draw]
+			var collision: CollisionShape3D=draw.find_children("*","CollisionShape3D",true,false)[0]
+			if draw.mesh.get_surface_count()==0:
+				draw.hide();collision.disabled=true
+			else:
+				var shape:=ConcavePolygonShape3D.new();shape.set_faces(draw.mesh.get_faces());collision.shape=shape
+		model.set_meta("original_meshes",originals);model.set_meta("removed_triangles",counts)
+		# Dossier slice 69: words on a fitted card or board are Label3D, never texture (RUL-008).
+		for label: Variant in record.get("labels",[]):
+			if label is not Dictionary or label.get("text") is not String or str(label.text).is_empty() \
+					or label.get("at") is not Array or label.at.size()!=3 \
+					or (label.get("yaw") is not float and label.get("yaw") is not int):
+				model.free();return false
+			var words:=Label3D.new()
+			words.name="Words_"+str(label.get("id","label"))
+			words.text=str(label.text)
+			words.font_size=int(label.get("font_size",40))
+			words.pixel_size=float(label.get("pixel_size",.0004))
+			words.modulate=Color(.07,.06,.05)
+			var colour: Variant=label.get("color")
+			if colour!=null:
+				if colour is not Array or colour.size()!=3:model.free();return false
+				for component: Variant in colour:
+					if (component is not float and component is not int) or float(component)<0. or float(component)>1.:model.free();return false
+				words.modulate=Color(float(colour[0]),float(colour[1]),float(colour[2]))
+			words.outline_size=0
+			words.double_sided=false
+			words.position=_v(label.at)
+			words.rotation.y=float(label.yaw)
+			model.add_child(words)
+		cell.add_child(model)
+		if OS.get_environment("ORISON_PROFILE_NATIVE")=="1" or OS.get_environment("ORISON_PROFILE_RESIDENCY")=="1":
+			print("NATIVE_FIT_DETAIL ",JSON.stringify({"cell":str(cell.name),"data":data_path,
+				"cooperative":cooperative,"material_ms":profile_material_us/1000.0,"slot_assignment_ms":profile_assign_us/1000.0,"cut_ms":(profile_cut-profile_start)/1000.0,"duplicate_ms":profile_duplicate_us/1000.0,"collision_ms":profile_collision_us/1000.0,"mesh_hash_ms":profile_mesh_hash_us/1000.0,"face_hash_ms":profile_face_hash_us/1000.0,"attach_ms":profile_attach_us/1000.0,"load_ms":(profile_load-profile_cut)/1000.0,
+				"instantiate_ms":(profile_instance-profile_load)/1000.0,"model_and_collision_ms":profile_model_us/1000.0,
+				"publish_ms":(Time.get_ticks_usec()-profile_models)/1000.0}))
+		return true

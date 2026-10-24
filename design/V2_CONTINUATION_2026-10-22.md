@@ -12,6 +12,21 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest streaming repair: **V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md**.
+Five costly native fitting families now yield between validated parts; the
+synchronous API and original wrapper finishing remain. Private construction
+stays inside its data-owning fitter, preserving reader provenance without
+exceptions.34 frozen-original/mutation/cancellation checks and73 collision-cache
+checks pass; full played repeats retain54 timed waypoints/14 checks, both walked
+gateways ready, roots/meshes retired and6,586 untimed lighting diagnostics.
+Refactored synchronous p50/p95/p99/max23.032/39.740/60.877/164.679ms versus final
+cooperative24.951/38.968/52.516/160.286ms; above100ms9→4. Loading p99110.513→67.888ms,
+peak fitting108.765→77.000ms. Median worsens about2ms and background reconstruction
+takes10.55s versus6.3–6.6s; faster approaches remain unqualified. First-render
+compilation, renderer waits, large atomic calls and seven texture teardown
+warnings remain. Original readiness, parser, cleanup and static-provenance
+failures are retained. No V2 completion or runtime/human promotion is claimed.
+
 Newest rendering/request repair: **V2_FIXTURE_HALOS_AND_PASSAGE_PROFILE_2026-10-23.md**.
 Remaining additive fixture halos are removed from the shared constructor and
 native/darkroom adapters; no new billboard/texture is allocated.262 installed

@@ -31,7 +31,10 @@ var _native_pending: Dictionary = {}
 var _native_resources: Array[Resource] = []
 var _collision_shapes: Dictionary = {}
 var _collision_cache := preload("res://scripts/building/orison_v2_fitting_collision_cache.gd").new()
-# Bound main-thread fitting between frames; individual native operations remain atomic.
+# Bound fitting between frames and yield between validated native parts.
+# Single mesh/renderer calls can still exceed this cooperative budget.
+var cooperative_fitting := true
+var _fit_job: RefCounted
 const FIT_BUDGET_USEC := 3000
 var _fit_operations: Array = []
 var _fit_identity := ""
@@ -237,9 +240,9 @@ func _stage_one() -> void:
 			["native locksmith reload fit refused: "+identity, func(): return region.LocksmithFittings.mount_cell(cell,region.source_layout)],
 			["native cobbler reload fit refused: "+identity, func(): return region.CobblerFittings.mount_cell(cell,region.source_layout)],
 			["native news reload fit refused: "+identity, func(): return region.NewsFittings.mount_cell(cell,region.source_layout)],
-			["native hardware drawer reload fit refused: "+identity, func(): return region.HardwareDrawers.mount_cell(cell,region.source_layout)],
+			["native hardware drawer reload fit refused: "+identity, func(): return region.HardwareDrawers.mount_cell(cell,region.source_layout), "hardware_drawers"],
 			["native hardware apparatus reload fit refused: "+identity, func(): return region.HardwareApparatus.mount_cell(cell,region.source_layout)],
-			["native hardware stock reload fit refused: "+identity, func(): return region.HardwareStock.mount_cell(cell,region.source_layout)],
+			["native hardware stock reload fit refused: "+identity, func(): return region.HardwareStock.mount_cell(cell,region.source_layout), "hardware_stock"],
 			["native hardware tools reload fit refused: "+identity, func(): return region.HardwareTools.mount_cell(cell,region.source_layout)],
 			["native photography display reload fit refused: "+identity, func(): return region.PhotoCameras.mount_cell(cell,region.source_layout)],
 			["native Diner counter reload fit refused: "+identity, func(): return region.DinerCounter.mount_cell(cell,region.source_layout)],
@@ -254,7 +257,7 @@ func _stage_one() -> void:
 			["native photography process reload fit refused: "+identity, func(): return region.PhotoProcess.mount_cell(cell,region.source_layout)],
 			["native unclaimed portrait reload fit refused: "+identity, func(): return region.PhotoPortraits.mount_cell(cell,region.source_layout)],
 			["native fixed photographic glazing reload refused: "+identity, func(): return region.PhotoGlazing.mount_cell(cell,region.source_layout)],
-			["native druggist drawer/counter reload fit refused: "+identity, func(): return region.DruggistDrawers.mount_cell(cell,region.source_layout)],
+			["native druggist drawer/counter reload fit refused: "+identity, func(): return region.DruggistDrawers.mount_cell(cell,region.source_layout), "druggist_drawers"],
 			["native druggist counter objects reload refused: "+identity, func(): return region.DruggistCounter.mount_cell(cell,region.source_layout)],
 			["native druggist marble objects reload refused: "+identity, func(): return region.DruggistMortar.mount_cell(cell,region.source_layout)],
 			["native composed dispensary reload refused: "+identity, func(): return region.DruggistDispensary.mount_cell(cell,region.source_layout)],
@@ -279,8 +282,8 @@ func _stage_one() -> void:
 			["native Pawn Shop clocks reload refused: "+identity, func(): return region.PawnClocks.mount_cell(cell,region.source_layout)],
 			["native Pawn Shop fittings reload refused: "+identity, func(): return region.PawnFittings.mount_cell(cell,region.source_layout)],
 			["native Diner receiving pair reload refused: "+identity, func(): return region.DinerReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled)],
-			["source-fitted arcade canopy reload refused: " + identity, func(): return region.ArcadeFabric.mount_canopy(cell, region.source_layout)],
-			["source-fitted arcade throat reload refused: " + identity, func(): return region.ArcadeFabric.mount_throat(cell, region.source_layout)],
+			["source-fitted arcade canopy reload refused: " + identity, func(): return region.ArcadeFabric.mount_canopy(cell, region.source_layout), "arcade_canopy"],
+			["source-fitted arcade throat reload refused: " + identity, func(): return region.ArcadeFabric.mount_throat(cell, region.source_layout), "arcade_throat"],
 			["source-fitted arcade lantern reload refused: " + identity, func(): return region.ArcadeFabric.mount_lantern(cell, region.source_layout)],
 			["source-fitted arcade clock reload refused: " + identity, func(): return region.ArcadeFabric.mount_clock(cell, region.source_layout)],
 			["source-fitted arcade retained finishes reload refused: " + identity, func(): return region.ArcadeFabric.mount_retained_finishes(cell, region.source_layout)],
@@ -320,19 +323,44 @@ func _stage_one() -> void:
 func _advance_fit() -> void:
 	var started := Time.get_ticks_usec()
 	while not _fit_operations.is_empty():
-		var operation: Array = _fit_operations.pop_front()
+		var operation: Array = _fit_operations[0]
 		var before := Time.get_ticks_usec()
-		var ok: bool = operation[1].call()
+		var complete := true
+		var ok := true
+		var cell := _staged_cells[_fit_identity] as Node3D
+		if cooperative_fitting and operation.size()==3:
+			if _fit_job==null:
+				_fit_job=region.Seating.begin_streamed_fitting(str(operation[2]),cell,region.source_layout)
+			if _fit_job==null:
+				ok=false
+			else:
+				_fit_job.advance(maxi(1,FIT_BUDGET_USEC-int(Time.get_ticks_usec()-started)))
+				complete=_fit_job.done
+				ok=not complete or _fit_job.ok
+				if complete and ok:
+					if not _fit_job.skipped:cell.set_meta("prepared_native_fit",_fit_job)
+					ok=operation[1].call()
+					# A wrapper must consume the token; an early return cannot leave one.
+					if cell.has_meta("prepared_native_fit"):
+						cell.remove_meta("prepared_native_fit")
+						ok=false
+		else:
+			ok=operation[1].call()
 		var elapsed := float(Time.get_ticks_usec()-before)/1000.0
 		_fit_work_ms += elapsed
 		if elapsed >= 1.0:
-			fit_records.append({"cell":_fit_identity,"operation":operation[0],"ms":elapsed})
+			fit_records.append({"cell":_fit_identity,"operation":operation[0],"ms":elapsed,"chunk":cooperative_fitting and operation.size()==3})
 			if fit_records.size()>128: fit_records.pop_front()
 		if not ok:
+			if _fit_job!=null:_fit_job.cancel()
+			_fit_job=null
 			_fit_operations.clear()
 			_fail(str(operation[0]))
 			return
-		if Time.get_ticks_usec()-started >= FIT_BUDGET_USEC: break
+		if complete:
+			_fit_operations.pop_front()
+			_fit_job=null
+		if not complete or Time.get_ticks_usec()-started >= FIT_BUDGET_USEC: break
 	peak_stage_ms = maxf(peak_stage_ms,float(Time.get_ticks_usec()-started)/1000.0)
 	if _fit_operations.is_empty():
 		(_staged_cells[_fit_identity] as Node).remove_meta("native_collision_shapes")
@@ -356,6 +384,8 @@ func snapshot() -> Dictionary:
 func shutdown() -> void:
 	if _stopped: return
 	_stopped = true
+	if _fit_job!=null:_fit_job.cancel()
+	_fit_job=null
 	_fit_operations.clear()
 	# Godot has no cancellation API for these requests. Drain each issued
 	# result on teardown so an abandoned world cannot retain a load handle.

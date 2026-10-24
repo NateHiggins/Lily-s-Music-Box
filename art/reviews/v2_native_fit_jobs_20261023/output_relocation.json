@@ -1,0 +1,14 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Relative ShotDir in original wrapper invocation resolved under game; owned output folders moved after process exit without editing content. Subsequent runs use absolute paths.",
+  "moves": [
+    {
+      "from": "game/art/reviews/v2_native_fit_jobs_20261023/job_v3",
+      "to": "art/reviews/v2_native_fit_jobs_20261023/job_v3"
+    },
+    {
+      "from": "game/art/reviews/v2_native_fit_jobs_20261023/played_v1",
+      "to": "art/reviews/v2_native_fit_jobs_20261023/played_v1"
+    }
+  ]
+}

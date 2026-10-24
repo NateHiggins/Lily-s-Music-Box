@@ -11,10 +11,21 @@ it does not replace the existing issue logs or erase original failures.
 ## Current verification boundary
 
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-acoustic-topology**, preceding pushed checkpoint **2f5d5ac5**.
+**codex/v2-acoustic-topology**, preceding pushed checkpoint **7852da8b**.
 The spatial dependency manifest is unrelated shared WIP. Untracked street/tent,
 traffic and art work remains preserved. All engine runs use the shared lane.
 No human acceptance or clean candidate verification is claimed.
+
+Latest scoped fitting work: **V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md**.
+Five families now construct privately and yield between native parts; original
+source/mesh/material/collision checks and synchronous callers remain.34 exact
+component checks and73 cache checks pass. Two cooperative played repeats retain
+54 timed waypoints/14 checks and readiness at both walked gateways. Refactored
+synchronous versus final cooperative loading p99110.513→67.888ms, peak fitting
+108.765→77.000ms, whole-route p9960.877→52.516ms and above100ms9→4. Median worsens
+23.032→24.951ms; loading spans10.55s versus6.3–6.6s. Fast approaches, remaining
+atomic calls, first-render compilation, render waits and broad closure remain
+open. Original failed attempts are preserved; no field exceptions are added.
 
 Latest scoped lighting/streaming work: **V2_FIXTURE_HALOS_AND_PASSAGE_PROFILE_2026-10-23.md**.
 Shared fixture additive billboards/texture allocation and dependent sizing are

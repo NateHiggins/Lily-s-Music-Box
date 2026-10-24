@@ -1,0 +1,28 @@
+{
+	"environments": [
+		{
+			"path": "/root/V2PlayedStreamingProfile/OrisonV2Runtime/WakingAtmosphere/WorldEnvironment",
+			"volumetric_enabled": true
+		},
+		{
+			"path": "/root/V2PlayedStreamingProfile/OrisonV2Runtime/Player/@Camera3D@20675/ServiceSetCarrier/ServiceSetPass/@WorldEnvironment@26716",
+			"volumetric_enabled": false
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"fixed_lighting": {
+		"actors": 220,
+		"checks": 6586,
+		"failures": [],
+		"parts": 830,
+		"unique_triangles": 488320,
+		"variants": 28,
+		"views": []
+	},
+	"fixture_count": 262,
+	"halo_draws": [],
+	"retired_slots_null": true,
+	"scope": "Untimed installed-mesh inventory and existing fixed-light geometry/photometry/circuit API regression. Circuit APIs are not primary-input qualification. No runtime_contract or human acceptance.",
+	"volumetric_energy_retained": true
+}

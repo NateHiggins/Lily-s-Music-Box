@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Cooperative fitting jobs, source equivalence and loading frame tails | `design/V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md` |
 | Fixture halo retirement, actual passage streaming and native fitting stalls | `design/V2_FIXTURE_HALOS_AND_PASSAGE_PROFILE_2026-10-23.md` |
 | Background household save transactions, settlement barriers and warmed route tails | `design/V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md` |
 | Redundant shadow-budget writes, cache controls and observed route frame improvement | `design/V2_SHADOW_BUDGET_WRITES_2026-10-23.md` |
