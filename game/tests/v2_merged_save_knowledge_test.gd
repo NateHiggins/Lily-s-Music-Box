@@ -20,7 +20,16 @@ func run() -> void:
 	var snapshot:=RealityState.data.duplicate(true)
 	RealityState.commit_background();RealityState.flush_background_saves()
 	var disk: Variant=JSON.parse_string(FileAccess.get_file_as_string(RealityState.save_path))
-	check(disk is Dictionary and disk.knowledge_flags==snapshot.knowledge_flags and disk.newspapers_collected==snapshot.newspapers_collected and disk.resident_trust==snapshot.resident_trust and disk.conversation_visits==snapshot.conversation_visits,"background transaction preserves all editorial fields on disk")
+	# JSON has one numeric type; compare both sides after its documented
+	# conversion instead of mistaking native int/parsed float maps for lost data.
+	var expected: Dictionary=JSON.parse_string(JSON.stringify(snapshot,"",true,true))
+	check(disk is Dictionary,"background transaction writes a valid JSON document")
+	var disk_fields: Dictionary={}
+	for field: String in ["knowledge_flags","newspapers_collected","resident_trust","conversation_visits"]:
+		var actual: Variant=disk.get(field) if disk is Dictionary else null
+		disk_fields[field]={"expected":expected[field],"actual":actual}
+		check(actual==expected[field],"background transaction preserves exact JSON values: "+field)
+	check(disk is Dictionary and disk.get("resident_trust") is Dictionary and typeof(disk.resident_trust.get("mina_vale"))==TYPE_FLOAT,"fixture observes the documented JSON numeric conversion")
 	var worker:=false
 	for row: Dictionary in RealityState.background_save_records:
 		if row.stage=="completed":worker=worker or (row.result.ok and not row.result.worker_main_thread)
@@ -35,5 +44,5 @@ func run() -> void:
 		check(not refusal.ok and refusal.code=="save_invalid_read_only","worker validator retains main's shape refusal: "+field)
 	RealityState.persistence_enabled=false
 	var output:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(output)
-	FileAccess.open(output.path_join("merged_save_knowledge.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Real worker disk transaction and integration API checks; no played acquisition or runtime_contract grant","checks":checks,"failures":failures},"\t"))
+	FileAccess.open(output.path_join("merged_save_knowledge.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Real worker disk transaction and integration API checks; no played acquisition or runtime_contract grant","disk_fields":disk_fields,"checks":checks,"failures":failures},"\t"))
 	get_tree().quit(1 if not failures.is_empty() else 0)

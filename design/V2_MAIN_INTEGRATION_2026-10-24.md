@@ -78,3 +78,20 @@ Next: complete two long-lane imports, run merged worker-save/knowledge and
 actual world routes, then renew the current surface suite/receipt and rendered
 review. The previous surface receipt also has an expired test-source binding;
 it is not rewritten to hide that failure. PR23 remains draft pending verification.
+
+
+The first complete long import finishes311s with empty stderr; the second
+complete import also finishes with empty stderr. The new merged-save diagnostic
+then fails one native-dictionary equality despite correct persisted values and
+successful reload. This is a test boundary defect: JSON parses numbers as floats,
+while the expected trust/visit dictionaries contain native ints. The corrected
+fixture passes its expected snapshot through JSON and checks all four exact
+field maps independently, including an explicit numeric-type observation. It
+retains corruption/refusal and actual worker-thread checks. Production save code
+is unchanged. Original failed stdout, stderr, wrapper and test-written output
+remain under **runtime_v2**. Reference: [Godot JSON API](https://docs.godotengine.org/en/latest/classes/class_json.html).
+
+Latest main **591f1aaf** is included, preserving its new bodega door hand helper
+and this branch's diagnostic capture hook. Its separate clean full board has
+103 PASS,6 existing FAIL,1 INCOMPLETE, zero dirty paths. The actual-runtime
+qualification batch resumes after the failed fixture; complete imports are reused.

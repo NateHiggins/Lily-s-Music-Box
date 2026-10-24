@@ -1,0 +1,53 @@
+{
+	"checks": [
+		{
+			"label": "fresh campaign retains all four main editorial fields",
+			"ok": true
+		},
+		{
+			"label": "existing dialogue authorities update the live campaign",
+			"ok": true
+		},
+		{
+			"label": "partly opened minutes retain main's reading threshold",
+			"ok": true
+		},
+		{
+			"label": "native book retains main's knowledge grant",
+			"ok": true
+		},
+		{
+			"label": "background transaction preserves all editorial fields on disk",
+			"ok": false
+		},
+		{
+			"label": "merged save uses the actual off-main-thread transaction",
+			"ok": true
+		},
+		{
+			"label": "reload validates and restores knowledge, trust, visits and newspaper collection",
+			"ok": true
+		},
+		{
+			"label": "worker validator retains main's shape refusal: knowledge_flags",
+			"ok": true
+		},
+		{
+			"label": "worker validator retains main's shape refusal: newspapers_collected",
+			"ok": true
+		},
+		{
+			"label": "worker validator retains main's shape refusal: resident_trust",
+			"ok": true
+		},
+		{
+			"label": "worker validator retains main's shape refusal: conversation_visits",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [
+		"background transaction preserves all editorial fields on disk"
+	],
+	"scope": "Real worker disk transaction and integration API checks; no played acquisition or runtime_contract grant"
+}
