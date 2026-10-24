@@ -72,4 +72,3 @@ static func _whole_number(value: Variant) -> bool:
 
 static func _invalid_shape(key: String) -> Dictionary:
 	return {"ok": false, "code": "save_invalid_read_only", "detail": "Invalid saved field: " + key + "."}
-
