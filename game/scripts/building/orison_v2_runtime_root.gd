@@ -839,6 +839,7 @@ func _compose_exterior() -> bool:
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
 	period_traffic = preload("res://scripts/building/orison_v2_street_traffic.gd").mount(self)
 	if period_traffic == null:return false
+	if preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self) == null:return false
 	var signage := preload("res://scripts/building/orison_v2_native_signage.gd").new()
 	if not signage.install(self):
 		push_error("V2 SIGNAGE: %s" % [signage.errors])
