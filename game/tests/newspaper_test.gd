@@ -1,7 +1,7 @@
 extends Node
 ## The two daily papers, headless: the year loads whole and valid, today's
 ## date comes off the campaign clock, the rack offers the right days, a paper
-## taken is kept on the campaign document, the desk lists it, and the panel
+## taken is kept on the campaign document, the shelf lists it, and the panel
 ## builds a front page without a scene.
 
 var _fails := 0
@@ -64,7 +64,7 @@ func _run() -> void:
 	catalog.collect("speaker", "1928-11-12")
 	catalog.collect("speaker", "1928-11-10")
 	var kept := catalog.collected()
-	_check("the desk lists the collection newest first, Record before Speaker on a day",
+	_check("the shelf lists the collection newest first, Record before Speaker on a day",
 			kept.size() == 3 and kept[0].date == "1928-11-12"
 			and kept[1].paper == "record" and kept[2].paper == "speaker")
 	var snapshot: Dictionary = RealityState.data.duplicate(true)
@@ -104,10 +104,10 @@ func _run() -> void:
 	await get_tree().process_frame
 	_check("the counter's prompt carries the date", rack.control_prompt("papers") == "Papers, Sat 10 Nov")
 	var desk := NewsRackProp.new()
-	desk.setup("desk")
+	desk.setup("shelf")
 	add_child(desk)
 	await get_tree().process_frame
-	_check("the desk's prompt counts the collection", desk.control_prompt("papers") == "Your papers (3)")
+	_check("the shelf's prompt counts the collection", desk.control_prompt("papers") == "Your papers (3)")
 	_check("an unknown control answers nothing", rack.control_prompt("knock") == ""
 			and (rack.interact_control("knock", null) as Dictionary).is_empty())
 

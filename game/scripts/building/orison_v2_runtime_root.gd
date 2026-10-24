@@ -42,6 +42,10 @@ var first_shift_director: FirstShiftDirector
 var service_round: ServiceRoundDirector
 var conversations: ResidentConversations
 var newspapers: NewspaperCatalog
+## The kept papers live on the player's own bookshelf in 4B (V2 furniture
+## anchor), at a reachable shelf height above its base.
+const PLAYER_SHELF_ANCHOR := "4B_shelf"
+const SHELF_PAPERS_HEIGHT := 1.0
 var boiler_tend: BoilerTend
 var heat_balance: HeatBalance
 var mirror_renderer: PlanarMirrorRenderer
@@ -591,13 +595,15 @@ func _compose_authorities() -> void:
 	add_child(newspapers)
 	if not newspapers.errors.is_empty():
 		push_warning("ORISON V2 RUNTIME: newspapers: %s" % [newspapers.errors.slice(0, 8)])
-	var desk_stance := adapter.resolve("F04_B_MONITOR_STANCE") as Node3D
-	if desk_stance != null:
-		var desk_papers := NewsRackProp.new()
-		desk_papers.name = "DeskPapers"
-		desk_papers.setup("desk", Vector3(0.5, 0.25, 0.4))
-		add_child(desk_papers)
-		desk_papers.global_position = desk_stance.global_position + Vector3(0.55, 0.78, 0.0)
+	var shelf := adapter.resolve(PLAYER_SHELF_ANCHOR) as Node3D
+	if shelf != null:
+		var shelf_papers := NewsRackProp.new()
+		shelf_papers.name = "ShelfPapers"
+		shelf_papers.setup("shelf", Vector3(0.75, 0.5, 0.55))
+		add_child(shelf_papers)
+		shelf_papers.global_position = shelf.global_position + Vector3.UP * SHELF_PAPERS_HEIGHT
+	else:
+		push_warning("ORISON V2 RUNTIME: no %s; kept papers have no shelf" % PLAYER_SHELF_ANCHOR)
 	open_shift_ecosystem = preload("res://scripts/game/open_shift_radiator_ecosystem.gd").new()
 	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
 	add_child(open_shift_ecosystem)

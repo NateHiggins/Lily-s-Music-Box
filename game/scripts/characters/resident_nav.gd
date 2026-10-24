@@ -98,9 +98,7 @@ func build(layout: Dictionary) -> int:
 
 
 ## Turn each installed leaf marker into two truthful points: an aisle point
-## 450 mm clear of the facade, and a venue point 900 mm inside. NEWS & CIGARS
-## is the deliberate exception: its proprietor door is locked, so its venue
-## is the customer side of the service shelf rather than behind that leaf.
+## 450 mm clear of the facade, and a venue point 900 mm inside.
 static func passage_spots(marker: Dictionary) -> Dictionary:
 	var p: Array = marker.get("pos", [0.0, 0.0, 0.0])
 	var yaw := deg_to_rad(float(marker.get("yaw_deg", 0.0)))
@@ -111,9 +109,6 @@ static func passage_spots(marker: Dictionary) -> Dictionary:
 	var centre := hinge + along * width * 0.5
 	var aisle := centre + outward * 0.45
 	var venue := centre - outward * 0.90
-	if str(marker.get("id", "")) == "SITE_SHOP_DOOR_NEWS_CIGARS":
-		var service := hinge + along * (width + 0.34)
-		venue = service + outward * 0.40
 	return {"aisle": GameBoot.b2g([aisle.x, aisle.y, 0.06]),
 			"venue": GameBoot.b2g([venue.x, venue.y, 0.06])}
 

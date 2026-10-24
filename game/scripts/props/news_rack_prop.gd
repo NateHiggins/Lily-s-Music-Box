@@ -6,13 +6,16 @@ extends Node3D
 ##     papers for today and the few days the rack keeps; a paper taken is
 ##     collected at once and may be read there. Papers go on the desk account
 ##     like the mail: no coin changes hands.
-##   - "desk": the player's desk in 4B. Interacting opens the shelf of kept
+##   - "shelf": the player's bookshelf in 4B. Interacting opens the kept
 ##     papers, newest first.
 ##
 ## The rack owns no newsprint: the catalogue answers what is on sale and what
 ## is kept; the panel reads.
 
 var mode := "counter"
+## The arcade's hours owner (PassageHoursDirector); the stand is shuttered
+## with the grilles. Null on the shelf and in bare tests.
+var hours: Node = null
 var _panel: NewspaperPanel
 var _chooser: CaseDialoguePanel
 var _reach := Vector3(0.9, 0.3, 0.6)
@@ -39,6 +42,11 @@ func _ready() -> void:
 	add_child(_chooser)
 
 
+func shuttered() -> bool:
+	return mode == "counter" and hours != null and is_instance_valid(hours) \
+			and hours.has_method("is_after_hours") and bool(hours.call("is_after_hours"))
+
+
 func _catalog() -> NewspaperCatalog:
 	return get_tree().get_first_node_in_group("newspaper_catalog") as NewspaperCatalog
 
@@ -49,9 +57,11 @@ func control_prompt(control_id: String) -> String:
 	var catalog := _catalog()
 	if catalog == null:
 		return ""
-	if mode == "desk":
+	if mode == "shelf":
 		var kept := catalog.collected().size()
 		return "Your papers" if kept == 0 else "Your papers (%d)" % kept
+	if shuttered():
+		return ""
 	var today := catalog.today()
 	if today == "":
 		return "Papers"
@@ -64,9 +74,12 @@ func interact_control(control_id: String, player: Node) -> Variant:
 	var catalog := _catalog()
 	if catalog == null:
 		return {}
-	if mode == "desk":
+	if mode == "shelf":
 		_open_panel(player, catalog, "", "")
 		return {}
+	if shuttered():
+		return {"title": "NEWS AND CIGARS", "body": "GRILLE DRAWN STOP OPENS SIX THIRTY STOP",
+				"condition": "STALL SHUT", "stamp": "SERVICE NOTE"}
 	var offers := offers_for(catalog, catalog.today())
 	if offers.is_empty():
 		return {"title": "NEWS AND CIGARS", "body": "RACK EMPTY STOP NO PAPER TODAY STOP",

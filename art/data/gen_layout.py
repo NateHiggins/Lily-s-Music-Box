@@ -4603,11 +4603,8 @@ def _storefronts(fb, mk, shops=None, face=None, S=1):
                    "h": 2.10,
                    # The trades that keep the light on keep the door open
                    # with it. The rest you have to push.
-                   # The news booth serves through its pavement hatch; this
-                   # narrow leaf is the proprietor's door, not a public route.
-                   "leaf": ("locked" if trade == "news" else
-                            ("open" if trade in ("laundry", "diner")
-                             else "closed")),
+                   "leaf": ("open" if trade in ("laundry", "diner")
+                            else "closed"),
                    "exterior": True})
         # Runtime hours furniture must inherit the exact storefront packing,
         # never restate Passage coordinates in GDScript.  This marker sits
@@ -9149,8 +9146,9 @@ def _validate_shop_interiors(layout):
     news_door = next((m for m in f01.get("markers", [])
                       if m.get("id") == "SITE_SHOP_DOOR_NEWS_CIGARS"), {})
     if any(trade == "news" for _x0, _x1, _name, trade, _a, _b, _use
-           in ACTIVE_SHOPS) and news_door.get("leaf") != "locked":
-        problems.append("news booth proprietor door must stay locked")
+           in ACTIVE_SHOPS) and news_door.get("leaf") != "closed":
+        problems.append("News & Cigars is a public counter: its door is "
+                        "closed, not locked (papers are sold inside)")
     return problems
 
 
