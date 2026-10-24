@@ -31,7 +31,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var lamp: LightFixtureProp = row.lamp.get_ref()
 		retained.append(weakref(lamp))
 		check(lamp.position.is_equal_approx(row.position) and lamp.light.transform.is_equal_approx(row.light_pose),"work-light source anchor and emitter pose retained")
-		check(lamp.light.get_instance_id()==row.light and lamp.bounce.get_instance_id()==row.bounce and lamp._halo.get_instance_id()==row.halo and lamp._swing_node.get_instance_id()==row.swing and lamp._bulb_mat.get_instance_id()==row.bulb_material,"work-light original optical and motion owners retained")
+		check(lamp.light.get_instance_id()==row.light and lamp.bounce.get_instance_id()==row.bounce and lamp._halo==null and int(row.halo)==0 and lamp._swing_node.get_instance_id()==row.swing and lamp._bulb_mat.get_instance_id()==row.bulb_material,"work-light original optical and motion owners retained")
 		check(is_equal_approx(lamp._base_energy,row.energy) and is_equal_approx(lamp.light.omni_range,row.range) and lamp.navigation_light==row.navigation and is_equal_approx(lamp.standby_scale,row.standby),"work-light photometric settings retained")
 		var aperture: Dictionary=world.adapter.root.get_meta("v2_cage_light_apertures").for_fixture(lamp)
 		var bulbs: Array[MeshInstance3D]=[]
@@ -67,7 +67,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var powered_before := lamp.powered
 			lamp.set_powered(false)
 			await _city_capture(world,position,target,"work_light_"+str(row.variant)+"_off","original work light unpowered",str(lamp.name))
-			check(not lamp.powered and not lamp.light.visible and not lamp.bounce.visible and not lamp._halo.visible,"work light retains original power-off control")
+			check(not lamp.powered and not lamp.light.visible and not lamp.bounce.visible and lamp._halo==null,"work light retains original power-off control")
 			lamp.set_powered(powered_before)
 	for id in ["F01_WATCHMAN_DETECTOR_BODY","F01_NIGHT_REGISTER_BODY","F01_SIGNAL_REGISTER_BODY","F01_TOUR_KEY_GUARD_BODY"]:
 		check(not (world.find_child(id,true,false) as Node3D).visible,"mounted instrument retires its gray-box stand-in")

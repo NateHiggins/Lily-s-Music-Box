@@ -12,6 +12,29 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest rendering/request repair: **V2_FIXTURE_HALOS_AND_PASSAGE_PROFILE_2026-10-23.md**.
+Remaining additive fixture halos are removed from the shared constructor and
+native/darkroom adapters; no new billboard/texture is allocated.262 installed
+fixture slots are null, zero optical-halo draws, positive volumetric source
+energy, waking volume enabled.6,586 fixed-light geometry/map/mount/photometry/
+circuit API diagnostics pass in resident geometry; these toggles are not player
+interaction proof. New fixed-gesture driver passes28 actual-input checks while
+historical contract/vertical drivers remain unchanged. Actual two street/passage
+round trips pass54 timed waypoints/14 checks, prefetch before both gateways and
+complete root/mesh retirement after both returns. Baseline p50/p95/p99/max
+24.362/40.997/60.654/163.090ms; two no-halo repeats give
+23.135/40.312/61.292/159.386 and22.680/40.583/61.319/159.156ms. Median improves;
+tails do not. Actual LOADING p99111.613ms and peak native step104.668ms establish
+an atomic-fitting problem despite the3ms budget. Native mesh duplication/hash
+work dominates several fittings; next split work at part boundaries, preserving
+all validation and the synchronous authoring API. First-render compilation is a
+separate163ms spike. Original spawn/output/gesture/reach/await/dormant-support
+fixture failures are retained. Final light checks use a third untimed resident
+prefetch (58 total waypoints), not extra timed-cycle samples. Seven Texture RID
+teardown warnings remain. Full final board has no regressions; one49-line fixture
+record is selectively staged, shared62 bathroom lines preserved. V1 environment/
+traffic effects and all broad started-work/runtime/human closure remain open.
+
 Newest save scheduling repair: **V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md**.
 V2 household commits capture/serialize on main and run the unchanged recovery
 transaction on one FIFO worker. No coalescing; explicit Save/Load/New, context

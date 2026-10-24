@@ -6,8 +6,7 @@ extends FunctionalProp
 ## LightRig, which enables every fixture on the active floor and electrically
 ## darkens the other storeys. Light QUALITY over quantity:
 ## tungsten-warm color ramps, inverse-square-ish falloff, an emissive
-## envelope + additive halo so the source reads even when its OmniLight
-## is budgeted away, and a low faux-bounce light the rig enables up close
+## envelope, volumetric scattering, and a low faux-bounce light enabled up close
 ## to fake the first ray bounce.
 
 const TONE := {  # warm tungsten family, per fixture type
@@ -43,8 +42,8 @@ const RANGE := {
 var light: OmniLight3D
 var bounce: OmniLight3D
 var _bulb_mat: StandardMaterial3D
-var _halo: MeshInstance3D
-static var _halo_texture: ImageTexture
+## Retired nullable diagnostic slot; no billboard mesh or halo texture is created.
+var _halo: MeshInstance3D = null
 var _base_energy := 1.5
 var _target_scale := 1.0   # set by the LightRig
 var _bounce_on := false    # set by the LightRig
@@ -137,44 +136,6 @@ func _build_visual() -> void:
 			c.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		if c is MeshInstance3D and c.name.begins_with("bulb"):
 			c.material_override = _bulb_mat
-	# additive halo billboard around the source
-	_halo = MeshInstance3D.new()
-	_halo.set_meta("surface_role", "optical_halo")
-	var quad := QuadMesh.new()
-	if prop_type == "chandelier":
-		quad.size = Vector2(1.2, 1.2)
-	elif prop_type == "sconce_globe" and name.ends_with("_LT_SCONCE"):
-		# The default 550 mm additive bloom was more than three times the
-		# globe diameter. Beside a 460 mm medicine cabinet it overlapped the
-		# mirror even though the brass bodies had measured clearance, making
-		# the composition read crowded and the glass look self-illuminated.
-		quad.size = Vector2(0.32, 0.32)
-	else:
-		quad.size = Vector2(0.55, 0.55)
-	_halo.mesh = quad
-	var hm := StandardMaterial3D.new()
-	hm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	hm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	hm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-	hm.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
-	if _halo_texture == null:
-		var grad := Gradient.new()
-		grad.set_color(0, Color(1.0, 1.0, 1.0, 0.30))
-		grad.set_color(1, Color(1.0, 1.0, 1.0, 0.0))
-		var gt := GradientTexture2D.new()
-		gt.gradient = grad
-		gt.fill = GradientTexture2D.FILL_RADIAL
-		gt.fill_from = Vector2(0.5, 0.5)
-		gt.fill_to = Vector2(0.5, 0.0)
-		var pixels := gt.get_image()
-		pixels.generate_mipmaps()
-		_halo_texture = ImageTexture.create_from_image(pixels)
-	hm.albedo_color = Color(tone.r, tone.g, tone.b, 1.0)
-	hm.albedo_texture = _halo_texture
-	hm.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	_halo.material_override = hm
-	_halo.position = bulb_at
-	_swing_node.add_child(_halo)
 	# the main pool
 	light = OmniLight3D.new()
 	light.light_color = tone
@@ -602,8 +563,6 @@ func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 		_entry_spot.visible = scale > 0.001
 		if _entry_spot.shadow_enabled != with_shadow:
 			_entry_spot.shadow_enabled = with_shadow
-	if _halo:
-		_halo.visible = scale > 0.001
 	if bounce:
 		bounce.visible = with_bounce and scale > 0.001
 

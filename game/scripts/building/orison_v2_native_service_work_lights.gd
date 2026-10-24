@@ -19,9 +19,9 @@ func mount(world: Node3D, fixed: RefCounted, instruments: RefCounted) -> bool:
 		elif script=="res://scripts/building/orison_v2_street_boundaries.gd" and str(lamp.name) in ["ShedEntryWorkLamp","ShedTurnWorkLamp"]: variant="Shed"
 		if variant.is_empty(): continue
 		var mount_part: Dictionary = instruments.work_light_parts[variant]
-		var before := {"lamp":weakref(lamp),"variant":variant,"position":lamp.position,"light":lamp.light.get_instance_id(),"bounce":lamp.bounce.get_instance_id(),"halo":lamp._halo.get_instance_id(),"bulb_material":lamp._bulb_mat.get_instance_id(),"swing":lamp._swing_node.get_instance_id(),"light_pose":lamp.light.transform,"energy":lamp._base_energy,"range":lamp.light.omni_range,"navigation":lamp.navigation_light,"standby":lamp.standby_scale,"seat":mount_part.seat,"normal":mount_part.normal}
+		var before := {"lamp":weakref(lamp),"variant":variant,"position":lamp.position,"light":lamp.light.get_instance_id(),"bounce":lamp.bounce.get_instance_id(),"halo":0,"bulb_material":lamp._bulb_mat.get_instance_id(),"swing":lamp._swing_node.get_instance_id(),"light_pose":lamp.light.transform,"energy":lamp._base_energy,"range":lamp.light.omni_range,"navigation":lamp.navigation_light,"standby":lamp.standby_scale,"seat":mount_part.seat,"normal":mount_part.normal}
 		for child: Node in lamp._swing_node.get_children():
-			if child is MeshInstance3D and child!=lamp._halo: lamp._swing_node.remove_child(child);child.free()
+			if child is MeshInstance3D: lamp._swing_node.remove_child(child);child.free()
 		for part: Dictionary in source:
 			if part.component=="Mount": continue
 			var draw := MeshInstance3D.new()

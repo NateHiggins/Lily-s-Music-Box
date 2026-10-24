@@ -1,0 +1,47 @@
+{
+	"checks": [],
+	"cycles": [],
+	"events": [
+		{
+			"kind": "state",
+			"phase": "cycle_0_walk_(1.925, 0.0, -6.5)",
+			"process_frame": 6,
+			"state": "DORMANT",
+			"usec": 133284601
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [
+		"F01_INNER_DOOR did not reach its requested stop through player input: 0.0 / 1.5707963267949"
+	],
+	"final_residency": {
+		"cell_count": 1,
+		"collision_cache_bytes": 88608528,
+		"collision_cache_parts": 1269,
+		"collision_cache_seed_ms": 1242.117,
+		"fit_records": [],
+		"load_cycles": 0,
+		"peak_activation_ms": 0.0,
+		"peak_stage_ms": 0.0,
+		"pending_requests": 0,
+		"physical_actors_retained": true,
+		"retired_geometry_roots_alive": 0,
+		"retired_mesh_resources_alive": 0,
+		"stage_records": [],
+		"state": "DORMANT",
+		"unload_cycles": 1
+	},
+	"owned_path": "user://v2_played_stream_133284276.json",
+	"save_result": {
+		"code": "",
+		"ok": true,
+		"protection_required": false,
+		"recovered": false,
+		"stage": "complete",
+		"worker_finished_usec": 137981676,
+		"worker_main_thread": false,
+		"worker_started_usec": 137960212,
+		"worker_usec": 21464
+	},
+	"scope": "Actual primary-grab doors, standing walk and mouse turning over two street/passage residency cycles; no shop transaction, item manipulation, save reconstruction, runtime_contract or human acceptance."
+}

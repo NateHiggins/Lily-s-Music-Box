@@ -11,10 +11,20 @@ it does not replace the existing issue logs or erase original failures.
 ## Current verification boundary
 
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-acoustic-topology**, preceding pushed checkpoint **9e7ef3fb**.
+**codex/v2-acoustic-topology**, preceding pushed checkpoint **2f5d5ac5**.
 The spatial dependency manifest is unrelated shared WIP. Untracked street/tent,
 traffic and art work remains preserved. All engine runs use the shared lane.
 No human acceptance or clean candidate verification is claimed.
+
+Latest scoped lighting/streaming work: **V2_FIXTURE_HALOS_AND_PASSAGE_PROFILE_2026-10-23.md**.
+Shared fixture additive billboards/texture allocation and dependent sizing are
+removed;262 installed fixtures have no halo, and6,586 resident-world lighting
+geometry/map/photometry/circuit diagnostics pass. Actual two-cycle passage route
+passes54 timed waypoints/14 checks. Median24.362→22.680ms is observational; p99
+60.654→61.319ms does not improve. Native fitting still reaches104.668ms despite
+its3ms between-operation budget; split at part boundaries with validation intact.
+First-render compilation, seven teardown Texture RID warnings, V1 environment/
+traffic effect review and broader started-work/runtime/human closure remain open.
 
 Latest scoped performance work: **V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md**.
 V2 household saves now use a bounded FIFO worker for the unchanged storage

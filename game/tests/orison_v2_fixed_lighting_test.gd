@@ -33,7 +33,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		# The original LightRig applies maintenance-card tuning after fabrication mounts.
 		var expected_range := clampf(float(provenance.fixtures.get(identity,{}).get("tuning",{}).get("range",source.range)),1.5,16.)
 		check(prop.transform.is_equal_approx(source.actor_pose) and prop.graph_node_id == source.graph_node_id, "source anchor and acoustic identity retained")
-		check(prop.light.get_instance_id() == source.light and prop.bounce.get_instance_id() == source.bounce and prop._halo.get_instance_id() == source.halo and prop._swing_node.get_instance_id() == source.swing, "original emitter, bounce, halo and swing owners retained")
+		check(prop.light.get_instance_id() == source.light and prop.bounce.get_instance_id() == source.bounce and prop._halo == null and int(source.halo) == 0 and prop._swing_node.get_instance_id() == source.swing, "original emitter, bounce and swing retained; optical halo absent")
 		check(prop._bulb_mat.get_instance_id() == source.bulb_material and prop._bulb_mat.emission_enabled, "original dynamic envelope material retained")
 		var expected_pose: Transform3D=source.light_pose
 		var expected_bounce: Vector3=source.bounce_pose.origin+factory._offsets[identity]
@@ -96,7 +96,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		for identity: String in before: check(after[identity] != before[identity], "existing room switch controls native fixture")
 		check(switches.restore_room(room,before) and switches.room_snapshot(room) == before, "existing circuit restore retains native fixture state")
 	var sconce: LightFixtureProp = factory.installed["3B_LT_SCONCE"].get_ref()
-	check((sconce._halo.mesh as QuadMesh).size.is_equal_approx(Vector2(.09,.09)), "small halo fitted inside replacement bell")
+	check(sconce._halo == null, "replacement bell has no additive halo")
 	var sconce_bounds := _light_bounds(sconce)
 	var clearance_shape := BoxShape3D.new()
 	clearance_shape.size = sconce_bounds.size-Vector3.ONE*.0002
