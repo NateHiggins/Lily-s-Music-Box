@@ -1,0 +1,227 @@
+{"resident_id": "cam_ortiz",
+ "hook": "Seen the paper on your way through?",
+ "hook_line": "Which bit? Talk while I walk. I'll do the stairs.",
+ "opinions": [
+  {"id": "co_op_doesnt_stop", "from": "1928-11-12", "until": "1928-12-05",
+   "topic": "The elevated, which does not stop.",
+   "line": "They recorded the two minutes' silence all over the city and compared them, and Queens came second quietest, and you know why? The elevated at Queensboro Plaza. Doesn't stop. The whole borough standing still with its hat off and one train going straight through the middle like it had a delivery. 'The margin laid to the elevated.' I read that standing up. I'd frame it if frames weren't so heavy.",
+   "choices": [
+    {"label": "You liked that something kept moving while everyone stood still.", "trust": 1, "flag": "co_kept_moving",
+     "reply": "Liked it? I was on it. ... No. I wasn't. I was on Jackson Avenue with a parcel and I stood the two minutes because everybody stood, and the pavement went downhill under me the whole time. The train was the only thing that sounded right."},
+    {"label": "The Bronx won. No train through the middle of theirs.",
+     "reply": "The Bronx has an elevated. The Bronx stopped it, probably, the Bronx has manners. Second's fine. Second's a delivery made with a minute to spare. I've built a life on second."},
+    {"label": "It's disrespectful, not stopping for the silence.", "trust": -1,
+     "reply": "Disrespectful to who? The dead don't need a train to stop. People on it were going to work. You stop a full train on a curve in November and see how respectful everybody feels. Ask the guards."}
+   ]},
+
+  {"id": "co_op_dutchman", "from": "1928-11-21", "until": "1928-12-15",
+   "topic": "A horse that walked himself back.",
+   "line": "That grey horse. Dutchman. Ice company buys him Monday, and Tuesday five in the morning he lets himself out at Whitestone and walks seven miles to the coal yard in Dutch Kills where he worked till '25. Crossed the bridge 'on the right side,' the keeper says. Seven miles in the dark and he kept right. Then they sold him back for two hundred and ten because 'the horse has made his position clear.' Best route in the paper.",
+   "choices": [
+    {"label": "He didn't run off. He went somewhere. There's a difference.", "trust": 1, "flag": "co_went_somewhere",
+     "reply": "Big difference. Running off you've got no address. He had an address. Vernon Avenue, the gate, twenty to eight, standing there like he was early for a shift. ... I've never had a gate to stand at. I've got a lot of streets."},
+    {"label": "Seven miles is a long way for an old horse.",
+     "reply": "Seven miles is nothing. I do seven before breakfast. It's the knowing the way that gets me. Three years gone and he takes every corner without a man at his head. You can't teach that. You do it till it's in the legs."},
+    {"label": "They should have chained the stable door.", "trust": -1,
+     "reply": "They did, after. Chained it the night they tried him on the ice. Sold him back anyway. You can chain a door. You can't chain where something's going. Ask anyone who's tried."}
+   ]},
+
+  {"id": "co_op_sunday_stop", "from": "1928-12-03", "until": "1928-12-28",
+   "requires": ["op:co_op_doesnt_stop"],
+   "topic": "Made to stop on Sundays.",
+   "line": "So they've made it stop. Queensboro Plaza, Sundays, six till one. Sixty-one trains stopped, through trains lose fifty seconds, and the Commission man on the platform took down one complaint, from a Corona passenger 'who had not wished to stop.' ... I want that man's name. I want to buy him a coffee standing up. Fifty seconds. You know what fifty seconds is with the doors open? It's a long time to stand on something tilting.",
+   "choices": [
+    {"label": "It wasn't you on that train, was it?", "trust": 1, "flag": "co_corona_man",
+     "reply": "No. I take the stairs, and I don't take Sundays. ... But I'd have been him. I'd have been him and written the letter and not sent it. One complaint out of three thousand. The rest of them just got off. Must be nice."},
+    {"label": "The Commission asked for it after the silence record.",
+     "reply": "Right, because the train didn't stop for the dead, so now it stops for the living on Sundays. Somebody at the Commission thinks that squares it. It doesn't square anything. It makes Sunday longer."},
+    {"label": "Fifty seconds isn't much to lose.", "trust": -1,
+     "reply": "Not to you. You don't get the floor going out from under you at second thirty. ... Fine. It's not much. It's fifty seconds. It's nothing. Tell my legs."}
+   ]},
+
+  {"id": "co_op_eleven_houses", "from": "1928-12-25", "until": "1929-01-20",
+   "requires": ["op:co_op_dutchman"],
+   "topic": "Eleven houses, two of them empty.",
+   "line": "Dutchman again. Christmas Eve he stopped at all eleven houses on his round from 1925. All eleven. Two of those families moved out in '26. He stopped at the empty ones too. Nobody to take the coal. Stood there anyway, then went on. ... I've got doors like that. Stops on the old route where nobody's taking anything anymore and I still slow down. Not stop. Slow. That's different, don't make a face.",
+   "choices": [
+    {"label": "He stopped. At an empty house. And then he went on.", "trust": 1, "flag": "co_stopped_went_on",
+     "reply": "Yeah. That's the bit. He stopped and it didn't kill him. Stood at an empty door with a cart behind him and nothing happened and he went on to the next one. ... A horse can do it. I'm smarter than a horse. Mostly. On a good day."},
+    {"label": "Whose door do you slow down at?", "trust": 1,
+     "reply": "Nobody's. A warehouse on Borden. Used to sign for a bag there every morning, a man with a pencil behind each ear. Place is shut now. I go past at ten past seven like I've got something for him. ... There. That's a route with the end left in. Don't get used to it."},
+    {"label": "Horses are creatures of habit, that's all.", "trust": -1,
+     "reply": "So's everybody. You're a habit. I'm a habit with a bike. Saying it's habit doesn't make it smaller. A habit's just a route you can't remember choosing."}
+   ]},
+
+  {"id": "co_op_stood", "from": "1929-01-13", "until": "1929-02-05",
+   "topic": "Tested with a horse, 'which stood.'",
+   "line": "January thaw, the Sound ice went soft, the men laid off. Then two cold nights and the Whitestone field's nine inches again, and the foreman tested it Saturday at six in the morning with a horse, 'which stood.' That's the whole test. You put a big animal on the ice and if it stands there and the ice holds, you've got a field. ... Nobody tests ice by running across it. You'd go through and never know why.",
+   "choices": [
+    {"label": "Standing still is how you find out if the ground will hold you.", "trust": 1, "flag": "co_stand_test",
+     "reply": "... Yeah. I know. You don't have to say it like that. Noel says it with the spirit level. You say it with a horse. ... I've never stood on anything long enough to find out if it holds. That's the honest version. Write it down before I take it back."},
+    {"label": "Two hundred and ten men back at work, at least.",
+     "reply": "Back at four dollars a day on nine inches over the Sound. Good money if you don't think about the water. I don't think about the water. I think about the horse, the only one on the field who knew he was the test."},
+    {"label": "Sounds dangerous for the horse.", "trust": -1,
+     "reply": "Sure it's dangerous. Everything's dangerous with weight on it. You want a safe job, be the stake they hammer in at the edge. Nobody tests the stake. Nobody needs to."}
+   ]},
+
+  {"id": "co_op_rail_silent", "from": "1929-01-21", "until": "1929-02-15",
+   "requires": ["op:co_op_sunday_stop"],
+   "topic": "The rail went silent.",
+   "line": "Two below Sunday, coldest since '18, and an Astoria train loses its shoe on the Plaza curve at twelve past seven and stands forty-seven minutes with three hundred and forty people aboard. Till the sleet car comes. And the guards report the rail 'silent.' Which they said is unusual. ... Forty-seven minutes in a box, stopped, on a curve, and the rail under you gone quiet. I read that one sitting down. Didn't mean to. Just found myself on the step.",
+   "choices": [
+    {"label": "You sat. On the step. How long?", "trust": 1, "flag": "co_sat_on_step",
+     "reply": "I don't know. Long enough to read it twice. Long enough the step tilted, and then ... it didn't. Or I didn't notice. Don't make a thing of it. It was a step. Noel would put a label on it. 'Step, sat on, once.'"},
+    {"label": "Three hundred and forty people who couldn't get off.",
+     "reply": "And couldn't walk it, this time. November, they walked them along the structure two abreast. This time they sat and waited for the sleet car. Forty-seven minutes waiting for something to come and move you. I'd have gone out the window."},
+    {"label": "At least it had heaters on its shoes by then.", "trust": -1,
+     "reply": "And it stalled anyway. Forty trains fitted by New Year, the Interborough was so proud. Heaters on the shoes and the rail went quiet regardless. Fit all the parts you like. The thing still stops when it stops."}
+   ]},
+
+  {"id": "co_op_drip", "from": "1929-02-17", "until": "1929-03-14",
+   "topic": "Horses down under the drip.",
+   "line": "Twenty-one horses down on the ice since December, the carters say, four of them under the elevated on Roosevelt Avenue, where the water drips off the structure and freezes in a line right where the wheels go. Grey mare of the Corona company Wednesday, that's twenty-two. I know that drip. You learn it by the back wheel. There's a stretch from 74th to 82nd where I don't brake. I just hold the line and pray to the Interborough.",
+   "choices": [
+    {"label": "You don't brake because stopping on ice is worse than going.", "trust": 1,
+     "reply": "Stopping on ice is how you go down. Every courier knows it. Keep the wheel turning and the wheel keeps you. The horses don't get to choose. Somebody up top says whoa and down they go. ... Carters want sand. Carters are right."},
+    {"label": "The carters gave the Commission till March fifteenth.", "flag": "co_deadline",
+     "reply": "March fifteenth or they won't deliver under the structure. Three hundred and ten of them, voting till twenty past eleven. I like a deadline. A deadline's a route with the end written on it. Commission hasn't answered. Commission never answers. Watch."},
+    {"label": "Maybe the horses should be shod for ice.", "trust": -1,
+     "reply": "They are shod for ice. Studs and all. Ice doesn't read the shoe. You've never had the back end go on you, have you. I can tell. People who have don't make suggestions."}
+   ]},
+
+  {"id": "co_op_from_corners", "from": "1929-03-16", "until": "1929-04-08",
+   "requires": ["op:co_op_drip"],
+   "topic": "Carried from the corners, by hand.",
+   "line": "Stoppage started. No horse under the elevated on Roosevelt Avenue from six in the morning, and the ice and coal went to thirteen hundred and twelve doors 'from the corners, by hand.' Forty-one hand-carts and about three hundred buckets. Two ice men at St. John's for strains. ... That's my whole job, that last bit. The corner to the door. Nobody sees it. The wagon gets the credit and somebody's back gets the last fifty yards.",
+   "choices": [
+    {"label": "Two men went to St. John's. Did they go back when they were told?", "trust": 1, "requires": ["cam_hospital_card"], "flag": "co_st_johns",
+     "reply": "... That's low. That's a low route. I don't know. Paper doesn't say. Probably they were back carrying buckets Monday with a strap round the middle. That's what you do. And now you'll tell me that's why there's a card in the dead letters with my name on it. Don't."},
+    {"label": "The last fifty yards is the job. The rest is just travel.", "trust": 1,
+     "reply": "Now you've got it. Anybody can ride a wagon. The door's the delivery. Somebody signs, somebody nods, the bag's lighter. ... Thirteen hundred doors in a day by hand. I'd have liked to be on that. That's a day nobody stands still."},
+    {"label": "Seems a lot of trouble over some sand.", "trust": -1,
+     "reply": "Everything's a lot of trouble over some sand. Twenty-four horses down is a lot of trouble. Sand's the cheap part. The Commission knew that and still made them carry buckets. That's what 'within normal limits' costs."}
+   ]},
+
+  {"id": "co_op_sand", "from": "1929-03-21", "until": "1929-04-15",
+   "topic": "A man to walk the avenue at five.",
+   "line": "They won. Commission orders the avenue sanded by five every morning, thirty days' trial, drip trays on the structure. The order doesn't mention the carters' letter, but fine. The carters voted to go back, and their secretary says a member will 'walk the avenue at five a.m. each day and look at the sand.' ... One man. Every morning. The whole length, checking the sand's there. That's the job I want. You keep moving and the moving's the point.",
+   "choices": [
+    {"label": "He walks it so the horses can stop safely.", "trust": 1, "flag": "co_walks_for_stops",
+     "reply": "... Huh. Yeah. He keeps moving so they can stop. I had it the other way round. I had him as a man who doesn't stop. He's a man who makes stopping safe for everybody else. Same walk. Different route."},
+    {"label": "Thirty days' trial. Then what?",
+     "reply": "Then they look at it again, and if no horse goes down they'll say the sand did nothing and stop it. That's how it goes. Something works so well nothing happens, and nothing happening looks like it wasn't needed."}
+   ]},
+
+  {"id": "co_op_major", "from": "1929-04-21", "until": "1929-05-04",
+   "topic": "Major, twenty-two years on Steinway.",
+   "line": "Ice going to forty-five cents in May, cost of feed, they say. And at the bottom of the same paragraph: the company's horse Major, twenty-two years on the Steinway route, retired yesterday. Like it's the price of oats. Twenty-two years doing the same streets every morning and then one day nobody hitches you, and that's retired. They send him out to a field in Bayside. ... A field. Nothing in a field goes anywhere.",
+   "choices": [
+    {"label": "You think retired is just stopped, with a nicer word.", "trust": 1, "flag": "co_retired_stopped",
+     "reply": "It's stopped with a fence round it. A field's a lovely thing to look at from a wagon. Living in one with your legs still knowing the route? ... Watch. He'll be back on Steinway inside a fortnight. I'd put money on it if I had any."},
+    {"label": "Duchess takes the route from May.",
+     "reply": "A bay mare, seven. She'll learn it. Takes about a month to get a route into the legs if you work it every day. Major had it in twenty-two years of legs. That's not something you hand over in a stable."},
+    {"label": "Twenty-two years. He's earned his rest.", "trust": -1,
+     "reply": "Everybody says that. 'Earned his rest.' Like rest is a prize. He didn't ask for it. Nobody asked him. You earn wages. Rest is what they give you when they've bought a younger horse."}
+   ]},
+
+  {"id": "co_op_major_walks", "from": "1929-05-05", "until": "1929-05-30",
+   "requires": ["op:co_op_major"],
+   "topic": "Major, eleven miles back to work.",
+   "line": "Told you. Didn't I tell you. Major. Found at ten past six yesterday at Steinway and 30th, eleven miles from the Bayside field, and people on the route say he stopped at fourteen of his old stops before Duchess came up behind him with the wagon at twenty past. Fourteen stops. No wagon, no ice, nobody hitched him. He just did the route. Then a van took him back to the field at nine. ... I'd like to know what the field's for.",
+   "choices": [
+    {"label": "He stopped fourteen times and wasn't afraid. He knew where he was.", "trust": 1, "flag": "co_knew_where",
+     "reply": "... Because he knew where he was. Yeah. Stopping's fine when it's a stop. A stop on a route. You know what's next. What gets you is stopping in a field where there's no next. ... I'm not talking about me. I'm talking about a horse."},
+    {"label": "Dutchman did the same, in November.", "trust": 1, "requires": ["op:co_op_dutchman"],
+     "reply": "Dutchman did the same. Two horses, one winter, both walking back to the work. Nobody at the ice companies is putting it together. They think it's a funny item. It's the same item. They don't want the field. They want the route."},
+    {"label": "They'll have to fence the field better.", "trust": -1,
+     "reply": "Fence it better. Sure. Then he stands at the fence facing Steinway the rest of his life. You've seen horses do that. Better fence, same horse. You've fixed the gate and not the horse."}
+   ]},
+
+  {"id": "co_op_horses_down", "from": "1929-05-29", "until": "1929-06-25",
+   "topic": "Two destroyed on Northern Boulevard.",
+   "line": "First heat. Ninety-one by twenty to four and nine horses went down in the borough, and two of them were destroyed on Northern Boulevard. Right there. On the road. Wagons sold out of ice by two. ... I keep reading 'destroyed.' A horse goes down in the heat and that's it, there's a man with a pistol on the Boulevard. A man goes down and they want him in a chair for six weeks. I don't know which deal's worse.",
+   "choices": [
+    {"label": "You do know. You'd take the chair. You just haven't gone yet.", "trust": 1, "requires": ["cam_hospital_card"], "flag": "co_chair_vs_boulevard",
+     "reply": "... I'd take the chair. Fine. Said it. Six weeks in a chair over a man with a pistol. Everybody would. That's not the hard part. The hard part's the first hour in the chair. Nobody shoots you. You just sit."},
+    {"label": "They destroy them because nobody can mend a horse's leg.", "trust": 1,
+     "reply": "Nobody can mend a horse's leg. Right. So they don't try. A man's leg they can mend, mostly, if he sits still long enough. That's the whole difference. It's not the leg. It's the sitting still. The horse can't. I'm supposed to be able to."},
+    {"label": "It's kinder to the horse.", "trust": -1,
+     "reply": "Kinder. Sure. Kinder's what you call the quick option when you're the one holding the pistol. Ask the horse. You can't. That's convenient."}
+   ]},
+
+  {"id": "co_op_embankments", "from": "1929-06-20", "until": "1929-07-15",
+   "topic": "Don't sleep on the embankments.",
+   "line": "Ninety-one again, four overcome, four hundred and ten thousand at Rockaway, and the Board of Health puts out a notice: advises against sleeping on the elevated's embankments. Which means people have been. ... I get it. I've done it. Not slept. Lain there. Gravel under your back and a train over your head every few minutes, and the ground never once goes still. Best night's rest I had all summer. Don't tell the Board of Health.",
+   "choices": [
+    {"label": "The trains keep the ground from going still. So you can lie down.", "trust": 1, "flag": "co_embankment_rest",
+     "reply": "So I can lie down. Yeah. It's moving for me. I can let go because something else is keeping it going. ... That's what the floor in 4C won't do. Noel sits so still the whole room stops with him. On the embankment nothing ever stops."},
+    {"label": "The Exchange had calls about people sleeping on roofs too.",
+     "reply": "Two thousand calls asking for neighbours on roofs to be quiet. Everybody's out of their rooms. Nobody can stand being inside something still in this heat. For one week the whole borough lives like me. Nobody likes it as much as I do."},
+    {"label": "It's dangerous. You could roll onto the track.", "trust": -1,
+     "reply": "The track's up on the structure. The embankment's the bank. You'd have to roll uphill. ... Look, I don't need a route explained to me. I need somebody not to tell me to go home and lie in a bed that tilts."}
+   ]},
+
+  {"id": "co_op_hydrant", "from": "1929-07-17", "until": "1929-08-10",
+   "requires": ["op:co_op_horses_down"],
+   "topic": "Revived with water from a hydrant.",
+   "line": "Ninety-six, the year's highest. And a delivery horse of the Flushing Bay company fell on Northern Boulevard at a quarter past one. Same road as the two in May. And this one, they opened a hydrant over him and he got up. Revived. Nobody fetched the pistol. Somebody had a wrench and the sense to use it. ... Same road. Same heat. Different man standing over him. I've been thinking about that all day.",
+   "choices": [
+    {"label": "It mattered who was standing there when he went down.", "trust": 1, "flag": "co_who_stood_there",
+     "reply": "It mattered who was standing there. Yeah. Somebody who thought he'd get up. ... If I went down on the Boulevard I'd want somebody with a wrench. Not somebody who'd already decided. You're the wrench sort. I'm not saying that twice."},
+    {"label": "So you'll open the card from the hospital?", "requires": ["cam_hospital_card"],
+     "reply": "... You don't let things go, do you. It's in my bag. Still shut. The horse didn't have to open anything; somebody poured it on him. Fine. I hear what you're doing. I'm not saying yes. I'm saying I heard."},
+    {"label": "Lucky horse.",
+     "reply": "Lucky's when nobody does anything and it works out. This wasn't lucky. Somebody did a thing. Lucky's the word people use so they don't have to say who."}
+   ]},
+
+  {"id": "co_op_nell_truck", "from": "1929-08-25", "until": "1929-09-20",
+   "requires": ["op:co_op_major_walks"],
+   "topic": "A truck takes Nell's route.",
+   "line": "Another one. Nell, the Astoria company's mare, twenty summers on Steinway, retires after Labor Day to a farm in Jamaica. Route goes to a motor truck. And the company's asked customers to lend their recordings of her bell, for the file. Sixty sent in. ... So they keep the bell and sell the horse. A truck doesn't stop at a door because its legs remember. A truck stops where the sheet says. Steinway's going to feel that.",
+   "choices": [
+    {"label": "The bell gets kept. The thing that rang it doesn't.", "trust": 1,
+     "reply": "Right. You can file a bell. You can't file knowing which door. ... Major and Nell both off Steinway in one summer. That street's going to get its ice on time and nobody's going to get stopped at by a horse who missed them."},
+    {"label": "Will she walk back to Steinway, like Major did?", "trust": 1, "flag": "co_will_she_walk",
+     "reply": "Jamaica's a long way. Further than Bayside. ... I hope she does. I hope she gets out at five some morning and does the whole route ahead of the truck, every stop, and the truck has to follow her. I'd stand still to see that."},
+    {"label": "Trucks are faster.", "trust": -1,
+     "reply": "Faster between stops. Same at the door. Somebody still has to get down and carry it. You've never timed it. I have. The horse is slower to the street and faster to the step, because a horse doesn't need parking."}
+   ]},
+
+  {"id": "co_op_platform", "from": "1929-09-28", "until": "1929-10-20",
+   "requires": ["op:co_op_doesnt_stop"],
+   "topic": "A horse on the platform at Corona.",
+   "line": "Best thing all year. A coal-wagon horse at Corona climbs the stairs to the elevated station, all of them, and stands on the platform, and every Flushing train's held nineteen minutes at twenty to eight. The elevated. The thing that didn't stop for the two minutes' silence. Stopped for a horse. Driver summoned for leaving him untied. Horse unhurt. ... He climbed up to where things don't stop, stood there, and everything stopped round him. I'd give a week's pay to know why.",
+   "choices": [
+    {"label": "Maybe he wanted to be where nothing stops. And it stopped anyway.", "trust": 1, "flag": "co_platform_horse",
+     "reply": "And it stopped anyway, and he was fine. Unhurt. Paper says unhurt. Nineteen minutes standing still on the busiest thing in Queens and the platform didn't tilt and nobody shot him. ... You're doing that thing again where you say it and I hear it about me."},
+    {"label": "The driver should have tied him.",
+     "reply": "Sure. And the horse would've stood in the street being a horse. Untied, he went somewhere. I'm not saying the driver was right. I'm saying I'm glad he was wrong."},
+    {"label": "Nineteen minutes of delays. The riders must have been furious.", "trust": -1,
+     "reply": "Course they were. Nineteen minutes late to work because a horse had an idea. You know how many ideas I've had on that line? None that held up a train. Give the horse his nineteen minutes."}
+   ]},
+
+  {"id": "co_op_winter_round", "from": "1929-10-18", "until": "1929-11-08",
+   "topic": "Forty-one horses for the winter.",
+   "line": "Ice season's over. Three hundred and twelve wagons and trucks laid up, the truck rang its bell the last time at noon. And now the Astoria company's taken on thirty-eight drivers and forty-one horses for the winter coal round, bought at the Jamaica sale, ninety-two dollars on average, and the motor wagons laid up till May. ... So all summer they're getting rid of horses, and come winter they buy forty-one. The trucks stop for the cold. The horses don't.",
+   "choices": [
+    {"label": "Some things are only laid up for a season. They come back.", "trust": 1, "flag": "co_laid_up_comes_back",
+     "reply": "... Laid up isn't finished. I hear you. Six weeks in a chair is laid up. It's not a field in Bayside. Don't push it. You've got me further than Noel's spirit level got me in a year. Leave it there."},
+    {"label": "Ninety-two a horse. Dutchman went for two hundred and ten.", "requires": ["op:co_op_dutchman"],
+     "reply": "Dutchman went for two-ten because he'd made his position clear. These are ninety-two because nobody's asked them yet. Give it a month. One of them'll walk home somewhere and the price'll go up."},
+    {"label": "Horses are on their way out.", "trust": -1,
+     "reply": "Everybody says that. Then it snows and the trucks sit in the yard and the horses go out. They've been on their way out my whole life. They're still on the route. That's what on your way out looks like when you're good."}
+   ]},
+
+  {"id": "co_op_will_not_stop", "from": "1929-11-08", "until": "1929-11-09",
+   "requires": ["op:co_op_sunday_stop"],
+   "topic": "'Will again not stop.'",
+   "line": "They're recording the two minutes again Monday and comparing it with last year's, and the paper says the Interborough 'states that the elevated will again not stop.' Again. A whole year. The silence, the Sunday stops, the stall with the rail gone quiet, a horse on the platform, and it still won't stop for the two minutes. ... I'm going to stand for it. Monday. Eleven. Same spot on Jackson Avenue. I'll tell you if the street goes.",
+   "choices": [
+    {"label": "I'll stand with you. If it tilts, I'll be there.", "trust": 1, "flag": "co_armistice_stand",
+     "reply": "... Yeah. Stand on the downhill side. That's a joke. ... No, do. Stand there. Two minutes. If the train goes through it goes through. That's its job. Mine's to stand still and see what happens. First time I've said that and meant it."},
+    {"label": "You sat for a whole sandwich. Two minutes is nothing.", "trust": 1, "requires": ["cam_sat_down"],
+     "reply": "Nine minutes, Noel's card says. Nine. I've got it pinned over my end of the table. ... Two minutes standing in the street with the whole borough. Sure. I can do two minutes. I'll count out loud. People will look. I don't care."},
+    {"label": "Why should the elevated stop?",
+     "reply": "It shouldn't. I used to like that. I'll still like it. A thing that goes through the middle of the silence because it has to. ... I just don't have to be the train anymore. Somebody else can be the train."}
+   ]}
+ ]}

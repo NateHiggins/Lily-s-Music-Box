@@ -1,0 +1,139 @@
+{"resident_id": "nadia_quell",
+ "hook": "Anything in the Record Management should know?",
+ "hook_line": "Three items. I've drafted memos on two and a letter on the third I won't send. Pick.",
+ "opinions": [
+  {"id": "nq_op_draft", "from": "1928-11-19", "until": "1928-12-20",
+   "topic": "Five dollars a building.",
+   "line": "Senator Harlan's draft: every building that records holds a licence at five dollars a year, posts notice at its door, keeps its record 'in good order for production.' The owners' association calls it 'a tax on walls that were listening before there was a Senator.' They're right about the walls and wrong about the tax. The tax is the form. Somebody will have to sign it for this building, and the owners will not be found, and so it will be me.",
+   "choices": [
+     {"label": "And you'll sign it 'Management.'", "reply": "Naturally. The form asks for the owner or his agent. I'm the agent; it's on the lease, in my hand. The owner's name is a thing they bought from me once already. I won't hand it to Albany for five dollars more.", "trust": 1, "flag": "nq_will_sign_management"},
+     {"label": "Why not let the owners deal with it?", "reply": "Because they'd deal with it the way they deal with everything: through a solicitor who can't tell a riser from a rain pipe. Then the form would be wrong, and a wrong form is a drawing the building has to live up to. I've had enough of those."},
+     {"label": "It's only five dollars.", "reply": "It's five dollars and a signature. The dollars I can find in petty cash. A signature is load-bearing. You put it under a thing and the thing stands on it for good. Don't price signatures in front of me.", "trust": -1}
+   ]},
+  {"id": "nq_op_dam", "from": "1928-12-22", "until": "1929-01-20",
+   "topic": "Whether a dam can be heard.",
+   "line": "The President signed the Boulder Canyon Act, and the Queens Society of Engineers sat until five past eleven at the Flushing Y and voted forty-one to thirty-eight that 'a wall of that mass, once loaded, will be heard at a distance.' I'd have voted with Mr. Ernst. Every structure under load says so. Mine do. Seven hundred feet of concrete holding back a river will have opinions. The question isn't whether it can be heard. It's whether anybody who signed it off will be listening.",
+   "choices": [
+     {"label": "A building tells you where it's carrying more than it was drawn for.", "reply": "Through the stair, mostly. Stairs complain first; they're the honest members of any frame. You'll have noticed which of ours you take twice a night. ... That's all I'll say about the stair this evening. It's December. Let it be December.", "trust": 1, "flag": "nq_load_speaks"},
+     {"label": "The utility's engineer abstained.", "reply": "'The matter being before the Commission.' That's an engineer who's been asked to sign something already and knows exactly what his name is worth to them. I don't blame him. I abstained from things for years. It looks like neutrality from the gallery."},
+     {"label": "A dam doesn't talk. That's superstition.", "reply": "Everything under load talks. It's called deflection and you can measure it with a wire and a glass. The superstition is thinking the drawing is the building. I could show you, but I'd have to show you here, and I'd rather not.", "trust": -1}
+   ]},
+  {"id": "nq_op_lien", "from": "1929-01-25", "until": "1929-02-24",
+   "topic": "Puttied, and painted to match.",
+   "line": "Twenty-eight dollars of lien, for two thawings of the Arcade downpipe. Mr. Haas screwed the second notice to the north door with four brass screws on Wednesday, and by seven the next morning the notice was gone and the holes filled with putty and painted to match the door. That's not a vandal. A vandal leaves holes. That's a landlord who keeps his property in good order and won't put his name to a bill. I've worked for owners like that. I've been one, by signature.",
+   "choices": [
+     {"label": "Somebody's maintaining the Arcade and refusing to be found doing it. Like a manager.", "reply": "Like a good manager. Note 'good.' The paint matched; whoever did it carried the right tin. I'd hire them. I'd also very much like to know who pays them, because it isn't a company that answers no telephone. Somebody does.", "trust": 1, "flag": "nq_putty_matched"},
+     {"label": "The tenants say they saw nothing.", "reply": "Eleven shopkeepers on one corridor saw nothing. Either they're liars or they're tenants, and in my experience the second explains the first. They're protecting their counters. I'd do the same. I'd also do it with putty."},
+     {"label": "Twenty-eight dollars is nothing to fuss about.", "reply": "It's twenty-eight dollars and a principle: who answers for a building. The Borough's asking, politely, in brass. Nobody's answering. When nobody answers for twenty-eight dollars, nobody will answer for a stair. Mind which sums you call nothing.", "trust": -1}
+   ]},
+  {"id": "nq_op_petition", "from": "1929-02-27", "until": "1929-03-25",
+   "topic": "The petition dismissed.",
+   "line": "Commissioner Lacey read for fifty-one minutes, allowed the light company seven cents, and dismissed the Astoria petition on the hum: the Commission 'is unable to find a tone in the company's readings, or the absence of one in the petitioners' readings.' Two thousand signatures. A petition is a request for permission to be angry, and it got the answer requests get. But he ordered an engineer into the works with an instrument 'not of the company's make.' That's the only line that matters. Somebody else's meter.",
+   "choices": [
+     {"label": "You'd never organise the tenants by petition. You'd get your own instrument in.", "reply": "A petition asks. An instrument tells. The tenants sign the minutes and think they're asking the owners for things. They aren't. I'm measuring the owners. When I've enough readings I'll stop asking. You'll know the day; there'll be a meeting nobody voted for.", "trust": 1, "flag": "nq_own_instrument"},
+     {"label": "Two thousand signatures, and nothing.", "reply": "Not nothing. Lacey had to read for fifty-one minutes to say nothing, and the company has to open its works by April. Two thousand names bought fifty-one minutes and a door. That's a fair price. Most petitions buy a receipt."},
+     {"label": "What do you think the hum is?", "reply": "Not on my drawing. That's all I know about it and all I'll say. I keep a plan of the things I can stand behind. The rest I leave in pencil, and that one isn't even in pencil."}
+   ]},
+  {"id": "nq_op_carters", "from": "1929-03-16", "until": "1929-04-12",
+   "topic": "Two hundred and ninety-one to fourteen.",
+   "line": "The carters voted two hundred and ninety-one to fourteen at Woodside Hall: no horse beneath the elevated on Roosevelt Avenue. Yesterday ice and coal went by hand from the corners to thirteen hundred and twelve doors, forty-one hand-carts and about three hundred buckets. Two men to St. John's with strains. The Transit Commission has 'nothing to add.' Now that is organising. Not a petition. A route, measured, and a refusal to walk under the thing that drips on you. Somebody drew that route the night before.",
+   "choices": [
+     {"label": "You'd have drawn that route. Corners, carts, buckets. Chalked.", "reply": "I'd have drawn it and they'd have voted on it and the minutes would say the carters decided. That's how it's done. The carters did decide. I'd just have made sure there was only one thing on the table to decide.", "trust": 1, "flag": "nq_drew_the_route"},
+     {"label": "Two men hurt, carrying by hand.", "reply": "Strains. It's the price of a route that's longer and true. Every honest route is longer than the one on the drawing. You carry more for it. I'd still take two strains over one man under the El when the drip turns to ice."},
+     {"label": "It's a lot of trouble over some dripping.", "reply": "Dripping is how structures tell you they're failing slowly. Ice on a cobble under an El is a fall waiting for a horse. The carters read the structure better than the Commission's engineer did. 'Within normal limits.' I've signed that sentence. Never again.", "trust": -1}
+   ]},
+  {"id": "nq_op_notices", "from": "1929-04-05", "until": "1929-05-01",
+   "requires": ["op:nq_op_lien"],
+   "topic": "Unsigned notices to vacate.",
+   "line": "Ten of the Arcade's eleven tenants found notices under their doors: vacate by May first, typed in the name of Signal Ground Rents, unsigned. Not the news stand, whose man signed his renewal in March and hasn't seen it since. So the one man who signed is the one man left alone. I'd like that put on a wall somewhere. Mr. Bliss of the luncheonette will contest it 'in any court that can find the landlord.' I'd draw him a plan of where to look. I haven't got one.",
+   "choices": [
+     {"label": "An unsigned notice. Same hand as the putty. Nobody's name on anything.", "reply": "Same hand. Tidy, effective, and nobody's. I sign 'Management' and I know exactly why: they bought my name and I won't give them the use of it. Whoever types these has a different reason. I'd like to know theirs. It might be mine.", "trust": 1, "flag": "nq_unsigned_pattern"},
+     {"label": "Sign, and they leave you alone. You know that bargain.", "reply": "Sign, and they'll leave you in peace, in a flat, with keys. The peace is real. So is the flat. So's what you signed. They're all load-bearing. The news stand will find that out. I'd tell him, if he'd ask.", "trust": 1, "requires": ["nadia_signed_silence"]},
+     {"label": "Bliss should just find another shop.", "reply": "And let the drawing win. That's what moving out is: agreeing the plan was right and you were the error. Mr. Bliss has a counter, a grill and a lease. He's part of the structure now. Let him stand.", "trust": -1}
+   ]},
+  {"id": "nq_op_by_belief", "from": "1929-04-24", "until": "1929-05-20",
+   "requires": ["op:nq_op_draft"],
+   "topic": "'Vantry and Company, by belief.'",
+   "line": "Thirty-one licences granted yesterday. Fourteen owners couldn't say who installed their systems; eleven wrote 'Vantry and Company, by belief,' and Mr. Crane accepted it as an answer. By belief. On a State form. I spent ten years being told a drawing must be certain or be nothing. Then a licence officer takes 'by belief' from eleven landlords in an afternoon. I'm not angry. I'm taking notes. When I fill ours in, I'll know exactly how much the form can bear.",
+   "choices": [
+     {"label": "You'll write it truthfully. Even if 'by belief' would pass.", "reply": "I'll write what I can stand behind and leave the rest blank, and if Mr. Crane wants the blank filled he can come and look at the wiring himself. I've certified one thing I didn't believe. I'm not starting on beliefs now.", "trust": 1, "flag": "nq_truthful_form"},
+     {"label": "Who did install ours?", "reply": "It's older than my post. It's older than the drawings I inherited. That's the honest answer and it's the one I'll write, and Crane can make of it what he likes. The building knows. It's never been asked to sign."},
+     {"label": "Nobody checks those forms anyway.", "reply": "Somebody always checks, eventually. Usually in a courtroom, usually after a fire. Forms are a drawing of the truth. Draw them carelessly and the truth is brought into compliance with them. I live in the result.", "trust": -1}
+   ]},
+  {"id": "nq_op_three_words", "from": "1929-05-04", "until": "1929-05-30",
+   "topic": "Three words between two records.",
+   "line": "Two records of Mr. Ostrow's May Day speech, the police's and the Committee's, played together in court: eleven minutes agreeing, then 'we will take the mills' against 'we will take the mills to the courts.' Neither shows a break. Three words, and the difference between a threat and a lawsuit. I take the tenants' minutes. I know how three words go missing. You don't cut them. You just don't write them, and the meeting moves on, and the record is correct.",
+   "choices": [
+     {"label": "The minutes are signed Management. Which three words have you left out?", "reply": "'On the owners' behalf.' Every motion I carry, carried on their behalf, and I never once wrote it. The tenants think they've beaten the owners when they've beaten me. ... I'll not add the words. I'll stop needing them.", "trust": 1, "flag": "nq_three_words_left", "requires": ["nadia_is_management"]},
+     {"label": "Which record is the true one?", "reply": "Both, which is the trouble. Each was made by people who knew what they wanted the speech to be. Records aren't neutral. Nothing built is. The magistrate will choose, or refuse to, and either way a man's sentence turns on whose machine stood nearer."},
+     {"label": "Ostrow shouldn't have said either.", "reply": "He's entitled to say either. Taking the mills to the courts is the most law-abiding sentence anybody shouted on May Day. You've read the frightening version first. That's what the police record is for.", "trust": -1}
+   ]},
+  {"id": "nq_op_clinic", "from": "1929-05-16", "until": "1929-06-10",
+   "topic": "The film store under the Clinic.",
+   "line": "Cleveland: fire and gas from the Clinic's basement film store, at least a hundred and seven dead. The system recorded the alarm at eleven thirty-one. Other people will read it as a hospital story. I read it as a section. A film store under a building full of people who can't walk. Gas rises. Stairs carry it. The drawing will have shown the store as storage and the stair as egress, and on the day the stair was a flue. Somebody signed that. Somebody always signs that.",
+   "choices": [
+     {"label": "One stair, and on the day it carried the gas instead of the people.", "reply": "... You're going to make me say it in every room, aren't you. Yes. One stair is one flue, on the wrong day. I've chalked the long route. I walked it twice this morning after the paper. It holds. It's long. It holds.", "trust": 1, "flag": "nq_one_stair", "requires": ["name_the_violation"]},
+     {"label": "They couldn't have known film would do that.", "reply": "They knew. Anybody who's stored film knows; it's in the insurers' tables. They knew, and the basement was the cheapest square footage in the building. Every catastrophe is a drawing where the cheapest room sits under the dearest lives."},
+     {"label": "That was Cleveland, not Queens.", "reply": "Every building's a Cleveland that hasn't had its morning yet. Don't tell an architect geography saves anyone. Gas doesn't read the address. I'd have you walk the route with me, but you'd be bored, and boredom is how we got here.", "trust": -1}
+   ]},
+  {"id": "nq_op_rubber_stamp", "from": "1929-06-06", "until": "1929-07-05",
+   "requires": ["op:nq_op_notices"],
+   "topic": "Signed by a rubber stamp.",
+   "line": "The ten Arcade tenants paid four hundred and twelve dollars of June rent into the Municipal Court, 'to the credit of Signal Ground Rents, when it calls.' Then the Vantry estate sold the ground rent outright: the executors signed in ink; the company signed with a rubber stamp, 'by its Secretary,' no name. I sign 'Management.' I've told myself it's a refusal. I read that deed and saw how it looks from the other side of the counter. A stamp. A title where a person should be.",
+   "choices": [
+     {"label": "There's a difference. You're in the building. You answer the door.", "reply": "I answer the door. Yes. That's the difference, and it's thinner than I'd like, and you've put your thumb on it. A stamp with a woman behind it who comes down when the pipe bursts. ... I'll take that. Don't let me forget it's thin.", "trust": 1, "flag": "nq_answers_the_door"},
+     {"label": "Paying the rent into court. That's your kind of move.", "reply": "It's the right move. Pay, so nobody can call you defaulters; pay where the landlord has to appear to collect. It makes absence expensive. The tenants decided it entirely by themselves. I'd like that in the minutes, and I'd like nobody to ask Mr. Bliss who suggested it."},
+     {"label": "Maybe the Secretary just forgot to sign.", "reply": "Nobody forgets to sign a deed. Forgetting's for postcards. A stamp where a name should be is a decision made carefully by someone who'd rather not be found making it. I know. I've stood at that desk with the pen.", "trust": -1}
+   ]},
+  {"id": "nq_op_licence", "from": "1929-07-01", "until": "1929-08-01",
+   "requires": ["op:nq_op_by_belief"],
+   "topic": "Licensed, signed Management.",
+   "line": "Licences required from today. Mr. Crane's office granted twenty-eight hundred and forty-two in Queens; about thirty-one hundred and fifty systems remain unlicensed, 'the greater part in buildings whose owners cannot be found.' Ours is not among them. I filed on the twenty-eighth. Owner: blank. Agent: Management. Installer: unknown, prior to the present drawings. Mr. Crane's clerk looked at it for a long time and stamped it. I'd prefer to say the tenants decided to license. They didn't. I did.",
+   "choices": [
+     {"label": "You licensed the building's ears and left the owner's line blank on purpose.", "reply": "On purpose, in ink. A blank is a statement if you leave it in the right place. Let the State notice the box nobody will fill. Let it ask. I've been waiting ten years for somebody official to ask me that question.", "trust": 1, "flag": "nq_owner_blank"},
+     {"label": "So inspectors could come here now.", "reply": "They can come. They'll find a licence, a manager and a wall that listens, which is all the form asks about. The form has no question for the other things. I read it four times to be sure. It hasn't."},
+     {"label": "Why bother? Half of Queens didn't.", "reply": "Because half of Queens has landlords who can't be found, and I'm standing here. That's the arrangement. I can't be the one who isn't found. It's the only thing I'm paid for that I'd do for nothing.", "trust": -1}
+   ]},
+  {"id": "nq_op_held", "from": "1929-08-15", "until": "1929-09-12",
+   "requires": ["op:nq_op_rubber_stamp"],
+   "topic": "'Held.'",
+   "line": "Mr. Ewald wrote for the Arcade tenants asking Signal Ground Rents to call for its twelve hundred and thirty-six dollars. The company answered. First reply to any letter. Typed, unsigned, postmarked Long Island City at six, one word: 'Held.' I've read it the way I read a drawing, for what it carries. It's not a refusal. It's not a receipt. It's a beam that takes the load and doesn't say from where. Whoever wrote it knew exactly how much one word could bear.",
+   "choices": [
+     {"label": "You know who you work for now. The Arcade still doesn't know who it pays.", "reply": "And you know whose war it is, which is more than the Arcade does. They're paying into a drawer for an owner who answers in one word. I collect our rents in my hand and forward them to a box. 'Held.' I could have written it.", "trust": 1, "flag": "nq_held_read", "requires": ["player_knows_the_war"]},
+     {"label": "What does 'Held' even mean?", "reply": "The Speaker's operator says it means wait, and doesn't say how long. She's right. It's also what you say of a position under siege. Both readings stand. I'd have the tenants keep paying into court. Let 'held' cost somebody something."},
+     {"label": "At least they answered.", "reply": "They answered so that nobody could say they hadn't. That's not courtesy. That's a certificate. The building passes; nobody believes it. I know the form. I wrote in it."}
+   ]},
+  {"id": "nq_op_crane", "from": "1929-08-27", "until": "1929-09-20",
+   "requires": ["op:nq_op_licence"],
+   "topic": "Licensed himself in five minutes.",
+   "line": "Mr. Lentz of Ridgewood inspected Mr. Crane's own licence office, at Crane's invitation, and found a system installed in 1922 and never applied for. Crane applied at a quarter past eleven, to his own office, and granted it at twenty past. Five minutes. I'd laugh if I hadn't done the identical thing on a larger scale: certified my own building, to my own employers, and been paid in keys. At least Crane did his in front of a witness. Give him that. It's more than I managed.",
+   "choices": [
+     {"label": "You did yours in front of one, eventually. Out loud.", "reply": "Once, in my own flat, to you. ... It's not enough and it's a start. Mr. Lentz was thanked for it. I find I'd like to thank you, which is a sentence I've not had much practice drafting. There. Drafted.", "trust": 1, "flag": "nq_witness_again", "requires": ["name_the_violation"]},
+     {"label": "Who inspects the inspector's inspector?", "reply": "A landlord with a grievance and a free morning. Every system of checking ends there, eventually: one stubborn man who asks for the form. I'd put Mr. Lentz on our committee tomorrow. He'd vote against everything I proposed and be right twice."},
+     {"label": "It's a farce. Nobody takes the Act seriously.", "reply": "Everybody takes it seriously. That's why Crane fixed his in five minutes instead of hiding it. A farce is when nobody's afraid of the form. They're terrified of it. So am I. Fear is how forms bear load.", "trust": -1}
+   ]},
+  {"id": "nq_op_load_sheets", "from": "1929-09-25", "until": "1929-10-24",
+   "topic": "'Not for publication.'",
+   "line": "The Aldermen voted forty-one to nineteen to ask the light company for its August load sheets. At a quarter to four a messenger brought one page: the sheets 'are the company's record of the company's load and are not for publication.' The most candid sentence the company has ever written. It's also the sentence I'd have written ten years ago about a set of drawings. The filed set is for publication. The set with the corrections stays in the drawer. I know that drawer intimately.",
+   "choices": [
+     {"label": "You keep the set with the corrections on your wall now. Not in a drawer.", "reply": "On the wall, in red, where the flat can argue with it. Yes. It took a building redrawing itself around me to make me hang it. The light company will need something louder. They may be getting it; ask anyone who's been up at three this month.", "trust": 1, "flag": "nq_set_on_the_wall"},
+     {"label": "The Aldermen will force it out of them.", "reply": "With a resolution? A resolution is a petition wearing a hat. Mr. Feeney's going to court in October; that's an instrument. Courts can make you open a drawer. Aldermen can only stand in front of it."},
+     {"label": "Maybe there's nothing in the sheets.", "reply": "Then they'd publish them. Nobody guards an empty drawer. I'd tell Mr. Feeney so if he asked, and he won't, because politicians don't ask architects anything until the ceiling's on the floor."}
+   ]},
+  {"id": "nq_op_crash", "from": "1929-10-29", "until": "1929-11-09",
+   "topic": "Paper falling, buildings standing.",
+   "line": "Stocks fell thirty-eight points Monday, the most in the Exchange's history; Tuesday sixteen million shares, and the governors met in a room beneath the floor. I've no shares. I've a building. A building doesn't fall thirty points; it stands or it doesn't, and you can walk round it and see which. What I'm watching is who'll own the ground rents in a month. Owners who lose everything sell what can be sold. Paper's dropping. Buildings will change hands.",
+   "choices": [
+     {"label": "If the owners sell, the war you're fighting gets a new general.", "reply": "Or none. That's what frightens me. I've organised against a family that won't open its books. What do I organise against when the owner's a stamp and a post box? You've read the Arcade's story. I'd like it not to be ours.", "trust": 1, "flag": "nq_new_general", "requires": ["player_knows_the_war"]},
+     {"label": "The governors met under the floor so the floor wouldn't hear.", "reply": "Like every meeting that matters. You hold it below the room it's about so the room can't hear. I've chaired two of those in this building. I'm not proud of either. Both carried."},
+     {"label": "Good thing you're not in the market.", "reply": "I'm in the building, which is in the market whether it likes it or not. Every tenant who's lost a week's wages is a rent I forward short. Nobody's out of it. Some of us are only standing farther from the window.", "trust": -1}
+   ]},
+  {"id": "nq_op_fifth_box", "from": "1929-11-07", "until": "1929-11-09",
+   "requires": ["op:nq_op_held"],
+   "topic": "The box emptied a fifth time.",
+   "line": "Somebody holding the key emptied Signal Ground Rents' box at the General Post Office on Wednesday, the fifth time since September, and took the court clerk's letter about the two thousand four hundred and seventy-two dollars. The money stays in the clerk's drawer. They want the letters and not the rent. I understand that perfectly. It's not the money being collected. It's what people are saying about you. I collect the tenants' minutes the same way. Every week.",
+   "choices": [
+     {"label": "Then stop collecting. Let them say it to your face.", "reply": "To my face, at a meeting I don't chair, with minutes I don't sign. ... You make it sound like a floor plan. Simple, once it's drawn. It isn't simple. It's drawn, though. I'll give you that. It's drawn.", "trust": 1, "flag": "nq_stop_collecting"},
+     {"label": "Reads everything, answers nothing. You know someone who did that.", "reply": "I did it for ten years with a red pencil, in a flat they gave me for the privilege. The difference is I'm answering now. Late, badly, in memos. The box isn't. Two thousand dollars says it never will.", "trust": 1, "requires": ["nadia_signed_silence"]}
+   ]}
+ ]}

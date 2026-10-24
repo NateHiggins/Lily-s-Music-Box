@@ -1,0 +1,137 @@
+{"resident_id": "evelyn_marsh",
+ "hook": "Did the Record reach your door this morning?",
+ "hook_line": "It did. I have read it, and marked it. Which article do you wish to discuss?",
+ "opinions": [
+  {"id": "em_op_names", "from": "1928-11-11", "until": "1928-12-08",
+   "topic": "Sixty-one names, the list mislaid.",
+   "line": "Alderman Feeney read the sixty-one names of the First Ward at Hunters Point from the stone itself, the parish having mislaid the list. From the stone. He had to stand and read upward, I imagine, with his hat in his hand. I taught eleven of those names. I know because I read them from my own register last night, which I have not mislaid. Some of them could not spell their own street in 1906. The stone spells them correctly. I checked.",
+   "choices": [
+     {"label": "You checked the stone's spelling against your register. That's how you grieve.", "reply": "It is how I attend. Grief is a word for people with time to sit down. I had eleven boys and a red pencil and I corrected every one of them, and the stone has nothing to correct. I find that is the hardest thing in it.", "trust": 1, "flag": "em_checked_the_stone"},
+     {"label": "Eleven of them. You'd remember their faces.", "reply": "I remember their mistakes. Faces go; mistakes stay. Thomas Breen wrote 'recieve' for three years and I can see the word now. I would give a great deal to correct it one more time. That is not a sentence I expected to say aloud."},
+     {"label": "It was good of the Alderman to read them.", "reply": "It was adequate of him. He gave 'Kearney' three syllables, which it has not got. I shall not write to him. A man reading names in the cold from a stone has earned one syllable's latitude."}
+   ]},
+  {"id": "em_op_count", "from": "1928-11-12", "until": "1928-12-10",
+   "topic": "A clerk who entered it twice.",
+   "line": "The Board has found its 1,912 votes. One clerk received the Riverhead returns twice, once by wire and once by telephone, and entered them both times. He was not named. I know him nonetheless. He is the child who checks his sum and then, being uncertain whether checking counts, writes the answer again underneath. Somebody taught him that a thing done once was a thing done carelessly. I should very much like to know who, so that I might not have been the only one.",
+   "choices": [
+     {"label": "You think of a careful boy who learned it from you.", "reply": "I think of him most evenings, at the letter boxes. I said careful was a virtue and I said it in red until he believed me past all sense. A clerk who enters it twice is not a fool. He is somebody's very good pupil.", "trust": 1, "flag": "em_twice_entered", "requires": ["evelyn_register_name"]},
+     {"label": "Being thorough isn't the same as being wrong.", "reply": "No. That is quite right, and nicely put. Thoroughness is not wrong. It merely becomes wrong at the second entry, and nobody marks the place where it turns. Teachers ought to. I never once did."},
+     {"label": "Anyone can make a mistake.", "reply": "Anyone can, and a great many do, and the sentence is offered to excuse them all at once. This was not anyone. It was one clerk on one evening with two telephones. Be specific; it is the only kindness that lasts.", "trust": -1}
+   ]},
+  {"id": "em_op_shepherd", "from": "1928-12-14", "until": "1929-01-05",
+   "topic": "The second shepherd hears himself.",
+   "line": "St. Rita's recorded its pageant rehearsal and played it back to the sixty-two children at seven. The second shepherd, Father Kerrigan says, 'improved on hearing himself.' I do not doubt it. A child who hears his own mistake learns it in an evening; a child who is told it, by a woman at a desk, learns it in a year and keeps the woman. I would have liked a machine in 1906. I might have said less.",
+   "choices": [
+     {"label": "You'd have let them hear it themselves, instead of hearing you.", "reply": "I should have had the sense to be quiet and let the boy be his own teacher. It is the shortest lesson there is and I never once gave it. Sister Bernadette counted an amen too many and laid it to the organ. I admire her. I would have laid it to a child.", "trust": 1, "flag": "em_heard_the_shepherd"},
+     {"label": "Children need correcting, though.", "reply": "They do. Correction is a gift, given once, at the right moment, and then put away. I gave it as a climate. There is a difference between rain and weather and I learnt it after I had retired."},
+     {"label": "The Speaker says the ox asked for his moo to be played twice.", "reply": "So I read. I find I approve of the ox. He knew his part was small and wanted it heard properly. That is the correct attitude to a small part, and rarer than you would think in a sixth grade."}
+   ]},
+  {"id": "em_op_complete", "from": "1928-12-24", "until": "1929-01-15",
+   "requires": ["op:em_op_shepherd"],
+   "topic": "'Lines complete.'",
+   "line": "The pageant was given before three hundred and forty. 'The second shepherd spoke his lines complete.' A handful of words in the Record, and I have read them perhaps twenty times. Complete. Not 'well,' not 'beautifully.' Complete. Somebody at that paper knows exactly what it is to be a second shepherd. The back half of the ox wandered into the cloakroom and was heard but not seen. Sister Bernadette did not correct it. I should have. I am trying to admire her for not.",
+   "choices": [
+     {"label": "Lines complete. Good enough, and said once.", "reply": "Said once. Yes. That is the whole of it, and you have it exactly. If I had written 'complete' on a boy's paper and stopped, he would have kept that. I always went on. There was always a comma waiting.", "trust": 1, "flag": "em_lines_complete"},
+     {"label": "The ox will be the story they tell for fifty years.", "reply": "It will. The back half of the ox will be a grandfather in 1978 telling it at Christmas, and the room will laugh, and nobody will remember that the second shepherd got every word right. That is the trouble with being correct. It does not make an anecdote."},
+     {"label": "Well, children should get their parts right.", "reply": "He did get it right. You have read past the sentence to the one you expected. That is the habit I spent forty years building in children and I recognise it in you at once. Read it again. Complete.", "trust": -1}
+   ]},
+  {"id": "em_op_seven", "from": "1929-01-13", "until": "1929-02-08",
+   "topic": "The doll that said seven.",
+   "line": "An Elmhurst family returned an answering doll to the Arcade, saying it had 'begun saying seven words' on New Year's night. The proprietress played it three times and heard six. Mrs. Voss would not tell the paper the seventh; it was 'not a word for the paper.' I taught for forty years. Every child I ever had said seven words at home and six at school. The seventh is always the true one. It is the one I was never told.",
+   "choices": [
+     {"label": "What was the seventh word your pupils kept from you?", "reply": "I imagine it was my name, said in a tone I would have corrected. ... Or it was something kinder that they did not think I would accept. I am not sure which I should prefer, at this distance. I suspect the second, which is worse.", "trust": 1},
+     {"label": "It's a doll. It's broken.", "reply": "Very possibly. But Mrs. Voss declined a replacement and asked for her dollar seventy-five back, and a woman who refuses another doll has heard something she does not wish to hear twice. That is not a broken doll. That is a well-made one."},
+     {"label": "Do you think a doll can learn?", "reply": "I think nothing learns that is not first frightened or first loved. I have done a good deal of the first. The doll is on the shop's back shelf, facing the wall, which is a punishment I gave out myself in 1909. I disapprove of it now."}
+   ]},
+  {"id": "em_op_farewell", "from": "1929-02-23", "until": "1929-03-15",
+   "topic": "Forty-four minutes, without omission.",
+   "line": "Judge Archer read the Farewell Address at Borough Hall in forty-four minutes ten seconds, to fourteen hundred people in two inches of snow, 'without omission.' Two were treated for cold. I set that address for recitation to the upper school every February for thirty years. Not one child ever got through it without omission. I marked every gap. I thought it was rigour. Then a judge does it in the snow, perfectly, and two people are treated for cold, and I do not feel I have won anything.",
+   "choices": [
+     {"label": "Perfect, and two treated for cold. You've wondered what perfection costs.", "reply": "I have wondered it for some years, privately, in red. Now the Record has printed it for me in a single paragraph. Without omission; two treated for cold. Everyone ought to read those together. I shall cut them out and keep them in the register.", "trust": 1, "flag": "em_cost_of_perfect"},
+     {"label": "The children were young. A judge is not.", "reply": "Exactly what I did not take into account. I held boys of eleven to a standard I am now told requires a Municipal Court judge and a great coat. I gave them the coat's portion of blame. They gave me back the address, mostly."},
+     {"label": "Washington would have approved.", "reply": "He would have approved of the reading. I am less certain he would have approved of me, standing over a boy at a desk, saying 'you have left out the part about faction.' He left a good deal out himself, in his life. He was allowed to."}
+   ]},
+  {"id": "em_op_cough", "from": "1929-03-05", "until": "1929-04-05",
+   "topic": "The cough after 'faithfully.'",
+   "line": "The Record printed the oath in full as recorded: 'I will faithfully,' and then, in brackets, 'a cough,' and then the rest. And 'rain,' in brackets, before 'so help me God.' Thirty-four seconds. Two hundred and sixteen calls to the exchange, one 'concerning the cough.' I have read many oaths. I have never seen one corrected so honestly. They did not take it out. They put it in brackets, where a mistake belongs, and let the sentence go on.",
+   "choices": [
+     {"label": "Brackets, not red ink. The mistake stays, and the sentence still goes on.", "reply": "That is precisely the distinction, and I had not the word for it until this morning. I put mistakes in red and stopped the sentence there. A bracket says: noted; continue. I could have been a bracket. I was a full stop.", "trust": 1, "flag": "em_brackets"},
+     {"label": "Who coughed?", "reply": "Neither the President's office nor the Chief Justice's will say, and I approve of them both. A cough is not a confession. Four hundred people have asked the operator. I should have set every one of them a composition on minding their own business."},
+     {"label": "It's undignified to print a cough.", "reply": "It is accurate to print a cough. Dignity is what we call accuracy when we would rather not have it. The President coughed. He did not stop. That is the dignified part, and it is only visible because they kept the cough.", "trust": -1}
+   ]},
+  {"id": "em_op_case", "from": "1929-04-14", "until": "1929-05-10",
+   "requires": ["op:em_op_cough"],
+   "topic": "The cough goes into a copper case.",
+   "line": "The Phonautograph Society sealed its fifth copper case under Borough Hall, to be opened in 1978. Thirty-one records, among them the Armistice silence and the inauguration. So the cough is going into the vault for fifty years. Somebody in 1978 will play it and wonder who it was. I find I am on the cough's side. Some mistakes are kept for decades whether one wishes it or not. It is better when they are kept by a society than by a child.",
+   "choices": [
+     {"label": "Some child kept one of your marks for decades. You know he did.", "reply": "I know it the way one knows a draught: by where one will not sit. He has it somewhere upstairs, folded, I should think, in something orderly. I would rather it were in a copper case under Borough Hall. At least then it would be the Society's to open.", "trust": 1, "flag": "em_kept_for_decades", "requires": ["evelyn_register_name"]},
+     {"label": "Record No. 23 didn't go in.", "reply": "No. The Society kept it out and a lady stood at the back and said nothing, on purpose. I know that silence. I have used it at staff meetings. It is not agreement. It is a margin left blank so that the other party notices."},
+     {"label": "Who'll care about any of it in 1978?", "reply": "Somebody's grandchild, for eleven minutes, on a wet afternoon, and then the case will go back. That is all any of us is owed. Eleven minutes of a stranger's attention. It is more than most compositions got from me."}
+   ]},
+  {"id": "em_op_dark", "from": "1929-05-19", "until": "1929-06-12",
+   "topic": "'I have saved you a piece of it.'",
+   "line": "A dog driver at Little America, Mr. Fenwick, had the Navy read his message twice for his daughter in Sunnyside, nine today: 'Happy birthday. It is dark here all day and I have saved you a piece of it. Tell your mother the dogs are fine.' I read it with the pencil in my hand, out of habit. I could not find anything. Not a comma. I have been trying for two days. I think it is the first perfect sentence I have read this year.",
+   "choices": [
+     {"label": "You'd give it full marks. No conditions.", "reply": "Full marks. No conditions. ... You see how long it took me to say that. I had to put the pencil down first. I should like to give it to the girl in person, in a little envelope, with nothing written underneath. I shall not, of course. She has the record under her pillow.", "trust": 1, "flag": "em_full_marks"},
+     {"label": "Shouldn't a father be home for his daughter's birthday?", "reply": "Yes. And the sentence knows it, which is why it is perfect: it apologises without saying so. 'I have saved you a piece of it.' One cannot teach that. I tried for forty years, and he learned it from the dark."},
+     {"label": "It's sentimental.", "reply": "It is precise. 'Sentimental' is what we say when a sentence has found the right weight and we have not. I would mark you down for that, once, and you would deserve it. I am trying to give fewer marks.", "trust": -1}
+   ]},
+  {"id": "em_op_graduates", "from": "1929-06-14", "until": "1929-07-10",
+   "requires": ["op:em_op_names"],
+   "topic": "Four hundred and twelve names, until 1954.",
+   "line": "Dr. Pryor read four hundred and twelve names at Newtown, slowly, two hours and eleven minutes, and the machine took every one with its applause. The record goes in his safe until the class's reunion in 1954. Parents ordered six hundred discs of a single name being called, at a quarter apiece. I have no discs. I have a register, and every name in it was called by me, and I can still hear how I said some of them. Not all of them kindly.",
+   "choices": [
+     {"label": "There's one name in that register you said differently from the rest.", "reply": "Sharper. Because he would answer the first time and I wished to see whether he would answer faster. He did. Every morning. That is the sound I keep. A boy saying 'present' as though it were an apology. I shall not tell you the name. You may have guessed it.", "trust": 1, "flag": "em_one_name_called", "requires": ["evelyn_register_name"]},
+     {"label": "The Speaker says somebody coughed in row nine, during the M's.", "reply": "Somebody always does, during the M's. It is a long letter in Queens. In 1954 the class will hear the cough and quarrel about whose aunt it was. I find I hope they quarrel for a long time. It means they came back."},
+     {"label": "1954 seems a long way off.", "reply": "Twenty-five years. A blink. I taught boys in 1904 who are grandfathers now. The machine will keep their voices. It will not keep how frightened some of them were of being called, and that is the part I remember best."}
+   ]},
+  {"id": "em_op_schoolyards", "from": "1929-07-17", "until": "1929-08-12",
+   "topic": "Five thousand in the schoolyards.",
+   "line": "Ninety-six, and four thousand three hundred slept in the Board of Health's playgrounds; the next night fifty-one hundred, in the schoolyards. Mine among them, I expect. I spent forty summers wishing children out of it at four o'clock. Now whole families sleep where I rang the bell, and I find I am glad of it. The ground has been more use to them in a week of heat than I was in a year of arithmetic. That is not modesty. It is a correction.",
+   "choices": [
+     {"label": "The nurse knocked late this week. The heat kept her ward full.", "reply": "Eleven minutes late on Wednesday. I was standing at the door before it came, which I should not admit. She did not come in. I did not ask. I have decided that if she is late again I shall open the door before she knocks, and see what she does with her hand.", "trust": 1, "flag": "em_the_late_knock", "requires": ["teresa_patrol"]},
+     {"label": "Did you sleep out yourself?", "reply": "Certainly not. A retired schoolmistress on the asphalt of her own playground would be a lesson nobody could unlearn. I opened both windows and lay very still and corrected the ceiling. It has a crack I have never mentioned to Management."},
+     {"label": "Children shouldn't sleep in schoolyards.", "reply": "Children should sleep where they can breathe. You have put the rule ahead of the child, which is the error I made for forty years. It was a good error, well meant, and it cost a great many children their sleep.", "trust": -1}
+   ]},
+  {"id": "em_op_cradle", "from": "1929-08-16", "until": "1929-09-08",
+   "topic": "A grandmother who did not know.",
+   "line": "Seven thousand one hundred and twelve entries, and the judges chose a girl of nine from Ridgewood who held a recorder up to her grandmother singing a Hungarian cradle song. Mrs. Farkas did not know she was being recorded. And a Long Island City boy's minute of his street at night is 'retained for further hearing.' I should have given that boy the prize. Nobody asked him to listen. He listened anyway, and handed in a street. That is an examination I never set.",
+   "choices": [
+     {"label": "The boy who handed in a minute of night. You'd have marked him down once.", "reply": "For not answering the question. Yes. I would have written 'where is your song' across the top and he would have learned to sing badly instead of listen well. The judges kept his record. They are better teachers than I was.", "trust": 1, "flag": "em_minute_of_night"},
+     {"label": "The grandmother never agreed to be recorded.", "reply": "No. She is going into a vault for 1978 singing to a child who will be a stranger by then. I find I do not object. She did not know to be careful, so she was not. That is why it won."},
+     {"label": "Seven thousand entries. Imagine marking those.", "reply": "Eleven days and two hundred and fourteen dogs. I would have finished in nine and corrected the dogs. The judges went home to lie down in a quiet room. That is the part of the story I believe most."}
+   ]},
+  {"id": "em_op_roll", "from": "1929-09-10", "until": "1929-10-08",
+   "requires": ["op:em_op_graduates"],
+   "topic": "Four thousand answers beyond the register.",
+   "line": "First day of school, and the new classroom systems entered four thousand one hundred and twelve answers of 'Present' beyond the pupils enrolled. The nine schools where the wiring was not ready took the roll by hand and came out exact. Mr. Ambler has ordered the roll called twice, by machine and by teacher. Of course it came out exact by hand. A child cannot answer for another child when a teacher is looking at him. That is the whole of discipline. It is also the whole of the trouble.",
+   "choices": [
+     {"label": "Children answering for an absent friend. You'd have caught them, and been sorry after.", "reply": "I caught every one. A boy said 'present' for his brother who had a fever, in 1911, and I sent him to the office for it. He told me afterwards it was so his brother would not be marked. I marked them both. I can still see the register.", "trust": 1, "flag": "em_answered_for_another"},
+     {"label": "Or something in the wiring is answering on its own.", "reply": "The Board says answering for another pupil is an offence 'whatever the voice.' Whatever the voice. I have read that phrase a dozen times. It is either very careless drafting or very careful drafting, and I cannot tell which, and that has never happened to me before."},
+     {"label": "So the machines are worse than teachers.", "reply": "The machines are honest. They write down every 'present' they hear. Teachers write down the children they see. It is the seeing that keeps the number exact, and the seeing that frightens them. Do not mistake one virtue for a whole.", "trust": -1}
+   ]},
+  {"id": "em_op_three", "from": "1929-10-21", "until": "1929-11-09",
+   "topic": "The terrier's three.",
+   "line": "Miss Varick at P.S. 11 asked her class what one and two made, and a terrier barked three times before any child answered. The classroom system has entered it. Entered it. There is now a dog on a register in Queens with a correct sum and no mistakes against his name. I should have a great deal to say to Miss Varick about who is permitted to answer. I have decided not to. It is the first sum in forty years I have been glad to see answered out of turn.",
+   "choices": [
+     {"label": "You're letting a dog's answer stand. That's new.", "reply": "It is new. I have been practising. 'Good enough' for a dog seemed a safe place to begin. If I can let a terrier stand on a register, I may manage a grown man at the letter boxes. I said may.", "trust": 1, "flag": "em_let_it_stand"},
+     {"label": "Mrs. Fitch says he's clever because he's hers.", "reply": "Mrs. Fitch is wrong, but sweetly. He is clever because he was listening while the children were waiting to be asked. That is a habit I knocked out of thirty years of children. I should like it back for them."},
+     {"label": "A dog can't count.", "reply": "The system disagrees, and I find for once I do not wish to correct a record. It will be a very old register some day, and someone will read 'three' and smile. I have so few entries anybody will smile at."}
+   ]},
+  {"id": "em_op_bank_book", "from": "1929-11-03", "until": "1929-11-09",
+   "topic": "The bank book on the kitchen table.",
+   "line": "The Corona Mutual took more callers this week than in any week since 1887, most of whom 'asked to see the book and went away.' I was one. Forty years of a teacher's salary, in a passbook, in a hand I trained myself to keep legible. I asked to see it. I added the column standing at the counter. It was correct. I went away. The clerk was very young, and very patient, and did not tell me I need not have come. I gave him full marks for it.",
+   "choices": [
+     {"label": "You checked the sum yourself, at the counter. You needed to see it hold.", "reply": "I needed to see one column in Queens that came out as I had left it. It did. That is the smallest comfort I have ever taken, and I took it home and had tea on it. The Speaker counted his book twice. So did a grandmother. I counted mine once.", "trust": 1, "flag": "em_the_column_held"},
+     {"label": "So you had no shares?", "reply": "None. A schoolmistress does not speculate in anything but children, and the returns there are slow and not reported. I have watched the brokers' figures this week the way one watches a fire across the street. Mine is not on fire. I watch anyway."},
+     {"label": "The banks are fine. You didn't need to go.", "reply": "The clerk had the grace not to say that, and he is nineteen. I knew they were fine. I needed to see it in a hand. You may learn, some day, the difference between knowing a thing and being shown it. I hope late.", "trust": -1}
+   ]},
+  {"id": "em_op_two_cups", "from": "1929-11-08", "until": "1929-11-09",
+   "requires": ["op:em_op_roll"],
+   "topic": "Two minutes, against last year's.",
+   "line": "On Monday the two minutes will be recorded in two hundred and thirty buildings and each played against its record of last year, to hear what has changed. Last November I read the names and checked them against my register. This week Miss Varick has the practice at P.S. 11, and the terrier sat it out on the register without a sound. I shall keep the two minutes at my own table. I shall set both cups. I have not decided whom the second is for. That is untrue. I have.",
+   "choices": [
+     {"label": "Then go up before Monday and say it. Good enough. Once.", "reply": "Before Monday. ... You have set me a deadline. Nobody has set me a deadline in fourteen years. I shall meet it or I shall fail it, and either way it will be on the record, which is what I always told them a deadline was for.", "trust": 1, "flag": "em_before_monday", "requires": ["evelyn_register_name"]},
+     {"label": "What do you think has changed since last year?", "reply": "Last year I checked the stone for spelling. This year I should like to keep the two minutes without checking anything. That is the change. I do not know whether a machine will hear it. I shall."}
+   ]}
+ ]}

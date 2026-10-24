@@ -1,0 +1,202 @@
+{"resident_id": "sacha_reed",
+ "hook": "Did the Record make it up to the sixth floor?",
+ "hook_line": "Which item. I've marked three. One of them I've cropped twice.",
+ "opinions": [
+  {"id": "sr_op_window", "from": "1928-11-26", "until": "1928-12-20",
+   "topic": "Three hundred facing a window.",
+   "line": "Byrd's ships made Dunedin. Ninety-five dogs landed on the breakwater before the mails. The message was played in the Record's window at a quarter past two, six minutes, to about three hundred people in the snow. I went. I didn't shoot. Continuity note: three hundred people facing a pane of glass with nothing behind it but a horn. Every face turned toward a place none of them will ever see. Best picture of the month. I didn't take it.",
+   "choices": [
+    {"label": "Why didn't you take it?", "trust": 1, "flag": "sr_untaken_window",
+     "reply": "Because the subject wasn't in it. They were looking at New Zealand and the picture would have been of Jackson Avenue. Wrong caption. ... Also my hands were cold. Put both reasons in. People always print the noble one."},
+    {"label": "The pup was 'in health and ashore,' it said.",
+     "reply": "Bay Shore, the one born at sea. Named for the Navy station that hears them. The crowd liked that. A dog none of them have seen, named for a building none of them have been in. They cheered. I'd have liked the cheer on a plate."},
+    {"label": "Three hundred people in the snow for a speaker horn.", "trust": -1,
+     "reply": "For a voice from the other end of the world. Don't reduce it to the horn. I do enough reducing for a living. Some days somebody should let a thing be bigger than its equipment."}
+   ]},
+
+  {"id": "sr_op_for_scale", "from": "1928-12-09", "until": "1929-01-05",
+   "topic": "'Each larger than Queensboro Plaza.'",
+   "line": "First icebergs at fifty-nine south. Two tabular bergs, 'each larger than Queensboro Plaza.' That's how they described them to us. For scale. You put a known thing in the frame so the viewer can measure the unknown thing. A man beside a tree. A Plaza beside an iceberg. And then they brought the dogs on deck to see them, and the dogs barked for eleven minutes. Nobody needed a scale for that.",
+   "choices": [
+    {"label": "The dogs didn't compare it to anything. They just saw it.", "trust": 1, "flag": "sr_dogs_saw",
+     "reply": "They just saw it, and said so for eleven minutes. No caption. ... I measure everything against something. It's a habit of the trade. I'd like to stand in front of one thing in my life and bark at it."},
+    {"label": "What do you put in the frame for scale?", "trust": 1,
+     "reply": "A chair, usually. One folding chair. People know how big a chair is. ... Nobody in it. If there's a person in it the eye goes to the person and forgets to measure. Empty chair, and the room's size is obvious. Don't read anything into that."},
+    {"label": "Hard to picture an iceberg bigger than the Plaza.",
+     "reply": "Which is why they said Plaza. You can't picture the berg. You can picture the Plaza, make it white and put it in the sea. It's a picture assembled from things you already own. Most pictures are."}
+   ]},
+
+  {"id": "sr_op_wind", "from": "1929-01-09", "until": "1929-02-01",
+   "topic": "Wind, 'so that Queens may know.'",
+   "line": "Little America sent forty seconds of the wind on the Barrier, recorded at the Commander's direction, 'so that Queens may know.' Played at ten in the window to four hundred. It was forty-six degrees on Jackson Avenue. Four hundred people in thaw weather listening to the coldest wind in the world. ... 'So that Queens may know.' It's a kind thing to want. I'm not sure it's a thing that can be done. You'd have to be cold.",
+   "choices": [
+    {"label": "You think knowing takes being there. A record isn't enough.", "trust": 1, "flag": "sr_need_there",
+     "reply": "I think a record's evidence that somebody was there. It isn't the being. ... I'd have said the reverse a year ago. The record's better than the being, it lasts. Something's moving. Don't take a picture of it."},
+    {"label": "The thaw must have helped the crowd.",
+     "reply": "It did. Four hundred is a lot for a weeknight. Warm crowds stand longer. Continuity note: a wind they couldn't feel, heard in weather that made it absurd. They stood anyway. People will stand for the idea of a thing."},
+    {"label": "It's just wind. Wind sounds like wind anywhere.", "trust": -1,
+     "reply": "It doesn't. Ask anybody with a window on the river. But fine. Say it's just wind. Then four hundred people stood in the dark to hear just wind, and that's the more interesting fact."}
+   ]},
+
+  {"id": "sr_op_there", "from": "1929-01-28", "until": "1929-02-25",
+   "requires": ["op:sr_op_wind"],
+   "topic": "'There.'",
+   "line": "The monoplane flew east along the Barrier and found a range of mountains on no chart. Five hours. And the message carried eleven seconds recorded aboard as the peaks came into view. It has the engine, and one voice saying 'There.' That's all. Nobody photographed it. The only record of the first sight of those mountains is a man pointing, and you can't hear a point. ... I've been saying 'there' to the wall all evening.",
+   "choices": [
+    {"label": "'There' is a caption without a picture.", "trust": 1, "flag": "sr_there",
+     "reply": "The best one I've heard. It doesn't describe, it doesn't measure. It just insists the thing exists and was seen. ... Everything I believe about proof says it's worthless. Everything else in me says it's the truest record they've sent."},
+    {"label": "They've named the range for Mr. Rockefeller.",
+     "reply": "Of course they have. Somebody's paying for the petrol. The name's the dullest fact in the item. The mountains were there before the name and the 'There,' and they'll be there after. One man said the right thing."},
+    {"label": "Someone will photograph them eventually.", "trust": -1,
+     "reply": "Eventually. Then there'll be a print, and people will look at the print, and the print will be what the mountains are. 'There' will be a footnote. I'd keep the footnote. I'd keep it over the print."}
+   ]},
+
+  {"id": "sr_op_engraving", "from": "1929-02-06", "until": "1929-03-05",
+   "topic": "Drawn from a description, by telephone.",
+   "line": "Detective Sergeant Moran called at the Speaker to ask where they got an engraving of a tall woman in a fur coat at Corona. The engraver said it was drawn 'from a reader's description, given by telephone.' ... So: a picture, in a paper, of a woman, made by a man who never saw her, from a voice that may have. Printed as if it were a likeness. That's not an image. That's a rumour with cross-hatching. And a sergeant had to come and ask.",
+   "choices": [
+    {"label": "People trust the picture over the voice, even when the voice made it.", "trust": 1, "flag": "sr_rumour_crosshatch",
+     "reply": "Every time. Put a drawing beside a transcript and they'll believe the drawing. The drawing is the transcript, worse. ... That's why I'm careful what I print. A picture has authority it hasn't earned. I try to make mine earn it. I don't always manage."},
+    {"label": "At least the sergeant asked.",
+     "reply": "At least he asked. Most people just look and think they've seen her. Somebody has decided that's what she looks like now. If they pass her in the street they'll know her by the drawing and not by her face."},
+    {"label": "Photographs are too dear for an evening paper.", "trust": -1,
+     "reply": "They are. That's not a reason to print a guess. If you can't afford the picture, print the words and be honest about not knowing. ... You've given me the paper's excuse. I wanted yours."}
+   ]},
+
+  {"id": "sr_op_alone", "from": "1929-02-24", "until": "1929-03-20",
+   "topic": "'The camp is alone now and well.'",
+   "line": "The ships cleared the pack. Forty-two men left at Little America, the dogs, the pup Jackson, and the operator sends 'the camp is alone now and well.' The sun sets there for the last time on April twenty-second and doesn't rise till August. ... Four months without light. I keep turning it over. Not the cold. The dark. What do you do with your eyes for four months. I'd go mad, or I'd finally learn something.",
+   "choices": [
+    {"label": "What would you learn?", "trust": 1, "flag": "sr_dark_learn",
+     "reply": "What a room's like when there's nothing to make of it. No exposure, no frame. Just the room arriving when it arrives. ... I get seven seconds of that up here. They're getting four months. I envy them. That's a terrible thing to say about forty-two men in the dark. I'll say it anyway."},
+    {"label": "'Alone now and well.' Five words.",
+     "reply": "Five words and nothing in them you can photograph. 'Alone' and 'well' side by side. If I were an editor I'd crop one. I'd crop 'well.' Nobody alone is well. I'm the wrong person to say so."},
+    {"label": "They'll have lamps.", "trust": -1,
+     "reply": "Lamps aren't the sun. Lamplight is for finding things. Sunlight is for seeing them. Those are different jobs, and they're going to spend four months able to do only one."}
+   ]},
+
+  {"id": "sr_op_singing", "from": "1929-03-30", "until": "1929-04-25",
+   "requires": ["op:sr_op_alone"],
+   "topic": "'The dogs will not stop singing.'",
+   "line": "Fifteen nights, nothing. The Navy 'not concerned.' Then Friday at twelve past ten, forty words: all well, forty-seven below, eleven pups born in the past fortnight, and 'the dogs will not stop singing.' No reason given for the silence. ... Continuity note: fifteen frames missing from the sheet, and the sixteenth shows the same camp plus eleven dogs. Something happened in the gap. They've told us the result and kept the event. I respect that more than I can say.",
+   "choices": [
+    {"label": "You respect that they didn't explain the gap.", "trust": 1, "flag": "sr_kept_the_event",
+     "reply": "I do. They were there for it. We weren't. A record of everything would be a kind of theft. ... I've taken from a lot of families on this street, frame by frame. Some gaps I should have left. I'm learning that late. From dogs."},
+    {"label": "Maybe the dogs were singing at the dark.", "trust": 1,
+     "reply": "Maybe. Ninety dogs and the sun gone and the cold coming down. If I were a dog I'd sing at it. ... The men didn't say why. They said 'will not stop.' Like an apology. Like a sound they've had to live inside."},
+    {"label": "Probably the wireless just broke down.", "trust": -1,
+     "reply": "Probably. And they fixed it, and the first thing they wanted the world to know was the dogs. You've explained the gap. They didn't. One of you was there."}
+   ]},
+
+  {"id": "sr_op_numbers", "from": "1929-04-09", "until": "1929-05-05",
+   "topic": "Numbers on their backs.",
+   "line": "The Yankees will wear numbers on their backs this season, in the batting order. Ruth three, Gehrig four. Mr. Huggins says it's 'so that the stands may tell them apart without asking the operator.' ... So they can be identified from behind. Walking away. That's the angle the stands mostly get, and nobody thought to fix it till now. Every portrait I've ever needed was of somebody facing the other way. A number would have helped.",
+   "choices": [
+    {"label": "The man in your family's photograph. You'd have known him by his back.", "trust": 1, "requires": ["sacha_photo_date"], "flag": "sr_number_on_shoulder",
+     "reply": "By a shoulder. At the edge of a frame. Four generations deciding whether a shoulder is his. ... If he'd had a number sewn on we'd have known in an afternoon. Instead we've a date on the back of a print and an argument at every wedding."},
+    {"label": "A number isn't a portrait. It just tells you who.", "trust": 1,
+     "reply": "It just tells you who. Which is most of what people want from a portrait, if they're honest. They don't want the face. They want to be sure. ... Three and four. Everyone in the stands will be sure, and nobody will see them."},
+    {"label": "The players won't like being numbered like convicts.",
+     "reply": "Mr. Gehrig said nothing, the Speaker says, which is also his number. ... They'll get used to it. Everybody gets used to being identified. The ones who don't are the ones who've never been mistaken for someone else."}
+   ]},
+
+  {"id": "sr_op_wings", "from": "1929-05-17", "until": "1929-06-10",
+   "topic": "Asked not to speak to the picture.",
+   "line": "The Academy gave its first statuettes, 'Wings' the outstanding picture, and the record of the dinner runs twenty-two minutes, chiefly applause. And the Paramount's showing 'Wings' again at a dollar and two dollars, and patrons are asked not to speak to the picture, 'it being unable to reply.' ... Two dollars to sit in the dark two hours and twenty minutes, looking. People want it so badly they have to be told not to talk to it.",
+   "choices": [
+    {"label": "People talk to pictures because they want them to be there.", "trust": 1, "flag": "sr_talk_to_picture",
+     "reply": "They want them to be there. And the picture can't be. It's light on a wall. ... We've one print at home. My grandmother used to say good night to it. I thought that was sentimental. I think now it was the only polite thing anybody ever did with it."},
+    {"label": "Would you go?",
+     "reply": "I'd go and watch the audience. Faces in the dark lit by something they can't touch. That's the picture I'd want. ... Two dollars, though. I'd stand at the back and pretend I was waiting for someone."},
+    {"label": "Pictures are for the rich.", "trust": -1,
+     "reply": "Pictures are for whoever can sit still. Two dollars is the price of the chair. The looking's free. ... You sound like the Speaker. I like the Speaker. I don't want it in my front room."}
+   ]},
+
+  {"id": "sr_op_listen_round", "from": "1929-06-05", "until": "1929-07-01",
+   "topic": "To 'listen her round.'",
+   "line": "Dr. Eckener says the Graf Zeppelin will try to go round the world in August, Lakehurst to Lakehurst, by Friedrichshafen, Tokyo and Los Angeles. And the Navy's station at Lakehurst will 'listen her round.' Listen. Not watch. On her last crossing she was heard over Long Island before she was seen. ... That's the order things arrive in, here. Sound first, picture after. The eye is always late. I'm not the only one who's noticed. I'm only the one with the timings.",
+   "choices": [
+    {"label": "Your room arrives seven seconds late. The world's no better.", "trust": 1, "flag": "sr_world_late",
+     "reply": "The world's no better. That's a comfort, oddly. I'd thought it was me, or this room. It's just how light runs against everything else. ... Seven seconds is a long time. A Zeppelin is a big thing. Late is relative."},
+    {"label": "She turned back over Spain last month. Two engines stopped.",
+     "reply": "Two of five dead over the coast, and her operator heard at Bay Shore asking for French weather. That's the item I'd caption. A ship the length of a street, asking politely about the weather."},
+    {"label": "Someone will get a fine photograph when she comes over.",
+     "reply": "Someone will get a photograph. A grey shape in a grey sky with a church in the corner for scale. Fine is another matter. The sound will be better. The sound arrives on time."}
+   ]},
+
+  {"id": "sr_op_boarding", "from": "1929-07-26", "until": "1929-08-20",
+   "topic": "Each voice recorded at the mast.",
+   "line": "The passenger list for the world flight is out. Lady Drummond-Hay, Mr. von Wiegand, Sir Hubert Wilkins, a Navy commander, about twenty. And 'each passenger's voice is to be recorded at the mast on boarding.' ... Anywhere else that would be a photograph. Here it's a voice. So if the ship doesn't come back, what the families keep is a person saying their own name at the foot of a ladder. I'd want both. I'd want to choose.",
+   "choices": [
+    {"label": "Which would you keep, if you could only keep one?", "trust": 1, "flag": "sr_voice_or_face",
+     "reply": "A year ago, the photograph. No question. Now ... the voice, I think. A photograph is somebody being looked at. A voice is somebody doing something. Saying their name. Choosing to. ... Don't tell anyone a photographer said that."},
+    {"label": "It's so they can prove who got on.",
+     "reply": "It's a manifest. Yes. Proof of boarding. Proof is what I do. ... But proof that a person got on is a strange thing to need. You only need it if you think they might not get off."},
+    {"label": "Sounds morbid.", "trust": -1,
+     "reply": "Everything kept is a little morbid. You only keep what you expect to lose. If you're squeamish about that you'll keep nothing, and then you'll have nothing, and that's morbid in a different direction."}
+   ]},
+
+  {"id": "sr_op_pines", "from": "1929-08-05", "until": "1929-08-28",
+   "requires": ["op:sr_op_listen_round"],
+   "topic": "Heard eleven minutes before the pines.",
+   "line": "She moored at Lakehurst at seven forty-two, ninety-five hours from Germany. Twenty thousand on the field. And her engines were heard from the field eleven minutes before she cleared the pines. Eleven minutes. Twenty thousand people hearing something enormous and looking at trees. ... That's the photograph. Not the ship. The crowd at minute six. Everyone sure, no one seeing. The face of a person who knows a thing has arrived and can't prove it yet.",
+   "choices": [
+    {"label": "Like you, waiting for the room to show up in the camera.", "trust": 1,
+     "reply": "Like me, except they had eleven minutes and I have seven seconds, and theirs ended in a Zeppelin. ... Mine end in a room I was already standing in. You'd think that'd be a relief. Mostly it's a reminder."},
+    {"label": "Did you want to be there?", "trust": 1, "flag": "sr_wanted_lakehurst",
+     "reply": "I wanted to be in the pines. Not on the field. In the trees, where the sound would be all round and the ship nowhere. Eleven minutes of being certain without evidence. ... I don't think I've ever had eleven minutes of that. I'm not sure I could stand it."},
+    {"label": "They'll have photographed her at the mast.",
+     "reply": "They will. Moored, lit, still. The least interesting moment of the whole ninety-five hours. That's what goes on the front page in Berlin. The arrival, after it's finished arriving."}
+   ]},
+
+  {"id": "sr_op_over_queens", "from": "1929-08-30", "until": "1929-09-25",
+   "requires": ["op:sr_op_pines"],
+   "topic": "Eleven minutes before the Palisades.",
+   "line": "She came back over at dawn. Her engines heard in Queens from eight past five, eleven minutes before she was sighted over the Palisades. Nine hundred and twelve calls to the Exchange in the hour asking whether it was she. ... It was a Thursday. Thursday's my day on the roof. I was up there with the camera and the light was poor and I heard her come, and I didn't lift it. I stood eleven minutes, and then she was there.",
+   "choices": [
+    {"label": "You didn't lift the camera. You let it arrive.", "trust": 1, "flag": "sr_let_it_arrive",
+     "reply": "I let it arrive. First time. ... When she came over the Palisades I'd already had her for eleven minutes. The picture would only have been the end of it. I'd have had the end and missed the eleven."},
+    {"label": "Thursday's yours. Juno has the other days. Did she hear it too?", "trust": 1, "requires": ["sacha_roof_rota"],
+     "reply": "Not her day. I wondered if she was awake below, hearing it through the ceiling. I nearly went down to knock. ... I'd like to have asked her what eleven minutes of it sounded like. Next time something comes over, I might."},
+    {"label": "Nine hundred people called to ask if it was her.",
+     "reply": "Nine hundred and twelve, asking an operator to confirm what they could already hear. That's the borough all over. Nobody trusts their own ears till somebody at a board says yes. ... I'd have called too, a year ago."}
+   ]},
+
+  {"id": "sr_op_sun_back", "from": "1929-09-01", "until": "1929-09-30",
+   "requires": ["op:sr_op_singing"],
+   "topic": "The sun two hours above the Barrier.",
+   "line": "Little America reports the sun stood above the Barrier for two hours, the longest since April. Four months in the dark, and the light comes back. And the message, the paper says, 'concerned shovels.' ... I've been waiting since February to know what they'd say when the light came. Shovels. They're digging out the aeroplanes. That's the honest caption. The light comes back and you get to work. Nobody stops to take its picture.",
+   "choices": [
+    {"label": "You wanted them to say something about the light.", "trust": 1,
+     "reply": "I wanted a sentence. I wanted somebody in the dark to tell me it was worth it. ... They told me about shovels. Which is better. Which is what people actually do. I was waiting for a caption from men who were busy living."},
+    {"label": "So what did the dark teach them? You said you might learn something.", "trust": 1, "requires": ["sr_dark_learn"], "flag": "sr_learned_dark",
+     "reply": "That the room comes anyway. That you don't have to fetch it. ... You remembered that. I'd forgotten I said it. I said it in February and you carried it all summer. That's a strange thing to be on the receiving end of."},
+    {"label": "Two hours of sun at forty below doesn't sound like much.",
+     "reply": "Two hours is a great deal after none. You measure it against the dark, not against July. ... Anything measured against nothing looks enormous. I've a whole family built on one print. I know the arithmetic."}
+   ]},
+
+  {"id": "sr_op_lost_in_sun", "from": "1929-10-13", "until": "1929-11-05",
+   "requires": ["op:sr_op_window"],
+   "topic": "Lost two fly balls in the sun.",
+   "line": "Fourth game. Cubs up eight to nothing, and the Athletics score ten in the seventh, fourteen minutes by the park's system, and in the middle of it Mr. Hack Wilson lost two fly balls in the sun. Lost them. In the light. ... I went down to the window for the wire. Thousands of faces at the glass again, like Dunedin in the snow. And I thought: there's a man who couldn't see because there was too much to see.",
+   "choices": [
+    {"label": "Too much light, and you lose the thing you're watching for.", "trust": 1, "flag": "sr_too_much_light",
+     "reply": "Every photographer knows it. Point into the sun and the subject goes black. You get the light and lose the man. ... I've been pointing at the light my whole life. Proof, proof, proof. And the man was in the middle of it the whole time, going dark."},
+    {"label": "Did you take the crowd at the window this time?", "trust": 1, "requires": ["sr_untaken_window"],
+     "reply": "No. Again. I stood in it. I shouted when Haas hit his. I didn't know I'd shouted till the man next to me laughed. ... You remembered the first time. Dunedin. I'd have bet nobody noticed I didn't take it."},
+    {"label": "Poor Wilson. They'll never let him forget it.",
+     "reply": "No. It's on the record, all fourteen minutes. Anyone in Chicago can play it back. ... A record like that is worse than a picture. A picture you can blame on a bad angle. A record just has you there, losing it, again."}
+   ]},
+
+  {"id": "sr_op_museum", "from": "1929-11-08", "until": "1929-11-09",
+   "topic": "'Many visitors who have never seen one.'",
+   "line": "A museum of modern pictures opens on Fifth Avenue today. About a hundred paintings, lent. Cezanne, Gauguin, Seurat, van Gogh. No record of the rooms will be kept, at the lenders' request. And the trustees expect 'many visitors who have never seen one.' ... Never seen one. A painting. In this city. They'll walk in and stand in front of a pear and there'll be nothing to hear, nothing to take down. Just the looking. I'm going Saturday. Without the camera.",
+   "choices": [
+    {"label": "Without the camera. On purpose.", "trust": 1, "flag": "sr_museum_empty_hands",
+     "reply": "On purpose. I want to stand in a room where the only record is me having been in it. ... A year ago I'd have called that a wasted afternoon. Come if you like. You'd be good at it. You already know how to stand in a room."},
+    {"label": "No record of the rooms. Like the Lindbergh wedding.",
+     "reply": "Like that. Some things are kept by being left alone. The lenders know it. The Lindberghs knew it. ... I used to think that was vanity. It isn't. It's the thing itself, asking to be the only copy."},
+    {"label": "A hundred paintings nobody can hear? Queens won't go.", "trust": -1,
+     "reply": "Queens will go. Queens will stand in front of the pear ten minutes waiting for it to say something, and it won't, and something in them will settle. ... Caption it 'the quietest thing in New York.' Somebody already did."}
+   ]}
+ ]}

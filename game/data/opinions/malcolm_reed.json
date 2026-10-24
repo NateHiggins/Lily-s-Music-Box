@@ -1,0 +1,203 @@
+{"resident_id": "malcolm_reed",
+ "hook": "Anything in the Record worth keeping?",
+ "hook_line": "Which? I've three things soaking and only the one jar.",
+ "opinions": [
+  {"id": "mr_op_ordinary_sunday", "from": "1928-11-18", "until": "1928-12-12",
+   "topic": "An ordinary Sunday, for 1978.",
+   "line": "The Phonautograph people want an ordinary Sunday put in a copper case for 1978. Waking to sleep. No singing, no guests. Well. You can't take a cutting off a Sunday by announcing you're going to. The minute you say 'ordinary' the whole house sits up straight and tunes the piano. What they'll seal is a specimen. Pressed. Keeps the shape and loses the smell, and in fifty years somebody will hold it to the light and think that's what we were.",
+   "choices": [
+    {"label": "You'd rather they kept something living than something perfect.", "trust": 1, "flag": "mr_heard_specimen",
+     "reply": "I would. A pressed leaf is a lovely thing and it's finished. A cutting's ugly for a month and then it's yours. They want a thing nobody has to water. ... I've some sympathy. Watering is the hard part. It goes on."},
+    {"label": "Fifty years is a long time to wait to hear a Sunday.",
+     "reply": "It's nothing. I've a fern older than the secretary. Fifty years is a slow plant, that's all. The question isn't how long. It's whether anybody's tending it in the meantime, and a copper case is a very good way of making sure nobody is."},
+    {"label": "It's only a hobby club.", "trust": -1,
+     "reply": "So's gardening, to a man with no garden. Don't dismiss a hobby. It's where people put the thing they can't say at the table. Two hundred members recording their own radiators for strangers. That's not a hobby. That's a loneliness with a secretary."}
+   ],
+   "silence_reply": "You've let it be. That's the right handling. ... Somebody will sing anyway, I'll wager. Somebody always sings. It'll be the only bit worth keeping."},
+
+  {"id": "mr_op_colorado", "from": "1928-12-20", "until": "1929-01-15",
+   "topic": "The river, before and after.",
+   "line": "The Society's wired Washington for leave to record the Colorado River at the dam site, 'before and after.' Mr. Abbot says no river has ever been recorded before it stopped. I've propagated off one plant longer than you'd credit, and I can tell you what nobody at the Interior Department will: you never think to take the 'before' until it's the after. Nobody stands at a sill thinking, this is the last morning the sun's in this room. You'd go mad.",
+   "choices": [
+    {"label": "You had a 'before' once, and didn't know it was one.", "trust": 1, "flag": "mr_before_after",
+     "reply": "Everybody has. Mine was a windowsill at a quarter to seven. I took a cutting because the sun was on it, not because I knew. If I'd known I'd have stayed and left the geranium. ... There. You got that out of me with a dam."},
+    {"label": "A river doesn't stop. It just goes somewhere else.",
+     "reply": "That's the engineers' line, and they're right, which is the trouble with engineers. Water goes on. The sound of one particular bend at one particular hour doesn't. Ask anybody who's had a room taken away. The plumbing's fine."},
+    {"label": "Dams are progress.", "trust": -1,
+     "reply": "Progress is a word for a thing you've decided not to mourn. I'm not against it. I'm against people who say it in the tone you've just used, like a lid going on."}
+   ]},
+
+  {"id": "mr_op_no23", "from": "1929-01-19", "until": "1929-02-08",
+   "topic": "Record No. 23, kept a year.",
+   "line": "Did you see the Society? Thirty-nine midnights in the case and one held back. Number 23, from Maspeth. The three men who made it asked in writing that it rest a year, and Mr. Abbot agreed, and last night he voted to keep his word, nineteen to eighteen. Wouldn't give the reason. Good. A man who keeps a thing for somebody else shouldn't have to explain it to a room. ... A year's a sensible span. One full turn of the seasons. You'd know by then.",
+   "choices": [
+    {"label": "Know what? Whether it took?", "trust": 1, "flag": "mr_one_turn",
+     "reply": "Whether it took. You put a cutting in a jar and you don't touch it for a season. You don't lift it to look at the roots. Every fool lifts it to look at the roots. Mr. Abbot's not lifting it. ... I'd like to buy that man a drink and never tell him why."},
+    {"label": "Mrs. Grieve has a point. It belongs to the Society.",
+     "reply": "It belongs to whoever made it. Three men at midnight in Maspeth. She'll move again; she's the sort. I don't dislike her. She's right about the shelf and wrong about the thing on it."},
+    {"label": "Probably something embarrassing on it.", "trust": -1,
+     "reply": "Probably. Most things worth keeping a year are. You'd be surprised what a man says at midnight that he'd like kept and not played. ... Don't guess at other men's records. It's like reading their seed packets."}
+   ]},
+
+  {"id": "mr_op_pinochle", "from": "1929-01-22", "until": "1929-02-20",
+   "topic": "Nine minutes of pinochle at a funeral.",
+   "line": "A motorman, forty-one years on the elevated, buried at Maspeth, and at his own written request they played nine minutes of his parlour from a Sunday in 1926 over the coffin. Pinochle. His voice disputing a trick. And his daughter said 'he won it, too.' ... That's a man who knew which part of himself to leave. Not a speech. An argument he won. I stood at the bench all morning thinking about it and potted nothing.",
+   "choices": [
+    {"label": "He chose his own last word. You never got to hear one.", "trust": 1, "requires": ["malcolm_half_goodbye"],
+     "reply": "No. I got the first one. 'Well, then.' ... The motorman's daughter got a whole trick, won. I'd have settled for a trick lost. Any finished thing. You're unkind to notice and I'm glad somebody did."},
+    {"label": "What would you leave them to play?", "trust": 1, "flag": "mr_what_to_play",
+     "reply": "The bench, I suppose. Water running. Me telling somebody they've overwatered. ... No. I'd leave them nothing. I've spent all these years keeping one thing alive so I'd not have to be the thing kept. Ask me again in spring."},
+    {"label": "Strange choice for a funeral.",
+     "reply": "Strange to whom? Hymns are for the people who're left. Pinochle was for him. I've been to funerals where they played the man somebody wished he'd been. This one played the man."}
+   ]},
+
+  {"id": "mr_op_casting", "from": "1929-02-09", "until": "1929-03-08",
+   "requires": ["op:mr_op_no23"],
+   "topic": "'I keep promises.'",
+   "line": "Nineteen all, and Mr. Abbot in the chair, and he cast it against again. 'Kept for a year, as I promised, and I keep promises.' The Maspeth men didn't come. Didn't send a letter. He's keeping a promise to three men who won't turn up to watch him keep it. ... That's the job, you know. Nobody stands over you while you water. Mrs. Grieve's asked for the tie on the record. Fair enough. Let 1978 hear how close it was.",
+   "choices": [
+    {"label": "The keeping matters more to him than the record does.", "trust": 1,
+     "reply": "That's it. The record's a disc. The keeping's a man. He'll be judged on the disc and he knows it. ... Somebody keeping a thing faithfully always looks, from the outside, like somebody refusing to share. I'd know."},
+    {"label": "Perhaps the Maspeth men have forgotten all about it.",
+     "reply": "Perhaps. That happens. You promise a man a year and he's off in Jersey by March and never thinks of it. The promise doesn't care. It goes on in the pot whether he waters it or not. Promises are hardier than the people who make them."},
+    {"label": "Mr. Abbot's just being stubborn.", "trust": -1,
+     "reply": "Stubborn is what you call a man holding a thing you'd like to put your hands on. I've been called it. I've been called worse, by people reaching for my table."}
+   ]},
+
+  {"id": "mr_op_farewell", "from": "1929-02-22", "until": "1929-03-20",
+   "topic": "Forty-four minutes of goodbye.",
+   "line": "Judge Archer read the Farewell Address at Borough Hall, forty-four minutes ten seconds, in two inches of snow, without omission. The Speaker calls it the longest goodbye in American history. Fourteen hundred people stood for it. Two treated for cold. And it's gone in the copper case so 1978 can hear the whole of it. ... The whole of it. Some men get forty-four minutes and three masters. Some men get two words at a door.",
+   "choices": [
+    {"label": "Two words. 'Well, then.' And then he'd have said the rest.", "trust": 1, "requires": ["malcolm_half_goodbye"], "flag": "mr_two_words",
+     "reply": "And then he'd have said the rest. Yes. He'd have taken forty-four minutes, too; he was a talker, he'd start a goodbye in the hall and finish it on the stairs. ... I'd stand in the snow for that. I'd stand in it bareheaded."},
+    {"label": "Washington had time to write his. Most people don't.", "trust": 1,
+     "reply": "He had his whole life to write it and a judge to read it. Most of us get a morning and spend it on the wrong sentence. ... I said I'd be back by six. That's mine. That's the goodbye I gave. A timetable."},
+    {"label": "Forty-four minutes is a long time to stand in snow.",
+     "reply": "It is. Nobody left, the Speaker says. That's what struck me. Fourteen hundred people, cold to the knee, and not one walked off before the end. People will stand a long while to hear somebody finish."}
+   ]},
+
+  {"id": "mr_op_parade", "from": "1929-03-17", "until": "1929-04-12",
+   "topic": "Nine seconds shorter than last year.",
+   "line": "They recorded the St. Patrick's parade from the very spot they recorded it last year, and played both on the Library steps. Cheering nine seconds shorter. Pipes somewhat louder. Four hundred stood and listened to themselves get quieter. ... That's the only way to keep a thing, you know. Not the case. The same spot, every year, the same hour. Seasonal return. You go back and stand where you stood and you measure what's gone.",
+   "choices": [
+    {"label": "You go back to a corner on Sundays and measure what's gone.", "trust": 1, "requires": ["malcolm_corner"],
+     "reply": "... I do. You've been listening at more than my door. The corner where you can see his window. Every year the sill's got something different on it. Last spring a cat. I measure it. Nine seconds shorter, if you like. Every year a little shorter."},
+    {"label": "Nine seconds less cheering. Fewer people, or less to cheer?",
+     "reply": "Both, I expect, and neither of them knows it. That's what the comparison's for. Nobody in the crowd felt nine seconds quieter. You only hear it laid beside the year before. Which is why I keep last year's jar on the shelf next to this year's."},
+    {"label": "It's a parade. It'll be loud again next year.", "trust": -1,
+     "reply": "It might. A plant doesn't promise to flower just because it did. You'd not say that to a man with a bed of tulips in a bad March. You'd say nothing, and hope with him."}
+   ]},
+
+  {"id": "mr_op_not_present", "from": "1929-04-13", "until": "1929-05-10",
+   "requires": ["op:mr_op_casting"],
+   "topic": "No. 23, 'not present.'",
+   "line": "They sealed the fifth case Saturday, two forty-one in the afternoon, and No. 23 wasn't in it. 'Not present,' Mr. Abbot said the night before, and thirteen walked out with Mrs. Grieve to seal a capsule of their own 'for the records the first one will not hear.' ... He didn't bring it to the meeting. Didn't bring it to the vault. Kept it off the table entirely. I understand him better than I'd like. Some things you don't carry into a room with a vote in it.",
+   "choices": [
+    {"label": "Like a plant that stays on the table and never goes on the shelf.", "trust": 1, "flag": "mr_off_the_shelf",
+     "reply": "Like that. If it goes on the shelf it's one of a collection. It's counted. People can ask after it. On the table it's only mine, and nobody votes on the table. ... You've been in my room longer than I thought."},
+    {"label": "Thirteen people walked out over a record they've never heard.",
+     "reply": "Over a record they've never heard. People leave for less. People leave over a thing they want and can't have. It's the wanting they're loyal to, mostly. Mrs. Grieve's going to put something in her box for it. Watch."},
+    {"label": "He should have just played it and ended the fuss.", "trust": -1,
+     "reply": "And then what? It's played. It's a disc. The fuss is the only thing keeping it alive in that Society. End the fuss and you've composted it in front of witnesses. ... Some things you finish. Not by a show of hands."}
+   ]},
+
+  {"id": "mr_op_mothers", "from": "1929-05-12", "until": "1929-06-05",
+   "topic": "Three minutes of each mother.",
+   "line": "Mrs. Grieve's thirteen recorded their mothers at the Flushing library on Mother's Day. Three minutes each, forty-four minutes in all, for the capsule. And the Exchange put through three thousand six hundred calls, seven minutes forty a call, the limit waived 'the mother speaking.' ... I'll tell you what I noticed. Three minutes for a recording. Seven minutes forty when there's somebody on the other end. People talk longer to someone who can answer.",
+   "choices": [
+    {"label": "A record can't answer. That's why it's shorter.", "trust": 1,
+     "reply": "That's why. You don't go on to a machine. You go on to a person because they might say something back, and you want to be there when they do. ... I talk to the plants while I water, if you want to know. Not long. They don't answer either."},
+    {"label": "Did you call anyone on Sunday?", "trust": 1, "flag": "mr_no_call",
+     "reply": "No. Nobody at the far end of that wire for me. I watered the shelf and said the names over, one to a pot. That's long distance of a sort. Cheaper. Nobody waives the limit."},
+    {"label": "Forty-four minutes. Same as the Farewell Address.", "requires": ["op:mr_op_farewell"],
+     "reply": "So it is. You keep a tally like a gardener. ... Forty-four minutes of mothers and forty-four of Washington. I know which I'd rather have in the ground for fifty years. The mothers. They'll come up again."}
+   ]},
+
+  {"id": "mr_op_taps", "from": "1929-05-31", "until": "1929-06-25",
+   "requires": ["op:mr_op_farewell"],
+   "topic": "The quiet after Taps, shrunk.",
+   "line": "Same bugler, Mr. Varga. Armistice Day he sounded the Last Post and the crowd kept still two minutes four after. Memorial Day at Cypress Hills he sounds Taps, sixty-four seconds, and the silence after it is thirty-eight seconds. They're playing both side by side in the window. ... The note's the same, near enough. It's the quiet afterwards that's shrunk. That's the bit nobody tends. You can't water a silence. People just stop holding it.",
+   "choices": [
+    {"label": "The silence after is the part you've never stopped holding.", "trust": 1, "flag": "mr_holding_silence",
+     "reply": "... Yes. The bugle's done, everybody's gone home, and I'm still stood there with my hat off. ... It's not loyalty. I used to think it was loyalty. It's that nobody told me when to put it back on."},
+    {"label": "Thirty-eight seconds is still a long time for a crowd.",
+     "reply": "It is, for four thousand people in the heat. I'll give them that. Thirty-eight seconds of four thousand is a great deal of quiet by weight. It's only short against November. Everything is short against November."},
+    {"label": "People can't stay sad forever.", "trust": -1,
+     "reply": "No, and they shouldn't. I didn't say they should. I said they stop, and nobody notices the stopping. That's different. You've answered a thing I didn't say. Come back when you've heard the one I did."}
+   ]},
+
+  {"id": "mr_op_empty_sleeve", "from": "1929-06-16", "until": "1929-07-10",
+   "requires": ["op:mr_op_not_present"],
+   "topic": "An empty sleeve, numbered 23.",
+   "line": "Mrs. Grieve's capsule went under the Flushing library floor yesterday. Thirty-eight records, the mothers among them, and an empty sleeve numbered 23 in her own hand. Mr. Abbot came for nine minutes and left before the solder. ... An empty sleeve. Kept for a thing that isn't there. She'll have dusted it. She'll go to her grave having saved a place for it. I told you she'd put something in for it. I didn't think it'd be nothing.",
+   "choices": [
+    {"label": "You've a space like that on your shelf. Kept clear. Dusted.", "trust": 1, "flag": "mr_sleeve_shelf",
+     "reply": "I have. And you've seen it, and you've said it, and the trays haven't fallen over. ... Hers is under a floor for fifty years. Mine's at eye height. I'm not sure which of us is the bigger fool. Hers at least has a number on it."},
+    {"label": "If you divide the last one, the space doesn't have to stay empty.", "trust": 1, "requires": ["malcolm_will_divide"],
+     "reply": "Filled, or kept empty somewhere else. Upstairs, with somebody who'll know what it is. ... A space stays a space until somebody else knows its shape. That's what Mrs. Grieve's done. Fifty years on, somebody reads '23' and asks. That's the whole of it. Somebody asking."},
+    {"label": "It's a bit spiteful, burying an empty sleeve.", "trust": -1,
+     "reply": "Spite's the cheap word. It's a grave marker. You put a stone where you haven't got the body. People have done it for sailors a thousand years. I'd not call a widow spiteful for the stone."}
+   ]},
+
+  {"id": "mr_op_tone", "from": "1929-07-09", "until": "1929-08-05",
+   "topic": "Keep the tone, 'as heard.'",
+   "line": "The Society voted nineteen to fourteen to keep the tone on its Alley Pond records. Forty-seven kinds of bird by ear at dawn, and the forty-one cycles under every one of them, and Mr. Abbot says keep it 'as heard.' The fourteen walked out to record 'what is meant to be heard.' ... I'm with Abbot, which surprises me. You don't weed a record. Whatever grew in that room grew there. Take it out and you've a prettier dawn that never happened.",
+   "choices": [
+    {"label": "You'd keep the weeds, then. Even the ones that hurt.", "trust": 1, "flag": "mr_keep_weeds",
+     "reply": "In a record, yes. In a bed, no, I'd have them out by the root. That's the difference I keep trying to explain. A record's for remembering. A garden's for living in. Keep the weeds in the one and pull them in the other, and you'll do."},
+    {"label": "Nobody knows what the tone is. Why keep it?",
+     "reply": "Because nobody knows what it is. You don't throw out a seed because you can't name it. You pot it and wait and see what comes up. Fifty years is a long germination. Somebody in 1978 might know. They won't if we've scrubbed it."},
+    {"label": "The Circle's right. Who wants a hum over the birds?", "trust": -1,
+     "reply": "Then don't listen to it in 1978. Nobody's forcing your grandchildren. But you can't put back what you took out. Preservation's not deciding what was meant. It's carrying what was."}
+   ]},
+
+  {"id": "mr_op_theirs", "from": "1929-08-03", "until": "1929-08-28",
+   "topic": "One minute of 'anything that is theirs.'",
+   "line": "The Parks Department's letting children record one minute of 'anything that is theirs' at twenty playgrounds, the Society to judge, the winner into the vault for 1978. Seven thousand, near enough. Two hundred and fourteen of dogs, and sixty-one of grandparents talking languages they never taught the children. ... I've been asking myself what minute is mine. I've a bench full of plants and not one of them is mine. They're all off his.",
+   "choices": [
+    {"label": "A cutting of his is still yours. You kept it alive.", "trust": 1, "requires": ["malcolm_auggie"],
+     "reply": "Kept it alive. That's mine, the keeping. The plant's his. The years of water are mine. ... A child wouldn't record the water. A child would record the dog. Children have the right idea about what's theirs: whatever comes when they call."},
+    {"label": "The grandparents. Words the children can't follow, kept anyway.", "trust": 1, "flag": "mr_grandparents",
+     "reply": "That's the oldest wood in the yard. You don't understand it, you just know it's held up longer than you have. Sixty-one children knew to keep it without knowing what it said. That's a gardener's instinct. They'll make good ones, some of them."},
+    {"label": "What would you record?",
+     "reply": "The tap running at the sink at half six, and me saying 'well, then' to nobody. ... No. Don't write that down. I'd record the dog. If I had a dog. I'd get a dog for the purpose."}
+   ]},
+
+  {"id": "mr_op_drawer", "from": "1929-09-08", "until": "1929-10-05",
+   "requires": ["op:mr_op_tone"],
+   "topic": "Kept 'in a drawer.'",
+   "line": "The Circle's Mr. Moss made a record of the Meadow on the day the tone was gone, and they voted seventeen to none not to keep it and gave it back to him unfiled. No reason entered. Mrs. Grieve left in the second minute. Now Mr. Moss says he keeps it at his house, 'in a drawer.' ... There's no such thing as keeping a thing in a drawer. That's a pot with no light. It stays alive just long enough for you to feel you've done right by it.",
+   "choices": [
+    {"label": "But he didn't throw it away.", "trust": 1,
+     "reply": "No. Nobody throws it away. That's the trouble. If he'd thrown it away it'd be done. A drawer's for a thing you can't finish and won't face. ... I've a drawer. There's a bit of wet paper in it, gone brown. Years. Don't ask."},
+    {"label": "Seventeen people heard something they couldn't stand to keep.", "trust": 1, "flag": "mr_seventeen",
+     "reply": "Seventeen to none. Not one of them for keeping it. That's not a vote, that's a flinch. They heard the Meadow without the tone under it, and something in it they won't say. And they gave it back to the one man who has to live with it."},
+    {"label": "Sounds like the Circle's falling apart.", "trust": -1,
+     "reply": "Everything falls apart if you stand close enough. You're talking about the club. I'm talking about the record. Most of the trouble in the world is two people talking past each other at exactly that distance."}
+   ]},
+
+  {"id": "mr_op_outside_door", "from": "1929-10-17", "until": "1929-11-05",
+   "topic": "The boy outside the door.",
+   "line": "The Society's comparing the seven records it took at a boy's window in Long Island City with the two he made himself. Tuesday, eight o'clock, private. And they've granted the boy's request to sit outside the door. ... His own window. His own street. His own records. And he asked to sit outside the door while grown men decided what it was. Asked. As a favour. I read that twice and went and sat on the stairs.",
+   "choices": [
+    {"label": "You know what it is to be outside a door while it's decided.", "trust": 1, "requires": ["malcolm_auggie"], "flag": "mr_outside_door",
+     "reply": "I was outside a door at six with a cutting in wet paper, and it had been decided already, and nobody had asked me to sit. ... At least they let the boy sit. That's progress, if you like the word. I've never liked the word."},
+    {"label": "Maybe he didn't want to hear it compared.",
+     "reply": "Maybe. Sitting outside is a way of being there without having to hear the sum. I understand it. You're near enough to be counted and far enough not to be told. ... He'll want his records back one day. They always do."},
+    {"label": "It's only a boy's street at night.", "trust": -1,
+     "reply": "Only. You'd have said that about a windowsill once. ... Everything's only, until it's the last of it. Don't say 'only' to a gardener. We've seen what grows off it."}
+   ]},
+
+  {"id": "mr_op_armistice", "from": "1929-11-08", "until": "1929-11-09",
+   "requires": ["op:mr_op_taps"],
+   "topic": "The two minutes, laid beside last year's.",
+   "line": "Monday they'll record the two minutes again in two hundred and thirty buildings and lay each one beside last year's. The Society's committee will hear the comparisons and keep them for 1978. Year on year. Same spot, same hour. ... I'll tell you what I'm going to do. I'm going to keep the two minutes at the bench with the tap off. And at the end I'm going to put my hat back on. Somebody ought to say when, so I've decided. Two minutes past eleven.",
+   "choices": [
+    {"label": "Two past eleven. Then you go on with the day.", "trust": 1, "flag": "mr_hat_back_on",
+     "reply": "Then I go on with the day. Water the trays. Pot on the two that want it. ... It's not forgetting. You'd think it was, and it isn't. You can put your hat on and still know exactly whose silence it was."},
+    {"label": "Do you want company at the bench?", "trust": 1,
+     "reply": "... Come at five to. Don't knock; the door's on the latch. Stand by the sink and don't touch the leaves. You'll know when it's over. I'll be the one moving."},
+    {"label": "Will you divide the last one before then?", "requires": ["malcolm_will_divide"],
+     "reply": "Before or after. I've not decided which is kinder. The knife's washed. ... I'll keep the two minutes either way. You don't stop keeping a thing because it's shared. You just stop keeping it alone."}
+   ]}
+ ]}

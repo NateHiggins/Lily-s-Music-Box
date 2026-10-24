@@ -1,0 +1,388 @@
+{
+  "resident_id": "transient_guests",
+  "hook": "There's a paper on your mat.",
+  "hook_line": "— We've read it. — We've read it twice, for different reasons. — Which page, dear?",
+  "opinions": [
+    {
+      "id": "tg_op_once",
+      "from": "1928-11-13",
+      "until": "1928-12-10",
+      "topic": "The clerk who heard it once.",
+      "line": "— The clerk at Jamaica. — Mr. Pruitt. He's sworn he took the Riverhead returns once, by wire, at twelve minutes to ten. — Once only. — And somebody's written it in the ledger a second time, by telephone, in a hand that isn't his. — We think he's telling the truth. — We think he's telling it beautifully. — It's the same thing. — It is not. — We agree it's sworn.",
+      "choices": [
+        {
+          "label": "Once is a lot to swear to, if the room says twice.",
+          "reply": "— Oh. — Oh, that's ours, that is. You say a thing once and then the room says it back and you can't tell whose voice it was. — We say things once. — We said that. ... — There. You see how it happens.",
+          "trust": 1,
+          "flag": "tg_heard_once"
+        },
+        {
+          "label": "They'll play the record and he'll be found out or cleared.",
+          "reply": "— They'll play it in a room with the door shut. — Rooms with the door shut are where everything gets said a second time. — We'd know. — We're very good at rooms."
+        }
+      ],
+      "silence_reply": "— They're thinking. — They're thinking about the ledger. — They're thinking about us. — It's both. — We agree it's both."
+    },
+    {
+      "id": "tg_op_second_voice",
+      "from": "1928-11-23",
+      "until": "1928-12-20",
+      "requires": ["op:tg_op_once"],
+      "topic": "Riverhead, heard twice.",
+      "line": "— They played the counting room in chambers. — Ninety-four minutes. — And it was received twice. Pruitt's voice at twelve to ten, and at ten thirty-one, by telephone, 'in another voice, not identified.' — The Speaker calls it the politest name for a stranger it's heard all year. — I liked that. — You liked it. I keep thinking the stranger's still in the room. On the record. Waiting to be named. — Like a guest.",
+      "choices": [
+        {
+          "label": "Like you two. Two voices, and nobody's sure whose came first.",
+          "reply": "— Hm. — Hm. — Mine came first. — Mine did. ... — You've put us in a ledger, dear. — We don't sign ledgers. There's no desk. — There's a desk at Jamaica. — We are not going to Jamaica to be identified.",
+          "trust": 1
+        },
+        {
+          "label": "The lift won't hear the sixth the first time, either.",
+          "reply": "— Ask once and nothing; ask twice and it takes you. — Riverhead was asked twice. — And the second time somebody answered who wasn't meant to be there. — That's the sixth exactly. — Don't. — I'm only saying.",
+          "trust": 1,
+          "requires": ["otis_sixth_deaf"]
+        },
+        {
+          "label": "Somebody made a mistake in a ledger, that's all.",
+          "reply": "— That's all? — That's never all. — A second hand in a book is a whole person. — Somebody stood at that telephone at ten thirty-one and wrote. — We'd like to know what they had in their pockets.",
+          "trust": -1
+        }
+      ]
+    },
+    {
+      "id": "tg_op_plaza",
+      "from": "1928-12-03",
+      "until": "1929-01-02",
+      "topic": "The Plaza stop, sixty-one times.",
+      "line": "— The elevated stopped at Queensboro Plaza on a Sunday. — Sixty-one times. First time ever. — Two thousand nine hundred and forty got off. — And one gentleman from Corona objected to being stopped at all. — He wasn't made to get off. — We read that twice. — You read it twice. I read it once and kept it. — 'Crowded at ten, empty at twelve,' the Commission's man wrote. — Sounds like checkout.",
+      "choices": [
+        {
+          "label": "The man from Corona wanted to ride straight through. Like you.",
+          "reply": "— Through. Yes. Past every door. — It's a fine thing, being carried past a platform you've been told is yours. — It's awful. — It's both. ... — We'd have got off. — We'd have got straight back on.",
+          "trust": 1
+        },
+        {
+          "label": "Does our lift stop where you ask it to?",
+          "reply": "— Six has to be asked twice. — Every other floor it hears like a gentleman. — The Plaza stop took eleven years of asking. — So the lift's quicker. — The lift's kinder. — We agree it stops, eventually.",
+          "requires": ["otis_sixth_deaf"],
+          "flag": "tg_asked_twice"
+        },
+        {
+          "label": "That'll save people a good deal of walking.",
+          "reply": "— Fifty seconds lost to the through passengers, the Interborough says. — They complained for most of them. — Everyone counts what it cost them to let somebody else off."
+        }
+      ]
+    },
+    {
+      "id": "tg_op_lodger",
+      "from": "1928-12-07",
+      "until": "1929-01-10",
+      "topic": "A lodger paid up to the tenth.",
+      "line": "— Mrs. Bianchi of Corona. — The landlady. Her lineman paid his rent to December the tenth and went. — Room untouched. — 'Quiet, and kept his set low.' — That's the finest thing anyone could say of a lodger. — It's the finest thing anyone could say of us. — Paid ahead, left nothing, and the landlady says he was quiet. — I'd like to know whether he made the bed. — He made the bed.",
+      "choices": [
+        {
+          "label": "Paid to the tenth. He meant to come back, or meant them not to wait.",
+          "reply": "— Oh. — Both. — Paying ahead's a forwarding address for people with nowhere to forward. It says: hold the room, don't look for me. — We've done that. — We've done that every morning since we came. — Recently.",
+          "trust": 1,
+          "flag": "tg_paid_ahead"
+        },
+        {
+          "label": "Did you know him?",
+          "reply": "— Corona. We don't go to Corona. — We went once. — We don't go twice. ... — Lineman. Quiet. Set kept low. — There's one of those in every house at some point, dear. They're very good with the lift."
+        }
+      ],
+      "silence_reply": "— They're making the bed in their head. — Corners tucked. — For whoever's next. — It's us. — It's always us."
+    },
+    {
+      "id": "tg_op_agree",
+      "from": "1929-01-04",
+      "until": "1929-02-03",
+      "requires": ["op:tg_op_second_voice"],
+      "topic": "Wire and paper, in agreement.",
+      "line": "— Riverhead again. — Received afresh, by wire at two minutes past ten and by paper at five past two, and they agree to the vote. — Agree. — But the wire took four minutes eleven seconds and the clerk took four minutes. — Eleven seconds over. — The Chairman says eleven seconds is 'not a vote.' — And Pruitt's name is in neither. — You see? They agree perfectly and something got in between.",
+      "choices": [
+        {
+          "label": "You two agree perfectly, for different reasons.",
+          "reply": "— We do. — We do. — That's our eleven seconds. The bit where nobody can tell which of us was counting. ... — The Speaker says eleven seconds is long enough to say a good deal. — We've said a good deal. — Once.",
+          "trust": 1
+        },
+        {
+          "label": "So the stranger's voice is simply gone?",
+          "reply": "— Not gone. — Not counted. — It's different. Things that aren't counted are still in the room. — Ask any hotel. — There's no hotel. — Ask any hall."
+        }
+      ]
+    },
+    {
+      "id": "tg_op_alone",
+      "from": "1929-02-24",
+      "until": "1929-03-25",
+      "topic": "Forty-two men, staying put.",
+      "line": "— The ships have gone and left them. — Forty-two men, the dogs, and a pup called Jackson, at Little America. — 'The camp is alone now and well.' — The sun leaves in April and comes back in August. — 'Like a lodger,' the Speaker says. — We took offence at that. — You took offence. I took it as a compliment. — They've unpacked, you know. Forty-two men. Everything out of the cases. Under the snow.",
+      "choices": [
+        {
+          "label": "They had to unpack. There's no next boat.",
+          "reply": "— No next boat. — No checkout. — Imagine it. Nobody comes at eleven. — I'd be frightened. — I'd be... — Go on. — No. — She was going to say rested. — I was not going to say rested.",
+          "trust": 1,
+          "flag": "tg_no_next_boat"
+        },
+        {
+          "label": "Would you go somewhere like that?",
+          "reply": "— Where you can't leave? — Where the leaving's been done for you. — It's not the same. — It's very nearly the same. — We'd want a window on the ice. — We'd want two."
+        },
+        {
+          "label": "It sounds dreadfully lonely.",
+          "reply": "— Forty-two isn't lonely. — Forty-two and dogs. — Lonely is two in a hall of doors that are all yours. — We're not lonely. — We said that very quickly."
+        }
+      ]
+    },
+    {
+      "id": "tg_op_dogs",
+      "from": "1929-03-30",
+      "until": "1929-04-28",
+      "requires": ["op:tg_op_alone"],
+      "topic": "Fifteen nights, then the dogs.",
+      "line": "— Little America came back. — Fifteen nights of nothing, and then forty words, as though they'd only stepped out to the shop. — All well. Forty-seven below. Eleven pups. — 'The dogs will not stop singing.' — No reason given for the silence. — We liked that best. — We liked the pups best. — No reason given. You can go quiet fifteen nights and come back, and nobody makes you explain.",
+      "choices": [
+        {
+          "label": "Eleven pups. Things get born when you stay put.",
+          "reply": "— ... — That's very forward. — It's very true. — One of us has a jumper in mind. For a drawer. — We don't have a drawer. — We might. — We might, she says. Write that down, someone. It's the first 'might' this hall has heard.",
+          "trust": 1,
+          "requires": ["tg_no_next_boat"]
+        },
+        {
+          "label": "Where do you go, when you go quiet?",
+          "reply": "— The counter. Four in the morning. — The man pours and doesn't look up. — We go quiet there and come back up and nobody asks for forty words. — Thank you for not asking for forty. — You asked for one. That's allowed."
+        }
+      ]
+    },
+    {
+      "id": "tg_op_together",
+      "from": "1929-04-24",
+      "until": "1929-05-20",
+      "topic": "Two couples, down together.",
+      "line": "— The marathon at Jamaica. — Four hundred and thirteen hours. — Mrs. Corrigan's knees went and Mr. Novak's knees went, at twelve past one, 'together, in the judges' opinion.' — Prize held till they play back the last minute. — Mr. Gant says the record will hear Mrs. Corrigan last. — Mrs. Novak says it won't. — We've a bet on. — We've the same bet. — For different reasons.",
+      "choices": [
+        {
+          "label": "You'd want to go down at the same moment. So nobody's left standing.",
+          "reply": "— ... — That's rather a lot for a dance. — It's exactly enough for a dance. Four hundred hours holding each other up so neither one has to be the one still standing. — We don't dance. — We've never been asked.",
+          "trust": 1
+        },
+        {
+          "label": "Who do you think went down first?",
+          "reply": "— Mrs. Corrigan. — Mr. Novak. — There. — There it is. We disagree. — Write the date down, dear. We'll want it for the drawer. — We haven't a drawer. — For when."
+        }
+      ]
+    },
+    {
+      "id": "tg_op_waived",
+      "from": "1929-05-28",
+      "until": "1929-06-27",
+      "requires": ["op:tg_op_lodger"],
+      "topic": "The rent that waived the notice.",
+      "line": "— The Arcade. — The judge says the May rent waives the notices to vacate. All ten. — They were told to go, and they paid to stay, and the paying counts. — 'From month to month.' — The company may serve fresh notice. — It always may. — And a man in a grey coat sat at the back and left two minutes before the ruling. — Didn't want to hear it. — Didn't need to.",
+      "choices": [
+        {
+          "label": "Paying the rent is a decision. You stay by deciding.",
+          "reply": "— One drawer. One jumper and a book she's read. — It isn't rent. — It's the same thing, smaller. ... — If someone served us notice now... — One of us would have to be told twice. — The other would already be packed. — That's a shape.",
+          "trust": 1,
+          "requires": ["guests_one_drawer"]
+        },
+        {
+          "label": "Who's the man in the grey coat?",
+          "reply": "— Nobody's said. — He leaves before the end. — We know the type. — We are the type. — No summons in the room, the bailiff says, so nobody stopped him. — Nobody ever has a summons for the one leaving."
+        },
+        {
+          "label": "They ought to move somewhere cheaper.",
+          "reply": "— Somewhere cheaper. Everyone has a somewhere. — Eleven shops with their own counters and keys, and you'd have them carry the counters down Jackson Avenue. — We tried carrying a room once. — It came back up.",
+          "trust": -1
+        }
+      ]
+    },
+    {
+      "id": "tg_op_not_stated",
+      "from": "1929-05-29",
+      "until": "1929-06-28",
+      "topic": "'A place not to be stated.'",
+      "line": "— The Lindberghs. — On honeymoon 'at a place not to be stated.' — Fourteen hundred calls to the Morrow house and none put through. — The Speaker says a boat. — We say an hotel. — We say a boat. — We say an hotel with a boat in the picture over the bed. — Somewhere with a key on a brass tag and a time you have to be out by. — Somewhere you're nobody, gladly.",
+      "choices": [
+        {
+          "label": "A place where nobody expects your name. Like your counter.",
+          "reply": "— The chapel. We both call it that now. — He pours and doesn't know us. — The Colonel's the most known man in the world, and he's driven off to find a counter like ours. — Isn't that lovely. — It's lonely. — Both.",
+          "trust": 1,
+          "requires": ["guests_chapel"]
+        },
+        {
+          "label": "They'll have to come back sometime.",
+          "reply": "— Checkout. Even the Colonel has a checkout. — Eleven, we'd guess. — It's always eleven. — Not everywhere. — Everywhere we've been."
+        }
+      ],
+      "silence_reply": "— They're picturing the key. — Brass tag. Number stamped in. — Ours hasn't a number. — Ours has two."
+    },
+    {
+      "id": "tg_op_receipt",
+      "from": "1929-06-29",
+      "until": "1929-07-28",
+      "topic": "'Correct,' and he left the money.",
+      "line": "— The grey coat again. — Twenty to four, at the court clerk's window. — Asked to see the receipt for the Arcade's June rent. Read it through. Said 'Correct.' — And walked out and left the four hundred and twelve dollars. — He only wanted the receipt. — We understand him completely. — We understand him for different reasons. — A receipt's proof you were there. Money's just something you have to carry.",
+      "choices": [
+        {
+          "label": "Do you keep your receipts?",
+          "reply": "— Every one. In the lid of the case. — Room, one night. Room, one night. Room, one night. — Same room. — Same hand on every slip. — Ours. ... — Don't count them. — Nobody's to count them.",
+          "trust": 1,
+          "flag": "tg_receipts"
+        },
+        {
+          "label": "He might be the landlord's man, checking up.",
+          "reply": "— Might be. He reads things through. — Everyone who reads things through works for somebody. — We read things through. — We work for eleven o'clock."
+        }
+      ]
+    },
+    {
+      "id": "tg_op_green_hat",
+      "from": "1929-07-14",
+      "until": "1929-08-12",
+      "topic": "His name, his street, a green hat.",
+      "line": "— A boy of five lost at Rockaway. — Thomas Gilroy, of Woodhaven. — He walked up to the machine at the lifeguard stand and told it his name, his street, and 'my mother has a green hat.' — And she came, in the green hat. — Thirty-one lost and all found. — We've been working out what we'd say into it. — We got as far as the hat. — We haven't a hat.",
+      "choices": [
+        {
+          "label": "What street would you give?",
+          "reply": "— ... — This one. — There. That's the first time. — Four-D. Our street is a hall. — If we were lost on a beach, dear, we'd say 'the hall,' and the tent would play it hourly, and nobody would come in a green hat. — Somebody might. — Somebody might, she says again.",
+          "trust": 1
+        },
+        {
+          "label": "You'd only need something the whole beach can see.",
+          "reply": "— Two of us with the same cases. That's very visible. — It isn't about us, though. — It's about who comes for us. — That's the part we've never learnt."
+        }
+      ]
+    },
+    {
+      "id": "tg_op_round",
+      "from": "1929-08-30",
+      "until": "1929-10-01",
+      "topic": "Round the world, back to the mast.",
+      "line": "— The Graf Zeppelin's come back. — Round the world, Lakehurst to Lakehurst, twenty-one days. — Heard over Queens eleven minutes before anyone saw her. — Nine hundred and twelve people rang to ask if it was she. — Made fast to the same mast. — 'Long, but quiet,' the captain says. — Twenty-one thousand miles to arrive exactly where you checked out. — We could have told him. — We do it daily.",
+      "choices": [
+        {
+          "label": "You go down at ten and come back up at half past.",
+          "reply": "— Round the world. — Down the hall. — It's the same distance if nobody's waiting at the other end. ... — Somebody was waiting at Lakehurst. — Nine hundred and twelve somebodies. — We've never had one.",
+          "trust": 1
+        },
+        {
+          "label": "Up, round, and down where she started. Like the lift.",
+          "reply": "— The lift's a little airship. — The lift's a cupboard on a rope. — It goes up when asked twice. — The Graf only had to be asked once. — She's a better guest than we are. — She's a worse one. She left.",
+          "requires": ["otis_sixth_deaf"]
+        }
+      ]
+    },
+    {
+      "id": "tg_op_present",
+      "from": "1929-09-10",
+      "until": "1929-10-10",
+      "topic": "Four thousand answering 'Present.'",
+      "line": "— The schools. — First morning, and the classroom systems entered four thousand one hundred and twelve answers of 'Present' beyond the register. — Beyond the number of children. — The nine schools taking the roll by hand found nobody extra. — So the roll's to be called twice now. Once by the machine, once by the teacher. — Answering for another pupil is an offence, 'whatever the voice.' — We did not answer. — We did not.",
+      "choices": [
+        {
+          "label": "You remember everyone who ever answered in this house.",
+          "reply": "— We said that once. — We won't say it twice. ... — But if a roll were called in this house, dear, and the machine said a few more than the book. — We'd not be surprised. — We'd not be offended. — We'd be counted, for once.",
+          "trust": 1,
+          "requires": ["guests_remember"]
+        },
+        {
+          "label": "Would you answer, if they called you?",
+          "reply": "— Present. — Present. — There. Both. — That's how it goes wrong, you see. One of us says it and the other says it and the book has one line. — The book's the problem. — The book's always the problem.",
+          "trust": 1
+        },
+        {
+          "label": "It's children playing a joke on the system.",
+          "reply": "— Four thousand children, one joke. Very well organised children. — P.S. 89's choir sang nothing and was marked present. — That's a better joke. — That's us."
+        }
+      ]
+    },
+    {
+      "id": "tg_op_no_address",
+      "from": "1929-10-03",
+      "until": "1929-11-01",
+      "requires": ["op:tg_op_waived"],
+      "topic": "A number in the book, no address.",
+      "line": "— Signal Ground Rents is in the telephone book. — Barclay 4420. First number they've ever had. — And no address beside it. The subscriber asked that it not be printed. — The operator let it ring thirty-one times. — She says it wasn't a dead line. 'It was a line that heard her.' — We know that line. — We are that line. — A number and no street. You can ring us. You can't find us.",
+      "choices": [
+        {
+          "label": "You could put an address in. One drawer's a start.",
+          "reply": "— A drawer's not an address. — It's a street with one house on it. One jumper. One book she's read. — If someone rang thirty-one times, dear, the drawer would pick up. — Drawers don't pick up. — Ours might.",
+          "trust": 1,
+          "requires": ["guests_one_drawer"]
+        },
+        {
+          "label": "Someone listening who won't answer. That frightens me.",
+          "reply": "— It frightens her too. — It frightens me differently. — We agree it's frightening. ... — We'd pick up, if it were us. — We'd pick up and say we're nearly packed.",
+          "trust": 1
+        },
+        {
+          "label": "The company's a racket. Forget them.",
+          "reply": "— Forget them. — Forgetting's the one thing nobody here's any good at. — Ten shops paying rent to a box, and the box very well kept. — You don't forget a box like that.",
+          "trust": -1
+        }
+      ]
+    },
+    {
+      "id": "tg_op_desks",
+      "from": "1929-10-25",
+      "until": "1929-11-09",
+      "topic": "Clerks asleep under their desks.",
+      "line": "— Broad Street. — The brokers' clerks slept under their desks, the Speaker says, and worked the accounts all night. — Didn't go home. — Couldn't. — And in Queens the kitchen lamps stayed on late, over the bank books. — We were at the counter at four. Every stool taken. Men in yesterday's collars. — Nobody looked up. — Nobody's ever looked up so hard.",
+      "choices": [
+        {
+          "label": "Your counter was full of people with nowhere to be.",
+          "reply": "— The chapel. Full. — He poured for all of them and knew nobody's name, and it was the kindest thing on the avenue. — One of them asked how long we'd been coming. — We said recently. — He laughed. It was the only laugh.",
+          "trust": 1,
+          "requires": ["guests_chapel"]
+        },
+        {
+          "label": "Did you lose anything?",
+          "reply": "— We never have anything to lose. It's the one comfort. — Everything we own is in two cases by the door. — You can't sell a case short. — The Speaker would try. — The Speaker hasn't the heart this week."
+        }
+      ],
+      "silence_reply": "— That's how the counter was. — Just like that. — Nobody saying, everybody stirring. — Sit on the case, dear."
+    },
+    {
+      "id": "tg_op_called_for",
+      "from": "1929-10-27",
+      "until": "1929-11-09",
+      "requires": ["op:tg_op_no_address"],
+      "topic": "A letter called for at Buffalo.",
+      "line": "— Buffalo. — Mr. Crane's letter waited twenty days at General Delivery, and on Friday at twenty to five somebody came to the counter and asked for it. — Signed 'R. Haskin, for the property.' — The postmaster didn't look up in time. — Says the man was tall, or else the counter was low. — Twenty days in a pigeonhole. — And then called for. — Called for. We'd like to be called for.",
+      "choices": [
+        {
+          "label": "Leave a name in pencil downstairs. Then there's something to call for.",
+          "reply": "— In pencil. On the box. — It rubs out. — That's why pencil. Brave, but not rude. ... — One of us will. — One of us has. — Has she. — Twenty days. We can wait twenty days. We're very good at waiting.",
+          "trust": 1,
+          "requires": ["departure_is_a_decision"]
+        },
+        {
+          "label": "Twenty days is a long time to wait for nobody.",
+          "reply": "— It wasn't nobody. It was 'for the property.' — That's somebody who isn't anybody. — We've signed like that. — We have not. — We've wanted to."
+        }
+      ]
+    },
+    {
+      "id": "tg_op_both_counts",
+      "from": "1929-11-06",
+      "until": "1929-11-09",
+      "requires": ["op:tg_op_agree"],
+      "topic": "Both counts agree, every district.",
+      "line": "— The election. — Wire and paper agree in every district in Queens, to the vote. Twenty to four this morning. — The Chairman says 'nothing to reconcile.' — Last year they disagreed by nineteen hundred and twelve. — And there was a stranger's voice at ten thirty-one. — This year nobody's voice but the counters'. — Nothing over. Nothing in between. — It's very neat. — It's very lonely. — We agree.",
+      "choices": [
+        {
+          "label": "Last year you agreed for different reasons. And this year?",
+          "reply": "— ... — This year one of us wants to stay. — And one of us wants to go. — That's two counts. — They don't agree. — Nobody's reconciling them. — Good. We're two people, dear. It took a year to sound like it.",
+          "trust": 1,
+          "requires": ["departure_is_a_decision"]
+        },
+        {
+          "label": "The Speaker thinks somebody saved them the trouble.",
+          "reply": "— Somebody always saves the trouble. — The maid. — There is no maid. — Then us. — We made the bed this morning for whoever's next, and both counts said it was us."
+        }
+      ]
+    }
+  ]
+}

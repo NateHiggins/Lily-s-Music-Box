@@ -1,0 +1,217 @@
+{
+  "resident_id": "jonah_price",
+  "hook": "Got through the paper today?",
+  "hook_line": "Through is a strong word. I got into it. Which bit? I'm still inside several.",
+  "opinions": [
+    {
+      "id": "jp_op_names",
+      "from": "1928-11-11",
+      "until": "1928-12-08",
+      "topic": "Names read from the stone.",
+      "line": "Armistice. Alderman Feeney read the sixty-one names of the First Ward at Hunters Point from the stone itself, because the parish had mislaid the list. From the stone. The list was lost, so they read the thing that can't be lost, the carved thing, the — you see what I mean. A list can be revised. A stone's the final draft. Sixty-one names, no corrections, read aloud in the cold. I'd have needed the list.",
+      "choices": [
+        {"label": "You'd want the list because a list can still be changed.", "reply": "Yes. A list is a draft; someone could still add a name, strike one, put a footnote. The stone's done. Nobody argues with a stone. That's the whole terror of carving, isn't it. I'd have read from the list and been glad of the smudges.", "trust": 1, "flag": "jp_list_not_stone"},
+        {"label": "The widows got a record, at least.", "reply": "The Legion post recorded it for the ones who couldn't stand there. So now there's the stone, and a record of a man reading the stone. Two copies. Neither with an ending, exactly. Just names, stopping."},
+        {"label": "Sixty-one names. That's a minute, tops.", "reply": "Timed it, did you? It'd be a minute if he didn't stop at any. Feeney will have stopped. Everyone stops at one. That's what a list read aloud is for: finding the one you stop at.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_named_himself",
+      "from": "1928-11-13",
+      "until": "1928-12-10",
+      "topic": "The clerk who named himself.",
+      "line": "Sunday the Board says a clerk — unnamed — entered the Riverhead returns twice. Tuesday the clerk names himself. Mr. Walter Pruitt, thirty-four, sworn statement, twenty past ten. Imagine — no, I've been imagining it all week — reading a sentence about yourself with a blank where your name goes, and walking down to the office next morning and filling it in. In your own hand. I couldn't. I'd revise the statement until the election after next.",
+      "choices": [
+        {"label": "He filled in the blank because the blank was worse.", "reply": "Yes. A blank in the paper is everybody's guess. A name is only yours. He'd rather be the man than the gap. That's — I have to sit down, actually. That's the bravest grammar I've seen all year.", "trust": 1, "flag": "jp_bravest_grammar"},
+        {"label": "Maybe he just wanted his job safe.", "reply": "Maybe. Motives are a footnote; I'm talking about the sentence. 'Mr. Walter Pruitt, 34, receiving clerk.' Subject, age, trade. He gave the Record its opening line and let them write the rest."},
+        {"label": "If it wasn't him, why stick his neck out?", "reply": "Because heads kept down still end up in the paper; they just end up there as a blank. I know people who kept their heads down for thirty years. They're still in the blank.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_postcard",
+      "from": "1928-12-11",
+      "until": "1929-01-09",
+      "topic": "'I fixed the instrument and went home.'",
+      "line": "The lineman sent a postcard to the Justice's clerk from Wilkes-Barre. Read in full: 'I fixed the instrument and went home.' That's the whole card. Seven words. Subject, verb, object, and an ending. He went home. I've been writing for twenty years and I have never once ended anything that cleanly. It's copied out on the wall over the desk. It's either the best short story of the year or a confession, and honestly that's every good short story.",
+      "choices": [
+        {"label": "He went home. That's the line your own book can't have.", "reply": "... No. In mine, nobody goes home. That's the ending, and I've never — fine. Yes. You've put your thumb on it. The lineman got the ending everyone in my book wanted, and got it by leaving before anyone could say anything. I'm taking the card down.", "trust": 1, "flag": "jp_went_home", "requires": ["jonah_verdict_unwritten"]},
+        {"label": "Seven words and a bench warrant.", "reply": "The warrant's the sequel. Every clean ending gets one: some official who wants to know what happened after 'went home.' I don't hold it against the Justice. He's an editor. He wants another page."},
+        {"label": "He's obviously guilty. Running proves it.", "reply": "Running proves he ran. I've a brother who — I've known men who ran, and it proved they couldn't bear a room. That's all running proves. Don't read the last page first. It's the worst habit there is.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_resent",
+      "from": "1929-01-23",
+      "until": "1929-02-21",
+      "topic": "One word from the gallery.",
+      "line": "Two records of one hearing at Albany disagree at one word. The stenographer has Mr. Pell saying 'consent.' The room has him saying 'resent.' The committee printed both in parallel columns — left as each has it. And then in the Assembly a voice from the public gallery says 'resent,' out loud, and they clear the gallery for ten minutes and can't find whose. One voice in a gallery saying one word into a room. I'd have liked to be that voice.",
+      "choices": [
+        {"label": "You've sat in a gallery once and not said the word.", "reply": "Back row. With my brother. We sat on our hands. Literally; Noel sat on his hands, I watched him do it. Somebody at Albany said a word out loud in a gallery, and I've been grateful to a stranger all week, and I can't find him either.", "trust": 1, "flag": "jp_gallery_named", "requires": ["jonah_verdict_unwritten"]},
+        {"label": "Left as each has it. Two versions, both kept.", "reply": "Both kept. The State of New York has published a sentence with two endings and declined to choose. I've never respected Albany more. It's what I'd do. It's what I do. It isn't a virtue in me."},
+        {"label": "Somebody heckling. It'll blow over.", "reply": "Heckling's a whole speech. This was one word, said once, and gone. That's not heckling; that's a correction. The worst ones are one word. You'd know, if you'd ever had a word said about you.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_convicts",
+      "from": "1929-02-18",
+      "until": "1929-03-17",
+      "topic": "What Mr. Tully says the garage did.",
+      "line": "Chicago. Seven men, a garage, and the garage heard it — fourteen minutes twenty seconds, played to six jurors standing. And Mr. Tully of the landlords says the record — I'm going to read it, not say it, there — 'convicts the building.' He just put that word in a sentence, at Albany, to a reporter, like a man putting down a cup. I've had that word in my mouth for twenty years and never got it past my teeth.",
+      "choices": [
+        {"label": "You read it out rather than say it. That's the word you can't write.", "reply": "Reading's allowed. Reading's someone else's hand. I'm a very good reader-aloud; four o'clock at the counter, every day, openings. Never once my own last page. You noticed I read it. Nobody notices. They think I'm being precise.", "trust": 1, "flag": "jp_read_not_said", "requires": ["jonah_verdict_unwritten"]},
+        {"label": "Can a building be convicted of anything?", "reply": "Burkhardt says the room's a witness. Tully says it's the accused. Nobody mentions the men who still have to park lorries in a garage that remembers. That's the chapter neither of them will write, and the only one I'd read."},
+        {"label": "Fourteen minutes. I wouldn't want to hear that.", "reply": "Nor would I. I'd want to read the transcript, which is cowardice with better typography. The jurors stood for it. I'd have sat down on the floor."}
+      ]
+    },
+    {
+      "id": "jp_op_could_not_say",
+      "from": "1929-03-01",
+      "until": "1929-03-30",
+      "requires": ["op:jp_op_convicts"],
+      "topic": "'Heard a man, and could not say which.'",
+      "line": "Lasko. Acquitted at three thirty-five, all three counts, after the jury asked to hear the parlour record again in full. And the foreman, Mr. Penney of Elmhurst, told the Judge they 'heard a man, and could not say which.' I copied it out. It's a verdict. It's a verdict and it's also the most honest criticism I've ever read. He gave the word, and he gave the reason, and the reason was doubt, and the room let a man go home.",
+      "choices": [
+        {"label": "You can copy out other men's verdicts. Just not the one you heard.", "reply": "I've a notebook of them. Copied from the Record in my best hand. Every acquittal for — a long time. Not one of the other kind. I hadn't noticed that till you — no. I had noticed. I'd just not let it be a sentence.", "trust": 1, "flag": "jp_others_verdicts", "requires": ["jonah_verdict_unwritten"]},
+        {"label": "Four words on a record, and twelve men said maybe.", "reply": "Lasko spoke the four words himself, to the jury, at the District Attorney's request. 'Not this one either.' Imagine being asked to read your accusation aloud in your own voice. I'd revise it. I'd be on my feet till Easter."},
+        {"label": "So the burglar walks. Nice ending.", "reply": "It's not an ending, it's an acquittal; the fur coat's still missing. You want a bow on everything. That's how you get worse books. A man went home. That's all we're given. I'm not adding a bow.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_last_bar",
+      "from": "1929-03-26",
+      "until": "1929-04-25",
+      "topic": "The bar missing at the end.",
+      "line": "There's a man at the Seminary, Dr. Strand, who wrote down the carol off the river in twenty-two bars and posted it to Wales. Wales cabled back for 'the bar missing at the end.' He can't write it down. He sang it to them by cable, twice, and their record has his breath where it should be. And he says the bar 'does not begin without' the twenty-two before it. I've read that forty times. It's my whole difficulty, put musically.",
+      "choices": [
+        {"label": "Your hymn has two endings. His won't take one.", "reply": "Two endings, nine copies, and nobody obliged to correct anybody. And this poor man has one ending and the wire won't carry it. I'd swap. No. I wouldn't. At least his can be heard by whoever's in the booth.", "trust": 1, "requires": ["jonah_hymn_two_endings"]},
+        {"label": "The people in the booth heard it sung. That counts.", "reply": "The operator heard it. Two of the faculty heard it. The machine got breath. So the ending exists; it only exists in the people who were in the room. I know about that. I was in a room once where the record got less than the people did.", "trust": 1, "flag": "jp_booth_heard"},
+        {"label": "He's a hymnologist. Just write the bar down.", "reply": "He says he can't. I believe him. Some endings can be sung and not written. If you'd ever tried, you'd know the hand goes stupid at the bar line. You'd know, if you'd tried.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_april_fifteenth",
+      "from": "1929-04-20",
+      "until": "1929-05-20",
+      "topic": "Mr. Gorman, attending 'in case.'",
+      "line": "Mr. Gorman's appeal on the eleven seconds. The clerk said April the fifteenth, then not Monday, then not today, then not this week. And Mr. Gorman, every time: 'been told April 15, and will be there April 15.' Attends 'in case.' Every day the court's sat. Waiting for the decision — the last line, if you like — and the court keeps not writing it. I know exactly what that's like from the other side of the desk.",
+      "choices": [
+        {"label": "You're the court in that story. Keeping someone waiting for a last line.", "reply": "Yes. Me. Keeping somebody in the gallery every day, waiting for a sentence I've got in my pocket. Who's waiting on mine? Nobody, I tell myself. Noel, with two coffees in a doorway, every Sunday. All right. Somebody.", "trust": 1, "flag": "jp_court_side"},
+        {"label": "What's he hoping is in eleven seconds?", "reply": "I don't think he's hoping; I think he's attending. Hope's for people who think the sentence might go their way. Attendance is for people who just want to be in the room when it's said. I envy that more."},
+        {"label": "Courts are slow. He should get used to it.", "reply": "Some of us got used to it. It takes the rest of your life. 'Get used to it' is how the waiting wins. I'd rather he kept turning up and annoying the clerk.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_three_words",
+      "from": "1929-05-10",
+      "until": "1929-06-08",
+      "topic": "'Take the mills,' or 'to the courts'?",
+      "line": "May Day. Two machines took down Mr. Ostrow's speech, the police wagon and the workers' own, and they agree for eleven minutes and part company at the last three words. Police: 'and then we will take the mills.' Committee: 'and then we will take the mills to the courts.' Same man, same breath, two endings, neither showing a break. And the magistrate dismissed it: 'the court cannot prefer one machine to another, and has no third.' Has no third. I'm framing that.",
+      "choices": [
+        {"label": "Two endings and nobody obliged to choose. You've done that.", "reply": "The hymn. Yes. Eight with one last line and one with the other, and I never told anyone, and here's a magistrate saying it's legally sound. 'Apparently sound, and in disagreement.' That's me. That's the whole of me, in one decision.", "trust": 1, "flag": "jp_no_third", "requires": ["jonah_hymn_two_endings"]},
+        {"label": "Three words decided whether he went to jail.", "reply": "Three words decide most things. Whether a man's a firebrand or a litigant. Whether he comes home. I spend my nights adding three words to the ends of sentences to see who survives them. Usually nobody.", "trust": 1},
+        {"label": "One of the machines is lying.", "reply": "Machines don't lie, they lose; the Hale installer said so in February, 'it cannot add a word, but it may lose one.' So one lost three. Or one heard three nobody said. Either way there's no third. There never is.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_single_names",
+      "from": "1929-06-14",
+      "until": "1929-07-12",
+      "topic": "Four hundred and twelve names, one by one.",
+      "line": "Newtown graduates four hundred and twelve today, and Dr. Pryor reads every name, and the house system takes it down, to be kept in his safe till the reunion in 1954. Parents have ordered six hundred discs of single names at a quarter each. Just the name. A boy's surname said once in a hall, pressed into wax, so the family can play it. I keep wondering what a surname sounds like said in a big room. Whether it's a prize or a sentence.",
+      "choices": [
+        {"label": "You heard your surname said in a big room once. It wasn't a prize.", "reply": "Not a prize. And nobody pressed a disc, thank God; I'd have bought it, and played it, and — no. I'd have kept it in the sleeve. Like the page. Twenty-five cents for the sound of what your name was going to mean. Some families get a bargain.", "trust": 1, "flag": "jp_surname_said", "requires": ["jonah_verdict_unwritten"]},
+        {"label": "Six hundred discs for 412 graduates. Some bought two.", "reply": "Grandmothers. And one for the father who couldn't get off work, I'd bet, so he can play it at night and pretend he was in the third row. That's what a record's for. Being in the room afterwards."},
+        {"label": "Twenty-five years is a long time in a safe.", "reply": "It's nothing. I've kept a chapter in a drawer longer. They'll open it in 1954 and someone will cry at their own name, and someone else will have died, and the record won't know which. Records never know who's gone."}
+      ]
+    },
+    {
+      "id": "jp_op_first_line",
+      "from": "1929-06-19",
+      "until": "1929-07-18",
+      "requires": ["op:jp_op_could_not_say"],
+      "topic": "The word, in the first line.",
+      "line": "Mr. Pruett of Elmhurst, the landlord who sold a tenant's kitchen record for fifteen dollars, convicted under section 14. The first. Fined two hundred and fifty. And the Record put it in the first line of the first column, no hedge, no parenthesis. Do you know how they do that? Every day? Some boy at a desk on Jackson Avenue sets that word before his breakfast and goes to lunch. I've a notebook of acquittals. They've a whole paper of the other.",
+      "choices": [
+        {"label": "Then let the Record write it for you. Copy the word.", "reply": "Copy it. From somebody else's hand into mine, as if I'd — that's cheating. That's how I learned to write at all, copying the Record into a composition book in a stairwell. ... Cheating might be the only way in. I'll think about it. Badly.", "trust": 1, "flag": "jp_copy_the_word"},
+        {"label": "He deserved it, selling a woman's kitchen.", "reply": "He did. Mrs. Dorr heard her own kitchen once, in the adjuster's office, when he said no. Deserving's not my difficulty. I know men get what they deserve, and some get what they don't. I can't write the day they get it."},
+        {"label": "Two hundred and fifty dollars isn't much of an ending.", "reply": "It's a fine, not an ending. Endings are always smaller than you want. A number. A word. That's what nobody tells you: you wait years for the last page and it's one word and a full stop.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_unclaimed_word",
+      "from": "1929-07-03",
+      "until": "1929-08-10",
+      "requires": ["op:jp_op_resent"],
+      "topic": "'Resent,' unclaimed in a vault.",
+      "line": "That word — 'resent' — from the gallery in January? It came back in March at the Senate hearing, taken down at twelve past five, nobody in the room owning it. Now the record's in the Senate Clerk's vault, unclaimed. Fifteenth week, the paper says. They print it weekly, like a tide table. Senator Keel has written five times. The word sits in a vault waiting for whoever said it to come and collect it. I'm rooting for it.",
+      "choices": [
+        {"label": "Nobody will claim it. Same as your last page.", "reply": "Unclaimed property. Yes. A word in a vault and a page in a drawer, both waiting for the author to turn up at the window with a form. The Senate's honest enough to print the number of weeks. I've stopped counting mine. That's the difference.", "trust": 1, "flag": "jp_unclaimed_page"},
+        {"label": "Maybe nobody said it. Maybe the room did.", "reply": "The room. Hm. A word a room keeps saying while people argue about whether rooms should listen. No, that's too neat; I'd cross that out in a draft. Life gets away with endings I'd cross out. I'll stay with a person. A person's worse."},
+        {"label": "Senators have better things to do.", "reply": "They've been told so, I'm sure. Keel writes anyway. A man who writes five letters about one word is my sort of man. Don't tell me he's wasting his time. He's the only one in Albany still listening.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_countdown",
+      "from": "1929-08-28",
+      "until": "1929-09-22",
+      "requires": ["op:jp_op_april_fifteenth"],
+      "topic": "The only sentence that ends itself.",
+      "line": "Mr. Gorman again. Every week to the clerk in Brooklyn for the calendar of September the twenty-third; none printed; he says a number and leaves. 'Forty-one days.' 'Thirty-four days.' 'Twenty-seven days,' and four other people in the office. A countdown's the only sentence that finishes itself. You don't write the last line; it's nought; it arrives. I thought I could write my last chapter as a countdown. And then I thought, no. I know what's at nought.",
+      "choices": [
+        {"label": "You know what's at nought. You were there when it arrived.", "reply": "I was there. Back row. The count was a man's mouth opening, and then the word, and it took longer than any number. You're the second person ever to just say I was there, as if that were a fact and not a wound. It's both. Thank you.", "trust": 1, "flag": "jp_was_there", "requires": ["jonah_verdict_unwritten"]},
+        {"label": "People are turning up to watch him count.", "reply": "Course they are. A countdown's a serial. Everyone wants the last instalment. I'd go on the twenty-third, if I could bear watching somebody else get theirs. I've only ever managed openings, at four o'clock."},
+        {"label": "He's making a show of himself.", "reply": "He's making a record of himself, a number a week, in public, so nobody can say he wasn't there. That's not a show. That's the most private thing a man can do, done on purpose in front of people.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_one_word_yes",
+      "from": "1929-09-21",
+      "until": "1929-10-18",
+      "topic": "Three hours twelve, and one word.",
+      "line": "The referee. Mr. Coombe, eighty-one, deaf in one ear, locked in a room with Mrs. Lindqvist's bedroom record for three hours and twelve minutes, alone, and then he handed the clerk one word in an envelope. 'Yes.' And on that word they burned it. Three hours of listening, one word of judgment. That is the job. That's exactly the job I've refused for twenty years, and an old man in Long Island City did it before lunch.",
+      "choices": [
+        {"label": "He heard it all and wrote one word. You heard it all too.", "reply": "One word. In an envelope. Nobody has to watch you write it; you seal it and hand it to the clerk. ... I could do it in an envelope. I could. Don't say anything. I'm going to write that down. The envelope. Not the word. The envelope.", "trust": 1, "flag": "jp_one_word_possible", "requires": ["jonah_verdict_unwritten"]},
+        {"label": "He wouldn't go and watch it burn.", "reply": "No. He'd done his part. You don't go to watch a sentence you've written carried out; you go home and eat. I think that's right. The writing's the brave bit. Watching it land is vanity."},
+        {"label": "They should have played it in open court.", "reply": "And every man in the room would carry that woman's bedroom in his ears for life? No. Some records you hear once, alone, and say one word about, and that's mercy. Not everything wants a gallery. I know about galleries.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_no_statement",
+      "from": "1929-09-24",
+      "until": "1929-10-22",
+      "requires": ["op:jp_op_countdown"],
+      "topic": "Mr. Gorman made no statement.",
+      "line": "It came. The twenty-third, listed sixth, decided at the first sitting: reversed, three to two, the eleven seconds to be played to counsel. 'A sealed count does not seal the wire.' And the last line of the item: 'Mr. Francis Gorman made no statement.' Weeks of numbers at the clerk's window. Thirty-six sittings. And when the ending came, the man who'd talked every week said nothing. I've been looking at that sentence like it's a door.",
+      "choices": [
+        {"label": "Maybe an ending doesn't need you to say anything. Just to be there.", "reply": "Just to be there. Not to write it. Not to say it. To have been in the room when it came, and then go home. I was in the room. I've always counted the being-there as nothing, when it's — no, let me finish — it's most of it.", "trust": 1, "flag": "jp_being_there"},
+        {"label": "The Board's appealing. It isn't over.", "reply": "No. Delaney wants Albany. There's always a further court; that's what I've hidden behind for years. Mr. Gorman knows there's another court and still let this one be the end of something. An ending doesn't have to be the last one.", "trust": 1},
+        {"label": "He should have crowed a bit. He'd earned it.", "reply": "Crowing's a speech. He'd made his speech every week, one number at a time. You don't say anything when the number arrives. You'd know, if you'd ever waited for one.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jp_op_no_word",
+      "from": "1929-10-30",
+      "until": "1929-11-09",
+      "topic": "The tone-book clerk 'had no word for it.'",
+      "line": "Tuesday. Sixteen million shares, and the ticker reads its last price at five thirty-two. And the clerk who keeps the tone book — writes down what the ticker sounds like every day at three, 'brisk,' 'running,' 'even' — made no entry. He 'had no word for it.' A man whose whole job is the word, and the day came, and he sat with the pen up. I know that man. I've been that man since I was a boy. I want to write to him.",
+      "choices": [
+        {"label": "He can write it tomorrow. You don't need the word on the day.", "reply": "Tomorrow. The day after. Thirty years after. ... Is that allowed? The entry for the day, written late, in the right column? I thought the word had to come at the time or not at all. I thought I'd missed it. Perhaps it's only late.", "trust": 1, "flag": "jp_word_late"},
+        {"label": "There'll be words for it in every paper by Friday.", "reply": "Crash, panic, collapse. All wrong, all printed. The clerk's the only honest man on the Street this week. His blank's the most accurate entry in the book. I'd know. I've kept one for years."},
+        {"label": "Did you lose anything?", "reply": "I sell books at a counter. I own the stool. No. I'll ask Noel on Sunday, in the doorway, whether he's all right. He'll say 'condition stable.' He always does. I'll believe him, because he'd say it either way."}
+      ]
+    },
+    {
+      "id": "jp_op_silence_again",
+      "from": "1929-11-08",
+      "until": "1929-11-09",
+      "requires": ["op:jp_op_names"],
+      "topic": "The silence, beside last year's.",
+      "line": "Monday they record the two minutes again, at the same buildings, and play each beside last year's. The same silence, a year on. I'd give a good deal to hear that: whether a year's silence sounds any different. Last year Borough Hall ran two minutes and four, because the clerk started his watch at the bell. I told someone once I could never write a pause that long. I might try one. Just to see where it ends.",
+      "choices": [
+        {"label": "Try one now. I'll keep it with you.", "reply": "... There. That was — I don't know how long that was. I didn't count. That's the first silence I've ever not counted. It hasn't got an ending. It just stopped, and here we both are. Huh. Here we both are.", "trust": 1, "flag": "jp_kept_the_silence"},
+        {"label": "Will you go and listen?", "reply": "They'll play them to a committee, not the public. I'll read it in the Record on Tuesday, which is how I take everything. Afterwards, in print, in somebody else's sentences. It's how my family hears news."},
+        {"label": "It'll sound the same. Silence is silence.", "reply": "Silence is never silence. There's always the elevated, and a cough at one minute ten. Every silence has someone in it who couldn't keep it. That's the bit worth comparing. Who couldn't, this year.", "trust": -1}
+      ]
+    }
+  ]
+}

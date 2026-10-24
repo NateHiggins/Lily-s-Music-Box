@@ -1,0 +1,205 @@
+{
+  "resident_id": "peter_wren",
+  "hook": "Have you read the Record tonight?",
+  "hook_line": "Twice. The second reading is for the corrections. Which item did you mean?",
+  "opinions": [
+    {
+      "id": "pw_op_clerk",
+      "from": "1928-11-16",
+      "until": "1928-12-14",
+      "topic": "The clerk who swore a statement.",
+      "line": "A receiving clerk at the Jamaica office. The Board said a clerk had entered the Riverhead returns twice and did not name him. The next morning, at twenty past ten, he named himself, in a sworn statement, and said the second entry is not in his hand. Twenty past ten. The morning after. I have been reading that time all week. I would have wanted the form for a sworn statement, and an opinion on the form. He simply went in.",
+      "choices": [
+        {"label": "You'd have been thorough. He was quick. They aren't the same courage.", "reply": "No. They are not. Mine is the kind that is admired at retirement dinners. His is the kind that gets a record opened. I should like, once, to have been the second kind before ten in the morning.", "trust": 1, "flag": "pw_heard_the_clerk"},
+        {"label": "Maybe his lawyer pushed him.", "reply": "He has a lawyer. A Mr. Gorman. I looked. But a lawyer cannot swear a statement for you; it is the one form in the world that will not take a countersignature. It is the only one I have never filled in."},
+        {"label": "It's an election squabble, Peter.", "reply": "It is a man whose name was nearly a mistake. Those are never squabbles to the man. I would ask you not to file it under squabble. I would have to cross-reference it.", "trust": -1}
+      ],
+      "silence_reply": "You are letting me reread it. Thank you. Twenty past ten. I do not think I have ever done anything at twenty past ten that I had not first done in my head for a month."
+    },
+    {
+      "id": "pw_op_one_hand",
+      "from": "1928-12-18",
+      "until": "1929-01-15",
+      "topic": "'To a degree I would put in writing.'",
+      "line": "Mr. Brandt, the handwriting examiner, told Justice Rourke that the ledger entry and the lineman's postcard are in one hand, 'to a degree I would put in writing.' I have cut that out. It is the most honest sentence a man in my old trade ever said to a court. Not certain. Certain to a degree, and the degree is: he will sign it. That is all certainty ever was. I did not know that at thirty.",
+      "choices": [
+        {"label": "Someone once asked how sure you were. You never put the degree in writing.", "reply": "I asked myself. I requested a form to say how sure I was, and then a form for the form. Mr. Brandt skipped both and signed. I am not envious. I am, I find on reflection, slightly envious.", "trust": 1},
+        {"label": "And the lineman's run off to Pennsylvania.", "reply": "With a valise and a receiving set, the landlady says. He sent a card: 'I fixed the instrument and went home.' A complete report. No reason, no second page. I disapprove of it entirely and I have read it eleven times."},
+        {"label": "Handwriting men will swear to anything for a fee.", "reply": "Some will. This one would not compare the card with the ledger without an order. He waited for permission and then he was sure. You see why I am in no position to scoff at him.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_red_line",
+      "from": "1929-01-08",
+      "until": "1929-02-05",
+      "requires": ["op:pw_op_clerk"],
+      "topic": "Ruled through in red ink.",
+      "line": "Mr. Pruitt is cleared. The Justice has ordered the Suffolk clerk to rule the false entry through in red ink and note the order beneath. Not erase it. Rule it through, so the wrong thing can still be read, with the correction under it. That is correct procedure, and it is the procedure I was taught as a boy, in a margin, by a woman with a red pencil. I had not expected a ledger to make me homesick.",
+      "choices": [
+        {"label": "Red ink in a margin. You've carried one of those a long time.", "reply": "Two words of it. Folded. You have a way of remembering what I said in other rooms. Yes. The ledger got its correction in eight weeks. Mine is pending. I would prefer not to say for how long.", "trust": 1, "flag": "pw_red_ink_named", "requires": ["see_me_note"]},
+        {"label": "So the wrong entry stays on the page forever.", "reply": "It stays legible. That is different from forever. A wrong thing ruled through is finished; a wrong thing rubbed out is only hidden, and hidden things are never finished. I have known that for years and I have rubbed nothing out."},
+        {"label": "Good. He got his name back. Case closed.", "reply": "Closed is a word for drawers. The Justice said he 'cannot find a purpose for the entry, the writer not being present to supply one.' The lineman is still wanted. Nothing is closed. Something is corrected, which is rarer.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_eleven",
+      "from": "1929-02-15",
+      "until": "1929-03-16",
+      "requires": ["op:pw_op_clerk"],
+      "topic": "Mr. Gorman will appeal.",
+      "line": "Justice Rourke has refused to have the eleven seconds played. The Board's record of the Riverhead wire ran eleven seconds longer than the sending, and the Board keeps them sealed 'with the count.' Then the last line: 'Mr. Gorman will appeal.' Three words, the same afternoon. He did not request a form to certify his intention to appeal. He did not ask whether he was sure. I read it at the kerb box and a man asked whether I was unwell.",
+      "choices": [
+        {"label": "There's a deadline for an appeal. You know it to the day.", "reply": "Thirty days, in most matters. I know it the way a man knows the step that is missing on his own stair. Mr. Gorman will be early. I find I want very badly for someone to be early.", "trust": 1, "flag": "pw_named_the_deadline"},
+        {"label": "What do you think is in eleven seconds?", "reply": "Commissioner Wallach said they are either something or nothing, and the Board should know which. I agree, and I notice nobody has listened. Eleven seconds is long enough for a man to say who he is. It is also long enough for a line to breathe."},
+        {"label": "Lawyers appeal everything. It's a business.", "reply": "Some do. Some sit at a desk with the form for an appeal in front of them and do not fill it in until it is a historical document. I would rather the business kind. The business kind files.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_second_hearing",
+      "from": "1929-03-01",
+      "until": "1929-03-30",
+      "topic": "The jury asked to hear it again.",
+      "line": "The Lasko jury retired at ten past four. At twenty past nine the foreman sent a note: would the court play the parlour record again, in full. And the Judge said yes. They were locked up for the night, heard all two hours ten the next morning, and acquitted. Twelve men were not sure, and there was a procedure for not being sure, and it was a note. A note. Nobody prints that box, I once said. Somebody does.",
+      "choices": [
+        {"label": "They weren't sure, so they asked. You thought not being sure meant stopping.", "reply": "I did. I thought doubt was a wall and the only door in it was certainty. The foreman used doubt as the door. 'Heard a man, and could not say which.' He said that to a Judge and went home. I should like to know where he learned it.", "trust": 1, "flag": "pw_asked_again"},
+        {"label": "Did they ever find the fur coat?", "reply": "No. Every item on the case has ended on the coat. 'The fur coat has not been found.' It is the most patient sentence in the paper. I have begun to admire the coat."},
+        {"label": "They let a burglar go because a machine drops words.", "reply": "Perhaps. The installer said it 'cannot add a word, but it may lose one.' A court that convicts on a record that may lose words has a gap it has not looked at. I have looked at one. I would rather twelve men be slow.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_by_belief",
+      "from": "1929-04-24",
+      "until": "1929-05-25",
+      "topic": "'Vantry and Co., by belief.'",
+      "line": "The licence forms are coming back to Borough Hall. Eleven questions. Ninety-seven arrived with the date of installation left blank, and yesterday Mr. Crane accepted, as an answer to who installed a system, the words 'by belief.' By belief. On a State form. I have spent years learning that a form will not take a reason it does not recognise, and a Deputy Secretary of State has simply decided to recognise one. I went and lay down.",
+      "choices": [
+        {"label": "If the State takes 'by belief,' your form might take 'no, proceed.'", "reply": "That is an unkind inference and a correct one. If belief is an answer, so is doubt with a date on it. I will do nothing about it tonight. I have, however, written 'by belief' on the back of the gas bill.", "trust": 1, "flag": "pw_by_belief", "requires": ["proceed_uncertain_offered"]},
+        {"label": "Has anyone filled one in for our system?", "reply": "I have no information about our system, which I should find more alarming than I do. A house this old was listening before there were forms. I imagine it would answer every question 'before the present owner.' So would I."},
+        {"label": "Blank answers. Sloppy.", "reply": "Honest, I think. A blank is what you write when the true answer is not on the list. I have a wallet of them. Do not call them sloppy in front of me; they are the most careful thing I own.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_licensed_twice",
+      "from": "1929-05-06",
+      "until": "1929-06-03",
+      "topic": "Two inspectors, one desk.",
+      "line": "The State's two inspectors licensed each other's office systems on Saturday. Mr. Fusco granted Mr. Teague's at twelve past ten; Mr. Teague granted Mr. Fusco's at nineteen past. Then someone noticed that the two applications describe one system, under the desk they share, now licensed twice. I laughed. I would like that recorded, because I do not, much. Two men countersigning each other until a thing is authorised beyond doubt, and nobody looking under the desk.",
+      "choices": [
+        {"label": "That's your hall. Every door confirmed twice and nobody looks underneath.", "reply": "Yes. You have a talent for finding my flat in the newspaper. Seven minutes between them. I imagine each felt very responsible. So do I, most evenings, and the desk goes unexamined.", "trust": 1, "flag": "pw_hall_in_the_paper"},
+        {"label": "At least it's definitely licensed.", "reply": "Doubly. If it is ever to be unlicensed it will have to be unlicensed twice, by each of them, in order. I have drafted the procedure in my head. It would take a fortnight."}
+      ]
+    },
+    {
+      "id": "pw_op_thirtieth",
+      "from": "1929-05-22",
+      "until": "1929-06-27",
+      "requires": ["op:pw_op_eleven"],
+      "topic": "Mr. Gorman's thirtieth sitting.",
+      "line": "No decision on the Riverhead seal again this week. The last line says Mr. Gorman attended yesterday's sitting, his thirtieth, with sandwiches. With sandwiches. He has been there every day the court sat since the spring, for eleven seconds, and he has begun to bring lunch. That is not a man hoping. That is a man who has decided the waiting is his work. I do not know whether to envy him or go and sit beside him.",
+      "choices": [
+        {"label": "You could sit beside him. You know that kind of room.", "reply": "I know a room like it. The chairs are the same in all of them, built so that nobody stays too long. I will not go. But I thought about the sandwiches, what I would bring. Cheese. That is further than I usually get.", "trust": 1, "flag": "pw_thought_of_brooklyn"},
+        {"label": "Why does he want them so badly, now his man's cleared?", "reply": "I have wondered. His client is cleared; the ledger is ruled through. What is left is only the gap itself, and he will not leave a gap alone. Some men are built so. Some are built to look at one for years."},
+        {"label": "Thirty sittings for eleven seconds is madness.", "reply": "Thirty sittings is what eleven seconds cost if you are the one who knows they are missing. I think it is cheap. I think the man who did not sit is the one with the bill.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_licence_late",
+      "from": "1929-06-28",
+      "until": "1929-07-30",
+      "topic": "Convicted for want of a licence.",
+      "line": "The first conviction under the Act. Mr. Pruett of Elmhurst, two hundred and fifty dollars, for selling a room's record without a licence. Not for the selling, mark you; for the licence. The court gave him thirty days. He applied on the Friday and was granted yesterday. Nine days from conviction. He could have done it in April. The whole of the crime, as the State can reach it, was a form he did not file in time.",
+      "choices": [
+        {"label": "That's what frightens you. One late form, and it's a conviction.", "reply": "For him it is a fine. For other men a late form costs a great deal more, and the bill is not sent to the man who was late. I will say only that I read the paragraph three times, put the kettle on, and did not drink it.", "trust": 1, "flag": "pw_late_form"},
+        {"label": "He sold a woman's kitchen for fifteen dollars. He deserved worse.", "reply": "Yes. Mrs. Dorr said she had heard the record once before, in the adjuster's office, 'when he told me no.' That is the worst line in the paper this month. The law could only reach him through the form. Sometimes the form is the only handle."},
+        {"label": "Two hundred and fifty's cheap.", "reply": "Cheap is a judgment on the fine. I am talking about the date. You are being practical at me, and I know it is kindly meant, and the hall grew a door while you said it.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_unclaimed",
+      "from": "1929-07-23",
+      "until": "1929-08-25",
+      "topic": "Held 'until applied for, by anyone.'",
+      "line": "The Board of Elections will not apply for the twenty-three primary records, 'not licensing what it did not make.' So Mr. Crane will hold them in his vault 'under section 9 until they are applied for, by anyone.' By anyone. And at Albany the Senate keeps its record of the word 'resent' in the vault 'where the Senate keeps what it has not claimed.' The State has acquired, this summer, a great many things waiting for someone to ask.",
+      "choices": [
+        {"label": "You've a drawer like that. Things waiting for you to ask for them.", "reply": "A wallet, which is a drawer I sit on. Yes. The difference is that Mr. Crane will hand his to anyone. I have not found anyone I would hand mine to. You are aware that I am looking at you while I say so, and not handing it over.", "trust": 1},
+        {"label": "Nobody will ever claim them.", "reply": "Somebody always claims, eventually. Usually somebody who should have claimed earlier and arrives with the form filled in and is too late. I imagine him in the corridor. I imagine him in more detail than is healthy."}
+      ],
+      "silence_reply": "You have not offered to claim anything for me. Good. People do. Then it is theirs, and I have a copy, and the vault is no emptier."
+    },
+    {
+      "id": "pw_op_counting_days",
+      "from": "1929-08-28",
+      "until": "1929-09-22",
+      "requires": ["op:pw_op_thirtieth"],
+      "topic": "'Twenty-seven days,' and he left.",
+      "line": "Mr. Gorman goes to the clerk's office in Brooklyn every week and asks for the calendar of September the twenty-third, and none is printed, and he says a number and leaves. 'Forty-one days.' 'Thirty-four days.' Yesterday 'twenty-seven,' and four other persons in the office. People are coming to watch him count. I count too. I keep the hall on the back of the gas bill. But I have never once counted towards anything.",
+      "choices": [
+        {"label": "You counted once. Toward a deadline, and past it.", "reply": "Past it. Yes. I wrote the date at the top of every form and watched it come and go, and on the day after I was very calm. Mr. Gorman's number gets smaller. Mine has been getting larger for a long time. I have not said that aloud before.", "trust": 1, "flag": "pw_counted_past", "requires": ["peter_gap_found"]},
+        {"label": "Four people watching. Next week it'll be ten.", "reply": "Eleven, I should think. A man counting down in public is irresistible. Everyone wants to be present for the nought. I would go myself, if I were a man who went to things on the day."},
+        {"label": "He'll be let down. Courts never sit when they say.", "reply": "Perhaps. But he will have been there on the day. You do not know how much that is worth, and I would rather you did not learn it the way I did.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_one_word",
+      "from": "1929-09-22",
+      "until": "1929-10-15",
+      "topic": "One word, yes or no.",
+      "line": "Justice Brett would not hear the Lindqvist bedroom record 'to decide whether it may be heard,' the soundest thing a judge has said all year. So he appointed a referee, Mr. Coombe, eighty-one and deaf in the left ear, to hear it alone and report one word. Yes or no. He sat three hours twelve minutes with it and handed in one word in a sealed envelope. A form with one box. I would have asked for a third.",
+      "choices": [
+        {"label": "There wasn't a third. He had to choose, and he did.", "reply": "He did. 'Yes.' Then it was burned at four minutes past eleven, and he declined to attend. I understand declining. I do not understand the yes, how it came out of him. I suppose the record was not uncertain, even if he was.", "trust": 1, "flag": "pw_heard_the_yes"},
+        {"label": "Better one old man hears it than a courtroom.", "reply": "That is the argument and I accept it, provisionally. It is a strange mercy: to spare a woman by choosing a stranger who will carry her bedroom for the rest of his life. Nobody asked the referee about that. There was no form."},
+        {"label": "Burning evidence is a bad precedent.", "reply": "It is a precedent. Whether it is bad I would want a decade to decide. She waited in the corridor three hours while a man listened to her room. I think she has earned a fire.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_reversed",
+      "from": "1929-09-24",
+      "until": "1929-10-20",
+      "requires": ["op:pw_op_counting_days"],
+      "topic": "'A sealed count does not seal the wire.'",
+      "line": "Reversed. Three to two. The Appellate Division has ordered the eleven seconds played to counsel, Justice Sayre writing that 'a sealed count does not seal the wire.' I have read it until the paper went soft at the fold. And the last line: 'Mr. Francis Gorman made no statement.' Thirty-six sittings, and the weeks at the clerk's window, and on the day it came he said nothing. I believe I understand him perfectly.",
+      "choices": [
+        {"label": "Some things you can only hear, not answer.", "reply": "Yes. Anything he said would have been a speech, and the day was not for speeches. It was for going home and sitting down. I hope someone made him tea. I hope he did not have to make it himself.", "trust": 1},
+        {"label": "The Board will appeal, surely.", "reply": "Certainly. Chairman Delaney has said so. There will be a further delay and a further court. I do not mind. Mr. Gorman has shown that a delay can be walked through, a day at a time, with sandwiches."},
+        {"label": "Eleven seconds. Probably nothing on them.", "reply": "Probably. Then the court would know they are nothing, which is a finding. A sealed nothing is not a nothing. It is a question with a lock on it. I keep one. I know the difference.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_first_train",
+      "from": "1929-10-17",
+      "until": "1929-11-09",
+      "requires": ["op:pw_op_reversed"],
+      "topic": "Albany, 'on the first train.'",
+      "line": "Leave granted. The Board may take the eleven seconds to the Court of Appeals in January, and they stay sealed till then. Mr. Gorman said he had expected it and would go to Albany 'on the first train.' Not a train. The first. A man made to wait a year, answering with the earliest departure there is. I have looked up the timetable. I have no business in Albany. I wanted to know what time he will be leaving.",
+      "choices": [
+        {"label": "You could be on the platform when it goes.", "reply": "I could. I will not. But I have written the time on a slip and put it in the wallet with the other things, and it is the first thing in there that is in the future. That seems to me a considerable alteration.", "trust": 1, "flag": "pw_platform"},
+        {"label": "Do you think he'll ever hear the eleven seconds?", "reply": "I think he will be in the room if they are played. Whether he hears anything is the gap's affair. One may be present for a thing and still not be given it. One goes anyway. That is the whole of what I know."},
+        {"label": "You'd want to check he was sure, first.", "reply": "That was unkind and I have earned it. No. I would not check. I would watch him get on. There is a kind of man who goes, and I have spent a long while studying him from the kerb.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_four_seconds",
+      "from": "1929-10-23",
+      "until": "1929-11-09",
+      "topic": "Four seconds the seven don't have.",
+      "line": "The Phonautograph Society compared nine records of one Long Island City window: seven made by the Society, two by a boy with his own machine. They agree, except that the boy's two carry four seconds at eleven minutes past three that the Society's seven do not. Mr. Fahey declines to describe them. All nine to be sealed for 1978. The boy waited in the hall an hour and fifty minutes. Nobody says whether he was told.",
+      "choices": [
+        {"label": "Four seconds. You've heard that number in this house before.", "reply": "I have heard every number in this house before. ... Do not tell me where. I asked you once not to give me a name and I am asking again, more carefully. Some gaps are four seconds long. That is all a clerk may say.", "trust": 1, "flag": "pw_four_not_asked", "requires": ["mina_four_seconds"]},
+        {"label": "The boy should have been let in to hear.", "reply": "Yes. An hour and fifty minutes in a hall, for his own record. They will seal his four seconds for fifty years in a case he will be too old to open. Someone should have opened the door to him. That takes no form.", "trust": 1},
+        {"label": "Machines disagree. Nothing strange in it.", "reply": "Machines disagree; men decline to describe. The second is the strange part, and it is never the machine's doing. You will forgive me if I find the second part harder to be easy about.", "trust": -1}
+      ]
+    },
+    {
+      "id": "pw_op_margin",
+      "from": "1929-11-02",
+      "until": "1929-11-09",
+      "topic": "Read out where the broker could not hold.",
+      "line": "Twenty-one thousand six hundred and forty margin calls placed to Queens in a week, and seven thousand three hundred of them read out by the operators, because the broker could not hold. Read 'exactly and at an even pace.' Imagine it. A girl on the night board reading a man his decision in someone else's words, at an even pace, and if he does not answer by morning it is answered for him. I have thought of nothing else since Tuesday.",
+      "choices": [
+        {"label": "Answered for him. That's the part you know.", "reply": "It is. When a man does not decide in time the decision does not wait; somebody else's procedure makes it, and he is left with a copy. Seven thousand copies this week. I should like to write to each of them: I know. I will not, of course.", "trust": 1, "flag": "pw_answered_for_him"},
+        {"label": "The operators held up, at least.", "reply": "The superintendent says the board held. I believe it. There is a particular steadiness in reading bad news for someone else; it is not yours, so you can be exact. I was very exact, once, with somebody else's bad news."},
+        {"label": "They gambled. They should have seen it coming.", "reply": "Some did. Some signed the last page of a form they never read. I am not in a position to scorn a man who failed to see a date coming, and I would ask you not to be either, at a door like mine.", "trust": -1}
+      ]
+    }
+  ]
+}

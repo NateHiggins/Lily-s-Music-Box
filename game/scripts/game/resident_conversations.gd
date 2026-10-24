@@ -57,6 +57,29 @@ const SCHEDULES_PATH := "res://data/resident_schedules.json"
 ## crude on purpose; {unit} is replaced with the apartment number.
 const NOTES_PATH := "res://data/field_notes.json"
 const NOTE_PREFIX := "note:"
+## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md §7): what a resident
+## thinks of the news while it is news. Literal paths for the reader gate.
+const OPINION_PATHS: Array[String] = [
+	"res://data/opinions/cal_dwyer.json",
+	"res://data/opinions/cam_ortiz.json",
+	"res://data/opinions/evelyn_marsh.json",
+	"res://data/opinions/iris_bell.json",
+	"res://data/opinions/jonah_price.json",
+	"res://data/opinions/juno_kells.json",
+	"res://data/opinions/lena_ortiz.json",
+	"res://data/opinions/mae_kessler.json",
+	"res://data/opinions/malcolm_reed.json",
+	"res://data/opinions/nadia_quell.json",
+	"res://data/opinions/noel_price.json",
+	"res://data/opinions/omar_bell.json",
+	"res://data/opinions/peter_wren.json",
+	"res://data/opinions/rhea_sato.json",
+	"res://data/opinions/sacha_reed.json",
+	"res://data/opinions/teresa_vale.json",
+	"res://data/opinions/transient_guests.json",
+]
+const OPINION_PREFIX := "op:"
+const OPINION_MENU := "op_menu"
 
 ## Trust at which a resident moves on from first contact, and at which the one
 ## quiet integration beat is offered. Mina's case uses its own stages.
@@ -67,7 +90,9 @@ var dialogue: CaseDialoguePanel
 var trees: Dictionary = {}
 var units: Dictionary = {}
 var notes: Dictionary = {}
+var opinions: Dictionary = {}   # resident_id -> {hook, hook_line, opinions: [..]}
 var _last_player: Node = null
+var _clock: CampaignClock
 var errors: Array[String] = []
 var _unit_resolver: Callable = Callable()
 var _home_resolver: Callable = Callable()
@@ -87,6 +112,7 @@ func setup(panel: CaseDialoguePanel, player_unit := Callable(),
 	_load_units()
 	_load_trees()
 	_load_notes()
+	_load_opinions()
 
 
 func _ready() -> void:
@@ -165,7 +191,7 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
-	var tree: Dictionary = trees[resident_id]
+	var tree: Dictionary = with_opinions(resident_id, trees[resident_id], today())
 	var entry_id := entry_for(resident_id)
 	var entries: Dictionary = tree.get("entries", {})
 	var node_id := str(entries.get(entry_id, entries.get("first_stable", "")))
@@ -279,6 +305,143 @@ func file_note(note_id: String, player: Node) -> bool:
 		return false
 	RealityState.grant_knowledge(NOTE_PREFIX + note_id)
 	return true
+
+
+## --- opinions ------------------------------------------------------------
+
+## The campaign date as YYYY-MM-DD, or "" when no clock is bound (a bare test).
+func today() -> String:
+	if _clock == null:
+		_clock = CampaignClock.new()
+	if not _clock.bind_state():
+		return ""
+	var local := _clock.local_datetime()
+	if local.is_empty():
+		return ""
+	return "%04d-%02d-%02d" % [int(local.year), int(local.month), int(local.day)]
+
+
+## The opinions a resident would raise today: inside their window, not yet
+## heard, and with every `requires` flag known (earlier opinions grant
+## op:<id>, so views can build on views).
+func active_opinions(resident_id: String, date: String) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	if date == "":
+		return out
+	for opinion in (opinions.get(resident_id, {}).get("opinions", []) as Array):
+		if date < str(opinion.get("from", "")) or date > str(opinion.get("until", "")):
+			continue
+		if RealityState.has_knowledge(OPINION_PREFIX + str(opinion.id)):
+			continue
+		var ready := true
+		for flag in opinion.get("requires", []):
+			if not RealityState.has_knowledge(str(flag)):
+				ready = false
+		if ready:
+			out.append(opinion)
+	return out
+
+
+## A working copy of the tree with today's opinions grafted on: every entry
+## node gains the resident's hook reply, which leads to the one opinion or to a
+## short menu of them; each opinion node grants op:<id> on arrival and its
+## replies answer once, then the conversation resumes at the door.
+func with_opinions(resident_id: String, tree: Dictionary, date: String) -> Dictionary:
+	var active := active_opinions(resident_id, date)
+	if active.is_empty():
+		return tree
+	var record: Dictionary = opinions[resident_id]
+	var copy: Dictionary = tree.duplicate(true)
+	var nodes: Dictionary = copy.nodes
+	var entries: Dictionary = copy.get("entries", {})
+	var home := str(entries.get(entry_for(resident_id), entries.get("first_stable", "")))
+	var hook_goto := OPINION_PREFIX + str(active[0].id)
+	if active.size() > 1:
+		var menu := {"line": str(record.get("hook_line", "Which part?")), "choices": [],
+			"silence_goto": home}
+		for opinion in active:
+			menu.choices.append({"label": str(opinion.get("topic", opinion.id)),
+					"goto": OPINION_PREFIX + str(opinion.id)})
+		nodes[OPINION_MENU] = menu
+		hook_goto = OPINION_MENU
+	for opinion in active:
+		var node_id := OPINION_PREFIX + str(opinion.id)
+		var node := {"line": str(opinion.line), "flag": node_id, "choices": [],
+			"silence_goto": home}
+		if str(opinion.get("silence_reply", "")) != "":
+			nodes[node_id + ":s"] = {"line": str(opinion.silence_reply),
+					"choices": [{"label": "...", "goto": home}], "silence_goto": home}
+			node.silence_goto = node_id + ":s"
+		var replies: Array = opinion.get("choices", [])
+		for i in replies.size():
+			var reply: Dictionary = replies[i]
+			var reply_id := "%s:r%d" % [node_id, i]
+			var choice := {"label": str(reply.label), "goto": reply_id}
+			for key in ["trust", "flag", "requires", "infer"]:
+				if reply.has(key):
+					choice[key] = reply[key]
+			node.choices.append(choice)
+			nodes[reply_id] = {"line": str(reply.reply),
+					"choices": [{"label": "...", "goto": home}], "silence_goto": home}
+		nodes[node_id] = node
+	for entry_name in entries:
+		var entry_node: Dictionary = nodes.get(str(entries[entry_name]), {})
+		if entry_node.is_empty():
+			continue
+		var choices: Array = entry_node.get("choices", [])
+		if choices.any(func(c): return str(c.get("goto", "")) == hook_goto):
+			continue
+		choices.append({"label": str(record.get("hook", "You've seen the paper.")), "goto": hook_goto})
+		entry_node["choices"] = choices
+	return copy
+
+
+func _load_opinions() -> void:
+	opinions.clear()
+	for path in OPINION_PATHS:
+		if not FileAccess.file_exists(path):
+			continue   # authored per resident as the year's papers land
+		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+		if parsed is not Dictionary or str(parsed.get("resident_id", "")) == "" \
+				or parsed.get("opinions") is not Array:
+			errors.append("opinions unreadable: %s" % path)
+			continue
+		if _valid_opinions(parsed, path):
+			opinions[str(parsed.resident_id)] = parsed
+
+
+func _valid_opinions(record: Dictionary, path: String) -> bool:
+	var ok := true
+	if str(record.get("hook", "")) == "":
+		errors.append("%s: hook is empty" % path)
+		ok = false
+	var seen: Dictionary = {}
+	for opinion in record.opinions:
+		if opinion is not Dictionary:
+			errors.append("%s: an opinion is not an object" % path)
+			ok = false
+			continue
+		var id := str(opinion.get("id", ""))
+		if id == "" or seen.has(id):
+			errors.append("%s: opinion id missing or repeated: %s" % [path, id])
+			ok = false
+		seen[id] = true
+		for field in ["from", "until", "topic", "line"]:
+			if str(opinion.get(field, "")) == "":
+				errors.append("%s: opinion %s has no %s" % [path, id, field])
+				ok = false
+		if str(opinion.get("from", "")) > str(opinion.get("until", "")):
+			errors.append("%s: opinion %s ends before it starts" % [path, id])
+			ok = false
+		if opinion.has("requires") and opinion.requires is not Array:
+			errors.append("%s: opinion %s requires is not a list" % [path, id])
+			ok = false
+		for reply in opinion.get("choices", []):
+			if reply is not Dictionary or str(reply.get("label", "")) == "" \
+					or str(reply.get("reply", "")) == "":
+				errors.append("%s: opinion %s has a reply without label or reply" % [path, id])
+				ok = false
+	return ok
 
 
 ## --- loading ------------------------------------------------------------

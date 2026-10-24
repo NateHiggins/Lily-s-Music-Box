@@ -80,6 +80,18 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     # every record field (line, role, choices, silence_goto, flag...) is read by name.
     # Field notes are keyed by note id; the director reads each note's fields.
     "field_notes.json": frozenset({"notes"}),
+    # The daily papers: papers keyed by id; every issue field is read by the
+    # catalogue's validator and printed by the panel.
+    "newspapers/papers.json": frozenset({"papers"}),
+    "opinions/cal_dwyer.json": frozenset(), "opinions/cam_ortiz.json": frozenset(),
+    "opinions/evelyn_marsh.json": frozenset(), "opinions/iris_bell.json": frozenset(),
+    "opinions/jonah_price.json": frozenset(), "opinions/juno_kells.json": frozenset(),
+    "opinions/lena_ortiz.json": frozenset(), "opinions/mae_kessler.json": frozenset(),
+    "opinions/malcolm_reed.json": frozenset(), "opinions/nadia_quell.json": frozenset(),
+    "opinions/noel_price.json": frozenset(), "opinions/omar_bell.json": frozenset(),
+    "opinions/peter_wren.json": frozenset(), "opinions/rhea_sato.json": frozenset(),
+    "opinions/sacha_reed.json": frozenset(), "opinions/teresa_vale.json": frozenset(),
+    "opinions/transient_guests.json": frozenset(),
     "dialogue/cal_dwyer.json": frozenset({"nodes"}),
     "dialogue/cam_ortiz.json": frozenset({"nodes"}),
     "dialogue/evelyn_marsh.json": frozenset({"nodes"}),

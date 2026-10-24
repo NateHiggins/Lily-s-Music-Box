@@ -1,0 +1,224 @@
+{
+  "resident_id": "juno_kells",
+  "hook": "Heard anything good on the wire?",
+  "hook_line": "Good? Everything's good. I've six things cued. Pick one.",
+  "opinions": [
+    {
+      "id": "jk_op_silence",
+      "from": "1928-11-11",
+      "until": "1928-11-30",
+      "topic": "The cough at one minute ten.",
+      "line": "Two hundred and twelve buildings record the two minutes and the best thing on any of them is a cough. Courthouse, one minute ten, and the stenographer enters it as unidentified. Unidentified! The only person in Queens who did anything original all morning, and he goes in the record with no name. I want that cough. I'd trade a Caruso for it. I'd loop it under the elevated, which got docked for not being silent, which is the elevated's best review.",
+      "choices": [
+        {"label": "You'd want him credited. The man who coughed.", "reply": "Yes! Credit the cough. That sounds like a joke and it isn't. Somebody stood in that room trying to be quiet for the dead, and his body did a thing, and now it's a line in a ledger. Unidentified. I know how that line reads. I've been that line.", "trust": 1, "flag": "jk_credit_the_cough"},
+        {"label": "Queens came second.", "reply": "Second quietest, behind the Bronx, docked for the elevated, and Manhattan's got a steamship in it. A contest for who can do nothing best and we lost on a train. I've never been prouder of the borough."},
+        {"label": "You'd steal a cough from a memorial?", "reply": "Steal is a big word for a small sound. Borrow. Sample. Fine, steal. Don't look at me like that. I said I'd trade a Caruso for it. Trading's not stealing. Ask Cal. He trades with me.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_tug",
+      "from": "1928-11-20",
+      "until": "1928-12-15",
+      "topic": "Sixteen-ten, and nobody got it.",
+      "line": "A tug hears a station off Hunters Point calling itself WORS 1610 and the Radio Division goes and finds the river. Now a kid on 31st Street gets it on a crystal set, no valve, and they've borrowed his set. Borrowed. I know that word. Nobody recorded it, is the crime. Every house system in this borough and not one was on sixteen-ten at the right minute. I've moved a set to the window. I'm sleeping in my clothes.",
+      "choices": [
+        {"label": "And when you get it, whose is it?", "reply": "Theirs. Whoever's sending. I know. It's mine for as long as it takes to make a copy and then I'm a woman with somebody else's voice in a box again. I'll still record it. I'll just label it right. Not mine. In big letters.", "trust": 1, "flag": "jk_asked_whose"},
+        {"label": "Cal probably hears it every night.", "requires": ["cal_juno_trade"], "reply": "Cal hears everything and logs it and never plays it back, which is like owning a piano you only dust. If he's got sixteen-ten he's not trading it. I asked. He changed the subject to weather. He always changes the subject to weather.", "trust": 1},
+        {"label": "The kid will get his set back.", "reply": "Will he? Inspectors borrow things the way I borrow things. With every intention. I'm going round with a cake. Somebody should be on that boy's side and it's going to be the worst possible person for it."}
+      ]
+    },
+    {
+      "id": "jk_op_capsule",
+      "from": "1928-12-06",
+      "until": "1929-01-05",
+      "topic": "Record something for 1978.",
+      "line": "The Phonautograph Society has opened its 1978 case to the whole borough. Record something. That's the slogan. Record something. As if the future's going to be short of noise. They've got a carol list and a time limit and a man who checks your disc for scratches. Fifty years from now somebody's going to open a copper box full of Queens clearing its throat. I'm not putting anything in. I'm recording the people putting things in.",
+      "choices": [
+        {"label": "That way nobody ever knows you're in it.", "reply": "That's mean. That's accurate and it's mean. Yes. If I'm the one holding the microphone I'm never the one in the box. Safest seat in the house. I've been sitting in it about ten years. It's got a dent.", "trust": 1},
+        {"label": "Who decides what goes in?", "reply": "Mr. Abbot. Mr. Abbot and a committee and a scratch inspector. The future's being chosen by a man in a cardigan. I've seen the cardigan. It has opinions. Most of them are about Wesley."},
+        {"label": "It's a lovely idea, though. A message forward.", "reply": "It's a lovely idea. Everyone thinks so. That's how you can tell. Nobody in 1978 is going to want our lovely ideas. They'll want the bit where the man drops the disc and swears.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_carol",
+      "from": "1928-12-26",
+      "until": "1929-01-25",
+      "topic": "The carol nobody wrote.",
+      "line": "Christmas night sixteen-ten plays a carol, organ and voices, twelve minutes, and Sister Bernadette and the organist at St. Fidelis can't name it. Not in any hymnal. Two families in Woodside got it on record. One copy to the seminary, one in the 1978 case. Everybody's hunting the composer. I hope they never find him. A piece of music out there with nobody's name on it, and nobody's name scraped off it. Cleanest thing I've heard all year.",
+      "choices": [
+        {"label": "Nobody's name scraped off. That's the part you heard.", "requires": ["credit_was_taken"], "reply": "You were listening the first time. Yes. It doesn't belong to anybody, so nobody can take it. Nobody's going to sit in a hall and clap the wrong man for it. I'd give a lot to have written something like that, and more to have nobody know.", "trust": 1},
+        {"label": "You want a copy of the Woodside record.", "reply": "So badly I've been rehearsing what to say to a Woodside housewife. Hello, you don't know me, I'll do your windows. I'll get it. I'll trade. I always trade. That makes it fair, I keep saying.", "flag": "jk_wants_the_carol"},
+        {"label": "Probably some church in Wales.", "reply": "Probably. Then a Welsh vicar turns up and says it's his grandfather's and that's the end of it. Somebody always claims the good ones. I give it till spring.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_no23",
+      "from": "1929-01-19",
+      "until": "1929-02-20",
+      "topic": "They asked in writing.",
+      "line": "Record No. 23, the Maspeth party's midnight. The Society votes nineteen to eighteen not to play it, and old Abbot casts the vote, because the three men on it asked in writing for it to rest a year. Asked. In writing. And it worked. Thirty-seven people who record everything on earth voted to leave three men alone because they asked. I've never once been asked. I've never once asked. I'm sitting here doing arithmetic about that.",
+      "choices": [
+        {"label": "Which side of the arithmetic bothers you more?", "reply": "The asking. Not the being asked. Being robbed you can be angry about; it's clean, it's a hall full of people clapping the wrong person. Not asking is just me in a room with a box I've labelled very honestly. Next question.", "trust": 1},
+        {"label": "Mrs. Grieve's going to keep moving to play it.", "reply": "She will. February, then March. She thinks a record that isn't played is a lie. She's wrong. A record that isn't played is a promise. I'm terrible at promises. I'm very good at records."},
+        {"label": "Sounds like a cover-up to me.", "reply": "Maybe. Covers are fine. Everything good I ever recorded had a cover on it once. The difference is who lifts it. If they lift it, that's a record. If I lift it, it's a burglary with good levels.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_valentines",
+      "from": "1929-02-14",
+      "until": "1929-03-12",
+      "topic": "Two hundred and fourteen second takes.",
+      "line": "The Arcade booth by the toy counter cut eighteen hundred and sixty speaking valentines this week, twenty-five seconds for fifteen cents, stiff envelope. And the attendant says two hundred and fourteen people recorded theirs twice. Two hundred and fourteen second takes. Every one of those people threw away the first, and the first is the one where your voice cracks on the name. The first take is the true one. Nobody ever posts the first take.",
+      "choices": [
+        {"label": "Do you ever keep a first take of yourself?", "reply": "Never. I don't record myself. I record the room I'm in, and I'm careful to stand out of it. If I cut one of those discs I'd do it forty times and post none. Two hundred and fourteen people were braver than me before breakfast.", "trust": 1},
+        {"label": "Did you send one?", "reply": "A blank. Twenty-five seconds of the booth with the door shut. Fifteen cents. To a man who once put his name on my music. He'll play it and hear a room he's never been in and not know who from. Best fifteen cents I ever spent."},
+        {"label": "You'd go through the booth's bin for the first takes.", "reply": "I asked. They shave them and recut. I asked what they'd take for the shavings. The girl said a valentine. I didn't have one. That's a joke. It isn't a joke. Mind the cable.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_hale",
+      "from": "1929-03-01",
+      "until": "1929-03-30",
+      "topic": "The record that loses words.",
+      "line": "The Lasko jury goes out, asks at twenty past nine to hear the Hale parlour record again, hears it, and acquits. On a record with a man saying 'It's only Vic' to the dog. Why? Because the installer swore the system loses words in the cold. Loses words in the cold! Every recordist alive knows that and nobody ever says it in court. A record isn't a witness. It's a performance with the performer asleep. I'm on Lasko's side and I can't stand it.",
+      "choices": [
+        {"label": "You're on his side because records lie, and you've made a few.", "reply": "Made, cut, spliced, labelled honestly and lied with anyway. Yes. A record says what the microphone heard, and the microphone was where I put it. I'm the one who chose the wall. Lasko still took the silver. I'd bet the dog knows.", "trust": 1},
+        {"label": "He took the silver. The pawnshop proves it.", "reply": "The pawnshop proves somebody pawned silver. The record proves somebody said Vic to a dog in a cold room. The jury heard it twice and heard a gap where they wanted a word. I'd have acquitted too. I'd have hated it."}
+      ]
+    },
+    {
+      "id": "jk_op_wales",
+      "from": "1929-03-22",
+      "until": "1929-04-20",
+      "requires": ["op:jk_op_carol"],
+      "topic": "The bar that won't be taken.",
+      "line": "Dr. Strand sings the sixteen-ten carol down the cable to the Library of Wales and they get twenty-two bars. Where the twenty-third goes: breath and line noise, about four seconds. The operator on Broad Street heard him sing it. He'll go again Monday with witnesses in the booth, and I'll bet Wales gets his hello, his goodbye and breath. It won't go on the record. That bar will not be taken. I'm so jealous of a bar of music I could scream.",
+      "choices": [
+        {"label": "Jealous because nobody can take it, if you're that bar.", "reply": "If I were that bar. Yes. The line carries everything either side and drops the one thing that's yours. You can sing it in a booth with witnesses. It's real; people heard it. And it never goes in anybody's box. I've been a terrible bar of music.", "trust": 1},
+        {"label": "Four seconds. Cal will want to hear about that.", "requires": ["juno_cal_kinship"], "reply": "Cal already knows. He knew before I said it; he went a colour. Four seconds of nothing is his favourite length and he'll never tell me why. I'll trade him the Wales cable for whatever he's got. He'll say no. He always says no to the good trades.", "trust": 1},
+        {"label": "Probably the cable company.", "reply": "The cable company says the line was clear. A line that's clear and drops one bar sounds like a choice. Lines don't choose. So something does, and I'd like its name for the credits.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_talkback",
+      "from": "1929-04-08",
+      "until": "1929-05-05",
+      "requires": ["op:jk_op_tug"],
+      "topic": "Asked not to talk back.",
+      "line": "Sixteen-ten's back after twenty-eight nights, figures in the February voice, Astoria, Woodside, Hunters Point. And the Radio Division has asked the household on 61st Street not to speak to the family set. Not to speak to it. They talked back to it once and the Division would like them to stop. A family with a set that might be listening, and the government's advice is: don't. Never open the other direction. I've lived by that. It's lonely advice.",
+      "choices": [
+        {"label": "You've never set up a channel somebody could talk back on.", "reply": "Never. Input only, my whole life. You hear everything and nobody hears you hear it. Those people said goodnight to a radio and it frightened the government. I'd like to know what it was like to say it. Not what they said. What it was like.", "trust": 1, "flag": "jk_talkback_heard"},
+        {"label": "What did they say to it?", "reply": "Goodnight, the Speaker says. Just goodnight. Then whatever happened next made the Division ask them not to. Nobody's printed what happened next. Somebody's got a record. Somebody always has. It's never me when it matters."},
+        {"label": "Good advice. You don't talk to a radio.", "reply": "Everybody in Queens talks to a radio. We call it the telephone. The Division's never once told an operator not to answer. Only the people at home get told to keep quiet.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_lindbergh",
+      "from": "1929-05-28",
+      "until": "1929-06-25",
+      "topic": "No record, by request.",
+      "line": "Lindbergh marries Anne Morrow at Englewood and the house system is switched off at its board at three o'clock, at the family's request. No record. The whole city's spitting. I keep reading the phrase. At the family's request. They asked. They asked the house not to listen and the house didn't, and nobody even had to go to court. First time all year I've read about anyone being asked. It's in a wedding notice. Of course it's in a wedding notice.",
+      "choices": [
+        {"label": "Asking. It keeps coming back to asking with you.", "requires": ["op:jk_op_no23"], "reply": "It does. Every story, I go straight to whether anybody asked, like checking a cable for the join. Maspeth asked. The Lindberghs asked. I go into a room with a contact microphone and I don't. I'm working on it. Slowly. Badly.", "trust": 1},
+        {"label": "Would you have tried to get it anyway?", "reply": "Yes. A contact microphone on the garden wall. Two hours on the bus to Englewood. I'd have got the vows and the dog. Then I'd have had it, and nobody could ask for it back because nobody knew. That's how it starts. That's exactly how."},
+        {"label": "Shame. History would want that wedding.", "reply": "History's got the flight, the parade, the dinners, his mother's handbag. History can do without one afternoon. That's the preservation people talking, and I'm not one of them, whatever's on my shelves.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_dawn",
+      "from": "1929-06-22",
+      "until": "1929-07-20",
+      "topic": "Forty-one cycles under the birds.",
+      "line": "The Society goes to Alley Pond at ten to five with fourteen machines and records eighty-five minutes of the dawn. Forty-seven species by ear. And Mr. Abbot admits every record's got the tone on it, forty-one cycles, throughout, beneath the birds. Keeping it as heard. The light company says Alley Pond isn't on its system. Of course the tone's under the birds. It's under everything. Every take I've ever made is a duet with something I didn't hire.",
+      "choices": [
+        {"label": "You've never once filtered it out.", "reply": "Never. I tried once, early, a notch filter, very proud of it. The take came out thin as paper. Like a photograph with the shadows cut off. Nobody sounds right in this borough without it under them. Don't ask me what it is. I just credit it.", "trust": 1, "flag": "jk_kept_the_tone"},
+        {"label": "Abbot's right to keep it.", "reply": "He's right for the wrong reason. He thinks 1978 wants to know what dawn sounded like. 1978 won't care. It's right because cutting it is a lie. Forty-seven birds and a tone. That's the take. Don't fix the take."},
+        {"label": "Sounds like noise on the record.", "reply": "Noise is what you call a sound you didn't want. Forty-one cycles has been in every room I've ever recorded. If it's noise it's the most faithful noise in New York. More faithful than most collaborators.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_schism",
+      "from": "1929-07-09",
+      "until": "1929-08-05",
+      "requires": ["op:jk_op_dawn"],
+      "topic": "To record what is meant to be heard.",
+      "line": "The Society votes nineteen to fourteen to keep the tone on the Alley Pond records, and the fourteen stand up at twenty to ten and walk out into the heat, and by eleven they've founded the Phonautograph Circle of Flushing, to record what is meant to be heard. Meant by who? That's the whole art, isn't it, deciding what was meant, and they've put it on their letterhead like it's simple. Mrs. Grieve left by the same door. Said nothing.",
+      "choices": [
+        {"label": "You decide what's meant every time you cut a take.", "reply": "Every splice. Every edit. I choose what the person meant and then I make them mean it. That's the job. It's a filthy job. The Circle at least put it on a letterhead. I've only ever put it on a label. Edited. One word for a lot of choosing.", "trust": 1},
+        {"label": "Whose side are you on?", "reply": "Abbot's. Record it as heard. Then I go home and splice like the Circle. I'm on Abbot's side in public and the Circle's at two in the morning. Most people are. The fourteen were just honest about which hour they keep."}
+      ]
+    },
+    {
+      "id": "jk_op_hum_stopped",
+      "from": "1929-08-20",
+      "until": "1929-09-15",
+      "topic": "Monday, without the tone.",
+      "line": "Monday it went. Four past midnight to two past midnight, the whole of Queens and Brooklyn without the tone. I recorded the lot. Twenty-four hours of the borough with its bass taken out. Do you know what Queens sounds like without it? Like a radio play performed in a bathroom. Everyone talking a bit too loud. Four thousand eight hundred and seventy calls to say it's gone. Thirty-one at Jamaica Hospital for want of sleep. I didn't sleep either. I was working.",
+      "choices": [
+        {"label": "Working, so you didn't have to be awake in it.", "reply": "Headphones on, so I'm listening to the borough and not to my room. Yes. If you're holding the microphone it's material. If you're not, it's just a night where something you've leaned on your whole life isn't there. I held it. Twenty-four hours. Wrist's still sore.", "trust": 1},
+        {"label": "Will you play it for anyone?", "reply": "Cal asked if I'd got it. Then he said don't play it to him. He's never asked me a question and then told me not to answer it. So I'm keeping it on the shelf next to the things he won't play either. We'll both be very quiet about it."},
+        {"label": "It came back. No harm done.", "reply": "Thirty-one in hospital for want of sleep. Milk late in Woodhaven. The El empty till nine. No harm. Things that come back aren't the same as things that never went. Ask anybody who's ever got something back.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_meadow",
+      "from": "1929-08-22",
+      "until": "1929-09-20",
+      "requires": ["op:jk_op_schism"],
+      "topic": "Returned unfiled.",
+      "line": "Mr. Moss of the Circle recorded the Flushing Meadow dumps at noon on Monday, without the filter, because there was nothing to filter. They played it at the library last night. Mrs. Grieve walked out in the second minute. Then they voted seventeen to nothing not to keep it. Returned to Mr. Moss unfiled, no reason entered. The Circle that wanted to record what's meant to be heard heard it and threw it back. I'd give my recorder for that disc. I've written to Mr. Moss twice.",
+      "choices": [
+        {"label": "Unfiled. That's the word that got you.", "requires": ["credit_was_taken"], "reply": "It's the word. My piece in that hall was unfiled. Played, heard, and then it wasn't anywhere it should be. Now Moss has a disc in his house that seventeen people heard and decided didn't happen. I'd like to sit with it. That's all. Sit with it.", "trust": 1},
+        {"label": "What made Mrs. Grieve walk out?", "reply": "Whatever's in the second minute. I'd guess nothing. Just the Meadow, the gulls, the dumps, with nothing under them. Some people can't stand a place with the floor taken out. She's the one who wanted record No. 23 played. Funny who can't bear what."}
+      ]
+    },
+    {
+      "id": "jk_op_lindqvist",
+      "from": "1929-09-21",
+      "until": "1929-10-20",
+      "topic": "The bedroom record, burned.",
+      "line": "Mrs. Lindqvist's landlord had a system on her bedroom. The referee heard it alone and reported one word: yes. And at eleven this morning, in the courthouse boiler, it goes in, wax and all, heard by nobody but him. Mr. Toll won't appeal. Costs to the tenant. Nobody else will ever hear it. I nearly went to watch. I got as far as the courthouse steps, and then I came home and sat with my boxes.",
+      "choices": [
+        {"label": "You've got a box that's somebody's room.", "requires": ["juno_has_eighteen"], "reply": "Not a bedroom. Same thing to the person in it. Mrs. Lindqvist went to court. She shouldn't have had to. Nobody should have to sue me to get their own voice back. I'm going to make sure nobody has to. I'm going to carry it up.", "trust": 1, "flag": "jk_lindqvist_box"},
+        {"label": "Nobody should ever have heard it.", "reply": "Nobody should have recorded it. Hearing comes after. The referee had to hear it to say yes, and I'd bet he won't go to the burning; he's been there already. Hours in somebody's nights. He'll carry that."},
+        {"label": "Seems a waste. It might've been evidence one day.", "reply": "It was evidence. Evidence that he did it. That's why it burns. You don't keep a thing that's proof of a theft so you can look at the theft later. I'm talking about the landlord. Obviously. The landlord.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_maspeth",
+      "from": "1929-09-26",
+      "until": "1929-10-25",
+      "topic": "Position 12's record.",
+      "line": "Two-fourteen in the morning, Position 12 rings a Maspeth line and something answers: W, O, R, S, sixteen-ten, four seconds of tone, clear. The baker was asleep and his bell never rang. And the operator completed her shift. That's the line in the Record I keep reading. She heard it, she logged it, she plugged the next call. Mr. Pike has the position's record. I would do unspeakable things for a copy of the Position 12 record.",
+      "choices": [
+        {"label": "Cal would want those four seconds more than you.", "requires": ["cal_juno_trade"], "reply": "He would. He'd want them and he wouldn't play them. He'd put them on the high shelf. If I ever got it I'd give it to him. Not trade. Give. Don't tell him. He'd refuse a gift. He only accepts a trade, the old fraud.", "trust": 1, "flag": "jk_four_for_cal"},
+        {"label": "The operator's the one you'd want to talk to.", "reply": "The operator! Yes. Nobody's asked her. She's the only person who heard it live and the paper gives her five words. Completed her shift. Name her. Somebody name her. That's her voice on the take too, saying go ahead, Maspeth.", "trust": 1},
+        {"label": "Probably a crossed line.", "reply": "A crossed line says hello and swears. This one said its name. Lines don't have names. People do. Stations do. I'd settle for knowing which.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_window",
+      "from": "1929-10-23",
+      "until": "1929-11-09",
+      "topic": "The boy waited in the hall.",
+      "line": "The Society compares nine records of a Long Island City window, seven of theirs and two the boy made himself, behind his own window. All nine agree, except the boy's two have four seconds at eleven past three that theirs don't. Mr. Fahey won't describe them. Sealed for 1978. The boy sat in the hall on a chair for an hour and fifty minutes and they told him nothing. His four seconds. His machine. His window. And a man in a cardigan decides.",
+      "choices": [
+        {"label": "They took his take and kept his name off it.", "requires": ["credit_was_taken"], "reply": "They took his take and kept him in the hall. And he's going to sit at that window every night now, waiting for it to happen again so he can be in the room this time. I'm going to find that boy and give him a better microphone.", "trust": 1},
+        {"label": "Maybe the four seconds aren't for a child.", "reply": "Maybe. Grown men decide that a lot. Not for you. They're usually right about the thing and wrong about the who. He made it. It's his. He's entitled to be frightened by his own record. That's the first thing a recordist earns."},
+        {"label": "The Society's machines are better. Trust theirs.", "reply": "Seven machines that missed it against two that caught it, and you'd trust the seven. That's how you get a hall full of people clapping the wrong person. Better machines. Worse ears. Every time.", "trust": -1}
+      ]
+    },
+    {
+      "id": "jk_op_ticker",
+      "from": "1929-10-29",
+      "until": "1929-11-09",
+      "topic": "The operators read the margin calls.",
+      "line": "The ticker's voice broke Thursday, gone up and not come down, and yesterday the Exchange placed fifty-eight hundred margin calls by one in the morning, and the operators read twenty-four hundred of them out themselves where the broker couldn't hold. Exactly and at an even pace. Think of it. Two thousand people in Queens hearing they're ruined in a switchboard girl's voice. Her voice, not the broker's. She doesn't get credited and she doesn't get blamed. She just gets remembered, at night, by strangers.",
+      "choices": [
+        {"label": "Somebody else's news in her voice. You know that one.", "reply": "Somebody else's name on my work, I know. This is the other way. Her voice under somebody else's ruin. Same theft turned round. They should let the operators say whose message it is. This is the broker, read by Position 12. Credit both.", "trust": 1},
+        {"label": "The ticker broke, though. That's the story.", "reply": "The ticker broke Thursday, ninety minutes behind, and the voice went up and stayed. Fine. Machines break. The story's the even pace. Two thousand times at one in the morning without her voice going up once. That's the record I'd want. Nobody's making it."},
+        {"label": "At least they kept it calm.", "reply": "Calm's a technique. You put a calm voice on terrible news so the listener can't argue with it. I know the technique. I've used it on myself. It works for about a day.", "trust": -1}
+      ]
+    }
+  ]
+}
