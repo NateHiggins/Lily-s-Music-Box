@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 2.49,
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T16:21:15Z",
+  "started_utc": "2026-10-24T16:21:12Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "BACKGROUND SAVE: PASS checks=18"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/runtime_v3/RealityBackgroundSaveTest.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/runtime_v3/RealityBackgroundSaveTest.log",
+  "stdout_sha256": "a5da33d89134b4294398c2735c436bf3a3371b7ba9d0c3c953b9bba7f863540d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/RealityBackgroundSaveTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\runtime_v3\\RealityBackgroundSaveTest",
+ "source": {
+  "dirty_paths": 27,
+  "dirty_sample": [
+   "?? game/native/hose_math/hose_math.gdextension.uid",
+   "?? game/scripts/device/writer_smoke.gdshader.uid",
+   "?? game/scripts/device/writer_type_decal.gdshader.uid",
+   "?? game/shaders/dream_cornea.gdshader.uid",
+   "?? game/shaders/dream_eye_surface.gdshaderinc.uid",
+   "?? game/shaders/dream_eyelid_surface.gdshaderinc.uid",
+   "?? game/shaders/dream_eyelid_translucent.gdshader.uid",
+   "?? game/shaders/dream_fauna_surface.gdshaderinc.uid",
+   "?? game/shaders/dream_tessellate_interior.gdshaderinc.uid",
+   "?? game/shaders/dream_tessellate_translucent.gdshader.uid",
+   "?? game/shaders/lamp_glass_surface.gdshader.uid",
+   "?? game/shaders/lamp_material_transport.gdshaderinc.uid",
+   "?? game/shaders/lamp_optical_air.gdshader.uid",
+   "?? game/shaders/lamp_optical_dust.gdshader.uid",
+   "?? game/shaders/lamp_optical_glass_haze.gdshader.uid",
+   "?? game/shaders/lamp_optical_interior.gdshader.uid",
+   "?? game/shaders/lamp_optical_sample.gdshaderinc.uid",
+   "?? game/shaders/orison_owner_component.gdshader.uid",
+   "?? game/shaders/orison_waking_sky.gdshader.uid",
+   "?? game/shaders/v2_millwork_stock.gdshader.uid"
+  ],
+  "repository_head": "184238d21142ff03d15591aeccf57d99d95e44d7",
+  "repository_tree": "290be7b63e08af4ddfda89300995c4cba73f6c7d",
+  "runtime_inputs_sha256": "32d233631cb77508fb46042061eb11828e92e429ed0e85adc1cd46824ced90b1",
+  "test_path": "game/tests/reality_background_save_test.gd",
+  "test_sha256": "1aea08d0e0b488ecede79a065c9906800c03de1640dc6b3d77a2dcb2fa3bc5b7"
+ },
+ "windowed": true
+}

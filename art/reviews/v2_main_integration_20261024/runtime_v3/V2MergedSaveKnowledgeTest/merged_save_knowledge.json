@@ -1,0 +1,107 @@
+{
+	"checks": [
+		{
+			"label": "fresh campaign retains all four main editorial fields",
+			"ok": true
+		},
+		{
+			"label": "existing dialogue authorities update the live campaign",
+			"ok": true
+		},
+		{
+			"label": "partly opened minutes retain main's reading threshold",
+			"ok": true
+		},
+		{
+			"label": "native book retains main's knowledge grant",
+			"ok": true
+		},
+		{
+			"label": "background transaction writes a valid JSON document",
+			"ok": true
+		},
+		{
+			"label": "background transaction preserves exact JSON values: knowledge_flags",
+			"ok": true
+		},
+		{
+			"label": "background transaction preserves exact JSON values: newspapers_collected",
+			"ok": true
+		},
+		{
+			"label": "background transaction preserves exact JSON values: resident_trust",
+			"ok": true
+		},
+		{
+			"label": "background transaction preserves exact JSON values: conversation_visits",
+			"ok": true
+		},
+		{
+			"label": "fixture observes the documented JSON numeric conversion",
+			"ok": true
+		},
+		{
+			"label": "merged save uses the actual off-main-thread transaction",
+			"ok": true
+		},
+		{
+			"label": "reload validates and restores knowledge, trust, visits and newspaper collection",
+			"ok": true
+		},
+		{
+			"label": "worker validator retains main's shape refusal: knowledge_flags",
+			"ok": true
+		},
+		{
+			"label": "worker validator retains main's shape refusal: newspapers_collected",
+			"ok": true
+		},
+		{
+			"label": "worker validator retains main's shape refusal: resident_trust",
+			"ok": true
+		},
+		{
+			"label": "worker validator retains main's shape refusal: conversation_visits",
+			"ok": true
+		}
+	],
+	"disk_fields": {
+		"conversation_visits": {
+			"actual": {
+				"mina_vale": 1.0
+			},
+			"expected": {
+				"mina_vale": 1.0
+			}
+		},
+		"knowledge_flags": {
+			"actual": [
+				"integration_known",
+				"minutes_read"
+			],
+			"expected": [
+				"integration_known",
+				"minutes_read"
+			]
+		},
+		"newspapers_collected": {
+			"actual": [
+				"integration_fixture:1928-10-24"
+			],
+			"expected": [
+				"integration_fixture:1928-10-24"
+			]
+		},
+		"resident_trust": {
+			"actual": {
+				"mina_vale": 2.0
+			},
+			"expected": {
+				"mina_vale": 2.0
+			}
+		}
+	},
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "Real worker disk transaction and integration API checks; no played acquisition or runtime_contract grant"
+}

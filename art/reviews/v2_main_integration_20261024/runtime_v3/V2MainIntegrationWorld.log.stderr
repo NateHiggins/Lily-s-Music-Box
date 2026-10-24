@@ -1,0 +1,26 @@
+SCRIPT ERROR: Invalid access to property or key 'shop_news_cigars' on a base object of type 'Dictionary'.
+   at: validate_in_world (res://tests/orison_v2_news_fittings_test.gd:40)
+   GDScript backtrace (most recent call first):
+       [0] validate_in_world (res://tests/orison_v2_news_fittings_test.gd:40)
+       [1] validate_in_world (res://tests/v2_arcade_retirement_review.gd:9)
+       [2] _route (res://tests/v2_main_integration_world.gd:8)
+       [3] _route (res://tests/v2_bathroom_finishing_review.gd:81)
+       [4] inspect_world (res://tests/orison_v2_door_casings_test.gd:177)
+       [5] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+SCRIPT ERROR: Invalid access to property or key 'shop_radio_service' on a base object of type 'Dictionary'.
+   at: validate_in_world (res://tests/v2_arcade_retirement_review.gd:17)
+   GDScript backtrace (most recent call first):
+       [0] validate_in_world (res://tests/v2_arcade_retirement_review.gd:17)
+       [1] _route (res://tests/v2_main_integration_world.gd:8)
+       [2] _route (res://tests/v2_bathroom_finishing_review.gd:81)
+       [3] inspect_world (res://tests/orison_v2_door_casings_test.gd:177)
+       [4] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+SCRIPT ERROR: Invalid access to property or key 'failures' on a base object of type 'Dictionary'.
+   at: _route (res://tests/v2_main_integration_world.gd:9)
+   GDScript backtrace (most recent call first):
+       [0] _route (res://tests/v2_main_integration_world.gd:9)
+       [1] _route (res://tests/v2_bathroom_finishing_review.gd:81)
+       [2] inspect_world (res://tests/orison_v2_door_casings_test.gd:177)
+       [3] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

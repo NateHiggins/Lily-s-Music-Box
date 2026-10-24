@@ -1,0 +1,201 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original separately passing diagnostics; rejected combined-world aggregate; deliberately cancelled Passage route. No aggregate runtime or human acceptance.",
+  "source_commit": "184238d21142ff03d15591aeccf57d99d95e44d7",
+  "rejected_combined": {
+    "wrapper_exit": 0,
+    "script_errors": 3,
+    "missing_final_output": "integration_world.json",
+    "cause": "Passage legitimately dormant after bathroom geometry review; missing resident precondition in shared validator."
+  },
+  "cancelled_route": "Owned engine deliberately stopped at77s; exit-1 is not a route verdict.",
+  "files": [
+    {
+      "path": "OrisonV2PassageRouteTest.log",
+      "sha256": "58bbea91992c67692caab9e5bac2eebf9a777e8404ab5d61d0b08b08ca7f1ae1",
+      "bytes": 947
+    },
+    {
+      "path": "OrisonV2PassageRouteTest.log.receipt.json",
+      "sha256": "d06a67e758bcbb71dda55519213265486372495f76401ede0c6e50b0ae01f818",
+      "bytes": 2791
+    },
+    {
+      "path": "OrisonV2PassageRouteTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "RealityBackgroundSaveTest/checks.json",
+      "sha256": "3cb982fbb9a35e7811af89de5eb67426a674231673dea0b2f3ce7e50899976fb",
+      "bytes": 17037
+    },
+    {
+      "path": "RealityBackgroundSaveTest/exit_path.json",
+      "sha256": "1de8fc1d39ca48c1cdeea784611de71ba200744b5f53ca7877e811175207568a",
+      "bytes": 267
+    },
+    {
+      "path": "RealityBackgroundSaveTest.log",
+      "sha256": "a5da33d89134b4294398c2735c436bf3a3371b7ba9d0c3c953b9bba7f863540d",
+      "bytes": 1849
+    },
+    {
+      "path": "RealityBackgroundSaveTest.log.receipt.json",
+      "sha256": "8417582e5a6d63c277cab7b06f068b891b112027607db504ba19fb038566b5eb",
+      "bytes": 2835
+    },
+    {
+      "path": "RealityBackgroundSaveTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "V2MainIntegrationWorld/B1_LAUNDRY_DOOR.png",
+      "sha256": "e16b089a9c06fcbcd649b7009a985ebdadf029b55f971fb10ad915ec371b1b1d",
+      "bytes": 766998
+    },
+    {
+      "path": "V2MainIntegrationWorld/bathroom_finish_drawn.png",
+      "sha256": "8e2811f7512001730903c1ac83e19f046032c3e87d27d413a02e2009a44e2479",
+      "bytes": 510964
+    },
+    {
+      "path": "V2MainIntegrationWorld/bathroom_finish_gathered.png",
+      "sha256": "c82a8d4b0033aac4dc196ef26a06d52851e4da6045ad15ad78cafe3fa739de2e",
+      "bytes": 547680
+    },
+    {
+      "path": "V2MainIntegrationWorld/bathroom_wainscot.png",
+      "sha256": "e72ed3a09720dc5ee66c6b813846559f32c08dcff1d621c0eca7a3d488542a55",
+      "bytes": 687238
+    },
+    {
+      "path": "V2MainIntegrationWorld/casing_joint_detail.png",
+      "sha256": "f58c26b6a6cf8b6a0b0e7140653c00114a45a772984f579cb33b9c47aeda3ee4",
+      "bytes": 826689
+    },
+    {
+      "path": "V2MainIntegrationWorld/F01_INNER_DOOR.png",
+      "sha256": "1ae8c5496db59166f2d6ccb561942e4669c519a682349dcff89260f790c293fc",
+      "bytes": 228534
+    },
+    {
+      "path": "V2MainIntegrationWorld/F02_DOOR_02.png",
+      "sha256": "a8a9b1b66439d71f5450bdb1bb3c47a41924ae6ec51d14bad12c9b1e2e74c11d",
+      "bytes": 394394
+    },
+    {
+      "path": "V2MainIntegrationWorld/F04_DOOR_03.png",
+      "sha256": "d9ac3c75eb0bdc5688e7cd1f196843705472a3a3486f0c3d91b3528ca73d29d8",
+      "bytes": 445573
+    },
+    {
+      "path": "V2MainIntegrationWorld/finishes.json",
+      "sha256": "c880eed3bc9bff7a16a2bd94e4f103a13793ad5b6498e30f62086cf76fd4c483",
+      "bytes": 668999
+    },
+    {
+      "path": "V2MainIntegrationWorld/last_position.png",
+      "sha256": "4402c14ebce361b5e39fbc9cabd8c2a84d9b5eb8f4e65150cb418ffade7707b5",
+      "bytes": 462464
+    },
+    {
+      "path": "V2MainIntegrationWorld/route.json",
+      "sha256": "dfd3e751903238283a251f8e5e91a45dc6b7c782caabc22ebd98af4f97fc82cd",
+      "bytes": 35
+    },
+    {
+      "path": "V2MainIntegrationWorld/service_fastener_detail.png",
+      "sha256": "66634ad2c62374f7035f037b78f92fe5432f8d4dd7cbb5ccfc805a6c2760256f",
+      "bytes": 466882
+    },
+    {
+      "path": "V2MainIntegrationWorld/shower_head_union.png",
+      "sha256": "7ccbc12bf24dc6f959c79cfdbb9d08b5c7d2c0af32766b13863bfce59c9b543a",
+      "bytes": 890868
+    },
+    {
+      "path": "V2MainIntegrationWorld/tile_cap_corner.png",
+      "sha256": "49ca46506e09f6be249413644046ce7de69df8cce20b68d3413ab68c4f60c51a",
+      "bytes": 764037
+    },
+    {
+      "path": "V2MainIntegrationWorld/tile_finishing_edges.png",
+      "sha256": "7ee12adf48176f32e2ef33078fcb89b5fed75d4a443c8ab1060b9242f03864c1",
+      "bytes": 708801
+    },
+    {
+      "path": "V2MainIntegrationWorld.log",
+      "sha256": "9d3796b9554d62fb9fe4a76ab46dc91b89defd0bdcd5aec0e285b55669a563fd",
+      "bytes": 44954
+    },
+    {
+      "path": "V2MainIntegrationWorld.log.receipt.json",
+      "sha256": "e44c7a392698eff36aa3e3805c717cabea98297e5483a2aa8689d77400352e4d",
+      "bytes": 3112
+    },
+    {
+      "path": "V2MainIntegrationWorld.log.stderr",
+      "sha256": "933456d3e4efc91eb28218daef6640d07c48554701860b4ee7359aebe0a32171",
+      "bytes": 1838
+    },
+    {
+      "path": "V2MergedSaveKnowledgeTest/merged_save_knowledge.json",
+      "sha256": "995487e5f81cb0c1418adbd5d699d93b65ce89b5f477ea980466fef87aa8f147",
+      "bytes": 2338
+    },
+    {
+      "path": "V2MergedSaveKnowledgeTest.log",
+      "sha256": "2ea7d51659630bd41b38cf9bbae751eeb757d900c067b9fa60439ec3b84c4b5b",
+      "bytes": 1669
+    },
+    {
+      "path": "V2MergedSaveKnowledgeTest.log.receipt.json",
+      "sha256": "7a12e46c707cfa926d5d56372d83673ddaafa262266b03fd998dfd0bc159ccc5",
+      "bytes": 2796
+    },
+    {
+      "path": "V2MergedSaveKnowledgeTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "WorldFlagTest.log",
+      "sha256": "548850b8bc2a0e055629e89fc6cd7e2d6bf3cc698c2a9bf9054c0e3c6c07b092",
+      "bytes": 3251
+    },
+    {
+      "path": "WorldFlagTest.log.receipt.json",
+      "sha256": "ad4a0699cfd61c65122a796682db430b39e7b2481fb75782abb63c2235690755",
+      "bytes": 2734
+    },
+    {
+      "path": "WorldFlagTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "failed_source": [
+    {
+      "path": "game/tests/v2_main_integration_world.gd",
+      "source_commit": "184238d21142ff03d15591aeccf57d99d95e44d7",
+      "sha256": "b1939d8f03f68d39af39b841aaeeb318f5cdace48f851ab8bc200ae29e398a53"
+    },
+    {
+      "path": "game/tests/V2MainIntegrationWorld.tscn",
+      "source_commit": "184238d21142ff03d15591aeccf57d99d95e44d7",
+      "sha256": "8e850759f4485714333516f2b902ea0abbbef54bca6799d3acacfce5eef46a43"
+    },
+    {
+      "path": "game/tests/v2_arcade_retirement_review.gd",
+      "source_commit": "184238d21142ff03d15591aeccf57d99d95e44d7",
+      "sha256": "973851d663d808298ca6252fea093f2c18355142dcbc529b0b52050ea563e1af"
+    },
+    {
+      "path": "game/tests/orison_v2_news_fittings_test.gd",
+      "source_commit": "184238d21142ff03d15591aeccf57d99d95e44d7",
+      "sha256": "2317e1ee491b052f90964174c2769c30ba29f39be875a4a34dc82365397ed7fd"
+    }
+  ]
+}

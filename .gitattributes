@@ -3212,3 +3212,6 @@ art/blender/city_shells_consumed_layout.json -text
 tools/tests/test_city_closure_source.py -text
 
 tools/systemic_situation_authority_baseline.json -text
+
+# Original integration diagnostics retain exact JSON, log and failing-source bytes.
+art/reviews/v2_main_integration_20261024/runtime_v3/** -text
