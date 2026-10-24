@@ -15,9 +15,14 @@ func _prepare_resident_world(world: OrisonV2RuntimeRoot) -> bool:
 	world.player.global_position=world.adapter.root.to_global(Vector3((rect[0]+rect[2])*.5,0.,(rect[1]+rect[3])*.5))
 	world.player.velocity=Vector3.ZERO
 	await get_tree().physics_frame;await get_tree().physics_frame
+	var started:=Time.get_ticks_msec()
+	var samples: Array[Dictionary]=[]
 	for frame in 600:
 		if passage.residency.state=="RESIDENT" or passage.startup_failed:break
+		if frame%60==0:samples.append(_residency_sample(passage,world.player,frame,started))
 		await get_tree().process_frame
+	samples.append(_residency_sample(passage,world.player,600,started))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("retirement_prefetch.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Unchanged 600-frame fixture wait diagnostic; no runtime qualification","samples":samples},"\t"))
 	var ready: bool=passage.residency.state=="RESIDENT" and not passage.startup_failed
 	check(ready,"normal vestibule prefetch makes retirement geometry resident")
 	for identity: String in ["passage","shop_radio_service","shop_model_laundry","shop_photo_supplies","shop_news_cigars","shop_pawnbroker","shop_luncheonette"]:
@@ -25,6 +30,10 @@ func _prepare_resident_world(world: OrisonV2RuntimeRoot) -> bool:
 		check(present,"retirement requires its installed source cell: "+identity)
 		ready=ready and present
 	return ready
+
+func _residency_sample(passage: OrisonV2PassageRegion,player: PlayerController,frame_index: int,started: int) -> Dictionary:
+	var owner: Node=passage.residency
+	return {"frame":frame_index,"elapsed_ms":Time.get_ticks_msec()-started,"player_local":str(owner.frame.to_local(player.global_position)),"prefetch_contains_player":owner._prefetch_box.has_point(owner.frame.to_local(player.global_position)),"wanted":owner._wanted,"processing":owner.is_processing(),"physics_processing":owner.is_physics_processing(),"stopped":owner._stopped,"staged_cells":owner._staged_cells.keys(),"fitting_cell":owner._fit_identity,"remaining_operations":owner._fit_operations.size(),"operation":str(owner._fit_operations[0][0]) if not owner._fit_operations.is_empty() else "","snapshot":owner.snapshot()}
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var directory:=OS.get_environment("SHOT_DIR")
 	var result:=DirAccess.make_dir_recursive_absolute(directory)
