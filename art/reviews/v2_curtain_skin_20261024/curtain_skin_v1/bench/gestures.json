@@ -1,0 +1,176 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"rows": [
+		{
+			"closing_m": 0.0,
+			"distance": 0.85,
+			"fov": 55.0,
+			"gesture_pixels": 288,
+			"opening_m": 1.78
+		},
+		{
+			"closing_m": 0.0,
+			"distance": 0.85,
+			"fov": 85.0,
+			"gesture_pixels": 288,
+			"opening_m": 1.78
+		},
+		{
+			"closing_m": 0.0,
+			"distance": 1.55,
+			"fov": 55.0,
+			"gesture_pixels": 288,
+			"opening_m": 1.78
+		},
+		{
+			"closing_m": 0.0,
+			"distance": 1.55,
+			"fov": 85.0,
+			"gesture_pixels": 288,
+			"opening_m": 1.78
+		}
+	],
+	"surfaces": [
+		{
+			"material": {
+				"additive": false,
+				"billboard": false,
+				"color": [
+					1.0,
+					1.0,
+					1.0,
+					1.0
+				],
+				"emissive": false,
+				"filter": 3,
+				"maps": {
+					"albedo_texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+					"normal_texture": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+					"roughness_texture": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+				},
+				"metallic": 0.699999988079071,
+				"name": "",
+				"normal_enabled": true,
+				"roughness": 0.819999992847443,
+				"source": "",
+				"stock_recipe": "",
+				"transparency": 0,
+				"triplanar": true,
+				"type": "StandardMaterial3D",
+				"unshaded": false
+			},
+			"mesh": {
+				"source": "res://assets/props/bath_shower.glb::ArrayMesh_pqkhx",
+				"surfaces": [
+					{
+						"degenerate_uv_triangles": 0,
+						"missing_uv": false,
+						"nonfinite_uv": 0,
+						"triangles": 10640,
+						"vertices": 28595
+					}
+				],
+				"type": "ArrayMesh"
+			}
+		},
+		{
+			"material": {
+				"additive": false,
+				"billboard": false,
+				"color": [
+					1.0,
+					1.0,
+					1.0,
+					1.0
+				],
+				"emissive": false,
+				"filter": 3,
+				"maps": {
+					"albedo_texture": "res://assets/building/textures/T_library_furniture_linen_albedo.png",
+					"normal_texture": "res://assets/building/textures/T_library_furniture_linen_normal.png",
+					"roughness_texture": "res://assets/building/textures/T_library_furniture_linen_rough.png"
+				},
+				"metallic": 0.0,
+				"name": "",
+				"normal_enabled": true,
+				"roughness": 0.620000004768372,
+				"source": "",
+				"stock_recipe": "",
+				"transparency": 0,
+				"triplanar": true,
+				"type": "StandardMaterial3D",
+				"unshaded": false
+			},
+			"mesh": {
+				"source": "res://assets/props/bath_shower.glb::ArrayMesh_mio75",
+				"surfaces": [
+					{
+						"degenerate_uv_triangles": 0,
+						"missing_uv": false,
+						"nonfinite_uv": 0,
+						"triangles": 15576,
+						"vertices": 46728
+					}
+				],
+				"type": "ArrayMesh"
+			}
+		}
+	],
+	"textures": {
+		"res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_nickel_plated_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_nickel_plated_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_library_furniture_linen_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_linen_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_linen_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		}
+	}
+}

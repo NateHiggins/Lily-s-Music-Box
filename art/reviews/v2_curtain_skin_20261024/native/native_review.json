@@ -1,0 +1,24 @@
+{
+  "evidence_class": "INERT",
+  "scope": "External unapplied native prototype, viewed by agent. No runtime/performance/human acceptance.",
+  "images": [
+    {
+      "file": "native_rest.png",
+      "sha256": "53ca25fd8440a114e73c214bc20ffb53c109ef3012a4e3a62944c3d3f00c4d35",
+      "observation": "Engineering native form review: cloth remains on the U rail; rings and hooks retain their small separate forms. No installed wall or loaded game material acceptance."
+    },
+    {
+      "file": "native_half.png",
+      "sha256": "ebc6185884f7285e9d52e7152eca493976e073042e0a5f1ab40777ea61e8d02c",
+      "observation": "Engineering native form review: cloth gathers along the rounded rail; rigid hanging hardware remains connected rather than stretching with the cloth."
+    },
+    {
+      "file": "native_gathered.png",
+      "sha256": "8cef1050133b97d2ecfd6c73d7a190f1e41f498d4810505e1fb9b75a4e1399b9",
+      "observation": "Engineering native form review: cloth gathers beside the rear rail end and exposes the receptor entry; no gameplay access or collision qualification."
+    }
+  ],
+  "exported_array_limits": "All 17 meshes retain exact expanded-triangle positions and UVs. Nickel export deduplicates one vertex; normals differ at most1.1921e-7 and tangents1.0002e-4; original indexed arrays are not all byte-identical. The unchanged exported tangent derivative validator passes98840triangles at0.9999289minimum agreement.",
+  "asset_growth_bytes": 1532184,
+  "next": "After integration qualification, measure the same actual curtain input in the integrated world. Prototype remains unapplied. Preserve skin through TapProp merge_static, add reusable selection proxies, verify imported normals/UV/PBR/mips and exact save/travel/input behavior, then compare matched frame/callback distributions."
+}

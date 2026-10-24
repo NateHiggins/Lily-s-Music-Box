@@ -1,0 +1,62 @@
+{
+  "evidence_class": "INERT",
+  "valid_current_baseline": true,
+  "negative_controls": [
+    {
+      "control": "missing_files",
+      "refused": true
+    },
+    {
+      "control": "duplicate_phase",
+      "refused": true
+    },
+    {
+      "control": "short_frames",
+      "refused": true
+    },
+    {
+      "control": "missing_motion",
+      "refused": true
+    },
+    {
+      "control": "nonfinite_frame",
+      "refused": true
+    },
+    {
+      "control": "nonfinite_callback",
+      "refused": true
+    },
+    {
+      "control": "failed_walk",
+      "refused": true
+    },
+    {
+      "control": "wrong_initial_stop",
+      "refused": true
+    }
+  ],
+  "invalid_cli_exit": 1,
+  "percentile_control": true,
+  "pair_controls": [
+    {
+      "control": "identical_control",
+      "comparable": true,
+      "exit": 0
+    },
+    {
+      "control": "changed_fov",
+      "comparable": false,
+      "exit": 1
+    },
+    {
+      "control": "changed_waypoint",
+      "comparable": false,
+      "exit": 1
+    },
+    {
+      "control": "changed_cadence",
+      "comparable": false,
+      "exit": 1
+    }
+  ]
+}

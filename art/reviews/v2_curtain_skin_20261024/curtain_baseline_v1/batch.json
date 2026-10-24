@@ -1,0 +1,28 @@
+[
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 900,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\curtain_baseline_v1\\import1.log"
+  },
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 900,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\curtain_baseline_v1\\import2.log"
+  },
+  {
+    "scene": "res://tests/V2CurtainWorldProfile.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\curtain_baseline_v1\\world",
+    "log": "C:\\ov\\reports\\v2integration24\\curtain_baseline_v1\\world.log"
+  }
+]

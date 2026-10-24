@@ -67,6 +67,7 @@ var _curtain_gathered: Node3D
 var _curtain_area: Area3D
 var _curtain_is_open := false
 var _curtain_hand: RefCounted
+var _curtain_skinned := false
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -127,7 +128,10 @@ func _build_visual() -> void:
 	for handle in _handles:
 		merge_static(handle)
 	if _curtain_closed:
-		merge_static(_curtain_closed)
+		# The native skin already has two finish draws. Static merging would
+		# discard its joint bindings. All fixed stock keeps normal batching.
+		_curtain_skinned=not _curtain_closed.find_children("*","Skeleton3D",true,false).is_empty()
+		if not _curtain_skinned:merge_static(_curtain_closed)
 	if _curtain_gathered:
 		merge_static(_curtain_gathered)
 	if fixture == "shower":
@@ -870,7 +874,7 @@ func set_valve_opening(index: int,value: float) -> void:
 
 func _build_primary_interaction() -> void:
 	if _curtain_closed != null:
-		_curtain_hand=preload("res://scripts/props/shower_curtain_motion.gd").new(self)
+		_curtain_hand=preload("res://scripts/props/shower_curtain_motion.gd").new(self) if _curtain_skinned else preload("res://scripts/props/legacy_shower_curtain_motion.gd").new(self)
 		set_curtain_open(warehouse_curtain_open)
 	if _bath_plug != null:
 		_plug_hand=preload("res://scripts/props/basin_plug.gd").new(self,_bath_plug,Vector3(0,.696,-.02),Vector3(.115,.705,.005))

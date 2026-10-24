@@ -1,0 +1,42 @@
+{
+  "from_commit": "5485fbb442509fe924326884b2872b11e013380d",
+  "to_commit": "941a96730471a5d787527b50533d855286f5d482",
+  "regressions": [
+    "v2_surface_qualification: defects 2 -> 3",
+    "v2_surface_qualification: new defect runtime contract does not bind the current surface test"
+  ],
+  "improvements": [
+    "reader: unread 1108 -> 1106",
+    "reader: resolved FIELD_UNREAD|game/data/resident_schedules.json|source",
+    "reader: resolved FIELD_UNREAD|game/data/runtime_material_sets.json|metallic",
+    "test:test_house_switchboard_native: FAIL -> PASS",
+    "test:test_house_switchboard_native: failed 1 -> 0",
+    "test:test_house_switchboard_native: resolved test_construction_is_bound_to_current_recipe_and_closed_stock (__main__.NativeSwitchboard.test_construction_is_bound_to_current_recipe_and_closed_stock)",
+    "test:test_material_catalog_persistence: FAIL -> PASS",
+    "test:test_material_catalog_persistence: failed 1 -> 0",
+    "test:test_material_catalog_persistence: resolved test_registered_catalog_survives_regeneration (__main__.MaterialCatalogPersistenceTest.test_registered_catalog_survives_regeneration)",
+    "test:test_nook_readable_books: FAIL -> PASS",
+    "test:test_nook_readable_books: failed 1 -> 0",
+    "test:test_nook_readable_books: resolved test_manufactured_outputs_bind_current_source (__main__.NookBooksTests.test_manufactured_outputs_bind_current_source)",
+    "test:test_readable_library: FAIL -> PASS",
+    "test:test_readable_library: failed 1 -> 0",
+    "test:test_readable_library: resolved test_native_stock_is_closed_and_binds_current_source (__main__.ReadableLibraryTests.test_native_stock_is_closed_and_binds_current_source)",
+    "v2_surface_imports: FAIL -> PASS",
+    "v2_surface_imports: wrong 9 -> 0",
+    "v2_surface_imports: resolved wrong:T_ai_materials_monks_cloth_albedo.png.import",
+    "v2_surface_imports: resolved wrong:T_ai_materials_monks_cloth_normal.png.import",
+    "v2_surface_imports: resolved wrong:T_ai_materials_monks_cloth_rough.png.import",
+    "v2_surface_imports: resolved wrong:T_ai_materials_ninon_albedo.png.import",
+    "v2_surface_imports: resolved wrong:T_ai_materials_ninon_normal.png.import",
+    "v2_surface_imports: resolved wrong:T_ai_materials_ninon_rough.png.import",
+    "v2_surface_imports: resolved wrong:T_ai_materials_velour_albedo.png.import",
+    "v2_surface_imports: resolved wrong:T_ai_materials_velour_normal.png.import",
+    "v2_surface_imports: resolved wrong:T_ai_materials_velour_rough.png.import"
+  ],
+  "changes": [
+    "test:test_campaign_weather: new gate (PASS, exit 0)",
+    "test:test_city_closure_source: new gate (PASS, exit 0)"
+  ],
+  "requirements_changed": [],
+  "comparable": true
+}

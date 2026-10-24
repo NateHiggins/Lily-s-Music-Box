@@ -1,0 +1,3235 @@
+# Hash-bound production artifacts of the M11C2 owner-first floor-01 cut.
+# Floor01CellRegistry verifies the SHA-256 of every file below at boot against
+# the checked-in manifests, and tools/m11c2_floor01_production checks them
+# byte-for-byte. core.autocrlf must never rewrite their line endings on
+# checkout (M11C2-CLOSE, 2026-09-13).
+game/assets/building/floor_01_cells/** -text
+game/data/floor_01_cell_registry.json -text
+art/data/m11c2/** -text
+
+# Preserve the generated glTF vertex/normal buffer byte-for-byte on Windows.
+game/assets/building/orison_v2/exterior/passage_gateway_subway.bin binary
+
+# Deterministic generated Astra views; writers emit LF, tests bind raw bytes.
+design/astra/BRANCH_ADOPTION_MATRIX.json -text
+design/astra/BRANCH_ADOPTION_MATRIX.md -text
+design/astra/REPOSITORY_TRUTH.md -text
+design/astra/MASTER_COMPLETION_LEDGER.json -text
+design/astra/MASTER_COMPLETION_LEDGER.md -text
+design/astra/reviews/adoption_rulings.json -text
+
+# Hash-bound build provenance and historical rehearsal fixture.
+art/data/orison_v2/arcade_ceiling_source.json -text
+art/data/orison_v2/exterior/passage_gateway_source.json -text
+tools/tests/fixtures/m11c1_runtime_rehearsal/historical_inputs.zip -text
+art/data/orison_v2/exterior/street_section_source.json -text
+game/data/orison_v2/exterior/street_frame.json -text
+design/historical_radio_reallocation.json -text
+game/data/historical_radio_reallocation.json -text
+art/data/orison_v2/domestic_furniture_source.json -text
+art/data/orison_v2/domestic_radios_source.json -text
+art/data/orison_v2/heating_source.json -text
+art/data/orison_v2/household_accessories_source.json -text
+art/data/orison_v2/upper_floor_programs_source.json -text
+art/data/orison_v2/completion_interiors_source.json -text
+art/data/orison_v2/vertical_services_source.json -text
+# Spatial checkpoint construction/test inputs; keep their LF hashes portable.
+game/data/orison_v2/completion_interiors.json -text
+game/data/orison_v2_blockout.json -text
+game/tests/orison_v2_completion_interiors_test.gd -text
+art/data/orison_v2/exterior/construction_shed_source.json -text
+
+# Exact recovered Blender authoring source; never normalize its bytes.
+art/blender/dream_tentacle.blend binary
+
+# Rescue diagnostics retain captured bytes and source hash contracts.
+art/renders/dream_zoo_warehouse_20260919/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+game/assets/dream/tentacle/dream_tentacle.glb binary
+game/assets/dream/tentacle/T_dream_hero_anatomy.png binary
+
+# Dream Blender anatomy: editable sources and hash-bound generated evidence.
+art/blender/dream_critters/** binary
+game/assets/dream/critters_blender/** -text
+art/blender/scripts/build_dream_critter.py -text
+art/blender/scripts/check_dream_critter_anatomy.py -text
+art/blender/scripts/render_dream_critter.py -text
+art/renders/dream_critter_blender_pilots_20260919/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+art/blender/scripts/build_dream_critter.py whitespace=-blank-at-eol
+
+# Preserve the exact biology source/proof snapshots used by asset manifests.
+art/blender/scripts/*_model.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+art/renders/dream_critter_blender_rebuild_20260919/** -text whitespace=-blank-at-eol
+art/renders/dream_critter_blender_rebuild_20260919/**/*.json -diff
+
+# Exact native debug-pointer diagnostics and wrapper receipts.
+art/renders/debug_menu_input_20260919/** -text whitespace=-blank-at-eol
+
+# Exact resident home-door before/after diagnostics.
+art/renders/resident_home_door_20260919/** -text whitespace=-blank-at-eol
+
+# Source-derived V2 city geometry retains exact binary bytes on checkout.
+art/blender/city_shells.blend binary
+game/assets/props/city_shells.glb binary
+art/blender/bodega_receiving.blend binary
+game/assets/props/bodega_receiving.glb binary
+art/blender/resident_key.blend binary
+game/assets/props/resident_key.glb binary
+art/blender/duct_hanger.blend -text
+game/assets/props/duct_hanger.glb -text
+art/blender/radiator_wall_tie.blend -text
+game/assets/props/radiator_wall_tie.glb -text
+art/blender/ventilation_ducts.blend -text
+game/assets/props/ventilation_ducts.glb -text
+game/assets/props/ventilation_ducts.glb.import -text
+art/blender/roof_ventilator.blend -text
+game/assets/props/roof_ventilator.glb -text
+art/data/orison_v2/roof_source.json -text
+art/blender/bodega_power.blend -text
+game/assets/props/bodega_power.glb -text
+game/assets/props/bodega_power.glb.import -text
+art/blender/ventilation_slab_sleeve.blend -text
+game/assets/props/ventilation_slab_sleeve.glb -text
+game/assets/props/ventilation_slab_sleeve.glb.import -text
+art/blender/exterior_masonry.blend -text
+game/assets/props/exterior_masonry.glb -text
+game/assets/props/exterior_masonry.glb.import -text
+art/blender/ventilation_fabric_lining.blend -text
+game/assets/props/ventilation_fabric_lining.glb -text
+game/assets/props/ventilation_fabric_lining.glb.import -text
+art/blender/boiler_inlet.blend -text
+game/assets/props/boiler_inlet.glb -text
+game/assets/props/boiler_inlet.glb.import -text
+art/blender/boiler_pipework.blend -text
+game/assets/props/boiler_pipework.glb -text
+art/blender/roof_edge_support.blend -text
+game/assets/props/roof_edge_support.glb -text
+game/assets/props/roof_edge_support.glb.import -text
+art/blender/roof_bulkhead_caps.blend -text
+game/assets/props/roof_bulkhead_caps.glb -text
+game/assets/props/roof_bulkhead_caps.glb.import -text
+art/blender/orison_foundations.blend -text
+game/assets/props/orison_foundations.glb -text
+game/assets/props/orison_foundations.glb.import -text
+game/tests/fixtures/orison_foundation_stations.json -text
+art/blender/ceiling_top_closures.blend -text
+game/assets/props/ceiling_top_closures.glb -text
+game/assets/props/ceiling_top_closures.glb.import -text
+art/blender/ground_core_transfer.blend -text
+game/assets/props/ground_core_transfer.glb -text
+game/assets/props/ground_core_transfer.glb.import -text
+game/tests/fixtures/orison_ground_transfer_stations.json -text
+art/blender/rear_wing_a_support.blend -text
+game/assets/props/rear_wing_a_support.glb -text
+game/assets/props/rear_wing_a_support.glb.import -text
+game/tests/fixtures/orison_rear_wing_a_stations.json -text
+game/tests/fixtures/orison_rear_wing_a_construction.json -text
+art/blender/rear_wing_c_support.blend -text
+game/assets/props/rear_wing_c_support.glb -text
+game/assets/props/rear_wing_c_support.glb.import -text
+game/tests/fixtures/orison_rear_wing_c_stations.json -text
+game/tests/fixtures/orison_rear_wing_c_construction.json -text
+art/blender/first_upper_hall_seats.blend -text
+game/assets/props/first_upper_hall_seats.glb -text
+game/assets/props/first_upper_hall_seats.glb.import -text
+game/tests/fixtures/orison_first_upper_hall_stations.json -text
+game/tests/fixtures/orison_first_upper_hall_construction.json -text
+art/blender/upper_wall_seats.blend -text
+game/assets/props/upper_wall_seats.glb -text
+game/assets/props/upper_wall_seats.glb.import -text
+game/tests/fixtures/orison_upper_wall_seats_stations.json -text
+game/tests/fixtures/orison_upper_wall_seats_construction.json -text
+art/blender/remaining_upper_transfers_construction.json -text
+art/blender/remaining_upper_transfers.blend -text
+game/assets/props/remaining_upper_transfers.glb -text
+game/assets/props/remaining_upper_transfers.glb.import -text
+game/tests/fixtures/orison_remaining_upper_transfers_construction.json -text
+game/tests/fixtures/orison_remaining_upper_transfers_stations.json -text
+art/blender/front_pavement.blend -text
+art/blender/front_pavement_construction.json -text
+game/assets/props/front_pavement.glb -text
+game/assets/props/front_pavement.glb.import -text
+game/tests/fixtures/orison_front_pavement_construction.json -text
+art/data/orison_ground/retained_grade_source.json -text
+art/blender/alley_groundworks.blend -text
+art/blender/alley_groundworks_construction.json -text
+art/blender/alley_groundworks_reservations.json -text
+art/blender/orison_ground.blend -text
+art/blender/orison_ground_construction.json -text
+game/assets/props/alley_groundworks.glb -text
+game/assets/props/alley_groundworks.glb.import -text
+game/assets/props/orison_ground.glb -text
+game/assets/props/orison_ground.glb.import -text
+game/tests/fixtures/orison_alley_groundworks_construction.json -text
+game/tests/fixtures/orison_ground_construction.json -text
+game/tests/fixtures/orison_ground_source.json -text
+art/data/city_foundations/source_plan.json -text
+art/blender/city_shells.blend -text
+art/blender/city_shells_registration.json -text
+game/assets/props/city_shells.glb -text
+game/assets/props/city_shells.glb.import -text
+art/blender/city_foundations.blend -text
+art/blender/city_foundations_construction.json -text
+game/assets/props/city_foundations.glb -text
+game/assets/props/city_foundations.glb.import -text
+game/tests/fixtures/orison_city_foundations_construction.json -text
+art/data/roof_service_weather/source_plan.json -text
+art/blender/roof_service_weathering.blend -text
+art/blender/roof_service_weathering_construction.json -text
+game/assets/props/roof_service_weathering.glb -text
+game/assets/props/roof_service_weathering.glb.import -text
+game/tests/fixtures/orison_roof_service_weathering.json -text
+art/blender/stair_ironwork_court.blend -text
+art/blender/light_court_structure.blend -text
+art/blender/court_roof_bridge.blend -text
+art/blender/roof_public_weathering.blend -text
+art/blender/roof_public_weathering_construction.json -text
+art/data/roof_public_weather/source_plan.json -text
+game/assets/props/stair_ironwork_court.glb -text
+game/assets/props/stair_ironwork_court.glb.import -text
+game/assets/props/light_court_structure.glb -text
+game/assets/props/light_court_structure.glb.import -text
+game/assets/props/court_roof_bridge.glb -text
+game/assets/props/court_roof_bridge.glb.import -text
+game/assets/props/light_court_skylight.glb -text
+game/assets/props/light_court_skylight.glb.import -text
+game/assets/props/roof_public_weathering.glb -text
+game/assets/props/roof_public_weathering.glb.import -text
+game/data/orison_v2/light_court_guards.json -text
+game/tests/fixtures/orison_light_court_structure.json -text
+game/tests/fixtures/orison_court_roof_bridge.json -text
+game/tests/fixtures/orison_light_court_skylight.json -text
+art/blender/mina_resolve.blend binary
+art/data/mina_resolve/clip_manifest.json -text
+art/data/mina_resolve/bake_report.json -text
+art/blender/roof_base_flashings.blend binary
+art/data/roof_base_flashings/source_plan.json -text
+art/blender/roof_base_flashings_construction.json -text
+game/tests/fixtures/orison_roof_base_flashings.json -text
+game/assets/props/roof_base_flashings.glb.import -text
+game/tests/fixtures/orison_roof_public_weathering.json -text
+art/blender/boiler_window.blend binary
+art/data/boiler_window/source_plan.json -text
+art/blender/boiler_window_construction.json -text
+game/tests/fixtures/orison_boiler_window.json -text
+game/assets/props/boiler_window.glb.import -text
+art/blender/roof_membrane.blend binary
+art/data/roof_membrane/source_plan.json -text
+art/blender/roof_membrane_construction.json -text
+game/tests/fixtures/orison_roof_membrane.json -text
+game/assets/props/roof_membrane.glb.import -text
+art/textures/procedural/roof_bitumen/material.json -text
+art/data/runtime_material_sets.json -text
+game/data/runtime_material_sets.json -text
+game/scripts/generated/material_sets.gd -text
+game/assets/building/textures/T_ai_materials_roof_bitumen_*.png.import -text
+art/blender/bodega_frontage.blend binary
+art/data/bodega_frontage/source_plan.json -text
+art/blender/bodega_frontage_construction.json -text
+game/tests/fixtures/orison_bodega_frontage.json -text
+game/assets/props/bodega_frontage.glb.import -text
+art/blender/city_masts.blend binary
+art/data/city_masts/source_plan.json -text
+art/blender/city_masts_construction.json -text
+game/tests/fixtures/orison_city_masts.json -text
+game/assets/props/city_masts.glb.import -text
+game/assets/props/city_shells.glb.import -text
+art/blender/city_aerials.blend binary
+art/data/city_aerials/source_plan.json -text
+art/blender/city_aerials_construction.json -text
+game/tests/fixtures/orison_city_aerials.json -text
+game/assets/props/city_aerials.glb.import -text
+art/blender/scripts/build_city_aerials.py -text
+art/blender/scripts/fabrication_uvs.py -text
+art/blender/scripts/build_city_masts.py -text
+art/blender/city_tanks.blend binary
+art/data/city_tanks/source_plan.json -text
+art/blender/city_tanks_construction.json -text
+game/tests/fixtures/orison_city_tanks.json -text
+game/assets/props/city_tanks.glb.import -text
+art/blender/scripts/build_city_tanks.py -text
+art/tools/build_tank_staves.py -text
+art/textures/procedural/tank_staves/material.json -text
+art/tools/build_beacon_lacquer.py -text
+art/textures/procedural/beacon_lacquer/material.json -text
+art/tools/build_bronze_sheet.py -text
+art/textures/procedural/bronze_sheet/material.json -text
+art/tools/build_galvanized_roof.py -text
+art/textures/procedural/galvanized_roof/material.json -text
+art/data/city_beacons/source_plan.json -text
+art/blender/city_beacons_construction.json -text
+art/blender/scripts/build_city_beacons.py -text
+game/tests/fixtures/orison_city_beacons.json -text
+game/assets/props/city_beacons.glb.import -text
+art/blender/city_beacons.blend binary
+game/assets/building/textures/T_ai_materials_beacon_lacquer_*.png.import -text
+game/assets/building/textures/T_ai_materials_bronze_sheet_*.png.import -text
+game/assets/building/textures/T_ai_materials_galvanized_roof_*.png.import -text
+
+art/blender/city_closure.blend binary
+art/blender/city_closure_construction.json -text
+art/blender/scripts/build_city_closure.py -text
+art/data/city_closure/source_plan.json -text
+game/tests/fixtures/orison_city_closure.json -text
+
+art/blender/shop_seating.blend binary
+art/blender/shop_seating_construction.json -text
+art/blender/scripts/build_shop_seating.py -text
+art/data/shop_seating/source_plan.json -text
+game/data/orison_v2/shop_seating.json -text
+game/tests/fixtures/orison_shop_seating.json -text
+game/assets/props/shop_seating.glb.import -text
+
+art/blender/laundry_fittings.blend binary
+art/blender/laundry_fittings_construction.json -text
+art/blender/scripts/build_laundry_fittings.py -text
+art/data/laundry_fittings/source_plan.json -text
+game/data/orison_v2/laundry_fittings.json -text
+game/tests/fixtures/orison_laundry_fittings.json -text
+game/assets/props/laundry_fittings.glb.import -text
+art/data/building_layout.json -text
+art/data/m11c1/floor01_source_ownership.json -text
+art/textures/ai_materials/linen/material.json -text
+art/textures/ai_materials/paper_b/material.json -text
+art/textures/ai_materials/chrome_b/material.json -text
+art/textures/ai_materials/timber_b/material.json -text
+game/assets/building/textures/T_library_furniture_linen_*.png binary
+game/assets/building/textures/T_ai_materials_paper_b_*.png binary
+game/assets/building/textures/T_ai_materials_chrome_b_*.png binary
+game/assets/building/textures/T_ai_materials_timber_b_*.png binary
+
+art/blender/laundry_apparatus.blend binary
+art/blender/scripts/build_laundry_apparatus.py -text
+art/blender/scripts/inspect_laundry_apparatus.py -text
+art/blender/scripts/city_registration.py -text
+art/blender/scripts/build_city_shells.py -text
+art/blender/scripts/build_city_foundations.py -text
+art/blender/scripts/build_orison_ground.py -text
+art/blender/laundry_apparatus_construction.json -text
+art/data/laundry_apparatus/source_plan.json -text
+game/data/orison_v2/laundry_apparatus.json -text
+game/tests/fixtures/orison_laundry_apparatus.json -text
+game/assets/props/laundry_apparatus.glb.import -text
+art/tools/build_iron_blackened.py -text
+art/textures/procedural/iron_blackened/material.json -text
+game/assets/building/textures/T_ai_materials_iron_blackened_*.png binary
+game/assets/building/textures/T_ai_materials_iron_blackened_*.png.import -text
+art/data/material_catalog.json -text
+art/textures/catalog_mapping.json -text
+art/tools/generate_runtime_materials.py -text
+art/textures/ai_materials/zinc_liner/material.json -text
+art/textures/ai_materials/rubber_aged/material.json -text
+art/textures/ai_materials/metal_b/material.json -text
+
+art/blender/bar_pool.blend binary
+art/blender/scripts/build_bar_pool.py -text
+art/blender/scripts/inspect_bar_pool.py -text
+art/blender/bar_pool_construction.json -text
+art/data/bar_pool/source_plan.json -text
+game/data/orison_v2/bar_pool.json -text
+game/tests/fixtures/orison_bar_pool.json -text
+game/assets/props/bar_pool.glb.import -text
+art/tools/build_billiard_resin.py -text
+art/tools/export_bar_ground_reservations.py -text
+art/tools/repack_blend.cjs -text
+art/blender/scripts/inspect_orison_ground.py -text
+art/data/orison_ground/bar_reservations.json -text
+art/textures/procedural/billiard_resin/material.json -text
+game/assets/building/textures/T_ai_materials_billiard_resin_*.png binary
+game/assets/building/textures/T_ai_materials_billiard_resin_*.png.import -text
+
+art/blender/bar_fixture_mounts.blend binary
+art/blender/scripts/build_bar_fixture_mounts.py -text
+art/blender/scripts/inspect_bar_fixture_mounts.py -text
+art/blender/bar_fixture_mounts_construction.json -text
+art/data/bar_fixture_mounts/source_plan.json -text
+game/data/orison_v2/bar_fixture_mounts.json -text
+game/tests/fixtures/orison_bar_fixture_mounts.json -text
+game/assets/props/bar_fixture_mounts.glb.import -text
+
+game/assets/building/floor_01_cells/shop_bar.gltf.import -text
+
+art/blender/bar_pipe_supports.blend binary
+art/blender/scripts/build_bar_pipe_supports.py -text
+art/blender/scripts/inspect_bar_pipe_supports.py -text
+art/blender/bar_pipe_supports_construction.json -text
+art/data/bar_pipe_supports/source_plan.json -text
+game/data/orison_v2/bar_pipe_supports.json -text
+game/tests/fixtures/orison_bar_pipe_supports.json -text
+game/assets/props/bar_pipe_supports.glb.import -text
+
+art/blender/bar_ceiling_finish.blend binary
+art/blender/scripts/build_bar_ceiling_finish.py -text
+art/blender/scripts/inspect_bar_ceiling_finish.py -text
+art/blender/bar_ceiling_finish_construction.json -text
+art/data/bar_ceiling_finish/source_plan.json -text
+game/data/orison_v2/bar_ceiling_finish.json -text
+game/tests/fixtures/orison_bar_ceiling_finish.json -text
+game/assets/props/bar_ceiling_finish.glb.import -text
+art/tools/build_smoked_plaster.py -text
+art/textures/procedural/smoked_plaster/material.json -text
+game/assets/building/textures/T_ai_materials_smoked_plaster_*.png binary
+game/assets/building/textures/T_ai_materials_smoked_plaster_*.png.import -text
+
+# Source-owned roof falls, weather joints and independent drainage.
+art/data/orison_roof_drainage/** -text
+art/blender/roof_drainage*.blend binary
+art/blender/roof_weather_retained_gutters.blend binary
+art/blender/roof_drainage*.json -text
+game/assets/props/roof_drainage*.glb binary
+game/assets/props/roof_drainage*.glb.import -text
+game/tests/fixtures/orison_roof_drainage*.json -text
+art/blender/scripts/build_roof_drainage_falls.py -text
+art/blender/scripts/build_roof_drainage_ports.py -text
+art/blender/scripts/build_roof_drainage_leaders.py -text
+art/blender/scripts/build_roof_drainage_plant_weather.py -text
+art/blender/scripts/build_roof_drainage_door_weather.py -text
+art/blender/scripts/build_roof_drainage_receivers.py -text
+art/blender/scripts/build_roof_base_flashings.py -text
+art/blender/scripts/build_roof_membrane.py -text
+art/blender/scripts/build_roof_public_weathering.py -text
+art/blender/scripts/build_roof_service_weathering.py -text
+art/blender/scripts/build_front_pavement.py -text
+art/blender/scripts/build_alley_groundworks.py -text
+art/blender/scripts/roof_drainage_field.py -text
+art/blender/scripts/ground_closed_union.py -text
+art/blender/scripts/roof_weather_retained_gutter.py -text
+art/blender/scripts/prepare_roof_drainage_grade.py -text
+art/blender/scripts/prepare_roof_drainage_receivers.py -text
+art/blender/scripts/export_roof_drainage_reservations.py -text
+art/blender/scripts/reconcile_roof_drainage_ground_source.py -text
+art/blender/scripts/inspect_roof_drainage_falls.py -text
+art/blender/scripts/inspect_roof_drainage_ports.py -text
+art/blender/scripts/inspect_roof_drainage_leaders.py -text
+art/blender/scripts/inspect_roof_drainage_flashings.py -text
+art/blender/scripts/inspect_roof_drainage_rolls.py -text
+art/blender/scripts/inspect_roof_drainage_plant_weather.py -text
+art/blender/scripts/inspect_roof_drainage_door_weather.py -text
+art/blender/scripts/inspect_roof_drainage_receivers.py -text
+art/blender/scripts/inspect_roof_drainage_provider_fits.py -text
+art/data/bar_gallery/** -text
+art/blender/bar_gallery.blend binary
+art/blender/bar_gallery_inventory.json -text
+art/blender/scripts/prepare_bar_gallery.py -text
+art/blender/scripts/build_bar_gallery.py -text
+art/blender/scripts/inspect_bar_gallery.py -text
+game/assets/props/bar_gallery.glb binary
+game/assets/props/bar_gallery.glb.import -text
+game/tests/fixtures/orison_bar_gallery.json -text
+art/blender/scripts/inspect_roof_drainage_retained_clearance.py -text
+art/blender/scripts/inspect_roof_drainage_bulkhead_weather.py -text
+art/data/bar_stage/** -text
+art/blender/bar_stage.blend binary
+art/blender/bar_stage_inventory.json -text
+art/blender/scripts/prepare_bar_stage.py -text
+art/blender/scripts/build_bar_stage.py -text
+art/blender/scripts/inspect_bar_stage.py -text
+game/assets/props/bar_stage.glb binary
+game/assets/props/bar_stage.glb.import -text
+game/data/orison_v2/bar_stage.json -text
+game/tests/fixtures/orison_bar_stage.json -text
+game/tests/orison_v2_bar_stage_fit.gd -text
+game/scripts/props/neon_sign_prop.gd -text
+art/data/front_facade/** -text
+art/blender/front_facade.blend binary
+art/blender/front_facade_inventory.json -text
+art/blender/scripts/prepare_front_facade.py -text
+art/blender/scripts/build_front_facade.py -text
+art/blender/scripts/inspect_front_facade.py -text
+game/assets/props/front_facade.glb binary
+game/assets/props/front_facade.glb.import -text
+game/tests/fixtures/orison_front_facade.json -text
+design/orison_v2_completeness_reports/** -text
+game/data/orison_v2/world_connection.json -text
+game/scripts/building/orison_v2_world_connection.gd -text
+game/scripts/building/orison_v2_runtime_root.gd -text
+game/scripts/building/orison_v2_bar_gallery.gd -text
+game/scripts/building/orison_v2_front_facade.gd -text
+game/scripts/props/orison_v2_entry_door.gd -text
+game/scripts/props/orison_v2_marquee_dress.gd -text
+game/tests/orison_v2_resident_key_route_test.gd -text
+art/renders/orison_v2/front_facade_20261005/** -text
+game/scripts/building/orison_v2_lamp_atmosphere.gd -text
+art/renders/orison_v2/front_facade_air_20261005/** -text
+art/data/front_court_roof/** -text
+art/blender/front_court_roof.blend binary
+art/blender/front_court_roof_inventory.json -text
+art/blender/scripts/prepare_front_court_roof.py -text
+art/blender/scripts/build_front_court_roof.py -text
+art/blender/scripts/inspect_front_court_roof.py -text
+game/assets/props/front_court_roof.glb binary
+game/assets/props/front_court_roof.glb.import -text
+game/tests/fixtures/orison_front_court_roof.json -text
+game/scripts/building/orison_v2_front_court_roof.gd -text
+game/scripts/building/orison_v2_architectural_materials.gd -text
+game/tests/orison_v2_front_court_roof_test.gd -text
+game/tests/orison_v2_landing_soffit_test.gd -text
+art/renders/orison_v2/front_court_roof_20261005/** -text
+game/scripts/lamp/lamp_gameplay_profile.gd -text
+game/tests/orison_v2_primary_lamp_test.gd -text
+art/renders/orison_v2/lamp_surface_balance_20261005/** -text
+art/blender/exterior_masonry_slab_fit.json -text
+art/blender/scripts/build_exterior_masonry.py -text
+art/blender/scripts/inspect_exterior_masonry.py -text
+game/scripts/building/orison_v2_domestic_doors.gd -text
+game/scripts/building/orison_v2_light_court_structure.gd -text
+game/scripts/building/orison_v2_stair_ironwork.gd -text
+game/tests/orison_v2_light_court_structure_test.gd -text
+game/tests/orison_v2_exterior_masonry_test.gd -text
+game/tests/orison_v2_inner_door_test.gd -text
+game/tests/orison_v2_space_sweep.gd -text
+game/tests/orison_v2_vertical_route_test.gd -text
+game/scripts/building/orison_v2_vestibule_door.gd -text
+game/scripts/building/orison_v2_fitted_door.gd -text
+game/scripts/building/orison_v2_bar_wc_door.gd -text
+game/tests/orison_v2_door_fabric_test.gd -text
+game/tests/orison_v2_bar_route_test.gd -text
+game/tests/orison_v2_4b_door_route_test.gd -text
+art/blender/scripts/build_wc_swing_clear_hinge.py -text
+art/blender/scripts/inspect_wc_swing_clear_hinge.py -text
+game/assets/props/wc_swing_clear_hinge.glb.import -text
+art/blender/scripts/build_bodega_fittings.py -text
+art/blender/scripts/inspect_bodega_fittings.py -text
+art/blender/bodega_fittings_construction.json -text
+game/tests/fixtures/orison_bodega_fittings.json -text
+game/scripts/generated/v2_bodega_fittings.gd -text
+game/scripts/building/orison_v2_bodega_fittings.gd -text
+game/scripts/building/orison_v2_runtime_root.gd -text
+game/tests/orison_v2_bodega_fittings_test.gd -text
+game/assets/props/bodega_fittings.glb.import -text
+game/tests/orison_v2_city_sweep.gd -text
+
+art/renders/orison_v2/building_surface_finish_20261005/** -text
+
+art/data/locksmith_fittings/** -text
+art/blender/scripts/build_locksmith_fittings.py -text
+art/blender/scripts/inspect_locksmith_fittings.py -text
+art/blender/locksmith_fittings_construction.json -text
+game/data/orison_v2/locksmith_fittings.json -text
+game/tests/fixtures/orison_locksmith_fittings.json -text
+game/scripts/building/orison_v2_locksmith_fittings.gd -text
+game/scripts/building/orison_v2_passage_region.gd -text
+game/scripts/building/orison_v2_passage_residency.gd -text
+game/tests/orison_v2_locksmith_fittings_test.gd -text
+game/assets/props/locksmith_fittings.glb.import -text
+art/renders/orison_v2/locksmith_fittings_20261005/** -text
+
+art/data/cobbler_fittings/** -text
+art/blender/scripts/build_cobbler_fittings.py -text
+art/blender/scripts/inspect_cobbler_fittings.py -text
+art/blender/cobbler_fittings_construction.json -text
+game/data/orison_v2/cobbler_fittings.json -text
+game/tests/fixtures/orison_cobbler_fittings.json -text
+game/scripts/building/orison_v2_cobbler_fittings.gd -text
+game/tests/orison_v2_cobbler_fittings_test.gd -text
+game/assets/props/cobbler_fittings.glb.import -text
+
+art/renders/orison_v2/cobbler_fittings_20261005/** -text
+
+art/data/news_fittings/** -text
+art/blender/scripts/build_news_fittings.py -text
+art/blender/scripts/inspect_news_fittings.py -text
+art/blender/news_fittings_construction.json -text
+game/data/orison_v2/news_fittings.json -text
+game/tests/fixtures/orison_news_fittings.json -text
+game/scripts/building/orison_v2_news_fittings.gd -text
+game/tests/orison_v2_news_fittings_test.gd -text
+game/assets/props/news_fittings.glb.import -text
+art/renders/orison_v2/news_fittings_20261005/** -text
+
+art/data/hardware_drawers/** -text
+art/blender/scripts/build_hardware_drawers.py -text
+art/blender/scripts/inspect_hardware_drawers.py -text
+art/blender/hardware_drawers_construction.json -text
+game/data/orison_v2/hardware_drawers.json -text
+game/tests/fixtures/orison_hardware_drawers.json -text
+game/scripts/building/orison_v2_hardware_drawers.gd -text
+game/tests/orison_v2_hardware_drawers_test.gd -text
+game/assets/props/hardware_drawers.glb.import -text
+art/renders/orison_v2/hardware_drawers_20261005/** -text
+
+art/data/hardware_apparatus/** -text
+art/blender/scripts/build_hardware_apparatus.py -text
+art/blender/scripts/inspect_hardware_apparatus.py -text
+art/blender/hardware_apparatus_construction.json -text
+game/data/orison_v2/hardware_apparatus.json -text
+game/tests/fixtures/orison_hardware_apparatus.json -text
+game/scripts/building/orison_v2_hardware_apparatus.gd -text
+game/tests/orison_v2_hardware_apparatus_test.gd -text
+game/assets/props/hardware_apparatus.glb.import -text
+art/renders/orison_v2/hardware_apparatus_20261005/** -text
+
+art/data/hardware_stock/** -text
+art/blender/scripts/build_hardware_stock.py -text
+art/blender/scripts/inspect_hardware_stock.py -text
+art/blender/hardware_stock_construction.json -text
+game/data/orison_v2/hardware_stock.json -text
+game/tests/fixtures/orison_hardware_stock.json -text
+game/scripts/building/orison_v2_hardware_stock.gd -text
+game/tests/orison_v2_hardware_stock_test.gd -text
+game/assets/props/hardware_stock.glb.import -text
+art/renders/orison_v2/hardware_stock_20261005/** -text
+
+art/data/hardware_tools/** -text
+art/blender/scripts/build_hardware_tools.py -text
+art/blender/scripts/inspect_hardware_tools.py -text
+art/blender/hardware_tools_construction.json -text
+game/data/orison_v2/hardware_tools.json -text
+game/tests/fixtures/orison_hardware_tools.json -text
+game/scripts/building/orison_v2_hardware_tools.gd -text
+game/tests/orison_v2_hardware_tools_test.gd -text
+game/assets/props/hardware_tools.glb.import -text
+art/renders/orison_v2/hardware_tools_20261005/** -text
+
+art/data/photo_cameras/** -text
+art/blender/scripts/build_photo_cameras.py -text
+art/blender/scripts/inspect_photo_cameras.py -text
+art/blender/photo_cameras_construction.json -text
+game/data/orison_v2/photo_cameras.json -text
+game/tests/fixtures/orison_photo_cameras.json -text
+game/scripts/building/orison_v2_photo_cameras.gd -text
+game/tests/orison_v2_photo_cameras_test.gd -text
+game/assets/props/photo_cameras.glb.import -text
+art/renders/orison_v2/photo_cameras_20261005/** -text
+
+art/data/photo_counter/** -text
+art/blender/scripts/build_photo_counter.py -text
+art/blender/scripts/inspect_photo_counter.py -text
+art/blender/photo_counter_construction.json -text
+game/data/orison_v2/photo_counter.json -text
+game/tests/fixtures/orison_photo_counter.json -text
+game/scripts/building/orison_v2_photo_counter.gd -text
+game/tests/orison_v2_photo_counter_test.gd -text
+game/assets/props/photo_counter.glb.import -text
+art/renders/orison_v2/photo_counter_20261005/** -text
+
+art/data/photo_stock/** -text
+art/blender/scripts/build_photo_stock.py -text
+art/blender/scripts/inspect_photo_stock.py -text
+art/blender/photo_stock_construction.json -text
+game/data/orison_v2/photo_stock.json -text
+game/tests/fixtures/orison_photo_stock.json -text
+game/scripts/building/orison_v2_photo_stock.gd -text
+game/tests/orison_v2_photo_stock_test.gd -text
+game/assets/props/photo_stock.glb.import -text
+art/renders/orison_v2/photo_stock_20261005/** -text
+
+art/data/photo_enlargers/** -text
+art/blender/scripts/build_photo_enlargers.py -text
+art/blender/scripts/inspect_photo_enlargers.py -text
+art/blender/photo_enlargers_construction.json -text
+game/data/orison_v2/photo_enlargers.json -text
+game/tests/fixtures/orison_photo_enlargers.json -text
+game/scripts/building/orison_v2_photo_enlargers.gd -text
+game/tests/orison_v2_photo_enlargers_test.gd -text
+game/assets/props/photo_enlargers.glb.import -text
+art/renders/orison_v2/photo_enlargers_20261005/** -text
+
+art/data/photo_process/** -text
+art/blender/scripts/build_photo_process.py -text
+art/blender/scripts/inspect_photo_process.py -text
+art/blender/photo_process_construction.json -text
+game/data/orison_v2/photo_process.json -text
+game/tests/fixtures/orison_photo_process.json -text
+game/scripts/building/orison_v2_photo_process.gd -text
+game/tests/orison_v2_photo_process_test.gd -text
+game/assets/props/photo_process.glb.import -text
+art/renders/orison_v2/photo_process_20261005/** -text
+
+art/data/photo_portraits/** -text
+art/blender/scripts/build_photo_portraits.py -text
+art/blender/scripts/inspect_photo_portraits.py -text
+art/blender/photo_portraits_construction.json -text
+game/data/orison_v2/photo_portraits.json -text
+game/tests/fixtures/orison_photo_portraits.json -text
+game/scripts/building/orison_v2_photo_portraits.gd -text
+game/tests/orison_v2_photo_portraits_test.gd -text
+game/assets/props/photo_portraits.glb.import -text
+game/assets/props/photo_portraits/portrait_atlas.png.import -text
+art/renders/orison_v2/photo_portraits_20261005/** -text
+
+art/data/photo_glazing/** -text
+art/blender/scripts/build_photo_glazing.py -text
+art/blender/scripts/inspect_photo_glazing.py -text
+art/blender/photo_glazing_construction.json -text
+game/data/orison_v2/photo_glazing.json -text
+game/tests/fixtures/orison_photo_glazing.json -text
+game/scripts/building/orison_v2_photo_glazing.gd -text
+game/tests/orison_v2_photo_glazing_test.gd -text
+game/assets/props/photo_glazing.glb.import -text
+art/renders/orison_v2/photo_glazing_20261005/** -text
+
+art/data/druggist_drawers/** -text
+art/blender/scripts/build_druggist_drawers.py -text
+art/blender/scripts/inspect_druggist_drawers.py -text
+art/blender/druggist_drawers_construction.json -text
+game/data/orison_v2/druggist_drawers.json -text
+game/tests/fixtures/orison_druggist_drawers.json -text
+game/scripts/building/orison_v2_druggist_drawers.gd -text
+game/tests/orison_v2_druggist_drawers_test.gd -text
+game/assets/props/druggist_drawers.glb.import -text
+art/renders/orison_v2/druggist_drawers_20261006/** -text
+
+art/data/druggist_counter/** -text
+art/blender/scripts/build_druggist_counter.py -text
+art/blender/scripts/inspect_druggist_counter.py -text
+art/blender/druggist_counter_construction.json -text
+game/data/orison_v2/druggist_counter.json -text
+game/tests/fixtures/orison_druggist_counter.json -text
+game/scripts/building/orison_v2_druggist_counter.gd -text
+game/tests/orison_v2_druggist_counter_test.gd -text
+game/assets/props/druggist_counter.glb.import -text
+art/renders/orison_v2/druggist_counter_20261006/** -text
+
+art/data/druggist_mortar/** -text
+art/blender/scripts/build_druggist_mortar.py -text
+art/blender/scripts/inspect_druggist_mortar.py -text
+art/blender/druggist_mortar_construction.json -text
+game/data/orison_v2/druggist_mortar.json -text
+game/tests/fixtures/orison_druggist_mortar.json -text
+game/scripts/building/orison_v2_druggist_mortar.gd -text
+game/tests/orison_v2_druggist_mortar_test.gd -text
+game/assets/props/druggist_mortar.glb.import -text
+art/renders/orison_v2/druggist_mortar_20261006/** -text
+
+art/data/druggist_dispensary/** -text
+art/blender/scripts/build_druggist_dispensary.py -text
+art/blender/scripts/inspect_druggist_dispensary.py -text
+art/blender/druggist_dispensary_construction.json -text
+game/data/orison_v2/druggist_dispensary.json -text
+game/tests/fixtures/orison_druggist_dispensary.json -text
+game/scripts/building/orison_v2_druggist_dispensary.gd -text
+game/tests/orison_v2_druggist_dispensary_test.gd -text
+game/assets/props/druggist_dispensary.glb.import -text
+art/renders/orison_v2/druggist_dispensary_20261006/** -text
+
+art/data/druggist_cupboard/** -text
+art/blender/scripts/build_druggist_cupboard.py -text
+art/blender/scripts/inspect_druggist_cupboard.py -text
+art/blender/druggist_cupboard_construction.json -text
+game/data/orison_v2/druggist_cupboard.json -text
+game/tests/fixtures/orison_druggist_cupboard.json -text
+game/scripts/building/orison_v2_druggist_cupboard.gd -text
+game/tests/orison_v2_druggist_cupboard_test.gd -text
+game/assets/props/druggist_cupboard.glb.import -text
+art/renders/orison_v2/druggist_cupboard_20261006/** -text
+
+art/data/druggist_carboys/** -text
+art/blender/scripts/build_druggist_carboys.py -text
+art/blender/scripts/inspect_druggist_carboys.py -text
+art/blender/druggist_carboys_construction.json -text
+game/data/orison_v2/druggist_carboys.json -text
+game/tests/fixtures/orison_druggist_carboys.json -text
+game/scripts/building/orison_v2_druggist_carboys.gd -text
+game/tests/orison_v2_druggist_carboys_test.gd -text
+game/assets/props/druggist_carboys.glb.import -text
+art/renders/orison_v2/druggist_carboys_20261006/** -text
+
+art/data/druggist_fountain/** -text
+art/blender/scripts/build_druggist_fountain.py -text
+art/blender/scripts/inspect_druggist_fountain.py -text
+art/blender/druggist_fountain_construction.json -text
+game/data/orison_v2/druggist_fountain.json -text
+game/tests/fixtures/orison_druggist_fountain.json -text
+game/scripts/building/orison_v2_druggist_fountain.gd -text
+game/tests/orison_v2_druggist_fountain_test.gd -text
+game/assets/props/druggist_fountain.glb.import -text
+art/renders/orison_v2/druggist_fountain_20261006/** -text
+
+art/data/funeral_fittings/** -text
+art/blender/scripts/build_funeral_fittings.py -text
+art/blender/scripts/inspect_funeral_fittings.py -text
+art/blender/funeral_fittings_construction.json -text
+game/data/orison_v2/funeral_fittings.json -text
+game/tests/fixtures/orison_funeral_fittings.json -text
+game/scripts/building/orison_v2_funeral_fittings.gd -text
+game/tests/orison_v2_funeral_fittings_test.gd -text
+game/assets/props/funeral_fittings.glb.import -text
+art/renders/orison_v2/funeral_fittings_20261006/** -text
+
+art/data/funeral_drapes/** -text
+art/blender/scripts/build_funeral_drapes.py -text
+art/blender/scripts/inspect_funeral_drapes.py -text
+art/blender/funeral_drapes_construction.json -text
+game/data/orison_v2/funeral_drapes.json -text
+game/tests/fixtures/orison_funeral_drapes.json -text
+game/scripts/building/orison_v2_funeral_drapes.gd -text
+game/tests/orison_v2_funeral_drapes_test.gd -text
+game/assets/props/funeral_drapes.glb.import -text
+art/renders/orison_v2/funeral_drapes_20261006/** -text
+
+art/data/funeral_foliage/** -text
+art/blender/scripts/build_funeral_foliage.py -text
+art/blender/scripts/inspect_funeral_foliage.py -text
+art/blender/funeral_foliage_construction.json -text
+game/data/orison_v2/funeral_foliage.json -text
+game/tests/fixtures/orison_funeral_foliage.json -text
+game/scripts/building/orison_v2_funeral_foliage.gd -text
+game/tests/orison_v2_funeral_foliage_test.gd -text
+game/assets/props/funeral_foliage.glb.import -text
+art/renders/orison_v2/funeral_foliage_20261006/** -text
+
+art/data/radio_bench/** -text
+art/blender/scripts/build_radio_bench.py -text
+art/blender/scripts/inspect_radio_bench.py -text
+art/blender/radio_bench_construction.json -text
+game/data/orison_v2/radio_bench.json -text
+game/tests/fixtures/orison_radio_bench.json -text
+game/scripts/building/orison_v2_radio_bench.gd -text
+game/tests/orison_v2_radio_bench_test.gd -text
+game/assets/props/radio_bench.glb.import -text
+art/renders/orison_v2/radio_bench_20261006/** -text
+
+art/data/radio_apparatus/** -text
+art/blender/scripts/build_radio_apparatus.py -text
+art/blender/scripts/inspect_radio_apparatus.py -text
+art/blender/radio_apparatus_construction.json -text
+game/data/orison_v2/radio_apparatus.json -text
+game/tests/fixtures/orison_radio_apparatus.json -text
+game/scripts/building/orison_v2_radio_apparatus.gd -text
+game/tests/orison_v2_radio_apparatus_test.gd -text
+game/assets/props/radio_apparatus.glb.import -text
+art/renders/orison_v2/radio_apparatus_20261006/** -text
+
+art/data/radio_stock/** -text
+art/blender/scripts/build_radio_stock.py -text
+art/blender/scripts/inspect_radio_stock.py -text
+art/blender/radio_stock_construction.json -text
+game/data/orison_v2/radio_stock.json -text
+game/tests/fixtures/orison_radio_stock.json -text
+game/scripts/building/orison_v2_radio_stock.gd -text
+game/tests/orison_v2_radio_stock_test.gd -text
+game/assets/props/radio_stock.glb.import -text
+art/renders/orison_v2/radio_stock_20261006/** -text
+
+art/data/radio_battery/** -text
+art/blender/scripts/build_radio_battery.py -text
+art/blender/scripts/inspect_radio_battery.py -text
+art/blender/radio_battery_construction.json -text
+game/data/orison_v2/radio_battery.json -text
+game/tests/fixtures/orison_radio_battery.json -text
+game/scripts/building/orison_v2_radio_battery.gd -text
+game/tests/orison_v2_radio_battery_test.gd -text
+game/assets/props/radio_battery.glb.import -text
+art/renders/orison_v2/radio_battery_20261006/** -text
+
+art/data/radio_wire/** -text
+art/blender/scripts/build_radio_wire.py -text
+art/blender/scripts/inspect_radio_wire.py -text
+art/blender/radio_wire_construction.json -text
+game/data/orison_v2/radio_wire.json -text
+game/tests/fixtures/orison_radio_wire.json -text
+game/scripts/building/orison_v2_radio_wire.gd -text
+game/tests/orison_v2_radio_wire_test.gd -text
+game/assets/props/radio_wire.glb.import -text
+art/renders/orison_v2/radio_wire_20261006/** -text
+
+art/data/radio_display/** -text
+art/blender/scripts/build_radio_display.py -text
+art/blender/scripts/inspect_radio_display.py -text
+art/blender/radio_display_construction.json -text
+game/data/orison_v2/radio_display.json -text
+game/tests/fixtures/orison_radio_display.json -text
+game/scripts/building/orison_v2_radio_display.gd -text
+game/tests/orison_v2_radio_display_test.gd -text
+game/assets/props/radio_display.glb.import -text
+art/renders/orison_v2/radio_display_20261006/** -text
+
+# Receiving transfer tests and retained exact receipts.
+game/scripts/building/orison_v2_passage_receivers.gd -text
+game/scripts/props/arcade_cabinet_prop.gd -text
+game/tests/orison_v2_passage_residency_test.gd -text
+game/tests/orison_v2_passage_receivers_test.gd -text
+art/renders/orison_v2/passage_receivers_20261006/** -text
+
+art/data/radio_receiving/** -text
+art/blender/scripts/build_radio_receiving.py -text
+art/blender/scripts/inspect_radio_receiving.py -text
+art/blender/radio_receiving_construction.json -text
+game/data/orison_v2/radio_receiving.json -text
+game/tests/fixtures/orison_radio_receiving.json -text
+game/scripts/building/orison_v2_radio_receiving.gd -text
+game/tests/orison_v2_radio_receiving_test.gd -text
+game/assets/props/radio_receiving.glb.import -text
+art/renders/orison_v2/radio_receiving_20261006/** -text
+art/renders/orison_v2/receiving_panel_20261006/** -text
+art/renders/orison_v2/laundry_receiving_clearance_20261006/** -text
+
+art/renders/orison_v2/laundry_receiving_20261006/** -text
+
+# Byte-bound Photo Supplies dryer/receiver clearance receipts and snapshots.
+art/renders/orison_v2/photo_receiving_clearance_20261006/** -text
+
+art/data/photo_receiving/** -text
+art/blender/scripts/build_photo_receiving.py -text
+art/blender/scripts/inspect_photo_receiving.py -text
+art/blender/photo_receiving_construction.json -text
+game/data/orison_v2/photo_receiving.json -text
+game/tests/fixtures/orison_photo_receiving.json -text
+game/scripts/building/orison_v2_photo_receiving.gd -text
+game/tests/orison_v2_photo_receiving_test.gd -text
+game/assets/props/photo_receiving.glb.import -text
+art/renders/orison_v2/photo_receiving_20261006/** -text
+
+art/data/news_receiving/** -text
+art/blender/scripts/build_news_receiving.py -text
+art/blender/scripts/inspect_news_receiving.py -text
+art/blender/news_receiving_construction.json -text
+game/data/orison_v2/news_receiving.json -text
+game/tests/fixtures/orison_news_receiving.json -text
+game/scripts/building/orison_v2_news_receiving.gd -text
+game/tests/orison_v2_news_receiving_test.gd -text
+game/assets/props/news_receiving.glb.import -text
+art/renders/orison_v2/news_receiving_20261006/** -text
+
+art/data/pawn_receiving/** -text
+art/blender/scripts/build_pawn_receiving.py -text
+art/blender/scripts/inspect_pawn_receiving.py -text
+art/blender/pawn_receiving_construction.json -text
+game/data/orison_v2/pawn_receiving.json -text
+game/tests/fixtures/orison_pawn_receiving.json -text
+game/scripts/building/orison_v2_pawn_receiving.gd -text
+game/tests/orison_v2_pawn_receiving_test.gd -text
+game/assets/props/pawn_receiving.glb.import -text
+art/renders/orison_v2/pawn_receiving_20261006/** -text
+
+# Hash-bound native Diner receiving construction, exports and review packet.
+art/data/diner_receiving/source_plan.json -text
+art/blender/diner_receiving_construction.json -text
+game/data/orison_v2/diner_receiving.json -text
+game/tests/fixtures/orison_diner_receiving.json -text
+game/assets/props/diner_receiving.glb.import -text
+art/renders/orison_v2/diner_receiving_20261006/** -text
+
+# Diner source-bound fabrication and retained byte-exact receipts.
+art/data/diner_counter/source_plan.json -text
+art/blender/scripts/build_diner_counter.py -text
+art/blender/scripts/inspect_diner_counter.py -text
+game/assets/props/diner_counter.glb.import -text
+art/blender/diner_counter_construction.json -text
+game/tests/fixtures/orison_diner_counter.json -text
+art/renders/orison_v2/diner_counter_20261006/** -text
+art/data/diner_till/source_plan.json -text
+art/blender/scripts/build_diner_till.py -text
+art/blender/scripts/inspect_diner_till.py -text
+game/assets/props/diner_till.glb.import -text
+art/blender/diner_till_construction.json -text
+game/tests/fixtures/orison_diner_till.json -text
+art/renders/orison_v2/diner_till_20261006/** -text
+art/data/diner_backbar/source_plan.json -text
+art/blender/scripts/build_diner_backbar.py -text
+art/blender/scripts/inspect_diner_backbar.py -text
+game/assets/props/diner_backbar.glb.import -text
+art/blender/diner_backbar_construction.json -text
+game/tests/fixtures/orison_diner_backbar.json -text
+art/renders/orison_v2/diner_backbar_20261006/** -text
+art/data/diner_urns/source_plan.json -text
+art/blender/scripts/build_diner_urns.py -text
+art/blender/scripts/inspect_diner_urns.py -text
+game/assets/props/diner_urns.glb.import -text
+art/blender/diner_urns_construction.json -text
+game/tests/fixtures/orison_diner_urns.json -text
+art/renders/orison_v2/diner_urns_20261006/** -text
+
+# Byte-bound original Diner apparatus construction/review.
+art/data/diner_apparatus/source_plan.json -text
+art/blender/scripts/build_diner_apparatus.py -text
+art/blender/scripts/inspect_diner_apparatus.py -text
+game/assets/props/diner_apparatus.glb.import -text
+art/blender/diner_apparatus_construction.json -text
+game/tests/fixtures/orison_diner_apparatus.json -text
+art/renders/orison_v2/diner_apparatus_20261006/** -text
+
+art/data/diner_overhead/source_plan.json -text
+art/blender/scripts/build_diner_overhead.py -text
+art/blender/scripts/inspect_diner_overhead.py -text
+art/blender/diner_overhead_construction.json -text
+game/assets/props/diner_overhead.glb.import -text
+game/data/orison_v2/diner_overhead.json -text
+game/tests/fixtures/orison_diner_overhead.json -text
+# Preserve original run logs/diagnostics byte for byte, including CRLF and
+# instrumentation trailing spaces. Source edits outside this packet retain checks.
+art/renders/orison_v2/passage_cabinets_diner_overhead_20261007/** -text -whitespace
+
+art/data/pawn_clocks/source_plan.json -text
+art/blender/scripts/build_pawn_clocks.py -text
+art/blender/scripts/inspect_pawn_clocks.py -text
+art/blender/pawn_clocks_construction.json -text
+game/assets/props/pawn_clocks.glb.import -text
+game/data/orison_v2/pawn_clocks.json -text
+game/tests/fixtures/orison_pawn_clocks.json -text
+
+# Exact hash-bound clock review diagnostics retain their captured bytes.
+art/renders/orison_v2/pawn_clocks_20261007/** -text -whitespace
+
+# Source-bound Pawnbroker display fitting.
+art/data/pawn_display/source_plan.json -text
+art/blender/scripts/build_pawn_display.py -text
+art/blender/scripts/inspect_pawn_display.py -text
+art/blender/pawn_display_construction.json -text
+game/assets/props/pawn_display.glb.import -text
+game/data/orison_v2/pawn_display.json -text
+game/tests/fixtures/orison_pawn_display.json -text
+game/scripts/building/orison_v2_pawn_display.gd -text
+art/renders/orison_v2/pawn_display_20261007/** -text -whitespace
+
+# Shared-world module hashes and exact captured execution diagnostics.
+game/tests/orison_v2_pawn_clocks_test.gd -text
+game/tests/orison_v2_pawn_display_test.gd -text
+art/renders/orison_v2/fabrication_batch_20261007/** -text -whitespace
+
+# Source-bound composed Pawnbroker furnishing batch.
+art/data/pawn_fittings/source_plan.json -text
+art/blender/scripts/build_pawn_fittings.py -text
+art/blender/scripts/pawn_fittings_geometry.py -text
+art/blender/scripts/inspect_pawn_fittings.py -text
+art/blender/pawn_fittings_construction.json -text
+game/assets/props/pawn_fittings.glb.import -text
+game/data/orison_v2/pawn_fittings.json -text
+game/tests/fixtures/orison_pawn_fittings.json -text
+game/scripts/building/orison_v2_pawn_fittings.gd -text
+game/tests/orison_v2_pawn_fittings_test.gd -text
+art/renders/orison_v2/pawn_fittings_20261007/** -text -whitespace
+
+# Bound Laundry room batch and shared-world validators.
+art/data/laundry_trade/source_plan.json -text
+art/blender/scripts/build_laundry_trade.py -text
+art/blender/scripts/laundry_trade_geometry.py -text
+art/blender/scripts/inspect_laundry_trade.py -text
+art/blender/laundry_trade_construction.json -text
+game/assets/props/laundry_trade.glb.import -text
+game/data/orison_v2/laundry_trade.json -text
+game/tests/fixtures/orison_laundry_trade.json -text
+game/scripts/building/orison_v2_laundry_trade.gd -text
+game/tests/orison_v2_laundry_trade_test.gd -text
+game/tests/orison_v2_laundry_fittings_test.gd -text
+game/tests/orison_v2_laundry_apparatus_test.gd -text
+art/renders/orison_v2/laundry_trade_20261007/** -text -whitespace
+
+# Slender-stock grain helper and retained finish-only comparison/QA bytes.
+art/blender/scripts/fabrication_grain.py -text
+art/renders/orison_v2/wood_grain_20261007/** -text -whitespace
+
+# Closed retail joinery fabrication bindings.
+art/data/shop_joinery/source_plan.json -text
+art/blender/scripts/build_shop_joinery.py -text
+art/blender/scripts/shop_joinery_geometry.py -text
+art/blender/scripts/inspect_shop_joinery.py -text
+art/blender/shop_joinery_construction.json -text
+game/data/orison_v2/shop_joinery.json -text
+game/tests/fixtures/orison_shop_joinery.json -text
+game/scripts/building/orison_v2_shop_joinery.gd -text
+game/assets/props/shop_joinery.glb.import -text
+game/tests/orison_v2_shop_joinery_test.gd -text
+art/renders/orison_v2/shop_joinery_20261007/** -text -whitespace
+
+# Source-owned clerestory fabrication bindings.
+art/data/shop_clerestories/source_plan.json -text
+art/blender/scripts/build_shop_clerestories.py -text
+art/blender/scripts/shop_clerestories_geometry.py -text
+art/blender/scripts/inspect_shop_clerestories.py -text
+art/blender/shop_clerestories_construction.json -text
+game/data/orison_v2/shop_clerestories.json -text
+game/tests/fixtures/orison_shop_clerestories.json -text
+game/scripts/building/orison_v2_shop_clerestories.gd -text
+game/assets/props/shop_clerestories.glb.import -text
+game/tests/orison_v2_shop_clerestories_test.gd -text
+art/renders/orison_v2/shop_clerestories_20261007/** -text -whitespace
+
+# Bound native-context diagnostics and retained raw QA packet.
+art/blender/scripts/audit_linked_native_context.py -text
+art/blender/scripts/audit_native_support_dependents.py -text
+art/renders/orison_v2/context_fits_20261007/** -text -whitespace
+art/blender/cobbler_fittings.blend -text
+art/blender/druggist_cupboard.blend -text
+art/blender/hardware_stock.blend -text
+art/blender/hardware_tools.blend -text
+art/blender/locksmith_fittings.blend -text
+art/blender/news_fittings.blend -text
+art/blender/scripts/inspect_diner_receiving.py -text
+art/blender/scripts/inspect_laundry_receiving.py -text
+art/blender/shop_joinery.blend -text
+game/assets/props/cobbler_fittings.glb -text
+game/assets/props/druggist_cupboard.glb -text
+game/assets/props/hardware_stock.glb -text
+game/assets/props/hardware_tools.glb -text
+game/assets/props/laundry_fittings.glb -text
+game/assets/props/locksmith_fittings.glb -text
+game/assets/props/news_fittings.glb -text
+game/assets/props/shop_joinery.glb -text
+game/tests/fixtures/orison_laundry_receiving.json -text
+
+# Bound Photo/Radio native geometry and controlled lamp body.
+art/data/photo_radio_fittings/source_plan.json -text
+art/blender/scripts/build_photo_radio_fittings.py -text
+art/blender/scripts/photo_radio_fittings_geometry.py -text
+art/blender/scripts/inspect_photo_radio_fittings.py -text
+art/blender/photo_radio_fittings.blend -text
+art/blender/photo_radio_fittings_construction.json -text
+game/assets/props/photo_radio_fittings.glb -text
+game/assets/props/photo_radio_fittings.glb.import -text
+game/data/orison_v2/photo_radio_fittings.json -text
+game/tests/fixtures/orison_photo_radio_fittings.json -text
+game/scripts/building/orison_v2_photo_radio_fittings.gd -text
+game/scripts/props/photo_darkroom_light.gd -text
+game/tests/orison_v2_photo_radio_fittings_test.gd -text
+art/renders/orison_v2/photo_radio_fittings_20261007/** -text -whitespace
+
+# Bound five-variant task lamp library and V2 visual adapter.
+art/data/task_lamps/source_plan.json -text
+art/blender/scripts/build_task_lamps.py -text
+art/blender/scripts/task_lamps_geometry.py -text
+art/blender/scripts/inspect_task_lamps.py -text
+art/blender/task_lamps.blend -text
+art/blender/task_lamps_construction.json -text
+game/assets/props/task_lamps.glb -text
+game/assets/props/task_lamps.glb.import -text
+game/data/orison_v2/task_lamps.json -text
+game/tests/fixtures/orison_task_lamps.json -text
+game/scripts/props/native_task_lamp.gd -text
+game/tests/orison_v2_task_lamps_test.gd -text
+art/renders/orison_v2/task_lamps_20261007/** -text -whitespace
+art/textures/ai_materials/brass/material.json -text
+art/textures/ai_materials/nickel_plated/material.json -text
+art/textures/ai_materials/enamel/material.json -text
+art/textures/ai_materials/bakelite/material.json -text
+art/textures/ai_materials/milk_glass/material.json -text
+art/textures/ai_materials/wood_dark/material.json -text
+game/assets/building/textures/T_library_metals_aged_brass_albedo.png -text
+game/assets/building/textures/T_library_metals_aged_brass_rough.png -text
+game/assets/building/textures/T_library_metals_aged_brass_normal.png -text
+game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png -text
+game/assets/building/textures/T_ai_materials_nickel_plated_rough.png -text
+game/assets/building/textures/T_ai_materials_nickel_plated_normal.png -text
+game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_albedo.png -text
+game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_rough.png -text
+game/assets/building/textures/T_library_appliances_aged_enamel_normal.png -text
+game/assets/building/textures/T_library_appliances_bakelite_albedo.png -text
+game/assets/building/textures/T_library_appliances_bakelite_rough.png -text
+game/assets/building/textures/T_library_appliances_bakelite_normal.png -text
+game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png -text
+game/assets/building/textures/T_ai_materials_rubber_aged_rough.png -text
+game/assets/building/textures/T_ai_materials_rubber_aged_normal.png -text
+game/assets/building/textures/T_ai_materials_milk_glass_albedo.png -text
+game/assets/building/textures/T_ai_materials_milk_glass_rough.png -text
+game/assets/building/textures/T_ai_materials_milk_glass_normal.png -text
+game/assets/building/textures/T_library_furniture_walnut_albedo.png -text
+game/assets/building/textures/T_library_furniture_walnut_rough.png -text
+game/assets/building/textures/T_library_furniture_walnut_normal.png -text
+game/scripts/props/lamp_prop.gd -text
+game/scripts/props/functional_prop.gd -text
+game/scripts/building/orison_v2_room_lighting.gd -text
+game/data/orison_v2/domestic_furniture.json -text
+
+art/blender/reading_nook.blend -text
+art/blender/reading_nook_construction.json -text
+art/blender/scripts/build_orison.py -text
+art/blender/scripts/build_reading_nook.py -text
+art/blender/scripts/inspect_reading_nook.py -text
+art/blender/scripts/inspect_task_lamp_installations.py -text
+art/blender/scripts/reading_nook_geometry.py -text
+art/data/reading_nook/source_plan.json -text
+art/data/task_lamp_installations/source_plan.json -text
+art/textures/ai_materials/ceramic/material.json -text
+art/textures/ai_materials/fabric_green/material.json -text
+art/textures/ai_materials/fabric_warm/material.json -text
+art/textures/ai_materials/floor_oak/material.json -text
+art/textures/ai_materials/metal/material.json -text
+art/textures/ai_materials/paper/material.json -text
+art/textures/ai_materials/plant/material.json -text
+art/textures/ai_materials/rug_warm/material.json -text
+art/textures/ai_materials/soil/material.json -text
+art/textures/ai_materials/terracotta/material.json -text
+art/textures/ai_materials/timber/material.json -text
+art/textures/library/furniture/book_brown/asset.json -text
+art/textures/library/furniture/book_burgundy/asset.json -text
+art/textures/library/furniture/book_green/asset.json -text
+art/textures/library/furniture/book_navy/asset.json -text
+art/textures/library/furniture/book_ochre/asset.json -text
+art/textures/library/furniture/book_teal/asset.json -text
+art/tools/build_glass_maps.py -text
+game/assets/building/floor_b1.gltf -text
+game/assets/building/textures/T_ai_materials_ceramic_albedo.png -text
+game/assets/building/textures/T_ai_materials_ceramic_normal.png -text
+game/assets/building/textures/T_ai_materials_ceramic_rough.png -text
+game/assets/building/textures/T_ai_materials_fabric_green_albedo.png -text
+game/assets/building/textures/T_ai_materials_fabric_green_normal.png -text
+game/assets/building/textures/T_ai_materials_fabric_green_rough.png -text
+game/assets/building/textures/T_ai_materials_floor_oak_albedo.png -text
+game/assets/building/textures/T_ai_materials_floor_oak_normal.png -text
+game/assets/building/textures/T_ai_materials_floor_oak_rough.png -text
+game/assets/building/textures/T_ai_materials_rug_warm_albedo.png -text
+game/assets/building/textures/T_ai_materials_rug_warm_normal.png -text
+game/assets/building/textures/T_ai_materials_rug_warm_rough.png -text
+game/assets/building/textures/T_ai_materials_soil_albedo.png -text
+game/assets/building/textures/T_ai_materials_soil_normal.png -text
+game/assets/building/textures/T_ai_materials_soil_rough.png -text
+game/assets/building/textures/T_ai_materials_terracotta_albedo.png -text
+game/assets/building/textures/T_ai_materials_terracotta_normal.png -text
+game/assets/building/textures/T_ai_materials_terracotta_rough.png -text
+game/assets/building/textures/T_ai_materials_timber_albedo.png -text
+game/assets/building/textures/T_ai_materials_timber_normal.png -text
+game/assets/building/textures/T_ai_materials_timber_rough.png -text
+game/assets/building/textures/T_glass_normal.png -text
+game/assets/building/textures/T_glass_rough.png -text
+game/assets/building/textures/T_library_appliances_galvanized_metal_normal.png -text
+game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png -text
+game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png -text
+game/assets/building/textures/T_library_furniture_aged_paper_albedo.png -text
+game/assets/building/textures/T_library_furniture_aged_paper_normal.png -text
+game/assets/building/textures/T_library_furniture_aged_paper_rough.png -text
+game/assets/building/textures/T_library_furniture_book_brown_albedo.png -text
+game/assets/building/textures/T_library_furniture_book_brown_normal.png -text
+game/assets/building/textures/T_library_furniture_book_brown_rough.png -text
+game/assets/building/textures/T_library_furniture_book_burgundy_albedo.png -text
+game/assets/building/textures/T_library_furniture_book_burgundy_normal.png -text
+game/assets/building/textures/T_library_furniture_book_burgundy_rough.png -text
+game/assets/building/textures/T_library_furniture_book_green_albedo.png -text
+game/assets/building/textures/T_library_furniture_book_green_normal.png -text
+game/assets/building/textures/T_library_furniture_book_green_rough.png -text
+game/assets/building/textures/T_library_furniture_book_navy_albedo.png -text
+game/assets/building/textures/T_library_furniture_book_navy_normal.png -text
+game/assets/building/textures/T_library_furniture_book_navy_rough.png -text
+game/assets/building/textures/T_library_furniture_book_ochre_albedo.png -text
+game/assets/building/textures/T_library_furniture_book_ochre_normal.png -text
+game/assets/building/textures/T_library_furniture_book_ochre_rough.png -text
+game/assets/building/textures/T_library_furniture_book_teal_albedo.png -text
+game/assets/building/textures/T_library_furniture_book_teal_normal.png -text
+game/assets/building/textures/T_library_furniture_book_teal_rough.png -text
+game/assets/building/textures/T_library_furniture_linen_albedo.png -text
+game/assets/building/textures/T_library_furniture_linen_normal.png -text
+game/assets/building/textures/T_library_furniture_linen_rough.png -text
+game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png -text
+game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png -text
+game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png -text
+game/assets/building/textures/T_library_organic_leaf_surface_albedo.png -text
+game/assets/building/textures/T_library_organic_leaf_surface_normal.png -text
+game/assets/building/textures/T_library_organic_leaf_surface_rough.png -text
+game/assets/props/reading_nook.glb -text
+game/assets/props/reading_nook.glb.import -text
+game/data/orison_v2/domestic_surface_props.json -text
+game/data/orison_v2/reading_nook.json -text
+game/data/orison_v2/task_lamp_installations.json -text
+game/scripts/building/orison_v2_domestic_furniture.gd -text
+game/scripts/building/orison_v2_reading_nook.gd -text
+game/scripts/building/orison_v2_task_lamp_installations.gd -text
+game/scripts/props/signal_terminal_prop.gd -text
+game/tests/fixtures/orison_reading_nook.json -text
+game/tests/orison_v2_reading_nook_test.gd -text
+tools/build_v2_task_lamp_installations.py -text
+art/renders/orison_v2/reading_nook_20261007/** -text -whitespace
+
+art/blender/scripts/build_work_oak_material.py -text
+art/blender/scripts/build_work_tables.py -text
+art/blender/scripts/inspect_work_tables.py -text
+art/blender/scripts/work_tables_geometry.py -text
+art/blender/work_tables.blend -text
+art/blender/work_tables_construction.json -text
+art/data/work_tables/source_plan.json -text
+art/textures/ai_materials/oak_work_surface/material.json -text
+art/textures/ai_materials/soot/material.json -text
+art/textures/ai_materials/trim/material.json -text
+art/textures/ai_sources/oak_work_surface_20261007.png -text
+game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png -text
+game/assets/building/textures/T_ai_materials_iron_blackened_normal.png -text
+game/assets/building/textures/T_ai_materials_iron_blackened_rough.png -text
+game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png -text
+game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png -text
+game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png -text
+game/assets/building/textures/T_ai_materials_soot_normal.png -text
+game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png -text
+game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png -text
+game/assets/building/textures/T_library_architectural_painted_trim_albedo.png -text
+game/assets/building/textures/T_library_architectural_painted_trim_normal.png -text
+game/assets/building/textures/T_library_architectural_painted_trim_rough.png -text
+game/assets/props/work_tables.glb -text
+game/assets/props/work_tables.glb.import -text
+game/data/orison_v2/work_tables.json -text
+game/tests/fixtures/orison_work_tables.json -text
+art/renders/orison_v2/work_tables_20261007/** -text -whitespace
+
+art/blender/scripts/build_signal_terminal.py -text
+art/blender/scripts/build_surface_stock.py -text
+art/blender/scripts/fabrication_chart_batch.py -text
+art/blender/scripts/fabrication_normals.py -text
+art/blender/scripts/inspect_signal_terminal.py -text
+art/blender/scripts/inspect_signal_terminal_context.py -text
+art/blender/scripts/inspect_surface_stock.py -text
+art/blender/scripts/inspect_surface_stock_context.py -text
+art/blender/scripts/render_signal_terminal.py -text
+art/blender/scripts/render_surface_stock.py -text
+art/blender/scripts/signal_terminal_geometry.py -text
+art/blender/scripts/surface_stock_geometry.py -text
+art/blender/signal_terminal.blend -text
+art/blender/signal_terminal_construction.json -text
+art/blender/surface_stock.blend -text
+art/blender/surface_stock_construction.json -text
+art/data/signal_terminal/source_plan.json -text
+art/data/surface_stock/source_plan.json -text
+art/textures/ai_materials/chrome/material.json -text
+art/textures/ai_materials/copper_aged/material.json -text
+art/textures/ai_materials/plywood/material.json -text
+art/textures/ai_materials/porcelain_fixture/material.json -text
+art/tools/fix_runtime_texture_imports.py -text
+game/assets/building/textures/T_ai_materials_brass_dull_albedo.png -text
+game/assets/building/textures/T_ai_materials_brass_dull_normal.png -text
+game/assets/building/textures/T_ai_materials_brass_dull_rough.png -text
+game/assets/building/textures/T_ai_materials_copper_aged_albedo.png -text
+game/assets/building/textures/T_ai_materials_copper_aged_normal.png -text
+game/assets/building/textures/T_ai_materials_copper_aged_rough.png -text
+game/assets/building/textures/T_ai_materials_plywood_albedo.png -text
+game/assets/building/textures/T_ai_materials_plywood_normal.png -text
+game/assets/building/textures/T_ai_materials_plywood_rough.png -text
+game/assets/building/textures/T_ai_materials_porcelain_fixture_albedo.png -text
+game/assets/building/textures/T_ai_materials_porcelain_fixture_normal.png -text
+game/assets/building/textures/T_ai_materials_porcelain_fixture_rough.png -text
+game/assets/building/textures/T_library_appliances_brushed_steel_albedo.png -text
+game/assets/building/textures/T_library_appliances_brushed_steel_normal.png -text
+game/assets/building/textures/T_library_appliances_brushed_steel_rough.png -text
+game/assets/props/signal_terminal.glb -text
+game/assets/props/signal_terminal.glb.import -text
+game/assets/props/surface_stock.glb -text
+game/assets/props/surface_stock.glb.import -text
+game/data/orison_v2/signal_terminal.json -text
+game/data/orison_v2/surface_stock.json -text
+game/scripts/building/orison_v2_native_signal_terminal.gd -text
+game/scripts/building/orison_v2_surface_props.gd -text
+game/scripts/building/orison_v2_surface_stock.gd -text
+game/scripts/props/tap_prop.gd -text
+game/shaders/lamp_glass_surface.gdshader -text
+game/tests/fixtures/orison_signal_terminal.json -text
+game/tests/fixtures/orison_surface_stock.json -text
+game/tests/orison_v2_signal_terminal_test.gd -text
+game/tests/orison_v2_surface_stock_test.gd -text
+art/renders/orison_v2/desktop_stock_20261007/** -text -whitespace
+
+art/blender/domestic_seating.blend -text
+art/blender/domestic_seating_construction.json -text
+art/blender/domestic_tables.blend -text
+art/blender/domestic_tables_construction.json -text
+art/blender/scripts/build_domestic_seating.py -text
+art/blender/scripts/build_domestic_tables.py -text
+art/blender/scripts/domestic_seating_geometry.py -text
+art/blender/scripts/domestic_tables_geometry.py -text
+art/blender/scripts/inspect_domestic_furniture_context.py -text
+art/blender/scripts/inspect_domestic_seating.py -text
+art/blender/scripts/inspect_domestic_tables.py -text
+art/blender/scripts/render_domestic_seating.py -text
+art/blender/scripts/render_domestic_tables.py -text
+art/data/domestic_seating/source_plan.json -text
+art/data/domestic_tables/source_plan.json -text
+game/assets/props/domestic_seating.glb -text
+game/assets/props/domestic_seating.glb.import -text
+game/assets/props/domestic_tables.glb -text
+game/assets/props/domestic_tables.glb.import -text
+game/data/orison_v2/domestic_seating.json -text
+game/data/orison_v2/domestic_tables.json -text
+game/scripts/building/orison_v2_native_domestic_furniture.gd -text
+game/tests/fixtures/orison_domestic_seating.json -text
+game/tests/fixtures/orison_domestic_tables.json -text
+game/tests/orison_v2_domestic_native_test.gd -text
+game/tests/orison_v2_domestic_seating_test.gd -text
+game/tests/orison_v2_domestic_tables_test.gd -text
+art/renders/orison_v2/apartment_furniture_20261007/** -text -whitespace
+
+art/blender/domestic_storage.blend -text
+art/blender/domestic_storage_construction.json -text
+art/blender/prep_cabinets.blend -text
+art/blender/prep_cabinets_construction.json -text
+art/blender/scripts/build_domestic_storage.py -text
+art/blender/scripts/build_prep_cabinets.py -text
+art/blender/scripts/domestic_storage_geometry.py -text
+art/blender/scripts/inspect_domestic_storage.py -text
+art/blender/scripts/inspect_domestic_storage_context.py -text
+art/blender/scripts/inspect_prep_cabinets.py -text
+art/blender/scripts/inspect_prep_cabinets_context.py -text
+art/blender/scripts/prep_cabinets_geometry.py -text
+art/blender/scripts/render_domestic_storage.py -text
+art/blender/scripts/render_prep_cabinets.py -text
+art/data/domestic_storage/source_plan.json -text
+art/data/prep_cabinets/source_plan.json -text
+game/assets/props/domestic_storage.glb -text
+game/assets/props/domestic_storage.glb.import -text
+game/assets/props/prep_cabinets.glb -text
+game/assets/props/prep_cabinets.glb.import -text
+game/data/orison_v2/domestic_storage.json -text
+game/data/orison_v2/prep_cabinets.json -text
+game/scripts/building/orison_v2_native_domestic_storage.gd -text
+game/scripts/building/orison_v2_native_prep_cabinets.gd -text
+game/scripts/building/orison_v2_prep_cabinet.gd -text
+game/scripts/props/toaster_prop.gd -text
+game/tests/fixtures/orison_domestic_storage.json -text
+game/tests/fixtures/orison_prep_cabinets.json -text
+game/tests/orison_v2_domestic_storage_test.gd -text
+game/tests/orison_v2_prep_cabinets_test.gd -text
+art/renders/orison_v2/domestic_storage_20261007/** -text -whitespace
+
+art/blender/household_wardrobes.blend -text
+art/blender/household_wardrobes_construction.json -text
+art/blender/scripts/build_household_wardrobes.py -text
+art/blender/scripts/household_wardrobes_geometry.py -text
+art/blender/scripts/inspect_household_wardrobes.py -text
+art/blender/scripts/inspect_household_wardrobes_context.py -text
+art/blender/scripts/render_household_wardrobes.py -text
+art/data/household_wardrobes/source_plan.json -text
+game/assets/props/household_wardrobes.glb -text
+game/assets/props/household_wardrobes.glb.import -text
+game/data/orison_v2/household_wardrobes.json -text
+game/scripts/building/orison_v2_native_household_wardrobes.gd -text
+game/scripts/building/orison_v2_wardrobe.gd -text
+game/scripts/building/orison_v2_work_tables.gd -text
+game/scripts/props/baked_furniture_interaction.gd -text
+game/tests/fixtures/orison_household_wardrobes.json -text
+game/tests/orison_v2_fabrication_batch.gd -text
+game/tests/orison_v2_household_wardrobes_test.gd -text
+tools/orison_spatial_dependency_manifest.json -text
+tools/plan_v2_fabrication.py -text
+art/renders/orison_v2/household_wardrobes_20261007/** -text -whitespace
+
+art/blender/domestic_objects.blend -text
+art/blender/domestic_objects_construction.json -text
+art/blender/household_radios.blend -text
+art/blender/household_radios_construction.json -text
+art/blender/scripts/build_domestic_objects.py -text
+art/blender/scripts/build_household_radios.py -text
+art/blender/scripts/domestic_objects_geometry.py -text
+art/blender/scripts/household_radios_geometry.py -text
+art/blender/scripts/inspect_domestic_objects.py -text
+art/blender/scripts/inspect_domestic_objects_context.py -text
+art/blender/scripts/inspect_household_radios.py -text
+art/blender/scripts/inspect_household_radios_context.py -text
+art/blender/scripts/render_domestic_objects.py -text
+art/blender/scripts/render_household_radios.py -text
+art/data/domestic_objects/source_plan.json -text
+art/data/household_radios/source_plan.json -text
+art/textures/ai_materials/enamel_appliance/material.json -text
+game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png -text
+game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png -text
+game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png -text
+game/assets/props/domestic_objects.glb -text
+game/assets/props/domestic_objects.glb.import -text
+game/assets/props/household_radios.glb -text
+game/assets/props/household_radios.glb.import -text
+game/data/orison_v2/domestic_objects.json -text
+game/data/orison_v2/household_radios.json -text
+game/scripts/building/orison_v2_native_domestic_objects.gd -text
+game/scripts/building/orison_v2_native_household_radios.gd -text
+game/scripts/building/orison_v2_specialist_radio.gd -text
+game/tests/fixtures/orison_domestic_objects.json -text
+game/tests/fixtures/orison_household_radios.json -text
+game/tests/orison_v2_domestic_objects_test.gd -text
+game/tests/orison_v2_household_radios_test.gd -text
+art/renders/orison_v2/household_objects_radios_20261007/** -text -whitespace
+
+art/blender/household_toasters.blend -text
+art/blender/household_toasters_construction.json -text
+art/blender/medicine_cabinets.blend -text
+art/blender/medicine_cabinets_construction.json -text
+art/blender/scripts/build_household_toasters.py -text
+art/blender/scripts/build_medicine_cabinets.py -text
+art/blender/scripts/household_toasters_geometry.py -text
+art/blender/scripts/inspect_household_toaster_motion.py -text
+art/blender/scripts/inspect_household_toasters.py -text
+art/blender/scripts/inspect_household_toasters_context.py -text
+art/blender/scripts/inspect_medicine_cabinet_motion.py -text
+art/blender/scripts/inspect_medicine_cabinets.py -text
+art/blender/scripts/inspect_medicine_cabinets_context.py -text
+art/blender/scripts/medicine_cabinets_geometry.py -text
+art/blender/scripts/render_household_toasters.py -text
+art/blender/scripts/render_medicine_cabinet_interiors.py -text
+art/blender/scripts/render_medicine_cabinets.py -text
+art/data/household_toasters/source_plan.json -text
+art/data/medicine_cabinets/source_plan.json -text
+art/textures/ai_materials/mica_heater/material.json -text
+art/textures/ai_materials/mirror_aged/material.json -text
+art/textures/ai_materials/porcelain/material.json -text
+game/assets/building/textures/T_ai_materials_fx_grease_albedo.png -text
+game/assets/building/textures/T_ai_materials_fx_grease_normal.png -text
+game/assets/building/textures/T_ai_materials_fx_grease_rough.png -text
+game/assets/building/textures/T_ai_materials_mica_heater_albedo.png -text
+game/assets/building/textures/T_ai_materials_mica_heater_normal.png -text
+game/assets/building/textures/T_ai_materials_mica_heater_rough.png -text
+game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png -text
+game/assets/building/textures/T_ai_materials_mirror_aged_normal.png -text
+game/assets/building/textures/T_ai_materials_mirror_aged_rough.png -text
+game/assets/building/textures/T_library_furniture_porcelain_albedo.png -text
+game/assets/building/textures/T_library_furniture_porcelain_normal.png -text
+game/assets/building/textures/T_library_furniture_porcelain_rough.png -text
+game/assets/props/household_toasters.glb -text
+game/assets/props/household_toasters.glb.import -text
+game/assets/props/medicine_cabinets.glb -text
+game/assets/props/medicine_cabinets.glb.import -text
+game/data/orison_v2/household_accessories.json -text
+game/data/orison_v2/household_toasters.json -text
+game/data/orison_v2/medicine_cabinets.json -text
+game/scripts/building/orison_v2_household_accessories.gd -text
+game/scripts/building/orison_v2_medicine_cabinet.gd -text
+game/scripts/building/orison_v2_native_household_toasters.gd -text
+game/scripts/building/orison_v2_native_medicine_cabinets.gd -text
+game/scripts/building/orison_v2_toaster.gd -text
+game/scripts/props/medicine_cabinet_prop.gd -text
+game/tests/fixtures/orison_household_toasters.json -text
+game/tests/fixtures/orison_medicine_cabinets.json -text
+game/tests/orison_v2_household_toasters_test.gd -text
+game/tests/orison_v2_medicine_cabinets_test.gd -text
+art/renders/orison_v2/household_accessories_20261007/** -text -whitespace
+art/blender/fixed_lighting.blend -text
+art/blender/fixed_lighting_construction.json -text
+art/blender/scripts/build_fixed_lighting.py -text
+art/blender/scripts/fixed_lighting_geometry.py -text
+art/blender/scripts/inspect_fixed_lighting.py -text
+art/blender/scripts/inspect_fixed_lighting_city_context.py -text
+art/blender/scripts/inspect_fixed_lighting_context.py -text
+art/blender/scripts/render_fixed_lighting.py -text
+art/data/fixed_lighting/source_plan.json -text
+game/assets/building/orison_v2/exterior/passage_gateway.gltf -text
+game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png -text
+game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png -text
+game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png -text
+game/assets/props/fixed_lighting.glb -text
+game/assets/props/fixed_lighting.glb.import -text
+game/data/orison_v2/fixed_lighting.json -text
+game/data/orison_v2/room_lighting.json -text
+game/scripts/building/orison_v2_native_fixed_lighting.gd -text
+game/scripts/props/light_fixture_prop.gd -text
+game/tests/fixtures/orison_fixed_lighting.json -text
+game/tests/orison_v2_fixed_lighting_test.gd -text
+art/renders/orison_v2/fixed_lighting_20261008/** -text -whitespace
+
+# Native household refrigerator geometry and source-bound QA.
+art/blender/scripts/build_household_fridges.py -text
+art/blender/scripts/household_fridges_geometry.py -text
+art/blender/scripts/inspect_household_fridges.py -text
+art/blender/scripts/inspect_household_fridge_motion.py -text
+art/blender/scripts/inspect_household_fridges_context.py -text
+art/blender/scripts/render_household_fridges.py -text
+art/data/household_fridges/source_plan.json -text
+art/blender/household_fridges.blend -text
+art/blender/household_fridges_construction.json -text
+game/assets/props/household_fridges.glb -text
+game/assets/props/household_fridges.glb.import -text
+game/data/orison_v2/household_fridges.json -text
+game/scripts/building/orison_v2_fridge.gd -text
+game/scripts/building/orison_v2_native_household_fridges.gd -text
+game/tests/fixtures/orison_household_fridges.json -text
+game/tests/orison_v2_household_fridges_test.gd -text
+game/scripts/props/fridge_prop.gd -text
+game/scripts/props/stove_prop.gd -text
+game/scripts/building/orison_v2_domestic_fittings.gd -text
+art/renders/orison_v2/household_fridges_20261008/** -text -whitespace
+
+# Native household stove geometry and source-bound QA.
+art/blender/scripts/build_household_stoves.py -text
+art/blender/scripts/household_stoves_geometry.py -text
+art/blender/scripts/inspect_household_stoves.py -text
+art/blender/scripts/inspect_household_stoves_context.py -text
+art/blender/scripts/inspect_household_stove_motion.py -text
+art/blender/scripts/render_household_stoves.py -text
+art/data/household_stoves/source_plan.json -text
+art/blender/household_stoves.blend -text
+art/blender/household_stoves_construction.json -text
+game/assets/props/household_stoves.glb -text
+game/assets/props/household_stoves.glb.import -text
+game/data/orison_v2/household_stoves.json -text
+game/tests/fixtures/orison_household_stoves.json -text
+game/tests/orison_v2_household_stoves_test.gd -text
+game/scripts/building/orison_v2_stove.gd -text
+game/scripts/building/orison_v2_stove_visual_motion.gd -text
+game/scripts/building/orison_v2_native_household_stoves.gd -text
+art/renders/orison_v2/household_stoves_20261008/** -text -whitespace
+
+# Owner-facing V2 visual review dossier.
+art/reviews/v2_remaining_20261008/** -text -whitespace
+output/pdf/V2_remaining_geometry_texture_dossier.pdf binary
+
+# Owner dossier: source-bound service instruments and calibrated review.
+art/blender/scripts/build_service_instruments.py -text
+art/blender/scripts/service_instruments_geometry.py -text
+art/blender/scripts/render_service_instruments.py -text
+art/data/service_instruments/source_plan.json -text
+art/blender/service_instruments.blend -text
+art/blender/service_instruments_construction.json -text
+game/assets/props/service_instruments.glb -text
+game/assets/props/service_instruments.glb.import -text
+game/data/orison_v2/service_instruments.json -text
+game/tests/fixtures/orison_service_instruments.json -text
+game/tests/orison_v2_service_instruments_test.gd -text
+game/tests/orison_v2_finish_calibration.gd -text
+game/scripts/building/orison_v2_native_service_instruments.gd -text
+game/scripts/building/orison_v2_native_service_work_lights.gd -text
+game/scripts/building/orison_v2_dumbwaiter_rope_visual.gd -text
+art/renders/orison_v2/service_instruments_20261008/** -text -whitespace
+
+# Source-bound Harukiya apparatus and authorized lamp supply routes.
+art/blender/scripts/check_exported_tangents.py -text
+art/blender/scripts/build_bar_instruments.py -text
+art/blender/scripts/bar_instruments_geometry.py -text
+art/blender/scripts/render_bar_instruments.py -text
+art/data/bar_instruments/source_plan.json -text
+art/blender/bar_instruments.blend -text
+art/blender/bar_instruments_construction.json -text
+game/assets/props/bar_instruments.glb -text
+game/assets/props/bar_instruments.glb.import -text
+game/data/orison_v2/bar_instruments.json -text
+game/tests/fixtures/orison_bar_instruments.json -text
+game/tests/orison_v2_bar_instruments_test.gd -text
+art/blender/scripts/build_task_lamp_supply.py -text
+art/blender/scripts/inspect_task_lamp_supply.py -text
+art/data/task_lamp_supply/source_plan.json -text
+art/blender/task_lamp_supply.blend -text
+art/blender/task_lamp_supply_construction.json -text
+game/assets/props/task_lamp_supply.glb -text
+game/assets/props/task_lamp_supply.glb.import -text
+game/data/orison_v2/task_lamp_supply.json -text
+game/tests/fixtures/orison_task_lamp_supply.json -text
+game/tests/orison_v2_task_lamp_supply_test.gd -text
+game/scripts/building/orison_v2_task_lamp_supply.gd -text
+art/renders/orison_v2/bar_and_supply_20261008/** -text -whitespace
+
+# Source-bound passive bar piano, microphone and Rainbow Round case.
+art/blender/scripts/prepare_bar_furniture.py -text
+art/blender/scripts/build_bar_furniture.py -text
+art/blender/scripts/inspect_bar_furniture.py -text
+art/blender/scripts/render_bar_furniture.py -text
+art/blender/scripts/bar_furniture_geometry.py -text
+art/data/bar_furniture/source_plan.json -text
+art/blender/bar_furniture.blend -text
+art/blender/bar_furniture_construction.json -text
+game/assets/props/bar_furniture.glb -text
+game/assets/props/bar_furniture.glb.import -text
+game/data/orison_v2/bar_furniture.json -text
+game/tests/fixtures/orison_bar_furniture.json -text
+game/tests/orison_v2_bar_furniture_test.gd -text
+game/tests/orison_v2_bar_furniture_preflight.gd -text
+game/scripts/building/orison_v2_bar_furniture.gd -text
+art/renders/orison_v2/bar_furniture_20261008/** -text -whitespace
+
+# Native source-fitted Harukiya receiving cases.
+art/blender/scripts/prepare_bar_receiving.py -text
+art/blender/scripts/build_bar_receiving.py -text
+art/blender/scripts/inspect_bar_receiving.py -text
+art/blender/scripts/fabrication_native_batch.py -text
+art/data/bar_receiving/source_plan.json -text
+art/blender/bar_receiving.blend -text
+art/blender/bar_receiving_construction.json -text
+game/assets/props/bar_receiving.glb -text
+game/assets/props/bar_receiving.glb.import -text
+game/data/orison_v2/bar_receiving.json -text
+game/tests/fixtures/orison_bar_receiving.json -text
+game/tests/orison_v2_bar_receiving_test.gd -text
+game/tests/orison_v2_bar_receiving_preflight.gd -text
+game/scripts/building/orison_v2_bar_receiving.gd -text
+art/renders/orison_v2/bar_receiving_20261008/** -text -whitespace
+
+# Native source-owned signage housings.
+art/blender/scripts/prepare_signage.py -text
+art/blender/scripts/build_signage.py -text
+art/blender/scripts/signage_geometry.py -text
+art/blender/scripts/render_signage.py -text
+art/data/signage/source_plan.json -text
+art/blender/signage.blend -text
+art/blender/signage_construction.json -text
+game/assets/props/signage.glb -text
+game/assets/props/signage.glb.import -text
+game/data/orison_v2/signage.json -text
+game/tests/fixtures/orison_signage.json -text
+game/tests/orison_v2_signage_test.gd -text
+game/scripts/building/orison_v2_native_signage.gd -text
+art/renders/orison_v2/signage_20261008/** -text -whitespace
+
+# Generated neutral iron provenance and deterministic material data.
+art/tools/build_neutral_iron.py -text
+art/textures/ai_sources/iron_neutral_20261008* -text
+art/textures/ai_materials/iron_neutral/* -text
+art/blender/scripts/render_neutral_iron.py -text
+art/renders/orison_v2/iron_neutral_20261008/** -text -whitespace
+game/assets/building/textures/T_ai_materials_iron_neutral_*.png.import -text
+
+# Owner-directed shared service finish recipes and generated zinc.
+art/tools/build_quiet_zinc.py -text
+art/textures/ai_sources/zinc_quiet_20261008* -text
+art/textures/ai_materials/zinc_quiet/* -text
+art/blender/scripts/review_owner_service_finishes.py -text
+art/renders/orison_v2/zinc_quiet_20261008/** -text -whitespace
+art/renders/orison_v2/service_finishes_20261008/** -text -whitespace
+game/data/orison_v2/owner_finish_profiles.json -text
+game/scripts/building/orison_v2_owner_finishes.gd -text
+game/tests/orison_v2_owner_service_finish_test.gd -text
+game/tests/fixtures/orison_owner_service_finish.json -text
+game/assets/building/textures/T_ai_materials_zinc_quiet_*.png.import -text
+
+# Hash-bound native bedding and shared finish inspection sources.
+art/blender/scripts/build_bedding.py -text
+art/blender/scripts/owner_finish_materials.py -text
+art/blender/scripts/render_quiet_zinc.py -text
+art/blender/scripts/review_owner_bedding.py -text
+art/blender/scripts/review_owner_domestic_finishes.py -text
+art/blender/scripts/review_owner_small_appliances.py -text
+game/tests/orison_v2_bedding_test.gd -text
+game/tests/fixtures/orison_bedding.json -text
+
+# Dossier wet cloth, attached pulley presentation and local use marks.
+art/blender/scripts/build_basement_airer.py -text
+art/blender/scripts/build_bathroom_details.py -text
+art/blender/scripts/review_owner_wet_cloth.py -text
+art/blender/scripts/review_owner_cloth_objects.py -text
+game/scripts/building/orison_v2_laundry_airer.gd -text
+game/scripts/building/orison_v2_service_wear.gd -text
+game/tests/orison_v2_wet_cloth_test.gd -text
+game/tests/fixtures/orison_basement_airer.json -text
+
+# Owner cloth/shop finish sources and scoped runtime review.
+art/blender/scripts/review_owner_shops.py -text
+game/scripts/building/orison_v2_service_floor_finish.gd -text
+game/shaders/orison_service_floor.gdshader -text
+game/tests/orison_v2_owner_shop_finish_test.gd -text
+game/tests/orison_v2_diner_apparatus_test.gd -text
+game/tests/orison_v2_diner_urns_test.gd -text
+
+art/renders/orison_v2/cloth_shops_20261008/** -text
+
+game/scripts/building/orison_v2_owner_building_finishes.gd -text
+game/shaders/orison_owner_component.gdshader -text
+game/tests/orison_v2_owner_building_finish_test.gd -text
+game/tests/orison_v2_owner_building_routes_test.gd -text
+art/renders/orison_v2/building_finishes_20261008/** -text
+game/data/orison_v2/owner_light_fits.json -text
+game/tests/fixtures/orison_city_registration_review.json -text
+game/tests/fixtures/orison_owner_building_finish.json -text
+
+# Source-bound V2 import continuation baseline and review queue.
+art/data/v2_import_resume_20261008/** -text
+
+# Native street paving and source-bound inspection.
+art/blender/scripts/inspect_front_pavement.py -text
+art/blender/scripts/build_street_paving_details.py -text
+art/blender/scripts/inspect_street_paving_details.py -text
+art/blender/street_paving_details.blend -text
+art/blender/street_paving_details_construction.json -text
+game/data/orison_v2/street_paving_details.json -text
+game/tests/fixtures/orison_front_pavement_review.json -text
+game/tests/fixtures/orison_street_paving_details.json -text
+game/scripts/building/orison_v2_street_paving_details.gd -text
+game/tests/orison_v2_street_paving_details_test.gd -text
+game/tests/orison_v2_front_pavement_test.gd -text
+art/renders/orison_v2/street_paving_20261008/** -text
+# Rear alley local finish review (native geometry reused).
+game/data/orison_v2/service_alley_finish.json -text
+game/scripts/building/orison_v2_service_alley.gd -text
+game/tests/orison_v2_alley_finish_test.gd -text
+art/blender/scripts/review_service_alley_finish.py -text
+art/renders/orison_v2/alley_finish_20261008/** -text
+game/scripts/building/orison_v2_city_shells.gd -text
+game/tests/orison_v2_city_closure_test.gd -text
+art/blender/scripts/review_city_roof_finish.py -text
+art/renders/orison_v2/city_roof_finish_20261008/** -text
+game/data/orison_v2/ground_finish.json -text
+game/scripts/building/orison_v2_ground.gd -text
+game/tests/orison_v2_city_foundations_test.gd -text
+art/blender/scripts/review_ground_finish.py -text
+art/renders/orison_v2/ground_finish_20261008/** -text
+art/reviews/v2_environment_design_20261008/** -text
+
+art/renders/orison_v2/dossier_followups_20261011/** -text
+art/renders/orison_v2/surface_requirements_20261011/** -text -whitespace
+game/tests/orison_v2_surface_inventory.gd -text
+game/tests/fixtures/orison_bookcase_lift_door.json -text
+game/tests/fixtures/orison_radiator_section.json -text
+art/blender/scripts/repair_surface_uvs.py -text
+
+# Hash-bound source retains its recorded CRLF bytes.
+game/scripts/props/tap_prop.gd whitespace=cr-at-eol
+game/shaders/lamp_glass_surface.gdshader whitespace=cr-at-eol
+game/assets/environment/weather/*.rg8 -text
+game/tests/orison_v2_first_slice_contract_test.gd -text
+art/renders/orison_v2/first_slice_contract_20261011/** -text
+game/tests/orison_v2_m08e_spatial_test.gd -text
+game/tests/orison_v2_integrated_test.gd -text
+art/renders/orison_v2/route_fixtures_20261011/** -text
+game/tests/orison_v2_apartment_batch_test.gd -text
+art/renders/orison_v2/apartment_native_checks_20261011/** -text
+
+art/blender/scripts/build_mail_bank.py -text
+art/blender/scripts/review_mail_bank.py -text
+game/scripts/building/orison_v2_native_mail_bank.gd -text
+game/tests/orison_v2_mail_bank_preflight.gd -text
+game/tests/v2_mail_bank_review.gd -text
+art/renders/orison_v2/mail_bank_20261011/** -text
+game/scripts/props/fuse_panel_prop.gd -text
+game/scripts/props/house_switchboard_prop.gd -text
+art/renders/orison_v2/fuse_block_20261011/** -text
+
+# Native fire-service fabrication and source-bound qualification.
+art/blender/scripts/build_fire_service.py -text
+art/blender/scripts/review_fire_service.py -text
+art/data/fire_service/** -text
+game/data/orison_v2/fire_service.json -text
+game/scripts/building/orison_v2_native_fire_service.gd -text
+game/scripts/building/orison_v2_fire_hose_visual.gd -text
+game/scripts/building/v2_embedded_surface_stock.gd -text
+game/tests/v2_fire_service_review.gd -text
+game/tests/v2_fire_service_test.gd -text
+game/tests/v2_fire_service_source.gd -text
+game/tests/v2_changed_compile_check.gd -text
+art/renders/orison_v2/fire_service_20261011/** -text
+game/tests/v2_embedded_surface_preview.gd -text
+
+# Native electrical-service fabrication and physical qualification.
+art/blender/scripts/build_electrical_service.py -text
+art/blender/scripts/review_electrical_service.py -text
+art/data/electrical_service/** -text
+game/data/orison_v2/electrical_service.json -text
+game/scripts/building/orison_v2_native_electrical_service.gd -text
+game/tests/v2_electrical_service_review.gd -text
+art/renders/orison_v2/electrical_service_20261011/** -text
+
+# Native panel-to-riser supply branch and source-owned review.
+art/blender/scripts/build_electrical_connections.py -text
+art/blender/scripts/review_electrical_connections.py -text
+game/data/orison_v2/electrical_connections.json -text
+game/scripts/building/orison_v2_native_electrical_connections.gd -text
+game/tests/v2_electrical_connections_review.gd -text
+game/tests/v2_electrical_connection_probe.gd -text
+game/tests/V2ElectricalConnectionProbe.tscn -text
+art/renders/orison_v2/electrical_connections_20261011/** -text
+
+# Hash-bound upper household composition checks and scoped receipts.
+game/tests/orison_v2_upper_furniture_test.gd -text
+game/tests/orison_v2_upper_kitchen_test.gd -text
+art/renders/orison_v2/upper_household_checks_20261011/** -text
+
+# Source-bound upper entry fitting and spatial evidence.
+game/tests/orison_v2_upper_entry_storage_test.gd -text
+game/tests/OrisonV2UpperEntryStorageTest.tscn -text
+art/blender/scripts/review_upper_entry_hallstands.py -text
+tools/rebind_v2_hallstands.py -text
+art/renders/orison_v2/upper_entry_storage_20261011/** -text
+
+# Native resident storage cages and fixed open gates.
+art/blender/scripts/plan_resident_storage.py -text
+art/blender/scripts/build_resident_storage.py -text
+art/blender/scripts/review_resident_storage.py -text
+art/data/resident_storage/source_plan.json -text
+game/data/orison_v2/resident_storage.json -text
+game/scripts/building/orison_v2_native_resident_storage.gd -text
+game/scripts/building/orison_v2_basement.gd -text
+game/tests/orison_v2_basement_route_test.gd -text
+tools/rebind_v2_storage_context.py -text
+tools/export_v2_storage_data.py -text
+art/renders/orison_v2/basement_storage_20261011/** -text
+
+# Actual V2 UV sampling and procedural metre charts.
+game/scripts/building/orison_v2_uv_material_policy.gd -text
+game/scripts/building/v2_metre_box_uv.gd -text
+game/scripts/building/orison_v2_blockout.gd -text
+game/tests/v2_uv_application_test.gd -text
+game/tests/V2UVApplicationTest.tscn -text
+art/blender/scripts/review_v2_roof_uv_application.py -text
+art/renders/orison_v2/uv_application_20261012/** -text
+
+# Roof plant finish and task fixtures.
+game/scripts/building/orison_v2_roof_plant_materials.gd -text
+game/data/orison_v2/roof_plant_lighting.json -text
+game/tests/orison_v2_roof_plant_test.gd -text
+game/tests/OrisonV2RoofPlantTest.tscn -text
+tools/prepare_v2_roof_plant_lighting.py -text
+art/renders/orison_v2/roof_plant_20261012/** -text
+
+# Roof physical lighting supply.
+art/blender/scripts/build_roof_lighting_supply.py -text
+art/blender/scripts/review_roof_lighting_supply.py -text
+tools/prepare_roof_lighting_supply.py -text
+tools/rebind_roof_lighting_supply_context.py -text
+game/data/orison_v2/roof_lighting_supply.json -text
+game/assets/props/roof_lighting_supply.glb -text
+game/assets/props/roof_lighting_supply.glb.import -text
+art/tools/fix_v2_mesh_imports.py -text
+game/scripts/building/orison_v2_roof_lighting_supply.gd -text
+art/renders/orison_v2/roof_supply_20261012/** -text
+art/renders/orison_v2/public_stair_review_20261012/** -text
+
+# Native active household media.
+art/blender/scripts/build_active_household_radios.py -text
+art/blender/scripts/build_active_household_projector.py -text
+art/blender/scripts/review_active_household_media.py -text
+tools/prepare_active_media_imports.py -text
+game/assets/props/active_household_radios.glb -text
+game/assets/props/active_household_radios.glb.import -text
+game/assets/props/active_household_projector.glb -text
+game/assets/props/active_household_projector.glb.import -text
+game/data/orison_v2/active_household_radios.json -text
+game/data/orison_v2/active_household_projector.json -text
+game/scripts/building/orison_v2_native_active_radios.gd -text
+game/scripts/building/orison_v2_native_active_projector.gd -text
+game/tests/v2_active_media_review.gd -text
+art/renders/orison_v2/active_media_20261012/** -text
+art/blender/scripts/build_media_ac_supply.py -text
+art/blender/scripts/inspect_media_ac_supply.py -text
+art/data/media_ac_supply/source_plan.json -text
+game/assets/props/media_ac_supply.glb -text
+game/assets/props/media_ac_supply.glb.import -text
+game/data/orison_v2/media_ac_supply.json -text
+game/scripts/building/orison_v2_media_ac_supply.gd -text
+tools/prepare_media_ac_supply.py -text
+art/renders/orison_v2/media_ac_20261012/** -text
+art/blender/scripts/build_media_battery_supply.py -text
+art/blender/scripts/inspect_media_battery_supply.py -text
+art/data/media_battery_supply/source_plan.json -text
+game/assets/props/media_battery_supply.glb -text
+game/assets/props/media_battery_supply.glb.import -text
+game/data/orison_v2/media_battery_supply.json -text
+game/scripts/building/orison_v2_media_battery_supply.gd -text
+art/renders/orison_v2/media_battery_20261012/** -text
+
+# Native door and kitchen-sink batch source bindings.
+art/blender/scripts/build_domestic_door_leaves.py -text
+art/blender/scripts/build_door_keyway.py -text
+art/blender/scripts/build_kitchen_faucet.py -text
+art/blender/scripts/inspect_domestic_door_leaves.py -text
+art/blender/scripts/inspect_door_keyway.py -text
+art/blender/scripts/inspect_kitchen_faucet.py -text
+art/textures/ai_materials/door_oak/material.json -text
+art/textures/procedural/door_brass/material.json -text
+art/textures/procedural/door_paint/material.json -text
+art/textures/procedural/faucet_nickel/material.json -text
+art/tools/build_door_brass.py -text
+art/tools/build_door_paint.py -text
+art/tools/build_faucet_nickel.py -text
+game/assets/building/textures/T_ai_materials_door_brass_albedo.png.import -text
+game/assets/building/textures/T_ai_materials_door_brass_normal.png.import -text
+game/assets/building/textures/T_ai_materials_door_brass_rough.png.import -text
+game/assets/building/textures/T_ai_materials_door_oak_albedo.png.import -text
+game/assets/building/textures/T_ai_materials_door_oak_normal.png.import -text
+game/assets/building/textures/T_ai_materials_door_oak_rough.png.import -text
+game/assets/building/textures/T_ai_materials_door_paint_albedo.png.import -text
+game/assets/building/textures/T_ai_materials_door_paint_normal.png.import -text
+game/assets/building/textures/T_ai_materials_door_paint_rough.png.import -text
+game/assets/building/textures/T_ai_materials_faucet_nickel_albedo.png.import -text
+game/assets/building/textures/T_ai_materials_faucet_nickel_normal.png.import -text
+game/assets/building/textures/T_ai_materials_faucet_nickel_rough.png.import -text
+game/assets/props/domestic_door_leaves.glb.import -text
+game/assets/props/door_keyway.glb.import -text
+game/assets/props/kitchen_faucet.glb.import -text
+game/scripts/building/orison_v2_kitchen_sink.gd -text
+game/tests/fixtures/orison_domestic_door_leaves.json -text
+game/tests/v2_door_keyway_review.gd -text
+game/tests/v2_kitchen_sink_review.gd -text
+tools/tests/test_additive_material_rebind.py -text
+art/renders/orison_v2/door_polish_20261012/** -text
+art/renders/orison_v2/kitchen_sinks_20261012/** -text
+
+art/renders/orison_v2/apartment_kitchen_route_20261012/** -text
+
+# Native kitchen casting source and verification packets.
+art/blender/scripts/build_kitchen_basins.py -text
+art/blender/scripts/inspect_kitchen_basins.py -text
+game/assets/props/kitchen_basins.glb.import -text
+art/renders/orison_v2/kitchen_castings_20261012/** -text
+
+# Source-bound played apartment access contracts.
+game/tests/orison_v2_apartment_access_contract_test.gd -text
+game/tests/OrisonV2ApartmentAccessContractTest.tscn -text
+game/tests/orison_v2_connected_exterior_route_test.gd -text
+game/tests/orison_v2_apartment_door_route_test.gd -text
+game/tests/data/v2_apartment_door_routes.json -text
+art/renders/orison_v2/apartment_access_20261012/** -text
+
+game/tests/orison_v2_completion_access_contract_test.gd -text
+game/tests/OrisonV2CompletionAccessContractTest.tscn -text
+game/tests/orison_v2_roof_route_test.gd -text
+art/renders/orison_v2/completion_access_20261012/** -text
+
+art/renders/orison_v2/bedding_polish_20261012/** -text
+
+game/tests/orison_v2_roof_program_contract_test.gd -text
+game/tests/OrisonV2RoofProgramContractTest.tscn -text
+game/tests/orison_v2_roof_program_route_test.gd -text
+game/tests/orison_v2_lift_drive_test.gd -text
+art/renders/orison_v2/roof_program_20261012/** -text
+
+game/tests/orison_v2_roof_lift_program_route_test.gd -text
+
+# Authored bathroom material sources and bound review.
+art/textures/procedural/bath_wall_tile/** -text
+art/textures/procedural/bath_floor_tile/** -text
+game/tests/v2_bathroom_tile_review.gd -text
+art/renders/orison_v2/bathroom_tiles_20261012/** -text
+game/tests/v2_completion_door_settle.gd -text
+
+# Direct-manipulation runtime inputs: preserve tested LF bytes.
+game/scripts/building/orison_v2_boiler_window.gd -text
+game/scripts/building/orison_v2_household_state.gd -text
+
+# Preserve original static verification and integration record bytes.
+art/reviews/v2_native_fittings_integration_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_portable_imports_20261020/** -text whitespace=cr-at-eol
+
+# Current qualification and preserved prior/failed capture bytes.
+art/reviews/v2_qualification_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_roof_access_repair_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_roof_access_repair_20261020/roof-report-lint.txt whitespace=-blank-at-eol,cr-at-eol
+game/tests/v2_roof_clearance_probe.gd -text
+game/tests/V2RoofClearanceProbe.tscn -text
+game/scripts/building/orison_v2_sink.gd -text
+game/scripts/building/orison_v2_water_valve.gd -text
+game/scripts/building/orison_v2_window_treatment.gd -text
+game/scripts/building/switch_plate.gd -text
+game/scripts/player/constrained_grab.gd -text
+game/scripts/player/player_controller.gd -text
+game/scripts/props/boiler_prop.gd -text
+game/scripts/props/boxfan_prop.gd -text
+game/scripts/props/door_prop.gd -text
+game/scripts/props/laundry_airer_prop.gd -text
+game/scripts/props/manipulation_area.gd -text
+game/scripts/props/mechanism_sweep.gd -text
+game/scripts/props/prop_control_area.gd -text
+game/scripts/props/radiator_interaction_surface.gd -text
+game/scripts/props/radiator_prop.gd -text
+game/scripts/props/washer_prop.gd -text
+game/tests/DirectManipulationTest.tscn -text
+game/tests/DirectManipulationWorldTest.tscn -text
+game/tests/direct_manipulation_test.gd -text
+game/tests/direct_manipulation_world_test.gd -text
+game/scripts/props/basin_plug.gd -text
+game/scripts/props/shower_curtain_motion.gd -text
+
+# Operable cistern and close inspection: preserve tested source bytes.
+game/scripts/building/orison_v2_water_closet.gd -text
+game/scripts/device/service_set_carrier.gd -text
+game/scripts/game_boot.gd -text
+game/scripts/lamp/lamp_optical_state.gd -text
+game/scripts/lamp/carried_lamp_optical_driver.gd -text
+game/tests/toilet_inspection_test.gd -text
+game/tests/ToiletInspectionTest.tscn -text
+game/tests/carried_lamp_optical_driver_test.gd -text
+game/tests/controller_input_test.gd -text
+art/blender/scripts/build_operable_water_closet.py -text
+art/renders/orison_v2/toilet_inspection_20261013/** -text
+game/scripts/device/mechanical_teletype.gd -text
+art/blender/scripts/build_house_tank.py -text
+art/blender/scripts/inspect_house_tank.py -text
+game/scripts/building/orison_v2_house_tank.gd -text
+game/tests/orison_v2_tower_redesign_test.gd -text
+game/tests/OrisonV2TowerRedesignTest.tscn -text
+art/renders/orison_v2/tower_redesign_20261013/** -text
+
+# Washer controls: reproducible metric fabrication and source-bound runtime.
+art/blender/scripts/build_washer_controls.py -text
+art/blender/scripts/inspect_washer_controls.py -text
+game/tests/washer_controls_test.gd -text
+game/tests/WasherControlsTest.tscn -text
+art/renders/orison_v2/washer_controls_20261013/** -text
+game/tests/compile_changed_scripts.gd -text
+game/tests/CompileChangedScripts.tscn -text
+
+art/blender/scripts/measure_washer_clearance.py -text
+art/tools/build_washer_materials.py -text
+game/data/orison_v2/washer_native.json -text
+game/data/orison_v2/washer_clearance.json -text
+game/tests/washer_native_test.gd -text
+game/tests/WasherNativeTest.tscn -text
+
+game/tests/v2_remaining_apartment_walk.gd -text
+game/tests/orison_v2_remaining_apartment_access_contract_test.gd -text
+game/tests/OrisonV2RemainingApartmentAccessContractTest.tscn -text
+art/renders/orison_v2/remaining_apartment_access_20261013/** -text
+
+art/blender/scripts/build_fire_repairs.py -text
+art/blender/scripts/inspect_fire_repairs.py -text
+art/blender/fire_repairs_construction.json -text
+game/scripts/building/orison_v2_fire_repairs.gd -text
+game/tests/orison_v2_fire_repairs_test.gd -text
+game/tests/OrisonV2FireRepairsTest.tscn -text
+art/renders/orison_v2/fire_repairs_20261013/** -text
+
+tools/restore_v2_front_volume.py -text
+art/data/front_volume_restoration.json -text
+art/blender/scripts/build_front_restoration_details.py -text
+art/blender/scripts/inspect_front_restoration.py -text
+art/blender/front_restoration_construction.json -text
+game/scripts/building/orison_v2_front_restoration.gd -text
+game/tests/v2_front_restoration_review.gd -text
+art/renders/orison_v2/front_restoration_20261013/** -text
+art/renders/orison_v2/remaining_apartments_20261013/** -text
+
+game/scripts/props/fuse_panel_hand_controls.gd -text
+game/scripts/props/fuse_panel_plugs.gd -text
+game/tests/fuse_panel_hand_test.gd -text
+game/tests/FusePanelHandTest.tscn -text
+game/tests/fuse_panel_installed_test.gd -text
+game/tests/FusePanelInstalledTest.tscn -text
+art/renders/orison_v2/physical_fuse_20261013/** -text
+
+game/scripts/props/roof_tank_hand_controls.gd -text
+game/scripts/props/roof_tank_ballcock_prop.gd -text
+game/tests/roof_tank_hand_test.gd -text
+game/tests/RoofTankHandTest.tscn -text
+game/tests/roof_tank_installed_test.gd -text
+game/tests/RoofTankInstalledTest.tscn -text
+art/blender/scripts/inspect_roof_tank_controls.py -text
+art/renders/orison_v2/physical_roof_tank_20261013/** -text
+
+game/scripts/props/dumbwaiter_hand_controls.gd -text
+game/tests/dumbwaiter_hand_test.gd -text
+game/tests/dumbwaiter_installed_test.gd -text
+game/tests/DumbwaiterHandTest.tscn -text
+game/tests/DumbwaiterInstalledTest.tscn -text
+art/blender/scripts/inspect_dumbwaiter_controls.py -text
+
+game/scripts/props/dumbwaiter_prop.gd -text
+art/renders/orison_v2/physical_dumbwaiter_20261013/** -text
+art/renders/orison_v2/service_controls_20261013/** -text
+
+# Patrol physical controls and source-bound verification.
+art/blender/scripts/inspect_night_register_pen.py -text
+art/blender/scripts/inspect_watch_register_controls.py -text
+art/blender/scripts/inspect_watchman_controls.py -text
+game/scripts/audio/audio_policy.gd -text
+game/scripts/building/orison_v2_watch_station.gd -text
+game/scripts/props/night_register_hand_controls.gd -text
+game/scripts/props/night_register_prop.gd -text
+game/scripts/props/tour_key_guard_prop.gd -text
+game/scripts/props/tour_key_hand_controls.gd -text
+game/scripts/props/watch_register_hand_controls.gd -text
+game/scripts/props/watch_register_prop.gd -text
+game/scripts/props/watchman_clock_drive.gd -text
+game/scripts/props/watchman_clock_hand_controls.gd -text
+game/scripts/props/watchman_clock_prop.gd -text
+game/tests/NightRegisterHandTest.tscn -text
+game/tests/PatrolInstalledSaveTest.tscn -text
+game/tests/TourKeyHandTest.tscn -text
+game/tests/WatchRegisterHandTest.tscn -text
+game/tests/WatchStationHandTest.tscn -text
+game/tests/WatchmanDriveTest.tscn -text
+game/tests/WatchmanHandTest.tscn -text
+game/tests/night_register_hand_test.gd -text
+game/tests/orison_v2_patrol_stations_test.gd -text
+game/tests/patrol_installed_save_test.gd -text
+game/tests/tour_key_hand_test.gd -text
+game/tests/watch_register_hand_test.gd -text
+game/tests/watch_station_hand_test.gd -text
+game/tests/watchman_drive_test.gd -text
+game/tests/watchman_hand_test.gd -text
+tools/v2_surface_evidence.py -text
+art/renders/orison_v2/patrol_controls_20261016/** -text
+art/blender/scripts/build_watch_stations.py -text
+art/blender/scripts/review_watch_stations.py -text
+art/renders/orison_v2/station_transmission_20261016/** -text
+game/assets/props/watch_stations.glb.import -text
+
+# Heating source bindings and executed evidence must survive Windows checkout.
+art/renders/orison_v2/heating_distribution_20261016/** -text
+art/blender/heating_distribution.blend -text
+art/blender/heating_distribution/** -text
+art/blender/scripts/review_heating_distribution.py -text
+art/blender/scripts/inspect_heating_distribution.py -text
+art/blender/scripts/export_heating_distribution.py -text
+art/blender/scripts/build_boiler_pipework.py -text
+game/assets/props/heating_distribution.glb -text
+game/assets/props/heating_distribution.glb.import -text
+game/scripts/building/orison_v2_heating_distribution.gd -text
+game/scripts/building/orison_v2_boiler_pipework.gd -text
+game/tests/orison_v2_heating_distribution_test.gd -text
+game/tests/fixtures/orison_heating_distribution.json -text
+tools/plan_v2_heating_distribution.py -text
+tools/heating_pipe_fittings.py -text
+tools/check_v2_heating_envelopes.py -text
+tools/build_v2_heating_interfaces.py -text
+tools/build_v2_heating_branch_supports.py -text
+
+# Bound lobby takeoff inputs and native packaging evidence.
+art/blender/heating_distribution/base18.blend -text
+art/blender/heating_distribution/base18_mesh_inspection.json -text
+art/blender/heating_distribution/lobby_takeoff.json -text
+art/blender/heating_takeoff_candidate.blend -text
+art/blender/scripts/review_heating_takeoff.py -text
+art/blender/scripts/integrate_heating_takeoff.py -text
+art/blender/scripts/package_heating_native.py -text
+tools/plan_v2_heating_takeoff.py -text
+game/data/orison_v2/heating.json -text
+game/scripts/building/orison_v2_heating.gd -text
+art/renders/orison_v2/heating_takeoff_candidate_20261016/** -text
+art/renders/orison_v2/heating_lobby_20261016/** -text
+game/scripts/building/orison_v2_public_furnishings.gd -text
+game/tests/heating_hand_driver.gd -text
+art/blender/radiator_casting_candidate.blend -text
+art/renders/orison_v2/radiator_casting_candidate_20261016/** -text
+art/blender/front_lighting_candidate.blend -text
+art/blender/front_lighting_candidate/** -text
+art/data/front_lighting_plan.json -text
+art/renders/orison_v2/front_lighting_candidate_20261016/** -text
+art/renders/orison_v2/front_lighting_export_20261017/** -text
+art/renders/orison_v2/front_lighting_install_20261017/** -text
+art/blender/front_lighting_finish_candidate.blend -text
+art/blender/front_lighting_cornice_candidate.blend -text
+art/blender/front_lighting_finish/** -text
+art/renders/orison_v2/front_lighting_finish_candidate_20261017/** -text
+art/renders/orison_v2/front_trim_install_20261017/** -text
+art/blender/heating_distribution_base19.blend -text
+art/data/orison_v2/heating_refit_authoring.json -text
+art/data/orison_v2/heating_refit_layout_source.json -text
+art/blender/scripts/build_heating_refit.py -text
+art/blender/scripts/heating_refit/** -text
+tools/prepare_v2_heating_refit.py -text
+art/renders/orison_v2/heating_refit_20261017/** -text
+art/renders/orison_v2/heating_refit_clearance_20261017/** -text
+art/renders/orison_v2/heating_refit_clearance_v5_20261017/** -text
+game/tests/heating_refit_installation_test.gd -text
+game/tests/HeatingRefitInstallationTest.tscn -text
+game/tests/heating_retrofit_context_probe.gd -text
+game/tests/HeatingRetrofitContextProbe.tscn -text
+
+art/reviews/v2_radiator_native_20261017/** -text
+art/reviews/v2_radiator_cutover_20261017/** -text
+
+# Scoped renderer diagnostics are raw-hashed by their suite-run receipts.
+game/tests/room_reflection_review.gd -text
+game/tests/room_reflection_lifecycle.gd -text
+game/tests/room_ceiling_shadows.gd -text
+
+art/reviews/v2_seating_polish_20261017/** -text
+game/tests/seating_contact_bench.gd -text
+
+art/reviews/v2_annunciator_dispatch_20261017/** -text
+game/tests/annunciator_dispatch_bench.gd -text
+game/tests/annunciator_world_review.gd -text
+game/tests/annunciator_hand_bench.gd -text
+game/tests/otis_panel_input_test.gd -text
+
+art/reviews/v2_control_finish_20261017/** -text
+game/tests/v2_control_finish_review.gd -text
+
+game/tests/recipe_migration_bench.gd -text
+
+art/blender/scripts/inspect_flex_rest_uv.py -text
+
+art/reviews/v2_radiator_joints_20261017/** -text
+art/reviews/v2_first_slice_physical_20261017/** -text -whitespace
+game/tests/first_slice_service_hand_bench.gd -text
+game/tests/radiator_joint_review.gd -text
+
+art/reviews/v2_construction_shed_20261017/** -text -whitespace
+game/tests/v2_construction_shed_review.gd -text
+
+# New construction recipes and source bindings remain portable on Windows.
+art/blender/scripts/build_construction_shed.py -text
+art/blender/scripts/construction_shed_uv.py -text
+tools/plan_v2_construction_shed.py -text
+art/tools/build_site_softwood.py -text
+art/textures/ai_sources/site_softwood_20261017.json -text
+art/textures/procedural/site_softwood/** -text
+art/textures/procedural/site_softwood_endgrain/** -text
+game/assets/building/textures/T_ai_materials_site_softwood*.png.import -text
+game/assets/props/construction_shed.glb.import -text
+
+art/data/gen_layout.py -text
+game/scripts/building/orison_v2_street_boundaries.gd -text
+
+art/reviews/v2_access_regressions_20261018/** -text -whitespace
+art/renders/orison_v2/access_home_cohort_20261018/** -text -whitespace
+game/tests/v2_spatial_access_cohort.gd -text
+game/tests/OrisonV2HomeAccessCohort.tscn -text
+game/tests/OrisonV2UpperAccessCohort.tscn -text
+
+# Effective mesh settings are physical source, not an ignored machine cache.
+game/assets/**/*.glb.import -text
+game/assets/**/*.gltf.import -text
+game/assets/**/*.obj.import -text
+game/tests/OrisonV2RemainingAccessCohort.tscn -text
+game/tests/OrisonV2RoofAccessCohort.tscn -text
+
+art/renders/orison_v2/access_roof_cohort_20261018/** -text -whitespace
+
+# Conservative animated-mesh proofs bind original glTF bytes as well as buffers.
+game/assets/**/*.glb -text
+game/assets/**/*.gltf -text
+game/assets/**/*.obj -text
+
+art/renders/orison_v2/access_remaining_cohort_20261018/** -text -whitespace
+
+game/tests/v2_street_optics_probe.gd -text
+game/tests/V2StreetOpticsProbe.tscn -text
+game/tests/v2_street_uv_bench.gd -text
+game/tests/V2StreetUVBench.tscn -text
+
+art/reviews/v2_street_optics_20261018/** -text -whitespace
+
+art/renders/orison_v2/access_upper_cohort_20261018/** -text -whitespace
+
+game/tests/v2_glazing_optical_probe.gd -text
+game/tests/V2GlazingOpticalProbe.tscn -text
+art/reviews/v2_glazing_20261018/** -text -whitespace
+
+game/scripts/building/orison_v2_cage_light_apertures.gd -text
+
+# Source-bound offline arcade fabric candidate; not runtime acceptance.
+art/reviews/v2_arcade_fabric_20261018/** -text -whitespace
+art/blender/arcade_fabric_candidate/** -text
+art/textures/ai_sources/arcade_*_20261018.* -text
+art/tools/build_arcade_terrazzo.py -text
+tools/plan_v2_arcade_canopy.py -text
+tools/check_v2_arcade_fabric_candidate.py -text
+tools/tests/test_arcade_canopy_shells.py -text
+
+# Installed arcade fabric recipes, stock and diagnostic evidence.
+art/reviews/v2_arcade_install_20261018/** -text -whitespace
+art/textures/procedural/arcade_*/** -text
+art/blender/arcade_canopy.blend -text
+art/blender/arcade_throat.blend -text
+art/blender/arcade_throat_construction.json -text
+art/tools/build_arcade_masonry.py -text
+art/tools/publish_arcade_materials.py -text
+tools/publish_v2_arcade_canopy.py -text
+game/assets/props/arcade_canopy.glb* -text
+game/assets/props/arcade_throat.glb* -text
+game/assets/building/textures/T_ai_materials_arcade_*.png* -text
+game/assets/building/orison_v2/passage/passage.gltf.import -text
+game/data/orison_v2/arcade_canopy.json -text
+game/data/orison_v2/arcade_throat.json -text
+game/scripts/building/orison_v2_arcade_fabric.gd -text
+game/tests/ArcadeFabricBench.tscn -text
+game/tests/arcade_fabric_bench.gd -text
+game/tests/v2_arcade_fabric_review.gd -text
+
+# Finish-aware furnishing placement and its native/composed review packet.
+game/scripts/building/orison_v2_furnishing_clearance.gd -text
+game/tests/v2_furnishing_clearance_review.gd -text
+game/tests/V2FurnishingClearanceReview.tscn -text
+art/reviews/v2_clearance_20261018/** -text -whitespace
+# Preserve the existing layout bytes while recognizing its Windows line ends.
+game/data/orison_v2_blockout.json -text whitespace=cr-at-eol
+
+# Folded arcade lantern roof recipe, native stock and diagnostic evidence.
+art/reviews/v2_arcade_lantern_20261018/** -text -whitespace
+art/blender/arcade_lantern.blend -text
+tools/plan_v2_arcade_lantern.py -text
+tools/publish_v2_arcade_lantern.py -text
+tools/tests/test_arcade_lantern.py -text
+game/assets/props/arcade_lantern.glb* -text
+game/data/orison_v2/arcade_lantern.json -text
+
+# Bounded trim fitting and original differential/profiling records.
+art/reviews/v2_startup_trim_20261018/** -text -whitespace
+game/tests/v2_millwork_culling_review.gd -text
+game/tests/millwork_unculled_reference.gd -text
+
+# Uninstalled source-fitted arcade clock kit and its native review.
+art/reviews/v2_arcade_clock_20261018/** -text -whitespace
+art/blender/arcade_fabric_candidate/build_arcade_clock.py -text
+tools/plan_v2_arcade_clock.py -text
+tools/tests/test_arcade_clock.py -text
+
+# Installed clock native source, source-bound publication and original diagnoses.
+art/blender/arcade_clock.blend -text
+art/reviews/v2_arcade_clock_install_20261018/** -text -whitespace
+tools/publish_v2_arcade_clock.py -text
+game/assets/props/arcade_clock.glb* -text
+game/data/orison_v2/arcade_clock.json -text
+game/scripts/building/orison_v2_arcade_clock*.gd -text
+game/tests/arcade_clock_bench.gd -text
+game/tests/ArcadeClockBench.tscn -text
+
+# Uninstalled custom oak source and calibrated technical-map review.
+art/reviews/v2_panel_oak_20261018/** -text -whitespace
+art/blender/arcade_fabric_candidate/build_panel_oak_maps.py -text
+art/blender/arcade_fabric_candidate/review_panel_oak.py -text
+
+# Source-fitted public regions, retained geometry ownership and route diagnosis.
+game/data/orison_v2/exterior/public_region_programmes.json -text
+game/scripts/building/orison_v2_public_region_programmes.gd -text
+game/tests/public_region_programme_bench.gd -text
+game/tests/PublicRegionProgrammeBench.tscn -text
+game/tests/public_region_walk_probe.gd -text
+game/tests/PublicRegionWalkProbe.tscn -text
+tools/build_v2_public_regions.py -text
+tools/tests/test_v2_public_regions.py -text
+game/data/orison_v2/exterior/regions.json -text
+game/tests/orison_v2_m11a_first_exterior_cell_test.gd -text
+art/reviews/v2_public_regions_20261018/** -text -whitespace
+game/tests/audio_policy_test.gd -text
+tools/preflight_spatial_test_bindings.py -text
+tools/tests/test_spatial_binding_preflight.py -text
+tools/tests/test_v2_audit_digest_snapshot.py -text
+
+# Raw-hashed wall-stock diagnostics and original qualification packets.
+art/reviews/v2_wall_stock_clearance_20261018/** -text -whitespace
+
+# Source-bound landing authoring diagnoses and original clean verification.
+art/reviews/v2_public_landing_footprints_20261018/** -text -whitespace
+
+# Platform-backed public landing source, consumers and collision diagnoses.
+art/data/orison_v2/public_landings_source.json -text
+tools/build_v2_public_landings.py -text
+art/data/orison_v2/service_entry_source.json -text
+tools/build_v2_service_entries.py -text
+tools/derive_v2_public_landings.py -text
+tools/v2_space_footprints.py -text
+tools/audit_orison_v2_completeness.py -text
+tools/tests/test_v2_public_landing_programmes.py -text
+game/scripts/building/orison_v2_space_footprints.gd -text
+game/scripts/building/orison_v2_landing_programmes.gd -text
+game/scripts/building/orison_v2_wayfinding.gd -text
+game/tests/orison_v2_landing_programme_bench.gd -text
+game/tests/OrisonV2LandingProgrammeBench.tscn -text
+game/tests/orison_v2_landing_programme_review.gd -text
+game/tests/OrisonV2LandingProgrammeReview.tscn -text
+game/tests/orison_v2_public_landing_walk.gd -text
+game/tests/OrisonV2PublicLandingWalk.tscn -text
+game/tests/v2_public_landing_access_contract.gd -text
+game/tests/V2PublicLandingAccessContract.tscn -text
+tools/spatial_access_evidence.py -text
+tools/tests/test_spatial_access_evidence.py -text
+tools/tests/test_v2_public_landing_footprints.py -text
+
+art/renders/orison_v2/access_public_landings_20261018/** -text -whitespace
+
+art/reviews/v2_public_landing_integration_20261018/** -text -whitespace
+
+game/tests/v2_service_circulation_driver.gd -text
+
+game/tests/v2_service_circulation_contract.gd -text
+
+game/tests/V2ServiceCirculationContract.tscn -text
+
+game/tests/v2_service_circulation_bench.gd -text
+
+game/tests/V2ServiceCirculationBench.tscn -text
+
+tools/spatial_connection_evidence.py -text
+
+tools/tests/test_spatial_connection_evidence.py -text
+art/reviews/v2_service_circulation_20261018/** -text -whitespace
+art/renders/orison_v2/access_service_circulation_20261018/** -text -whitespace
+
+# V2 city source, native export and original qualification bindings.
+art/blender/scripts/build_city_elevations.py -text
+art/data/city_elevations/source_plan.json -text
+art/blender/city_elevations.blend -text
+art/blender/city_elevations_construction.json -text
+game/assets/props/city_elevations.glb -text
+game/data/orison_v2/exterior/city_elevations.json -text
+game/scripts/building/orison_v2_city_shells.gd -text
+game/tests/fixtures/orison_city_elevations.json -text
+game/tests/orison_v2_city_closure_test.gd -text
+game/tests/orison_v2_city_composition_test.gd -text
+game/tests/orison_v2_surface_inventory.gd -text
+game/tests/v2_city_elevation_review.gd -text
+game/tests/V2CityElevationBench.tscn -text
+game/tests/v2_city_elevation_bench.gd -text
+art/data/orison_v2/front_trim_layout_source.json -text
+art/reviews/v2_city_elevations_20261018/** -text -whitespace
+
+# Native city-ground and weather visibility source closure.
+art/blender/scripts/build_city_ground_apron.py -text
+art/blender/scripts/city_ground_apron_geometry.py -text
+art/data/city_ground_apron/source_plan.json -text
+art/blender/city_ground_apron.blend -text
+art/blender/city_ground_apron_construction.json -text
+game/assets/props/city_ground_apron.glb -text
+game/tests/fixtures/orison_city_ground_apron.json -text
+game/scripts/building/v2_city_day_night_director.gd -text
+game/tests/V2CityVisibilityBench.tscn -text
+game/tests/v2_city_visibility_bench.gd -text
+art/reviews/v2_city_polish_20261018/** -text -whitespace
+art/blender/scripts/build_city_horizon.py -text
+art/blender/scripts/city_horizon_geometry.py -text
+art/blender/scripts/review_city_horizon.py -text
+art/data/city_horizon/source_plan.json -text
+art/blender/city_horizon_near.blend -text
+art/blender/city_horizon_far.blend -text
+art/blender/city_horizon_construction.json -text
+game/assets/props/city_horizon_near.glb -text
+game/assets/props/city_horizon_far.glb -text
+game/data/orison_v2/exterior/city_horizon.json -text
+game/tests/fixtures/orison_city_horizon.json -text
+game/scripts/building/orison_v2_city_horizon.gd -text
+game/tests/V2CityHorizonBench.tscn -text
+game/tests/v2_city_horizon_bench.gd -text
+game/tests/v2_city_horizon_review.gd -text
+game/tests/v2_city_context_review.gd -text
+game/tests/v2_blind_motion_bench.gd -text
+game/tests/V2BlindMotionBench.tscn -text
+game/tests/v2_tween_completion.gd -text
+
+game/tests/v2_region_access_contract.gd -text
+game/tests/v2_region_access_driver.gd -text
+game/tests/v2_region_access_observer.gd -text
+game/tests/V2RegionAccessContract.tscn -text
+art/renders/orison_v2/access_exterior_regions_20261019/** -text
+art/reviews/v2_region_access_20261019/** -text
+game/tests/v2_service_programme_walk.gd -text
+game/tests/v2_service_programme_contract.gd -text
+game/tests/V2ServiceProgrammeContract.tscn -text
+art/blender/scripts/build_house_switchboard.py -text
+art/blender/house_switchboard.blend -text
+art/blender/house_switchboard_construction.json -text
+game/assets/props/house_switchboard.glb -text
+game/data/orison_v2/house_switchboard.json -text
+game/scripts/building/orison_v2_native_house_switchboard.gd -text
+game/scripts/props/house_switchboard_hand_controls.gd -text
+game/scripts/props/mail_bank_hand_controls.gd -text
+game/scripts/props/telephone_cord_stock.gd -text
+game/tests/v2_house_switchboard_hand_bench.gd -text
+game/tests/V2HouseSwitchboardHandBench.tscn -text
+game/tests/v2_mail_hand_bench.gd -text
+game/tests/V2MailHandBench.tscn -text
+art/reviews/v2_mail_telephone_20261019/** -text
+game/tests/v2_service_mail_operations.gd -text
+game/tests/v2_service_telephone_operations.gd -text
+game/tests/v2_service_mail_disk.gd -text
+game/assets/props/house_switchboard.glb.import -text
+game/tests/v2_house_switchboard_stock_bench.gd -text
+game/tests/V2HouseSwitchboardStockBench.tscn -text
+
+art/blender/fire_hose_stock.blend -text
+art/blender/fire_hose_stock_construction.json -text
+game/assets/props/fire_hose_stock.glb -text
+game/data/orison_v2/fire_hose_stock.json -text
+art/blender/fire_joint_stock.blend -text
+art/blender/fire_joint_stock_construction.json -text
+game/assets/props/fire_joint_stock.glb -text
+game/data/orison_v2/fire_joint_stock.json -text
+art/blender/fire_nozzle_hose.blend -text
+art/blender/fire_nozzle_hose_construction.json -text
+game/assets/props/fire_nozzle_hose.glb -text
+game/tests/v2_fire_hand_bench.gd -text
+game/tests/v2_fire_fittings_disk.gd -text
+art/reviews/v2_fire_fittings_20261019/** -text
+art/blender/fire_hose_rack.blend -text
+art/blender/fire_hose_rack_construction.json -text
+game/assets/props/fire_hose_rack.glb -text
+game/data/orison_v2/fire_hose_rack.json -text
+game/tests/v2_fire_rack_bench.gd -text
+art/reviews/v2_fire_hose_rack_20261019/** -text
+art/blender/fire_fold_stock.blend -text
+art/blender/fire_fold_stock_construction.json -text
+game/assets/props/fire_fold_stock.glb -text
+game/data/orison_v2/fire_fold_stock.json -text
+game/tests/v2_fire_fold_bench.gd -text
+art/reviews/v2_fire_fold_connection_20261019/** -text
+game/scripts/props/fire_fold_stock.gd -text
+art/reviews/v2_fire_nozzle_transition_20261019/** -text
+art/reviews/v2_carried_light_20261019/** -text
+art/blender/fire_nozzle_joint.blend -text
+art/blender/fire_nozzle_joint_construction.json -text
+game/assets/props/fire_nozzle_joint.glb -text
+game/data/orison_v2/fire_nozzle_joint.json -text
+art/blender/fire_nozzle_detail.blend -text
+art/blender/fire_nozzle_detail_construction.json -text
+game/assets/props/fire_nozzle_detail.glb -text
+game/data/orison_v2/fire_nozzle_detail.json -text
+art/reviews/v2_fire_nozzle_detail_20261019/** -text
+art/blender/fire_nozzle_collision.blend -text
+art/blender/fire_nozzle_collision_construction.json -text
+game/data/orison_v2/fire_nozzle_collision.json -text
+art/reviews/v2_fire_nozzle_contact_20261019/** -text
+art/reviews/v2_fire_nozzle_pickup_20261019/** -text
+art/blender/fire_floor_enamel.blend -text
+art/blender/fire_floor_enamel_construction.json -text
+game/assets/props/fire_floor_enamel.glb -text
+art/reviews/v2_fire_floor_hand_20261019/** -text
+art/reviews/v2_fire_hand_integration_20261019/** -text
+art/reviews/v2_fire_case_coatings_20261019/** -text
+art/reviews/v2_fire_hose_capacity_20261019/** -text
+game/assets/props/fire_capacity_candidate.glb -text
+art/reviews/v2_fire_capacity_surface_20261019/** -text
+game/tests/fixtures/fire_capacity_rig.json -text
+art/reviews/v2_fire_hose_motion_20261019/** -text
+art/reviews/v2_fire_hose_world_contact_20261019/** -text
+art/reviews/v2_fire_hose_bending_20261019/** -text
+art/reviews/v2_fire_hose_release_20261019/** -text
+art/reviews/v2_fire_hose_mass_20261019/** -text
+game/native/hose_math/bin/orison_hose_math.windows.x86_64.dll -text
+game/native/hose_math/build_manifest.json -text
+game/tests/fixtures/fire_hose_rank_case.json -text
+game/tests/fixtures/fire_hose_globalization_case.json -text
+art/reviews/v2_fire_hose_joint_20261019/** -text
+art/reviews/v2_fire_hose_release_bench_20261019/** -text
+art/reviews/v2_fire_hose_native_warm_20261019/** -text
+art/reviews/v2_fire_hose_line_search_20261019/** -text
+art/reviews/v2_painted_trim_20261019/** -text
+art/reviews/v2_wall_floor_20261019/** -text
+art/textures/procedural/limewash_plaster/** -text
+
+art/reviews/v2_sink_stands_20261019/** -text
+
+art/data/kitchen_prep/** -text
+art/blender/scripts/build_kitchen_prep_stations.py -text
+art/blender/scripts/review_kitchen_prep_stations.py -text
+game/data/orison_v2/kitchen_prep_stations.json -text
+game/tests/fixtures/orison_kitchen_prep_stations.json -text
+game/assets/props/kitchen_prep_stations.glb -text
+game/assets/props/kitchen_prep_stations.glb.import -text
+art/reviews/v2_kitchen_prep_20261019/** -text
+art/blender/kitchen_prep_stations.blend -text
+art/blender/kitchen_prep_stations_construction.json -text
+
+# Preserve original hash-bound diagnostic whitespace.
+art/reviews/v2_kitchen_prep_20261019/** -text whitespace=cr-at-eol
+art/reviews/v2_kitchen_prep_20261019/runs/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+art/reviews/v2_eye_rail_removal_20261019/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+art/data/orison_v2/front_trim_export_source.json -text
+art/data/kitchen_plumbing/** -text
+art/blender/scripts/build_kitchen_plumbing.py -text
+art/blender/scripts/review_kitchen_plumbing.py -text
+art/blender/kitchen_plumbing.blend -text
+art/blender/kitchen_plumbing_construction.json -text
+game/assets/props/kitchen_plumbing.glb -text
+game/assets/props/kitchen_plumbing.glb.import -text
+game/data/orison_v2/kitchen_plumbing.json -text
+game/tests/fixtures/orison_kitchen_plumbing.json -text
+art/reviews/v2_kitchen_plumbing_20261019/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+art/reviews/v2_washer_release_20261020/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Construction-specific normal recipes and native cabinet provenance.
+art/blender/fire_cabinet_skin.blend -text
+art/blender/fire_cabinet_skin_construction.json -text
+game/assets/props/fire_cabinet_skin.glb -text
+game/assets/props/fire_cabinet_skin.glb.import -text
+game/data/orison_v2/fire_cabinet_skin.json -text
+art/textures/ai_sources/fire_enamel_20261020.png -text
+art/textures/ai_sources/fire_enamel_20261020.json -text
+art/reviews/v2_construction_normals_20261020/** -text whitespace=cr-at-eol
+art/textures/procedural/fire_cabinet_enamel/** -text
+art/textures/procedural/fire_cabinet_lining/** -text
+art/textures/procedural/fire_hardware_steel/** -text
+art/textures/procedural/glass_drawn_expressive/** -text
+art/textures/procedural/glass_reeded/** -text
+art/textures/procedural/glass_cut/** -text
+art/textures/procedural/glass_frosted/** -text
+
+art/reviews/v2_surface_final_20261020/** -text whitespace=cr-at-eol
+
+art/reviews/v2_surface_renewal_20261020/** -text whitespace=cr-at-eol
+
+# Binding recipes carry source/map hashes.
+art/textures/procedural/book_*/material.json -text
+art/reviews/v2_binding_stock_20261020/** -text whitespace=cr-at-eol
+
+# Readable library native/authoring/font inputs.
+art/blender/readable_library_construction.json -text
+art/blender/scripts/build_readable_library.py -text
+art/blender/scripts/review_readable_library.py -text
+game/data/orison_v2/readable_library.json -text
+game/data/orison_v2/book_spreads.json -text
+game/data/library.json -text
+game/assets/fonts/eb_garamond/** -text
+art/illustrations/book_plates/** -text
+art/tools/design_readable_pages.py -text
+game/assets/book_illustrations/** -text
+
+# Preserve the pinned upstream license bytes, including its intentional space.
+game/assets/fonts/eb_garamond/OFL.txt whitespace=-blank-at-eol
+
+# Library review receipts hash the captured bytes, including CRLF.
+art/reviews/v2_readable_library_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_library_handling_20261020/** -text whitespace=cr-at-eol
+
+# Separate native physical copies retain source and output byte hashes.
+art/blender/scripts/build_nook_readable_books.py -text
+art/blender/nook_readable_books_construction.json -text
+game/data/orison_v2/nook_readable_books.json -text
+
+art/data/reading_nook/book_programme.json -text
+art/blender/scripts/review_nook_readable_books.py -text
+
+# Retain diagnostic log bytes bound by wrapper receipts.
+art/reviews/v2_nook_and_glass_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_nook_and_glass_20261020/receipts/*.log whitespace=-blank-at-eol,cr-at-eol
+# Native nook provenance binds these runtime source bytes.
+game/scripts/building/v2_loose_library.gd -text
+game/scripts/building/v2_readable_library_stock.gd -text
+game/scripts/props/v2_readable_book.gd -text
+game/scripts/building/orison_v2_household_state.gd -text
+
+# Executed ventilation contract and derived source data retain exact bytes.
+game/scripts/building/orison_v2_acoustic_topology.gd -text whitespace=cr-at-eol
+game/data/orison_v2/acoustic_ventilation.json -text whitespace=cr-at-eol
+game/tests/v2_acoustic_ventilation_contract.gd -text whitespace=cr-at-eol
+game/tests/v2_acoustic_topology_scope_test.gd -text whitespace=cr-at-eol
+tools/build_v2_acoustic_ventilation.py -text whitespace=cr-at-eol
+art/reviews/v2_acoustic_ventilation_20261020/** -text whitespace=cr-at-eol
+
+# Source-bound heating topology and original inspection/contract archive.
+game/scripts/building/orison_v2_acoustic_heating.gd -text whitespace=cr-at-eol
+game/data/orison_v2/acoustic_heating.json -text whitespace=cr-at-eol
+tools/build_v2_acoustic_heating.py -text whitespace=cr-at-eol
+art/blender/scripts/inspect_acoustic_heating_routes.py -text whitespace=cr-at-eol
+art/reviews/v2_acoustic_heating_20261020/** -text whitespace=cr-at-eol
+
+# Workspace cleanup recovery record preserves original hashes.
+art/reviews/workspace_cleanup_20261020/** -text whitespace=cr-at-eol
+
+# Flue fabrication and executed contract retain hash-bound bytes.
+game/tests/v2_flue_airway_contract.gd -text whitespace=cr-at-eol
+art/blender/scripts/build_flue_wall_thimble.py -text whitespace=cr-at-eol
+tools/plan_v2_flue_airway.py -text whitespace=cr-at-eol
+art/reviews/v2_flue_airway_20261020/** -text whitespace=cr-at-eol
+# Original receipt-bound stdout contains significant raw bytes, including spaces.
+art/reviews/v2_flue_airway_20261020/runs/*.log binary
+
+# Portable grade discovery and independently executed construction checks.
+art/data/orison_ground/discovery/** -text whitespace=cr-at-eol
+art/blender/scripts/export_retained_grade_sources.py -text whitespace=cr-at-eol
+art/blender/scripts/inspect_city_foundations.py -text whitespace=cr-at-eol
+tools/plan_v2_retained_grade.py -text whitespace=cr-at-eol
+tools/grade_source_snapshot.py -text whitespace=cr-at-eol
+game/tests/v2_grade_owner_survey.gd -text whitespace=cr-at-eol
+game/tests/v2_construction_box_precision_test.gd -text whitespace=cr-at-eol
+game/tests/v2_grade_stock_inspector.gd -text whitespace=cr-at-eol
+game/tests/v2_grade_stock_bench.gd -text whitespace=cr-at-eol
+game/tests/v2_soil_renewal_contract.gd -text whitespace=cr-at-eol
+game/tests/v2_ground_probe_owner_bench.gd -text whitespace=cr-at-eol
+tools/build_v2_ground_probe_updates.py -text whitespace=cr-at-eol
+game/tests/fixtures/orison_ground_probe_ownership.json -text whitespace=cr-at-eol
+art/reviews/v2_grade_source_renewal_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_grade_source_renewal_20261020/runs/*.log binary
+
+# Native sealed C-stack closure and executed small hand fixture.
+art/blender/flue_breast_fitting/** -text
+game/assets/props/flue_breast_fitting.glb -text
+game/assets/props/flue_breast_fitting.glb.import -text
+game/tests/v2_flue_breast_bench.gd -text
+game/tests/v2_flue_breast_bench.tscn -text
+art/reviews/v2_flue_breast_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_flue_breast_20261020/runs/*.log binary
+art/reviews/v2_flue_breast_20261020/runs/*.stderr binary
+
+# Candidate stove-stack source and retained authoring observations.
+art/data/c_stove_stack/** -text whitespace=cr-at-eol
+art/blender/c_stove_stack/** -text
+game/assets/props/c_stove_stack.glb -text
+game/assets/props/c_stove_stack.glb.import -text
+game/tests/v2_c_stove_stack_survey.gd -text
+game/tests/v2_c_stove_stack_survey.tscn -text
+game/tests/v2_c_stove_stock_bench.gd -text
+game/tests/v2_c_stove_stock_bench.tscn -text
+art/reviews/v2_c_stove_stack_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_c_stove_stack_20261020/runs/*.log binary
+art/reviews/v2_c_stove_stack_20261020/runs/*.stderr binary
+
+# Installed C-stack construction, source-bound contracts and original failures.
+art/reviews/v2_c_stove_install_20261020/** -text whitespace=cr-at-eol
+art/reviews/v2_c_stove_install_20261020/runs/*.log binary
+art/reviews/v2_c_stove_install_20261020/runs/*.stderr binary
+
+# Source-bound stove masonry finish and retained rejected visual candidate.
+art/textures/procedural/stove_clinker/** -text
+art/textures/procedural/stove_lime/** -text
+art/reviews/v2_stove_finish_20261021/** -text whitespace=cr-at-eol
+art/reviews/v2_stove_finish_20261021/runs/*.log binary
+art/reviews/v2_stove_finish_20261021/runs/*.stderr binary
+
+# Original surface-renewal contracts, archived packets and diagnostic bytes.
+art/reviews/v2_surface_renewal_20261021/** -text whitespace=cr-at-eol
+art/tools/build_stove_masonry.py -text
+
+# Original upper-room proof and fixed-pose optical diagnostics.
+art/reviews/v2_upper_access_20261021/** -text whitespace=cr-at-eol
+game/tests/v2_library_shadow_probe.gd -text
+game/tests/V2LibraryShadowProbe.tscn -text
+game/tests/orison_v2_golden_repair_route_test.gd -text
+game/tests/v2_passage_door_sweep_probe.gd -text
+game/tests/V2PassageDoorSweepProbe.tscn -text
+
+# V2 responsiveness diagnostics and source-bound local input/collision checks.
+art/reviews/v2_responsiveness_20261021/** -text whitespace=cr-at-eol
+art/reviews/v2_responsiveness_20261021/*.log binary
+art/reviews/v2_responsiveness_20261021/*.stderr binary
+game/scripts/building/orison_v2_shop_seating.gd -text
+game/scripts/building/orison_v2_fitting_collision_cache.gd -text
+game/scripts/building/orison_v2_structural_occlusion.gd -text
+game/scripts/player/target_reticle.gd -text
+game/tests/orison_v2_responsiveness_profile.gd -text
+game/tests/v2_triangle_fitter_bench.gd -text
+game/tests/fixtures/v2_triangle_fitter_reference.gd -text
+game/tests/v2_native_fitting_profile.gd -text
+game/tests/v2_shop_door_clearance_survey.gd -text
+game/tests/v2_fitting_collision_cache_test.gd -text
+game/tests/v2_structural_occlusion_review.gd -text
+
+# Native arcade leaf repair and source-bound diagnostics.
+art/reviews/v2_shop_door_repair_20261021/** -text whitespace=cr-at-eol
+game/scripts/building/orison_v2_passage_shop_door.gd -text
+game/tests/v2_passage_shop_door_repair.gd -text
+game/tests/v2_tick_cost_diagnostic.gd -text
+game/tests/fixtures/passage_shop_leaves.json -text
+art/blender/scripts/build_passage_shop_leaves.py -text
+art/blender/scripts/inspect_passage_shop_leaves.py -text
+game/tests/v2_script_cost_diagnostic.gd -text
+game/tests/v2_lamp_depth_equivalence.gd -text
+game/tests/v2_radiator_authority_lookup_test.gd -text
+game/tests/v2_golden_repair_profile.gd -text
+game/scripts/props/fire_nozzle_coupling.gd -text
+game/tests/v2_area_survey.gd -text
+game/scripts/cases/mina_caption_manifestation.gd -text
+game/tests/v2_caption_retirement_test.gd -text
+game/tests/v2_floor_transition_profile.gd -text
+game/tests/v2_lamp_glare_probe.gd -text
+game/tests/v2_step_contact_test.gd -text
+art/reviews/v2_shop_door_repair_20261021/*.log binary
+art/reviews/v2_shop_door_repair_20261021/*.stderr binary
+game/tests/v2_reflection_capture_probe.gd -text
+game/scripts/building/orison_v2_room_reflections.gd -text
+
+game/scripts/lamp/lamp_scene_shadow.gd -text
+game/scripts/lamp/lamp_optical_receivers.gd -text
+game/tests/v2_depth_light_culling_probe.gd -text
+game/tests/v2_depth_light_layers_test.gd -text
+game/tests/V2DepthLightCullingProbe.tscn -text
+game/tests/V2DepthLightLayersTest.tscn -text
+
+game/tests/v2_alcove_review.gd -text
+
+game/tests/v2_world_inspection_profile.gd -text
+game/tests/V2WorldInspectionProfile.tscn -text
+
+# Exact executed profiling inputs and raw diagnostic samples.
+art/reviews/v2_counter_hitch_20261021/** -text
+game/tests/orison_v2_connected_exterior_route_test.gd -text
+game/tests/orison_v2_golden_repair_route_test.gd -text
+
+# Native caption-calibrator source and runtime input bindings.
+art/blender/scripts/build_case_calibrator.py -text
+game/scripts/cases/case_interactable.gd -text
+game/scripts/cases/orison_v2_calibrator_plunger.gd -text
+game/scripts/building/orison_v2_case_one_placement.gd -text
+game/data/orison_v2/case_calibrator.json -text
+art/blender/case_calibrator_construction.json -text
+game/tests/calibrator_hand_bench.gd -text
+game/tests/CalibratorHandBench.tscn -text
+game/tests/v2_calibrator_world_review.gd -text
+game/tests/V2CalibratorWorldReview.tscn -text
+art/blender/case_calibrator.blend -text
+art/reviews/v2_case_calibrator_20261021/** -text
+game/data/orison_v2/case_one_placement.json -text
+game/tests/v2_played_profile_and_bucket_review.gd -text
+game/tests/V2PlayedProfileAndBucketReview.tscn -text
+game/tests/v2_attributed_played_profile.gd -text
+game/tests/V2AttributedPlayedProfile.tscn -text
+
+# Byte-exact CRLF archive evidence; preserve originals, suppress text whitespace diff.
+art/reviews/v2_case_calibrator_20261021/early_board.txt binary
+art/reviews/v2_case_calibrator_20261021/preflight.txt binary
+art/reviews/v2_case_calibrator_20261021/reader.txt binary
+art/reviews/v2_case_calibrator_20261021/reader_v2.txt binary
+art/reviews/v2_case_calibrator_20261021/world_v1/executed_sources/case_one_placement.json binary
+
+# Original executed lane batch configuration; retain its CRLF bytes.
+art/reviews/v2_case_calibrator_20261021/renewal/runs.json binary
+
+# Source-bound hose density and V2 step-query repair.
+art/blender/scripts/build_fire_hose_stock.py -text
+art/blender/scripts/build_fire_fold_stock.py -text
+game/scripts/player/player_controller.gd -text
+game/scripts/building/orison_v2_runtime_root.gd -text
+game/tests/v2_low_step_probe_bench.gd -text
+game/tests/V2LowStepProbeBench.tscn -text
+game/tests/v2_low_step_profile_controller.gd -text
+game/tests/v2_low_step_stair_profile.gd -text
+game/tests/V2LowStepStairProfile.tscn -text
+
+# Source-bound player contact repair and uninstalled full-hose diagnostics.
+game/scripts/building/v2_fire_player_contact.gd -text
+game/tests/v2_fire_player_contact_bench.gd -text
+game/tests/v2_fire_player_contact_profile.gd -text
+game/tests/V2FirePlayerContactBench.tscn -text
+game/tests/V2FirePlayerContactProfile.tscn -text
+game/scripts/props/hose_contact_energy.gd -text
+game/scripts/props/native_hose_box_support.gd -text
+game/tests/v2_deployable_hose_programme.gd -text
+game/tests/v2_deployable_hose_native_test.gd -text
+game/tests/V2DeployableHoseNativeTest.tscn -text
+game/tests/hose_contact_energy_test.gd -text
+game/tests/HoseContactEnergyTest.tscn -text
+game/tests/fixtures/v2_deployable_hose_rig.json -text
+art/reviews/v2_deployable_hose_20261021/** -text
+art/blender/scripts/build_fire_capacity_candidate.py -text
+game/scripts/props/native_hose_dynamics.gd -text
+game/scripts/props/native_hose_world_contact.gd -text
+game/tests/v2_fire_capacity_native_test.gd -text
+game/tests/v2_fire_capacity_rig_programme.gd -text
+game/tests/v2_fire_hose_world_contact_programme.gd -text
+game/tests/v2_fire_hose_gravity_programme.gd -text
+game/scripts/props/native_hose_rig.gd -text
+art/blender/v2_deployable_hose/** -text
+
+# Source-bound uninstalled hose follower and native review.
+art/blender/scripts/build_fire_capacity_rack.py -text
+art/blender/scripts/review_deployed_hose.py -text
+game/native/hose_math/src/hose_projection.cpp -text
+game/scripts/props/hose_contact_projection.gd -text
+game/scripts/props/hose_mass_constraints.gd -text
+game/scripts/props/native_hose_tether.gd -text
+game/tests/hose_follow_kernel_test.gd -text
+game/tests/HoseFollowKernelTest.tscn -text
+game/tests/v2_hose_follower_programme.gd -text
+game/tests/v2_hose_follower_test.gd -text
+game/tests/V2HoseFollowerTest.tscn -text
+game/tests/v2_hose_settling_programme.gd -text
+game/tests/v2_hose_settling_test.gd -text
+game/tests/V2HoseSettlingTest.tscn -text
+game/tests/v2_fire_carrier_profile.gd -text
+game/tests/V2FireCarrierProfile.tscn -text
+game/tests/v2_capacity_rack_surface_test.gd -text
+game/tests/V2CapacityRackSurfaceTest.tscn -text
+game/tests/v2_hose_payout_programme.gd -text
+game/tests/v2_hose_payout_test.gd -text
+game/tests/V2HosePayoutTest.tscn -text
+game/tests/v2_hose_right_payout_programme.gd -text
+game/tests/v2_hose_right_payout_test.gd -text
+game/tests/V2HoseRightPayoutTest.tscn -text
+game/tests/fixtures/v2_fire_capacity_rack.json -text
+game/tests/fixtures/v2_fire_capacity_rack.glb.import -text
+game/tests/fixtures/v2_hose_held_case.json -text
+game/tests/fixtures/v2_hose_held_roundoff_case.json -text
+game/tests/fixtures/v2_hose_taut_case.json -text
+art/reviews/v2_hose_follower_20261021/** -text
+art/reviews/v3_hose_follower_20261021/** -text
+
+# Uninstalled native hose skin, contact response and diagnostic sources.
+game/scripts/props/native_hose_bend_limits.gd -text
+game/tests/v2_hose_skin_payout_programme.gd -text
+game/tests/v2_hose_skin_payout_test.gd -text
+game/tests/V2HoseSkinPayoutTest.tscn -text
+art/reviews/v2_hose_skin_20261022/** -text
+art/reviews/v2_hose_friction_20261022/** -text
+art/reviews/v2_unracked_hose_20261022/** -text
+game/scripts/props/fire_unracked_hose.gd -text
+game/tests/v2_unracked_hose_bench.gd -text
+game/tests/V2UnrackedHoseBench.tscn -text
+game/tests/round_hose_contact_bench.gd -text
+game/tests/v2_unracked_hose_world_survey.gd -text
+game/tests/V2UnrackedHoseWorldSurvey.tscn -text
+game/tests/fixtures/v2_unracked_fire_hose.glb.import -text
+game/tests/fixtures/v2_unracked_fire_hose_rig.json -text
+game/tests/fixtures/v2_unracked_fire_hose_placement.json -text
+art/blender/scripts/build_unracked_fire_hose.py -text
+art/blender/scripts/build_unracked_floor_pose.py -text
+game/tests/fixtures/v2_unracked_floor_hose_placement.json -text
+game/tests/v2_unracked_bare_hose_bench.gd -text
+game/tests/V2UnrackedBareHoseBench.tscn -text
+game/tests/v2_fire_nozzle_coupling_bench.gd -text
+art/reviews/v2_unracked_hose_world_20261022/** -text
+art/reviews/v2_book_slots_20261022/** -text
+game/scripts/building/v2_readable_bookshelf.gd -text
+game/scripts/props/v2_library_movable.gd -text
+game/tests/v2_book_slot_hand_bench.gd -text
+game/tests/V2BookSlotHandBench.tscn -text
+art/data/readable_library/editorial.json -text
+art/blender/scripts/book_flex_math.py -text
+art/blender/scripts/fabrication_book_export.py -text
+tools/apply_book_editorial.py -text
+art/illustrations/book_editorial_20261022/** -text
+art/reviews/v2_library_editorial_20261022/** -text
+art/reviews/v2_bookend_bearing_20261022/** -text
+art/reviews/v2_nook_bindings_20261022/** -text
+art/data/reading_nook/legacy_copy_poses.json -text
+game/tests/v2_nook_world_profile.gd -text
+art/reviews/v2_nook_revamp_20261022/** -text
+art/tools/build_nook_wool.py -text
+art/textures/procedural/nook_woven_wool/** -text
+game/tests/v2_nook_access_survey.gd -text
+art/reviews/v2_book_print_contact_20261022/** -text
+game/scripts/props/book_print_mesh.gd -text
+game/tests/v2_book_print_contact.gd -text
+game/tests/V2BookPrintContact.tscn -text
+game/tests/v2_book_print_world_profile.gd -text
+game/tests/V2BookPrintWorldProfile.tscn -text
+art/reviews/v2_book_inspection_return_20261022/** -text
+game/tests/v2_book_inspection_return_world.gd -text
+game/tests/V2BookInspectionReturnWorld.tscn -text
+game/tests/v2_nook_library_bench.gd -text
+art/reviews/v2_cistern_hand_20261022/** -text
+
+art/blender/scripts/water_closet_form.py -text
+art/blender/scripts/review_operable_water_closet.py -text
+art/blender/bath_water_closet_construction.json -text
+game/tests/v2_curtain_gesture_bench.gd -text
+game/tests/V2CurtainGestureBench.tscn -text
+art/reviews/v2_toilet_form_20261022/** -text
+
+game/tests/v2_curtain_gesture_bench.gd.uid -text
+
+design/V2_TOILET_FORM_AND_GESTURES_2026-10-22.md -text
+
+game/scripts/props/landmark_entry_door.gd -text
+
+game/scripts/props/easy_door_motion.gd -text
+
+game/tests/v2_easy_door_bench.gd -text
+
+game/tests/v2_easy_door_bench.gd.uid -text
+
+game/tests/V2EasyDoorBench.tscn -text
+
+game/tests/v2_bathroom_optics_profile.gd -text
+
+game/tests/v2_bathroom_optics_profile.gd.uid -text
+
+game/tests/V2BathroomOpticsProfile.tscn -text
+
+design/V2_EASY_DOORS_2026-10-22.md -text
+
+art/reviews/v2_easy_doors_20261022/** -text
+
+art/reviews/v2_bathroom_optics_20261022/** -text
+
+game/scripts/props/easy_door_motion.gd.uid -text
+
+design/V2_BATHROOM_WET_GLASS_BRIEF_2026-10-22.md -text
+
+art/reviews/v2_fire_maintenance_20261022/** -text whitespace=cr-at-eol
+game/scripts/game/radio_clearing_network.gd -text
+game/scripts/game/v2_maintenance_shop_service.gd -text
+game/data/orison_v2/fire_maintenance_stock.json -text
+game/tests/v2_fire_maintenance_stock_test.gd -text
+game/tests/V2FireMaintenanceStockTest.tscn -text
+design/V2_RADIO_SHOP_NETWORK_2026-10-22.md -text
+design/V2_CONTINUATION_2026-10-22.md -text
+
+art/blender/scripts/build_fire_maintenance_stock.py -text
+
+art/blender/scripts/review_fire_maintenance_stock.py -text
+
+art/blender/scripts/native_textile_export.py -text
+
+game/data/orison_v2/fire_maintenance_meshes.json -text
+
+game/assets/props/fire_maintenance_stock.glb.import -text
+
+game/scripts/props/fire_maintenance_stock_library.gd -text
+
+game/scripts/props/fire_maintenance_pickup.gd -text
+
+game/scripts/props/radio_sale_terminal.gd -text
+
+game/scripts/building/fire_maintenance_counter.gd -text
+
+game/scripts/building/orison_v2_fire_maintenance_counter.gd -text
+
+game/scripts/props/v2_fire_line_cabinet.gd -text
+
+game/scripts/game/caretaker_economy.gd -text
+
+game/tests/v2_fire_maintenance_hand_bench.gd -text
+
+game/tests/v2_fire_maintenance_hand_runner.gd -text
+
+game/tests/V2FireMaintenanceHandBench.tscn -text
+
+game/tests/v2_fire_maintenance_world_test.gd -text
+
+game/tests/V2FireMaintenanceWorldTest.tscn -text
+
+design/V2_HARDWARE_RADIO_COUNTER_2026-10-22.md -text
+
+# Byte-bound hose performance diagnostic packet.
+art/reviews/v2_hose_carry_20261023/** -text
+
+# Byte-bound actual-input transform diagnostic packet.
+art/reviews/v2_grab_transform_20261023/** -text
+
+# Original handheld baseline and native concept review bytes.
+art/reviews/v2_handheld_20261023/** -text
+game/assets/device/writer_type/** -text
+game/data/device/service_radiophone_v2.json -text
+
+# Byte-bound carried UI input and profile packet.
+art/reviews/v2_device_hand_20261023/** -text
+game/tests/service_set_hand_test.gd -text
+game/tests/v2_service_set_hand_world_test.gd -text
+game/tests/v2_handheld_profile.gd -text
+
+# Byte-bound reflection capture performance and appearance packet.
+art/reviews/v2_reflection_capture_20261023/** -text
+game/tests/v2_reflection_shadow_control.gd -text
+game/tests/v2_reflection_capture_study.gd -text
+
+# Original bathroom diagnostics, native replacement review and player concept.
+art/reviews/v2_bath_movement_20261023/** -text -whitespace
+art/reviews/v2_bath_sconce_20261023/** -text -whitespace
+art/concepts/v2_player_doodle_20261023/** -text
+game/tests/v2_bath_movement_profile.gd -text
+game/tests/v2_bath_collision_cost.gd -text
+game/tests/v2_bath_sconce_review.gd -text
+
+# Owner rig native source and byte-bound review inputs.
+art/source/player_doodle_20261023/** -text -whitespace
+art/reviews/v2_player_doodle_20261023/** -text -whitespace
+game/assets/characters/player_doodle/** -text
+game/tests/v2_player_mirror_review.gd -text
+game/tests/v2_player_rig_bench.gd -text
+
+# Byte-bound bathroom contact diagnostics and hidden native contact sources.
+art/reviews/v2_bath_contact_20261023/** -text -whitespace
+art/reviews/v2_bath_contact_build*_20261023.log -text -whitespace
+game/assets/props/bath_lavatory_contact.glb* -text
+game/assets/props/bath_water_closet_contact.glb* -text
+game/tests/v2_bath_contact_*.gd -text
+
+# Byte-bound rendering diagnosis and original alternative captures.
+art/reviews/v2_bath_render_cost_20261023/** -text -whitespace
+game/tests/v2_bath_render_cost.gd -text
+game/tests/v2_bath_shadow_budget.gd -text
+game/tests/v2_bath_service_light_study.gd -text
+game/tests/v2_bath_shadow_projection.gd -text
+game/tests/v2_service_room_light_study.gd -text
+game/tests/v2_service_light_visibility_review.gd -text
+
+# Original hose-save diagnostic logs and wrapper receipts are byte-bound.
+art/reviews/v2_hose_save_20261023/** -text -whitespace
+
+# Unchanged native hose publication and its skeletal projection.
+game/assets/props/unracked_fire_hose.glb* -text
+game/data/orison_v2/unracked_fire_hose_rig.json -text
+
+# Original installed-hose controls, captures, failures and source archives.
+art/reviews/v2_hose_install_20261023/** -text -whitespace
+game/tests/fixtures/v2_hose_remote_restore_20261023.json -text
+
+# Byte-bound installed cabinet rendering controls and rejected treatments.
+art/reviews/v2_hose_render_20261023/** -text -whitespace
+
+# Installed source-light distance controls and original comparison captures.
+art/reviews/v2_shadow_visibility_20261023/** -text -whitespace
+
+# Hose support placement originals, actual input and source-bound captures.
+art/reviews/v2_hose_support_20261023/** -text -whitespace
+
+# Household validation and frame callback attribution, original raw diagnostics.
+art/reviews/v2_household_work_20261023/** -text -whitespace
+
+# Strict UTF-8 and occupied-world synchronous storage component originals.
+art/reviews/v2_save_stages_20261023/** -text -whitespace
+
+# Synchronous commit origins and fixed-route frame diagnostics.
+art/reviews/v2_commit_causes_20261023/** -text -whitespace
+
+# Far-shadow fixed-view controls, source-bound frames and originals.
+art/reviews/v2_far_shadows_20261023/** -text -whitespace
+
+# Background-save validation, queue, recovery and playable route originals.
+art/reviews/v2_background_save_20261023/** -text -whitespace
+
+# Played street/passage streaming timings, sources and original failures.
+art/reviews/v2_played_streaming_20261023/** -text -whitespace
+
+# Cooperative native fitting, frozen baseline, failures and route measurements.
+art/reviews/v2_native_fit_jobs_20261023/** -text -whitespace
+
+# Exact incremental signatures, source controls and played streaming intervals.
+art/reviews/v2_incremental_hash_20261023/** -text -whitespace
+
+# Portrait reload attribution, source guards and played streaming comparisons.
+art/reviews/v2_portrait_reload_20261024/** -text -whitespace
+
+# Occupied-world hose visual idle controls and source snapshots.
+art/reviews/v2_hose_idle_visuals_20261024/** -text -whitespace
+
+# Installed hose spray visibility controls and measurements.
+art/reviews/v2_hose_spray_visibility_20261024/** -text -whitespace
+
+# Nook shelf construction, native failures and played route diagnostics.
+art/reviews/v2_nook_shelf_dressing_20261024/** -text -whitespace
+
+# Bathroom moisture diagnostics, native paper hardware and original failures.
+art/reviews/v2_bathroom_moisture_20261024/** -text -whitespace
+art/reviews/v2_paper_holder_20261024/** -text -whitespace
+
+# Bathroom source archives and wrapper-bound diagnostics retain tested LF bytes.
+art/blender/scripts/build_bath_paper_holder.py -text
+game/data/orison_v2/bath_details.json -text
+game/scripts/building/orison_v2_bath_details.gd -text
+game/scripts/building/planar_mirror_renderer.gd -text
+game/shaders/planar_mirror.gdshader -text
+game/tests/bath_lavatory_test.gd -text
+game/scripts/building/v2_bathroom_moisture.gd* -text
+game/tests/v2_bathroom_optics_profile.gd* -text
+game/tests/v2_bathroom_moisture_review.gd* -text
+game/tests/v2_bathroom_rain_probe.gd* -text
+game/tests/v2_bathroom_paper_review.gd* -text
+game/tests/v2_bathroom_paper_installation.gd* -text
+game/tests/v2_bathroom_steam_cap_review.gd* -text
+game/tests/V2BathroomOpticsProfile.tscn -text
+game/tests/V2BathroomMoistureReview.tscn -text
+game/tests/V2BathroomRainProbe.tscn -text
+game/tests/V2BathroomPaperReview.tscn -text
+game/tests/V2BathroomPaperInstallation.tscn -text
+game/tests/V2BathroomSteamCapReview.tscn -text
+game/tests/v2_paper_import_probe.gd* -text
+game/tests/V2PaperImportProbe.tscn -text
+game/shaders/v2_bath_steam.gdshader* -text
+game/shaders/v2_glass_film.gdshader* -text
+game/shaders/v2_condensation.gdshaderinc* -text
+game/assets/props/bath_paper_holder.glb.import -text
+
+# Native matching casing mitres and their stock diagnostics.
+art/blender/scripts/build_door_casing_mitres.py -text
+art/data/orison_v2/door_casing_mitres.json -text
+game/scripts/building/orison_v2_casing_mitre_stock.gd* -text
+game/tests/v2_casing_mitre_bench.gd* -text
+game/tests/V2CasingMitreBench.tscn -text
+game/assets/props/door_casing_mitres.glb.import -text
+art/reviews/v2_bathroom_finishing_20261024/** -text -whitespace
+
+game/scripts/building/orison_v2_bathroom_finishes.gd* -text
+game/scripts/building/orison_v2_door_casings.gd -text
+game/tests/orison_v2_door_casings_test.gd -text
+game/tests/v2_bathroom_finishing_review.gd* -text
+game/tests/V2BathroomFinishingReview.tscn -text
+game/tests/v2_bathroom_finish_stock_bench.gd* -text
+game/tests/V2BathroomFinishStockBench.tscn -text
+
+game/scripts/material_library.gd -text
+game/scripts/building/v2_legacy_material_stock.gd -text
+game/scripts/building/orison_v2_bar_region.gd -text
+game/scripts/building/orison_v2_shower_placement.gd* -text
+game/tests/v2_shared_finish_ownership_test.gd* -text
+game/tests/V2SharedFinishOwnershipTest.tscn -text
+game/tests/v2_arcade_retirement_review.gd* -text
+game/tests/V2ArcadeRetirementReview.tscn -text
+art/reviews/v2_shop_finish_ownership_20261024/** -text -whitespace
+game/tests/orison_v2_photo_portraits_test.gd -text
+# Original editorial-pass proof renewal: boards, run receipts and archived packets.
+art/reviews/v2_editorial_proof_20261022/** -text whitespace=cr-at-eol
+
+# Source-bound integration diagnostic, retaining main editorial/save authorities.
+game/tests/v2_merged_save_knowledge_test.gd* -text
+game/tests/V2MergedSaveKnowledgeTest.tscn -text
+art/reviews/v2_main_integration_20261024/** -text -whitespace
+
+game/tests/v2_main_integration_world.gd* -text
+game/tests/V2MainIntegrationWorld.tscn -text
+
+# Preserve merged save and route sources across Windows checkouts.
+game/scripts/game/reality_game_state.gd -text
+game/scripts/game/reality_save_document.gd -text
+game/tests/orison_v2_passage_route_test.gd -text
+
+art/blender/scripts/city_closure_source.py -text
+art/blender/scripts/build_city_closure.py -text
+art/blender/city_shells_consumed_layout.json -text
+tools/tests/test_city_closure_source.py -text
+
+tools/systemic_situation_authority_baseline.json -text
+
+# Original integration diagnostics retain exact JSON, log and failing-source bytes.
+art/reviews/v2_main_integration_20261024/runtime_v3/** -text
+
+# Authored weather calendar and its source-bound diagnostics.
+game/data/weather/** -text
+game/scripts/game/campaign_weather.gd* -text
+game/scripts/game/resident_weather.gd* -text
+game/tests/campaign_weather*.gd* -text
+game/tests/CampaignWeather*.tscn -text
+game/tests/v2_weather_route_profile.gd* -text
+game/tests/V2WeatherRoute*.tscn -text
+art/reviews/v2_weather_calendar_20261024/** -text -whitespace
+
+# Native curtain source-bound motion diagnostics.
+art/blender/scripts/native_curtain_skin.py -text
+game/scripts/props/legacy_shower_curtain_motion.gd* -text
+game/tests/v2_curtain_world_profile.gd* -text
+game/tests/V2CurtainWorldProfile.tscn -text
+art/reviews/v2_curtain_skin_20261024/** -text -whitespace
+tools/analyze_curtain_profile.py -text

@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from repair_surface_uvs import repair_scene
 from fabrication_chart_batch import triangle_charts
 from check_exported_tangents import validate as validate_tangents
+from native_curtain_skin import install_curtain_skin
 def p(v): return Vector((v[0],-v[2],v[1]))
 def clear():
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
@@ -54,11 +55,12 @@ def apply():
         if o.type not in {'MESH','CURVE'}:continue
         bpy.ops.object.select_all(action='DESELECT');o.select_set(True);bpy.context.view_layer.objects.active=o;bpy.ops.object.convert(target='MESH')
         bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.mesh.normals_make_consistent(inside=False);bpy.ops.uv.smart_project(island_margin=.01);bpy.ops.object.mode_set(mode='OBJECT')
-def save(name):
+def save(name, curtain_skin=False):
     repair_scene()
+    if curtain_skin: install_curtain_skin()
     bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT/f'{name}.blend'))
     repair_scene()
-    bpy.ops.export_scene.gltf(filepath=str(OUTPUT/f'{name}.glb') if REVIEW_ONLY else str(ROOT/f'game/assets/props/{name}.glb'),export_format='GLB',export_yup=True,export_apply=True,export_tangents=True)
+    bpy.ops.export_scene.gltf(filepath=str(OUTPUT/f'{name}.glb') if REVIEW_ONLY else str(ROOT/f'game/assets/props/{name}.glb'),export_format='GLB',export_yup=True,export_apply=not curtain_skin,export_tangents=True)
 
 REVIEW_ONLY=os.environ.get('BATH_SHOWER_REVIEW')=='1'
 OUTPUT=ROOT/'tmp/shower-mount-review' if REVIEW_ONLY else ROOT/'art/blender'
@@ -267,7 +269,7 @@ class ExportUVHandedness:
         if attribute=='TANGENT':data['data'][:,3]*=-1
 import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
-save('bath_shower')
+save('bath_shower',curtain_skin=True)
 print('SHOWER EXPORTED TANGENTS',validate_tangents(OUTPUT/'bath_shower.glb' if REVIEW_ONLY else ROOT/'game/assets/props/bath_shower.glb'))
 if REVIEW_ONLY:
     # Native review uses the .40 m mounting set and drawn curtain. Export first.

@@ -1,0 +1,1161 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Independent exported GLB rest matrices, skin weights and analytic pose bounds. No Godot, visual, input, save or performance acceptance.",
+  "bones": 116,
+  "maximum_rest_position_error": 1.8408907274924508e-08,
+  "minimum_rest_axis_dot": 0.9999999999999897,
+  "wrong_two_mm_frame_refused": true,
+  "rows": [
+    {
+      "travel": 0.0,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.3625000215621513,
+        1.9658000469207764,
+        -0.3425000083446503
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": 1.2123582804335342e-07,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 1.1102230246251565e-16
+    },
+    {
+      "travel": 0.0,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.3652350572623903,
+        0.1550000011920929,
+        -0.347127206325531
+      ],
+      "aabb_max": [
+        0.36704584399006485,
+        1.975001095235392,
+        0.3206999822497651
+      ],
+      "rest_identity_max_error": 1.765787518426265e-07,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 1.1102230246251565e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.07416666666666667,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.3625000215621513,
+        1.9658000469207764,
+        -0.3425000083446503
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 3.3306690738754696e-16
+    },
+    {
+      "travel": 0.07416666666666667,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.3660762258378033,
+        0.1550000011920929,
+        -0.34803144653638207
+      ],
+      "aabb_max": [
+        0.36794737212306694,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 3.3306690738754696e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.14833333333333334,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.3625000215621513,
+        1.9658000469207764,
+        -0.3425000083446503
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.14833333333333334,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.3669173944132164,
+        0.1550000011920929,
+        -0.3489356867472331
+      ],
+      "aabb_max": [
+        0.36884890025606915,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.22250000000000003,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.3625000215621513,
+        1.9658000469207764,
+        -0.3425000083446503
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 5.551115123125783e-16
+    },
+    {
+      "travel": 0.22250000000000003,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.36775856298862936,
+        0.1550000011920929,
+        -0.34983992695808414
+      ],
+      "aabb_max": [
+        0.3697504283890713,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 5.551115123125783e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.2966666666666667,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.3625000215621513,
+        1.9658000469207764,
+        -0.3425000083446503
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.2966666666666667,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.3685997315640424,
+        0.1550000011920929,
+        -0.35074416716893514
+      ],
+      "aabb_max": [
+        0.37065195652207344,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.37083333333333335,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.3625000215621513,
+        1.9658000469207764,
+        -0.3425000083446503
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.37083333333333335,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.3690781218785852,
+        0.1550000011920929,
+        -0.35164840737978614
+      ],
+      "aabb_max": [
+        0.37155348465507565,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.44500000000000006,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.3625000215621513,
+        1.9658000469207764,
+        -0.3425000083446503
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.44500000000000006,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.3702193665310478,
+        0.1550000011920929,
+        -0.3525526475906372
+      ],
+      "aabb_max": [
+        0.37245501278807785,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.5191666666666667,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.3625000215621513,
+        1.9658000469207764,
+        -0.3425000083446503
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.5191666666666667,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.36785830606076264,
+        0.1550000011920929,
+        -0.35345688780148826
+      ],
+      "aabb_max": [
+        0.37335654092108006,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.5933333333333334,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.3625000215621513,
+        1.9658000469207764,
+        -0.3425000122929306
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.5933333333333334,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.3429669442018035,
+        0.1550000011920929,
+        -0.35436112801233927
+      ],
+      "aabb_max": [
+        0.37425806905408215,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.6675000000000001,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.31398939523242536,
+        1.9658000469207764,
+        -0.3425000169275409
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.6675000000000001,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.3042736918076272,
+        0.1550000011920929,
+        -0.35313481211662295
+      ],
+      "aabb_max": [
+        0.37515959718708425,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.7416666666666667,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.2367704534397214,
+        1.9658000469207764,
+        -0.34250002156215126
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.7416666666666667,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.2327704456577586,
+        0.1550000011920929,
+        -0.35418440423547415
+      ],
+      "aabb_max": [
+        0.3760611253200864,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.8158333333333334,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.16455272181975125,
+        1.9658000469207764,
+        -0.34250002156215126
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.8158333333333334,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.16055271403778845,
+        0.1550000011920929,
+        -0.3544879115919335
+      ],
+      "aabb_max": [
+        0.3770929182580418,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.8900000000000001,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.09233499019978123,
+        1.9658000469207764,
+        -0.34250002156215126
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.8900000000000001,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.08833498241781843,
+        0.1550000011920929,
+        -0.35532908016734643
+      ],
+      "aabb_max": [
+        0.37797808885574347,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 0.9641666666666667,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        -0.02011725857981117,
+        1.9658000469207764,
+        -0.34250002156215126
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 0.9641666666666667,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        -0.01611725079784837,
+        0.1550000011920929,
+        -0.3561702487427595
+      ],
+      "aabb_max": [
+        0.37888232906659447,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.0383333333333333,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.052100473040158746,
+        1.9658000469207764,
+        -0.34250002156215126
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.0383333333333333,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.056100480822121546,
+        0.1550000011920929,
+        -0.3570114173181726
+      ],
+      "aabb_max": [
+        0.3797865692774455,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.1125,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.12431820466012888,
+        1.9658000469207764,
+        -0.34250002156215126
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.1125,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.12831821244209168,
+        0.1550000011920929,
+        -0.35785258589358543
+      ],
+      "aabb_max": [
+        0.3806908094882966,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.1866666666666668,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.1965359362800988,
+        1.9658000469207764,
+        -0.34250002156215126
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.1866666666666668,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.2005359440620616,
+        0.1550000011920929,
+        -0.3582169601832835
+      ],
+      "aabb_max": [
+        0.38159504969914765,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.2608333333333335,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.26875366790006894,
+        1.9658000469207764,
+        -0.34250002156215126
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.2608333333333335,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.27275367568203174,
+        0.1550000011920929,
+        -0.3498641778887597
+      ],
+      "aabb_max": [
+        0.3824992899099987,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.3350000000000002,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.3133266270323296,
+        1.9658000469207764,
+        -0.29917480825288906
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 5.551115123125783e-16
+    },
+    {
+      "travel": 1.3350000000000002,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.297305979307976,
+        0.1550000011920929,
+        -0.2882639478977814
+      ],
+      "aabb_max": [
+        0.3834035301208496,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 5.551115123125783e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.4091666666666667,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.3174999832400841,
+        1.9658000469207764,
+        -0.22105864846768486
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.4091666666666667,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.296416520332459,
+        0.1550000011920929,
+        -0.21705864068572206
+      ],
+      "aabb_max": [
+        0.38430777033170066,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.4833333333333334,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.3174999832400841,
+        1.9658000469207764,
+        -0.14884091684771494
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.4833333333333334,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.295527061356942,
+        0.1550000011920929,
+        -0.14484090906575214
+      ],
+      "aabb_max": [
+        0.38521201054255166,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.5575,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.3174999832400841,
+        1.9658000469207764,
+        -0.0766231852277448
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.5575,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.2946376023814251,
+        0.1550000011920929,
+        -0.072623177445782
+      ],
+      "aabb_max": [
+        0.3861162507534028,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.6316666666666668,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.3174999832400841,
+        1.9658000469207764,
+        -0.004405453607774612
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.6316666666666668,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.29374814340590816,
+        0.1550000011920929,
+        -0.0004054458258118121
+      ],
+      "aabb_max": [
+        0.3870204909642538,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.7058333333333335,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.3174999832400841,
+        1.9658000469207764,
+        0.0678122780121953
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.7058333333333335,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.29285868443039115,
+        0.1550000011920929,
+        0.0718122857941581
+      ],
+      "aabb_max": [
+        0.38792473117510484,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    },
+    {
+      "travel": 1.78,
+      "draw": "CurtainDrawn_nickel_plated",
+      "vertices": 28595,
+      "maximum_weights": 1,
+      "aabb_min": [
+        0.3174999832400841,
+        1.9658000469207764,
+        0.14003000963216522
+      ],
+      "aabb_max": [
+        0.3625000215621513,
+        2.0340000411271855,
+        0.32469999003172795
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.2123582804335342e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16
+    },
+    {
+      "travel": 1.78,
+      "draw": "CurtainDrawn_shower_duck",
+      "vertices": 46728,
+      "maximum_weights": 2,
+      "aabb_min": [
+        0.2919692254548742,
+        0.1550000011920929,
+        0.14403001741412802
+      ],
+      "aabb_max": [
+        0.38882897138595574,
+        1.975001095235392,
+        0.3206999820624107
+      ],
+      "rest_identity_max_error": null,
+      "vertical_height_max_error": 1.765787518426265e-07,
+      "rigid_ring_linear_max_error": 4.440892098500626e-16,
+      "cloth_selection_proxy_coverage": [
+        {
+          "end_padding_m": 0.03,
+          "depth_m": 0.12,
+          "points": 62304,
+          "uncovered_vertices_and_face_centers": 0
+        }
+      ]
+    }
+  ],
+  "pass": true
+}

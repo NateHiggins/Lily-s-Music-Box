@@ -1,0 +1,1613 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Independent exported attribute comparison; no runtime or performance qualification.",
+  "original_sha256": "ff96af42ede1883381f2111059d283211140969e2c78517f57441e9f13828ba7",
+  "candidate_sha256": "0af8288793ce2462bc436755ead32b4c19605fab09e751f7baaa8bd63c5331ea",
+  "meshes": 17,
+  "all_original_arrays_exact": false,
+  "rows": [
+    {
+      "mesh": "Cylinder.029",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        560,
+        3
+      ],
+      "new_shape": [
+        560,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.029",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        560,
+        3
+      ],
+      "new_shape": [
+        560,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.029",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        560,
+        2
+      ],
+      "new_shape": [
+        560,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.029",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        560,
+        4
+      ],
+      "new_shape": [
+        560,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.029",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        564,
+        1
+      ],
+      "new_shape": [
+        564,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.027",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        1680,
+        3
+      ],
+      "new_shape": [
+        1680,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.027",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        1680,
+        3
+      ],
+      "new_shape": [
+        1680,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.027",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        1680,
+        2
+      ],
+      "new_shape": [
+        1680,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.027",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        1680,
+        4
+      ],
+      "new_shape": [
+        1680,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.027",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        1692,
+        1
+      ],
+      "new_shape": [
+        1692,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook",
+      "semantic": "POSITION",
+      "exact": false,
+      "old_shape": [
+        28596,
+        3
+      ],
+      "new_shape": [
+        28595,
+        3
+      ],
+      "maximum_delta": null
+    },
+    {
+      "mesh": "CurtainHook",
+      "semantic": "NORMAL",
+      "exact": false,
+      "old_shape": [
+        28596,
+        3
+      ],
+      "new_shape": [
+        28595,
+        3
+      ],
+      "maximum_delta": null
+    },
+    {
+      "mesh": "CurtainHook",
+      "semantic": "TEXCOORD_0",
+      "exact": false,
+      "old_shape": [
+        28596,
+        2
+      ],
+      "new_shape": [
+        28595,
+        2
+      ],
+      "maximum_delta": null
+    },
+    {
+      "mesh": "CurtainHook",
+      "semantic": "TANGENT",
+      "exact": false,
+      "old_shape": [
+        28596,
+        4
+      ],
+      "new_shape": [
+        28595,
+        4
+      ],
+      "maximum_delta": null
+    },
+    {
+      "mesh": "CurtainHook",
+      "semantic": "indices",
+      "exact": false,
+      "old_shape": [
+        31920,
+        1
+      ],
+      "new_shape": [
+        31920,
+        1
+      ],
+      "maximum_delta": 2.0
+    },
+    {
+      "mesh": "RubberizedDuck",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        46728,
+        3
+      ],
+      "new_shape": [
+        46728,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck",
+      "semantic": "NORMAL",
+      "exact": false,
+      "old_shape": [
+        46728,
+        3
+      ],
+      "new_shape": [
+        46728,
+        3
+      ],
+      "maximum_delta": 1.1920928955078125e-07
+    },
+    {
+      "mesh": "RubberizedDuck",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        46728,
+        2
+      ],
+      "new_shape": [
+        46728,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck",
+      "semantic": "TANGENT",
+      "exact": false,
+      "old_shape": [
+        46728,
+        4
+      ],
+      "new_shape": [
+        46728,
+        4
+      ],
+      "maximum_delta": 0.00010001659393310547
+    },
+    {
+      "mesh": "RubberizedDuck",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        46728,
+        1
+      ],
+      "new_shape": [
+        46728,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook.019",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        28570,
+        3
+      ],
+      "new_shape": [
+        28570,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook.019",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        28570,
+        3
+      ],
+      "new_shape": [
+        28570,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook.019",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        28570,
+        2
+      ],
+      "new_shape": [
+        28570,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook.019",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        28570,
+        4
+      ],
+      "new_shape": [
+        28570,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook.019",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        31920,
+        1
+      ],
+      "new_shape": [
+        31920,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck.001",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        46724,
+        3
+      ],
+      "new_shape": [
+        46724,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck.001",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        46724,
+        3
+      ],
+      "new_shape": [
+        46724,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck.001",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        46724,
+        2
+      ],
+      "new_shape": [
+        46724,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck.001",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        46724,
+        4
+      ],
+      "new_shape": [
+        46724,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck.001",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        46728,
+        1
+      ],
+      "new_shape": [
+        46728,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.025",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        560,
+        3
+      ],
+      "new_shape": [
+        560,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.025",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        560,
+        3
+      ],
+      "new_shape": [
+        560,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.025",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        560,
+        2
+      ],
+      "new_shape": [
+        560,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.025",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        560,
+        4
+      ],
+      "new_shape": [
+        560,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.025",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        564,
+        1
+      ],
+      "new_shape": [
+        564,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.023",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        1680,
+        3
+      ],
+      "new_shape": [
+        1680,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.023",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        1680,
+        3
+      ],
+      "new_shape": [
+        1680,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.023",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        1680,
+        2
+      ],
+      "new_shape": [
+        1680,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.023",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        1680,
+        4
+      ],
+      "new_shape": [
+        1680,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.023",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        1692,
+        1
+      ],
+      "new_shape": [
+        1692,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CovedReceptor",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        5184,
+        3
+      ],
+      "new_shape": [
+        5184,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CovedReceptor",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        5184,
+        3
+      ],
+      "new_shape": [
+        5184,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CovedReceptor",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        5184,
+        2
+      ],
+      "new_shape": [
+        5184,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CovedReceptor",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        5184,
+        4
+      ],
+      "new_shape": [
+        5184,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CovedReceptor",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        5184,
+        1
+      ],
+      "new_shape": [
+        5184,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "HexagonalRoseUnion",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        22156,
+        3
+      ],
+      "new_shape": [
+        22156,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "HexagonalRoseUnion",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        22156,
+        3
+      ],
+      "new_shape": [
+        22156,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "HexagonalRoseUnion",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        22156,
+        2
+      ],
+      "new_shape": [
+        22156,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "HexagonalRoseUnion",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        22156,
+        4
+      ],
+      "new_shape": [
+        22156,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "HexagonalRoseUnion",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        26964,
+        1
+      ],
+      "new_shape": [
+        26964,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.001",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        19044,
+        3
+      ],
+      "new_shape": [
+        19044,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.001",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        19044,
+        3
+      ],
+      "new_shape": [
+        19044,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.001",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        19044,
+        2
+      ],
+      "new_shape": [
+        19044,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.001",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        19044,
+        4
+      ],
+      "new_shape": [
+        19044,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.001",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        19044,
+        1
+      ],
+      "new_shape": [
+        19044,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.089",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        13836,
+        3
+      ],
+      "new_shape": [
+        13836,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.089",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        13836,
+        3
+      ],
+      "new_shape": [
+        13836,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.089",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        13836,
+        2
+      ],
+      "new_shape": [
+        13836,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.089",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        13836,
+        4
+      ],
+      "new_shape": [
+        13836,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.089",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        13920,
+        1
+      ],
+      "new_shape": [
+        13920,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.105",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        13834,
+        3
+      ],
+      "new_shape": [
+        13834,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.105",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        13834,
+        3
+      ],
+      "new_shape": [
+        13834,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.105",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        13834,
+        2
+      ],
+      "new_shape": [
+        13834,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.105",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        13834,
+        4
+      ],
+      "new_shape": [
+        13834,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.105",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        13920,
+        1
+      ],
+      "new_shape": [
+        13920,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.121",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        13832,
+        3
+      ],
+      "new_shape": [
+        13832,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.121",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        13832,
+        3
+      ],
+      "new_shape": [
+        13832,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.121",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        13832,
+        2
+      ],
+      "new_shape": [
+        13832,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.121",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        13832,
+        4
+      ],
+      "new_shape": [
+        13832,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.121",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        13920,
+        1
+      ],
+      "new_shape": [
+        13920,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.137",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        13833,
+        3
+      ],
+      "new_shape": [
+        13833,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.137",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        13833,
+        3
+      ],
+      "new_shape": [
+        13833,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.137",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        13833,
+        2
+      ],
+      "new_shape": [
+        13833,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.137",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        13833,
+        4
+      ],
+      "new_shape": [
+        13833,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.137",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        13920,
+        1
+      ],
+      "new_shape": [
+        13920,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.153",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        13832,
+        3
+      ],
+      "new_shape": [
+        13832,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.153",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        13832,
+        3
+      ],
+      "new_shape": [
+        13832,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.153",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        13832,
+        2
+      ],
+      "new_shape": [
+        13832,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.153",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        13832,
+        4
+      ],
+      "new_shape": [
+        13832,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.153",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        13920,
+        1
+      ],
+      "new_shape": [
+        13920,
+        1
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.169",
+      "semantic": "POSITION",
+      "exact": true,
+      "old_shape": [
+        13830,
+        3
+      ],
+      "new_shape": [
+        13830,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.169",
+      "semantic": "NORMAL",
+      "exact": true,
+      "old_shape": [
+        13830,
+        3
+      ],
+      "new_shape": [
+        13830,
+        3
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.169",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "old_shape": [
+        13830,
+        2
+      ],
+      "new_shape": [
+        13830,
+        2
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.169",
+      "semantic": "TANGENT",
+      "exact": true,
+      "old_shape": [
+        13830,
+        4
+      ],
+      "new_shape": [
+        13830,
+        4
+      ],
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.169",
+      "semantic": "indices",
+      "exact": true,
+      "old_shape": [
+        13920,
+        1
+      ],
+      "new_shape": [
+        13920,
+        1
+      ],
+      "maximum_delta": 0.0
+    }
+  ],
+  "triangle_rows": [
+    {
+      "mesh": "Cylinder.029",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.029",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.029",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.029",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.027",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.027",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.027",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.027",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook",
+      "semantic": "NORMAL",
+      "exact": false,
+      "maximum_delta": 1.1920928955078125e-07
+    },
+    {
+      "mesh": "CurtainHook",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook",
+      "semantic": "TANGENT",
+      "exact": false,
+      "maximum_delta": 0.00010001659393310547
+    },
+    {
+      "mesh": "RubberizedDuck",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck",
+      "semantic": "NORMAL",
+      "exact": false,
+      "maximum_delta": 1.1920928955078125e-07
+    },
+    {
+      "mesh": "RubberizedDuck",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck",
+      "semantic": "TANGENT",
+      "exact": false,
+      "maximum_delta": 0.00010001659393310547
+    },
+    {
+      "mesh": "CurtainHook.019",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook.019",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook.019",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CurtainHook.019",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck.001",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck.001",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck.001",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "RubberizedDuck.001",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.025",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.025",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.025",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.025",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.023",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.023",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.023",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.023",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CovedReceptor",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CovedReceptor",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CovedReceptor",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "CovedReceptor",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "HexagonalRoseUnion",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "HexagonalRoseUnion",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "HexagonalRoseUnion",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "HexagonalRoseUnion",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.001",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.001",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.001",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.001",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.089",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.089",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.089",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.089",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.105",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.105",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.105",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.105",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.121",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.121",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.121",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.121",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.137",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.137",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.137",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.137",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.153",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.153",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.153",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.153",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.169",
+      "semantic": "POSITION",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.169",
+      "semantic": "NORMAL",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.169",
+      "semantic": "TEXCOORD_0",
+      "exact": true,
+      "maximum_delta": 0.0
+    },
+    {
+      "mesh": "Cylinder.169",
+      "semantic": "TANGENT",
+      "exact": true,
+      "maximum_delta": 0.0
+    }
+  ],
+  "skin_joints": [
+    116
+  ]
+}

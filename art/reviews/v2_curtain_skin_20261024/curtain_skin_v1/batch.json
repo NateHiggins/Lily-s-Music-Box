@@ -1,0 +1,34 @@
+[
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 600,
+    "extra_args": [
+      "--headless",
+      "--editor",
+      "--import",
+      "--quit"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\curtain_skin_v1\\import1.log"
+  },
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 600,
+    "extra_args": [
+      "--headless",
+      "--editor",
+      "--import",
+      "--quit"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\curtain_skin_v1\\import2.log"
+  },
+  {
+    "scene": "res://tests/V2CurtainGestureBench.tscn",
+    "runner": "long",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\curtain_skin_v1\\bench",
+    "log": "C:\\ov\\reports\\v2integration24\\curtain_skin_v1\\bench.log"
+  }
+]

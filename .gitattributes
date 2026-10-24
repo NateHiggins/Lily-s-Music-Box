@@ -3225,3 +3225,11 @@ game/tests/CampaignWeather*.tscn -text
 game/tests/v2_weather_route_profile.gd* -text
 game/tests/V2WeatherRoute*.tscn -text
 art/reviews/v2_weather_calendar_20261024/** -text -whitespace
+
+# Native curtain source-bound motion diagnostics.
+art/blender/scripts/native_curtain_skin.py -text
+game/scripts/props/legacy_shower_curtain_motion.gd* -text
+game/tests/v2_curtain_world_profile.gd* -text
+game/tests/V2CurtainWorldProfile.tscn -text
+art/reviews/v2_curtain_skin_20261024/** -text -whitespace
+tools/analyze_curtain_profile.py -text

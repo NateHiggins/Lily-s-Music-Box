@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "native_export": "helper_v2/helper_review.json",
+  "exported_pose_check": "exported_skin_full_travel_check.json",
+  "sampled_positions": 25,
+  "draw_pose_checks": 50,
+  "selection_points_per_pose": 62304,
+  "uncovered_points": 0,
+  "selection_box_padding_m": 0.03,
+  "selection_box_depth_m": 0.12,
+  "selection_box_height_m": 1.855,
+  "notes": [
+    "Selection shapes are not environment collision.",
+    "Previous .006/.065 proxies missed gathered cloth; repaired before Godot.",
+    "All 17 expanded triangle position/UV streams match original; indexed dedup and tiny normal/tangent roundoff differ.",
+    "Offline checks do not establish rendering, actual input, save or frame-time acceptance."
+  ]
+}

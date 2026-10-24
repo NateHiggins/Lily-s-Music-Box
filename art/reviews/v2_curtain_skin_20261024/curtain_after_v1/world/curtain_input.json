@@ -1,0 +1,968 @@
+{
+	"clock": "1928-11-10T20:00:00",
+	"drawn_source_sha256": "0af8288793ce2462bc436755ead32b4c19605fab09e751f7baaa8bd63c5331ea",
+	"evidence_class": "INERT",
+	"failures": [],
+	"fov": 75.0,
+	"motion_source_sha256": "690db37239dee7d2e65105dfdc85df448da591f9c092ed2c0838010284a6dd50",
+	"phases": [
+		{
+			"after": {
+				"cold": 0.0,
+				"curtain": 1.78,
+				"hot": 0.0
+			},
+			"aim": [
+				8.45000171661377,
+				10.7800006866455,
+				-16.9099998474121
+			],
+			"before": {
+				"cold": 0.0,
+				"curtain": 0.0,
+				"hot": 0.0
+			},
+			"callbacks": [
+				{
+					"ms": 0.009,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "begin"
+				},
+				{
+					"ms": 0.227,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.222,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.229,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.232,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.247,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.236,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.233,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.225,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.236,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.239,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.242,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.25,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.229,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.243,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.238,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.233,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.233,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.249,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.224,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.223,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.224,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.228,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.235,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.237,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 14.062,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "end"
+				},
+				{
+					"ms": 0.006,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "world_modified"
+				}
+			],
+			"ok": true,
+			"phase": "curtain_open_1",
+			"physics_frame": 409,
+			"wall_ms": 479.488
+		},
+		{
+			"after": {
+				"cold": 0.0,
+				"curtain": 0.0,
+				"hot": 0.0
+			},
+			"aim": [
+				8.11000156402588,
+				10.7970170974731,
+				-17.4623641967773
+			],
+			"before": {
+				"cold": 0.0,
+				"curtain": 1.78,
+				"hot": 0.0
+			},
+			"callbacks": [
+				{
+					"ms": 0.014,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "begin"
+				},
+				{
+					"ms": 0.353,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.3,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.243,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.269,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.282,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.36,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.323,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.245,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.366,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.375,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.279,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.257,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.237,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.512,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.264,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.348,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.272,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.27,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.251,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.271,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.262,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.273,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.248,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.251,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 15.534,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "end"
+				},
+				{
+					"ms": 0.006,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "world_modified"
+				}
+			],
+			"ok": true,
+			"phase": "curtain_close_1",
+			"physics_frame": 517,
+			"wall_ms": 771.558
+		},
+		{
+			"after": {
+				"cold": 0.0,
+				"curtain": 1.78,
+				"hot": 0.0
+			},
+			"aim": [
+				8.45000171661377,
+				10.7800006866455,
+				-16.9099998474121
+			],
+			"before": {
+				"cold": 0.0,
+				"curtain": 0.0,
+				"hot": 0.0
+			},
+			"callbacks": [
+				{
+					"ms": 0.014,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "begin"
+				},
+				{
+					"ms": 0.283,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.296,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.255,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.227,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.235,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.238,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.236,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.275,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.25,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.259,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.264,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.265,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.272,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.276,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.256,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.334,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.272,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.233,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.259,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.262,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.267,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.273,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.253,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.258,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 15.839,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "end"
+				},
+				{
+					"ms": 0.005,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "world_modified"
+				}
+			],
+			"ok": true,
+			"phase": "curtain_open_2",
+			"physics_frame": 610,
+			"wall_ms": 552.498
+		},
+		{
+			"after": {
+				"cold": 0.0,
+				"curtain": 0.0,
+				"hot": 0.0
+			},
+			"aim": [
+				8.11000156402588,
+				10.7970170974731,
+				-17.4623641967773
+			],
+			"before": {
+				"cold": 0.0,
+				"curtain": 1.78,
+				"hot": 0.0
+			},
+			"callbacks": [
+				{
+					"ms": 0.01,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "begin"
+				},
+				{
+					"ms": 0.248,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.226,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.237,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.225,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.235,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.222,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.242,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.258,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.258,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.245,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.239,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.273,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.223,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.236,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.228,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.241,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.241,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.235,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.235,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.316,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.245,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.223,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.241,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.224,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 15.108,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "end"
+				},
+				{
+					"ms": 0.006,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "world_modified"
+				}
+			],
+			"ok": true,
+			"phase": "curtain_close_2",
+			"physics_frame": 708,
+			"wall_ms": 592.418
+		},
+		{
+			"after": {
+				"cold": 0.0,
+				"curtain": 1.78,
+				"hot": 0.0
+			},
+			"aim": [
+				8.45000171661377,
+				10.7800006866455,
+				-16.9099998474121
+			],
+			"before": {
+				"cold": 0.0,
+				"curtain": 0.0,
+				"hot": 0.0
+			},
+			"callbacks": [
+				{
+					"ms": 0.01,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "begin"
+				},
+				{
+					"ms": 0.252,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.26,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.237,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.236,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.239,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.25,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.252,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.238,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.237,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.238,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.238,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.235,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.244,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.238,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.227,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.24,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.234,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.238,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.222,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.257,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.25,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.246,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.255,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.271,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 15.897,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "end"
+				},
+				{
+					"ms": 0.006,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "world_modified"
+				}
+			],
+			"ok": true,
+			"phase": "curtain_open_3",
+			"physics_frame": 799,
+			"wall_ms": 524.141
+		},
+		{
+			"after": {
+				"cold": 0.0,
+				"curtain": 0.0,
+				"hot": 0.0
+			},
+			"aim": [
+				8.11000156402588,
+				10.7970170974731,
+				-17.4623641967773
+			],
+			"before": {
+				"cold": 0.0,
+				"curtain": 1.78,
+				"hot": 0.0
+			},
+			"callbacks": [
+				{
+					"ms": 0.011,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "begin"
+				},
+				{
+					"ms": 0.227,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.228,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.231,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.231,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.256,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.238,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.244,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.249,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.227,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.229,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.242,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.236,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.224,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.232,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.23,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.239,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.241,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.245,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.251,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.237,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.234,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.389,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.355,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 0.354,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "constrained_motion"
+				},
+				{
+					"ms": 15.058,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "end"
+				},
+				{
+					"ms": 0.008,
+					"owner": "F04_4B_SHOWER_01",
+					"stage": "world_modified"
+				}
+			],
+			"ok": true,
+			"phase": "curtain_close_3",
+			"physics_frame": 896,
+			"wall_ms": 614.597
+		}
+	],
+	"resolution": "(1280.0, 720.0)",
+	"scope": "actual occupied 4B bath, original door/walking approach then repeated primary grab/motion/release; no full V2 qualification",
+	"settings": {
+		"input_cadence": "one curtain motion per process frame",
+		"msaa_3d": 3,
+		"quality": 0,
+		"render_method": "forward_plus",
+		"taa": true,
+		"vsync": false
+	}
+}

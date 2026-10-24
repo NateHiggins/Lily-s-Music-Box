@@ -3,6 +3,13 @@
 Evidence class: **INERT**. Working continuation and issue log; no completion
 ledger promotion, runtime qualification or human acceptance is claimed.
 
+Current curtain repair: **V2_CURTAIN_SKIN_RESPONSIVENESS_2026-10-24.md**.
+Native cloth/ring skin replaces the per-motion mesh/tangent/trimesh rebuild.
+The43-check family bench and matched actual-world route pass. Gesture medians
+169–185→17–27ms;144 motion callbacks138–147→0.23–0.27ms median by phase.
+Approach/first-view pipeline spikes remain; no whole-V2 speed or acceptance claim.
+The older callback figures below are historical, not the current motion path.
+
 Latest bathroom diagnostic, October24: **V2_BATHROOM_MOISTURE_AND_PAPER_2026-10-24.md**.
 Native wall-mounted paper has one continuous wrapped/hanging sheet. Ten rear
 and two side installations preserve the ventilation stacks; all24 bearing
@@ -11,11 +18,11 @@ The final focused hot-input/steam-cap/paper run passes114 checks; other failed
 runs and Texture-RID warnings remain explicit. The measured bathroom route
 still has roughly72ms mirror p95 and first-view spikes; no broad speed claim.
 
-Next measured responsiveness repair after the edging review: actual curtain
-motion callbacks still reach159.714ms (prior374.362ms). The current hand path
-rebuilds mesh/normals/tangents/trimesh selection every travel event. Isolate and
-replace that rebuild while preserving actual click/motion/release, part targeting,
-physical travel and save authority. Geometry reduction alone is insufficient.
+Historical curtain diagnosis before the native skin repair: motion callbacks
+reached159.714ms (prior374.362ms). The former hand path rebuilt mesh, normals,
+tangents and trimesh selection on every travel event. The current repair above
+replaces that rebuild and retains actual click/motion/release, part targeting,
+physical travel and save authority. Geometry reduction alone was insufficient.
 
 Edging follow-up is already repaired in **V2_BATHROOM_FINISHING_2026-10-24.md**:
 rounded glazed ceramic runs terminate at the door/window joinery envelope.

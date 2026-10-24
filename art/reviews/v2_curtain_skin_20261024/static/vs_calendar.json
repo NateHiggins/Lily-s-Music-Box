@@ -1,0 +1,13 @@
+{
+  "from_commit": "0eaa96ba9c94965ba75478c7b328eca7822b39a1",
+  "to_commit": "941a96730471a5d787527b50533d855286f5d482",
+  "regressions": [],
+  "improvements": [
+    "test:test_material_catalog_persistence: FAIL -> PASS",
+    "test:test_material_catalog_persistence: failed 1 -> 0",
+    "test:test_material_catalog_persistence: resolved test_registered_catalog_survives_regeneration (__main__.MaterialCatalogPersistenceTest.test_registered_catalog_survives_regeneration)"
+  ],
+  "changes": [],
+  "requirements_changed": [],
+  "comparable": true
+}
