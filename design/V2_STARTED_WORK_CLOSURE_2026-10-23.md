@@ -11,10 +11,22 @@ it does not replace the existing issue logs or erase original failures.
 ## Current verification boundary
 
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-acoustic-topology**, preceding pushed checkpoint **29c88736**.
+**codex/v2-acoustic-topology**, preceding pushed checkpoint **763e45cb**.
 The spatial dependency manifest is unrelated shared WIP. Untracked street/tent,
 traffic and art work remains preserved. All engine runs use the shared lane.
 No human acceptance or clean candidate verification is claimed.
+
+Newest occupied hose review: **V2_HOSE_INSTALLED_MAINTENANCE_2026-10-24.md**.
+Idle visual polling across eight cabinets costs0.1935ms median in direct calls;
+interleaved disabling gives no clear frame-time benefit, so production is left
+unchanged. Installed union Y/Z/screw, washer and nozzle programmes now execute
+through real input in F02. Combined charging/spraying/stair/rebuild route passes
+56 top-level,33 nozzle and27 washer checks; rebuilt facts match and pose error
+is1.066um against10um tolerance. Nozzle engagement/sealing uses actual input;
+washer subprogramme retains explicit save/restore controls. All five runs have
+empty stderr. Captured spray remains hard to see despite sustained emission;
+visual readability, purchased washer handoff/dressing, full payout, certification
+and broad closure remain open. These are diagnostics, not runtime/human grants.
 
 Newest scoped performance repair: **V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md**.
 One validated portrait atlas is kept per passage world; complete source/import/

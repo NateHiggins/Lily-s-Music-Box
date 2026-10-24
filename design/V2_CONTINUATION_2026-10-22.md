@@ -12,6 +12,18 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-24
 
+Newest occupied hose review: **V2_HOSE_INSTALLED_MAINTENANCE_2026-10-24.md**.
+Idle visual polling across eight cabinets costs0.1935ms median in direct calls;
+interleaved disabling gives no clear frame-time benefit, so production is left
+unchanged. Installed union Y/Z/screw, washer and nozzle programmes now execute
+through real input in F02. Combined charging/spraying/stair/rebuild route passes
+56 top-level,33 nozzle and27 washer checks; rebuilt facts match and pose error
+is1.066um against10um tolerance. Nozzle engagement/sealing uses actual input;
+washer subprogramme retains explicit save/restore controls. All five runs have
+empty stderr. Captured spray remains hard to see despite sustained emission;
+visual readability, purchased washer handoff/dressing, full payout, certification
+and broad closure remain open. These are diagnostics, not runtime/human grants.
+
 Newest scoped performance repair: **V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md**.
 One validated portrait atlas is kept per passage world; complete source/import/
 payload hashes still run. Warm portrait fits31.5–35.1ms versus61.0–61.7ms;

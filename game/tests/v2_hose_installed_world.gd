@@ -33,15 +33,7 @@ func _play_route() -> void:
 	for frame in 60:await get_tree().process_frame
 	profile_phase="actual_cabinet_open"
 	if not _check(await driver.operate(actor._door_pivot.to_global(Vector3(-.4,.1,.015)),1.78,actor),"actual grab/motion/release opens the installed cabinet"):return
-	# Stage the retained repair owners coherently. This diagnostic does not
-	# claim procurement, gasket handoff, dressing or coupling assembly input.
-	actor.gasket_seated=true;actor.coupling_made_up=true;actor.nozzle_coupled=true
-	actor._union_angle=TAU*float(actor._joint_stock.data.dimensions.gasket_thickness_m)/float(actor._joint_stock.data.dimensions.pitch_m)
-	actor._loose_union.active=false;actor._apply_hand_pose()
-	var union_at:=Vector3(.17,actor._joint_stock.union_pose(actor._union_angle).origin.y,.098)
-	actor._gasket_body.restore({"position":[union_at.x,union_at.y+.020,union_at.z],"rotation":[0.,0.,0.,1.]})
-	joint.restore_legacy(true)
-	if not _check(actor.valid_mechanism(actor.mechanism_snapshot()),"explicit assembled-line fixture is a valid physical household state"):return
+	if not await _prepare_repaired_line(actor,joint):return
 	if not _check(await helper._aim_nozzle_surface(actor,joint,false),"walked stance reaches the specific installed nozzle surface"):return
 	profile_phase="actual_extract"
 	helper.click()
@@ -158,4 +150,15 @@ func _save_reload(wanted: Dictionary) -> void:
 		if FileAccess.file_exists(path):DirAccess.remove_absolute(path)
 
 func _write_checks() -> void:
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("hose_checks.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual installed approach, operation, stair carrying and disk rebuild; repaired assembly staged. No full payout, all-area coverage, runtime_contract or human acceptance.","checks":hose_checks,"motion_calls":hose_motion,"aim_errors_degrees":aim_errors,"failures":failures},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("hose_checks.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual installed approach, operation, stair carrying and disk rebuild. Repaired-line preparation defaults to a staged fixture; overrides record their assembly input separately. No full payout, all-area coverage, runtime_contract or human acceptance.","checks":hose_checks,"motion_calls":hose_motion,"aim_errors_degrees":aim_errors,"failures":failures},"\t"))
+
+func _prepare_repaired_line(actor: Node3D,joint: Node3D) -> bool:
+	# Stage the retained repair owners coherently. This diagnostic does not
+	# claim procurement, gasket handoff, dressing or coupling assembly input.
+	actor.gasket_seated=true;actor.coupling_made_up=true;actor.nozzle_coupled=true
+	actor._union_angle=TAU*float(actor._joint_stock.data.dimensions.gasket_thickness_m)/float(actor._joint_stock.data.dimensions.pitch_m)
+	actor._loose_union.active=false;actor._apply_hand_pose()
+	var union_at:=Vector3(.17,actor._joint_stock.union_pose(actor._union_angle).origin.y,.098)
+	actor._gasket_body.restore({"position":[union_at.x,union_at.y+.020,union_at.z],"rotation":[0.,0.,0.,1.]})
+	joint.restore_legacy(true)
+	return _check(actor.valid_mechanism(actor.mechanism_snapshot()),"explicit assembled-line fixture is a valid physical household state")
