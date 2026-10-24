@@ -116,3 +116,33 @@ verify every original Git blob (457,865,220 bytes). The source commit and archiv
 manifest identify the originals; no historical receipt is repinned. The canonical
 shared manifest and overlapping untracked street-traffic prototype are also
 copied with hashes before any future checkout handoff. They remain in place.
+
+Current **184238d2** full board compares against clean **54f3f19b** with only
+two comparison lines for the same expired surface-test binding. Reader unread
+count improves1108 to1107; requirement statuses are unchanged. Protected17/17,
+V2 selector and baseline metadata validation pass. No regression is waived.
+
+Windowed **runtime_v3** completes the16-check merged worker-save/knowledge test,
+WorldFlagTest and18-check background-save test with empty stderr and valid
+source/log bindings. Independent post-exit verification observes a live worker
+at quit and exact final owned save payload afterward. These are diagnostics,
+not played acquisition or a runtime-contract grant.
+
+The combined-world run exits0 but is correctly REJECTED by its output audit:
+three script errors and missing **integration_world.json**. Its completed
+bathroom leg leaves the passage dormant; the inherited News and retirement
+validators index absent cells. The aggregate's printed0 failures is not a pass.
+Original logs, wrapper and partial test-written outputs remain unchanged.
+Stop only the identified owned PassageRoute engine,77s into the next run, so
+the broker stops before the same defect reaches the surface suite. Its exit-1
+receipt records a deliberate cancellation, with no route verdict. No other
+contributor's process is closed.
+
+Repair the shared retirement validator's precondition: use its existing
+layout-derived vestibule placement and normal600-frame prefetch budget, require
+resident source cells, and return a failed result instead of indexing absent
+cells. This stationary setup is not navigation proof. Both combined and surface
+callers reject incomplete validator results. Production streaming, mechanics,
+materials and geometry are unchanged. Reuse the three still-bound completed
+diagnostics; rerun the combined world, passage/golden routes and surface suite
+into separate outputs. Runtime qualification remains pending.

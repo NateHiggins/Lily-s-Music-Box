@@ -203,6 +203,9 @@ func _run() -> void:
 	var retirement_review := preload("res://tests/v2_arcade_retirement_review.gd").new()
 	retirement_review.batch_mode=true;add_child(retirement_review)
 	var retirement_result: Dictionary=await retirement_review.validate_in_world(world)
+	if not retirement_result.has_all(["checks","failures"]):
+		check(false,"retirement validation aborted without a complete result")
+		world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	batch_checks+=int(retirement_result.checks)
 	for failure: String in retirement_result.failures:failures.append(failure)
 	check(int(retirement_result.checks)>900,"surface review executes the complete current cabinet-retirement validator")

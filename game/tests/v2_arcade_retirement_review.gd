@@ -1,12 +1,39 @@
 extends "res://tests/orison_v2_news_fittings_test.gd"
 ## Current playable retirement; historical active-cabinet receipts stay intact.
 func _init() -> void:capture_enabled=false
+func _prepare_resident_world(world: OrisonV2RuntimeRoot) -> bool:
+	var passage:=world.passage_region
+	check(passage!=null and not passage.startup_failed,"retirement has a valid production passage owner")
+	if passage==null or passage.startup_failed:return false
+	# This is stationary geometry discovery, not a played navigation claim.
+	# A prior room review can legitimately have streamed the passage out.
+	var vestibules: Array=world.layout.spaces.filter(func(row):return row.id=="F01_VESTIBULE")
+	check(vestibules.size()==1,"retirement discovers the existing vestibule from the production layout")
+	if vestibules.size()!=1:return false
+	var rect: Array=vestibules[0].rect
+	world.player.set_physics_process(false)
+	world.player.global_position=world.adapter.root.to_global(Vector3((rect[0]+rect[2])*.5,0.,(rect[1]+rect[3])*.5))
+	world.player.velocity=Vector3.ZERO
+	await get_tree().physics_frame;await get_tree().physics_frame
+	for frame in 600:
+		if passage.residency.state=="RESIDENT" or passage.startup_failed:break
+		await get_tree().process_frame
+	var ready: bool=passage.residency.state=="RESIDENT" and not passage.startup_failed
+	check(ready,"normal vestibule prefetch makes retirement geometry resident")
+	for identity: String in ["passage","shop_radio_service","shop_model_laundry","shop_photo_supplies","shop_news_cigars","shop_pawnbroker","shop_luncheonette"]:
+		var present: bool=passage.cell_nodes.has(identity)
+		check(present,"retirement requires its installed source cell: "+identity)
+		ready=ready and present
+	return ready
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var directory:=OS.get_environment("SHOT_DIR")
 	var result:=DirAccess.make_dir_recursive_absolute(directory)
 	check(result==OK,"diagnostic output directory is available before inherited validators write")
 	if result!=OK:return {"checks":checks,"failures":failures.duplicate()}
-	await super.validate_in_world(world)
+	if not await _prepare_resident_world(world):return _finish_retirement(0)
+	var inherited_result: Dictionary=await super.validate_in_world(world)
+	check(inherited_result.has_all(["checks","failures"]),"inherited News validator returns a complete result")
+	if not inherited_result.has_all(["checks","failures"]):return _finish_retirement(0)
 	check(world.get_tree().get_nodes_in_group("arcade_cabinets").is_empty(),"no arcade cabinet actor, game screen or interaction owner enters playable V2")
 	var passage:=world.passage_region
 	check(not passage.cabinets_enabled and passage.receiving_row.cabinets.is_empty() and not passage.receiving_row.has_focused_panel(),"passage has no receiving games or focused game panels")
@@ -37,6 +64,9 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(not original_meshes.is_empty() and not hulls.is_empty(),"bar retirement includes both visual and physical source stock")
 	check(retired>=40,"retirement covers the complete installed shop cabinet row")
 	check(world.get_tree().get_nodes_in_group("arcade_cabinets").is_empty(),"normal passage prefetch cannot respawn retired cabinet actors")
+	return _finish_retirement(retired)
+
+func _finish_retirement(retired: int) -> Dictionary:
 	var output:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(output.path_join("retirement.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Playable V2 cabinet retirement and inherited News fitting checks; historical active-cabinet tests are not runtime qualification for this state","retired_shop_draws":retired,"checks":checks,"failures":failures},"\t"))
 	return {"checks":checks,"failures":failures.duplicate()}
