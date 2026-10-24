@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Three cards of the deck, fanned; the one on top has taken the smallest of faces. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:pivotX="54"
+        android:pivotY="88"
+        android:rotation="-18">
+        <path
+            android:fillColor="#66000000"
+            android:pathData="M44,35.9h20a3,3 0,0 1,3 3v31a3,3 0,0 1,-3 3h-20a3,3 0,0 1,-3 -3v-31a3,3 0,0 1,3 -3z" />
+        <path
+            android:fillColor="#DCD0B0"
+            android:pathData="M44,34.5h20a3,3 0,0 1,3 3v31a3,3 0,0 1,-3 3h-20a3,3 0,0 1,-3 -3v-31a3,3 0,0 1,3 -3z" />
+        <path
+            android:pathData="M44.8,36.5h18.4a1.8,1.8 0,0 1,1.8 1.8v29.4a1.8,1.8 0,0 1,-1.8 1.8h-18.4a1.8,1.8 0,0 1,-1.8 -1.8v-29.4a1.8,1.8 0,0 1,1.8 -1.8z"
+            android:strokeColor="#997C6226"
+            android:strokeWidth="0.6" />
+    </group>
+    <group
+        android:pivotX="54"
+        android:pivotY="88"
+        android:rotation="18">
+        <path
+            android:fillColor="#66000000"
+            android:pathData="M44,35.9h20a3,3 0,0 1,3 3v31a3,3 0,0 1,-3 3h-20a3,3 0,0 1,-3 -3v-31a3,3 0,0 1,3 -3z" />
+        <path
+            android:fillColor="#E6DBBE"
+            android:pathData="M44,34.5h20a3,3 0,0 1,3 3v31a3,3 0,0 1,-3 3h-20a3,3 0,0 1,-3 -3v-31a3,3 0,0 1,3 -3z" />
+        <path
+            android:pathData="M44.8,36.5h18.4a1.8,1.8 0,0 1,1.8 1.8v29.4a1.8,1.8 0,0 1,-1.8 1.8h-18.4a1.8,1.8 0,0 1,-1.8 -1.8v-29.4a1.8,1.8 0,0 1,1.8 -1.8z"
+            android:strokeColor="#997C6226"
+            android:strokeWidth="0.6" />
+    </group>
+    <path
+        android:fillColor="#73000000"
+        android:pathData="M44,34.4h20a3,3 0,0 1,3 3v31a3,3 0,0 1,-3 3h-20a3,3 0,0 1,-3 -3v-31a3,3 0,0 1,3 -3z" />
+    <path
+        android:fillColor="#F3EAD2"
+        android:pathData="M44,32.5h20a3,3 0,0 1,3 3v31a3,3 0,0 1,-3 3h-20a3,3 0,0 1,-3 -3v-31a3,3 0,0 1,3 -3z" />
+    <path
+        android:pathData="M44.8,34.5h18.4a1.8,1.8 0,0 1,1.8 1.8v29.4a1.8,1.8 0,0 1,-1.8 1.8h-18.4a1.8,1.8 0,0 1,-1.8 -1.8v-29.4a1.8,1.8 0,0 1,1.8 -1.8z"
+        android:strokeColor="#B37C6226"
+        android:strokeWidth="0.6" />
+    <path
+        android:fillColor="#C8A24A"
+        android:pathData="M54,45.2L57.6,51L54,56.8L50.4,51z" />
+</vector>

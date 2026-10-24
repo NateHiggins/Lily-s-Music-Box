@@ -12,6 +12,8 @@ through the building's own wiring. It is `art/` + `game/`.
 | [`TASKS.md`](TASKS.md) | the live queue: open work, one line each |
 | [`HANDOFF.md`](HANDOFF.md) | how to build and verify the layout → Blender → Godot chain |
 | [`design/ORISON_BIBLE.md`](design/ORISON_BIBLE.md) | the covenant: what is true, and what prevails when documents disagree |
+| [`docs/AI_GAME_DEVELOPMENT_MANUAL.md`](docs/AI_GAME_DEVELOPMENT_MANUAL.md) | how this game was built with AI engineers, and how to run the same process on a new game |
+| [`oracle/`](oracle/README.md) | THE BLANK DECK: a standalone text adventure that reads how you play and hands you a prompt to paste into an AI coder that has the manual (`python -m oracle`); also builds as an Android app and a single page (`python -m oracle.app.build`) |
 
 This repository also holds two older standalone prototypes, kept for reference:
 
