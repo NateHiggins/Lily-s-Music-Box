@@ -16,13 +16,19 @@ func _prepare_resident_world(world: OrisonV2RuntimeRoot) -> bool:
 	world.player.velocity=Vector3.ZERO
 	await get_tree().physics_frame;await get_tree().physics_frame
 	var started:=Time.get_ticks_msec()
+	# The rejected fixed600-frame run is still LOADING at12.7s, with eleven
+	# staged cells and one request pending. Cooperative fitting deliberately
+	# yields; a frame count is not a fixture-readiness deadline.
+	var deadline:=started+60000
+	var frame_index:=0
 	var samples: Array[Dictionary]=[]
-	for frame in 600:
-		if passage.residency.state=="RESIDENT" or passage.startup_failed:break
-		if frame%60==0:samples.append(_residency_sample(passage,world.player,frame,started))
+	while Time.get_ticks_msec()<deadline:
+		if passage.residency.state in ["RESIDENT","FAILED"] or passage.startup_failed:break
+		if frame_index%60==0:samples.append(_residency_sample(passage,world.player,frame_index,started))
 		await get_tree().process_frame
-	samples.append(_residency_sample(passage,world.player,600,started))
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("retirement_prefetch.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Unchanged 600-frame fixture wait diagnostic; no runtime qualification","samples":samples},"\t"))
+		frame_index+=1
+	samples.append(_residency_sample(passage,world.player,frame_index,started))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("retirement_prefetch.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Stationary inspection fixture readiness, bounded60s wall-clock wait; no played navigation or streaming-latency qualification","samples":samples},"\t"))
 	var ready: bool=passage.residency.state=="RESIDENT" and not passage.startup_failed
 	check(ready,"normal vestibule prefetch makes retirement geometry resident")
 	for identity: String in ["passage","shop_radio_service","shop_model_laundry","shop_photo_supplies","shop_news_cigars","shop_pawnbroker","shop_luncheonette"]:
