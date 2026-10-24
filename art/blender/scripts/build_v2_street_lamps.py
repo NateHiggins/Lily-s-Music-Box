@@ -165,6 +165,10 @@ def main():
         "globe_local": [0.0, GLOBE_Z, REACH],
         "post_radius_m": 0.22,
         "light": LIGHT,
+        # The city lights its lamps dusk to dawn; the same local clock minutes
+        # as the traffic's lamps, so street and vehicles go dark together.
+        "dusk": kit.SCHEDULE["dusk"],
+        "dawn": kit.SCHEDULE["dawn"],
         "finishes": [dict({"id": fid}, **{k: v for k, v in spec.items() if k in keys}) for fid, spec in FINISHES.items()],
         "lamps": LAMPS,
     }

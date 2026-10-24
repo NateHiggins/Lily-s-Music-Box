@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 194.85,
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T19:27:53Z",
+  "started_utc": "2026-10-24T19:24:36Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/pol/tmp/run/domestic.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/ov/pol/tmp/run/domestic.log",
+  "stdout_sha256": "5c7cdae6795134fcc57e7369e8ff7faedd7cfa5bd2b69f0db98deb9673e8fd28"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2DomesticRouteTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "7e5113778f73e98c1c792cb2ba9a9ca2e9c9e9ab",
+  "repository_tree": "3bcc18def0a2159cb7d9412906aa788630f9bd86",
+  "runtime_inputs_sha256": "81074ade32784b64d5e8a6d9748ea5c39765fa70ebe55c5311f21f049402fd94",
+  "test_path": "game/tests/orison_v2_domestic_route_test.gd",
+  "test_sha256": "d5cd9d427438590fc3862c4f43f28926dfc644182d962886cf3ab5e0a7de680c"
+ },
+ "windowed": true
+}

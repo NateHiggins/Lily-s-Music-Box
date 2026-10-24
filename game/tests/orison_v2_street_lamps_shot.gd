@@ -84,6 +84,21 @@ func _review() -> void:
 				found = true
 		check(found, "the lamp's light sits in its globe: " + str(lamp.id))
 
+	var clock := root.get_node_or_null("LampClock")
+	check(clock != null, "the lamps keep their own clock")
+	if clock != null:
+		clock.clock_override = {"valid": true, "month": 11, "minute_of_day": 720.0}
+		clock.refresh()
+		var dark := true
+		for light: OmniLight3D in clock.lights:
+			dark = dark and not light.visible
+		check(dark and clock.lit == 0.0, "street lamps are out at noon")
+		clock.clock_override = {"valid": true, "month": 11, "minute_of_day": 1260.0}
+		clock.refresh()
+		var lit: bool = clock.lights.size() == (data.lamps as Array).size()
+		for light: OmniLight3D in clock.lights:
+			lit = lit and light.visible and light.light_energy > 0.0
+		check(lit and clock.lit == 1.0, "and lit at nine at night")
 	world.player.set_physics_process(false)
 	world.player.set_lamp_enabled(false)
 	for canvas: CanvasLayer in world.find_children("*", "CanvasLayer", true, false):

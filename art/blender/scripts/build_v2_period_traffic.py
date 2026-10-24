@@ -54,6 +54,7 @@ FINISHES = {
     "hood_cloth": {"catalog_key": "fabric_warm", "tint": [0.10, 0.10, 0.10, 1], "normal": 1., "roughness": 1.},
     "upholstery": {"catalog_key": "fabric_warm", "tint": [0.10, 0.085, 0.075, 1], "normal": .8, "roughness": 1.},
     "wool": {"catalog_key": "fabric_warm", "tint": [0.17, 0.16, 0.17, 1], "normal": 1., "roughness": 1.},
+    "glove": {"catalog_key": "leather_worn", "tint": [0.86, 0.80, 0.68, 1], "normal": .6, "roughness": 1.},
     "skin": {"catalog_key": "linen", "tint": [0.78, 0.60, 0.50, 1], "normal": .4, "roughness": 1.},
     "hide": {"catalog_key": "leather_worn", "tint": [0.42, 0.26, 0.15, 1], "normal": .7, "roughness": 1., "paint": True},
     "hoof": {"catalog_key": "leather_worn", "tint": [0.12, 0.10, 0.09, 1], "normal": 1., "roughness": 1.},
@@ -352,8 +353,10 @@ def horse_leg():
 
 def signal_arm():
     """A driver's left arm out of the window, origin at the shoulder, along +Y."""
-    return {"wool": [tube([(0, 0, 0), (0.02, 0.3, -0.02), (0.03, 0.56, 0.0)], 0.045, 8)],
-            "skin": [sphere((0.04, 0.63, 0.0), 0.05, (1.1, 1.3, 0.8))]}
+    # A motoring duster's linen sleeve and a pale driving glove: dark wool
+    # vanished against dark coachwork at night, and the signal must read.
+    return {"canvas": [tube([(0, 0, 0), (0.02, 0.3, -0.02), (0.03, 0.56, 0.0)], 0.05, 8)],
+            "glove": [sphere((0.04, 0.64, 0.0), 0.06, (1.1, 1.3, 0.8))]}
 
 
 def seated_figure():
@@ -921,7 +924,8 @@ for kind in KINDS:
 # end at x -61.4, site_far_w stands at -77.8. East: corners end at 63.8,
 # site_far_e stands at 73.8. Asphalt court ground runs through both.
 JUNCTIONS = {"east_x": 68.8, "west_x": -69.6, "center_z": 9.527, "cross_half_width": 4.6,
-             "cross_lane_offset": 1.5, "stop_gap_m": 0.8, "exit_run_m": 11.0}
+             "cross_lane_offset": 1.5, "stop_gap_m": 0.8, "exit_run_m": 11.0,
+             "left_turn_yield_m": 8.0}
 # The cross streets are the busier avenues: well over the side street's flow.
 LOD = {"max_cross_vehicles": 12, "cross_flow_scale": 3.0, "cross_reach_m": 18.0,
        "detail_x": 24.0, "junction_clear_m": 9.0}

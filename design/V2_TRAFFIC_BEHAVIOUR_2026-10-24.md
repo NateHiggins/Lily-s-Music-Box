@@ -118,20 +118,28 @@ x ±24 also drop riders and arms.
 
 ## 5. Warnings (sound and captions)
 
-The five warnings are synthesized offline by a deterministic recipe as
-16-bit mono 22.05 kHz WAVs. Nothing is recorded or downloaded. Each is
-registered as an `AudioPolicy` cue with purpose `hazard` on the Hazard bus,
-with these captions:
+The five warnings are real recordings, downloaded with the owner's permission
+(2026-10-24) from Freesound, every one CC0 and confirmed on its own page.
+They are the HQ previews, kept as downloaded in the engine-ignored
+`game/assets/audio/freesound/source/` and listed in its `ATTRIBUTION.md`.
+`art/tools/build_street_warning_audio.py` cuts each event, fades and
+normalizes it, and writes 16-bit mono 44.1 kHz WAVs to
+`processed/traffic/`. Cuts were chosen by measured envelopes and spectra:
+
+- the Klaxon: craigsmith's old car Ahooga horn, one full call
+- the bulb horn: Breviceps' vintage squeeze horn, two honks
+- the bus bell: AmazingRolo's struck tram bell, one clang and its ring
+- the brakes: craigsmith's large old car pulling up, its drum brakes
+  squealing near 920 Hz
+- the whip: G.Lamont's whip crack
+
+Each is an `AudioPolicy` cue with purpose `hazard` on the Hazard bus:
 
 - **traffic.klaxon**: "Klaxon: ah-oo-gah"
 - **traffic.bulb_horn**: "bulb horn honks"
-- **traffic.foot_gong**: "bus gong clangs"
-- **traffic.brake_shriek**: "brakes shriek on wet setts"
-- **traffic.whip_crack**: "whip cracks; iron shoes skid"
-
-`PropAudio` describes itself as a recorded bank. Recorded period
-replacements, such as CC0 recordings of a Klaxon, a bulb horn and a gong, are
-a follow-up that needs the owner's permission to download.
+- **traffic.foot_gong**: "bus bell clangs"
+- **traffic.brake_shriek**: "brakes squeal"
+- **traffic.whip_crack**: "whip cracks"
 
 ## 6. Site (measured)
 
@@ -184,9 +192,11 @@ city stock was changed.
 ## 8. Not done
 
 - Arm signals are a straight arm, raised or lowered. The right-turn signal
-  is a raised arm, not a bent forearm.
-- Left-turning vehicles do not yet yield to oncoming traffic in the other
-  lane.
-- Street lamps (PR 22) do not follow the clock.
+  is a raised arm, not a bent forearm. The sleeve is a linen motoring
+  duster with a pale glove, so the signal reads on dark coachwork at night.
+- A left turn at the T gives way to any vehicle turning in from that same T
+  within 8 m of the arc (`left_turn_yield_m`); right turns do not cross it.
+- Street lamps follow the same dusk-to-dawn rule as the vehicles
+  (`OrisonV2StreetTraffic.lamp_factor`, one source of the times).
 - Any merged script or data change expires the V2 runtime and surface
   receipts.

@@ -26,6 +26,26 @@ license is incompatible with a potentially commercial release.
   glass windows pane badly” by pbimal, https://freesound.org/s/862237/ —
   CC0 1.0.
 
+- `118068__g-lamont__whip-cracks.mp3` — “Whip Cracks.WAV” by G.Lamont,
+  https://freesound.org/s/118068/ — CC0 1.0. HQ preview; street traffic
+  `whip_crack`.
+- `448366__amazingrolo__tram-bell.mp3` — “tram bell.wav” by AmazingRolo,
+  https://freesound.org/s/448366/ — CC0 1.0. HQ preview; street traffic
+  `foot_gong`.
+- `468441__breviceps__honk-vintage-bicycle-horn.mp3` — “Honk! (Vintage
+  Bicycle Horn)” by Breviceps, https://freesound.org/s/468441/ — CC0 1.0. HQ
+  preview; street traffic `bulb_horn`.
+- `480002__craigsmith__r18-31-old-car-ahooga-horn.mp3` — “R18-31-Old Car
+  Ahooga Horn.wav” by craigsmith, https://freesound.org/s/480002/ — CC0 1.0.
+  HQ preview; street traffic `klaxon`.
+- `481675__craigsmith__r03-34-large-old-car-starts-and-stops-with-brake-squeaks-and-gears.mp3`
+  — “R03-34-Large Old Car Starts and Stops with Brake Squeaks and Gears.wav”
+  by craigsmith, https://freesound.org/s/481675/ — CC0 1.0. HQ preview;
+  street traffic `brake_shriek`.
+
+The street traffic cuts in `processed/traffic/` are made by
+`art/tools/build_street_warning_audio.py`.
+
 ## Creative Commons Attribution 4.0
 
 - `167464__ultradust__quiet-city-ambiance-2.wav` — “Quiet City Ambiance 2”

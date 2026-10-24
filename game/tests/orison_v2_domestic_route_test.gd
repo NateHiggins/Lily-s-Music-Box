@@ -38,11 +38,12 @@ func _run() -> void:
 		await _walk(12.5, -2.5)
 		await _walk(12.5, -1.35)
 		await _walk(13.65, -1.35)
-		await _use("F03_B_LAMP_01", Vector3(14.25, 7.4, -0.02), "task lamp")
+		# The lamp's switch key is turned by hand (RUL-013), not toggled by a key.
 		var lamp := world.find_child("F03_B_LAMP_01", true, false) as LampProp
-		_check(not lamp.is_locally_enabled(), "bench lamp switches off through player input")
-		await _use("F03_B_LAMP_01", Vector3(14.25, 7.4, -0.02), "task lamp")
-		_check(lamp.is_locally_enabled(), "bench lamp switches back on")
+		_check(await _hand(lamp, lamp._switch_key.global_position, deg_to_rad(-26)) and not lamp.is_locally_enabled(),
+				"bench lamp switches off: grab, turn, release")
+		_check(await _hand(lamp, lamp._switch_key.global_position, deg_to_rad(26)) and lamp.is_locally_enabled(),
+				"bench lamp switches back on")
 		# The meal group occupies the centre; use the west-side aisle.
 		await _walk(12.5, -1.35)
 		await _walk(12.5, -2.5)
@@ -64,12 +65,15 @@ func _run() -> void:
 		await _door("F03_B_BATH_DOOR", Vector2(14.2, -9.8))
 		await _walk(14.2, -10.6)
 		await _walk(15.05, -11.02)
-		await _use("3B_wc", Vector3(15.05, 7.2, -11.9), "water closet")
+		# The flush is a pull on the cistern handle, by hand.
 		var wc: Node = world.adapter.resolve("3B_wc")
-		_check("refilling" in wc.interact_prompt(), "WC flushes through player input")
+		_check(await _hand(wc, wc.parts.CisternHandle.global_position, deg_to_rad(-35)), "WC handle pulled: grab, pull, release")
+		await get_tree().create_timer(0.4).timeout
+		_check("refilling" in wc.interact_prompt(), "WC flushes and refills")
 		await _walk(14.2, -10.6)
 		await _walk(14.2, -6.8)
 		await _walk(10.25, -6.8)
+		await _walk(10.85, -6.8)
 		await _door("F03_B_SERVICE_DOOR", Vector2(9.5, -6.8))
 		await _walk(8.9, -6.8)
 		await _walk(8.9, -3.25)
@@ -114,9 +118,28 @@ func _door(identity: String, center: Vector2) -> void:
 	var anchor := world.adapter.resolve(identity) as Node3D
 	var door := anchor.get_node(identity + "_Leaf") as DoorProp
 	_check(not door.open, "door starts closed: " + identity)
-	await _use(identity, Vector3(center.x, 7.5, center.y), "Open door")
-	_check(door.open, "door opens through input: " + identity)
+	# Doors are grabbed and moved by hand since the direct-manipulation ruling
+	# (RUL-013); the interact key no longer offers them a prompt.
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(door.to_global(Vector3(door.width * 0.5, 1.1, 0)),
+			door.motion_target_angle(true) * 0.86, door)
+	hand.free()
+	_check(moved and door.open, "door opens by grab, mouse motion and release: " + identity)
 	await get_tree().create_timer(0.6).timeout
+
+## Direct manipulation (RUL-013): grab the part, move it, release.
+func _hand(owner_node: Node, point: Vector3, target: float) -> bool:
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(point, target, owner_node)
+	hand.free()
+	return moved
+
 
 func _use(identity: String, target: Vector3, prompt: String) -> void:
 	player.camera.look_at(world.adapter.root.to_global(target))
