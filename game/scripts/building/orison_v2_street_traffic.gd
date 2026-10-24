@@ -351,15 +351,21 @@ func _flow_per_minute() -> float:
 	return float(data.schedule.flow_per_minute) * day_factor * total / maxf(weights, 0.001)
 
 
+## How lit a lamp is for this clock: 1 from dusk to dawn, 0 by day, with a
+## 25-minute ramp at each end. The street lamps use the same rule.
+static func lamp_factor(info: Dictionary, dusk: Array, dawn: Array) -> float:
+	var month := clampi(int(info.get("month", 11)), 1, 12) - 1
+	var minute := float(info.get("minute_of_day", 1260.0))
+	var dusk_minute := float(dusk[month])
+	var dawn_minute := float(dawn[month])
+	if minute <= dawn_minute or minute >= dusk_minute:
+		return 1.0
+	return clampf(maxf(dawn_minute + 25.0 - minute, minute - (dusk_minute - 25.0)) / 25.0, 0.0, 1.0)
+
+
 ## Lamps burn dusk to dawn. 1928 drivers ran dark by day.
 func _update_lamps() -> void:
-	var month := clampi(int(_now.get("month", 11)), 1, 12) - 1
-	var minute := float(_now.get("minute_of_day", 1260.0))
-	var dusk := float(data.schedule.dusk[month])
-	var dawn := float(data.schedule.dawn[month])
-	var lit := 1.0
-	if minute > dawn and minute < dusk:
-		lit = clampf(maxf(dawn + 25.0 - minute, minute - (dusk - 25.0)) / 25.0, 0.0, 1.0)
+	var lit := lamp_factor(_now, data.schedule.dusk, data.schedule.dawn)
 	for id: String in ["lamp_lit", "lamp_tail", "lamp_oil"]:
 		var mat: StandardMaterial3D = _materials.get(id)
 		if mat != null:
@@ -608,6 +614,13 @@ func _junction_clear(v: Dictionary) -> bool:
 	for other in _live:
 		if other != v and str(other.phase) == "exit" and float(other.arc) < PI * 0.5 \
 				and is_equal_approx(float(other.dir), float(v.dir)):
+			return false
+		# Turning left crosses the far lane: give way to anyone turning into
+		# it from this same T, already in the arc or about to start it.
+		if other != v and float(v.side) < 0.0 and str(other.phase) == "enter" \
+				and not is_equal_approx(float(other.dir), float(v.dir)) \
+				and absf(float(other.dir) * _junction_p(other, false) - x) < 1.0 \
+				and float(other.run) < float(data.junctions.left_turn_yield_m):
 			return false
 	return true
 

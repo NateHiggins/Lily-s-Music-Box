@@ -201,6 +201,29 @@ func _run() -> void:
 	traffic._read_clock()
 	check(noon < 0.01 and float(traffic._materials["lamp_lit"].emission_energy_multiplier) > 1.0, "lamps dark at noon and lit at night")
 
+	# Left turns give way at the T to anyone turning in across their path.
+	var stopped := traffic._journey(0, false, 40.0)
+	stopped.phase = "stop"
+	stopped.side = -1.0
+	var arriving := traffic._journey(0, true)
+	traffic._live = [stopped, arriving]
+	traffic._cross.clear()
+	arriving.run = float(data.junctions.exit_run_m)
+	var clear_far := traffic._junction_clear(stopped)
+	arriving.run = 3.0
+	var clear_near := traffic._junction_clear(stopped)
+	stopped.side = 1.0
+	var clear_right := traffic._junction_clear(stopped)
+	check(clear_far and not clear_near and clear_right,
+			"a left turn waits for a vehicle turning in from the same T; a right turn does not")
+	# One lamp rule for vehicles and street lamps: dark by day, lit at night, a ramp between.
+	var dusk: Array = data.schedule.dusk
+	var dawn: Array = data.schedule.dawn
+	var rule_noon := OrisonV2StreetTraffic.lamp_factor({"month": 11, "minute_of_day": 720.0}, dusk, dawn)
+	var rule_night := OrisonV2StreetTraffic.lamp_factor({"month": 11, "minute_of_day": 1260.0}, dusk, dawn)
+	var dusk_ramp := OrisonV2StreetTraffic.lamp_factor({"month": 11, "minute_of_day": float(dusk[10]) - 12.0}, dusk, dawn)
+	check(rule_noon == 0.0 and rule_night == 1.0 and dusk_ramp > 0.0 and dusk_ramp < 1.0, "lamp rule: dark at noon, lit at night, ramping at dusk")
+
 	# The middle distance: cross-street flow both ways, which holds for our turners.
 	traffic.stage([])
 	traffic.frozen = true

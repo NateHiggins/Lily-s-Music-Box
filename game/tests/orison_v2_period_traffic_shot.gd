@@ -149,13 +149,15 @@ func _review() -> void:
 	await _view(traffic, "street_west", Vector3(16.0, 1.62, 3.4), Vector3(-2.0, 1.0, 10.0))
 	await _view(traffic, "from_arcade_kerb", Vector3(6.0, 1.62, 15.4), Vector3(4.0, 1.0, 6.0))
 	# Hand signals: left arm out to turn left, raised to turn right, down to stop.
+	# Eastbound drivers signal with the left arm toward the Orison pavement and
+	# its lamps: stage them under the lamp at x 8.1 and watch from that kerb.
 	traffic.stage([
-		{"id": "model_a_tudor", "lane_west": true, "x": 2.0, "hand": "left"},
-		{"id": "checker_cab", "lane_west": true, "x": 9.0, "hand": "right", "paint": 1},
-		{"id": "ice_wagon", "lane_west": true, "x": -6.0, "hand": "stop"},
+		{"id": "model_a_tudor", "lane_west": false, "x": 6.5, "hand": "left"},
+		{"id": "checker_cab", "lane_west": false, "x": 13.0, "hand": "right", "paint": 1},
+		{"id": "ice_wagon", "lane_west": false, "x": 0.0, "hand": "stop"},
 	])
-	# Drivers signal with the left arm, toward the crown of the road: watch from the far kerb.
-	await _view(traffic, "hand_signals", Vector3(4.0, 1.62, 15.2), Vector3(-1.0, 1.5, 7.6))
+	await _view(traffic, "hand_signals", Vector3(4.5, 1.62, 4.2), Vector3(7.0, 1.6, 11.0))
+	await _view(traffic, "hand_signal_left", Vector3(6.8, 1.62, 4.4), Vector3(6.6, 1.5, 11.0))
 	# Seen from the road: a cab braking hard for the player standing in its lane.
 	traffic.stage([{"id": "checker_cab", "lane_west": false, "x": -19.0, "speed": 10.0}])
 	traffic.warnings.clear()

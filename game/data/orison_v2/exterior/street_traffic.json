@@ -31,7 +31,8 @@
   "cross_half_width": 4.6,
   "cross_lane_offset": 1.5,
   "stop_gap_m": 0.8,
-  "exit_run_m": 11.0
+  "exit_run_m": 11.0,
+  "left_turn_yield_m": 8.0
  },
  "lod": {
   "max_cross_vehicles": 12,
@@ -405,6 +406,23 @@
     0.5719,
     0.352,
     0.1807
+   ]
+  },
+  {
+   "id": "glove",
+   "catalog_key": "leather_worn",
+   "tint": [
+    0.86,
+    0.8,
+    0.68,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5379,
+    0.3153,
+    0.2012
    ]
   },
   {
